@@ -222,21 +222,21 @@ mod Windows {
         #[library("dwmapi.dll")]
         extern fn DwmModifyPreviousDxFrameDuration(hwnd: HWND, cRefreshes: i32, fRelative: BOOL) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmQueryThumbnailSourceSize(hThumbnail: HTHUMBNAIL, pSize: *mut SIZE) -> HRESULT;
+        extern fn DwmQueryThumbnailSourceSize(hThumbnail: HTHUMBNAIL, #[out] pSize: PSIZE) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmRegisterThumbnail(hwndDestination: HWND, hwndSource: HWND, phThumbnailId: *mut HTHUMBNAIL) -> HRESULT;
+        extern fn DwmRegisterThumbnail(hwndDestination: HWND, hwndSource: HWND, #[out] phThumbnailId: PHTHUMBNAIL) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmRenderGesture(gt: GESTURE_TYPE, cContacts: u32, #[len_param(1)] pdwPointerID: *const u32, #[len_param(1)] pPoints: *const POINT) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmSetDxFrameDuration(hwnd: HWND, cRefreshes: i32) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, #[opt] pptClient: *const POINT, dwSITFlags: u32) -> HRESULT;
+        extern fn DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, #[in] #[opt] pptClient: *mut POINT, dwSITFlags: u32) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmSetIconicThumbnail(hwnd: HWND, hbmp: HBITMAP, dwSITFlags: u32) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmSetPresentParameters(hwnd: HWND, #[in] #[out] pPresentParams: *mut DWM_PRESENT_PARAMETERS) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmSetWindowAttribute(hwnd: HWND, dwAttribute: u32, #[size_param(3)] pvAttribute: *const void, cbAttribute: u32) -> HRESULT;
+        extern fn DwmSetWindowAttribute(hwnd: HWND, dwAttribute: u32, #[size_param(3)] pvAttribute: LPCVOID, cbAttribute: u32) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmShowContact(dwPointerID: u32, eShowContact: DWM_SHOWCONTACT) -> HRESULT;
         #[library("dwmapi.dll")]

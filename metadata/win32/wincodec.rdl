@@ -178,7 +178,7 @@ mod Windows {
         }
         #[guid(0x64c1024e_c3cf_4462_8078_88c2b11c46d9)]
         interface IWICBitmapCodecProgressNotification: IUnknown {
-            fn RegisterProgressNotification(&self, #[opt] pfnProgressNotification: PFNProgressNotification, #[opt] pvData: *const void, dwProgressFlags: u32) -> HRESULT;
+            fn RegisterProgressNotification(&self, #[opt] pfnProgressNotification: PFNProgressNotification, #[in] #[opt] pvData: *mut void, dwProgressFlags: u32) -> HRESULT;
         }
         #[guid(0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf)]
         interface IWICBitmapDecoder: IUnknown {
@@ -205,7 +205,7 @@ mod Windows {
             fn Initialize(&self, pIStream: IStream, cacheOption: WICBitmapEncoderCacheOption) -> HRESULT;
             fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> HRESULT;
             fn GetEncoderInfo(&self, ppIEncoderInfo: *mut IWICBitmapEncoderInfo) -> HRESULT;
-            fn SetColorContexts(&self, cCount: u32, ppIColorContext: *const IWICColorContext) -> HRESULT;
+            fn SetColorContexts(&self, cCount: u32, #[in] ppIColorContext: *mut IWICColorContext) -> HRESULT;
             fn SetPalette(&self, pIPalette: IWICPalette) -> HRESULT;
             fn SetThumbnail(&self, pIThumbnail: IWICBitmapSource) -> HRESULT;
             fn SetPreview(&self, pIPreview: IWICBitmapSource) -> HRESULT;
@@ -243,11 +243,11 @@ mod Windows {
             fn SetSize(&self, uiWidth: u32, uiHeight: u32) -> HRESULT;
             fn SetResolution(&self, dpiX: f64, dpiY: f64) -> HRESULT;
             fn SetPixelFormat(&self, #[in] #[out] pPixelFormat: *mut WICPixelFormatGUID) -> HRESULT;
-            fn SetColorContexts(&self, cCount: u32, ppIColorContext: *const IWICColorContext) -> HRESULT;
+            fn SetColorContexts(&self, cCount: u32, #[in] ppIColorContext: *mut IWICColorContext) -> HRESULT;
             fn SetPalette(&self, pIPalette: IWICPalette) -> HRESULT;
             fn SetThumbnail(&self, pIThumbnail: IWICBitmapSource) -> HRESULT;
-            fn WritePixels(&self, lineCount: u32, cbStride: u32, cbBufferSize: u32, pbPixels: *const u8) -> HRESULT;
-            fn WriteSource(&self, pIBitmapSource: IWICBitmapSource, prc: *const WICRect) -> HRESULT;
+            fn WritePixels(&self, lineCount: u32, cbStride: u32, cbBufferSize: u32, #[in] pbPixels: *mut u8) -> HRESULT;
+            fn WriteSource(&self, pIBitmapSource: IWICBitmapSource, #[in] prc: *mut WICRect) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn GetMetadataQueryWriter(&self, ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
         }
@@ -272,14 +272,14 @@ mod Windows {
         }
         #[guid(0x3b16811b_6a43_4ec9_b713_3d5a0c13b940)]
         interface IWICBitmapSourceTransform: IUnknown {
-            fn CopyPixels(&self, prc: *const WICRect, uiWidth: u32, uiHeight: u32, pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, nStride: u32, cbBufferSize: u32, pbBuffer: *mut u8) -> HRESULT;
+            fn CopyPixels(&self, prc: *const WICRect, uiWidth: u32, uiHeight: u32, #[in] pguidDstFormat: *mut WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, nStride: u32, cbBufferSize: u32, pbBuffer: *mut u8) -> HRESULT;
             fn GetClosestSize(&self, #[in] #[out] puiWidth: *mut u32, #[in] #[out] puiHeight: *mut u32) -> HRESULT;
             fn GetClosestPixelFormat(&self, #[in] #[out] pguidDstFormat: *mut WICPixelFormatGUID) -> HRESULT;
             fn DoesSupportTransform(&self, dstTransform: WICBitmapTransformOptions, pfIsSupported: *mut BOOL) -> HRESULT;
         }
         #[guid(0xc3373fdf_6d39_4e5f_8e79_bf40c0b7ed77)]
         interface IWICBitmapSourceTransform2: IWICBitmapSourceTransform {
-            fn GetColorContextsForPixelFormat(&self, pPixelFormat: *const WICPixelFormatGUID, cCount: u32, ppIColorContexts: *const IWICColorContext, pcActualCount: *mut u32) -> HRESULT;
+            fn GetColorContextsForPixelFormat(&self, #[in] pPixelFormat: *mut WICPixelFormatGUID, cCount: u32, #[in] ppIColorContexts: *mut IWICColorContext, pcActualCount: *mut u32) -> HRESULT;
         }
         #[guid(0x44728ded_1edf_4fe9_b50b_c89a264c9439)]
         interface IWICBitmapToneMapper: IWICBitmapSource {
@@ -312,8 +312,8 @@ mod Windows {
         }
         #[guid(0xcaf65cc4_8ebe_4718_a21f_8dbf40bb7e25)]
         interface IWICD3DTextureSource: IUnknown {
-            fn GetTexture(&self, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, #[iid_is] ppTexture: *mut *mut void) -> HRESULT;
-            fn GetTransformedTexture(&self, #[opt] prc: *const WICRect, uiWidth: u32, uiHeight: u32, #[opt] pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, #[iid_is] ppTexture: *mut *mut void) -> HRESULT;
+            fn GetTexture(&self, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, ppTexture: *mut *mut void) -> HRESULT;
+            fn GetTransformedTexture(&self, #[opt] prc: *const WICRect, uiWidth: u32, uiHeight: u32, #[opt] pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, ppTexture: *mut *mut void) -> HRESULT;
             fn DoesSupportD3DDeviceType(&self, riid: *const GUID, pfIsSupported: *mut BOOL) -> HRESULT;
             fn GetD3DTextureOptions(&self, ppID3DTextureOptions: *mut IPropertyBag2) -> HRESULT;
         }
@@ -324,7 +324,7 @@ mod Windows {
         }
         #[guid(0x5cacdb4c_407e_41b3_b936_d0f010cd6732)]
         interface IWICDdsEncoder: IUnknown {
-            fn SetParameters(&self, pParameters: *const WICDdsParameters) -> HRESULT;
+            fn SetParameters(&self, #[in] pParameters: *mut WICDdsParameters) -> HRESULT;
             fn GetParameters(&self, pParameters: *mut WICDdsParameters) -> HRESULT;
             fn CreateNewFrame(&self, ppIFrameEncode: *mut IWICBitmapFrameEncode, #[opt] pArrayIndex: *mut u32, #[opt] pMipLevel: *mut u32, #[opt] pSliceIndex: *mut u32) -> HRESULT;
         }
@@ -375,7 +375,7 @@ mod Windows {
         }
         #[guid(0xde9d91d2_70b4_4f41_836c_25fcd39626d3)]
         interface IWICDisplayAdaptationControl: IUnknown {
-            fn DoesSupportChangingMaxLuminance(&self, pguidDstFormat: *const WICPixelFormatGUID, pfIsSupported: *mut BOOL) -> HRESULT;
+            fn DoesSupportChangingMaxLuminance(&self, #[in] pguidDstFormat: *mut WICPixelFormatGUID, pfIsSupported: *mut BOOL) -> HRESULT;
             fn SetDisplayMaxLuminance(&self, fLuminanceInNits: f32) -> HRESULT;
             fn GetDisplayMaxLuminance(&self, #[retval] pfLuminanceInNits: *mut f32) -> HRESULT;
         }
@@ -434,7 +434,7 @@ mod Windows {
             fn CreateBitmap(&self, uiWidth: u32, uiHeight: u32, pixelFormat: REFWICPixelFormatGUID, option: WICBitmapCreateCacheOption, ppIBitmap: *mut IWICBitmap) -> HRESULT;
             fn CreateBitmapFromSource(&self, pIBitmapSource: IWICBitmapSource, option: WICBitmapCreateCacheOption, ppIBitmap: *mut IWICBitmap) -> HRESULT;
             fn CreateBitmapFromSourceRect(&self, pIBitmapSource: IWICBitmapSource, x: u32, y: u32, width: u32, height: u32, ppIBitmap: *mut IWICBitmap) -> HRESULT;
-            fn CreateBitmapFromMemory(&self, uiWidth: u32, uiHeight: u32, pixelFormat: REFWICPixelFormatGUID, cbStride: u32, cbBufferSize: u32, pbBuffer: *const u8, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+            fn CreateBitmapFromMemory(&self, uiWidth: u32, uiHeight: u32, pixelFormat: REFWICPixelFormatGUID, cbStride: u32, cbBufferSize: u32, #[in] pbBuffer: *mut u8, ppIBitmap: *mut IWICBitmap) -> HRESULT;
             fn CreateBitmapFromHBITMAP(&self, hBitmap: HBITMAP, hPalette: HPALETTE, options: WICBitmapAlphaChannelOption, ppIBitmap: *mut IWICBitmap) -> HRESULT;
             fn CreateBitmapFromHICON(&self, hIcon: HICON, ppIBitmap: *mut IWICBitmap) -> HRESULT;
             fn CreateComponentEnumerator(&self, componentTypes: u32, options: u32, ppIEnumUnknown: *mut IEnumUnknown) -> HRESULT;
@@ -486,7 +486,7 @@ mod Windows {
         #[guid(0x00000040_a8f2_4877_ba0a_fd2b6645fb94)]
         interface IWICPalette: IUnknown {
             fn InitializePredefined(&self, ePaletteType: WICBitmapPaletteType, fAddTransparentColor: BOOL) -> HRESULT;
-            fn InitializeCustom(&self, pColors: *const WICColor, cCount: u32) -> HRESULT;
+            fn InitializeCustom(&self, #[in] pColors: *mut WICColor, cCount: u32) -> HRESULT;
             fn InitializeFromBitmap(&self, pISurface: IWICBitmapSource, cCount: u32, fAddTransparentColor: BOOL) -> HRESULT;
             fn InitializeFromPalette(&self, pIPalette: IWICPalette) -> HRESULT;
             fn GetType(&self, pePaletteType: *mut WICBitmapPaletteType) -> HRESULT;
@@ -511,8 +511,8 @@ mod Windows {
         }
         #[guid(0xf928b7b8_2221_40c1_b72e_7e82f1974d1a)]
         interface IWICPlanarBitmapFrameEncode: IUnknown {
-            fn WritePixels(&self, lineCount: u32, pPlanes: *const WICBitmapPlane, cPlanes: u32) -> HRESULT;
-            fn WriteSource(&self, ppPlanes: *const IWICBitmapSource, cPlanes: u32, prcSource: *const WICRect) -> HRESULT;
+            fn WritePixels(&self, lineCount: u32, #[in] pPlanes: *mut WICBitmapPlane, cPlanes: u32) -> HRESULT;
+            fn WriteSource(&self, #[in] ppPlanes: *mut IWICBitmapSource, cPlanes: u32, #[in] prcSource: *mut WICRect) -> HRESULT;
         }
         #[guid(0x3aff9cce_be95_4303_b927_e7d16ff4a613)]
         interface IWICPlanarBitmapSourceTransform: IUnknown {
@@ -521,7 +521,7 @@ mod Windows {
         }
         #[guid(0xbebee9cb_83b0_4dcc_8132_b0aaa55eac96)]
         interface IWICPlanarFormatConverter: IWICBitmapSource {
-            fn Initialize(&self, ppPlanes: *const IWICBitmapSource, cPlanes: u32, dstFormat: REFWICPixelFormatGUID, dither: WICBitmapDitherType, pIPalette: IWICPalette, alphaThresholdPercent: f64, paletteTranslate: WICBitmapPaletteType) -> HRESULT;
+            fn Initialize(&self, #[in] ppPlanes: *mut IWICBitmapSource, cPlanes: u32, dstFormat: REFWICPixelFormatGUID, dither: WICBitmapDitherType, pIPalette: IWICPalette, alphaThresholdPercent: f64, paletteTranslate: WICBitmapPaletteType) -> HRESULT;
             fn CanConvert(&self, pSrcPixelFormats: *const WICPixelFormatGUID, cSrcPlanes: u32, dstPixelFormat: REFWICPixelFormatGUID, pfCanConvert: *mut BOOL) -> HRESULT;
         }
         #[guid(0x4776f9cd_9517_45fa_bf24_e89c5ec5c60c)]
@@ -538,8 +538,8 @@ mod Windows {
         interface IWICStream: IStream {
             fn InitializeFromIStream(&self, pIStream: IStream) -> HRESULT;
             fn InitializeFromFilename(&self, wzFileName: PCWSTR, dwDesiredAccess: u32) -> HRESULT;
-            fn InitializeFromMemory(&self, pbBuffer: *const u8, cbBufferSize: u32) -> HRESULT;
-            fn InitializeFromIStreamRegion(&self, pIStream: IStream, ulOffset: u64, ulMaxSize: u64) -> HRESULT;
+            fn InitializeFromMemory(&self, pbBuffer: WICInProcPointer, cbBufferSize: u32) -> HRESULT;
+            fn InitializeFromIStreamRegion(&self, pIStream: IStream, ulOffset: ULARGE_INTEGER, ulMaxSize: ULARGE_INTEGER) -> HRESULT;
         }
         extern fn PFNProgressNotification(pvData: *mut void, uFrameNum: u32, operation: WICProgressOperation, dblProgress: f64) -> HRESULT;
         type REFWICPixelFormatGUID = *const GUID;
@@ -655,7 +655,7 @@ mod Windows {
             WICBITMAPPALETTETYPE_FORCE_DWORD = 2147483647,
         }
         struct WICBitmapPattern {
-            Position: u64,
+            Position: ULARGE_INTEGER,
             Length: u32,
             Pattern: *mut u8,
             Mask: *mut u8,
@@ -1170,14 +1170,14 @@ mod Windows {
         const WIC_JPEG_SAMPLE_FACTORS_THREE_422: i32 = 1118497;
         const WIC_JPEG_SAMPLE_FACTORS_THREE_440: i32 = 1118482;
         const WIC_JPEG_SAMPLE_FACTORS_THREE_444: i32 = 1118481;
-        const WINCODEC_ERR_ABORTED: i32 = -2147467260;
-        const WINCODEC_ERR_ACCESSDENIED: i32 = -2147024891;
+        const WINCODEC_ERR_ABORTED: HRESULT = -2147467260;
+        const WINCODEC_ERR_ACCESSDENIED: HRESULT = -2147024891;
         const WINCODEC_ERR_BASE: i32 = 8192;
-        const WINCODEC_ERR_GENERIC_ERROR: i32 = -2147467259;
-        const WINCODEC_ERR_INVALIDPARAMETER: i32 = -2147024809;
-        const WINCODEC_ERR_NOTIMPLEMENTED: i32 = -2147467263;
-        const WINCODEC_ERR_OUTOFMEMORY: i32 = -2147024882;
-        const WINCODEC_ERR_VALUEOVERFLOW: i32 = -2147024362;
+        const WINCODEC_ERR_GENERIC_ERROR: HRESULT = -2147467259;
+        const WINCODEC_ERR_INVALIDPARAMETER: HRESULT = -2147024809;
+        const WINCODEC_ERR_NOTIMPLEMENTED: HRESULT = -2147467263;
+        const WINCODEC_ERR_OUTOFMEMORY: HRESULT = -2147024882;
+        const WINCODEC_ERR_VALUEOVERFLOW: HRESULT = -2147024362;
         const WINCODEC_SDK_VERSION: i32 = 567;
         const WINCODEC_SDK_VERSION1: i32 = 566;
         const WINCODEC_SDK_VERSION2: i32 = 567;

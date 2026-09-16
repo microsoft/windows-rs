@@ -219,10 +219,10 @@ mod Windows {
             Subtype: WINBIO_BIOMETRIC_SUBTYPE,
             Purpose: WINBIO_BIR_PURPOSE,
             DataQuality: WINBIO_BIR_QUALITY,
-            CreationDate: i64,
+            CreationDate: LARGE_INTEGER,
             ValidityPeriod: struct {
-                BeginDate: i64,
-                EndDate: i64,
+                BeginDate: LARGE_INTEGER,
+                EndDate: LARGE_INTEGER,
             },
             BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
             ProductId: WINBIO_REGISTERED_FORMAT,
@@ -291,6 +291,9 @@ mod Windows {
         const WINBIO_DATA_FLAG_SIGNED: u8 = 4;
         const WINBIO_DATA_QUALITY_NOT_SET: WINBIO_BIR_QUALITY = -1;
         const WINBIO_DATA_QUALITY_NOT_SUPPORTED: WINBIO_BIR_QUALITY = -2;
+        const WINBIO_DB_BOOTSTRAP: *mut GUID = 2;
+        const WINBIO_DB_DEFAULT: *mut GUID = 1;
+        const WINBIO_DB_ONCHIP: *mut GUID = 3;
         const WINBIO_ENG_CAP_ITERATIVE_IMPROVEMENT: WINBIO_CAPABILITIES = 1;
         const WINBIO_ENG_CAP_SPOOF_DETECTION: WINBIO_CAPABILITIES = 2;
         type WINBIO_ESS_STATE = u64;
@@ -494,11 +497,11 @@ mod Windows {
         const WINBIO_FINGER_UNSPECIFIED_POS_08: WINBIO_BIOMETRIC_SUBTYPE = 252;
         const WINBIO_FINGER_UNSPECIFIED_POS_09: WINBIO_BIOMETRIC_SUBTYPE = 253;
         const WINBIO_FINGER_UNSPECIFIED_POS_10: WINBIO_BIOMETRIC_SUBTYPE = 254;
-        const WINBIO_FLAG_ADVANCED: u32 = 131072;
-        const WINBIO_FLAG_BASIC: u32 = 65536;
+        const WINBIO_FLAG_ADVANCED: WINBIO_SESSION_FLAGS = 131072;
+        const WINBIO_FLAG_BASIC: WINBIO_SESSION_FLAGS = 65536;
         const WINBIO_FLAG_DEFAULT: WINBIO_SESSION_FLAGS = 0;
-        const WINBIO_FLAG_MAINTENANCE: u32 = 2;
-        const WINBIO_FLAG_RAW: u32 = 1;
+        const WINBIO_FLAG_MAINTENANCE: WINBIO_SESSION_FLAGS = 2;
+        const WINBIO_FLAG_RAW: WINBIO_SESSION_FLAGS = 1;
         struct WINBIO_FP_BU_STATE {
             SensorAttached: BOOL,
             CreationResult: HRESULT,
@@ -795,7 +798,7 @@ mod Windows {
         const WINBIO_TELEMETRY_AUTH: WINBIO_TELEMETRY_TYPE = 1;
         const WINBIO_TELEMETRY_ENROLLMENT: WINBIO_TELEMETRY_TYPE = 2;
         type WINBIO_TELEMETRY_TYPE = u32;
-        const WINBIO_TYPE_ANY: u32 = 3238002687;
+        const WINBIO_TYPE_ANY: WINBIO_BIOMETRIC_TYPE = 3238002687;
         const WINBIO_TYPE_DNA: WINBIO_BIOMETRIC_TYPE = 16384;
         const WINBIO_TYPE_EAR_SHAPE: WINBIO_BIOMETRIC_TYPE = 32768;
         const WINBIO_TYPE_FACIAL_FEATURES: WINBIO_BIOMETRIC_TYPE = 2;

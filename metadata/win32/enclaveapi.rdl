@@ -2,22 +2,22 @@
 mod Windows {
     mod Win32 {
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn CallEnclave(lpRoutine: LPENCLAVE_ROUTINE, lpParameter: *const void, fWaitForThread: BOOL, lpReturnValue: *mut *mut void) -> BOOL;
+        extern fn CallEnclave(lpRoutine: LPENCLAVE_ROUTINE, #[in] lpParameter: *mut void, fWaitForThread: BOOL, lpReturnValue: *mut *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateEnclave(hProcess: HANDLE, #[opt] lpAddress: *const void, dwSize: usize, dwInitialCommitment: usize, flEnclaveType: u32, #[size_param(6)] lpEnclaveInformation: *const void, dwInfoLength: u32, #[opt] lpEnclaveError: *mut u32) -> *mut void;
+        extern fn CreateEnclave(hProcess: HANDLE, #[in] #[opt] lpAddress: *mut void, dwSize: usize, dwInitialCommitment: usize, flEnclaveType: u32, #[size_param(6)] lpEnclaveInformation: LPCVOID, dwInfoLength: u32, #[out] #[opt] lpEnclaveError: LPDWORD) -> *mut void;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn DeleteEnclave(lpAddress: *const void) -> BOOL;
+        extern fn DeleteEnclave(#[in] lpAddress: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitializeEnclave(hProcess: HANDLE, lpAddress: *const void, #[size_param(3)] lpEnclaveInformation: *const void, dwInfoLength: u32, #[opt] lpEnclaveError: *mut u32) -> BOOL;
+        extern fn InitializeEnclave(hProcess: HANDLE, #[in] lpAddress: *mut void, #[size_param(3)] lpEnclaveInformation: LPCVOID, dwInfoLength: u32, #[out] #[opt] lpEnclaveError: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn IsEnclaveTypeSupported(flEnclaveType: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn LoadEnclaveData(hProcess: HANDLE, lpAddress: *const void, #[size_param(3)] lpBuffer: *const void, nSize: usize, flProtect: u32, #[size_param(6)] lpPageInformation: *const void, dwInfoLength: u32, lpNumberOfBytesWritten: *mut usize, #[opt] lpEnclaveError: *mut u32) -> BOOL;
+        extern fn LoadEnclaveData(hProcess: HANDLE, #[in] lpAddress: *mut void, #[size_param(3)] lpBuffer: LPCVOID, nSize: usize, flProtect: u32, #[size_param(6)] lpPageInformation: LPCVOID, dwInfoLength: u32, #[out] lpNumberOfBytesWritten: PSIZE_T, #[out] #[opt] lpEnclaveError: LPDWORD) -> BOOL;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn LoadEnclaveImageA(lpEnclaveAddress: *const void, lpImageName: PCSTR) -> BOOL;
+        extern fn LoadEnclaveImageA(#[in] lpEnclaveAddress: *mut void, lpImageName: PCSTR) -> BOOL;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn LoadEnclaveImageW(lpEnclaveAddress: *const void, lpImageName: PCWSTR) -> BOOL;
+        extern fn LoadEnclaveImageW(#[in] lpEnclaveAddress: *mut void, lpImageName: PCWSTR) -> BOOL;
         #[library("api-ms-win-core-enclave-l1-1-1.dll")]
-        extern fn TerminateEnclave(lpAddress: *const void, fWait: BOOL) -> BOOL;
+        extern fn TerminateEnclave(#[in] lpAddress: *mut void, fWait: BOOL) -> BOOL;
     }
 }

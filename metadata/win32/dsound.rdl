@@ -7,6 +7,7 @@ mod Windows {
         const CLSID_DirectSoundCapture8: GUID = 0xe4bcac13_7f99_4908_9a8e_74e3bf24b6e1;
         const CLSID_DirectSoundFullDuplex: GUID = 0xfea4300c_7959_4147_b26a_2377b9e7a91d;
         type D3DCOLOR = u32;
+        type D3DVALUE = f32;
         struct D3DVECTOR {
             x: f32,
             y: f32,
@@ -24,8 +25,8 @@ mod Windows {
             dwOutsideConeAngle: u32,
             vConeOrientation: D3DVECTOR,
             lConeOutsideVolume: i32,
-            flMinDistance: f32,
-            flMaxDistance: f32,
+            flMinDistance: D3DVALUE,
+            flMaxDistance: D3DVALUE,
             dwMode: u32,
         }
         struct DS3DLISTENER {
@@ -34,9 +35,9 @@ mod Windows {
             vVelocity: D3DVECTOR,
             vOrientFront: D3DVECTOR,
             vOrientTop: D3DVECTOR,
-            flDistanceFactor: f32,
-            flRolloffFactor: f32,
-            flDopplerFactor: f32,
+            flDistanceFactor: D3DVALUE,
+            flRolloffFactor: D3DVALUE,
+            flDopplerFactor: D3DVALUE,
         }
         const DS3DMODE_DISABLE: i32 = 2;
         const DS3DMODE_HEADRELATIVE: i32 = 1;
@@ -51,9 +52,11 @@ mod Windows {
         const DS3D_DEFERRED: i32 = 1;
         const DS3D_IMMEDIATE: i32 = 0;
         const DS3D_MAXCONEANGLE: i32 = 360;
+        const DS3D_MAXDISTANCEFACTOR: f32 = 340282350000000000000000000000000000000.0;
         const DS3D_MAXDOPPLERFACTOR: f32 = 10.0;
         const DS3D_MAXROLLOFFFACTOR: f32 = 10.0;
         const DS3D_MINCONEANGLE: i32 = 0;
+        const DS3D_MINDISTANCEFACTOR: f32 = 0.000000000000000000000000000000000000011754944;
         const DS3D_MINDOPPLERFACTOR: f32 = 0.0;
         const DS3D_MINROLLOFFFACTOR: f32 = 0.0;
         struct DSBCAPS {
@@ -237,29 +240,29 @@ mod Windows {
             dwReserved1: usize,
             dwReserved2: usize,
         }
-        const DSERR_ACCESSDENIED: i32 = -2147024891;
-        const DSERR_ALLOCATED: i32 = -2005401590;
-        const DSERR_ALREADYINITIALIZED: i32 = -2005401470;
-        const DSERR_BADFORMAT: i32 = -2005401500;
-        const DSERR_BADSENDBUFFERGUID: i32 = -2005401390;
-        const DSERR_BUFFERLOST: i32 = -2005401450;
-        const DSERR_BUFFERTOOSMALL: i32 = -2005401420;
-        const DSERR_CONTROLUNAVAIL: i32 = -2005401570;
-        const DSERR_DS8_REQUIRED: i32 = -2005401410;
-        const DSERR_FXUNAVAILABLE: i32 = -2005401380;
-        const DSERR_GENERIC: i32 = -2147467259;
-        const DSERR_INVALIDCALL: i32 = -2005401550;
-        const DSERR_INVALIDPARAM: i32 = -2147024809;
-        const DSERR_NOAGGREGATION: i32 = -2147221232;
-        const DSERR_NODRIVER: i32 = -2005401480;
-        const DSERR_NOINTERFACE: i32 = -2147467262;
-        const DSERR_OBJECTNOTFOUND: i32 = -2005397151;
-        const DSERR_OTHERAPPHASPRIO: i32 = -2005401440;
-        const DSERR_OUTOFMEMORY: i32 = -2147024882;
-        const DSERR_PRIOLEVELNEEDED: i32 = -2005401530;
-        const DSERR_SENDLOOP: i32 = -2005401400;
-        const DSERR_UNINITIALIZED: i32 = -2005401430;
-        const DSERR_UNSUPPORTED: i32 = -2147467263;
+        const DSERR_ACCESSDENIED: HRESULT = -2147024891;
+        const DSERR_ALLOCATED: HRESULT = -2005401590;
+        const DSERR_ALREADYINITIALIZED: HRESULT = -2005401470;
+        const DSERR_BADFORMAT: HRESULT = -2005401500;
+        const DSERR_BADSENDBUFFERGUID: HRESULT = -2005401390;
+        const DSERR_BUFFERLOST: HRESULT = -2005401450;
+        const DSERR_BUFFERTOOSMALL: HRESULT = -2005401420;
+        const DSERR_CONTROLUNAVAIL: HRESULT = -2005401570;
+        const DSERR_DS8_REQUIRED: HRESULT = -2005401410;
+        const DSERR_FXUNAVAILABLE: HRESULT = -2005401380;
+        const DSERR_GENERIC: HRESULT = -2147467259;
+        const DSERR_INVALIDCALL: HRESULT = -2005401550;
+        const DSERR_INVALIDPARAM: HRESULT = -2147024809;
+        const DSERR_NOAGGREGATION: HRESULT = -2147221232;
+        const DSERR_NODRIVER: HRESULT = -2005401480;
+        const DSERR_NOINTERFACE: HRESULT = -2147467262;
+        const DSERR_OBJECTNOTFOUND: HRESULT = -2005397151;
+        const DSERR_OTHERAPPHASPRIO: HRESULT = -2005401440;
+        const DSERR_OUTOFMEMORY: HRESULT = -2147024882;
+        const DSERR_PRIOLEVELNEEDED: HRESULT = -2005401530;
+        const DSERR_SENDLOOP: HRESULT = -2005401400;
+        const DSERR_UNINITIALIZED: HRESULT = -2005401430;
+        const DSERR_UNSUPPORTED: HRESULT = -2147467263;
         const DSFXCHORUS_DELAY_MAX: f32 = 20.0;
         const DSFXCHORUS_DELAY_MIN: f32 = 0.0;
         const DSFXCHORUS_DEPTH_MAX: f32 = 100.0;
@@ -528,27 +531,27 @@ mod Windows {
         const DSSPEAKER_STEREO: i32 = 4;
         const DSSPEAKER_SURROUND: i32 = 5;
         const DS_CERTIFIED: i32 = 0;
-        const DS_NO_VIRTUALIZATION: i32 = 142082058;
-        const DS_OK: i32 = 0;
+        const DS_NO_VIRTUALIZATION: HRESULT = 142082058;
+        const DS_OK: HRESULT = 0;
         const DS_UNCERTIFIED: i32 = 1;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate(#[opt] pcGuidDevice: *const GUID, ppDSC: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCaptureCreate(#[opt] pcGuidDevice: LPCGUID, ppDSC: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureCreate8(#[opt] pcGuidDevice: *const GUID, ppDSC8: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCaptureCreate8(#[opt] pcGuidDevice: LPCGUID, ppDSC8: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[opt] pContext: *const void) -> HRESULT;
+        extern fn DirectSoundCaptureEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: *mut void) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCaptureEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[opt] pContext: *const void) -> HRESULT;
+        extern fn DirectSoundCaptureEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: *mut void) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCreate(#[opt] pcGuidDevice: *const GUID, ppDS: *mut IDirectSound, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCreate(#[opt] pcGuidDevice: LPCGUID, ppDS: *mut IDirectSound, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundCreate8(#[opt] pcGuidDevice: *const GUID, ppDS8: *mut IDirectSound8, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundCreate8(#[opt] pcGuidDevice: LPCGUID, ppDS8: *mut IDirectSound8, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[opt] pContext: *const void) -> HRESULT;
+        extern fn DirectSoundEnumerateA(pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: *mut void) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[opt] pContext: *const void) -> HRESULT;
+        extern fn DirectSoundEnumerateW(pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: *mut void) -> HRESULT;
         #[library("DSOUND.dll")]
-        extern fn DirectSoundFullDuplexCreate(#[opt] pcGuidCaptureDevice: *const GUID, #[opt] pcGuidRenderDevice: *const GUID, pcDSCBufferDesc: *const DSCBUFFERDESC, pcDSBufferDesc: *const DSBUFFERDESC, hWnd: HWND, dwLevel: u32, ppDSFD: *mut IDirectSoundFullDuplex, ppDSCBuffer8: *mut IDirectSoundCaptureBuffer8, ppDSBuffer8: *mut IDirectSoundBuffer8, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectSoundFullDuplexCreate(#[opt] pcGuidCaptureDevice: LPCGUID, #[opt] pcGuidRenderDevice: LPCGUID, pcDSCBufferDesc: LPCDSCBUFFERDESC, pcDSBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: u32, ppDSFD: *mut IDirectSoundFullDuplex, ppDSCBuffer8: *mut IDirectSoundCaptureBuffer8, ppDSBuffer8: *mut IDirectSoundBuffer8, pUnkOuter: IUnknown) -> HRESULT;
         const GUID_All_Objects: GUID = 0xaa114de5_c262_4169_a1c8_23d698cc73b5;
         const GUID_DSCFX_CLASS_AEC: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
         const GUID_DSCFX_CLASS_NS: GUID = 0xe07f903f_62fd_4e60_8cdd_dea7236665b5;
@@ -566,192 +569,192 @@ mod Windows {
         const GUID_DSFX_STANDARD_PARAMEQ: GUID = 0x120ced89_3bf4_4173_a132_3cb406cf3231;
         const GUID_DSFX_WAVES_REVERB: GUID = 0x87fc0268_9a55_4360_95aa_004a1d9de26c;
         #[library("DSOUND.dll")]
-        extern fn GetDeviceID(#[opt] pGuidSrc: *const GUID, pGuidDest: *mut GUID) -> HRESULT;
+        extern fn GetDeviceID(#[opt] pGuidSrc: LPCGUID, #[out] pGuidDest: LPGUID) -> HRESULT;
         #[guid(0x279afa83_4981_11ce_a521_0020af0be560)]
         interface IDirectSound: IUnknown {
-            fn CreateSoundBuffer(&self, pcDSBufferDesc: *const DSBUFFERDESC, ppDSBuffer: *mut IDirectSoundBuffer, pUnkOuter: IUnknown) -> HRESULT;
-            fn GetCaps(&self, pDSCaps: *mut DSCAPS) -> HRESULT;
+            fn CreateSoundBuffer(&self, pcDSBufferDesc: LPCDSBUFFERDESC, ppDSBuffer: *mut IDirectSoundBuffer, pUnkOuter: IUnknown) -> HRESULT;
+            fn GetCaps(&self, #[out] pDSCaps: LPDSCAPS) -> HRESULT;
             fn DuplicateSoundBuffer(&self, pDSBufferOriginal: IDirectSoundBuffer, ppDSBufferDuplicate: *mut IDirectSoundBuffer) -> HRESULT;
             fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: u32) -> HRESULT;
             fn Compact(&self) -> HRESULT;
-            fn GetSpeakerConfig(&self, pdwSpeakerConfig: *mut u32) -> HRESULT;
+            fn GetSpeakerConfig(&self, #[out] pdwSpeakerConfig: LPDWORD) -> HRESULT;
             fn SetSpeakerConfig(&self, dwSpeakerConfig: u32) -> HRESULT;
-            fn Initialize(&self, #[opt] pcGuidDevice: *const GUID) -> HRESULT;
+            fn Initialize(&self, #[opt] pcGuidDevice: LPCGUID) -> HRESULT;
         }
         #[guid(0x279afa86_4981_11ce_a521_0020af0be560)]
         interface IDirectSound3DBuffer: IUnknown {
-            fn GetAllParameters(&self, pDs3dBuffer: *mut DS3DBUFFER) -> HRESULT;
-            fn GetConeAngles(&self, pdwInsideConeAngle: *mut u32, pdwOutsideConeAngle: *mut u32) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDs3dBuffer: LPDS3DBUFFER) -> HRESULT;
+            fn GetConeAngles(&self, #[out] pdwInsideConeAngle: LPDWORD, #[out] pdwOutsideConeAngle: LPDWORD) -> HRESULT;
             fn GetConeOrientation(&self, pvOrientation: *mut D3DVECTOR) -> HRESULT;
-            fn GetConeOutsideVolume(&self, plConeOutsideVolume: *mut i32) -> HRESULT;
-            fn GetMaxDistance(&self, pflMaxDistance: *mut f32) -> HRESULT;
-            fn GetMinDistance(&self, pflMinDistance: *mut f32) -> HRESULT;
-            fn GetMode(&self, pdwMode: *mut u32) -> HRESULT;
+            fn GetConeOutsideVolume(&self, #[out] plConeOutsideVolume: LPLONG) -> HRESULT;
+            fn GetMaxDistance(&self, pflMaxDistance: *mut D3DVALUE) -> HRESULT;
+            fn GetMinDistance(&self, pflMinDistance: *mut D3DVALUE) -> HRESULT;
+            fn GetMode(&self, #[out] pdwMode: LPDWORD) -> HRESULT;
             fn GetPosition(&self, pvPosition: *mut D3DVECTOR) -> HRESULT;
             fn GetVelocity(&self, pvVelocity: *mut D3DVECTOR) -> HRESULT;
-            fn SetAllParameters(&self, pcDs3dBuffer: *const DS3DBUFFER, dwApply: u32) -> HRESULT;
+            fn SetAllParameters(&self, pcDs3dBuffer: LPCDS3DBUFFER, dwApply: u32) -> HRESULT;
             fn SetConeAngles(&self, dwInsideConeAngle: u32, dwOutsideConeAngle: u32, dwApply: u32) -> HRESULT;
-            fn SetConeOrientation(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+            fn SetConeOrientation(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
             fn SetConeOutsideVolume(&self, lConeOutsideVolume: i32, dwApply: u32) -> HRESULT;
-            fn SetMaxDistance(&self, flMaxDistance: f32, dwApply: u32) -> HRESULT;
-            fn SetMinDistance(&self, flMinDistance: f32, dwApply: u32) -> HRESULT;
+            fn SetMaxDistance(&self, flMaxDistance: D3DVALUE, dwApply: u32) -> HRESULT;
+            fn SetMinDistance(&self, flMinDistance: D3DVALUE, dwApply: u32) -> HRESULT;
             fn SetMode(&self, dwMode: u32, dwApply: u32) -> HRESULT;
-            fn SetPosition(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
-            fn SetVelocity(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+            fn SetPosition(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
+            fn SetVelocity(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
         }
         #[guid(0x279afa84_4981_11ce_a521_0020af0be560)]
         interface IDirectSound3DListener: IUnknown {
-            fn GetAllParameters(&self, pListener: *mut DS3DLISTENER) -> HRESULT;
-            fn GetDistanceFactor(&self, pflDistanceFactor: *mut f32) -> HRESULT;
-            fn GetDopplerFactor(&self, pflDopplerFactor: *mut f32) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pListener: LPDS3DLISTENER) -> HRESULT;
+            fn GetDistanceFactor(&self, pflDistanceFactor: *mut D3DVALUE) -> HRESULT;
+            fn GetDopplerFactor(&self, pflDopplerFactor: *mut D3DVALUE) -> HRESULT;
             fn GetOrientation(&self, pvOrientFront: *mut D3DVECTOR, pvOrientTop: *mut D3DVECTOR) -> HRESULT;
             fn GetPosition(&self, pvPosition: *mut D3DVECTOR) -> HRESULT;
-            fn GetRolloffFactor(&self, pflRolloffFactor: *mut f32) -> HRESULT;
+            fn GetRolloffFactor(&self, pflRolloffFactor: *mut D3DVALUE) -> HRESULT;
             fn GetVelocity(&self, pvVelocity: *mut D3DVECTOR) -> HRESULT;
-            fn SetAllParameters(&self, pcListener: *const DS3DLISTENER, dwApply: u32) -> HRESULT;
-            fn SetDistanceFactor(&self, flDistanceFactor: f32, dwApply: u32) -> HRESULT;
-            fn SetDopplerFactor(&self, flDopplerFactor: f32, dwApply: u32) -> HRESULT;
-            fn SetOrientation(&self, xFront: f32, yFront: f32, zFront: f32, xTop: f32, yTop: f32, zTop: f32, dwApply: u32) -> HRESULT;
-            fn SetPosition(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
-            fn SetRolloffFactor(&self, flRolloffFactor: f32, dwApply: u32) -> HRESULT;
-            fn SetVelocity(&self, x: f32, y: f32, z: f32, dwApply: u32) -> HRESULT;
+            fn SetAllParameters(&self, pcListener: LPCDS3DLISTENER, dwApply: u32) -> HRESULT;
+            fn SetDistanceFactor(&self, flDistanceFactor: D3DVALUE, dwApply: u32) -> HRESULT;
+            fn SetDopplerFactor(&self, flDopplerFactor: D3DVALUE, dwApply: u32) -> HRESULT;
+            fn SetOrientation(&self, xFront: D3DVALUE, yFront: D3DVALUE, zFront: D3DVALUE, xTop: D3DVALUE, yTop: D3DVALUE, zTop: D3DVALUE, dwApply: u32) -> HRESULT;
+            fn SetPosition(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
+            fn SetRolloffFactor(&self, flRolloffFactor: D3DVALUE, dwApply: u32) -> HRESULT;
+            fn SetVelocity(&self, x: D3DVALUE, y: D3DVALUE, z: D3DVALUE, dwApply: u32) -> HRESULT;
             fn CommitDeferredSettings(&self) -> HRESULT;
         }
         #[guid(0xc50a7e93_f395_4834_9ef6_7fa99de50966)]
         interface IDirectSound8: IDirectSound {
-            fn VerifyCertification(&self, pdwCertified: *mut u32) -> HRESULT;
+            fn VerifyCertification(&self, #[out] pdwCertified: LPDWORD) -> HRESULT;
         }
         #[guid(0x279afa85_4981_11ce_a521_0020af0be560)]
         interface IDirectSoundBuffer: IUnknown {
-            fn GetCaps(&self, pDSBufferCaps: *mut DSBCAPS) -> HRESULT;
-            fn GetCurrentPosition(&self, #[opt] pdwCurrentPlayCursor: *mut u32, #[opt] pdwCurrentWriteCursor: *mut u32) -> HRESULT;
-            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
-            fn GetVolume(&self, plVolume: *mut i32) -> HRESULT;
-            fn GetPan(&self, plPan: *mut i32) -> HRESULT;
-            fn GetFrequency(&self, pdwFrequency: *mut u32) -> HRESULT;
-            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn Initialize(&self, pDirectSound: IDirectSound, pcDSBufferDesc: *const DSBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
+            fn GetCaps(&self, #[out] pDSBufferCaps: LPDSBCAPS) -> HRESULT;
+            fn GetCurrentPosition(&self, #[out] #[opt] pdwCurrentPlayCursor: LPDWORD, #[out] #[opt] pdwCurrentWriteCursor: LPDWORD) -> HRESULT;
+            fn GetFormat(&self, #[size_param(1)] #[out] #[opt] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: u32, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            fn GetVolume(&self, #[out] plVolume: LPLONG) -> HRESULT;
+            fn GetPan(&self, #[out] plPan: LPLONG) -> HRESULT;
+            fn GetFrequency(&self, #[out] pdwFrequency: LPDWORD) -> HRESULT;
+            fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
+            fn Initialize(&self, pDirectSound: IDirectSound, pcDSBufferDesc: LPCDSBUFFERDESC) -> HRESULT;
+            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, #[out] pdwAudioBytes1: LPDWORD, ppvAudioPtr2: *mut *mut void, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: u32) -> HRESULT;
             fn Play(&self, dwReserved1: u32, dwPriority: u32, dwFlags: u32) -> HRESULT;
             fn SetCurrentPosition(&self, dwNewPosition: u32) -> HRESULT;
-            fn SetFormat(&self, pcfxFormat: *const WAVEFORMATEX) -> HRESULT;
+            fn SetFormat(&self, pcfxFormat: LPCWAVEFORMATEX) -> HRESULT;
             fn SetVolume(&self, lVolume: i32) -> HRESULT;
             fn SetPan(&self, lPan: i32) -> HRESULT;
             fn SetFrequency(&self, dwFrequency: u32) -> HRESULT;
             fn Stop(&self) -> HRESULT;
-            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
+            fn Unlock(&self, #[size_param(1)] #[in] pvAudioPtr1: *mut void, dwAudioBytes1: u32, #[size_param(3)] #[in] #[opt] pvAudioPtr2: *mut void, dwAudioBytes2: u32) -> HRESULT;
             fn Restore(&self) -> HRESULT;
         }
         #[guid(0x6825a449_7524_4d82_920f_50e36ab3ab1e)]
         interface IDirectSoundBuffer8: IDirectSoundBuffer {
-            fn SetFX(&self, dwEffectsCount: u32, #[len_param(0)] #[opt] pDSFXDesc: *const DSEFFECTDESC, #[len_param(0)] #[opt] pdwResultCodes: *mut u32) -> HRESULT;
-            fn AcquireResources(&self, dwFlags: u32, dwEffectsCount: u32, #[len_param(1)] pdwResultCodes: *mut u32) -> HRESULT;
+            fn SetFX(&self, dwEffectsCount: u32, #[len_param(0)] #[opt] pDSFXDesc: LPDSEFFECTDESC, #[len_param(0)] #[out] #[opt] pdwResultCodes: LPDWORD) -> HRESULT;
+            fn AcquireResources(&self, dwFlags: u32, dwEffectsCount: u32, #[len_param(1)] #[out] pdwResultCodes: LPDWORD) -> HRESULT;
             fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0xb0210781_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundCapture: IUnknown {
-            fn CreateCaptureBuffer(&self, pcDSCBufferDesc: *const DSCBUFFERDESC, ppDSCBuffer: *mut IDirectSoundCaptureBuffer, pUnkOuter: IUnknown) -> HRESULT;
-            fn GetCaps(&self, pDSCCaps: *mut DSCCAPS) -> HRESULT;
-            fn Initialize(&self, #[opt] pcGuidDevice: *const GUID) -> HRESULT;
+            fn CreateCaptureBuffer(&self, pcDSCBufferDesc: LPCDSCBUFFERDESC, ppDSCBuffer: *mut IDirectSoundCaptureBuffer, pUnkOuter: IUnknown) -> HRESULT;
+            fn GetCaps(&self, #[out] pDSCCaps: LPDSCCAPS) -> HRESULT;
+            fn Initialize(&self, #[opt] pcGuidDevice: LPCGUID) -> HRESULT;
         }
         #[guid(0xb0210782_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundCaptureBuffer: IUnknown {
-            fn GetCaps(&self, pDSCBCaps: *mut DSCBCAPS) -> HRESULT;
-            fn GetCurrentPosition(&self, #[opt] pdwCapturePosition: *mut u32, #[opt] pdwReadPosition: *mut u32) -> HRESULT;
-            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
-            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn Initialize(&self, pDirectSoundCapture: IDirectSoundCapture, pcDSCBufferDesc: *const DSCBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
+            fn GetCaps(&self, #[out] pDSCBCaps: LPDSCBCAPS) -> HRESULT;
+            fn GetCurrentPosition(&self, #[out] #[opt] pdwCapturePosition: LPDWORD, #[out] #[opt] pdwReadPosition: LPDWORD) -> HRESULT;
+            fn GetFormat(&self, #[size_param(1)] #[out] #[opt] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: u32, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
+            fn Initialize(&self, pDirectSoundCapture: IDirectSoundCapture, pcDSCBufferDesc: LPCDSCBUFFERDESC) -> HRESULT;
+            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, #[out] pdwAudioBytes1: LPDWORD, ppvAudioPtr2: *mut *mut void, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: u32) -> HRESULT;
             fn Start(&self, dwFlags: u32) -> HRESULT;
             fn Stop(&self) -> HRESULT;
-            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
+            fn Unlock(&self, #[size_param(1)] #[in] pvAudioPtr1: *mut void, dwAudioBytes1: u32, #[size_param(3)] #[in] #[opt] pvAudioPtr2: *mut void, dwAudioBytes2: u32) -> HRESULT;
         }
         #[guid(0x00990df4_0dbb_4872_833e_6d303e80aeb6)]
         interface IDirectSoundCaptureBuffer8: IDirectSoundCaptureBuffer {
             fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
-            fn GetFXStatus(&self, dwEffectsCount: u32, #[len_param(0)] pdwFXStatus: *mut u32) -> HRESULT;
+            fn GetFXStatus(&self, dwEffectsCount: u32, #[len_param(0)] #[out] pdwFXStatus: LPDWORD) -> HRESULT;
         }
         #[guid(0xad74143d_903d_4ab7_8066_28d363036d65)]
         interface IDirectSoundCaptureFXAec: IUnknown {
-            fn SetAllParameters(&self, pDscFxAec: *const DSCFXAec) -> HRESULT;
-            fn GetAllParameters(&self, pDscFxAec: *mut DSCFXAec) -> HRESULT;
-            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
+            fn SetAllParameters(&self, pDscFxAec: LPCDSCFXAec) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDscFxAec: LPDSCFXAec) -> HRESULT;
+            fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
             fn Reset(&self) -> HRESULT;
         }
         #[guid(0xed311e41_fbae_4175_9625_cd0854f693ca)]
         interface IDirectSoundCaptureFXNoiseSuppress: IUnknown {
-            fn SetAllParameters(&self, pcDscFxNoiseSuppress: *const DSCFXNoiseSuppress) -> HRESULT;
-            fn GetAllParameters(&self, pDscFxNoiseSuppress: *mut DSCFXNoiseSuppress) -> HRESULT;
+            fn SetAllParameters(&self, pcDscFxNoiseSuppress: LPCDSCFXNoiseSuppress) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDscFxNoiseSuppress: LPDSCFXNoiseSuppress) -> HRESULT;
             fn Reset(&self) -> HRESULT;
         }
         #[guid(0x880842e3_145f_43e6_a934_a71806e50547)]
         interface IDirectSoundFXChorus: IUnknown {
-            fn SetAllParameters(&self, pcDsFxChorus: *const DSFXChorus) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxChorus: *mut DSFXChorus) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxChorus: LPCDSFXChorus) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxChorus: LPDSFXChorus) -> HRESULT;
         }
         #[guid(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0)]
         interface IDirectSoundFXCompressor: IUnknown {
-            fn SetAllParameters(&self, pcDsFxCompressor: *const DSFXCompressor) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxCompressor: *mut DSFXCompressor) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxCompressor: LPCDSFXCompressor) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxCompressor: LPDSFXCompressor) -> HRESULT;
         }
         #[guid(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b)]
         interface IDirectSoundFXDistortion: IUnknown {
-            fn SetAllParameters(&self, pcDsFxDistortion: *const DSFXDistortion) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxDistortion: *mut DSFXDistortion) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxDistortion: LPCDSFXDistortion) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxDistortion: LPDSFXDistortion) -> HRESULT;
         }
         #[guid(0x8bd28edf_50db_4e92_a2bd_445488d1ed42)]
         interface IDirectSoundFXEcho: IUnknown {
-            fn SetAllParameters(&self, pcDsFxEcho: *const DSFXEcho) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxEcho: *mut DSFXEcho) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxEcho: LPCDSFXEcho) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxEcho: LPDSFXEcho) -> HRESULT;
         }
         #[guid(0x903e9878_2c92_4072_9b2c_ea68f5396783)]
         interface IDirectSoundFXFlanger: IUnknown {
-            fn SetAllParameters(&self, pcDsFxFlanger: *const DSFXFlanger) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxFlanger: *mut DSFXFlanger) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxFlanger: LPCDSFXFlanger) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxFlanger: LPDSFXFlanger) -> HRESULT;
         }
         #[guid(0xd616f352_d622_11ce_aac5_0020af0b99a3)]
         interface IDirectSoundFXGargle: IUnknown {
-            fn SetAllParameters(&self, pcDsFxGargle: *const DSFXGargle) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxGargle: *mut DSFXGargle) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxGargle: LPCDSFXGargle) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxGargle: LPDSFXGargle) -> HRESULT;
         }
         #[guid(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4)]
         interface IDirectSoundFXI3DL2Reverb: IUnknown {
-            fn SetAllParameters(&self, pcDsFxI3DL2Reverb: *const DSFXI3DL2Reverb) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxI3DL2Reverb: *mut DSFXI3DL2Reverb) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxI3DL2Reverb: LPCDSFXI3DL2Reverb) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxI3DL2Reverb: LPDSFXI3DL2Reverb) -> HRESULT;
             fn SetPreset(&self, dwPreset: u32) -> HRESULT;
-            fn GetPreset(&self, pdwPreset: *mut u32) -> HRESULT;
+            fn GetPreset(&self, #[out] pdwPreset: LPDWORD) -> HRESULT;
             fn SetQuality(&self, lQuality: i32) -> HRESULT;
             fn GetQuality(&self, plQuality: *mut i32) -> HRESULT;
         }
         #[guid(0xc03ca9fe_fe90_4204_8078_82334cd177da)]
         interface IDirectSoundFXParamEq: IUnknown {
-            fn SetAllParameters(&self, pcDsFxParamEq: *const DSFXParamEq) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxParamEq: *mut DSFXParamEq) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxParamEq: LPCDSFXParamEq) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxParamEq: LPDSFXParamEq) -> HRESULT;
         }
         #[guid(0x46858c3a_0dc6_45e3_b760_d4eef16cb325)]
         interface IDirectSoundFXWavesReverb: IUnknown {
-            fn SetAllParameters(&self, pcDsFxWavesReverb: *const DSFXWavesReverb) -> HRESULT;
-            fn GetAllParameters(&self, pDsFxWavesReverb: *mut DSFXWavesReverb) -> HRESULT;
+            fn SetAllParameters(&self, pcDsFxWavesReverb: LPCDSFXWavesReverb) -> HRESULT;
+            fn GetAllParameters(&self, #[out] pDsFxWavesReverb: LPDSFXWavesReverb) -> HRESULT;
         }
         #[guid(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d)]
         interface IDirectSoundFullDuplex: IUnknown {
-            fn Initialize(&self, pCaptureGuid: *const GUID, pRenderGuid: *const GUID, lpDscBufferDesc: *const DSCBUFFERDESC, lpDsBufferDesc: *const DSBUFFERDESC, hWnd: HWND, dwLevel: u32, lplpDirectSoundCaptureBuffer8: *mut IDirectSoundCaptureBuffer8, lplpDirectSoundBuffer8: *mut IDirectSoundBuffer8) -> HRESULT;
+            fn Initialize(&self, pCaptureGuid: LPCGUID, pRenderGuid: LPCGUID, lpDscBufferDesc: LPCDSCBUFFERDESC, lpDsBufferDesc: LPCDSBUFFERDESC, hWnd: HWND, dwLevel: u32, lplpDirectSoundCaptureBuffer8: LPLPDIRECTSOUNDCAPTUREBUFFER8, lplpDirectSoundBuffer8: LPLPDIRECTSOUNDBUFFER8) -> HRESULT;
         }
         #[guid(0xb0210783_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundNotify: IUnknown {
-            fn SetNotificationPositions(&self, dwPositionNotifies: u32, #[len_param(0)] pcPositionNotifies: *const DSBPOSITIONNOTIFY) -> HRESULT;
+            fn SetNotificationPositions(&self, dwPositionNotifies: u32, #[len_param(0)] pcPositionNotifies: LPCDSBPOSITIONNOTIFY) -> HRESULT;
         }
         #[guid(0x31efac30_515c_11d0_a9aa_00aa0061be93)]
         interface IKsPropertySet: IUnknown {
-            fn Get(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[opt] pInstanceData: *const void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *mut void, ulDataLength: u32, #[opt] pulBytesReturned: *mut u32) -> HRESULT;
-            fn Set(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[opt] pInstanceData: *const void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *const void, ulDataLength: u32) -> HRESULT;
-            fn QuerySupport(&self, rguidPropSet: *const GUID, ulId: u32, pulTypeSupport: *mut u32) -> HRESULT;
+            fn Get(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[in] #[opt] pInstanceData: *mut void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *mut void, ulDataLength: u32, #[out] #[opt] pulBytesReturned: PULONG) -> HRESULT;
+            fn Set(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[in] #[opt] pInstanceData: *mut void, ulInstanceLength: u32, #[size_param(5)] #[in] pPropertyData: *mut void, ulDataLength: u32) -> HRESULT;
+            fn QuerySupport(&self, rguidPropSet: *const GUID, ulId: u32, #[out] pulTypeSupport: PULONG) -> HRESULT;
         }
         #[guid(0x56a86897_0ad4_11ce_b03a_0020af0ba770)]
         interface IReferenceClock: IUnknown {
             fn GetTime(&self, pTime: *mut REFERENCE_TIME) -> HRESULT;
-            fn AdviseTime(&self, rtBaseTime: REFERENCE_TIME, rtStreamTime: REFERENCE_TIME, hEvent: HANDLE, pdwAdviseCookie: *mut u32) -> HRESULT;
-            fn AdvisePeriodic(&self, rtStartTime: REFERENCE_TIME, rtPeriodTime: REFERENCE_TIME, hSemaphore: HANDLE, pdwAdviseCookie: *mut u32) -> HRESULT;
+            fn AdviseTime(&self, rtBaseTime: REFERENCE_TIME, rtStreamTime: REFERENCE_TIME, hEvent: HANDLE, #[out] pdwAdviseCookie: LPDWORD) -> HRESULT;
+            fn AdvisePeriodic(&self, rtStartTime: REFERENCE_TIME, rtPeriodTime: REFERENCE_TIME, hSemaphore: HANDLE, #[out] pdwAdviseCookie: LPDWORD) -> HRESULT;
             fn Unadvise(&self, dwAdviseCookie: u32) -> HRESULT;
         }
         const KSPROPERTY_SUPPORT_GET: i32 = 1;
@@ -797,8 +800,8 @@ mod Windows {
         type LPDSCFXAec = *mut DSCFXAec;
         type LPDSCFXNoiseSuppress = *mut DSCFXNoiseSuppress;
         type LPDSEFFECTDESC = *mut DSEFFECTDESC;
-        extern fn LPDSENUMCALLBACKA(param0: *mut GUID, param1: PCSTR, param2: PCSTR, param3: *mut void) -> BOOL;
-        extern fn LPDSENUMCALLBACKW(param0: *mut GUID, param1: PCWSTR, param2: PCWSTR, param3: *mut void) -> BOOL;
+        extern fn LPDSENUMCALLBACKA(param0: LPGUID, param1: PCSTR, param2: PCSTR, param3: *mut void) -> BOOL;
+        extern fn LPDSENUMCALLBACKW(param0: LPGUID, param1: PCWSTR, param2: PCWSTR, param3: *mut void) -> BOOL;
         type LPDSFXChorus = *mut DSFXChorus;
         type LPDSFXCompressor = *mut DSFXCompressor;
         type LPDSFXDistortion = *mut DSFXDistortion;
@@ -820,5 +823,6 @@ mod Windows {
         type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut IDirectSoundCaptureBuffer8;
         type LPLPDIRECTSOUNDNOTIFY = *mut IDirectSoundNotify;
         type LPREFERENCE_TIME = *mut REFERENCE_TIME;
+        const _FACDS: i32 = 2168;
     }
 }

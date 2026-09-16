@@ -39,39 +39,96 @@ mod Windows {
             DPI_AWARENESS_SYSTEM_AWARE = 1,
             DPI_AWARENESS_PER_MONITOR_AWARE = 2,
         }
-        type DPI_AWARENESS_CONTEXT = *mut void;
+        type DPI_AWARENESS_CONTEXT = *mut DPI_AWARENESS_CONTEXT__;
         const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = -3;
         const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4;
         const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = -2;
         const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = -1;
         const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = -5;
+        struct DPI_AWARENESS_CONTEXT__ {
+            unused: i32,
+        }
         #[repr(i32)]
         enum DPI_HOSTING_BEHAVIOR {
             DPI_HOSTING_BEHAVIOR_INVALID = -1,
             DPI_HOSTING_BEHAVIOR_DEFAULT = 0,
             DPI_HOSTING_BEHAVIOR_MIXED = 1,
         }
-        type HACCEL = *mut void;
-        type HBITMAP = *mut void;
-        type HBRUSH = *mut void;
-        type HCOLORSPACE = *mut void;
+        type HACCEL = *mut HACCEL__;
+        struct HACCEL__ {
+            unused: i32,
+        }
+        type HBITMAP = *mut HBITMAP__;
+        struct HBITMAP__ {
+            unused: i32,
+        }
+        type HBRUSH = *mut HBRUSH__;
+        struct HBRUSH__ {
+            unused: i32,
+        }
+        type HCOLORSPACE = *mut HCOLORSPACE__;
+        struct HCOLORSPACE__ {
+            unused: i32,
+        }
         type HCURSOR = HICON;
-        type HDC = *mut void;
-        type HDESK = *mut void;
-        type HENHMETAFILE = *mut void;
+        type HDC = *mut HDC__;
+        struct HDC__ {
+            unused: i32,
+        }
+        type HDESK = *mut HDESK__;
+        struct HDESK__ {
+            unused: i32,
+        }
+        type HENHMETAFILE = *mut HENHMETAFILE__;
+        struct HENHMETAFILE__ {
+            unused: i32,
+        }
         const HFILE_ERROR: HFILE = -1;
-        type HFONT = *mut void;
+        type HFONT = *mut HFONT__;
+        struct HFONT__ {
+            unused: i32,
+        }
         type HGDIOBJ = *mut void;
-        type HGLRC = *mut void;
-        type HHOOK = *mut void;
-        type HICON = *mut void;
-        type HMENU = *mut void;
-        type HMONITOR = *mut void;
-        type HPALETTE = *mut void;
-        type HPEN = *mut void;
-        type HUMPD = *mut void;
-        type HWINEVENTHOOK = *mut void;
-        type HWND = *mut void;
+        type HGLRC = *mut HGLRC__;
+        struct HGLRC__ {
+            unused: i32,
+        }
+        type HHOOK = *mut HHOOK__;
+        struct HHOOK__ {
+            unused: i32,
+        }
+        type HICON = *mut HICON__;
+        struct HICON__ {
+            unused: i32,
+        }
+        type HMENU = *mut HMENU__;
+        struct HMENU__ {
+            unused: i32,
+        }
+        type HMONITOR = *mut HMONITOR__;
+        struct HMONITOR__ {
+            unused: i32,
+        }
+        type HPALETTE = *mut HPALETTE__;
+        struct HPALETTE__ {
+            unused: i32,
+        }
+        type HPEN = *mut HPEN__;
+        struct HPEN__ {
+            unused: i32,
+        }
+        type HUMPD = *mut HUMPD__;
+        struct HUMPD__ {
+            unused: i32,
+        }
+        type HWINEVENTHOOK = *mut HWINEVENTHOOK__;
+        struct HWINEVENTHOOK__ {
+            unused: i32,
+        }
+        type HWND = *mut HWND__;
+        struct HWND__ {
+            unused: i32,
+        }
         type LPCOLORREF = *mut u32;
         type LPCRECT = *const RECT;
         type LPCRECTL = *const RECTL;

@@ -8,55 +8,55 @@ mod Windows {
         const CLSID_PersistPropset: GUID = 0xfb8f0821_0164_101b_84ed_08002b2ec713;
         const CLSID_StdFont: GUID = 0x0be35203_8f91_11ce_9de3_00aa004bb851;
         const CLSID_StdPicture: GUID = 0x0be35204_8f91_11ce_9de3_00aa004bb851;
-        const CONNECT_E_ADVISELIMIT: i32 = -2147220991;
-        const CONNECT_E_CANNOTCONNECT: i32 = -2147220990;
-        const CONNECT_E_FIRST: i32 = -2147220992;
-        const CONNECT_E_LAST: i32 = -2147220977;
-        const CONNECT_E_NOCONNECTION: i32 = -2147220992;
-        const CONNECT_E_OVERRIDDEN: i32 = -2147220989;
-        const CONNECT_S_FIRST: i32 = 262656;
-        const CONNECT_S_LAST: i32 = 262671;
-        const CTL_E_BADFILEMODE: i32 = -2146828234;
-        const CTL_E_BADFILENAME: i32 = -2146828224;
-        const CTL_E_BADFILENAMEORNUMBER: i32 = -2146828236;
-        const CTL_E_BADRECORDLENGTH: i32 = -2146828229;
-        const CTL_E_BADRECORDNUMBER: i32 = -2146828225;
-        const CTL_E_CANTSAVEFILETOTEMP: i32 = -2146827553;
-        const CTL_E_CUSTOM_FIRST: i32 = -2146827688;
-        const CTL_E_DEVICEIOERROR: i32 = -2146828231;
-        const CTL_E_DEVICEUNAVAILABLE: i32 = -2146828220;
-        const CTL_E_DISKFULL: i32 = -2146828227;
-        const CTL_E_DISKNOTREADY: i32 = -2146828217;
-        const CTL_E_DIVISIONBYZERO: i32 = -2146828277;
-        const CTL_E_FILEALREADYEXISTS: i32 = -2146828230;
-        const CTL_E_FILEALREADYOPEN: i32 = -2146828233;
-        const CTL_E_FILENOTFOUND: i32 = -2146828235;
-        const CTL_E_GETNOTSUPPORTED: i32 = -2146827894;
-        const CTL_E_GETNOTSUPPORTEDATRUNTIME: i32 = -2146827895;
-        const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283;
-        const CTL_E_INVALIDCLIPBOARDFORMAT: i32 = -2146827828;
-        const CTL_E_INVALIDFILEFORMAT: i32 = -2146827967;
-        const CTL_E_INVALIDPATTERNSTRING: i32 = -2146828195;
-        const CTL_E_INVALIDPICTURE: i32 = -2146827807;
-        const CTL_E_INVALIDPROPERTYARRAYINDEX: i32 = -2146827907;
-        const CTL_E_INVALIDPROPERTYVALUE: i32 = -2146827908;
-        const CTL_E_INVALIDUSEOFNULL: i32 = -2146828194;
-        const CTL_E_NEEDPROPERTYARRAYINDEX: i32 = -2146827903;
-        const CTL_E_OUTOFMEMORY: i32 = -2146828281;
-        const CTL_E_OUTOFSTACKSPACE: i32 = -2146828260;
-        const CTL_E_OUTOFSTRINGSPACE: i32 = -2146828274;
-        const CTL_E_OVERFLOW: i32 = -2146828282;
-        const CTL_E_PATHFILEACCESSERROR: i32 = -2146828213;
-        const CTL_E_PATHNOTFOUND: i32 = -2146828212;
-        const CTL_E_PERMISSIONDENIED: i32 = -2146828218;
-        const CTL_E_PRINTERERROR: i32 = -2146827806;
-        const CTL_E_PROPERTYNOTFOUND: i32 = -2146827866;
-        const CTL_E_REPLACEMENTSTOOLONG: i32 = -2146827542;
-        const CTL_E_SEARCHTEXTNOTFOUND: i32 = -2146827544;
-        const CTL_E_SETNOTPERMITTED: i32 = -2146827901;
-        const CTL_E_SETNOTSUPPORTED: i32 = -2146827905;
-        const CTL_E_SETNOTSUPPORTEDATRUNTIME: i32 = -2146827906;
-        const CTL_E_TOOMANYFILES: i32 = -2146828221;
+        const CONNECT_E_ADVISELIMIT: SCODE = -2147220991;
+        const CONNECT_E_CANNOTCONNECT: SCODE = -2147220990;
+        const CONNECT_E_FIRST: SCODE = -2147220992;
+        const CONNECT_E_LAST: SCODE = -2147220977;
+        const CONNECT_E_NOCONNECTION: SCODE = -2147220992;
+        const CONNECT_E_OVERRIDDEN: SCODE = -2147220989;
+        const CONNECT_S_FIRST: SCODE = 262656;
+        const CONNECT_S_LAST: SCODE = 262671;
+        const CTL_E_BADFILEMODE: SCODE = -2146828234;
+        const CTL_E_BADFILENAME: SCODE = -2146828224;
+        const CTL_E_BADFILENAMEORNUMBER: SCODE = -2146828236;
+        const CTL_E_BADRECORDLENGTH: SCODE = -2146828229;
+        const CTL_E_BADRECORDNUMBER: SCODE = -2146828225;
+        const CTL_E_CANTSAVEFILETOTEMP: SCODE = -2146827553;
+        const CTL_E_CUSTOM_FIRST: SCODE = -2146827688;
+        const CTL_E_DEVICEIOERROR: SCODE = -2146828231;
+        const CTL_E_DEVICEUNAVAILABLE: SCODE = -2146828220;
+        const CTL_E_DISKFULL: SCODE = -2146828227;
+        const CTL_E_DISKNOTREADY: SCODE = -2146828217;
+        const CTL_E_DIVISIONBYZERO: SCODE = -2146828277;
+        const CTL_E_FILEALREADYEXISTS: SCODE = -2146828230;
+        const CTL_E_FILEALREADYOPEN: SCODE = -2146828233;
+        const CTL_E_FILENOTFOUND: SCODE = -2146828235;
+        const CTL_E_GETNOTSUPPORTED: SCODE = -2146827894;
+        const CTL_E_GETNOTSUPPORTEDATRUNTIME: SCODE = -2146827895;
+        const CTL_E_ILLEGALFUNCTIONCALL: SCODE = -2146828283;
+        const CTL_E_INVALIDCLIPBOARDFORMAT: SCODE = -2146827828;
+        const CTL_E_INVALIDFILEFORMAT: SCODE = -2146827967;
+        const CTL_E_INVALIDPATTERNSTRING: SCODE = -2146828195;
+        const CTL_E_INVALIDPICTURE: SCODE = -2146827807;
+        const CTL_E_INVALIDPROPERTYARRAYINDEX: SCODE = -2146827907;
+        const CTL_E_INVALIDPROPERTYVALUE: SCODE = -2146827908;
+        const CTL_E_INVALIDUSEOFNULL: SCODE = -2146828194;
+        const CTL_E_NEEDPROPERTYARRAYINDEX: SCODE = -2146827903;
+        const CTL_E_OUTOFMEMORY: SCODE = -2146828281;
+        const CTL_E_OUTOFSTACKSPACE: SCODE = -2146828260;
+        const CTL_E_OUTOFSTRINGSPACE: SCODE = -2146828274;
+        const CTL_E_OVERFLOW: SCODE = -2146828282;
+        const CTL_E_PATHFILEACCESSERROR: SCODE = -2146828213;
+        const CTL_E_PATHNOTFOUND: SCODE = -2146828212;
+        const CTL_E_PERMISSIONDENIED: SCODE = -2146828218;
+        const CTL_E_PRINTERERROR: SCODE = -2146827806;
+        const CTL_E_PROPERTYNOTFOUND: SCODE = -2146827866;
+        const CTL_E_REPLACEMENTSTOOLONG: SCODE = -2146827542;
+        const CTL_E_SEARCHTEXTNOTFOUND: SCODE = -2146827544;
+        const CTL_E_SETNOTPERMITTED: SCODE = -2146827901;
+        const CTL_E_SETNOTSUPPORTED: SCODE = -2146827905;
+        const CTL_E_SETNOTSUPPORTEDATRUNTIME: SCODE = -2146827906;
+        const CTL_E_TOOMANYFILES: SCODE = -2146828221;
         const DISPID_ABOUTBOX: i32 = -552;
         const DISPID_ACCELERATOR: i32 = -543;
         const DISPID_ADDITEM: i32 = -553;
@@ -167,7 +167,7 @@ mod Windows {
         const DISPID_WORDWRAP: i32 = -536;
         struct FONTDESC {
             cbSizeofstruct: u32,
-            lpstrName: PWSTR,
+            lpstrName: LPOLESTR,
             cySize: CY,
             sWeight: i16,
             sCharset: i16,
@@ -226,7 +226,7 @@ mod Windows {
             hWndOwner: HWND,
             x: i32,
             y: i32,
-            lpszCaption: PCWSTR,
+            lpszCaption: LPCOLESTR,
             cObjects: u32,
             lplpUnk: *mut IUnknown,
             cPages: u32,
@@ -235,6 +235,15 @@ mod Windows {
             dispidInitialProperty: DISPID,
         }
         const OLEIVERB_PROPERTIES: i32 = -7;
+        const OLEMISC_ACTSLIKEBUTTON: i32 = 4096;
+        const OLEMISC_ACTSLIKELABEL: i32 = 8192;
+        const OLEMISC_ALIGNABLE: i32 = 32768;
+        const OLEMISC_ALWAYSRUN: i32 = 2048;
+        const OLEMISC_IMEMODE: i32 = 262144;
+        const OLEMISC_INVISIBLEATRUNTIME: i32 = 1024;
+        const OLEMISC_NOUIACTIVATE: i32 = 16384;
+        const OLEMISC_SETCLIENTSITEFIRST: i32 = 131072;
+        const OLEMISC_SIMPLEFRAME: i32 = 65536;
         type OLE_CANCELBOOL = VARIANT_BOOL;
         type OLE_ENABLEDEFAULTBOOL = VARIANT_BOOL;
         type OLE_OPTEXCLUSIVE = VARIANT_BOOL;
@@ -244,39 +253,43 @@ mod Windows {
             triChecked = 1,
             triGray = 2,
         }
+        type OLE_XPOS_CONTAINER = f32;
         type OLE_XPOS_PIXELS = i32;
+        type OLE_XSIZE_CONTAINER = f32;
         type OLE_XSIZE_PIXELS = i32;
+        type OLE_YPOS_CONTAINER = f32;
         type OLE_YPOS_PIXELS = i32;
+        type OLE_YSIZE_CONTAINER = f32;
         type OLE_YSIZE_PIXELS = i32;
         #[library("OLEAUT32.dll")]
-        extern fn OleCreateFontIndirect(lpFontDesc: *mut FONTDESC, riid: *const GUID, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateFontIndirect(lpFontDesc: LPFONTDESC, riid: *const GUID, lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleCreatePictureIndirect(lpPictDesc: *mut PICTDESC, riid: *const GUID, fOwn: BOOL, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreatePictureIndirect(lpPictDesc: LPPICTDESC, riid: *const GUID, fOwn: BOOL, lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleCreatePropertyFrame(hwndOwner: HWND, x: u32, y: u32, lpszCaption: PCWSTR, cObjects: u32, ppUnk: *mut IUnknown, cPages: u32, pPageClsID: *mut GUID, lcid: LCID, dwReserved: u32, pvReserved: *mut void) -> HRESULT;
+        extern fn OleCreatePropertyFrame(hwndOwner: HWND, x: u32, y: u32, lpszCaption: LPCOLESTR, cObjects: u32, ppUnk: *mut IUnknown, cPages: u32, pPageClsID: LPCLSID, lcid: LCID, dwReserved: u32, pvReserved: *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleCreatePropertyFrameIndirect(lpParams: *mut OCPFIPARAMS) -> HRESULT;
+        extern fn OleCreatePropertyFrameIndirect(lpParams: LPOCPFIPARAMS) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleIconToCursor(hinstExe: HINSTANCE, hIcon: HICON) -> HCURSOR;
         #[library("OLEAUT32.dll")]
-        extern fn OleLoadPicture(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleLoadPicture(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleLoadPictureEx(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleLoadPictureEx(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleLoadPictureFile(varFileName: VARIANT, lplpdispPicture: *mut IDispatch) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleLoadPictureFileEx(varFileName: VARIANT, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, lplpdispPicture: *mut IDispatch) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleLoadPicturePath(szURLorPath: PCWSTR, punkCaller: IUnknown, dwReserved: u32, clrReserved: OLE_COLOR, riid: *const GUID, #[iid_is] ppvRet: *mut *mut void) -> HRESULT;
+        extern fn OleLoadPicturePath(szURLorPath: LPOLESTR, punkCaller: IUnknown, dwReserved: u32, clrReserved: OLE_COLOR, riid: *const GUID, ppvRet: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleSavePictureFile(lpdispPicture: IDispatch, bstrFileName: BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleTranslateColor(clr: OLE_COLOR, hpal: HPALETTE, lpcolorref: *mut COLORREF) -> HRESULT;
-        const PERPROP_E_FIRST: i32 = -2147220992;
-        const PERPROP_E_LAST: i32 = -2147220977;
-        const PERPROP_E_NOPAGEAVAILABLE: i32 = -2147220992;
-        const PERPROP_S_FIRST: i32 = 262656;
-        const PERPROP_S_LAST: i32 = 262671;
+        const PERPROP_E_FIRST: SCODE = -2147220992;
+        const PERPROP_E_LAST: SCODE = -2147220977;
+        const PERPROP_E_NOPAGEAVAILABLE: SCODE = -2147220992;
+        const PERPROP_S_FIRST: SCODE = 262656;
+        const PERPROP_S_LAST: SCODE = 262671;
         struct PICTDESC {
             cbSizeofstruct: u32,
             picType: u32,
@@ -304,29 +317,29 @@ mod Windows {
         const PICTYPE_METAFILE: i32 = 2;
         const PICTYPE_NONE: i32 = 0;
         const PICTYPE_UNINITIALIZED: i32 = -1;
-        const SELFREG_E_CLASS: i32 = -2147220991;
-        const SELFREG_E_FIRST: i32 = -2147220992;
-        const SELFREG_E_LAST: i32 = -2147220977;
-        const SELFREG_E_TYPELIB: i32 = -2147220992;
-        const SELFREG_S_FIRST: i32 = 262656;
-        const SELFREG_S_LAST: i32 = 262671;
+        const SELFREG_E_CLASS: SCODE = -2147220991;
+        const SELFREG_E_FIRST: SCODE = -2147220992;
+        const SELFREG_E_LAST: SCODE = -2147220977;
+        const SELFREG_E_TYPELIB: SCODE = -2147220992;
+        const SELFREG_S_FIRST: SCODE = 262656;
+        const SELFREG_S_LAST: SCODE = 262671;
         const VT_BLOB_PROPSET: i32 = 75;
-        const VT_COLOR: i32 = 3;
-        const VT_FONT: i32 = 9;
-        const VT_HANDLE: i32 = 3;
-        const VT_OPTEXCLUSIVE: i32 = 11;
-        const VT_PICTURE: i32 = 9;
+        const VT_COLOR: VARENUM = 3;
+        const VT_FONT: VARENUM = 9;
+        const VT_HANDLE: VARENUM = 3;
+        const VT_OPTEXCLUSIVE: VARENUM = 11;
+        const VT_PICTURE: VARENUM = 9;
         const VT_STORED_PROPSET: i32 = 74;
         const VT_STREAMED_PROPSET: i32 = 73;
-        const VT_TRISTATE: i32 = 2;
+        const VT_TRISTATE: VARENUM = 2;
         const VT_VERBOSE_ENUM: i32 = 76;
-        const VT_XPOS_HIMETRIC: i32 = 3;
-        const VT_XPOS_PIXELS: i32 = 3;
-        const VT_XSIZE_HIMETRIC: i32 = 3;
-        const VT_XSIZE_PIXELS: i32 = 3;
-        const VT_YPOS_HIMETRIC: i32 = 3;
-        const VT_YPOS_PIXELS: i32 = 3;
-        const VT_YSIZE_HIMETRIC: i32 = 3;
-        const VT_YSIZE_PIXELS: i32 = 3;
+        const VT_XPOS_HIMETRIC: VARENUM = 3;
+        const VT_XPOS_PIXELS: VARENUM = 3;
+        const VT_XSIZE_HIMETRIC: VARENUM = 3;
+        const VT_XSIZE_PIXELS: VARENUM = 3;
+        const VT_YPOS_HIMETRIC: VARENUM = 3;
+        const VT_YPOS_PIXELS: VARENUM = 3;
+        const VT_YSIZE_HIMETRIC: VARENUM = 3;
+        const VT_YSIZE_PIXELS: VARENUM = 3;
     }
 }

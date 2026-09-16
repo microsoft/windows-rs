@@ -115,21 +115,21 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetServerComputerNameDel(#[opt] ServerName: PCWSTR, EmulatedServerName: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerDiskEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetServerDiskEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: u32, #[opt] domain: PCWSTR, #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetServerEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, servertype: u32, #[opt] domain: PCWSTR, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetServerGetInfo(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerSetInfo(#[opt] servername: PCWSTR, level: u32, buf: *mut u8, #[opt] ParmError: *mut u32) -> u32;
+        extern fn NetServerSetInfo(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] ParmError: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportAdd(#[opt] servername: PCWSTR, level: u32, bufptr: *const u8) -> u32;
+        extern fn NetServerTransportAdd(#[opt] servername: PCWSTR, level: u32, bufptr: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportAddEx(#[opt] servername: PCWSTR, level: u32, bufptr: *mut u8) -> u32;
+        extern fn NetServerTransportAddEx(#[opt] servername: PCWSTR, level: u32, bufptr: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportDel(#[opt] servername: PCWSTR, level: u32, bufptr: *mut u8) -> u32;
+        extern fn NetServerTransportDel(#[opt] servername: PCWSTR, level: u32, bufptr: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetServerTransportEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         type PSERVER_INFO_100 = *mut SERVER_INFO_100;
         type PSERVER_INFO_1005 = *mut SERVER_INFO_1005;
         type PSERVER_INFO_101 = *mut SERVER_INFO_101;
@@ -552,10 +552,10 @@ mod Windows {
             sv1598_enableW9xsecuritysignature: u32,
         }
         struct SERVER_INFO_1599 {
-            sv1598_enforcekerberosreauthentication: bool,
+            sv1598_enforcekerberosreauthentication: BOOLEAN,
         }
         struct SERVER_INFO_1600 {
-            sv1598_disabledos: bool,
+            sv1598_disabledos: BOOLEAN,
         }
         struct SERVER_INFO_1601 {
             sv1598_lowdiskspaceminimum: u32,

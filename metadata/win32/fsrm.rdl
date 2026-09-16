@@ -132,7 +132,7 @@ mod Windows {
             #[special]
             fn get_ReportTypes(&self, #[retval] reportTypes: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_ReportTypes(&self, reportTypes: *const SAFEARRAY) -> HRESULT;
+            fn put_ReportTypes(&self, #[in] reportTypes: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_MailTo(&self, #[retval] mailTo: *mut BSTR) -> HRESULT;
             #[special]
@@ -165,12 +165,12 @@ mod Windows {
         }
         #[guid(0xefcb0ab1_16c4_4a79_812c_725614c3306b)]
         interface IFsrmExportImport: IDispatch {
-            fn ExportFileGroups(&self, filePath: BSTR, fileGroupNamesSafeArray: *const VARIANT, remoteHost: BSTR) -> HRESULT;
-            fn ImportFileGroups(&self, filePath: BSTR, fileGroupNamesSafeArray: *const VARIANT, remoteHost: BSTR, #[retval] fileGroups: *mut IFsrmCommittableCollection) -> HRESULT;
-            fn ExportFileScreenTemplates(&self, filePath: BSTR, templateNamesSafeArray: *const VARIANT, remoteHost: BSTR) -> HRESULT;
-            fn ImportFileScreenTemplates(&self, filePath: BSTR, templateNamesSafeArray: *const VARIANT, remoteHost: BSTR, #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
-            fn ExportQuotaTemplates(&self, filePath: BSTR, templateNamesSafeArray: *const VARIANT, remoteHost: BSTR) -> HRESULT;
-            fn ImportQuotaTemplates(&self, filePath: BSTR, templateNamesSafeArray: *const VARIANT, remoteHost: BSTR, #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ExportFileGroups(&self, filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, remoteHost: BSTR) -> HRESULT;
+            fn ImportFileGroups(&self, filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, remoteHost: BSTR, #[retval] fileGroups: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ExportFileScreenTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR) -> HRESULT;
+            fn ImportFileScreenTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR, #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ExportQuotaTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR) -> HRESULT;
+            fn ImportQuotaTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR, #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
         }
         #[guid(0x1bb617b8_3886_49dc_af82_a6c90fa35dda)]
         interface IFsrmMutableCollection: IFsrmCollection {

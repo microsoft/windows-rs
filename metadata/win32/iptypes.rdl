@@ -261,10 +261,9 @@ mod Windows {
             Next: *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH,
             Address: SOCKET_ADDRESS,
         }
-        type IP_ADDRESS_STRING = IP_MASK_STRING;
         struct IP_ADDR_STRING {
             Next: *mut IP_ADDR_STRING,
-            IpAddress: IP_ADDRESS_STRING,
+            IpAddress: IP_MASK_STRING,
             IpMask: IP_MASK_STRING,
             Context: u32,
         }

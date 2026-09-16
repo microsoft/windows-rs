@@ -18,17 +18,17 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn AbortPrinter(hPrinter: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddFormA(hPrinter: HANDLE, Level: u32, pForm: *mut u8) -> BOOL;
+        extern fn AddFormA(hPrinter: HANDLE, Level: u32, pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddFormW(hPrinter: HANDLE, Level: u32, pForm: *mut u8) -> BOOL;
+        extern fn AddFormW(hPrinter: HANDLE, Level: u32, pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddJobA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[opt] pData: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn AddJobA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pData: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddJobW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[opt] pData: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn AddJobW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pData: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddMonitorA(#[opt] pName: PCSTR, Level: u32, #[opt] pMonitors: *const u8) -> BOOL;
+        extern fn AddMonitorA(#[opt] pName: PCSTR, Level: u32, #[opt] pMonitors: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddMonitorW(#[opt] pName: PCWSTR, Level: u32, #[opt] pMonitors: *const u8) -> BOOL;
+        extern fn AddMonitorW(#[opt] pName: PCWSTR, Level: u32, #[opt] pMonitors: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn AddPortA(#[opt] pName: PCSTR, hWnd: HWND, pMonitorName: PCSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
@@ -38,33 +38,33 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn AddPrintProcessorW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, pPathName: PCWSTR, pPrintProcessorName: PCWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrintProvidorA(#[opt] pName: PCSTR, Level: u32, pProvidorInfo: *const u8) -> BOOL;
+        extern fn AddPrintProvidorA(#[opt] pName: PCSTR, Level: u32, pProvidorInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrintProvidorW(#[opt] pName: PCWSTR, Level: u32, pProvidorInfo: *const u8) -> BOOL;
+        extern fn AddPrintProvidorW(#[opt] pName: PCWSTR, Level: u32, pProvidorInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterA(#[opt] pName: PCSTR, Level: u32, pPrinter: *mut u8) -> HANDLE;
+        extern fn AddPrinterA(#[opt] pName: PCSTR, Level: u32, pPrinter: LPBYTE) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterConnection2A(#[opt] hWnd: HWND, pszName: PCSTR, dwLevel: u32, pConnectionInfo: *const void) -> BOOL;
+        extern fn AddPrinterConnection2A(#[opt] hWnd: HWND, pszName: PCSTR, dwLevel: u32, #[in] pConnectionInfo: *mut void) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterConnection2W(#[opt] hWnd: HWND, pszName: PCWSTR, dwLevel: u32, pConnectionInfo: *const void) -> BOOL;
+        extern fn AddPrinterConnection2W(#[opt] hWnd: HWND, pszName: PCWSTR, dwLevel: u32, #[in] pConnectionInfo: *mut void) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn AddPrinterConnectionA(pName: PCSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn AddPrinterConnectionW(pName: PCWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverA(#[opt] pName: PCSTR, Level: u32, pDriverInfo: *const u8) -> BOOL;
+        extern fn AddPrinterDriverA(#[opt] pName: PCSTR, Level: u32, pDriverInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverExA(#[opt] pName: PCSTR, Level: u32, lpbDriverInfo: *mut u8, dwFileCopyFlags: u32) -> BOOL;
+        extern fn AddPrinterDriverExA(#[opt] pName: PCSTR, Level: u32, lpbDriverInfo: PBYTE, dwFileCopyFlags: u32) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverExW(#[opt] pName: PCWSTR, Level: u32, lpbDriverInfo: *mut u8, dwFileCopyFlags: u32) -> BOOL;
+        extern fn AddPrinterDriverExW(#[opt] pName: PCWSTR, Level: u32, lpbDriverInfo: PBYTE, dwFileCopyFlags: u32) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverW(#[opt] pName: PCWSTR, Level: u32, pDriverInfo: *const u8) -> BOOL;
+        extern fn AddPrinterDriverW(#[opt] pName: PCWSTR, Level: u32, pDriverInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterW(#[opt] pName: PCWSTR, Level: u32, pPrinter: *mut u8) -> HANDLE;
+        extern fn AddPrinterW(#[opt] pName: PCWSTR, Level: u32, pPrinter: LPBYTE) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn AdvancedDocumentPropertiesA(hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCSTR, #[in] #[out] #[opt] pDevModeOutput: *mut DEVMODEA, #[opt] pDevModeInput: *const DEVMODEA) -> i32;
+        extern fn AdvancedDocumentPropertiesA(hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCSTR, #[in] #[out] #[opt] pDevModeOutput: PDEVMODEA, #[opt] pDevModeInput: PDEVMODEA) -> i32;
         #[library("WINSPOOL.DRV")]
-        extern fn AdvancedDocumentPropertiesW(hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCWSTR, #[in] #[out] #[opt] pDevModeOutput: *mut DEVMODEW, #[opt] pDevModeInput: *const DEVMODEW) -> i32;
+        extern fn AdvancedDocumentPropertiesW(hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCWSTR, #[in] #[out] #[opt] pDevModeOutput: PDEVMODEW, #[opt] pDevModeInput: PDEVMODEW) -> i32;
         const BIDI_ACCESS_ADMINISTRATOR: i32 = 1;
         const BIDI_ACCESS_USER: i32 = 2;
         #[encoding("utf-16")]
@@ -460,9 +460,9 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn DeletePrinterKeyW(hPrinter: HANDLE, pKeyName: PCWSTR) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn DocumentPropertiesA(#[opt] hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCSTR, #[opt] pDevModeOutput: *mut DEVMODEA, #[opt] pDevModeInput: *const DEVMODEA, fMode: u32) -> i32;
+        extern fn DocumentPropertiesA(#[opt] hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCSTR, #[out] #[opt] pDevModeOutput: PDEVMODEA, #[opt] pDevModeInput: PDEVMODEA, fMode: u32) -> i32;
         #[library("WINSPOOL.DRV")]
-        extern fn DocumentPropertiesW(#[opt] hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCWSTR, #[opt] pDevModeOutput: *mut DEVMODEW, #[opt] pDevModeInput: *const DEVMODEW, fMode: u32) -> i32;
+        extern fn DocumentPropertiesW(#[opt] hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCWSTR, #[out] #[opt] pDevModeOutput: PDEVMODEW, #[opt] pDevModeInput: PDEVMODEW, fMode: u32) -> i32;
         #[repr(i32)]
         enum EPrintPropertyType {
             kPropertyTypeString = 1,
@@ -520,53 +520,53 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn EndPagePrinter(hPrinter: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumFormsA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[opt] pForm: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumFormsA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumFormsW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[opt] pForm: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumFormsW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn EnumJobNamedProperties(hPrinter: HANDLE, JobId: u32, pcProperties: *mut u32, ppProperties: *mut *mut PrintNamedProperty) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumJobsA(hPrinter: HANDLE, FirstJob: u32, NoJobs: u32, Level: u32, #[size_param(5)] #[opt] pJob: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumJobsA(hPrinter: HANDLE, FirstJob: u32, NoJobs: u32, Level: u32, #[size_param(5)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumJobsW(hPrinter: HANDLE, FirstJob: u32, NoJobs: u32, Level: u32, #[size_param(5)] #[opt] pJob: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumJobsW(hPrinter: HANDLE, FirstJob: u32, NoJobs: u32, Level: u32, #[size_param(5)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumMonitorsA(#[opt] pName: PCSTR, Level: u32, #[size_param(3)] #[opt] pMonitor: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumMonitorsA(#[opt] pName: PCSTR, Level: u32, #[size_param(3)] #[out] #[opt] pMonitor: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumMonitorsW(#[opt] pName: PCWSTR, Level: u32, #[size_param(3)] #[opt] pMonitor: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumMonitorsW(#[opt] pName: PCWSTR, Level: u32, #[size_param(3)] #[out] #[opt] pMonitor: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPortsA(#[opt] pName: PCSTR, Level: u32, #[size_param(3)] #[opt] pPort: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPortsA(#[opt] pName: PCSTR, Level: u32, #[size_param(3)] #[out] #[opt] pPort: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPortsW(#[opt] pName: PCWSTR, Level: u32, #[size_param(3)] #[opt] pPort: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPortsW(#[opt] pName: PCWSTR, Level: u32, #[size_param(3)] #[out] #[opt] pPort: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorDatatypesA(#[opt] pName: PCSTR, pPrintProcessorName: PCSTR, Level: u32, #[size_param(4)] #[opt] pDatatypes: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrintProcessorDatatypesA(#[opt] pName: PCSTR, pPrintProcessorName: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDatatypes: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorDatatypesW(#[opt] pName: PCWSTR, pPrintProcessorName: PCWSTR, Level: u32, #[size_param(4)] #[opt] pDatatypes: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrintProcessorDatatypesW(#[opt] pName: PCWSTR, pPrintProcessorName: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDatatypes: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorsA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[opt] pPrintProcessorInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrintProcessorsA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorsW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[opt] pPrintProcessorInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrintProcessorsW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataA(hPrinter: HANDLE, dwIndex: u32, #[size_param(3)] #[out] pValueName: PSTR, cbValueName: u32, pcbValueName: *mut u32, #[opt] pType: *mut u32, #[len_param(7)] #[opt] pData: *mut u8, cbData: u32, #[opt] pcbData: *mut u32) -> u32;
+        extern fn EnumPrinterDataA(hPrinter: HANDLE, dwIndex: u32, #[size_param(3)] #[out] pValueName: PSTR, cbValueName: u32, #[out] pcbValueName: LPDWORD, #[out] #[opt] pType: LPDWORD, #[len_param(7)] #[out] #[opt] pData: LPBYTE, cbData: u32, #[out] #[opt] pcbData: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, #[size_param(3)] #[opt] pEnumValues: *mut u8, cbEnumValues: u32, pcbEnumValues: *mut u32, pnEnumValues: *mut u32) -> u32;
+        extern fn EnumPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, #[size_param(3)] #[out] #[opt] pEnumValues: LPBYTE, cbEnumValues: u32, #[out] pcbEnumValues: LPDWORD, #[out] pnEnumValues: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, #[size_param(3)] #[opt] pEnumValues: *mut u8, cbEnumValues: u32, pcbEnumValues: *mut u32, pnEnumValues: *mut u32) -> u32;
+        extern fn EnumPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, #[size_param(3)] #[out] #[opt] pEnumValues: LPBYTE, cbEnumValues: u32, #[out] pcbEnumValues: LPDWORD, #[out] pnEnumValues: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataW(hPrinter: HANDLE, dwIndex: u32, #[size_param(3)] #[out] pValueName: PWSTR, cbValueName: u32, pcbValueName: *mut u32, #[opt] pType: *mut u32, #[len_param(7)] #[opt] pData: *mut u8, cbData: u32, #[opt] pcbData: *mut u32) -> u32;
+        extern fn EnumPrinterDataW(hPrinter: HANDLE, dwIndex: u32, #[size_param(3)] #[out] pValueName: PWSTR, cbValueName: u32, #[out] pcbValueName: LPDWORD, #[out] #[opt] pType: LPDWORD, #[len_param(7)] #[out] #[opt] pData: LPBYTE, cbData: u32, #[out] #[opt] pcbData: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDriversA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[opt] pDriverInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrinterDriversA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDriversW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[opt] pDriverInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrinterDriversW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterKeyA(hPrinter: HANDLE, pKeyName: PCSTR, #[size_param(3)] #[out] #[opt] pSubkey: PSTR, cbSubkey: u32, pcbSubkey: *mut u32) -> u32;
+        extern fn EnumPrinterKeyA(hPrinter: HANDLE, pKeyName: PCSTR, #[size_param(3)] #[out] #[opt] pSubkey: PSTR, cbSubkey: u32, #[out] pcbSubkey: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterKeyW(hPrinter: HANDLE, pKeyName: PCWSTR, #[size_param(3)] #[out] #[opt] pSubkey: PWSTR, cbSubkey: u32, pcbSubkey: *mut u32) -> u32;
+        extern fn EnumPrinterKeyW(hPrinter: HANDLE, pKeyName: PCWSTR, #[size_param(3)] #[out] #[opt] pSubkey: PWSTR, cbSubkey: u32, #[out] pcbSubkey: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintersA(Flags: u32, #[opt] Name: PCSTR, Level: u32, #[size_param(4)] #[opt] pPrinterEnum: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrintersA(Flags: u32, #[opt] Name: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrinterEnum: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintersW(Flags: u32, #[opt] Name: PCWSTR, Level: u32, #[size_param(4)] #[opt] pPrinterEnum: *mut u8, cbBuf: u32, pcbNeeded: *mut u32, pcReturned: *mut u32) -> BOOL;
+        extern fn EnumPrintersW(Flags: u32, #[opt] Name: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrinterEnum: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern "C" fn ExtDeviceMode(#[opt] hWnd: HWND, #[opt] hInst: HANDLE, #[in] #[out] #[opt] pDevModeOutput: *mut DEVMODEA, #[opt] pDeviceName: PCSTR, #[opt] pPort: PCSTR, #[opt] pDevModeInput: *const DEVMODEA, #[opt] pProfile: PCSTR, fMode: u32) -> i32;
+        extern "C" fn ExtDeviceMode(#[opt] hWnd: HWND, #[opt] hInst: HANDLE, #[in] #[out] #[opt] pDevModeOutput: LPDEVMODEA, #[opt] pDeviceName: PCSTR, #[opt] pPort: PCSTR, #[opt] pDevModeInput: LPDEVMODEA, #[opt] pProfile: PCSTR, fMode: u32) -> i32;
         const FORM_BUILTIN: i32 = 1;
         type FORM_INFO_1 = FORM_INFO_1A;
         struct FORM_INFO_1A {
@@ -611,71 +611,71 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn FindClosePrinterChangeNotification(hChange: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn FindFirstPrinterChangeNotification(hPrinter: HANDLE, fdwFilter: u32, fdwOptions: u32, #[opt] pPrinterNotifyOptions: *const void) -> HANDLE;
+        extern fn FindFirstPrinterChangeNotification(hPrinter: HANDLE, fdwFilter: u32, fdwOptions: u32, #[in] #[opt] pPrinterNotifyOptions: *mut void) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn FindNextPrinterChangeNotification(hChange: HANDLE, #[opt] pdwChange: *mut u32, #[opt] pvReserved: *const void, #[opt] ppPrinterNotifyInfo: *mut *mut void) -> BOOL;
+        extern fn FindNextPrinterChangeNotification(hChange: HANDLE, #[out] #[opt] pdwChange: PDWORD, #[in] #[opt] pvReserved: *mut void, #[opt] ppPrinterNotifyInfo: *mut *mut void) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn FlushPrinter(hPrinter: HANDLE, #[size_param(2)] #[opt] pBuf: *const void, cbBuf: u32, pcWritten: *mut u32, cSleep: u32) -> BOOL;
+        extern fn FlushPrinter(hPrinter: HANDLE, #[size_param(2)] #[in] #[opt] pBuf: *mut void, cbBuf: u32, #[out] pcWritten: LPDWORD, cSleep: u32) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn FreePrintNamedPropertyArray(cProperties: u32, #[in] #[out] #[opt] ppProperties: *mut *mut PrintNamedProperty);
         #[library("WINSPOOL.DRV")]
         extern fn FreePrintPropertyValue(#[in] #[out] pValue: *mut PrintPropertyValue);
         #[library("WINSPOOL.DRV")]
-        extern fn FreePrinterNotifyInfo(pPrinterNotifyInfo: *const PRINTER_NOTIFY_INFO) -> BOOL;
+        extern fn FreePrinterNotifyInfo(pPrinterNotifyInfo: PPRINTER_NOTIFY_INFO) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetCorePrinterDriversA(#[opt] pszServer: PCSTR, #[opt] pszEnvironment: PCSTR, pszzCoreDriverDependencies: PCSTR, cCorePrinterDrivers: u32, #[len_param(3)] pCorePrinterDrivers: *mut CORE_PRINTER_DRIVERA) -> HRESULT;
+        extern fn GetCorePrinterDriversA(#[opt] pszServer: PCSTR, #[opt] pszEnvironment: PCSTR, pszzCoreDriverDependencies: PCSTR, cCorePrinterDrivers: u32, #[len_param(3)] #[out] pCorePrinterDrivers: PCORE_PRINTER_DRIVERA) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetCorePrinterDriversW(#[opt] pszServer: PCWSTR, #[opt] pszEnvironment: PCWSTR, pszzCoreDriverDependencies: PCWSTR, cCorePrinterDrivers: u32, #[len_param(3)] pCorePrinterDrivers: *mut CORE_PRINTER_DRIVERW) -> HRESULT;
+        extern fn GetCorePrinterDriversW(#[opt] pszServer: PCWSTR, #[opt] pszEnvironment: PCWSTR, pszzCoreDriverDependencies: PCWSTR, cCorePrinterDrivers: u32, #[len_param(3)] #[out] pCorePrinterDrivers: PCORE_PRINTER_DRIVERW) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetDefaultPrinterA(#[len_param(1)] #[out] #[opt] pszBuffer: PSTR, #[in] #[out] pcchBuffer: *mut u32) -> BOOL;
+        extern fn GetDefaultPrinterA(#[len_param(1)] #[out] #[opt] pszBuffer: PSTR, #[in] #[out] pcchBuffer: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetDefaultPrinterW(#[len_param(1)] #[out] #[opt] pszBuffer: PWSTR, #[in] #[out] pcchBuffer: *mut u32) -> BOOL;
+        extern fn GetDefaultPrinterW(#[len_param(1)] #[out] #[opt] pszBuffer: PWSTR, #[in] #[out] pcchBuffer: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetFormA(hPrinter: HANDLE, pFormName: PCSTR, Level: u32, #[size_param(4)] #[opt] pForm: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetFormA(hPrinter: HANDLE, pFormName: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetFormW(hPrinter: HANDLE, pFormName: PCWSTR, Level: u32, #[size_param(4)] #[opt] pForm: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetFormW(hPrinter: HANDLE, pFormName: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetJobA(hPrinter: HANDLE, JobId: u32, Level: u32, #[size_param(4)] #[opt] pJob: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetJobA(hPrinter: HANDLE, JobId: u32, Level: u32, #[size_param(4)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn GetJobNamedPropertyValue(hPrinter: HANDLE, JobId: u32, pszName: PCWSTR, pValue: *mut PrintPropertyValue) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn GetJobW(hPrinter: HANDLE, JobId: u32, Level: u32, #[size_param(4)] #[opt] pJob: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetJobW(hPrinter: HANDLE, JobId: u32, Level: u32, #[size_param(4)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn GetPrintExecutionData(pData: *mut PRINT_EXECUTION_DATA) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn GetPrintOutputInfo(hWnd: HWND, pszPrinter: PCWSTR, phFile: *mut HANDLE, ppszOutputFile: *mut PWSTR) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrintProcessorDirectoryA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[opt] pPrintProcessorInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrintProcessorDirectoryA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrintProcessorDirectoryW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[opt] pPrintProcessorInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrintProcessorDirectoryW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[opt] pPrinter: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pPrinter: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataA(hPrinter: HANDLE, pValueName: PCSTR, #[opt] pType: *mut u32, #[size_param(4)] #[opt] pData: *mut u8, nSize: u32, pcbNeeded: *mut u32) -> u32;
+        extern fn GetPrinterDataA(hPrinter: HANDLE, pValueName: PCSTR, #[out] #[opt] pType: LPDWORD, #[size_param(4)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, pValueName: PCSTR, #[opt] pType: *mut u32, #[size_param(5)] #[opt] pData: *mut u8, nSize: u32, pcbNeeded: *mut u32) -> u32;
+        extern fn GetPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, pValueName: PCSTR, #[out] #[opt] pType: LPDWORD, #[size_param(5)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, pValueName: PCWSTR, #[opt] pType: *mut u32, #[size_param(5)] #[opt] pData: *mut u8, nSize: u32, pcbNeeded: *mut u32) -> u32;
+        extern fn GetPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, pValueName: PCWSTR, #[out] #[opt] pType: LPDWORD, #[size_param(5)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataW(hPrinter: HANDLE, pValueName: PCWSTR, #[opt] pType: *mut u32, #[size_param(4)] #[opt] pData: *mut u8, nSize: u32, pcbNeeded: *mut u32) -> u32;
+        extern fn GetPrinterDataW(hPrinter: HANDLE, pValueName: PCWSTR, #[out] #[opt] pType: LPDWORD, #[size_param(4)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriver2A(#[opt] hWnd: HWND, hPrinter: HANDLE, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(5)] #[opt] pDriverInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterDriver2A(#[opt] hWnd: HWND, hPrinter: HANDLE, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(5)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriver2W(#[opt] hWnd: HWND, hPrinter: HANDLE, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(5)] #[opt] pDriverInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterDriver2W(#[opt] hWnd: HWND, hPrinter: HANDLE, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(5)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverA(hPrinter: HANDLE, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[opt] pDriverInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterDriverA(hPrinter: HANDLE, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverDirectoryA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[opt] pDriverDirectory: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterDriverDirectoryA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverDirectory: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverDirectoryW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[opt] pDriverDirectory: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterDriverDirectoryW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverDirectory: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverPackagePathA(#[opt] pszServer: PCSTR, #[opt] pszEnvironment: PCSTR, #[opt] pszLanguage: PCSTR, pszPackageID: PCSTR, #[len_param(5)] #[in] #[out] #[opt] pszDriverPackageCab: PSTR, #[opt] cchDriverPackageCab: u32, pcchRequiredSize: *mut u32) -> HRESULT;
+        extern fn GetPrinterDriverPackagePathA(#[opt] pszServer: PCSTR, #[opt] pszEnvironment: PCSTR, #[opt] pszLanguage: PCSTR, pszPackageID: PCSTR, #[len_param(5)] #[in] #[out] #[opt] pszDriverPackageCab: PSTR, #[opt] cchDriverPackageCab: u32, #[out] pcchRequiredSize: LPDWORD) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverPackagePathW(#[opt] pszServer: PCWSTR, #[opt] pszEnvironment: PCWSTR, #[opt] pszLanguage: PCWSTR, pszPackageID: PCWSTR, #[len_param(5)] #[in] #[out] #[opt] pszDriverPackageCab: PWSTR, #[opt] cchDriverPackageCab: u32, pcchRequiredSize: *mut u32) -> HRESULT;
+        extern fn GetPrinterDriverPackagePathW(#[opt] pszServer: PCWSTR, #[opt] pszEnvironment: PCWSTR, #[opt] pszLanguage: PCWSTR, pszPackageID: PCWSTR, #[len_param(5)] #[in] #[out] #[opt] pszDriverPackageCab: PWSTR, #[opt] cchDriverPackageCab: u32, #[out] pcchRequiredSize: LPDWORD) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverW(hPrinter: HANDLE, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[opt] pDriverInfo: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterDriverW(hPrinter: HANDLE, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[opt] pPrinter: *mut u8, cbBuf: u32, pcbNeeded: *mut u32) -> BOOL;
+        extern fn GetPrinterW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pPrinter: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn GetSpoolFileHandle(hPrinter: HANDLE) -> HANDLE;
         const IPDFP_COPY_ALL_FILES: i32 = 1;
@@ -684,9 +684,9 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn InstallPrinterDriverFromPackageW(#[opt] pszServer: PCWSTR, #[opt] pszInfPath: PCWSTR, pszDriverName: PCWSTR, #[opt] pszEnvironment: PCWSTR, dwFlags: u32) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn IsValidDevmodeA(#[opt] pDevmode: *const DEVMODEA, DevmodeSize: usize) -> BOOL;
+        extern fn IsValidDevmodeA(#[opt] pDevmode: PDEVMODEA, DevmodeSize: usize) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn IsValidDevmodeW(#[opt] pDevmode: *const DEVMODEW, DevmodeSize: usize) -> BOOL;
+        extern fn IsValidDevmodeW(#[opt] pDevmode: PDEVMODEW, DevmodeSize: usize) -> BOOL;
         const JOB_ACCESS_ADMINISTER: i32 = 16;
         const JOB_ACCESS_READ: i32 = 32;
         const JOB_ALL_ACCESS: i32 = 983088;
@@ -1029,13 +1029,13 @@ mod Windows {
         const NORMAL_PRINT: i32 = 0;
         const NO_PRIORITY: i32 = 0;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinter2A(#[opt] pPrinterName: PCSTR, phPrinter: *mut HANDLE, #[opt] pDefault: *const PRINTER_DEFAULTSA, #[opt] pOptions: *const PRINTER_OPTIONSA) -> BOOL;
+        extern fn OpenPrinter2A(#[opt] pPrinterName: PCSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: PPRINTER_DEFAULTSA, #[opt] pOptions: PPRINTER_OPTIONSA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinter2W(#[opt] pPrinterName: PCWSTR, phPrinter: *mut HANDLE, #[opt] pDefault: *const PRINTER_DEFAULTSW, #[opt] pOptions: *const PRINTER_OPTIONSW) -> BOOL;
+        extern fn OpenPrinter2W(#[opt] pPrinterName: PCWSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: PPRINTER_DEFAULTSW, #[opt] pOptions: PPRINTER_OPTIONSW) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinterA(#[opt] pPrinterName: PCSTR, phPrinter: *mut HANDLE, #[opt] pDefault: *const PRINTER_DEFAULTSA) -> BOOL;
+        extern fn OpenPrinterA(#[opt] pPrinterName: PCSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinterW(#[opt] pPrinterName: PCWSTR, phPrinter: *mut HANDLE, #[opt] pDefault: *const PRINTER_DEFAULTSW) -> BOOL;
+        extern fn OpenPrinterW(#[opt] pPrinterName: PCWSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSW) -> BOOL;
         type PADDJOB_INFO_1 = PADDJOB_INFO_1A;
         type PADDJOB_INFO_1A = *mut ADDJOB_INFO_1A;
         type PADDJOB_INFO_1W = *mut ADDJOB_INFO_1W;
@@ -1672,13 +1672,13 @@ mod Windows {
         extern fn PrinterProperties(hWnd: HWND, hPrinter: HANDLE) -> BOOL;
         const REVERSE_PRINT: i32 = 1;
         #[library("WINSPOOL.DRV")]
-        extern fn ReadPrinter(hPrinter: HANDLE, #[size_param(2)] pBuf: *mut void, cbBuf: u32, pNoBytesRead: *mut u32) -> BOOL;
+        extern fn ReadPrinter(hPrinter: HANDLE, #[size_param(2)] pBuf: *mut void, cbBuf: u32, #[out] pNoBytesRead: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn ReportJobProcessingProgress(printerHandle: HANDLE, jobId: u32, jobOperation: EPrintXPSJobOperation, jobProgress: EPrintXPSJobProgress) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn ResetPrinterA(hPrinter: HANDLE, #[opt] pDefault: *const PRINTER_DEFAULTSA) -> BOOL;
+        extern fn ResetPrinterA(hPrinter: HANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn ResetPrinterW(hPrinter: HANDLE, #[opt] pDefault: *const PRINTER_DEFAULTSW) -> BOOL;
+        extern fn ResetPrinterW(hPrinter: HANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSW) -> BOOL;
         const SERVER_ACCESS_ADMINISTER: i32 = 1;
         const SERVER_ACCESS_ENUMERATE: i32 = 2;
         const SERVER_ALL_ACCESS: i32 = 983043;
@@ -1687,7 +1687,7 @@ mod Windows {
         const SERVER_NOTIFY_TYPE: i32 = 2;
         const SERVER_READ: i32 = 131074;
         const SERVER_WRITE: i32 = 131075;
-        const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS_SEPARATOR: u32 = 92;
+        const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS_SEPARATOR: u16 = 92;
         const SPOOL_FILE_PERSISTENT: i32 = 1;
         const SPOOL_FILE_TEMPORARY: i32 = 2;
         const STRING_LANGPAIR: i32 = 4;
@@ -1700,49 +1700,49 @@ mod Windows {
         #[library("WINSPOOL.DRV")]
         extern fn SetDefaultPrinterW(#[opt] pszPrinter: PCWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetFormA(hPrinter: HANDLE, pFormName: PCSTR, Level: u32, pForm: *mut u8) -> BOOL;
+        extern fn SetFormA(hPrinter: HANDLE, pFormName: PCSTR, Level: u32, pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetFormW(hPrinter: HANDLE, pFormName: PCWSTR, Level: u32, pForm: *mut u8) -> BOOL;
+        extern fn SetFormW(hPrinter: HANDLE, pFormName: PCWSTR, Level: u32, pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetJobA(hPrinter: HANDLE, JobId: u32, Level: u32, pJob: *mut u8, Command: u32) -> BOOL;
+        extern fn SetJobA(hPrinter: HANDLE, JobId: u32, Level: u32, pJob: LPBYTE, Command: u32) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn SetJobNamedProperty(hPrinter: HANDLE, JobId: u32, pProperty: *const PrintNamedProperty) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn SetJobW(hPrinter: HANDLE, JobId: u32, Level: u32, pJob: *mut u8, Command: u32) -> BOOL;
+        extern fn SetJobW(hPrinter: HANDLE, JobId: u32, Level: u32, pJob: LPBYTE, Command: u32) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPortA(#[opt] pName: PCSTR, pPortName: PCSTR, dwLevel: u32, pPortInfo: *const u8) -> BOOL;
+        extern fn SetPortA(#[opt] pName: PCSTR, pPortName: PCSTR, dwLevel: u32, pPortInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPortW(#[opt] pName: PCWSTR, pPortName: PCWSTR, dwLevel: u32, pPortInfo: *const u8) -> BOOL;
+        extern fn SetPortW(#[opt] pName: PCWSTR, pPortName: PCWSTR, dwLevel: u32, pPortInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterA(hPrinter: HANDLE, Level: u32, pPrinter: *mut u8, Command: u32) -> BOOL;
+        extern fn SetPrinterA(hPrinter: HANDLE, Level: u32, pPrinter: LPBYTE, Command: u32) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataA(hPrinter: HANDLE, pValueName: PCSTR, Type: u32, #[size_param(4)] pData: *const u8, cbData: u32) -> u32;
+        extern fn SetPrinterDataA(hPrinter: HANDLE, pValueName: PCSTR, Type: u32, #[size_param(4)] pData: LPBYTE, cbData: u32) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, pValueName: PCSTR, Type: u32, #[size_param(5)] pData: *const u8, cbData: u32) -> u32;
+        extern fn SetPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, pValueName: PCSTR, Type: u32, #[size_param(5)] pData: LPBYTE, cbData: u32) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, pValueName: PCWSTR, Type: u32, #[size_param(5)] pData: *const u8, cbData: u32) -> u32;
+        extern fn SetPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, pValueName: PCWSTR, Type: u32, #[size_param(5)] pData: LPBYTE, cbData: u32) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataW(hPrinter: HANDLE, pValueName: PCWSTR, Type: u32, #[size_param(4)] pData: *const u8, cbData: u32) -> u32;
+        extern fn SetPrinterDataW(hPrinter: HANDLE, pValueName: PCWSTR, Type: u32, #[size_param(4)] pData: LPBYTE, cbData: u32) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterW(hPrinter: HANDLE, Level: u32, pPrinter: *mut u8, Command: u32) -> BOOL;
+        extern fn SetPrinterW(hPrinter: HANDLE, Level: u32, pPrinter: LPBYTE, Command: u32) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn StartDocPrinterA(hPrinter: HANDLE, Level: u32, pDocInfo: *mut u8) -> u32;
+        extern fn StartDocPrinterA(hPrinter: HANDLE, Level: u32, pDocInfo: LPBYTE) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn StartDocPrinterW(hPrinter: HANDLE, Level: u32, pDocInfo: *mut u8) -> u32;
+        extern fn StartDocPrinterW(hPrinter: HANDLE, Level: u32, pDocInfo: LPBYTE) -> u32;
         #[library("WINSPOOL.DRV")]
         extern fn StartPagePrinter(hPrinter: HANDLE) -> BOOL;
         const UPDP_CHECK_DRIVERSTORE: i32 = 4;
         const UPDP_SILENT_UPLOAD: i32 = 1;
         const UPDP_UPLOAD_ALWAYS: i32 = 2;
         #[library("WINSPOOL.DRV")]
-        extern fn UploadPrinterDriverPackageA(#[opt] pszServer: PCSTR, pszInfPath: PCSTR, #[opt] pszEnvironment: PCSTR, dwFlags: u32, hwnd: HWND, #[len_param(6)] #[out] pszDestInfPath: PSTR, #[in] #[out] pcchDestInfPath: *mut u32) -> HRESULT;
+        extern fn UploadPrinterDriverPackageA(#[opt] pszServer: PCSTR, pszInfPath: PCSTR, #[opt] pszEnvironment: PCSTR, dwFlags: u32, hwnd: HWND, #[len_param(6)] #[out] pszDestInfPath: PSTR, #[in] #[out] pcchDestInfPath: PULONG) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn UploadPrinterDriverPackageW(#[opt] pszServer: PCWSTR, pszInfPath: PCWSTR, #[opt] pszEnvironment: PCWSTR, dwFlags: u32, hwnd: HWND, #[len_param(6)] #[out] pszDestInfPath: PWSTR, #[in] #[out] pcchDestInfPath: *mut u32) -> HRESULT;
+        extern fn UploadPrinterDriverPackageW(#[opt] pszServer: PCWSTR, pszInfPath: PCWSTR, #[opt] pszEnvironment: PCWSTR, dwFlags: u32, hwnd: HWND, #[len_param(6)] #[out] pszDestInfPath: PWSTR, #[in] #[out] pcchDestInfPath: PULONG) -> HRESULT;
         #[library("WINSPOOL.DRV")]
         extern fn WaitForPrinterChange(hPrinter: HANDLE, Flags: u32) -> u32;
         #[library("WINSPOOL.DRV")]
-        extern fn WritePrinter(hPrinter: HANDLE, #[size_param(2)] pBuf: *const void, cbBuf: u32, pcWritten: *mut u32) -> BOOL;
+        extern fn WritePrinter(hPrinter: HANDLE, #[size_param(2)] #[in] pBuf: *mut void, cbBuf: u32, #[out] pcWritten: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn XcvDataW(hXcv: HANDLE, pszDataName: PCWSTR, #[size_param(3)] #[opt] pInputData: *const u8, cbInputData: u32, #[size_param(5)] #[opt] pOutputData: *mut u8, cbOutputData: u32, pcbOutputNeeded: *mut u32, #[opt] pdwStatus: *mut u32) -> BOOL;
+        extern fn XcvDataW(hXcv: HANDLE, pszDataName: PCWSTR, #[size_param(3)] #[opt] pInputData: PBYTE, cbInputData: u32, #[size_param(5)] #[out] #[opt] pOutputData: PBYTE, cbOutputData: u32, #[out] pcbOutputNeeded: PDWORD, #[out] #[opt] pdwStatus: PDWORD) -> BOOL;
     }
 }

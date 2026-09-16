@@ -45,8 +45,8 @@ mod Windows {
             PresentCount: u32,
             PresentRefreshCount: u32,
             SyncRefreshCount: u32,
-            SyncQPCTime: i64,
-            SyncGPUTime: i64,
+            SyncQPCTime: LARGE_INTEGER,
+            SyncGPUTime: LARGE_INTEGER,
         }
         struct DXGI_MAPPED_RECT {
             Pitch: i32,
@@ -142,7 +142,7 @@ mod Windows {
         interface IDXGIAdapter: IDXGIObject {
             fn EnumOutputs(&self, Output: u32, #[in] #[out] ppOutput: *mut IDXGIOutput) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut DXGI_ADAPTER_DESC) -> HRESULT;
-            fn CheckInterfaceSupport(&self, InterfaceName: *const GUID, pUMDVersion: *mut i64) -> HRESULT;
+            fn CheckInterfaceSupport(&self, InterfaceName: *const GUID, pUMDVersion: *mut LARGE_INTEGER) -> HRESULT;
         }
         #[guid(0x29038f61_3839_4626_91fd_086879011a05)]
         interface IDXGIAdapter1: IDXGIAdapter {
@@ -154,7 +154,7 @@ mod Windows {
             fn CreateSurface(&self, pDesc: *const DXGI_SURFACE_DESC, NumSurfaces: u32, Usage: DXGI_USAGE, #[opt] pSharedResource: *const DXGI_SHARED_RESOURCE, #[len_param(1)] ppSurface: *mut IDXGISurface) -> HRESULT;
             fn QueryResourceResidency(&self, #[len_param(2)] ppResources: *const IUnknown, #[len_param(2)] pResidencyStatus: *mut DXGI_RESIDENCY, NumResources: u32) -> HRESULT;
             fn SetGPUThreadPriority(&self, Priority: i32) -> HRESULT;
-            fn GetGPUThreadPriority(&self, pPriority: *mut i32) -> HRESULT;
+            fn GetGPUThreadPriority(&self, #[retval] pPriority: *mut i32) -> HRESULT;
         }
         #[guid(0x77db970f_6276_48ba_ba28_070143b4392c)]
         interface IDXGIDevice1: IDXGIDevice {
@@ -170,7 +170,7 @@ mod Windows {
             fn EnumAdapters(&self, Adapter: u32, ppAdapter: *mut IDXGIAdapter) -> HRESULT;
             fn MakeWindowAssociation(&self, WindowHandle: HWND, Flags: u32) -> HRESULT;
             fn GetWindowAssociation(&self, pWindowHandle: *mut HWND) -> HRESULT;
-            fn CreateSwapChain(&self, pDevice: IUnknown, pDesc: *const DXGI_SWAP_CHAIN_DESC, ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
+            fn CreateSwapChain(&self, pDevice: IUnknown, #[in] pDesc: *mut DXGI_SWAP_CHAIN_DESC, ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
             fn CreateSoftwareAdapter(&self, Module: HMODULE, ppAdapter: *mut IDXGIAdapter) -> HRESULT;
         }
         #[guid(0x770aae78_f26f_4dba_a829_253c83d1b387)]
@@ -210,7 +210,7 @@ mod Windows {
             fn GetSharedHandle(&self, pSharedHandle: *mut HANDLE) -> HRESULT;
             fn GetUsage(&self, pUsage: *mut DXGI_USAGE) -> HRESULT;
             fn SetEvictionPriority(&self, EvictionPriority: u32) -> HRESULT;
-            fn GetEvictionPriority(&self, pEvictionPriority: *mut u32) -> HRESULT;
+            fn GetEvictionPriority(&self, #[retval] pEvictionPriority: *mut u32) -> HRESULT;
         }
         #[guid(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec)]
         interface IDXGISurface: IDXGIDeviceSubObject {
@@ -221,7 +221,7 @@ mod Windows {
         #[guid(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86)]
         interface IDXGISurface1: IDXGISurface {
             fn GetDC(&self, Discard: BOOL, phdc: *mut HDC) -> HRESULT;
-            fn ReleaseDC(&self, #[opt] pDirtyRect: *const RECT) -> HRESULT;
+            fn ReleaseDC(&self, #[in] #[opt] pDirtyRect: *mut RECT) -> HRESULT;
         }
         #[guid(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a)]
         interface IDXGISwapChain: IDXGIDeviceSubObject {

@@ -11,16 +11,8 @@ mod Windows {
         const BMREQUEST_TO_OTHER: i32 = 3;
         const BMREQUEST_VENDOR: i32 = 2;
         union BM_REQUEST_TYPE {
-            s: BM_REQUEST_TYPE_0,
+            s: _BM,
             B: u8,
-        }
-        struct BM_REQUEST_TYPE_0 {
-            _bitfield: u8 {
-                Recipient: 2,
-                Reserved: 3,
-                Type: 2,
-                Dir: 1,
-            },
         }
         #[packed(1)]
         struct EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
@@ -237,25 +229,9 @@ mod Windows {
         struct USB_DEFAULT_PIPE_SETUP_PACKET {
             bmRequestType: BM_REQUEST_TYPE,
             bRequest: u8,
-            wValue: USB_DEFAULT_PIPE_SETUP_PACKET_0,
-            wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_1,
+            wValue: _wValue,
+            wIndex: _wIndex,
             wLength: u16,
-        }
-        #[packed(1)]
-        union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-            Anonymous: struct {
-                LowByte: u8,
-                HiByte: u8,
-            },
-            W: u16,
-        }
-        #[packed(1)]
-        union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-            Anonymous: struct {
-                LowByte: u8,
-                HiByte: u8,
-            },
-            W: u16,
         }
         const USB_DEVICE_CAPABILITY_BATTERY_INFO: i32 = 7;
         const USB_DEVICE_CAPABILITY_BILLBOARD: i32 = 13;
@@ -657,14 +633,6 @@ mod Windows {
         union USB_HIGH_SPEED_MAXPACKET {
             us: u16,
         }
-        #[packed(1)]
-        struct USB_HIGH_SPEED_MAXPACKET_0 {
-            _bitfield: u16 {
-                MaxPacket: 11,
-                HSmux: 2,
-                Reserved: 3,
-            },
-        }
         union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
             AsUchar8: u8,
             Anonymous: struct {
@@ -891,5 +859,29 @@ mod Windows {
         const USB_SUPPORT_D2_COMMAND: i32 = 4;
         const USB_SUPPORT_D2_WAKEUP: i32 = 32;
         const USB_SUPPORT_D3_COMMAND: i32 = 8;
+        struct _BM {
+            _bitfield: u8 {
+                Recipient: 2,
+                Reserved: 3,
+                Type: 2,
+                Dir: 1,
+            },
+        }
+        #[packed(1)]
+        union _wIndex {
+            Anonymous: struct {
+                LowByte: u8,
+                HiByte: u8,
+            },
+            W: u16,
+        }
+        #[packed(1)]
+        union _wValue {
+            Anonymous: struct {
+                LowByte: u8,
+                HiByte: u8,
+            },
+            W: u16,
+        }
     }
 }

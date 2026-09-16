@@ -66,7 +66,7 @@ mod Windows {
         }
         extern fn TCI_DEL_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
         extern fn TCI_MOD_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
-        extern fn TCI_NOTIFY_HANDLER(ClRegCtx: HANDLE, ClIfcCtx: HANDLE, Event: u32, SubCode: HANDLE, BufSize: u32, #[size_param(4)] Buffer: *const void);
+        extern fn TCI_NOTIFY_HANDLER(ClRegCtx: HANDLE, ClIfcCtx: HANDLE, Event: u32, SubCode: HANDLE, BufSize: u32, #[size_param(4)] #[in] Buffer: *mut void);
         struct TC_GEN_FILTER {
             AddressType: u16,
             PatternSize: u32,
@@ -98,9 +98,9 @@ mod Windows {
             AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
         }
         #[library("TRAFFIC.dll")]
-        extern fn TcAddFilter(FlowHandle: HANDLE, pGenericFilter: *const TC_GEN_FILTER, pFilterHandle: *mut HANDLE) -> u32;
+        extern fn TcAddFilter(FlowHandle: HANDLE, pGenericFilter: PTC_GEN_FILTER, #[out] pFilterHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcAddFlow(IfcHandle: HANDLE, ClFlowCtx: HANDLE, Flags: u32, pGenericFlow: *const TC_GEN_FLOW, pFlowHandle: *mut HANDLE) -> u32;
+        extern fn TcAddFlow(IfcHandle: HANDLE, ClFlowCtx: HANDLE, Flags: u32, pGenericFlow: PTC_GEN_FLOW, #[out] pFlowHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
         extern fn TcCloseInterface(IfcHandle: HANDLE) -> u32;
         #[library("TRAFFIC.dll")]
@@ -110,32 +110,32 @@ mod Windows {
         #[library("TRAFFIC.dll")]
         extern fn TcDeregisterClient(ClientHandle: HANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcEnumerateFlows(IfcHandle: HANDLE, #[in] #[out] pEnumHandle: *mut HANDLE, #[in] #[out] pFlowCount: *mut u32, #[in] #[out] pBufSize: *mut u32, Buffer: *mut ENUMERATION_BUFFER) -> u32;
+        extern fn TcEnumerateFlows(IfcHandle: HANDLE, #[in] #[out] pEnumHandle: PHANDLE, #[in] #[out] pFlowCount: PULONG, #[in] #[out] pBufSize: PULONG, #[out] Buffer: PENUMERATION_BUFFER) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcEnumerateInterfaces(ClientHandle: HANDLE, #[in] #[out] pBufferSize: *mut u32, InterfaceBuffer: *mut TC_IFC_DESCRIPTOR) -> u32;
+        extern fn TcEnumerateInterfaces(ClientHandle: HANDLE, #[in] #[out] pBufferSize: PULONG, #[out] InterfaceBuffer: PTC_IFC_DESCRIPTOR) -> u32;
         #[library("TRAFFIC.dll")]
         extern fn TcGetFlowNameA(FlowHandle: HANDLE, StrSize: u32, #[len_param(1)] #[out] pFlowName: PSTR) -> u32;
         #[library("TRAFFIC.dll")]
         extern fn TcGetFlowNameW(FlowHandle: HANDLE, StrSize: u32, #[len_param(1)] #[out] pFlowName: PWSTR) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcModifyFlow(FlowHandle: HANDLE, pGenericFlow: *const TC_GEN_FLOW) -> u32;
+        extern fn TcModifyFlow(FlowHandle: HANDLE, pGenericFlow: PTC_GEN_FLOW) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcOpenInterfaceA(pInterfaceName: PCSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, pIfcHandle: *mut HANDLE) -> u32;
+        extern fn TcOpenInterfaceA(pInterfaceName: PCSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, #[out] pIfcHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcOpenInterfaceW(pInterfaceName: PCWSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, pIfcHandle: *mut HANDLE) -> u32;
+        extern fn TcOpenInterfaceW(pInterfaceName: PCWSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, #[out] pIfcHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcQueryFlowA(pFlowName: PCSTR, pGuidParam: *const GUID, #[in] #[out] pBufferSize: *mut u32, #[size_param(2)] Buffer: *mut void) -> u32;
+        extern fn TcQueryFlowA(pFlowName: PCSTR, pGuidParam: LPGUID, #[in] #[out] pBufferSize: PULONG, #[size_param(2)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcQueryFlowW(pFlowName: PCWSTR, pGuidParam: *const GUID, #[in] #[out] pBufferSize: *mut u32, #[size_param(2)] Buffer: *mut void) -> u32;
+        extern fn TcQueryFlowW(pFlowName: PCWSTR, pGuidParam: LPGUID, #[in] #[out] pBufferSize: PULONG, #[size_param(2)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcQueryInterface(IfcHandle: HANDLE, pGuidParam: *const GUID, NotifyChange: bool, #[in] #[out] pBufferSize: *mut u32, #[size_param(3)] Buffer: *mut void) -> u32;
+        extern fn TcQueryInterface(IfcHandle: HANDLE, pGuidParam: LPGUID, NotifyChange: BOOLEAN, #[in] #[out] pBufferSize: PULONG, #[size_param(3)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcRegisterClient(TciVersion: u32, ClRegCtx: HANDLE, ClientHandlerList: *const TCI_CLIENT_FUNC_LIST, pClientHandle: *mut HANDLE) -> u32;
+        extern fn TcRegisterClient(TciVersion: u32, ClRegCtx: HANDLE, ClientHandlerList: PTCI_CLIENT_FUNC_LIST, #[out] pClientHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcSetFlowA(pFlowName: PCSTR, pGuidParam: *const GUID, BufferSize: u32, #[size_param(2)] Buffer: *const void) -> u32;
+        extern fn TcSetFlowA(pFlowName: PCSTR, pGuidParam: LPGUID, BufferSize: u32, #[size_param(2)] #[in] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcSetFlowW(pFlowName: PCWSTR, pGuidParam: *const GUID, BufferSize: u32, #[size_param(2)] Buffer: *const void) -> u32;
+        extern fn TcSetFlowW(pFlowName: PCWSTR, pGuidParam: LPGUID, BufferSize: u32, #[size_param(2)] #[in] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcSetInterface(IfcHandle: HANDLE, pGuidParam: *const GUID, BufferSize: u32, #[size_param(2)] Buffer: *const void) -> u32;
+        extern fn TcSetInterface(IfcHandle: HANDLE, pGuidParam: LPGUID, BufferSize: u32, #[size_param(2)] #[in] Buffer: *mut void) -> u32;
     }
 }

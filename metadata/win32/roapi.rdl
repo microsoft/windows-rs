@@ -1,7 +1,10 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = *mut void;
+        type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE__;
+        struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE__ {
+            unused: i32,
+        }
         extern fn PFNGETACTIVATIONFACTORY(param0: HSTRING, param1: *mut IActivationFactory) -> HRESULT;
         #[repr(i32)]
         enum RO_INIT_TYPE {
@@ -18,16 +21,15 @@ mod Windows {
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         extern fn RoInitialize(initType: RO_INIT_TYPE) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoRegisterActivationFactories(#[len_param(2)] activatableClassIds: *const HSTRING, #[len_param(2)] activationFactoryCallbacks: *const PFNGETACTIVATIONFACTORY, count: u32, cookie: *mut RO_REGISTRATION_COOKIE) -> HRESULT;
+        extern fn RoRegisterActivationFactories(#[len_param(2)] #[in] activatableClassIds: *mut HSTRING, #[len_param(2)] #[in] activationFactoryCallbacks: *mut PFNGETACTIVATIONFACTORY, count: u32, cookie: *mut RO_REGISTRATION_COOKIE) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         extern fn RoRegisterForApartmentShutdown(callbackObject: IApartmentShutdown, apartmentIdentifier: *mut u64, regCookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoRevokeActivationFactories(cookie: *const _RO_REGISTRATION_COOKIE);
+        extern fn RoRevokeActivationFactories(cookie: RO_REGISTRATION_COOKIE);
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         extern fn RoUninitialize();
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         extern fn RoUnregisterForApartmentShutdown(regCookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> HRESULT;
-        #[align(1)]
         struct _RO_REGISTRATION_COOKIE {}
     }
 }

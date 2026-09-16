@@ -60,9 +60,9 @@ mod Windows {
         interface ICertEncodeDateArray: IDispatch {
             fn Decode(&self, strBinary: BSTR) -> HRESULT;
             fn GetCount(&self, #[retval] pCount: *mut i32) -> HRESULT;
-            fn GetValue(&self, Index: i32, #[retval] pValue: *mut f64) -> HRESULT;
+            fn GetValue(&self, Index: i32, #[retval] pValue: *mut DATE) -> HRESULT;
             fn Reset(&self, Count: i32) -> HRESULT;
-            fn SetValue(&self, Index: i32, Value: f64) -> HRESULT;
+            fn SetValue(&self, Index: i32, Value: DATE) -> HRESULT;
             fn Encode(&self, #[retval] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8)]

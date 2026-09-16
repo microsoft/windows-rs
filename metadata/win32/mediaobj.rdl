@@ -65,16 +65,17 @@ mod Windows {
             fn FreeStreamingResources(&self) -> HRESULT;
             fn GetInputStatus(&self, dwInputStreamIndex: u32, dwFlags: *mut u32) -> HRESULT;
             fn ProcessInput(&self, dwInputStreamIndex: u32, pBuffer: IMediaBuffer, dwFlags: u32, rtTimestamp: REFERENCE_TIME, rtTimelength: REFERENCE_TIME) -> HRESULT;
-            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[len_param(1)] pOutputBuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
+            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[len_param(1)] #[in] #[out] pOutputBuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
             fn Lock(&self, bLock: i32) -> HRESULT;
         }
         #[guid(0x651b9ad0_0fc7_4aa9_9538_d89931010741)]
         interface IMediaObjectInPlace: IUnknown {
-            fn Process(&self, ulSize: u32, #[size_param(0)] pData: *mut u8, refTimeStart: REFERENCE_TIME, dwFlags: u32) -> HRESULT;
+            fn Process(&self, ulSize: u32, #[size_param(0)] #[in] #[out] pData: *mut u8, refTimeStart: REFERENCE_TIME, dwFlags: u32) -> HRESULT;
             fn Clone(&self, ppMediaObject: *mut IMediaObjectInPlace) -> HRESULT;
             fn GetLatency(&self, pLatencyTime: *mut REFERENCE_TIME) -> HRESULT;
         }
         type PDMO_OUTPUT_DATA_BUFFER = *mut DMO_OUTPUT_DATA_BUFFER;
+        type REFERENCE_TIME = i64;
         #[repr(i32)]
         enum _DMO_INPLACE_PROCESS_FLAGS {
             DMO_INPLACE_NORMAL = 0,

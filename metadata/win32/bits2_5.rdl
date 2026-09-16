@@ -25,7 +25,7 @@ mod Windows {
         const BackgroundCopyManager2_5: GUID = 0x03ca98d6_ff5d_49b8_abc6_03dd84127020;
         #[guid(0xf1bd1079_9f01_4bdc_8036_f09b70095066)]
         interface IBackgroundCopyJobHttpOptions: IUnknown {
-            fn SetClientCertificateByID(&self, StoreLocation: BG_CERT_STORE_LOCATION, StoreName: PCWSTR, pCertHashBlob: *const byte) -> HRESULT;
+            fn SetClientCertificateByID(&self, StoreLocation: BG_CERT_STORE_LOCATION, StoreName: PCWSTR, #[in] pCertHashBlob: *mut byte) -> HRESULT;
             fn SetClientCertificateByName(&self, StoreLocation: BG_CERT_STORE_LOCATION, StoreName: PCWSTR, SubjectName: PCWSTR) -> HRESULT;
             fn RemoveClientCertificate(&self) -> HRESULT;
             fn GetClientCertificate(&self, pStoreLocation: *mut BG_CERT_STORE_LOCATION, pStoreName: *mut PWSTR, ppCertHashBlob: *mut *mut byte, pSubjectName: *mut PWSTR) -> HRESULT;

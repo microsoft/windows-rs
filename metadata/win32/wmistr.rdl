@@ -144,7 +144,7 @@ mod Windows {
             Anonymous2: union {
                 CountLost: u32,
                 KernelHandle: HANDLE,
-                TimeStamp: i64,
+                TimeStamp: LARGE_INTEGER,
             },
             Guid: GUID,
             ClientContext: u32,

@@ -47,11 +47,15 @@ mod Windows {
         const DWFRF_DELETECONFIGDATA: i32 = 1;
         const DWFRF_NORMAL: i32 = 0;
         #[library("SHDOCVW.dll")]
-        extern fn DoPrivacyDlg(#[opt] hwndOwner: HWND, pszUrl: PCWSTR, pPrivacyEnum: *const IEnumPrivacyRecords, fReportAllSites: BOOL) -> HRESULT;
+        extern fn DoPrivacyDlg(#[opt] hwndOwner: HWND, pszUrl: PCWSTR, #[in] pPrivacyEnum: *mut IEnumPrivacyRecords, fReportAllSites: BOOL) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn DriveType(iDrive: i32) -> i32;
         const FCIDM_STATUS: i32 = 40961;
         const FCIDM_TOOLBAR: i32 = 40960;
         const GADOF_DIRTY: i32 = 1;
         const GETPROPS_NONE: i32 = 0;
+        #[library("SHELL32.dll")]
+        extern fn GetFileNameFromBrowse(#[opt] hwnd: HWND, #[len_param(2)] #[in] #[out] pszFilePath: PWSTR, cchFilePath: u32, #[opt] pszWorkingDir: PCWSTR, pszDefExt: PCWSTR, #[opt] pszFilters: PCWSTR, #[opt] pszTitle: PCWSTR) -> BOOL;
         #[guid(0xb22754e2_4574_11d1_9888_006097deacf9)]
         interface IADesktopP2: IUnknown {
             fn ReReadWallpaper(&self) -> HRESULT;
@@ -75,9 +79,9 @@ mod Windows {
         }
         #[guid(0xe8025004_1c42_11d2_be2c_00a0c9a83da1)]
         interface IColumnProvider: IUnknown {
-            fn Initialize(&self, psci: *const SHCOLUMNINIT) -> HRESULT;
+            fn Initialize(&self, psci: LPCSHCOLUMNINIT) -> HRESULT;
             fn GetColumnInfo(&self, dwIndex: u32, psci: *mut SHCOLUMNINFO) -> HRESULT;
-            fn GetItemData(&self, pscid: *const SHCOLUMNID, pscd: *const SHCOLUMNDATA, pvarData: *mut VARIANT) -> HRESULT;
+            fn GetItemData(&self, pscid: LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA, pvarData: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x000214ef_0000_0000_c000_000000000046)]
         interface ICopyHookA: IUnknown {
@@ -100,17 +104,17 @@ mod Windows {
             fn SetDeskBarSite(&self, #[opt] punkSite: IUnknown) -> HRESULT;
             fn SetModeDBC(&self, dwMode: u32) -> HRESULT;
             fn UIActivateDBC(&self, dwState: u32) -> HRESULT;
-            fn GetSize(&self, dwWhich: u32, prc: *mut RECT) -> HRESULT;
+            fn GetSize(&self, dwWhich: u32, #[out] prc: LPRECT) -> HRESULT;
         }
         #[guid(0x87d605e0_c511_11cf_89a9_00a0c9054129)]
         interface IDocViewSite: IUnknown {
-            fn OnSetTitle(&self, pvTitle: *const VARIANTARG) -> HRESULT;
+            fn OnSetTitle(&self, #[in] pvTitle: *mut VARIANTARG) -> HRESULT;
         }
         #[guid(0x47d2657a_7b27_11d0_8ca9_00a0c92dbfe8)]
         interface IDockingWindowFrame: IOleWindow {
             fn AddToolbar(&self, punkSrc: IUnknown, pwszItem: PCWSTR, dwAddFlags: u32) -> HRESULT;
             fn RemoveToolbar(&self, punkSrc: IUnknown, dwRemoveFlags: u32) -> HRESULT;
-            fn FindToolbar(&self, pwszItem: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn FindToolbar(&self, pwszItem: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
         }
         struct IEnumPrivacyRecords {}
         #[guid(0x4622ad16_ff23_11d0_8d34_00a0c90f2719)]
@@ -154,9 +158,9 @@ mod Windows {
         const ISFB_STATE_QLINKSMODE: i32 = 32;
         #[guid(0x7fe80cc8_c247_11d0_b93a_00a0c90312e1)]
         interface IShellFolderBand: IUnknown {
-            fn InitializeSFB(&self, #[opt] psf: IShellFolder, #[opt] pidl: *const ITEMIDLIST) -> HRESULT;
-            fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> HRESULT;
-            fn GetBandInfoSFB(&self, #[in] #[out] pbi: *mut BANDINFOSFB) -> HRESULT;
+            fn InitializeSFB(&self, #[opt] psf: IShellFolder, #[opt] pidl: LPCITEMIDLIST) -> HRESULT;
+            fn SetBandInfoSFB(&self, pbi: PBANDINFOSFB) -> HRESULT;
+            fn GetBandInfoSFB(&self, #[in] #[out] pbi: PBANDINFOSFB) -> HRESULT;
         }
         #[guid(0x4ea39266_7211_409f_b622_f63dbd16c533)]
         interface IThumbnailCapture: IUnknown {
@@ -253,13 +257,13 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHMultiFileProperties(pdtobj: IDataObject, dwFlags: u32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHOpenPropSheetW(#[opt] pszCaption: PCWSTR, #[len_param(2)] #[opt] ahkeys: *const HKEY, ckeys: u32, #[opt] pclsidDefault: *const GUID, pdtobj: IDataObject, #[opt] psb: IShellBrowser, #[opt] pStartPage: PCWSTR) -> BOOL;
+        extern fn SHOpenPropSheetW(#[opt] pszCaption: PCWSTR, #[len_param(2)] #[in] #[opt] ahkeys: *mut HKEY, ckeys: u32, #[opt] pclsidDefault: *const GUID, pdtobj: IDataObject, #[opt] psb: IShellBrowser, #[opt] pStartPage: PCWSTR) -> BOOL;
         const SSM_CLEAR: i32 = 0;
         const SSM_REFRESH: i32 = 2;
         const SSM_SET: i32 = 1;
         const SSM_UPDATE: i32 = 4;
         #[library("SHDOCVW.dll")]
-        extern fn SoftwareUpdateMessageBox(#[opt] hWnd: HWND, pszDistUnit: PCWSTR, dwFlags: u32, #[opt] psdi: *mut SOFTDISTINFO) -> u32;
+        extern fn SoftwareUpdateMessageBox(#[opt] hWnd: HWND, pszDistUnit: PCWSTR, dwFlags: u32, #[out] #[opt] psdi: LPSOFTDISTINFO) -> u32;
         const TBIF_APPEND: i32 = 0;
         const TBIF_DEFAULT: i32 = 0;
         const TBIF_INTERNETBAR: i32 = 65536;

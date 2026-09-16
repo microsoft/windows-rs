@@ -243,7 +243,7 @@ mod Windows {
             TypeId: u32,
             FieldOffset: u32,
             BufferSize: u32,
-            BitField: FIELD_INFO_1,
+            BitField: _BitField,
             _bitfield: u32 {
                 fPointer: 2,
                 fArray: 1,
@@ -252,10 +252,6 @@ mod Windows {
                 fStatic: 1,
                 Reserved: 26,
             },
-        }
-        struct FIELD_INFO_1 {
-            Position: u16,
-            Size: u16,
         }
         struct GET_CONTEXT_EX {
             Status: u32,
@@ -742,48 +738,42 @@ mod Windows {
         type PWDBGEXTS_THREAD_OS_INFO = *mut WDBGEXTS_THREAD_OS_INFO;
         extern fn PWINDBG_CHECK_CONTROL_C() -> u32;
         extern fn PWINDBG_CHECK_VERSION() -> u32;
-        extern fn PWINDBG_DISASM(#[in] #[out] lpOffset: *mut usize, #[len_const(2000)] #[out] lpBuffer: PSTR, fShowEffectiveAddress: u32) -> u32;
-        extern fn PWINDBG_DISASM32(#[in] #[out] lpOffset: *mut u32, #[len_const(2000)] #[out] lpBuffer: PSTR, fShowEffectiveAddress: u32) -> u32;
-        extern fn PWINDBG_DISASM64(#[in] #[out] lpOffset: *mut u64, #[len_const(2000)] #[out] lpBuffer: PSTR, fShowEffectiveAddress: u32) -> u32;
+        extern fn PWINDBG_DISASM(#[in] #[out] lpOffset: *mut usize, #[len_const(2000)] #[out] lpBuffer: PCSTR, fShowEffectiveAddress: u32) -> u32;
+        extern fn PWINDBG_DISASM32(#[in] #[out] lpOffset: *mut u32, #[len_const(2000)] #[out] lpBuffer: PCSTR, fShowEffectiveAddress: u32) -> u32;
+        extern fn PWINDBG_DISASM64(#[in] #[out] lpOffset: *mut u64, #[len_const(2000)] #[out] lpBuffer: PCSTR, fShowEffectiveAddress: u32) -> u32;
         type PWINDBG_EXTENSION_APIS = *mut WINDBG_EXTENSION_APIS;
         extern fn PWINDBG_EXTENSION_API_VERSION() -> LPEXT_API_VERSION;
-        extern fn PWINDBG_EXTENSION_DLL_INIT(lpExtensionApis: *const WINDBG_EXTENSION_APIS, MajorVersion: u16, MinorVersion: u16);
-        extern fn PWINDBG_EXTENSION_DLL_INIT32(lpExtensionApis: *const WINDBG_EXTENSION_APIS32, MajorVersion: u16, MinorVersion: u16);
-        extern fn PWINDBG_EXTENSION_DLL_INIT64(lpExtensionApis: *const WINDBG_EXTENSION_APIS64, MajorVersion: u16, MinorVersion: u16);
+        extern fn PWINDBG_EXTENSION_DLL_INIT(lpExtensionApis: PWINDBG_EXTENSION_APIS, MajorVersion: u16, MinorVersion: u16);
+        extern fn PWINDBG_EXTENSION_DLL_INIT32(lpExtensionApis: PWINDBG_EXTENSION_APIS32, MajorVersion: u16, MinorVersion: u16);
+        extern fn PWINDBG_EXTENSION_DLL_INIT64(lpExtensionApis: PWINDBG_EXTENSION_APIS64, MajorVersion: u16, MinorVersion: u16);
         extern fn PWINDBG_EXTENSION_ROUTINE(hCurrentProcess: HANDLE, hCurrentThread: HANDLE, dwCurrentPc: u32, dwProcessor: u32, lpArgumentString: PCSTR);
         extern fn PWINDBG_EXTENSION_ROUTINE32(hCurrentProcess: HANDLE, hCurrentThread: HANDLE, dwCurrentPc: u32, dwProcessor: u32, lpArgumentString: PCSTR);
         extern fn PWINDBG_EXTENSION_ROUTINE64(hCurrentProcess: HANDLE, hCurrentThread: HANDLE, dwCurrentPc: u64, dwProcessor: u32, lpArgumentString: PCSTR);
         extern fn PWINDBG_GET_EXPRESSION(lpExpression: PCSTR) -> usize;
         extern fn PWINDBG_GET_EXPRESSION32(lpExpression: PCSTR) -> u32;
         extern fn PWINDBG_GET_EXPRESSION64(lpExpression: PCSTR) -> u64;
-        extern fn PWINDBG_GET_SYMBOL(offset: *const void, #[len_const(256)] pchBuffer: *mut i8, pDisplacement: *mut usize);
-        extern fn PWINDBG_GET_SYMBOL32(offset: u32, #[len_const(256)] pchBuffer: *mut i8, pDisplacement: *mut u32);
-        extern fn PWINDBG_GET_SYMBOL64(offset: u64, #[len_const(256)] pchBuffer: *mut i8, pDisplacement: *mut u64);
-        #[arch(Arm64)]
-        extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *mut ARM64_NT_CONTEXT, cbSizeOfContext: u32) -> u32;
-        #[arch(X86 | X64)]
-        extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *mut CONTEXT, cbSizeOfContext: u32) -> u32;
+        extern fn PWINDBG_GET_SYMBOL(#[in] offset: *mut void, #[len_const(256)] #[out] pchBuffer: PCHAR, pDisplacement: *mut usize);
+        extern fn PWINDBG_GET_SYMBOL32(offset: u32, #[len_const(256)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG);
+        extern fn PWINDBG_GET_SYMBOL64(offset: u64, #[len_const(256)] #[out] pchBuffer: PCHAR, #[out] pDisplacement: PULONG64);
+        extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] #[out] lpContext: PCONTEXT, cbSizeOfContext: u32) -> u32;
         extern fn PWINDBG_IOCTL_ROUTINE(IoctlType: u16, lpvData: *mut void, cbSize: u32) -> u32;
         type PWINDBG_OLDKD_EXTENSION_APIS = *mut WINDBG_OLDKD_EXTENSION_APIS;
-        extern fn PWINDBG_OLDKD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *const WINDBG_OLDKD_EXTENSION_APIS, lpArgumentString: PCSTR);
-        extern fn PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(address: u64, #[size_param(2)] buffer: *mut void, count: u32, bytesread: *mut u32) -> u32;
-        extern fn PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY(address: u64, #[size_param(2)] buffer: *const void, length: u32, byteswritten: *mut u32) -> u32;
+        extern fn PWINDBG_OLDKD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: PWINDBG_OLDKD_EXTENSION_APIS, lpArgumentString: PCSTR);
+        extern fn PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(address: u64, #[size_param(2)] buffer: *mut void, count: u32, #[out] bytesread: PULONG) -> u32;
+        extern fn PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY(address: u64, #[size_param(2)] #[in] buffer: *mut void, length: u32, #[out] byteswritten: PULONG) -> u32;
         type PWINDBG_OLD_EXTENSION_APIS = *mut WINDBG_OLD_EXTENSION_APIS;
-        extern fn PWINDBG_OLD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *const WINDBG_EXTENSION_APIS, lpArgumentString: PCSTR);
-        type PWINDBG_OUTPUT_ROUTINE = *mut u8;
-        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE(offset: usize, #[size_param(2)] lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
-        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(offset: u32, #[size_param(2)] lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
-        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(offset: u64, #[size_param(2)] lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
-        #[arch(Arm64)]
-        extern fn PWINDBG_SET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *const ARM64_NT_CONTEXT, cbSizeOfContext: u32) -> u32;
-        #[arch(X86 | X64)]
-        extern fn PWINDBG_SET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *const CONTEXT, cbSizeOfContext: u32) -> u32;
-        extern fn PWINDBG_STACKTRACE_ROUTINE(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, #[len_param(4)] StackFrames: *mut EXTSTACKTRACE, Frames: u32) -> u32;
-        extern fn PWINDBG_STACKTRACE_ROUTINE32(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, #[len_param(4)] StackFrames: *mut EXTSTACKTRACE32, Frames: u32) -> u32;
-        extern fn PWINDBG_STACKTRACE_ROUTINE64(FramePointer: u64, StackPointer: u64, ProgramCounter: u64, #[len_param(4)] StackFrames: *mut EXTSTACKTRACE64, Frames: u32) -> u32;
-        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE(offset: usize, #[size_param(2)] lpBuffer: *const void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
-        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32(offset: u32, #[size_param(2)] lpBuffer: *const void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
-        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64(offset: u64, #[size_param(2)] lpBuffer: *const void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
+        extern fn PWINDBG_OLD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: PWINDBG_EXTENSION_APIS, lpArgumentString: PCSTR);
+        extern "C" fn PWINDBG_OUTPUT_ROUTINE(lpFormat: PCSTR);
+        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE(offset: usize, #[size_param(2)] lpBuffer: *mut void, cb: u32, #[out] lpcbBytesRead: PULONG) -> u32;
+        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(offset: u32, #[size_param(2)] lpBuffer: *mut void, cb: u32, #[out] lpcbBytesRead: PULONG) -> u32;
+        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(offset: u64, #[size_param(2)] lpBuffer: *mut void, cb: u32, #[out] lpcbBytesRead: PULONG) -> u32;
+        extern fn PWINDBG_SET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: PCONTEXT, cbSizeOfContext: u32) -> u32;
+        extern fn PWINDBG_STACKTRACE_ROUTINE(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, #[len_param(4)] #[out] StackFrames: PEXTSTACKTRACE, Frames: u32) -> u32;
+        extern fn PWINDBG_STACKTRACE_ROUTINE32(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, #[len_param(4)] #[out] StackFrames: PEXTSTACKTRACE32, Frames: u32) -> u32;
+        extern fn PWINDBG_STACKTRACE_ROUTINE64(FramePointer: u64, StackPointer: u64, ProgramCounter: u64, #[len_param(4)] #[out] StackFrames: PEXTSTACKTRACE64, Frames: u32) -> u32;
+        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE(offset: usize, #[size_param(2)] lpBuffer: LPCVOID, cb: u32, #[out] lpcbBytesWritten: PULONG) -> u32;
+        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32(offset: u32, #[size_param(2)] lpBuffer: LPCVOID, cb: u32, #[out] lpcbBytesWritten: PULONG) -> u32;
+        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64(offset: u64, #[size_param(2)] lpBuffer: LPCVOID, cb: u32, #[out] lpcbBytesWritten: PULONG) -> u32;
         struct READCONTROLSPACE {
             Processor: u16,
             Address: u32,
@@ -958,6 +948,10 @@ mod Windows {
             lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
             lpDisasmRoutine: PWINDBG_DISASM,
             lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+        }
+        struct _BitField {
+            Position: u16,
+            Size: u16,
         }
     }
 }

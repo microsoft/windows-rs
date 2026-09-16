@@ -194,17 +194,19 @@ mod Windows {
             nSizeMax: i32,
         }
         #[encoding("ansi")]
+        const COLOROKSTRING: String = "commdlg_ColorOK";
+        #[encoding("ansi")]
         const COLOROKSTRINGA: String = "commdlg_ColorOK";
         #[encoding("utf-16")]
         const COLOROKSTRINGW: String = "commdlg_ColorOK";
         #[library("COMDLG32.dll")]
-        extern fn ChooseColorA(param0: *mut CHOOSECOLORA) -> BOOL;
+        extern fn ChooseColorA(param0: LPCHOOSECOLORA) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn ChooseColorW(param0: *mut CHOOSECOLORW) -> BOOL;
+        extern fn ChooseColorW(param0: LPCHOOSECOLORW) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn ChooseFontA(param0: *mut CHOOSEFONTA) -> BOOL;
+        extern fn ChooseFontA(param0: LPCHOOSEFONTA) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn ChooseFontW(param0: *mut CHOOSEFONTW) -> BOOL;
+        extern fn ChooseFontW(param0: LPCHOOSEFONTW) -> BOOL;
         #[library("COMDLG32.dll")]
         extern fn CommDlgExtendedError() -> u32;
         #[arch(X64 | Arm64)]
@@ -224,9 +226,13 @@ mod Windows {
         }
         const DN_DEFAULTPRN: i32 = 1;
         #[encoding("ansi")]
+        const FILEOKSTRING: String = "commdlg_FileNameOK";
+        #[encoding("ansi")]
         const FILEOKSTRINGA: String = "commdlg_FileNameOK";
         #[encoding("utf-16")]
         const FILEOKSTRINGW: String = "commdlg_FileNameOK";
+        #[encoding("ansi")]
+        const FINDMSGSTRING: String = "commdlg_FindReplace";
         #[encoding("ansi")]
         const FINDMSGSTRINGA: String = "commdlg_FindReplace";
         #[encoding("utf-16")]
@@ -319,21 +325,23 @@ mod Windows {
         const FR_WHOLEWORD: i32 = 2;
         const FR_WRAPAROUND: i32 = 1048576;
         #[library("COMDLG32.dll")]
-        extern fn FindTextA(param0: *mut FINDREPLACEA) -> HWND;
+        extern fn FindTextA(param0: LPFINDREPLACEA) -> HWND;
         #[library("COMDLG32.dll")]
-        extern fn FindTextW(param0: *mut FINDREPLACEW) -> HWND;
+        extern fn FindTextW(param0: LPFINDREPLACEW) -> HWND;
         #[library("COMDLG32.dll")]
         extern fn GetFileTitleA(param0: PCSTR, #[len_param(2)] #[out] Buf: PSTR, cchSize: u16) -> i16;
         #[library("COMDLG32.dll")]
         extern fn GetFileTitleW(param0: PCWSTR, #[len_param(2)] #[out] Buf: PWSTR, cchSize: u16) -> i16;
         #[library("COMDLG32.dll")]
-        extern fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> BOOL;
+        extern fn GetOpenFileNameA(param0: LPOPENFILENAMEA) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> BOOL;
+        extern fn GetOpenFileNameW(param0: LPOPENFILENAMEW) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> BOOL;
+        extern fn GetSaveFileNameA(param0: LPOPENFILENAMEA) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> BOOL;
+        extern fn GetSaveFileNameW(param0: LPOPENFILENAMEW) -> BOOL;
+        #[encoding("ansi")]
+        const HELPMSGSTRING: String = "commdlg_help";
         #[encoding("ansi")]
         const HELPMSGSTRINGA: String = "commdlg_help";
         #[encoding("utf-16")]
@@ -351,6 +359,8 @@ mod Windows {
             fn GetCurrentPortName(&self, #[len_param(1)] #[out] #[opt] pPortName: PWSTR, #[in] #[out] pcchSize: *mut u32) -> HRESULT;
         }
         const ITALIC_FONTTYPE: i32 = 512;
+        #[encoding("ansi")]
+        const LBSELCHSTRING: String = "commdlg_LBSelChangedNotify";
         #[encoding("ansi")]
         const LBSELCHSTRINGA: String = "commdlg_LBSelChangedNotify";
         #[encoding("utf-16")]
@@ -1028,27 +1038,31 @@ mod Windows {
         const PSD_SHOWHELP: i32 = 2048;
         const PS_OPENTYPE_FONTTYPE: i32 = 65536;
         #[library("COMDLG32.dll")]
-        extern fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> BOOL;
+        extern fn PageSetupDlgA(param0: LPPAGESETUPDLGA) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> BOOL;
+        extern fn PageSetupDlgW(param0: LPPAGESETUPDLGW) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn PrintDlgA(#[in] #[out] pPD: *mut PRINTDLGA) -> BOOL;
+        extern fn PrintDlgA(#[in] #[out] pPD: LPPRINTDLGA) -> BOOL;
         #[library("COMDLG32.dll")]
-        extern fn PrintDlgExA(#[in] #[out] pPD: *mut PRINTDLGEXA) -> HRESULT;
+        extern fn PrintDlgExA(#[in] #[out] pPD: LPPRINTDLGEXA) -> HRESULT;
         #[library("COMDLG32.dll")]
-        extern fn PrintDlgExW(#[in] #[out] pPD: *mut PRINTDLGEXW) -> HRESULT;
+        extern fn PrintDlgExW(#[in] #[out] pPD: LPPRINTDLGEXW) -> HRESULT;
         #[library("COMDLG32.dll")]
-        extern fn PrintDlgW(#[in] #[out] pPD: *mut PRINTDLGW) -> BOOL;
+        extern fn PrintDlgW(#[in] #[out] pPD: LPPRINTDLGW) -> BOOL;
         const REGULAR_FONTTYPE: i32 = 1024;
         #[library("COMDLG32.dll")]
-        extern fn ReplaceTextA(param0: *mut FINDREPLACEA) -> HWND;
+        extern fn ReplaceTextA(param0: LPFINDREPLACEA) -> HWND;
         #[library("COMDLG32.dll")]
-        extern fn ReplaceTextW(param0: *mut FINDREPLACEW) -> HWND;
+        extern fn ReplaceTextW(param0: LPFINDREPLACEW) -> HWND;
         const SCREEN_FONTTYPE: i32 = 8192;
+        #[encoding("ansi")]
+        const SETRGBSTRING: String = "commdlg_SetRGBColor";
         #[encoding("ansi")]
         const SETRGBSTRINGA: String = "commdlg_SetRGBColor";
         #[encoding("utf-16")]
         const SETRGBSTRINGW: String = "commdlg_SetRGBColor";
+        #[encoding("ansi")]
+        const SHAREVISTRING: String = "commdlg_ShareViolation";
         #[encoding("ansi")]
         const SHAREVISTRINGA: String = "commdlg_ShareViolation";
         #[encoding("utf-16")]

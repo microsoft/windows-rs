@@ -13,7 +13,7 @@ mod Windows {
             fn StopEngine(&self);
             fn CommitChanges(&self, OperationSet: u32) -> HRESULT;
             fn GetPerformanceData(&self, pPerfData: *mut XAUDIO2_PERFORMANCE_DATA);
-            fn SetDebugConfiguration(&self, #[opt] pDebugConfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, #[reserved] pReserved: *const void);
+            fn SetDebugConfiguration(&self, #[opt] pDebugConfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, #[reserved] pReserved: *mut void);
         }
         #[no_guid]
         interface IXAudio2EngineCallback {
@@ -22,7 +22,10 @@ mod Windows {
             fn OnCriticalError(&self, Error: HRESULT);
         }
         #[guid(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6)]
-        interface IXAudio2Extension: IUnknown {}
+        interface IXAudio2Extension: IUnknown {
+            fn GetProcessingQuantum(&self, quantumNumerator: *mut u32, quantumDenominator: *mut u32);
+            fn GetProcessor(&self, processor: *mut XAUDIO2_PROCESSOR);
+        }
         #[no_guid]
         interface IXAudio2MasteringVoice: IXAudio2Voice {
             fn GetChannelMask(&self, pChannelmask: *mut u32) -> HRESULT;
@@ -107,6 +110,8 @@ mod Windows {
         const Processor8: i32 = 128;
         const Processor9: i32 = 256;
         #[encoding("ansi")]
+        const XAUDIO2D_DLL: String = "xaudio2_9d.dll";
+        #[encoding("ansi")]
         const XAUDIO2D_DLL_A: String = "xaudio2_9d.dll";
         #[encoding("utf-16")]
         const XAUDIO2D_DLL_W: String = "xaudio2_9d.dll";
@@ -142,11 +147,14 @@ mod Windows {
         }
         const XAUDIO2_DEBUG_ENGINE: i32 = 1;
         const XAUDIO2_DEFAULT_CHANNELS: i32 = 0;
+        const XAUDIO2_DEFAULT_FILTER_FREQUENCY: f32 = 1.0;
         const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1.0;
-        const XAUDIO2_DEFAULT_FILTER_TYPE: i32 = 0;
+        const XAUDIO2_DEFAULT_FILTER_TYPE: XAUDIO2_FILTER_TYPE = 0;
         const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2.0;
         const XAUDIO2_DEFAULT_PROCESSOR: i32 = 1;
         const XAUDIO2_DEFAULT_SAMPLERATE: i32 = 0;
+        #[encoding("ansi")]
+        const XAUDIO2_DLL: String = "xaudio2_9.dll";
         #[encoding("ansi")]
         const XAUDIO2_DLL_A: String = "xaudio2_9.dll";
         #[encoding("utf-16")]
@@ -207,6 +215,7 @@ mod Windows {
         const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: i32 = 300000;
         const XAUDIO2_MAX_SAMPLE_RATE: i32 = 384000;
         const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216.0;
+        const XAUDIO2_MIN_FREQ_RATIO: f32 = 0.0009765625;
         const XAUDIO2_MIN_SAMPLE_RATE: i32 = 1000;
         const XAUDIO2_NO_LOOP_REGION: i32 = 0;
         const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: i32 = 65536;
@@ -230,6 +239,7 @@ mod Windows {
         const XAUDIO2_PLAY_TAILS: i32 = 32;
         type XAUDIO2_PROCESSOR = u32;
         const XAUDIO2_QUANTUM_DENOMINATOR: i32 = 100;
+        const XAUDIO2_QUANTUM_MS: f32 = 10.0;
         const XAUDIO2_QUANTUM_NUMERATOR: i32 = 1;
         #[packed(1)]
         struct XAUDIO2_SEND_DESCRIPTOR {
@@ -261,6 +271,8 @@ mod Windows {
             SamplesPlayed: u64,
         }
         const XAUDIO2_VOICE_USEFILTER: i32 = 8;
+        #[library("XAudio2_9.dll", import = "?XAudio2Create@@YAJPEAPEAUIXAudio2@@II@Z")]
+        extern fn XAudio2Create(ppXAudio2: *mut IXAudio2, Flags: u32, XAudio2Processor: XAUDIO2_PROCESSOR) -> HRESULT;
         #[library("XAudio2_9.dll")]
         extern fn XAudio2CreateWithVersionInfo(ppXAudio2: *mut IXAudio2, Flags: u32, XAudio2Processor: XAUDIO2_PROCESSOR, ntddiVersion: u32) -> HRESULT;
     }

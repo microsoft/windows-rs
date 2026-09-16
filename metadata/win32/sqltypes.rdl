@@ -13,15 +13,20 @@ mod Windows {
         type HDBC = *mut void;
         type HENV = *mut void;
         type HSTMT = *mut void;
+        type LDOUBLE = f64;
         type PTR = *mut void;
         type RETCODE = i16;
         type SCHAR = i8;
+        type SDOUBLE = f64;
         type SDWORD = i32;
+        type SFLOAT = f32;
         type SLONG = i32;
         type SQLBIGINT = i64;
         type SQLCHAR = u8;
         type SQLDATE = u8;
         type SQLDECIMAL = u8;
+        type SQLDOUBLE = f64;
+        type SQLFLOAT = f64;
         type SQLGUID = GUID;
         type SQLHANDLE = *mut void;
         type SQLHDBC = SQLHANDLE;
@@ -50,6 +55,7 @@ mod Windows {
         type SQLLEN = i64;
         type SQLNUMERIC = u8;
         type SQLPOINTER = *mut void;
+        type SQLREAL = f32;
         type SQLRETURN = SQLSMALLINT;
         #[arch(X64 | Arm64)]
         type SQLROWCOUNT = SQLULEN;

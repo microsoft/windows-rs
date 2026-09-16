@@ -1,10 +1,11 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        type CIUniformResourceLocator = IUniformResourceLocatorA;
         type CURLINVOKECOMMANDINFOA = URLINVOKECOMMANDINFOA;
         type CURLINVOKECOMMANDINFOW = URLINVOKECOMMANDINFOW;
-        const E_FLAGS: i32 = -2147217408;
-        const IS_E_EXEC_FAILED: i32 = -2147213310;
+        const E_FLAGS: SCODE = -2147217408;
+        const IS_E_EXEC_FAILED: SCODE = -2147213310;
         #[repr(i32)]
         enum IURL_INVOKECOMMAND_FLAGS {
             IURL_INVOKECOMMAND_FL_ALLOW_UI = 1,
@@ -22,13 +23,13 @@ mod Windows {
         interface IUniformResourceLocatorA: IUnknown {
             fn SetURL(&self, pcszURL: PCSTR, dwInFlags: u32) -> HRESULT;
             fn GetURL(&self, ppszURL: *mut PSTR) -> HRESULT;
-            fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOA) -> HRESULT;
+            fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOA) -> HRESULT;
         }
         #[guid(0xcabb0da0_da57_11cf_9974_0020afd79762)]
         interface IUniformResourceLocatorW: IUnknown {
             fn SetURL(&self, pcszURL: PCWSTR, dwInFlags: u32) -> HRESULT;
             fn GetURL(&self, ppszURL: *mut PWSTR) -> HRESULT;
-            fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOW) -> HRESULT;
+            fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOW) -> HRESULT;
         }
         #[repr(i32)]
         enum MIMEASSOCIATIONDIALOG_IN_FLAGS {
@@ -60,7 +61,7 @@ mod Windows {
             hwndParent: HWND,
             pcszVerb: PCWSTR,
         }
-        const URL_E_INVALID_SYNTAX: i32 = -2147217407;
-        const URL_E_UNREGISTERED_PROTOCOL: i32 = -2147217406;
+        const URL_E_INVALID_SYNTAX: SCODE = -2147217407;
+        const URL_E_UNREGISTERED_PROTOCOL: SCODE = -2147217406;
     }
 }

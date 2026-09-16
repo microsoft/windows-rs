@@ -132,11 +132,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn AddClipboardFormatListener(hwnd: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn AdjustWindowRect(#[in] #[out] lpRect: *mut RECT, dwStyle: u32, bMenu: BOOL) -> BOOL;
+        extern fn AdjustWindowRect(#[in] #[out] lpRect: LPRECT, dwStyle: u32, bMenu: BOOL) -> BOOL;
         #[library("USER32.dll")]
-        extern fn AdjustWindowRectEx(#[in] #[out] lpRect: *mut RECT, dwStyle: u32, bMenu: BOOL, dwExStyle: u32) -> BOOL;
+        extern fn AdjustWindowRectEx(#[in] #[out] lpRect: LPRECT, dwStyle: u32, bMenu: BOOL, dwExStyle: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn AdjustWindowRectExForDpi(#[in] #[out] lpRect: *mut RECT, dwStyle: u32, bMenu: BOOL, dwExStyle: u32, dpi: u32) -> BOOL;
+        extern fn AdjustWindowRectExForDpi(#[in] #[out] lpRect: LPRECT, dwStyle: u32, bMenu: BOOL, dwExStyle: u32, dpi: u32) -> BOOL;
         #[library("USER32.dll")]
         extern fn AllowSetForegroundWindow(dwProcessId: u32) -> BOOL;
         #[library("USER32.dll")]
@@ -262,19 +262,19 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn BeginDeferWindowPos(nNumWindows: i32) -> HDWP;
         #[library("USER32.dll")]
-        extern fn BeginPaint(hWnd: HWND, lpPaint: *mut PAINTSTRUCT) -> HDC;
+        extern fn BeginPaint(hWnd: HWND, #[out] lpPaint: LPPAINTSTRUCT) -> HDC;
         #[library("USER32.dll")]
         extern fn BlockInput(fBlockIt: BOOL) -> BOOL;
         #[library("USER32.dll")]
         extern fn BringWindowToTop(hWnd: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageA(flags: u32, #[in] #[out] #[opt] lpInfo: *mut u32, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> i32;
+        extern fn BroadcastSystemMessageA(flags: u32, #[in] #[out] #[opt] lpInfo: LPDWORD, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> i32;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageExA(flags: u32, #[in] #[out] #[opt] lpInfo: *mut u32, Msg: u32, wParam: WPARAM, lParam: LPARAM, #[opt] pbsmInfo: *mut BSMINFO) -> i32;
+        extern fn BroadcastSystemMessageExA(flags: u32, #[in] #[out] #[opt] lpInfo: LPDWORD, Msg: u32, wParam: WPARAM, lParam: LPARAM, #[out] #[opt] pbsmInfo: PBSMINFO) -> i32;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageExW(flags: u32, #[in] #[out] #[opt] lpInfo: *mut u32, Msg: u32, wParam: WPARAM, lParam: LPARAM, #[opt] pbsmInfo: *mut BSMINFO) -> i32;
+        extern fn BroadcastSystemMessageExW(flags: u32, #[in] #[out] #[opt] lpInfo: LPDWORD, Msg: u32, wParam: WPARAM, lParam: LPARAM, #[out] #[opt] pbsmInfo: PBSMINFO) -> i32;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageW(flags: u32, #[in] #[out] #[opt] lpInfo: *mut u32, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> i32;
+        extern fn BroadcastSystemMessageW(flags: u32, #[in] #[out] #[opt] lpInfo: LPDWORD, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> i32;
         const CALERT_SYSTEM: i32 = 6;
         const CBN_CLOSEUP: i32 = 8;
         const CBN_DBLCLK: i32 = 2;
@@ -470,7 +470,7 @@ mod Windows {
             cbData: u32,
             lpData: *mut void,
         }
-        const CREATEPROCESS_MANIFEST_RESOURCE_ID: PWSTR = 1;
+        const CREATEPROCESS_MANIFEST_RESOURCE_ID: PSTR = 1;
         type CREATESTRUCT = CREATESTRUCTA;
         struct CREATESTRUCTA {
             lpCreateParams: *mut void,
@@ -562,11 +562,11 @@ mod Windows {
         const CWP_SKIPTRANSPARENT: i32 = 4;
         const CW_USEDEFAULT: i32 = -2147483648;
         #[library("USER32.dll")]
-        extern fn CalculatePopupWindowPosition(anchorPoint: *const POINT, windowSize: *const SIZE, flags: u32, #[opt] excludeRect: *const RECT, popupWindowPosition: *mut RECT) -> BOOL;
+        extern fn CalculatePopupWindowPosition(anchorPoint: *const POINT, windowSize: *const SIZE, flags: u32, #[in] #[opt] excludeRect: *mut RECT, popupWindowPosition: *mut RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn CallMsgFilterA(lpMsg: *const MSG, nCode: i32) -> BOOL;
+        extern fn CallMsgFilterA(lpMsg: LPMSG, nCode: i32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn CallMsgFilterW(lpMsg: *const MSG, nCode: i32) -> BOOL;
+        extern fn CallMsgFilterW(lpMsg: LPMSG, nCode: i32) -> BOOL;
         #[library("USER32.dll")]
         extern fn CallNextHookEx(#[opt] hhk: HHOOK, nCode: i32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
@@ -580,13 +580,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ChangeClipboardChain(hWndRemove: HWND, hWndNewNext: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ChangeDisplaySettingsA(#[opt] lpDevMode: *const DEVMODEA, dwFlags: u32) -> i32;
+        extern fn ChangeDisplaySettingsA(#[in] #[opt] lpDevMode: *mut DEVMODEA, dwFlags: u32) -> i32;
         #[library("USER32.dll")]
-        extern fn ChangeDisplaySettingsExA(#[opt] lpszDeviceName: PCSTR, #[opt] lpDevMode: *const DEVMODEA, #[reserved] hwnd: HWND, dwflags: u32, #[opt] lParam: *const void) -> i32;
+        extern fn ChangeDisplaySettingsExA(#[opt] lpszDeviceName: PCSTR, #[in] #[opt] lpDevMode: *mut DEVMODEA, #[reserved] hwnd: HWND, dwflags: u32, #[in] #[opt] lParam: *mut void) -> i32;
         #[library("USER32.dll")]
-        extern fn ChangeDisplaySettingsExW(#[opt] lpszDeviceName: PCWSTR, #[opt] lpDevMode: *const DEVMODEW, #[reserved] hwnd: HWND, dwflags: u32, #[opt] lParam: *const void) -> i32;
+        extern fn ChangeDisplaySettingsExW(#[opt] lpszDeviceName: PCWSTR, #[in] #[opt] lpDevMode: *mut DEVMODEW, #[reserved] hwnd: HWND, dwflags: u32, #[in] #[opt] lParam: *mut void) -> i32;
         #[library("USER32.dll")]
-        extern fn ChangeDisplaySettingsW(#[opt] lpDevMode: *const DEVMODEW, dwFlags: u32) -> i32;
+        extern fn ChangeDisplaySettingsW(#[in] #[opt] lpDevMode: *mut DEVMODEW, dwFlags: u32) -> i32;
         #[library("USER32.dll")]
         extern fn ChangeMenuA(hMenu: HMENU, cmd: u32, #[opt] lpszNewItem: PCSTR, cmdInsert: u32, flags: u32) -> BOOL;
         #[library("USER32.dll")]
@@ -594,7 +594,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ChangeWindowMessageFilter(message: u32, dwFlag: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ChangeWindowMessageFilterEx(hwnd: HWND, message: u32, action: u32, #[in] #[out] #[opt] pChangeFilterStruct: *mut CHANGEFILTERSTRUCT) -> BOOL;
+        extern fn ChangeWindowMessageFilterEx(hwnd: HWND, message: u32, action: u32, #[in] #[out] #[opt] pChangeFilterStruct: PCHANGEFILTERSTRUCT) -> BOOL;
         #[library("USER32.dll")]
         extern fn CharLowerA(#[in] #[out] lpsz: PSTR) -> PSTR;
         #[library("USER32.dll")]
@@ -644,7 +644,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ChildWindowFromPointEx(hwnd: HWND, pt: POINT, flags: u32) -> HWND;
         #[library("USER32.dll")]
-        extern fn ClientToScreen(hWnd: HWND, #[in] #[out] lpPoint: *mut POINT) -> BOOL;
+        extern fn ClientToScreen(hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
         extern fn ClipCursor(#[opt] lpRect: *const RECT) -> BOOL;
         #[library("USER32.dll")]
@@ -664,37 +664,37 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ConvertToInterceptWindow(topLevelWindow: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn CopyAcceleratorTableA(hAccelSrc: HACCEL, #[len_param(2)] #[opt] lpAccelDst: *mut ACCEL, cAccelEntries: i32) -> i32;
+        extern fn CopyAcceleratorTableA(hAccelSrc: HACCEL, #[len_param(2)] #[out] #[opt] lpAccelDst: LPACCEL, cAccelEntries: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn CopyAcceleratorTableW(hAccelSrc: HACCEL, #[len_param(2)] #[opt] lpAccelDst: *mut ACCEL, cAccelEntries: i32) -> i32;
+        extern fn CopyAcceleratorTableW(hAccelSrc: HACCEL, #[len_param(2)] #[out] #[opt] lpAccelDst: LPACCEL, cAccelEntries: i32) -> i32;
         #[library("USER32.dll")]
         extern fn CopyIcon(hIcon: HICON) -> HICON;
         #[library("USER32.dll")]
         extern fn CopyImage(h: HANDLE, r#type: u32, cx: i32, cy: i32, flags: u32) -> HANDLE;
         #[library("USER32.dll")]
-        extern fn CopyRect(lprcDst: *mut RECT, lprcSrc: *const RECT) -> BOOL;
+        extern fn CopyRect(#[out] lprcDst: LPRECT, lprcSrc: *const RECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn CountClipboardFormats() -> i32;
         #[library("USER32.dll")]
-        extern fn CreateAcceleratorTableA(#[len_param(1)] paccel: *const ACCEL, cAccel: i32) -> HACCEL;
+        extern fn CreateAcceleratorTableA(#[len_param(1)] paccel: LPACCEL, cAccel: i32) -> HACCEL;
         #[library("USER32.dll")]
-        extern fn CreateAcceleratorTableW(#[len_param(1)] paccel: *const ACCEL, cAccel: i32) -> HACCEL;
+        extern fn CreateAcceleratorTableW(#[len_param(1)] paccel: LPACCEL, cAccel: i32) -> HACCEL;
         #[library("USER32.dll")]
         extern fn CreateCaret(hWnd: HWND, #[opt] hBitmap: HBITMAP, nWidth: i32, nHeight: i32) -> BOOL;
         #[library("USER32.dll")]
         extern fn CreateCursor(#[opt] hInst: HINSTANCE, xHotSpot: i32, yHotSpot: i32, nWidth: i32, nHeight: i32, pvANDPlane: *const void, pvXORPlane: *const void) -> HCURSOR;
         #[library("USER32.dll")]
-        extern fn CreateDesktopA(lpszDesktop: PCSTR, #[reserved] lpszDevice: PCSTR, #[reserved] pDevmode: *const DEVMODEA, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: *const SECURITY_ATTRIBUTES) -> HDESK;
+        extern fn CreateDesktopA(lpszDesktop: PCSTR, #[reserved] lpszDevice: PCSTR, #[reserved] pDevmode: *mut DEVMODEA, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: LPSECURITY_ATTRIBUTES) -> HDESK;
         #[library("USER32.dll")]
-        extern fn CreateDesktopExA(lpszDesktop: PCSTR, #[reserved] lpszDevice: PCSTR, #[reserved] pDevmode: *const DEVMODEA, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: *const SECURITY_ATTRIBUTES, ulHeapSize: u32, #[reserved] pvoid: *const void) -> HDESK;
+        extern fn CreateDesktopExA(lpszDesktop: PCSTR, #[reserved] lpszDevice: PCSTR, #[reserved] pDevmode: *mut DEVMODEA, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: LPSECURITY_ATTRIBUTES, ulHeapSize: u32, #[reserved] pvoid: *mut void) -> HDESK;
         #[library("USER32.dll")]
-        extern fn CreateDesktopExW(lpszDesktop: PCWSTR, #[reserved] lpszDevice: PCWSTR, #[reserved] pDevmode: *const DEVMODEW, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: *const SECURITY_ATTRIBUTES, ulHeapSize: u32, #[reserved] pvoid: *const void) -> HDESK;
+        extern fn CreateDesktopExW(lpszDesktop: PCWSTR, #[reserved] lpszDevice: PCWSTR, #[reserved] pDevmode: *mut DEVMODEW, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: LPSECURITY_ATTRIBUTES, ulHeapSize: u32, #[reserved] pvoid: *mut void) -> HDESK;
         #[library("USER32.dll")]
-        extern fn CreateDesktopW(lpszDesktop: PCWSTR, #[reserved] lpszDevice: PCWSTR, #[reserved] pDevmode: *const DEVMODEW, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: *const SECURITY_ATTRIBUTES) -> HDESK;
+        extern fn CreateDesktopW(lpszDesktop: PCWSTR, #[reserved] lpszDevice: PCWSTR, #[reserved] pDevmode: *mut DEVMODEW, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: LPSECURITY_ATTRIBUTES) -> HDESK;
         #[library("USER32.dll")]
-        extern fn CreateDialogIndirectParamA(#[opt] hInstance: HINSTANCE, lpTemplate: *const DLGTEMPLATE, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> HWND;
+        extern fn CreateDialogIndirectParamA(#[opt] hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATEA, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> HWND;
         #[library("USER32.dll")]
-        extern fn CreateDialogIndirectParamW(#[opt] hInstance: HINSTANCE, lpTemplate: *const DLGTEMPLATE, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> HWND;
+        extern fn CreateDialogIndirectParamW(#[opt] hInstance: HINSTANCE, lpTemplate: LPCDLGTEMPLATEW, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> HWND;
         #[library("USER32.dll")]
         extern fn CreateDialogParamA(#[opt] hInstance: HINSTANCE, lpTemplateName: PCSTR, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> HWND;
         #[library("USER32.dll")]
@@ -702,11 +702,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn CreateIcon(#[opt] hInstance: HINSTANCE, nWidth: i32, nHeight: i32, cPlanes: u8, cBitsPixel: u8, lpbANDbits: *const u8, lpbXORbits: *const u8) -> HICON;
         #[library("USER32.dll")]
-        extern fn CreateIconFromResource(#[size_param(1)] presbits: *const u8, dwResSize: u32, fIcon: BOOL, dwVer: u32) -> HICON;
+        extern fn CreateIconFromResource(#[size_param(1)] presbits: PBYTE, dwResSize: u32, fIcon: BOOL, dwVer: u32) -> HICON;
         #[library("USER32.dll")]
-        extern fn CreateIconFromResourceEx(#[size_param(1)] presbits: *const u8, dwResSize: u32, fIcon: BOOL, dwVer: u32, cxDesired: i32, cyDesired: i32, Flags: u32) -> HICON;
+        extern fn CreateIconFromResourceEx(#[size_param(1)] presbits: PBYTE, dwResSize: u32, fIcon: BOOL, dwVer: u32, cxDesired: i32, cyDesired: i32, Flags: u32) -> HICON;
         #[library("USER32.dll")]
-        extern fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON;
+        extern fn CreateIconIndirect(piconinfo: PICONINFO) -> HICON;
         #[library("USER32.dll")]
         extern fn CreateMDIWindowA(lpClassName: PCSTR, lpWindowName: PCSTR, dwStyle: u32, X: i32, Y: i32, nWidth: i32, nHeight: i32, #[opt] hWndParent: HWND, #[opt] hInstance: HINSTANCE, lParam: LPARAM) -> HWND;
         #[library("USER32.dll")]
@@ -718,13 +718,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn CreateSyntheticPointerDevice(pointerType: POINTER_INPUT_TYPE, maxCount: u32, mode: POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE;
         #[library("USER32.dll")]
-        extern fn CreateWindowExA(dwExStyle: u32, #[opt] lpClassName: PCSTR, #[opt] lpWindowName: PCSTR, dwStyle: u32, X: i32, Y: i32, nWidth: i32, nHeight: i32, #[opt] hWndParent: HWND, #[opt] hMenu: HMENU, #[opt] hInstance: HINSTANCE, #[opt] lpParam: *const void) -> HWND;
+        extern fn CreateWindowExA(dwExStyle: u32, #[opt] lpClassName: PCSTR, #[opt] lpWindowName: PCSTR, dwStyle: u32, X: i32, Y: i32, nWidth: i32, nHeight: i32, #[opt] hWndParent: HWND, #[opt] hMenu: HMENU, #[opt] hInstance: HINSTANCE, #[in] #[opt] lpParam: *mut void) -> HWND;
         #[library("USER32.dll")]
-        extern fn CreateWindowExW(dwExStyle: u32, #[opt] lpClassName: PCWSTR, #[opt] lpWindowName: PCWSTR, dwStyle: u32, X: i32, Y: i32, nWidth: i32, nHeight: i32, #[opt] hWndParent: HWND, #[opt] hMenu: HMENU, #[opt] hInstance: HINSTANCE, #[opt] lpParam: *const void) -> HWND;
+        extern fn CreateWindowExW(dwExStyle: u32, #[opt] lpClassName: PCWSTR, #[opt] lpWindowName: PCWSTR, dwStyle: u32, X: i32, Y: i32, nWidth: i32, nHeight: i32, #[opt] hWndParent: HWND, #[opt] hMenu: HMENU, #[opt] hInstance: HINSTANCE, #[in] #[opt] lpParam: *mut void) -> HWND;
         #[library("USER32.dll")]
-        extern fn CreateWindowStationA(#[opt] lpwinsta: PCSTR, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: *const SECURITY_ATTRIBUTES) -> HWINSTA;
+        extern fn CreateWindowStationA(#[opt] lpwinsta: PCSTR, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: LPSECURITY_ATTRIBUTES) -> HWINSTA;
         #[library("USER32.dll")]
-        extern fn CreateWindowStationW(#[opt] lpwinsta: PCWSTR, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: *const SECURITY_ATTRIBUTES) -> HWINSTA;
+        extern fn CreateWindowStationW(#[opt] lpwinsta: PCWSTR, dwFlags: u32, dwDesiredAccess: ACCESS_MASK, #[opt] lpsa: LPSECURITY_ATTRIBUTES) -> HWINSTA;
         const DCX_CACHE: i32 = 2;
         const DCX_CLIPCHILDREN: i32 = 8;
         const DCX_CLIPSIBLINGS: i32 = 16;
@@ -972,9 +972,20 @@ mod Windows {
         const DT_VCENTER: i32 = 4;
         const DT_WORDBREAK: i32 = 16;
         const DT_WORD_ELLIPSIS: i32 = 262144;
+        #[arch(X64 | Arm64)]
+        const DWLP_DLGPROC: u64 = 8;
+        #[arch(X86)]
+        const DWLP_DLGPROC: u32 = 4;
         const DWLP_MSGRESULT: i32 = 0;
+        #[arch(X64 | Arm64)]
+        const DWLP_USER: u64 = 16;
+        #[arch(X86)]
+        const DWLP_USER: u32 = 8;
+        #[arch(X86)]
         const DWL_DLGPROC: i32 = 4;
+        #[arch(X86)]
         const DWL_MSGRESULT: i32 = 0;
+        #[arch(X86)]
         const DWL_USER: i32 = 8;
         #[library("USER32.dll")]
         extern fn DefDlgProcA(hDlg: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
@@ -989,7 +1000,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DefMDIChildProcW(hWnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
-        extern fn DefRawInputProc(#[len_param(1)] paRawInput: *const PRAWINPUT, nInput: i32, cbSizeHeader: u32) -> LRESULT;
+        extern fn DefRawInputProc(#[len_param(1)] #[in] paRawInput: *mut PRAWINPUT, nInput: i32, cbSizeHeader: u32) -> LRESULT;
         #[library("USER32.dll")]
         extern fn DefWindowProcA(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
@@ -1015,9 +1026,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DestroyWindow(hWnd: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DialogBoxIndirectParamA(#[opt] hInstance: HINSTANCE, hDialogTemplate: *const DLGTEMPLATE, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> isize;
+        extern fn DialogBoxIndirectParamA(#[opt] hInstance: HINSTANCE, hDialogTemplate: LPCDLGTEMPLATEA, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> isize;
         #[library("USER32.dll")]
-        extern fn DialogBoxIndirectParamW(#[opt] hInstance: HINSTANCE, hDialogTemplate: *const DLGTEMPLATE, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> isize;
+        extern fn DialogBoxIndirectParamW(#[opt] hInstance: HINSTANCE, hDialogTemplate: LPCDLGTEMPLATEW, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> isize;
         #[library("USER32.dll")]
         extern fn DialogBoxParamA(#[opt] hInstance: HINSTANCE, lpTemplateName: PCSTR, #[opt] hWndParent: HWND, #[opt] lpDialogFunc: DLGPROC, dwInitParam: LPARAM) -> isize;
         #[library("USER32.dll")]
@@ -1031,7 +1042,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DisplayConfigGetDeviceInfo(#[in] #[out] requestPacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
         #[library("USER32.dll")]
-        extern fn DisplayConfigSetDeviceInfo(setPacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
+        extern fn DisplayConfigSetDeviceInfo(#[in] setPacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
         #[library("USER32.dll")]
         extern fn DlgDirListA(hDlg: HWND, #[in] #[out] lpPathSpec: PSTR, nIDListBox: i32, nIDStaticPath: i32, uFileType: u32) -> i32;
         #[library("USER32.dll")]
@@ -1057,11 +1068,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DrawCaption(hwnd: HWND, hdc: HDC, lprect: *const RECT, flags: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DrawEdge(hdc: HDC, #[in] #[out] qrc: *mut RECT, edge: u32, grfFlags: u32) -> BOOL;
+        extern fn DrawEdge(hdc: HDC, #[in] #[out] qrc: LPRECT, edge: u32, grfFlags: u32) -> BOOL;
         #[library("USER32.dll")]
         extern fn DrawFocusRect(hDC: HDC, lprc: *const RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DrawFrameControl(hdc: HDC, #[in] #[out] lprc: *mut RECT, uType: u32, uState: u32) -> BOOL;
+        extern fn DrawFrameControl(hdc: HDC, #[in] #[out] lprc: LPRECT, uType: u32, uState: u32) -> BOOL;
         #[library("USER32.dll")]
         extern fn DrawIcon(hDC: HDC, X: i32, Y: i32, hIcon: HICON) -> BOOL;
         #[library("USER32.dll")]
@@ -1073,13 +1084,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn DrawStateW(hdc: HDC, #[opt] hbrFore: HBRUSH, #[opt] qfnCallBack: DRAWSTATEPROC, lData: LPARAM, wData: WPARAM, x: i32, y: i32, cx: i32, cy: i32, uFlags: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DrawTextA(hdc: HDC, lpchText: PCSTR, cchText: i32, #[in] #[out] lprc: *mut RECT, format: u32) -> i32;
+        extern fn DrawTextA(hdc: HDC, lpchText: PCSTR, cchText: i32, #[in] #[out] lprc: LPRECT, format: u32) -> i32;
         #[library("USER32.dll")]
-        extern fn DrawTextExA(hdc: HDC, lpchText: PSTR, cchText: i32, #[in] #[out] lprc: *mut RECT, format: u32, #[opt] lpdtp: *const DRAWTEXTPARAMS) -> i32;
+        extern fn DrawTextExA(hdc: HDC, lpchText: PSTR, cchText: i32, #[in] #[out] lprc: LPRECT, format: u32, #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
         #[library("USER32.dll")]
-        extern fn DrawTextExW(hdc: HDC, lpchText: PWSTR, cchText: i32, #[in] #[out] lprc: *mut RECT, format: u32, #[opt] lpdtp: *const DRAWTEXTPARAMS) -> i32;
+        extern fn DrawTextExW(hdc: HDC, lpchText: PWSTR, cchText: i32, #[in] #[out] lprc: LPRECT, format: u32, #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
         #[library("USER32.dll")]
-        extern fn DrawTextW(hdc: HDC, lpchText: PCWSTR, cchText: i32, #[in] #[out] lprc: *mut RECT, format: u32) -> i32;
+        extern fn DrawTextW(hdc: HDC, lpchText: PCWSTR, cchText: i32, #[in] #[out] lprc: LPRECT, format: u32) -> i32;
         const EC_LEFTMARGIN: i32 = 1;
         const EC_RIGHTMARGIN: i32 = 2;
         const EC_USEFONTINFO: i32 = 65535;
@@ -1320,11 +1331,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn EnumDesktopsW(#[opt] hwinsta: HWINSTA, lpEnumFunc: DESKTOPENUMPROCW, lParam: LPARAM) -> BOOL;
         #[library("USER32.dll")]
-        extern fn EnumDisplayDevicesA(#[opt] lpDevice: PCSTR, iDevNum: u32, #[in] #[out] lpDisplayDevice: *mut DISPLAY_DEVICEA, dwFlags: u32) -> BOOL;
+        extern fn EnumDisplayDevicesA(#[opt] lpDevice: PCSTR, iDevNum: u32, #[in] #[out] lpDisplayDevice: PDISPLAY_DEVICEA, dwFlags: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn EnumDisplayDevicesW(#[opt] lpDevice: PCWSTR, iDevNum: u32, #[in] #[out] lpDisplayDevice: *mut DISPLAY_DEVICEW, dwFlags: u32) -> BOOL;
+        extern fn EnumDisplayDevicesW(#[opt] lpDevice: PCWSTR, iDevNum: u32, #[in] #[out] lpDisplayDevice: PDISPLAY_DEVICEW, dwFlags: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn EnumDisplayMonitors(#[opt] hdc: HDC, #[opt] lprcClip: *const RECT, lpfnEnum: MONITORENUMPROC, dwData: LPARAM) -> BOOL;
+        extern fn EnumDisplayMonitors(#[opt] hdc: HDC, #[opt] lprcClip: LPCRECT, lpfnEnum: MONITORENUMPROC, dwData: LPARAM) -> BOOL;
         #[library("USER32.dll")]
         extern fn EnumDisplaySettingsA(#[opt] lpszDeviceName: PCSTR, iModeNum: u32, #[in] #[out] lpDevMode: *mut DEVMODEA) -> BOOL;
         #[library("USER32.dll")]
@@ -1434,7 +1445,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn FlashWindow(hWnd: HWND, bInvert: BOOL) -> BOOL;
         #[library("USER32.dll")]
-        extern fn FlashWindowEx(pfwi: *const FLASHWINFO) -> BOOL;
+        extern fn FlashWindowEx(pfwi: PFLASHWINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn FrameRect(hDC: HDC, lprc: *const RECT, hbr: HBRUSH) -> i32;
         const GA_PARENT: i32 = 1;
@@ -1584,15 +1595,15 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetActiveWindow() -> HWND;
         #[library("USER32.dll")]
-        extern fn GetAltTabInfoA(#[opt] hwnd: HWND, iItem: i32, #[in] #[out] pati: *mut ALTTABINFO, #[len_param(4)] #[out] #[opt] pszItemText: PSTR, cchItemText: u32) -> BOOL;
+        extern fn GetAltTabInfoA(#[opt] hwnd: HWND, iItem: i32, #[in] #[out] pati: PALTTABINFO, #[len_param(4)] #[out] #[opt] pszItemText: PSTR, cchItemText: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetAltTabInfoW(#[opt] hwnd: HWND, iItem: i32, #[in] #[out] pati: *mut ALTTABINFO, #[len_param(4)] #[out] #[opt] pszItemText: PWSTR, cchItemText: u32) -> BOOL;
+        extern fn GetAltTabInfoW(#[opt] hwnd: HWND, iItem: i32, #[in] #[out] pati: PALTTABINFO, #[len_param(4)] #[out] #[opt] pszItemText: PWSTR, cchItemText: u32) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetAncestor(hwnd: HWND, gaFlags: u32) -> HWND;
         #[library("USER32.dll")]
         extern fn GetAsyncKeyState(vKey: i32) -> i16;
         #[library("USER32.dll")]
-        extern fn GetAutoRotationState(pState: *mut AR_STATE) -> BOOL;
+        extern fn GetAutoRotationState(#[out] pState: PAR_STATE) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetAwarenessFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS;
         #[library("USER32.dll")]
@@ -1602,15 +1613,15 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetCaretBlinkTime() -> u32;
         #[library("USER32.dll")]
-        extern fn GetCaretPos(lpPoint: *mut POINT) -> BOOL;
+        extern fn GetCaretPos(#[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetClassInfoA(#[opt] hInstance: HINSTANCE, lpClassName: PCSTR, lpWndClass: *mut WNDCLASSA) -> BOOL;
+        extern fn GetClassInfoA(#[opt] hInstance: HINSTANCE, lpClassName: PCSTR, #[out] lpWndClass: LPWNDCLASSA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetClassInfoExA(#[opt] hInstance: HINSTANCE, lpszClass: PCSTR, lpwcx: *mut WNDCLASSEXA) -> BOOL;
+        extern fn GetClassInfoExA(#[opt] hInstance: HINSTANCE, lpszClass: PCSTR, #[out] lpwcx: LPWNDCLASSEXA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetClassInfoExW(#[opt] hInstance: HINSTANCE, lpszClass: PCWSTR, lpwcx: *mut WNDCLASSEXW) -> BOOL;
+        extern fn GetClassInfoExW(#[opt] hInstance: HINSTANCE, lpszClass: PCWSTR, #[out] lpwcx: LPWNDCLASSEXW) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetClassInfoW(#[opt] hInstance: HINSTANCE, lpClassName: PCWSTR, lpWndClass: *mut WNDCLASSW) -> BOOL;
+        extern fn GetClassInfoW(#[opt] hInstance: HINSTANCE, lpClassName: PCWSTR, #[out] lpWndClass: LPWNDCLASSW) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetClassLongA(hWnd: HWND, nIndex: i32) -> u32;
         #[arch(X64 | Arm64)]
@@ -1628,9 +1639,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetClassWord(hWnd: HWND, nIndex: i32) -> u16;
         #[library("USER32.dll")]
-        extern fn GetClientRect(hWnd: HWND, lpRect: *mut RECT) -> BOOL;
+        extern fn GetClientRect(hWnd: HWND, #[out] lpRect: LPRECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetClipCursor(lpRect: *mut RECT) -> BOOL;
+        extern fn GetClipCursor(#[out] lpRect: LPRECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetClipboardData(uFormat: u32) -> HANDLE;
         #[library("USER32.dll")]
@@ -1644,7 +1655,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetClipboardViewer() -> HWND;
         #[library("USER32.dll")]
-        extern fn GetComboBoxInfo(hwndCombo: HWND, #[in] #[out] pcbi: *mut COMBOBOXINFO) -> BOOL;
+        extern fn GetComboBoxInfo(hwndCombo: HWND, #[in] #[out] pcbi: PCOMBOBOXINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetCurrentInputMessageSource(inputMessageSource: *mut INPUT_MESSAGE_SOURCE) -> BOOL;
         #[library("USER32.dll")]
@@ -1652,9 +1663,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetCursor() -> HCURSOR;
         #[library("USER32.dll")]
-        extern fn GetCursorInfo(#[in] #[out] pci: *mut CURSORINFO) -> BOOL;
+        extern fn GetCursorInfo(#[in] #[out] pci: PCURSORINFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetCursorPos(lpPoint: *mut POINT) -> BOOL;
+        extern fn GetCursorPos(#[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetDC(#[opt] hWnd: HWND) -> HDC;
         #[library("USER32.dll")]
@@ -1696,21 +1707,21 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetForegroundWindow() -> HWND;
         #[library("USER32.dll")]
-        extern fn GetGUIThreadInfo(idThread: u32, #[in] #[out] pgui: *mut GUITHREADINFO) -> BOOL;
+        extern fn GetGUIThreadInfo(idThread: u32, #[in] #[out] pgui: PGUITHREADINFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetGestureConfig(hwnd: HWND, dwReserved: u32, dwFlags: u32, pcIDs: *const u32, #[len_param(3)] #[in] #[out] pGestureConfig: *mut GESTURECONFIG, cbSize: u32) -> BOOL;
+        extern fn GetGestureConfig(hwnd: HWND, dwReserved: u32, dwFlags: u32, pcIDs: PUINT, #[len_param(3)] #[in] #[out] pGestureConfig: PGESTURECONFIG, cbSize: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetGestureExtraArgs(hGestureInfo: HGESTUREINFO, cbExtraArgs: u32, #[size_param(1)] pExtraArgs: *mut u8) -> BOOL;
+        extern fn GetGestureExtraArgs(hGestureInfo: HGESTUREINFO, cbExtraArgs: u32, #[size_param(1)] #[out] pExtraArgs: PBYTE) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetGestureInfo(hGestureInfo: HGESTUREINFO, pGestureInfo: *mut GESTUREINFO) -> BOOL;
+        extern fn GetGestureInfo(hGestureInfo: HGESTUREINFO, #[out] pGestureInfo: PGESTUREINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetGuiResources(hProcess: HANDLE, uiFlags: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetIconInfo(hIcon: HICON, piconinfo: *mut ICONINFO) -> BOOL;
+        extern fn GetIconInfo(hIcon: HICON, #[out] piconinfo: PICONINFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetIconInfoExA(hicon: HICON, #[in] #[out] piconinfo: *mut ICONINFOEXA) -> BOOL;
+        extern fn GetIconInfoExA(hicon: HICON, #[in] #[out] piconinfo: PICONINFOEXA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetIconInfoExW(hicon: HICON, #[in] #[out] piconinfo: *mut ICONINFOEXW) -> BOOL;
+        extern fn GetIconInfoExW(hicon: HICON, #[in] #[out] piconinfo: PICONINFOEXW) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetInputState() -> BOOL;
         #[library("USER32.dll")]
@@ -1730,13 +1741,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetKeyboardLayoutNameW(#[out] pwszKLID: PWSTR) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetKeyboardState(#[len_const(256)] lpKeyState: *mut u8) -> BOOL;
+        extern fn GetKeyboardState(#[len_const(256)] #[out] lpKeyState: PBYTE) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetKeyboardType(nTypeFlag: i32) -> i32;
         #[library("USER32.dll")]
         extern fn GetLastActivePopup(hWnd: HWND) -> HWND;
         #[library("USER32.dll")]
-        extern fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> BOOL;
+        extern fn GetLastInputInfo(#[out] plii: PLASTINPUTINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetLayeredWindowAttributes(hwnd: HWND, #[opt] pcrKey: *mut COLORREF, #[opt] pbAlpha: *mut u8, #[opt] pdwFlags: *mut u32) -> BOOL;
         #[library("USER32.dll")]
@@ -1744,7 +1755,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetMenu(hWnd: HWND) -> HMENU;
         #[library("USER32.dll")]
-        extern fn GetMenuBarInfo(hwnd: HWND, idObject: i32, idItem: i32, #[in] #[out] pmbi: *mut MENUBARINFO) -> BOOL;
+        extern fn GetMenuBarInfo(hwnd: HWND, idObject: i32, idItem: i32, #[in] #[out] pmbi: PMENUBARINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetMenuCheckMarkDimensions() -> i32;
         #[library("USER32.dll")]
@@ -1752,17 +1763,17 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetMenuDefaultItem(hMenu: HMENU, fByPos: u32, gmdiFlags: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetMenuInfo(param0: HMENU, #[in] #[out] param1: *mut MENUINFO) -> BOOL;
+        extern fn GetMenuInfo(param0: HMENU, #[in] #[out] param1: LPMENUINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetMenuItemCount(#[opt] hMenu: HMENU) -> i32;
         #[library("USER32.dll")]
         extern fn GetMenuItemID(hMenu: HMENU, nPos: i32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetMenuItemInfoA(hmenu: HMENU, item: u32, fByPosition: BOOL, #[in] #[out] lpmii: *mut MENUITEMINFOA) -> BOOL;
+        extern fn GetMenuItemInfoA(hmenu: HMENU, item: u32, fByPosition: BOOL, #[in] #[out] lpmii: LPMENUITEMINFOA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetMenuItemInfoW(hmenu: HMENU, item: u32, fByPosition: BOOL, #[in] #[out] lpmii: *mut MENUITEMINFOW) -> BOOL;
+        extern fn GetMenuItemInfoW(hmenu: HMENU, item: u32, fByPosition: BOOL, #[in] #[out] lpmii: LPMENUITEMINFOW) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetMenuItemRect(#[opt] hWnd: HWND, hMenu: HMENU, uItem: u32, lprcItem: *mut RECT) -> BOOL;
+        extern fn GetMenuItemRect(#[opt] hWnd: HWND, hMenu: HMENU, uItem: u32, #[out] lprcItem: LPRECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetMenuState(hMenu: HMENU, uId: u32, uFlags: u32) -> u32;
         #[library("USER32.dll")]
@@ -1770,7 +1781,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetMenuStringW(hMenu: HMENU, uIDItem: u32, #[len_param(3)] #[out] #[opt] lpString: PWSTR, cchMax: i32, flags: u32) -> i32;
         #[library("USER32.dll")]
-        extern fn GetMessageA(lpMsg: *mut MSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32) -> BOOL;
+        extern fn GetMessageA(#[out] lpMsg: LPMSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetMessageExtraInfo() -> LPARAM;
         #[library("USER32.dll")]
@@ -1778,13 +1789,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetMessageTime() -> i32;
         #[library("USER32.dll")]
-        extern fn GetMessageW(lpMsg: *mut MSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32) -> BOOL;
+        extern fn GetMessageW(#[out] lpMsg: LPMSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetMonitorInfoA(hMonitor: HMONITOR, #[in] #[out] lpmi: *mut MONITORINFO) -> BOOL;
+        extern fn GetMonitorInfoA(hMonitor: HMONITOR, #[in] #[out] lpmi: LPMONITORINFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetMonitorInfoW(hMonitor: HMONITOR, #[in] #[out] lpmi: *mut MONITORINFO) -> BOOL;
+        extern fn GetMonitorInfoW(hMonitor: HMONITOR, #[in] #[out] lpmi: LPMONITORINFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetMouseMovePointsEx(cbSize: u32, lppt: *const MOUSEMOVEPOINT, #[len_param(3)] lpptBuf: *mut MOUSEMOVEPOINT, nBufPoints: i32, resolution: u32) -> i32;
+        extern fn GetMouseMovePointsEx(cbSize: u32, lppt: LPMOUSEMOVEPOINT, #[len_param(3)] #[out] lpptBuf: LPMOUSEMOVEPOINT, nBufPoints: i32, resolution: u32) -> i32;
         #[library("USER32.dll")]
         extern fn GetNextDlgGroupItem(hDlg: HWND, #[opt] hCtl: HWND, bPrevious: BOOL) -> HWND;
         #[library("USER32.dll")]
@@ -1794,7 +1805,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetParent(hWnd: HWND) -> HWND;
         #[library("USER32.dll")]
-        extern fn GetPhysicalCursorPos(lpPoint: *mut POINT) -> BOOL;
+        extern fn GetPhysicalCursorPos(#[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerCursorId(pointerId: u32, cursorId: *mut u32) -> BOOL;
         #[library("USER32.dll")]
@@ -1836,7 +1847,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetPointerType(pointerId: u32, pointerType: *mut POINTER_INPUT_TYPE) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPriorityClipboardFormat(#[len_param(1)] paFormatPriorityList: *const u32, cFormats: i32) -> i32;
+        extern fn GetPriorityClipboardFormat(#[len_param(1)] #[in] paFormatPriorityList: *mut u32, cFormats: i32) -> i32;
         #[library("USER32.dll")]
         extern fn GetProcessDefaultLayout(pdwDefaultLayout: *mut u32) -> BOOL;
         #[library("USER32.dll")]
@@ -1848,27 +1859,27 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetQueueStatus(flags: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetRawInputBuffer(#[size_param(1)] #[opt] pData: *mut RAWINPUT, #[in] #[out] pcbSize: *mut u32, cbSizeHeader: u32) -> u32;
+        extern fn GetRawInputBuffer(#[size_param(1)] #[out] #[opt] pData: PRAWINPUT, #[in] #[out] pcbSize: PUINT, cbSizeHeader: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetRawInputData(hRawInput: HRAWINPUT, uiCommand: u32, #[size_param(3)] #[opt] pData: *mut void, #[in] #[out] pcbSize: *mut u32, cbSizeHeader: u32) -> u32;
+        extern fn GetRawInputData(hRawInput: HRAWINPUT, uiCommand: u32, #[size_param(3)] #[opt] pData: *mut void, #[in] #[out] pcbSize: PUINT, cbSizeHeader: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetRawInputDeviceInfoA(#[opt] hDevice: HANDLE, uiCommand: u32, #[size_param(3)] #[in] #[out] #[opt] pData: *mut void, #[in] #[out] pcbSize: *mut u32) -> u32;
+        extern fn GetRawInputDeviceInfoA(#[opt] hDevice: HANDLE, uiCommand: u32, #[size_param(3)] #[in] #[out] #[opt] pData: *mut void, #[in] #[out] pcbSize: PUINT) -> u32;
         #[library("USER32.dll")]
-        extern fn GetRawInputDeviceInfoW(#[opt] hDevice: HANDLE, uiCommand: u32, #[size_param(3)] #[in] #[out] #[opt] pData: *mut void, #[in] #[out] pcbSize: *mut u32) -> u32;
+        extern fn GetRawInputDeviceInfoW(#[opt] hDevice: HANDLE, uiCommand: u32, #[size_param(3)] #[in] #[out] #[opt] pData: *mut void, #[in] #[out] pcbSize: PUINT) -> u32;
         #[library("USER32.dll")]
-        extern fn GetRawInputDeviceList(#[len_param(1)] #[opt] pRawInputDeviceList: *mut RAWINPUTDEVICELIST, #[in] #[out] puiNumDevices: *mut u32, cbSize: u32) -> u32;
+        extern fn GetRawInputDeviceList(#[len_param(1)] #[out] #[opt] pRawInputDeviceList: PRAWINPUTDEVICELIST, #[in] #[out] puiNumDevices: PUINT, cbSize: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetRawPointerDeviceData(pointerId: u32, historyCount: u32, propertiesCount: u32, #[len_param(2)] pProperties: *const POINTER_DEVICE_PROPERTY, pValues: *mut i32) -> BOOL;
+        extern fn GetRawPointerDeviceData(pointerId: u32, historyCount: u32, propertiesCount: u32, #[len_param(2)] #[in] pProperties: *mut POINTER_DEVICE_PROPERTY, pValues: *mut i32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetRegisteredRawInputDevices(#[len_param(1)] #[opt] pRawInputDevices: *mut RAWINPUTDEVICE, #[in] #[out] puiNumDevices: *mut u32, cbSize: u32) -> u32;
+        extern fn GetRegisteredRawInputDevices(#[len_param(1)] #[out] #[opt] pRawInputDevices: PRAWINPUTDEVICE, #[in] #[out] puiNumDevices: PUINT, cbSize: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn GetScrollBarInfo(hwnd: HWND, idObject: i32, #[in] #[out] psbi: *mut SCROLLBARINFO) -> BOOL;
+        extern fn GetScrollBarInfo(hwnd: HWND, idObject: i32, #[in] #[out] psbi: PSCROLLBARINFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetScrollInfo(hwnd: HWND, nBar: i32, #[in] #[out] lpsi: *mut SCROLLINFO) -> BOOL;
+        extern fn GetScrollInfo(hwnd: HWND, nBar: i32, #[in] #[out] lpsi: LPSCROLLINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetScrollPos(hWnd: HWND, nBar: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn GetScrollRange(hWnd: HWND, nBar: i32, lpMinPos: *mut i32, lpMaxPos: *mut i32) -> BOOL;
+        extern fn GetScrollRange(hWnd: HWND, nBar: i32, #[out] lpMinPos: LPINT, #[out] lpMaxPos: LPINT) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetShellWindow() -> HWND;
         #[library("USER32.dll")]
@@ -1896,25 +1907,25 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR;
         #[library("USER32.dll")]
-        extern fn GetTitleBarInfo(hwnd: HWND, #[in] #[out] pti: *mut TITLEBARINFO) -> BOOL;
+        extern fn GetTitleBarInfo(hwnd: HWND, #[in] #[out] pti: PTITLEBARINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetTopWindow(#[opt] hWnd: HWND) -> HWND;
         #[library("USER32.dll")]
-        extern fn GetTouchInputInfo(hTouchInput: HTOUCHINPUT, cInputs: u32, #[len_param(1)] pInputs: *mut TOUCHINPUT, cbSize: i32) -> BOOL;
+        extern fn GetTouchInputInfo(hTouchInput: HTOUCHINPUT, cInputs: u32, #[len_param(1)] #[out] pInputs: PTOUCHINPUT, cbSize: i32) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetUnpredictedMessagePos() -> u32;
         #[library("USER32.dll")]
-        extern fn GetUpdateRect(hWnd: HWND, #[opt] lpRect: *mut RECT, bErase: BOOL) -> BOOL;
+        extern fn GetUpdateRect(hWnd: HWND, #[out] #[opt] lpRect: LPRECT, bErase: BOOL) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetUpdateRgn(hWnd: HWND, hRgn: HRGN, bErase: BOOL) -> i32;
         #[library("USER32.dll")]
-        extern fn GetUpdatedClipboardFormats(#[len_param(1)] lpuiFormats: *mut u32, cFormats: u32, pcFormatsOut: *mut u32) -> BOOL;
+        extern fn GetUpdatedClipboardFormats(#[len_param(1)] #[out] lpuiFormats: PUINT, cFormats: u32, #[out] pcFormatsOut: PUINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetUserObjectInformationA(hObj: HANDLE, nIndex: i32, #[size_param(3)] #[opt] pvInfo: *mut void, nLength: u32, #[opt] lpnLengthNeeded: *mut u32) -> BOOL;
+        extern fn GetUserObjectInformationA(hObj: HANDLE, nIndex: i32, #[size_param(3)] #[opt] pvInfo: *mut void, nLength: u32, #[out] #[opt] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetUserObjectInformationW(hObj: HANDLE, nIndex: i32, #[size_param(3)] #[opt] pvInfo: *mut void, nLength: u32, #[opt] lpnLengthNeeded: *mut u32) -> BOOL;
+        extern fn GetUserObjectInformationW(hObj: HANDLE, nIndex: i32, #[size_param(3)] #[opt] pvInfo: *mut void, nLength: u32, #[out] #[opt] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetUserObjectSecurity(hObj: HANDLE, pSIRequested: *const u32, #[size_param(3)] #[out] #[opt] pSID: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> BOOL;
+        extern fn GetUserObjectSecurity(hObj: HANDLE, pSIRequested: PSECURITY_INFORMATION, #[size_param(3)] #[out] #[opt] pSID: PSECURITY_DESCRIPTOR, nLength: u32, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetWindow(hWnd: HWND, uCmd: u32) -> HWND;
         #[library("USER32.dll")]
@@ -1930,7 +1941,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetWindowFeedbackSetting(hwnd: HWND, feedback: FEEDBACK_TYPE, dwFlags: u32, #[in] #[out] pSize: *mut u32, #[size_param(3)] #[opt] config: *mut void) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetWindowInfo(hwnd: HWND, #[in] #[out] pwi: *mut WINDOWINFO) -> BOOL;
+        extern fn GetWindowInfo(hwnd: HWND, #[in] #[out] pwi: PWINDOWINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetWindowLongA(hWnd: HWND, nIndex: i32) -> i32;
         #[arch(X64 | Arm64)]
@@ -1948,11 +1959,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetWindowPlacement(hWnd: HWND, #[in] #[out] lpwndpl: *mut WINDOWPLACEMENT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetWindowRect(hWnd: HWND, lpRect: *mut RECT) -> BOOL;
+        extern fn GetWindowRect(hWnd: HWND, #[out] lpRect: LPRECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetWindowRgn(hWnd: HWND, hRgn: HRGN) -> i32;
         #[library("USER32.dll")]
-        extern fn GetWindowRgnBox(hWnd: HWND, lprc: *mut RECT) -> i32;
+        extern fn GetWindowRgnBox(hWnd: HWND, #[out] lprc: LPRECT) -> i32;
         #[library("USER32.dll")]
         extern fn GetWindowTextA(hWnd: HWND, #[len_param(2)] #[out] lpString: PSTR, nMaxCount: i32) -> i32;
         #[library("USER32.dll")]
@@ -1962,7 +1973,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetWindowTextW(hWnd: HWND, #[len_param(2)] #[out] lpString: PWSTR, nMaxCount: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn GetWindowThreadProcessId(hWnd: HWND, #[opt] lpdwProcessId: *mut u32) -> u32;
+        extern fn GetWindowThreadProcessId(hWnd: HWND, #[out] #[opt] lpdwProcessId: LPDWORD) -> u32;
         #[library("USER32.dll")]
         extern fn GetWindowWord(hWnd: HWND, nIndex: i32) -> u16;
         #[library("USER32.dll")]
@@ -2076,7 +2087,10 @@ mod Windows {
         const HELP_TCARD_DATA: i32 = 16;
         const HELP_TCARD_OTHER_CALLER: i32 = 17;
         const HELP_WM_HELP: i32 = 12;
-        type HGESTUREINFO = *mut void;
+        type HGESTUREINFO = *mut HGESTUREINFO__;
+        struct HGESTUREINFO__ {
+            unused: i32,
+        }
         const HIDE_WINDOW: i32 = 0;
         type HIGHCONTRAST = HIGHCONTRASTA;
         struct HIGHCONTRASTA {
@@ -2094,7 +2108,10 @@ mod Windows {
         extern fn HOOKPROC(code: i32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         const HOVER_DEFAULT: u32 = 4294967295;
         type HPOWERNOTIFY = *mut void;
-        type HRAWINPUT = *mut void;
+        type HRAWINPUT = *mut HRAWINPUT__;
+        struct HRAWINPUT__ {
+            unused: i32,
+        }
         const HSHELL_ACCESSIBILITYSTATE: i32 = 11;
         const HSHELL_ACTIVATESHELLWINDOW: i32 = 3;
         const HSHELL_APPCOMMAND: i32 = 12;
@@ -2113,7 +2130,10 @@ mod Windows {
         const HSHELL_WINDOWDESTROYED: i32 = 2;
         const HSHELL_WINDOWREPLACED: i32 = 13;
         const HSHELL_WINDOWREPLACING: i32 = 14;
-        type HSYNTHETICPOINTERDEVICE = *mut void;
+        type HSYNTHETICPOINTERDEVICE = *mut HSYNTHETICPOINTERDEVICE__;
+        struct HSYNTHETICPOINTERDEVICE__ {
+            unused: i32,
+        }
         const HTBORDER: i32 = 18;
         const HTBOTTOM: i32 = 15;
         const HTBOTTOMLEFT: i32 = 16;
@@ -2131,7 +2151,10 @@ mod Windows {
         const HTMINBUTTON: i32 = 8;
         const HTNOWHERE: i32 = 0;
         const HTOBJECT: i32 = 19;
-        type HTOUCHINPUT = *mut void;
+        type HTOUCHINPUT = *mut HTOUCHINPUT__;
+        struct HTOUCHINPUT__ {
+            unused: i32,
+        }
         const HTREDUCE: i32 = 8;
         const HTRIGHT: i32 = 11;
         const HTSIZE: i32 = 4;
@@ -2209,24 +2232,24 @@ mod Windows {
         const IDCANCEL: i32 = 2;
         const IDCLOSE: i32 = 8;
         const IDCONTINUE: i32 = 11;
-        const IDC_APPSTARTING: PWSTR = 32650;
-        const IDC_ARROW: PWSTR = 32512;
-        const IDC_CROSS: PWSTR = 32515;
-        const IDC_HAND: PWSTR = 32649;
-        const IDC_HELP: PWSTR = 32651;
-        const IDC_IBEAM: PWSTR = 32513;
-        const IDC_ICON: PWSTR = 32641;
-        const IDC_NO: PWSTR = 32648;
-        const IDC_PERSON: PWSTR = 32672;
-        const IDC_PIN: PWSTR = 32671;
-        const IDC_SIZE: PWSTR = 32640;
-        const IDC_SIZEALL: PWSTR = 32646;
-        const IDC_SIZENESW: PWSTR = 32643;
-        const IDC_SIZENS: PWSTR = 32645;
-        const IDC_SIZENWSE: PWSTR = 32642;
-        const IDC_SIZEWE: PWSTR = 32644;
-        const IDC_UPARROW: PWSTR = 32516;
-        const IDC_WAIT: PWSTR = 32514;
+        const IDC_APPSTARTING: PSTR = 32650;
+        const IDC_ARROW: PSTR = 32512;
+        const IDC_CROSS: PSTR = 32515;
+        const IDC_HAND: PSTR = 32649;
+        const IDC_HELP: PSTR = 32651;
+        const IDC_IBEAM: PSTR = 32513;
+        const IDC_ICON: PSTR = 32641;
+        const IDC_NO: PSTR = 32648;
+        const IDC_PERSON: PSTR = 32672;
+        const IDC_PIN: PSTR = 32671;
+        const IDC_SIZE: PSTR = 32640;
+        const IDC_SIZEALL: PSTR = 32646;
+        const IDC_SIZENESW: PSTR = 32643;
+        const IDC_SIZENS: PSTR = 32645;
+        const IDC_SIZENWSE: PSTR = 32642;
+        const IDC_SIZEWE: PSTR = 32644;
+        const IDC_UPARROW: PSTR = 32516;
+        const IDC_WAIT: PSTR = 32514;
         const IDHELP: i32 = 9;
         const IDHOT_SNAPDESKTOP: i32 = -2;
         const IDHOT_SNAPWINDOW: i32 = -1;
@@ -2237,13 +2260,16 @@ mod Windows {
         const IDH_NO_HELP: i32 = 28440;
         const IDH_OK: i32 = 28443;
         const IDIGNORE: i32 = 5;
-        const IDI_APPLICATION: PWSTR = 32512;
-        const IDI_ASTERISK: PWSTR = 32516;
-        const IDI_EXCLAMATION: PWSTR = 32515;
-        const IDI_HAND: PWSTR = 32513;
-        const IDI_QUESTION: PWSTR = 32514;
-        const IDI_SHIELD: PWSTR = 32518;
-        const IDI_WINLOGO: PWSTR = 32517;
+        const IDI_APPLICATION: PSTR = 32512;
+        const IDI_ASTERISK: PSTR = 32516;
+        const IDI_ERROR: PSTR = 32513;
+        const IDI_EXCLAMATION: PSTR = 32515;
+        const IDI_HAND: PSTR = 32513;
+        const IDI_INFORMATION: PSTR = 32516;
+        const IDI_QUESTION: PSTR = 32514;
+        const IDI_SHIELD: PSTR = 32518;
+        const IDI_WARNING: PSTR = 32515;
+        const IDI_WINLOGO: PSTR = 32517;
         const IDNO: i32 = 7;
         const IDOK: i32 = 1;
         const IDRETRY: i32 = 4;
@@ -2325,16 +2351,16 @@ mod Windows {
         const ISMEX_NOTIFY: i32 = 2;
         const ISMEX_REPLIED: i32 = 8;
         const ISMEX_SEND: i32 = 1;
-        const ISOLATIONAWARE_MANIFEST_RESOURCE_ID: PWSTR = 2;
-        const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: PWSTR = 3;
-        const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: PWSTR = 5;
-        const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: PWSTR = 4;
+        const ISOLATIONAWARE_MANIFEST_RESOURCE_ID: PSTR = 2;
+        const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: PSTR = 3;
+        const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: PSTR = 5;
+        const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: PSTR = 4;
         #[library("USER32.dll")]
         extern fn InSendMessage() -> BOOL;
         #[library("USER32.dll")]
-        extern fn InSendMessageEx(#[reserved] lpReserved: *const void) -> u32;
+        extern fn InSendMessageEx(#[reserved] lpReserved: *mut void) -> u32;
         #[library("USER32.dll")]
-        extern fn InflateRect(#[in] #[out] lprc: *mut RECT, dx: i32, dy: i32) -> BOOL;
+        extern fn InflateRect(#[in] #[out] lprc: LPRECT, dx: i32, dy: i32) -> BOOL;
         #[library("USER32.dll")]
         extern fn InheritWindowMonitor(hwnd: HWND, #[opt] hwndInherit: HWND) -> BOOL;
         #[library("USER32.dll")]
@@ -2346,15 +2372,15 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn InsertMenuA(hMenu: HMENU, uPosition: u32, uFlags: u32, uIDNewItem: usize, #[opt] lpNewItem: PCSTR) -> BOOL;
         #[library("USER32.dll")]
-        extern fn InsertMenuItemA(hmenu: HMENU, item: u32, fByPosition: BOOL, lpmi: *const MENUITEMINFOA) -> BOOL;
+        extern fn InsertMenuItemA(hmenu: HMENU, item: u32, fByPosition: BOOL, lpmi: LPCMENUITEMINFOA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn InsertMenuItemW(hmenu: HMENU, item: u32, fByPosition: BOOL, lpmi: *const MENUITEMINFOW) -> BOOL;
+        extern fn InsertMenuItemW(hmenu: HMENU, item: u32, fByPosition: BOOL, lpmi: LPCMENUITEMINFOW) -> BOOL;
         #[library("USER32.dll")]
         extern fn InsertMenuW(hMenu: HMENU, uPosition: u32, uFlags: u32, uIDNewItem: usize, #[opt] lpNewItem: PCWSTR) -> BOOL;
         #[library("USER32.dll")]
         extern fn InternalGetWindowText(hWnd: HWND, #[len_param(2)] #[out] pString: PWSTR, cchMaxCount: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn IntersectRect(lprcDst: *mut RECT, lprcSrc1: *const RECT, lprcSrc2: *const RECT) -> BOOL;
+        extern fn IntersectRect(#[out] lprcDst: LPRECT, lprcSrc1: *const RECT, lprcSrc2: *const RECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn InvalidateRect(#[opt] hWnd: HWND, #[opt] lpRect: *const RECT, bErase: BOOL) -> BOOL;
         #[library("USER32.dll")]
@@ -2382,9 +2408,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn IsClipboardFormatAvailable(format: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn IsDialogMessageA(hDlg: HWND, lpMsg: *const MSG) -> BOOL;
+        extern fn IsDialogMessageA(hDlg: HWND, lpMsg: LPMSG) -> BOOL;
         #[library("USER32.dll")]
-        extern fn IsDialogMessageW(hDlg: HWND, lpMsg: *const MSG) -> BOOL;
+        extern fn IsDialogMessageW(hDlg: HWND, lpMsg: LPMSG) -> BOOL;
         #[library("USER32.dll")]
         extern fn IsDlgButtonChecked(hDlg: HWND, nIDButton: i32) -> u32;
         #[library("USER32.dll")]
@@ -2406,7 +2432,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn IsRectEmpty(lprc: *const RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn IsTouchWindow(hwnd: HWND, #[opt] pulFlags: *mut u32) -> BOOL;
+        extern fn IsTouchWindow(hwnd: HWND, #[out] #[opt] pulFlags: PULONG) -> BOOL;
         #[library("USER32.dll")]
         extern fn IsValidDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> BOOL;
         #[library("USER32.dll")]
@@ -2439,7 +2465,6 @@ mod Windows {
             time: u32,
             dwExtraInfo: usize,
         }
-        const KEYBOARD_OVERRUN_MAKE_CODE: i32 = 255;
         const KEYEVENTF_EXTENDEDKEY: i32 = 1;
         const KEYEVENTF_KEYUP: i32 = 2;
         const KEYEVENTF_SCANCODE: i32 = 8;
@@ -2735,18 +2760,19 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn LockWorkStation() -> BOOL;
         #[library("USER32.dll")]
-        extern fn LogicalToPhysicalPoint(hWnd: HWND, #[in] #[out] lpPoint: *mut POINT) -> BOOL;
+        extern fn LogicalToPhysicalPoint(hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn LogicalToPhysicalPointForPerMonitorDPI(#[opt] hWnd: HWND, #[in] #[out] lpPoint: *mut POINT) -> BOOL;
+        extern fn LogicalToPhysicalPointForPerMonitorDPI(#[opt] hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn LookupIconIdFromDirectory(presbits: *const u8, fIcon: BOOL) -> i32;
+        extern fn LookupIconIdFromDirectory(presbits: PBYTE, fIcon: BOOL) -> i32;
         #[library("USER32.dll")]
-        extern fn LookupIconIdFromDirectoryEx(presbits: *const u8, fIcon: BOOL, cxDesired: i32, cyDesired: i32, Flags: u32) -> i32;
+        extern fn LookupIconIdFromDirectoryEx(presbits: PBYTE, fIcon: BOOL, cxDesired: i32, cyDesired: i32, Flags: u32) -> i32;
         const MAPVK_VK_TO_CHAR: i32 = 2;
         const MAPVK_VK_TO_VSC: i32 = 0;
         const MAPVK_VK_TO_VSC_EX: i32 = 4;
         const MAPVK_VSC_TO_VK: i32 = 1;
         const MAPVK_VSC_TO_VK_EX: i32 = 3;
+        const MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID: PSTR = 16;
         const MAX_LOGICALDPIOVERRIDE: i32 = 2;
         const MAX_STR_BLOCKREASON: i32 = 256;
         const MAX_TOUCH_COUNT: i32 = 256;
@@ -2985,6 +3011,7 @@ mod Windows {
             iVertGap: i32,
             iArrange: i32,
         }
+        const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: PSTR = 1;
         struct MINMAXINFO {
             ptReserved: POINT,
             ptMaxSize: POINT,
@@ -3035,7 +3062,7 @@ mod Windows {
         const MOD_NOREPEAT: i32 = 16384;
         const MOD_SHIFT: i32 = 4;
         const MOD_WIN: i32 = 8;
-        extern fn MONITORENUMPROC(param0: HMONITOR, param1: HDC, param2: *mut RECT, param3: LPARAM) -> BOOL;
+        extern fn MONITORENUMPROC(param0: HMONITOR, param1: HDC, param2: LPRECT, param3: LPARAM) -> BOOL;
         struct MONITORINFO {
             cbSize: u32,
             rcMonitor: RECT,
@@ -3105,11 +3132,6 @@ mod Windows {
         const MOUSEWHEEL_ROUTING_FOCUS: i32 = 0;
         const MOUSEWHEEL_ROUTING_HYBRID: i32 = 1;
         const MOUSEWHEEL_ROUTING_MOUSE_POS: i32 = 2;
-        const MOUSE_ATTRIBUTES_CHANGED: i32 = 4;
-        const MOUSE_MOVE_ABSOLUTE: i32 = 1;
-        const MOUSE_MOVE_NOCOALESCE: i32 = 8;
-        const MOUSE_MOVE_RELATIVE: i32 = 0;
-        const MOUSE_VIRTUAL_DESKTOP: i32 = 2;
         #[repr(i32)]
         enum MOVESIZE_OPERATION {
             MSO_SIZE_LEFT = 1,
@@ -3130,7 +3152,7 @@ mod Windows {
             time: u32,
             pt: POINT,
         }
-        extern fn MSGBOXCALLBACK(lpHelpInfo: *mut HELPINFO);
+        extern fn MSGBOXCALLBACK(lpHelpInfo: LPHELPINFO);
         type MSGBOXPARAMS = MSGBOXPARAMSA;
         struct MSGBOXPARAMSA {
             cbSize: u32,
@@ -3194,7 +3216,7 @@ mod Windows {
         const MWMO_INPUTAVAILABLE: i32 = 4;
         const MWMO_WAITALL: i32 = 1;
         #[library("USER32.dll")]
-        extern fn MapDialogRect(hDlg: HWND, #[in] #[out] lpRect: *mut RECT) -> BOOL;
+        extern fn MapDialogRect(hDlg: HWND, #[in] #[out] lpRect: LPRECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn MapVirtualKeyA(uCode: u32, uMapType: u32) -> u32;
         #[library("USER32.dll")]
@@ -3204,7 +3226,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn MapVirtualKeyW(uCode: u32, uMapType: u32) -> u32;
         #[library("USER32.dll")]
-        extern fn MapWindowPoints(#[opt] hWndFrom: HWND, #[opt] hWndTo: HWND, #[len_param(3)] #[in] #[out] lpPoints: *mut POINT, cPoints: u32) -> i32;
+        extern fn MapWindowPoints(#[opt] hWndFrom: HWND, #[opt] hWndTo: HWND, #[len_param(3)] #[in] #[out] lpPoints: LPPOINT, cPoints: u32) -> i32;
         #[library("USER32.dll")]
         extern fn MenuItemFromPoint(#[opt] hWnd: HWND, hMenu: HMENU, ptScreen: POINT) -> i32;
         #[library("USER32.dll")]
@@ -3228,7 +3250,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn MonitorFromPoint(pt: POINT, dwFlags: u32) -> HMONITOR;
         #[library("USER32.dll")]
-        extern fn MonitorFromRect(lprc: *const RECT, dwFlags: u32) -> HMONITOR;
+        extern fn MonitorFromRect(lprc: LPCRECT, dwFlags: u32) -> HMONITOR;
         #[library("USER32.dll")]
         extern fn MonitorFromWindow(hwnd: HWND, dwFlags: u32) -> HMONITOR;
         #[library("USER32.dll")]
@@ -3364,7 +3386,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn OemToCharW(pSrc: PCSTR, #[out] pDst: PWSTR) -> BOOL;
         #[library("USER32.dll")]
-        extern fn OffsetRect(#[in] #[out] lprc: *mut RECT, dx: i32, dy: i32) -> BOOL;
+        extern fn OffsetRect(#[in] #[out] lprc: LPRECT, dx: i32, dy: i32) -> BOOL;
         #[library("USER32.dll")]
         extern fn OpenClipboard(#[opt] hWndNewOwner: HWND) -> BOOL;
         #[library("USER32.dll")]
@@ -3669,7 +3691,7 @@ mod Windows {
         type PRAWINPUTHEADER = *mut RAWINPUTHEADER;
         type PRAWKEYBOARD = *mut RAWKEYBOARD;
         type PRAWMOUSE = *mut RAWMOUSE;
-        extern fn PREGISTERCLASSNAMEW(param0: PCWSTR) -> bool;
+        extern fn PREGISTERCLASSNAMEW(param0: PCWSTR) -> BOOLEAN;
         const PRF_CHECKVISIBLE: i32 = 1;
         const PRF_CHILDREN: i32 = 16;
         const PRF_CLIENT: i32 = 4;
@@ -3721,13 +3743,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn PaintDesktop(hdc: HDC) -> BOOL;
         #[library("USER32.dll")]
-        extern fn PeekMessageA(lpMsg: *mut MSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32) -> BOOL;
+        extern fn PeekMessageA(#[out] lpMsg: LPMSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn PeekMessageW(lpMsg: *mut MSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32) -> BOOL;
+        extern fn PeekMessageW(#[out] lpMsg: LPMSG, #[opt] hWnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn PhysicalToLogicalPoint(hWnd: HWND, #[in] #[out] lpPoint: *mut POINT) -> BOOL;
+        extern fn PhysicalToLogicalPoint(hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn PhysicalToLogicalPointForPerMonitorDPI(#[opt] hWnd: HWND, #[in] #[out] lpPoint: *mut POINT) -> BOOL;
+        extern fn PhysicalToLogicalPointForPerMonitorDPI(#[opt] hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
         extern fn PostMessageA(#[opt] hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> BOOL;
         #[library("USER32.dll")]
@@ -3905,25 +3927,27 @@ mod Windows {
         const RI_MOUSE_RIGHT_BUTTON_DOWN: i32 = 4;
         const RI_MOUSE_RIGHT_BUTTON_UP: i32 = 8;
         const RI_MOUSE_WHEEL: i32 = 1024;
-        const RT_ACCELERATOR: PWSTR = 9;
-        const RT_ANICURSOR: PWSTR = 21;
-        const RT_ANIICON: PWSTR = 22;
-        const RT_BITMAP: PWSTR = 2;
-        const RT_CURSOR: PWSTR = 1;
-        const RT_DIALOG: PWSTR = 5;
-        const RT_DLGINCLUDE: PWSTR = 17;
-        const RT_FONT: PWSTR = 8;
-        const RT_FONTDIR: PWSTR = 7;
-        const RT_HTML: PWSTR = 23;
-        const RT_ICON: PWSTR = 3;
-        const RT_MANIFEST: PWSTR = 24;
-        const RT_MENU: PWSTR = 4;
-        const RT_MESSAGETABLE: PWSTR = 11;
-        const RT_PLUGPLAY: PWSTR = 19;
-        const RT_RCDATA: PWSTR = 10;
-        const RT_STRING: PWSTR = 6;
-        const RT_VERSION: PWSTR = 16;
-        const RT_VXD: PWSTR = 20;
+        const RT_ACCELERATOR: PSTR = 9;
+        const RT_ANICURSOR: PSTR = 21;
+        const RT_ANIICON: PSTR = 22;
+        const RT_BITMAP: PSTR = 2;
+        const RT_CURSOR: PSTR = 1;
+        const RT_DIALOG: PSTR = 5;
+        const RT_DLGINCLUDE: PSTR = 17;
+        const RT_FONT: PSTR = 8;
+        const RT_FONTDIR: PSTR = 7;
+        const RT_GROUP_CURSOR: PSTR = 12;
+        const RT_GROUP_ICON: PSTR = 14;
+        const RT_HTML: PSTR = 23;
+        const RT_ICON: PSTR = 3;
+        const RT_MANIFEST: PSTR = 24;
+        const RT_MENU: PSTR = 4;
+        const RT_MESSAGETABLE: PSTR = 11;
+        const RT_PLUGPLAY: PSTR = 19;
+        const RT_RCDATA: PSTR = 10;
+        const RT_STRING: PSTR = 6;
+        const RT_VERSION: PSTR = 16;
+        const RT_VXD: PSTR = 20;
         #[library("USER32.dll")]
         extern fn RealChildWindowFromPoint(hwndParent: HWND, ptParentClientCoords: POINT) -> HWND;
         #[library("USER32.dll")]
@@ -3947,9 +3971,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn RegisterCloakedNotification(hwnd: HWND, fRegister: BOOL) -> BOOL;
         #[library("USER32.dll")]
-        extern fn RegisterDeviceNotificationA(hRecipient: HANDLE, NotificationFilter: *const void, Flags: u32) -> HDEVNOTIFY;
+        extern fn RegisterDeviceNotificationA(hRecipient: HANDLE, #[in] NotificationFilter: *mut void, Flags: u32) -> HDEVNOTIFY;
         #[library("USER32.dll")]
-        extern fn RegisterDeviceNotificationW(hRecipient: HANDLE, NotificationFilter: *const void, Flags: u32) -> HDEVNOTIFY;
+        extern fn RegisterDeviceNotificationW(hRecipient: HANDLE, #[in] NotificationFilter: *mut void, Flags: u32) -> HDEVNOTIFY;
         #[library("USER32.dll")]
         extern fn RegisterForTooltipDismissNotification(hWnd: HWND, tdFlags: TOOLTIP_DISMISS_FLAGS) -> BOOL;
         #[library("USER32.dll")]
@@ -3961,9 +3985,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn RegisterPointerInputTargetEx(hwnd: HWND, pointerType: POINTER_INPUT_TYPE, fObserve: BOOL) -> BOOL;
         #[library("USER32.dll")]
-        extern fn RegisterPowerSettingNotification(hRecipient: HANDLE, PowerSettingGuid: *const GUID, Flags: u32) -> HPOWERNOTIFY;
+        extern fn RegisterPowerSettingNotification(hRecipient: HANDLE, PowerSettingGuid: LPCGUID, Flags: u32) -> HPOWERNOTIFY;
         #[library("USER32.dll")]
-        extern fn RegisterRawInputDevices(#[len_param(1)] pRawInputDevices: *const RAWINPUTDEVICE, uiNumDevices: u32, cbSize: u32) -> BOOL;
+        extern fn RegisterRawInputDevices(#[len_param(1)] pRawInputDevices: PCRAWINPUTDEVICE, uiNumDevices: u32, cbSize: u32) -> BOOL;
         #[library("USER32.dll")]
         extern fn RegisterShellHookWindow(hwnd: HWND) -> BOOL;
         #[library("USER32.dll")]
@@ -4678,19 +4702,19 @@ mod Windows {
         const SW_SHOWNORMAL: i32 = 1;
         const SW_SMOOTHSCROLL: i32 = 16;
         #[library("USER32.dll")]
-        extern fn ScreenToClient(hWnd: HWND, #[in] #[out] lpPoint: *mut POINT) -> BOOL;
+        extern fn ScreenToClient(hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ScrollDC(hDC: HDC, dx: i32, dy: i32, #[opt] lprcScroll: *const RECT, #[opt] lprcClip: *const RECT, #[opt] hrgnUpdate: HRGN, #[opt] lprcUpdate: *mut RECT) -> BOOL;
+        extern fn ScrollDC(hDC: HDC, dx: i32, dy: i32, #[opt] lprcScroll: *const RECT, #[opt] lprcClip: *const RECT, #[opt] hrgnUpdate: HRGN, #[out] #[opt] lprcUpdate: LPRECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn ScrollWindow(hWnd: HWND, XAmount: i32, YAmount: i32, #[opt] lpRect: *const RECT, #[opt] lpClipRect: *const RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ScrollWindowEx(hWnd: HWND, dx: i32, dy: i32, #[opt] prcScroll: *const RECT, #[opt] prcClip: *const RECT, #[opt] hrgnUpdate: HRGN, #[opt] prcUpdate: *mut RECT, flags: u32) -> i32;
+        extern fn ScrollWindowEx(hWnd: HWND, dx: i32, dy: i32, #[opt] prcScroll: *const RECT, #[opt] prcClip: *const RECT, #[opt] hrgnUpdate: HRGN, #[out] #[opt] prcUpdate: LPRECT, flags: u32) -> i32;
         #[library("USER32.dll")]
         extern fn SendDlgItemMessageA(hDlg: HWND, nIDDlgItem: i32, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
         extern fn SendDlgItemMessageW(hDlg: HWND, nIDDlgItem: i32, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
-        extern fn SendInput(cInputs: u32, #[len_param(0)] pInputs: *const INPUT, cbSize: i32) -> u32;
+        extern fn SendInput(cInputs: u32, #[len_param(0)] pInputs: LPINPUT, cbSize: i32) -> u32;
         #[library("USER32.dll")]
         extern fn SendMessageA(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
@@ -4698,9 +4722,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SendMessageCallbackW(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM, lpResultCallBack: SENDASYNCPROC, dwData: usize) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SendMessageTimeoutA(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM, fuFlags: u32, uTimeout: u32, #[opt] lpdwResult: *mut usize) -> LRESULT;
+        extern fn SendMessageTimeoutA(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM, fuFlags: u32, uTimeout: u32, #[out] #[opt] lpdwResult: PDWORD_PTR) -> LRESULT;
         #[library("USER32.dll")]
-        extern fn SendMessageTimeoutW(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM, fuFlags: u32, uTimeout: u32, #[opt] lpdwResult: *mut usize) -> LRESULT;
+        extern fn SendMessageTimeoutW(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM, fuFlags: u32, uTimeout: u32, #[out] #[opt] lpdwResult: PDWORD_PTR) -> LRESULT;
         #[library("USER32.dll")]
         extern fn SendMessageW(hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
@@ -4710,7 +4734,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SetActiveWindow(hWnd: HWND) -> HWND;
         #[library("USER32.dll")]
-        extern fn SetAdditionalForegroundBoostProcesses(topLevelWindow: HWND, processHandleCount: u32, #[len_param(1)] processHandleArray: *const HANDLE) -> BOOL;
+        extern fn SetAdditionalForegroundBoostProcesses(topLevelWindow: HWND, processHandleCount: u32, #[len_param(1)] #[in] processHandleArray: *mut HANDLE) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetCapture(hWnd: HWND) -> HWND;
         #[library("USER32.dll")]
@@ -4748,7 +4772,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetDisplayConfig(numPathArrayElements: u32, #[len_param(0)] #[opt] pathArray: *const DISPLAYCONFIG_PATH_INFO, numModeInfoArrayElements: u32, #[len_param(2)] #[opt] modeInfoArray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32;
+        extern fn SetDisplayConfig(numPathArrayElements: u32, #[len_param(0)] #[in] #[opt] pathArray: *mut DISPLAYCONFIG_PATH_INFO, numModeInfoArrayElements: u32, #[len_param(2)] #[in] #[opt] modeInfoArray: *mut DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32;
         #[library("USER32.dll")]
         extern fn SetDlgItemInt(hDlg: HWND, nIDDlgItem: i32, uValue: u32, bSigned: BOOL) -> BOOL;
         #[library("USER32.dll")]
@@ -4762,9 +4786,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SetForegroundWindow(hWnd: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetGestureConfig(hwnd: HWND, dwReserved: u32, cIDs: u32, #[len_param(2)] pGestureConfig: *const GESTURECONFIG, cbSize: u32) -> BOOL;
+        extern fn SetGestureConfig(hwnd: HWND, dwReserved: u32, cIDs: u32, #[len_param(2)] pGestureConfig: PGESTURECONFIG, cbSize: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetKeyboardState(#[len_const(256)] lpKeyState: *const u8) -> BOOL;
+        extern fn SetKeyboardState(#[len_const(256)] lpKeyState: LPBYTE) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetLastErrorEx(dwErrCode: u32, dwType: u32);
         #[library("USER32.dll")]
@@ -4776,13 +4800,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SetMenuDefaultItem(hMenu: HMENU, uItem: u32, fByPos: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetMenuInfo(param0: HMENU, param1: *const MENUINFO) -> BOOL;
+        extern fn SetMenuInfo(param0: HMENU, param1: LPCMENUINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetMenuItemBitmaps(hMenu: HMENU, uPosition: u32, uFlags: u32, #[opt] hBitmapUnchecked: HBITMAP, #[opt] hBitmapChecked: HBITMAP) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetMenuItemInfoA(hmenu: HMENU, item: u32, fByPositon: BOOL, lpmii: *const MENUITEMINFOA) -> BOOL;
+        extern fn SetMenuItemInfoA(hmenu: HMENU, item: u32, fByPositon: BOOL, lpmii: LPCMENUITEMINFOA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetMenuItemInfoW(hmenu: HMENU, item: u32, fByPositon: BOOL, lpmii: *const MENUITEMINFOW) -> BOOL;
+        extern fn SetMenuItemInfoW(hmenu: HMENU, item: u32, fByPositon: BOOL, lpmii: LPCMENUITEMINFOW) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetMessageExtraInfo(lParam: LPARAM) -> LPARAM;
         #[library("USER32.dll")]
@@ -4806,11 +4830,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SetPropW(hWnd: HWND, lpString: PCWSTR, #[opt] hData: HANDLE) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetRect(lprc: *mut RECT, xLeft: i32, yTop: i32, xRight: i32, yBottom: i32) -> BOOL;
+        extern fn SetRect(#[out] lprc: LPRECT, xLeft: i32, yTop: i32, xRight: i32, yBottom: i32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetRectEmpty(lprc: *mut RECT) -> BOOL;
+        extern fn SetRectEmpty(#[out] lprc: LPRECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetScrollInfo(hwnd: HWND, nBar: i32, lpsi: *const SCROLLINFO, redraw: BOOL) -> i32;
+        extern fn SetScrollInfo(hwnd: HWND, nBar: i32, lpsi: LPCSCROLLINFO, redraw: BOOL) -> i32;
         #[library("USER32.dll")]
         extern fn SetScrollPos(hWnd: HWND, nBar: i32, nPos: i32, bRedraw: BOOL) -> i32;
         #[library("USER32.dll")]
@@ -4828,11 +4852,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SetTimer(#[opt] hWnd: HWND, nIDEvent: usize, uElapse: u32, #[opt] lpTimerFunc: TIMERPROC) -> usize;
         #[library("USER32.dll")]
-        extern fn SetUserObjectInformationA(hObj: HANDLE, nIndex: i32, #[size_param(3)] pvInfo: *const void, nLength: u32) -> BOOL;
+        extern fn SetUserObjectInformationA(hObj: HANDLE, nIndex: i32, #[size_param(3)] #[in] pvInfo: *mut void, nLength: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetUserObjectInformationW(hObj: HANDLE, nIndex: i32, #[size_param(3)] pvInfo: *const void, nLength: u32) -> BOOL;
+        extern fn SetUserObjectInformationW(hObj: HANDLE, nIndex: i32, #[size_param(3)] #[in] pvInfo: *mut void, nLength: u32) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SetUserObjectSecurity(hObj: HANDLE, pSIRequested: *const u32, pSID: PSECURITY_DESCRIPTOR) -> BOOL;
+        extern fn SetUserObjectSecurity(hObj: HANDLE, pSIRequested: PSECURITY_INFORMATION, pSID: PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetWinEventHook(eventMin: u32, eventMax: u32, #[opt] hmodWinEventProc: HMODULE, pfnWinEventProc: WINEVENTPROC, idProcess: u32, idThread: u32, dwFlags: u32) -> HWINEVENTHOOK;
         #[library("USER32.dll")]
@@ -4894,7 +4918,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SoundSentry() -> BOOL;
         #[library("USER32.dll")]
-        extern fn SubtractRect(lprcDst: *mut RECT, lprcSrc1: *const RECT, lprcSrc2: *const RECT) -> BOOL;
+        extern fn SubtractRect(#[out] lprcDst: LPRECT, lprcSrc1: *const RECT, lprcSrc2: *const RECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn SwapMouseButton(fSwap: BOOL) -> BOOL;
         #[library("USER32.dll")]
@@ -5098,25 +5122,25 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn TileWindows(#[opt] hwndParent: HWND, wHow: u32, #[opt] lpRect: *const RECT, cKids: u32, #[len_param(3)] #[opt] lpKids: *const HWND) -> u16;
         #[library("USER32.dll")]
-        extern fn ToAscii(uVirtKey: u32, uScanCode: u32, #[len_const(256)] #[opt] lpKeyState: *const u8, lpChar: *mut u16, uFlags: u32) -> i32;
+        extern fn ToAscii(uVirtKey: u32, uScanCode: u32, #[len_const(256)] #[opt] lpKeyState: *const u8, #[out] lpChar: LPWORD, uFlags: u32) -> i32;
         #[library("USER32.dll")]
-        extern fn ToAsciiEx(uVirtKey: u32, uScanCode: u32, #[len_const(256)] #[opt] lpKeyState: *const u8, lpChar: *mut u16, uFlags: u32, #[opt] dwhkl: HKL) -> i32;
+        extern fn ToAsciiEx(uVirtKey: u32, uScanCode: u32, #[len_const(256)] #[opt] lpKeyState: *const u8, #[out] lpChar: LPWORD, uFlags: u32, #[opt] dwhkl: HKL) -> i32;
         #[library("USER32.dll")]
-        extern fn ToUnicode(wVirtKey: u32, wScanCode: u32, #[opt] lpKeyState: *const u8, #[len_param(4)] #[out] pwszBuff: PWSTR, cchBuff: i32, wFlags: u32) -> i32;
+        extern fn ToUnicode(wVirtKey: u32, wScanCode: u32, #[len_const(256)] #[opt] lpKeyState: *const u8, #[len_param(4)] #[out] pwszBuff: PWSTR, cchBuff: i32, wFlags: u32) -> i32;
         #[library("USER32.dll")]
-        extern fn ToUnicodeEx(wVirtKey: u32, wScanCode: u32, lpKeyState: *const u8, #[len_param(4)] #[out] pwszBuff: PWSTR, cchBuff: i32, wFlags: u32, #[opt] dwhkl: HKL) -> i32;
+        extern fn ToUnicodeEx(wVirtKey: u32, wScanCode: u32, #[len_const(256)] lpKeyState: *const u8, #[len_param(4)] #[out] pwszBuff: PWSTR, cchBuff: i32, wFlags: u32, #[opt] dwhkl: HKL) -> i32;
         #[library("USER32.dll")]
-        extern fn TrackMouseEvent(#[in] #[out] lpEventTrack: *mut TRACKMOUSEEVENT) -> BOOL;
+        extern fn TrackMouseEvent(#[in] #[out] lpEventTrack: LPTRACKMOUSEEVENT) -> BOOL;
         #[library("USER32.dll")]
         extern fn TrackPopupMenu(hMenu: HMENU, uFlags: u32, x: i32, y: i32, #[reserved] nReserved: i32, hWnd: HWND, #[reserved] prcRect: *const RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn TrackPopupMenuEx(hMenu: HMENU, uFlags: u32, x: i32, y: i32, hwnd: HWND, #[opt] lptpm: *const TPMPARAMS) -> BOOL;
+        extern fn TrackPopupMenuEx(hMenu: HMENU, uFlags: u32, x: i32, y: i32, hwnd: HWND, #[opt] lptpm: LPTPMPARAMS) -> BOOL;
         #[library("USER32.dll")]
-        extern fn TranslateAcceleratorA(hWnd: HWND, hAccTable: HACCEL, lpMsg: *const MSG) -> i32;
+        extern fn TranslateAcceleratorA(hWnd: HWND, hAccTable: HACCEL, lpMsg: LPMSG) -> i32;
         #[library("USER32.dll")]
-        extern fn TranslateAcceleratorW(hWnd: HWND, hAccTable: HACCEL, lpMsg: *const MSG) -> i32;
+        extern fn TranslateAcceleratorW(hWnd: HWND, hAccTable: HACCEL, lpMsg: LPMSG) -> i32;
         #[library("USER32.dll")]
-        extern fn TranslateMDISysAccel(hWndClient: HWND, lpMsg: *const MSG) -> BOOL;
+        extern fn TranslateMDISysAccel(hWndClient: HWND, lpMsg: LPMSG) -> BOOL;
         #[library("USER32.dll")]
         extern fn TranslateMessage(lpMsg: *const MSG) -> BOOL;
         const UISF_ACTIVE: i32 = 4;
@@ -5176,7 +5200,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn UnhookWindowsHookEx(hhk: HHOOK) -> BOOL;
         #[library("USER32.dll")]
-        extern fn UnionRect(lprcDst: *mut RECT, lprcSrc1: *const RECT, lprcSrc2: *const RECT) -> BOOL;
+        extern fn UnionRect(#[out] lprcDst: LPRECT, lprcSrc1: *const RECT, lprcSrc2: *const RECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn UnloadKeyboardLayout(hkl: HKL) -> BOOL;
         #[library("USER32.dll")]
@@ -5198,7 +5222,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn UnregisterTouchWindow(hwnd: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn UpdateLayeredWindow(hWnd: HWND, #[opt] hdcDst: HDC, #[opt] pptDst: *const POINT, #[opt] psize: *const SIZE, #[opt] hdcSrc: HDC, #[opt] pptSrc: *const POINT, crKey: COLORREF, #[opt] pblend: *const BLENDFUNCTION, dwFlags: u32) -> BOOL;
+        extern fn UpdateLayeredWindow(hWnd: HWND, #[opt] hdcDst: HDC, #[in] #[opt] pptDst: *mut POINT, #[in] #[opt] psize: *mut SIZE, #[opt] hdcSrc: HDC, #[in] #[opt] pptSrc: *mut POINT, crKey: COLORREF, #[in] #[opt] pblend: *mut BLENDFUNCTION, dwFlags: u32) -> BOOL;
         #[library("USER32.dll")]
         extern fn UpdateLayeredWindowIndirect(hWnd: HWND, pULWInfo: *const UPDATELAYEREDWINDOWINFO) -> BOOL;
         #[library("USER32.dll")]
@@ -5417,6 +5441,7 @@ mod Windows {
         const WB_ISDELIMITER: i32 = 2;
         const WB_LEFT: i32 = 0;
         const WB_RIGHT: i32 = 1;
+        const WC_DIALOG: LPTSTR = 32770;
         const WDA_EXCLUDEFROMCAPTURE: i32 = 17;
         const WDA_MONITOR: i32 = 1;
         const WDA_NONE: i32 = 0;
@@ -5980,16 +6005,8 @@ mod Windows {
         extern "C" fn wsprintfA(#[out] param0: PSTR, param1: PCSTR, ...) -> i32;
         #[library("USER32.dll")]
         extern "C" fn wsprintfW(#[out] param0: PWSTR, param1: PCWSTR, ...) -> i32;
-        #[arch(X64)]
-        #[library("USER32.dll")]
-        extern fn wvsprintfA(#[out] param0: PSTR, param1: PCSTR, arglist: *const i8) -> i32;
-        #[arch(X86 | Arm64)]
         #[library("USER32.dll")]
         extern fn wvsprintfA(#[out] param0: PSTR, param1: PCSTR, arglist: va_list) -> i32;
-        #[arch(X64)]
-        #[library("USER32.dll")]
-        extern fn wvsprintfW(#[out] param0: PWSTR, param1: PCWSTR, arglist: *const i8) -> i32;
-        #[arch(X86 | Arm64)]
         #[library("USER32.dll")]
         extern fn wvsprintfW(#[out] param0: PWSTR, param1: PCWSTR, arglist: va_list) -> i32;
     }

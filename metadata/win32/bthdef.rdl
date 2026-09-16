@@ -631,13 +631,19 @@ mod Windows {
         const STRING_NAME_OFFSET: i32 = 0;
         const STRING_PROVIDER_NAME_OFFSET: i32 = 2;
         #[encoding("ansi")]
+        const STR_ADDR_FMT: String = "(%02x:%02x:%02x:%02x:%02x:%02x)";
+        #[encoding("ansi")]
         const STR_ADDR_FMTA: String = "(%02x:%02x:%02x:%02x:%02x:%02x)";
         #[encoding("utf-16")]
         const STR_ADDR_FMTW: String = "(%02x:%02x:%02x:%02x:%02x:%02x)";
         #[encoding("ansi")]
+        const STR_ADDR_SHORT_FMT: String = "%04x%08x";
+        #[encoding("ansi")]
         const STR_ADDR_SHORT_FMTA: String = "%04x%08x";
         #[encoding("utf-16")]
         const STR_ADDR_SHORT_FMTW: String = "%04x%08x";
+        #[encoding("ansi")]
+        const STR_USBHCI_CLASS_HARDWAREID: String = "USB\\Class_E0&SubClass_01&Prot_01";
         #[encoding("ansi")]
         const STR_USBHCI_CLASS_HARDWAREIDA: String = "USB\\Class_E0&SubClass_01&Prot_01";
         #[encoding("utf-16")]

@@ -29,7 +29,7 @@ mod Windows {
         #[guid(0x3cf184b4_7ccb_4dda_8455_7e6ce99a3298)]
         interface IReferenceTrackerManager: IUnknown {
             fn ReferenceTrackingStarted(&self) -> HRESULT;
-            fn FindTrackerTargetsCompleted(&self, findFailed: boolean) -> HRESULT;
+            fn FindTrackerTargetsCompleted(&self, findFailed: u8) -> HRESULT;
             fn ReferenceTrackingCompleted(&self) -> HRESULT;
             fn SetReferenceTrackerHost(&self, value: IReferenceTrackerHost) -> HRESULT;
         }
@@ -45,9 +45,12 @@ mod Windows {
             fn CreateTrackerHandle(&self, #[retval] returnValue: *mut TrackerHandle) -> HRESULT;
             fn DeleteTrackerHandle(&self, handle: TrackerHandle) -> HRESULT;
             fn SetTrackerValue(&self, handle: TrackerHandle, value: IUnknown) -> HRESULT;
-            fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, #[retval] returnValue: *mut IUnknown) -> boolean;
+            fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, #[retval] returnValue: *mut IUnknown) -> u8;
         }
-        type TrackerHandle = *mut void;
+        type TrackerHandle = *mut TrackerHandle__;
+        struct TrackerHandle__ {
+            unused: i32,
+        }
         #[repr(i32)]
         enum XAML_REFERENCETRACKER_DISCONNECT {
             XAML_REFERENCETRACKER_DISCONNECT_DEFAULT = 0,

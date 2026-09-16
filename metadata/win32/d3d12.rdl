@@ -10,9 +10,9 @@ mod Windows {
         #[library("d3d12.dll")]
         extern fn D3D12CreateDevice(#[opt] pAdapter: IUnknown, MinimumFeatureLevel: D3D_FEATURE_LEVEL, riid: *const GUID, #[iid_is] #[opt] ppDevice: *mut *mut void) -> HRESULT;
         #[library("d3d12.dll")]
-        extern fn D3D12CreateRootSignatureDeserializer(#[size_param(1)] pSrcData: *const void, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
+        extern fn D3D12CreateRootSignatureDeserializer(#[size_param(1)] pSrcData: LPCVOID, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
         #[library("d3d12.dll")]
-        extern fn D3D12CreateVersionedRootSignatureDeserializer(#[size_param(1)] pSrcData: *const void, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
+        extern fn D3D12CreateVersionedRootSignatureDeserializer(#[size_param(1)] pSrcData: LPCVOID, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
         #[library("d3d12.dll")]
         extern fn D3D12EnableExperimentalFeatures(NumFeatures: u32, pIIDs: *const GUID, pConfigurationStructs: *mut void, pConfigurationStructSizes: *mut u32) -> HRESULT;
         #[library("d3d12.dll")]
@@ -20,9 +20,9 @@ mod Windows {
         #[library("d3d12.dll")]
         extern fn D3D12GetInterface(rclsid: *const GUID, riid: *const GUID, #[iid_is] #[opt] ppvDebug: *mut *mut void) -> HRESULT;
         #[library("d3d12.dll")]
-        extern fn D3D12SerializeRootSignature(pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, Version: D3D_ROOT_SIGNATURE_VERSION, ppBlob: *mut ID3D10Blob, ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D12SerializeRootSignature(pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, Version: D3D_ROOT_SIGNATURE_VERSION, ppBlob: *mut ID3DBlob, ppErrorBlob: *mut ID3DBlob) -> HRESULT;
         #[library("d3d12.dll")]
-        extern fn D3D12SerializeVersionedRootSignature(pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppBlob: *mut ID3D10Blob, ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D12SerializeVersionedRootSignature(pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppBlob: *mut ID3DBlob, ppErrorBlob: *mut ID3DBlob) -> HRESULT;
         const D3D12_16BIT_INDEX_STRIP_CUT_VALUE: i32 = 65535;
         const D3D12_32BIT_INDEX_STRIP_CUT_VALUE: u32 = 4294967295;
         const D3D12_8BIT_INDEX_STRIP_CUT_VALUE: i32 = 255;
@@ -1494,6 +1494,7 @@ mod Windows {
             D3D12_FORMAT_SUPPORT2_DISPLAYABLE = 65536,
         }
         const D3D12_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+        const D3D12_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
         const D3D12_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
         const D3D12_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
         struct D3D12_GENERIC_PROGRAM_DESC {
@@ -1961,6 +1962,7 @@ mod Windows {
         const D3D12_MIN_MAXANISOTROPY: i32 = 0;
         const D3D12_MIP_FILTER_SHIFT: i32 = 0;
         const D3D12_MIP_LOD_BIAS_MAX: f32 = 15.99;
+        const D3D12_MIP_LOD_BIAS_MIN: f32 = -16.0;
         const D3D12_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 8;
         const D3D12_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
         struct D3D12_MIP_REGION {
@@ -4038,7 +4040,7 @@ mod Windows {
         interface ID3D12DeviceConfiguration: IUnknown {
             fn GetDesc(&self) -> D3D12_DEVICE_CONFIGURATION_DESC;
             fn GetEnabledExperimentalFeatures(&self, #[len_param(1)] pGuids: *mut GUID, NumGuids: u32) -> HRESULT;
-            fn SerializeVersionedRootSignature(&self, pDesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppResult: *mut ID3D10Blob, ppError: *mut ID3D10Blob) -> HRESULT;
+            fn SerializeVersionedRootSignature(&self, pDesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppResult: *mut ID3DBlob, ppError: *mut ID3DBlob) -> HRESULT;
             fn CreateVersionedRootSignatureDeserializer(&self, #[size_param(1)] pBlob: *const void, Size: usize, riid: *const GUID, #[iid_is] ppvDeserializer: *mut *mut void) -> HRESULT;
         }
         #[guid(0xed342442_6343_4e16_bb82_a3a577874e56)]
@@ -4052,7 +4054,7 @@ mod Windows {
             fn SetFlags(&self, flags: D3D12_DEVICE_FACTORY_FLAGS) -> HRESULT;
             fn GetFlags(&self) -> D3D12_DEVICE_FACTORY_FLAGS;
             fn GetConfigurationInterface(&self, clsid: *const GUID, iid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn EnableExperimentalFeatures(&self, NumFeatures: u32, #[len_param(0)] pIIDs: *const GUID, #[len_param(0)] #[opt] pConfigurationStructs: *const void, #[len_param(0)] #[opt] pConfigurationStructSizes: *const u32) -> HRESULT;
+            fn EnableExperimentalFeatures(&self, NumFeatures: u32, #[len_param(0)] pIIDs: *const GUID, #[len_param(0)] #[in] #[opt] pConfigurationStructs: *mut void, #[len_param(0)] #[in] #[opt] pConfigurationStructSizes: *mut u32) -> HRESULT;
             fn CreateDevice(&self, #[opt] adapter: IUnknown, FeatureLevel: D3D_FEATURE_LEVEL, riid: *const GUID, #[iid_is] #[opt] ppvDevice: *mut *mut void) -> HRESULT;
         }
         #[guid(0x98931d33_5ae8_4791_aa3c_1a73a2934e71)]
@@ -4090,7 +4092,7 @@ mod Windows {
         }
         #[guid(0xe30e9fc7_e641_4d6e_8a81_9dd9206ec47a)]
         interface ID3D12DeviceTools1: ID3D12DeviceTools {
-            fn GetApplicationSpecificDriverState(&self, ppBlob: *mut ID3D10Blob) -> HRESULT;
+            fn GetApplicationSpecificDriverState(&self, ppBlob: *mut ID3DBlob) -> HRESULT;
             fn GetApplicationSpecificDriverBlobStatus(&self) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS;
         }
         #[guid(0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76)]
@@ -4108,7 +4110,7 @@ mod Windows {
             fn GetGBVEntireSubresourceStatesData(&self, pResource: ID3D12Resource, #[size_param(2)] pData: *mut i32, DataSize: u32) -> HRESULT;
             fn GetGBVSubresourceState(&self, pResource: ID3D12Resource, Subresource: u32, pData: *mut i32) -> HRESULT;
             fn GetGBVResourceUniformState(&self, pResource: ID3D12Resource, pData: *mut i32) -> HRESULT;
-            fn GetGBVResourceInfo(&self, pResource: ID3D12Resource, #[opt] pResourceDesc: *const D3D12_RESOURCE_DESC, #[opt] pResourceHash: *const u32, #[opt] pSubresourceStatesByteOffset: *const u32) -> HRESULT;
+            fn GetGBVResourceInfo(&self, pResource: ID3D12Resource, #[in] #[opt] pResourceDesc: *mut D3D12_RESOURCE_DESC, #[in] #[opt] pResourceHash: *mut u32, #[in] #[opt] pSubresourceStatesByteOffset: *mut u32) -> HRESULT;
             fn GBVReserved0(&self);
             fn GBVReserved1(&self);
         }
@@ -4153,9 +4155,9 @@ mod Windows {
             fn SOSetTargets(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] pViews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW);
             fn OMSetRenderTargets(&self, NumRenderTargetDescriptors: u32, #[opt] pRenderTargetDescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, RTsSingleHandleToDescriptorRange: BOOL, #[opt] pDepthStencilDescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE);
             fn ClearDepthStencilView(&self, DepthStencilView: D3D12_CPU_DESCRIPTOR_HANDLE, ClearFlags: D3D12_CLEAR_FLAGS, Depth: f32, Stencil: u8, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
-            fn ClearRenderTargetView(&self, RenderTargetView: D3D12_CPU_DESCRIPTOR_HANDLE, #[len_const(4)] ColorRGBA: *const f32, NumRects: u32, #[len_param(2)] pRects: *const D3D12_RECT);
-            fn ClearUnorderedAccessViewUint(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, #[len_const(4)] Values: *const u32, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
-            fn ClearUnorderedAccessViewFloat(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, #[len_const(4)] Values: *const f32, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
+            fn ClearRenderTargetView(&self, RenderTargetView: D3D12_CPU_DESCRIPTOR_HANDLE, ColorRGBA: *const f32, NumRects: u32, #[len_param(2)] pRects: *const D3D12_RECT);
+            fn ClearUnorderedAccessViewUint(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, Values: *const u32, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
+            fn ClearUnorderedAccessViewFloat(&self, ViewGPUHandleInCurrentHeap: D3D12_GPU_DESCRIPTOR_HANDLE, ViewCPUHandle: D3D12_CPU_DESCRIPTOR_HANDLE, pResource: ID3D12Resource, Values: *const f32, NumRects: u32, #[len_param(4)] pRects: *const D3D12_RECT);
             fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
             fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
             fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
@@ -4171,8 +4173,8 @@ mod Windows {
             fn AtomicCopyBufferUINT(&self, pDstBuffer: ID3D12Resource, DstOffset: u64, pSrcBuffer: ID3D12Resource, SrcOffset: u64, Dependencies: u32, #[len_param(4)] ppDependentResources: *const ID3D12Resource, #[len_param(4)] pDependentSubresourceRanges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
             fn AtomicCopyBufferUINT64(&self, pDstBuffer: ID3D12Resource, DstOffset: u64, pSrcBuffer: ID3D12Resource, SrcOffset: u64, Dependencies: u32, #[len_param(4)] ppDependentResources: *const ID3D12Resource, #[len_param(4)] pDependentSubresourceRanges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
             fn OMSetDepthBounds(&self, Min: f32, Max: f32);
-            fn SetSamplePositions(&self, NumSamplesPerPixel: u32, NumPixels: u32, pSamplePositions: *const D3D12_SAMPLE_POSITION);
-            fn ResolveSubresourceRegion(&self, pDstResource: ID3D12Resource, DstSubresource: u32, DstX: u32, DstY: u32, pSrcResource: ID3D12Resource, SrcSubresource: u32, #[opt] pSrcRect: *const D3D12_RECT, Format: DXGI_FORMAT, ResolveMode: D3D12_RESOLVE_MODE);
+            fn SetSamplePositions(&self, NumSamplesPerPixel: u32, NumPixels: u32, #[in] pSamplePositions: *mut D3D12_SAMPLE_POSITION);
+            fn ResolveSubresourceRegion(&self, pDstResource: ID3D12Resource, DstSubresource: u32, DstX: u32, DstY: u32, pSrcResource: ID3D12Resource, SrcSubresource: u32, #[in] #[opt] pSrcRect: *mut D3D12_RECT, Format: DXGI_FORMAT, ResolveMode: D3D12_RESOLVE_MODE);
             fn SetViewInstanceMask(&self, Mask: u32);
         }
         #[guid(0x7013c015_d161_4b63_a08c_238552dd8acc)]
@@ -4269,7 +4271,7 @@ mod Windows {
         }
         #[guid(0x765a30f3_f624_4c6f_a828_ace948622445)]
         interface ID3D12PipelineState: ID3D12Pageable {
-            fn GetCachedBlob(&self, ppBlob: *mut ID3D10Blob) -> HRESULT;
+            fn GetCachedBlob(&self, ppBlob: *mut ID3DBlob) -> HRESULT;
         }
         #[guid(0x5646804c_9638_48f7_9182_b3ee5a6b60fb)]
         interface ID3D12PipelineState1: ID3D12PipelineState {
@@ -4362,16 +4364,16 @@ mod Windows {
         }
         #[guid(0xe4fbc019_dd3c_43e1_8f32_7f649575f0a0)]
         interface ID3D12Tools1: ID3D12Tools {
-            fn ReserveGPUVARangesAtCreate(&self, #[len_param(1)] pRanges: *const D3D12_GPU_VIRTUAL_ADDRESS_RANGE, uiNumRanges: u32) -> HRESULT;
+            fn ReserveGPUVARangesAtCreate(&self, #[len_param(1)] #[in] pRanges: *mut D3D12_GPU_VIRTUAL_ADDRESS_RANGE, uiNumRanges: u32) -> HRESULT;
             fn ClearReservedGPUVARangesList(&self);
         }
         #[guid(0x01d393c5_c9b0_42a1_958c_c26b02d4d097)]
         interface ID3D12Tools2: ID3D12Tools1 {
-            fn SetApplicationSpecificDriverState(&self, pAdapter: IUnknown, #[opt] pBlob: ID3D10Blob) -> HRESULT;
+            fn SetApplicationSpecificDriverState(&self, pAdapter: IUnknown, #[opt] pBlob: ID3DBlob) -> HRESULT;
         }
         #[guid(0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0)]
         interface ID3D12VersionedRootSignatureDeserializer: IUnknown {
-            fn GetRootSignatureDescAtVersion(&self, convertToVersion: D3D_ROOT_SIGNATURE_VERSION, ppDesc: *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> HRESULT;
+            fn GetRootSignatureDescAtVersion(&self, convertToVersion: D3D_ROOT_SIGNATURE_VERSION, #[out] ppDesc: *const *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> HRESULT;
             fn GetUnconvertedRootSignatureDesc(&self) -> *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC;
         }
         #[guid(0xbc66d368_7373_4943_8757_fc87dc79e476)]
@@ -4396,12 +4398,12 @@ mod Windows {
             fn GetEntrypointRecordAlignmentInBytes(&self, WorkGraphIndex: u32, EntrypointIndex: u32) -> u32;
         }
         extern fn PFN_D3D12_CREATE_DEVICE(#[opt] param0: IUnknown, param1: D3D_FEATURE_LEVEL, param2: *const GUID, param3: *mut *mut void) -> HRESULT;
-        extern fn PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER(#[size_param(1)] pSrcData: *const void, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
-        extern fn PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER(#[size_param(1)] pSrcData: *const void, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
-        extern fn PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER_FROM_SUBOBJECT_IN_LIBRARY(#[size_param(1)] pSrcData: *const void, SrcDataSizeInBytes: usize, RootSignatureSubobjectName: PCWSTR, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
+        extern fn PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER(#[size_param(1)] pSrcData: LPCVOID, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
+        extern fn PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER(#[size_param(1)] pSrcData: LPCVOID, SrcDataSizeInBytes: usize, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
+        extern fn PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER_FROM_SUBOBJECT_IN_LIBRARY(#[size_param(1)] pSrcData: LPCVOID, SrcDataSizeInBytes: usize, RootSignatureSubobjectName: PCWSTR, pRootSignatureDeserializerInterface: *const GUID, ppRootSignatureDeserializer: *mut *mut void) -> HRESULT;
         extern fn PFN_D3D12_GET_DEBUG_INTERFACE(param0: *const GUID, param1: *mut *mut void) -> HRESULT;
         extern fn PFN_D3D12_GET_INTERFACE(param0: *const GUID, param1: *const GUID, param2: *mut *mut void) -> HRESULT;
-        extern fn PFN_D3D12_SERIALIZE_ROOT_SIGNATURE(pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, Version: D3D_ROOT_SIGNATURE_VERSION, ppBlob: *mut ID3D10Blob, ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
-        extern fn PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE(pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppBlob: *mut ID3D10Blob, ppErrorBlob: *mut ID3D10Blob) -> HRESULT;
+        extern fn PFN_D3D12_SERIALIZE_ROOT_SIGNATURE(pRootSignature: *const D3D12_ROOT_SIGNATURE_DESC, Version: D3D_ROOT_SIGNATURE_VERSION, ppBlob: *mut ID3DBlob, ppErrorBlob: *mut ID3DBlob) -> HRESULT;
+        extern fn PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE(pRootSignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppBlob: *mut ID3DBlob, ppErrorBlob: *mut ID3DBlob) -> HRESULT;
     }
 }

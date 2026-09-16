@@ -205,7 +205,7 @@ mod Windows {
             BdCbStatusPrepareForUnload = 2,
         }
         const BMC_NOTIFY_TYPE_GUID: GUID = 0x487565ba_6494_4367_95ca_4eff893522f6;
-        extern fn BOOT_DRIVER_CALLBACK_FUNCTION(#[opt] CallbackContext: *const void, Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: *mut BDCB_IMAGE_INFORMATION);
+        extern "C" fn BOOT_DRIVER_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: *mut void, Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
         const BOOT_NOTIFY_TYPE_GUID: GUID = 0x3d61a466_ab40_409a_a698_f362d464b38f;
         #[repr(i32)]
         enum BUS_DATA_TYPE {
@@ -224,6 +224,7 @@ mod Windows {
             SgiInternalConfiguration = 11,
             MaximumBusDataType = 12,
         }
+        struct BUS_HANDLER {}
         const CMCI_NOTIFY_TYPE_GUID: GUID = 0x919448b2_3739_4b7f_a8f1_e0062805c2a3;
         struct CMC_DRIVER_INFO {
             ExceptionCallback: PDRIVER_CMC_EXCEPTION_CALLBACK,
@@ -248,8 +249,8 @@ mod Windows {
             ScsiPortCount: u32,
             SerialCount: u32,
             ParallelCount: u32,
-            AtDiskPrimaryAddressClaimed: bool,
-            AtDiskSecondaryAddressClaimed: bool,
+            AtDiskPrimaryAddressClaimed: BOOLEAN,
+            AtDiskSecondaryAddressClaimed: BOOLEAN,
             Version: u32,
             MediumChangerCount: u32,
         }
@@ -304,7 +305,7 @@ mod Windows {
             ControllerExtension: *mut void,
             DeviceWaitQueue: KDEVICE_QUEUE,
             Spare1: u32,
-            Spare2: i64,
+            Spare2: LARGE_INTEGER,
         }
         const CPER_EMPTY_GUID: GUID = 0x00000000_0000_0000_0000_000000000000;
         struct CPE_DRIVER_INFO {
@@ -394,7 +395,7 @@ mod Windows {
         }
         struct DEBUG_DEVICE_ADDRESS {
             Type: u8,
-            Valid: bool,
+            Valid: BOOLEAN,
             Anonymous: union {
                 Reserved: [u8; 2],
                 Anonymous: struct {
@@ -427,8 +428,8 @@ mod Windows {
                     },
                 },
             },
-            Initialized: bool,
-            Configured: bool,
+            Initialized: BOOLEAN,
+            Configured: BOOLEAN,
             BaseAddress: [DEBUG_DEVICE_ADDRESS; 6],
             Memory: DEBUG_MEMORY_REQUIREMENTS,
             Dbg2TableIndex: u32,
@@ -452,16 +453,16 @@ mod Windows {
             MaxEnd: PHYSICAL_ADDRESS,
             VirtualAddress: *mut void,
             Length: u32,
-            Cached: bool,
-            Aligned: bool,
+            Cached: BOOLEAN,
+            Aligned: BOOLEAN,
         }
         struct DEBUG_TRANSPORT_DATA {
             HwContextSize: u32,
             SharedVisibleDataSize: u32,
-            UseSerialFraming: bool,
-            ValidUSBCoreId: bool,
+            UseSerialFraming: BOOLEAN,
+            ValidUSBCoreId: BOOLEAN,
             USBCoreId: u8,
-            DevControlInitialized: bool,
+            DevControlInitialized: BOOLEAN,
             DevControlPciLocation: union {
                 RawPciLocation: u32,
                 Fields: struct {
@@ -476,6 +477,7 @@ mod Windows {
         }
         const DEFAULT_DEVICE_DRIVER_CREATOR_GUID: GUID = 0x57217c8d_5e66_44fb_8033_9b74cacedf5b;
         const DEVICE_DRIVER_NOTIFY_TYPE_GUID: GUID = 0x0033f803_2e70_4e88_992c_6f26daf3db7a;
+        struct DEVICE_HANDLER_OBJECT {}
         union DIMM_ADDRESS {
             Ddr4: #[packed(1)] struct {
                 _bitfield: u64 {
@@ -638,7 +640,7 @@ mod Windows {
         const DO_SYSTEM_CRITICAL_PARTITION: i32 = 4194304;
         const DO_SYSTEM_SYSTEM_PARTITION: i32 = 2097152;
         const DO_VOLUME_DEVICE_OBJECT: i32 = 1048576;
-        extern fn DRIVER_REINITIALIZE(DriverObject: *const DRIVER_OBJECT, #[opt] Context: *const void, Count: u32);
+        extern "C" fn DRIVER_REINITIALIZE(#[in] DriverObject: *mut DRIVER_OBJECT, #[in] #[opt] Context: *mut void, Count: u32);
         const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: i32 = 2;
         const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: i32 = 4;
         const DRIVER_VERIFIER_IO_CHECKING: i32 = 16;
@@ -653,7 +655,7 @@ mod Windows {
         const DRVO_LEGACY_RESOURCES: i32 = 64;
         const DRVO_REINIT_REGISTERED: i32 = 8;
         #[library("ntdll.dll")]
-        extern fn DbgPrompt(Prompt: PCSTR, #[size_param(2)] Response: *mut i8, Length: u32) -> u32;
+        extern fn DbgPrompt(Prompt: PCCH, #[size_param(2)] #[out] Response: PCH, Length: u32) -> u32;
         struct ECP_LIST {}
         #[packed(1)]
         struct EFI_ACPI_RAS_SIGNAL_TABLE {
@@ -661,6 +663,7 @@ mod Windows {
             NumberRecord: u32,
             Entries: [SIGNAL_REG_VALUE; 1],
         }
+        struct EJOB {}
         struct ERROR_SOURCE_INFO {
             ErrorCount: u32,
             ErrorSourceId: u32,
@@ -683,7 +686,7 @@ mod Windows {
         const ERRTYP_TIMEOUT: i32 = 25;
         const ERRTYP_TLB: i32 = 5;
         const ERRTYP_UNIMPL: i32 = 19;
-        extern fn EXPAND_STACK_CALLOUT(#[opt] Parameter: *const void);
+        extern fn EXPAND_STACK_CALLOUT(#[in] #[opt] Parameter: *mut void);
         #[repr(i32)]
         enum EXTENDED_AGP_REGISTER {
             IsochStatus = 0,
@@ -714,7 +717,7 @@ mod Windows {
         const FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: i32 = 4;
         const FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: i32 = 16;
         struct FILE_DISPOSITION_INFORMATION {
-            DeleteFile: bool,
+            DeleteFile: BOOLEAN,
         }
         struct FILE_DISPOSITION_INFORMATION_EX {
             Flags: u32,
@@ -722,12 +725,12 @@ mod Windows {
         const FILE_DISPOSITION_ON_CLOSE: i32 = 8;
         const FILE_DISPOSITION_POSIX_SEMANTICS: i32 = 2;
         struct FILE_END_OF_FILE_INFORMATION {
-            EndOfFile: i64,
+            EndOfFile: LARGE_INTEGER,
         }
         struct FILE_FS_FULL_SIZE_INFORMATION {
-            TotalAllocationUnits: i64,
-            CallerAvailableAllocationUnits: i64,
-            ActualAvailableAllocationUnits: i64,
+            TotalAllocationUnits: LARGE_INTEGER,
+            CallerAvailableAllocationUnits: LARGE_INTEGER,
+            ActualAvailableAllocationUnits: LARGE_INTEGER,
             SectorsPerAllocationUnit: u32,
             BytesPerSector: u32,
         }
@@ -751,7 +754,7 @@ mod Windows {
             VolumeLabel: [u16; 1],
         }
         struct FILE_FS_METADATA_SIZE_INFORMATION {
-            TotalMetadataAllocationUnits: i64,
+            TotalMetadataAllocationUnits: LARGE_INTEGER,
             SectorsPerAllocationUnit: u32,
             BytesPerSector: u32,
         }
@@ -769,16 +772,16 @@ mod Windows {
             ByteOffsetForPartitionAlignment: u32,
         }
         struct FILE_FS_SIZE_INFORMATION {
-            TotalAllocationUnits: i64,
-            AvailableAllocationUnits: i64,
+            TotalAllocationUnits: LARGE_INTEGER,
+            AvailableAllocationUnits: LARGE_INTEGER,
             SectorsPerAllocationUnit: u32,
             BytesPerSector: u32,
         }
         struct FILE_FS_VOLUME_INFORMATION {
-            VolumeCreationTime: i64,
+            VolumeCreationTime: LARGE_INTEGER,
             VolumeSerialNumber: u32,
             VolumeLabelLength: u32,
-            SupportsObjects: bool,
+            SupportsObjects: BOOLEAN,
             VolumeLabel: [u16; 1],
         }
         struct FILE_NAME_INFORMATION {
@@ -786,7 +789,7 @@ mod Windows {
             FileName: [u16; 1],
         }
         struct FILE_VALID_DATA_LENGTH_INFORMATION {
-            ValidDataLength: i64,
+            ValidDataLength: LARGE_INTEGER,
         }
         const FIRMWARE_ERROR_RECORD_REFERENCE_GUID: GUID = 0x81212a96_09ed_4996_9471_8d729c8e69ed;
         const FPB_MEM_HIGH_VECTOR_GRANULARITY_16GB: i32 = 6;
@@ -963,7 +966,7 @@ mod Windows {
             Size: u16,
             NotificationType: HAL_PMU_NOTIFICATION_TYPE,
         }
-        extern fn HAL_PMU_NOTIFICATION_CALLBACK(#[opt] Context: *const void, Notification: *const HAL_PMU_NOTIFICATION);
+        extern fn HAL_PMU_NOTIFICATION_CALLBACK(#[in] #[opt] Context: *mut void, Notification: PHAL_PMU_NOTIFICATION);
         #[repr(i32)]
         enum HAL_PMU_NOTIFICATION_TYPE {
             HalPmuAvailableNotification = 0,
@@ -1098,7 +1101,7 @@ mod Windows {
             Reserved: u32,
             Index: u64,
         }
-        extern fn HVL_WHEA_ERROR_NOTIFICATION(RecoveryContext: *const WHEA_RECOVERY_CONTEXT, Poisoned: bool) -> NTSTATUS;
+        extern "C" fn HVL_WHEA_ERROR_NOTIFICATION(RecoveryContext: PWHEA_RECOVERY_CONTEXT, Poisoned: BOOLEAN) -> NTSTATUS;
         const IMAGE_ADDRESSING_MODE_32BIT: i32 = 3;
         struct IMAGE_INFO_EX {
             Size: usize,
@@ -1270,10 +1273,10 @@ mod Windows {
         #[arch(X86)]
         const KERNEL_STACK_SIZE: i32 = 12288;
         struct KERNEL_USER_TIMES {
-            CreateTime: i64,
-            ExitTime: i64,
-            KernelTime: i64,
-            UserTime: i64,
+            CreateTime: LARGE_INTEGER,
+            ExitTime: LARGE_INTEGER,
+            KernelTime: LARGE_INTEGER,
+            UserTime: LARGE_INTEGER,
         }
         #[arch(Arm64)]
         struct KEXCEPTION_FRAME {
@@ -1324,7 +1327,7 @@ mod Windows {
             Return: u64,
         }
         struct KEY_CACHED_INFORMATION {
-            LastWriteTime: i64,
+            LastWriteTime: LARGE_INTEGER,
             TitleIndex: u32,
             SubKeys: u32,
             MaxNameLen: u32,
@@ -1362,6 +1365,8 @@ mod Windows {
             EventInformation: u64,
             Reserved: u64,
         }
+        #[arch(X64)]
+        const KFRED_TRAP_FRAME_LENGTH: u64 = 416;
         #[arch(Arm64)]
         struct KPCR {
             Anonymous: union {
@@ -1697,7 +1702,7 @@ mod Windows {
             },
             TrapFrame: PKTRAP_FRAME,
             ExceptionFrame: PKEXCEPTION_FRAME,
-            SourceThread: *mut _KTHREAD,
+            SourceThread: *mut KTHREAD,
             Return: u64,
         }
         #[arch(X64)]
@@ -1725,20 +1730,20 @@ mod Windows {
             TimeZoneBiasStamp: i32,
             NtBuildNumber: u32,
             NtProductType: NT_PRODUCT_TYPE,
-            ProductTypeIsValid: bool,
-            Reserved0: [bool; 1],
+            ProductTypeIsValid: BOOLEAN,
+            Reserved0: [BOOLEAN; 1],
             NativeProcessorArchitecture: u16,
             NtMajorVersion: u32,
             NtMinorVersion: u32,
-            ProcessorFeatures: [bool; 64],
+            ProcessorFeatures: [BOOLEAN; 64],
             Reserved1: u32,
             Reserved3: u32,
             TimeSlip: u32,
             AlternativeArchitecture: ALTERNATIVE_ARCHITECTURE_TYPE,
             BootId: u32,
-            SystemExpirationDate: i64,
+            SystemExpirationDate: LARGE_INTEGER,
             SuiteMask: u32,
-            KdDebuggerEnabled: bool,
+            KdDebuggerEnabled: BOOLEAN,
             Anonymous: union {
                 MitigationPolicies: u8,
                 Anonymous: struct {
@@ -1756,7 +1761,7 @@ mod Windows {
             ComPlusPackage: u32,
             LastSystemRITEventTickCount: u32,
             NumberOfPhysicalPages: u32,
-            SafeBootMode: bool,
+            SafeBootMode: BOOLEAN,
             Anonymous2: union {
                 VirtualizationFlags: u8,
                 Anonymous: struct {
@@ -1830,8 +1835,8 @@ mod Windows {
                     QpcReserved: u8,
                 },
             },
-            TimeZoneBiasEffectiveStart: i64,
-            TimeZoneBiasEffectiveEnd: i64,
+            TimeZoneBiasEffectiveStart: LARGE_INTEGER,
+            TimeZoneBiasEffectiveEnd: LARGE_INTEGER,
             XState: XSTATE_CONFIGURATION,
             UserPointerAuthMask: u64,
             XStateArm64: XSTATE_CONFIGURATION,
@@ -1859,20 +1864,20 @@ mod Windows {
             TimeZoneBiasStamp: i32,
             NtBuildNumber: u32,
             NtProductType: NT_PRODUCT_TYPE,
-            ProductTypeIsValid: bool,
-            Reserved0: [bool; 1],
+            ProductTypeIsValid: BOOLEAN,
+            Reserved0: [BOOLEAN; 1],
             NativeProcessorArchitecture: u16,
             NtMajorVersion: u32,
             NtMinorVersion: u32,
-            ProcessorFeatures: [bool; 64],
+            ProcessorFeatures: [BOOLEAN; 64],
             Reserved1: u32,
             Reserved3: u32,
             TimeSlip: u32,
             AlternativeArchitecture: ALTERNATIVE_ARCHITECTURE_TYPE,
             BootId: u32,
-            SystemExpirationDate: i64,
+            SystemExpirationDate: LARGE_INTEGER,
             SuiteMask: u32,
-            KdDebuggerEnabled: bool,
+            KdDebuggerEnabled: BOOLEAN,
             Anonymous: union {
                 MitigationPolicies: u8,
                 Anonymous: struct {
@@ -1890,7 +1895,7 @@ mod Windows {
             ComPlusPackage: u32,
             LastSystemRITEventTickCount: u32,
             NumberOfPhysicalPages: u32,
-            SafeBootMode: bool,
+            SafeBootMode: BOOLEAN,
             Anonymous2: union {
                 VirtualizationFlags: u8,
             },
@@ -1958,8 +1963,8 @@ mod Windows {
                     QpcReserved: u8,
                 },
             },
-            TimeZoneBiasEffectiveStart: i64,
-            TimeZoneBiasEffectiveEnd: i64,
+            TimeZoneBiasEffectiveStart: LARGE_INTEGER,
+            TimeZoneBiasEffectiveEnd: LARGE_INTEGER,
             XState: XSTATE_CONFIGURATION,
             UserPointerAuthMask: u64,
             Reserved10: [u32; 214],
@@ -1972,9 +1977,10 @@ mod Windows {
         const LINKSPEED_MTS_5000: i32 = 5000;
         const LINKSPEED_MTS_64000: i32 = 64000;
         const LINKSPEED_MTS_8000: i32 = 8000;
+        struct LOADER_PARAMETER_BLOCK {}
         struct MAP_REGISTER_ENTRY {
             MapRegister: *mut void,
-            WriteToDevice: bool,
+            WriteToDevice: BOOLEAN,
         }
         const MAXIMUM_DEBUG_BARS: i32 = 6;
         #[arch(X64 | Arm64)]
@@ -2105,6 +2111,7 @@ mod Windows {
         const MM_ADD_PHYSICAL_MEMORY_ALREADY_ZEROED: i32 = 1;
         const MM_ADD_PHYSICAL_MEMORY_HUGE_PAGES_ONLY: i32 = 4;
         const MM_ADD_PHYSICAL_MEMORY_LARGE_PAGES_ONLY: i32 = 2;
+        const MM_ALL_PARTITIONS_OBJECT: *mut void = -2;
         struct MM_COPY_ADDRESS {
             Anonymous: union {
                 VirtualAddress: *mut void,
@@ -2113,11 +2120,11 @@ mod Windows {
         }
         const MM_COPY_MEMORY_PHYSICAL: i32 = 1;
         const MM_COPY_MEMORY_VIRTUAL: i32 = 2;
+        const MM_CURRENT_PROCESS_PARTITION_OBJECT: *mut void = -1;
         const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: i32 = 1;
         const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: i32 = 2;
         const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: i32 = 1;
-        #[arch(X86)]
-        const MM_LOWEST_USER_ADDRESS: usize = 65536;
+        const MM_LOWEST_USER_ADDRESS: *mut void = 65536;
         const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: i32 = 1;
         #[repr(i32)]
         enum MM_ROTATE_DIRECTION {
@@ -2152,7 +2159,7 @@ mod Windows {
         const NX_SUPPORT_POLICY_OPTIN: i32 = 2;
         const NX_SUPPORT_POLICY_OPTOUT: i32 = 3;
         #[library("ntdll.dll")]
-        extern fn NtOpenProcess(ProcessHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] ClientId: *const CLIENT_ID) -> NTSTATUS;
+        extern fn NtOpenProcess(#[out] ProcessHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, #[opt] ClientId: PCLIENT_ID) -> NTSTATUS;
         struct OPLOCK_KEY_CONTEXT {
             Version: u16,
             Flags: u16,
@@ -2198,7 +2205,7 @@ mod Windows {
         type PARBITER_ADD_RESERVED_PARAMETERS = *mut ARBITER_ADD_RESERVED_PARAMETERS;
         type PARBITER_BOOT_ALLOCATION_PARAMETERS = *mut ARBITER_BOOT_ALLOCATION_PARAMETERS;
         type PARBITER_CONFLICT_INFO = *mut ARBITER_CONFLICT_INFO;
-        extern fn PARBITER_HANDLER(#[in] #[out] #[opt] Context: *mut void, Action: ARBITER_ACTION, #[in] #[out] Parameters: *mut ARBITER_PARAMETERS) -> NTSTATUS;
+        extern "C" fn PARBITER_HANDLER(#[in] #[out] #[opt] Context: *mut void, Action: ARBITER_ACTION, #[in] #[out] Parameters: PARBITER_PARAMETERS) -> NTSTATUS;
         type PARBITER_INTERFACE = *mut ARBITER_INTERFACE;
         type PARBITER_LIST_ENTRY = *mut ARBITER_LIST_ENTRY;
         type PARBITER_PARAMETERS = *mut ARBITER_PARAMETERS;
@@ -2211,9 +2218,9 @@ mod Windows {
         type PBDCB_CLASSIFICATION = *mut BDCB_CLASSIFICATION;
         type PBDCB_STATUS_UPDATE_CONTEXT = *mut BDCB_STATUS_UPDATE_CONTEXT;
         type PBDCB_STATUS_UPDATE_TYPE = *mut BDCB_STATUS_UPDATE_TYPE;
-        type PBOOT_DRIVER_CALLBACK_FUNCTION = *mut BOOT_DRIVER_CALLBACK_FUNCTION;
+        type PBOOT_DRIVER_CALLBACK_FUNCTION = *mut u8;
         type PBUS_DATA_TYPE = *mut BUS_DATA_TYPE;
-        type PBUS_HANDLER = *mut _BUS_HANDLER;
+        type PBUS_HANDLER = *mut BUS_HANDLER;
         const PCCARD_DEVICE_PCI: i32 = 16;
         const PCCARD_DUP_LEGACY_BASE: i32 = 6;
         const PCCARD_MAP_ERROR: i32 = 1;
@@ -2374,42 +2381,8 @@ mod Windows {
                 Major: 4,
                 Rsvd1: 8,
             },
-            AGPStatus: PCI_AGP_CAPABILITY_0,
-            AGPCommand: PCI_AGP_CAPABILITY_1,
-        }
-        struct PCI_AGP_CAPABILITY_0 {
-            _bitfield: u32 {
-                Rate: 3,
-                Agp3Mode: 1,
-                FastWrite: 1,
-                FourGB: 1,
-                HostTransDisable: 1,
-                Gart64: 1,
-                ITA_Coherent: 1,
-                SideBandAddressing: 1,
-                CalibrationCycle: 3,
-                AsyncRequestSize: 3,
-                Rsvd1: 1,
-                Isoch: 1,
-                Rsvd2: 6,
-                RequestQueueDepthMaximum: 8,
-            },
-        }
-        struct PCI_AGP_CAPABILITY_1 {
-            _bitfield: u32 {
-                Rate: 3,
-                Rsvd1: 1,
-                FastWriteEnable: 1,
-                FourGBEnable: 1,
-                Rsvd2: 1,
-                Gart64: 1,
-                AGPEnable: 1,
-                SBAEnable: 1,
-                CalibrationCycle: 3,
-                AsyncReqSize: 3,
-                Rsvd3: 8,
-                RequestQueueDepth: 8,
-            },
+            AGPStatus: _PCI_AGP_STATUS,
+            AGPCommand: _PCI_AGP_COMMAND,
         }
         struct PCI_AGP_CONTROL {
             _bitfield: u32 {
@@ -2497,7 +2470,7 @@ mod Windows {
         const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM: i32 = 2;
         const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM_WITH_CONNECTION_ID: i32 = 4;
         const PCI_DOE_VENDOR_ID_RESERVED: i32 = 1;
-        extern fn PCI_ERROR_HANDLER_CALLBACK();
+        extern "C" fn PCI_ERROR_HANDLER_CALLBACK();
         const PCI_EXPRESS_AER_DEVICE_CONTROL_MASK: i32 = 7;
         const PCI_EXPRESS_AER_DEVICE_STATUS_MASK: i32 = 15;
         #[repr(i32)]
@@ -3711,7 +3684,7 @@ mod Windows {
             },
             AsULONG: u32,
         }
-        extern fn PCI_EXPRESS_WAKE_CONTROL(Context: *const void, EnableWake: bool);
+        extern "C" fn PCI_EXPRESS_WAKE_CONTROL(#[in] Context: *mut void, EnableWake: BOOLEAN);
         struct PCI_FIRMWARE_BUS_CAPS {
             Type: u16,
             Length: u16,
@@ -3831,7 +3804,7 @@ mod Windows {
         struct PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
             VectorAccessData: u32,
         }
-        extern fn PCI_GET_LINK_INFORMATION(#[in] #[out] Context: *mut void, LinkInformation: *mut PCI_LINK_INFORMATION) -> NTSTATUS;
+        extern "C" fn PCI_GET_LINK_INFORMATION(#[in] #[out] Context: *mut void, #[out] LinkInformation: PPCI_LINK_INFORMATION) -> NTSTATUS;
         #[repr(i32)]
         enum PCI_HARDWARE_INTERFACE {
             PciConventional = 0,
@@ -3840,7 +3813,7 @@ mod Windows {
             PciExpress = 3,
         }
         const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: i32 = 255;
-        extern fn PCI_LINE_TO_PIN(Context: *const void, PciNewData: *const PCI_COMMON_CONFIG, PciOldData: *const PCI_COMMON_CONFIG);
+        extern "C" fn PCI_LINE_TO_PIN(#[in] Context: *mut void, PciNewData: PPCI_COMMON_CONFIG, PciOldData: PPCI_COMMON_CONFIG);
         struct PCI_LINK_CONFIG_INTERFACE_V1 {
             Size: u16,
             Version: u16,
@@ -3901,25 +3874,25 @@ mod Windows {
             PciOscControlBitCompletionTimeout = 256,
             PciOscControlBitFirmwareIntermediaryConfig = 512,
         }
-        extern fn PCI_PIN_TO_LINE(Context: *const void, PciData: *const PCI_COMMON_CONFIG);
-        extern fn PCI_PREPARE_MULTISTAGE_RESUME(Context: *const void);
-        extern fn PCI_READ_WRITE_CONFIG(Context: *const void, BusOffset: u32, Slot: u32, #[size_param(5)] Buffer: *const void, Offset: u32, Length: u32) -> u32;
+        extern "C" fn PCI_PIN_TO_LINE(#[in] Context: *mut void, PciData: PPCI_COMMON_CONFIG);
+        extern "C" fn PCI_PREPARE_MULTISTAGE_RESUME(#[in] Context: *mut void);
+        extern "C" fn PCI_READ_WRITE_CONFIG(#[in] Context: *mut void, BusOffset: u32, Slot: u32, #[size_param(5)] #[in] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
         const PCI_RECOVERY_SECTION_GUID: GUID = 0xdd060800_f6e1_4204_ac27_c4bca9568402;
         const PCI_RESERVED_VENDOR_ID: i32 = 1;
-        extern fn PCI_ROOT_BUS_CAPABILITY(Context: *const void, HardwareCapability: *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY);
+        extern "C" fn PCI_ROOT_BUS_CAPABILITY(#[in] Context: *mut void, #[out] HardwareCapability: PPCI_ROOT_BUS_HARDWARE_CAPABILITY);
         struct PCI_ROOT_BUS_HARDWARE_CAPABILITY {
             SecondaryInterface: PCI_HARDWARE_INTERFACE,
             Anonymous: struct {
-                BusCapabilitiesFound: bool,
+                BusCapabilitiesFound: BOOLEAN,
                 CurrentSpeedAndMode: u32,
                 SupportedSpeedsAndModes: u32,
-                DeviceIDMessagingCapable: bool,
+                DeviceIDMessagingCapable: BOOLEAN,
                 SecondaryBusWidth: PCI_BUS_WIDTH,
             },
             OscFeatureSupport: PCI_ROOT_BUS_OSC_SUPPORT_FIELD,
             OscControlRequest: PCI_ROOT_BUS_OSC_CONTROL_FIELD,
             OscControlGranted: PCI_ROOT_BUS_OSC_CONTROL_FIELD,
-            CxlCapable: bool,
+            CxlCapable: BOOLEAN,
             CxlVersionSupport: CXL_PROTOCOL_VERSION,
             CxlOscFeatureSupport: CXL_BUS_OSC_SUPPORT_FIELD,
             CxlOscControlRequest: CXL_BUS_OSC_CONTROL_FIELD,
@@ -3965,7 +3938,7 @@ mod Windows {
                 AsULONG: u32,
             },
         }
-        extern fn PCI_SET_MAX_LINK_BANDWIDTH(#[in] #[out] Context: *mut void, TargetBandwidth: u32, WaitForRetrain: bool, LinkThrottled: *mut bool, NewLinkSpeed: *mut PCI_LINK_SPEED) -> NTSTATUS;
+        extern "C" fn PCI_SET_MAX_LINK_BANDWIDTH(#[in] #[out] Context: *mut void, TargetBandwidth: u32, WaitForRetrain: BOOLEAN, #[out] LinkThrottled: PBOOLEAN, #[out] NewLinkSpeed: PPCI_LINK_SPEED) -> NTSTATUS;
         struct PCI_SUBSYSTEM_IDS_CAPABILITY {
             Header: PCI_CAPABILITIES_HEADER,
             Reserved: u16,
@@ -3984,9 +3957,9 @@ mod Windows {
         type PCONFIGURATION_TYPE = *mut CONFIGURATION_TYPE;
         type PCONTROLLER_OBJECT = *mut CONTROLLER_OBJECT;
         type PCPE_DRIVER_INFO = *mut CPE_DRIVER_INFO;
-        extern fn PCREATE_PROCESS_NOTIFY_ROUTINE(ParentId: HANDLE, ProcessId: HANDLE, Create: bool);
-        extern fn PCREATE_PROCESS_NOTIFY_ROUTINE_EX(#[in] #[out] Process: *mut _KPROCESS, ProcessId: HANDLE, #[in] #[out] #[opt] CreateInfo: *mut PS_CREATE_NOTIFY_INFO);
-        extern fn PCREATE_THREAD_NOTIFY_ROUTINE(ProcessId: HANDLE, ThreadId: HANDLE, Create: bool);
+        extern "C" fn PCREATE_PROCESS_NOTIFY_ROUTINE(ParentId: HANDLE, ProcessId: HANDLE, Create: BOOLEAN);
+        extern "C" fn PCREATE_PROCESS_NOTIFY_ROUTINE_EX(#[in] #[out] Process: PEPROCESS, ProcessId: HANDLE, #[in] #[out] #[opt] CreateInfo: PPS_CREATE_NOTIFY_INFO);
+        extern "C" fn PCREATE_THREAD_NOTIFY_ROUTINE(ProcessId: HANDLE, ThreadId: HANDLE, Create: BOOLEAN);
         type PCREATE_USER_PROCESS_ECP_CONTEXT = *mut CREATE_USER_PROCESS_ECP_CONTEXT;
         #[arch(Arm64)]
         const PCR_BTI_MITIGATION_CSWAP_HVC: i32 = 16;
@@ -4021,11 +3994,11 @@ mod Windows {
         type PDEBUGGING_DEVICE_IN_USE_INFORMATION = *mut DEBUGGING_DEVICE_IN_USE_INFORMATION;
         type PDEBUG_DEVICE_ADDRESS = *mut DEBUG_DEVICE_ADDRESS;
         type PDEBUG_DEVICE_DESCRIPTOR = *mut DEBUG_DEVICE_DESCRIPTOR;
-        extern fn PDEBUG_DEVICE_FOUND_FUNCTION(Device: *mut DEBUG_DEVICE_DESCRIPTOR) -> KD_CALLBACK_ACTION;
+        extern "C" fn PDEBUG_DEVICE_FOUND_FUNCTION(Device: PDEBUG_DEVICE_DESCRIPTOR) -> KD_CALLBACK_ACTION;
         type PDEBUG_EFI_IOMMU_DATA = *mut DEBUG_EFI_IOMMU_DATA;
         type PDEBUG_MEMORY_REQUIREMENTS = *mut DEBUG_MEMORY_REQUIREMENTS;
         type PDEBUG_TRANSPORT_DATA = *mut DEBUG_TRANSPORT_DATA;
-        type PDEVICE_HANDLER_OBJECT = *mut _DEVICE_HANDLER_OBJECT;
+        type PDEVICE_HANDLER_OBJECT = *mut DEVICE_HANDLER_OBJECT;
         #[arch(X86)]
         const PDE_PER_PAGE: i32 = 512;
         type PDIMM_ADDRESS = *mut DIMM_ADDRESS;
@@ -4041,30 +4014,24 @@ mod Windows {
         type PDOE_HEADER_1 = *mut DOE_HEADER_1;
         type PDOE_HEADER_2 = *mut DOE_HEADER_2;
         type PDOE_OBJECT_HEADER = *mut DOE_OBJECT_HEADER;
+        extern "C" fn PDRIVER_CMC_EXCEPTION_CALLBACK(#[in] Context: *mut void, CmcLog: PCMC_EXCEPTION);
+        extern "C" fn PDRIVER_CPE_EXCEPTION_CALLBACK(#[in] Context: *mut void, CmcLog: PCPE_EXCEPTION);
         #[arch(Arm64)]
-        extern fn PDRIVER_CMC_EXCEPTION_CALLBACK(Context: *const void, CmcLog: PCMC_EXCEPTION);
-        #[arch(X86 | X64)]
-        extern fn PDRIVER_CMC_EXCEPTION_CALLBACK(Context: *const void, CmcLog: *const MCA_EXCEPTION);
-        #[arch(Arm64)]
-        extern fn PDRIVER_CPE_EXCEPTION_CALLBACK(Context: *const void, CmcLog: PCPE_EXCEPTION);
-        #[arch(X86 | X64)]
-        extern fn PDRIVER_CPE_EXCEPTION_CALLBACK(Context: *const void, CmcLog: *const MCA_EXCEPTION);
-        #[arch(Arm64)]
-        extern fn PDRIVER_EXCPTN_CALLBACK(Context: *const void, TrapFrame: *const KTRAP_FRAME, ExceptionFrame: *const KEXCEPTION_FRAME, Exception: *const void);
+        extern "C" fn PDRIVER_EXCPTN_CALLBACK(#[in] Context: *mut void, #[in] TrapFrame: *mut KTRAP_FRAME, #[in] ExceptionFrame: *mut KEXCEPTION_FRAME, #[in] Exception: *mut void);
         #[arch(X64)]
-        extern fn PDRIVER_EXCPTN_CALLBACK(Context: *const void, TrapFrame: *const KTRAP_FRAME, ExceptionFrame: *const KEXCEPTION_FRAME, Exception: *const MCA_EXCEPTION) -> ERROR_SEVERITY;
+        extern "C" fn PDRIVER_EXCPTN_CALLBACK(#[in] Context: *mut void, #[in] TrapFrame: *mut KTRAP_FRAME, #[in] ExceptionFrame: *mut KEXCEPTION_FRAME, Exception: PMCA_EXCEPTION) -> ERROR_SEVERITY;
         #[arch(X86)]
-        extern fn PDRIVER_EXCPTN_CALLBACK(Context: *const void, BankLog: *const MCA_EXCEPTION);
+        extern "C" fn PDRIVER_EXCPTN_CALLBACK(#[in] Context: *mut void, BankLog: PMCA_EXCEPTION);
         type PDRIVER_MCA_EXCEPTION_CALLBACK = PDRIVER_EXCPTN_CALLBACK;
-        type PDRIVER_REINITIALIZE = *mut DRIVER_REINITIALIZE;
+        type PDRIVER_REINITIALIZE = *mut u8;
         type PDRIVER_VERIFIER_THUNK_PAIRS = *mut DRIVER_VERIFIER_THUNK_PAIRS;
-        extern fn PDRIVER_VERIFIER_THUNK_ROUTINE(Context: *const void) -> usize;
+        extern "C" fn PDRIVER_VERIFIER_THUNK_ROUTINE(#[in] Context: *mut void) -> usize;
         type PEFI_ACPI_RAS_SIGNAL_TABLE = *mut EFI_ACPI_RAS_SIGNAL_TABLE;
         const PEI_NOTIFY_TYPE_GUID: GUID = 0x09a9d5ac_5204_4214_96e5_94992e752bcd;
-        type PEJOB = *mut _EJOB;
+        type PEJOB = *mut EJOB;
         type PERROR_SOURCE_INFO = *mut ERROR_SOURCE_INFO;
-        type PESILO = *mut _EJOB;
-        extern fn PEXPAND_STACK_CALLOUT(#[opt] Parameter: *const void);
+        type PESILO = *mut EJOB;
+        extern fn PEXPAND_STACK_CALLOUT(#[in] #[opt] Parameter: *mut void);
         type PEXTENDED_AGP_REGISTER = *mut EXTENDED_AGP_REGISTER;
         type PFILE_ALIGNMENT_INFORMATION = *mut FILE_ALIGNMENT_INFORMATION;
         type PFILE_ATTRIBUTE_TAG_INFORMATION = *mut FILE_ATTRIBUTE_TAG_INFORMATION;
@@ -4081,14 +4048,14 @@ mod Windows {
         type PFILE_FS_VOLUME_INFORMATION = *mut FILE_FS_VOLUME_INFORMATION;
         type PFILE_NAME_INFORMATION = *mut FILE_NAME_INFORMATION;
         type PFILE_VALID_DATA_LENGTH_INFORMATION = *mut FILE_VALID_DATA_LENGTH_INFORMATION;
-        extern "C" fn PFNFTH(#[in] #[out] SystemFirmwareTableInfo: *mut SYSTEM_FIRMWARE_TABLE_INFORMATION) -> NTSTATUS;
-        extern fn PFN_IN_USE_PAGE_OFFLINE_NOTIFY(Page: PFN_NUMBER, Poisoned: bool, #[in] #[out] Context: *mut void, CallbackStatus: *mut NTSTATUS) -> bool;
-        extern fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(Context: *const void, OsSelRecord: *const IPMI_OS_SEL_RECORD) -> NTSTATUS;
-        extern fn PGET_LOCATION_STRING(#[in] #[out] #[opt] Context: *mut void, LocationStrings: *mut PZZWSTR) -> NTSTATUS;
-        extern fn PHALIOREADWRITEHANDLER(fRead: bool, dwAddr: u32, dwSize: u32, #[in] #[out] pdwData: *mut u32) -> NTSTATUS;
-        extern fn PHALMCAINTERFACELOCK();
-        extern fn PHALMCAINTERFACEREADREGISTER(BankNumber: u8, #[in] #[out] Exception: *mut void) -> NTSTATUS;
-        extern fn PHALMCAINTERFACEUNLOCK();
+        extern "C" fn PFNFTH(#[in] #[out] SystemFirmwareTableInfo: PSYSTEM_FIRMWARE_TABLE_INFORMATION) -> NTSTATUS;
+        extern "C" fn PFN_IN_USE_PAGE_OFFLINE_NOTIFY(Page: PFN_NUMBER, Poisoned: BOOLEAN, #[in] #[out] Context: *mut void, #[out] CallbackStatus: PNTSTATUS) -> BOOLEAN;
+        extern "C" fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(#[in] Context: *mut void, OsSelRecord: PIPMI_OS_SEL_RECORD) -> NTSTATUS;
+        extern "C" fn PGET_LOCATION_STRING(#[in] #[out] #[opt] Context: *mut void, LocationStrings: *mut PZZWSTR) -> NTSTATUS;
+        extern "C" fn PHALIOREADWRITEHANDLER(fRead: BOOLEAN, dwAddr: u32, dwSize: u32, #[in] #[out] pdwData: PULONG) -> NTSTATUS;
+        extern "C" fn PHALMCAINTERFACELOCK();
+        extern "C" fn PHALMCAINTERFACEREADREGISTER(BankNumber: u8, #[in] #[out] Exception: *mut void) -> NTSTATUS;
+        extern "C" fn PHALMCAINTERFACEUNLOCK();
         type PHAL_AMLI_BAD_IO_ADDRESS_LIST = *mut HAL_AMLI_BAD_IO_ADDRESS_LIST;
         type PHAL_APIC_DESTINATION_MODE = *mut HAL_APIC_DESTINATION_MODE;
         type PHAL_BUS_INFORMATION = *mut HAL_BUS_INFORMATION;
@@ -4099,17 +4066,17 @@ mod Windows {
         type PHAL_ERROR_INFO = *mut HAL_ERROR_INFO;
         type PHAL_PLATFORM_INFORMATION = *mut HAL_PLATFORM_INFORMATION;
         type PHAL_PMU_NOTIFICATION = *mut HAL_PMU_NOTIFICATION;
-        extern fn PHAL_PMU_NOTIFICATION_CALLBACK(#[opt] Context: *const void, Notification: *const HAL_PMU_NOTIFICATION);
+        extern fn PHAL_PMU_NOTIFICATION_CALLBACK(#[in] #[opt] Context: *mut void, Notification: PHAL_PMU_NOTIFICATION);
         type PHAL_POST_SLEEP_STATS = *mut HAL_POST_SLEEP_STATS;
         type PHAL_POWER_INFORMATION = *mut HAL_POWER_INFORMATION;
         type PHAL_PROCESSOR_SPEED_INFORMATION = *mut HAL_PROCESSOR_SPEED_INFORMATION;
         type PHAL_QUERY_INFORMATION_CLASS = *mut HAL_QUERY_INFORMATION_CLASS;
         type PHAL_REGISTER_PMU_NOTIFICATION_INPUT = *mut HAL_REGISTER_PMU_NOTIFICATION_INPUT;
-        extern fn PHAL_RESET_DISPLAY_PARAMETERS(Columns: u32, Rows: u32) -> bool;
+        extern "C" fn PHAL_RESET_DISPLAY_PARAMETERS(Columns: u32, Rows: u32) -> BOOLEAN;
         type PHAL_SET_INFORMATION_CLASS = *mut HAL_SET_INFORMATION_CLASS;
         type PHAL_UNREGISTER_PMU_NOTIFICATION_INPUT = *mut HAL_UNREGISTER_PMU_NOTIFICATION_INPUT;
         type PHARDWARE_COUNTER = *mut HARDWARE_COUNTER;
-        type PHVL_WHEA_ERROR_NOTIFICATION = *mut HVL_WHEA_ERROR_NOTIFICATION;
+        type PHVL_WHEA_ERROR_NOTIFICATION = *mut u8;
         struct PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
             OverflowHandler: PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER,
             CustomEventBufferEntrySize: u32,
@@ -4145,7 +4112,7 @@ mod Windows {
         }
         struct PHYSICAL_MEMORY_RANGE {
             BaseAddress: PHYSICAL_ADDRESS,
-            NumberOfBytes: i64,
+            NumberOfBytes: LARGE_INTEGER,
         }
         type PIMAGE_INFO = *mut IMAGE_INFO;
         type PIMAGE_INFO_EX = *mut IMAGE_INFO_EX;
@@ -4153,7 +4120,7 @@ mod Windows {
         type PIO_FOEXT_SHADOW_FILE = *mut IO_FOEXT_SHADOW_FILE;
         type PIO_FOEXT_SILO_PARAMETERS = *mut IO_FOEXT_SILO_PARAMETERS;
         type PIO_QUERY_DEVICE_DATA_FORMAT = *mut IO_QUERY_DEVICE_DATA_FORMAT;
-        extern fn PIO_QUERY_DEVICE_ROUTINE(Context: *const void, PathName: *const UNICODE_STRING, BusType: INTERFACE_TYPE, BusNumber: u32, BusInformation: *const PKEY_VALUE_FULL_INFORMATION, ControllerType: CONFIGURATION_TYPE, ControllerNumber: u32, ControllerInformation: *const PKEY_VALUE_FULL_INFORMATION, PeripheralType: CONFIGURATION_TYPE, PeripheralNumber: u32, PeripheralInformation: *const PKEY_VALUE_FULL_INFORMATION) -> NTSTATUS;
+        extern "C" fn PIO_QUERY_DEVICE_ROUTINE(#[in] Context: *mut void, PathName: PUNICODE_STRING, BusType: INTERFACE_TYPE, BusNumber: u32, #[in] BusInformation: *mut PKEY_VALUE_FULL_INFORMATION, ControllerType: CONFIGURATION_TYPE, ControllerNumber: u32, #[in] ControllerInformation: *mut PKEY_VALUE_FULL_INFORMATION, PeripheralType: CONFIGURATION_TYPE, PeripheralNumber: u32, #[in] PeripheralInformation: *mut PKEY_VALUE_FULL_INFORMATION) -> NTSTATUS;
         type PIPMI_OS_SEL_RECORD = *mut IPMI_OS_SEL_RECORD;
         type PIPMI_OS_SEL_RECORD_TYPE = *mut IPMI_OS_SEL_RECORD_TYPE;
         #[arch(Arm64)]
@@ -4176,8 +4143,8 @@ mod Windows {
         type PKUMS_CONTEXT_HEADER = *mut KUMS_CONTEXT_HEADER;
         type PKUSER_SHARED_DATA = *mut KUSER_SHARED_DATA;
         const PLATFORM_EXTENDED_RAS_SECTION_GUID: GUID = 0xc6749ac0_16fb_4868_b976_65a61299834f;
-        type PLOADER_PARAMETER_BLOCK = *mut _LOADER_PARAMETER_BLOCK;
-        extern fn PLOAD_IMAGE_NOTIFY_ROUTINE(#[opt] FullImageName: *const UNICODE_STRING, ProcessId: HANDLE, ImageInfo: *const IMAGE_INFO);
+        type PLOADER_PARAMETER_BLOCK = *mut LOADER_PARAMETER_BLOCK;
+        extern "C" fn PLOAD_IMAGE_NOTIFY_ROUTINE(#[opt] FullImageName: PUNICODE_STRING, ProcessId: HANDLE, ImageInfo: PIMAGE_INFO);
         type PMAP_REGISTER_ENTRY = *mut MAP_REGISTER_ENTRY;
         type PMCA_DRIVER_INFO = *mut MCA_DRIVER_INFO;
         type PMCG_CAP = *mut MCG_CAP;
@@ -4190,7 +4157,7 @@ mod Windows {
         type PMEMORY_DEFECT_FLAGS = *mut MEMORY_DEFECT_FLAGS;
         const PMEM_ERROR_SECTION_GUID: GUID = 0x81687003_dbfd_4728_9ffd_f0904f97597d;
         type PMMCOPY_ADDRESS = *mut MM_COPY_ADDRESS;
-        extern fn PMM_ROTATE_COPY_CALLBACK_FUNCTION(DestinationMdl: *const MDL, SourceMdl: *const MDL, Context: *const void) -> NTSTATUS;
+        extern "C" fn PMM_ROTATE_COPY_CALLBACK_FUNCTION(DestinationMdl: PMDL, SourceMdl: PMDL, #[in] Context: *mut void) -> NTSTATUS;
         type PMM_ROTATE_DIRECTION = *mut MM_ROTATE_DIRECTION;
         type PMU_TELEMETRY_SECTION = *mut MU_TELEMETRY_SECTION;
         struct PM_DISPATCH_TABLE {
@@ -4342,7 +4309,7 @@ mod Windows {
         type PPCI_EXPRESS_TPH_ST_TABLE_ENTRY = *mut PCI_EXPRESS_TPH_ST_TABLE_ENTRY;
         type PPCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_HEADER = *mut PCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_HEADER;
         type PPCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_PORT_ATTRIBUTES = *mut PCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_PORT_ATTRIBUTES;
-        type PPCI_EXPRESS_WAKE_CONTROL = *mut PCI_EXPRESS_WAKE_CONTROL;
+        type PPCI_EXPRESS_WAKE_CONTROL = *mut u8;
         type PPCI_FIRMWARE_BUS_CAPS = *mut PCI_FIRMWARE_BUS_CAPS;
         type PPCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER = *mut PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER;
         type PPCI_FPB_CAPABILITIES_REGISTER = *mut PCI_FPB_CAPABILITIES_REGISTER;
@@ -4355,28 +4322,28 @@ mod Windows {
         type PPCI_FPB_RID_VECTOR_CONTROL2_REGISTER = *mut PCI_FPB_RID_VECTOR_CONTROL2_REGISTER;
         type PPCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER = *mut PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER;
         type PPCI_FPB_VECTOR_ACCESS_DATA_REGISTER = *mut PCI_FPB_VECTOR_ACCESS_DATA_REGISTER;
-        type PPCI_GET_LINK_INFORMATION = *mut PCI_GET_LINK_INFORMATION;
+        type PPCI_GET_LINK_INFORMATION = *mut u8;
         type PPCI_HARDWARE_INTERFACE = *mut PCI_HARDWARE_INTERFACE;
-        type PPCI_LINE_TO_PIN = *mut PCI_LINE_TO_PIN;
+        type PPCI_LINE_TO_PIN = *mut u8;
         type PPCI_LINK_CONFIG_INTERFACE_V1 = *mut PCI_LINK_CONFIG_INTERFACE_V1;
         type PPCI_LINK_INFORMATION = *mut PCI_LINK_INFORMATION;
         type PPCI_LINK_SPEED = *mut PCI_LINK_SPEED;
         type PPCI_LINK_WIDTH = *mut PCI_LINK_WIDTH;
         type PPCI_OSC_CONTROL_BITS = *mut PCI_OSC_CONTROL_BITS;
-        type PPCI_PIN_TO_LINE = *mut PCI_PIN_TO_LINE;
-        type PPCI_PREPARE_MULTISTAGE_RESUME = *mut PCI_PREPARE_MULTISTAGE_RESUME;
-        type PPCI_READ_WRITE_CONFIG = *mut PCI_READ_WRITE_CONFIG;
-        type PPCI_ROOT_BUS_CAPABILITY = *mut PCI_ROOT_BUS_CAPABILITY;
+        type PPCI_PIN_TO_LINE = *mut u8;
+        type PPCI_PREPARE_MULTISTAGE_RESUME = *mut u8;
+        type PPCI_READ_WRITE_CONFIG = *mut u8;
+        type PPCI_ROOT_BUS_CAPABILITY = *mut u8;
         type PPCI_ROOT_BUS_HARDWARE_CAPABILITY = *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY;
         type PPCI_ROOT_BUS_OSC_CONTROL_FIELD = *mut PCI_ROOT_BUS_OSC_CONTROL_FIELD;
         type PPCI_ROOT_BUS_OSC_SUPPORT_FIELD = *mut PCI_ROOT_BUS_OSC_SUPPORT_FIELD;
-        type PPCI_SET_MAX_LINK_BANDWIDTH = *mut PCI_SET_MAX_LINK_BANDWIDTH;
+        type PPCI_SET_MAX_LINK_BANDWIDTH = *mut u8;
         type PPCI_SUBSYSTEM_IDS_CAPABILITY = *mut PCI_SUBSYSTEM_IDS_CAPABILITY;
         type PPCI_USB4_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY;
         type PPCI_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_VENDOR_SPECIFIC_CAPABILITY;
         type PPHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION = *mut PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION;
-        extern fn PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER(EventBuffer: *const void, EntrySize: usize, NumberOfEntries: usize, OwningHandle: HANDLE);
-        extern fn PPHYSICAL_COUNTER_OVERFLOW_HANDLER(OverflowBits: u64, OwningHandle: HANDLE);
+        extern "C" fn PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER(#[in] EventBuffer: *mut void, EntrySize: usize, NumberOfEntries: usize, OwningHandle: HANDLE);
+        extern "C" fn PPHYSICAL_COUNTER_OVERFLOW_HANDLER(OverflowBits: u64, OwningHandle: HANDLE);
         type PPHYSICAL_COUNTER_RESOURCE_DESCRIPTOR = *mut PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR;
         type PPHYSICAL_COUNTER_RESOURCE_LIST = *mut PHYSICAL_COUNTER_RESOURCE_LIST;
         type PPHYSICAL_MEMORY_RANGE = *mut PHYSICAL_MEMORY_RANGE;
@@ -4589,21 +4556,21 @@ mod Windows {
             FaultingVa: *mut void,
         }
         const PROTECTED_POOL: i32 = 0;
-        extern fn PRTL_AVL_ALLOCATE_ROUTINE(Table: *const RTL_AVL_TABLE, ByteSize: CLONG) -> *mut void;
-        extern fn PRTL_AVL_COMPARE_ROUTINE(Table: *const RTL_AVL_TABLE, FirstStruct: *const void, SecondStruct: *const void) -> RTL_GENERIC_COMPARE_RESULTS;
-        extern fn PRTL_AVL_FREE_ROUTINE(Table: *const RTL_AVL_TABLE, Buffer: *const void);
-        extern fn PRTL_AVL_MATCH_FUNCTION(Table: *const RTL_AVL_TABLE, UserData: *const void, MatchData: *const void) -> NTSTATUS;
+        extern fn PRTL_AVL_ALLOCATE_ROUTINE(#[in] Table: *mut RTL_AVL_TABLE, ByteSize: CLONG) -> *mut void;
+        extern fn PRTL_AVL_COMPARE_ROUTINE(#[in] Table: *mut RTL_AVL_TABLE, #[in] FirstStruct: *mut void, #[in] SecondStruct: *mut void) -> RTL_GENERIC_COMPARE_RESULTS;
+        extern fn PRTL_AVL_FREE_ROUTINE(#[in] Table: *mut RTL_AVL_TABLE, #[in] Buffer: *mut void);
+        extern fn PRTL_AVL_MATCH_FUNCTION(#[in] Table: *mut RTL_AVL_TABLE, #[in] UserData: *mut void, #[in] MatchData: *mut void) -> NTSTATUS;
         type PRTL_AVL_TABLE = *mut RTL_AVL_TABLE;
         type PRTL_BALANCED_LINKS = *mut RTL_BALANCED_LINKS;
         type PRTL_DYNAMIC_HASH_TABLE = *mut RTL_DYNAMIC_HASH_TABLE;
         type PRTL_DYNAMIC_HASH_TABLE_CONTEXT = *mut RTL_DYNAMIC_HASH_TABLE_CONTEXT;
         type PRTL_DYNAMIC_HASH_TABLE_ENTRY = *mut RTL_DYNAMIC_HASH_TABLE_ENTRY;
         type PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR = *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR;
-        extern fn PRTL_GENERIC_ALLOCATE_ROUTINE(Table: *const RTL_GENERIC_TABLE, ByteSize: CLONG) -> *mut void;
-        extern fn PRTL_GENERIC_COMPARE_ROUTINE(Table: *const RTL_GENERIC_TABLE, FirstStruct: *const void, SecondStruct: *const void) -> RTL_GENERIC_COMPARE_RESULTS;
-        extern fn PRTL_GENERIC_FREE_ROUTINE(Table: *const RTL_GENERIC_TABLE, Buffer: *const void);
+        extern fn PRTL_GENERIC_ALLOCATE_ROUTINE(#[in] Table: *mut RTL_GENERIC_TABLE, ByteSize: CLONG) -> *mut void;
+        extern fn PRTL_GENERIC_COMPARE_ROUTINE(#[in] Table: *mut RTL_GENERIC_TABLE, #[in] FirstStruct: *mut void, #[in] SecondStruct: *mut void) -> RTL_GENERIC_COMPARE_RESULTS;
+        extern fn PRTL_GENERIC_FREE_ROUTINE(#[in] Table: *mut RTL_GENERIC_TABLE, #[in] Buffer: *mut void);
         type PRTL_GENERIC_TABLE = *mut RTL_GENERIC_TABLE;
-        extern fn PRTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: *mut RTL_RUN_ONCE, #[in] #[out] #[opt] Parameter: *mut void, #[in] #[out] #[opt] Context: *mut *mut void) -> u32;
+        extern fn PRTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] #[out] #[opt] Parameter: *mut void, #[in] #[out] #[opt] Context: *mut *mut void) -> u32;
         type PRTL_SPLAY_LINKS = *mut RTL_SPLAY_LINKS;
         #[repr(i32)]
         enum PSCREATEPROCESSNOTIFYTYPE {
@@ -4619,7 +4586,7 @@ mod Windows {
             Version: u16,
             Vb: PSHED_MEMORY_DETAILS_VALID_BITS,
             DdrVersion: u16,
-            IsClosedPaged: bool,
+            IsClosedPaged: BOOLEAN,
             ColsPerRow: u16,
             PagesPerRow: u16,
             SocketCnt: u8,
@@ -4641,11 +4608,11 @@ mod Windows {
                 Reserved: 24,
             },
         }
-        extern fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[out] #[opt] PluginContext: *mut void, BufferLength: u32, #[size_param(1)] ErrorRecord: *const WHEA_ERROR_RECORD) -> NTSTATUS;
-        extern fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, Flags: u32, ErrorRecordId: u64) -> NTSTATUS;
-        extern fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: *const WHEA_ERROR_SOURCE_DESCRIPTOR, BufferLength: u32, #[size_param(2)] ErrorRecord: *const WHEA_ERROR_RECORD) -> NTSTATUS;
-        extern fn PSHED_PI_DISABLE_ERROR_SOURCE(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: *const WHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern fn PSHED_PI_ENABLE_ERROR_SOURCE(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: *const WHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[out] #[opt] PluginContext: *mut void, BufferLength: u32, #[size_param(1)] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, Flags: u32, ErrorRecordId: u64) -> NTSTATUS;
+        extern "C" fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, BufferLength: u32, #[size_param(2)] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_DISABLE_ERROR_SOURCE(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_ENABLE_ERROR_SOURCE(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[repr(i32)]
         enum PSHED_PI_ERR_READING_PCIE_OVERRIDES {
             PshedPiErrReadingPcieOverridesNoErr = 0,
@@ -4656,21 +4623,21 @@ mod Windows {
             PshedPiErrReadingPcieOverridesNoCapOffset = 5,
             PshedPiErrReadingPcieOverridesNotBinary = 6,
         }
-        extern fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: *const WHEA_ERROR_SOURCE_DESCRIPTOR, BufferLength: u32, #[size_param(2)] #[in] #[out] ErrorRecord: *mut WHEA_ERROR_RECORD) -> NTSTATUS;
-        extern fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[out] #[opt] PluginContext: *mut void, #[in] #[out] Count: *mut u32, #[size_param(3)] #[in] #[out] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: *mut u32) -> NTSTATUS;
-        extern fn PSHED_PI_GET_ERROR_SOURCE_INFO(#[in] #[out] #[opt] PluginContext: *mut void, #[in] #[out] ErrorSource: *mut WHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern fn PSHED_PI_GET_INJECTION_CAPABILITIES(#[in] #[out] #[opt] PluginContext: *mut void, Capabilities: *mut WHEA_ERROR_INJECTION_CAPABILITIES) -> NTSTATUS;
-        extern fn PSHED_PI_INJECT_ERROR(#[in] #[out] #[opt] PluginContext: *mut void, ErrorType: u64, Parameter1: u64, Parameter2: u64, Parameter3: u64, Parameter4: u64) -> NTSTATUS;
-        extern fn PSHED_PI_READ_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, Flags: u32, ErrorRecordId: u64, NextErrorRecordId: *mut u64, #[in] #[out] RecordLength: *mut u32, #[size_param(4)] ErrorRecord: *mut WHEA_ERROR_RECORD) -> NTSTATUS;
-        extern fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: *const WHEA_ERROR_SOURCE_DESCRIPTOR, BufferLength: u64, #[size_param(2)] #[in] #[out] Packet: *mut WHEA_ERROR_PACKET_V2) -> NTSTATUS;
-        extern fn PSHED_PI_SET_ERROR_SOURCE_INFO(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: *const WHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern fn PSHED_PI_VENDOR_DEFINED(VendorDefinedAction: PSHED_PI_VENDOR_DEFINED_ACTION, Offset: u32, InputLength: u32, #[size_param(2)] InputBuffer: *const u8, #[in] #[out] OutputLength: *mut u32, #[size_param(4)] OutputBuffer: *mut u8) -> NTSTATUS;
+        extern "C" fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, BufferLength: u32, #[size_param(2)] #[in] #[out] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[out] #[opt] PluginContext: *mut void, #[in] #[out] Count: PULONG, #[size_param(3)] #[in] #[out] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: PULONG) -> NTSTATUS;
+        extern "C" fn PSHED_PI_GET_ERROR_SOURCE_INFO(#[in] #[out] #[opt] PluginContext: *mut void, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_GET_INJECTION_CAPABILITIES(#[in] #[out] #[opt] PluginContext: *mut void, #[out] Capabilities: PWHEA_ERROR_INJECTION_CAPABILITIES) -> NTSTATUS;
+        extern "C" fn PSHED_PI_INJECT_ERROR(#[in] #[out] #[opt] PluginContext: *mut void, ErrorType: u64, Parameter1: u64, Parameter2: u64, Parameter3: u64, Parameter4: u64) -> NTSTATUS;
+        extern "C" fn PSHED_PI_READ_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, Flags: u32, ErrorRecordId: u64, #[out] NextErrorRecordId: PULONGLONG, #[in] #[out] RecordLength: PULONG, #[size_param(4)] #[out] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, BufferLength: u64, #[size_param(2)] #[in] #[out] Packet: PWHEA_ERROR_PACKET) -> NTSTATUS;
+        extern "C" fn PSHED_PI_SET_ERROR_SOURCE_INFO(#[in] #[out] #[opt] PluginContext: *mut void, ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_VENDOR_DEFINED(VendorDefinedAction: PSHED_PI_VENDOR_DEFINED_ACTION, Offset: u32, InputLength: u32, #[size_param(2)] InputBuffer: PUINT8, #[in] #[out] OutputLength: PUINT32, #[size_param(4)] #[out] OutputBuffer: PUINT8) -> NTSTATUS;
         #[repr(i32)]
         enum PSHED_PI_VENDOR_DEFINED_ACTION {
             VendorDefinedRead = 0,
             VendorDefinedWrite = 1,
         }
-        extern fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, Flags: u32, RecordLength: u32, #[size_param(2)] ErrorRecord: *const WHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, Flags: u32, RecordLength: u32, #[size_param(2)] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         #[packed(1)]
         struct PSHED_PLATFORM_DETAILS {
             Version: u32,
@@ -4685,7 +4652,7 @@ mod Windows {
             },
         }
         type PSIGNAL_REG_VALUE = *mut SIGNAL_REG_VALUE;
-        type PSILO_MONITOR = *mut _SILO_MONITOR;
+        type PSILO_MONITOR = *mut SILO_MONITOR;
         type PSILO_MONITOR_REGISTRATION = *mut SILO_MONITOR_REGISTRATION;
         type PSOC_SUBSYSTEM_FAILURE_DETAILS = *mut SOC_SUBSYSTEM_FAILURE_DETAILS;
         type PSOC_SUBSYSTEM_TYPE = *mut SOC_SUBSYSTEM_TYPE;
@@ -4715,12 +4682,12 @@ mod Windows {
         const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295;
         #[arch(X86)]
         const PTE_PER_PAGE: i32 = 512;
-        extern fn PTIMER_APC_ROUTINE(TimerContext: *const void, TimerLowValue: u32, TimerHighValue: i32);
+        extern "C" fn PTIMER_APC_ROUTINE(#[in] TimerContext: *mut void, TimerLowValue: u32, TimerHighValue: i32);
         type PTIMER_SET_COALESCABLE_TIMER_INFO = *mut TIMER_SET_COALESCABLE_TIMER_INFO;
         #[arch(X86)]
         const PTI_SHIFT: i32 = 12;
-        extern fn PTRANSLATE_RESOURCE_HANDLER(#[in] #[out] #[opt] Context: *mut void, Source: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, Direction: RESOURCE_TRANSLATION_DIRECTION, #[opt] AlternativesCount: u32, #[len_param(3)] #[opt] Alternatives: *const IO_RESOURCE_DESCRIPTOR, PhysicalDeviceObject: *const DEVICE_OBJECT, Target: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern fn PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER(#[in] #[out] #[opt] Context: *mut void, Source: *const IO_RESOURCE_DESCRIPTOR, PhysicalDeviceObject: *const DEVICE_OBJECT, TargetCount: *mut u32, #[len_param(3)] Target: *mut PIO_RESOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PTRANSLATE_RESOURCE_HANDLER(#[in] #[out] #[opt] Context: *mut void, Source: PCM_PARTIAL_RESOURCE_DESCRIPTOR, Direction: RESOURCE_TRANSLATION_DIRECTION, #[opt] AlternativesCount: u32, #[len_param(3)] #[in] #[opt] Alternatives: *mut IO_RESOURCE_DESCRIPTOR, PhysicalDeviceObject: PDEVICE_OBJECT, #[out] Target: PCM_PARTIAL_RESOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER(#[in] #[out] #[opt] Context: *mut void, Source: PIO_RESOURCE_DESCRIPTOR, PhysicalDeviceObject: PDEVICE_OBJECT, #[out] TargetCount: PULONG, #[len_param(3)] Target: *mut PIO_RESOURCE_DESCRIPTOR) -> NTSTATUS;
         type PTRANSLATOR_INTERFACE = *mut TRANSLATOR_INTERFACE;
         type PTXN_PARAMETER_BLOCK = *mut TXN_PARAMETER_BLOCK;
         type PVM_COUNTERS = *mut VM_COUNTERS;
@@ -5019,9 +4986,9 @@ mod Windows {
         type PXPF_RECOVERY_INFO = *mut XPF_RECOVERY_INFO;
         type PZONE_HEADER = *mut ZONE_HEADER;
         type PZONE_SEGMENT_HEADER = *mut ZONE_SEGMENT_HEADER;
-        extern fn PciLine2Pin(BusHandler: *const _BUS_HANDLER, RootHandler: *const _BUS_HANDLER, SlotNumber: PCI_SLOT_NUMBER, PciNewData: *const PCI_COMMON_CONFIG, PciOldData: *const PCI_COMMON_CONFIG);
-        extern fn PciPin2Line(BusHandler: *const _BUS_HANDLER, RootHandler: *const _BUS_HANDLER, SlotNumber: PCI_SLOT_NUMBER, PciData: *const PCI_COMMON_CONFIG);
-        extern fn PciReadWriteConfig(BusHandler: *const _BUS_HANDLER, Slot: PCI_SLOT_NUMBER, #[size_param(4)] Buffer: *const void, Offset: u32, Length: u32);
+        extern "C" fn PciLine2Pin(#[in] BusHandler: *mut BUS_HANDLER, #[in] RootHandler: *mut BUS_HANDLER, SlotNumber: PCI_SLOT_NUMBER, PciNewData: PPCI_COMMON_CONFIG, PciOldData: PPCI_COMMON_CONFIG);
+        extern "C" fn PciPin2Line(#[in] BusHandler: *mut BUS_HANDLER, #[in] RootHandler: *mut BUS_HANDLER, SlotNumber: PCI_SLOT_NUMBER, PciData: PPCI_COMMON_CONFIG);
+        extern "C" fn PciReadWriteConfig(#[in] BusHandler: *mut BUS_HANDLER, Slot: PCI_SLOT_NUMBER, #[size_param(4)] #[in] Buffer: *mut void, Offset: u32, Length: u32);
         const PshedFADiscovery: i32 = 1;
         const PshedFAErrorInfoRetrieval: i32 = 8;
         const PshedFAErrorInjection: i32 = 32;
@@ -5047,10 +5014,10 @@ mod Windows {
         const RESULT_ZERO: i32 = 0;
         #[arch(X86)]
         const RESULT_ZERO: i32 = 16384;
-        extern fn RTL_AVL_ALLOCATE_ROUTINE(Table: *const RTL_AVL_TABLE, ByteSize: CLONG) -> *mut void;
-        extern fn RTL_AVL_COMPARE_ROUTINE(Table: *const RTL_AVL_TABLE, FirstStruct: *const void, SecondStruct: *const void) -> RTL_GENERIC_COMPARE_RESULTS;
-        extern fn RTL_AVL_FREE_ROUTINE(Table: *const RTL_AVL_TABLE, Buffer: *const void);
-        extern fn RTL_AVL_MATCH_FUNCTION(Table: *const RTL_AVL_TABLE, UserData: *const void, MatchData: *const void) -> NTSTATUS;
+        extern fn RTL_AVL_ALLOCATE_ROUTINE(#[in] Table: *mut RTL_AVL_TABLE, ByteSize: CLONG) -> *mut void;
+        extern fn RTL_AVL_COMPARE_ROUTINE(#[in] Table: *mut RTL_AVL_TABLE, #[in] FirstStruct: *mut void, #[in] SecondStruct: *mut void) -> RTL_GENERIC_COMPARE_RESULTS;
+        extern fn RTL_AVL_FREE_ROUTINE(#[in] Table: *mut RTL_AVL_TABLE, #[in] Buffer: *mut void);
+        extern fn RTL_AVL_MATCH_FUNCTION(#[in] Table: *mut RTL_AVL_TABLE, #[in] UserData: *mut void, #[in] MatchData: *mut void) -> NTSTATUS;
         struct RTL_AVL_TABLE {
             BalancedRoot: RTL_BALANCED_LINKS,
             OrderedPointer: *mut void,
@@ -5099,15 +5066,15 @@ mod Windows {
             ChainHead: PLIST_ENTRY,
             BucketIndex: u32,
         }
-        extern fn RTL_GENERIC_ALLOCATE_ROUTINE(Table: *const RTL_GENERIC_TABLE, ByteSize: CLONG) -> *mut void;
+        extern fn RTL_GENERIC_ALLOCATE_ROUTINE(#[in] Table: *mut RTL_GENERIC_TABLE, ByteSize: CLONG) -> *mut void;
         #[repr(i32)]
         enum RTL_GENERIC_COMPARE_RESULTS {
             GenericLessThan = 0,
             GenericGreaterThan = 1,
             GenericEqual = 2,
         }
-        extern fn RTL_GENERIC_COMPARE_ROUTINE(Table: *const RTL_GENERIC_TABLE, FirstStruct: *const void, SecondStruct: *const void) -> RTL_GENERIC_COMPARE_RESULTS;
-        extern fn RTL_GENERIC_FREE_ROUTINE(Table: *const RTL_GENERIC_TABLE, Buffer: *const void);
+        extern fn RTL_GENERIC_COMPARE_ROUTINE(#[in] Table: *mut RTL_GENERIC_TABLE, #[in] FirstStruct: *mut void, #[in] SecondStruct: *mut void) -> RTL_GENERIC_COMPARE_RESULTS;
+        extern fn RTL_GENERIC_FREE_ROUTINE(#[in] Table: *mut RTL_GENERIC_TABLE, #[in] Buffer: *mut void);
         struct RTL_GENERIC_TABLE {
             TableRoot: PRTL_SPLAY_LINKS,
             InsertOrderList: LIST_ENTRY,
@@ -5121,7 +5088,7 @@ mod Windows {
         }
         const RTL_HASH_ALLOCATED_HEADER: i32 = 1;
         const RTL_HASH_RESERVED_SIGNATURE: i32 = 0;
-        extern fn RTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: *mut RTL_RUN_ONCE, #[in] #[out] #[opt] Parameter: *mut void, #[in] #[out] #[opt] Context: *mut *mut void) -> u32;
+        extern fn RTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] #[out] #[opt] Parameter: *mut void, #[in] #[out] #[opt] Context: *mut *mut void) -> u32;
         struct RTL_SPLAY_LINKS {
             Parent: *mut RTL_SPLAY_LINKS,
             LeftChild: *mut RTL_SPLAY_LINKS,
@@ -5129,49 +5096,49 @@ mod Windows {
         }
         const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: i32 = 8;
         #[library("ntdll.dll")]
-        extern fn RtlCompareString(String1: *const STRING, String2: *const STRING, CaseInSensitive: bool) -> i32;
+        extern fn RtlCompareString(String1: *const STRING, String2: *const STRING, CaseInSensitive: BOOLEAN) -> i32;
         #[library("ntdll.dll")]
-        extern fn RtlContractHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE) -> bool;
+        extern fn RtlContractHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlCopyString(DestinationString: *mut STRING, #[opt] SourceString: *const STRING);
+        extern fn RtlCopyString(#[out] DestinationString: PSTRING, #[opt] SourceString: *const STRING);
         #[library("ntdll.dll")]
-        extern fn RtlCreateHashTable(#[in] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, Shift: u32, #[reserved] Flags: u32) -> bool;
+        extern fn RtlCreateHashTable(#[in] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, Shift: u32, #[reserved] Flags: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlCreateHashTableEx(#[in] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, InitialSize: u32, Shift: u32, #[reserved] Flags: u32) -> bool;
+        extern fn RtlCreateHashTableEx(#[in] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, InitialSize: u32, Shift: u32, #[reserved] Flags: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlDelete(Links: *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        extern fn RtlDelete(Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
         #[library("ntdll.dll")]
-        extern fn RtlDeleteElementGenericTable(Table: *const RTL_GENERIC_TABLE, Buffer: *const void) -> bool;
+        extern fn RtlDeleteElementGenericTable(Table: PRTL_GENERIC_TABLE, #[in] Buffer: *mut void) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlDeleteElementGenericTableAvl(Table: *const RTL_AVL_TABLE, Buffer: *const void) -> bool;
+        extern fn RtlDeleteElementGenericTableAvl(Table: PRTL_AVL_TABLE, #[in] Buffer: *mut void) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlDeleteElementGenericTableAvlEx(Table: *const RTL_AVL_TABLE, NodeOrParent: *const void);
+        extern fn RtlDeleteElementGenericTableAvlEx(Table: PRTL_AVL_TABLE, #[in] NodeOrParent: *mut void);
         #[library("ntdll.dll")]
-        extern fn RtlDeleteHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE);
+        extern fn RtlDeleteHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE);
         #[library("ntdll.dll")]
-        extern fn RtlDeleteNoSplay(Links: *const RTL_SPLAY_LINKS, #[in] #[out] Root: *mut PRTL_SPLAY_LINKS);
+        extern fn RtlDeleteNoSplay(Links: PRTL_SPLAY_LINKS, #[in] #[out] Root: *mut PRTL_SPLAY_LINKS);
         #[library("ntdll.dll")]
-        extern fn RtlEndEnumerationHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
+        extern fn RtlEndEnumerationHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
         #[library("ntdll.dll")]
-        extern fn RtlEndStrongEnumerationHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
+        extern fn RtlEndStrongEnumerationHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
         #[library("ntdll.dll")]
-        extern fn RtlEndWeakEnumerationHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
+        extern fn RtlEndWeakEnumerationHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
         #[library("ntdll.dll")]
-        extern fn RtlEnumerateEntryHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
+        extern fn RtlEnumerateEntryHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlEnumerateGenericTable(Table: *const RTL_GENERIC_TABLE, Restart: bool) -> *mut void;
+        extern fn RtlEnumerateGenericTable(Table: PRTL_GENERIC_TABLE, Restart: BOOLEAN) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlEnumerateGenericTableAvl(Table: *const RTL_AVL_TABLE, Restart: bool) -> *mut void;
+        extern fn RtlEnumerateGenericTableAvl(Table: PRTL_AVL_TABLE, Restart: BOOLEAN) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlEnumerateGenericTableLikeADirectory(Table: *const RTL_AVL_TABLE, #[opt] MatchFunction: PRTL_AVL_MATCH_FUNCTION, #[opt] MatchData: *const void, NextFlag: u32, #[in] #[out] RestartKey: *mut *mut void, #[in] #[out] DeleteCount: *mut u32, Buffer: *const void) -> *mut void;
+        extern fn RtlEnumerateGenericTableLikeADirectory(Table: PRTL_AVL_TABLE, #[opt] MatchFunction: PRTL_AVL_MATCH_FUNCTION, #[in] #[opt] MatchData: *mut void, NextFlag: u32, #[in] #[out] RestartKey: *mut *mut void, #[in] #[out] DeleteCount: PULONG, #[in] Buffer: *mut void) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlEnumerateGenericTableWithoutSplaying(Table: *const RTL_GENERIC_TABLE, #[in] #[out] RestartKey: *mut *mut void) -> *mut void;
+        extern fn RtlEnumerateGenericTableWithoutSplaying(Table: PRTL_GENERIC_TABLE, #[in] #[out] RestartKey: *mut *mut void) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlEnumerateGenericTableWithoutSplayingAvl(Table: *const RTL_AVL_TABLE, #[in] #[out] RestartKey: *mut *mut void) -> *mut void;
+        extern fn RtlEnumerateGenericTableWithoutSplayingAvl(Table: PRTL_AVL_TABLE, #[in] #[out] RestartKey: *mut *mut void) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlEqualString(String1: *const STRING, String2: *const STRING, CaseInSensitive: bool) -> bool;
+        extern fn RtlEqualString(String1: *const STRING, String2: *const STRING, CaseInSensitive: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlExpandHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE) -> bool;
+        extern fn RtlExpandHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlGetActiveConsoleId() -> u32;
         #[library("ntdll.dll")]
@@ -5179,107 +5146,109 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlGetConsoleSessionForegroundProcessId() -> u64;
         #[library("ntdll.dll")]
-        extern fn RtlGetElementGenericTable(Table: *const RTL_GENERIC_TABLE, I: u32) -> *mut void;
+        extern fn RtlGetElementGenericTable(Table: PRTL_GENERIC_TABLE, I: u32) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlGetElementGenericTableAvl(Table: *const RTL_AVL_TABLE, I: u32) -> *mut void;
+        extern fn RtlGetElementGenericTableAvl(Table: PRTL_AVL_TABLE, I: u32) -> *mut void;
         #[library("ntdll.dll")]
         extern fn RtlGetEnabledExtendedFeatures(FeatureMask: u64) -> u64;
         #[library("ntdll.dll")]
-        extern fn RtlGetNextEntryHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, Context: *const RTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
+        extern fn RtlGetNextEntryHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlGetNtProductType(NtProductType: *mut NT_PRODUCT_TYPE) -> bool;
+        extern fn RtlGetNtProductType(#[out] NtProductType: PNT_PRODUCT_TYPE) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlGetNtSystemRoot() -> PCWSTR;
         #[library("ntdll.dll")]
-        extern fn RtlGetPersistedStateLocation(SourceID: PCWSTR, #[opt] CustomValue: PCWSTR, #[opt] DefaultPath: PCWSTR, StateLocationType: STATE_LOCATION_TYPE, #[size_param(5)] #[opt] TargetPath: *mut u16, BufferLengthIn: u32, #[opt] BufferLengthOut: *mut u32) -> NTSTATUS;
+        extern fn RtlGetPersistedStateLocation(SourceID: PCWSTR, #[opt] CustomValue: PCWSTR, #[opt] DefaultPath: PCWSTR, StateLocationType: STATE_LOCATION_TYPE, #[size_param(5)] #[out] #[opt] TargetPath: PWCHAR, BufferLengthIn: u32, #[out] #[opt] BufferLengthOut: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlGetSuiteMask() -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlInitEnumerationHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> bool;
+        extern fn RtlInitEnumerationHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlInitStrongEnumerationHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> bool;
+        extern fn RtlInitStrongEnumerationHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlInitWeakEnumerationHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> bool;
+        extern fn RtlInitWeakEnumerationHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlInitializeGenericTable(Table: *mut RTL_GENERIC_TABLE, CompareRoutine: PRTL_GENERIC_COMPARE_ROUTINE, AllocateRoutine: PRTL_GENERIC_ALLOCATE_ROUTINE, FreeRoutine: PRTL_GENERIC_FREE_ROUTINE, #[opt] TableContext: *const void);
+        extern fn RtlInitializeGenericTable(#[out] Table: PRTL_GENERIC_TABLE, CompareRoutine: PRTL_GENERIC_COMPARE_ROUTINE, AllocateRoutine: PRTL_GENERIC_ALLOCATE_ROUTINE, FreeRoutine: PRTL_GENERIC_FREE_ROUTINE, #[in] #[opt] TableContext: *mut void);
         #[library("ntdll.dll")]
-        extern fn RtlInitializeGenericTableAvl(Table: *mut RTL_AVL_TABLE, CompareRoutine: PRTL_AVL_COMPARE_ROUTINE, AllocateRoutine: PRTL_AVL_ALLOCATE_ROUTINE, FreeRoutine: PRTL_AVL_FREE_ROUTINE, #[opt] TableContext: *const void);
+        extern fn RtlInitializeGenericTableAvl(#[out] Table: PRTL_AVL_TABLE, CompareRoutine: PRTL_AVL_COMPARE_ROUTINE, AllocateRoutine: PRTL_AVL_ALLOCATE_ROUTINE, FreeRoutine: PRTL_AVL_FREE_ROUTINE, #[in] #[opt] TableContext: *mut void);
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTable(Table: *const RTL_GENERIC_TABLE, #[size_param(2)] Buffer: *const void, BufferSize: CLONG, #[opt] NewElement: *mut bool) -> *mut void;
+        extern fn RtlInsertElementGenericTable(Table: PRTL_GENERIC_TABLE, #[size_param(2)] #[in] Buffer: *mut void, BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableAvl(Table: *const RTL_AVL_TABLE, #[size_param(2)] Buffer: *const void, BufferSize: CLONG, #[opt] NewElement: *mut bool) -> *mut void;
+        extern fn RtlInsertElementGenericTableAvl(Table: PRTL_AVL_TABLE, #[size_param(2)] #[in] Buffer: *mut void, BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableFull(Table: *const RTL_GENERIC_TABLE, #[size_param(2)] Buffer: *const void, BufferSize: CLONG, #[opt] NewElement: *mut bool, NodeOrParent: *const void, SearchResult: TABLE_SEARCH_RESULT) -> *mut void;
+        extern fn RtlInsertElementGenericTableFull(Table: PRTL_GENERIC_TABLE, #[size_param(2)] #[in] Buffer: *mut void, BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN, #[in] NodeOrParent: *mut void, SearchResult: TABLE_SEARCH_RESULT) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableFullAvl(Table: *const RTL_AVL_TABLE, #[size_param(2)] Buffer: *const void, BufferSize: CLONG, #[opt] NewElement: *mut bool, NodeOrParent: *const void, SearchResult: TABLE_SEARCH_RESULT) -> *mut void;
+        extern fn RtlInsertElementGenericTableFullAvl(Table: PRTL_AVL_TABLE, #[size_param(2)] #[in] Buffer: *mut void, BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN, #[in] NodeOrParent: *mut void, SearchResult: TABLE_SEARCH_RESULT) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlInsertEntryHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, Entry: *const RTL_DYNAMIC_HASH_TABLE_ENTRY, Signature: usize, #[in] #[out] #[opt] Context: *mut RTL_DYNAMIC_HASH_TABLE_CONTEXT) -> bool;
+        extern fn RtlInsertEntryHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, Signature: usize, #[in] #[out] #[opt] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlIsApiSetImplemented(apiSetName: PCSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlIsGenericTableEmpty(Table: *const RTL_GENERIC_TABLE) -> bool;
+        extern fn RtlIsGenericTableEmpty(Table: PRTL_GENERIC_TABLE) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlIsGenericTableEmptyAvl(Table: *const RTL_AVL_TABLE) -> bool;
+        extern fn RtlIsGenericTableEmptyAvl(Table: PRTL_AVL_TABLE) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlIsMultiSessionSku() -> bool;
+        extern fn RtlIsMultiSessionSku() -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlIsMultiUsersInSessionSku() -> bool;
+        extern fn RtlIsMultiUsersInSessionSku() -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlIsStateSeparationEnabled() -> bool;
+        extern fn RtlIsStateSeparationEnabled() -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlLookupElementGenericTable(Table: *const RTL_GENERIC_TABLE, Buffer: *const void) -> *mut void;
+        extern fn RtlIsUntrustedObject(#[opt] Handle: HANDLE, #[in] #[opt] Object: *mut void, #[out] UntrustedObject: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlLookupElementGenericTableAvl(Table: *const RTL_AVL_TABLE, Buffer: *const void) -> *mut void;
+        extern fn RtlLookupElementGenericTable(Table: PRTL_GENERIC_TABLE, #[in] Buffer: *mut void) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlLookupElementGenericTableFull(Table: *const RTL_GENERIC_TABLE, Buffer: *const void, NodeOrParent: *mut *mut void, SearchResult: *mut TABLE_SEARCH_RESULT) -> *mut void;
+        extern fn RtlLookupElementGenericTableAvl(Table: PRTL_AVL_TABLE, #[in] Buffer: *mut void) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlLookupElementGenericTableFullAvl(Table: *const RTL_AVL_TABLE, Buffer: *const void, NodeOrParent: *mut *mut void, SearchResult: *mut TABLE_SEARCH_RESULT) -> *mut void;
+        extern fn RtlLookupElementGenericTableFull(Table: PRTL_GENERIC_TABLE, #[in] Buffer: *mut void, NodeOrParent: *mut *mut void, SearchResult: *mut TABLE_SEARCH_RESULT) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlLookupEntryHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, Signature: usize, #[opt] Context: *mut RTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
+        extern fn RtlLookupElementGenericTableFullAvl(Table: PRTL_AVL_TABLE, #[in] Buffer: *mut void, NodeOrParent: *mut *mut void, SearchResult: *mut TABLE_SEARCH_RESULT) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlLookupFirstMatchingElementGenericTableAvl(Table: *const RTL_AVL_TABLE, Buffer: *const void, RestartKey: *mut *mut void) -> *mut void;
+        extern fn RtlLookupEntryHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, Signature: usize, #[out] #[opt] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlMapGenericMask(#[in] #[out] AccessMask: *mut ACCESS_MASK, GenericMapping: *const GENERIC_MAPPING);
+        extern fn RtlLookupFirstMatchingElementGenericTableAvl(Table: PRTL_AVL_TABLE, #[in] Buffer: *mut void, RestartKey: *mut *mut void) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlNumberGenericTableElements(Table: *const RTL_GENERIC_TABLE) -> u32;
+        extern fn RtlMapGenericMask(#[in] #[out] AccessMask: PACCESS_MASK, GenericMapping: *const GENERIC_MAPPING);
         #[library("ntdll.dll")]
-        extern fn RtlNumberGenericTableElementsAvl(Table: *const RTL_AVL_TABLE) -> u32;
+        extern fn RtlNumberGenericTableElements(Table: PRTL_GENERIC_TABLE) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlPrefixUnicodeString(String1: *const UNICODE_STRING, String2: *const UNICODE_STRING, CaseInSensitive: bool) -> bool;
+        extern fn RtlNumberGenericTableElementsAvl(Table: PRTL_AVL_TABLE) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlQueryRegistryValueWithFallback(#[opt] PrimaryHandle: HANDLE, #[opt] FallbackHandle: HANDLE, ValueName: *const UNICODE_STRING, ValueLength: u32, #[opt] ValueType: *mut u32, #[size_param(3)] ValueData: *mut void, ResultLength: *mut u32) -> NTSTATUS;
+        extern fn RtlPrefixUnicodeString(String1: PCUNICODE_STRING, String2: PCUNICODE_STRING, CaseInSensitive: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlRealPredecessor(Links: *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        extern fn RtlQueryRegistryValueWithFallback(#[opt] PrimaryHandle: HANDLE, #[opt] FallbackHandle: HANDLE, ValueName: PUNICODE_STRING, ValueLength: u32, #[out] #[opt] ValueType: PULONG, #[size_param(3)] ValueData: *mut void, ResultLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlRealSuccessor(Links: *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        extern fn RtlRealPredecessor(Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
         #[library("ntdll.dll")]
-        extern fn RtlRemoveEntryHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, Entry: *const RTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] #[out] #[opt] Context: *mut RTL_DYNAMIC_HASH_TABLE_CONTEXT) -> bool;
+        extern fn RtlRealSuccessor(Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: *mut RTL_RUN_ONCE, Flags: u32, Context: *mut *mut void) -> NTSTATUS;
+        extern fn RtlRemoveEntryHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] #[out] #[opt] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceComplete(#[in] #[out] RunOnce: *mut RTL_RUN_ONCE, Flags: u32, #[opt] Context: *const void) -> NTSTATUS;
+        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, Flags: u32, Context: *mut *mut void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: *mut RTL_RUN_ONCE, InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[out] #[opt] Parameter: *mut void, Context: *mut *mut void) -> NTSTATUS;
+        extern fn RtlRunOnceComplete(#[in] #[out] RunOnce: PRTL_RUN_ONCE, Flags: u32, #[in] #[opt] Context: *mut void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceInitialize(RunOnce: *mut RTL_RUN_ONCE);
+        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[out] #[opt] Parameter: *mut void, Context: *mut *mut void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlSplay(#[in] #[out] Links: *mut RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        extern fn RtlRunOnceInitialize(#[out] RunOnce: PRTL_RUN_ONCE);
         #[library("ntdll.dll")]
-        extern fn RtlStronglyEnumerateEntryHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
+        extern fn RtlSplay(#[in] #[out] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
         #[library("ntdll.dll")]
-        extern fn RtlSubtreePredecessor(Links: *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        extern fn RtlStronglyEnumerateEntryHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlSubtreeSuccessor(Links: *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        extern fn RtlSubtreePredecessor(Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
         #[library("ntdll.dll")]
-        extern fn RtlUpcaseUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: bool) -> NTSTATUS;
+        extern fn RtlSubtreeSuccessor(Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        #[library("ntdll.dll")]
+        extern fn RtlUpcaseUnicodeString(DestinationString: PUNICODE_STRING, SourceString: PCUNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlUpperChar(Character: i8) -> i8;
         #[library("ntdll.dll")]
-        extern fn RtlUpperString(#[in] #[out] DestinationString: *mut STRING, SourceString: *const STRING);
+        extern fn RtlUpperString(#[in] #[out] DestinationString: PSTRING, SourceString: *const STRING);
         #[library("ntdll.dll")]
         extern fn RtlWalkFrameChain(Callers: *mut *mut void, Count: u32, Flags: u32) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlWeaklyEnumerateEntryHashTable(HashTable: *const RTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
+        extern fn RtlWeaklyEnumerateEntryHashTable(HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         const SCI_NOTIFY_TYPE_GUID: GUID = 0xe9d59197_94ee_4a4f_8ad8_9b7d8bd93d2e;
         const SEA_NOTIFY_TYPE_GUID: GUID = 0x9a78788a_bbe8_11e4_809e_67611e5d46b0;
         const SEA_SECTION_GUID: GUID = 0xf5fe48a6_84ce_4c1e_aa64_20c9a53099f1;
@@ -5331,12 +5300,13 @@ mod Windows {
             MsrAddr: u32,
             Value: u64,
         }
-        extern fn SILO_CONTEXT_CLEANUP_CALLBACK(SiloContext: *const void);
-        extern fn SILO_MONITOR_CREATE_CALLBACK(Silo: *const _EJOB) -> NTSTATUS;
+        extern fn SILO_CONTEXT_CLEANUP_CALLBACK(#[in] SiloContext: *mut void);
+        struct SILO_MONITOR {}
+        extern fn SILO_MONITOR_CREATE_CALLBACK(Silo: PESILO) -> NTSTATUS;
         struct SILO_MONITOR_REGISTRATION {
             Version: u8,
-            MonitorHost: bool,
-            MonitorExistingSilos: bool,
+            MonitorHost: BOOLEAN,
+            MonitorExistingSilos: BOOLEAN,
             Reserved: [u8; 5],
             Anonymous: union {
                 DriverObjectName: PUNICODE_STRING,
@@ -5346,7 +5316,7 @@ mod Windows {
             TerminateCallback: SILO_MONITOR_TERMINATE_CALLBACK,
         }
         const SILO_MONITOR_REGISTRATION_VERSION: i32 = 1;
-        extern fn SILO_MONITOR_TERMINATE_CALLBACK(Silo: *const _EJOB);
+        extern fn SILO_MONITOR_TERMINATE_CALLBACK(Silo: PESILO);
         struct SOC_SUBSYSTEM_FAILURE_DETAILS {
             SubsysType: SOC_SUBSYSTEM_TYPE,
             FirmwareVersion: u64,
@@ -5391,7 +5361,7 @@ mod Windows {
         }
         struct SYSTEM_FIRMWARE_TABLE_HANDLER {
             ProviderSignature: u32,
-            Register: bool,
+            Register: BOOLEAN,
             FirmwareTableHandler: PFNFTH,
             DriverObject: *mut void,
         }
@@ -5455,7 +5425,7 @@ mod Windows {
         const THREAD_CSWITCH_PMU_DISABLE: i32 = 0;
         const THREAD_CSWITCH_PMU_ENABLE: i32 = 1;
         struct TIMER_SET_COALESCABLE_TIMER_INFO {
-            DueTime: i64,
+            DueTime: LARGE_INTEGER,
             TimerApcRoutine: PTIMER_APC_ROUTINE,
             TimerContext: *mut void,
             WakeContext: *mut COUNTED_REASON_CONTEXT,
@@ -5532,14 +5502,14 @@ mod Windows {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Descriptor: WHEA_ERROR_SOURCE_DESCRIPTOR,
             Status: NTSTATUS,
-            IsRemove: bool,
+            IsRemove: BOOLEAN,
         }
         #[packed(1)]
         struct WHEAP_ATTEMPT_RECOVERY_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             ErrorHeader: WHEA_ERROR_RECORD_HEADER,
-            ArchitecturalRecovery: bool,
-            PshedRecovery: bool,
+            ArchitecturalRecovery: BOOLEAN,
+            PshedRecovery: BOOLEAN,
             Status: NTSTATUS,
         }
         #[packed(1)]
@@ -5563,7 +5533,7 @@ mod Windows {
         }
         struct WHEAP_CMCI_IMPLEMENTED_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            CmciAvailable: bool,
+            CmciAvailable: BOOLEAN,
         }
         #[packed(1)]
         struct WHEAP_CMCI_INITERR_EVENT {
@@ -5624,8 +5594,8 @@ mod Windows {
         }
         struct WHEAP_EDPC_ENABLED_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            eDPCEnabled: bool,
-            eDPCRecovEnabled: bool,
+            eDPCEnabled: BOOLEAN,
+            eDPCRecovEnabled: BOOLEAN,
         }
         #[packed(1)]
         struct WHEAP_ERROR_CLEARED_EVENT {
@@ -5668,8 +5638,8 @@ mod Windows {
         const WHEAP_MAX_SET_ERROR_TYPE_WITH_ADDRESS_SIZE: i32 = 256;
         struct WHEAP_OSC_IMPLEMENTED {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            OscImplemented: bool,
-            DebugChecked: bool,
+            OscImplemented: BOOLEAN,
+            DebugChecked: BOOLEAN,
         }
         #[packed(1)]
         struct WHEAP_PCIE_CONFIG_INFO {
@@ -5708,9 +5678,9 @@ mod Windows {
         struct WHEAP_PFA_MEMORY_OFFLINED {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             DecisionType: WHEAP_PFA_OFFLINE_DECISION_TYPE,
-            ImmediateSuccess: bool,
+            ImmediateSuccess: BOOLEAN,
             Page: u32,
-            NotifyVid: bool,
+            NotifyVid: BOOLEAN,
         }
         #[packed(1)]
         struct WHEAP_PFA_MEMORY_OFFLINED_NOTIFY_CALLBACK_ACTION {
@@ -5725,9 +5695,9 @@ mod Windows {
         struct WHEAP_PFA_MEMORY_POLICY {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             RegistryKeysPresent: u32,
-            DisableOffline: bool,
-            PersistOffline: bool,
-            PfaDisabled: bool,
+            DisableOffline: BOOLEAN,
+            PersistOffline: BOOLEAN,
+            PfaDisabled: BOOLEAN,
             PageCount: u32,
             ErrorThreshold: u32,
             TimeOut: u32,
@@ -5756,13 +5726,13 @@ mod Windows {
         }
         struct WHEAP_PLUGIN_PFA_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            NoFurtherPfa: bool,
+            NoFurtherPfa: BOOLEAN,
         }
         #[packed(1)]
         struct WHEAP_PROCESS_EINJ_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Error: [i8; 32],
-            InjectionActionTableValid: bool,
+            InjectionActionTableValid: BOOLEAN,
             BeginInjectionInstructionCount: u32,
             GetTriggerErrorActionTableInstructionCount: u32,
             SetErrorTypeInstructionCount: u32,
@@ -5778,7 +5748,7 @@ mod Windows {
         struct WHEAP_PROCESS_EINJ_EVENT2 {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Error: [i8; 32],
-            InjectionActionTableValid: bool,
+            InjectionActionTableValid: BOOLEAN,
             BeginInjectionInstructionCount: u32,
             GetTriggerErrorActionTableInstructionCount: u32,
             SetErrorTypeInstructionCount: u32,
@@ -5798,7 +5768,7 @@ mod Windows {
             Error: [i8; 32],
             EntryType: [i8; 32],
             EntryIndex: u32,
-            HestValid: bool,
+            HestValid: BOOLEAN,
             CmcCount: u32,
             MceCount: u32,
             NmiCount: u32,
@@ -5827,8 +5797,8 @@ mod Windows {
             Parameter3: u64,
             Parameter4: u64,
             InjectionStatus: NTSTATUS,
-            InjectionAttempted: bool,
-            InjectionByPlugin: bool,
+            InjectionAttempted: BOOLEAN,
+            InjectionByPlugin: BOOLEAN,
         }
         #[packed(1)]
         struct WHEAP_PSHED_PLUGIN_REGISTER {
@@ -5890,7 +5860,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_AER_BRIDGE_DESCRIPTOR {
             Type: u16,
-            Enabled: bool,
+            Enabled: BOOLEAN,
             Reserved: u8,
             BusNumber: u32,
             Slot: WHEA_PCI_SLOT_NUMBER,
@@ -5907,7 +5877,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_AER_ENDPOINT_DESCRIPTOR {
             Type: u16,
-            Enabled: bool,
+            Enabled: BOOLEAN,
             Reserved: u8,
             BusNumber: u32,
             Slot: WHEA_PCI_SLOT_NUMBER,
@@ -5921,7 +5891,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_AER_ROOTPORT_DESCRIPTOR {
             Type: u16,
-            Enabled: bool,
+            Enabled: BOOLEAN,
             Reserved: u8,
             BusNumber: u32,
             Slot: WHEA_PCI_SLOT_NUMBER,
@@ -6330,8 +6300,8 @@ mod Windows {
         }
         struct WHEA_AZCC_ROOT_BUS_ERR_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            MaxBusCountPassed: bool,
-            InvalidBusMSR: bool,
+            MaxBusCountPassed: BOOLEAN,
+            InvalidBusMSR: BOOLEAN,
         }
         #[packed(1)]
         struct WHEA_AZCC_ROOT_BUS_LIST_EVENT {
@@ -6343,9 +6313,9 @@ mod Windows {
         struct WHEA_AZCC_SET_POISON_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Bus: u32,
-            ReadSuccess: bool,
-            WriteSuccess: bool,
-            IsEnable: bool,
+            ReadSuccess: BOOLEAN,
+            WriteSuccess: BOOLEAN,
+            IsEnable: BOOLEAN,
         }
         const WHEA_BAD_PAGE_LIST_LOCATION: i32 = 15;
         const WHEA_BAD_PAGE_LIST_MAX_SIZE: i32 = 14;
@@ -6501,7 +6471,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
             Type: u16,
-            Enabled: bool,
+            Enabled: BOOLEAN,
             Reserved: u8,
             SourceGuid: GUID,
             LogTag: u16,
@@ -6779,11 +6749,11 @@ mod Windows {
         const WHEA_ERROR_RECORD_VALID_TIMESTAMP: i32 = 2;
         #[packed(1)]
         struct WHEA_ERROR_RECOVERY_INFO_SECTION {
-            RecoveryKernel: bool,
+            RecoveryKernel: BOOLEAN,
             RecoveryAction: WHEA_RECOVERY_ACTION,
             RecoveryType: WHEA_RECOVERY_TYPE,
             Irql: KIRQL,
-            RecoverySucceeded: bool,
+            RecoverySucceeded: BOOLEAN,
             FailureReason: WHEA_RECOVERY_FAILURE_REASON,
             ProcessName: [CCHAR; 20],
         }
@@ -6831,9 +6801,9 @@ mod Windows {
             Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
             Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
         }
-        type WHEA_ERROR_SOURCE_CORRECT = *mut _WHEA_ERROR_SOURCE_CORRECT;
-        type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = *mut _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER;
-        type WHEA_ERROR_SOURCE_CREATE_RECORD = *mut _WHEA_ERROR_SOURCE_CREATE_RECORD;
+        type WHEA_ERROR_SOURCE_CORRECT = *mut u8;
+        type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = *mut u8;
+        type WHEA_ERROR_SOURCE_CREATE_RECORD = *mut u8;
         #[packed(1)]
         struct WHEA_ERROR_SOURCE_DESCRIPTOR {
             Length: u32,
@@ -6906,8 +6876,8 @@ mod Windows {
         const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: i32 = 4;
         const WHEA_ERROR_SOURCE_FLAG_GLOBAL: i32 = 2;
         const WHEA_ERROR_SOURCE_FLAG_V2_DESCRIPTOR: i32 = 8;
-        type WHEA_ERROR_SOURCE_INITIALIZE = *mut _WHEA_ERROR_SOURCE_INITIALIZE;
-        type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = *mut _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER;
+        type WHEA_ERROR_SOURCE_INITIALIZE = *mut u8;
+        type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = *mut u8;
         const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: i32 = 65535;
         struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
             Type: WHEA_ERROR_SOURCE_TYPE,
@@ -6915,7 +6885,7 @@ mod Windows {
             NumRecordsToPreallocate: u32,
             MaxSectionsPerRecord: u32,
         }
-        type WHEA_ERROR_SOURCE_RECOVER = *mut _WHEA_ERROR_SOURCE_RECOVER;
+        type WHEA_ERROR_SOURCE_RECOVER = *mut u8;
         #[repr(i32)]
         enum WHEA_ERROR_SOURCE_STATE {
             WheaErrSrcStateStopped = 1,
@@ -6946,8 +6916,8 @@ mod Windows {
             WheaErrSrcTypeSei = 18,
             WheaErrSrcTypeMax = 19,
         }
-        type WHEA_ERROR_SOURCE_UNINITIALIZE = *mut _WHEA_ERROR_SOURCE_UNINITIALIZE;
-        type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = *mut _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER;
+        type WHEA_ERROR_SOURCE_UNINITIALIZE = *mut u8;
+        type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = *mut u8;
         #[packed(1)]
         union WHEA_ERROR_STATUS {
             ErrorStatus: u64,
@@ -7225,7 +7195,7 @@ mod Windows {
             ErrStatusAddressBitWidth: u8,
             ErrStatusAddressBitOffset: u8,
             ErrStatusAddressAccessSize: u8,
-            ErrStatusAddress: i64,
+            ErrStatusAddress: LARGE_INTEGER,
             Notify: WHEA_NOTIFICATION_DESCRIPTOR,
         }
         #[packed(1)]
@@ -7239,13 +7209,13 @@ mod Windows {
             ErrStatusAddressBitWidth: u8,
             ErrStatusAddressBitOffset: u8,
             ErrStatusAddressAccessSize: u8,
-            ErrStatusAddress: i64,
+            ErrStatusAddress: LARGE_INTEGER,
             Notify: WHEA_NOTIFICATION_DESCRIPTOR,
             ReadAckAddressSpaceID: u8,
             ReadAckAddressBitWidth: u8,
             ReadAckAddressBitOffset: u8,
             ReadAckAddressAccessSize: u8,
-            ReadAckAddress: i64,
+            ReadAckAddress: LARGE_INTEGER,
             ReadAckPreserveMask: u64,
             ReadAckWriteMask: u64,
         }
@@ -7294,11 +7264,11 @@ mod Windows {
         }
         struct WHEA_IPMI_LOAD_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            IsOnline: bool,
+            IsOnline: BOOLEAN,
         }
         struct WHEA_IPMI_SUBSCRIBE_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            IsRegistered: bool,
+            IsRegistered: BOOLEAN,
         }
         const WHEA_MAX_LOG_DATA_LEN: i32 = 36;
         const WHEA_MAX_MC_BANKS: i32 = 32;
@@ -7946,7 +7916,7 @@ mod Windows {
         type WHEA_PCI_DPC_SECTION = PCI_EXPRESS_DPC_CAPABILITY;
         struct WHEA_PCI_RECOVERY_SECTION {
             SignalType: u8,
-            RecoveryAttempted: bool,
+            RecoveryAttempted: BOOLEAN,
             RecoveryStatus: u8,
         }
         #[repr(i32)]
@@ -8321,7 +8291,7 @@ mod Windows {
         struct WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             PluginName: [u16; 32],
-            Supported: bool,
+            Supported: BOOLEAN,
         }
         type WHEA_PSHED_PLUGIN_REGISTRATION_PACKET = WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2;
         struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
@@ -8388,11 +8358,11 @@ mod Windows {
             Anonymous: union {
                 MemoryError: struct {
                     Address: usize,
-                    Consumed: bool,
+                    Consumed: BOOLEAN,
                     ErrorCode: u16,
-                    ErrorIpValid: bool,
-                    RestartIpValid: bool,
-                    ClearPoison: bool,
+                    ErrorIpValid: BOOLEAN,
+                    RestartIpValid: BOOLEAN,
+                    ClearPoison: BOOLEAN,
                 },
                 PmemError: struct {
                     PmemErrInfo: usize,
@@ -8433,7 +8403,7 @@ mod Windows {
             PageStatus: NTSTATUS,
             ActionTaken: WHEA_RECOVERY_CONTEXT_ACTION_TAKEN,
             NotifyFlags: WHEA_IN_USE_PAGE_NOTIFY_FLAGS,
-            ImmediateSuccess: bool,
+            ImmediateSuccess: BOOLEAN,
             Reserved: u16,
             ActionTakenAdditionalInfo: WHEA_RECOVERY_CONTEXT_ACTION_TAKEN_ADDITIONAL_INFO,
         }
@@ -8514,7 +8484,7 @@ mod Windows {
             Esr: u32,
             Far: u64,
             Par: u64,
-            WasKernel: bool,
+            WasKernel: BOOLEAN,
         }
         const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: i32 = 2;
         const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: i32 = 128;
@@ -8537,14 +8507,14 @@ mod Windows {
         }
         struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            IsBugcheckOwner: bool,
+            IsBugcheckOwner: BOOLEAN,
             RecursionCount: u8,
-            IsBugcheckRecoveryOwner: bool,
+            IsBugcheckRecoveryOwner: BOOLEAN,
         }
         #[packed(1)]
         struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-            Success: bool,
+            Success: BOOLEAN,
             Version: u8,
             EntryCount: u16,
             Data: struct {
@@ -8557,7 +8527,7 @@ mod Windows {
         struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             BootId: u32,
-            Success: bool,
+            Success: BOOLEAN,
         }
         struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -8567,14 +8537,14 @@ mod Windows {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Payload: [u8; 256],
         }
-        type WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = *mut _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK;
+        type WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = *mut u8;
         #[packed(1)]
         struct WHEA_SRAR_DETAIL_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             RecoveryContextFlags: u32,
             RecoveryContextPa: u64,
             PageOfflineStatus: NTSTATUS,
-            KernelConsumerError: bool,
+            KernelConsumerError: BOOLEAN,
         }
         #[packed(1)]
         struct WHEA_SRAS_TABLE_ENTRIES_EVENT {
@@ -8604,7 +8574,7 @@ mod Windows {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Address: WHEA_PCIE_ADDRESS,
             Mask: u32,
-            Updated: bool,
+            Updated: BOOLEAN,
             Status: NTSTATUS,
         }
         #[packed(1)]
@@ -8643,7 +8613,7 @@ mod Windows {
                     Century: 8,
                 },
             },
-            AsLARGE_INTEGER: i64,
+            AsLARGE_INTEGER: LARGE_INTEGER,
         }
         const WHEA_TLBCHECK_GUID: GUID = 0xfc06b535_5e1f_4562_9f25_0a3b9adb63c3;
         #[packed(1)]
@@ -8786,7 +8756,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_XPF_CMC_DESCRIPTOR {
             Type: u16,
-            Enabled: bool,
+            Enabled: BOOLEAN,
             NumberOfBanks: u8,
             Reserved: u32,
             Notify: WHEA_NOTIFICATION_DESCRIPTOR,
@@ -8795,7 +8765,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_XPF_CMC_DESCRIPTOR_V2 {
             Type: u16,
-            Enabled: bool,
+            Enabled: BOOLEAN,
             NumberOfBanks: u8,
             Reserved: u32,
             Notify: WHEA_NOTIFICATION_DESCRIPTOR,
@@ -8814,7 +8784,7 @@ mod Windows {
         struct WHEA_XPF_MCA_SECTION {
             VersionNumber: u32,
             CpuVendor: WHEA_CPU_VENDOR,
-            Timestamp: i64,
+            Timestamp: LARGE_INTEGER,
             ProcessorNumber: u32,
             GlobalStatus: MCG_STATUS,
             InstructionPointer: u64,
@@ -8864,7 +8834,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_XPF_MC_BANK_DESCRIPTOR {
             BankNumber: u8,
-            ClearOnInitialization: bool,
+            ClearOnInitialization: BOOLEAN,
             StatusDataFormat: u8,
             Flags: XPF_MC_BANK_FLAGS,
             ControlMsr: u32,
@@ -8901,7 +8871,7 @@ mod Windows {
         #[packed(1)]
         struct WHEA_XPF_NMI_DESCRIPTOR {
             Type: u16,
-            Enabled: bool,
+            Enabled: BOOLEAN,
         }
         #[packed(1)]
         struct WHEA_XPF_PROCESSOR_ERROR_SECTION {
@@ -9071,9 +9041,9 @@ mod Windows {
                     Reserved: 30,
                 },
             },
-            ActionRequired: bool,
-            RecoverySucceeded: bool,
-            RecoveryKernel: bool,
+            ActionRequired: BOOLEAN,
+            RecoverySucceeded: BOOLEAN,
+            RecoveryKernel: BOOLEAN,
             Reserved: u8,
             Reserved2: u16,
             Reserved3: u16,
@@ -9100,112 +9070,134 @@ mod Windows {
             Reserved: *mut void,
         }
         #[library("ntdll.dll")]
-        extern fn ZwAllocateLocallyUniqueId(Luid: *mut LUID) -> NTSTATUS;
+        extern fn ZwAllocateLocallyUniqueId(#[out] Luid: PLUID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "C" fn ZwCancelTimer(TimerHandle: HANDLE, #[opt] CurrentState: *mut bool) -> NTSTATUS;
+        extern "C" fn ZwCancelTimer(TimerHandle: HANDLE, #[out] #[opt] CurrentState: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "C" fn ZwCreateTimer(TimerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, TimerType: TIMER_TYPE) -> NTSTATUS;
+        extern "C" fn ZwCreateTimer(#[out] TimerHandle: PHANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, TimerType: TIMER_TYPE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwDeviceIoControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, IoControlCode: u32, #[size_param(7)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn ZwDeviceIoControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: *mut void, #[out] IoStatusBlock: PIO_STATUS_BLOCK, IoControlCode: u32, #[size_param(7)] #[in] #[opt] InputBuffer: *mut void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwDisplayString(String: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwDisplayString(String: PUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwOpenProcess(ProcessHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] ClientId: *const CLIENT_ID) -> NTSTATUS;
+        extern fn ZwOpenProcess(#[out] ProcessHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, #[opt] ClientId: PCLIENT_ID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "C" fn ZwOpenTimer(TimerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern "C" fn ZwOpenTimer(#[out] TimerHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, #[size_param(2)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(4)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn ZwPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, #[size_param(2)] #[in] #[opt] InputBuffer: *mut void, InputBufferLength: u32, #[size_param(4)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwQueryVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *mut void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwQueryVolumeInformationFile(FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[size_param(3)] FsInformation: *mut void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn ZwSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] ThreadInformation: *const void, ThreadInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] #[in] ThreadInformation: *mut void, ThreadInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "C" fn ZwSetTimer(TimerHandle: HANDLE, DueTime: *const i64, #[opt] TimerApcRoutine: PTIMER_APC_ROUTINE, #[opt] TimerContext: *const void, ResumeTimer: bool, #[opt] Period: i32, #[opt] PreviousState: *mut bool) -> NTSTATUS;
+        extern "C" fn ZwSetTimer(TimerHandle: HANDLE, DueTime: PLARGE_INTEGER, #[opt] TimerApcRoutine: PTIMER_APC_ROUTINE, #[in] #[opt] TimerContext: *mut void, ResumeTimer: BOOLEAN, #[opt] Period: i32, #[out] #[opt] PreviousState: PBOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "C" fn ZwSetTimerEx(TimerHandle: HANDLE, TimerSetInformationClass: TIMER_SET_INFORMATION_CLASS, #[size_param(3)] #[in] #[out] #[opt] TimerSetInformation: *mut void, TimerSetInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwTerminateProcess(#[opt] ProcessHandle: HANDLE, ExitStatus: NTSTATUS) -> NTSTATUS;
-        struct _BUS_HANDLER {}
-        struct _CREATE_DISK {}
-        struct _DEVICE_HANDLER_OBJECT {}
-        struct _EJOB {}
         struct _FFA_MSG_SEND_DIRECT_REQ2_PARAMETERS {}
         struct _FFA_NOTIFICATION_REGISTRATION_PARAMETERS {}
         struct _FFA_RUN_TARGET_INPUT_PARAMETERS {}
         struct _FFA_RUN_TARGET_OUTPUT_PARAMETERS {}
-        struct _IMAGE_NT_HEADERS {}
-        struct _IMAGE_NT_HEADERS64 {}
         #[arch(X86)]
         struct _KGDTENTRY {}
         #[arch(X64)]
-        struct _KGDTENTRY64 {}
+        union _KGDTENTRY64 {}
         #[arch(X86)]
         struct _KIDTENTRY {}
         #[arch(X64)]
-        struct _KIDTENTRY64 {}
+        union _KIDTENTRY64 {}
         #[arch(X86 | X64)]
         struct _KPRCB {}
         #[arch(X86)]
         struct _KTSS {}
         #[arch(X64)]
         struct _KTSS64 {}
-        struct _LOADER_PARAMETER_BLOCK {}
-        struct _PEB {}
-        struct _SILO_MONITOR {}
-        extern fn _WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: *mut WHEA_ERROR_SOURCE_DESCRIPTOR, MaximumSectionLength: *mut u32) -> NTSTATUS;
-        extern fn _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: *mut void, MaximumSectionLength: *mut u32) -> NTSTATUS;
-        extern fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: *mut WHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: *mut WHEA_ERROR_PACKET_V2, #[size_param(3)] ErrorRecord: *mut WHEA_ERROR_RECORD, BufferSize: u32, #[in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
-        extern fn _WHEA_ERROR_SOURCE_INITIALIZE(Phase: u32, #[in] #[out] ErrorSource: *mut WHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
-        extern fn _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: *mut void, ErrorSourceId: u32) -> NTSTATUS;
-        extern fn _WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: *mut void, #[in] #[out] Severity: *mut WHEA_ERROR_SEVERITY) -> NTSTATUS;
-        extern fn _WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[out] #[opt] Context: *mut void);
-        extern fn _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: *mut void);
-        extern fn _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[out] #[opt] Context: usize) -> bool;
-        extern fn pHalAssignSlotResources(RegistryPath: *const UNICODE_STRING, DriverClassName: *const UNICODE_STRING, DriverObject: *const DRIVER_OBJECT, DeviceObject: *const DEVICE_OBJECT, BusType: INTERFACE_TYPE, BusNumber: u32, SlotNumber: u32, #[in] #[out] AllocatedResources: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
-        extern fn pHalEndMirroring(PassNumber: u32) -> NTSTATUS;
-        extern fn pHalEndOfBoot();
-        extern fn pHalExamineMBR(DeviceObject: *const DEVICE_OBJECT, SectorSize: u32, MBRTypeIdentifier: u32, Buffer: *mut *mut void);
-        extern fn pHalFfaMsgSendDirectReq2(#[in] #[out] Parameters: *mut _FFA_MSG_SEND_DIRECT_REQ2_PARAMETERS) -> NTSTATUS;
-        extern fn pHalFfaRegisterNotification(RegistrationParameters: *const _FFA_NOTIFICATION_REGISTRATION_PARAMETERS, Token: *mut *mut void) -> NTSTATUS;
-        extern fn pHalFfaRunTarget(InputParameters: *const _FFA_RUN_TARGET_INPUT_PARAMETERS, OutputParameters: *mut _FFA_RUN_TARGET_OUTPUT_PARAMETERS) -> NTSTATUS;
-        extern fn pHalFfaUnregisterNotification(Token: *const void) -> NTSTATUS;
-        #[arch(X64 | Arm64)]
-        extern fn pHalFindBusAddressTranslation(BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: *mut u32, TranslatedAddress: *mut i64, #[in] #[out] Context: *mut u64, NextBus: bool) -> bool;
-        #[arch(X86)]
-        extern fn pHalFindBusAddressTranslation(BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: *mut u32, TranslatedAddress: *mut i64, #[in] #[out] Context: *mut u32, NextBus: bool) -> bool;
-        extern fn pHalGetAcpiTable(Signature: u32, #[opt] OemId: PCSTR, #[opt] OemTableId: PCSTR) -> *mut void;
-        extern fn pHalGetDmaAdapter(#[opt] PhysicalDeviceObject: *const void, DeviceDescriptor: *const DEVICE_DESCRIPTION, NumberOfMapRegisters: *mut u32) -> *mut DMA_ADAPTER;
-        extern fn pHalGetInterruptTranslator(ParentInterfaceType: INTERFACE_TYPE, ParentBusNumber: u32, BridgeInterfaceType: INTERFACE_TYPE, Size: u16, Version: u16, Translator: *mut TRANSLATOR_INTERFACE, BridgeBusNumber: *mut u32) -> NTSTATUS;
-        extern fn pHalGetPrmCache(FirmwareList: *mut PLIST_ENTRY, UpdateList: *mut PLIST_ENTRY);
-        extern fn pHalHaltSystem();
-        extern fn pHalHandlerForBus(InterfaceType: INTERFACE_TYPE, BusNumber: u32) -> PBUS_HANDLER;
-        extern fn pHalInitPnpDriver() -> NTSTATUS;
-        extern fn pHalInitPowerManagement(PmDriverDispatchTable: *const PM_DISPATCH_TABLE, PmHalDispatchTable: *mut PPM_DISPATCH_TABLE) -> NTSTATUS;
-        extern fn pHalInvokePrmFwHandler(HandlerGuid: *const GUID, ParameterBuffer: *const void, ContextBuffer: *const void) -> NTSTATUS;
-        extern fn pHalIoReadPartitionTable(DeviceObject: *const DEVICE_OBJECT, SectorSize: u32, ReturnRecognizedPartitions: bool, PartitionBuffer: *mut *mut _DRIVE_LAYOUT_INFORMATION) -> NTSTATUS;
-        extern fn pHalIoSetPartitionInformation(DeviceObject: *const DEVICE_OBJECT, SectorSize: u32, PartitionNumber: u32, PartitionType: u32) -> NTSTATUS;
-        extern fn pHalIoWritePartitionTable(DeviceObject: *const DEVICE_OBJECT, SectorSize: u32, SectorsPerTrack: u32, NumberOfHeads: u32, PartitionBuffer: *const _DRIVE_LAYOUT_INFORMATION) -> NTSTATUS;
-        extern fn pHalMirrorPhysicalMemory(PhysicalAddress: PHYSICAL_ADDRESS, NumberOfBytes: i64) -> NTSTATUS;
-        extern fn pHalMirrorVerify(PhysicalAddress: PHYSICAL_ADDRESS, NumberOfBytes: i64) -> NTSTATUS;
-        extern fn pHalQueryBusSlots(BusHandler: *const _BUS_HANDLER, BufferSize: u32, SlotNumbers: *mut u32, ReturnedLength: *mut u32) -> NTSTATUS;
-        extern fn pHalQuerySystemInformation(InformationClass: HAL_QUERY_INFORMATION_CLASS, BufferSize: u32, #[size_param(1)] Buffer: *mut void, ReturnedLength: *mut u32) -> NTSTATUS;
-        extern fn pHalReferenceBusHandler(BusHandler: *const _BUS_HANDLER);
-        extern fn pHalResetDisplay() -> bool;
-        extern fn pHalSetPciErrorHandlerCallback(Callback: PCI_ERROR_HANDLER_CALLBACK);
-        extern fn pHalSetSystemInformation(InformationClass: HAL_SET_INFORMATION_CLASS, BufferSize: u32, Buffer: *const void) -> NTSTATUS;
-        extern fn pHalStartMirroring() -> NTSTATUS;
-        extern fn pHalTranslateBusAddress(InterfaceType: INTERFACE_TYPE, BusNumber: u32, BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: *mut u32, TranslatedAddress: *mut i64) -> bool;
-        extern fn pHalVectorToIDTEntry(Vector: u32) -> u8;
-        extern fn pKdCheckPowerButton();
-        extern fn pKdEnumerateDebuggingDevices(LoaderBlock: *const void, #[in] #[out] Device: *mut DEBUG_DEVICE_DESCRIPTOR, Callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> NTSTATUS;
-        extern fn pKdGetAcpiTablePhase0(LoaderBlock: *const _LOADER_PARAMETER_BLOCK, Signature: u32) -> *mut void;
-        extern fn pKdGetPciDataByOffset(BusNumber: u32, SlotNumber: u32, #[size_param(4)] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
-        extern fn pKdMapPhysicalMemory64(PhysicalAddress: PHYSICAL_ADDRESS, NumberPages: u32, FlushCurrentTLB: bool) -> *mut void;
-        extern fn pKdReleaseIntegratedDeviceForDebugging(#[in] #[out] IntegratedDevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern fn pKdReleasePciDeviceForDebugging(#[in] #[out] PciDevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern fn pKdSetPciDataByOffset(BusNumber: u32, SlotNumber: u32, #[size_param(4)] Buffer: *const void, Offset: u32, Length: u32) -> u32;
-        extern fn pKdSetupIntegratedDeviceForDebugging(LoaderBlock: *const void, #[in] #[out] IntegratedDevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern fn pKdSetupPciDeviceForDebugging(LoaderBlock: *const void, #[in] #[out] PciDevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
-        extern fn pKdUnmapVirtualAddress(VirtualAddress: *const void, NumberPages: u32, FlushCurrentTLB: bool);
+        struct _PCI_AGP_COMMAND {
+            _bitfield: u32 {
+                Rate: 3,
+                Rsvd1: 1,
+                FastWriteEnable: 1,
+                FourGBEnable: 1,
+                Rsvd2: 1,
+                Gart64: 1,
+                AGPEnable: 1,
+                SBAEnable: 1,
+                CalibrationCycle: 3,
+                AsyncReqSize: 3,
+                Rsvd3: 8,
+                RequestQueueDepth: 8,
+            },
+        }
+        struct _PCI_AGP_STATUS {
+            _bitfield: u32 {
+                Rate: 3,
+                Agp3Mode: 1,
+                FastWrite: 1,
+                FourGB: 1,
+                HostTransDisable: 1,
+                Gart64: 1,
+                ITA_Coherent: 1,
+                SideBandAddressing: 1,
+                CalibrationCycle: 3,
+                AsyncRequestSize: 3,
+                Rsvd1: 1,
+                Isoch: 1,
+                Rsvd2: 6,
+                RequestQueueDepthMaximum: 8,
+            },
+        }
+        extern "C" fn _WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: *mut void, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[size_param(3)] #[out] ErrorRecord: PWHEA_ERROR_RECORD, BufferSize: u32, #[in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE(Phase: u32, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: *mut void, ErrorSourceId: u32) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: *mut void, #[in] #[out] Severity: PWHEA_ERROR_SEVERITY) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[out] #[opt] Context: *mut void);
+        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: *mut void);
+        extern "C" fn _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[out] #[opt] Context: usize) -> BOOLEAN;
+        extern "C" fn pHalAssignSlotResources(RegistryPath: PUNICODE_STRING, #[opt] DriverClassName: PUNICODE_STRING, DriverObject: PDRIVER_OBJECT, DeviceObject: PDEVICE_OBJECT, BusType: INTERFACE_TYPE, BusNumber: u32, SlotNumber: u32, #[in] #[out] AllocatedResources: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
+        extern "C" fn pHalEndMirroring(PassNumber: u32) -> NTSTATUS;
+        extern "C" fn pHalEndOfBoot();
+        extern "C" fn pHalExamineMBR(DeviceObject: PDEVICE_OBJECT, SectorSize: u32, MBRTypeIdentifier: u32, Buffer: *mut *mut void);
+        extern "C" fn pHalFfaMsgSendDirectReq2(#[in] #[out] Parameters: *mut _FFA_MSG_SEND_DIRECT_REQ2_PARAMETERS) -> NTSTATUS;
+        extern "C" fn pHalFfaRegisterNotification(#[in] RegistrationParameters: *mut _FFA_NOTIFICATION_REGISTRATION_PARAMETERS, Token: *mut *mut void) -> NTSTATUS;
+        extern "C" fn pHalFfaRunTarget(#[in] InputParameters: *mut _FFA_RUN_TARGET_INPUT_PARAMETERS, OutputParameters: *mut _FFA_RUN_TARGET_OUTPUT_PARAMETERS) -> NTSTATUS;
+        extern "C" fn pHalFfaUnregisterNotification(#[in] Token: *mut void) -> NTSTATUS;
+        extern "C" fn pHalFindBusAddressTranslation(BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS, #[in] #[out] Context: PULONG_PTR, NextBus: BOOLEAN) -> BOOLEAN;
+        extern "C" fn pHalGetAcpiTable(Signature: u32, #[opt] OemId: PCSTR, #[opt] OemTableId: PCSTR) -> *mut void;
+        extern "C" fn pHalGetDmaAdapter(#[in] #[opt] PhysicalDeviceObject: *mut void, #[in] DeviceDescriptor: *mut DEVICE_DESCRIPTION, #[out] NumberOfMapRegisters: PULONG) -> *mut DMA_ADAPTER;
+        extern "C" fn pHalGetInterruptTranslator(ParentInterfaceType: INTERFACE_TYPE, ParentBusNumber: u32, BridgeInterfaceType: INTERFACE_TYPE, Size: u16, Version: u16, #[out] Translator: PTRANSLATOR_INTERFACE, #[out] BridgeBusNumber: PULONG) -> NTSTATUS;
+        extern "C" fn pHalGetPrmCache(FirmwareList: *mut PLIST_ENTRY, UpdateList: *mut PLIST_ENTRY);
+        extern "C" fn pHalHaltSystem();
+        extern "C" fn pHalHandlerForBus(InterfaceType: INTERFACE_TYPE, BusNumber: u32) -> PBUS_HANDLER;
+        extern "C" fn pHalInitPnpDriver() -> NTSTATUS;
+        extern "C" fn pHalInitPowerManagement(PmDriverDispatchTable: PPM_DISPATCH_TABLE, PmHalDispatchTable: *mut PPM_DISPATCH_TABLE) -> NTSTATUS;
+        extern "C" fn pHalInvokePrmFwHandler(HandlerGuid: LPGUID, #[in] ParameterBuffer: *mut void, #[in] ContextBuffer: *mut void) -> NTSTATUS;
+        extern "C" fn pHalIoReadPartitionTable(DeviceObject: PDEVICE_OBJECT, SectorSize: u32, ReturnRecognizedPartitions: BOOLEAN, PartitionBuffer: *mut *mut _DRIVE_LAYOUT_INFORMATION) -> NTSTATUS;
+        extern "C" fn pHalIoSetPartitionInformation(DeviceObject: PDEVICE_OBJECT, SectorSize: u32, PartitionNumber: u32, PartitionType: u32) -> NTSTATUS;
+        extern "C" fn pHalIoWritePartitionTable(DeviceObject: PDEVICE_OBJECT, SectorSize: u32, SectorsPerTrack: u32, NumberOfHeads: u32, #[in] PartitionBuffer: *mut _DRIVE_LAYOUT_INFORMATION) -> NTSTATUS;
+        extern "C" fn pHalMirrorPhysicalMemory(PhysicalAddress: PHYSICAL_ADDRESS, NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
+        extern "C" fn pHalMirrorVerify(PhysicalAddress: PHYSICAL_ADDRESS, NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
+        extern "C" fn pHalQueryBusSlots(BusHandler: PBUS_HANDLER, BufferSize: u32, #[out] SlotNumbers: PULONG, #[out] ReturnedLength: PULONG) -> NTSTATUS;
+        extern "C" fn pHalQuerySystemInformation(InformationClass: HAL_QUERY_INFORMATION_CLASS, BufferSize: u32, #[size_param(1)] Buffer: *mut void, #[out] ReturnedLength: PULONG) -> NTSTATUS;
+        extern "C" fn pHalReferenceBusHandler(BusHandler: PBUS_HANDLER);
+        extern "C" fn pHalResetDisplay() -> BOOLEAN;
+        extern "C" fn pHalSetPciErrorHandlerCallback(Callback: PCI_ERROR_HANDLER_CALLBACK);
+        extern "C" fn pHalSetSystemInformation(InformationClass: HAL_SET_INFORMATION_CLASS, BufferSize: u32, #[in] Buffer: *mut void) -> NTSTATUS;
+        extern "C" fn pHalStartMirroring() -> NTSTATUS;
+        extern "C" fn pHalTranslateBusAddress(InterfaceType: INTERFACE_TYPE, BusNumber: u32, BusAddress: PHYSICAL_ADDRESS, #[in] #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
+        extern "C" fn pHalVectorToIDTEntry(Vector: u32) -> u8;
+        extern "C" fn pKdCheckPowerButton();
+        extern "C" fn pKdEnumerateDebuggingDevices(#[in] LoaderBlock: *mut void, #[in] #[out] Device: PDEBUG_DEVICE_DESCRIPTOR, Callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> NTSTATUS;
+        extern "C" fn pKdGetAcpiTablePhase0(#[in] LoaderBlock: *mut LOADER_PARAMETER_BLOCK, Signature: u32) -> *mut void;
+        extern "C" fn pKdGetPciDataByOffset(BusNumber: u32, SlotNumber: u32, #[size_param(4)] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
+        extern "C" fn pKdMapPhysicalMemory64(PhysicalAddress: PHYSICAL_ADDRESS, NumberPages: u32, FlushCurrentTLB: BOOLEAN) -> *mut void;
+        extern "C" fn pKdReleaseIntegratedDeviceForDebugging(#[in] #[out] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn pKdReleasePciDeviceForDebugging(#[in] #[out] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn pKdSetPciDataByOffset(BusNumber: u32, SlotNumber: u32, #[size_param(4)] #[in] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
+        extern "C" fn pKdSetupIntegratedDeviceForDebugging(#[in] LoaderBlock: *mut void, #[in] #[out] #[opt] IntegratedDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn pKdSetupPciDeviceForDebugging(#[in] LoaderBlock: *mut void, #[in] #[out] #[opt] PciDevice: PDEBUG_DEVICE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn pKdUnmapVirtualAddress(#[in] VirtualAddress: *mut void, NumberPages: u32, FlushCurrentTLB: BOOLEAN);
     }
 }

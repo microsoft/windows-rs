@@ -1,0 +1,6 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type __FIMapView_2_HSTRING_IInspectable_t = super::Foundation::Collections::IMapView<String, Object>;
+    }
+}

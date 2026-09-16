@@ -102,18 +102,24 @@ mod Windows {
         #[library("Amsi.dll")]
         extern fn AmsiInitialize(appName: PCWSTR, amsiContext: *mut HAMSICONTEXT) -> HRESULT;
         #[library("Amsi.dll")]
-        extern fn AmsiNotifyOperation(amsiContext: HAMSICONTEXT, #[size_param(2)] buffer: *const void, length: u32, #[opt] contentName: PCWSTR, result: *mut AMSI_RESULT) -> HRESULT;
+        extern fn AmsiNotifyOperation(amsiContext: HAMSICONTEXT, #[size_param(2)] #[in] buffer: *mut void, length: u32, #[opt] contentName: PCWSTR, result: *mut AMSI_RESULT) -> HRESULT;
         #[library("Amsi.dll")]
         extern fn AmsiOpenSession(amsiContext: HAMSICONTEXT, amsiSession: *mut HAMSISESSION) -> HRESULT;
         #[library("Amsi.dll")]
-        extern fn AmsiScanBuffer(amsiContext: HAMSICONTEXT, #[size_param(2)] buffer: *const void, length: u32, #[opt] contentName: PCWSTR, #[opt] amsiSession: HAMSISESSION, result: *mut AMSI_RESULT) -> HRESULT;
+        extern fn AmsiScanBuffer(amsiContext: HAMSICONTEXT, #[size_param(2)] #[in] buffer: *mut void, length: u32, #[opt] contentName: PCWSTR, #[opt] amsiSession: HAMSISESSION, result: *mut AMSI_RESULT) -> HRESULT;
         #[library("Amsi.dll")]
         extern fn AmsiScanString(amsiContext: HAMSICONTEXT, string: PCWSTR, #[opt] contentName: PCWSTR, #[opt] amsiSession: HAMSISESSION, result: *mut AMSI_RESULT) -> HRESULT;
         #[library("Amsi.dll")]
         extern fn AmsiUninitialize(amsiContext: HAMSICONTEXT);
         const CAntimalware: GUID = 0xfdb00e52_a214_4aa1_8fba_4357bb0072ec;
-        type HAMSICONTEXT = *mut void;
-        type HAMSISESSION = *mut void;
+        type HAMSICONTEXT = *mut HAMSICONTEXT__;
+        struct HAMSICONTEXT__ {
+            unused: i32,
+        }
+        type HAMSISESSION = *mut HAMSISESSION__;
+        struct HAMSISESSION__ {
+            unused: i32,
+        }
         #[guid(0x3e47f2e5_81d4_4d3b_897f_545096770373)]
         interface IAmsiStream: IUnknown {
             fn GetAttribute(&self, attribute: AMSI_ATTRIBUTE, dataSize: u32, data: *mut u8, retData: *mut u32) -> HRESULT;
@@ -126,7 +132,7 @@ mod Windows {
         }
         #[guid(0x301035b5_2d42_4f56_8c65_2dcaa7fb3cdc)]
         interface IAntimalware2: IAntimalware {
-            fn Notify(&self, buffer: *const void, length: u32, contentName: PCWSTR, appName: PCWSTR, pResult: *mut AMSI_RESULT) -> HRESULT;
+            fn Notify(&self, #[in] buffer: *mut void, length: u32, contentName: PCWSTR, appName: PCWSTR, pResult: *mut AMSI_RESULT) -> HRESULT;
         }
         #[guid(0xb2cabfe3_fe04_42b1_a5df_08d483d4d125)]
         interface IAntimalwareProvider: IUnknown {
@@ -136,11 +142,11 @@ mod Windows {
         }
         #[guid(0x7c1e6570_3f73_4e0f_8ad4_98b94cd3290f)]
         interface IAntimalwareProvider2: IAntimalwareProvider {
-            fn Notify(&self, buffer: *const void, length: u32, contentName: PCWSTR, appName: PCWSTR, pResult: *mut AMSI_RESULT) -> HRESULT;
+            fn Notify(&self, #[in] buffer: *mut void, length: u32, contentName: PCWSTR, appName: PCWSTR, pResult: *mut AMSI_RESULT) -> HRESULT;
         }
         #[guid(0xb2cabfe4_fe04_42b1_a5df_08d483d4d125)]
         interface IAntimalwareUacProvider: IUnknown {
-            fn UacScan(&self, context: *const AMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> HRESULT;
+            fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> HRESULT;
             fn DisplayName(&self, displayName: *mut PWSTR) -> HRESULT;
         }
         type LPAMSI_UAC_REQUEST_AX_INFO = *mut AMSI_UAC_REQUEST_AX_INFO;

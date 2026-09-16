@@ -14,22 +14,22 @@ mod Windows {
         }
         #[guid(0x275c23e3_3747_11d0_9fea_00aa003f8646)]
         interface IEnumCodePage: IUnknown {
-            fn Clone(&self, #[reserved] ppEnum: *const IEnumCodePage) -> HRESULT;
-            fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Clone(&self, #[reserved] ppEnum: *mut IEnumCodePage) -> HRESULT;
+            fn Next(&self, celt: u32, #[out] rgelt: PMIMECPINFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, celt: u32) -> HRESULT;
         }
         #[guid(0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f)]
         interface IEnumRfc1766: IUnknown {
-            fn Clone(&self, #[reserved] ppEnum: *const IEnumRfc1766) -> HRESULT;
-            fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Clone(&self, #[reserved] ppEnum: *mut IEnumRfc1766) -> HRESULT;
+            fn Next(&self, celt: u32, #[out] rgelt: PRFC1766INFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, celt: u32) -> HRESULT;
         }
         #[guid(0xae5f1430_388b_11d2_8380_00c04f8f5da1)]
         interface IEnumScript: IUnknown {
-            fn Clone(&self, #[reserved] ppEnum: *const IEnumScript) -> HRESULT;
-            fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Clone(&self, #[reserved] ppEnum: *mut IEnumScript) -> HRESULT;
+            fn Next(&self, celt: u32, #[out] rgelt: PSCRIPTINFO, #[opt] pceltFetched: *mut u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, celt: u32) -> HRESULT;
         }
@@ -46,9 +46,9 @@ mod Windows {
             fn GetSourceCodePage(&self, puiSrcCodePage: *mut u32) -> HRESULT;
             fn GetDestinationCodePage(&self, puiDstCodePage: *mut u32) -> HRESULT;
             fn GetProperty(&self, pdwProperty: *mut u32) -> HRESULT;
-            fn DoConversion(&self, #[size_param(1)] pSrcStr: *const u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(3)] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
-            fn DoConversionToUnicode(&self, #[size_param(1)] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(3)] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
-            fn DoConversionFromUnicode(&self, #[len_param(1)] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(3)] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn DoConversion(&self, #[size_param(1)] #[in] pSrcStr: *mut u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(3)] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn DoConversionToUnicode(&self, #[size_param(1)] #[in] pSrcStr: *mut i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(3)] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn DoConversionFromUnicode(&self, #[len_param(1)] #[in] pSrcStr: *mut u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(3)] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
         }
         #[guid(0x359f3441_bd4a_11d0_b188_00aa0038c969)]
         interface IMLangFontLink: IMLangCodePages {
@@ -63,7 +63,7 @@ mod Windows {
             fn ReleaseFont(&self, hFont: HFONT) -> HRESULT;
             fn ResetFontMapping(&self) -> HRESULT;
             fn MapFont(&self, hDC: HDC, dwCodePages: u32, chSrc: u16, #[opt] pFont: *mut HFONT) -> HRESULT;
-            fn GetFontUnicodeRanges(&self, hDC: HDC, puiRanges: *const u32, #[opt] pUranges: *mut UNICODERANGE) -> HRESULT;
+            fn GetFontUnicodeRanges(&self, hDC: HDC, #[in] #[out] puiRanges: *mut u32, #[opt] pUranges: *mut UNICODERANGE) -> HRESULT;
             fn GetScriptFontInfo(&self, sid: SCRIPT_ID, dwFlags: u32, #[in] #[out] puiFonts: *mut u32, #[opt] pScriptFont: *mut SCRIPTFONTINFO) -> HRESULT;
             fn CodePageToScriptID(&self, uiCodePage: u32, pSid: *mut SCRIPT_ID) -> HRESULT;
         }
@@ -76,7 +76,7 @@ mod Windows {
         #[guid(0xc04d65ce_b70d_11d0_b188_00aa0038c969)]
         interface IMLangString: IUnknown {
             fn Sync(&self, fNoAccess: BOOL) -> HRESULT;
-            fn GetLength(&self, #[opt] plLen: *mut i32) -> HRESULT;
+            fn GetLength(&self, #[retval] #[opt] plLen: *mut i32) -> HRESULT;
             fn SetMLStr(&self, lDestPos: i32, lDestLen: i32, pSrcMLStr: IUnknown, lSrcPos: i32, lSrcLen: i32) -> HRESULT;
             fn GetMLStr(&self, lSrcPos: i32, lSrcLen: i32, pUnkOuter: IUnknown, dwClsContext: u32, piid: *const GUID, ppDestMLStr: *mut IUnknown, #[opt] plDestPos: *mut i32, #[opt] plDestLen: *mut i32) -> HRESULT;
         }
@@ -84,7 +84,7 @@ mod Windows {
         interface IMLangStringAStr: IMLangString {
             fn SetAStr(&self, lDestPos: i32, lDestLen: i32, uCodePage: u32, #[len_param(4)] pszSrc: PCSTR, cchSrc: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
             fn SetStrBufA(&self, lDestPos: i32, lDestLen: i32, uCodePage: u32, #[opt] pSrcBuf: IMLangStringBufA, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
-            fn GetAStr(&self, lSrcPos: i32, lSrcLen: i32, uCodePageIn: u32, #[reserved] puCodePageOut: *const u32, #[len_param(5)] #[out] #[opt] pszDest: PSTR, cchDest: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
+            fn GetAStr(&self, lSrcPos: i32, lSrcLen: i32, uCodePageIn: u32, #[reserved] puCodePageOut: *mut u32, #[len_param(5)] #[out] #[opt] pszDest: PSTR, cchDest: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
             fn GetStrBufA(&self, lSrcPos: i32, lSrcMaxLen: i32, #[opt] puDestCodePage: *mut u32, ppDestBuf: *mut IMLangStringBufA, #[opt] plDestLen: *mut i32) -> HRESULT;
             fn LockAStr(&self, lSrcPos: i32, lSrcLen: i32, lFlags: i32, uCodePageIn: u32, cchRequest: i32, #[opt] puCodePageOut: *mut u32, ppszDest: *mut PSTR, #[opt] pcchDest: *mut i32, #[opt] plDestLen: *mut i32) -> HRESULT;
             fn UnlockAStr(&self, #[len_param(1)] pszSrc: PCSTR, cchSrc: i32, #[opt] pcchActual: *mut i32, #[opt] plActualLen: *mut i32) -> HRESULT;
@@ -121,43 +121,43 @@ mod Windows {
         #[guid(0x275c23e1_3747_11d0_9fea_00aa003f8646)]
         interface IMultiLanguage: IUnknown {
             fn GetNumberOfCodePageInfo(&self, pcCodePage: *mut u32) -> HRESULT;
-            fn GetCodePageInfo(&self, uiCodePage: u32, pCodePageInfo: *mut MIMECPINFO) -> HRESULT;
+            fn GetCodePageInfo(&self, uiCodePage: u32, #[out] pCodePageInfo: PMIMECPINFO) -> HRESULT;
             fn GetFamilyCodePage(&self, uiCodePage: u32, puiFamilyCodePage: *mut u32) -> HRESULT;
             fn EnumCodePages(&self, grfFlags: u32, ppEnumCodePage: *mut IEnumCodePage) -> HRESULT;
-            fn GetCharsetInfo(&self, Charset: BSTR, pCharsetInfo: *mut MIMECSETINFO) -> HRESULT;
+            fn GetCharsetInfo(&self, Charset: BSTR, #[out] pCharsetInfo: PMIMECSETINFO) -> HRESULT;
             fn IsConvertible(&self, dwSrcEncoding: u32, dwDstEncoding: u32) -> HRESULT;
-            fn ConvertString(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwSrcEncoding: u32, dwDstEncoding: u32, #[size_param(4)] #[opt] pSrcStr: *const u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(6)] #[opt] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
-            fn ConvertStringToUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] #[opt] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] #[opt] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
-            fn ConvertStringFromUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] #[opt] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] #[opt] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertString(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwSrcEncoding: u32, dwDstEncoding: u32, #[size_param(4)] #[in] #[opt] pSrcStr: *mut u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(6)] #[opt] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringToUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] #[in] #[opt] pSrcStr: *mut i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] #[opt] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringFromUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] #[in] #[opt] pSrcStr: *mut u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] #[opt] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
             fn ConvertStringReset(&self) -> HRESULT;
             fn GetRfc1766FromLcid(&self, Locale: LCID, pbstrRfc1766: *mut BSTR) -> HRESULT;
             fn GetLcidFromRfc1766(&self, pLocale: *mut LCID, bstrRfc1766: BSTR) -> HRESULT;
             fn EnumRfc1766(&self, ppEnumRfc1766: *mut IEnumRfc1766) -> HRESULT;
-            fn GetRfc1766Info(&self, Locale: LCID, pRfc1766Info: *mut RFC1766INFO) -> HRESULT;
+            fn GetRfc1766Info(&self, Locale: LCID, #[out] pRfc1766Info: PRFC1766INFO) -> HRESULT;
             fn CreateConvertCharset(&self, uiSrcCodePage: u32, uiDstCodePage: u32, dwProperty: u32, ppMLangConvertCharset: *mut IMLangConvertCharset) -> HRESULT;
         }
         #[guid(0xdccfc164_2b38_11d2_b7ec_00c04f8f5d9a)]
         interface IMultiLanguage2: IUnknown {
             fn GetNumberOfCodePageInfo(&self, pcCodePage: *mut u32) -> HRESULT;
-            fn GetCodePageInfo(&self, uiCodePage: u32, LangId: LANGID, pCodePageInfo: *mut MIMECPINFO) -> HRESULT;
+            fn GetCodePageInfo(&self, uiCodePage: u32, LangId: LANGID, #[out] pCodePageInfo: PMIMECPINFO) -> HRESULT;
             fn GetFamilyCodePage(&self, uiCodePage: u32, puiFamilyCodePage: *mut u32) -> HRESULT;
             fn EnumCodePages(&self, grfFlags: u32, LangId: LANGID, ppEnumCodePage: *mut IEnumCodePage) -> HRESULT;
-            fn GetCharsetInfo(&self, Charset: BSTR, pCharsetInfo: *mut MIMECSETINFO) -> HRESULT;
+            fn GetCharsetInfo(&self, Charset: BSTR, #[out] pCharsetInfo: PMIMECSETINFO) -> HRESULT;
             fn IsConvertible(&self, dwSrcEncoding: u32, dwDstEncoding: u32) -> HRESULT;
-            fn ConvertString(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwSrcEncoding: u32, dwDstEncoding: u32, #[size_param(4)] #[opt] pSrcStr: *const u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(6)] #[opt] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
-            fn ConvertStringToUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] #[opt] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] #[opt] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
-            fn ConvertStringFromUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] #[opt] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] #[opt] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertString(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwSrcEncoding: u32, dwDstEncoding: u32, #[size_param(4)] #[in] #[opt] pSrcStr: *mut u8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(6)] #[opt] pDstStr: *mut u8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringToUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] #[in] #[opt] pSrcStr: *mut i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] #[opt] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
+            fn ConvertStringFromUnicode(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] #[in] #[opt] pSrcStr: *mut u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] #[opt] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32) -> HRESULT;
             fn ConvertStringReset(&self) -> HRESULT;
             fn GetRfc1766FromLcid(&self, Locale: LCID, pbstrRfc1766: *mut BSTR) -> HRESULT;
             fn GetLcidFromRfc1766(&self, pLocale: *mut LCID, bstrRfc1766: BSTR) -> HRESULT;
             fn EnumRfc1766(&self, LangId: LANGID, ppEnumRfc1766: *mut IEnumRfc1766) -> HRESULT;
-            fn GetRfc1766Info(&self, Locale: LCID, LangId: LANGID, pRfc1766Info: *mut RFC1766INFO) -> HRESULT;
+            fn GetRfc1766Info(&self, Locale: LCID, LangId: LANGID, #[out] pRfc1766Info: PRFC1766INFO) -> HRESULT;
             fn CreateConvertCharset(&self, uiSrcCodePage: u32, uiDstCodePage: u32, dwProperty: u32, ppMLangConvertCharset: *mut IMLangConvertCharset) -> HRESULT;
-            fn ConvertStringInIStream(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwFlag: u32, #[opt] lpFallBack: *const u16, dwSrcEncoding: u32, dwDstEncoding: u32, pstmIn: IStream, pstmOut: IStream) -> HRESULT;
-            fn ConvertStringToUnicodeEx(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] pSrcStr: *const i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32, dwFlag: u32, #[opt] lpFallBack: *const u16) -> HRESULT;
-            fn ConvertStringFromUnicodeEx(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] pSrcStr: *const u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32, dwFlag: u32, #[opt] lpFallBack: *const u16) -> HRESULT;
+            fn ConvertStringInIStream(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwFlag: u32, #[in] #[opt] lpFallBack: *mut u16, dwSrcEncoding: u32, dwDstEncoding: u32, pstmIn: IStream, pstmOut: IStream) -> HRESULT;
+            fn ConvertStringToUnicodeEx(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[size_param(3)] #[in] pSrcStr: *mut i8, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[len_param(5)] pDstStr: *mut u16, #[in] #[out] #[opt] pcDstSize: *mut u32, dwFlag: u32, #[in] #[opt] lpFallBack: *mut u16) -> HRESULT;
+            fn ConvertStringFromUnicodeEx(&self, #[in] #[out] #[opt] pdwMode: *mut u32, dwEncoding: u32, #[len_param(3)] #[in] pSrcStr: *mut u16, #[in] #[out] #[opt] pcSrcSize: *mut u32, #[size_param(5)] pDstStr: *mut i8, #[in] #[out] #[opt] pcDstSize: *mut u32, dwFlag: u32, #[in] #[opt] lpFallBack: *mut u16) -> HRESULT;
             fn DetectCodepageInIStream(&self, dwFlag: u32, dwPrefWinCodePage: u32, pstmIn: IStream, lpEncoding: *mut DetectEncodingInfo, #[in] #[out] pnScores: *mut i32) -> HRESULT;
-            fn DetectInputCodepage(&self, dwFlag: u32, dwPrefWinCodePage: u32, #[size_param(3)] pSrcStr: *const i8, #[in] #[out] pcSrcSize: *mut i32, lpEncoding: *mut DetectEncodingInfo, #[in] #[out] pnScores: *mut i32) -> HRESULT;
+            fn DetectInputCodepage(&self, dwFlag: u32, dwPrefWinCodePage: u32, #[size_param(3)] #[in] pSrcStr: *mut i8, #[in] #[out] pcSrcSize: *mut i32, lpEncoding: *mut DetectEncodingInfo, #[in] #[out] pnScores: *mut i32) -> HRESULT;
             fn ValidateCodePage(&self, uiCodePage: u32, hwnd: HWND) -> HRESULT;
             fn GetCodePageDescription(&self, uiCodePage: u32, lcid: LCID, #[len_param(3)] #[out] lpWideCharStr: PWSTR, cchWideChar: i32) -> HRESULT;
             fn IsCodePageInstallable(&self, uiCodePage: u32) -> HRESULT;

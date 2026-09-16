@@ -39,8 +39,8 @@ mod Windows {
         }
         #[guid(0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef)]
         interface ITipHelper: IUnknown {
-            fn Pull(&self, i_pszTxUrl: *const i8, o_ppITransaction: *mut ITransaction) -> HRESULT;
-            fn PullAsync(&self, i_pszTxUrl: *const i8, i_pTipPullSink: ITipPullSink, o_ppITransaction: *mut ITransaction) -> HRESULT;
+            fn Pull(&self, #[in] i_pszTxUrl: *mut i8, o_ppITransaction: *mut ITransaction) -> HRESULT;
+            fn PullAsync(&self, #[in] i_pszTxUrl: *mut i8, i_pTipPullSink: ITipPullSink, o_ppITransaction: *mut ITransaction) -> HRESULT;
             fn GetLocalTmUrl(&self, o_ppszLocalTmUrl: *mut *mut i8) -> HRESULT;
         }
         #[guid(0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef)]
@@ -49,12 +49,12 @@ mod Windows {
         }
         #[guid(0x17cf72d0_bac5_11d1_b1bf_00c04fc2f3ef)]
         interface ITipTransaction: IUnknown {
-            fn Push(&self, i_pszRemoteTmUrl: *const i8, o_ppszRemoteTxUrl: *mut PSTR) -> HRESULT;
+            fn Push(&self, #[in] i_pszRemoteTmUrl: *mut i8, o_ppszRemoteTxUrl: *mut PSTR) -> HRESULT;
             fn GetTransactionUrl(&self, o_ppszLocalTxUrl: *mut PSTR) -> HRESULT;
         }
         #[guid(0x0fb15081_af41_11ce_bd2b_204c4f4f5020)]
         interface ITransactionEnlistmentAsync: IUnknown {
-            fn PrepareRequestDone(&self, hr: HRESULT, pmk: IMoniker, pboidReason: *const BOID) -> HRESULT;
+            fn PrepareRequestDone(&self, hr: HRESULT, pmk: IMoniker, #[in] pboidReason: *mut BOID) -> HRESULT;
             fn CommitRequestDone(&self, hr: HRESULT) -> HRESULT;
             fn AbortRequestDone(&self, hr: HRESULT) -> HRESULT;
         }
@@ -66,11 +66,11 @@ mod Windows {
         #[guid(0xe1cf9b53_8745_11ce_a9ba_00aa006c3706)]
         interface ITransactionExportFactory: IUnknown {
             fn GetRemoteClassId(&self, pclsid: *mut GUID) -> HRESULT;
-            fn Create(&self, cbWhereabouts: u32, rgbWhereabouts: *const byte, ppExport: *mut ITransactionExport) -> HRESULT;
+            fn Create(&self, cbWhereabouts: u32, #[in] rgbWhereabouts: *mut byte, ppExport: *mut ITransactionExport) -> HRESULT;
         }
         #[guid(0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706)]
         interface ITransactionImport: IUnknown {
-            fn Import(&self, cbTransactionCookie: u32, rgbTransactionCookie: *const byte, piid: *const GUID, #[iid_is] ppvTransaction: *mut *mut void) -> HRESULT;
+            fn Import(&self, cbTransactionCookie: u32, #[in] rgbTransactionCookie: *mut byte, #[in] piid: *mut GUID, #[iid_is] ppvTransaction: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0141fda4_8fc0_11ce_bd18_204c4f4f5020)]
         interface ITransactionImportWhereabouts: IUnknown {
@@ -79,25 +79,25 @@ mod Windows {
         }
         #[guid(0xc82bd533_5b30_11d3_8a91_00c04f79eb6d)]
         interface ITransactionLastEnlistmentAsync: IUnknown {
-            fn TransactionOutcome(&self, XactStat: XACTSTAT, pboidReason: *const BOID) -> HRESULT;
+            fn TransactionOutcome(&self, XactStat: XACTSTAT, #[in] pboidReason: *mut BOID) -> HRESULT;
         }
         #[guid(0xc82bd532_5b30_11d3_8a91_00c04f79eb6d)]
         interface ITransactionLastResourceAsync: IUnknown {
             fn DelegateCommit(&self, grfRM: u32) -> HRESULT;
-            fn ForgetRequest(&self, pNewUOW: *const XACTUOW) -> HRESULT;
+            fn ForgetRequest(&self, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
         }
         #[guid(0xee5ff7b3_4572_11d0_9452_00a0c905416e)]
         interface ITransactionResource: IUnknown {
             fn PrepareRequest(&self, fRetaining: BOOL, grfRM: u32, fWantMoniker: BOOL, fSinglePhase: BOOL) -> HRESULT;
-            fn CommitRequest(&self, grfRM: u32, pNewUOW: *const XACTUOW) -> HRESULT;
-            fn AbortRequest(&self, pboidReason: *const BOID, fRetaining: BOOL, pNewUOW: *const XACTUOW) -> HRESULT;
+            fn CommitRequest(&self, grfRM: u32, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
+            fn AbortRequest(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
             fn TMDown(&self) -> HRESULT;
         }
         #[guid(0x69e971f0_23ce_11cf_ad60_00aa00a74ccd)]
         interface ITransactionResourceAsync: IUnknown {
             fn PrepareRequest(&self, fRetaining: BOOL, grfRM: u32, fWantMoniker: BOOL, fSinglePhase: BOOL) -> HRESULT;
-            fn CommitRequest(&self, grfRM: u32, pNewUOW: *const XACTUOW) -> HRESULT;
-            fn AbortRequest(&self, pboidReason: *const BOID, fRetaining: BOOL, pNewUOW: *const XACTUOW) -> HRESULT;
+            fn CommitRequest(&self, grfRM: u32, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
+            fn AbortRequest(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
             fn TMDown(&self) -> HRESULT;
         }
     }

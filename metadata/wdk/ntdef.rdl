@@ -16,6 +16,9 @@ mod Windows {
             NtProductLanManNt = 2,
             NtProductServer = 3,
         }
+        type PKIRQL = *mut KIRQL;
+        type PNT_PRODUCT_TYPE = *mut NT_PRODUCT_TYPE;
+        type PPHYSICAL_ADDRESS = *mut LARGE_INTEGER;
         type PUTF8_STRING = PSTRING;
         #[repr(i32)]
         enum TIMER_TYPE {

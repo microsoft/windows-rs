@@ -73,7 +73,7 @@ mod Windows {
         const LICENSE_PREVIEWPRINT: i32 = 4;
         extern "C" fn READEMBEDPROC(param0: *mut void, param1: *mut void, param2: u32) -> u32;
         #[library("t2embed.dll")]
-        extern fn TTCharToUnicode(hDC: HDC, #[len_param(2)] pucCharCodes: *const u8, ulCharCodeSize: u32, #[len_param(4)] pusShortCodes: *mut u16, ulShortCodeSize: u32, ulFlags: u32) -> i32;
+        extern fn TTCharToUnicode(hDC: HDC, #[len_param(2)] #[in] pucCharCodes: *mut u8, ulCharCodeSize: u32, #[len_param(4)] pusShortCodes: *mut u16, ulShortCodeSize: u32, ulFlags: u32) -> i32;
         const TTDELETE_DONTREMOVEFONT: i32 = 1;
         #[library("t2embed.dll")]
         extern fn TTDeleteEmbeddedFont(hFontReference: HANDLE, ulFlags: u32, pulStatus: *mut u32) -> i32;
@@ -93,19 +93,19 @@ mod Windows {
         const TTEMBED_WEBOBJECT: i32 = 128;
         const TTEMBED_XORENCRYPTDATA: i32 = 268435456;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFont(hDC: HDC, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, lpvWriteStream: *const void, #[len_param(8)] pusCharCodeSet: *const u16, usCharCodeCount: u16, usLanguage: u16, #[opt] pTTEmbedInfo: *const TTEMBEDINFO) -> i32;
+        extern fn TTEmbedFont(hDC: HDC, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: *mut void, #[len_param(8)] #[in] pusCharCodeSet: *mut u16, usCharCodeCount: u16, usLanguage: u16, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFontEx(hDC: HDC, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, lpvWriteStream: *const void, #[len_param(8)] pulCharCodeSet: *const u32, usCharCodeCount: u16, usLanguage: u16, #[opt] pTTEmbedInfo: *const TTEMBEDINFO) -> i32;
+        extern fn TTEmbedFontEx(hDC: HDC, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: *mut void, #[len_param(8)] #[in] pulCharCodeSet: *mut u32, usCharCodeCount: u16, usLanguage: u16, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFontFromFileA(hDC: HDC, szFontFileName: PCSTR, usTTCIndex: u16, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, lpvWriteStream: *const void, #[len_param(10)] pusCharCodeSet: *const u16, usCharCodeCount: u16, usLanguage: u16, #[opt] pTTEmbedInfo: *const TTEMBEDINFO) -> i32;
+        extern fn TTEmbedFontFromFileA(hDC: HDC, szFontFileName: PCSTR, usTTCIndex: u16, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: *mut void, #[len_param(10)] #[in] pusCharCodeSet: *mut u16, usCharCodeCount: u16, usLanguage: u16, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> i32;
         #[library("t2embed.dll")]
         extern fn TTEnableEmbeddingForFacename(lpszFacename: PCSTR, bEnable: BOOL) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTGetEmbeddedFontInfo(ulFlags: u32, pulPrivStatus: *mut u32, ulPrivs: u32, pulStatus: *mut u32, lpfnReadFromStream: READEMBEDPROC, lpvReadStream: *const void, #[opt] pTTLoadInfo: *const TTLOADINFO) -> i32;
+        extern fn TTGetEmbeddedFontInfo(ulFlags: u32, pulPrivStatus: *mut u32, ulPrivs: u32, pulStatus: *mut u32, lpfnReadFromStream: READEMBEDPROC, #[in] lpvReadStream: *mut void, #[in] #[opt] pTTLoadInfo: *mut TTLOADINFO) -> i32;
         #[library("t2embed.dll")]
         extern fn TTGetEmbeddingType(hDC: HDC, pulEmbedType: *mut u32) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTGetNewFontName(phFontReference: *const HANDLE, #[len_param(2)] #[out] wzWinFamilyName: PWSTR, cchMaxWinName: i32, #[len_param(4)] #[out] szMacFamilyName: PSTR, cchMaxMacName: i32) -> i32;
+        extern fn TTGetNewFontName(#[in] phFontReference: *mut HANDLE, #[len_param(2)] #[out] wzWinFamilyName: PWSTR, cchMaxWinName: i32, #[len_param(4)] #[out] szMacFamilyName: PSTR, cchMaxMacName: i32) -> i32;
         #[library("t2embed.dll")]
         extern fn TTIsEmbeddingEnabled(hDC: HDC, pbEnabled: *mut BOOL) -> i32;
         #[library("t2embed.dll")]
@@ -121,11 +121,11 @@ mod Windows {
         const TTLOAD_FONT_SUBSETTED: i32 = 1;
         const TTLOAD_PRIVATE: i32 = 1;
         #[library("t2embed.dll")]
-        extern fn TTLoadEmbeddedFont(phFontReference: *mut HANDLE, ulFlags: u32, pulPrivStatus: *mut u32, ulPrivs: u32, pulStatus: *mut u32, lpfnReadFromStream: READEMBEDPROC, lpvReadStream: *const void, #[opt] szWinFamilyName: PCWSTR, #[opt] szMacFamilyName: PCSTR, #[opt] pTTLoadInfo: *const TTLOADINFO) -> i32;
+        extern fn TTLoadEmbeddedFont(phFontReference: *mut HANDLE, ulFlags: u32, pulPrivStatus: *mut u32, ulPrivs: u32, pulStatus: *mut u32, lpfnReadFromStream: READEMBEDPROC, #[in] lpvReadStream: *mut void, #[opt] szWinFamilyName: PCWSTR, #[opt] szMacFamilyName: PCSTR, #[in] #[opt] pTTLoadInfo: *mut TTLOADINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTRunValidationTests(hDC: HDC, pTestParam: *const TTVALIDATIONTESTSPARAMS) -> i32;
+        extern fn TTRunValidationTests(hDC: HDC, #[in] pTestParam: *mut TTVALIDATIONTESTSPARAMS) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTRunValidationTestsEx(hDC: HDC, pTestParam: *const TTVALIDATIONTESTSPARAMSEX) -> i32;
+        extern fn TTRunValidationTestsEx(hDC: HDC, #[in] pTestParam: *mut TTVALIDATIONTESTSPARAMSEX) -> i32;
         struct TTVALIDATIONTESTSPARAMS {
             ulStructSize: u32,
             lTestFromSize: i32,

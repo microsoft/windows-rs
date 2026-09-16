@@ -25,7 +25,7 @@ mod Windows {
         #[guid(0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee)]
         interface IUIAutomation: IUnknown {
             fn CompareElements(&self, el1: IUIAutomationElement, el2: IUIAutomationElement, #[retval] areSame: *mut BOOL) -> HRESULT;
-            fn CompareRuntimeIds(&self, runtimeId1: *const SAFEARRAY, runtimeId2: *const SAFEARRAY, #[retval] areSame: *mut BOOL) -> HRESULT;
+            fn CompareRuntimeIds(&self, #[in] runtimeId1: *mut SAFEARRAY, #[in] runtimeId2: *mut SAFEARRAY, #[retval] areSame: *mut BOOL) -> HRESULT;
             fn GetRootElement(&self, #[retval] root: *mut IUIAutomationElement) -> HRESULT;
             fn ElementFromHandle(&self, hwnd: UIA_HWND, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
             fn ElementFromPoint(&self, pt: POINT, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
@@ -53,27 +53,27 @@ mod Windows {
             fn CreatePropertyCondition(&self, propertyId: PROPERTYID, value: VARIANT, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
             fn CreatePropertyConditionEx(&self, propertyId: PROPERTYID, value: VARIANT, flags: PropertyConditionFlags, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
             fn CreateAndCondition(&self, condition1: IUIAutomationCondition, condition2: IUIAutomationCondition, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateAndConditionFromArray(&self, conditions: *const SAFEARRAY, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateAndConditionFromNativeArray(&self, conditions: *const IUIAutomationCondition, conditionCount: i32, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateAndConditionFromArray(&self, #[in] conditions: *mut SAFEARRAY, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateAndConditionFromNativeArray(&self, #[in] conditions: *mut IUIAutomationCondition, conditionCount: i32, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
             fn CreateOrCondition(&self, condition1: IUIAutomationCondition, condition2: IUIAutomationCondition, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateOrConditionFromArray(&self, conditions: *const SAFEARRAY, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateOrConditionFromNativeArray(&self, conditions: *const IUIAutomationCondition, conditionCount: i32, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateOrConditionFromArray(&self, #[in] conditions: *mut SAFEARRAY, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateOrConditionFromNativeArray(&self, #[in] conditions: *mut IUIAutomationCondition, conditionCount: i32, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
             fn CreateNotCondition(&self, condition: IUIAutomationCondition, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
             fn AddAutomationEventHandler(&self, eventId: EVENTID, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationEventHandler) -> HRESULT;
             fn RemoveAutomationEventHandler(&self, eventId: EVENTID, element: IUIAutomationElement, handler: IUIAutomationEventHandler) -> HRESULT;
-            fn AddPropertyChangedEventHandlerNativeArray(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, propertyArray: *const PROPERTYID, propertyCount: i32) -> HRESULT;
-            fn AddPropertyChangedEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, propertyArray: *const SAFEARRAY) -> HRESULT;
+            fn AddPropertyChangedEventHandlerNativeArray(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, #[in] propertyArray: *mut PROPERTYID, propertyCount: i32) -> HRESULT;
+            fn AddPropertyChangedEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, #[in] propertyArray: *mut SAFEARRAY) -> HRESULT;
             fn RemovePropertyChangedEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationPropertyChangedEventHandler) -> HRESULT;
             fn AddStructureChangedEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
             fn RemoveStructureChangedEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
             fn AddFocusChangedEventHandler(&self, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationFocusChangedEventHandler) -> HRESULT;
             fn RemoveFocusChangedEventHandler(&self, handler: IUIAutomationFocusChangedEventHandler) -> HRESULT;
             fn RemoveAllEventHandlers(&self) -> HRESULT;
-            fn IntNativeArrayToSafeArray(&self, array: *const i32, arrayCount: i32, #[retval] safeArray: *mut *mut SAFEARRAY) -> HRESULT;
-            fn IntSafeArrayToNativeArray(&self, intArray: *const SAFEARRAY, array: *mut *mut i32, #[retval] arrayCount: *mut i32) -> HRESULT;
+            fn IntNativeArrayToSafeArray(&self, #[in] array: *mut i32, arrayCount: i32, #[retval] safeArray: *mut *mut SAFEARRAY) -> HRESULT;
+            fn IntSafeArrayToNativeArray(&self, #[in] intArray: *mut SAFEARRAY, array: *mut *mut i32, #[retval] arrayCount: *mut i32) -> HRESULT;
             fn RectToVariant(&self, rc: RECT, #[retval] var: *mut VARIANT) -> HRESULT;
             fn VariantToRect(&self, var: VARIANT, #[retval] rc: *mut RECT) -> HRESULT;
-            fn SafeArrayToRectNativeArray(&self, rects: *const SAFEARRAY, rectArray: *mut *mut RECT, #[retval] rectArrayCount: *mut i32) -> HRESULT;
+            fn SafeArrayToRectNativeArray(&self, #[in] rects: *mut SAFEARRAY, rectArray: *mut *mut RECT, #[retval] rectArrayCount: *mut i32) -> HRESULT;
             fn CreateProxyFactoryEntry(&self, factory: IUIAutomationProxyFactory, #[retval] factoryEntry: *mut IUIAutomationProxyFactoryEntry) -> HRESULT;
             #[special]
             fn get_ProxyFactoryMapping(&self, #[retval] factoryMapping: *mut IUIAutomationProxyFactoryMapping) -> HRESULT;
@@ -111,7 +111,7 @@ mod Windows {
         }
         #[guid(0x1189c02a_05f8_4319_8e21_e817e3db2860)]
         interface IUIAutomation4: IUIAutomation3 {
-            fn AddChangesEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, changeTypes: *const i32, changesCount: i32, pCacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationChangesEventHandler) -> HRESULT;
+            fn AddChangesEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, #[in] changeTypes: *mut i32, changesCount: i32, pCacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationChangesEventHandler) -> HRESULT;
             fn RemoveChangesEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationChangesEventHandler) -> HRESULT;
         }
         #[guid(0x25f700c8_d816_4057_a9dc_3cbdee77e256)]
@@ -194,7 +194,7 @@ mod Windows {
         }
         #[guid(0x58edca55_2c3e_4980_b1b9_56c17f27a2a0)]
         interface IUIAutomationChangesEventHandler: IUnknown {
-            fn HandleChangesEvent(&self, sender: IUIAutomationElement, uiaChanges: *const UiaChangeInfo, changesCount: i32) -> HRESULT;
+            fn HandleChangesEvent(&self, sender: IUIAutomationElement, #[in] uiaChanges: *mut UiaChangeInfo, changesCount: i32) -> HRESULT;
         }
         #[guid(0x352ffba8_0973_437c_a61f_f64cafd81df9)]
         interface IUIAutomationCondition: IUnknown {}
@@ -487,9 +487,9 @@ mod Windows {
         interface IUIAutomationEventHandlerGroup: IUnknown {
             fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationActiveTextPositionChangedEventHandler) -> HRESULT;
             fn AddAutomationEventHandler(&self, eventId: EVENTID, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationEventHandler) -> HRESULT;
-            fn AddChangesEventHandler(&self, scope: TreeScope, changeTypes: *const i32, changesCount: i32, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationChangesEventHandler) -> HRESULT;
+            fn AddChangesEventHandler(&self, scope: TreeScope, #[in] changeTypes: *mut i32, changesCount: i32, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationChangesEventHandler) -> HRESULT;
             fn AddNotificationEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationNotificationEventHandler) -> HRESULT;
-            fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, propertyArray: *const PROPERTYID, propertyCount: i32) -> HRESULT;
+            fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, #[in] propertyArray: *mut PROPERTYID, propertyCount: i32) -> HRESULT;
             fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
             fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, textEditChangeType: TextEditChangeType, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationTextEditTextChangedEventHandler) -> HRESULT;
         }
@@ -667,7 +667,7 @@ mod Windows {
             fn put_CanCheckBaseClass(&self, canCheckBaseClass: BOOL) -> HRESULT;
             #[special]
             fn put_NeedsAdviseEvents(&self, adviseEvents: BOOL) -> HRESULT;
-            fn SetWinEventsForAutomationEvent(&self, eventId: EVENTID, propertyId: PROPERTYID, winEvents: *const SAFEARRAY) -> HRESULT;
+            fn SetWinEventsForAutomationEvent(&self, eventId: EVENTID, propertyId: PROPERTYID, #[in] winEvents: *mut SAFEARRAY) -> HRESULT;
             fn GetWinEventsForAutomationEvent(&self, eventId: EVENTID, propertyId: PROPERTYID, #[retval] winEvents: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x09e31e18_872d_4873_93d1_1e541ec133fd)]
@@ -676,8 +676,8 @@ mod Windows {
             fn get_Count(&self, #[retval] count: *mut u32) -> HRESULT;
             fn GetTable(&self, #[retval] table: *mut *mut SAFEARRAY) -> HRESULT;
             fn GetEntry(&self, index: u32, #[retval] entry: *mut IUIAutomationProxyFactoryEntry) -> HRESULT;
-            fn SetTable(&self, factoryList: *const SAFEARRAY) -> HRESULT;
-            fn InsertEntries(&self, before: u32, factoryList: *const SAFEARRAY) -> HRESULT;
+            fn SetTable(&self, #[in] factoryList: *mut SAFEARRAY) -> HRESULT;
+            fn InsertEntries(&self, before: u32, #[in] factoryList: *mut SAFEARRAY) -> HRESULT;
             fn InsertEntry(&self, before: u32, factory: IUIAutomationProxyFactoryEntry) -> HRESULT;
             fn RemoveEntry(&self, index: u32) -> HRESULT;
             fn ClearTable(&self) -> HRESULT;
@@ -807,7 +807,7 @@ mod Windows {
         }
         #[guid(0xe81d1b4e_11c5_42f8_9754_e7036c79f054)]
         interface IUIAutomationStructureChangedEventHandler: IUnknown {
-            fn HandleStructureChangedEvent(&self, sender: IUIAutomationElement, changeType: StructureChangeType, runtimeId: *const SAFEARRAY) -> HRESULT;
+            fn HandleStructureChangedEvent(&self, sender: IUIAutomationElement, changeType: StructureChangeType, #[in] runtimeId: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb)]
         interface IUIAutomationStylesPattern: IUnknown {
@@ -879,7 +879,7 @@ mod Windows {
         }
         #[guid(0x92faa680_e704_4156_931a_e32d5bb38f3f)]
         interface IUIAutomationTextEditTextChangedEventHandler: IUnknown {
-            fn HandleTextEditTextChangedEvent(&self, sender: IUIAutomationElement, textEditChangeType: TextEditChangeType, eventStrings: *const SAFEARRAY) -> HRESULT;
+            fn HandleTextEditTextChangedEvent(&self, sender: IUIAutomationElement, textEditChangeType: TextEditChangeType, #[in] eventStrings: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a)]
         interface IUIAutomationTextPattern: IUnknown {

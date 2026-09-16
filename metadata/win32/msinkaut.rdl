@@ -504,10 +504,10 @@ mod Windows {
             TCF_FORCE_RECOGNITION = 2,
         }
         const IBBM_Last: i32 = 5;
-        const ICBS_Last: i32 = 2;
+        const ICBS_Last: InkCursorButtonState = 2;
         const ICB_Last: i32 = 33;
         const ICF_Last: i32 = 128;
-        const ICM_Last: i32 = 2;
+        const ICM_Last: InkCollectionMode = 2;
         const IEF_All: i32 = 1;
         #[guid(0x03f8e511_43a1_11d3_8bb6_0080c7d6bad5)]
         interface IInk: IDispatch {}
@@ -1351,8 +1351,8 @@ mod Windows {
         const IPSM_Last: i32 = 4;
         const IPT_Last: i32 = 2;
         const IRO_Last: i32 = 17;
-        const ISG_First: i32 = 16;
-        const ISG_Last: i32 = 31;
+        const ISG_First: InkSystemGesture = 16;
+        const ISG_Last: InkSystemGesture = 31;
         #[guid(0xb4563688_98eb_4646_b279_44da14d45748)]
         interface ISketchInk: IDispatch {}
         const Ink: GUID = 0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca;

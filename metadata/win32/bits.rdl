@@ -105,7 +105,7 @@ mod Windows {
         }
         #[guid(0x37668d37_507e_4160_9316_26306d150b12)]
         interface IBackgroundCopyJob: IUnknown {
-            fn AddFileSet(&self, cFileCount: u32, pFileSet: *const BG_FILE_INFO) -> HRESULT;
+            fn AddFileSet(&self, cFileCount: u32, #[in] pFileSet: *mut BG_FILE_INFO) -> HRESULT;
             fn AddFile(&self, RemoteUrl: PCWSTR, LocalName: PCWSTR) -> HRESULT;
             fn EnumFiles(&self, pEnum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
             fn Suspend(&self) -> HRESULT;

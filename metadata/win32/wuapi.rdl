@@ -418,7 +418,7 @@ mod Windows {
             #[special]
             fn get_Languages(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
             #[special]
-            fn get_LastDeploymentChangeTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_LastDeploymentChangeTime(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_MaxDownloadSize(&self, #[retval] retval: *mut DECIMAL) -> HRESULT;
             #[special]
@@ -591,7 +591,7 @@ mod Windows {
             #[special]
             fn get_HResult(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]
-            fn get_Date(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_Date(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_UpdateIdentity(&self, #[retval] retval: *mut IUpdateIdentity) -> HRESULT;
             #[special]
@@ -757,13 +757,13 @@ mod Windows {
             #[special]
             fn get_ContentValidationCert(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
             #[special]
-            fn get_ExpirationDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_ExpirationDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_IsManaged(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
             fn get_IsRegisteredWithAU(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_IssueDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_IssueDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_OffersWindowsUpdates(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -893,7 +893,7 @@ mod Windows {
             #[special]
             fn get_DriverProvider(&self, #[retval] retval: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_DriverVerDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_DriverVerDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_DeviceProblemNumber(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]
@@ -941,7 +941,7 @@ mod Windows {
             #[special]
             fn get_DriverProvider(&self, #[retval] retval: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_DriverVerDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_DriverVerDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_DeviceProblemNumber(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]

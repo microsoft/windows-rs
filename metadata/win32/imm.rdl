@@ -79,8 +79,14 @@ mod Windows {
         const GL_LEVEL_INFORMATION: i32 = 4;
         const GL_LEVEL_NOGUIDELINE: i32 = 0;
         const GL_LEVEL_WARNING: i32 = 3;
-        type HIMC = *mut void;
-        type HIMCC = *mut void;
+        type HIMC = *mut HIMC__;
+        type HIMCC = *mut HIMCC__;
+        struct HIMCC__ {
+            unused: i32,
+        }
+        struct HIMC__ {
+            unused: i32,
+        }
         const IACE_CHILDREN: i32 = 1;
         const IACE_DEFAULT: i32 = 16;
         const IACE_IGNORENOCONTEXT: i32 = 32;
@@ -251,9 +257,9 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmAssociateContextEx(param0: HWND, param1: HIMC, param2: u32) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmConfigureIMEA(param0: HKL, param1: HWND, param2: u32, param3: *const void) -> BOOL;
+        extern fn ImmConfigureIMEA(param0: HKL, param1: HWND, param2: u32, #[in] param3: *mut void) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmConfigureIMEW(param0: HKL, param1: HWND, param2: u32, param3: *const void) -> BOOL;
+        extern fn ImmConfigureIMEW(param0: HKL, param1: HWND, param2: u32, #[in] param3: *mut void) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmCreateContext() -> HIMC;
         #[library("IMM32.dll")]
@@ -267,41 +273,41 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmEnumInputContext(idThread: u32, lpfn: IMCENUMPROC, lParam: LPARAM) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmEnumRegisterWordA(param0: HKL, param1: REGISTERWORDENUMPROCA, #[opt] lpszReading: PCSTR, param3: u32, #[opt] lpszRegister: PCSTR, param5: *const void) -> u32;
+        extern fn ImmEnumRegisterWordA(param0: HKL, param1: REGISTERWORDENUMPROCA, #[opt] lpszReading: PCSTR, param3: u32, #[opt] lpszRegister: PCSTR, #[in] param5: *mut void) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmEnumRegisterWordW(param0: HKL, param1: REGISTERWORDENUMPROCW, #[opt] lpszReading: PCWSTR, param3: u32, #[opt] lpszRegister: PCWSTR, param5: *const void) -> u32;
+        extern fn ImmEnumRegisterWordW(param0: HKL, param1: REGISTERWORDENUMPROCW, #[opt] lpszReading: PCWSTR, param3: u32, #[opt] lpszRegister: PCWSTR, #[in] param5: *mut void) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmEscapeA(param0: HKL, param1: HIMC, param2: u32, param3: *const void) -> LRESULT;
+        extern fn ImmEscapeA(param0: HKL, param1: HIMC, param2: u32, #[in] param3: *mut void) -> LRESULT;
         #[library("IMM32.dll")]
-        extern fn ImmEscapeW(param0: HKL, param1: HIMC, param2: u32, param3: *const void) -> LRESULT;
+        extern fn ImmEscapeW(param0: HKL, param1: HIMC, param2: u32, #[in] param3: *mut void) -> LRESULT;
         #[library("IMM32.dll")]
-        extern fn ImmGetCandidateListA(param0: HIMC, deIndex: u32, #[size_param(3)] #[opt] lpCandList: *mut CANDIDATELIST, dwBufLen: u32) -> u32;
+        extern fn ImmGetCandidateListA(param0: HIMC, deIndex: u32, #[size_param(3)] #[out] #[opt] lpCandList: LPCANDIDATELIST, dwBufLen: u32) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetCandidateListCountA(param0: HIMC, lpdwListCount: *mut u32) -> u32;
+        extern fn ImmGetCandidateListCountA(param0: HIMC, #[out] lpdwListCount: LPDWORD) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetCandidateListCountW(param0: HIMC, lpdwListCount: *mut u32) -> u32;
+        extern fn ImmGetCandidateListCountW(param0: HIMC, #[out] lpdwListCount: LPDWORD) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetCandidateListW(param0: HIMC, deIndex: u32, #[size_param(3)] #[opt] lpCandList: *mut CANDIDATELIST, dwBufLen: u32) -> u32;
+        extern fn ImmGetCandidateListW(param0: HIMC, deIndex: u32, #[size_param(3)] #[out] #[opt] lpCandList: LPCANDIDATELIST, dwBufLen: u32) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpCandidate: *mut CANDIDATEFORM) -> BOOL;
+        extern fn ImmGetCandidateWindow(param0: HIMC, param1: u32, #[out] lpCandidate: LPCANDIDATEFORM) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmGetCompositionFontA(param0: HIMC, lplf: *mut LOGFONTA) -> BOOL;
+        extern fn ImmGetCompositionFontA(param0: HIMC, #[out] lplf: LPLOGFONTA) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut LOGFONTW) -> BOOL;
+        extern fn ImmGetCompositionFontW(param0: HIMC, #[out] lplf: LPLOGFONTW) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmGetCompositionStringA(param0: HIMC, param1: u32, #[size_param(3)] #[opt] lpBuf: *mut void, dwBufLen: u32) -> i32;
         #[library("IMM32.dll")]
         extern fn ImmGetCompositionStringW(param0: HIMC, param1: u32, #[size_param(3)] #[opt] lpBuf: *mut void, dwBufLen: u32) -> i32;
         #[library("IMM32.dll")]
-        extern fn ImmGetCompositionWindow(param0: HIMC, lpCompForm: *mut COMPOSITIONFORM) -> BOOL;
+        extern fn ImmGetCompositionWindow(param0: HIMC, #[out] lpCompForm: LPCOMPOSITIONFORM) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmGetContext(param0: HWND) -> HIMC;
         #[library("IMM32.dll")]
-        extern fn ImmGetConversionListA(param0: HKL, param1: HIMC, lpSrc: PCSTR, #[size_param(4)] lpDst: *mut CANDIDATELIST, dwBufLen: u32, uFlag: u32) -> u32;
+        extern fn ImmGetConversionListA(param0: HKL, param1: HIMC, lpSrc: PCSTR, #[size_param(4)] #[out] lpDst: LPCANDIDATELIST, dwBufLen: u32, uFlag: u32) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetConversionListW(param0: HKL, param1: HIMC, lpSrc: PCWSTR, #[size_param(4)] lpDst: *mut CANDIDATELIST, dwBufLen: u32, uFlag: u32) -> u32;
+        extern fn ImmGetConversionListW(param0: HKL, param1: HIMC, lpSrc: PCWSTR, #[size_param(4)] #[out] lpDst: LPCANDIDATELIST, dwBufLen: u32, uFlag: u32) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetConversionStatus(param0: HIMC, #[opt] lpfdwConversion: *mut u32, #[opt] lpfdwSentence: *mut u32) -> BOOL;
+        extern fn ImmGetConversionStatus(param0: HIMC, #[out] #[opt] lpfdwConversion: LPDWORD, #[out] #[opt] lpfdwSentence: LPDWORD) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmGetDefaultIMEWnd(param0: HWND) -> HWND;
         #[library("IMM32.dll")]
@@ -317,19 +323,19 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmGetIMEFileNameW(param0: HKL, #[len_param(2)] #[out] #[opt] lpszFileName: PWSTR, uBufLen: u32) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, #[opt] lpImeParentMenu: *mut IMEMENUITEMINFOA, #[size_param(5)] #[opt] lpImeMenu: *mut IMEMENUITEMINFOA, dwSize: u32) -> u32;
+        extern fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, #[out] #[opt] lpImeParentMenu: LPIMEMENUITEMINFOA, #[size_param(5)] #[out] #[opt] lpImeMenu: LPIMEMENUITEMINFOA, dwSize: u32) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, #[opt] lpImeParentMenu: *mut IMEMENUITEMINFOW, #[size_param(5)] #[opt] lpImeMenu: *mut IMEMENUITEMINFOW, dwSize: u32) -> u32;
+        extern fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, #[out] #[opt] lpImeParentMenu: LPIMEMENUITEMINFOW, #[size_param(5)] #[out] #[opt] lpImeMenu: LPIMEMENUITEMINFOW, dwSize: u32) -> u32;
         #[library("IMM32.dll")]
         extern fn ImmGetOpenStatus(param0: HIMC) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmGetProperty(param0: HKL, param1: u32) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetRegisterWordStyleA(param0: HKL, nItem: u32, #[len_param(1)] lpStyleBuf: *mut STYLEBUFA) -> u32;
+        extern fn ImmGetRegisterWordStyleA(param0: HKL, nItem: u32, #[len_param(1)] #[out] lpStyleBuf: LPSTYLEBUFA) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetRegisterWordStyleW(param0: HKL, nItem: u32, #[len_param(1)] lpStyleBuf: *mut STYLEBUFW) -> u32;
+        extern fn ImmGetRegisterWordStyleW(param0: HKL, nItem: u32, #[len_param(1)] #[out] lpStyleBuf: LPSTYLEBUFW) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmGetStatusWindowPos(param0: HIMC, lpptPos: *mut POINT) -> BOOL;
+        extern fn ImmGetStatusWindowPos(param0: HIMC, #[out] lpptPos: LPPOINT) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmGetVirtualKey(param0: HWND) -> u32;
         #[library("IMM32.dll")]
@@ -351,23 +357,23 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmReleaseContext(param0: HWND, param1: HIMC) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmSetCandidateWindow(param0: HIMC, lpCandidate: *const CANDIDATEFORM) -> BOOL;
+        extern fn ImmSetCandidateWindow(param0: HIMC, lpCandidate: LPCANDIDATEFORM) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmSetCompositionFontA(param0: HIMC, lplf: *const LOGFONTA) -> BOOL;
+        extern fn ImmSetCompositionFontA(param0: HIMC, lplf: LPLOGFONTA) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmSetCompositionFontW(param0: HIMC, lplf: *const LOGFONTW) -> BOOL;
+        extern fn ImmSetCompositionFontW(param0: HIMC, lplf: LPLOGFONTW) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmSetCompositionStringA(param0: HIMC, dwIndex: u32, #[size_param(3)] #[opt] lpComp: *const void, dwCompLen: u32, #[size_param(5)] #[opt] lpRead: *const void, dwReadLen: u32) -> BOOL;
+        extern fn ImmSetCompositionStringA(param0: HIMC, dwIndex: u32, #[size_param(3)] #[in] #[opt] lpComp: *mut void, dwCompLen: u32, #[size_param(5)] #[in] #[opt] lpRead: *mut void, dwReadLen: u32) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmSetCompositionStringW(param0: HIMC, dwIndex: u32, #[size_param(3)] #[opt] lpComp: *const void, dwCompLen: u32, #[size_param(5)] #[opt] lpRead: *const void, dwReadLen: u32) -> BOOL;
+        extern fn ImmSetCompositionStringW(param0: HIMC, dwIndex: u32, #[size_param(3)] #[in] #[opt] lpComp: *mut void, dwCompLen: u32, #[size_param(5)] #[in] #[opt] lpRead: *mut void, dwReadLen: u32) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmSetCompositionWindow(param0: HIMC, lpCompForm: *const COMPOSITIONFORM) -> BOOL;
+        extern fn ImmSetCompositionWindow(param0: HIMC, lpCompForm: LPCOMPOSITIONFORM) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmSetConversionStatus(param0: HIMC, param1: u32, param2: u32) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmSetOpenStatus(param0: HIMC, param1: BOOL) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmSetStatusWindowPos(param0: HIMC, lpptPos: *const POINT) -> BOOL;
+        extern fn ImmSetStatusWindowPos(param0: HIMC, lpptPos: LPPOINT) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmSimulateHotKey(param0: HWND, param1: u32) -> BOOL;
         #[library("IMM32.dll")]

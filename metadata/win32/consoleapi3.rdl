@@ -66,36 +66,36 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetConsoleCommandHistoryW(#[size_param(1)] #[out] Commands: PWSTR, CommandBufferLength: u32, ExeName: PCWSTR) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleDisplayMode(lpModeFlags: *mut u32) -> BOOL;
+        extern fn GetConsoleDisplayMode(#[out] lpModeFlags: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleFontSize(hConsoleOutput: HANDLE, nFont: u32) -> COORD;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleHistoryInfo(lpConsoleHistoryInfo: *mut CONSOLE_HISTORY_INFO) -> BOOL;
+        extern fn GetConsoleHistoryInfo(#[out] lpConsoleHistoryInfo: PCONSOLE_HISTORY_INFO) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleProcessList(#[len_param(1)] lpdwProcessList: *mut u32, dwProcessCount: u32) -> u32;
+        extern fn GetConsoleProcessList(#[len_param(1)] #[out] lpdwProcessList: LPDWORD, dwProcessCount: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleSelectionInfo(lpConsoleSelectionInfo: *mut CONSOLE_SELECTION_INFO) -> BOOL;
+        extern fn GetConsoleSelectionInfo(#[out] lpConsoleSelectionInfo: PCONSOLE_SELECTION_INFO) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleWindow() -> HWND;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentConsoleFont(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFont: *mut CONSOLE_FONT_INFO) -> BOOL;
+        extern fn GetCurrentConsoleFont(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, #[out] lpConsoleCurrentFont: PCONSOLE_FONT_INFO) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentConsoleFontEx(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFontEx: *mut CONSOLE_FONT_INFOEX) -> BOOL;
+        extern fn GetCurrentConsoleFontEx(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, #[out] lpConsoleCurrentFontEx: PCONSOLE_FONT_INFOEX) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberOfConsoleMouseButtons(lpNumberOfMouseButtons: *mut u32) -> BOOL;
+        extern fn GetNumberOfConsoleMouseButtons(#[out] lpNumberOfMouseButtons: LPDWORD) -> BOOL;
         const HISTORY_NO_DUP_FLAG: i32 = 1;
         type PCONSOLE_FONT_INFOEX = *mut CONSOLE_FONT_INFOEX;
         type PCONSOLE_HISTORY_INFO = *mut CONSOLE_HISTORY_INFO;
         type PCONSOLE_SELECTION_INFO = *mut CONSOLE_SELECTION_INFO;
         #[library("KERNEL32.dll")]
-        extern fn SetConsoleDisplayMode(hConsoleOutput: HANDLE, dwFlags: u32, #[opt] lpNewScreenBufferDimensions: *mut COORD) -> BOOL;
+        extern fn SetConsoleDisplayMode(hConsoleOutput: HANDLE, dwFlags: u32, #[out] #[opt] lpNewScreenBufferDimensions: PCOORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetConsoleHistoryInfo(lpConsoleHistoryInfo: *const CONSOLE_HISTORY_INFO) -> BOOL;
+        extern fn SetConsoleHistoryInfo(lpConsoleHistoryInfo: PCONSOLE_HISTORY_INFO) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetConsoleNumberOfCommandsA(Number: u32, ExeName: PCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetConsoleNumberOfCommandsW(Number: u32, ExeName: PCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetCurrentConsoleFontEx(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFontEx: *const CONSOLE_FONT_INFOEX) -> BOOL;
+        extern fn SetCurrentConsoleFontEx(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFontEx: PCONSOLE_FONT_INFOEX) -> BOOL;
     }
 }

@@ -13,7 +13,7 @@ mod Windows {
             fn get_ActivationType(&self, activationType: *mut ActivationType) -> HRESULT;
             fn get_RegistrationScope(&self, registrationScope: *mut RegistrationScope) -> HRESULT;
             fn get_RegisteredTrustLevel(&self, registeredTrustLevel: *mut RegisteredTrustLevel) -> HRESULT;
-            fn get_Attributes(&self, attributes: *mut super::Foundation::Collections::IMapView<String, Object>) -> HRESULT;
+            fn get_Attributes(&self, attributes: *mut __FIMapView_2_HSTRING_IInspectable_t) -> HRESULT;
         }
         type RegisteredTrustLevel = TrustLevel;
         #[repr(i32)]

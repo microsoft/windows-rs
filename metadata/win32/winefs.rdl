@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("ADVAPI32.dll")]
-        extern fn AddUsersToEncryptedFile(lpFileName: PCWSTR, pEncryptionCertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32;
+        extern fn AddUsersToEncryptedFile(lpFileName: PCWSTR, pEncryptionCertificates: PENCRYPTION_CERTIFICATE_LIST) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn DuplicateEncryptionInfoFile(SrcFileName: PCWSTR, DstFileName: PCWSTR, dwCreationDistribution: u32, dwAttributes: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> u32;
+        extern fn DuplicateEncryptionInfoFile(SrcFileName: PCWSTR, DstFileName: PCWSTR, dwCreationDistribution: u32, dwAttributes: u32, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> u32;
         struct EFS_CERTIFICATE_BLOB {
             dwCertEncodingType: u32,
             cbData: u32,
@@ -92,11 +92,11 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn EncryptionDisable(DirPath: PCWSTR, Disable: BOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn FreeEncryptedFileMetadata(pbMetadata: *const u8);
+        extern fn FreeEncryptedFileMetadata(pbMetadata: PBYTE);
         #[library("ADVAPI32.dll")]
-        extern fn FreeEncryptionCertificateHashList(pUsers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
+        extern fn FreeEncryptionCertificateHashList(pUsers: PENCRYPTION_CERTIFICATE_HASH_LIST);
         #[library("ADVAPI32.dll")]
-        extern fn GetEncryptedFileMetadata(lpFileName: PCWSTR, pcbMetadata: *mut u32, ppbMetadata: *mut PBYTE) -> u32;
+        extern fn GetEncryptedFileMetadata(lpFileName: PCWSTR, #[out] pcbMetadata: PDWORD, ppbMetadata: *mut PBYTE) -> u32;
         const MAX_SID_SIZE: i32 = 256;
         type PEFS_CERTIFICATE_BLOB = *mut EFS_CERTIFICATE_BLOB;
         type PEFS_COMPATIBILITY_INFO = *mut EFS_COMPATIBILITY_INFO;
@@ -119,13 +119,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn QueryUsersOnEncryptedFile(lpFileName: PCWSTR, pUsers: *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn RemoveUsersFromEncryptedFile(lpFileName: PCWSTR, pHashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+        extern fn RemoveUsersFromEncryptedFile(lpFileName: PCWSTR, pHashes: PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn SetEncryptedFileMetadata(lpFileName: PCWSTR, #[opt] pbOldMetadata: *const u8, pbNewMetadata: *const u8, pOwnerHash: *const ENCRYPTION_CERTIFICATE_HASH, dwOperation: u32, #[opt] pCertificatesAdded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+        extern fn SetEncryptedFileMetadata(lpFileName: PCWSTR, #[opt] pbOldMetadata: PBYTE, pbNewMetadata: PBYTE, pOwnerHash: PENCRYPTION_CERTIFICATE_HASH, dwOperation: u32, #[opt] pCertificatesAdded: PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn SetUserFileEncryptionKey(#[opt] pEncryptionCertificate: *const ENCRYPTION_CERTIFICATE) -> u32;
+        extern fn SetUserFileEncryptionKey(#[opt] pEncryptionCertificate: PENCRYPTION_CERTIFICATE) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn SetUserFileEncryptionKeyEx(#[opt] pEncryptionCertificate: *const ENCRYPTION_CERTIFICATE, dwCapabilities: u32, dwFlags: u32, #[reserved] pvReserved: *const void) -> u32;
+        extern fn SetUserFileEncryptionKeyEx(#[opt] pEncryptionCertificate: PENCRYPTION_CERTIFICATE, dwCapabilities: u32, dwFlags: u32, #[reserved] pvReserved: *mut void) -> u32;
         const WINEFS_SETUSERKEY_SET_CAPABILITIES: i32 = 1;
     }
 }

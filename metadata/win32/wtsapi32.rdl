@@ -63,7 +63,7 @@ mod Windows {
         const WINSTATIONNAME_LENGTH: i32 = 32;
         type WRDS_SERIALIZED_USER_CREDENTIAL = WTS_SERIALIZED_USER_CREDENTIAL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSActiveSessionExists(pbActiveSessionExists: *mut BOOL) -> BOOL;
+        extern fn WTSActiveSessionExists(#[out] pbActiveSessionExists: PBOOL) -> BOOL;
         struct WTSCLIENTA {
             ClientName: [i8; 21],
             Domain: [i8; 18],
@@ -143,25 +143,25 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSCloudAuthGetServerNonce(cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, serverNonce: *mut PWSTR) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSCloudAuthNetworkLogonWithSerializedCredential(cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, userCredential: *const WTS_SERIALIZED_USER_CREDENTIAL, token: *mut HANDLE) -> BOOL;
+        extern fn WTSCloudAuthNetworkLogonWithSerializedCredential(cloudAuthHandle: WTS_CLOUD_AUTH_HANDLE, #[in] userCredential: *mut WTS_SERIALIZED_USER_CREDENTIAL, token: *mut HANDLE) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSCloudAuthOpen(activityId: *const GUID) -> WTS_CLOUD_AUTH_HANDLE;
         #[library("WTSAPI32.dll")]
-        extern fn WTSConnectSessionA(LogonId: u32, TargetLogonId: u32, pPassword: PCSTR, bWait: BOOL) -> BOOL;
+        extern fn WTSConnectSessionA(LogonId: u32, TargetLogonId: u32, pPassword: PSTR, bWait: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSConnectSessionW(LogonId: u32, TargetLogonId: u32, pPassword: PCWSTR, bWait: BOOL) -> BOOL;
+        extern fn WTSConnectSessionW(LogonId: u32, TargetLogonId: u32, pPassword: PWSTR, bWait: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSCreateListenerA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, pBuffer: *const WTSLISTENERCONFIGA, flag: u32) -> BOOL;
+        extern fn WTSCreateListenerA(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCSTR, pBuffer: PWTSLISTENERCONFIGA, flag: u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSCreateListenerW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, pBuffer: *const WTSLISTENERCONFIGW, flag: u32) -> BOOL;
+        extern fn WTSCreateListenerW(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCWSTR, pBuffer: PWTSLISTENERCONFIGW, flag: u32) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSDisconnectSession(hServer: HANDLE, SessionId: u32, bWait: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern "C" fn WTSEnableChildSessions(bEnable: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateListenersA(hServer: HANDLE, pReserved: *const void, Reserved: u32, #[len_param(4)] #[opt] pListeners: *mut WTSLISTENERNAMEA, #[in] #[out] pCount: *mut u32) -> BOOL;
+        extern fn WTSEnumerateListenersA(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, #[len_param(4)] #[out] #[opt] pListeners: PWTSLISTENERNAMEA, #[in] #[out] pCount: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSEnumerateListenersW(hServer: HANDLE, pReserved: *const void, Reserved: u32, #[len_param(4)] #[opt] pListeners: *mut WTSLISTENERNAMEW, #[in] #[out] pCount: *mut u32) -> BOOL;
+        extern fn WTSEnumerateListenersW(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, #[len_param(4)] #[out] #[opt] pListeners: PWTSLISTENERNAMEW, #[in] #[out] pCount: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSEnumerateProcessesA(hServer: HANDLE, Reserved: u32, Version: u32, ppProcessInfo: *mut PWTS_PROCESS_INFOA, pCount: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -183,17 +183,17 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSEnumerateSessionsW(hServer: HANDLE, Reserved: u32, Version: u32, ppSessionInfo: *mut PWTS_SESSION_INFOW, pCount: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSFreeMemory(pMemory: *const void);
+        extern fn WTSFreeMemory(#[in] pMemory: *mut void);
         #[library("WTSAPI32.dll")]
-        extern fn WTSFreeMemoryExA(WTSTypeClass: WTS_TYPE_CLASS, pMemory: *const void, NumberOfEntries: u32) -> BOOL;
+        extern fn WTSFreeMemoryExA(WTSTypeClass: WTS_TYPE_CLASS, #[in] pMemory: *mut void, NumberOfEntries: u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSFreeMemoryExW(WTSTypeClass: WTS_TYPE_CLASS, pMemory: *const void, NumberOfEntries: u32) -> BOOL;
+        extern fn WTSFreeMemoryExW(WTSTypeClass: WTS_TYPE_CLASS, #[in] pMemory: *mut void, NumberOfEntries: u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern "C" fn WTSGetChildSessionId(pSessionId: *mut u32) -> BOOL;
+        extern "C" fn WTSGetChildSessionId(#[out] pSessionId: PULONG) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSGetListenerSecurityA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> BOOL;
+        extern fn WTSGetListenerSecurityA(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCSTR, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSGetListenerSecurityW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> BOOL;
+        extern fn WTSGetListenerSecurityW(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         struct WTSINFOA {
             State: WTS_CONNECTSTATE_CLASS,
             SessionId: u32,
@@ -206,11 +206,11 @@ mod Windows {
             WinStationName: [i8; 32],
             Domain: [i8; 17],
             UserName: [i8; 21],
-            ConnectTime: i64,
-            DisconnectTime: i64,
-            LastInputTime: i64,
-            LogonTime: i64,
-            CurrentTime: i64,
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            LogonTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
         }
         struct WTSINFOEXA {
             Level: u32,
@@ -227,11 +227,11 @@ mod Windows {
             WinStationName: [i8; 33],
             UserName: [i8; 21],
             DomainName: [i8; 18],
-            LogonTime: i64,
-            ConnectTime: i64,
-            DisconnectTime: i64,
-            LastInputTime: i64,
-            CurrentTime: i64,
+            LogonTime: LARGE_INTEGER,
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
             IncomingBytes: u32,
             OutgoingBytes: u32,
             IncomingFrames: u32,
@@ -246,11 +246,11 @@ mod Windows {
             WinStationName: [u16; 33],
             UserName: [u16; 21],
             DomainName: [u16; 18],
-            LogonTime: i64,
-            ConnectTime: i64,
-            DisconnectTime: i64,
-            LastInputTime: i64,
-            CurrentTime: i64,
+            LogonTime: LARGE_INTEGER,
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
             IncomingBytes: u32,
             OutgoingBytes: u32,
             IncomingFrames: u32,
@@ -276,14 +276,14 @@ mod Windows {
             WinStationName: [u16; 32],
             Domain: [u16; 17],
             UserName: [u16; 21],
-            ConnectTime: i64,
-            DisconnectTime: i64,
-            LastInputTime: i64,
-            LogonTime: i64,
-            CurrentTime: i64,
+            ConnectTime: LARGE_INTEGER,
+            DisconnectTime: LARGE_INTEGER,
+            LastInputTime: LARGE_INTEGER,
+            LogonTime: LARGE_INTEGER,
+            CurrentTime: LARGE_INTEGER,
         }
         #[library("WTSAPI32.dll")]
-        extern "C" fn WTSIsChildSessionsEnabled(pbEnabled: *mut BOOL) -> BOOL;
+        extern "C" fn WTSIsChildSessionsEnabled(#[out] pbEnabled: PBOOL) -> BOOL;
         struct WTSLISTENERCONFIGA {
             version: u32,
             fEnableListener: u32,
@@ -363,9 +363,9 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSOpenServerW(pServerName: PCWSTR) -> HANDLE;
         #[library("WTSAPI32.dll")]
-        extern fn WTSQueryListenerConfigA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, pBuffer: *mut WTSLISTENERCONFIGA) -> BOOL;
+        extern fn WTSQueryListenerConfigA(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCSTR, #[out] pBuffer: PWTSLISTENERCONFIGA) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSQueryListenerConfigW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, pBuffer: *mut WTSLISTENERCONFIGW) -> BOOL;
+        extern fn WTSQueryListenerConfigW(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCWSTR, #[out] pBuffer: PWTSLISTENERCONFIGW) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSQuerySessionInformationA(hServer: HANDLE, SessionId: u32, WTSInfoClass: WTS_INFO_CLASS, ppBuffer: *mut PSTR, pBytesReturned: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -375,7 +375,7 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSQueryUserConfigW(pServerName: PCWSTR, pUserName: PCWSTR, WTSConfigClass: WTS_CONFIG_CLASS, ppBuffer: *mut PWSTR, pBytesReturned: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSQueryUserToken(SessionId: u32, phToken: *mut HANDLE) -> BOOL;
+        extern fn WTSQueryUserToken(SessionId: u32, phToken: PHANDLE) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSRegisterSessionNotification(hWnd: HWND, dwFlags: u32) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -385,9 +385,9 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSSendMessageW(hServer: HANDLE, SessionId: u32, #[size_param(3)] pTitle: PCWSTR, TitleLength: u32, #[size_param(5)] pMessage: PCWSTR, MessageLength: u32, Style: u32, Timeout: u32, pResponse: *mut u32, bWait: BOOL) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSSetListenerSecurityA(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCSTR, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
+        extern fn WTSSetListenerSecurityA(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCSTR, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSSetListenerSecurityW(hServer: HANDLE, pReserved: *const void, Reserved: u32, pListenerName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
+        extern fn WTSSetListenerSecurityW(hServer: HANDLE, #[in] pReserved: *mut void, Reserved: u32, pListenerName: PCWSTR, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSSetUserConfigA(pServerName: PCSTR, pUserName: PCSTR, WTSConfigClass: WTS_CONFIG_CLASS, #[size_param(4)] pBuffer: PCSTR, DataLength: u32) -> BOOL;
         #[library("WTSAPI32.dll")]
@@ -459,9 +459,9 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSVirtualChannelQuery(hChannelHandle: HANDLE, param1: WTS_VIRTUAL_CLASS, ppBuffer: *mut *mut void, pBytesReturned: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSVirtualChannelRead(hChannelHandle: HANDLE, TimeOut: u32, #[size_param(3)] Buffer: *mut i8, BufferSize: u32, pBytesRead: *mut u32) -> BOOL;
+        extern fn WTSVirtualChannelRead(hChannelHandle: HANDLE, TimeOut: u32, #[size_param(3)] #[out] Buffer: PCHAR, BufferSize: u32, #[out] pBytesRead: PULONG) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSVirtualChannelWrite(hChannelHandle: HANDLE, #[size_param(2)] Buffer: *const i8, Length: u32, pBytesWritten: *mut u32) -> BOOL;
+        extern fn WTSVirtualChannelWrite(hChannelHandle: HANDLE, #[size_param(2)] Buffer: PCHAR, Length: u32, #[out] pBytesWritten: PULONG) -> BOOL;
         #[library("WTSAPI32.dll")]
         extern fn WTSWaitSystemEvent(hServer: HANDLE, EventMask: u32, pEventFlags: *mut u32) -> BOOL;
         const WTS_ANY_SESSION: u32 = 4294967294;
@@ -480,7 +480,10 @@ mod Windows {
             VerticalResolution: u32,
             ColorDepth: u32,
         }
-        type WTS_CLOUD_AUTH_HANDLE = *mut void;
+        type WTS_CLOUD_AUTH_HANDLE = *mut WTS_CLOUD_AUTH_HANDLE__;
+        struct WTS_CLOUD_AUTH_HANDLE__ {
+            unused: i32,
+        }
         const WTS_COMMENT_LENGTH: i32 = 60;
         #[repr(i32)]
         enum WTS_CONFIG_CLASS {
@@ -522,6 +525,8 @@ mod Windows {
             WTSDown = 8,
             WTSInit = 9,
         }
+        const WTS_CURRENT_SERVER: HANDLE = 0;
+        const WTS_CURRENT_SERVER_HANDLE: HANDLE = 0;
         const WTS_CURRENT_SERVER_NAME: i32 = 0;
         const WTS_CURRENT_SESSION: u32 = 4294967295;
         const WTS_DRIVE_LENGTH: i32 = 3;
@@ -598,8 +603,8 @@ mod Windows {
             PeakPagefileUsage: u32,
             WorkingSetSize: u32,
             PeakWorkingSetSize: u32,
-            UserTime: i64,
-            KernelTime: i64,
+            UserTime: LARGE_INTEGER,
+            KernelTime: LARGE_INTEGER,
         }
         struct WTS_PROCESS_INFO_EXW {
             SessionId: u32,
@@ -612,8 +617,8 @@ mod Windows {
             PeakPagefileUsage: u32,
             WorkingSetSize: u32,
             PeakWorkingSetSize: u32,
-            UserTime: i64,
-            KernelTime: i64,
+            UserTime: LARGE_INTEGER,
+            KernelTime: LARGE_INTEGER,
         }
         const WTS_PROCESS_INFO_LEVEL_0: i32 = 0;
         const WTS_PROCESS_INFO_LEVEL_1: i32 = 1;

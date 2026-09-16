@@ -2,32 +2,32 @@
 mod Windows {
     mod Win32 {
         #[library("MSWSOCK.dll")]
-        extern fn AcceptEx(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, lpdwBytesReceived: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn AcceptEx(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, #[out] lpdwBytesReceived: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         const DE_REUSE_SOCKET: i32 = 2;
         #[library("MSWSOCK.dll")]
-        extern fn GetAcceptExSockaddrs(lpOutputBuffer: *const void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, LocalSockaddrLength: *mut i32, RemoteSockaddr: *mut *mut SOCKADDR, RemoteSockaddrLength: *mut i32);
-        extern fn LPFN_ACCEPTEX(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, lpdwBytesReceived: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
-        extern fn LPFN_CONNECTEX(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[size_param(4)] #[opt] lpSendBuffer: *const void, dwSendDataLength: u32, lpdwBytesSent: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
-        extern fn LPFN_DISCONNECTEX(s: SOCKET, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, dwFlags: u32, dwReserved: u32) -> BOOL;
-        extern fn LPFN_GETACCEPTEXSOCKADDRS(lpOutputBuffer: *const void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, LocalSockaddrLength: *mut i32, RemoteSockaddr: *mut *mut SOCKADDR, RemoteSockaddrLength: *mut i32);
-        extern fn LPFN_RIOCLOSECOMPLETIONQUEUE(CQ: *const RIO_CQ_t);
-        extern fn LPFN_RIOCREATECOMPLETIONQUEUE(QueueSize: u32, #[opt] NotificationCompletion: *const RIO_NOTIFICATION_COMPLETION) -> RIO_CQ;
-        extern fn LPFN_RIOCREATEREQUESTQUEUE(Socket: SOCKET, MaxOutstandingReceive: u32, MaxReceiveDataBuffers: u32, MaxOutstandingSend: u32, MaxSendDataBuffers: u32, ReceiveCQ: *const RIO_CQ_t, SendCQ: *const RIO_CQ_t, #[opt] SocketContext: *const void) -> RIO_RQ;
-        extern fn LPFN_RIODEQUEUECOMPLETION(CQ: *const RIO_CQ_t, #[len_param(2)] Array: *mut RIORESULT, ArraySize: u32) -> u32;
-        extern fn LPFN_RIODEREGISTERBUFFER(BufferId: *const RIO_BUFFERID_t);
-        extern fn LPFN_RIONOTIFY(CQ: *const RIO_CQ_t) -> i32;
-        extern fn LPFN_RIORECEIVE(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, Flags: u32, #[opt] RequestContext: *const void) -> BOOL;
-        extern fn LPFN_RIORECEIVEEX(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: *const RIO_BUF, #[opt] pRemoteAddress: *const RIO_BUF, #[opt] pControlContext: *const RIO_BUF, #[opt] pFlags: *const RIO_BUF, Flags: u32, #[opt] RequestContext: *const void) -> i32;
-        extern fn LPFN_RIOREGISTERBUFFER(DataBuffer: *const i8, DataLength: u32) -> RIO_BUFFERID;
-        extern fn LPFN_RIORESIZECOMPLETIONQUEUE(CQ: *const RIO_CQ_t, QueueSize: u32) -> BOOL;
-        extern fn LPFN_RIORESIZEREQUESTQUEUE(RQ: *const RIO_RQ_t, MaxOutstandingReceive: u32, MaxOutstandingSend: u32) -> BOOL;
-        extern fn LPFN_RIOSEND(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, Flags: u32, #[opt] RequestContext: *const void) -> BOOL;
-        extern fn LPFN_RIOSENDEX(SocketQueue: *const RIO_RQ_t, #[len_param(2)] pData: *const RIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: *const RIO_BUF, #[opt] pRemoteAddress: *const RIO_BUF, #[opt] pControlContext: *const RIO_BUF, #[opt] pFlags: *const RIO_BUF, Flags: u32, #[opt] RequestContext: *const void) -> BOOL;
-        extern fn LPFN_TRANSMITFILE(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpTransmitBuffers: *const TRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
-        extern fn LPFN_TRANSMITPACKETS(hSocket: SOCKET, #[opt] lpPacketArray: *const TRANSMIT_PACKETS_ELEMENT, nElementCount: u32, nSendSize: u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, dwFlags: u32) -> BOOL;
-        extern fn LPFN_WSAPOLL(#[in] #[out] fdarray: *mut WSAPOLLFD, nfds: u32, timeout: i32) -> i32;
-        extern fn LPFN_WSARECVMSG(s: SOCKET, #[in] #[out] lpMsg: *mut WSAMSG, #[opt] lpdwNumberOfBytesRecvd: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
-        extern fn LPFN_WSASENDMSG(s: SOCKET, lpMsg: *const WSAMSG, dwFlags: u32, #[opt] lpNumberOfBytesSent: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn GetAcceptExSockaddrs(#[in] lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
+        extern fn LPFN_ACCEPTEX(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, #[out] lpdwBytesReceived: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn LPFN_CONNECTEX(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[size_param(4)] #[in] #[opt] lpSendBuffer: *mut void, dwSendDataLength: u32, #[out] lpdwBytesSent: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn LPFN_DISCONNECTEX(s: SOCKET, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, dwFlags: u32, dwReserved: u32) -> BOOL;
+        extern fn LPFN_GETACCEPTEXSOCKADDRS(#[in] lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
+        extern fn LPFN_RIOCLOSECOMPLETIONQUEUE(CQ: RIO_CQ);
+        extern fn LPFN_RIOCREATECOMPLETIONQUEUE(QueueSize: u32, #[opt] NotificationCompletion: PRIO_NOTIFICATION_COMPLETION) -> RIO_CQ;
+        extern fn LPFN_RIOCREATEREQUESTQUEUE(Socket: SOCKET, MaxOutstandingReceive: u32, MaxReceiveDataBuffers: u32, MaxOutstandingSend: u32, MaxSendDataBuffers: u32, ReceiveCQ: RIO_CQ, SendCQ: RIO_CQ, #[in] #[opt] SocketContext: *mut void) -> RIO_RQ;
+        extern fn LPFN_RIODEQUEUECOMPLETION(CQ: RIO_CQ, #[len_param(2)] #[out] Array: PRIORESULT, ArraySize: u32) -> u32;
+        extern fn LPFN_RIODEREGISTERBUFFER(BufferId: RIO_BUFFERID);
+        extern fn LPFN_RIONOTIFY(CQ: RIO_CQ) -> i32;
+        extern fn LPFN_RIORECEIVE(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> BOOL;
+        extern fn LPFN_RIORECEIVEEX(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: PRIO_BUF, #[opt] pRemoteAddress: PRIO_BUF, #[opt] pControlContext: PRIO_BUF, #[opt] pFlags: PRIO_BUF, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> i32;
+        extern fn LPFN_RIOREGISTERBUFFER(DataBuffer: PCHAR, DataLength: u32) -> RIO_BUFFERID;
+        extern fn LPFN_RIORESIZECOMPLETIONQUEUE(CQ: RIO_CQ, QueueSize: u32) -> BOOL;
+        extern fn LPFN_RIORESIZEREQUESTQUEUE(RQ: RIO_RQ, MaxOutstandingReceive: u32, MaxOutstandingSend: u32) -> BOOL;
+        extern fn LPFN_RIOSEND(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> BOOL;
+        extern fn LPFN_RIOSENDEX(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: PRIO_BUF, #[opt] pRemoteAddress: PRIO_BUF, #[opt] pControlContext: PRIO_BUF, #[opt] pFlags: PRIO_BUF, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> BOOL;
+        extern fn LPFN_TRANSMITFILE(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
+        extern fn LPFN_TRANSMITPACKETS(hSocket: SOCKET, #[opt] lpPacketArray: LPTRANSMIT_PACKETS_ELEMENT, nElementCount: u32, nSendSize: u32, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, dwFlags: u32) -> BOOL;
+        extern fn LPFN_WSAPOLL(#[in] #[out] fdarray: LPWSAPOLLFD, nfds: u32, timeout: i32) -> i32;
+        extern fn LPFN_WSARECVMSG(s: SOCKET, #[in] #[out] lpMsg: LPWSAMSG, #[out] #[opt] lpdwNumberOfBytesRecvd: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn LPFN_WSASENDMSG(s: SOCKET, lpMsg: LPWSAMSG, dwFlags: u32, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         type LPNLA_BLOB = *mut NLA_BLOB;
         type LPTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
         type LPTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
@@ -182,14 +182,14 @@ mod Windows {
             cLength: u32,
             Anonymous: union {
                 Anonymous: struct {
-                    nFileOffset: i64,
+                    nFileOffset: LARGE_INTEGER,
                     hFile: HANDLE,
                 },
                 pBuffer: *mut void,
             },
         }
         #[library("MSWSOCK.dll")]
-        extern fn TransmitFile(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpTransmitBuffers: *const TRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
+        extern fn TransmitFile(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
         struct WSAPOLLDATA {
             result: i32,
             fds: u32,

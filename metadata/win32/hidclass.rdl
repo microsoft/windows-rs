@@ -22,7 +22,7 @@ mod Windows {
         const GUID_HID_INTERFACE_NOTIFY: GUID = 0x2c4e2e88_25e6_4c33_882f_3d82e6073681;
         struct HID_COLLECTION_INFORMATION {
             DescriptorSize: u32,
-            Polled: bool,
+            Polled: BOOLEAN,
             Reserved1: [u8; 1],
             VendorID: u16,
             ProductID: u16,
@@ -33,11 +33,6 @@ mod Windows {
             RingBufferSize: u32,
         }
         const HID_REVISION: i32 = 1;
-        struct HID_XFER_PACKET {
-            reportBuffer: PUCHAR,
-            reportBufferLen: u32,
-            reportId: u8,
-        }
         const IOCTL_GET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721312;
         const IOCTL_GET_PHYSICAL_DESCRIPTOR: i32 = 721306;
         const IOCTL_HID_DEVICERESET_NOTIFICATION: i32 = 721459;
@@ -66,6 +61,5 @@ mod Windows {
         const IOCTL_SET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721316;
         type PHID_COLLECTION_INFORMATION = *mut HID_COLLECTION_INFORMATION;
         type PHID_DRIVER_CONFIG = *mut HID_DRIVER_CONFIG;
-        type PHID_XFER_PACKET = *mut HID_XFER_PACKET;
     }
 }

@@ -7,6 +7,8 @@ mod Windows {
             Data3: u16,
             Data4: [u8; 8],
         }
+        #[library("ole32.dll")]
+        extern "C" fn IsEqualGUID(rguid1: *const GUID, rguid2: *const GUID) -> i32;
         type LPCGUID = *const GUID;
         type LPCLSID = *mut GUID;
         type LPFMTID = *mut GUID;

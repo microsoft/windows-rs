@@ -27,9 +27,9 @@ mod Windows {
         type LPSTD_ALERT = *mut STD_ALERT;
         type LPUSER_OTHER_INFO = *mut USER_OTHER_INFO;
         #[library("NETAPI32.dll")]
-        extern fn NetAlertRaise(AlertType: PCWSTR, Buffer: *const void, BufferSize: u32) -> u32;
+        extern fn NetAlertRaise(AlertType: PCWSTR, #[in] Buffer: *mut void, BufferSize: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetAlertRaiseEx(AlertType: PCWSTR, VariableInfo: *const void, VariableInfoSize: u32, ServiceName: PCWSTR) -> u32;
+        extern fn NetAlertRaiseEx(AlertType: PCWSTR, #[in] VariableInfo: *mut void, VariableInfoSize: u32, ServiceName: PCWSTR) -> u32;
         type PADMIN_OTHER_INFO = *mut ADMIN_OTHER_INFO;
         type PERRLOG_OTHER_INFO = *mut ERRLOG_OTHER_INFO;
         type PPRINT_OTHER_INFO = *mut PRINT_OTHER_INFO;

@@ -105,35 +105,43 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtClose(Handle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[opt] AllocationSize: *const i64, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, #[opt] EaBuffer: *const void, EaLength: u32) -> NTSTATUS;
+        extern fn NtCreateFile(#[out] FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[opt] AllocationSize: PLARGE_INTEGER, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, #[in] #[opt] EaBuffer: *mut void, EaLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtDeviceIoControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, IoControlCode: u32, #[opt] InputBuffer: *const void, InputBufferLength: u32, #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn NtDeviceIoControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: *mut void, #[out] IoStatusBlock: PIO_STATUS_BLOCK, IoControlCode: u32, #[in] #[opt] InputBuffer: *mut void, InputBufferLength: u32, #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[opt] SubordinateObjects: *const OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: bool, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: bool) -> NTSTATUS;
+        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[in] #[opt] SubordinateObjects: *mut OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: *mut void, #[out] IoStatusBlock: PIO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
+        extern fn NtOpenFile(#[out] FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationProcess(ProcessHandle: HANDLE, ProcessInformationClass: PROCESSINFOCLASS, ProcessInformation: *mut void, ProcessInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationProcess(ProcessHandle: HANDLE, ProcessInformationClass: PROCESSINFOCLASS, ProcessInformation: *mut void, ProcessInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: *mut void, ThreadInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: *mut void, ThreadInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryMultipleValueKey(KeyHandle: HANDLE, #[len_param(2)] #[in] #[out] ValueEntries: *mut KEY_VALUE_ENTRY, EntryCount: u32, #[size_param(4)] ValueBuffer: *mut void, #[in] #[out] BufferLength: *mut u32, #[opt] RequiredBufferLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryMultipleValueKey(KeyHandle: HANDLE, #[len_param(2)] #[in] #[out] ValueEntries: PKEY_VALUE_ENTRY, EntryCount: u32, #[size_param(4)] ValueBuffer: *mut void, #[in] #[out] BufferLength: PULONG, #[out] #[opt] RequiredBufferLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: *mut void, SystemInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: *mut void, SystemInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQuerySystemTime(SystemTime: *mut i64) -> NTSTATUS;
+        extern fn NtQuerySystemTime(#[out] SystemTime: PLARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryTimerResolution(MaximumTime: *mut u32, MinimumTime: *mut u32, CurrentTime: *mut u32) -> NTSTATUS;
+        extern fn NtQueryTimerResolution(#[out] MaximumTime: PULONG, #[out] MinimumTime: PULONG, #[out] CurrentTime: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtRenameKey(KeyHandle: HANDLE, NewName: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn NtRenameKey(KeyHandle: HANDLE, NewName: PUNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtSetInformationKey(KeyHandle: HANDLE, KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[size_param(3)] KeySetInformation: *const void, KeySetInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationKey(KeyHandle: HANDLE, KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[size_param(3)] #[in] KeySetInformation: *mut void, KeySetInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] ThreadInformation: *const void, ThreadInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] #[in] ThreadInformation: *mut void, ThreadInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: bool, #[opt] Timeout: *const i64) -> NTSTATUS;
+        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, #[opt] Timeout: PLARGE_INTEGER) -> NTSTATUS;
+        struct OBJECT_ATTRIBUTES {
+            Length: u32,
+            RootDirectory: HANDLE,
+            ObjectName: PUNICODE_STRING,
+            Attributes: u32,
+            SecurityDescriptor: *mut void,
+            SecurityQualityOfService: *mut void,
+        }
         #[repr(i32)]
         enum OBJECT_INFORMATION_CLASS {
             ObjectBasicInformation = 0,
@@ -182,7 +190,7 @@ mod Windows {
             Reserved2: [*mut void; 3],
             InMemoryOrderModuleList: LIST_ENTRY,
         }
-        extern fn PIO_APC_ROUTINE(ApcContext: *mut void, IoStatusBlock: *mut IO_STATUS_BLOCK, Reserved: u32);
+        extern fn PIO_APC_ROUTINE(ApcContext: *mut void, IoStatusBlock: PIO_STATUS_BLOCK, Reserved: u32);
         type PIO_STATUS_BLOCK = *mut IO_STATUS_BLOCK;
         type PKEY_VALUE_ENTRY = *mut KEY_VALUE_ENTRY;
         type PLDR_DATA_TABLE_ENTRY = *mut LDR_DATA_TABLE_ENTRY;
@@ -209,7 +217,6 @@ mod Windows {
             Reserved3: *mut void,
         }
         type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
-        type PSTRING = *mut STRING;
         type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
         type PSYSTEM_BASIC_INFORMATION = *mut SYSTEM_BASIC_INFORMATION;
         type PSYSTEM_CODEINTEGRITY_INFORMATION = *mut SYSTEM_CODEINTEGRITY_INFORMATION;
@@ -237,9 +244,8 @@ mod Windows {
             TypeName: UNICODE_STRING,
             Reserved: [u32; 22],
         }
-        type PUNICODE_STRING = *mut UNICODE_STRING;
         type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
-        extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: *mut u32) -> bool;
+        extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: PULONG) -> BOOLEAN;
         struct RTL_USER_PROCESS_PARAMETERS {
             Reserved1: [u8; 16],
             Reserved2: [*mut void; 10],
@@ -247,43 +253,49 @@ mod Windows {
             CommandLine: UNICODE_STRING,
         }
         #[library("ntdll.dll")]
-        extern fn RtlAnsiStringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCANSI_STRING, AllocateDestinationString: bool) -> NTSTATUS;
+        extern fn RtlAnsiStringToUnicodeString(DestinationString: PUNICODE_STRING, SourceString: PCANSI_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlCharToInteger(String: *const i8, Base: u32, Value: *mut u32) -> NTSTATUS;
+        extern fn RtlCharToInteger(String: PCSZ, Base: u32, Value: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlConvertSidToUnicodeString(UnicodeString: *mut UNICODE_STRING, Sid: PSID, AllocateDestinationString: bool) -> NTSTATUS;
+        extern fn RtlConvertSidToUnicodeString(UnicodeString: PUNICODE_STRING, Sid: PSID, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlFreeAnsiString(AnsiString: PANSI_STRING);
         #[library("ntdll.dll")]
         extern fn RtlFreeOemString(OemString: POEM_STRING);
         #[library("ntdll.dll")]
-        extern fn RtlFreeUnicodeString(UnicodeString: *mut UNICODE_STRING);
+        extern fn RtlFreeUnicodeString(UnicodeString: PUNICODE_STRING);
         #[library("ntdll.dll")]
-        extern fn RtlInitAnsiString(DestinationString: PANSI_STRING, SourceString: *const i8);
+        extern fn RtlInitAnsiString(DestinationString: PANSI_STRING, SourceString: PCSZ);
         #[library("ntdll.dll")]
-        extern fn RtlInitAnsiStringEx(DestinationString: PANSI_STRING, SourceString: *const i8) -> NTSTATUS;
+        extern fn RtlInitAnsiStringEx(DestinationString: PANSI_STRING, SourceString: PCSZ) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlInitString(DestinationString: *mut STRING, SourceString: *const i8);
+        extern fn RtlInitString(DestinationString: PSTRING, SourceString: PCSZ);
         #[library("ntdll.dll")]
-        extern fn RtlInitStringEx(DestinationString: *mut STRING, SourceString: *const i8) -> NTSTATUS;
+        extern fn RtlInitStringEx(DestinationString: PSTRING, SourceString: PCSZ) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlInitUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCWSTR);
+        extern fn RtlInitUnicodeString(DestinationString: PUNICODE_STRING, SourceString: PCWSTR);
         #[library("ntdll.dll")]
-        extern fn RtlIsNameLegalDOS8Dot3(Name: *const UNICODE_STRING, #[in] #[out] #[opt] OemName: POEM_STRING, #[in] #[out] #[opt] NameContainsSpaces: *mut bool) -> bool;
+        extern fn RtlIsNameLegalDOS8Dot3(Name: PUNICODE_STRING, #[in] #[out] #[opt] OemName: POEM_STRING, #[in] #[out] #[opt] NameContainsSpaces: PBOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlLocalTimeToSystemTime(LocalTime: *const i64, SystemTime: *mut i64) -> NTSTATUS;
+        extern fn RtlLocalTimeToSystemTime(LocalTime: PLARGE_INTEGER, #[out] SystemTime: PLARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlNtStatusToDosError(Status: NTSTATUS) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlTimeToSecondsSince1970(Time: *mut i64, ElapsedSeconds: *mut u32) -> bool;
+        extern fn RtlTimeToSecondsSince1970(Time: PLARGE_INTEGER, ElapsedSeconds: PULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlUnicodeStringToAnsiString(DestinationString: PANSI_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: bool) -> NTSTATUS;
+        extern fn RtlUnicodeStringToAnsiString(DestinationString: PANSI_STRING, SourceString: PCUNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: bool) -> NTSTATUS;
+        extern fn RtlUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: PCUNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlUnicodeToMultiByteSize(BytesInMultiByteString: *mut u32, #[size_param(2)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUnicodeToMultiByteSize(#[out] BytesInMultiByteString: PULONG, #[size_param(2)] UnicodeString: PWCH, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlUniform(Seed: *mut u32) -> u32;
+        extern fn RtlUniform(Seed: PULONG) -> u32;
+        const SERVERNAME_CURRENT: HANDLE = 0;
+        struct STRING {
+            Length: u16,
+            MaximumLength: u16,
+            Buffer: PCHAR,
+        }
         struct SYSTEM_BASICPROCESS_INFORMATION {
             NextEntryOffset: u32,
             UniqueProcessId: HANDLE,
@@ -338,10 +350,10 @@ mod Windows {
             Reserved2: [u32; 3],
         }
         struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-            IdleTime: i64,
-            KernelTime: i64,
-            UserTime: i64,
-            Reserved1: [i64; 2],
+            IdleTime: LARGE_INTEGER,
+            KernelTime: LARGE_INTEGER,
+            UserTime: LARGE_INTEGER,
+            Reserved1: [LARGE_INTEGER; 2],
             Reserved2: u32,
         }
         struct SYSTEM_PROCESS_INFORMATION {
@@ -367,7 +379,7 @@ mod Windows {
             PagefileUsage: usize,
             PeakPagefileUsage: usize,
             PrivatePageCount: usize,
-            Reserved7: [i64; 6],
+            Reserved7: [LARGE_INTEGER; 6],
         }
         struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
             RegistryQuotaAllowed: u32,
@@ -375,7 +387,7 @@ mod Windows {
             Reserved1: *mut void,
         }
         struct SYSTEM_THREAD_INFORMATION {
-            Reserved1: [i64; 3],
+            Reserved1: [LARGE_INTEGER; 3],
             Reserved2: u32,
             StartAddress: *mut void,
             ClientId: CLIENT_ID,
@@ -407,6 +419,11 @@ mod Windows {
         }
         struct THREAD_NAME_INFORMATION {
             ThreadName: UNICODE_STRING,
+        }
+        struct UNICODE_STRING {
+            Length: u16,
+            MaximumLength: u16,
+            Buffer: PWSTR,
         }
         #[repr(i32)]
         enum WINSTATIONINFOCLASS {

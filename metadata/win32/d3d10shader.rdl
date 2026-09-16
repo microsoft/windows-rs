@@ -134,6 +134,7 @@ mod Windows {
             Mask: u8,
             ReadWriteMask: u8,
         }
+        type ID3D10Include = ID3DInclude;
         #[guid(0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa)]
         interface ID3D10ShaderReflection: IUnknown {
             fn GetDesc(&self, pDesc: *mut D3D10_SHADER_DESC) -> HRESULT;

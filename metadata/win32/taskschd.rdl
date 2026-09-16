@@ -100,7 +100,7 @@ mod Windows {
             #[special]
             fn get_Attachments(&self, #[retval] pAttachements: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_Attachments(&self, pAttachements: *const SAFEARRAY) -> HRESULT;
+            fn put_Attachments(&self, #[in] pAttachements: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd45b0167_9653_4eef_b94f_0732ca7af251)]
         interface IEventTrigger: ITrigger {
@@ -294,13 +294,13 @@ mod Windows {
             fn RunEx(&self, params: VARIANT, flags: i32, sessionID: i32, user: BSTR, #[retval] ppRunningTask: *mut IRunningTask) -> HRESULT;
             fn GetInstances(&self, flags: i32, #[retval] ppRunningTasks: *mut IRunningTaskCollection) -> HRESULT;
             #[special]
-            fn get_LastRunTime(&self, #[retval] pLastRunTime: *mut f64) -> HRESULT;
+            fn get_LastRunTime(&self, #[retval] pLastRunTime: *mut DATE) -> HRESULT;
             #[special]
             fn get_LastTaskResult(&self, #[retval] pLastTaskResult: *mut i32) -> HRESULT;
             #[special]
             fn get_NumberOfMissedRuns(&self, #[retval] pNumberOfMissedRuns: *mut i32) -> HRESULT;
             #[special]
-            fn get_NextRunTime(&self, #[retval] pNextRunTime: *mut f64) -> HRESULT;
+            fn get_NextRunTime(&self, #[retval] pNextRunTime: *mut DATE) -> HRESULT;
             #[special]
             fn get_Definition(&self, #[retval] ppDefinition: *mut ITaskDefinition) -> HRESULT;
             #[special]
@@ -308,7 +308,7 @@ mod Windows {
             fn GetSecurityDescriptor(&self, securityInformation: i32, #[retval] pSddl: *mut BSTR) -> HRESULT;
             fn SetSecurityDescriptor(&self, sddl: BSTR, flags: i32) -> HRESULT;
             fn Stop(&self, flags: i32) -> HRESULT;
-            fn GetRunTimes(&self, pstStart: *const SYSTEMTIME, pstEnd: *const SYSTEMTIME, #[in] #[out] pCount: *mut u32, pRunTimes: *mut LPSYSTEMTIME) -> HRESULT;
+            fn GetRunTimes(&self, pstStart: LPSYSTEMTIME, pstEnd: LPSYSTEMTIME, #[in] #[out] pCount: *mut u32, pRunTimes: *mut LPSYSTEMTIME) -> HRESULT;
         }
         #[guid(0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52)]
         interface IRegisteredTaskCollection: IDispatch {

@@ -51,43 +51,43 @@ mod Windows {
         type LPSHARE_INFO_502 = *mut SHARE_INFO_502;
         type LPSHARE_INFO_503 = *mut SHARE_INFO_503;
         #[library("NETAPI32.dll")]
-        extern fn NetConnectionEnum(#[opt] servername: PCWSTR, qualifier: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetConnectionEnum(#[opt] servername: PCWSTR, qualifier: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetFileClose(#[opt] servername: PCWSTR, fileid: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetFileEnum(#[opt] servername: PCWSTR, #[opt] basepath: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut usize) -> u32;
+        extern fn NetFileEnum(#[opt] servername: PCWSTR, #[opt] basepath: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD_PTR) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetFileGetInfo(#[opt] servername: PCWSTR, fileid: u32, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerAliasAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8) -> u32;
+        extern fn NetServerAliasAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerAliasDel(#[opt] servername: PCWSTR, level: u32, buf: *mut u8) -> u32;
+        extern fn NetServerAliasDel(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerAliasEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut u32) -> u32;
+        extern fn NetServerAliasEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetSessionDel(#[opt] servername: PCWSTR, #[opt] UncClientName: PCWSTR, #[opt] username: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetSessionEnum(#[opt] servername: PCWSTR, #[opt] UncClientName: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetSessionEnum(#[opt] servername: PCWSTR, #[opt] UncClientName: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetSessionGetInfo(#[opt] servername: PCWSTR, UncClientName: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareAdd(#[opt] servername: PCWSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetShareAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareCheck(#[opt] servername: PCWSTR, device: PCWSTR, r#type: *mut u32) -> u32;
+        extern fn NetShareCheck(#[opt] servername: PCWSTR, device: PCWSTR, #[out] r#type: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetShareDel(#[opt] servername: PCWSTR, netname: PCWSTR, #[reserved] reserved: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareDelEx(#[opt] servername: PCWSTR, level: u32, buf: *mut u8) -> u32;
+        extern fn NetShareDelEx(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetShareDelSticky(#[opt] servername: PCWSTR, netname: PCWSTR, #[reserved] reserved: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetShareEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareEnumSticky(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetShareEnumSticky(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetShareGetInfo(#[opt] servername: PCWSTR, netname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareSetInfo(#[opt] servername: PCWSTR, netname: PCWSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetShareSetInfo(#[opt] servername: PCWSTR, netname: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         type PCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
         type PCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
         const PERM_FILE_CREATE: i32 = 4;
@@ -115,7 +115,7 @@ mod Windows {
         struct SERVER_ALIAS_INFO_0 {
             srvai0_alias: PWSTR,
             srvai0_target: PWSTR,
-            srvai0_default: bool,
+            srvai0_default: BOOLEAN,
             srvai0_reserved: u32,
         }
         const SESI1_NUM_ELEMENTS: i32 = 8;

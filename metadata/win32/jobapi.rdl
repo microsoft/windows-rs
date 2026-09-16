@@ -2,6 +2,6 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn IsProcessInJob(ProcessHandle: HANDLE, #[opt] JobHandle: HANDLE, Result: *mut BOOL) -> BOOL;
+        extern fn IsProcessInJob(ProcessHandle: HANDLE, #[opt] JobHandle: HANDLE, #[out] Result: PBOOL) -> BOOL;
     }
 }

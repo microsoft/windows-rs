@@ -128,8 +128,8 @@ mod Windows {
             ServerObjectGuid: GUID,
             NtdsDsaObjectGuid: GUID,
         }
-        const DS_DOMAIN_SIMPLE_NAME: i32 = 8;
-        const DS_ENTERPRISE_SIMPLE_NAME: i32 = 8;
+        const DS_DOMAIN_SIMPLE_NAME: DS_NAME_FORMAT = 8;
+        const DS_ENTERPRISE_SIMPLE_NAME: DS_NAME_FORMAT = 8;
         const DS_EXIST_ADVISORY_MODE: i32 = 1;
         const DS_INSTANCETYPE_IS_NC_HEAD: i32 = 1;
         const DS_INSTANCETYPE_NC_COMING: i32 = 16;
@@ -177,7 +177,7 @@ mod Windows {
             DS_SID_OR_SID_HISTORY_NAME = 11,
             DS_DNS_DOMAIN_NAME = 12,
         }
-        const DS_NAME_LEGAL_FLAGS: i32 = 1;
+        const DS_NAME_LEGAL_FLAGS: DS_NAME_FLAGS = 1;
         struct DS_NAME_RESULTA {
             cItems: u32,
             rItems: PDS_NAME_RESULT_ITEMA,
@@ -437,16 +437,8 @@ mod Windows {
             cNumPendingOps: u32,
             rgPendingOp: [DS_REPL_OPW; 1],
         }
-        struct DS_REPL_QUEUE_STATISTICSW {
-            ftimeCurrentOpStarted: FILETIME,
-            cNumPendingOps: u32,
-            ftimeOldestSync: FILETIME,
-            ftimeOldestAdd: FILETIME,
-            ftimeOldestMod: FILETIME,
-            ftimeOldestDel: FILETIME,
-            ftimeOldestUpdRefs: FILETIME,
-        }
-        type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
+        type DS_REPL_QUEUE_STATISTICSW = _DS_REPL_QUEUE_STATISTICSW;
+        type DS_REPL_QUEUE_STATISTICSW_BLOB = _DS_REPL_QUEUE_STATISTICSW;
         struct DS_REPL_VALUE_META_DATA {
             pszAttributeName: PWSTR,
             pszObjectDn: PWSTR,
@@ -667,9 +659,9 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         extern fn DsBindA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, phDS: *mut HANDLE) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsBindByInstanceA(#[opt] ServerName: PCSTR, #[opt] Annotation: PCSTR, #[opt] InstanceGuid: *const GUID, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindByInstanceA(#[opt] ServerName: PCSTR, #[opt] Annotation: PCSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsBindByInstanceW(#[opt] ServerName: PCWSTR, #[opt] Annotation: PCWSTR, #[opt] InstanceGuid: *const GUID, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindByInstanceW(#[opt] ServerName: PCWSTR, #[opt] Annotation: PCWSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
         #[library("NTDSAPI.dll")]
         extern fn DsBindToISTGA(#[opt] SiteName: PCSTR, phDS: *mut HANDLE) -> u32;
         #[library("NTDSAPI.dll")]
@@ -699,19 +691,19 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         extern fn DsCrackNamesW(#[opt] hDS: HANDLE, flags: DS_NAME_FLAGS, formatOffered: DS_NAME_FORMAT, formatDesired: DS_NAME_FORMAT, cNames: u32, #[len_param(4)] rpNames: *const PCWSTR, ppResult: *mut PDS_NAME_RESULTW) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeDomainControllerInfoA(InfoLevel: u32, cInfo: u32, #[len_param(1)] pInfo: *const void);
+        extern fn DsFreeDomainControllerInfoA(InfoLevel: u32, cInfo: u32, #[len_param(1)] #[in] pInfo: *mut void);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeDomainControllerInfoW(InfoLevel: u32, cInfo: u32, #[len_param(1)] pInfo: *const void);
+        extern fn DsFreeDomainControllerInfoW(InfoLevel: u32, cInfo: u32, #[len_param(1)] #[in] pInfo: *mut void);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeNameResultA(pResult: *const DS_NAME_RESULTA);
+        extern fn DsFreeNameResultA(#[in] pResult: *mut DS_NAME_RESULTA);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeNameResultW(pResult: *const DS_NAME_RESULTW);
+        extern fn DsFreeNameResultW(#[in] pResult: *mut DS_NAME_RESULTW);
         #[library("NTDSAPI.dll")]
         extern fn DsFreePasswordCredentials(AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeSchemaGuidMapA(pGuidMap: *const DS_SCHEMA_GUID_MAPA);
+        extern fn DsFreeSchemaGuidMapA(pGuidMap: PDS_SCHEMA_GUID_MAPA);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeSchemaGuidMapW(pGuidMap: *const DS_SCHEMA_GUID_MAPW);
+        extern fn DsFreeSchemaGuidMapW(pGuidMap: PDS_SCHEMA_GUID_MAPW);
         #[library("NTDSAPI.dll")]
         extern fn DsFreeSpnArrayA(cSpn: u32, #[len_param(0)] #[in] #[out] rpszSpn: *mut PSTR);
         #[library("NTDSAPI.dll")]
@@ -721,9 +713,9 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         extern fn DsGetDomainControllerInfoW(hDs: HANDLE, DomainName: PCWSTR, InfoLevel: u32, pcOut: *mut u32, ppInfo: *mut *mut void) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsGetSpnA(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCSTR, #[opt] ServiceName: PCSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[opt] pInstanceNames: *const PCSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PSTR) -> u32;
+        extern fn DsGetSpnA(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCSTR, #[opt] ServiceName: PCSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[in] #[opt] pInstanceNames: *mut PCSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PSTR) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsGetSpnW(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCWSTR, #[opt] ServiceName: PCWSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[opt] pInstanceNames: *const PCWSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PWSTR) -> u32;
+        extern fn DsGetSpnW(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCWSTR, #[opt] ServiceName: PCWSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[in] #[opt] pInstanceNames: *mut PCWSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PWSTR) -> u32;
         #[library("NTDSAPI.dll")]
         extern fn DsInheritSecurityIdentityA(hDS: HANDLE, #[reserved] Flags: u32, SrcPrincipal: PCSTR, DstPrincipal: PCSTR) -> u32;
         #[library("NTDSAPI.dll")]
@@ -757,15 +749,15 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         extern fn DsMakePasswordCredentialsW(#[opt] User: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Password: PCWSTR, pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsMapSchemaGuidsA(hDs: HANDLE, cGuids: u32, #[len_param(1)] rGuids: *const GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
+        extern fn DsMapSchemaGuidsA(hDs: HANDLE, cGuids: u32, #[len_param(1)] #[in] rGuids: *mut GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsMapSchemaGuidsW(hDs: HANDLE, cGuids: u32, #[len_param(1)] rGuids: *const GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
+        extern fn DsMapSchemaGuidsW(hDs: HANDLE, cGuids: u32, #[len_param(1)] #[in] rGuids: *mut GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesByCostA(hDS: HANDLE, pszFromSite: PCSTR, #[len_param(3)] rgszToSites: *const PSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
+        extern fn DsQuerySitesByCostA(hDS: HANDLE, pszFromSite: PCSTR, #[len_param(3)] #[in] rgszToSites: *mut PSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesByCostW(hDS: HANDLE, pwszFromSite: PCWSTR, #[len_param(3)] rgwszToSites: *const PWSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
+        extern fn DsQuerySitesByCostW(hDS: HANDLE, pwszFromSite: PCWSTR, #[len_param(3)] #[in] rgwszToSites: *mut PWSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesFree(rgSiteInfo: *const DS_SITE_COST_INFO);
+        extern fn DsQuerySitesFree(rgSiteInfo: PDS_SITE_COST_INFO);
         #[library("NTDSAPI.dll")]
         extern fn DsRemoveDsDomainA(hDs: HANDLE, DomainDN: PCSTR) -> u32;
         #[library("NTDSAPI.dll")]
@@ -775,9 +767,9 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         extern fn DsRemoveDsServerW(hDs: HANDLE, ServerDN: PCWSTR, #[opt] DomainDN: PCWSTR, #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaAddA(hDS: HANDLE, NameContext: PCSTR, SourceDsaDn: PCSTR, TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: *const SCHEDULE, Options: u32) -> u32;
+        extern fn DsReplicaAddA(hDS: HANDLE, NameContext: PCSTR, SourceDsaDn: PCSTR, TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: PSCHEDULE, Options: u32) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaAddW(hDS: HANDLE, NameContext: PCWSTR, SourceDsaDn: PCWSTR, TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: *const SCHEDULE, Options: u32) -> u32;
+        extern fn DsReplicaAddW(hDS: HANDLE, NameContext: PCWSTR, SourceDsaDn: PCWSTR, TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: PSCHEDULE, Options: u32) -> u32;
         #[library("NTDSAPI.dll")]
         extern fn DsReplicaConsistencyCheck(hDS: HANDLE, TaskID: DS_KCC_TASKID, dwFlags: u32) -> u32;
         #[library("NTDSAPI.dll")]
@@ -785,21 +777,21 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         extern fn DsReplicaDelW(hDS: HANDLE, NameContext: PCWSTR, DsaSrc: PCWSTR, Options: u32) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaFreeInfo(InfoType: DS_REPL_INFO_TYPE, pInfo: *const void);
+        extern fn DsReplicaFreeInfo(InfoType: DS_REPL_INFO_TYPE, #[in] pInfo: *mut void);
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaGetInfo2W(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[opt] puuidForSourceDsaObjGuid: *const GUID, #[opt] pszAttributeName: PCWSTR, #[opt] pszValue: PCWSTR, dwFlags: u32, dwEnumerationContext: u32, ppInfo: *mut *mut void) -> u32;
+        extern fn DsReplicaGetInfo2W(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut GUID, #[opt] pszAttributeName: PCWSTR, #[opt] pszValue: PCWSTR, dwFlags: u32, dwEnumerationContext: u32, ppInfo: *mut *mut void) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaGetInfoW(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[opt] puuidForSourceDsaObjGuid: *const GUID, ppInfo: *mut *mut void) -> u32;
+        extern fn DsReplicaGetInfoW(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut GUID, ppInfo: *mut *mut void) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaModifyA(hDS: HANDLE, NameContext: PCSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: *const SCHEDULE, #[reserved] ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
+        extern fn DsReplicaModifyA(hDS: HANDLE, NameContext: PCSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: PSCHEDULE, #[reserved] ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaModifyW(hDS: HANDLE, NameContext: PCWSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: *const SCHEDULE, ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
+        extern fn DsReplicaModifyW(hDS: HANDLE, NameContext: PCWSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: PSCHEDULE, ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
         #[library("NTDSAPI.dll")]
         extern fn DsReplicaSyncA(hDS: HANDLE, NameContext: PCSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncAllA(hDS: HANDLE, pszNameContext: PCSTR, ulFlags: u32, pFnCallBack: *mut u8, #[opt] pCallbackData: *const void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> u32;
+        extern fn DsReplicaSyncAllA(hDS: HANDLE, pszNameContext: PCSTR, ulFlags: u32, pFnCallBack: *mut u8, #[in] #[opt] pCallbackData: *mut void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncAllW(hDS: HANDLE, pszNameContext: PCWSTR, ulFlags: u32, pFnCallBack: *mut u8, #[opt] pCallbackData: *const void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> u32;
+        extern fn DsReplicaSyncAllW(hDS: HANDLE, pszNameContext: PCWSTR, ulFlags: u32, pFnCallBack: *mut u8, #[in] #[opt] pCallbackData: *mut void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> u32;
         #[library("NTDSAPI.dll")]
         extern fn DsReplicaSyncW(hDS: HANDLE, NameContext: PCWSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
         #[library("NTDSAPI.dll")]
@@ -815,13 +807,13 @@ mod Windows {
         #[library("NTDSAPI.dll")]
         extern fn DsServerRegisterSpnW(Operation: DS_SPN_WRITE_OP, ServiceClass: PCWSTR, #[opt] UserObjectDN: PCWSTR) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsUnBindA(phDS: *const HANDLE) -> u32;
+        extern fn DsUnBindA(#[in] phDS: *mut HANDLE) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsUnBindW(phDS: *const HANDLE) -> u32;
+        extern fn DsUnBindW(#[in] phDS: *mut HANDLE) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsWriteAccountSpnA(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCSTR, cSpn: u32, #[len_param(3)] rpszSpn: *const PCSTR) -> u32;
+        extern fn DsWriteAccountSpnA(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCSTR, cSpn: u32, #[len_param(3)] #[in] rpszSpn: *mut PCSTR) -> u32;
         #[library("NTDSAPI.dll")]
-        extern fn DsWriteAccountSpnW(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCWSTR, cSpn: u32, #[len_param(3)] rpszSpn: *const PCWSTR) -> u32;
+        extern fn DsWriteAccountSpnW(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCWSTR, cSpn: u32, #[len_param(3)] #[in] rpszSpn: *mut PCWSTR) -> u32;
         const FLAG_DISABLABLE_OPTIONAL_FEATURE: i32 = 4;
         const FLAG_DOMAIN_OPTIONAL_FEATURE: i32 = 2;
         const FLAG_FOREST_OPTIONAL_FEATURE: i32 = 1;
@@ -958,5 +950,14 @@ mod Windows {
         type PDS_SCHEMA_GUID_MAPA = *mut DS_SCHEMA_GUID_MAPA;
         type PDS_SCHEMA_GUID_MAPW = *mut DS_SCHEMA_GUID_MAPW;
         type PDS_SITE_COST_INFO = *mut DS_SITE_COST_INFO;
+        struct _DS_REPL_QUEUE_STATISTICSW {
+            ftimeCurrentOpStarted: FILETIME,
+            cNumPendingOps: u32,
+            ftimeOldestSync: FILETIME,
+            ftimeOldestAdd: FILETIME,
+            ftimeOldestMod: FILETIME,
+            ftimeOldestDel: FILETIME,
+            ftimeOldestUpdRefs: FILETIME,
+        }
     }
 }

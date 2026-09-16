@@ -13,7 +13,7 @@ mod Windows {
         const PID_STG_FILEINDEX: PROPID = 8;
         const PID_STG_FRN: PROPID = 21;
         const PID_STG_LASTCHANGEUSN: PROPID = 9;
-        const PID_STG_MAX: u32 = 22;
+        const PID_STG_MAX: PROPID = 22;
         const PID_STG_NAME: PROPID = 10;
         const PID_STG_PARENT_WORKID: PROPID = 6;
         const PID_STG_PATH: PROPID = 11;

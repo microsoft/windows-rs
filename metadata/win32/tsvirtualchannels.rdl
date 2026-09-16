@@ -5,15 +5,15 @@ mod Windows {
             dwFramesDelivered: u32,
             dwFramesDropped: u32,
         }
-        const E_DUPLICATE_WINDOW_HINT: i32 = -2147024713;
-        const E_MAPPEDRENDERER_SHUTDOWN: i32 = -2147019873;
+        const E_DUPLICATE_WINDOW_HINT: HRESULT = -2147024713;
+        const E_MAPPEDRENDERER_SHUTDOWN: HRESULT = -2147019873;
         #[guid(0xea326091_05fe_40c1_b49c_3d2ef4626a0e)]
         interface IWTSBitmapRenderService: IUnknown {
             fn GetMappedRenderer(&self, mappingId: u64, pMappedRendererCallback: IWTSBitmapRendererCallback, ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
         }
         #[guid(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1)]
         interface IWTSBitmapRenderer: IUnknown {
-            fn Render(&self, imageFormat: GUID, dwWidth: u32, dwHeight: u32, cbStride: i32, cbImageBuffer: u32, pImageBuffer: *const u8) -> HRESULT;
+            fn Render(&self, imageFormat: GUID, dwWidth: u32, dwHeight: u32, cbStride: i32, cbImageBuffer: u32, #[in] pImageBuffer: *mut u8) -> HRESULT;
             fn GetRendererStatistics(&self, pStatistics: *mut BITMAP_RENDERER_STATISTICS) -> HRESULT;
             fn RemoveMapping(&self) -> HRESULT;
         }
@@ -42,12 +42,12 @@ mod Windows {
         }
         #[guid(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannel: IUnknown {
-            fn Write(&self, cbSize: u32, pBuffer: *const u8, pReserved: IUnknown) -> HRESULT;
+            fn Write(&self, cbSize: u32, #[in] pBuffer: *mut u8, pReserved: IUnknown) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelCallback: IUnknown {
-            fn OnDataReceived(&self, cbSize: u32, pBuffer: *const u8) -> HRESULT;
+            fn OnDataReceived(&self, cbSize: u32, #[in] pBuffer: *mut u8) -> HRESULT;
             fn OnClose(&self) -> HRESULT;
         }
         #[guid(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198)]

@@ -39,11 +39,11 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromResource(hinst: HINSTANCE, id: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromStrRet(#[in] #[out] pstrret: *mut STRRET, #[opt] pidl: *const ITEMIDLIST, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromStrRet(#[in] #[out] pstrret: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromStringAsVector(#[opt] psz: PCWSTR, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromStringVector(#[len_param(1)] #[opt] prgsz: *const PCWSTR, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromStringVector(#[len_param(1)] #[in] #[opt] prgsz: *mut PCWSTR, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromUInt16Vector(#[len_param(1)] #[opt] prgn: *const u16, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -73,9 +73,9 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn InitVariantFromResource(hinst: HINSTANCE, id: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromStrRet(pstrret: *const STRRET, pidl: *const ITEMIDLIST, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromStrRet(#[in] pstrret: *mut STRRET, pidl: LPCITEMIDLIST, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromStringArray(#[len_param(1)] prgsz: *const PCWSTR, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromStringArray(#[len_param(1)] #[in] prgsz: *mut PCWSTR, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitVariantFromUInt16Array(#[len_param(1)] prgn: *const u16, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]

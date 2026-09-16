@@ -54,15 +54,51 @@ mod Windows {
         const AUXCAPS_LRVOLUME: i32 = 2;
         const AUXCAPS_VOLUME: i32 = 1;
         const AUX_MAPPER: u32 = 4294967295;
-        type HMIDI = *mut void;
-        type HMIDIIN = *mut void;
-        type HMIDIOUT = *mut void;
-        type HMIDISTRM = *mut void;
-        type HMIXER = *mut void;
-        type HMIXEROBJ = *mut void;
-        type HWAVE = *mut void;
-        type HWAVEIN = *mut void;
-        type HWAVEOUT = *mut void;
+        type HMIDI = *mut HMIDI__;
+        type HMIDIIN = *mut HMIDIIN__;
+        #[packed(1)]
+        struct HMIDIIN__ {
+            unused: i32,
+        }
+        type HMIDIOUT = *mut HMIDIOUT__;
+        #[packed(1)]
+        struct HMIDIOUT__ {
+            unused: i32,
+        }
+        type HMIDISTRM = *mut HMIDISTRM__;
+        #[packed(1)]
+        struct HMIDISTRM__ {
+            unused: i32,
+        }
+        #[packed(1)]
+        struct HMIDI__ {
+            unused: i32,
+        }
+        type HMIXER = *mut HMIXER__;
+        type HMIXEROBJ = *mut HMIXEROBJ__;
+        #[packed(1)]
+        struct HMIXEROBJ__ {
+            unused: i32,
+        }
+        #[packed(1)]
+        struct HMIXER__ {
+            unused: i32,
+        }
+        type HWAVE = *mut HWAVE__;
+        type HWAVEIN = *mut HWAVEIN__;
+        #[packed(1)]
+        struct HWAVEIN__ {
+            unused: i32,
+        }
+        type HWAVEOUT = *mut HWAVEOUT__;
+        #[packed(1)]
+        struct HWAVEOUT__ {
+            unused: i32,
+        }
+        #[packed(1)]
+        struct HWAVE__ {
+            unused: i32,
+        }
         type KEYARRAY = [u16; 128];
         type LPAUXCAPS = LPAUXCAPSA;
         type LPAUXCAPS2 = LPAUXCAPS2A;
@@ -80,7 +116,7 @@ mod Windows {
         type LPHWAVEIN = *mut HWAVEIN;
         type LPHWAVEOUT = *mut HWAVEOUT;
         type LPKEYARRAY = *mut u16;
-        extern fn LPMIDICALLBACK();
+        extern "C" fn LPMIDICALLBACK(param0: HDRVR, param1: u32, param2: usize, param3: usize, param4: usize);
         type LPMIDIHDR = *mut MIDIHDR;
         type LPMIDIINCAPS = LPMIDIINCAPSA;
         type LPMIDIINCAPS2 = LPMIDIINCAPS2A;
@@ -120,7 +156,7 @@ mod Windows {
         type LPMIXERLINEW = *mut MIXERLINEW;
         type LPPATCHARRAY = *mut u16;
         type LPPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
-        extern fn LPWAVECALLBACK();
+        extern "C" fn LPWAVECALLBACK(param0: HDRVR, param1: u32, param2: usize, param3: usize, param4: usize);
         type LPWAVEFORMAT = *mut WAVEFORMAT;
         type LPWAVEFORMATEX = *mut WAVEFORMATEX;
         type LPWAVEHDR = *mut WAVEHDR;
@@ -149,7 +185,7 @@ mod Windows {
         const MHDR_INQUEUE: i32 = 4;
         const MHDR_ISSTRM: i32 = 8;
         const MHDR_PREPARED: i32 = 2;
-        extern fn MIDICALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        extern "C" fn MIDICALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
         const MIDICAPS_CACHE: i32 = 4;
         const MIDICAPS_LRVOLUME: i32 = 2;
         const MIDICAPS_STREAM: i32 = 8;
@@ -754,7 +790,7 @@ mod Windows {
         type PWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
         type PWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
         type PWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
-        extern fn WAVECALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        extern "C" fn WAVECALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
         const WAVECAPS_LRVOLUME: i32 = 8;
         const WAVECAPS_PITCH: i32 = 1;
         const WAVECAPS_PLAYBACKRATE: i32 = 2;
@@ -940,43 +976,43 @@ mod Windows {
         const WOM_DONE: i32 = 957;
         const WOM_OPEN: i32 = 955;
         #[library("WINMM.dll")]
-        extern fn auxGetDevCapsA(uDeviceID: usize, #[size_param(2)] pac: *mut AUXCAPSA, cbac: u32) -> MMRESULT;
+        extern fn auxGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pac: LPAUXCAPSA, cbac: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn auxGetDevCapsW(uDeviceID: usize, #[size_param(2)] pac: *mut AUXCAPSW, cbac: u32) -> MMRESULT;
+        extern fn auxGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pac: LPAUXCAPSW, cbac: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn auxGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn auxGetVolume(uDeviceID: u32, pdwVolume: *mut u32) -> MMRESULT;
+        extern fn auxGetVolume(uDeviceID: u32, #[out] pdwVolume: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn auxOutMessage(uDeviceID: u32, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn auxSetVolume(uDeviceID: u32, dwVolume: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, #[opt] pReserved: *const void) -> MMRESULT;
+        extern fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, #[in] #[opt] pReserved: *mut void) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, #[opt] pReserved: *const void) -> MMRESULT;
+        extern fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, #[in] #[opt] pReserved: *mut void) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInAddBuffer(hmi: HMIDIIN, #[size_param(2)] pmh: *mut MIDIHDR, cbmh: u32) -> MMRESULT;
+        extern fn midiInAddBuffer(hmi: HMIDIIN, #[size_param(2)] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiInClose(hmi: HMIDIIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetDevCapsA(uDeviceID: usize, #[size_param(2)] pmic: *mut MIDIINCAPSA, cbmic: u32) -> MMRESULT;
+        extern fn midiInGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pmic: LPMIDIINCAPSA, cbmic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetDevCapsW(uDeviceID: usize, #[size_param(2)] pmic: *mut MIDIINCAPSW, cbmic: u32) -> MMRESULT;
+        extern fn midiInGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pmic: LPMIDIINCAPSW, cbmic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiInGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiInGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetID(hmi: HMIDIIN, puDeviceID: *mut u32) -> MMRESULT;
+        extern fn midiInGetID(hmi: HMIDIIN, #[out] puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiInGetNumDevs() -> u32;
         #[library("WINMM.dll")]
         extern fn midiInMessage(#[opt] hmi: HMIDIIN, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInOpen(phmi: *mut HMIDIIN, uDeviceID: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        extern fn midiInOpen(#[out] phmi: LPHMIDIIN, uDeviceID: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInPrepareHeader(hmi: HMIDIIN, #[size_param(2)] #[in] #[out] pmh: *mut MIDIHDR, cbmh: u32) -> MMRESULT;
+        extern fn midiInPrepareHeader(hmi: HMIDIIN, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiInReset(hmi: HMIDIIN) -> MMRESULT;
         #[library("WINMM.dll")]
@@ -984,35 +1020,35 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn midiInStop(hmi: HMIDIIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInUnprepareHeader(hmi: HMIDIIN, #[size_param(2)] #[in] #[out] pmh: *mut MIDIHDR, cbmh: u32) -> MMRESULT;
+        extern fn midiInUnprepareHeader(hmi: HMIDIIN, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutCacheDrumPatches(hmo: HMIDIOUT, uPatch: u32, pwkya: *const u16, fuCache: u32) -> MMRESULT;
+        extern fn midiOutCacheDrumPatches(hmo: HMIDIOUT, uPatch: u32, pwkya: LPWORD, fuCache: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutCachePatches(hmo: HMIDIOUT, uBank: u32, pwpa: *const u16, fuCache: u32) -> MMRESULT;
+        extern fn midiOutCachePatches(hmo: HMIDIOUT, uBank: u32, pwpa: LPWORD, fuCache: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiOutClose(hmo: HMIDIOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetDevCapsA(uDeviceID: usize, #[size_param(2)] pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> MMRESULT;
+        extern fn midiOutGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pmoc: LPMIDIOUTCAPSA, cbmoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetDevCapsW(uDeviceID: usize, #[size_param(2)] pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> MMRESULT;
+        extern fn midiOutGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pmoc: LPMIDIOUTCAPSW, cbmoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiOutGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiOutGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetID(hmo: HMIDIOUT, puDeviceID: *mut u32) -> MMRESULT;
+        extern fn midiOutGetID(hmo: HMIDIOUT, #[out] puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiOutGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn midiOutGetVolume(#[opt] hmo: HMIDIOUT, pdwVolume: *mut u32) -> MMRESULT;
+        extern fn midiOutGetVolume(#[opt] hmo: HMIDIOUT, #[out] pdwVolume: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutLongMsg(hmo: HMIDIOUT, #[size_param(2)] pmh: *const MIDIHDR, cbmh: u32) -> MMRESULT;
+        extern fn midiOutLongMsg(hmo: HMIDIOUT, #[size_param(2)] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiOutMessage(#[opt] hmo: HMIDIOUT, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutOpen(phmo: *mut HMIDIOUT, uDeviceID: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        extern fn midiOutOpen(#[out] phmo: LPHMIDIOUT, uDeviceID: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutPrepareHeader(hmo: HMIDIOUT, #[size_param(2)] #[in] #[out] pmh: *mut MIDIHDR, cbmh: u32) -> MMRESULT;
+        extern fn midiOutPrepareHeader(hmo: HMIDIOUT, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiOutReset(hmo: HMIDIOUT) -> MMRESULT;
         #[library("WINMM.dll")]
@@ -1020,19 +1056,19 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn midiOutShortMsg(hmo: HMIDIOUT, dwMsg: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutUnprepareHeader(hmo: HMIDIOUT, #[size_param(2)] #[in] #[out] pmh: *mut MIDIHDR, cbmh: u32) -> MMRESULT;
+        extern fn midiOutUnprepareHeader(hmo: HMIDIOUT, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiStreamClose(hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamOpen(phms: *mut HMIDISTRM, #[len_param(2)] #[in] #[out] puDeviceID: *mut u32, cMidi: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        extern fn midiStreamOpen(#[out] phms: LPHMIDISTRM, #[len_param(2)] #[in] #[out] puDeviceID: LPUINT, cMidi: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamOut(hms: HMIDISTRM, #[size_param(2)] pmh: *mut MIDIHDR, cbmh: u32) -> MMRESULT;
+        extern fn midiStreamOut(hms: HMIDISTRM, #[size_param(2)] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiStreamPause(hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamPosition(hms: HMIDISTRM, #[size_param(2)] lpmmt: *mut MMTIME, cbmmt: u32) -> MMRESULT;
+        extern fn midiStreamPosition(hms: HMIDISTRM, #[size_param(2)] #[out] lpmmt: LPMMTIME, cbmmt: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamProperty(hms: HMIDISTRM, #[in] #[out] lppropdata: *mut u8, dwProperty: u32) -> MMRESULT;
+        extern fn midiStreamProperty(hms: HMIDISTRM, #[in] #[out] lppropdata: LPBYTE, dwProperty: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn midiStreamRestart(hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]
@@ -1040,55 +1076,55 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn mixerClose(hmx: HMIXER) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetControlDetailsA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: *mut MIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
+        extern fn mixerGetControlDetailsA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: LPMIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetControlDetailsW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: *mut MIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
+        extern fn mixerGetControlDetailsW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: LPMIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetDevCapsA(uMxId: usize, #[size_param(2)] pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> MMRESULT;
+        extern fn mixerGetDevCapsA(uMxId: usize, #[size_param(2)] #[out] pmxcaps: LPMIXERCAPSA, cbmxcaps: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetDevCapsW(uMxId: usize, #[size_param(2)] pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> MMRESULT;
+        extern fn mixerGetDevCapsW(uMxId: usize, #[size_param(2)] #[out] pmxcaps: LPMIXERCAPSW, cbmxcaps: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn mixerGetID(#[opt] hmxobj: HMIXEROBJ, puMxId: *mut u32, fdwId: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineControlsA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: *mut MIXERLINECONTROLSA, fdwControls: u32) -> MMRESULT;
+        extern fn mixerGetLineControlsA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: LPMIXERLINECONTROLSA, fdwControls: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineControlsW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: *mut MIXERLINECONTROLSW, fdwControls: u32) -> MMRESULT;
+        extern fn mixerGetLineControlsW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: LPMIXERLINECONTROLSW, fdwControls: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineInfoA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: *mut MIXERLINEA, fdwInfo: u32) -> MMRESULT;
+        extern fn mixerGetLineInfoA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: LPMIXERLINEA, fdwInfo: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineInfoW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: *mut MIXERLINEW, fdwInfo: u32) -> MMRESULT;
+        extern fn mixerGetLineInfoW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: LPMIXERLINEW, fdwInfo: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn mixerGetNumDevs() -> u32;
         #[library("WINMM.dll")]
         extern fn mixerMessage(#[opt] hmx: HMIXER, uMsg: u32, #[opt] dwParam1: usize, #[opt] dwParam2: usize) -> u32;
         #[library("WINMM.dll")]
-        extern fn mixerOpen(#[opt] phmx: *mut HMIXER, uMxId: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        extern fn mixerOpen(#[out] #[opt] phmx: LPHMIXER, uMxId: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerSetControlDetails(#[opt] hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
+        extern fn mixerSetControlDetails(#[opt] hmxobj: HMIXEROBJ, pmxcd: LPMIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInAddBuffer(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: *mut WAVEHDR, cbwh: u32) -> MMRESULT;
+        extern fn waveInAddBuffer(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveInClose(hwi: HWAVEIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetDevCapsA(uDeviceID: usize, #[size_param(2)] pwic: *mut WAVEINCAPSA, cbwic: u32) -> MMRESULT;
+        extern fn waveInGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pwic: LPWAVEINCAPSA, cbwic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetDevCapsW(uDeviceID: usize, #[size_param(2)] pwic: *mut WAVEINCAPSW, cbwic: u32) -> MMRESULT;
+        extern fn waveInGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pwic: LPWAVEINCAPSW, cbwic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveInGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveInGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetID(hwi: HWAVEIN, puDeviceID: *const u32) -> MMRESULT;
+        extern fn waveInGetID(hwi: HWAVEIN, puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveInGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn waveInGetPosition(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pmmt: *mut MMTIME, cbmmt: u32) -> MMRESULT;
+        extern fn waveInGetPosition(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pmmt: LPMMTIME, cbmmt: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveInMessage(#[opt] hwi: HWAVEIN, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInOpen(#[opt] phwi: *mut HWAVEIN, uDeviceID: u32, pwfx: *const WAVEFORMATEX, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        extern fn waveInOpen(#[out] #[opt] phwi: LPHWAVEIN, uDeviceID: u32, pwfx: LPCWAVEFORMATEX, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInPrepareHeader(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: *mut WAVEHDR, cbwh: u32) -> MMRESULT;
+        extern fn waveInPrepareHeader(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveInReset(hwi: HWAVEIN) -> MMRESULT;
         #[library("WINMM.dll")]
@@ -1096,39 +1132,39 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn waveInStop(hwi: HWAVEIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInUnprepareHeader(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: *mut WAVEHDR, cbwh: u32) -> MMRESULT;
+        extern fn waveInUnprepareHeader(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutBreakLoop(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutClose(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetDevCapsA(uDeviceID: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> MMRESULT;
+        extern fn waveOutGetDevCapsA(uDeviceID: usize, #[out] pwoc: LPWAVEOUTCAPSA, cbwoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetDevCapsW(uDeviceID: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> MMRESULT;
+        extern fn waveOutGetDevCapsW(uDeviceID: usize, #[out] pwoc: LPWAVEOUTCAPSW, cbwoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetID(hwo: HWAVEOUT, puDeviceID: *mut u32) -> MMRESULT;
+        extern fn waveOutGetID(hwo: HWAVEOUT, #[out] puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn waveOutGetPitch(hwo: HWAVEOUT, pdwPitch: *mut u32) -> MMRESULT;
+        extern fn waveOutGetPitch(hwo: HWAVEOUT, #[out] pdwPitch: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwRate: *mut u32) -> MMRESULT;
+        extern fn waveOutGetPlaybackRate(hwo: HWAVEOUT, #[out] pdwRate: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetPosition(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pmmt: *mut MMTIME, cbmmt: u32) -> MMRESULT;
+        extern fn waveOutGetPosition(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pmmt: LPMMTIME, cbmmt: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetVolume(#[opt] hwo: HWAVEOUT, pdwVolume: *mut u32) -> MMRESULT;
+        extern fn waveOutGetVolume(#[opt] hwo: HWAVEOUT, #[out] pdwVolume: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutMessage(#[opt] hwo: HWAVEOUT, uMsg: u32, dw1: usize, dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutOpen(#[opt] phwo: *mut HWAVEOUT, uDeviceID: u32, pwfx: *const WAVEFORMATEX, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        extern fn waveOutOpen(#[out] #[opt] phwo: LPHWAVEOUT, uDeviceID: u32, pwfx: LPCWAVEFORMATEX, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutPause(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutPrepareHeader(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: *mut WAVEHDR, cbwh: u32) -> MMRESULT;
+        extern fn waveOutPrepareHeader(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutReset(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
@@ -1140,8 +1176,8 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn waveOutSetVolume(#[opt] hwo: HWAVEOUT, dwVolume: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutUnprepareHeader(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: *mut WAVEHDR, cbwh: u32) -> MMRESULT;
+        extern fn waveOutUnprepareHeader(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutWrite(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: *mut WAVEHDR, cbwh: u32) -> MMRESULT;
+        extern fn waveOutWrite(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
     }
 }

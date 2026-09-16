@@ -4,332 +4,332 @@ mod Windows {
         const AVENC_H263V_LEVELCOUNT: i32 = 8;
         const AVENC_H264V_LEVELCOUNT: i32 = 16;
         const AVENC_H264V_MAX_MBBITS: i32 = 3200;
-        struct CODECAPI_AVAudioChannelConfig {}
-        struct CODECAPI_AVAudioChannelCount {}
-        struct CODECAPI_AVAudioSampleRate {}
-        struct CODECAPI_AVDDSurroundMode {}
-        struct CODECAPI_AVDSPLoudnessEqualization {}
-        struct CODECAPI_AVDSPSpeakerFill {}
-        struct CODECAPI_AVDecAACDownmixMode {}
-        struct CODECAPI_AVDecAudioDualMono {}
-        struct CODECAPI_AVDecAudioDualMonoReproMode {}
-        struct CODECAPI_AVDecCommonInputFormat {}
-        struct CODECAPI_AVDecCommonMeanBitRate {}
-        struct CODECAPI_AVDecCommonMeanBitRateInterval {}
-        struct CODECAPI_AVDecCommonOutputFormat {}
-        struct CODECAPI_AVDecDDDynamicRangeScaleHigh {}
-        struct CODECAPI_AVDecDDDynamicRangeScaleLow {}
-        struct CODECAPI_AVDecDDMatrixDecodingMode {}
-        struct CODECAPI_AVDecDDOperationalMode {}
-        struct CODECAPI_AVDecDDStereoDownMixMode {}
-        struct CODECAPI_AVDecDisableVideoPostProcessing {}
-        struct CODECAPI_AVDecHEAACDynamicRangeControl {}
-        struct CODECAPI_AVDecNumWorkerThreads {}
-        struct CODECAPI_AVDecSoftwareDynamicFormatChange {}
-        struct CODECAPI_AVDecVideoAcceleration_H264 {}
-        struct CODECAPI_AVDecVideoAcceleration_MPEG2 {}
-        struct CODECAPI_AVDecVideoAcceleration_VC1 {}
-        struct CODECAPI_AVDecVideoCodecType {}
-        struct CODECAPI_AVDecVideoDXVABusEncryption {}
-        struct CODECAPI_AVDecVideoDXVAMode {}
-        struct CODECAPI_AVDecVideoDropPicWithMissingRef {}
-        struct CODECAPI_AVDecVideoFastDecodeMode {}
-        struct CODECAPI_AVDecVideoH264ErrorConcealment {}
-        struct CODECAPI_AVDecVideoImageSize {}
-        struct CODECAPI_AVDecVideoInputScanType {}
-        struct CODECAPI_AVDecVideoMPEG2ErrorConcealment {}
-        struct CODECAPI_AVDecVideoMaxCodedHeight {}
-        struct CODECAPI_AVDecVideoMaxCodedWidth {}
-        struct CODECAPI_AVDecVideoPixelAspectRatio {}
-        struct CODECAPI_AVDecVideoProcDeinterlaceCSC {}
-        struct CODECAPI_AVDecVideoSWPowerLevel {}
-        struct CODECAPI_AVDecVideoSoftwareDeinterlaceMode {}
-        struct CODECAPI_AVDecVideoThumbnailGenerationMode {}
-        struct CODECAPI_AVEnableInLoopDeblockFilter {}
-        struct CODECAPI_AVEncAACEnableVBR {}
-        struct CODECAPI_AVEncAdaptiveMode {}
-        struct CODECAPI_AVEncAudioDualMono {}
-        struct CODECAPI_AVEncAudioInputContent {}
-        struct CODECAPI_AVEncAudioIntervalToEncode {}
-        struct CODECAPI_AVEncAudioIntervalToSkip {}
-        struct CODECAPI_AVEncAudioMapDestChannel0 {}
-        struct CODECAPI_AVEncAudioMapDestChannel1 {}
-        struct CODECAPI_AVEncAudioMapDestChannel10 {}
-        struct CODECAPI_AVEncAudioMapDestChannel11 {}
-        struct CODECAPI_AVEncAudioMapDestChannel12 {}
-        struct CODECAPI_AVEncAudioMapDestChannel13 {}
-        struct CODECAPI_AVEncAudioMapDestChannel14 {}
-        struct CODECAPI_AVEncAudioMapDestChannel15 {}
-        struct CODECAPI_AVEncAudioMapDestChannel2 {}
-        struct CODECAPI_AVEncAudioMapDestChannel3 {}
-        struct CODECAPI_AVEncAudioMapDestChannel4 {}
-        struct CODECAPI_AVEncAudioMapDestChannel5 {}
-        struct CODECAPI_AVEncAudioMapDestChannel6 {}
-        struct CODECAPI_AVEncAudioMapDestChannel7 {}
-        struct CODECAPI_AVEncAudioMapDestChannel8 {}
-        struct CODECAPI_AVEncAudioMapDestChannel9 {}
-        struct CODECAPI_AVEncAudioMeanBitRate {}
-        struct CODECAPI_AVEncChromaEncodeMode {}
-        struct CODECAPI_AVEncChromaUpdateTime {}
-        struct CODECAPI_AVEncCodecType {}
-        struct CODECAPI_AVEncCommonAllowFrameDrops {}
-        struct CODECAPI_AVEncCommonBufferInLevel {}
-        struct CODECAPI_AVEncCommonBufferOutLevel {}
-        struct CODECAPI_AVEncCommonBufferSize {}
-        struct CODECAPI_AVEncCommonFormatConstraint {}
-        struct CODECAPI_AVEncCommonLowLatency {}
-        struct CODECAPI_AVEncCommonMaxBitRate {}
-        struct CODECAPI_AVEncCommonMeanBitRate {}
-        struct CODECAPI_AVEncCommonMeanBitRateInterval {}
-        struct CODECAPI_AVEncCommonMinBitRate {}
-        struct CODECAPI_AVEncCommonMultipassMode {}
-        struct CODECAPI_AVEncCommonPassEnd {}
-        struct CODECAPI_AVEncCommonPassStart {}
-        struct CODECAPI_AVEncCommonQuality {}
-        struct CODECAPI_AVEncCommonQualityVsSpeed {}
-        struct CODECAPI_AVEncCommonRateControlMode {}
-        struct CODECAPI_AVEncCommonRealTime {}
-        struct CODECAPI_AVEncCommonStreamEndHandling {}
-        struct CODECAPI_AVEncCommonTranscodeEncodingProfile {}
-        struct CODECAPI_AVEncDDAtoDConverterType {}
-        struct CODECAPI_AVEncDDCentreDownMixLevel {}
-        struct CODECAPI_AVEncDDChannelBWLowPassFilter {}
-        struct CODECAPI_AVEncDDCopyright {}
-        struct CODECAPI_AVEncDDDCHighPassFilter {}
-        struct CODECAPI_AVEncDDDialogNormalization {}
-        struct CODECAPI_AVEncDDDigitalDeemphasis {}
-        struct CODECAPI_AVEncDDDynamicRangeCompressionControl {}
-        struct CODECAPI_AVEncDDHeadphoneMode {}
-        struct CODECAPI_AVEncDDLFELowPassFilter {}
-        struct CODECAPI_AVEncDDLoRoCenterMixLvl_x10 {}
-        struct CODECAPI_AVEncDDLoRoSurroundMixLvl_x10 {}
-        struct CODECAPI_AVEncDDLtRtCenterMixLvl_x10 {}
-        struct CODECAPI_AVEncDDLtRtSurroundMixLvl_x10 {}
-        struct CODECAPI_AVEncDDOriginalBitstream {}
-        struct CODECAPI_AVEncDDPreferredStereoDownMixMode {}
-        struct CODECAPI_AVEncDDProductionInfoExists {}
-        struct CODECAPI_AVEncDDProductionMixLevel {}
-        struct CODECAPI_AVEncDDProductionRoomType {}
-        struct CODECAPI_AVEncDDRFPreEmphasisFilter {}
-        struct CODECAPI_AVEncDDService {}
-        struct CODECAPI_AVEncDDSurround3dBAttenuation {}
-        struct CODECAPI_AVEncDDSurround90DegreeePhaseShift {}
-        struct CODECAPI_AVEncDDSurroundDownMixLevel {}
-        struct CODECAPI_AVEncDDSurroundExMode {}
-        struct CODECAPI_AVEncEnableVideoProcessing {}
-        struct CODECAPI_AVEncH264CABACEnable {}
-        struct CODECAPI_AVEncH264PPSID {}
-        struct CODECAPI_AVEncH264SPSID {}
-        struct CODECAPI_AVEncInputVideoSystem {}
-        struct CODECAPI_AVEncLowPowerEncoder {}
-        struct CODECAPI_AVEncMP12MuxDVDNavPacks {}
-        struct CODECAPI_AVEncMP12MuxEarliestPTS {}
-        struct CODECAPI_AVEncMP12MuxInitialSCR {}
-        struct CODECAPI_AVEncMP12MuxLargestPacketSize {}
-        struct CODECAPI_AVEncMP12MuxMuxRate {}
-        struct CODECAPI_AVEncMP12MuxNumStreams {}
-        struct CODECAPI_AVEncMP12MuxPackSize {}
-        struct CODECAPI_AVEncMP12MuxPacketOverhead {}
-        struct CODECAPI_AVEncMP12MuxSysAudioLock {}
-        struct CODECAPI_AVEncMP12MuxSysCSPS {}
-        struct CODECAPI_AVEncMP12MuxSysFixed {}
-        struct CODECAPI_AVEncMP12MuxSysRateBound {}
-        struct CODECAPI_AVEncMP12MuxSysSTDBufferBound {}
-        struct CODECAPI_AVEncMP12MuxSysVideoLock {}
-        struct CODECAPI_AVEncMP12MuxTargetPacketizer {}
-        struct CODECAPI_AVEncMP12PktzCopyright {}
-        struct CODECAPI_AVEncMP12PktzInitialPTS {}
-        struct CODECAPI_AVEncMP12PktzOriginal {}
-        struct CODECAPI_AVEncMP12PktzPacketSize {}
-        struct CODECAPI_AVEncMP12PktzSTDBuffer {}
-        struct CODECAPI_AVEncMP12PktzStreamID {}
-        struct CODECAPI_AVEncMPACodingMode {}
-        struct CODECAPI_AVEncMPACopyright {}
-        struct CODECAPI_AVEncMPAEmphasisType {}
-        struct CODECAPI_AVEncMPAEnableRedundancyProtection {}
-        struct CODECAPI_AVEncMPALayer {}
-        struct CODECAPI_AVEncMPAOriginalBitstream {}
-        struct CODECAPI_AVEncMPAPrivateUserBit {}
-        struct CODECAPI_AVEncMPVAddSeqEndCode {}
-        struct CODECAPI_AVEncMPVDefaultBPictureCount {}
-        struct CODECAPI_AVEncMPVFrameFieldMode {}
-        struct CODECAPI_AVEncMPVGOPOpen {}
-        struct CODECAPI_AVEncMPVGOPSInSeq {}
-        struct CODECAPI_AVEncMPVGOPSize {}
-        struct CODECAPI_AVEncMPVGOPSizeMax {}
-        struct CODECAPI_AVEncMPVGOPSizeMin {}
-        struct CODECAPI_AVEncMPVGenerateHeaderPicDispExt {}
-        struct CODECAPI_AVEncMPVGenerateHeaderPicExt {}
-        struct CODECAPI_AVEncMPVGenerateHeaderSeqDispExt {}
-        struct CODECAPI_AVEncMPVGenerateHeaderSeqExt {}
-        struct CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt {}
-        struct CODECAPI_AVEncMPVIntraDCPrecision {}
-        struct CODECAPI_AVEncMPVIntraVLCTable {}
-        struct CODECAPI_AVEncMPVLevel {}
-        struct CODECAPI_AVEncMPVProfile {}
-        struct CODECAPI_AVEncMPVQScaleType {}
-        struct CODECAPI_AVEncMPVQuantMatrixChromaIntra {}
-        struct CODECAPI_AVEncMPVQuantMatrixChromaNonIntra {}
-        struct CODECAPI_AVEncMPVQuantMatrixIntra {}
-        struct CODECAPI_AVEncMPVQuantMatrixNonIntra {}
-        struct CODECAPI_AVEncMPVScanPattern {}
-        struct CODECAPI_AVEncMPVSceneDetection {}
-        struct CODECAPI_AVEncMPVUseConcealmentMotionVectors {}
-        struct CODECAPI_AVEncMaxFrameRate {}
-        struct CODECAPI_AVEncMuxOutputStreamType {}
-        struct CODECAPI_AVEncNoInputCopy {}
-        struct CODECAPI_AVEncNumWorkerThreads {}
-        struct CODECAPI_AVEncProgressiveUpdateTime {}
-        struct CODECAPI_AVEncSliceControlMode {}
-        struct CODECAPI_AVEncSliceControlSize {}
-        struct CODECAPI_AVEncSliceGenerationMode {}
-        struct CODECAPI_AVEncStatAudioAverageBPS {}
-        struct CODECAPI_AVEncStatAudioAveragePCMValue {}
-        struct CODECAPI_AVEncStatAudioPeakPCMValue {}
-        struct CODECAPI_AVEncStatAverageBPS {}
-        struct CODECAPI_AVEncStatCommonCompletedPasses {}
-        struct CODECAPI_AVEncStatHardwareBandwidthUtilitization {}
-        struct CODECAPI_AVEncStatHardwareProcessorUtilitization {}
-        struct CODECAPI_AVEncStatMPVSkippedEmptyFrames {}
-        struct CODECAPI_AVEncStatVideoCodedFrames {}
-        struct CODECAPI_AVEncStatVideoOutputFrameRate {}
-        struct CODECAPI_AVEncStatVideoTotalFrames {}
-        struct CODECAPI_AVEncStatWMVCBAvg {}
-        struct CODECAPI_AVEncStatWMVCBMax {}
-        struct CODECAPI_AVEncStatWMVDecoderComplexityProfile {}
-        struct CODECAPI_AVEncTileColumns {}
-        struct CODECAPI_AVEncTileRows {}
-        struct CODECAPI_AVEncVideoCBRMotionTradeoff {}
-        struct CODECAPI_AVEncVideoCTBSize {}
-        struct CODECAPI_AVEncVideoCodedVideoAccessUnitSize {}
-        struct CODECAPI_AVEncVideoConsecutiveFramesForLayer {}
-        struct CODECAPI_AVEncVideoContentType {}
-        struct CODECAPI_AVEncVideoD3D12ReconstructedPictureOutputMode {}
-        struct CODECAPI_AVEncVideoDefaultUpperFieldDominant {}
-        struct CODECAPI_AVEncVideoDirtyRectEnabled {}
-        struct CODECAPI_AVEncVideoDisplayDimension {}
-        struct CODECAPI_AVEncVideoEnableFramePsnrYuv {}
-        struct CODECAPI_AVEncVideoEnableSpatialAdaptiveQuantization {}
-        struct CODECAPI_AVEncVideoEncodeDimension {}
-        struct CODECAPI_AVEncVideoEncodeFrameTypeQP {}
-        struct CODECAPI_AVEncVideoEncodeOffsetOrigin {}
-        struct CODECAPI_AVEncVideoEncodeQP {}
-        struct CODECAPI_AVEncVideoFieldSwap {}
-        struct CODECAPI_AVEncVideoForceKeyFrame {}
-        struct CODECAPI_AVEncVideoForceSourceScanType {}
-        struct CODECAPI_AVEncVideoGradualIntraRefresh {}
-        struct CODECAPI_AVEncVideoHeaderDropFrame {}
-        struct CODECAPI_AVEncVideoHeaderFrames {}
-        struct CODECAPI_AVEncVideoHeaderHours {}
-        struct CODECAPI_AVEncVideoHeaderMinutes {}
-        struct CODECAPI_AVEncVideoHeaderSeconds {}
-        struct CODECAPI_AVEncVideoInputAbsoluteQPBlockSettings {}
-        struct CODECAPI_AVEncVideoInputChromaResolution {}
-        struct CODECAPI_AVEncVideoInputChromaSubsampling {}
-        struct CODECAPI_AVEncVideoInputColorLighting {}
-        struct CODECAPI_AVEncVideoInputColorNominalRange {}
-        struct CODECAPI_AVEncVideoInputColorPrimaries {}
-        struct CODECAPI_AVEncVideoInputColorTransferFunction {}
-        struct CODECAPI_AVEncVideoInputColorTransferMatrix {}
-        struct CODECAPI_AVEncVideoInputDeltaQPBlockSettings {}
-        struct CODECAPI_AVEncVideoInstantTemporalUpSwitching {}
-        struct CODECAPI_AVEncVideoIntraLayerPrediction {}
-        struct CODECAPI_AVEncVideoInverseTelecineEnable {}
-        struct CODECAPI_AVEncVideoInverseTelecineThreshold {}
-        struct CODECAPI_AVEncVideoLTRBufferControl {}
-        struct CODECAPI_AVEncVideoMarkLTRFrame {}
-        struct CODECAPI_AVEncVideoMaxCTBSize {}
-        struct CODECAPI_AVEncVideoMaxKeyframeDistance {}
-        struct CODECAPI_AVEncVideoMaxNumRefFrame {}
-        struct CODECAPI_AVEncVideoMaxNumRefFrameForLayer {}
-        struct CODECAPI_AVEncVideoMaxQP {}
-        struct CODECAPI_AVEncVideoMaxTemporalLayers {}
-        struct CODECAPI_AVEncVideoMeanAbsoluteDifference {}
-        struct CODECAPI_AVEncVideoMinQP {}
-        struct CODECAPI_AVEncVideoNoOfFieldsToEncode {}
-        struct CODECAPI_AVEncVideoNoOfFieldsToSkip {}
-        struct CODECAPI_AVEncVideoNumGOPsPerIDR {}
-        struct CODECAPI_AVEncVideoOutputBitsUsedMapBlockSize {}
-        struct CODECAPI_AVEncVideoOutputChromaResolution {}
-        struct CODECAPI_AVEncVideoOutputChromaSubsampling {}
-        struct CODECAPI_AVEncVideoOutputColorLighting {}
-        struct CODECAPI_AVEncVideoOutputColorNominalRange {}
-        struct CODECAPI_AVEncVideoOutputColorPrimaries {}
-        struct CODECAPI_AVEncVideoOutputColorTransferFunction {}
-        struct CODECAPI_AVEncVideoOutputColorTransferMatrix {}
-        struct CODECAPI_AVEncVideoOutputFrameRate {}
-        struct CODECAPI_AVEncVideoOutputFrameRateConversion {}
-        struct CODECAPI_AVEncVideoOutputQPMapBlockSize {}
-        struct CODECAPI_AVEncVideoOutputScanType {}
-        struct CODECAPI_AVEncVideoPixelAspectRatio {}
-        struct CODECAPI_AVEncVideoROIEnabled {}
-        struct CODECAPI_AVEncVideoRateControlParams {}
-        struct CODECAPI_AVEncVideoSatdMapBlockSize {}
-        struct CODECAPI_AVEncVideoSelectLayer {}
-        struct CODECAPI_AVEncVideoSourceFilmContent {}
-        struct CODECAPI_AVEncVideoSourceIsBW {}
-        struct CODECAPI_AVEncVideoSupportedControls {}
-        struct CODECAPI_AVEncVideoTemporalLayerCount {}
-        struct CODECAPI_AVEncVideoUsage {}
-        struct CODECAPI_AVEncVideoUseLTRFrame {}
-        struct CODECAPI_AVEncWMVDecoderComplexity {}
-        struct CODECAPI_AVEncWMVInterlacedEncoding {}
-        struct CODECAPI_AVEncWMVKeyFrameBufferLevelMarker {}
-        struct CODECAPI_AVEncWMVKeyFrameDistance {}
-        struct CODECAPI_AVEncWMVProduceDummyFrames {}
-        struct CODECAPI_AVLowLatencyMode {}
-        struct CODECAPI_AVPriorityControl {}
-        struct CODECAPI_AVRealtimeControl {}
-        struct CODECAPI_AVScenarioInfo {}
-        struct CODECAPI_FeatureMapFlagsUsed {}
-        struct CODECAPI_GUID_AVDecAudioInputAAC {}
-        struct CODECAPI_GUID_AVDecAudioInputDTS {}
-        struct CODECAPI_GUID_AVDecAudioInputDolby {}
-        struct CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus {}
-        struct CODECAPI_GUID_AVDecAudioInputHEAAC {}
-        struct CODECAPI_GUID_AVDecAudioInputMPEG {}
-        struct CODECAPI_GUID_AVDecAudioInputPCM {}
-        struct CODECAPI_GUID_AVDecAudioInputWMA {}
-        struct CODECAPI_GUID_AVDecAudioInputWMAPro {}
-        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM {}
-        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones {}
-        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto {}
-        struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded {}
-        struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream {}
-        struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM {}
-        struct CODECAPI_GUID_AVEncCommonFormatATSC {}
-        struct CODECAPI_GUID_AVEncCommonFormatDVB {}
-        struct CODECAPI_GUID_AVEncCommonFormatDVD_DashVR {}
-        struct CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR {}
-        struct CODECAPI_GUID_AVEncCommonFormatDVD_V {}
-        struct CODECAPI_GUID_AVEncCommonFormatHighMAT {}
-        struct CODECAPI_GUID_AVEncCommonFormatHighMPV {}
-        struct CODECAPI_GUID_AVEncCommonFormatMP3 {}
-        struct CODECAPI_GUID_AVEncCommonFormatSVCD {}
-        struct CODECAPI_GUID_AVEncCommonFormatUnSpecified {}
-        struct CODECAPI_GUID_AVEncCommonFormatVCD {}
-        struct CODECAPI_GUID_AVEncDTS {}
-        struct CODECAPI_GUID_AVEncDTSHD {}
-        struct CODECAPI_GUID_AVEncDV {}
-        struct CODECAPI_GUID_AVEncDolbyDigitalConsumer {}
-        struct CODECAPI_GUID_AVEncDolbyDigitalPlus {}
-        struct CODECAPI_GUID_AVEncDolbyDigitalPro {}
-        struct CODECAPI_GUID_AVEncH264Video {}
-        struct CODECAPI_GUID_AVEncMLP {}
-        struct CODECAPI_GUID_AVEncMPEG1Audio {}
-        struct CODECAPI_GUID_AVEncMPEG1Video {}
-        struct CODECAPI_GUID_AVEncMPEG2Audio {}
-        struct CODECAPI_GUID_AVEncMPEG2Video {}
-        struct CODECAPI_GUID_AVEncPCM {}
-        struct CODECAPI_GUID_AVEncSDDS {}
-        struct CODECAPI_GUID_AVEncWMALossless {}
-        struct CODECAPI_GUID_AVEncWMAPro {}
-        struct CODECAPI_GUID_AVEncWMAVoice {}
-        struct CODECAPI_GUID_AVEncWMV {}
-        struct CODECAPI_GUID_AVEndMPEG4Video {}
-        struct CODECAPI_GetOPMContext {}
-        struct CODECAPI_SetHDCPManagerContext {}
-        struct CODECAPI_VideoEncoderDisplayContentType {}
+        const CODECAPI_AVAudioChannelConfig: GUID = 0x17f89cb3_c38d_4368_9ede_63b94d177f9f;
+        const CODECAPI_AVAudioChannelCount: GUID = 0x1d3583c4_1583_474e_b71a_5ee463c198e4;
+        const CODECAPI_AVAudioSampleRate: GUID = 0x971d2723_1acb_42e7_855c_520a4b70a5f2;
+        const CODECAPI_AVDDSurroundMode: GUID = 0x99f2f386_98d1_4452_a163_abc78a6eb770;
+        const CODECAPI_AVDSPLoudnessEqualization: GUID = 0x8afd1a15_1812_4cbf_9319_433a5b2a3b27;
+        const CODECAPI_AVDSPSpeakerFill: GUID = 0x5612bca1_56da_4582_8da1_ca8090f92768;
+        const CODECAPI_AVDecAACDownmixMode: GUID = 0x01274475_f6bb_4017_b084_81a763c942d4;
+        const CODECAPI_AVDecAudioDualMono: GUID = 0x4a52cda8_30f8_4216_be0f_ba0b2025921d;
+        const CODECAPI_AVDecAudioDualMonoReproMode: GUID = 0xa5106186_cc94_4bc9_8cd9_aa2f61f6807e;
+        const CODECAPI_AVDecCommonInputFormat: GUID = 0xe5005239_bd89_4be3_9c0f_5dde317988cc;
+        const CODECAPI_AVDecCommonMeanBitRate: GUID = 0x59488217_007a_4f7a_8e41_5c48b1eac5c6;
+        const CODECAPI_AVDecCommonMeanBitRateInterval: GUID = 0x0ee437c6_38a7_4c5c_944c_68ab42116b85;
+        const CODECAPI_AVDecCommonOutputFormat: GUID = 0x3c790028_c0ce_4256_b1a2_1b0fc8b1dcdc;
+        const CODECAPI_AVDecDDDynamicRangeScaleHigh: GUID = 0x50196c21_1f33_4af5_b296_11426d6c8789;
+        const CODECAPI_AVDecDDDynamicRangeScaleLow: GUID = 0x044e62e4_11a5_42d5_a3b2_3bb2c7c2d7cf;
+        const CODECAPI_AVDecDDMatrixDecodingMode: GUID = 0xddc811a5_04ed_4bf3_a0ca_d00449f9355f;
+        const CODECAPI_AVDecDDOperationalMode: GUID = 0xd6d6c6d1_064e_4fdd_a40e_3ecbfcb7ebd0;
+        const CODECAPI_AVDecDDStereoDownMixMode: GUID = 0x6ce4122c_3ee9_4182_b4ae_c10fc088649d;
+        const CODECAPI_AVDecDisableVideoPostProcessing: GUID = 0xf8749193_667a_4f2c_a9e8_5d4af924f08f;
+        const CODECAPI_AVDecHEAACDynamicRangeControl: GUID = 0x287c8abe_69a4_4d39_8080_d3d9712178a0;
+        const CODECAPI_AVDecNumWorkerThreads: GUID = 0x9561c3e8_ea9e_4435_9b1e_a93e691894d8;
+        const CODECAPI_AVDecSoftwareDynamicFormatChange: GUID = 0x862e2f0a_507b_47ff_af47_01e2624298b7;
+        const CODECAPI_AVDecVideoAcceleration_H264: GUID = 0xf7db8a2f_4f48_4ee8_ae31_8b6ebe558ae2;
+        const CODECAPI_AVDecVideoAcceleration_MPEG2: GUID = 0xf7db8a2e_4f48_4ee8_ae31_8b6ebe558ae2;
+        const CODECAPI_AVDecVideoAcceleration_VC1: GUID = 0xf7db8a30_4f48_4ee8_ae31_8b6ebe558ae2;
+        const CODECAPI_AVDecVideoCodecType: GUID = 0x434528e5_21f0_46b6_b62c_9b1b6b658cd1;
+        const CODECAPI_AVDecVideoDXVABusEncryption: GUID = 0x42153c8b_fd0b_4765_a462_ddd9e8bcc388;
+        const CODECAPI_AVDecVideoDXVAMode: GUID = 0xf758f09e_7337_4ae7_8387_73dc2d54e67d;
+        const CODECAPI_AVDecVideoDropPicWithMissingRef: GUID = 0xf8226383_14c2_4567_9734_5004e96ff887;
+        const CODECAPI_AVDecVideoFastDecodeMode: GUID = 0x6b529f7d_d3b1_49c6_a999_9ec6911bedbf;
+        const CODECAPI_AVDecVideoH264ErrorConcealment: GUID = 0xececace8_3436_462c_9294_cd7bacd758a9;
+        const CODECAPI_AVDecVideoImageSize: GUID = 0x5ee5747c_6801_4cab_aaf1_6248fa841ba4;
+        const CODECAPI_AVDecVideoInputScanType: GUID = 0x38477e1f_0ea7_42cd_8cd1_130ced57c580;
+        const CODECAPI_AVDecVideoMPEG2ErrorConcealment: GUID = 0x9d2bfe18_728d_48d2_b358_bc7e436c6674;
+        const CODECAPI_AVDecVideoMaxCodedHeight: GUID = 0x7262a16a_d2dc_4e75_9ba8_65c0c6d32b13;
+        const CODECAPI_AVDecVideoMaxCodedWidth: GUID = 0x5ae557b8_77af_41f5_9fa6_4db2fe1d4bca;
+        const CODECAPI_AVDecVideoPixelAspectRatio: GUID = 0xb0cf8245_f32d_41df_b02c_87bd304d12ab;
+        const CODECAPI_AVDecVideoProcDeinterlaceCSC: GUID = 0xf7db8a31_4f48_4ee8_ae31_8b6ebe558ae2;
+        const CODECAPI_AVDecVideoSWPowerLevel: GUID = 0xfb5d2347_4dd8_4509_aed0_db5fa9aa93f4;
+        const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: GUID = 0x0c08d1ce_9ced_4540_bae3_ceb380141109;
+        const CODECAPI_AVDecVideoThumbnailGenerationMode: GUID = 0x2efd8eee_1150_4328_9cf5_66dce933fcf4;
+        const CODECAPI_AVEnableInLoopDeblockFilter: GUID = 0xd2e8e399_0623_4bf3_92a8_4d1818529ded;
+        const CODECAPI_AVEncAACEnableVBR: GUID = 0xe836bb98_fca3_44b6_9a39_24786be41be1;
+        const CODECAPI_AVEncAdaptiveMode: GUID = 0x4419b185_da1f_4f53_bc76_097d0c1efb1e;
+        const CODECAPI_AVEncAudioDualMono: GUID = 0x3648126b_a3e8_4329_9b3a_5ce566a43bd3;
+        const CODECAPI_AVEncAudioInputContent: GUID = 0x3e226c2b_60b9_4a39_b00b_a7b40f70d566;
+        const CODECAPI_AVEncAudioIntervalToEncode: GUID = 0x866e4b4d_725a_467c_bb01_b496b23b25f9;
+        const CODECAPI_AVEncAudioIntervalToSkip: GUID = 0x88c15f94_c38c_4796_a9e8_96e967983f26;
+        const CODECAPI_AVEncAudioMapDestChannel0: GUID = 0xbc5d0b60_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel1: GUID = 0xbc5d0b61_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel10: GUID = 0xbc5d0b6a_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel11: GUID = 0xbc5d0b6b_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel12: GUID = 0xbc5d0b6c_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel13: GUID = 0xbc5d0b6d_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel14: GUID = 0xbc5d0b6e_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel15: GUID = 0xbc5d0b6f_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel2: GUID = 0xbc5d0b62_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel3: GUID = 0xbc5d0b63_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel4: GUID = 0xbc5d0b64_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel5: GUID = 0xbc5d0b65_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel6: GUID = 0xbc5d0b66_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel7: GUID = 0xbc5d0b67_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel8: GUID = 0xbc5d0b68_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMapDestChannel9: GUID = 0xbc5d0b69_df6a_4e16_9803_b82007a30c8d;
+        const CODECAPI_AVEncAudioMeanBitRate: GUID = 0x921295bb_4fca_4679_aab8_9e2a1d753384;
+        const CODECAPI_AVEncChromaEncodeMode: GUID = 0x8a47ab5a_4798_4c93_b5a5_554f9a3b9f50;
+        const CODECAPI_AVEncChromaUpdateTime: GUID = 0x4b4fd998_4274_40bb_8ee4_07553e7e2d3a;
+        const CODECAPI_AVEncCodecType: GUID = 0x08af4ac1_f3f2_4c74_9dcf_37f2ec79f826;
+        const CODECAPI_AVEncCommonAllowFrameDrops: GUID = 0xd8477dcb_9598_48e3_8d0c_752bf206093e;
+        const CODECAPI_AVEncCommonBufferInLevel: GUID = 0xd9c5c8db_fc74_4064_94e9_cd19f947ed45;
+        const CODECAPI_AVEncCommonBufferOutLevel: GUID = 0xccae7f49_d0bc_4e3d_a57e_fb5740140069;
+        const CODECAPI_AVEncCommonBufferSize: GUID = 0x0db96574_b6a4_4c8b_8106_3773de0310cd;
+        const CODECAPI_AVEncCommonFormatConstraint: GUID = 0x57cbb9b8_116f_4951_b40c_c2a035ed8f17;
+        const CODECAPI_AVEncCommonLowLatency: GUID = 0x9d3ecd55_89e8_490a_970a_0c9548d5a56e;
+        const CODECAPI_AVEncCommonMaxBitRate: GUID = 0x9651eae4_39b9_4ebf_85ef_d7f444ec7465;
+        const CODECAPI_AVEncCommonMeanBitRate: GUID = 0xf7222374_2144_4815_b550_a37f8e12ee52;
+        const CODECAPI_AVEncCommonMeanBitRateInterval: GUID = 0xbfaa2f0c_cb82_4bc0_8474_f06a8a0d0258;
+        const CODECAPI_AVEncCommonMinBitRate: GUID = 0x101405b2_2083_4034_a806_efbeddd7c9ff;
+        const CODECAPI_AVEncCommonMultipassMode: GUID = 0x22533d4c_47e1_41b5_9352_a2b7780e7ac4;
+        const CODECAPI_AVEncCommonPassEnd: GUID = 0x0e3d01bc_c85c_467d_8b60_c41012ee3bf6;
+        const CODECAPI_AVEncCommonPassStart: GUID = 0x6a67739f_4eb5_4385_9928_f276a939ef95;
+        const CODECAPI_AVEncCommonQuality: GUID = 0xfcbf57a3_7ea5_4b0c_9644_69b40c39c391;
+        const CODECAPI_AVEncCommonQualityVsSpeed: GUID = 0x98332df8_03cd_476b_89fa_3f9e442dec9f;
+        const CODECAPI_AVEncCommonRateControlMode: GUID = 0x1c0608e9_370c_4710_8a58_cb6181c42423;
+        const CODECAPI_AVEncCommonRealTime: GUID = 0x143a0ff6_a131_43da_b81e_98fbb8ec378e;
+        const CODECAPI_AVEncCommonStreamEndHandling: GUID = 0x6aad30af_6ba8_4ccc_8fca_18d19beaeb1c;
+        const CODECAPI_AVEncCommonTranscodeEncodingProfile: GUID = 0x6947787c_f508_4ea9_b1e9_a1fe3a49fbc9;
+        const CODECAPI_AVEncDDAtoDConverterType: GUID = 0x719f9612_81a1_47e0_9a05_d94ad5fca948;
+        const CODECAPI_AVEncDDCentreDownMixLevel: GUID = 0xe285072c_c958_4a81_afd2_e5e0daf1b148;
+        const CODECAPI_AVEncDDChannelBWLowPassFilter: GUID = 0xe197821d_d2e7_43e2_ad2c_00582f518545;
+        const CODECAPI_AVEncDDCopyright: GUID = 0x8694f076_cd75_481d_a5c6_a904dcc828f0;
+        const CODECAPI_AVEncDDDCHighPassFilter: GUID = 0x9565239f_861c_4ac8_bfda_e00cb4db8548;
+        const CODECAPI_AVEncDDDialogNormalization: GUID = 0xd7055acf_f125_437d_a704_79c79f0404a8;
+        const CODECAPI_AVEncDDDigitalDeemphasis: GUID = 0xe024a2c2_947c_45ac_87d8_f1030c5c0082;
+        const CODECAPI_AVEncDDDynamicRangeCompressionControl: GUID = 0xcfc2ff6d_79b8_4b8d_a8aa_a0c9bd1c2940;
+        const CODECAPI_AVEncDDHeadphoneMode: GUID = 0x4052dbec_52f5_42f5_9b00_d134b1341b9d;
+        const CODECAPI_AVEncDDLFELowPassFilter: GUID = 0xd3b80f6f_9d15_45e5_91be_019c3fab1f01;
+        const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: GUID = 0x1cfba222_25b3_4bf4_9bfd_e7111267858c;
+        const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: GUID = 0xe725cff6_eb56_40c7_8450_2b9367e91555;
+        const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: GUID = 0xdca128a2_491f_4600_b2da_76e3344b4197;
+        const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: GUID = 0x212246c7_3d2c_4dfa_bc21_652a9098690d;
+        const CODECAPI_AVEncDDOriginalBitstream: GUID = 0x966ae800_5bd3_4ff9_95b9_d30566273856;
+        const CODECAPI_AVEncDDPreferredStereoDownMixMode: GUID = 0x7f4e6b31_9185_403d_b0a2_763743e6f063;
+        const CODECAPI_AVEncDDProductionInfoExists: GUID = 0xb0b7fe5f_b6ab_4f40_964d_8d91f17c19e8;
+        const CODECAPI_AVEncDDProductionMixLevel: GUID = 0x301d103a_cbf9_4776_8899_7c15b461ab26;
+        const CODECAPI_AVEncDDProductionRoomType: GUID = 0xdad7ad60_23d8_4ab7_a284_556986d8a6fe;
+        const CODECAPI_AVEncDDRFPreEmphasisFilter: GUID = 0x21af44c0_244e_4f3d_a2cc_3d3068b2e73f;
+        const CODECAPI_AVEncDDService: GUID = 0xd2e1bec7_5172_4d2a_a50e_2f3b82b1ddf8;
+        const CODECAPI_AVEncDDSurround3dBAttenuation: GUID = 0x4d43b99d_31e2_48b9_bf2e_5cbf1a572784;
+        const CODECAPI_AVEncDDSurround90DegreeePhaseShift: GUID = 0x25ecec9d_3553_42c0_bb56_d25792104f80;
+        const CODECAPI_AVEncDDSurroundDownMixLevel: GUID = 0x7b20d6e5_0bcf_4273_a487_506b047997e9;
+        const CODECAPI_AVEncDDSurroundExMode: GUID = 0x91607cee_dbdd_4eb6_bca2_aadfafa3dd68;
+        const CODECAPI_AVEncEnableVideoProcessing: GUID = 0x006f4bf6_0ea3_4d42_8702_b5d8be0f7a92;
+        const CODECAPI_AVEncH264CABACEnable: GUID = 0xee6cad62_d305_4248_a50e_e1b255f7caf8;
+        const CODECAPI_AVEncH264PPSID: GUID = 0xbfe29ec2_056c_4d68_a38d_ae5944c8582e;
+        const CODECAPI_AVEncH264SPSID: GUID = 0x50f38f51_2b79_40e3_b39c_7e9fa0770501;
+        const CODECAPI_AVEncInputVideoSystem: GUID = 0xbede146d_b616_4dc7_92b2_f5d9fa9298f7;
+        const CODECAPI_AVEncLowPowerEncoder: GUID = 0xb668d582_8bad_4f6a_9141_375a95358b6d;
+        const CODECAPI_AVEncMP12MuxDVDNavPacks: GUID = 0xc7607ced_8cf1_4a99_83a1_ee5461be3574;
+        const CODECAPI_AVEncMP12MuxEarliestPTS: GUID = 0x157232b6_f809_474e_9464_a7f93014a817;
+        const CODECAPI_AVEncMP12MuxInitialSCR: GUID = 0x3433ad21_1b91_4a0b_b190_2b77063b63a4;
+        const CODECAPI_AVEncMP12MuxLargestPacketSize: GUID = 0x35ceb711_f461_4b92_a4ef_17b6841ed254;
+        const CODECAPI_AVEncMP12MuxMuxRate: GUID = 0xee047c72_4bdb_4a9d_8e21_41926c823da7;
+        const CODECAPI_AVEncMP12MuxNumStreams: GUID = 0xf7164a41_dced_4659_a8f2_fb693f2a4cd0;
+        const CODECAPI_AVEncMP12MuxPackSize: GUID = 0xf916053a_1ce8_4faf_aa0b_ba31c80034b8;
+        const CODECAPI_AVEncMP12MuxPacketOverhead: GUID = 0xe40bd720_3955_4453_acf9_b79132a38fa0;
+        const CODECAPI_AVEncMP12MuxSysAudioLock: GUID = 0x0fbb5752_1d43_47bf_bd79_f2293d8ce337;
+        const CODECAPI_AVEncMP12MuxSysCSPS: GUID = 0x7952ff45_9c0d_4822_bc82_8ad772e02993;
+        const CODECAPI_AVEncMP12MuxSysFixed: GUID = 0xcefb987e_894f_452e_8f89_a4ef8cec063a;
+        const CODECAPI_AVEncMP12MuxSysRateBound: GUID = 0x05f0428a_ee30_489d_ae28_205c72446710;
+        const CODECAPI_AVEncMP12MuxSysSTDBufferBound: GUID = 0x35746903_b545_43e7_bb35_c5e0a7d5093c;
+        const CODECAPI_AVEncMP12MuxSysVideoLock: GUID = 0xb8296408_2430_4d37_a2a1_95b3e435a91d;
+        const CODECAPI_AVEncMP12MuxTargetPacketizer: GUID = 0xd862212a_2015_45dd_9a32_1b3aa88205a0;
+        const CODECAPI_AVEncMP12PktzCopyright: GUID = 0xc8f4b0c1_094c_43c7_8e68_a595405a6ef8;
+        const CODECAPI_AVEncMP12PktzInitialPTS: GUID = 0x2a4f2065_9a63_4d20_ae22_0a1bc896a315;
+        const CODECAPI_AVEncMP12PktzOriginal: GUID = 0x6b178416_31b9_4964_94cb_6bff866cdf83;
+        const CODECAPI_AVEncMP12PktzPacketSize: GUID = 0xab71347a_1332_4dde_a0e5_ccf7da8a0f22;
+        const CODECAPI_AVEncMP12PktzSTDBuffer: GUID = 0x0b751bd0_819e_478c_9435_75208926b377;
+        const CODECAPI_AVEncMP12PktzStreamID: GUID = 0xc834d038_f5e8_4408_9b60_88f36493fedf;
+        const CODECAPI_AVEncMPACodingMode: GUID = 0xb16ade03_4b93_43d7_a550_90b4fe224537;
+        const CODECAPI_AVEncMPACopyright: GUID = 0xa6ae762a_d0a9_4454_b8ef_f2dbeefdd3bd;
+        const CODECAPI_AVEncMPAEmphasisType: GUID = 0x2d59fcda_bf4e_4ed6_b5df_5b03b36b0a1f;
+        const CODECAPI_AVEncMPAEnableRedundancyProtection: GUID = 0x5e54b09e_b2e7_4973_a89b_0b3650a3beda;
+        const CODECAPI_AVEncMPALayer: GUID = 0x9d377230_f91b_453d_9ce0_78445414c22d;
+        const CODECAPI_AVEncMPAOriginalBitstream: GUID = 0x3cfb7855_9cc9_47ff_b829_b36786c92346;
+        const CODECAPI_AVEncMPAPrivateUserBit: GUID = 0xafa505ce_c1e3_4e3d_851b_61b700e5e6cc;
+        const CODECAPI_AVEncMPVAddSeqEndCode: GUID = 0xa823178f_57df_4c7a_b8fd_e5ec8887708d;
+        const CODECAPI_AVEncMPVDefaultBPictureCount: GUID = 0x8d390aac_dc5c_4200_b57f_814d04babab2;
+        const CODECAPI_AVEncMPVFrameFieldMode: GUID = 0xacb5de96_7b93_4c2f_8825_b0295fa93bf4;
+        const CODECAPI_AVEncMPVGOPOpen: GUID = 0xb1d5d4a6_3300_49b1_ae61_a09937ab0e49;
+        const CODECAPI_AVEncMPVGOPSInSeq: GUID = 0x993410d4_2691_4192_9978_98dc2603669f;
+        const CODECAPI_AVEncMPVGOPSize: GUID = 0x95f31b26_95a4_41aa_9303_246a7fc6eef1;
+        const CODECAPI_AVEncMPVGOPSizeMax: GUID = 0xfe7de4c4_1936_4fe2_bdf7_1f18ca1d001f;
+        const CODECAPI_AVEncMPVGOPSizeMin: GUID = 0x7155cf20_d440_4852_ad0f_9c4abfe37a6a;
+        const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: GUID = 0xc6412f84_c03f_4f40_a00c_4293df8395bb;
+        const CODECAPI_AVEncMPVGenerateHeaderPicExt: GUID = 0x1b8464ab_944f_45f0_b74e_3a58dad11f37;
+        const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: GUID = 0x6437aa6f_5a3c_4de9_8a16_53d9c4ad326f;
+        const CODECAPI_AVEncMPVGenerateHeaderSeqExt: GUID = 0xd5e78611_082d_4e6b_98af_0f51ab139222;
+        const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: GUID = 0x0722d62f_dd59_4a86_9cd5_644f8e2653d8;
+        const CODECAPI_AVEncMPVIntraDCPrecision: GUID = 0xa0116151_cbc8_4af3_97dc_d00cceb82d79;
+        const CODECAPI_AVEncMPVIntraVLCTable: GUID = 0xa2b83ff5_1a99_405a_af95_c5997d558d3a;
+        const CODECAPI_AVEncMPVLevel: GUID = 0x6ee40c40_a60c_41ef_8f50_37c2249e2cb3;
+        const CODECAPI_AVEncMPVProfile: GUID = 0xdabb534a_1d99_4284_975a_d90e2239baa1;
+        const CODECAPI_AVEncMPVQScaleType: GUID = 0x2b79ebb7_f484_4af7_bb58_a2a188c5cbbe;
+        const CODECAPI_AVEncMPVQuantMatrixChromaIntra: GUID = 0x9eb9ecd4_018d_4ffd_8f2d_39e49f07b17a;
+        const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: GUID = 0x1415b6b1_362a_4338_ba9a_1ef58703c05b;
+        const CODECAPI_AVEncMPVQuantMatrixIntra: GUID = 0x9bea04f3_6621_442c_8ba1_3ac378979698;
+        const CODECAPI_AVEncMPVQuantMatrixNonIntra: GUID = 0x87f441d8_0997_4beb_a08e_8573d409cf75;
+        const CODECAPI_AVEncMPVScanPattern: GUID = 0x7f8a478e_7bbb_4ae2_b2fc_96d17fc4a2d6;
+        const CODECAPI_AVEncMPVSceneDetection: GUID = 0x552799f1_db4c_405b_8a3a_c93f2d0674dc;
+        const CODECAPI_AVEncMPVUseConcealmentMotionVectors: GUID = 0xec770cf3_6908_4b4b_aa30_7fb986214fea;
+        const CODECAPI_AVEncMaxFrameRate: GUID = 0xb98e1b31_19fa_4d4f_9931_d6a5b8aab93c;
+        const CODECAPI_AVEncMuxOutputStreamType: GUID = 0xcedd9e8f_34d3_44db_a1d8_f81520254f3e;
+        const CODECAPI_AVEncNoInputCopy: GUID = 0xd2b46a2a_e8ee_4ec5_869e_449b6c62c81a;
+        const CODECAPI_AVEncNumWorkerThreads: GUID = 0xb0c8bf60_16f7_4951_a30b_1db1609293d6;
+        const CODECAPI_AVEncProgressiveUpdateTime: GUID = 0x649faf66_afc6_4828_8fdc_0771cd9ab17d;
+        const CODECAPI_AVEncSliceControlMode: GUID = 0xe9e782ef_5f18_44c9_a90b_e9c3c2c17b0b;
+        const CODECAPI_AVEncSliceControlSize: GUID = 0x92f51df3_07a5_4172_aefe_c69ca3b60e35;
+        const CODECAPI_AVEncSliceGenerationMode: GUID = 0x8a6bc67f_9497_4286_b46b_02db8d60edbc;
+        const CODECAPI_AVEncStatAudioAverageBPS: GUID = 0xca6724db_7059_4351_8b43_f82198826a14;
+        const CODECAPI_AVEncStatAudioAveragePCMValue: GUID = 0x979272f8_d17f_4e32_bb73_4e731c68ba2d;
+        const CODECAPI_AVEncStatAudioPeakPCMValue: GUID = 0xdce7fd34_dc00_4c16_821b_35d9eb00fb1a;
+        const CODECAPI_AVEncStatAverageBPS: GUID = 0xca6724db_7059_4351_8b43_f82198826a14;
+        const CODECAPI_AVEncStatCommonCompletedPasses: GUID = 0x3e5de533_9df7_438c_854f_9f7dd3683d34;
+        const CODECAPI_AVEncStatHardwareBandwidthUtilitization: GUID = 0x0124ba9b_dc41_4826_b45f_18ac01b3d5a8;
+        const CODECAPI_AVEncStatHardwareProcessorUtilitization: GUID = 0x995dc027_cb95_49e6_b91b_5967753cdcb8;
+        const CODECAPI_AVEncStatMPVSkippedEmptyFrames: GUID = 0x32195fd3_590d_4812_a7ed_6d639a1f9711;
+        const CODECAPI_AVEncStatVideoCodedFrames: GUID = 0xd47f8d61_6f5a_4a26_bb9f_cd9518462bcd;
+        const CODECAPI_AVEncStatVideoOutputFrameRate: GUID = 0xbe747849_9ab4_4a63_98fe_f143f04f8ee9;
+        const CODECAPI_AVEncStatVideoTotalFrames: GUID = 0xfdaa9916_119a_4222_9ad6_3f7cab99cc8b;
+        const CODECAPI_AVEncStatWMVCBAvg: GUID = 0x6aa6229f_d602_4b9d_b68c_c1ad78884bef;
+        const CODECAPI_AVEncStatWMVCBMax: GUID = 0xe976bef8_00fe_44b4_b625_8f238bc03499;
+        const CODECAPI_AVEncStatWMVDecoderComplexityProfile: GUID = 0x89e69fc3_0f9b_436c_974a_df821227c90d;
+        const CODECAPI_AVEncTileColumns: GUID = 0xb4b31205_01e8_452c_b876_8c6506545925;
+        const CODECAPI_AVEncTileRows: GUID = 0xfbc650fc_41ab_4f9b_84b5_065be9cd99ee;
+        const CODECAPI_AVEncVideoCBRMotionTradeoff: GUID = 0x0d49451e_18d5_4367_a4ef_3240df1693c4;
+        const CODECAPI_AVEncVideoCTBSize: GUID = 0xd47db8b2_e73b_4cb9_8c3e_bd877d06d77b;
+        const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: GUID = 0xb4b10c15_14a7_4ce8_b173_dc90a0b4fcdb;
+        const CODECAPI_AVEncVideoConsecutiveFramesForLayer: GUID = 0x0af35522_d984_45ae_bbb8_53933e0ab1b5;
+        const CODECAPI_AVEncVideoContentType: GUID = 0x66117aca_eb77_459d_930c_a48d9d0683fc;
+        const CODECAPI_AVEncVideoD3D12ReconstructedPictureOutputMode: GUID = 0x4a7b2e8f_1d93_4c6a_b548_91e2f8c5a7d3;
+        const CODECAPI_AVEncVideoDefaultUpperFieldDominant: GUID = 0x810167c4_0bc1_47ca_8fc2_57055a1474a5;
+        const CODECAPI_AVEncVideoDirtyRectEnabled: GUID = 0x8acb8fdd_5e0c_4c66_8729_b8f629ab04fb;
+        const CODECAPI_AVEncVideoDisplayDimension: GUID = 0xde053668_f4ec_47a9_86d0_836770f0c1d5;
+        const CODECAPI_AVEncVideoEnableFramePsnrYuv: GUID = 0x2bbcdd1d_bc47_430e_b2e8_64801b47f5f0;
+        const CODECAPI_AVEncVideoEnableSpatialAdaptiveQuantization: GUID = 0x659cb943_15ca_448d_b99a_875619db4de4;
+        const CODECAPI_AVEncVideoEncodeDimension: GUID = 0x1074df28_7e0f_47a4_a453_cdd73870f5ce;
+        const CODECAPI_AVEncVideoEncodeFrameTypeQP: GUID = 0xaa70b610_e03f_450c_ad07_07314e639ce7;
+        const CODECAPI_AVEncVideoEncodeOffsetOrigin: GUID = 0x6bc098fe_a71a_4454_852e_4d2ddeb2cd24;
+        const CODECAPI_AVEncVideoEncodeQP: GUID = 0x2cb5696b_23fb_4ce1_a0f9_ef5b90fd55ca;
+        const CODECAPI_AVEncVideoFieldSwap: GUID = 0xfefd7569_4e0a_49f2_9f2b_360ea48c19a2;
+        const CODECAPI_AVEncVideoForceKeyFrame: GUID = 0x398c1b98_8353_475a_9ef2_8f265d260345;
+        const CODECAPI_AVEncVideoForceSourceScanType: GUID = 0x1ef2065f_058a_4765_a4fc_8a864c103012;
+        const CODECAPI_AVEncVideoGradualIntraRefresh: GUID = 0x8f347dee_cb0d_49ba_b462_db6927ee2101;
+        const CODECAPI_AVEncVideoHeaderDropFrame: GUID = 0x6ed9e124_7925_43fe_971b_e019f62222b4;
+        const CODECAPI_AVEncVideoHeaderFrames: GUID = 0xafd5f567_5c1b_4adc_bdaf_735610381436;
+        const CODECAPI_AVEncVideoHeaderHours: GUID = 0x2acc7702_e2da_4158_bf9b_88880129d740;
+        const CODECAPI_AVEncVideoHeaderMinutes: GUID = 0xdc1a99ce_0307_408b_880b_b8348ee8ca7f;
+        const CODECAPI_AVEncVideoHeaderSeconds: GUID = 0x4a2e1a05_a780_4f58_8120_9a449d69656b;
+        const CODECAPI_AVEncVideoInputAbsoluteQPBlockSettings: GUID = 0xef95a145_4f91_4dea_8173_acff11434210;
+        const CODECAPI_AVEncVideoInputChromaResolution: GUID = 0xbb0cec33_16f1_47b0_8a88_37815bee1739;
+        const CODECAPI_AVEncVideoInputChromaSubsampling: GUID = 0xa8e73a39_4435_4ec3_a6ea_98300f4b36f7;
+        const CODECAPI_AVEncVideoInputColorLighting: GUID = 0x46a99549_0015_4a45_9c30_1d5cfa258316;
+        const CODECAPI_AVEncVideoInputColorNominalRange: GUID = 0x16cf25c6_a2a6_48e9_ae80_21aec41d427e;
+        const CODECAPI_AVEncVideoInputColorPrimaries: GUID = 0xc24d783f_7ce6_4278_90ab_28a4f1e5f86c;
+        const CODECAPI_AVEncVideoInputColorTransferFunction: GUID = 0x8c056111_a9c3_4b08_a0a0_ce13f8a27c75;
+        const CODECAPI_AVEncVideoInputColorTransferMatrix: GUID = 0x52ed68b9_72d5_4089_958d_f5405d55081c;
+        const CODECAPI_AVEncVideoInputDeltaQPBlockSettings: GUID = 0x5a4787dc_0648_47aa_b945_552bfad2a6d8;
+        const CODECAPI_AVEncVideoInstantTemporalUpSwitching: GUID = 0xa3308307_0d96_4ba4_b1f0_b91a5e49df10;
+        const CODECAPI_AVEncVideoIntraLayerPrediction: GUID = 0xd3af46b8_bf47_44bb_a283_69f0b0228ff9;
+        const CODECAPI_AVEncVideoInverseTelecineEnable: GUID = 0x2ea9098b_e76d_4ccd_a030_d3b889c1b64c;
+        const CODECAPI_AVEncVideoInverseTelecineThreshold: GUID = 0x40247d84_e895_497f_b44c_b74560acfe27;
+        const CODECAPI_AVEncVideoLTRBufferControl: GUID = 0xa4a0e93d_4cbc_444c_89f4_826d310e92a7;
+        const CODECAPI_AVEncVideoMarkLTRFrame: GUID = 0xe42f4748_a06d_4ef9_8cea_3d05fde3bd3b;
+        const CODECAPI_AVEncVideoMaxCTBSize: GUID = 0x822363ff_cec8_43e5_92fd_e097488485e9;
+        const CODECAPI_AVEncVideoMaxKeyframeDistance: GUID = 0x2987123a_ba93_4704_b489_ec1e5f25292c;
+        const CODECAPI_AVEncVideoMaxNumRefFrame: GUID = 0x964829ed_94f9_43b4_b74d_ef40944b69a0;
+        const CODECAPI_AVEncVideoMaxNumRefFrameForLayer: GUID = 0x3141c639_6329_40d1_b7e7_2f0e3ac18e02;
+        const CODECAPI_AVEncVideoMaxQP: GUID = 0x3daf6f66_a6a7_45e0_a8e5_f2743f46a3a2;
+        const CODECAPI_AVEncVideoMaxTemporalLayers: GUID = 0x9c668cfe_08e1_424a_934e_b764b064802a;
+        const CODECAPI_AVEncVideoMeanAbsoluteDifference: GUID = 0xe5c0c10f_81a4_422d_8c3f_b474a4581336;
+        const CODECAPI_AVEncVideoMinQP: GUID = 0x0ee22c6a_a37c_4568_b5f1_9d4c2b3ab886;
+        const CODECAPI_AVEncVideoNoOfFieldsToEncode: GUID = 0x61e4bbe2_4ee0_40e7_80ab_51ddeebe6291;
+        const CODECAPI_AVEncVideoNoOfFieldsToSkip: GUID = 0xa97e1240_1427_4c16_a7f7_3dcfd8ba4cc5;
+        const CODECAPI_AVEncVideoNumGOPsPerIDR: GUID = 0x83bc5bdb_5b89_4521_8f66_33151c373176;
+        const CODECAPI_AVEncVideoOutputBitsUsedMapBlockSize: GUID = 0x6c2cd11a_ca3b_44bd_9a9e_93b03634c36e;
+        const CODECAPI_AVEncVideoOutputChromaResolution: GUID = 0x6097b4c9_7c1d_4e64_bfcc_9e9765318ae7;
+        const CODECAPI_AVEncVideoOutputChromaSubsampling: GUID = 0xfa561c6c_7d17_44f0_83c9_32ed12e96343;
+        const CODECAPI_AVEncVideoOutputColorLighting: GUID = 0x0e5aaac6_ace6_4c5c_998e_1a8c9c6c0f89;
+        const CODECAPI_AVEncVideoOutputColorNominalRange: GUID = 0x972835ed_87b5_4e95_9500_c73958566e54;
+        const CODECAPI_AVEncVideoOutputColorPrimaries: GUID = 0xbe95907c_9d04_4921_8985_a6d6d87d1a6c;
+        const CODECAPI_AVEncVideoOutputColorTransferFunction: GUID = 0x4a7f884a_ea11_460d_bf57_b88bc75900de;
+        const CODECAPI_AVEncVideoOutputColorTransferMatrix: GUID = 0xa9b90444_af40_4310_8fbe_ed6d933f892b;
+        const CODECAPI_AVEncVideoOutputFrameRate: GUID = 0xea85e7c3_9567_4d99_87c4_02c1c278ca7c;
+        const CODECAPI_AVEncVideoOutputFrameRateConversion: GUID = 0x8c068bf4_369a_4ba3_82fd_b2518fb3396e;
+        const CODECAPI_AVEncVideoOutputQPMapBlockSize: GUID = 0x97038743_4ae3_44c3_a0f2_5bd58a4634ef;
+        const CODECAPI_AVEncVideoOutputScanType: GUID = 0x460b5576_842e_49ab_a62d_b36f7312c9db;
+        const CODECAPI_AVEncVideoPixelAspectRatio: GUID = 0x3cdc718f_b3e9_4eb6_a57f_cf1f1b321b87;
+        const CODECAPI_AVEncVideoROIEnabled: GUID = 0xd74f7f18_44dd_4b85_aba3_05d9f42a8280;
+        const CODECAPI_AVEncVideoRateControlParams: GUID = 0x87d43767_7645_44ec_b438_d3322fbca29f;
+        const CODECAPI_AVEncVideoSatdMapBlockSize: GUID = 0x596f1106_8ce0_4302_af79_c4ec67aadc6d;
+        const CODECAPI_AVEncVideoSelectLayer: GUID = 0xeb1084f5_6aaa_4914_bb2f_6147227f12e7;
+        const CODECAPI_AVEncVideoSourceFilmContent: GUID = 0x1791c64b_ccfc_4827_a0ed_2557793b2b1c;
+        const CODECAPI_AVEncVideoSourceIsBW: GUID = 0x42ffc49b_1812_4fdc_8d24_7054c521e6eb;
+        const CODECAPI_AVEncVideoSupportedControls: GUID = 0xd3f40fdd_77b9_473d_8196_061259e69cff;
+        const CODECAPI_AVEncVideoTemporalLayerCount: GUID = 0x19caebff_b74d_4cfd_8c27_c2f9d97d5f52;
+        const CODECAPI_AVEncVideoUsage: GUID = 0x1f636849_5dc1_49f1_b1d8_ce3cf62ea385;
+        const CODECAPI_AVEncVideoUseLTRFrame: GUID = 0x00752db8_55f7_4f80_895b_27639195f2ad;
+        const CODECAPI_AVEncWMVDecoderComplexity: GUID = 0xf32c0dab_f3cb_4217_b79f_8762768b5f67;
+        const CODECAPI_AVEncWMVInterlacedEncoding: GUID = 0xe3d00f8a_c6f5_4e14_a588_0ec87a726f9b;
+        const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: GUID = 0x51ff1115_33ac_426c_a1b1_09321bdf96b4;
+        const CODECAPI_AVEncWMVKeyFrameDistance: GUID = 0x5569055e_e268_4771_b83e_9555ea28aed3;
+        const CODECAPI_AVEncWMVProduceDummyFrames: GUID = 0xd669d001_183c_42e3_a3ca_2f4586d2396c;
+        const CODECAPI_AVLowLatencyMode: GUID = 0x9c27891a_ed7a_40e1_88e8_b22727a024ee;
+        const CODECAPI_AVPriorityControl: GUID = 0x54ba3dc8_bdde_4329_b187_2018bc5c2ba1;
+        const CODECAPI_AVRealtimeControl: GUID = 0x6f440632_c4ad_4bf7_9e52_456942b454b0;
+        const CODECAPI_AVScenarioInfo: GUID = 0xb28a6e64_3ff9_446a_8a4b_0d7a53413236;
+        const CODECAPI_FeatureMapFlagsUsed: GUID = 0x8bfda3b8_7387_4c07_924f_fe63006cf22b;
+        const CODECAPI_GUID_AVDecAudioInputAAC: GUID = 0x97df7828_b94a_47e2_a4bc_51194db22a4d;
+        const CODECAPI_GUID_AVDecAudioInputDTS: GUID = 0x600bc0ca_6a1f_4e91_b241_1bbeb1cb19e0;
+        const CODECAPI_GUID_AVDecAudioInputDolby: GUID = 0x8e4228a0_f000_4e0b_8f54_ab8d24ad61a2;
+        const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: GUID = 0x0803e185_8f5d_47f5_9908_19a5bbc9fe34;
+        const CODECAPI_GUID_AVDecAudioInputHEAAC: GUID = 0x16efb4aa_330e_4f5c_98a8_cf6ac55cbe60;
+        const CODECAPI_GUID_AVDecAudioInputMPEG: GUID = 0x91106f36_02c5_4f75_9719_3b7abf75e1f6;
+        const CODECAPI_GUID_AVDecAudioInputPCM: GUID = 0xf2421da5_bbb4_4cd5_a996_933c6b5d1347;
+        const CODECAPI_GUID_AVDecAudioInputWMA: GUID = 0xc95e8dcf_4058_4204_8c42_cb24d91e4b9b;
+        const CODECAPI_GUID_AVDecAudioInputWMAPro: GUID = 0x0128b7c7_da72_4fe3_bef8_5c52e3557704;
+        const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: GUID = 0x696e1d31_548f_4036_825f_7026c60011bd;
+        const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: GUID = 0x696e1d34_548f_4036_825f_7026c60011bd;
+        const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: GUID = 0x696e1d35_548f_4036_825f_7026c60011bd;
+        const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: GUID = 0x696e1d30_548f_4036_825f_7026c60011bd;
+        const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: GUID = 0x696e1d33_548f_4036_825f_7026c60011bd;
+        const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: GUID = 0x696e1d32_548f_4036_825f_7026c60011bd;
+        const CODECAPI_GUID_AVEncCommonFormatATSC: GUID = 0x8d7b897c_a019_4670_aa76_2edcac7ac296;
+        const CODECAPI_GUID_AVEncCommonFormatDVB: GUID = 0x71830d8f_6c33_430d_844b_c2705baae6db;
+        const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: GUID = 0xe55199d6_044c_4dae_a488_531ed306235b;
+        const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: GUID = 0xe74c6f2e_ec37_478d_9af4_a5e135b6271c;
+        const CODECAPI_GUID_AVEncCommonFormatDVD_V: GUID = 0xcc9598c4_e7fe_451d_b1ca_761bc840b7f3;
+        const CODECAPI_GUID_AVEncCommonFormatHighMAT: GUID = 0x1eabe760_fb2b_4928_90d1_78db88eee889;
+        const CODECAPI_GUID_AVEncCommonFormatHighMPV: GUID = 0xa2d25db8_b8f9_42c2_8bc7_0b93cf604788;
+        const CODECAPI_GUID_AVEncCommonFormatMP3: GUID = 0x349733cd_eb08_4dc2_8197_e49835ef828b;
+        const CODECAPI_GUID_AVEncCommonFormatSVCD: GUID = 0x51d85818_8220_448c_8066_d69bed16c9ad;
+        const CODECAPI_GUID_AVEncCommonFormatUnSpecified: GUID = 0xaf46a35a_6024_4525_a48a_094b97f5b3c2;
+        const CODECAPI_GUID_AVEncCommonFormatVCD: GUID = 0x95035bf7_9d90_40ff_ad5c_5cf8cf71ca1d;
+        const CODECAPI_GUID_AVEncDTS: GUID = 0x45fbcaa2_5e6e_4ab0_8893_5903bee93acf;
+        const CODECAPI_GUID_AVEncDTSHD: GUID = 0x2052e630_469d_4bfb_80ca_1d656e7e918f;
+        const CODECAPI_GUID_AVEncDV: GUID = 0x09b769c7_3329_44fb_8954_fa30937d3d5a;
+        const CODECAPI_GUID_AVEncDolbyDigitalConsumer: GUID = 0xc1a7bf6c_0059_4bfa_94ef_ef747a768d52;
+        const CODECAPI_GUID_AVEncDolbyDigitalPlus: GUID = 0x698d1b80_f7dd_415c_971c_42492a2056c6;
+        const CODECAPI_GUID_AVEncDolbyDigitalPro: GUID = 0xf5be76cc_0ff8_40eb_9cb1_bba94004d44f;
+        const CODECAPI_GUID_AVEncH264Video: GUID = 0x95044eab_31b3_47de_8e75_38a42bb03e28;
+        const CODECAPI_GUID_AVEncMLP: GUID = 0x05f73e29_f0d1_431e_a41c_a47432ec5a66;
+        const CODECAPI_GUID_AVEncMPEG1Audio: GUID = 0xd4dd1362_cd4a_4cd6_8138_b94db4542b04;
+        const CODECAPI_GUID_AVEncMPEG1Video: GUID = 0xc8dafefe_da1e_4774_b27d_11830c16b1fe;
+        const CODECAPI_GUID_AVEncMPEG2Audio: GUID = 0xee4cbb1f_9c3f_4770_92b5_fcb7c2a8d381;
+        const CODECAPI_GUID_AVEncMPEG2Video: GUID = 0x046dc19a_6677_4aaa_a31d_c1ab716f4560;
+        const CODECAPI_GUID_AVEncPCM: GUID = 0x844be7f4_26cf_4779_b386_cc05d187990c;
+        const CODECAPI_GUID_AVEncSDDS: GUID = 0x1dc1b82f_11c8_4c71_b7b6_ee3eb9bc2b94;
+        const CODECAPI_GUID_AVEncWMALossless: GUID = 0x55ca7265_23d8_4761_9031_b74fbe12f4c1;
+        const CODECAPI_GUID_AVEncWMAPro: GUID = 0x1955f90c_33f7_4a68_ab81_53f5657125c4;
+        const CODECAPI_GUID_AVEncWMAVoice: GUID = 0x13ed18cb_50e8_4276_a288_a6aa228382d9;
+        const CODECAPI_GUID_AVEncWMV: GUID = 0x4e0fef9b_1d43_41bd_b8bd_4d7bf7457a2a;
+        const CODECAPI_GUID_AVEndMPEG4Video: GUID = 0xdd37b12a_9503_4f8b_b8d0_324a00c0a1cf;
+        const CODECAPI_GetOPMContext: GUID = 0x2f036c05_4c14_4689_8839_294c6d73e053;
+        const CODECAPI_SetHDCPManagerContext: GUID = 0x6d2d1fc8_3dc9_47eb_a1a2_471c80cd60d0;
+        const CODECAPI_VideoEncoderDisplayContentType: GUID = 0x79b90b27_f4b1_42dc_9dd7_cdaf8135c400;
         #[repr(i32)]
         enum eAVAudioChannelConfig {
             eAVAudioChannelConfig_FRONT_LEFT = 1,
@@ -673,7 +673,7 @@ mod Windows {
             eAVEncH264VProfile_UCScalableConstrainedBase = 258,
             eAVEncH264VProfile_UCScalableConstrainedHigh = 259,
         }
-        const eAVEncH264VProfile_ConstrainedHigh: i32 = 257;
+        const eAVEncH264VProfile_ConstrainedHigh: eAVEncH264VProfile = 257;
         #[repr(i32)]
         enum eAVEncH265VLevel {
             eAVEncH265VLevel1 = 30,

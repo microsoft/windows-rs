@@ -146,35 +146,35 @@ mod Windows {
         #[guid(0x22f03340_547d_101b_8e65_08002b2bd119)]
         interface ICreateErrorInfo: IUnknown {
             fn SetGUID(&self, rguid: *const GUID) -> HRESULT;
-            fn SetSource(&self, szSource: PCWSTR) -> HRESULT;
-            fn SetDescription(&self, szDescription: PCWSTR) -> HRESULT;
-            fn SetHelpFile(&self, szHelpFile: PCWSTR) -> HRESULT;
+            fn SetSource(&self, szSource: LPOLESTR) -> HRESULT;
+            fn SetDescription(&self, szDescription: LPOLESTR) -> HRESULT;
+            fn SetHelpFile(&self, szHelpFile: LPOLESTR) -> HRESULT;
             fn SetHelpContext(&self, dwHelpContext: u32) -> HRESULT;
         }
         #[guid(0x00020405_0000_0000_c000_000000000046)]
         interface ICreateTypeInfo: IUnknown {
             fn SetGuid(&self, guid: *const GUID) -> HRESULT;
             fn SetTypeFlags(&self, uTypeFlags: u32) -> HRESULT;
-            fn SetDocString(&self, pStrDoc: PCWSTR) -> HRESULT;
+            fn SetDocString(&self, pStrDoc: LPOLESTR) -> HRESULT;
             fn SetHelpContext(&self, dwHelpContext: u32) -> HRESULT;
             fn SetVersion(&self, wMajorVerNum: u16, wMinorVerNum: u16) -> HRESULT;
-            fn AddRefTypeInfo(&self, pTInfo: ITypeInfo, phRefType: *const HREFTYPE) -> HRESULT;
-            fn AddFuncDesc(&self, index: u32, pFuncDesc: *const FUNCDESC) -> HRESULT;
+            fn AddRefTypeInfo(&self, pTInfo: ITypeInfo, #[in] phRefType: *mut HREFTYPE) -> HRESULT;
+            fn AddFuncDesc(&self, index: u32, #[in] pFuncDesc: *mut FUNCDESC) -> HRESULT;
             fn AddImplType(&self, index: u32, hRefType: HREFTYPE) -> HRESULT;
             fn SetImplTypeFlags(&self, index: u32, implTypeFlags: i32) -> HRESULT;
             fn SetAlignment(&self, cbAlignment: u16) -> HRESULT;
-            fn SetSchema(&self, pStrSchema: PCWSTR) -> HRESULT;
-            fn AddVarDesc(&self, index: u32, pVarDesc: *const VARDESC) -> HRESULT;
-            fn SetFuncAndParamNames(&self, index: u32, rgszNames: *const PWSTR, cNames: u32) -> HRESULT;
-            fn SetVarName(&self, index: u32, szName: PCWSTR) -> HRESULT;
-            fn SetTypeDescAlias(&self, pTDescAlias: *const TYPEDESC) -> HRESULT;
-            fn DefineFuncAsDllEntry(&self, index: u32, szDllName: PCWSTR, szProcName: PCWSTR) -> HRESULT;
-            fn SetFuncDocString(&self, index: u32, szDocString: PCWSTR) -> HRESULT;
-            fn SetVarDocString(&self, index: u32, szDocString: PCWSTR) -> HRESULT;
+            fn SetSchema(&self, pStrSchema: LPOLESTR) -> HRESULT;
+            fn AddVarDesc(&self, index: u32, #[in] pVarDesc: *mut VARDESC) -> HRESULT;
+            fn SetFuncAndParamNames(&self, index: u32, #[in] rgszNames: *mut LPOLESTR, cNames: u32) -> HRESULT;
+            fn SetVarName(&self, index: u32, szName: LPOLESTR) -> HRESULT;
+            fn SetTypeDescAlias(&self, #[in] pTDescAlias: *mut TYPEDESC) -> HRESULT;
+            fn DefineFuncAsDllEntry(&self, index: u32, szDllName: LPOLESTR, szProcName: LPOLESTR) -> HRESULT;
+            fn SetFuncDocString(&self, index: u32, szDocString: LPOLESTR) -> HRESULT;
+            fn SetVarDocString(&self, index: u32, szDocString: LPOLESTR) -> HRESULT;
             fn SetFuncHelpContext(&self, index: u32, dwHelpContext: u32) -> HRESULT;
             fn SetVarHelpContext(&self, index: u32, dwHelpContext: u32) -> HRESULT;
             fn SetMops(&self, index: u32, bstrMops: BSTR) -> HRESULT;
-            fn SetTypeIdldesc(&self, pIdlDesc: *const IDLDESC) -> HRESULT;
+            fn SetTypeIdldesc(&self, #[in] pIdlDesc: *mut IDLDESC) -> HRESULT;
             fn LayOut(&self) -> HRESULT;
         }
         #[guid(0x0002040e_0000_0000_c000_000000000046)]
@@ -184,25 +184,25 @@ mod Windows {
             fn DeleteVarDesc(&self, index: u32) -> HRESULT;
             fn DeleteVarDescByMemId(&self, memid: MEMBERID) -> HRESULT;
             fn DeleteImplType(&self, index: u32) -> HRESULT;
-            fn SetCustData(&self, guid: *const GUID, pVarVal: *const VARIANT) -> HRESULT;
-            fn SetFuncCustData(&self, index: u32, guid: *const GUID, pVarVal: *const VARIANT) -> HRESULT;
-            fn SetParamCustData(&self, indexFunc: u32, indexParam: u32, guid: *const GUID, pVarVal: *const VARIANT) -> HRESULT;
-            fn SetVarCustData(&self, index: u32, guid: *const GUID, pVarVal: *const VARIANT) -> HRESULT;
-            fn SetImplTypeCustData(&self, index: u32, guid: *const GUID, pVarVal: *const VARIANT) -> HRESULT;
+            fn SetCustData(&self, guid: *const GUID, #[in] pVarVal: *mut VARIANT) -> HRESULT;
+            fn SetFuncCustData(&self, index: u32, guid: *const GUID, #[in] pVarVal: *mut VARIANT) -> HRESULT;
+            fn SetParamCustData(&self, indexFunc: u32, indexParam: u32, guid: *const GUID, #[in] pVarVal: *mut VARIANT) -> HRESULT;
+            fn SetVarCustData(&self, index: u32, guid: *const GUID, #[in] pVarVal: *mut VARIANT) -> HRESULT;
+            fn SetImplTypeCustData(&self, index: u32, guid: *const GUID, #[in] pVarVal: *mut VARIANT) -> HRESULT;
             fn SetHelpStringContext(&self, dwHelpStringContext: u32) -> HRESULT;
             fn SetFuncHelpStringContext(&self, index: u32, dwHelpStringContext: u32) -> HRESULT;
             fn SetVarHelpStringContext(&self, index: u32, dwHelpStringContext: u32) -> HRESULT;
             fn Invalidate(&self) -> HRESULT;
-            fn SetName(&self, szName: PCWSTR) -> HRESULT;
+            fn SetName(&self, szName: LPOLESTR) -> HRESULT;
         }
         #[guid(0x00020406_0000_0000_c000_000000000046)]
         interface ICreateTypeLib: IUnknown {
-            fn CreateTypeInfo(&self, szName: PCWSTR, tkind: TYPEKIND, ppCTInfo: *mut ICreateTypeInfo) -> HRESULT;
-            fn SetName(&self, szName: PCWSTR) -> HRESULT;
+            fn CreateTypeInfo(&self, szName: LPOLESTR, tkind: TYPEKIND, ppCTInfo: *mut ICreateTypeInfo) -> HRESULT;
+            fn SetName(&self, szName: LPOLESTR) -> HRESULT;
             fn SetVersion(&self, wMajorVerNum: u16, wMinorVerNum: u16) -> HRESULT;
             fn SetGuid(&self, guid: *const GUID) -> HRESULT;
-            fn SetDocString(&self, szDoc: PCWSTR) -> HRESULT;
-            fn SetHelpFileName(&self, szHelpFileName: PCWSTR) -> HRESULT;
+            fn SetDocString(&self, szDoc: LPOLESTR) -> HRESULT;
+            fn SetHelpFileName(&self, szHelpFileName: LPOLESTR) -> HRESULT;
             fn SetHelpContext(&self, dwHelpContext: u32) -> HRESULT;
             fn SetLcid(&self, lcid: LCID) -> HRESULT;
             fn SetLibFlags(&self, uLibFlags: u32) -> HRESULT;
@@ -210,10 +210,10 @@ mod Windows {
         }
         #[guid(0x0002040f_0000_0000_c000_000000000046)]
         interface ICreateTypeLib2: ICreateTypeLib {
-            fn DeleteTypeInfo(&self, szName: PCWSTR) -> HRESULT;
-            fn SetCustData(&self, guid: *const GUID, pVarVal: *const VARIANT) -> HRESULT;
+            fn DeleteTypeInfo(&self, szName: LPOLESTR) -> HRESULT;
+            fn SetCustData(&self, guid: *const GUID, #[in] pVarVal: *mut VARIANT) -> HRESULT;
             fn SetHelpStringContext(&self, dwHelpStringContext: u32) -> HRESULT;
-            fn SetHelpStringDll(&self, szFileName: PCWSTR) -> HRESULT;
+            fn SetHelpStringDll(&self, szFileName: LPOLESTR) -> HRESULT;
         }
         struct IDLDESC {
             dwReserved: usize,
@@ -228,8 +228,8 @@ mod Windows {
         interface IDispatch: IUnknown {
             fn GetTypeInfoCount(&self, pctinfo: *mut u32) -> HRESULT;
             fn GetTypeInfo(&self, iTInfo: u32, lcid: LCID, ppTInfo: *mut ITypeInfo) -> HRESULT;
-            fn GetIDsOfNames(&self, riid: *const GUID, rgszNames: *const PWSTR, cNames: u32, lcid: LCID, rgDispId: *mut DISPID) -> HRESULT;
-            fn Invoke(&self, dispIdMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, pDispParams: *const DISPPARAMS, #[opt] pVarResult: *mut VARIANT, #[opt] pExcepInfo: *mut EXCEPINFO, #[opt] puArgErr: *mut u32) -> HRESULT;
+            fn GetIDsOfNames(&self, riid: *const GUID, #[in] rgszNames: *mut LPOLESTR, cNames: u32, lcid: LCID, rgDispId: *mut DISPID) -> HRESULT;
+            fn Invoke(&self, dispIdMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, #[in] #[out] pDispParams: *mut DISPPARAMS, #[opt] pVarResult: *mut VARIANT, #[opt] pExcepInfo: *mut EXCEPINFO, #[opt] puArgErr: *mut u32) -> HRESULT;
         }
         #[guid(0x00020404_0000_0000_c000_000000000046)]
         interface IEnumVARIANT: IUnknown {
@@ -248,7 +248,7 @@ mod Windows {
         }
         #[guid(0x3127ca40_446e_11ce_8135_00aa004bb851)]
         interface IErrorLog: IUnknown {
-            fn AddError(&self, pszPropName: PCWSTR, pExcepInfo: *const EXCEPINFO) -> HRESULT;
+            fn AddError(&self, pszPropName: LPCOLESTR, #[in] pExcepInfo: *mut EXCEPINFO) -> HRESULT;
         }
         const IMPLTYPEFLAG_FDEFAULT: i32 = 1;
         const IMPLTYPEFLAG_FDEFAULTVTABLE: i32 = 8;
@@ -263,27 +263,27 @@ mod Windows {
         }
         #[guid(0x55272a00_42cb_11ce_8135_00aa004bb851)]
         interface IPropertyBag: IUnknown {
-            fn Read(&self, pszPropName: PCWSTR, #[in] #[out] pVar: *mut VARIANT, pErrorLog: IErrorLog) -> HRESULT;
-            fn Write(&self, pszPropName: PCWSTR, pVar: *const VARIANT) -> HRESULT;
+            fn Read(&self, pszPropName: LPCOLESTR, #[in] #[out] pVar: *mut VARIANT, pErrorLog: IErrorLog) -> HRESULT;
+            fn Write(&self, pszPropName: LPCOLESTR, #[in] pVar: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x0000002f_0000_0000_c000_000000000046)]
         interface IRecordInfo: IUnknown {
             fn RecordInit(&self, pvNew: *mut void) -> HRESULT;
-            fn RecordClear(&self, pvExisting: *const void) -> HRESULT;
-            fn RecordCopy(&self, pvExisting: *const void, pvNew: *mut void) -> HRESULT;
+            fn RecordClear(&self, #[in] pvExisting: *mut void) -> HRESULT;
+            fn RecordCopy(&self, #[in] pvExisting: *mut void, pvNew: *mut void) -> HRESULT;
             fn GetGuid(&self, pguid: *mut GUID) -> HRESULT;
             fn GetName(&self, pbstrName: *mut BSTR) -> HRESULT;
             fn GetSize(&self, pcbSize: *mut u32) -> HRESULT;
             fn GetTypeInfo(&self, ppTypeInfo: *mut ITypeInfo) -> HRESULT;
-            fn GetField(&self, pvData: *const void, szFieldName: PCWSTR, pvarField: *mut VARIANT) -> HRESULT;
-            fn GetFieldNoCopy(&self, pvData: *const void, szFieldName: PCWSTR, pvarField: *mut VARIANT, ppvDataCArray: *mut *mut void) -> HRESULT;
-            fn PutField(&self, wFlags: u32, #[in] #[out] pvData: *mut void, szFieldName: PCWSTR, pvarField: *const VARIANT) -> HRESULT;
-            fn PutFieldNoCopy(&self, wFlags: u32, #[in] #[out] pvData: *mut void, szFieldName: PCWSTR, pvarField: *const VARIANT) -> HRESULT;
+            fn GetField(&self, #[in] pvData: *mut void, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
+            fn GetFieldNoCopy(&self, #[in] pvData: *mut void, szFieldName: LPCOLESTR, pvarField: *mut VARIANT, ppvDataCArray: *mut *mut void) -> HRESULT;
+            fn PutField(&self, wFlags: u32, #[in] #[out] pvData: *mut void, szFieldName: LPCOLESTR, #[in] pvarField: *mut VARIANT) -> HRESULT;
+            fn PutFieldNoCopy(&self, wFlags: u32, #[in] #[out] pvData: *mut void, szFieldName: LPCOLESTR, #[in] pvarField: *mut VARIANT) -> HRESULT;
             fn GetFieldNames(&self, #[in] #[out] pcNames: *mut u32, rgBstrNames: *mut BSTR) -> HRESULT;
             fn IsMatchingType(&self, pRecordInfo: IRecordInfo) -> BOOL;
             fn RecordCreate(&self) -> *mut void;
-            fn RecordCreateCopy(&self, pvSource: *const void, ppvDest: *mut *mut void) -> HRESULT;
-            fn RecordDestroy(&self, pvRecord: *const void) -> HRESULT;
+            fn RecordCreateCopy(&self, #[in] pvSource: *mut void, ppvDest: *mut *mut void) -> HRESULT;
+            fn RecordDestroy(&self, #[in] pvRecord: *mut void) -> HRESULT;
         }
         #[guid(0xdf0b3d60_548f_101b_8e65_08002b2bd119)]
         interface ISupportErrorInfo: IUnknown {
@@ -291,13 +291,13 @@ mod Windows {
         }
         #[guid(0x00020410_0000_0000_c000_000000000046)]
         interface ITypeChangeEvents: IUnknown {
-            fn RequestTypeChange(&self, changeKind: CHANGEKIND, pTInfoBefore: ITypeInfo, pStrName: PCWSTR, pfCancel: *mut i32) -> HRESULT;
-            fn AfterTypeChange(&self, changeKind: CHANGEKIND, pTInfoAfter: ITypeInfo, pStrName: PCWSTR) -> HRESULT;
+            fn RequestTypeChange(&self, changeKind: CHANGEKIND, pTInfoBefore: ITypeInfo, pStrName: LPOLESTR, pfCancel: *mut i32) -> HRESULT;
+            fn AfterTypeChange(&self, changeKind: CHANGEKIND, pTInfoAfter: ITypeInfo, pStrName: LPOLESTR) -> HRESULT;
         }
         #[guid(0x00020403_0000_0000_c000_000000000046)]
         interface ITypeComp: IUnknown {
-            fn Bind(&self, szName: PCWSTR, lHashVal: u32, wFlags: u16, ppTInfo: *mut ITypeInfo, pDescKind: *mut DESCKIND, pBindPtr: *mut BINDPTR) -> HRESULT;
-            fn BindType(&self, szName: PCWSTR, lHashVal: u32, ppTInfo: *mut ITypeInfo, ppTComp: *mut ITypeComp) -> HRESULT;
+            fn Bind(&self, szName: LPOLESTR, lHashVal: u32, wFlags: u16, ppTInfo: *mut ITypeInfo, pDescKind: *mut DESCKIND, pBindPtr: *mut BINDPTR) -> HRESULT;
+            fn BindType(&self, szName: LPOLESTR, lHashVal: u32, ppTInfo: *mut ITypeInfo, ppTComp: *mut ITypeComp) -> HRESULT;
         }
         #[guid(0x0000002e_0000_0000_c000_000000000046)]
         interface ITypeFactory: IUnknown {
@@ -312,8 +312,8 @@ mod Windows {
             fn GetNames(&self, memid: MEMBERID, rgBstrNames: *mut BSTR, cMaxNames: u32, pcNames: *mut u32) -> HRESULT;
             fn GetRefTypeOfImplType(&self, index: u32, pRefType: *mut HREFTYPE) -> HRESULT;
             fn GetImplTypeFlags(&self, index: u32, pImplTypeFlags: *mut i32) -> HRESULT;
-            fn GetIDsOfNames(&self, rgszNames: *const PWSTR, cNames: u32, pMemId: *mut MEMBERID) -> HRESULT;
-            fn Invoke(&self, pvInstance: *const void, memid: MEMBERID, wFlags: u16, #[in] #[out] pDispParams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pExcepInfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+            fn GetIDsOfNames(&self, #[in] rgszNames: *mut LPOLESTR, cNames: u32, pMemId: *mut MEMBERID) -> HRESULT;
+            fn Invoke(&self, #[in] pvInstance: *mut void, memid: MEMBERID, wFlags: u16, #[in] #[out] pDispParams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pExcepInfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
             fn GetDocumentation(&self, memid: MEMBERID, pBstrName: *mut BSTR, pBstrDocString: *mut BSTR, pdwHelpContext: *mut u32, pBstrHelpFile: *mut BSTR) -> HRESULT;
             fn GetDllEntry(&self, memid: MEMBERID, invKind: INVOKEKIND, pBstrDllName: *mut BSTR, pBstrName: *mut BSTR, pwOrdinal: *mut u16) -> HRESULT;
             fn GetRefTypeInfo(&self, hRefType: HREFTYPE, ppTInfo: *mut ITypeInfo) -> HRESULT;
@@ -321,9 +321,9 @@ mod Windows {
             fn CreateInstance(&self, pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
             fn GetMops(&self, memid: MEMBERID, pBstrMops: *mut BSTR) -> HRESULT;
             fn GetContainingTypeLib(&self, ppTLib: *mut ITypeLib, pIndex: *mut u32) -> HRESULT;
-            fn ReleaseTypeAttr(&self, pTypeAttr: *const TYPEATTR);
-            fn ReleaseFuncDesc(&self, pFuncDesc: *const FUNCDESC);
-            fn ReleaseVarDesc(&self, pVarDesc: *const VARDESC);
+            fn ReleaseTypeAttr(&self, #[in] pTypeAttr: *mut TYPEATTR);
+            fn ReleaseFuncDesc(&self, #[in] pFuncDesc: *mut FUNCDESC);
+            fn ReleaseVarDesc(&self, #[in] pVarDesc: *mut VARDESC);
         }
         #[guid(0x00020412_0000_0000_c000_000000000046)]
         interface ITypeInfo2: ITypeInfo {
@@ -352,9 +352,9 @@ mod Windows {
             fn GetLibAttr(&self, ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
             fn GetTypeComp(&self, ppTComp: *mut ITypeComp) -> HRESULT;
             fn GetDocumentation(&self, index: i32, pBstrName: *mut BSTR, pBstrDocString: *mut BSTR, pdwHelpContext: *mut u32, pBstrHelpFile: *mut BSTR) -> HRESULT;
-            fn IsName(&self, #[in] #[out] szNameBuf: PWSTR, lHashVal: u32, pfName: *mut BOOL) -> HRESULT;
-            fn FindName(&self, #[in] #[out] szNameBuf: PWSTR, lHashVal: u32, ppTInfo: *mut ITypeInfo, rgMemId: *mut MEMBERID, #[in] #[out] pcFound: *mut u16) -> HRESULT;
-            fn ReleaseTLibAttr(&self, pTLibAttr: *const TLIBATTR);
+            fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: u32, pfName: *mut BOOL) -> HRESULT;
+            fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: u32, ppTInfo: *mut ITypeInfo, rgMemId: *mut MEMBERID, #[in] #[out] pcFound: *mut u16) -> HRESULT;
+            fn ReleaseTLibAttr(&self, #[in] pTLibAttr: *mut TLIBATTR);
         }
         #[guid(0x00020411_0000_0000_c000_000000000046)]
         interface ITypeLib2: ITypeLib {
@@ -380,10 +380,10 @@ mod Windows {
         }
         #[guid(0x0000002d_0000_0000_c000_000000000046)]
         interface ITypeMarshal: IUnknown {
-            fn Size(&self, pvType: *const void, dwDestContext: u32, pvDestContext: *const void, pSize: *mut u32) -> HRESULT;
-            fn Marshal(&self, pvType: *const void, dwDestContext: u32, pvDestContext: *const void, cbBufferLength: u32, #[size_param(3)] pBuffer: *mut u8, pcbWritten: *mut u32) -> HRESULT;
-            fn Unmarshal(&self, pvType: *mut void, dwFlags: u32, cbBufferLength: u32, #[len_param(2)] pBuffer: *const u8, pcbRead: *mut u32) -> HRESULT;
-            fn Free(&self, pvType: *const void) -> HRESULT;
+            fn Size(&self, #[in] pvType: *mut void, dwDestContext: u32, #[in] pvDestContext: *mut void, pSize: *mut u32) -> HRESULT;
+            fn Marshal(&self, #[in] pvType: *mut void, dwDestContext: u32, #[in] pvDestContext: *mut void, cbBufferLength: u32, #[size_param(3)] pBuffer: *mut u8, pcbWritten: *mut u32) -> HRESULT;
+            fn Unmarshal(&self, pvType: *mut void, dwFlags: u32, cbBufferLength: u32, #[len_param(2)] #[in] pBuffer: *mut u8, pcbRead: *mut u32) -> HRESULT;
+            fn Free(&self, #[in] pvType: *mut void) -> HRESULT;
         }
         #[repr(i32)]
         enum LIBFLAGS {
@@ -439,19 +439,7 @@ mod Windows {
         }
         struct SAFEARRAYUNION {
             sfType: u32,
-            u: SAFEARRAYUNION_0,
-        }
-        union SAFEARRAYUNION_0 {
-            BstrStr: SAFEARR_BSTR,
-            UnknownStr: SAFEARR_UNKNOWN,
-            DispatchStr: SAFEARR_DISPATCH,
-            VariantStr: SAFEARR_VARIANT,
-            RecordStr: SAFEARR_BRECORD,
-            HaveIidStr: SAFEARR_HAVEIID,
-            ByteStr: BYTE_SIZEDARR,
-            WordStr: WORD_SIZEDARR,
-            LongStr: DWORD_SIZEDARR,
-            HyperStr: HYPER_SIZEDARR,
+            u: __MIDL_IOleAutomationTypes_0001,
         }
         struct SAFEARR_BRECORD {
             Size: u32,
@@ -513,7 +501,7 @@ mod Windows {
             dwReserved: u32,
             memidConstructor: MEMBERID,
             memidDestructor: MEMBERID,
-            lpstrSchema: PWSTR,
+            lpstrSchema: LPOLESTR,
             cbSizeInstance: u32,
             typekind: TYPEKIND,
             cFuncs: u16,
@@ -567,7 +555,7 @@ mod Windows {
         }
         struct VARDESC {
             memid: MEMBERID,
-            lpstrSchema: PWSTR,
+            lpstrSchema: LPOLESTR,
             Anonymous: union {
                 oInst: u32,
                 lpvarValue: *mut VARIANT,
@@ -610,7 +598,7 @@ mod Windows {
                         __OBSOLETE__VARIANT_BOOL: VARIANT_BOOL,
                         scode: SCODE,
                         cyVal: CY,
-                        date: f64,
+                        date: DATE,
                         bstrVal: BSTR,
                         punkVal: IUnknown,
                         pdispVal: IDispatch,
@@ -625,7 +613,7 @@ mod Windows {
                         __OBSOLETE__VARIANT_PBOOL: *mut VARIANT_BOOL,
                         pscode: *mut SCODE,
                         pcyVal: *mut CY,
-                        pdate: *mut f64,
+                        pdate: *mut DATE,
                         pbstrVal: *mut BSTR,
                         ppunkVal: *mut IUnknown,
                         ppdispVal: *mut IDispatch,
@@ -662,6 +650,18 @@ mod Windows {
             VAR_CONST = 2,
             VAR_DISPATCH = 3,
         }
+        union __MIDL_IOleAutomationTypes_0001 {
+            BstrStr: SAFEARR_BSTR,
+            UnknownStr: SAFEARR_UNKNOWN,
+            DispatchStr: SAFEARR_DISPATCH,
+            VariantStr: SAFEARR_VARIANT,
+            RecordStr: SAFEARR_BRECORD,
+            HaveIidStr: SAFEARR_HAVEIID,
+            ByteStr: BYTE_SIZEDARR,
+            WordStr: WORD_SIZEDARR,
+            LongStr: DWORD_SIZEDARR,
+            HyperStr: HYPER_SIZEDARR,
+        }
         struct _wireBRECORD {
             fFlags: u32,
             clSize: u32,
@@ -693,7 +693,7 @@ mod Windows {
                 boolVal: VARIANT_BOOL,
                 scode: SCODE,
                 cyVal: CY,
-                date: f64,
+                date: DATE,
                 bstrVal: wireBSTR,
                 punkVal: IUnknown,
                 pdispVal: IDispatch,
@@ -708,7 +708,7 @@ mod Windows {
                 pboolVal: *mut VARIANT_BOOL,
                 pscode: *mut SCODE,
                 pcyVal: *mut CY,
-                pdate: *mut f64,
+                pdate: *mut DATE,
                 pbstrVal: *mut wireBSTR,
                 ppunkVal: *mut IUnknown,
                 ppdispVal: *mut IDispatch,
