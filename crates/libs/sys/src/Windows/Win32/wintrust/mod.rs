@@ -274,10 +274,11 @@ pub const DWACTION_FREE: i32 = 2;
 #[cfg(feature = "winnt")]
 pub type HCATADMIN = super::HANDLE;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
-    pub seal: bool,
+    pub seal: super::BOOLEAN,
 }
 pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2010 as _;
 pub type LPWIN_CERTIFICATE = *mut WIN_CERTIFICATE;
@@ -312,36 +313,37 @@ pub type PCRYPT_PROVUI_DATA = *mut CRYPT_PROVUI_DATA;
 pub type PCRYPT_PROVUI_FUNCS = *mut CRYPT_PROVUI_FUNCS;
 pub type PCRYPT_REGISTER_ACTIONID = *mut CRYPT_REGISTER_ACTIONID;
 pub type PCRYPT_TRUST_REG_ENTRY = *mut CRYPT_TRUST_REG_ENTRY;
-pub type PFN_ALLOCANDFILLDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: *const i8, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_sys::core::BOOL>;
+pub type PFN_ALLOCANDFILLDEFUSAGE = Option<unsafe extern "C" fn(pszusageoid: *const i8, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_CPD_ADD_CERT = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: windows_sys::core::BOOL, idxcountersigner: u32, pcert2add: *const super::CERT_CONTEXT) -> windows_sys::core::BOOL>;
+pub type PFN_CPD_ADD_CERT = Option<unsafe extern "C" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: windows_sys::core::BOOL, idxcountersigner: u32, pcert2add: super::PCCERT_CONTEXT) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_CPD_ADD_PRIVDATA = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> windows_sys::core::BOOL>;
+pub type PFN_CPD_ADD_PRIVDATA = Option<unsafe extern "C" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_CPD_ADD_SGNR = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: windows_sys::core::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> windows_sys::core::BOOL>;
+pub type PFN_CPD_ADD_SGNR = Option<unsafe extern "C" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: windows_sys::core::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_CPD_ADD_STORE = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: super::HCERTSTORE) -> windows_sys::core::BOOL>;
-pub type PFN_CPD_MEM_ALLOC = Option<unsafe extern "system" fn(cbsize: u32) -> *mut core::ffi::c_void>;
-pub type PFN_CPD_MEM_FREE = Option<unsafe extern "system" fn(pvmem2free: *const core::ffi::c_void)>;
-pub type PFN_FREEDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: *const i8, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_sys::core::BOOL>;
+pub type PFN_CPD_ADD_STORE = Option<unsafe extern "C" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: super::HCERTSTORE) -> windows_sys::core::BOOL>;
+pub type PFN_CPD_MEM_ALLOC = Option<unsafe extern "C" fn(cbsize: u32) -> *mut core::ffi::c_void>;
+pub type PFN_CPD_MEM_FREE = Option<unsafe extern "C" fn(pvmem2free: *const core::ffi::c_void)>;
+pub type PFN_FREEDEFUSAGE = Option<unsafe extern "C" fn(pszusageoid: *const i8, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: windows_sys::core::BOOL, idxcountersigner: u32) -> windows_sys::core::BOOL>;
+pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = Option<unsafe extern "C" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: windows_sys::core::BOOL, idxcountersigner: u32) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_CERTTRUST_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
+pub type PFN_PROVIDER_CERTTRUST_CALL = Option<unsafe extern "C" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_CLEANUP_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
+pub type PFN_PROVIDER_CLEANUP_CALL = Option<unsafe extern "C" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_FINALPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
+pub type PFN_PROVIDER_FINALPOLICY_CALL = Option<unsafe extern "C" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_INIT_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
+pub type PFN_PROVIDER_INIT_CALL = Option<unsafe extern "C" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_OBJTRUST_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
+pub type PFN_PROVIDER_OBJTRUST_CALL = Option<unsafe extern "C" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_SIGTRUST_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
+pub type PFN_PROVIDER_SIGTRUST_CALL = Option<unsafe extern "C" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVIDER_TESTFINALPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
+pub type PFN_PROVIDER_TESTFINALPOLICY_CALL = Option<unsafe extern "C" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-pub type PFN_PROVUI_CALL = Option<unsafe extern "system" fn(hwndsecuritydialog: super::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> windows_sys::core::BOOL>;
+pub type PFN_PROVUI_CALL = Option<unsafe extern "C" fn(hwndsecuritydialog: super::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> windows_sys::core::BOOL>;
+#[cfg(feature = "winnt")]
 pub type PINTENT_TO_SEAL_ATTRIBUTE = *mut INTENT_TO_SEAL_ATTRIBUTE;
 #[cfg(all(feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 pub type PPROVDATA_SIP = *mut PROVDATA_SIP;
@@ -385,6 +387,7 @@ pub type PWINTRUST_CATALOG_INFO = *mut WINTRUST_CATALOG_INFO;
 pub type PWINTRUST_CERT_INFO = *mut WINTRUST_CERT_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 pub type PWINTRUST_DATA = *mut WINTRUST_DATA;
+#[cfg(feature = "winnt")]
 pub type PWINTRUST_DETACHED_SIG_BLOBS = *mut WINTRUST_DETACHED_SIG_BLOBS;
 #[cfg(feature = "winnt")]
 pub type PWINTRUST_DETACHED_SIG_FILE_HANDLES = *mut WINTRUST_DETACHED_SIG_FILE_HANDLES;
@@ -420,6 +423,7 @@ pub const SPC_CAB_DATA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("
 pub const SPC_CAB_DATA_STRUCT: windows_sys::core::PCSTR = 2008 as _;
 pub const SPC_CERT_EXTENSIONS_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.14");
 pub const SPC_COMMERCIAL_SP_KEY_PURPOSE_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.22");
+pub const SPC_COMMON_NAME_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("2.5.4.3");
 pub const SPC_ENCRYPTED_DIGEST_RETRY_COUNT_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.6.2");
 pub const SPC_FILE_LINK_CHOICE: i32 = 3;
 #[repr(C)]
@@ -669,12 +673,19 @@ impl Default for WINTRUST_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_DETACHED_SIG_BLOBS {
-    pub cbContentObject: i64,
+    pub cbContentObject: super::LARGE_INTEGER,
     pub pbContentObject: *mut u8,
     pub cbSignatureObject: u32,
     pub pbSignatureObject: *mut u8,
+}
+#[cfg(feature = "winnt")]
+impl Default for WINTRUST_DETACHED_SIG_BLOBS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINTRUST_DETACHED_SIG_CHOICE_BLOB: i32 = 2;
 pub const WINTRUST_DETACHED_SIG_CHOICE_HANDLE: i32 = 1;

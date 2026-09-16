@@ -37,6 +37,7 @@ impl Default for MIB_TCP6ROW2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
@@ -47,9 +48,10 @@ pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub dwRemotePort: u32,
     pub dwState: u32,
     pub dwOwningPid: u32,
-    pub liCreateTimestamp: i64,
+    pub liCreateTimestamp: super::LARGE_INTEGER,
     pub OwningModuleInfo: [u64; 16],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_TCP6ROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -99,11 +101,13 @@ impl Default for MIB_TCP6TABLE2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_MODULE; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_TCP6TABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -158,6 +162,7 @@ impl Default for MIB_TCPROW_LH_0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPROW_OWNER_MODULE {
     pub dwState: u32,
@@ -166,9 +171,10 @@ pub struct MIB_TCPROW_OWNER_MODULE {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
     pub dwOwningPid: u32,
-    pub liCreateTimestamp: i64,
+    pub liCreateTimestamp: super::LARGE_INTEGER,
     pub OwningModuleInfo: [u64; 16],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_TCPROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -290,11 +296,13 @@ impl Default for MIB_TCPTABLE2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_MODULE; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_TCPTABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -334,17 +342,20 @@ pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11;
 pub type PMIB_TCP6ROW = *mut MIB_TCP6ROW;
 #[cfg(feature = "in6addr")]
 pub type PMIB_TCP6ROW2 = *mut MIB_TCP6ROW2;
+#[cfg(feature = "winnt")]
 pub type PMIB_TCP6ROW_OWNER_MODULE = *mut MIB_TCP6ROW_OWNER_MODULE;
 pub type PMIB_TCP6ROW_OWNER_PID = *mut MIB_TCP6ROW_OWNER_PID;
 #[cfg(feature = "in6addr")]
 pub type PMIB_TCP6TABLE = *mut MIB_TCP6TABLE;
 #[cfg(feature = "in6addr")]
 pub type PMIB_TCP6TABLE2 = *mut MIB_TCP6TABLE2;
+#[cfg(feature = "winnt")]
 pub type PMIB_TCP6TABLE_OWNER_MODULE = *mut MIB_TCP6TABLE_OWNER_MODULE;
 pub type PMIB_TCP6TABLE_OWNER_PID = *mut MIB_TCP6TABLE_OWNER_PID;
 pub type PMIB_TCPROW = *mut MIB_TCPROW_LH;
 pub type PMIB_TCPROW2 = *mut MIB_TCPROW2;
 pub type PMIB_TCPROW_LH = *mut MIB_TCPROW_LH;
+#[cfg(feature = "winnt")]
 pub type PMIB_TCPROW_OWNER_MODULE = *mut MIB_TCPROW_OWNER_MODULE;
 pub type PMIB_TCPROW_OWNER_PID = *mut MIB_TCPROW_OWNER_PID;
 pub type PMIB_TCPROW_W2K = *mut MIB_TCPROW_W2K;
@@ -354,6 +365,7 @@ pub type PMIB_TCPSTATS_LH = *mut MIB_TCPSTATS_LH;
 pub type PMIB_TCPSTATS_W2K = *mut MIB_TCPSTATS_W2K;
 pub type PMIB_TCPTABLE = *mut MIB_TCPTABLE;
 pub type PMIB_TCPTABLE2 = *mut MIB_TCPTABLE2;
+#[cfg(feature = "winnt")]
 pub type PMIB_TCPTABLE_OWNER_MODULE = *mut MIB_TCPTABLE_OWNER_MODULE;
 pub type PMIB_TCPTABLE_OWNER_PID = *mut MIB_TCPTABLE_OWNER_PID;
 pub type PTCP_CONNECTION_OFFLOAD_STATE = *mut TCP_CONNECTION_OFFLOAD_STATE;

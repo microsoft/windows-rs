@@ -1,3 +1,19 @@
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserFree(param0 : *mut u32, param1 : *mut super::HMENU));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserFree64(param0 : *mut u32, param1 : *mut super::HMENU));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMENU_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
 pub type DOCMISC = i32;
 pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = 1;
 pub const DOCMISC_CANTOPENEDIT: DOCMISC = 4;
@@ -14,43 +30,43 @@ pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = 2;
 pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = 0;
 pub const MEDIAPLAYBACK_RESUME_FROM_SUSPEND: MEDIAPLAYBACK_STATE = 3;
 pub type MEDIAPLAYBACK_STATE = i32;
-pub const MSOCMDERR_E_CANCELED: i32 = -2147221245;
-pub const MSOCMDERR_E_DISABLED: i32 = -2147221247;
-pub const MSOCMDERR_E_FIRST: i32 = -2147221248;
-pub const MSOCMDERR_E_NOHELP: i32 = -2147221246;
-pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248;
-pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
-pub const MSOCMDEXECOPT_DODEFAULT: i32 = 0;
-pub const MSOCMDEXECOPT_DONTPROMPTUSER: i32 = 2;
-pub const MSOCMDEXECOPT_PROMPTUSER: i32 = 1;
-pub const MSOCMDEXECOPT_SHOWHELP: i32 = 3;
-pub const MSOCMDF_ENABLED: i32 = 2;
-pub const MSOCMDF_LATCHED: i32 = 4;
-pub const MSOCMDF_NINCHED: i32 = 8;
-pub const MSOCMDF_SUPPORTED: i32 = 1;
-pub const MSOCMDID_CLEARSELECTION: i32 = 18;
-pub const MSOCMDID_COPY: i32 = 12;
-pub const MSOCMDID_CUT: i32 = 11;
-pub const MSOCMDID_GETZOOMRANGE: i32 = 20;
-pub const MSOCMDID_NEW: i32 = 2;
-pub const MSOCMDID_OPEN: i32 = 1;
-pub const MSOCMDID_PAGESETUP: i32 = 8;
-pub const MSOCMDID_PASTE: i32 = 13;
-pub const MSOCMDID_PASTESPECIAL: i32 = 14;
-pub const MSOCMDID_PRINT: i32 = 6;
-pub const MSOCMDID_PRINTPREVIEW: i32 = 7;
-pub const MSOCMDID_PROPERTIES: i32 = 10;
-pub const MSOCMDID_REDO: i32 = 16;
-pub const MSOCMDID_SAVE: i32 = 3;
-pub const MSOCMDID_SAVEAS: i32 = 4;
-pub const MSOCMDID_SAVECOPYAS: i32 = 5;
-pub const MSOCMDID_SELECTALL: i32 = 17;
-pub const MSOCMDID_SPELL: i32 = 9;
-pub const MSOCMDID_UNDO: i32 = 15;
-pub const MSOCMDID_ZOOM: i32 = 19;
-pub const MSOCMDTEXTF_NAME: i32 = 1;
-pub const MSOCMDTEXTF_NONE: i32 = 0;
-pub const MSOCMDTEXTF_STATUS: i32 = 2;
+pub const MSOCMDERR_E_CANCELED: windows_sys::core::HRESULT = 0x80040103_u32 as _;
+pub const MSOCMDERR_E_DISABLED: windows_sys::core::HRESULT = 0x80040101_u32 as _;
+pub const MSOCMDERR_E_FIRST: windows_sys::core::HRESULT = 0x80040100_u32 as _;
+pub const MSOCMDERR_E_NOHELP: windows_sys::core::HRESULT = 0x80040102_u32 as _;
+pub const MSOCMDERR_E_NOTSUPPORTED: windows_sys::core::HRESULT = 0x80040100_u32 as _;
+pub const MSOCMDERR_E_UNKNOWNGROUP: windows_sys::core::HRESULT = 0x80040104_u32 as _;
+pub const MSOCMDEXECOPT_DODEFAULT: OLECMDEXECOPT = 0;
+pub const MSOCMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = 2;
+pub const MSOCMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = 1;
+pub const MSOCMDEXECOPT_SHOWHELP: OLECMDEXECOPT = 3;
+pub const MSOCMDF_ENABLED: OLECMDF = 2;
+pub const MSOCMDF_LATCHED: OLECMDF = 4;
+pub const MSOCMDF_NINCHED: OLECMDF = 8;
+pub const MSOCMDF_SUPPORTED: OLECMDF = 1;
+pub const MSOCMDID_CLEARSELECTION: OLECMDID = 18;
+pub const MSOCMDID_COPY: OLECMDID = 12;
+pub const MSOCMDID_CUT: OLECMDID = 11;
+pub const MSOCMDID_GETZOOMRANGE: OLECMDID = 20;
+pub const MSOCMDID_NEW: OLECMDID = 2;
+pub const MSOCMDID_OPEN: OLECMDID = 1;
+pub const MSOCMDID_PAGESETUP: OLECMDID = 8;
+pub const MSOCMDID_PASTE: OLECMDID = 13;
+pub const MSOCMDID_PASTESPECIAL: OLECMDID = 14;
+pub const MSOCMDID_PRINT: OLECMDID = 6;
+pub const MSOCMDID_PRINTPREVIEW: OLECMDID = 7;
+pub const MSOCMDID_PROPERTIES: OLECMDID = 10;
+pub const MSOCMDID_REDO: OLECMDID = 16;
+pub const MSOCMDID_SAVE: OLECMDID = 3;
+pub const MSOCMDID_SAVEAS: OLECMDID = 4;
+pub const MSOCMDID_SAVECOPYAS: OLECMDID = 5;
+pub const MSOCMDID_SELECTALL: OLECMDID = 17;
+pub const MSOCMDID_SPELL: OLECMDID = 9;
+pub const MSOCMDID_UNDO: OLECMDID = 15;
+pub const MSOCMDID_ZOOM: OLECMDID = 19;
+pub const MSOCMDTEXTF_NAME: OLECMDTEXTF = 1;
+pub const MSOCMDTEXTF_NONE: OLECMDTEXTF = 0;
+pub const MSOCMDTEXTF_STATUS: OLECMDTEXTF = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct OLECMD {
@@ -65,12 +81,12 @@ pub const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: i32 = 4;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: i32 = 0;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: i32 = 1;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: i32 = 2;
-pub const OLECMDERR_E_CANCELED: i32 = -2147221245;
-pub const OLECMDERR_E_DISABLED: i32 = -2147221247;
-pub const OLECMDERR_E_FIRST: i32 = -2147221248;
-pub const OLECMDERR_E_NOHELP: i32 = -2147221246;
-pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248;
-pub const OLECMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
+pub const OLECMDERR_E_CANCELED: windows_sys::core::HRESULT = 0x80040103_u32 as _;
+pub const OLECMDERR_E_DISABLED: windows_sys::core::HRESULT = 0x80040101_u32 as _;
+pub const OLECMDERR_E_FIRST: windows_sys::core::HRESULT = 0x80040100_u32 as _;
+pub const OLECMDERR_E_NOHELP: windows_sys::core::HRESULT = 0x80040102_u32 as _;
+pub const OLECMDERR_E_NOTSUPPORTED: windows_sys::core::HRESULT = 0x80040100_u32 as _;
+pub const OLECMDERR_E_UNKNOWNGROUP: windows_sys::core::HRESULT = 0x80040104_u32 as _;
 pub type OLECMDEXECOPT = i32;
 pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = 0;
 pub const OLECMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = 2;
@@ -291,7 +307,7 @@ impl Default for PAGESET {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PAGESET_TOLASTPAGE: u32 = 65535;
+pub const PAGESET_TOLASTPAGE: u16 = 65535;
 pub type PRINTFLAG = i32;
 pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = 16;
 pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = 32;

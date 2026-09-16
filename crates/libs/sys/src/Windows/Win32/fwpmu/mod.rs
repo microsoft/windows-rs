@@ -250,7 +250,7 @@ windows_link::link!("fwpuclnt.dll" "system" fn FwpmSubLayerUnsubscribeChanges0(e
 #[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsGet0(enginehandle : super::HANDLE, sysports : *mut *mut super::FWPM_SYSTEM_PORTS0) -> u32);
 #[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
-windows_link::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : super::HANDLE, reserved : *const core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const core::ffi::c_void, sysportshandle : *mut super::HANDLE) -> u32);
+windows_link::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : super::HANDLE, reserved : *mut core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const core::ffi::c_void, sysportshandle : *mut super::HANDLE) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsUnsubscribe0(enginehandle : super::HANDLE, sysportshandle : super::HANDLE) -> u32);
 #[cfg(feature = "winnt")]

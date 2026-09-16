@@ -348,7 +348,7 @@ pub const DXVA2_VideoProcBobDevice: windows_sys::core::GUID = windows_sys::core:
 pub const DXVA2_VideoProcProgressiveDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a54a0c9_c7ec_4bd9_8ede_f3c75dc4393b);
 pub const DXVA2_VideoProcSoftwareDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4553d47f_ee7e_4e3f_9475_dbf1376c4810);
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoProcessBltParams {
     pub TargetFrame: super::REFERENCE_TIME,
@@ -365,7 +365,7 @@ pub struct DXVA2_VideoProcessBltParams {
     pub DetailFilterChroma: DXVA2_FilterValues,
     pub DestData: u32,
 }
-#[cfg(all(feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for DXVA2_VideoProcessBltParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -406,7 +406,7 @@ pub struct DXVA2_VideoProcessorCaps {
 }
 pub const DXVA2_VideoProcessorRenderTarget: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "d3d9", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoSample {
     pub Start: super::REFERENCE_TIME,
@@ -419,7 +419,7 @@ pub struct DXVA2_VideoSample {
     pub PlanarAlpha: DXVA2_Fixed32,
     pub SampleData: u32,
 }
-#[cfg(all(feature = "d3d9", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
 impl Default for DXVA2_VideoSample {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -431,9 +431,9 @@ pub const DXVA2_VideoTransFunc_10: DXVA2_VideoTransferFunction = 1;
 pub const DXVA2_VideoTransFunc_18: DXVA2_VideoTransferFunction = 2;
 pub const DXVA2_VideoTransFunc_20: DXVA2_VideoTransferFunction = 3;
 pub const DXVA2_VideoTransFunc_22: DXVA2_VideoTransferFunction = 4;
-pub const DXVA2_VideoTransFunc_22_240M: i32 = 6;
-pub const DXVA2_VideoTransFunc_22_709: i32 = 5;
-pub const DXVA2_VideoTransFunc_22_8bit_sRGB: i32 = 7;
+pub const DXVA2_VideoTransFunc_22_240M: DXVA2_VideoTransferFunction = 6;
+pub const DXVA2_VideoTransFunc_22_709: DXVA2_VideoTransferFunction = 5;
+pub const DXVA2_VideoTransFunc_22_8bit_sRGB: DXVA2_VideoTransferFunction = 7;
 pub const DXVA2_VideoTransFunc_240M: DXVA2_VideoTransferFunction = 6;
 pub const DXVA2_VideoTransFunc_28: DXVA2_VideoTransferFunction = 8;
 pub const DXVA2_VideoTransFunc_709: DXVA2_VideoTransferFunction = 5;

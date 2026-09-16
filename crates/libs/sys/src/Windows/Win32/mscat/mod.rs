@@ -1,7 +1,7 @@
 #[cfg(all(feature = "winnt", feature = "wintrust"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_sys::core::GUID, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wincrypt", feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext2(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_sys::core::GUID, pwszhashalgorithm : windows_sys::core::PCWSTR, pstronghashpolicy : *const super::CERT_STRONG_SIGN_PARA, dwflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext2(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_sys::core::GUID, pwszhashalgorithm : windows_sys::core::PCWSTR, pstronghashpolicy : super::PCCERT_STRONG_SIGN_PARA, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "winnt", feature = "wintrust"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAddCatalog(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_sys::core::PCWSTR, pwszselectbasename : windows_sys::core::PCWSTR, dwflags : u32) -> HCATINFO);
 #[cfg(feature = "winnt")]
@@ -18,7 +18,7 @@ windows_link::link!("wintrust.dll" "system" fn CryptCATAdminReleaseContext(hcata
 #[cfg(all(feature = "winnt", feature = "wintrust"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATAdminRemoveCatalog(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminResolveCatalogPath(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_sys::core::PCWSTR, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminResolveCatalogPath(hcatadmin : super::HCATADMIN, pwszcatalogfile : *const u16, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATAllocSortedMemberInfo(hcatalog : super::HANDLE, pwszreferencetag : windows_sys::core::PCWSTR) -> *mut CRYPTCATMEMBER);
 #[cfg(feature = "winnt")]
@@ -64,7 +64,7 @@ windows_link::link!("wintrust.dll" "system" fn CryptCATPutMemberInfo(hcatalog : 
 #[cfg(all(feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATStoreFromHandle(hcatalog : super::HANDLE) -> *mut CRYPTCATSTORE);
 #[cfg(feature = "winnt")]
-windows_link::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::HANDLE, pwszfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::HANDLE, pwszfilename : *const u16) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CATALOG_INFO {

@@ -1,5 +1,5 @@
 #[cfg(feature = "d3dcommon")]
-windows_link::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : *mut core::ffi::c_void, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut *mut core::ffi::c_void, pperrors : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : ID3D10Include, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut *mut core::ffi::c_void, pperrors : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "d3dcommon")]
 windows_link::link!("d3d10.dll" "system" fn D3D10CompileShader(psrcdata : windows_sys::core::PCSTR, srcdatasize : usize, pfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : *mut core::ffi::c_void, pfunctionname : windows_sys::core::PCSTR, pprofile : windows_sys::core::PCSTR, flags : u32, ppshader : *mut *mut core::ffi::c_void, pperrormsgs : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "d3dcommon")]
@@ -599,6 +599,7 @@ pub const D3D10_FORMAT_SUPPORT_TEXTURE2D: D3D10_FORMAT_SUPPORT = 32;
 pub const D3D10_FORMAT_SUPPORT_TEXTURE3D: D3D10_FORMAT_SUPPORT = 64;
 pub const D3D10_FORMAT_SUPPORT_TEXTURECUBE: D3D10_FORMAT_SUPPORT = 128;
 pub const D3D10_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D10_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
 pub const D3D10_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D10_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COMPONENTS: i32 = 1;
@@ -1233,6 +1234,7 @@ pub const D3D10_MIN_FILTER_SHIFT: i32 = 4;
 pub const D3D10_MIN_MAXANISOTROPY: i32 = 0;
 pub const D3D10_MIP_FILTER_SHIFT: i32 = 0;
 pub const D3D10_MIP_LOD_BIAS_MAX: f32 = 15.99;
+pub const D3D10_MIP_LOD_BIAS_MIN: f32 = -16.0;
 pub const D3D10_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 6;
 pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
@@ -2152,6 +2154,8 @@ pub const D3D_SPEC_VERSION: f64 = 1.050005;
 pub const DXGI_DEBUG_D3D10: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x243b4c52_3606_4d3a_99d7_a7e7b33ed706);
 pub const GUID_DeviceType: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd722fb4d_7a68_437a_b20c_5804ee2494a6);
 #[cfg(feature = "d3dcommon")]
+pub type ID3D10Include = *mut core::ffi::c_void;
+#[cfg(feature = "d3dcommon")]
 pub type LPD3D10_CBUFFER_TYPE = *mut D3D10_CBUFFER_TYPE;
 #[cfg(feature = "d3dcommon")]
 pub type LPD3D10_SHADER_CBUFFER_FLAGS = *mut D3D10_SHADER_CBUFFER_FLAGS;
@@ -2171,3 +2175,5 @@ pub type LPD3D10_SHADER_VARIABLE_TYPE = *mut D3D10_SHADER_VARIABLE_TYPE;
 pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: D3D10_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "windef"))]
 pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: D3D10_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::DXGI_SWAP_CHAIN_DESC, param7: *mut *mut core::ffi::c_void, param8: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub const _FACD3D10: i32 = 2169;
+pub const _FACD3D10DEBUG: i32 = 2170;

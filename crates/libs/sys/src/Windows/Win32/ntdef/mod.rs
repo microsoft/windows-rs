@@ -9,7 +9,11 @@ pub const NotificationTimer: TIMER_TYPE = 0;
 pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2;
 pub const NtProductServer: NT_PRODUCT_TYPE = 3;
 pub const NtProductWinNt: NT_PRODUCT_TYPE = 1;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type PKIRQL = *mut KIRQL;
+pub type PNT_PRODUCT_TYPE = *mut NT_PRODUCT_TYPE;
+#[cfg(feature = "winnt")]
+pub type PPHYSICAL_ADDRESS = *mut super::LARGE_INTEGER;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PUTF8_STRING = super::PSTRING;
 pub const SynchronizationEvent: EVENT_TYPE = 1;
 pub const SynchronizationTimer: TIMER_TYPE = 1;

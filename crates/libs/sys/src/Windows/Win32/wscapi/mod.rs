@@ -1,11 +1,14 @@
 windows_link::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_sys::core::HRESULT);
+windows_link::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : PWSC_SECURITY_PROVIDER_HEALTH) -> windows_sys::core::HRESULT);
 windows_link::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::HANDLE, lpcallbackaddress : super::LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : super::PHANDLE, lpcallbackaddress : super::LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::HANDLE) -> windows_sys::core::HRESULT);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "minwindef")]
+windows_link::link!("wscapi.dll" "C" "?wscShowAMSCN@@YAJKPEAK@Z" fn wscShowAMSCN(inputflags : u32, pdwresultflags : super::PDWORD) -> windows_sys::core::HRESULT);
 pub type PWSC_SECURITY_PROVIDER = *mut WSC_SECURITY_PROVIDER;
 pub type PWSC_SECURITY_PROVIDER_HEALTH = *mut WSC_SECURITY_PROVIDER_HEALTH;
 pub type WSC_SECURITY_PROVIDER = i32;

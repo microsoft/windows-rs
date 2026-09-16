@@ -1,20 +1,30 @@
-windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate(pcguiddevice : *const windows_sys::core::GUID, ppdsc : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate8(pcguiddevice : *const windows_sys::core::GUID, ppdsc8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate(pcguiddevice : super::LPCGUID, ppdsc : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate8(pcguiddevice : super::LPCGUID, ppdsc8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
 windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureEnumerateA(pdsenumcallback : LPDSENUMCALLBACKA, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
 windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureEnumerateW(pdsenumcallback : LPDSENUMCALLBACKW, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dsound.dll" "system" fn DirectSoundCreate(pcguiddevice : *const windows_sys::core::GUID, ppds : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dsound.dll" "system" fn DirectSoundCreate8(pcguiddevice : *const windows_sys::core::GUID, ppds8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCreate(pcguiddevice : super::LPCGUID, ppds : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCreate8(pcguiddevice : super::LPCGUID, ppds8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
 windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateA(pdsenumcallback : LPDSENUMCALLBACKA, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
 windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateW(pdsenumcallback : LPDSENUMCALLBACKW, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "mmeapi", feature = "windef"))]
-windows_link::link!("dsound.dll" "system" fn DirectSoundFullDuplexCreate(pcguidcapturedevice : *const windows_sys::core::GUID, pcguidrenderdevice : *const windows_sys::core::GUID, pcdscbufferdesc : *const DSCBUFFERDESC, pcdsbufferdesc : *const DSBUFFERDESC, hwnd : super::HWND, dwlevel : u32, ppdsfd : *mut *mut core::ffi::c_void, ppdscbuffer8 : *mut *mut core::ffi::c_void, ppdsbuffer8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dsound.dll" "system" fn GetDeviceID(pguidsrc : *const windows_sys::core::GUID, pguiddest : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "windef"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundFullDuplexCreate(pcguidcapturedevice : super::LPCGUID, pcguidrenderdevice : super::LPCGUID, pcdscbufferdesc : LPCDSCBUFFERDESC, pcdsbufferdesc : LPCDSBUFFERDESC, hwnd : super::HWND, dwlevel : u32, ppdsfd : *mut *mut core::ffi::c_void, ppdscbuffer8 : *mut *mut core::ffi::c_void, ppdsbuffer8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dsound.dll" "system" fn GetDeviceID(pguidsrc : super::LPCGUID, pguiddest : super::LPGUID) -> windows_sys::core::HRESULT);
 pub const CLSID_DirectSound: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47d4d946_62e8_11cf_93bc_444553540000);
 pub const CLSID_DirectSound8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3901cc3f_84b5_4fa4_ba35_aa8172b8a09b);
 pub const CLSID_DirectSoundCapture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0210780_89cd_11d0_af08_00a0c925cd16);
 pub const CLSID_DirectSoundCapture8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe4bcac13_7f99_4908_9a8e_74e3bf24b6e1);
 pub const CLSID_DirectSoundFullDuplex: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfea4300c_7959_4147_b26a_2377b9e7a91d);
 pub type D3DCOLOR = u32;
+pub type D3DVALUE = f32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DVECTOR {
@@ -36,8 +46,8 @@ pub struct DS3DBUFFER {
     pub dwOutsideConeAngle: u32,
     pub vConeOrientation: D3DVECTOR,
     pub lConeOutsideVolume: i32,
-    pub flMinDistance: f32,
-    pub flMaxDistance: f32,
+    pub flMinDistance: D3DVALUE,
+    pub flMaxDistance: D3DVALUE,
     pub dwMode: u32,
 }
 #[repr(C)]
@@ -48,9 +58,9 @@ pub struct DS3DLISTENER {
     pub vVelocity: D3DVECTOR,
     pub vOrientFront: D3DVECTOR,
     pub vOrientTop: D3DVECTOR,
-    pub flDistanceFactor: f32,
-    pub flRolloffFactor: f32,
-    pub flDopplerFactor: f32,
+    pub flDistanceFactor: D3DVALUE,
+    pub flRolloffFactor: D3DVALUE,
+    pub flDopplerFactor: D3DVALUE,
 }
 pub const DS3DMODE_DISABLE: i32 = 2;
 pub const DS3DMODE_HEADRELATIVE: i32 = 1;
@@ -65,9 +75,11 @@ pub const DS3D_DEFAULTROLLOFFFACTOR: f32 = 1.0;
 pub const DS3D_DEFERRED: i32 = 1;
 pub const DS3D_IMMEDIATE: i32 = 0;
 pub const DS3D_MAXCONEANGLE: i32 = 360;
+pub const DS3D_MAXDISTANCEFACTOR: f32 = 340282350000000000000000000000000000000.0;
 pub const DS3D_MAXDOPPLERFACTOR: f32 = 10.0;
 pub const DS3D_MAXROLLOFFFACTOR: f32 = 10.0;
 pub const DS3D_MINCONEANGLE: i32 = 0;
+pub const DS3D_MINDISTANCEFACTOR: f32 = 0.000000000000000000000000000000000000011754944;
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0.0;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0.0;
 #[repr(C)]
@@ -282,29 +294,29 @@ pub struct DSEFFECTDESC {
     pub dwReserved1: usize,
     pub dwReserved2: usize,
 }
-pub const DSERR_ACCESSDENIED: i32 = -2147024891;
-pub const DSERR_ALLOCATED: i32 = -2005401590;
-pub const DSERR_ALREADYINITIALIZED: i32 = -2005401470;
-pub const DSERR_BADFORMAT: i32 = -2005401500;
-pub const DSERR_BADSENDBUFFERGUID: i32 = -2005401390;
-pub const DSERR_BUFFERLOST: i32 = -2005401450;
-pub const DSERR_BUFFERTOOSMALL: i32 = -2005401420;
-pub const DSERR_CONTROLUNAVAIL: i32 = -2005401570;
-pub const DSERR_DS8_REQUIRED: i32 = -2005401410;
-pub const DSERR_FXUNAVAILABLE: i32 = -2005401380;
-pub const DSERR_GENERIC: i32 = -2147467259;
-pub const DSERR_INVALIDCALL: i32 = -2005401550;
-pub const DSERR_INVALIDPARAM: i32 = -2147024809;
-pub const DSERR_NOAGGREGATION: i32 = -2147221232;
-pub const DSERR_NODRIVER: i32 = -2005401480;
-pub const DSERR_NOINTERFACE: i32 = -2147467262;
-pub const DSERR_OBJECTNOTFOUND: i32 = -2005397151;
-pub const DSERR_OTHERAPPHASPRIO: i32 = -2005401440;
-pub const DSERR_OUTOFMEMORY: i32 = -2147024882;
-pub const DSERR_PRIOLEVELNEEDED: i32 = -2005401530;
-pub const DSERR_SENDLOOP: i32 = -2005401400;
-pub const DSERR_UNINITIALIZED: i32 = -2005401430;
-pub const DSERR_UNSUPPORTED: i32 = -2147467263;
+pub const DSERR_ACCESSDENIED: windows_sys::core::HRESULT = 0x80070005_u32 as _;
+pub const DSERR_ALLOCATED: windows_sys::core::HRESULT = 0x8878000A_u32 as _;
+pub const DSERR_ALREADYINITIALIZED: windows_sys::core::HRESULT = 0x88780082_u32 as _;
+pub const DSERR_BADFORMAT: windows_sys::core::HRESULT = 0x88780064_u32 as _;
+pub const DSERR_BADSENDBUFFERGUID: windows_sys::core::HRESULT = 0x887800D2_u32 as _;
+pub const DSERR_BUFFERLOST: windows_sys::core::HRESULT = 0x88780096_u32 as _;
+pub const DSERR_BUFFERTOOSMALL: windows_sys::core::HRESULT = 0x887800B4_u32 as _;
+pub const DSERR_CONTROLUNAVAIL: windows_sys::core::HRESULT = 0x8878001E_u32 as _;
+pub const DSERR_DS8_REQUIRED: windows_sys::core::HRESULT = 0x887800BE_u32 as _;
+pub const DSERR_FXUNAVAILABLE: windows_sys::core::HRESULT = 0x887800DC_u32 as _;
+pub const DSERR_GENERIC: windows_sys::core::HRESULT = 0x80004005_u32 as _;
+pub const DSERR_INVALIDCALL: windows_sys::core::HRESULT = 0x88780032_u32 as _;
+pub const DSERR_INVALIDPARAM: windows_sys::core::HRESULT = 0x80070057_u32 as _;
+pub const DSERR_NOAGGREGATION: windows_sys::core::HRESULT = 0x80040110_u32 as _;
+pub const DSERR_NODRIVER: windows_sys::core::HRESULT = 0x88780078_u32 as _;
+pub const DSERR_NOINTERFACE: windows_sys::core::HRESULT = 0x80004002_u32 as _;
+pub const DSERR_OBJECTNOTFOUND: windows_sys::core::HRESULT = 0x88781161_u32 as _;
+pub const DSERR_OTHERAPPHASPRIO: windows_sys::core::HRESULT = 0x887800A0_u32 as _;
+pub const DSERR_OUTOFMEMORY: windows_sys::core::HRESULT = 0x8007000E_u32 as _;
+pub const DSERR_PRIOLEVELNEEDED: windows_sys::core::HRESULT = 0x88780046_u32 as _;
+pub const DSERR_SENDLOOP: windows_sys::core::HRESULT = 0x887800C8_u32 as _;
+pub const DSERR_UNINITIALIZED: windows_sys::core::HRESULT = 0x887800AA_u32 as _;
+pub const DSERR_UNSUPPORTED: windows_sys::core::HRESULT = 0x80004001_u32 as _;
 pub const DSFXCHORUS_DELAY_MAX: f32 = 20.0;
 pub const DSFXCHORUS_DELAY_MIN: f32 = 0.0;
 pub const DSFXCHORUS_DEPTH_MAX: f32 = 100.0;
@@ -591,8 +603,8 @@ pub const DSSPEAKER_QUAD: i32 = 3;
 pub const DSSPEAKER_STEREO: i32 = 4;
 pub const DSSPEAKER_SURROUND: i32 = 5;
 pub const DS_CERTIFIED: i32 = 0;
-pub const DS_NO_VIRTUALIZATION: i32 = 142082058;
-pub const DS_OK: i32 = 0;
+pub const DS_NO_VIRTUALIZATION: windows_sys::core::HRESULT = 0x878000A_u32 as _;
+pub const DS_OK: windows_sys::core::HRESULT = 0x0_u32 as _;
 pub const DS_UNCERTIFIED: i32 = 1;
 pub const GUID_All_Objects: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa114de5_c262_4169_a1c8_23d698cc73b5);
 pub const GUID_DSCFX_CLASS_AEC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
@@ -662,8 +674,10 @@ pub type LPDSCEFFECTDESC = *mut DSCEFFECTDESC;
 pub type LPDSCFXAec = *mut DSCFXAec;
 pub type LPDSCFXNoiseSuppress = *mut DSCFXNoiseSuppress;
 pub type LPDSEFFECTDESC = *mut DSEFFECTDESC;
-pub type LPDSENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDSENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(feature = "guiddef")]
+pub type LPDSENUMCALLBACKA = Option<unsafe extern "system" fn(param0: super::LPGUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(feature = "guiddef")]
+pub type LPDSENUMCALLBACKW = Option<unsafe extern "system" fn(param0: super::LPGUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type LPDSFXChorus = *mut DSFXChorus;
 pub type LPDSFXCompressor = *mut DSFXCompressor;
 pub type LPDSFXDistortion = *mut DSFXDistortion;
@@ -684,5 +698,6 @@ pub type LPLPDIRECTSOUNDCAPTURE8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDNOTIFY = *mut *mut core::ffi::c_void;
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub type LPREFERENCE_TIME = *mut super::REFERENCE_TIME;
+pub const _FACDS: i32 = 2168;

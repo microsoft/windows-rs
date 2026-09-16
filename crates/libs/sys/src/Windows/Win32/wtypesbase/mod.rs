@@ -71,7 +71,7 @@ pub const CLSCTX_RESERVED4: CLSCTX = 512;
 pub const CLSCTX_RESERVED5: CLSCTX = 2048;
 pub const CLSCTX_RESERVED6: CLSCTX = 16777216;
 pub const CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE: CLSCTX = 134217728;
-pub const CLSCTX_VALID_MASK: i32 = -1612712929;
+pub const CLSCTX_VALID_MASK: CLSCTX = 2682254367;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct COAUTHIDENTITY {
@@ -150,6 +150,8 @@ pub struct HYPER_SIZEDARR {
     pub pData: *mut i64,
 }
 pub type LPBLOB = *mut BLOB;
+pub type LPCOLESTR = *const OLECHAR;
+pub type LPOLESTR = *mut OLECHAR;
 pub type MEMCTX = i32;
 pub const MEMCTX_MACSYSTEM: MEMCTX = 3;
 pub const MEMCTX_SAME: MEMCTX = -2;

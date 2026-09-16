@@ -243,7 +243,7 @@ pub type LPSAFEARRAY = *mut SAFEARRAY;
 pub type LPSAFEARRAYBOUND = *mut SAFEARRAYBOUND;
 #[cfg(feature = "winnt")]
 pub type LPTLIBATTR = *mut TLIBATTR;
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPTYPEATTR = *mut TYPEATTR;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPVARDESC = *mut VARDESC;
@@ -306,31 +306,10 @@ pub struct SAFEARRAYBOUND {
 #[derive(Clone, Copy)]
 pub struct SAFEARRAYUNION {
     pub sfType: u32,
-    pub u: SAFEARRAYUNION_0,
+    pub u: __MIDL_IOleAutomationTypes_0001,
 }
 #[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SAFEARRAYUNION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub union SAFEARRAYUNION_0 {
-    pub BstrStr: SAFEARR_BSTR,
-    pub UnknownStr: SAFEARR_UNKNOWN,
-    pub DispatchStr: SAFEARR_DISPATCH,
-    pub VariantStr: SAFEARR_VARIANT,
-    pub RecordStr: SAFEARR_BRECORD,
-    pub HaveIidStr: SAFEARR_HAVEIID,
-    pub ByteStr: super::BYTE_SIZEDARR,
-    pub WordStr: super::WORD_SIZEDARR,
-    pub LongStr: super::DWORD_SIZEDARR,
-    pub HyperStr: super::HYPER_SIZEDARR,
-}
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for SAFEARRAYUNION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -413,7 +392,7 @@ pub struct TLIBATTR {
     pub wLibFlags: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TYPEATTR {
     pub guid: windows_sys::core::GUID,
@@ -421,7 +400,7 @@ pub struct TYPEATTR {
     pub dwReserved: u32,
     pub memidConstructor: MEMBERID,
     pub memidDestructor: MEMBERID,
-    pub lpstrSchema: windows_sys::core::PWSTR,
+    pub lpstrSchema: super::LPOLESTR,
     pub cbSizeInstance: u32,
     pub typekind: TYPEKIND,
     pub cFuncs: u16,
@@ -435,7 +414,7 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TYPEATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -490,7 +469,7 @@ pub type TYPEKIND = i32;
 #[derive(Clone, Copy)]
 pub struct VARDESC {
     pub memid: MEMBERID,
-    pub lpstrSchema: windows_sys::core::PWSTR,
+    pub lpstrSchema: super::LPOLESTR,
     pub Anonymous: VARDESC_0,
     pub elemdescVar: ELEMDESC,
     pub wVarFlags: u16,
@@ -584,7 +563,7 @@ pub union VARIANT_0_0_0 {
     pub __OBSOLETE__VARIANT_BOOL: super::VARIANT_BOOL,
     pub scode: super::SCODE,
     pub cyVal: super::CY,
-    pub date: f64,
+    pub date: super::DATE,
     pub bstrVal: windows_sys::core::BSTR,
     pub punkVal: *mut core::ffi::c_void,
     pub pdispVal: *mut core::ffi::c_void,
@@ -599,7 +578,7 @@ pub union VARIANT_0_0_0 {
     pub __OBSOLETE__VARIANT_PBOOL: *mut super::VARIANT_BOOL,
     pub pscode: *mut super::SCODE,
     pub pcyVal: *mut super::CY,
-    pub pdate: *mut f64,
+    pub pdate: *mut super::DATE,
     pub pbstrVal: *mut windows_sys::core::BSTR,
     pub ppunkVal: *mut *mut core::ffi::c_void,
     pub ppdispVal: *mut *mut core::ffi::c_void,
@@ -641,6 +620,27 @@ pub const VAR_CONST: VARKIND = 2;
 pub const VAR_DISPATCH: VARKIND = 3;
 pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
+#[repr(C)]
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union __MIDL_IOleAutomationTypes_0001 {
+    pub BstrStr: SAFEARR_BSTR,
+    pub UnknownStr: SAFEARR_UNKNOWN,
+    pub DispatchStr: SAFEARR_DISPATCH,
+    pub VariantStr: SAFEARR_VARIANT,
+    pub RecordStr: SAFEARR_BRECORD,
+    pub HaveIidStr: SAFEARR_HAVEIID,
+    pub ByteStr: super::BYTE_SIZEDARR,
+    pub WordStr: super::WORD_SIZEDARR,
+    pub LongStr: super::DWORD_SIZEDARR,
+    pub HyperStr: super::HYPER_SIZEDARR,
+}
+#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for __MIDL_IOleAutomationTypes_0001 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Default)]
@@ -698,7 +698,7 @@ pub union _wireVARIANT_0 {
     pub boolVal: super::VARIANT_BOOL,
     pub scode: super::SCODE,
     pub cyVal: super::CY,
-    pub date: f64,
+    pub date: super::DATE,
     pub bstrVal: super::wireBSTR,
     pub punkVal: *mut core::ffi::c_void,
     pub pdispVal: *mut core::ffi::c_void,
@@ -713,7 +713,7 @@ pub union _wireVARIANT_0 {
     pub pboolVal: *mut super::VARIANT_BOOL,
     pub pscode: *mut super::SCODE,
     pub pcyVal: *mut super::CY,
-    pub pdate: *mut f64,
+    pub pdate: *mut super::DATE,
     pub pbstrVal: *mut super::wireBSTR,
     pub ppunkVal: *mut *mut core::ffi::c_void,
     pub ppdispVal: *mut *mut core::ffi::c_void,

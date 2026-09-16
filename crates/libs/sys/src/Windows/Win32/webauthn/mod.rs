@@ -1,24 +1,24 @@
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::HWND, pwszrpid : windows_sys::core::PCWSTR, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut PWEBAUTHN_ASSERTION) -> windows_sys::core::HRESULT);
+windows_link::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::HWND, pwszrpid : windows_sys::core::PCWSTR, pwebauthnclientdata : PCWEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut PWEBAUTHN_ASSERTION) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_sys::core::HRESULT);
+windows_link::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::HWND, prpinformation : PCWEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : PCWEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : PCWEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_sys::core::HRESULT);
 windows_link::link!("webauthn.dll" "system" fn WebAuthNCancelCurrentOperation(pcancellationid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("webauthn.dll" "system" fn WebAuthNDeletePlatformCredential(cbcredentialid : u32, pbcredentialid : *const u8) -> windows_sys::core::HRESULT);
 #[cfg(feature = "minwindef")]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : *const WEBAUTHN_ASSERTION));
+windows_link::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : PWEBAUTHN_ASSERTION));
 #[cfg(feature = "minwindef")]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNFreeAuthenticatorList(pauthenticatordetailslist : *const WEBAUTHN_AUTHENTICATOR_DETAILS_LIST));
+windows_link::link!("webauthn.dll" "system" fn WebAuthNFreeAuthenticatorList(pauthenticatordetailslist : PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST));
 #[cfg(feature = "minwindef")]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : *const WEBAUTHN_CREDENTIAL_ATTESTATION));
+windows_link::link!("webauthn.dll" "system" fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : PWEBAUTHN_CREDENTIAL_ATTESTATION));
 #[cfg(feature = "minwindef")]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : *const WEBAUTHN_CREDENTIAL_DETAILS_LIST));
+windows_link::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : PWEBAUTHN_CREDENTIAL_DETAILS_LIST));
 windows_link::link!("webauthn.dll" "system" fn WebAuthNGetApiVersionNumber() -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions : *const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppauthenticatordetailslist : *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> windows_sys::core::HRESULT);
+windows_link::link!("webauthn.dll" "system" fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions : PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppauthenticatordetailslist : *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> windows_sys::core::HRESULT);
 windows_link::link!("webauthn.dll" "system" fn WebAuthNGetCancellationId(pcancellationid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("webauthn.dll" "system" fn WebAuthNGetErrorName(hr : windows_sys::core::HRESULT) -> windows_sys::core::PCWSTR);
 #[cfg(feature = "minwindef")]
-windows_link::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : *const WEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> windows_sys::core::HRESULT);
+windows_link::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : PCWEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> windows_sys::core::HRESULT);
 windows_link::link!("webauthn.dll" "system" fn WebAuthNGetW3CExceptionDOMError(hr : windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[repr(C)]

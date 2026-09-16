@@ -1,3 +1,51 @@
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserFree(param0 : *mut u32, param1 : *mut super::HACCEL));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserFree64(param0 : *mut u32, param1 : *mut super::HACCEL));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HACCEL) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HACCEL) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserFree(param0 : *mut u32, param1 : *mut super::HPALETTE));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserFree64(param0 : *mut u32, param1 : *mut super::HPALETTE));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HPALETTE) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HPALETTE) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserFree(param0 : *mut u32, param1 : *mut super::HRGN));
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserFree64(param0 : *mut u32, param1 : *mut super::HRGN));
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HRGN) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HRGN) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
 pub type ACTIVATEFLAGS = i32;
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1;
 #[repr(C)]
@@ -7,10 +55,11 @@ pub struct CADWORD {
     pub pElems: *mut u32,
 }
 #[repr(C)]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Default)]
 pub struct CALPOLESTR {
     pub cElems: u32,
-    pub pElems: *mut windows_sys::core::PWSTR,
+    pub pElems: *mut super::LPOLESTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -74,6 +123,7 @@ pub struct LICINFO {
     pub fLicVerified: windows_sys::core::BOOL,
 }
 pub type LPCADWORD = *mut CADWORD;
+#[cfg(feature = "wtypesbase")]
 pub type LPCALPOLESTR = *mut CALPOLESTR;
 pub type LPCAUUID = *mut CAUUID;
 pub type LPCONNECTDATA = *mut CONNECTDATA;
@@ -81,7 +131,7 @@ pub type LPCONNECTDATA = *mut CONNECTDATA;
 pub type LPCONTROLINFO = *mut CONTROLINFO;
 pub type LPLICINFO = *mut LICINFO;
 pub type LPPOINTF = *mut POINTF;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 pub type LPPROPPAGEINFO = *mut PROPPAGEINFO;
 #[cfg(feature = "wingdi")]
 pub type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
@@ -114,14 +164,14 @@ pub struct POINTF {
     pub y: f32,
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::VARTYPE,
     pub cfType: super::CLIPFORMAT,
     pub dwHint: u32,
-    pub pstrName: windows_sys::core::PWSTR,
+    pub pstrName: super::LPOLESTR,
     pub clsid: windows_sys::core::GUID,
 }
 pub type PROPBAG2_TYPE = i32;
@@ -133,14 +183,14 @@ pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = 4;
 pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = 0;
 pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
-    pub pszTitle: windows_sys::core::PWSTR,
+    pub pszTitle: super::LPOLESTR,
     pub size: super::SIZE,
-    pub pszDocString: windows_sys::core::PWSTR,
-    pub pszHelpFile: windows_sys::core::PWSTR,
+    pub pszDocString: super::LPOLESTR,
+    pub pszHelpFile: super::LPOLESTR,
     pub dwHelpContext: u32,
 }
 pub type PROPPAGESTATUS = i32;

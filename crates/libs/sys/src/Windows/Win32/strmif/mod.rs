@@ -201,7 +201,7 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: i32 = 2;
 pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
@@ -246,7 +246,7 @@ pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16;
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_STREAM_INFO {
     pub tStart: super::REFERENCE_TIME,
@@ -921,7 +921,7 @@ pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13;
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct Quality {
     pub Type: QualityMessageType,
@@ -930,6 +930,7 @@ pub struct Quality {
     pub TimeStamp: super::REFERENCE_TIME,
 }
 pub type QualityMessageType = i32;
+pub type REFTIME = f64;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct REGFILTER {
@@ -1146,7 +1147,7 @@ pub struct VMRGUID {
     pub GUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
@@ -1155,13 +1156,13 @@ pub struct VMRMONITORINFO {
     pub dwFlags: u32,
     pub szDevice: [u16; 32],
     pub szDescription: [u16; 256],
-    pub liDriverVersion: i64,
+    pub liDriverVersion: super::LARGE_INTEGER,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
     pub dwSubSysId: u32,
     pub dwRevision: u32,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for VMRMONITORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1174,7 +1175,7 @@ pub const VMRMode_Renderless: VMRMode = 4;
 pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,

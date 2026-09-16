@@ -2015,7 +2015,7 @@ pub const DXGK_FEATURE_ID_MASK: i32 = 268435455;
 pub const DXGK_FEATURE_KERNEL_MODE_TESTING: DXGK_FEATURE_ID = 33;
 pub const DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT: DXGK_FEATURE_ID = 3;
 pub const DXGK_FEATURE_LDA_GPUPV: DXGK_FEATURE_ID = 2;
-pub const DXGK_FEATURE_MAX: i32 = 47;
+pub const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
 pub const DXGK_FEATURE_NATIVE_FENCE: DXGK_FEATURE_ID = 37;
 pub const DXGK_FEATURE_NOTIFY_RESIDENCY2: DXGK_FEATURE_ID = 43;
 pub const DXGK_FEATURE_OPPORTUNISTIC_64KB_PAGES: DXGK_FEATURE_ID = 268435463;
@@ -2102,11 +2102,13 @@ pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = 4;
 pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = 3;
 pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_BUFFER {
     pub Header: DXGK_NATIVE_FENCE_LOG_HEADER,
     pub Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_NATIVE_FENCE_LOG_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2124,6 +2126,7 @@ pub struct DXGK_NATIVE_FENCE_LOG_ENTRY {
     pub FenceEndGpuTimestamp: u64,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0,
@@ -2131,23 +2134,27 @@ pub struct DXGK_NATIVE_FENCE_LOG_HEADER {
     pub NumberOfEntries: u64,
     pub Reserved: [u64; 2],
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0_0,
-    pub AtomicWraparoundAndEntryIndex: u64,
+    pub AtomicWraparoundAndEntryIndex: super::ULARGE_INTEGER,
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER_0_0 {
     pub FirstFreeEntryIndex: u32,

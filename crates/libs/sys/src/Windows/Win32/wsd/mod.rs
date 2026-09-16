@@ -127,7 +127,7 @@ pub type PWSD_SECURITY_CERT_VALIDATION = *mut WSD_SECURITY_CERT_VALIDATION;
 pub type PWSD_SECURITY_HTTP_AUTH_SCHEMES = *mut u32;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDATION;
-pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
+pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "C" fn(thisunknown: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct REQUESTBODY_GetStatus {
@@ -795,7 +795,7 @@ pub struct WSD_SOAP_MESSAGE {
     pub Body: *mut core::ffi::c_void,
     pub BodyType: *mut WSDXML_TYPE,
 }
-pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
+pub type WSD_STUB_FUNCTION = Option<unsafe extern "C" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]

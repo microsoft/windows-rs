@@ -40,8 +40,8 @@ windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW));
 #[cfg(feature = "rpc")]
 windows_link::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : super::RPC_AUTH_IDENTITY_HANDLE));
-windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : *const DS_SCHEMA_GUID_MAPA));
-windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : *const DS_SCHEMA_GUID_MAPW));
+windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : PDS_SCHEMA_GUID_MAPA));
+windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : PDS_SCHEMA_GUID_MAPW));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut windows_sys::core::PSTR));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut windows_sys::core::PWSTR));
 #[cfg(feature = "winnt")]
@@ -90,7 +90,7 @@ windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::HAN
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::HANDLE, pszfromsite : windows_sys::core::PCSTR, rgsztosites : *const windows_sys::core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostW(hds : super::HANDLE, pwszfromsite : windows_sys::core::PCWSTR, rgwsztosites : *const windows_sys::core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : *const DS_SITE_COST_INFO));
+windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : PDS_SITE_COST_INFO));
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::HANDLE, domaindn : windows_sys::core::PCSTR) -> u32);
 #[cfg(feature = "winnt")]
@@ -100,9 +100,9 @@ windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::HAN
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::HANDLE, serverdn : windows_sys::core::PCWSTR, domaindn : windows_sys::core::PCWSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
 #[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, sourcedsadn : windows_sys::core::PCSTR, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : *const super::SCHEDULE, options : u32) -> u32);
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, sourcedsadn : windows_sys::core::PCSTR, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : super::PSCHEDULE, options : u32) -> u32);
 #[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, sourcedsadn : windows_sys::core::PCWSTR, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : *const super::SCHEDULE, options : u32) -> u32);
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, sourcedsadn : windows_sys::core::PCWSTR, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : super::PSCHEDULE, options : u32) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
 #[cfg(feature = "winnt")]
@@ -115,9 +115,9 @@ windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::HA
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const windows_sys::core::GUID, ppinfo : *mut *mut core::ffi::c_void) -> u32);
 #[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : *const super::SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : super::PSCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
 #[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : *const super::SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : super::PSCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const windows_sys::core::GUID, options : u32) -> u32);
 #[cfg(feature = "winnt")]
@@ -275,8 +275,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
-pub const DS_DOMAIN_SIMPLE_NAME: i32 = 8;
-pub const DS_ENTERPRISE_SIMPLE_NAME: i32 = 8;
+pub const DS_DOMAIN_SIMPLE_NAME: DS_NAME_FORMAT = 8;
+pub const DS_ENTERPRISE_SIMPLE_NAME: DS_NAME_FORMAT = 8;
 pub const DS_EXIST_ADVISORY_MODE: i32 = 1;
 pub const DS_FQDN_1779_NAME: DS_NAME_FORMAT = 1;
 pub const DS_INSTANCETYPE_IS_NC_HEAD: i32 = 1;
@@ -304,7 +304,7 @@ pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = 4;
 pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = 1;
 pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = 8;
 pub type DS_NAME_FORMAT = i32;
-pub const DS_NAME_LEGAL_FLAGS: i32 = 1;
+pub const DS_NAME_LEGAL_FLAGS: DS_NAME_FLAGS = 1;
 pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = 0;
 pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = 0;
 #[repr(C)]
@@ -709,20 +709,10 @@ impl Default for DS_REPL_PENDING_OPSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
-pub struct DS_REPL_QUEUE_STATISTICSW {
-    pub ftimeCurrentOpStarted: super::FILETIME,
-    pub cNumPendingOps: u32,
-    pub ftimeOldestSync: super::FILETIME,
-    pub ftimeOldestAdd: super::FILETIME,
-    pub ftimeOldestMod: super::FILETIME,
-    pub ftimeOldestDel: super::FILETIME,
-    pub ftimeOldestUpdRefs: super::FILETIME,
-}
+pub type DS_REPL_QUEUE_STATISTICSW = _DS_REPL_QUEUE_STATISTICSW;
 #[cfg(feature = "minwindef")]
-pub type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
+pub type DS_REPL_QUEUE_STATISTICSW_BLOB = _DS_REPL_QUEUE_STATISTICSW;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
@@ -1070,3 +1060,15 @@ pub type PDS_REPSYNCALL_UPDATEW = *mut DS_REPSYNCALL_UPDATEW;
 pub type PDS_SCHEMA_GUID_MAPA = *mut DS_SCHEMA_GUID_MAPA;
 pub type PDS_SCHEMA_GUID_MAPW = *mut DS_SCHEMA_GUID_MAPW;
 pub type PDS_SITE_COST_INFO = *mut DS_SITE_COST_INFO;
+#[repr(C)]
+#[cfg(feature = "minwindef")]
+#[derive(Clone, Copy, Default)]
+pub struct _DS_REPL_QUEUE_STATISTICSW {
+    pub ftimeCurrentOpStarted: super::FILETIME,
+    pub cNumPendingOps: u32,
+    pub ftimeOldestSync: super::FILETIME,
+    pub ftimeOldestAdd: super::FILETIME,
+    pub ftimeOldestMod: super::FILETIME,
+    pub ftimeOldestDel: super::FILETIME,
+    pub ftimeOldestUpdRefs: super::FILETIME,
+}

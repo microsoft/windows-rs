@@ -21,7 +21,8 @@ pub const APTTYPE_MAINSTA: APTTYPE = 3;
 pub const APTTYPE_MTA: APTTYPE = 1;
 pub const APTTYPE_NA: APTTYPE = 2;
 pub const APTTYPE_STA: APTTYPE = 0;
-pub const COLE_DEFAULT_PRINCIPAL: windows_sys::core::PCWSTR = -1 as _;
+pub const COLE_DEFAULT_AUTHINFO: *mut core::ffi::c_void = core::ptr::without_provenance_mut::<core::ffi::c_void>((-1i32) as usize);
+pub const COLE_DEFAULT_PRINCIPAL: *mut u16 = core::ptr::without_provenance_mut::<u16>((-1i32) as usize);
 pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = 4;
 pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = 5;
 pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = 8;
@@ -135,7 +136,12 @@ pub struct MULTI_QI {
     pub pItf: *mut core::ffi::c_void,
     pub hr: windows_sys::core::HRESULT,
 }
-pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
+pub type MachineGlobalObjectTableRegistrationToken = *mut MachineGlobalObjectTableRegistrationToken__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct MachineGlobalObjectTableRegistrationToken__ {
+    pub unused: i32,
+}
 pub type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
 pub type PSOLE_AUTHENTICATION_INFO = *mut SOLE_AUTHENTICATION_INFO;
 pub type PSOLE_AUTHENTICATION_LIST = *mut SOLE_AUTHENTICATION_LIST;
@@ -196,12 +202,12 @@ pub struct SOLE_AUTHENTICATION_SERVICE {
     pub hr: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
 pub struct STATSTG {
-    pub pwcsName: windows_sys::core::PWSTR,
+    pub pwcsName: super::LPOLESTR,
     pub r#type: u32,
-    pub cbSize: u64,
+    pub cbSize: super::ULARGE_INTEGER,
     pub mtime: super::FILETIME,
     pub ctime: super::FILETIME,
     pub atime: super::FILETIME,
@@ -210,6 +216,12 @@ pub struct STATSTG {
     pub clsid: windows_sys::core::GUID,
     pub grfStateBits: u32,
     pub reserved: u32,
+}
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
+impl Default for STATSTG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type STGTY = i32;
 pub const STGTY_LOCKBYTES: STGTY = 3;

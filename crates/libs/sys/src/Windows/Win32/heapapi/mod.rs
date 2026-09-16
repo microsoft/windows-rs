@@ -1,7 +1,7 @@
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetProcessHeaps(numberofheaps : u32, processheaps : *mut super::HANDLE) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetProcessHeaps(numberofheaps : u32, processheaps : super::PHANDLE) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn HeapAlloc(hheap : super::HANDLE, dwflags : u32, dwbytes : usize) -> *mut core::ffi::c_void);
 #[cfg(feature = "winnt")]
@@ -14,22 +14,22 @@ windows_link::link!("kernel32.dll" "system" fn HeapDestroy(hheap : super::HANDLE
 windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : super::HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn HeapLock(hheap : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn HeapQueryInformation(heaphandle : super::HANDLE, heapinformationclass : super::HEAP_INFORMATION_CLASS, heapinformation : *mut core::ffi::c_void, heapinformationlength : usize, returnlength : *mut usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn HeapQueryInformation(heaphandle : super::HANDLE, heapinformationclass : super::HEAP_INFORMATION_CLASS, heapinformation : *mut core::ffi::c_void, heapinformationlength : usize, returnlength : super::PSIZE_T) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn HeapReAlloc(hheap : super::HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void, dwbytes : usize) -> *mut core::ffi::c_void);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn HeapSetInformation(heaphandle : super::HANDLE, heapinformationclass : super::HEAP_INFORMATION_CLASS, heapinformation : *const core::ffi::c_void, heapinformationlength : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn HeapSize(hheap : super::HANDLE, dwflags : u32, lpmem : *const core::ffi::c_void) -> usize);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn HeapSize(hheap : super::HANDLE, dwflags : u32, lpmem : super::LPCVOID) -> usize);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn HeapSummary(hheap : super::HANDLE, dwflags : u32, lpsummary : LPHEAP_SUMMARY) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn HeapUnlock(hheap : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn HeapValidate(hheap : super::HANDLE, dwflags : u32, lpmem : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn HeapValidate(hheap : super::HANDLE, dwflags : u32, lpmem : super::LPCVOID) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn HeapWalk(hheap : super::HANDLE, lpentry : *mut super::PROCESS_HEAP_ENTRY) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn HeapWalk(hheap : super::HANDLE, lpentry : super::LPPROCESS_HEAP_ENTRY) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct HEAP_SUMMARY {

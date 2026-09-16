@@ -1,6 +1,7 @@
 windows_link::link!("advapi32.dll" "system" fn AbortSystemShutdownA(lpmachinename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn AbortSystemShutdownW(lpmachinename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CheckForHiberboot(phiberboot : *mut bool, bclearflag : bool) -> u32);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn CheckForHiberboot(phiberboot : super::PBOOLEAN, bclearflag : super::BOOLEAN) -> u32);
 windows_link::link!("advapi32.dll" "system" fn InitiateShutdownA(lpmachinename : windows_sys::core::PCSTR, lpmessage : windows_sys::core::PCSTR, dwgraceperiod : u32, dwshutdownflags : u32, dwreason : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn InitiateShutdownW(lpmachinename : windows_sys::core::PCWSTR, lpmessage : windows_sys::core::PCWSTR, dwgraceperiod : u32, dwshutdownflags : u32, dwreason : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn InitiateSystemShutdownA(lpmachinename : windows_sys::core::PCSTR, lpmessage : windows_sys::core::PCSTR, dwtimeout : u32, bforceappsclosed : windows_sys::core::BOOL, brebootaftershutdown : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
@@ -10,29 +11,29 @@ windows_link::link!("advapi32.dll" "system" fn InitiateSystemShutdownW(lpmachine
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegCloseKey(hkey : super::HKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryA(lpmachinename : windows_sys::core::PCSTR, hkey : super::HKEY, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryA(lpmachinename : windows_sys::core::PCSTR, hkey : super::HKEY, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryExA(lpmachinename : windows_sys::core::PCSTR, hkey : super::HKEY, flags : u32, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryExA(lpmachinename : windows_sys::core::PCSTR, hkey : super::HKEY, flags : u32, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryExW(lpmachinename : windows_sys::core::PCWSTR, hkey : super::HKEY, flags : u32, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryExW(lpmachinename : windows_sys::core::PCWSTR, hkey : super::HKEY, flags : u32, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryW(lpmachinename : windows_sys::core::PCWSTR, hkey : super::HKEY, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegConnectRegistryW(lpmachinename : windows_sys::core::PCWSTR, hkey : super::HKEY, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegCopyTreeA(hkeysrc : super::HKEY, lpsubkey : windows_sys::core::PCSTR, hkeydest : super::HKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegCopyTreeW(hkeysrc : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, hkeydest : super::HKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyExA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, reserved : u32, lpclass : windows_sys::core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyExA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, reserved : u32, lpclass : windows_sys::core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, reserved : u32, lpclass : windows_sys::core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, reserved : u32, lpclass : windows_sys::core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, reserved : u32, lpclass : windows_sys::core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, reserved : u32, lpclass : windows_sys::core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD, htransaction : super::HANDLE, pextendedparemeter : *mut core::ffi::c_void) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, reserved : u32, lpclass : windows_sys::core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, reserved : u32, lpclass : windows_sys::core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD, htransaction : super::HANDLE, pextendedparemeter : *mut core::ffi::c_void) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -40,9 +41,9 @@ windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyExA(hkey : super::HKE
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyExW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, samdesired : REGSAM, reserved : u32) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *mut core::ffi::c_void) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *mut core::ffi::c_void) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegDeleteKeyValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpvaluename : windows_sys::core::PCSTR) -> LSTATUS);
 #[cfg(feature = "minwindef")]
@@ -66,73 +67,73 @@ windows_link::link!("advapi32.dll" "system" fn RegEnableReflectionKey(hbase : su
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegEnumKeyA(hkey : super::HKEY, dwindex : u32, lpname : windows_sys::core::PSTR, cchname : u32) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegEnumKeyExA(hkey : super::HKEY, dwindex : u32, lpname : windows_sys::core::PSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : windows_sys::core::PSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegEnumKeyExA(hkey : super::HKEY, dwindex : u32, lpname : windows_sys::core::PSTR, lpcchname : super::LPDWORD, lpreserved : super::LPDWORD, lpclass : windows_sys::core::PSTR, lpcchclass : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegEnumKeyExW(hkey : super::HKEY, dwindex : u32, lpname : windows_sys::core::PWSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : windows_sys::core::PWSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegEnumKeyExW(hkey : super::HKEY, dwindex : u32, lpname : windows_sys::core::PWSTR, lpcchname : super::LPDWORD, lpreserved : super::LPDWORD, lpclass : windows_sys::core::PWSTR, lpcchclass : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegEnumKeyW(hkey : super::HKEY, dwindex : u32, lpname : windows_sys::core::PWSTR, cchname : u32) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegEnumValueA(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_sys::core::PSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegEnumValueA(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_sys::core::PSTR, lpcchvaluename : super::LPDWORD, lpreserved : super::LPDWORD, lptype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegEnumValueW(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_sys::core::PWSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegEnumValueW(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_sys::core::PWSTR, lpcchvaluename : super::LPDWORD, lpreserved : super::LPDWORD, lptype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegFlushKey(hkey : super::HKEY) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegGetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegGetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : super::LPDWORD) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegGetValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpvalue : windows_sys::core::PCSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegGetValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpvalue : windows_sys::core::PCSTR, dwflags : u32, pdwtype : super::LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : super::LPDWORD) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegGetValueW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpvalue : windows_sys::core::PCWSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegGetValueW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpvalue : windows_sys::core::PCWSTR, dwflags : u32, pdwtype : super::LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : super::LPDWORD) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegLoadAppKeyA(lpfile : windows_sys::core::PCSTR, phkresult : *mut super::HKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegLoadAppKeyA(lpfile : windows_sys::core::PCSTR, phkresult : super::PHKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegLoadAppKeyW(lpfile : windows_sys::core::PCWSTR, phkresult : *mut super::HKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegLoadAppKeyW(lpfile : windows_sys::core::PCWSTR, phkresult : super::PHKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegLoadKeyA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpfile : windows_sys::core::PCSTR) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegLoadKeyW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpfile : windows_sys::core::PCWSTR) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegLoadMUIStringA(hkey : super::HKEY, pszvalue : windows_sys::core::PCSTR, pszoutbuf : windows_sys::core::PSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_sys::core::PCSTR) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegLoadMUIStringA(hkey : super::HKEY, pszvalue : windows_sys::core::PCSTR, pszoutbuf : windows_sys::core::PSTR, cboutbuf : u32, pcbdata : super::LPDWORD, flags : u32, pszdirectory : windows_sys::core::PCSTR) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegLoadMUIStringW(hkey : super::HKEY, pszvalue : windows_sys::core::PCWSTR, pszoutbuf : windows_sys::core::PWSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_sys::core::PCWSTR) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegLoadMUIStringW(hkey : super::HKEY, pszvalue : windows_sys::core::PCWSTR, pszoutbuf : windows_sys::core::PWSTR, cboutbuf : u32, pcbdata : super::LPDWORD, flags : u32, pszdirectory : windows_sys::core::PCWSTR) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn RegNotifyChangeKeyValue(hkey : super::HKEY, bwatchsubtree : windows_sys::core::BOOL, dwnotifyfilter : u32, hevent : super::HANDLE, fasynchronous : windows_sys::core::BOOL) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegOpenCurrentUser(samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenCurrentUser(samdesired : REGSAM, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : super::PHKEY, htransaction : super::HANDLE, pextendedparemeter : *mut core::ffi::c_void) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : super::PHKEY, htransaction : super::HANDLE, pextendedparemeter : *mut core::ffi::c_void) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RegOpenUserClassesRoot(htoken : super::HANDLE, dwoptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenUserClassesRoot(htoken : super::HANDLE, dwoptions : u32, samdesired : REGSAM, phkresult : super::PHKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegOverridePredefKey(hkey : super::HKEY, hnewhkey : super::HKEY) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyA(hkey : super::HKEY, lpclass : windows_sys::core::PSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyA(hkey : super::HKEY, lpclass : windows_sys::core::PSTR, lpcchclass : super::LPDWORD, lpreserved : super::LPDWORD, lpcsubkeys : super::LPDWORD, lpcbmaxsubkeylen : super::LPDWORD, lpcbmaxclasslen : super::LPDWORD, lpcvalues : super::LPDWORD, lpcbmaxvaluenamelen : super::LPDWORD, lpcbmaxvaluelen : super::LPDWORD, lpcbsecuritydescriptor : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : super::HKEY, lpclass : windows_sys::core::PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : super::HKEY, lpclass : windows_sys::core::PWSTR, lpcchclass : super::LPDWORD, lpreserved : super::LPDWORD, lpcsubkeys : super::LPDWORD, lpcbmaxsubkeylen : super::LPDWORD, lpcbmaxclasslen : super::LPDWORD, lpcvalues : super::LPDWORD, lpcbmaxvaluenamelen : super::LPDWORD, lpcbmaxvaluelen : super::LPDWORD, lpcbsecuritydescriptor : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryMultipleValuesA(hkey : super::HKEY, val_list : *mut VALENTA, num_vals : u32, lpvaluebuf : windows_sys::core::PSTR, ldwtotsize : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryMultipleValuesA(hkey : super::HKEY, val_list : PVALENTA, num_vals : u32, lpvaluebuf : windows_sys::core::PSTR, ldwtotsize : super::LPDWORD) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryMultipleValuesW(hkey : super::HKEY, val_list : *mut VALENTW, num_vals : u32, lpvaluebuf : windows_sys::core::PWSTR, ldwtotsize : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryMultipleValuesW(hkey : super::HKEY, val_list : PVALENTW, num_vals : u32, lpvaluebuf : windows_sys::core::PWSTR, ldwtotsize : super::LPDWORD) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegQueryReflectionKey(hbase : super::HKEY, bisreflectiondisabled : *mut windows_sys::core::BOOL) -> i32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn RegQueryValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpdata : windows_sys::core::PSTR, lpcbdata : super::PLONG) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpdata : windows_sys::core::PSTR, lpcbdata : *mut i32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryValueExA(hkey : super::HKEY, lpvaluename : windows_sys::core::PCSTR, lpreserved : super::LPDWORD, lptype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryValueExA(hkey : super::HKEY, lpvaluename : windows_sys::core::PCSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : super::HKEY, lpvaluename : windows_sys::core::PCWSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegQueryValueW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpdata : windows_sys::core::PWSTR, lpcbdata : *mut i32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : super::HKEY, lpvaluename : windows_sys::core::PCWSTR, lpreserved : super::LPDWORD, lptype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> LSTATUS);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn RegQueryValueW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpdata : windows_sys::core::PWSTR, lpcbdata : super::PLONG) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : super::HKEY, lpsubkeyname : windows_sys::core::PCWSTR, lpnewkeyname : windows_sys::core::PCWSTR) -> LSTATUS);
 #[cfg(feature = "minwindef")]
@@ -144,19 +145,19 @@ windows_link::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : super::HKEY
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : super::HKEY, lpfile : windows_sys::core::PCWSTR, dwflags : u32) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-windows_link::link!("advapi32.dll" "system" fn RegSaveKeyA(hkey : super::HKEY, lpfile : windows_sys::core::PCSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegSaveKeyA(hkey : super::HKEY, lpfile : windows_sys::core::PCSTR, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-windows_link::link!("advapi32.dll" "system" fn RegSaveKeyExA(hkey : super::HKEY, lpfile : windows_sys::core::PCSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegSaveKeyExA(hkey : super::HKEY, lpfile : windows_sys::core::PCSTR, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, flags : u32) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-windows_link::link!("advapi32.dll" "system" fn RegSaveKeyExW(hkey : super::HKEY, lpfile : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegSaveKeyExW(hkey : super::HKEY, lpfile : windows_sys::core::PCWSTR, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, flags : u32) -> LSTATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-windows_link::link!("advapi32.dll" "system" fn RegSaveKeyW(hkey : super::HKEY, lpfile : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegSaveKeyW(hkey : super::HKEY, lpfile : windows_sys::core::PCWSTR, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn RegSetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegSetKeyValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpvaluename : windows_sys::core::PCSTR, dwtype : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegSetKeyValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, lpvaluename : windows_sys::core::PCSTR, dwtype : u32, lpdata : super::LPCVOID, cbdata : u32) -> LSTATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn RegSetKeyValueW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpvaluename : windows_sys::core::PCWSTR, dwtype : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegSetKeyValueW(hkey : super::HKEY, lpsubkey : windows_sys::core::PCWSTR, lpvaluename : windows_sys::core::PCWSTR, dwtype : u32, lpdata : super::LPCVOID, cbdata : u32) -> LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn RegSetValueA(hkey : super::HKEY, lpsubkey : windows_sys::core::PCSTR, dwtype : u32, lpdata : windows_sys::core::PCSTR, cbdata : u32) -> LSTATUS);
 #[cfg(feature = "minwindef")]
@@ -195,7 +196,7 @@ pub type PPROVIDER = *mut REG_PROVIDER;
 pub type PPVALUE = PPVALUEA;
 pub type PPVALUEA = *mut PVALUEA;
 pub type PPVALUEW = *mut PVALUEW;
-pub type PQUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
+pub type PQUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: PVALCONTEXT, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const PROVIDER_KEEPS_VALUE_LENGTH: i32 = 1;
 pub type PVALCONTEXT = *mut val_context;
 pub type PVALENT = PVALENTA;
@@ -218,7 +219,7 @@ pub struct PVALUEW {
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
 }
-pub type QUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
+pub type QUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: PVALCONTEXT, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const REASON_HWINSTALL: i32 = 65538;
 pub const REASON_LEGACY_API: u32 = 2147942400;
 pub const REASON_OTHER: i32 = 0;

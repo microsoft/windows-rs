@@ -24,7 +24,7 @@ Make use of any Windows APIs as needed:
 use windows_sys::{core::*, Win32::*};
 
 unsafe {
-    let event = CreateEventW(std::ptr::null(), 1, 0, std::ptr::null());
+    let event = CreateEventW(std::ptr::null_mut(), 1, 0, std::ptr::null());
     SetEvent(event);
     WaitForSingleObject(event, 0);
     CloseHandle(event);

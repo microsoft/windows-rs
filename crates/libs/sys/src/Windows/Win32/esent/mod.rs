@@ -1,17 +1,17 @@
-windows_link::link!("esent.dll" "system" fn JetAddColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetAddColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetAttachDatabase2A(sesid : JET_SESID, szfilename : *const JET_CHAR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetAttachDatabase2W(sesid : JET_SESID, szfilename : *const JET_WCHAR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetAttachDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetAttachDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetBackupA(szbackuppath : *const JET_CHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetBackupInstanceA(instance : JET_INSTANCE, szbackuppath : *const JET_CHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetBackupInstanceW(instance : JET_INSTANCE, szbackuppath : *const JET_WCHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetBackupW(szbackuppath : *const JET_WCHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetAddColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetAddColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetAttachDatabase2A(sesid : JET_SESID, szfilename : JET_PCSTR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetAttachDatabase2W(sesid : JET_SESID, szfilename : JET_PCWSTR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetAttachDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetAttachDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetBackupA(szbackuppath : JET_PCSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetBackupInstanceA(instance : JET_INSTANCE, szbackuppath : JET_PCSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetBackupInstanceW(instance : JET_INSTANCE, szbackuppath : JET_PCWSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetBackupW(szbackuppath : JET_PCWSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetBeginExternalBackup(grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetBeginExternalBackupInstance(instance : JET_INSTANCE, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetBeginSessionA(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const JET_CHAR, szpassword : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetBeginSessionW(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const JET_WCHAR, szpassword : *const JET_WCHAR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetBeginSessionA(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : JET_PCSTR, szpassword : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetBeginSessionW(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : JET_PCWSTR, szpassword : JET_PCWSTR) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetBeginTransaction(sesid : JET_SESID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetBeginTransaction2(sesid : JET_SESID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetBeginTransaction3(sesid : JET_SESID, trxid : JET_INT64, grbit : JET_GRBIT) -> JET_ERR);
@@ -21,27 +21,27 @@ windows_link::link!("esent.dll" "system" fn JetCloseFileInstance(instance : JET_
 windows_link::link!("esent.dll" "system" fn JetCloseTable(sesid : JET_SESID, tableid : JET_TABLEID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCommitTransaction(sesid : JET_SESID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCommitTransaction2(sesid : JET_SESID, grbit : JET_GRBIT, cmsecdurablecommit : JET_UINT32, pcommitid : *mut JET_COMMIT_ID) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCompactA(sesid : JET_SESID, szdatabasesrc : *const JET_CHAR, szdatabasedest : *const JET_CHAR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCompactW(sesid : JET_SESID, szdatabasesrc : *const JET_WCHAR, szdatabasedest : *const JET_WCHAR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_W, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCompactA(sesid : JET_SESID, szdatabasesrc : JET_PCSTR, szdatabasedest : JET_PCSTR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCompactW(sesid : JET_SESID, szdatabasesrc : JET_PCWSTR, szdatabasedest : JET_PCWSTR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_W, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetComputeStats(sesid : JET_SESID, tableid : JET_TABLEID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetConfigureProcessForCrashDump(grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateDatabase2A(sesid : JET_SESID, szfilename : *const JET_CHAR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateDatabase2W(sesid : JET_SESID, szfilename : *const JET_WCHAR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR, szconnect : *const JET_CHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR, szconnect : *const JET_WCHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateDatabase2A(sesid : JET_SESID, szfilename : JET_PCSTR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateDatabase2W(sesid : JET_SESID, szfilename : JET_PCWSTR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR, szconnect : JET_PCSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR, szconnect : JET_PCWSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateIndex2A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_A, cindexcreate : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateIndex2W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_W, cindexcreate : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateIndex3A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_A, cindexcreate : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateIndex3W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_W, cindexcreate : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateIndex4A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_A, cindexcreate : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateIndex4W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_W, cindexcreate : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, grbit : JET_GRBIT, szkey : *const JET_CHAR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, grbit : JET_GRBIT, szkey : *const JET_WCHAR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateInstance2A(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_CHAR, szdisplayname : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateInstance2W(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_WCHAR, szdisplayname : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateInstanceA(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateInstanceW(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_WCHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT, szkey : JET_PCSTR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, grbit : JET_GRBIT, szkey : JET_PCWSTR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateInstance2A(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCSTR, szdisplayname : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateInstance2W(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCWSTR, szdisplayname : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateInstanceA(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateInstanceW(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCWSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateTableColumnIndex2A(sesid : JET_SESID, dbid : JET_DBID, ptablecreate : *mut JET_TABLECREATE2_A) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateTableColumnIndex2W(sesid : JET_SESID, dbid : JET_DBID, ptablecreate : *mut JET_TABLECREATE2_W) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateTableColumnIndex3A(sesid : JET_SESID, dbid : JET_DBID, ptablecreate : *mut JET_TABLECREATE3_A) -> JET_ERR);
@@ -50,26 +50,26 @@ windows_link::link!("esent.dll" "system" fn JetCreateTableColumnIndex4A(sesid : 
 windows_link::link!("esent.dll" "system" fn JetCreateTableColumnIndex4W(sesid : JET_SESID, dbid : JET_DBID, ptablecreate : *mut JET_TABLECREATE4_W) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateTableColumnIndexA(sesid : JET_SESID, dbid : JET_DBID, ptablecreate : *mut JET_TABLECREATE_A) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetCreateTableColumnIndexW(sesid : JET_SESID, dbid : JET_DBID, ptablecreate : *mut JET_TABLECREATE_W) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetCreateTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDefragment2A(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDefragment2W(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDefragment3A(sesid : JET_SESID, szdatabasename : *const JET_CHAR, sztablename : *const JET_CHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDefragment3W(sesid : JET_SESID, szdatabasename : *const JET_WCHAR, sztablename : *const JET_WCHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDefragmentA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDefragmentW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetCreateTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDefragment2A(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDefragment2W(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDefragment3A(sesid : JET_SESID, szdatabasename : JET_PCSTR, sztablename : JET_PCSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDefragment3W(sesid : JET_SESID, szdatabasename : JET_PCWSTR, sztablename : JET_PCWSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDefragmentA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDefragmentW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetDelete(sesid : JET_SESID, tableid : JET_TABLEID) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteColumn2A(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteColumn2W(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDeleteTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDetachDatabase2A(sesid : JET_SESID, szfilename : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDetachDatabase2W(sesid : JET_SESID, szfilename : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDetachDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetDetachDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteColumn2A(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteColumn2W(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDeleteTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDetachDatabase2A(sesid : JET_SESID, szfilename : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDetachDatabase2W(sesid : JET_SESID, szfilename : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDetachDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetDetachDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetDupCursor(sesid : JET_SESID, tableid : JET_TABLEID, ptableid : *mut JET_TABLEID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetDupSession(sesid : JET_SESID, psesid : *mut JET_SESID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : JET_UINT32, pcsetsucceed : *mut JET_UINT32) -> JET_ERR);
@@ -80,57 +80,57 @@ windows_link::link!("esent.dll" "system" fn JetEndExternalBackupInstance2(instan
 windows_link::link!("esent.dll" "system" fn JetEndSession(sesid : JET_SESID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetEnumerateColumns(sesid : JET_SESID, tableid : JET_TABLEID, cenumcolumnid : JET_UINT32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut JET_UINT32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : JET_PVOID, cbdatamost : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetEscrowUpdate(sesid : JET_SESID, tableid : JET_TABLEID, columnid : JET_COLUMNID, pv : JET_PVOID, cbmax : JET_UINT32, pvold : JET_PVOID, cboldmax : JET_UINT32, pcboldactual : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : *const JET_CHAR, szlogpath : *const JET_CHAR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : *const JET_CHAR, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *const JET_CHAR, sztargetinstancelogpath : *const JET_CHAR, sztargetinstancecheckpointpath : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetExternalRestore2W(szcheckpointfilepath : *const JET_WCHAR, szlogpath : *const JET_WCHAR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : *const JET_WCHAR, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : *const JET_WCHAR, sztargetinstancelogpath : *const JET_WCHAR, sztargetinstancecheckpointpath : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetExternalRestoreA(szcheckpointfilepath : *const JET_CHAR, szlogpath : *const JET_CHAR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : *const JET_CHAR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetExternalRestoreW(szcheckpointfilepath : *const JET_WCHAR, szlogpath : *const JET_WCHAR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : *const JET_WCHAR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : JET_PSTR, szlogpath : JET_PSTR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : JET_PSTR, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : JET_PSTR, sztargetinstancelogpath : JET_PSTR, sztargetinstancecheckpointpath : JET_PSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetExternalRestore2W(szcheckpointfilepath : JET_PWSTR, szlogpath : JET_PWSTR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : JET_PWSTR, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : JET_PWSTR, sztargetinstancelogpath : JET_PWSTR, sztargetinstancecheckpointpath : JET_PWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetExternalRestoreA(szcheckpointfilepath : JET_PSTR, szlogpath : JET_PSTR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : JET_PSTR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetExternalRestoreW(szcheckpointfilepath : JET_PWSTR, szlogpath : JET_PWSTR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : JET_PWSTR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetFreeBuffer(pbbuf : *mut JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetAttachInfoA(szzdatabases : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetAttachInfoInstanceA(instance : JET_INSTANCE, szzdatabases : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetAttachInfoInstanceW(instance : JET_INSTANCE, szzdatabases : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetAttachInfoW(wszzdatabases : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetAttachInfoA(szzdatabases : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetAttachInfoInstanceA(instance : JET_INSTANCE, szzdatabases : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetAttachInfoInstanceW(instance : JET_INSTANCE, szzdatabases : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetAttachInfoW(wszzdatabases : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetBookmark(sesid : JET_SESID, tableid : JET_TABLEID, pvbookmark : JET_PVOID, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetColumnInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pcolumnnameorid : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetColumnInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pwcolumnnameorid : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *mut JET_CHAR, cbindexname : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *mut JET_WCHAR, cbindexname : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetColumnInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pcolumnnameorid : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetColumnInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pwcolumnnameorid : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PSTR, cbindexname : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PWSTR, cbindexname : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetCursorInfo(sesid : JET_SESID, tableid : JET_TABLEID, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetDatabaseFileInfoA(szdatabasename : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetDatabaseFileInfoW(szdatabasename : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetDatabaseFileInfoA(szdatabasename : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetDatabaseFileInfoW(szdatabasename : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetDatabaseInfoA(sesid : JET_SESID, dbid : JET_DBID, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetDatabaseInfoW(sesid : JET_SESID, dbid : JET_DBID, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetErrorInfoW(pvcontext : JET_PVOID, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetIndexInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, szindexname : *const JET_CHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetIndexInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, szindexname : *const JET_WCHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetIndexInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, szindexname : JET_PCSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetIndexInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, szindexname : JET_PCWSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetInstanceInfoA(pcinstanceinfo : *mut JET_UINT32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_A) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetInstanceInfoW(pcinstanceinfo : *mut JET_UINT32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_W) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetInstanceMiscInfo(instance : JET_INSTANCE, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetLS(sesid : JET_SESID, tableid : JET_TABLEID, pls : *mut JET_LS, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetLock(sesid : JET_SESID, tableid : JET_TABLEID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetLogInfoA(szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstance2A(instance : JET_INSTANCE, szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_A) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstance2W(instance : JET_INSTANCE, wszzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_W) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetLogInfoW(szzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetObjectInfoA(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : *const JET_CHAR, szobjectname : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetObjectInfoW(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : *const JET_WCHAR, szobjectname : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetLogInfoA(szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstance2A(instance : JET_INSTANCE, szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_A) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstance2W(instance : JET_INSTANCE, wszzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_W) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetLogInfoW(szzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetObjectInfoA(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : JET_PCSTR, szobjectname : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetObjectInfoW(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : JET_PCWSTR, szobjectname : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetRecordPosition(sesid : JET_SESID, tableid : JET_TABLEID, precpos : *mut JET_RECPOS, cbrecpos : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetRecordSize(sesid : JET_SESID, tableid : JET_TABLEID, precsize : *mut JET_RECSIZE, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetRecordSize2(sesid : JET_SESID, tableid : JET_TABLEID, precsize : *mut JET_RECSIZE2, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetSecondaryIndexBookmark(sesid : JET_SESID, tableid : JET_TABLEID, pvsecondarykey : JET_PVOID, cbsecondarykeymax : JET_UINT32, pcbsecondarykeyactual : *mut JET_UINT32, pvprimarybookmark : JET_PVOID, cbprimarybookmarkmax : JET_UINT32, pcbprimarybookmarkactual : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetSessionParameter(sesid : JET_SESID, sesparamid : JET_UINT32, pvparam : JET_PVOID, cbparammax : JET_UINT32, pcbparamactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetSystemParameterA(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : *mut JET_CHAR, cbmax : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetSystemParameterW(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : *mut JET_WCHAR, cbmax : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetTableColumnInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetTableColumnInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetTableIndexInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetTableIndexInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetSystemParameterA(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : JET_PSTR, cbmax : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetSystemParameterW(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : JET_PWSTR, cbmax : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetTableColumnInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetTableColumnInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetTableIndexInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetTableIndexInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetTableInfoA(sesid : JET_SESID, tableid : JET_TABLEID, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetTableInfoW(sesid : JET_SESID, tableid : JET_TABLEID, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetThreadStats(pvresult : JET_PVOID, cbmax : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGetVersion(sesid : JET_SESID, pwversion : *mut JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGotoBookmark(sesid : JET_SESID, tableid : JET_TABLEID, pvbookmark : JET_PVOID, cbbookmark : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetGotoPosition(sesid : JET_SESID, tableid : JET_TABLEID, precpos : *const JET_RECPOS) -> JET_ERR);
@@ -156,14 +156,14 @@ windows_link::link!("esent.dll" "system" fn JetOSSnapshotPrepareInstance(snapid 
 windows_link::link!("esent.dll" "system" fn JetOSSnapshotThaw(snapid : JET_OSSNAPID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetOSSnapshotTruncateLog(snapid : JET_OSSNAPID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetOSSnapshotTruncateLogInstance(snapid : JET_OSSNAPID, instance : JET_INSTANCE, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR, szconnect : *const JET_CHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR, szconnect : *const JET_WCHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenFileA(szfilename : *const JET_CHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenFileInstanceA(instance : JET_INSTANCE, szfilename : *const JET_CHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenFileInstanceW(instance : JET_INSTANCE, szfilename : *const JET_WCHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenFileW(szfilename : *const JET_WCHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetOpenTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR, szconnect : JET_PCSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR, szconnect : JET_PCWSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenFileA(szfilename : JET_PCSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenFileInstanceA(instance : JET_INSTANCE, szfilename : JET_PCSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenFileInstanceW(instance : JET_INSTANCE, szfilename : JET_PCWSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenFileW(szfilename : JET_PCWSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetOpenTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetOpenTempTable(sesid : JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID, prgcolumnid : *mut JET_COLUMNID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetOpenTempTable2(sesid : JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : JET_UINT32, lcid : JET_LCID, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID, prgcolumnid : *mut JET_COLUMNID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetOpenTempTable3(sesid : JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : JET_UINT32, pidxunicode : *const JET_UNICODEINDEX, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID, prgcolumnid : *mut JET_COLUMNID) -> JET_ERR);
@@ -175,45 +175,45 @@ windows_link::link!("esent.dll" "system" fn JetPrereadKeys(sesid : JET_SESID, ta
 windows_link::link!("esent.dll" "system" fn JetReadFile(hffile : JET_HANDLE, pv : JET_PVOID, cb : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetReadFileInstance(instance : JET_INSTANCE, hffile : JET_HANDLE, pv : JET_PVOID, cb : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetRegisterCallback(sesid : JET_SESID, tableid : JET_TABLEID, cbtyp : JET_CBTYP, pcallback : JET_CALLBACK, pvcontext : JET_PVOID, phcallbackid : *const JET_HANDLE) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRenameColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szname : *const JET_CHAR, sznamenew : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRenameColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szname : *const JET_WCHAR, sznamenew : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRenameTableA(sesid : JET_SESID, dbid : JET_DBID, szname : *const JET_CHAR, sznamenew : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRenameTableW(sesid : JET_SESID, dbid : JET_DBID, szname : *const JET_WCHAR, sznamenew : *const JET_WCHAR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRenameColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szname : JET_PCSTR, sznamenew : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRenameColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szname : JET_PCWSTR, sznamenew : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRenameTableA(sesid : JET_SESID, dbid : JET_DBID, szname : JET_PCSTR, sznamenew : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRenameTableW(sesid : JET_SESID, dbid : JET_DBID, szname : JET_PCWSTR, sznamenew : JET_PCWSTR) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetResetSessionContext(sesid : JET_SESID) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetResetTableSequential(sesid : JET_SESID, tableid : JET_TABLEID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetResizeDatabase(sesid : JET_SESID, dbid : JET_DBID, cpgtarget : JET_UINT32, pcpgactual : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRestore2A(sz : *const JET_CHAR, szdest : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRestore2W(sz : *const JET_WCHAR, szdest : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRestoreA(szsource : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : *const JET_CHAR, szdest : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : *const JET_WCHAR, szdest : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetRestoreW(szsource : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRestore2A(sz : JET_PCSTR, szdest : JET_PCSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRestore2W(sz : JET_PCWSTR, szdest : JET_PCWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRestoreA(szsource : JET_PCSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : JET_PCSTR, szdest : JET_PCSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : JET_PCWSTR, szdest : JET_PCWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetRestoreW(szsource : JET_PCWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetRetrieveColumn(sesid : JET_SESID, tableid : JET_TABLEID, columnid : JET_COLUMNID, pvdata : JET_PVOID, cbdata : JET_UINT32, pcbactual : *mut JET_UINT32, grbit : JET_GRBIT, pretinfo : *mut JET_RETINFO) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetRetrieveColumns(sesid : JET_SESID, tableid : JET_TABLEID, pretrievecolumn : *mut JET_RETRIEVECOLUMN, cretrievecolumn : JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetRetrieveKey(sesid : JET_SESID, tableid : JET_TABLEID, pvkey : JET_PVOID, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetRollback(sesid : JET_SESID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSeek(sesid : JET_SESID, tableid : JET_TABLEID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetColumn(sesid : JET_SESID, tableid : JET_TABLEID, columnid : JET_COLUMNID, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT, psetinfo : *const JET_SETINFO) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetColumnDefaultValueA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, szcolumnname : *const JET_CHAR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetColumnDefaultValueW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, szcolumnname : *const JET_WCHAR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetColumnDefaultValueA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, szcolumnname : JET_PCSTR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetColumnDefaultValueW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, szcolumnname : JET_PCWSTR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetColumns(sesid : JET_SESID, tableid : JET_TABLEID, psetcolumn : *const JET_SETCOLUMN, csetcolumn : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex2A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex2W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex3A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex3W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex4A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex4W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex2A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex2W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex3A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex3W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex4A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndex4W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetCursorFilter(sesid : JET_SESID, tableid : JET_TABLEID, rgcolumnfilters : *const JET_INDEX_COLUMN, ccolumnfilters : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetDatabaseSizeA(sesid : JET_SESID, szdatabasename : *const JET_CHAR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetDatabaseSizeW(sesid : JET_SESID, szdatabasename : *const JET_WCHAR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetDatabaseSizeA(sesid : JET_SESID, szdatabasename : JET_PCSTR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetDatabaseSizeW(sesid : JET_SESID, szdatabasename : JET_PCWSTR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetIndexRange(sesid : JET_SESID, tableidsrc : JET_TABLEID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetLS(sesid : JET_SESID, tableid : JET_TABLEID, ls : JET_LS, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetSessionContext(sesid : JET_SESID, ulcontext : JET_API_PTR) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetSessionParameter(sesid : JET_SESID, sesparamid : JET_UINT32, pvparam : JET_PVOID, cbparam : JET_UINT32) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetSystemParameterA(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : *const JET_CHAR) -> JET_ERR);
-windows_link::link!("esent.dll" "system" fn JetSetSystemParameterW(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : *const JET_WCHAR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetSystemParameterA(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : JET_PCSTR) -> JET_ERR);
+windows_link::link!("esent.dll" "system" fn JetSetSystemParameterW(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : JET_PCWSTR) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetSetTableSequential(sesid : JET_SESID, tableid : JET_TABLEID, grbit : JET_GRBIT) -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetStopBackup() -> JET_ERR);
 windows_link::link!("esent.dll" "system" fn JetStopBackupInstance(instance : JET_INSTANCE) -> JET_ERR);
@@ -521,6 +521,7 @@ pub const JET_ColInfoList: u32 = 1;
 pub const JET_ColInfoListCompact: u32 = 5;
 pub const JET_ColInfoListSortColumnid: u32 = 7;
 pub const JET_ColInfoSysTabCursor: u32 = 3;
+pub type JET_DATESERIAL = f64;
 pub type JET_DBID = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1270,9 +1271,9 @@ pub struct JET_LOGTIME_1_0 {
 }
 pub type JET_LS = JET_API_PTR;
 #[cfg(target_arch = "x86")]
-pub const JET_LSNil: u32 = 4294967295;
+pub const JET_LSNil: JET_LS = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_LSNil: u64 = 18446744073709551615;
+pub const JET_LSNil: JET_LS = 18446744073709551615u64 as _;
 pub const JET_MAX_COMPUTERNAME_LENGTH: i32 = 15;
 pub const JET_MoveFirst: u32 = 2147483648;
 pub const JET_MoveLast: i32 = 2147483647;
@@ -1284,8 +1285,8 @@ pub const JET_MovePrevious: i32 = -1;
 pub struct JET_OBJECTINFO {
     pub cbStruct: JET_UINT32,
     pub objtyp: JET_OBJTYP,
-    pub dtCreate: f64,
-    pub dtUpdate: f64,
+    pub dtCreate: JET_DATESERIAL,
+    pub dtUpdate: JET_DATESERIAL,
     pub grbit: JET_GRBIT,
     pub flags: JET_UINT32,
     pub cRecord: JET_UINT32,
@@ -1297,8 +1298,8 @@ pub struct JET_OBJECTINFO {
 pub struct JET_OBJECTINFO {
     pub cbStruct: JET_UINT32,
     pub objtyp: JET_OBJTYP,
-    pub dtCreate: f64,
-    pub dtUpdate: f64,
+    pub dtCreate: JET_DATESERIAL,
+    pub dtUpdate: JET_DATESERIAL,
     pub grbit: JET_GRBIT,
     pub flags: JET_UINT32,
     pub cRecord: JET_UINT32,
@@ -2598,9 +2599,9 @@ pub const JET_filetypeLog: i32 = 3;
 pub const JET_filetypeTempDatabase: i32 = 5;
 pub const JET_filetypeUnknown: i32 = 0;
 #[cfg(target_arch = "x86")]
-pub const JET_instanceNil: u32 = 4294967295;
+pub const JET_instanceNil: JET_INSTANCE = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_instanceNil: u64 = 18446744073709551615;
+pub const JET_instanceNil: JET_INSTANCE = 18446744073709551615u64 as _;
 pub const JET_objtypNil: i32 = 0;
 pub const JET_objtypTable: i32 = 1;
 pub const JET_paramAccessDeniedRetryPeriod: i32 = 53;
@@ -2748,9 +2749,9 @@ pub const JET_relopLessThanOrEqual: JET_RELOP = 3;
 pub const JET_relopNotEquals: JET_RELOP = 2;
 pub const JET_relopPrefixEquals: JET_RELOP = 1;
 #[cfg(target_arch = "x86")]
-pub const JET_sesidNil: u32 = 4294967295;
+pub const JET_sesidNil: JET_SESID = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_sesidNil: u64 = 18446744073709551615;
+pub const JET_sesidNil: JET_SESID = 18446744073709551615u64 as _;
 pub const JET_sesparamCommitDefault: i32 = 4097;
 pub const JET_sesparamCorrelationID: i32 = 4101;
 pub const JET_sesparamMaxValueInvalid: i32 = 4111;
@@ -2772,9 +2773,9 @@ pub const JET_sqmDisable: i32 = 0;
 pub const JET_sqmEnable: i32 = 1;
 pub const JET_sqmFromCEIP: i32 = 2;
 #[cfg(target_arch = "x86")]
-pub const JET_tableidNil: u32 = 4294967295;
+pub const JET_tableidNil: JET_TABLEID = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_tableidNil: u64 = 18446744073709551615;
+pub const JET_tableidNil: JET_TABLEID = 18446744073709551615u64 as _;
 pub const JET_wrnBufferTruncated: i32 = 1006;
 pub const JET_wrnCallbackNotRegistered: i32 = 2100;
 pub const JET_wrnColumnDefault: i32 = 1537;

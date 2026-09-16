@@ -5,8 +5,8 @@ pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDropped: u32,
 }
 pub const Desktop: RdpSessionType = 0;
-pub const E_DUPLICATE_WINDOW_HINT: i32 = -2147024713;
-pub const E_MAPPEDRENDERER_SHUTDOWN: i32 = -2147019873;
+pub const E_DUPLICATE_WINDOW_HINT: windows_sys::core::HRESULT = 0x800700B7_u32 as _;
+pub const E_MAPPEDRENDERER_SHUTDOWN: windows_sys::core::HRESULT = 0x8007139F_u32 as _;
 pub type PBITMAP_RENDERER_STATISTICS = *mut BITMAP_RENDERER_STATISTICS;
 pub type RdpSessionType = i32;
 pub const RemoteApp: RdpSessionType = 1;

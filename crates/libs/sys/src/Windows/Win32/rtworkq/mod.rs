@@ -56,13 +56,13 @@ impl Default for RTWQASYNCRESULT {
 }
 pub type RTWQPERIODICCALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub type RTWQWORKITEM_KEY = u64;
-pub const RTWQ_E_BUFFERTOOSMALL: i32 = -1072875855;
-pub const RTWQ_E_INVALID_WORKQUEUE: i32 = -1072875777;
-pub const RTWQ_E_NOT_FOUND: i32 = -1072875819;
-pub const RTWQ_E_NOT_INITIALIZED: i32 = -1072875850;
-pub const RTWQ_E_OPERATION_CANCELLED: i32 = -1072875795;
-pub const RTWQ_E_SHUTDOWN: i32 = -1072873851;
-pub const RTWQ_E_UNEXPECTED: i32 = -1072875845;
+pub const RTWQ_E_BUFFERTOOSMALL: windows_sys::core::HRESULT = 0xC00D36B1_u32 as _;
+pub const RTWQ_E_INVALID_WORKQUEUE: windows_sys::core::HRESULT = 0xC00D36FF_u32 as _;
+pub const RTWQ_E_NOT_FOUND: windows_sys::core::HRESULT = 0xC00D36D5_u32 as _;
+pub const RTWQ_E_NOT_INITIALIZED: windows_sys::core::HRESULT = 0xC00D36B6_u32 as _;
+pub const RTWQ_E_OPERATION_CANCELLED: windows_sys::core::HRESULT = 0xC00D36ED_u32 as _;
+pub const RTWQ_E_SHUTDOWN: windows_sys::core::HRESULT = 0xC00D3E85_u32 as _;
+pub const RTWQ_E_UNEXPECTED: windows_sys::core::HRESULT = 0xC00D36BB_u32 as _;
 pub const RTWQ_MULTITHREADED_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 2;
 pub const RTWQ_STANDARD_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 0;
 pub const RTWQ_WINDOW_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 1;

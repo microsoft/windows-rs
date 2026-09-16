@@ -1,3 +1,19 @@
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserFree(param0 : *mut u32, param1 : *mut super::HBITMAP));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserFree64(param0 : *mut u32, param1 : *mut super::HBITMAP));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HBITMAP) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HBITMAP) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
 pub const CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 2;
 pub const CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 1;
 pub const CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 0;

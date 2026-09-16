@@ -11,7 +11,8 @@ windows_link::link!("winmm.dll" "system" fn mciGetDeviceIDW(pszdevice : windows_
 windows_link::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : MCIDEVICEID) -> usize);
 windows_link::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : MCIERROR, psztext : windows_sys::core::PSTR, cchtext : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : MCIERROR, psztext : windows_sys::core::PWSTR, cchtext : u32) -> windows_sys::core::BOOL);
-windows_link::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : MCIDEVICEID, pdwyielddata : *const u32) -> YIELDPROC);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : MCIDEVICEID, pdwyielddata : super::LPDWORD) -> YIELDPROC);
 #[cfg(feature = "winnt")]
 windows_link::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::HANDLE, lpresname : windows_sys::core::PCWSTR, wtype : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn mciSendCommandA(mciid : MCIDEVICEID, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> MCIERROR);

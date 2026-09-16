@@ -2,7 +2,7 @@
 windows_link::link!("comctl32.dll" "system" fn CreatePropertySheetPageA(constpropsheetpagepointer : LPCPROPSHEETPAGEA) -> HPROPSHEETPAGE);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 windows_link::link!("comctl32.dll" "system" fn CreatePropertySheetPageW(constpropsheetpagepointer : LPCPROPSHEETPAGEW) -> HPROPSHEETPAGE);
-windows_link::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : *mut _PSP) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : HPROPSHEETPAGE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 windows_link::link!("comctl32.dll" "system" fn PropertySheetA(param0 : LPCPROPSHEETHEADERA) -> isize);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
@@ -47,7 +47,7 @@ pub type LPCPROPSHEETPAGEW_V3 = *const PROPSHEETPAGEW_V3;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPCPROPSHEETPAGEW_V4 = *const PROPSHEETPAGEW_V4;
 #[cfg(feature = "minwindef")]
-pub type LPFNADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: *mut _PSP, param1: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type LPFNADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
 pub type LPFNADDPROPSHEETPAGES = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPFNADDPROPSHEETPAGE, param2: super::LPARAM) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
@@ -157,6 +157,10 @@ impl Default for PROPSHEETHEADERA_V1_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETHEADERA_V1_SIZE: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETHEADERA_V1_SIZE: u64 = 72;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -246,6 +250,10 @@ impl Default for PROPSHEETHEADERA_V2_4 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETHEADERA_V2_SIZE: u32 = 52;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETHEADERA_V2_SIZE: u64 = 96;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETHEADERW = PROPSHEETHEADERW_V2;
 #[repr(C)]
@@ -308,6 +316,10 @@ impl Default for PROPSHEETHEADERW_V1_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETHEADERW_V1_SIZE: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETHEADERW_V1_SIZE: u64 = 72;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -398,6 +410,10 @@ impl Default for PROPSHEETHEADERW_V2_4 {
     }
 }
 #[cfg(target_arch = "x86")]
+pub const PROPSHEETHEADERW_V2_SIZE: u32 = 52;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETHEADERW_V2_SIZE: u64 = 96;
+#[cfg(target_arch = "x86")]
 pub const PROPSHEETHEADER_V1_SIZE: u32 = 40;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PROPSHEETHEADER_V1_SIZE: u64 = 72;
@@ -456,6 +472,10 @@ impl Default for PROPSHEETPAGEA_V1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEA_V1_SIZE: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEA_V1_SIZE: u64 = 72;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -505,6 +525,10 @@ impl Default for PROPSHEETPAGEA_V2_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEA_V2_SIZE: u32 = 48;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEA_V2_SIZE: u64 = 88;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -555,6 +579,10 @@ impl Default for PROPSHEETPAGEA_V3_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEA_V3_SIZE: u32 = 52;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEA_V3_SIZE: u64 = 96;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -619,6 +647,10 @@ impl Default for PROPSHEETPAGEA_V4_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEA_V4_SIZE: u32 = 56;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEA_V4_SIZE: u64 = 104;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PROPSHEETPAGEW = PROPSHEETPAGEW_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
@@ -670,6 +702,10 @@ impl Default for PROPSHEETPAGEW_V1_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEW_V1_SIZE: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEW_V1_SIZE: u64 = 72;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -719,6 +755,10 @@ impl Default for PROPSHEETPAGEW_V2_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEW_V2_SIZE: u32 = 48;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEW_V2_SIZE: u64 = 88;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -769,6 +809,10 @@ impl Default for PROPSHEETPAGEW_V3_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEW_V3_SIZE: u32 = 52;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEW_V3_SIZE: u64 = 96;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -833,6 +877,10 @@ impl Default for PROPSHEETPAGEW_V4_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PROPSHEETPAGEW_V4_SIZE: u32 = 56;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROPSHEETPAGEW_V4_SIZE: u64 = 104;
 #[cfg(feature = "winuser")]
 pub type PROPSHEETPAGE_RESOURCE = super::LPCDLGTEMPLATE;
 #[cfg(target_arch = "x86")]

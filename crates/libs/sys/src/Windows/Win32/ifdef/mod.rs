@@ -1,4 +1,4 @@
-pub const IFI_UNSPECIFIED: u32 = 0;
+pub const IFI_UNSPECIFIED: NET_IFINDEX = 0;
 pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = 2;
 pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = 0;
 pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = 1;
@@ -46,6 +46,7 @@ pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = 2;
 pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = 1;
 pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = 0;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_INTERFACE_INFORMATION {
     pub ifOperStatus: NET_IF_OPER_STATUS,
@@ -53,8 +54,8 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
     pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
     pub ifMtu: u32,
-    pub ifPromiscuousMode: bool,
-    pub ifDeviceWakeUpEnable: bool,
+    pub ifPromiscuousMode: super::BOOLEAN,
+    pub ifDeviceWakeUpEnable: super::BOOLEAN,
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
     pub ifLastChange: u64,
@@ -82,7 +83,7 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub SupportedStatistics: u32,
 }
 pub type NET_IFINDEX = u32;
-pub const NET_IFINDEX_UNSPECIFIED: u32 = 0;
+pub const NET_IFINDEX_UNSPECIFIED: NET_IFINDEX = 0;
 pub const NET_IFLUID_UNSPECIFIED: i32 = 0;
 pub type NET_IFTYPE = u16;
 pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = 2;
@@ -199,6 +200,7 @@ pub type PIF_INDEX = *mut NET_IFINDEX;
 pub type PIF_LUID = *mut NET_LUID;
 pub type PIF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS;
 pub type PIF_PHYSICAL_ADDRESS_LH = *mut IF_PHYSICAL_ADDRESS_LH;
+#[cfg(feature = "winnt")]
 pub type PNDIS_INTERFACE_INFORMATION = *mut NDIS_INTERFACE_INFORMATION;
 pub type PNET_IFINDEX = *mut u32;
 pub type PNET_IFTYPE = *mut u16;

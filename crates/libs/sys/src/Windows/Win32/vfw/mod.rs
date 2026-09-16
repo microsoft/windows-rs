@@ -9,11 +9,13 @@ windows_link::link!("avifil32.dll" "system" fn AVIFileCreateStreamW(pfile : *mut
 windows_link::link!("avifil32.dll" "system" fn AVIFileEndRecord(pfile : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIFileExit());
 windows_link::link!("avifil32.dll" "system" fn AVIFileGetStream(pfile : *mut core::ffi::c_void, ppavi : *mut *mut core::ffi::c_void, fcctype : u32, lparam : i32) -> windows_sys::core::HRESULT);
-windows_link::link!("avifil32.dll" "system" fn AVIFileInfoA(pfile : *mut core::ffi::c_void, pfi : *mut AVIFILEINFOA, lsize : i32) -> windows_sys::core::HRESULT);
-windows_link::link!("avifil32.dll" "system" fn AVIFileInfoW(pfile : *mut core::ffi::c_void, pfi : *mut AVIFILEINFOW, lsize : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "system" fn AVIFileInfoA(pfile : *mut core::ffi::c_void, pfi : LPAVIFILEINFOA, lsize : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "system" fn AVIFileInfoW(pfile : *mut core::ffi::c_void, pfi : LPAVIFILEINFOW, lsize : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIFileInit());
-windows_link::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCSTR, umode : u32, lphandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-windows_link::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCWSTR, umode : u32, lphandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCSTR, umode : u32, lphandler : super::LPCLSID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCWSTR, umode : u32, lphandler : super::LPCLSID) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIFileReadData(pfile : *mut core::ffi::c_void, ckid : u32, lpdata : *mut core::ffi::c_void, lpcbdata : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIFileRelease(pfile : *mut core::ffi::c_void) -> u32);
 windows_link::link!("avifil32.dll" "system" fn AVIFileWriteData(pfile : *mut core::ffi::c_void, ckid : u32, lpdata : *const core::ffi::c_void, cbdata : i32) -> windows_sys::core::HRESULT);
@@ -23,13 +25,13 @@ windows_link::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *
 #[cfg(feature = "winnt")]
 windows_link::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::HANDLE, ppstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIPutFileOnClipboard(pf : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("avifil32.dll" "C" fn AVISaveA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : *mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "C" fn AVISaveA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : *mut core::ffi::c_void, lpoptions : LPAVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("avifil32.dll" "system" fn AVISaveOptions(hwnd : super::HWND, uiflags : u32, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *mut LPAVICOMPRESSOPTIONS) -> isize);
 windows_link::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
-windows_link::link!("avifil32.dll" "C" fn AVISaveW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : *mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "C" fn AVISaveW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : *mut core::ffi::c_void, lpoptions : LPAVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamAddRef(pavi : *mut core::ffi::c_void) -> u32);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamBeginStreaming(pavi : *mut core::ffi::c_void, lstart : i32, lend : i32, lrate : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut *mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
@@ -38,11 +40,11 @@ windows_link::link!("avifil32.dll" "system" fn AVIStreamFindSample(pavi : *mut c
 windows_link::link!("avifil32.dll" "system" fn AVIStreamGetFrame(pg : *mut core::ffi::c_void, lpos : i32) -> *mut core::ffi::c_void);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamGetFrameClose(pg : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wingdi")]
-windows_link::link!("avifil32.dll" "system" fn AVIStreamGetFrameOpen(pavi : *mut core::ffi::c_void, lpbiwanted : *const super::BITMAPINFOHEADER) -> *mut core::ffi::c_void);
+windows_link::link!("avifil32.dll" "system" fn AVIStreamGetFrameOpen(pavi : *mut core::ffi::c_void, lpbiwanted : super::LPBITMAPINFOHEADER) -> *mut core::ffi::c_void);
 #[cfg(feature = "windef")]
-windows_link::link!("avifil32.dll" "system" fn AVIStreamInfoA(pavi : *mut core::ffi::c_void, psi : *mut AVISTREAMINFOA, lsize : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "system" fn AVIStreamInfoA(pavi : *mut core::ffi::c_void, psi : LPAVISTREAMINFOA, lsize : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
-windows_link::link!("avifil32.dll" "system" fn AVIStreamInfoW(pavi : *mut core::ffi::c_void, psi : *mut AVISTREAMINFOW, lsize : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "system" fn AVIStreamInfoW(pavi : *mut core::ffi::c_void, psi : LPAVISTREAMINFOW, lsize : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamLength(pavi : *mut core::ffi::c_void) -> i32);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCWSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
@@ -58,23 +60,23 @@ windows_link::link!("avifil32.dll" "system" fn AVIStreamWrite(pavi : *mut core::
 windows_link::link!("avifil32.dll" "system" fn AVIStreamWriteData(pavi : *mut core::ffi::c_void, fcc : u32, lp : *const core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut *mut core::ffi::c_void, pssource : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : HDRAWDIB, hdc : super::HDC, dxdst : i32, dydst : i32, lpbi : *const super::BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : HDRAWDIB, hdc : super::HDC, dxdst : i32, dydst : i32, lpbi : super::LPBITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wingdi", feature = "winnt"))]
-windows_link::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : HDRAWDIB, istart : i32, ilen : i32, lppe : *const super::PALETTEENTRY) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : HDRAWDIB, istart : i32, ilen : i32, lppe : super::LPPALETTEENTRY) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : HDRAWDIB) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : HDRAWDIB, hdc : super::HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : HDRAWDIB, hdc : super::HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : super::LPBITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : HDRAWDIB) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wingdi", feature = "winnt"))]
-windows_link::link!("msvfw32.dll" "system" fn DrawDibGetBuffer(hdd : HDRAWDIB, lpbi : *mut super::BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut core::ffi::c_void);
+windows_link::link!("msvfw32.dll" "system" fn DrawDibGetBuffer(hdd : HDRAWDIB, lpbi : super::LPBITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut core::ffi::c_void);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibGetPalette(hdd : HDRAWDIB) -> super::HPALETTE);
 #[cfg(feature = "winnt")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibOpen() -> HDRAWDIB);
 #[cfg(all(feature = "minwindef", feature = "wingdi"))]
-windows_link::link!("msvfw32.dll" "system" fn DrawDibProfileDisplay(lpbi : *const super::BITMAPINFOHEADER) -> super::LRESULT);
+windows_link::link!("msvfw32.dll" "system" fn DrawDibProfileDisplay(lpbi : super::LPBITMAPINFOHEADER) -> super::LRESULT);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : HDRAWDIB, hdc : super::HDC, fbackground : windows_sys::core::BOOL) -> u32);
 #[cfg(all(feature = "windef", feature = "winnt"))]
@@ -84,51 +86,51 @@ windows_link::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : HDRAWDIB, rate 
 #[cfg(feature = "winnt")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : HDRAWDIB) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : HDRAWDIB, lpddtime : *mut DRAWDIBTIME) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : HDRAWDIB, lpddtime : LPDRAWDIBTIME) -> windows_sys::core::BOOL);
 windows_link::link!("avifil32.dll" "system" fn EditStreamClone(pavi : *mut core::ffi::c_void, ppresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn EditStreamCopy(pavi : *mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn EditStreamCut(pavi : *mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn EditStreamPaste(pavi : *mut core::ffi::c_void, plpos : *mut i32, pllength : *mut i32, pstream : *mut core::ffi::c_void, lstart : i32, lend : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
-windows_link::link!("avifil32.dll" "system" fn EditStreamSetInfoA(pavi : *mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOA, cbinfo : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "system" fn EditStreamSetInfoA(pavi : *mut core::ffi::c_void, lpinfo : LPAVISTREAMINFOA, cbinfo : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
-windows_link::link!("avifil32.dll" "system" fn EditStreamSetInfoW(pavi : *mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOW, cbinfo : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "system" fn EditStreamSetInfoW(pavi : *mut core::ffi::c_void, lpinfo : LPAVISTREAMINFOW, cbinfo : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn EditStreamSetNameA(pavi : *mut core::ffi::c_void, lpszname : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn EditStreamSetNameW(pavi : *mut core::ffi::c_void, lpszname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "commdlg", feature = "minwindef", feature = "windef"))]
-windows_link::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::OPENFILENAMEA) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : super::LPOPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "commdlg", feature = "minwindef", feature = "windef"))]
-windows_link::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::OPENFILENAMEW) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : super::LPOPENFILENAMEW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "commdlg", feature = "minwindef", feature = "windef"))]
-windows_link::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::OPENFILENAMEA) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : super::LPOPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "commdlg", feature = "minwindef", feature = "windef"))]
-windows_link::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::OPENFILENAMEW) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : super::LPOPENFILENAMEW) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("msvfw32.dll" "system" fn ICClose(hic : HIC) -> super::LRESULT);
-#[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "C" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::BITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : *const super::BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::BITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
+#[cfg(all(feature = "minwindef", feature = "wingdi"))]
+windows_link::link!("msvfw32.dll" "C" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : super::LPBITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : super::LPBITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : super::LPDWORD, lpdwflags : super::LPDWORD, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : super::LPBITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : PCOMPVARS, lpsztitle : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "system" fn ICCompressorFree(pc : *const COMPVARS));
+windows_link::link!("msvfw32.dll" "system" fn ICCompressorFree(pc : PCOMPVARS));
 #[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "C" fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::BITMAPINFOHEADER, lpdata : *const core::ffi::c_void, lpbi : *const super::BITMAPINFOHEADER, lpbits : *mut core::ffi::c_void) -> u32);
+windows_link::link!("msvfw32.dll" "C" fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : super::LPBITMAPINFOHEADER, lpdata : *const core::ffi::c_void, lpbi : super::LPBITMAPINFOHEADER, lpbits : *mut core::ffi::c_void) -> u32);
 windows_link::link!("msvfw32.dll" "C" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("msvfw32.dll" "C" fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::HPALETTE, hwnd : super::HWND, hdc : super::HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
+windows_link::link!("msvfw32.dll" "C" fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::HPALETTE, hwnd : super::HWND, hdc : super::HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : super::LPBITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
 #[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "system" fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::BITMAPINFOHEADER, lpbiout : *mut super::BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
+windows_link::link!("msvfw32.dll" "system" fn ICGetDisplayFormat(hic : HIC, lpbiin : super::LPBITMAPINFOHEADER, lpbiout : super::LPBITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
 #[cfg(feature = "minwindef")]
 windows_link::link!("msvfw32.dll" "system" fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::LRESULT);
 #[cfg(all(feature = "wingdi", feature = "winnt"))]
-windows_link::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::HANDLE);
+windows_link::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : super::LPBITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : super::LPBITMAPINFO, lquality : i32, plsize : *mut i32) -> super::HANDLE);
 #[cfg(all(feature = "wingdi", feature = "winnt"))]
-windows_link::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::BITMAPINFO) -> super::HANDLE);
+windows_link::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : super::LPBITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : super::LPBITMAPINFO) -> super::HANDLE);
 windows_link::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::LPARAM, szdesc : windows_sys::core::PCSTR, wflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::BITMAPINFOHEADER, lpbiout : *const super::BITMAPINFOHEADER, wflags : u16) -> HIC);
+windows_link::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : super::LPBITMAPINFOHEADER, lpbiout : super::LPBITMAPINFOHEADER, wflags : u16) -> HIC);
 windows_link::link!("msvfw32.dll" "system" fn ICOpen(fcctype : u32, fcchandler : u32, wmode : u32) -> HIC);
 #[cfg(feature = "minwindef")]
 windows_link::link!("msvfw32.dll" "system" fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::FARPROC) -> HIC);
@@ -136,11 +138,11 @@ windows_link::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler
 #[cfg(feature = "minwindef")]
 windows_link::link!("msvfw32.dll" "system" fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::LRESULT);
 #[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut windows_sys::core::BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
+windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : PCOMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut windows_sys::core::BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
 #[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrameEnd(pc : *const COMPVARS));
+windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrameEnd(pc : PCOMPVARS));
 #[cfg(feature = "wingdi")]
-windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::BITMAPINFO) -> windows_sys::core::BOOL);
+windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : PCOMPVARS, lpbiin : super::LPBITMAPINFO) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("msvfw32.dll" "C" fn MCIWndCreateA(hwndparent : super::HWND, hinstance : super::HINSTANCE, dwstyle : u32, szfile : windows_sys::core::PCSTR) -> super::HWND);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -172,26 +174,45 @@ pub struct AVICOMPRESSOPTIONS {
     pub cbParms: u32,
     pub dwInterleaveEvery: u32,
 }
-pub const AVIERR_BADFLAGS: i32 = -2147205015;
-pub const AVIERR_BADFORMAT: i32 = -2147205018;
-pub const AVIERR_BADHANDLE: i32 = -2147205012;
-pub const AVIERR_BADPARAM: i32 = -2147205014;
-pub const AVIERR_BADSIZE: i32 = -2147205013;
-pub const AVIERR_BUFFERTOOSMALL: i32 = -2147205004;
-pub const AVIERR_CANTCOMPRESS: i32 = -2147205003;
-pub const AVIERR_COMPRESSOR: i32 = -2147205008;
-pub const AVIERR_ERROR: i32 = -2147204921;
-pub const AVIERR_FILEOPEN: i32 = -2147205009;
-pub const AVIERR_FILEREAD: i32 = -2147205011;
-pub const AVIERR_FILEWRITE: i32 = -2147205010;
-pub const AVIERR_INTERNAL: i32 = -2147205016;
-pub const AVIERR_MEMORY: i32 = -2147205017;
-pub const AVIERR_NOCOMPRESSOR: i32 = -2147205007;
-pub const AVIERR_NODATA: i32 = -2147205005;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_BADFLAGS: super::SCODE = 0x80044069_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_BADFORMAT: super::SCODE = 0x80044066_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_BADHANDLE: super::SCODE = 0x8004406C_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_BADPARAM: super::SCODE = 0x8004406A_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_BADSIZE: super::SCODE = 0x8004406B_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_BUFFERTOOSMALL: super::SCODE = 0x80044074_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_CANTCOMPRESS: super::SCODE = 0x80044075_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_COMPRESSOR: super::SCODE = 0x80044070_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_ERROR: super::SCODE = 0x800440C7_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_FILEOPEN: super::SCODE = 0x8004406F_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_FILEREAD: super::SCODE = 0x8004406D_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_FILEWRITE: super::SCODE = 0x8004406E_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_INTERNAL: super::SCODE = 0x80044068_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_MEMORY: super::SCODE = 0x80044067_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_NOCOMPRESSOR: super::SCODE = 0x80044071_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_NODATA: super::SCODE = 0x80044073_u32 as _;
 pub const AVIERR_OK: i32 = 0;
-pub const AVIERR_READONLY: i32 = -2147205006;
-pub const AVIERR_UNSUPPORTED: i32 = -2147205019;
-pub const AVIERR_USERABORT: i32 = -2147204922;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_READONLY: super::SCODE = 0x80044072_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_UNSUPPORTED: super::SCODE = 0x80044065_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const AVIERR_USERABORT: super::SCODE = 0x800440C6_u32 as _;
 pub const AVIFILECAPS_ALLKEYFRAMES: i32 = 16;
 pub const AVIFILECAPS_CANREAD: i32 = 1;
 pub const AVIFILECAPS_CANWRITE: i32 = 2;
@@ -456,9 +477,9 @@ pub struct CAPTUREPARMS {
     pub AVStreamMaster: u32,
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type CAPVIDEOCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, lpvhdr: *const VIDEOHDR) -> super::LRESULT>;
+pub type CAPVIDEOCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, lpvhdr: LPVIDEOHDR) -> super::LRESULT>;
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-pub type CAPWAVECALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, lpwhdr: *const super::WAVEHDR) -> super::LRESULT>;
+pub type CAPWAVECALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, lpwhdr: super::LPWAVEHDR) -> super::LRESULT>;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CAPYIELDCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND) -> super::LRESULT>;
 #[repr(C)]
@@ -585,8 +606,18 @@ pub const FIND_SIZE: i32 = 12288;
 pub const FIND_TYPE: i32 = 240;
 #[cfg(feature = "winnt")]
 pub type HDRAWDIB = super::HANDLE;
-pub type HIC = *mut core::ffi::c_void;
-pub type HVIDEO = *mut core::ffi::c_void;
+pub type HIC = *mut HIC__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HIC__ {
+    pub unused: i32,
+}
+pub type HVIDEO = *mut HVIDEO__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HVIDEO__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]

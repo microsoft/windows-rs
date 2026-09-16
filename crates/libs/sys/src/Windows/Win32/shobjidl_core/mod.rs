@@ -4,7 +4,7 @@ windows_link::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByAp
 windows_link::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *const super::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
@@ -12,9 +12,9 @@ windows_link::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psipa
 #[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const super::KNOWNFOLDERID, dwkfflags : u32, pszitem : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const super::ITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : super::LPCITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const super::ITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
@@ -26,15 +26,15 @@ windows_link::link!("shell32.dll" "system" fn SHGetIDListFromObject(punk : *mut 
 windows_link::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : *mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHGetNameFromIDList(pidl : *const super::ITEMIDLIST, sigdnname : SIGDN, ppszname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHGetNameFromIDList(pidl : super::LPCITEMIDLIST, sigdnname : SIGDN, ppszname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "propsys", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromIDList(pidl : *const super::ITEMIDLIST, flags : super::GETPROPERTYSTOREFLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromIDList(pidl : super::LPCITEMIDLIST, flags : super::GETPROPERTYSTOREFLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "propsys"))]
 windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, flags : super::GETPROPERTYSTOREFLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHGetTemporaryPropertyForItem(psi : *mut core::ffi::c_void, propkey : *const super::PROPERTYKEY, ppropvar : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHResolveLibrary(psilibrary : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHSetTemporaryPropertyForItem(psi : *mut core::ffi::c_void, propkey : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHShowManageLibraryUI(psilibrary : *mut core::ffi::c_void, hwndowner : super::HWND, psztitle : windows_sys::core::PCWSTR, pszinstruction : windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> windows_sys::core::HRESULT);
@@ -245,10 +245,13 @@ pub const CDCS_ENABLED: CDCONTROLSTATEF = 1;
 pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = 3;
 pub const CDCS_INACTIVE: CDCONTROLSTATEF = 0;
 pub const CDCS_VISIBLE: CDCONTROLSTATEF = 2;
+pub const CMDSTR_NEWFOLDER: windows_sys::core::PCSTR = windows_sys::core::s!("NewFolder");
 pub const CMDSTR_NEWFOLDERA: windows_sys::core::PCSTR = windows_sys::core::s!("NewFolder");
 pub const CMDSTR_NEWFOLDERW: windows_sys::core::PCWSTR = windows_sys::core::w!("NewFolder");
+pub const CMDSTR_VIEWDETAILS: windows_sys::core::PCSTR = windows_sys::core::s!("ViewDetails");
 pub const CMDSTR_VIEWDETAILSA: windows_sys::core::PCSTR = windows_sys::core::s!("ViewDetails");
 pub const CMDSTR_VIEWDETAILSW: windows_sys::core::PCWSTR = windows_sys::core::w!("ViewDetails");
+pub const CMDSTR_VIEWLIST: windows_sys::core::PCSTR = windows_sys::core::s!("ViewList");
 pub const CMDSTR_VIEWLISTA: windows_sys::core::PCSTR = windows_sys::core::s!("ViewList");
 pub const CMDSTR_VIEWLISTW: windows_sys::core::PCWSTR = windows_sys::core::w!("ViewList");
 pub const CMF_ASYNCVERBSTATE: i32 = 1024;
@@ -747,7 +750,10 @@ pub const IRTIR_TASK_RUNNING: i32 = 1;
 pub const IRTIR_TASK_SUSPENDED: i32 = 2;
 pub const ISIOI_ICONFILE: i32 = 1;
 pub const ISIOI_ICONINDEX: i32 = 2;
-pub const ITSAT_DEFAULT_LPARAM: usize = -1i32 as usize;
+#[cfg(target_arch = "x86")]
+pub const ITSAT_DEFAULT_LPARAM: usize = 4294967295;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const ITSAT_DEFAULT_LPARAM: usize = 18446744073709551615u64 as usize;
 pub const ITSAT_DEFAULT_PRIORITY: i32 = 268435456;
 pub const ITSAT_MAX_PRIORITY: i32 = 2147483647;
 pub const ITSAT_MIN_PRIORITY: i32 = 0;
@@ -778,18 +784,28 @@ pub const KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS: KF_REDIRECTION_CAPABILIT
 pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY: KF_REDIRECTION_CAPABILITIES = 512;
 pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED: KF_REDIRECTION_CAPABILITIES = 256;
 pub const KF_REDIRECTION_CAPABILITIES_REDIRECTABLE: KF_REDIRECTION_CAPABILITIES = 1;
-pub const KF_REDIRECT_CHECK_ONLY: KF_REDIRECT_FLAGS = 16;
-pub const KF_REDIRECT_COPY_CONTENTS: KF_REDIRECT_FLAGS = 512;
-pub const KF_REDIRECT_COPY_SOURCE_DACL: KF_REDIRECT_FLAGS = 2;
-pub const KF_REDIRECT_DEL_SOURCE_CONTENTS: KF_REDIRECT_FLAGS = 1024;
-pub const KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS: KF_REDIRECT_FLAGS = 2048;
-pub type KF_REDIRECT_FLAGS = u32;
-pub const KF_REDIRECT_OWNER_USER: KF_REDIRECT_FLAGS = 4;
-pub const KF_REDIRECT_PIN: KF_REDIRECT_FLAGS = 128;
-pub const KF_REDIRECT_SET_OWNER_EXPLICIT: KF_REDIRECT_FLAGS = 8;
-pub const KF_REDIRECT_UNPIN: KF_REDIRECT_FLAGS = 64;
-pub const KF_REDIRECT_USER_EXCLUSIVE: KF_REDIRECT_FLAGS = 1;
-pub const KF_REDIRECT_WITH_UI: KF_REDIRECT_FLAGS = 32;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_CHECK_ONLY: super::KF_REDIRECT_FLAGS = 16;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_COPY_CONTENTS: super::KF_REDIRECT_FLAGS = 512;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_COPY_SOURCE_DACL: super::KF_REDIRECT_FLAGS = 2;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_DEL_SOURCE_CONTENTS: super::KF_REDIRECT_FLAGS = 1024;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS: super::KF_REDIRECT_FLAGS = 2048;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_OWNER_USER: super::KF_REDIRECT_FLAGS = 4;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_PIN: super::KF_REDIRECT_FLAGS = 128;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_SET_OWNER_EXPLICIT: super::KF_REDIRECT_FLAGS = 8;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_UNPIN: super::KF_REDIRECT_FLAGS = 64;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_USER_EXCLUSIVE: super::KF_REDIRECT_FLAGS = 1;
+#[cfg(feature = "shtypes")]
+pub const KF_REDIRECT_WITH_UI: super::KF_REDIRECT_FLAGS = 32;
 pub type KNOWNDESTCATEGORY = i32;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
@@ -881,12 +897,12 @@ pub type NATIVE_DISPLAY_ORIENTATION = i32;
 pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = 0;
 pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = 1;
 pub type NMCII_FLAGS = i32;
-pub const NMCII_FOLDERS: NMCII_FLAGS = 2;
-pub const NMCII_ITEMS: NMCII_FLAGS = 1;
-pub const NMCII_NONE: NMCII_FLAGS = 0;
-pub const NMCSAEI_EDIT: NMCSAEI_FLAGS = 1;
+pub const NMCII_FOLDERS: NMCII_FLAGS = 0x2_u32 as _;
+pub const NMCII_ITEMS: NMCII_FLAGS = 0x1_u32 as _;
+pub const NMCII_NONE: NMCII_FLAGS = 0x0_u32 as _;
+pub const NMCSAEI_EDIT: NMCSAEI_FLAGS = 0x1_u32 as _;
 pub type NMCSAEI_FLAGS = i32;
-pub const NMCSAEI_SELECT: NMCSAEI_FLAGS = 0;
+pub const NMCSAEI_SELECT: NMCSAEI_FLAGS = 0x0_u32 as _;
 pub const NSTCFC_DELAY_REGISTER_NOTIFY: NSTCFOLDERCAPABILITIES = 2;
 pub const NSTCFC_NONE: NSTCFOLDERCAPABILITIES = 0;
 pub const NSTCFC_PINNEDITEMFILTERING: NSTCFOLDERCAPABILITIES = 1;
@@ -1211,16 +1227,16 @@ pub const SIGDN_PARENTRELATIVEFORUI: SIGDN = -2146877439;
 pub const SIGDN_PARENTRELATIVEPARSING: SIGDN = -2147385343;
 pub const SIGDN_URL: SIGDN = -2147057664;
 pub type SIIGBF = i32;
-pub const SIIGBF_BIGGERSIZEOK: SIIGBF = 1;
-pub const SIIGBF_CROPTOSQUARE: SIIGBF = 32;
-pub const SIIGBF_ICONBACKGROUND: SIIGBF = 128;
-pub const SIIGBF_ICONONLY: SIIGBF = 4;
-pub const SIIGBF_INCACHEONLY: SIIGBF = 16;
-pub const SIIGBF_MEMORYONLY: SIIGBF = 2;
-pub const SIIGBF_RESIZETOFIT: SIIGBF = 0;
-pub const SIIGBF_SCALEUP: SIIGBF = 256;
-pub const SIIGBF_THUMBNAILONLY: SIIGBF = 8;
-pub const SIIGBF_WIDETHUMBNAILS: SIIGBF = 64;
+pub const SIIGBF_BIGGERSIZEOK: SIIGBF = 0x1_u32 as _;
+pub const SIIGBF_CROPTOSQUARE: SIIGBF = 0x20_u32 as _;
+pub const SIIGBF_ICONBACKGROUND: SIIGBF = 0x80_u32 as _;
+pub const SIIGBF_ICONONLY: SIIGBF = 0x4_u32 as _;
+pub const SIIGBF_INCACHEONLY: SIIGBF = 0x10_u32 as _;
+pub const SIIGBF_MEMORYONLY: SIIGBF = 0x2_u32 as _;
+pub const SIIGBF_RESIZETOFIT: SIIGBF = 0x0_u32 as _;
+pub const SIIGBF_SCALEUP: SIIGBF = 0x100_u32 as _;
+pub const SIIGBF_THUMBNAILONLY: SIIGBF = 0x8_u32 as _;
+pub const SIIGBF_WIDETHUMBNAILS: SIIGBF = 0x40_u32 as _;
 pub type SLGP_FLAGS = u32;
 pub const SLGP_RAWPATH: SLGP_FLAGS = 4;
 pub const SLGP_RELATIVEPRIORITY: SLGP_FLAGS = 8;
@@ -1466,28 +1482,28 @@ pub struct SV2CVW2_PARAMS {
 }
 pub const SV2GV_CURRENTVIEW: u32 = 4294967295;
 pub const SV2GV_DEFAULTVIEW: u32 = 4294967294;
-pub type SVGIO = u32;
-pub const SVGIO_ALLVIEW: SVGIO = 2;
-pub const SVGIO_BACKGROUND: SVGIO = 0;
-pub const SVGIO_CHECKED: SVGIO = 3;
-pub const SVGIO_FLAG_VIEWORDER: SVGIO = 2147483648;
-pub const SVGIO_SELECTION: SVGIO = 1;
-pub const SVGIO_TYPE_MASK: SVGIO = 15;
+pub type SVGIO = i32;
+pub const SVGIO_ALLVIEW: _SVGIO = 2;
+pub const SVGIO_BACKGROUND: _SVGIO = 0;
+pub const SVGIO_CHECKED: _SVGIO = 3;
+pub const SVGIO_FLAG_VIEWORDER: _SVGIO = 2147483648;
+pub const SVGIO_SELECTION: _SVGIO = 1;
+pub const SVGIO_TYPE_MASK: _SVGIO = 15;
 pub type SVSIF = u32;
-pub const SVSI_CHECK: SVSIF = 256;
-pub const SVSI_CHECK2: SVSIF = 512;
-pub const SVSI_DESELECT: SVSIF = 0;
-pub const SVSI_DESELECTOTHERS: SVSIF = 4;
-pub const SVSI_EDIT: SVSIF = 3;
-pub const SVSI_ENSUREVISIBLE: SVSIF = 8;
-pub const SVSI_FOCUSED: SVSIF = 16;
-pub const SVSI_KEYBOARDSELECT: SVSIF = 1025;
+pub const SVSI_CHECK: _SVSIF = 256;
+pub const SVSI_CHECK2: _SVSIF = 512;
+pub const SVSI_DESELECT: _SVSIF = 0;
+pub const SVSI_DESELECTOTHERS: _SVSIF = 4;
+pub const SVSI_EDIT: _SVSIF = 3;
+pub const SVSI_ENSUREVISIBLE: _SVSIF = 8;
+pub const SVSI_FOCUSED: _SVSIF = 16;
+pub const SVSI_KEYBOARDSELECT: _SVSIF = 1025;
 pub const SVSI_NOSTATECHANGE: u32 = 2147483648;
-pub const SVSI_NOTAKEFOCUS: SVSIF = 1073741824;
-pub const SVSI_POSITIONITEM: SVSIF = 128;
-pub const SVSI_SELECT: SVSIF = 1;
-pub const SVSI_SELECTIONMARK: SVSIF = 64;
-pub const SVSI_TRANSLATEPT: SVSIF = 32;
+pub const SVSI_NOTAKEFOCUS: _SVSIF = 1073741824;
+pub const SVSI_POSITIONITEM: _SVSIF = 128;
+pub const SVSI_SELECT: _SVSIF = 1;
+pub const SVSI_SELECTIONMARK: _SVSIF = 64;
+pub const SVSI_TRANSLATEPT: _SVSIF = 32;
 pub const SVUIA_ACTIVATE_FOCUS: SVUIA_STATUS = 2;
 pub const SVUIA_ACTIVATE_NOFOCUS: SVUIA_STATUS = 1;
 pub const SVUIA_DEACTIVATE: SVUIA_STATUS = 0;
@@ -1562,6 +1578,8 @@ pub const TS_PERFORMING: TRANSFER_ADVISE_STATE = 1;
 pub const TS_PREPARING: TRANSFER_ADVISE_STATE = 2;
 pub const TaskbarList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
 pub const UserNotification: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
+pub type _SVGIO = u32;
+pub type _SVSIF = i32;
 pub type tagBANDSITECID = i32;
 pub type tagDESKBANDCID = i32;
 pub type tagMENUBANDHANDLERCID = i32;

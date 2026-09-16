@@ -63,7 +63,7 @@ windows_link::link!("mfplat.dll" "system" fn MFCreateMFVideoFormatFromMFMediaTyp
 windows_link::link!("mfplat.dll" "system" fn MFCreateMediaBufferFromMediaType(pmediatype : *mut core::ffi::c_void, llduration : i64, dwminlength : u32, dwminalignment : u32, ppbuffer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFCreateMediaBufferWrapper(pbuffer : *mut core::ffi::c_void, cboffset : u32, dwlength : u32, ppbuffer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mfplat.dll" "system" fn MFCreateMediaEvent(met : super::MediaEventType, guidextendedtype : *const windows_sys::core::GUID, hrstatus : windows_sys::core::HRESULT, pvvalue : *const super::PROPVARIANT, ppevent : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFCreateMediaExtensionActivate(szactivatableclassid : windows_sys::core::PCWSTR, pconfiguration : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "mfobjects")]
@@ -119,7 +119,8 @@ windows_link::link!("mfplat.dll" "system" fn MFGetTimerPeriodicity(periodicity :
 windows_link::link!("mfplat.dll" "system" fn MFGetUncompressedVideoFormat(pvideoformat : *const super::MFVIDEOFORMAT) -> u32);
 windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSClass(dwworkqueueid : u32, pwszclass : windows_sys::core::PWSTR, pcchclass : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSPriority(dwworkqueueid : u32, lpriority : *mut i32) -> windows_sys::core::HRESULT);
-windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid : u32, pdwtaskid : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid : u32, pdwtaskid : super::LPDWORD) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFHeapAlloc(nsize : usize, dwflags : u32, pszfile : *const i8, line : i32, eat : EAllocationType) -> *mut core::ffi::c_void);
 windows_link::link!("mfplat.dll" "system" fn MFHeapFree(pv : *mut core::ffi::c_void));
 #[cfg(all(feature = "mfobjects", feature = "strmif"))]
@@ -130,11 +131,11 @@ windows_link::link!("mfplat.dll" "system" fn MFInitAttributesFromBlob(pattribute
 windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromAMMediaType(pmftype : *mut core::ffi::c_void, pamtype : *const super::AM_MEDIA_TYPE) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "mfobjects", feature = "windef"))]
 windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMFVideoFormat(pmftype : *mut core::ffi::c_void, pmfvf : *const super::MFVIDEOFORMAT, cbbufsize : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "amvideo", feature = "ksmedia", feature = "mfobjects", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "amvideo", feature = "mediaobj", feature = "mfobjects", feature = "windef", feature = "wingdi"))]
 windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype : *mut core::ffi::c_void, pmp1vi : *const super::MPEG1VIDEOINFO, cbbufsize : u32, psubtype : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype : *mut core::ffi::c_void, pmp2vi : *const MPEG2VIDEOINFO, cbbufsize : u32, psubtype : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "amvideo", feature = "ksmedia", feature = "mfobjects", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "amvideo", feature = "mediaobj", feature = "mfobjects", feature = "windef", feature = "wingdi"))]
 windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader(pmftype : *mut core::ffi::c_void, pvih : *const super::VIDEOINFOHEADER, cbbufsize : u32, psubtype : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "mfobjects")]
 windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader2(pmftype : *mut core::ffi::c_void, pvih2 : *const VIDEOINFOHEADER2, cbbufsize : u32, psubtype : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
@@ -329,7 +330,6 @@ pub struct InputQPSettings {
     pub maxValue: i16,
     pub steps: u16,
 }
-pub const LOCAL_D3DFMT_DEFINES: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MACROBLOCK_DATA {
@@ -460,7 +460,7 @@ pub const MFMediaType_Script: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const MFMediaType_Stream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
 pub const MFMediaType_Subtitle: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa6d13581_ed50_4e65_ae08_26065576aacc);
 pub const MFMediaType_Video: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
-pub type MFPERIODICCALLBACK = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void)>;
+pub type MFPERIODICCALLBACK = Option<unsafe extern "C" fn(pcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MFPinholeCameraIntrinsic_IntrinsicModel {
@@ -921,9 +921,7 @@ pub struct MOVE_RECT {
     pub SourcePoint: super::POINT,
     pub DestRect: super::RECT,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct MPEG2VIDEOINFO(pub u8);
+pub type MPEG2VIDEOINFO = tagMPEG2VIDEOINFO;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MT_ARBITRARY_HEADER {
@@ -962,12 +960,16 @@ pub struct ROI_AREA {
     pub rect: super::RECT,
     pub QPDelta: i32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VIDEOINFOHEADER2(pub u8);
+pub type VIDEOINFOHEADER2 = tagVIDEOINFOHEADER2;
 pub type _MFT_ENUM_FLAG = i32;
 pub type eAVEncVideoQPMapElementDataType = i32;
 pub const eAllocationTypeDynamic: EAllocationType = 0;
 pub const eAllocationTypeIgnore: EAllocationType = 3;
 pub const eAllocationTypePageable: EAllocationType = 2;
 pub const eAllocationTypeRT: EAllocationType = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct tagMPEG2VIDEOINFO(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct tagVIDEOINFOHEADER2(pub u8);

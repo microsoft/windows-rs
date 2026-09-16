@@ -1,23 +1,14 @@
+pub const ACCCTRL_DEFAULT_PROVIDER: windows_sys::core::PCSTR = windows_sys::core::s!("Windows NT Access Provider");
 pub const ACCCTRL_DEFAULT_PROVIDERA: windows_sys::core::PCSTR = windows_sys::core::s!("Windows NT Access Provider");
 pub const ACCCTRL_DEFAULT_PROVIDERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
 pub type ACCESS_MODE = i32;
 pub type ACCESS_RIGHTS = u32;
 #[cfg(feature = "winnt")]
 pub type ACTRL_ACCESS = ACTRL_ACCESSA;
-#[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct ACTRL_ACCESSA {
-    pub cEntries: u32,
-    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
-}
-#[repr(C)]
+pub type ACTRL_ACCESSA = _ACTRL_ALISTA;
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct ACTRL_ACCESSW {
-    pub cEntries: u32,
-    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
-}
+pub type ACTRL_ACCESSW = _ACTRL_ALISTW;
 pub const ACTRL_ACCESS_ALLOWED: i32 = 1;
 pub const ACTRL_ACCESS_DENIED: i32 = 2;
 #[cfg(feature = "winnt")]
@@ -79,9 +70,9 @@ pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: i32 = 1;
 #[cfg(feature = "winnt")]
 pub type ACTRL_AUDIT = ACTRL_AUDITA;
 #[cfg(feature = "winnt")]
-pub type ACTRL_AUDITA = ACTRL_ACCESSA;
+pub type ACTRL_AUDITA = _ACTRL_ALISTA;
 #[cfg(feature = "winnt")]
-pub type ACTRL_AUDITW = ACTRL_ACCESSW;
+pub type ACTRL_AUDITW = _ACTRL_ALISTW;
 pub const ACTRL_AUDIT_FAILURE: i32 = 8;
 pub const ACTRL_AUDIT_SUCCESS: i32 = 4;
 pub const ACTRL_CHANGE_ACCESS: i32 = 536870912;
@@ -328,9 +319,9 @@ pub type PACCESS_RIGHTS = *mut u32;
 #[cfg(feature = "winnt")]
 pub type PACTRL_ACCESS = PACTRL_ACCESSA;
 #[cfg(feature = "winnt")]
-pub type PACTRL_ACCESSA = *mut ACTRL_ACCESSA;
+pub type PACTRL_ACCESSA = *mut _ACTRL_ALISTA;
 #[cfg(feature = "winnt")]
-pub type PACTRL_ACCESSW = *mut ACTRL_ACCESSW;
+pub type PACTRL_ACCESSW = *mut _ACTRL_ALISTW;
 #[cfg(feature = "winnt")]
 pub type PACTRL_ACCESS_ENTRY = PACTRL_ACCESS_ENTRYA;
 #[cfg(feature = "winnt")]
@@ -349,9 +340,9 @@ pub type PACTRL_ACCESS_INFOW = *mut ACTRL_ACCESS_INFOW;
 #[cfg(feature = "winnt")]
 pub type PACTRL_AUDIT = PACTRL_AUDITA;
 #[cfg(feature = "winnt")]
-pub type PACTRL_AUDITA = *mut ACTRL_ACCESSA;
+pub type PACTRL_AUDITA = *mut _ACTRL_ALISTA;
 #[cfg(feature = "winnt")]
-pub type PACTRL_AUDITW = *mut ACTRL_ACCESSW;
+pub type PACTRL_AUDITW = *mut _ACTRL_ALISTW;
 pub type PACTRL_CONTROL_INFO = PACTRL_CONTROL_INFOA;
 pub type PACTRL_CONTROL_INFOA = *mut ACTRL_CONTROL_INFOA;
 pub type PACTRL_CONTROL_INFOW = *mut ACTRL_CONTROL_INFOW;
@@ -500,4 +491,18 @@ pub struct TRUSTEE_W {
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: super::LPWCH,
+}
+#[repr(C)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct _ACTRL_ALISTA {
+    pub cEntries: u32,
+    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
+}
+#[repr(C)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct _ACTRL_ALISTW {
+    pub cEntries: u32,
+    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
 }

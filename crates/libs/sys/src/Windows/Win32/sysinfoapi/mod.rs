@@ -1,49 +1,60 @@
-windows_link::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameExW(hostname : windows_sys::core::PCWSTR, computername : windows_sys::core::PWSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameExW(hostname : windows_sys::core::PCWSTR, computername : windows_sys::core::PWSTR, nsize : super::LPDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn EnumSystemFirmwareTables(firmwaretableprovidersignature : u32, pfirmwaretableenumbuffer : *mut core::ffi::c_void, buffersize : u32) -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_sys::core::PSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_sys::core::PWSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_sys::core::PSTR, nsize : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_sys::core::PWSTR, nsize : super::LPDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-sysinfo-l1-2-7.dll" "system" fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE);
 windows_link::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetIntegratedDisplaySize(sizeininches : *mut f64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "minwinbase")]
-windows_link::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::SYSTEMTIME));
+windows_link::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : super::LPSYSTEMTIME));
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetLogicalProcessorInformation(buffer : super::PSYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetLogicalProcessorInformationEx(relationshiptype : super::LOGICAL_PROCESSOR_RELATIONSHIP, buffer : super::PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength : super::PDWORD) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetNativeSystemInfo(lpsysteminfo : LPSYSTEM_INFO));
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetOsManufacturingMode(pbenabled : super::PBOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-sysinfo-l1-2-0.dll" "system" fn GetOsSafeBootMode(flags : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetLogicalProcessorInformation(buffer : *mut super::SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetLogicalProcessorInformationEx(relationshiptype : super::LOGICAL_PROCESSOR_RELATIONSHIP, buffer : *mut super::SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetNativeSystemInfo(lpsysteminfo : *mut SYSTEM_INFO));
-windows_link::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetOsManufacturingMode(pbenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("api-ms-win-core-sysinfo-l1-2-0.dll" "system" fn GetOsSafeBootMode(flags : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes : *mut u64) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group : u16, buffer : *mut super::SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetProductInfo(dwosmajorversion : u32, dwosminorversion : u32, dwspmajorversion : u32, dwspminorversion : u32, pdwreturnedproducttype : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernelbase.dll" "system" fn GetRuntimeAttestationReport(nonce : *const u8, packageversion : u16, reporttypesbitmap : u64, reportbuffer : *mut core::ffi::c_void, reportbuffersize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes : super::PULONGLONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group : u16, buffer : super::PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetProductInfo(dwosmajorversion : u32, dwosminorversion : u32, dwspmajorversion : u32, dwspminorversion : u32, pdwreturnedproducttype : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "basetsd")]
+windows_link::link!("kernelbase.dll" "system" fn GetRuntimeAttestationReport(nonce : *const u8, packageversion : u16, reporttypesbitmap : u64, reportbuffer : *mut core::ffi::c_void, reportbuffersize : super::PUINT32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetSystemDirectoryA(lpbuffer : windows_sys::core::PSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemDirectoryW(lpbuffer : windows_sys::core::PWSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemFirmwareTable(firmwaretableprovidersignature : u32, firmwaretableid : u32, pfirmwaretablebuffer : *mut core::ffi::c_void, buffersize : u32) -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO));
-windows_link::link!("kernelbase.dll" "system" fn GetSystemLeapSecondInformation(enabled : *mut windows_sys::core::BOOL, flags : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetSystemInfo(lpsysteminfo : LPSYSTEM_INFO));
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernelbase.dll" "system" fn GetSystemLeapSecondInformation(enabled : super::PBOOL, flags : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwinbase")]
-windows_link::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::SYSTEMTIME));
-windows_link::link!("kernel32.dll" "system" fn GetSystemTimeAdjustment(lptimeadjustment : *mut u32, lptimeincrement : *mut u32, lptimeadjustmentdisabled : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn GetSystemTimeAdjustmentPrecise(lptimeadjustment : *mut u64, lptimeincrement : *mut u64, lptimeadjustmentdisabled : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : super::LPSYSTEMTIME));
 #[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::FILETIME));
+windows_link::link!("kernel32.dll" "system" fn GetSystemTimeAdjustment(lptimeadjustment : super::PDWORD, lptimeincrement : super::PDWORD, lptimeadjustmentdisabled : super::PBOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+windows_link::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn GetSystemTimeAdjustmentPrecise(lptimeadjustment : super::PDWORD64, lptimeincrement : super::PDWORD64, lptimeadjustmentdisabled : super::PBOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::FILETIME));
+windows_link::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : super::LPFILETIME));
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : super::LPFILETIME));
 windows_link::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryA(lpbuffer : windows_sys::core::PSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryW(lpbuffer : windows_sys::core::PWSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetTickCount64() -> u64);
 windows_link::link!("kernel32.dll" "system" fn GetVersion() -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetVersionExA(lpversioninformation : *mut super::OSVERSIONINFOA) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetVersionExA(lpversioninformation : super::LPOSVERSIONINFOA) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetVersionExW(lpversioninformation : *mut super::OSVERSIONINFOW) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetVersionExW(lpversioninformation : super::LPOSVERSIONINFOW) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetWindowsDirectoryA(lpbuffer : windows_sys::core::PSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetWindowsDirectoryW(lpbuffer : windows_sys::core::PWSTR, usize : u32) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GlobalMemoryStatusEx(lpbuffer : *mut MEMORYSTATUSEX) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GlobalMemoryStatusEx(lpbuffer : LPMEMORYSTATUSEX) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn InstallELAMCertificateInfo(elamfile : super::HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn IsUserCetAvailableInEnvironment(usercetenvironment : u32) -> windows_sys::core::BOOL);
@@ -58,6 +69,7 @@ windows_link::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *cons
 windows_link::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *const super::SYSTEMTIME) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetSystemTimeAdjustment(dwtimeadjustment : u32, btimeadjustmentdisabled : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment : u64, btimeadjustmentdisabled : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn VerSetConditionMask(conditionmask : u64, typemask : u32, condition : u8) -> u64);
 pub type COMPUTER_NAME_FORMAT = i32;
 pub const ComputerNameDnsDomain: COMPUTER_NAME_FORMAT = 2;
 pub const ComputerNameDnsFullyQualified: COMPUTER_NAME_FORMAT = 3;

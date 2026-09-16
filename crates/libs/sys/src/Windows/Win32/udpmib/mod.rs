@@ -13,68 +13,78 @@ impl Default for MIB_UDP6ROW {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW2 {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
-    pub liCreateTimestamp: i64,
+    pub liCreateTimestamp: super::LARGE_INTEGER,
     pub Anonymous: MIB_UDP6ROW2_0,
     pub OwningModuleInfo: [u64; 16],
     pub ucRemoteAddr: [u8; 16],
     pub dwRemoteScopeId: u32,
     pub dwRemotePort: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDP6ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union MIB_UDP6ROW2_0 {
     pub Anonymous: MIB_UDP6ROW2_0_0,
     pub dwFlags: i32,
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDP6ROW2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_UDP6ROW2_0_0 {
     pub _bitfield: i32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
-    pub liCreateTimestamp: i64,
+    pub liCreateTimestamp: super::LARGE_INTEGER,
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDP6ROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union MIB_UDP6ROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDP6ROW_OWNER_MODULE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_UDP6ROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
@@ -106,22 +116,26 @@ impl Default for MIB_UDP6TABLE {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW2; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDP6TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_MODULE; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDP6TABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -145,65 +159,75 @@ pub struct MIB_UDPROW {
     pub dwLocalPort: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDPROW2 {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
-    pub liCreateTimestamp: i64,
+    pub liCreateTimestamp: super::LARGE_INTEGER,
     pub Anonymous: MIB_UDPROW2_0,
     pub OwningModuleInfo: [u64; 16],
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDPROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union MIB_UDPROW2_0 {
     pub Anonymous: MIB_UDPROW2_0_0,
     pub dwFlags: i32,
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDPROW2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_UDPROW2_0_0 {
     pub _bitfield: i32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDPROW_OWNER_MODULE {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
-    pub liCreateTimestamp: i64,
+    pub liCreateTimestamp: super::LARGE_INTEGER,
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDPROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union MIB_UDPROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDPROW_OWNER_MODULE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_UDPROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
@@ -245,22 +269,26 @@ impl Default for MIB_UDPTABLE {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW2; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDPTABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MIB_UDPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_MODULE; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for MIB_UDPTABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -279,21 +307,29 @@ impl Default for MIB_UDPTABLE_OWNER_PID {
 }
 #[cfg(feature = "in6addr")]
 pub type PMIB_UDP6ROW = *mut MIB_UDP6ROW;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDP6ROW2 = *mut MIB_UDP6ROW2;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDP6ROW_OWNER_MODULE = *mut MIB_UDP6ROW_OWNER_MODULE;
 pub type PMIB_UDP6ROW_OWNER_PID = *mut MIB_UDP6ROW_OWNER_PID;
 #[cfg(feature = "in6addr")]
 pub type PMIB_UDP6TABLE = *mut MIB_UDP6TABLE;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDP6TABLE2 = *mut MIB_UDP6TABLE2;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDP6TABLE_OWNER_MODULE = *mut MIB_UDP6TABLE_OWNER_MODULE;
 pub type PMIB_UDP6TABLE_OWNER_PID = *mut MIB_UDP6TABLE_OWNER_PID;
 pub type PMIB_UDPROW = *mut MIB_UDPROW;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDPROW2 = *mut MIB_UDPROW2;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDPROW_OWNER_MODULE = *mut MIB_UDPROW_OWNER_MODULE;
 pub type PMIB_UDPROW_OWNER_PID = *mut MIB_UDPROW_OWNER_PID;
 pub type PMIB_UDPSTATS = *mut MIB_UDPSTATS;
 pub type PMIB_UDPSTATS2 = *mut MIB_UDPSTATS2;
 pub type PMIB_UDPTABLE = *mut MIB_UDPTABLE;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDPTABLE2 = *mut MIB_UDPTABLE2;
+#[cfg(feature = "winnt")]
 pub type PMIB_UDPTABLE_OWNER_MODULE = *mut MIB_UDPTABLE_OWNER_MODULE;
 pub type PMIB_UDPTABLE_OWNER_PID = *mut MIB_UDPTABLE_OWNER_PID;

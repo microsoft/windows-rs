@@ -70,7 +70,7 @@ pub const PERF_COUNTER_TIMER: i32 = 541132032;
 pub const PERF_COUNTER_TIMER_INV: i32 = 557909248;
 pub const PERF_COUNTER_VALUE: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
@@ -82,13 +82,13 @@ pub struct PERF_DATA_BLOCK {
     pub NumObjectTypes: u32,
     pub DefaultObject: i32,
     pub SystemTime: super::SYSTEMTIME,
-    pub PerfTime: i64,
-    pub PerfFreq: i64,
-    pub PerfTime100nSec: i64,
+    pub PerfTime: super::LARGE_INTEGER,
+    pub PerfFreq: super::LARGE_INTEGER,
+    pub PerfTime100nSec: super::LARGE_INTEGER,
     pub SystemNameLength: u32,
     pub SystemNameOffset: u32,
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 impl Default for PERF_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -132,7 +132,8 @@ pub const PERF_NUMBER_HEX: i32 = 0;
 pub const PERF_OBJECT_TIMER: i32 = 2097152;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -146,12 +147,20 @@ pub struct PERF_OBJECT_TYPE {
     pub DefaultCounter: i32,
     pub NumInstances: i32,
     pub CodePage: u32,
-    pub PerfTime: i64,
-    pub PerfFreq: i64,
+    pub PerfTime: super::LARGE_INTEGER,
+    pub PerfFreq: super::LARGE_INTEGER,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -165,8 +174,15 @@ pub struct PERF_OBJECT_TYPE {
     pub DefaultCounter: i32,
     pub NumInstances: i32,
     pub CodePage: u32,
-    pub PerfTime: i64,
-    pub PerfFreq: i64,
+    pub PerfTime: super::LARGE_INTEGER,
+    pub PerfFreq: super::LARGE_INTEGER,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PERF_OBJ_TIME_TIMER: i32 = 543229184;
 pub const PERF_PRECISION_100NS_TIMER: i32 = 542573824;
@@ -195,9 +211,10 @@ pub type PM_COLLECT_PROC = Option<unsafe extern "system" fn(pvaluename: windows_
 pub type PM_OPEN_PROC = Option<unsafe extern "system" fn(pcontext: windows_sys::core::PCWSTR) -> u32>;
 pub type PPERF_COUNTER_BLOCK = *mut PERF_COUNTER_BLOCK;
 pub type PPERF_COUNTER_DEFINITION = *mut PERF_COUNTER_DEFINITION;
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type PPERF_DATA_BLOCK = *mut PERF_DATA_BLOCK;
 pub type PPERF_INSTANCE_DEFINITION = *mut PERF_INSTANCE_DEFINITION;
+#[cfg(feature = "winnt")]
 pub type PPERF_OBJECT_TYPE = *mut PERF_OBJECT_TYPE;
 pub const WINPERF_LOG_DEBUG: i32 = 2;
 pub const WINPERF_LOG_NONE: i32 = 0;

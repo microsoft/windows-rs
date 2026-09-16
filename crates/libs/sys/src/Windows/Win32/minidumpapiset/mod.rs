@@ -1,6 +1,6 @@
 windows_link::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut PMINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::HANDLE, processid : u32, hfile : super::HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::HANDLE, processid : u32, hfile : super::HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : PMINIDUMP_EXCEPTION_INFORMATION, userstreamparam : PMINIDUMP_USER_STREAM_INFORMATION, callbackparam : PMINIDUMP_CALLBACK_INFORMATION) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CPU_INFORMATION {
@@ -74,6 +74,7 @@ pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INPUT {
@@ -82,6 +83,7 @@ pub struct MINIDUMP_CALLBACK_INPUT {
     pub CallbackType: u32,
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_INPUT {
     fn default() -> Self {
@@ -89,6 +91,7 @@ impl Default for MINIDUMP_CALLBACK_INPUT {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_CALLBACK_INPUT_0 {
@@ -106,6 +109,50 @@ pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
     pub CompressedMemoryStreamFinish: MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
+impl Default for MINIDUMP_CALLBACK_INPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, align(16))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct MINIDUMP_CALLBACK_INPUT {
+    pub ProcessId: u32,
+    pub ProcessHandle: super::HANDLE,
+    pub CallbackType: u32,
+    pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
+impl Default for MINIDUMP_CALLBACK_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "verrsrc", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union MINIDUMP_CALLBACK_INPUT_0 {
+    pub Status: windows_sys::core::HRESULT,
+    pub Thread: MINIDUMP_THREAD_CALLBACK,
+    pub ThreadEx: MINIDUMP_THREAD_EX_CALLBACK,
+    pub Module: MINIDUMP_MODULE_CALLBACK,
+    pub IncludeThread: MINIDUMP_INCLUDE_THREAD_CALLBACK,
+    pub IncludeModule: MINIDUMP_INCLUDE_MODULE_CALLBACK,
+    pub Io: MINIDUMP_IO_CALLBACK,
+    pub ReadMemoryFailure: MINIDUMP_READ_MEMORY_FAILURE_CALLBACK,
+    pub SecondaryFlags: u32,
+    pub VmQuery: MINIDUMP_VM_QUERY_CALLBACK,
+    pub VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
+    pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
+    pub CompressedMemoryStreamFinish: MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "verrsrc", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_INPUT_0 {
     fn default() -> Self {
@@ -269,7 +316,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadBytesCompleted: u32,
 }
 #[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> windows_sys::core::BOOL>;
+pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: PMINIDUMP_CALLBACK_INPUT, callbackoutput: PMINIDUMP_CALLBACK_OUTPUT) -> windows_sys::core::BOOL>;
 pub type MINIDUMP_CALLBACK_TYPE = i32;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
@@ -1077,7 +1124,7 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -1096,7 +1143,7 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -1149,7 +1196,7 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -1170,7 +1217,7 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]

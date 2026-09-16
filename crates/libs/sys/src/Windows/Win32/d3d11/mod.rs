@@ -4,8 +4,8 @@ windows_link::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : *mut co
 windows_link::link!("d3d11.dll" "system" fn D3D11CreateDeviceAndSwapChain(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : u32, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, pswapchaindesc : *const super::DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut *mut core::ffi::c_void, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "d3dcommon")]
 windows_link::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : *mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const *mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut *mut core::ffi::c_void, ppimmediatecontext : *mut *mut core::ffi::c_void, pchosenfeaturelevel : *mut super::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "d3dcommon")]
-windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ptrace : *mut core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3dcommon", feature = "minwindef"))]
+windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : super::LPCVOID, srcdatasize : usize, ptrace : *mut core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type APP_DEPRECATED_HRESULT = windows_sys::core::HRESULT;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -32,7 +32,7 @@ pub struct CD3D11_BUFFER_DESC {
 pub struct CD3D11_COUNTER_DESC {
     pub Base: D3D11_COUNTER_DESC,
 }
-#[repr(C, align(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_DEFAULT(pub u8);
 #[repr(C)]
@@ -190,7 +190,7 @@ impl Default for CD3D11_UNORDERED_ACCESS_VIEW_DESC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, align(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 #[repr(C)]
@@ -296,18 +296,13 @@ pub type D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D11_AUTHENTICATED_PROTECTION_FLAGS {
-    pub Flags: D3D11_AUTHENTICATED_PROTECTION_FLAGS_0,
+    pub Flags: __MIDL___MIDL_itf_d3d11_0000_0034_0001,
     pub Value: u32,
 }
 impl Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
-    pub _bitfield: u32,
 }
 pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
 #[repr(C)]
@@ -1398,6 +1393,7 @@ pub const D3D11_FORMAT_SUPPORT_VIDEO_ENCODER: D3D11_FORMAT_SUPPORT = 1073741824;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_INPUT: D3D11_FORMAT_SUPPORT = 536870912;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_OUTPUT: D3D11_FORMAT_SUPPORT = 268435456;
 pub const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D11_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
 pub const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
@@ -3015,6 +3011,7 @@ pub const D3D11_MIN_FILTER_SHIFT: i32 = 4;
 pub const D3D11_MIN_MAXANISOTROPY: i32 = 0;
 pub const D3D11_MIP_FILTER_SHIFT: i32 = 0;
 pub const D3D11_MIP_LOD_BIAS_MAX: f32 = 15.99;
+pub const D3D11_MIP_LOD_BIAS_MIN: f32 = -16.0;
 pub const D3D11_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 8;
 pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
@@ -4829,3 +4826,10 @@ pub type PFN_D3D11ON12_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: 
 pub type PFN_D3D11_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut *mut core::ffi::c_void, param8: *mut super::D3D_FEATURE_LEVEL, param9: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "windef"))]
 pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::DXGI_SWAP_CHAIN_DESC, param8: *mut *mut core::ffi::c_void, param9: *mut *mut core::ffi::c_void, param10: *mut super::D3D_FEATURE_LEVEL, param11: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub const _FACD3D11: i32 = 2172;
+pub const _FACD3D11DEBUG: i32 = 2173;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct __MIDL___MIDL_itf_d3d11_0000_0034_0001 {
+    pub _bitfield: u32,
+}

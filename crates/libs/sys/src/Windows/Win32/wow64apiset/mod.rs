@@ -3,14 +3,15 @@ windows_link::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow6
 windows_link::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryA(lpbuffer : windows_sys::core::PSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryW(lpbuffer : windows_sys::core::PWSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : u16, machineissupported : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn IsWow64Process(hprocess : super::HANDLE, wow64process : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn IsWow64Process(hprocess : super::HANDLE, wow64process : super::PBOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn IsWow64Process2(hprocess : super::HANDLE, pprocessmachine : *mut u16, pnativemachine : *mut u16) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn Wow64DisableWow64FsRedirection(oldvalue : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : bool) -> bool);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::HANDLE, lpcontext : *mut super::WOW64_CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : super::BOOLEAN) -> super::BOOLEAN);
+#[cfg(feature = "winnt")]
+windows_link::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::HANDLE, lpcontext : super::PWOW64_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn Wow64RevertWow64FsRedirection(olvalue : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::HANDLE, lpcontext : *const super::WOW64_CONTEXT) -> windows_sys::core::BOOL);

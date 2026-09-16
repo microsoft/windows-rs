@@ -1,4 +1,5 @@
-windows_link::link!("wtsapi32.dll" "system" fn WTSActiveSessionExists(pbactivesessionexists : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wtsapi32.dll" "system" fn WTSActiveSessionExists(pbactivesessionexists : super::PBOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::HANDLE));
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthClose(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE));
@@ -11,16 +12,16 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthOpen(activityid : *co
 windows_link::link!("wtsapi32.dll" "system" fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCSTR, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSConnectSessionW(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCWSTR, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : PWTSLISTENERCONFIGA, flag : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : *const WTSLISTENERCONFIGW, flag : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : PWTSLISTENERCONFIGW, flag : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSDisconnectSession(hserver : super::HANDLE, sessionid : u32, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "C" fn WTSEnableChildSessions(benable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut WTSLISTENERNAMEA, pcount : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : PWTSLISTENERNAMEA, pcount : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut WTSLISTENERNAMEW, pcount : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : PWTSLISTENERNAMEW, pcount : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesA(hserver : super::HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut PWTS_PROCESS_INFOA, pcount : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -42,12 +43,14 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsW(hserver : s
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *const core::ffi::c_void));
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wtsapi32.dll" "C" fn WTSGetChildSessionId(psessionid : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("wtsapi32.dll" "C" fn WTSIsChildSessionsEnabled(pbenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wtsapi32.dll" "C" fn WTSGetChildSessionId(psessionid : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wtsapi32.dll" "C" fn WTSIsChildSessionsEnabled(pbenabled : super::PBOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSLogoffSession(hserver : super::HANDLE, sessionid : u32, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -59,9 +62,9 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSOpenServerExW(pservername : wi
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSOpenServerW(pservername : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : *mut WTSLISTENERCONFIGA) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigA(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : PWTSLISTENERCONFIGA) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : *mut WTSLISTENERCONFIGW) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigW(hserver : super::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : PWTSLISTENERCONFIGW) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationA(hserver : super::HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut windows_sys::core::PSTR, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -69,7 +72,7 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationW(hserv
 windows_link::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigA(pservername : windows_sys::core::PCSTR, pusername : windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut windows_sys::core::PSTR, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigW(pservername : windows_sys::core::PCWSTR, pusername : windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSQueryUserToken(sessionid : u32, phtoken : *mut super::HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSQueryUserToken(sessionid : u32, phtoken : super::PHANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSRegisterSessionNotification(hwnd : super::HWND, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winnt"))]
@@ -107,10 +110,10 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeInput(hchan
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeOutput(hchannelhandle : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelQuery(hchannelhandle : super::HANDLE, param1 : WTS_VIRTUAL_CLASS, ppbuffer : *mut *mut core::ffi::c_void, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::HANDLE, timeout : u32, buffer : *mut i8, buffersize : u32, pbytesread : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::HANDLE, buffer : *const i8, length : u32, pbyteswritten : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::HANDLE, timeout : u32, buffer : super::PCHAR, buffersize : u32, pbytesread : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::HANDLE, buffer : super::PCHAR, length : u32, pbyteswritten : super::PULONG) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSWaitSystemEvent(hserver : super::HANDLE, eventmask : u32, peventflags : *mut u32) -> windows_sys::core::BOOL);
 pub const CLIENTADDRESS_LENGTH: i32 = 30;
@@ -150,13 +153,21 @@ pub type PWTSCLIENTA = *mut WTSCLIENTA;
 pub type PWTSCLIENTW = *mut WTSCLIENTW;
 pub type PWTSCONFIGINFOA = *mut WTSCONFIGINFOA;
 pub type PWTSCONFIGINFOW = *mut WTSCONFIGINFOW;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOA = *mut WTSINFOA;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOEXA = *mut WTSINFOEXA;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOEXW = *mut WTSINFOEXW;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOEX_LEVEL1_A = *mut WTSINFOEX_LEVEL1_A;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOEX_LEVEL1_W = *mut WTSINFOEX_LEVEL1_W;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOEX_LEVEL_A = *mut WTSINFOEX_LEVEL_A;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOEX_LEVEL_W = *mut WTSINFOEX_LEVEL_W;
+#[cfg(feature = "winnt")]
 pub type PWTSINFOW = *mut WTSINFOW;
 pub type PWTSLISTENERCONFIGA = *mut WTSLISTENERCONFIGA;
 pub type PWTSLISTENERCONFIGW = *mut WTSLISTENERCONFIGW;
@@ -308,6 +319,7 @@ pub const WTSDisconnected: WTS_CONNECTSTATE_CLASS = 4;
 pub const WTSDomainName: WTS_INFO_CLASS = 7;
 pub const WTSDown: WTS_CONNECTSTATE_CLASS = 8;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WTSINFOA {
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -321,40 +333,46 @@ pub struct WTSINFOA {
     pub WinStationName: [i8; 32],
     pub Domain: [i8; 17],
     pub UserName: [i8; 21],
-    pub ConnectTime: i64,
-    pub DisconnectTime: i64,
-    pub LastInputTime: i64,
-    pub LogonTime: i64,
-    pub CurrentTime: i64,
+    pub ConnectTime: super::LARGE_INTEGER,
+    pub DisconnectTime: super::LARGE_INTEGER,
+    pub LastInputTime: super::LARGE_INTEGER,
+    pub LogonTime: super::LARGE_INTEGER,
+    pub CurrentTime: super::LARGE_INTEGER,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEXW {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_W,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
@@ -363,11 +381,11 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub WinStationName: [i8; 33],
     pub UserName: [i8; 21],
     pub DomainName: [i8; 18],
-    pub LogonTime: i64,
-    pub ConnectTime: i64,
-    pub DisconnectTime: i64,
-    pub LastInputTime: i64,
-    pub CurrentTime: i64,
+    pub LogonTime: super::LARGE_INTEGER,
+    pub ConnectTime: super::LARGE_INTEGER,
+    pub DisconnectTime: super::LARGE_INTEGER,
+    pub LastInputTime: super::LARGE_INTEGER,
+    pub CurrentTime: super::LARGE_INTEGER,
     pub IncomingBytes: u32,
     pub OutgoingBytes: u32,
     pub IncomingFrames: u32,
@@ -375,12 +393,14 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOEX_LEVEL1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WTSINFOEX_LEVEL1_W {
     pub SessionId: u32,
@@ -389,11 +409,11 @@ pub struct WTSINFOEX_LEVEL1_W {
     pub WinStationName: [u16; 33],
     pub UserName: [u16; 21],
     pub DomainName: [u16; 18],
-    pub LogonTime: i64,
-    pub ConnectTime: i64,
-    pub DisconnectTime: i64,
-    pub LastInputTime: i64,
-    pub CurrentTime: i64,
+    pub LogonTime: super::LARGE_INTEGER,
+    pub ConnectTime: super::LARGE_INTEGER,
+    pub DisconnectTime: super::LARGE_INTEGER,
+    pub LastInputTime: super::LARGE_INTEGER,
+    pub CurrentTime: super::LARGE_INTEGER,
     pub IncomingBytes: u32,
     pub OutgoingBytes: u32,
     pub IncomingFrames: u32,
@@ -401,32 +421,38 @@ pub struct WTSINFOEX_LEVEL1_W {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOEX_LEVEL1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOEX_LEVEL_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_W {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_W,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOEX_LEVEL_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WTSINFOW {
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -440,12 +466,13 @@ pub struct WTSINFOW {
     pub WinStationName: [u16; 32],
     pub Domain: [u16; 17],
     pub UserName: [u16; 21],
-    pub ConnectTime: i64,
-    pub DisconnectTime: i64,
-    pub LastInputTime: i64,
-    pub LogonTime: i64,
-    pub CurrentTime: i64,
+    pub ConnectTime: super::LARGE_INTEGER,
+    pub DisconnectTime: super::LARGE_INTEGER,
+    pub LastInputTime: super::LARGE_INTEGER,
+    pub LogonTime: super::LARGE_INTEGER,
+    pub CurrentTime: super::LARGE_INTEGER,
 }
+#[cfg(feature = "winnt")]
 impl Default for WTSINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -663,11 +690,20 @@ pub struct WTS_CLIENT_DISPLAY {
     pub VerticalResolution: u32,
     pub ColorDepth: u32,
 }
-pub type WTS_CLOUD_AUTH_HANDLE = *mut core::ffi::c_void;
+pub type WTS_CLOUD_AUTH_HANDLE = *mut WTS_CLOUD_AUTH_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WTS_CLOUD_AUTH_HANDLE__ {
+    pub unused: i32,
+}
 pub const WTS_COMMENT_LENGTH: i32 = 60;
 pub type WTS_CONFIG_CLASS = i32;
 pub type WTS_CONFIG_SOURCE = i32;
 pub type WTS_CONNECTSTATE_CLASS = i32;
+#[cfg(feature = "winnt")]
+pub const WTS_CURRENT_SERVER: super::HANDLE = 0 as _;
+#[cfg(feature = "winnt")]
+pub const WTS_CURRENT_SERVER_HANDLE: super::HANDLE = 0 as _;
 pub const WTS_CURRENT_SERVER_NAME: i32 = 0;
 pub const WTS_CURRENT_SESSION: u32 = 4294967295;
 pub const WTS_DRIVE_LENGTH: i32 = 3;
@@ -707,7 +743,7 @@ pub struct WTS_PROCESS_INFOW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -719,12 +755,18 @@ pub struct WTS_PROCESS_INFO_EXA {
     pub PeakPagefileUsage: u32,
     pub WorkingSetSize: u32,
     pub PeakWorkingSetSize: u32,
-    pub UserTime: i64,
-    pub KernelTime: i64,
+    pub UserTime: super::LARGE_INTEGER,
+    pub KernelTime: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for WTS_PROCESS_INFO_EXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -736,8 +778,14 @@ pub struct WTS_PROCESS_INFO_EXW {
     pub PeakPagefileUsage: u32,
     pub WorkingSetSize: u32,
     pub PeakWorkingSetSize: u32,
-    pub UserTime: i64,
-    pub KernelTime: i64,
+    pub UserTime: super::LARGE_INTEGER,
+    pub KernelTime: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for WTS_PROCESS_INFO_EXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WTS_PROCESS_INFO_LEVEL_0: i32 = 0;
 pub const WTS_PROCESS_INFO_LEVEL_1: i32 = 1;

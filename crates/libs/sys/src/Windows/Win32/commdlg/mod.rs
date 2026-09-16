@@ -1,42 +1,42 @@
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn ChooseColorA(param0 : *mut CHOOSECOLORA) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn ChooseColorA(param0 : LPCHOOSECOLORA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : LPCHOOSECOLORW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-windows_link::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : LPCHOOSEFONTA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-windows_link::link!("comdlg32.dll" "system" fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn ChooseFontW(param0 : LPCHOOSEFONTW) -> windows_sys::core::BOOL);
 windows_link::link!("comdlg32.dll" "system" fn CommDlgExtendedError() -> u32);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn FindTextA(param0 : *mut FINDREPLACEA) -> super::HWND);
+windows_link::link!("comdlg32.dll" "system" fn FindTextA(param0 : LPFINDREPLACEA) -> super::HWND);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn FindTextW(param0 : *mut FINDREPLACEW) -> super::HWND);
+windows_link::link!("comdlg32.dll" "system" fn FindTextW(param0 : LPFINDREPLACEW) -> super::HWND);
 windows_link::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_sys::core::PCSTR, buf : windows_sys::core::PSTR, cchsize : u16) -> i16);
 windows_link::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : windows_sys::core::PCWSTR, buf : windows_sys::core::PWSTR, cchsize : u16) -> i16);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn GetOpenFileNameA(param0 : *mut OPENFILENAMEA) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn GetOpenFileNameA(param0 : LPOPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn GetOpenFileNameW(param0 : *mut OPENFILENAMEW) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn GetOpenFileNameW(param0 : LPOPENFILENAMEW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn GetSaveFileNameA(param0 : *mut OPENFILENAMEA) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn GetSaveFileNameA(param0 : LPOPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn GetSaveFileNameW(param0 : *mut OPENFILENAMEW) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn GetSaveFileNameW(param0 : LPOPENFILENAMEW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("comdlg32.dll" "system" fn PageSetupDlgA(param0 : *mut PAGESETUPDLGA) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn PageSetupDlgA(param0 : LPPAGESETUPDLGA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : LPPAGESETUPDLGW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : *mut PRINTDLGA) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : LPPRINTDLGA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-windows_link::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> windows_sys::core::HRESULT);
+windows_link::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : LPPRINTDLGEXA) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-windows_link::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> windows_sys::core::HRESULT);
+windows_link::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : LPPRINTDLGEXW) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : *mut PRINTDLGW) -> windows_sys::core::BOOL);
+windows_link::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : LPPRINTDLGW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn ReplaceTextA(param0 : *mut FINDREPLACEA) -> super::HWND);
+windows_link::link!("comdlg32.dll" "system" fn ReplaceTextA(param0 : LPFINDREPLACEA) -> super::HWND);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comdlg32.dll" "system" fn ReplaceTextW(param0 : *mut FINDREPLACEW) -> super::HWND);
+windows_link::link!("comdlg32.dll" "system" fn ReplaceTextW(param0 : LPFINDREPLACEW) -> super::HWND);
 pub const BOLD_FONTTYPE: i32 = 256;
 pub const CC_ANYCOLOR: i32 = 256;
 pub const CC_ENABLEHOOK: i32 = 16;
@@ -251,6 +251,7 @@ pub struct CHOOSEFONTW {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
+pub const COLOROKSTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_ColorOK");
 pub const COLOROKSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_ColorOK");
 pub const COLOROKSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_ColorOK");
 #[repr(C, packed(1))]
@@ -272,8 +273,10 @@ pub struct DEVNAMES {
     pub wDefault: u16,
 }
 pub const DN_DEFAULTPRN: i32 = 1;
+pub const FILEOKSTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_FileNameOK");
 pub const FILEOKSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_FileNameOK");
 pub const FILEOKSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_FileNameOK");
+pub const FINDMSGSTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_FindReplace");
 pub const FINDMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_FindReplace");
 pub const FINDMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_FindReplace");
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -374,9 +377,11 @@ pub const FR_SHOWHELP: i32 = 128;
 pub const FR_SHOWWRAPAROUND: i32 = 262144;
 pub const FR_WHOLEWORD: i32 = 2;
 pub const FR_WRAPAROUND: i32 = 1048576;
+pub const HELPMSGSTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_help");
 pub const HELPMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_help");
 pub const HELPMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_help");
 pub const ITALIC_FONTTYPE: i32 = 512;
+pub const LBSELCHSTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_LBSelChangedNotify");
 pub const LBSELCHSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_LBSelChangedNotify");
 pub const LBSELCHSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_LBSelChangedNotify");
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -1174,8 +1179,10 @@ pub const PSD_SHOWHELP: i32 = 2048;
 pub const PS_OPENTYPE_FONTTYPE: i32 = 65536;
 pub const REGULAR_FONTTYPE: i32 = 1024;
 pub const SCREEN_FONTTYPE: i32 = 8192;
+pub const SETRGBSTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_SetRGBColor");
 pub const SETRGBSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_SetRGBColor");
 pub const SETRGBSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_SetRGBColor");
+pub const SHAREVISTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_ShareViolation");
 pub const SHAREVISTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_ShareViolation");
 pub const SHAREVISTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_ShareViolation");
 pub const SIMULATED_FONTTYPE: i32 = 32768;

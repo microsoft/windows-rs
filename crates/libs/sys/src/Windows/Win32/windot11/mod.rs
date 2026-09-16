@@ -41,14 +41,14 @@ pub struct DOT11_AP_JOIN_REQUEST {
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub MacAddr: DOT11_MAC_ADDRESS,
     pub uStatus: DOT11_ASSOC_STATUS,
-    pub bReAssocReq: bool,
-    pub bReAssocResp: bool,
+    pub bReAssocReq: super::BOOLEAN,
+    pub bReAssocResp: super::BOOLEAN,
     pub uAssocReqOffset: u32,
     pub uAssocReqSize: u32,
     pub uAssocRespOffset: u32,
@@ -62,8 +62,8 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub MulticastCipher: super::DOT11_CIPHER_ALGORITHM,
     pub uActivePhyListOffset: u32,
     pub uActivePhyListSize: u32,
-    pub bFourAddressSupported: bool,
-    pub bPortAuthorized: bool,
+    pub bFourAddressSupported: super::BOOLEAN,
+    pub bPortAuthorized: super::BOOLEAN,
     pub ucActiveQoSProtocol: u8,
     pub DSInfo: DOT11_DS_INFO,
     pub uEncapTableOffset: u32,
@@ -71,7 +71,7 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub MulticastMgmtCipher: super::DOT11_CIPHER_ALGORITHM,
     pub uAssocComebackTime: u32,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -80,6 +80,7 @@ impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DOT11_ASSOCIATION_INFO_EX {
     pub PeerMacAddress: DOT11_MAC_ADDRESS,
@@ -90,19 +91,20 @@ pub struct DOT11_ASSOCIATION_INFO_EX {
     pub usAssociationID: u16,
     pub dot11AssociationState: DOT11_ASSOCIATION_STATE,
     pub dot11PowerMode: DOT11_POWER_MODE,
-    pub liAssociationUpTime: i64,
+    pub liAssociationUpTime: super::LARGE_INTEGER,
     pub ullNumOfTxPacketSuccesses: u64,
     pub ullNumOfTxPacketFailures: u64,
     pub ullNumOfRxPacketSuccesses: u64,
     pub ullNumOfRxPacketFailures: u64,
 }
+#[cfg(feature = "winnt")]
 impl Default for DOT11_ASSOCIATION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -110,7 +112,7 @@ pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_ASSOCIATION_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -294,7 +296,7 @@ impl Default for DOT11_BSS_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_BSS_ENTRY {
     pub uPhyId: u32,
@@ -303,7 +305,7 @@ pub struct DOT11_BSS_ENTRY {
     pub dot11BSSType: super::DOT11_BSS_TYPE,
     pub lRSSI: i32,
     pub uLinkQuality: u32,
-    pub bInRegDomain: bool,
+    pub bInRegDomain: super::BOOLEAN,
     pub usBeaconPeriod: u16,
     pub ullTimestamp: u64,
     pub ullHostTimestamp: u64,
@@ -311,7 +313,7 @@ pub struct DOT11_BSS_ENTRY {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -399,19 +401,19 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
 }
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uKeyIndex: u32,
     pub AlgorithmId: super::DOT11_CIPHER_ALGORITHM,
     pub MacAddr: DOT11_MAC_ADDRESS,
-    pub bDelete: bool,
-    pub bStatic: bool,
+    pub bDelete: super::BOOLEAN,
+    pub bStatic: super::BOOLEAN,
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -419,18 +421,18 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 }
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub AlgorithmId: super::DOT11_CIPHER_ALGORITHM,
     pub Direction: DOT11_DIRECTION,
-    pub bDelete: bool,
-    pub bStatic: bool,
+    pub bDelete: super::BOOLEAN,
+    pub bStatic: super::BOOLEAN,
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -517,13 +519,14 @@ pub struct DOT11_CURRENT_OPERATION_MODE {
     pub uCurrentOpMode: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
-    pub bDot11CFPollable: bool,
-    pub bDot11PCF: bool,
-    pub bDot11PCFMPDUTransferToPC: bool,
-    pub bStrictlyOrderedServiceClass: bool,
+    pub bDot11CFPollable: super::BOOLEAN,
+    pub bDot11PCF: super::BOOLEAN,
+    pub bDot11PCFMPDUTransferToPC: super::BOOLEAN,
+    pub bStrictlyOrderedServiceClass: super::BOOLEAN,
 }
 pub const DOT11_DATA_RATE_INDEX_MASK: u32 = 127;
 #[repr(C)]
@@ -638,18 +641,21 @@ pub const DOT11_DISASSOC_REASON_PEER_UNREACHABLE: u32 = 2;
 pub const DOT11_DISASSOC_REASON_PHY_DISABLED: u32 = 4;
 pub const DOT11_DISASSOC_REASON_RADIO_OFF: u32 = 3;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
-    pub bDiversitySelectionRX: bool,
+    pub bDiversitySelectionRX: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11DiversitySelectionRx: [DOT11_DIVERSITY_SELECTION_RX; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DOT11_DIVERSITY_SELECTION_RX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -669,12 +675,13 @@ pub struct DOT11_ENCAP_ENTRY {
 }
 pub const DOT11_ENCAP_RFC_1042: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
-    pub bERPPBCCOptionImplemented: bool,
-    pub bDSSSOFDMOptionImplemented: bool,
-    pub bShortSlotTimeOptionImplemented: bool,
+    pub bERPPBCCOptionImplemented: super::BOOLEAN,
+    pub bDSSSOFDMOptionImplemented: super::BOOLEAN,
+    pub bShortSlotTimeOptionImplemented: super::BOOLEAN,
 }
 pub const DOT11_EXEMPT_ALWAYS: i32 = 1;
 pub const DOT11_EXEMPT_BOTH: i32 = 3;
@@ -683,7 +690,7 @@ pub const DOT11_EXEMPT_NO_EXEMPTION: i32 = 0;
 pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: i32 = 2;
 pub const DOT11_EXEMPT_UNICAST: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -693,7 +700,7 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub uAssociationTableSize: u32,
     pub uDefaultKeyTableSize: u32,
     pub uWEPKeyValueMaxLength: u32,
-    pub bStrictlyOrderedServiceClassImplemented: bool,
+    pub bStrictlyOrderedServiceClassImplemented: super::BOOLEAN,
     pub uNumSupportedCountryOrRegionStrings: u32,
     pub pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
     pub uInfraNumSupportedUcastAlgoPairs: u32,
@@ -702,14 +709,36 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub pInfraSupportedMcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
 }
 pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: i32 = 1;
+#[repr(C)]
 #[cfg(feature = "objectheader")]
-pub type DOT11_EXTAP_RECV_CONTEXT = DOT11_EXTSTA_RECV_CONTEXT;
+#[derive(Clone, Copy, Default)]
+pub struct DOT11_EXTAP_RECV_CONTEXT {
+    pub Header: super::NDIS_OBJECT_HEADER,
+    pub uReceiveFlags: u32,
+    pub uPhyId: u32,
+    pub uChCenterFrequency: u32,
+    pub usNumberOfMPDUsReceived: u16,
+    pub lRSSI: i32,
+    pub ucDataRate: u8,
+    pub uSizeMediaSpecificInfo: u32,
+    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
+    pub ullTimestamp: u64,
+}
 pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: i32 = 1;
+#[repr(C)]
 #[cfg(feature = "objectheader")]
-pub type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
+#[derive(Clone, Copy, Default)]
+pub struct DOT11_EXTAP_SEND_CONTEXT {
+    pub Header: super::NDIS_OBJECT_HEADER,
+    pub usExemptionActionType: u16,
+    pub uPhyId: u32,
+    pub uDelayedSleepValue: u32,
+    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
+    pub uSendFlags: u32,
+}
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -723,9 +752,9 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub uWEPKeyValueMaxLength: u32,
     pub uPMKIDCacheSize: u32,
     pub uMaxNumPerSTADefaultKeyTables: u32,
-    pub bStrictlyOrderedServiceClassImplemented: bool,
+    pub bStrictlyOrderedServiceClassImplemented: super::BOOLEAN,
     pub ucSupportedQoSProtocolFlags: u8,
-    pub bSafeModeImplemented: bool,
+    pub bSafeModeImplemented: super::BOOLEAN,
     pub uNumSupportedCountryOrRegionStrings: u32,
     pub pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
     pub uInfraNumSupportedUcastAlgoPairs: u32,
@@ -736,16 +765,16 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub pAdhocSupportedUcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
     pub uAdhocNumSupportedMcastAlgoPairs: u32,
     pub pAdhocSupportedMcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
-    pub bAutoPowerSaveMode: bool,
+    pub bAutoPowerSaveMode: super::BOOLEAN,
     pub uMaxNetworkOffloadListSize: u32,
-    pub bMFPCapable: bool,
+    pub bMFPCapable: super::BOOLEAN,
     pub uInfraNumSupportedMcastMgmtAlgoPairs: u32,
     pub pInfraSupportedMcastMgmtAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
-    pub bNeighborReportSupported: bool,
-    pub bAPChannelReportSupported: bool,
-    pub bActionFramesSupported: bool,
-    pub bANQPQueryOffloadSupported: bool,
-    pub bHESSIDConnectionSupported: bool,
+    pub bNeighborReportSupported: super::BOOLEAN,
+    pub bAPChannelReportSupported: super::BOOLEAN,
+    pub bActionFramesSupported: super::BOOLEAN,
+    pub bANQPQueryOffloadSupported: super::BOOLEAN,
+    pub bHESSIDConnectionSupported: super::BOOLEAN,
 }
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: i32 = 1;
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_2: i32 = 2;
@@ -771,33 +800,7 @@ pub struct DOT11_EXTSTA_CAPABILITY {
     pub uMaxNumPerSTADefaultKeyTables: u32,
 }
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Default)]
-pub struct DOT11_EXTSTA_RECV_CONTEXT {
-    pub Header: super::NDIS_OBJECT_HEADER,
-    pub uReceiveFlags: u32,
-    pub uPhyId: u32,
-    pub uChCenterFrequency: u32,
-    pub usNumberOfMPDUsReceived: u16,
-    pub lRSSI: i32,
-    pub ucDataRate: u8,
-    pub uSizeMediaSpecificInfo: u32,
-    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
-    pub ullTimestamp: u64,
-}
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Default)]
-pub struct DOT11_EXTSTA_SEND_CONTEXT {
-    pub Header: super::NDIS_OBJECT_HEADER,
-    pub usExemptionActionType: u16,
-    pub uPhyId: u32,
-    pub uDelayedSleepValue: u32,
-    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
-    pub uSendFlags: u32,
-}
 pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: i32 = 1;
 pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: i32 = 4;
 pub const DOT11_FLAGS_80211B_PBCC: i32 = 2;
@@ -892,11 +895,12 @@ impl Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
 }
 pub type DOT11_HOP_ALGO_ADOPTED = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
-    pub bShortPreambleOptionImplemented: bool,
-    pub bPBCCOptionImplemented: bool,
-    pub bChannelAgilityPresent: bool,
+    pub bShortPreambleOptionImplemented: super::BOOLEAN,
+    pub bPBCCOptionImplemented: super::BOOLEAN,
+    pub bChannelAgilityPresent: super::BOOLEAN,
     pub uHRCCAModeSupported: u32,
 }
 pub const DOT11_HR_CCA_MODE_CS_AND_ED: i32 = 4;
@@ -911,25 +915,25 @@ pub const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: i32 = 16;
 pub const DOT11_HW_WEP_SUPPORTED_RX: i32 = 2;
 pub const DOT11_HW_WEP_SUPPORTED_TX: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub bJoinOnly: bool,
+    pub bJoinOnly: super::BOOLEAN,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
 pub const DOT11_IBSS_PARAMS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub uStatus: u32,
     pub ucErrorSource: u8,
-    pub bReAssocReq: bool,
-    pub bReAssocResp: bool,
+    pub bReAssocReq: super::BOOLEAN,
+    pub bReAssocResp: super::BOOLEAN,
     pub uAssocReqOffset: u32,
     pub uAssocReqSize: u32,
     pub uAssocRespOffset: u32,
@@ -942,7 +946,7 @@ pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub uBeaconOffset: u32,
     pub uBeaconSize: u32,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -950,17 +954,17 @@ impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 }
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
-    pub bAccept: bool,
+    pub bAccept: super::BOOLEAN,
     pub usReasonCode: u16,
     pub uAssocResponseIEsOffset: u32,
     pub uAssocResponseIEsLength: u32,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_INCOMING_ASSOC_DECISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -969,34 +973,34 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION {
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: i32 = 1;
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
-    pub bAccept: bool,
+    pub bAccept: super::BOOLEAN,
     pub usReasonCode: u16,
     pub uAssocResponseIEsOffset: u32,
     pub uAssocResponseIEsLength: u32,
     pub WFDStatus: DOT11_WFD_STATUS_CODE,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
-    pub bReAssocReq: bool,
+    pub bReAssocReq: super::BOOLEAN,
     pub uAssocReqOffset: u32,
     pub uAssocReqSize: u32,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1239,34 +1243,38 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub ADCPowerLevel: i32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
-    pub bEnabled: bool,
+    pub bEnabled: super::BOOLEAN,
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub PowerLevel: i32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
-    pub bEnable: bool,
-    pub bOpenLoop: bool,
+    pub bEnable: super::BOOLEAN,
+    pub bOpenLoop: super::BOOLEAN,
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub uSetPowerLevel: u32,
     pub ADCPowerLevel: i32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
-    pub bResult: bool,
+    pub bResult: super::BOOLEAN,
     pub uPinFailedBitMask: u32,
     pub pvContext: *mut core::ffi::c_void,
     pub uBytesWrittenOut: u32,
     pub ucBufferOut: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1470,12 +1478,13 @@ pub const DOT11_OPERATION_MODE_WFD_CLIENT: i32 = 64;
 pub const DOT11_OPERATION_MODE_WFD_DEVICE: i32 = 16;
 pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
-    pub bDot11PCF: bool,
-    pub bDot11PCFMPDUTransferToPC: bool,
-    pub bStrictlyOrderedServiceClass: bool,
+    pub bDot11PCF: super::BOOLEAN,
+    pub bDot11PCFMPDUTransferToPC: super::BOOLEAN,
+    pub bStrictlyOrderedServiceClass: super::BOOLEAN,
 }
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: i32 = 4096;
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: i32 = 16384;
@@ -1494,7 +1503,7 @@ pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: i32 = 2048;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: i32 = 1024;
 pub const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: DOT11_MAC_ADDRESS,
@@ -1502,23 +1511,23 @@ pub struct DOT11_PEER_INFO {
     pub AuthAlgo: super::DOT11_AUTH_ALGORITHM,
     pub UnicastCipherAlgo: super::DOT11_CIPHER_ALGORITHM,
     pub MulticastCipherAlgo: super::DOT11_CIPHER_ALGORITHM,
-    pub bWpsEnabled: bool,
+    pub bWpsEnabled: super::BOOLEAN,
     pub usListenInterval: u16,
     pub ucSupportedRates: [u8; 255],
     pub usAssociationID: u16,
     pub AssociationState: DOT11_ASSOCIATION_STATE,
     pub PowerMode: DOT11_POWER_MODE,
-    pub liAssociationUpTime: i64,
+    pub liAssociationUpTime: super::LARGE_INTEGER,
     pub Statistics: DOT11_PEER_STATISTICS,
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_PEER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -1526,7 +1535,7 @@ pub struct DOT11_PEER_INFO_LIST {
     pub uTotalNumOfEntries: u32,
     pub PeerInfo: [DOT11_PEER_INFO; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_PEER_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1553,14 +1562,14 @@ pub struct DOT11_PER_MSDU_COUNTERS {
     pub uACKFailureCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PHY_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PhyType: DOT11_PHY_TYPE,
-    pub bHardwarePhyState: bool,
-    pub bSoftwarePhyState: bool,
-    pub bCFPollable: bool,
+    pub bHardwarePhyState: super::BOOLEAN,
+    pub bSoftwarePhyState: super::BOOLEAN,
+    pub bCFPollable: super::BOOLEAN,
     pub uMPDUMaxLength: u32,
     pub TempType: DOT11_TEMP_TYPE,
     pub DiversitySupport: DOT11_DIVERSITY_SUPPORT,
@@ -1571,21 +1580,21 @@ pub struct DOT11_PHY_ATTRIBUTES {
     pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
     pub SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_PHY_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1661,21 +1670,22 @@ impl Default for DOT11_PHY_ID_LIST {
 }
 pub const DOT11_PHY_ID_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
-    pub bHardwarePhyState: bool,
-    pub bSoftwarePhyState: bool,
+    pub bHardwarePhyState: super::BOOLEAN,
+    pub bSoftwarePhyState: super::BOOLEAN,
 }
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_PHY_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DOT11_PHY_TYPE_INFO {
     pub dot11PhyType: DOT11_PHY_TYPE,
-    pub bUseParameters: bool,
+    pub bUseParameters: super::BOOLEAN,
     pub uProbeDelay: u32,
     pub uMinChannelTime: u32,
     pub uMaxChannelTime: u32,
@@ -1683,6 +1693,7 @@ pub struct DOT11_PHY_TYPE_INFO {
     pub uChannelListSize: u32,
     pub ucChannelListBuffer: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DOT11_PHY_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1744,14 +1755,14 @@ impl Default for DOT11_PMKID_LIST {
 pub const DOT11_PMKID_LIST_REVISION_1: i32 = 1;
 pub type DOT11_PMKID_VALUE = [u8; 16];
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMac: DOT11_MAC_ADDRESS,
-    pub bOpen: bool,
+    pub bOpen: super::BOOLEAN,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_PORT_STATE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1759,21 +1770,22 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
 }
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub bEnabled: bool,
+    pub bEnabled: super::BOOLEAN,
 }
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_POWER_MGMT_MODE {
     pub dot11PowerMode: DOT11_POWER_MODE,
     pub uPowerSaveLevel: u32,
     pub usListenInterval: u16,
     pub usAID: u16,
-    pub bReceiveDTIMs: bool,
+    pub bReceiveDTIMs: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
@@ -2149,12 +2161,14 @@ pub struct DOT11_REG_DOMAIN_VALUE {
     pub uRegDomainsSupportValue: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DOT11_RESET_REQUEST {
     pub dot11ResetType: DOT11_RESET_TYPE,
     pub dot11MacAddress: DOT11_MAC_ADDRESS,
-    pub bSetDefaultMIB: bool,
+    pub bSetDefaultMIB: super::BOOLEAN,
 }
+#[cfg(feature = "winnt")]
 impl Default for DOT11_RESET_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2198,15 +2212,15 @@ pub struct DOT11_RSSI_RANGE {
     pub uRSSIMax: u32,
 }
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSType: super::DOT11_BSS_TYPE,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
     pub dot11SSID: super::DOT11_SSID,
     pub dot11ScanType: DOT11_SCAN_TYPE,
-    pub bRestrictedScan: bool,
-    pub bUseRequestIE: bool,
+    pub bRestrictedScan: super::BOOLEAN,
+    pub bUseRequestIE: super::BOOLEAN,
     pub uRequestIDsOffset: u32,
     pub uNumOfRequestIDs: u32,
     pub uPhyTypesOffset: u32,
@@ -2215,23 +2229,23 @@ pub struct DOT11_SCAN_REQUEST {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SCAN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: super::DOT11_BSS_TYPE,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
     pub dot11ScanType: DOT11_SCAN_TYPE,
-    pub bRestrictedScan: bool,
+    pub bRestrictedScan: super::BOOLEAN,
     pub udot11SSIDsOffset: u32,
     pub uNumOfdot11SSIDs: u32,
-    pub bUseRequestIE: bool,
+    pub bUseRequestIE: super::BOOLEAN,
     pub uRequestIDsOffset: u32,
     pub uNumOfRequestIDs: u32,
     pub uPhyTypeInfosOffset: u32,
@@ -2240,7 +2254,7 @@ pub struct DOT11_SCAN_REQUEST_V2 {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SCAN_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2248,7 +2262,7 @@ impl Default for DOT11_SCAN_REQUEST_V2 {
 }
 pub type DOT11_SCAN_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2259,11 +2273,11 @@ pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Status: DOT11_WFD_STATUS_CODE,
     pub GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bUseGroupID: bool,
+    pub bUseGroupID: super::BOOLEAN,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2293,7 +2307,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2307,11 +2321,11 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub IntendedInterfaceAddress: DOT11_MAC_ADDRESS,
     pub GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bUseGroupID: bool,
+    pub bUseGroupID: super::BOOLEAN,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2319,7 +2333,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2329,15 +2343,15 @@ pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
     pub InvitationFlags: DOT11_WFD_INVITATION_FLAGS,
     pub GroupBSSID: DOT11_MAC_ADDRESS,
-    pub bUseGroupBSSID: bool,
+    pub bUseGroupBSSID: super::BOOLEAN,
     pub OperatingChannel: DOT11_WFD_CHANNEL,
-    pub bUseSpecifiedOperatingChannel: bool,
+    pub bUseSpecifiedOperatingChannel: super::BOOLEAN,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bLocalGO: bool,
+    pub bLocalGO: super::BOOLEAN,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2345,7 +2359,7 @@ impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2356,13 +2370,13 @@ pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Status: DOT11_WFD_STATUS_CODE,
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
     pub GroupBSSID: DOT11_MAC_ADDRESS,
-    pub bUseGroupBSSID: bool,
+    pub bUseGroupBSSID: super::BOOLEAN,
     pub OperatingChannel: DOT11_WFD_CHANNEL,
-    pub bUseSpecifiedOperatingChannel: bool,
+    pub bUseSpecifiedOperatingChannel: super::BOOLEAN,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2370,7 +2384,7 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2379,11 +2393,11 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uSendTimeout: u32,
     pub GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bUseGroupID: bool,
+    pub bUseGroupID: super::BOOLEAN,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2411,6 +2425,174 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
 pub const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: i32 = 0;
 pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: i32 = 1;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_INCOMING_ASSOC_DECISION_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_INCOMING_ASSOC_DECISION_REVISION_2: u64 = 28;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u64 = 32;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_MAC_PARAMETERS_REVISION_1: u32 = 8;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_MAC_PARAMETERS_REVISION_1: u64 = 8;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 8;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u64 = 8;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_POWER_MGMT_AUTO_MODE_ENABLE_INFO_REVISION_1: u32 = 6;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_POWER_MGMT_AUTO_MODE_ENABLE_INFO_REVISION_1: u64 = 6;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u64 = 16;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u64 = 32;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 20;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u64 = 20;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u64 = 32;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u64 = 32;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u64 = 40;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u64 = 28;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u64 = 40;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u64 = 28;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 80;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u64 = 88;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 36;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u64 = 36;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 88;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u64 = 96;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 88;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u64 = 88;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 44;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u64 = 56;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 76;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u64 = 76;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u64 = 40;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_VWIFI_COMBINATION_REVISION_1: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_VWIFI_COMBINATION_REVISION_1: u64 = 16;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_VWIFI_COMBINATION_REVISION_2: u32 = 20;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_VWIFI_COMBINATION_REVISION_2: u64 = 20;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_VWIFI_COMBINATION_REVISION_3: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_VWIFI_COMBINATION_REVISION_3: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_ADDITIONAL_IE_REVISION_1: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_ADDITIONAL_IE_REVISION_1: u64 = 28;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_ATTRIBUTES_REVISION_1: u32 = 56;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_ATTRIBUTES_REVISION_1: u64 = 72;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_DEVICE_CAPABILITY_CONFIG_1: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_DEVICE_CAPABILITY_CONFIG_1: u64 = 16;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_DEVICE_INFO_REVISION_1: u32 = 56;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_DEVICE_INFO_REVISION_1: u64 = 56;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 6;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u64 = 6;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u64 = 24;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 36;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_DISCOVER_REQUEST_REVISION_1: u64 = 36;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_GROUP_CAPABILITY_CONFIG_1: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_GROUP_CAPABILITY_CONFIG_1: u64 = 16;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_GROUP_CAPABILITY_CONFIG_2: u32 = 20;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_GROUP_CAPABILITY_CONFIG_2: u64 = 20;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 20;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u64 = 20;
+#[cfg(target_arch = "x86")]
+pub const DOT11_SIZEOF_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 10;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DOT11_SIZEOF_WFD_GROUP_START_PARAMETERS_REVISION_1: u64 = 10;
 pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: i32 = 12;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
@@ -2503,18 +2685,21 @@ pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: i32 = 1;
 pub const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295;
 pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
-    pub bSupportedAntenna: bool,
+    pub bSupportedAntenna: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DOT11_SUPPORTED_ANTENNA_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
     pub dot11SupportedAntenna: [DOT11_SUPPORTED_ANTENNA; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DOT11_SUPPORTED_ANTENNA_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2602,15 +2787,15 @@ impl Default for DOT11_SUPPORTED_POWER_LEVELS {
 }
 pub type DOT11_TEMP_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub bDefaultKeyFailure: bool,
+    pub bDefaultKeyFailure: super::BOOLEAN,
     pub uKeyIndex: u32,
     pub PeerMac: DOT11_MAC_ADDRESS,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2687,8 +2872,8 @@ pub struct DOT11_WEP_OFFLOAD {
     pub hOffload: super::HANDLE,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub dwAlgorithm: u32,
-    pub bRowIsOutbound: bool,
-    pub bUseDefault: bool,
+    pub bRowIsOutbound: super::BOOLEAN,
+    pub bUseDefault: super::BOOLEAN,
     pub uFlags: u32,
     pub ucMacAddress: [u8; 6],
     pub uNumOfRWsOnPeer: u32,
@@ -2772,16 +2957,16 @@ impl Default for DOT11_WFD_ADVERTISEMENT_ID {
 pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: i32 = 21;
 pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: i32 = 63;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_WFD_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uNumConcurrentGORole: u32,
     pub uNumConcurrentClientRole: u32,
     pub WPSVersionsSupported: u32,
-    pub bServiceDiscoverySupported: bool,
-    pub bClientDiscoverabilitySupported: bool,
-    pub bInfrastructureManagementSupported: bool,
+    pub bServiceDiscoverySupported: super::BOOLEAN,
+    pub bClientDiscoverabilitySupported: super::BOOLEAN,
+    pub bInfrastructureManagementSupported: super::BOOLEAN,
     pub uMaxSecondaryDeviceTypeListSize: u32,
     pub DeviceAddress: DOT11_MAC_ADDRESS,
     pub uInterfaceAddressListCount: u32,
@@ -2791,7 +2976,7 @@ pub struct DOT11_WFD_ATTRIBUTES {
     pub uDiscoveryFilterListSize: u32,
     pub uGORoleClientTableSize: u32,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 impl Default for DOT11_WFD_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2819,16 +3004,16 @@ pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: i32 = 16;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub bServiceDiscoveryEnabled: bool,
-    pub bClientDiscoverabilityEnabled: bool,
-    pub bConcurrentOperationSupported: bool,
-    pub bInfrastructureManagementEnabled: bool,
-    pub bDeviceLimitReached: bool,
-    pub bInvitationProcedureEnabled: bool,
+    pub bServiceDiscoveryEnabled: super::BOOLEAN,
+    pub bClientDiscoverabilityEnabled: super::BOOLEAN,
+    pub bConcurrentOperationSupported: super::BOOLEAN,
+    pub bInfrastructureManagementEnabled: super::BOOLEAN,
+    pub bDeviceLimitReached: super::BOOLEAN,
+    pub bInvitationProcedureEnabled: super::BOOLEAN,
     pub WPSVersionsEnabled: u32,
 }
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
@@ -2933,7 +3118,7 @@ impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2944,7 +3129,7 @@ pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub uNumDeviceFilters: u32,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
-    pub bForceScanLegacyNetworks: bool,
+    pub bForceScanLegacyNetworks: super::BOOLEAN,
 }
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: i32 = 1;
 pub type DOT11_WFD_DISCOVER_TYPE = i32;
@@ -2978,42 +3163,42 @@ impl Default for DOT11_WFD_GROUP_ID {
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub GOOperatingChannel: DOT11_WFD_CHANNEL,
     pub GOConfigTime: u32,
-    pub bInGroupFormation: bool,
-    pub bWaitForWPSReady: bool,
+    pub bInGroupFormation: super::BOOLEAN,
+    pub bWaitForWPSReady: super::BOOLEAN,
 }
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub bPersistentGroupEnabled: bool,
-    pub bIntraBSSDistributionSupported: bool,
-    pub bCrossConnectionSupported: bool,
-    pub bPersistentReconnectSupported: bool,
-    pub bGroupFormationEnabled: bool,
+    pub bPersistentGroupEnabled: super::BOOLEAN,
+    pub bIntraBSSDistributionSupported: super::BOOLEAN,
+    pub bCrossConnectionSupported: super::BOOLEAN,
+    pub bPersistentReconnectSupported: super::BOOLEAN,
+    pub bGroupFormationEnabled: super::BOOLEAN,
     pub uMaximumGroupLimit: u32,
 }
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub bPersistentGroupEnabled: bool,
-    pub bIntraBSSDistributionSupported: bool,
-    pub bCrossConnectionSupported: bool,
-    pub bPersistentReconnectSupported: bool,
-    pub bGroupFormationEnabled: bool,
+    pub bPersistentGroupEnabled: super::BOOLEAN,
+    pub bIntraBSSDistributionSupported: super::BOOLEAN,
+    pub bCrossConnectionSupported: super::BOOLEAN,
+    pub bPersistentReconnectSupported: super::BOOLEAN,
+    pub bGroupFormationEnabled: super::BOOLEAN,
     pub uMaximumGroupLimit: u32,
-    pub bEapolKeyIpAddressAllocationSupported: bool,
+    pub bEapolKeyIpAddressAllocationSupported: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
@@ -3203,6 +3388,10 @@ pub const NDIS_PACKET_TYPE_802_11_RAW_DATA: u32 = 65536;
 pub const NDIS_PACKET_TYPE_802_11_RAW_MGMT: u32 = 4194304;
 pub const NDIS_PACKET_TYPE_ALL_802_11_FILTERS: u32 = 67043375;
 pub const NDIS_PACKET_TYPE_MEDIA_SPECIFIC_MASK: u32 = 268369920;
+#[cfg(target_arch = "x86")]
+pub const NDIS_SIZEOF_DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 56;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NDIS_SIZEOF_DOT11_EXTAP_ATTRIBUTES_REVISION_1: u64 = 80;
 pub const NWF_EXTAP_OID: u32 = 3;
 pub const NWF_MANDATORY_OID: u32 = 1;
 pub const NWF_MANUFACTURING_OID: u32 = 8;
@@ -3425,10 +3614,11 @@ pub type PDOT11_ANQP_QUERY_COMPLETE_PARAMETERS = *mut DOT11_ANQP_QUERY_COMPLETE_
 pub type PDOT11_ANQP_QUERY_RESULT = *mut DOT11_ANQP_QUERY_RESULT;
 #[cfg(feature = "wlan")]
 pub type PDOT11_AP_JOIN_REQUEST = *mut DOT11_AP_JOIN_REQUEST;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_ASSOCIATION_COMPLETION_PARAMETERS = *mut DOT11_ASSOCIATION_COMPLETION_PARAMETERS;
+#[cfg(feature = "winnt")]
 pub type PDOT11_ASSOCIATION_INFO_EX = *mut DOT11_ASSOCIATION_INFO_EX;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_ASSOCIATION_INFO_LIST = *mut DOT11_ASSOCIATION_INFO_LIST;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_ASSOCIATION_PARAMS = *mut DOT11_ASSOCIATION_PARAMS;
@@ -3449,7 +3639,7 @@ pub type PDOT11_BSSID_CANDIDATE = *mut DOT11_BSSID_CANDIDATE;
 pub type PDOT11_BSSID_LIST = *mut DOT11_BSSID_LIST;
 #[cfg(feature = "wlan")]
 pub type PDOT11_BSS_DESCRIPTION = *mut DOT11_BSS_DESCRIPTION;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 pub type PDOT11_BSS_ENTRY = *mut DOT11_BSS_ENTRY;
 pub type PDOT11_BSS_ENTRY_PHY_SPECIFIC_INFO = *mut DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO;
 #[cfg(feature = "objectheader")]
@@ -3459,9 +3649,9 @@ pub type PDOT11_CAN_SUSTAIN_AP_PARAMETERS = *mut DOT11_CAN_SUSTAIN_AP_PARAMETERS
 pub type PDOT11_CHANNEL_HINT = *mut DOT11_CHANNEL_HINT;
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 pub type PDOT11_CIPHER_ALGORITHM_LIST = *mut DOT11_CIPHER_ALGORITHM_LIST;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_CIPHER_DEFAULT_KEY_VALUE = *mut DOT11_CIPHER_DEFAULT_KEY_VALUE;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 pub type PDOT11_CIPHER_KEY_MAPPING_KEY_VALUE = *mut DOT11_CIPHER_KEY_MAPPING_KEY_VALUE;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_CONNECTION_COMPLETION_PARAMETERS = *mut DOT11_CONNECTION_COMPLETION_PARAMETERS;
@@ -3473,6 +3663,7 @@ pub type PDOT11_COUNTRY_OR_REGION_STRING = *mut DOT11_COUNTRY_OR_REGION_STRING;
 pub type PDOT11_COUNTRY_OR_REGION_STRING_LIST = *mut DOT11_COUNTRY_OR_REGION_STRING_LIST;
 pub type PDOT11_CURRENT_OFFLOAD_CAPABILITY = *mut DOT11_CURRENT_OFFLOAD_CAPABILITY;
 pub type PDOT11_CURRENT_OPERATION_MODE = *mut DOT11_CURRENT_OPERATION_MODE;
+#[cfg(feature = "winnt")]
 pub type PDOT11_CURRENT_OPTIONAL_CAPABILITY = *mut DOT11_CURRENT_OPTIONAL_CAPABILITY;
 pub type PDOT11_DATA_RATE_MAPPING_ENTRY = *mut DOT11_DATA_RATE_MAPPING_ENTRY;
 #[cfg(feature = "objectheader")]
@@ -3486,26 +3677,29 @@ pub type PDOT11_DIRECTION = *mut DOT11_DIRECTION;
 pub type PDOT11_DISASSOCIATE_PEER_REQUEST = *mut DOT11_DISASSOCIATE_PEER_REQUEST;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_DISASSOCIATION_PARAMETERS = *mut DOT11_DISASSOCIATION_PARAMETERS;
+#[cfg(feature = "winnt")]
 pub type PDOT11_DIVERSITY_SELECTION_RX = *mut DOT11_DIVERSITY_SELECTION_RX;
+#[cfg(feature = "winnt")]
 pub type PDOT11_DIVERSITY_SELECTION_RX_LIST = *mut DOT11_DIVERSITY_SELECTION_RX_LIST;
 pub type PDOT11_DIVERSITY_SUPPORT = *mut DOT11_DIVERSITY_SUPPORT;
 pub type PDOT11_DS_INFO = *mut DOT11_DS_INFO;
 pub type PDOT11_ENCAP_ENTRY = *mut DOT11_ENCAP_ENTRY;
+#[cfg(feature = "winnt")]
 pub type PDOT11_ERP_PHY_ATTRIBUTES = *mut DOT11_ERP_PHY_ATTRIBUTES;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_EXTAP_ATTRIBUTES = *mut DOT11_EXTAP_ATTRIBUTES;
 #[cfg(feature = "objectheader")]
-pub type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+pub type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTAP_RECV_CONTEXT;
 #[cfg(feature = "objectheader")]
-pub type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+pub type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTAP_SEND_CONTEXT;
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_EXTSTA_ATTRIBUTES = *mut DOT11_EXTSTA_ATTRIBUTES;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_EXTSTA_CAPABILITY = *mut DOT11_EXTSTA_CAPABILITY;
 #[cfg(feature = "objectheader")]
-pub type PDOT11_EXTSTA_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+pub type PDOT11_EXTSTA_RECV_CONTEXT = *mut DOT11_EXTAP_RECV_CONTEXT;
 #[cfg(feature = "objectheader")]
-pub type PDOT11_EXTSTA_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
+pub type PDOT11_EXTSTA_SEND_CONTEXT = *mut DOT11_EXTAP_SEND_CONTEXT;
 pub type PDOT11_FRAGMENT_DESCRIPTOR = *mut DOT11_FRAGMENT_DESCRIPTOR;
 #[cfg(all(feature = "objectheader", feature = "types"))]
 pub type PDOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS;
@@ -3517,16 +3711,17 @@ pub type PDOT11_HESSID = *mut DOT11_HESSID;
 pub type PDOT11_HOPPING_PATTERN_ENTRY = *mut DOT11_HOPPING_PATTERN_ENTRY;
 pub type PDOT11_HOPPING_PATTERN_ENTRY_LIST = *mut DOT11_HOPPING_PATTERN_ENTRY_LIST;
 pub type PDOT11_HOP_ALGO_ADOPTED = *mut DOT11_HOP_ALGO_ADOPTED;
+#[cfg(feature = "winnt")]
 pub type PDOT11_HRDSSS_PHY_ATTRIBUTES = *mut DOT11_HRDSSS_PHY_ATTRIBUTES;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_IBSS_PARAMS = *mut DOT11_IBSS_PARAMS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS = *mut DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_INCOMING_ASSOC_DECISION = *mut DOT11_INCOMING_ASSOC_DECISION;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_INCOMING_ASSOC_DECISION_V2 = *mut DOT11_INCOMING_ASSOC_DECISION_V2;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS = *mut DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_INCOMING_ASSOC_STARTED_PARAMETERS = *mut DOT11_INCOMING_ASSOC_STARTED_PARAMETERS;
@@ -3558,8 +3753,11 @@ pub type PDOT11_MAC_PARAMETERS = *mut DOT11_MAC_PARAMETERS;
 pub type PDOT11_MANUFACTURING_CALLBACK_PARAMETERS = *mut DOT11_MANUFACTURING_CALLBACK_PARAMETERS;
 pub type PDOT11_MANUFACTURING_CALLBACK_TYPE = *mut DOT11_MANUFACTURING_CALLBACK_TYPE;
 pub type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC;
+#[cfg(feature = "winnt")]
 pub type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_RX = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX;
+#[cfg(feature = "winnt")]
 pub type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_TX = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX;
+#[cfg(feature = "winnt")]
 pub type PDOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS = *mut DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS;
 pub type PDOT11_MANUFACTURING_SELF_TEST_SET_PARAMS = *mut DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS;
 pub type PDOT11_MANUFACTURING_SELF_TEST_TYPE = *mut DOT11_MANUFACTURING_SELF_TEST_TYPE;
@@ -3583,23 +3781,25 @@ pub type PDOT11_OFFLOAD_NETWORK_LIST_INFO = *mut DOT11_OFFLOAD_NETWORK_LIST_INFO
 pub type PDOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS = *mut DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS;
 pub type PDOT11_OFFLOAD_TYPE = *mut DOT11_OFFLOAD_TYPE;
 pub type PDOT11_OPERATION_MODE_CAPABILITY = *mut DOT11_OPERATION_MODE_CAPABILITY;
+#[cfg(feature = "winnt")]
 pub type PDOT11_OPTIONAL_CAPABILITY = *mut DOT11_OPTIONAL_CAPABILITY;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 pub type PDOT11_PEER_INFO = *mut DOT11_PEER_INFO;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_PEER_INFO_LIST = *mut DOT11_PEER_INFO_LIST;
 pub type PDOT11_PEER_STATISTICS = *mut DOT11_PEER_STATISTICS;
 pub type PDOT11_PER_MSDU_COUNTERS = *mut DOT11_PER_MSDU_COUNTERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_PHY_ATTRIBUTES = *mut DOT11_PHY_ATTRIBUTES;
 pub type PDOT11_PHY_FRAME_STATISTICS = *mut DOT11_PHY_FRAME_STATISTICS;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS = *mut DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_PHY_ID_LIST = *mut DOT11_PHY_ID_LIST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_PHY_STATE_PARAMETERS = *mut DOT11_PHY_STATE_PARAMETERS;
 pub type PDOT11_PHY_TYPE = *mut DOT11_PHY_TYPE;
+#[cfg(feature = "winnt")]
 pub type PDOT11_PHY_TYPE_INFO = *mut DOT11_PHY_TYPE_INFO;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_PHY_TYPE_LIST = *mut DOT11_PHY_TYPE_LIST;
@@ -3608,10 +3808,11 @@ pub type PDOT11_PMKID_CANDIDATE_LIST_PARAMETERS = *mut DOT11_PMKID_CANDIDATE_LIS
 pub type PDOT11_PMKID_ENTRY = *mut DOT11_PMKID_ENTRY;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_PMKID_LIST = *mut DOT11_PMKID_LIST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_PORT_STATE_NOTIFICATION = *mut DOT11_PORT_STATE_NOTIFICATION;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO = *mut DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO;
+#[cfg(feature = "winnt")]
 pub type PDOT11_POWER_MGMT_MODE = *mut DOT11_POWER_MGMT_MODE;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_POWER_MGMT_MODE_STATUSINFO = *mut DOT11_POWER_MGMT_MODE_STATUS_INFO;
@@ -3650,6 +3851,7 @@ pub type PDOT11_RECV_SENSITIVITY = *mut DOT11_RECV_SENSITIVITY;
 pub type PDOT11_RECV_SENSITIVITY_LIST = *mut DOT11_RECV_SENSITIVITY_LIST;
 pub type PDOT11_REG_DOMAINS_SUPPORT_VALUE = *mut DOT11_REG_DOMAINS_SUPPORT_VALUE;
 pub type PDOT11_REG_DOMAIN_VALUE = *mut DOT11_REG_DOMAIN_VALUE;
+#[cfg(feature = "winnt")]
 pub type PDOT11_RESET_REQUEST = *mut DOT11_RESET_REQUEST;
 pub type PDOT11_RESET_TYPE = *mut DOT11_RESET_TYPE;
 #[cfg(feature = "objectheader")]
@@ -3657,22 +3859,22 @@ pub type PDOT11_ROAMING_COMPLETION_PARAMETERS = *mut DOT11_ROAMING_COMPLETION_PA
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 pub type PDOT11_ROAMING_START_PARAMETERS = *mut DOT11_ROAMING_START_PARAMETERS;
 pub type PDOT11_RSSI_RANGE = *mut DOT11_RSSI_RANGE;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SCAN_REQUEST = *mut DOT11_SCAN_REQUEST;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SCAN_REQUEST_V2 = *mut DOT11_SCAN_REQUEST_V2;
 pub type PDOT11_SCAN_TYPE = *mut DOT11_SCAN_TYPE;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SEND_INVITATION_REQUEST_PARAMETERS = *mut DOT11_SEND_INVITATION_REQUEST_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_SEND_INVITATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_INVITATION_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS;
@@ -3686,7 +3888,9 @@ pub type PDOT11_STATISTICS = *mut DOT11_STATISTICS;
 pub type PDOT11_STATUS_INDICATION = *mut DOT11_STATUS_INDICATION;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_STOP_AP_PARAMETERS = *mut DOT11_STOP_AP_PARAMETERS;
+#[cfg(feature = "winnt")]
 pub type PDOT11_SUPPORTED_ANTENNA = *mut DOT11_SUPPORTED_ANTENNA;
+#[cfg(feature = "winnt")]
 pub type PDOT11_SUPPORTED_ANTENNA_LIST = *mut DOT11_SUPPORTED_ANTENNA_LIST;
 pub type PDOT11_SUPPORTED_DATA_RATES_VALUE = *mut DOT11_SUPPORTED_DATA_RATES_VALUE;
 pub type PDOT11_SUPPORTED_DATA_RATES_VALUE_V1 = *mut DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
@@ -3698,7 +3902,7 @@ pub type PDOT11_SUPPORTED_OFDM_FREQUENCY_LIST = *mut DOT11_SUPPORTED_OFDM_FREQUE
 pub type PDOT11_SUPPORTED_PHY_TYPES = *mut DOT11_SUPPORTED_PHY_TYPES;
 pub type PDOT11_SUPPORTED_POWER_LEVELS = *mut DOT11_SUPPORTED_POWER_LEVELS;
 pub type PDOT11_TEMP_TYPE = *mut DOT11_TEMP_TYPE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_TKIPMIC_FAILURE_PARAMETERS = *mut DOT11_TKIPMIC_FAILURE_PARAMETERS;
 pub type PDOT11_UPDATE_IE = *mut DOT11_UPDATE_IE;
 pub type PDOT11_UPDATE_IE_OP = *mut DOT11_UPDATE_IE_OP;
@@ -3719,11 +3923,11 @@ pub type PDOT11_WFD_ADDITIONAL_IE = *mut DOT11_WFD_ADDITIONAL_IE;
 pub type PDOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR = *mut DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR;
 pub type PDOT11_WFD_ADVERTISED_SERVICE_LIST = *mut DOT11_WFD_ADVERTISED_SERVICE_LIST;
 pub type PDOT11_WFD_ADVERTISEMENT_ID = *mut DOT11_WFD_ADVERTISEMENT_ID;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_WFD_ATTRIBUTES = *mut DOT11_WFD_ATTRIBUTES;
 pub type PDOT11_WFD_CHANNEL = *mut DOT11_WFD_CHANNEL;
 pub type PDOT11_WFD_CONFIGURATION_TIMEOUT = *mut DOT11_WFD_CONFIGURATION_TIMEOUT;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_WFD_DEVICE_CAPABILITY_CONFIG = *mut DOT11_WFD_DEVICE_CAPABILITY_CONFIG;
 #[cfg(feature = "wlan")]
 pub type PDOT11_WFD_DEVICE_ENTRY = *mut DOT11_WFD_DEVICE_ENTRY;
@@ -3736,17 +3940,17 @@ pub type PDOT11_WFD_DEVICE_TYPE = *mut DOT11_WFD_DEVICE_TYPE;
 pub type PDOT11_WFD_DISCOVER_COMPLETE_PARAMETERS = *mut DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS;
 #[cfg(feature = "wlan")]
 pub type PDOT11_WFD_DISCOVER_DEVICE_FILTER = *mut DOT11_WFD_DISCOVER_DEVICE_FILTER;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_WFD_DISCOVER_REQUEST = *mut DOT11_WFD_DISCOVER_REQUEST;
 pub type PDOT11_WFD_DISCOVER_TYPE = *mut DOT11_WFD_DISCOVER_TYPE;
 pub type PDOT11_WFD_GO_INTENT = *mut DOT11_WFD_GO_INTENT;
 #[cfg(feature = "wlan")]
 pub type PDOT11_WFD_GROUP_ID = *mut DOT11_WFD_GROUP_ID;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_WFD_GROUP_JOIN_PARAMETERS = *mut DOT11_WFD_GROUP_JOIN_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG = *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 = *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2;
 #[cfg(feature = "objectheader")]
 pub type PDOT11_WFD_GROUP_START_PARAMETERS = *mut DOT11_WFD_GROUP_START_PARAMETERS;
@@ -3765,6 +3969,7 @@ pub type PDOT11_WPA_TSC = *mut DOT11_WPA_TSC;
 pub type PDOT11_WPS_CONFIG_METHOD = *mut DOT11_WPS_CONFIG_METHOD;
 pub type PDOT11_WPS_DEVICE_NAME = *mut DOT11_WPS_DEVICE_NAME;
 pub type PDOT11_WPS_DEVICE_PASSWORD_ID = *mut DOT11_WPS_DEVICE_PASSWORD_ID;
+#[cfg(feature = "winnt")]
 pub type PWFDSVC_CONNECTION_CAPABILITY = *mut WFDSVC_CONNECTION_CAPABILITY;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3776,11 +3981,12 @@ pub type RSNA_AKM_SUITE = i32;
 pub type RSNA_CIPHER_SUITE = i32;
 pub const RSNA_OUI_PREFIX: i32 = 11276032;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
-    pub bNew: bool,
-    pub bClient: bool,
-    pub bGO: bool,
+    pub bNew: super::BOOLEAN,
+    pub bClient: super::BOOLEAN,
+    pub bGO: super::BOOLEAN,
 }
 pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: i32 = 2;
 pub const WFDSVC_CONNECTION_CAPABILITY_GO: i32 = 4;

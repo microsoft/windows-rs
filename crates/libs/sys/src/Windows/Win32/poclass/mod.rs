@@ -20,17 +20,18 @@ impl Default for ACPI_REAL_TIME {
 }
 pub const ACPI_TIME_ADJUST_DAYLIGHT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
-    pub AcWakeSupported: bool,
-    pub DcWakeSupported: bool,
-    pub S4AcWakeSupported: bool,
-    pub S4DcWakeSupported: bool,
-    pub S5AcWakeSupported: bool,
-    pub S5DcWakeSupported: bool,
-    pub S4S5WakeStatusSupported: bool,
+    pub AcWakeSupported: super::BOOLEAN,
+    pub DcWakeSupported: super::BOOLEAN,
+    pub S4AcWakeSupported: super::BOOLEAN,
+    pub S4DcWakeSupported: super::BOOLEAN,
+    pub S5AcWakeSupported: super::BOOLEAN,
+    pub S5DcWakeSupported: super::BOOLEAN,
+    pub S4S5WakeStatusSupported: super::BOOLEAN,
     pub DeepestWakeSystemState: u32,
-    pub RealTimeFeaturesSupported: bool,
+    pub RealTimeFeaturesSupported: super::BOOLEAN,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
 pub const ACPI_TIME_IN_DAYLIGHT: i32 = 2;
@@ -61,10 +62,11 @@ pub struct BATTERY_CHARGING_SOURCE {
     pub MaxCurrent: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub SourceOnline: bool,
+    pub SourceOnline: super::BOOLEAN,
 }
 pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
 pub const BATTERY_CRITICAL: i32 = 8;
@@ -249,12 +251,14 @@ pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: i32 = 2719884;
 pub const MAX_ACTIVE_COOLING_LEVELS: i32 = 10;
 pub const MAX_BATTERY_STRING_SIZE: i32 = 128;
 pub type PACPI_REAL_TIME = *mut ACPI_REAL_TIME;
+#[cfg(feature = "winnt")]
 pub type PACPI_TIME_AND_ALARM_CAPABILITIES = *mut ACPI_TIME_AND_ALARM_CAPABILITIES;
 pub type PACPI_TIME_RESOLUTION = *mut ACPI_TIME_RESOLUTION;
 pub const PASSIVE_COOLING: i32 = 1;
 pub type PBATTERY_CHARGER_ID = *mut windows_sys::core::GUID;
 pub type PBATTERY_CHARGER_STATUS = *mut BATTERY_CHARGER_STATUS;
 pub type PBATTERY_CHARGING_SOURCE = *mut BATTERY_CHARGING_SOURCE;
+#[cfg(feature = "winnt")]
 pub type PBATTERY_CHARGING_SOURCE_INFORMATION = *mut BATTERY_CHARGING_SOURCE_INFORMATION;
 pub type PBATTERY_CHARGING_SOURCE_TYPE = *mut BATTERY_CHARGING_SOURCE_TYPE;
 pub type PBATTERY_INFORMATION = *mut BATTERY_INFORMATION;
@@ -293,12 +297,14 @@ pub struct POWER_ADAPTER_POWER_STATES_0 {
 }
 pub const POWER_ADAPTER_REC_TIME_NOT_AVAILABLE: u64 = 18446744073709551615;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct POWER_ADAPTER_SET_STATUS_BUFFER {
     pub Version: u8,
-    pub RecOverride: bool,
+    pub RecOverride: super::BOOLEAN,
     pub Reserved: [u8; 2],
 }
+#[cfg(feature = "winnt")]
 impl Default for POWER_ADAPTER_SET_STATUS_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -323,6 +329,7 @@ impl Default for POWER_ADAPTER_STATUS {
 }
 pub type PPOWER_ADAPTER_CHARGE_REQUIREMENT = *mut POWER_ADAPTER_CHARGE_REQUIREMENT;
 pub type PPOWER_ADAPTER_POWER_STATES = *mut POWER_ADAPTER_POWER_STATES;
+#[cfg(feature = "winnt")]
 pub type PPOWER_ADAPTER_SET_STATUS_BUFFER = *mut POWER_ADAPTER_SET_STATUS_BUFFER;
 pub type PPOWER_ADAPTER_STATUS = *mut POWER_ADAPTER_STATUS;
 pub type PPROCESSOR_OBJECT_INFO = *mut PROCESSOR_OBJECT_INFO;
@@ -346,6 +353,7 @@ pub struct PROCESSOR_OBJECT_INFO_EX {
 }
 #[cfg(feature = "basetsd")]
 pub type PTHERMAL_INFORMATION = *mut THERMAL_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PTHERMAL_POLICY = *mut THERMAL_POLICY;
 pub type PTHERMAL_WAIT_READ = *mut THERMAL_WAIT_READ;
 pub type PUSB_CHARGER_PORT = *mut USB_CHARGER_PORT;
@@ -381,17 +389,18 @@ impl Default for THERMAL_INFORMATION {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct THERMAL_POLICY {
     pub Version: u32,
-    pub WaitForUpdate: bool,
-    pub Hibernate: bool,
-    pub Critical: bool,
-    pub ThermalStandby: bool,
+    pub WaitForUpdate: super::BOOLEAN,
+    pub Hibernate: super::BOOLEAN,
+    pub Critical: super::BOOLEAN,
+    pub ThermalStandby: super::BOOLEAN,
     pub ActivationReasons: u32,
     pub PassiveLimit: u32,
     pub ActiveLevel: u32,
-    pub OverThrottled: bool,
+    pub OverThrottled: super::BOOLEAN,
 }
 pub const THERMAL_POLICY_VERSION_1: i32 = 1;
 pub const THERMAL_POLICY_VERSION_2: i32 = 2;

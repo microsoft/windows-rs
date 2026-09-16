@@ -1,8 +1,8 @@
 #[cfg(all(feature = "wincrypt", feature = "windef"))]
-windows_link::link!("crypt32.dll" "system" fn CryptProtectData(pdatain : *const super::DATA_BLOB, szdatadescr : windows_sys::core::PCWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_sys::core::BOOL);
+windows_link::link!("crypt32.dll" "system" fn CryptProtectData(pdatain : *const super::DATA_BLOB, szdatadescr : windows_sys::core::PCWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *mut core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptProtectMemory(pdatain : *mut core::ffi::c_void, cbdatain : u32, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wincrypt", feature = "windef"))]
-windows_link::link!("crypt32.dll" "system" fn CryptUnprotectData(pdatain : *const super::DATA_BLOB, ppszdatadescr : *mut windows_sys::core::PWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_sys::core::BOOL);
+windows_link::link!("crypt32.dll" "system" fn CryptUnprotectData(pdatain : *const super::DATA_BLOB, ppszdatadescr : *mut windows_sys::core::PWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *mut core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_sys::core::BOOL);
 windows_link::link!("crypt32.dll" "system" fn CryptUnprotectMemory(pdatain : *mut core::ffi::c_void, cbdatain : u32, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("crypt32.dll" "system" fn CryptUpdateProtectedState(poldsid : super::PSID, pwszoldpassword : windows_sys::core::PCWSTR, dwflags : u32, pdwsuccesscount : *mut u32, pdwfailurecount : *mut u32) -> windows_sys::core::BOOL);

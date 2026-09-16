@@ -1,13 +1,19 @@
-windows_link::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : *mut windows_sys::core::GUID) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> bool);
-windows_link::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> bool);
-windows_link::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_sys::core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut u64) -> u32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : super::LPGUID) -> u32);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR) -> super::BOOLEAN);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> super::BOOLEAN);
+#[cfg(all(feature = "evntrace", feature = "guiddef"))]
+windows_link::link!("advapi32.dll" "system" fn EventRegister(providerid : super::LPCGUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : PREGHANDLE) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : REGHANDLE, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EventUnregister(reghandle : REGHANDLE) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+windows_link::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: i32 = 3;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: i32 = 5;
 pub const EVENT_ACTIVITY_CTRL_GET_ID: i32 = 1;
@@ -67,28 +73,32 @@ pub struct EVENT_FILTER_DESCRIPTOR {
     pub Type: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct EVENT_FILTER_EVENT_ID {
-    pub FilterIn: bool,
+    pub FilterIn: super::BOOLEAN,
     pub Reserved: u8,
     pub Count: u16,
     pub Events: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for EVENT_FILTER_EVENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: bool,
+    pub FilterIn: super::BOOLEAN,
     pub NameCount: u16,
     pub Names: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for EVENT_FILTER_EVENT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -110,12 +120,13 @@ impl Default for EVENT_FILTER_HEADER {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: bool,
+    pub FilterIn: super::BOOLEAN,
 }
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
 pub const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
@@ -151,12 +162,16 @@ pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
 pub const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
 pub const MaxEventInfo: EVENT_INFO_CLASS = 5;
 pub type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
-pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_sys::core::GUID, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
+#[cfg(all(feature = "evntrace", feature = "guiddef"))]
+pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: super::LPCGUID, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: super::PEVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 pub type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
 pub type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PEVENT_FILTER_EVENT_ID = *mut EVENT_FILTER_EVENT_ID;
+#[cfg(feature = "winnt")]
 pub type PEVENT_FILTER_EVENT_NAME = *mut EVENT_FILTER_EVENT_NAME;
 pub type PEVENT_FILTER_HEADER = *mut EVENT_FILTER_HEADER;
+#[cfg(feature = "winnt")]
 pub type PEVENT_FILTER_LEVEL_KW = *mut EVENT_FILTER_LEVEL_KW;
 pub type PREGHANDLE = *mut u64;
 pub type REGHANDLE = u64;
