@@ -13,6 +13,7 @@ compile_error!(
 
 #[cfg(all(feature = "system", not(feature = "reactor")))]
 #[allow(
+    dead_code,
     non_snake_case,
     non_upper_case_globals,
     non_camel_case_types,
@@ -22,6 +23,7 @@ compile_error!(
 mod bindings;
 #[cfg(feature = "reactor")]
 #[allow(
+    dead_code,
     non_snake_case,
     non_upper_case_globals,
     non_camel_case_types,
