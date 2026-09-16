@@ -96,12 +96,19 @@ have the same meaning.
 | Source category | RDL policy |
 | --- | --- |
 | Scalar vocabulary (`BYTE`, `DWORD`, `FLOAT`, `DOUBLE`) | Use the corresponding RDL primitive. |
+| MIDL predefined scalars (`boolean`) | Use the corresponding RDL primitive (`u8`). |
 | Pointer-sized vocabulary (`SIZE_T`, `ULONG_PTR`, `LONG_PTR`) | Use `usize` or `isize`. |
 | String aliases (`LPCWSTR`, `LPWSTR`) | Use the canonical RDL string vocabulary. |
 | GUID aliases (`IID`, `CLSID`, `UUID`) | Use `GUID`. |
 | Generic void pointers (`PVOID`, `LPVOID`) | Use the corresponding raw pointer. |
 | Interface pointer typedefs | Project to the RDL interface type; RDL/WinMD encodes its pointer semantics. |
 | Other typedefs, including pointer typedefs | Preserve the name and emit its definition. |
+
+Lowercase `boolean` is part of MIDL's predefined type vocabulary and has an unsigned 8-bit
+representation, so it becomes `u8`, not RDL `bool`. Uppercase `BOOLEAN` is a named Windows API
+typedef and remains `type BOOLEAN = u8`; references to it retain the `BOOLEAN` name. This preserves
+the distinction between canonical language vocabulary and an API-authored typedef without treating
+arbitrary byte values as Rust booleans.
 
 For example, the headers declare `PBYTE`, `PDWORD`, and `PORHKEY` in API signatures. RDL retains
 those names and separately records their representations:
