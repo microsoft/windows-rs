@@ -7,7 +7,7 @@ fn main() -> windows::core::Result<()> {
         VARIANT {
             Anonymous: VARIANT_0 {
                 Anonymous: ManuallyDrop::new(VARIANT_0_0 {
-                    vt: VARTYPE(VT_BSTR as u16),
+                    vt: VT_BSTR as VARTYPE,
                     wReserved1: 0,
                     wReserved2: 0,
                     wReserved3: 0,
@@ -23,7 +23,7 @@ fn main() -> windows::core::Result<()> {
         VARIANT {
             Anonymous: VARIANT_0 {
                 Anonymous: ManuallyDrop::new(VARIANT_0_0 {
-                    vt: VARTYPE(VT_I4 as u16),
+                    vt: VT_I4 as VARTYPE,
                     wReserved1: 0,
                     wReserved2: 0,
                     wReserved3: 0,
@@ -65,7 +65,7 @@ fn main() -> windows::core::Result<()> {
 
     fn find_desktop_folder_view<T: Interface>() -> Result<T> {
         unsafe {
-            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL as u32)?;
+            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL)?;
             let mut handle = 0;
 
             let desktop = windows.FindWindowSW(
@@ -77,7 +77,11 @@ fn main() -> windows::core::Result<()> {
             )?;
 
             let provider: IServiceProvider = desktop.cast()?;
-            let browser: IShellBrowser = provider.QueryService(&SID_STopLevelBrowser)?;
+            let mut browser = core::ptr::null_mut();
+            provider
+                .QueryService(&SID_STopLevelBrowser, &IShellBrowser::IID, &mut browser)
+                .ok()?;
+            let browser: IShellBrowser = imp::Type::from_abi(browser)?;
             let view = browser.QueryActiveShellView()?;
             view.cast()
         }

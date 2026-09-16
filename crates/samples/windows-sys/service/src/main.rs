@@ -100,12 +100,12 @@ fn main() {
         writer.status.dwCurrentState = state;
 
         let handle = writer.handle;
-        let status = writer.status;
+        let mut status = writer.status;
         // Avoid holding the state lock across the service API call.
         drop(writer);
 
         unsafe {
-            SetServiceStatus(handle, &status);
+            SetServiceStatus(handle, &mut status);
         }
     }
 
@@ -158,7 +158,7 @@ fn main() {
                 path.as_ptr(),
                 FILE_APPEND_DATA as u32,
                 0,
-                std::ptr::null(),
+                std::ptr::null_mut(),
                 OPEN_ALWAYS as u32,
                 FILE_ATTRIBUTE_NORMAL as u32,
                 std::ptr::null_mut(),

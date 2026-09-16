@@ -40,11 +40,8 @@ fn main() {
             {
                 unsafe {
                     let data = &*(command.data as *const SERVICE_TIMECHANGE_INFO);
-
-                    writeln!(log, "{data:#?}").unwrap();
-
-                    let old = convert(data.liOldTime);
-                    let new = convert(data.liNewTime);
+                    let old = convert(data.liOldTime.QuadPart);
+                    let new = convert(data.liNewTime.QuadPart);
 
                     writeln!(log, "{old:#?}\n{new:#?}").unwrap();
                 }

@@ -133,7 +133,14 @@ fn main() -> windows::core::Result<()> {
                 let device_3d = create_device_3d()?;
                 let device_2d = create_device_2d(&device_3d)?;
                 self.device = Some(device_3d);
-                let desktop: IDCompositionDesktopDevice = DCompositionCreateDevice2(&device_2d)?;
+                let mut desktop = core::ptr::null_mut();
+                DCompositionCreateDevice2(
+                    &device_2d,
+                    &IDCompositionDesktopDevice::IID,
+                    &mut desktop,
+                )
+                .ok()?;
+                let desktop: IDCompositionDesktopDevice = imp::Type::from_abi(desktop)?;
 
                 self.target = None;
                 let target = desktop.CreateTargetForHwnd(self.handle, true)?;
@@ -242,8 +249,8 @@ fn main() -> windows::core::Result<()> {
 
         fn click_handler(&mut self, lparam: LPARAM) -> Result<()> {
             unsafe {
-                let x = lparam.0 as u16 as f32;
-                let y = (lparam.0 >> 16) as f32;
+                let x = lparam as u16 as f32;
+                let y = (lparam >> 16) as f32;
 
                 let width = logical_to_physical(CARD_WIDTH, self.dpi.0);
                 let height = logical_to_physical(CARD_HEIGHT, self.dpi.1);
@@ -279,8 +286,8 @@ fn main() -> windows::core::Result<()> {
                     let mut stats = DCOMPOSITION_FRAME_STATISTICS::default();
                     desktop.GetFrameStatistics(&mut stats).ok()?;
 
-                    let next_frame: f64 =
-                        stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;
+                    let next_frame: f64 = stats.nextEstimatedFrameTime.QuadPart as f64
+                        / stats.timeFrequency.QuadPart as f64;
 
                     self.manager.update(next_frame)?;
                     let storyboard = self.manager.create_storyboard()?;
@@ -354,13 +361,13 @@ fn main() -> windows::core::Result<()> {
 
         fn dpi_changed_handler(&mut self, wparam: WPARAM, lparam: LPARAM) -> Result<()> {
             unsafe {
-                self.dpi = (wparam.0 as u16 as f32, (wparam.0 >> 16) as f32);
+                self.dpi = (wparam as u16 as f32, (wparam >> 16) as f32);
 
                 if cfg!(debug_assertions) {
                     println!("dpi changed: {:?}", self.dpi);
                 }
 
-                let rect = &*(lparam.0 as *const RECT);
+                let rect = &*(lparam as *const RECT);
                 let size = self.effective_window_size()?;
 
                 SetWindowPos(
@@ -415,22 +422,23 @@ fn main() -> windows::core::Result<()> {
                 }
             }
 
-            LRESULT(0)
+            0
         }
     }
 
     fn create_text_format() -> Result<IDWriteTextFormat> {
         unsafe {
-            let factory: IDWriteFactory2 = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED)?;
+            let factory: IDWriteFactory2 =
+                DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, &IDWriteFactory2::IID)?.cast()?;
 
             let format = factory.CreateTextFormat(
-                w!("Candara"),
+                w!("Candara").as_ptr(),
                 None,
                 DWRITE_FONT_WEIGHT_NORMAL,
                 DWRITE_FONT_STYLE_NORMAL,
                 DWRITE_FONT_STRETCH_NORMAL,
                 CARD_HEIGHT / 2.0,
-                w!("en"),
+                w!("en").as_ptr(),
             )?;
 
             format.SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER).ok()?;
@@ -610,7 +618,11 @@ fn main() -> windows::core::Result<()> {
     ) -> Result<()> {
         unsafe {
             let mut offset = POINT::default();
-            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut offset)?;
+            let mut dc = core::ptr::null_mut();
+            surface
+                .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut offset)
+                .ok()?;
+            let dc: ID2D1DeviceContext = imp::Type::from_abi(dc)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -651,7 +663,11 @@ fn main() -> windows::core::Result<()> {
     ) -> Result<()> {
         unsafe {
             let mut dc_offset = POINT::default();
-            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut dc_offset)?;
+            let mut dc = core::ptr::null_mut();
+            surface
+                .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut dc_offset)
+                .ok()?;
+            let dc: ID2D1DeviceContext = imp::Type::from_abi(dc)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -703,19 +719,18 @@ fn main() -> windows::core::Result<()> {
             Some(
                 handler
                     .borrow_mut()
-                    .message_handler(message, WPARAM(wparam), LPARAM(lparam))
-                    .0,
+                    .message_handler(message, wparam, lparam),
             )
         })
         .create()?;
 
-    app.borrow_mut().handle = HWND(window.hwnd());
+    app.borrow_mut().handle = window.hwnd() as HWND;
     let size = app.borrow_mut().create_handler()?;
 
     // SetWindowPos reenters the handler, so call it outside the RefCell borrow.
     unsafe {
         SetWindowPos(
-            HWND(window.hwnd()),
+            window.hwnd() as HWND,
             None,
             0,
             0,

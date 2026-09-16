@@ -30,7 +30,7 @@ impl Component for MessageBoxSample {
                 if !context.run_window(|window| {
                     let answer = unsafe {
                         MessageBoxW(
-                            window.as_raw(),
+                            window.as_raw().cast(),
                             w!("Continue with this operation?"),
                             w!("Confirm"),
                             (MB_YESNO | MB_ICONQUESTION) as u32,

@@ -10,7 +10,7 @@ fn main() -> Result<()> {
         CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         let factory: ISpellCheckerFactory =
-            CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL as u32)?;
+            CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)?;
 
         let locale = w!("en-US");
         assert!(
@@ -49,7 +49,7 @@ fn main() -> Result<()> {
                     let suggestions = checker.Suggest(&HSTRING::from(&substring))?;
 
                     loop {
-                        let mut suggestion = [PWSTR::null()];
+                        let mut suggestion = [core::ptr::null_mut()];
                         // This enumerator returns HRESULT and signals completion with a null slot.
                         suggestions
                             .Next(
@@ -65,10 +65,10 @@ fn main() -> Result<()> {
 
                         println!(
                             "Maybe replace: {substring} with {}",
-                            suggestion[0].display()
+                            PWSTR(suggestion[0]).display()
                         );
 
-                        CoTaskMemFree(suggestion[0].as_ptr() as *mut _);
+                        CoTaskMemFree(suggestion[0].cast());
                     }
                 }
                 _ => {}
