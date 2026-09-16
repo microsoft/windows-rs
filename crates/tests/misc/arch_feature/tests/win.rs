@@ -10,7 +10,7 @@ fn test() {
 
     assert_eq!(1232, size_of::<CONTEXT>());
 
-    extern "system" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
+    extern "C" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
         64
     }
 
@@ -31,7 +31,7 @@ fn test() {
 
     assert_eq!(716, size_of::<CONTEXT>());
 
-    extern "system" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
+    extern "C" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
         32
     }
 

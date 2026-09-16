@@ -84,7 +84,7 @@ fn nested_message_loop_defers_callback_until_the_active_handler_returns() {
     callback_hwnd.set(icon.hwnd() as usize);
 
     unsafe {
-        SendMessageW(icon.hwnd(), CALLBACK_MESSAGE, 0, NIN_SELECT as isize);
+        SendMessageW(icon.hwnd().cast(), CALLBACK_MESSAGE, 0, NIN_SELECT as isize);
     }
     assert!(windows_window::pump());
     assert_eq!(delivered.get(), 2);

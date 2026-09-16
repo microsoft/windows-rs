@@ -1,5 +1,0 @@
-#[win32]
-mod Test {
-    #[library("test.dll")]
-    extern "C" fn DoApiThing(value: i32) -> HRESULT;
-}

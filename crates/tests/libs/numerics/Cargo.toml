@@ -15,5 +15,9 @@ features = ["std"]
 [dependencies.windows-link]
 workspace = true
 
+[dependencies.windows-sys]
+workspace = true
+features = ["d3d9", "dcommon"]
+
 [lints]
 workspace = true

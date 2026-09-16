@@ -30,6 +30,28 @@ fn type_arch_bits(ty: reader::TypeDef) -> Option<i32> {
 }
 
 #[test]
+fn explicit_assembly_name() {
+    let dir = std::env::temp_dir().join("win_merge_assembly_name");
+    std::fs::create_dir_all(&dir).unwrap();
+
+    let input = winmd(
+        &dir,
+        "input",
+        "#[win32] mod Test { struct VALUE { value: i32 } }",
+    );
+    let output = dir.join("temporary-name.winmd");
+    merge()
+        .input(input)
+        .assembly_name("Test.Assembly")
+        .output(&output)
+        .merge()
+        .unwrap();
+
+    let file = reader::File::read(output).unwrap();
+    assert_eq!(file.assembly_name(), Some("Test.Assembly"));
+}
+
+#[test]
 fn arch_merge_constants() {
     let dir = std::env::temp_dir().join("win_merge_test");
     std::fs::create_dir_all(&dir).unwrap();

@@ -251,11 +251,11 @@ fn run_nested_message_loop(
         }
         if !status.as_bool() {
             unsafe {
-                PostQuitMessage(native.wParam.0 as i32);
+                PostQuitMessage(native.wParam as i32);
             }
             return Err("nested loop received WM_QUIT".to_string());
         }
-        if native.message == WM_TIMER as u32 && native.wParam.0 == timer {
+        if native.message == WM_TIMER as u32 && native.wParam == timer {
             unsafe {
                 _ = KillTimer(None, timer);
             }
@@ -700,10 +700,10 @@ impl Component for KeyboardInput {
             KeyboardMessage::WindowHandle(Ok(hwnd)) => {
                 context.spawn_background(move |_| {
                     unsafe {
-                        let _ = SetForegroundWindow(HWND(hwnd as *mut _));
+                        let _ = SetForegroundWindow(hwnd as HWND);
                     }
                     std::thread::sleep(Duration::from_millis(100));
-                    let result = (unsafe { GetForegroundWindow() } == HWND(hwnd as *mut _))
+                    let result = (unsafe { GetForegroundWindow() } == hwnd as HWND)
                         .then_some(hwnd)
                         .ok_or_else(|| "self-test window could not become foreground".to_string());
                     KeyboardMessage::Activated(result)
@@ -954,7 +954,7 @@ impl Component for KeyboardInput {
 }
 
 fn inject_keyboard(hwnd: isize) -> Result<(), String> {
-    if unsafe { GetForegroundWindow() } != HWND(hwnd as *mut _) {
+    if unsafe { GetForegroundWindow() } != hwnd as HWND {
         return Err("self-test window lost foreground focus".to_string());
     }
     let key = |virtual_key, scan_code, flags| INPUT {
@@ -986,7 +986,7 @@ fn inject_keyboard(hwnd: isize) -> Result<(), String> {
 }
 
 fn inject_reverse_tab(hwnd: isize) -> Result<(), String> {
-    if unsafe { GetForegroundWindow() } != HWND(hwnd as *mut _) {
+    if unsafe { GetForegroundWindow() } != hwnd as HWND {
         return Err("self-test window lost foreground focus".to_string());
     }
     let key = |virtual_key, flags| INPUT {
@@ -1023,7 +1023,7 @@ fn schedule_keyboard_click_stage(
 ) -> Result<(), String> {
     schedule_live_window_handle(move |result| {
         let result = result.and_then(|handle| {
-            let hwnd = HWND(handle as *mut _);
+            let hwnd = handle as HWND;
             if stage == PointerStage::LeftDown {
                 fit_window_to_work_area(hwnd)?;
                 let (x, y) = virtual_screen_origin();
@@ -1367,7 +1367,7 @@ fn inject_pointer_stage(
     handle: isize,
     injector: &InputInjector,
 ) -> Result<(), String> {
-    let hwnd = HWND(handle as *mut _);
+    let hwnd = handle as HWND;
     if stage == PointerStage::Move {
         fit_window_to_work_area(hwnd)?;
     }

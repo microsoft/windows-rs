@@ -34,7 +34,7 @@ fn from_in6_addr(in6_addr: IN6_ADDR) -> std::net::Ipv6Addr {
 fn to_sockaddr_in(addr: std::net::SocketAddrV4) -> SOCKADDR_IN {
     // sin_port must be network byte order; addr.port() is host byte order.
     SOCKADDR_IN {
-        sin_family: ADDRESS_FAMILY(AF_INET as u16),
+        sin_family: AF_INET as ADDRESS_FAMILY,
         sin_port: addr.port().to_be(),
         sin_addr: to_in_addr(*addr.ip()),
         ..Default::default()
@@ -44,7 +44,7 @@ fn to_sockaddr_in(addr: std::net::SocketAddrV4) -> SOCKADDR_IN {
 fn to_sockaddr_in6(addr: std::net::SocketAddrV6) -> SOCKADDR_IN6 {
     // sin6_port and sin6_flowinfo are network byte order; sin6_scope_id has no endianness.
     SOCKADDR_IN6 {
-        sin6_family: ADDRESS_FAMILY(AF_INET6 as u16),
+        sin6_family: AF_INET6 as ADDRESS_FAMILY,
         sin6_port: addr.port().to_be(),
         sin6_flowinfo: addr.flowinfo().to_be(),
         sin6_addr: to_in6_addr(*addr.ip()),
@@ -125,7 +125,7 @@ fn sockaddr_in() {
     let sockaddr_in: SOCKADDR_IN = to_sockaddr_in(socket_addr_v4);
 
     // These fields should be host byte order
-    assert_eq!(sockaddr_in.sin_family, ADDRESS_FAMILY(AF_INET as u16));
+    assert_eq!(sockaddr_in.sin_family, AF_INET as ADDRESS_FAMILY);
 
     // These fields should be network byte order
     assert_eq!(sockaddr_in.sin_port, PORT_NETWORK_BYTE_ORDER);
@@ -146,7 +146,7 @@ fn sockaddr_in6() {
     let sockaddr_in6: SOCKADDR_IN6 = to_sockaddr_in6(socket_addr_v6);
 
     // These fields should be host byte order
-    assert_eq!(sockaddr_in6.sin6_family, ADDRESS_FAMILY(AF_INET6 as u16));
+    assert_eq!(sockaddr_in6.sin6_family, AF_INET6 as ADDRESS_FAMILY);
     assert_eq!(sockaddr_in6.sin6_port, PORT_NETWORK_BYTE_ORDER);
 
     // These fields should be network byte order
@@ -168,11 +168,11 @@ fn sockaddr_inet4() {
     // These fields should be host byte order
     assert_eq!(
         unsafe { sockaddr_inet.si_family },
-        ADDRESS_FAMILY(AF_INET as u16)
+        AF_INET as ADDRESS_FAMILY
     );
     assert_eq!(
         unsafe { sockaddr_inet.Ipv4.sin_family },
-        ADDRESS_FAMILY(AF_INET as u16)
+        AF_INET as ADDRESS_FAMILY
     );
 
     // These fields should be network byte order
@@ -199,11 +199,11 @@ fn sockaddr_inet6() {
     // These fields should be host byte order
     assert_eq!(
         unsafe { sockaddr_inet.si_family },
-        ADDRESS_FAMILY(AF_INET6 as u16)
+        AF_INET6 as ADDRESS_FAMILY
     );
     assert_eq!(
         unsafe { sockaddr_inet.Ipv6.sin6_family },
-        ADDRESS_FAMILY(AF_INET6 as u16)
+        AF_INET6 as ADDRESS_FAMILY
     );
 
     // These fields should be network byte order

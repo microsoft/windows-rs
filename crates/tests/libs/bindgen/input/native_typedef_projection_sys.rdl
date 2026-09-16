@@ -1,0 +1,18 @@
+//! --sys --filter Test --flat
+#[win32]
+mod Test {
+    type DWORD = u32;
+    type LPDWORD = *mut DWORD;
+
+    struct SYSTEMTIME {
+        value: u32,
+    }
+
+    type LPSYSTEMTIME = *mut SYSTEMTIME;
+
+    #[library("test.dll")]
+    extern fn GetTime(#[out] result: LPSYSTEMTIME);
+
+    #[library("test.dll")]
+    extern fn GetValue(#[out] result: LPDWORD) -> HRESULT;
+}

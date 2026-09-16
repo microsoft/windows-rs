@@ -22,32 +22,26 @@ fn test() -> Result<()> {
         );
 
         let mut key = HKEY::default();
-        WIN32_ERROR(
-            RegOpenKeyExA(
-                HKEY_CLASSES_ROOT,
-                s!(r".txt"),
-                None,
-                ACCESS_MASK(KEY_QUERY_VALUE as u32),
-                &mut key,
-            )
-            .0 as u32,
-        )
+        WIN32_ERROR(RegOpenKeyExA(
+            HKEY_CLASSES_ROOT,
+            s!(r".txt"),
+            None,
+            KEY_QUERY_VALUE as ACCESS_MASK,
+            &mut key,
+        ) as u32)
         .ok()?;
         let mut len = 0;
-        WIN32_ERROR(RegQueryValueExA(key, s!("Content Type"), None, None, None, &mut len).0 as u32)
+        WIN32_ERROR(RegQueryValueExA(key, s!("Content Type"), None, None, None, &mut len) as u32)
             .ok()?;
         let mut buffer = vec![0u8; (len) as usize];
-        WIN32_ERROR(
-            RegQueryValueExA(
-                key,
-                s!("Content Type"),
-                None,
-                None,
-                Some(buffer.as_mut_ptr() as _),
-                &mut len,
-            )
-            .0 as u32,
-        )
+        WIN32_ERROR(RegQueryValueExA(
+            key,
+            s!("Content Type"),
+            None,
+            None,
+            Some(buffer.as_mut_ptr() as _),
+            &mut len,
+        ) as u32)
         .ok()?;
         assert_eq!(String::from_utf8_lossy(&buffer), "text/plain\0");
         Ok(())
