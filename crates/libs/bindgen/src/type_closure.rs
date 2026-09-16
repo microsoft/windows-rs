@@ -275,7 +275,7 @@ impl CombineClosure for Type {
                     if extends == (TypeName::Object.0, TypeName::Object.1) {
                         break;
                     }
-                    let base = reader.unwrap_full_name(extends.namespace(), extends.name());
+                    let base = reader.unwrap_type_name(extends.namespace(), extends.name());
                     base.combine_closure(types, reader, references);
                     if let Self::Class(base_class) = &base {
                         def = base_class.def;

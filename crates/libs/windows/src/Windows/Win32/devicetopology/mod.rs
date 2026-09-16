@@ -4,6 +4,7 @@ pub const DEVTOPO_HARDWARE_INITIATED_EVENTCONTEXT: i32 = 1685217608;
 pub type DataFlow = i32;
 pub const DeviceTopology: windows_core::GUID = windows_core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 pub const EVENTCONTEXT_VOLUMESLIDER: windows_core::GUID = windows_core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
+pub const E_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80070490_u32 as _);
 windows_core::imp::define_interface!(IAudioAutoGainControl, IAudioAutoGainControl_Vtbl, 0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
 windows_core::imp::interface_hierarchy!(IAudioAutoGainControl, windows_core::IUnknown);
 impl IAudioAutoGainControl {
@@ -13,7 +14,8 @@ impl IAudioAutoGainControl {
             (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -22,12 +24,17 @@ impl IAudioAutoGainControl {
 pub struct IAudioAutoGainControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetEnabled: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioAutoGainControl_Impl: windows_core::IUnknownImpl {
     fn GetEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IAudioAutoGainControl_Vtbl {
     pub const fn new<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -42,7 +49,7 @@ impl IAudioAutoGainControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: IAudioAutoGainControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioAutoGainControl_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -58,6 +65,7 @@ impl IAudioAutoGainControl_Vtbl {
         iid == &<IAudioAutoGainControl as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioAutoGainControl {}
 windows_core::imp::define_interface!(IAudioBass, IAudioBass_Vtbl, 0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5);
 impl core::ops::Deref for IAudioBass {
@@ -72,7 +80,9 @@ windows_core::imp::interface_hierarchy!(IAudioBass, windows_core::IUnknown, IPer
 pub struct IAudioBass_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioBass_Impl: IPerChannelDbLevel_Impl {}
+#[cfg(feature = "guiddef")]
 impl IAudioBass_Vtbl {
     pub const fn new<Identity: IAudioBass_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
@@ -81,11 +91,13 @@ impl IAudioBass_Vtbl {
         iid == &<IAudioBass as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioBass {}
 windows_core::imp::define_interface!(IAudioChannelConfig, IAudioChannelConfig_Vtbl, 0xbb11c46f_ec28_493c_b88a_5db88062ce98);
 windows_core::imp::interface_hierarchy!(IAudioChannelConfig, windows_core::IUnknown);
 impl IAudioChannelConfig {
-    pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetChannelConfig)(windows_core::Interface::as_raw(self), dwconfig, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetChannelConfig(&self) -> windows_core::Result<u32> {
@@ -99,16 +111,21 @@ impl IAudioChannelConfig {
 #[doc(hidden)]
 pub struct IAudioChannelConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetChannelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetChannelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetChannelConfig: usize,
     pub GetChannelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioChannelConfig_Impl: windows_core::IUnknownImpl {
-    fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn GetChannelConfig(&self) -> windows_core::Result<u32>;
 }
+#[cfg(feature = "guiddef")]
 impl IAudioChannelConfig_Vtbl {
     pub const fn new<Identity: IAudioChannelConfig_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetChannelConfig<Identity: IAudioChannelConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwconfig: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetChannelConfig<Identity: IAudioChannelConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwconfig: u32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioChannelConfig_Impl::SetChannelConfig(this, core::mem::transmute_copy(&dwconfig), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -136,6 +153,7 @@ impl IAudioChannelConfig_Vtbl {
         iid == &<IAudioChannelConfig as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioChannelConfig {}
 windows_core::imp::define_interface!(IAudioInputSelector, IAudioInputSelector_Vtbl, 0x4f03dc02_5e6e_4653_8f72_a030c123d598);
 windows_core::imp::interface_hierarchy!(IAudioInputSelector, windows_core::IUnknown);
@@ -146,7 +164,8 @@ impl IAudioInputSelector {
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), nidselect, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -155,12 +174,17 @@ impl IAudioInputSelector {
 pub struct IAudioInputSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetSelection: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioInputSelector_Impl: windows_core::IUnknownImpl {
     fn GetSelection(&self) -> windows_core::Result<u32>;
-    fn SetSelection(&self, nidselect: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetSelection(&self, nidselect: u32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IAudioInputSelector_Vtbl {
     pub const fn new<Identity: IAudioInputSelector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSelection<Identity: IAudioInputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnidselected: *mut u32) -> windows_core::HRESULT {
@@ -175,7 +199,7 @@ impl IAudioInputSelector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSelection<Identity: IAudioInputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nidselect: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSelection<Identity: IAudioInputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nidselect: u32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioInputSelector_Impl::SetSelection(this, core::mem::transmute_copy(&nidselect), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -191,6 +215,7 @@ impl IAudioInputSelector_Vtbl {
         iid == &<IAudioInputSelector as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioInputSelector {}
 windows_core::imp::define_interface!(IAudioLoudness, IAudioLoudness_Vtbl, 0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
 windows_core::imp::interface_hierarchy!(IAudioLoudness, windows_core::IUnknown);
@@ -201,7 +226,8 @@ impl IAudioLoudness {
             (windows_core::Interface::vtable(self).GetEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetEnabled(&self, benable: bool, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benable.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -210,12 +236,17 @@ impl IAudioLoudness {
 pub struct IAudioLoudness_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetEnabled: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioLoudness_Impl: windows_core::IUnknownImpl {
     fn GetEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetEnabled(&self, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IAudioLoudness_Vtbl {
     pub const fn new<Identity: IAudioLoudness_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -230,7 +261,7 @@ impl IAudioLoudness_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: IAudioLoudness_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioLoudness_Impl::SetEnabled(this, core::mem::transmute_copy(&benable), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -246,6 +277,7 @@ impl IAudioLoudness_Vtbl {
         iid == &<IAudioLoudness as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioLoudness {}
 windows_core::imp::define_interface!(IAudioMidrange, IAudioMidrange_Vtbl, 0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf);
 impl core::ops::Deref for IAudioMidrange {
@@ -260,7 +292,9 @@ windows_core::imp::interface_hierarchy!(IAudioMidrange, windows_core::IUnknown, 
 pub struct IAudioMidrange_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioMidrange_Impl: IPerChannelDbLevel_Impl {}
+#[cfg(feature = "guiddef")]
 impl IAudioMidrange_Vtbl {
     pub const fn new<Identity: IAudioMidrange_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
@@ -269,11 +303,13 @@ impl IAudioMidrange_Vtbl {
         iid == &<IAudioMidrange as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioMidrange {}
 windows_core::imp::define_interface!(IAudioMute, IAudioMute_Vtbl, 0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
 windows_core::imp::interface_hierarchy!(IAudioMute, windows_core::IUnknown);
 impl IAudioMute {
-    pub unsafe fn SetMute(&self, bmuted: bool, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetMute(&self, bmuted: bool, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmuted.into(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -287,16 +323,21 @@ impl IAudioMute {
 #[doc(hidden)]
 pub struct IAudioMute_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetMute: usize,
     pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioMute_Impl: windows_core::IUnknownImpl {
-    fn SetMute(&self, bmuted: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetMute(&self, bmuted: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn GetMute(&self) -> windows_core::Result<windows_core::BOOL>;
 }
+#[cfg(feature = "guiddef")]
 impl IAudioMute_Vtbl {
     pub const fn new<Identity: IAudioMute_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmuted: windows_core::BOOL, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMute<Identity: IAudioMute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmuted: windows_core::BOOL, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioMute_Impl::SetMute(this, core::mem::transmute_copy(&bmuted), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -320,6 +361,7 @@ impl IAudioMute_Vtbl {
         iid == &<IAudioMute as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioMute {}
 windows_core::imp::define_interface!(IAudioOutputSelector, IAudioOutputSelector_Vtbl, 0xbb515f69_94a7_429e_8b9c_271b3f11a3ab);
 windows_core::imp::interface_hierarchy!(IAudioOutputSelector, windows_core::IUnknown);
@@ -330,7 +372,8 @@ impl IAudioOutputSelector {
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), nidselect, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -339,12 +382,17 @@ impl IAudioOutputSelector {
 pub struct IAudioOutputSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetSelection: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioOutputSelector_Impl: windows_core::IUnknownImpl {
     fn GetSelection(&self) -> windows_core::Result<u32>;
-    fn SetSelection(&self, nidselect: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetSelection(&self, nidselect: u32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IAudioOutputSelector_Vtbl {
     pub const fn new<Identity: IAudioOutputSelector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSelection<Identity: IAudioOutputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnidselected: *mut u32) -> windows_core::HRESULT {
@@ -359,7 +407,7 @@ impl IAudioOutputSelector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSelection<Identity: IAudioOutputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nidselect: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSelection<Identity: IAudioOutputSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nidselect: u32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioOutputSelector_Impl::SetSelection(this, core::mem::transmute_copy(&nidselect), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -375,6 +423,7 @@ impl IAudioOutputSelector_Vtbl {
         iid == &<IAudioOutputSelector as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioOutputSelector {}
 windows_core::imp::define_interface!(IAudioPeakMeter, IAudioPeakMeter_Vtbl, 0xdd79923c_0599_45e0_b8b6_c8df7db6e796);
 windows_core::imp::interface_hierarchy!(IAudioPeakMeter, windows_core::IUnknown);
@@ -453,7 +502,9 @@ windows_core::imp::interface_hierarchy!(IAudioTreble, windows_core::IUnknown, IP
 pub struct IAudioTreble_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioTreble_Impl: IPerChannelDbLevel_Impl {}
+#[cfg(feature = "guiddef")]
 impl IAudioTreble_Vtbl {
     pub const fn new<Identity: IAudioTreble_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
@@ -462,6 +513,7 @@ impl IAudioTreble_Vtbl {
         iid == &<IAudioTreble as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioTreble {}
 windows_core::imp::define_interface!(IAudioVolumeLevel, IAudioVolumeLevel_Vtbl, 0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc);
 impl core::ops::Deref for IAudioVolumeLevel {
@@ -476,7 +528,9 @@ windows_core::imp::interface_hierarchy!(IAudioVolumeLevel, windows_core::IUnknow
 pub struct IAudioVolumeLevel_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
+#[cfg(feature = "guiddef")]
 pub trait IAudioVolumeLevel_Impl: IPerChannelDbLevel_Impl {}
+#[cfg(feature = "guiddef")]
 impl IAudioVolumeLevel_Vtbl {
     pub const fn new<Identity: IAudioVolumeLevel_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
@@ -485,6 +539,7 @@ impl IAudioVolumeLevel_Vtbl {
         iid == &<IAudioVolumeLevel as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IAudioVolumeLevel {}
 windows_core::imp::define_interface!(IConnector, IConnector_Vtbl, 0x9c2c4058_23f5_41de_877a_df3af236a09e);
 windows_core::imp::interface_hierarchy!(IConnector, windows_core::IUnknown);
@@ -664,7 +719,8 @@ impl windows_core::RuntimeName for IConnector {}
 windows_core::imp::define_interface!(IControlChangeNotify, IControlChangeNotify_Vtbl, 0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
 windows_core::imp::interface_hierarchy!(IControlChangeNotify, windows_core::IUnknown);
 impl IControlChangeNotify {
-    pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), dwsenderprocessid, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -672,14 +728,19 @@ impl IControlChangeNotify {
 #[doc(hidden)]
 pub struct IControlChangeNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    OnNotify: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IControlChangeNotify_Impl: windows_core::IUnknownImpl {
-    fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IControlChangeNotify_Vtbl {
     pub const fn new<Identity: IControlChangeNotify_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnNotify<Identity: IControlChangeNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsenderprocessid: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnNotify<Identity: IControlChangeNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsenderprocessid: u32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IControlChangeNotify_Impl::OnNotify(this, core::mem::transmute_copy(&dwsenderprocessid), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -691,6 +752,7 @@ impl IControlChangeNotify_Vtbl {
         iid == &<IControlChangeNotify as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IControlChangeNotify {}
 windows_core::imp::define_interface!(IControlInterface, IControlInterface_Vtbl, 0x45d37c3f_5140_444a_ae24_400789f3cbf3);
 windows_core::imp::interface_hierarchy!(IControlInterface, windows_core::IUnknown);
@@ -765,7 +827,8 @@ impl IDeviceSpecificProperty {
     pub unsafe fn GetValue(&self, pvvalue: *mut core::ffi::c_void, pcbvalue: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pvvalue as _, pcbvalue as _) }
     }
-    pub unsafe fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), pvvalue, cbvalue, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Get4BRange(&self, plmin: *mut i32, plmax: *mut i32, plstepping: *mut i32) -> windows_core::HRESULT {
@@ -781,17 +844,20 @@ pub struct IDeviceSpecificProperty_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     GetType: usize,
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetValue: usize,
     pub Get4BRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "guiddef", feature = "wtypes"))]
 pub trait IDeviceSpecificProperty_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<super::VARTYPE>;
     fn GetValue(&self, pvvalue: *mut core::ffi::c_void, pcbvalue: *mut u32) -> windows_core::Result<()>;
-    fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetValue(&self, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn Get4BRange(&self, plmin: *mut i32, plmax: *mut i32, plstepping: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "guiddef", feature = "wtypes"))]
 impl IDeviceSpecificProperty_Vtbl {
     pub const fn new<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtype: *mut super::VARTYPE) -> windows_core::HRESULT {
@@ -812,7 +878,7 @@ impl IDeviceSpecificProperty_Vtbl {
                 IDeviceSpecificProperty_Impl::GetValue(this, core::mem::transmute_copy(&pvvalue), core::mem::transmute_copy(&pcbvalue)).into()
             }
         }
-        unsafe extern "system" fn SetValue<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: IDeviceSpecificProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvvalue: *const core::ffi::c_void, cbvalue: u32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDeviceSpecificProperty_Impl::SetValue(this, core::mem::transmute_copy(&pvvalue), core::mem::transmute_copy(&cbvalue), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -836,7 +902,7 @@ impl IDeviceSpecificProperty_Vtbl {
         iid == &<IDeviceSpecificProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "guiddef", feature = "wtypes"))]
 impl windows_core::RuntimeName for IDeviceSpecificProperty {}
 windows_core::imp::define_interface!(IDeviceTopology, IDeviceTopology_Vtbl, 0x2a07407e_6497_4a18_9787_32f79bd0d98f);
 windows_core::imp::interface_hierarchy!(IDeviceTopology, windows_core::IUnknown);
@@ -1015,15 +1081,15 @@ windows_core::imp::define_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06f
 windows_core::imp::interface_hierarchy!(IKsControl, windows_core::IUnknown);
 impl IKsControl {
     #[cfg(feature = "ks")]
-    pub unsafe fn KsProperty(&self, property: *const super::KSIDENTIFIER, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+    pub unsafe fn KsProperty(&self, property: super::PKSPROPERTY, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).KsProperty)(windows_core::Interface::as_raw(self), property, propertylength, propertydata as _, datalength, bytesreturned as _) }
     }
     #[cfg(feature = "ks")]
-    pub unsafe fn KsMethod(&self, method: *const super::KSIDENTIFIER, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+    pub unsafe fn KsMethod(&self, method: super::PKSMETHOD, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).KsMethod)(windows_core::Interface::as_raw(self), method, methodlength, methoddata as _, datalength, bytesreturned as _) }
     }
     #[cfg(feature = "ks")]
-    pub unsafe fn KsEvent(&self, event: *const super::KSIDENTIFIER, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+    pub unsafe fn KsEvent(&self, event: super::PKSEVENT, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).KsEvent)(windows_core::Interface::as_raw(self), event, eventlength, eventdata as _, datalength, bytesreturned as _) }
     }
 }
@@ -1032,40 +1098,40 @@ impl IKsControl {
 pub struct IKsControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ks")]
-    pub KsProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub KsProperty: unsafe extern "system" fn(*mut core::ffi::c_void, super::PKSPROPERTY, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "ks"))]
     KsProperty: usize,
     #[cfg(feature = "ks")]
-    pub KsMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub KsMethod: unsafe extern "system" fn(*mut core::ffi::c_void, super::PKSMETHOD, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "ks"))]
     KsMethod: usize,
     #[cfg(feature = "ks")]
-    pub KsEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub KsEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::PKSEVENT, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "ks"))]
     KsEvent: usize,
 }
 #[cfg(feature = "ks")]
 pub trait IKsControl_Impl: windows_core::IUnknownImpl {
-    fn KsProperty(&self, property: *const super::KSIDENTIFIER, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
-    fn KsMethod(&self, method: *const super::KSIDENTIFIER, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
-    fn KsEvent(&self, event: *const super::KSIDENTIFIER, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
+    fn KsProperty(&self, property: super::PKSPROPERTY, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
+    fn KsMethod(&self, method: super::PKSMETHOD, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
+    fn KsEvent(&self, event: super::PKSEVENT, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "ks")]
 impl IKsControl_Vtbl {
     pub const fn new<Identity: IKsControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn KsProperty<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *const super::KSIDENTIFIER, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn KsProperty<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: super::PKSPROPERTY, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IKsControl_Impl::KsProperty(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&propertylength), core::mem::transmute_copy(&propertydata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
             }
         }
-        unsafe extern "system" fn KsMethod<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *const super::KSIDENTIFIER, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn KsMethod<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: super::PKSMETHOD, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IKsControl_Impl::KsMethod(this, core::mem::transmute_copy(&method), core::mem::transmute_copy(&methodlength), core::mem::transmute_copy(&methoddata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
             }
         }
-        unsafe extern "system" fn KsEvent<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *const super::KSIDENTIFIER, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn KsEvent<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: super::PKSEVENT, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IKsControl_Impl::KsEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&eventlength), core::mem::transmute_copy(&eventdata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
@@ -1088,7 +1154,7 @@ windows_core::imp::define_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IKsFormatSupport, windows_core::IUnknown);
 impl IKsFormatSupport {
     #[cfg(feature = "ks")]
-    pub unsafe fn IsFormatSupported(&self, pksformat: *const super::KSDATARANGE, cbformat: u32) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsFormatSupported(&self, pksformat: super::PKSDATAFORMAT, cbformat: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsFormatSupported)(windows_core::Interface::as_raw(self), pksformat, cbformat, &mut result__).map(|| result__)
@@ -1107,7 +1173,7 @@ impl IKsFormatSupport {
 pub struct IKsFormatSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ks")]
-    pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::KSDATARANGE, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::PKSDATAFORMAT, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "ks"))]
     IsFormatSupported: usize,
     #[cfg(feature = "ks")]
@@ -1117,13 +1183,13 @@ pub struct IKsFormatSupport_Vtbl {
 }
 #[cfg(feature = "ks")]
 pub trait IKsFormatSupport_Impl: windows_core::IUnknownImpl {
-    fn IsFormatSupported(&self, pksformat: *const super::KSDATARANGE, cbformat: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn IsFormatSupported(&self, pksformat: super::PKSDATAFORMAT, cbformat: u32) -> windows_core::Result<windows_core::BOOL>;
     fn GetDevicePreferredFormat(&self) -> windows_core::Result<super::PKSDATAFORMAT>;
 }
 #[cfg(feature = "ks")]
 impl IKsFormatSupport_Vtbl {
     pub const fn new<Identity: IKsFormatSupport_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsFormatSupported<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pksformat: *const super::KSDATARANGE, cbformat: u32, pbsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsFormatSupported<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pksformat: super::PKSDATAFORMAT, cbformat: u32, pbsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsFormatSupport_Impl::IsFormatSupported(this, core::mem::transmute_copy(&pksformat), core::mem::transmute_copy(&cbformat)) {
@@ -1504,8 +1570,11 @@ impl IPart {
             (windows_core::Interface::vtable(self).GetTopologyObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Activate(&self, dwclscontext: u32, refiid: *const windows_core::GUID, ppvobject: Option<*mut *mut core::ffi::c_void>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), dwclscontext, refiid, ppvobject.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Activate<T>(&self, dwclscontext: u32, result__: *mut Option<T>) -> windows_core::Result<()>
+    where
+        T: windows_core::Interface,
+    {
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), dwclscontext, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     pub unsafe fn RegisterControlChangeCallback<P1>(&self, riid: *const windows_core::GUID, pnotify: P1) -> windows_core::HRESULT
     where
@@ -1793,13 +1862,16 @@ impl IPerChannelDbLevel {
             (windows_core::Interface::vtable(self).GetLevel)(windows_core::Interface::as_raw(self), nchannel, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLevel)(windows_core::Interface::as_raw(self), nchannel, fleveldb, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLevelUniform)(windows_core::Interface::as_raw(self), fleveldb, pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLevelAllChannels)(windows_core::Interface::as_raw(self), alevelsdb.as_ptr(), alevelsdb.len().try_into().unwrap(), pguideventcontext.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -1810,18 +1882,29 @@ pub struct IPerChannelDbLevel_Vtbl {
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetLevelRange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
     pub GetLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
-    pub SetLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub SetLevelUniform: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub SetLevelAllChannels: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub SetLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetLevel: usize,
+    #[cfg(feature = "guiddef")]
+    pub SetLevelUniform: unsafe extern "system" fn(*mut core::ffi::c_void, f32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetLevelUniform: usize,
+    #[cfg(feature = "guiddef")]
+    pub SetLevelAllChannels: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetLevelAllChannels: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IPerChannelDbLevel_Impl: windows_core::IUnknownImpl {
     fn GetChannelCount(&self) -> windows_core::Result<u32>;
     fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> windows_core::Result<()>;
     fn GetLevel(&self, nchannel: u32) -> windows_core::Result<f32>;
-    fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetLevelAllChannels(&self, alevelsdb: *const f32, cchannels: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn SetLevelAllChannels(&self, alevelsdb: *const f32, cchannels: u32, pguideventcontext: super::LPCGUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IPerChannelDbLevel_Vtbl {
     pub const fn new<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetChannelCount<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcchannels: *mut u32) -> windows_core::HRESULT {
@@ -1854,19 +1937,19 @@ impl IPerChannelDbLevel_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLevel<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: u32, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLevel<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nchannel: u32, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPerChannelDbLevel_Impl::SetLevel(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&fleveldb), core::mem::transmute_copy(&pguideventcontext)).into()
             }
         }
-        unsafe extern "system" fn SetLevelUniform<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLevelUniform<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fleveldb: f32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPerChannelDbLevel_Impl::SetLevelUniform(this, core::mem::transmute_copy(&fleveldb), core::mem::transmute_copy(&pguideventcontext)).into()
             }
         }
-        unsafe extern "system" fn SetLevelAllChannels<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alevelsdb: *const f32, cchannels: u32, pguideventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLevelAllChannels<Identity: IPerChannelDbLevel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alevelsdb: *const f32, cchannels: u32, pguideventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPerChannelDbLevel_Impl::SetLevelAllChannels(this, core::mem::transmute_copy(&alevelsdb), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pguideventcontext)).into()
@@ -1886,6 +1969,7 @@ impl IPerChannelDbLevel_Vtbl {
         iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IPerChannelDbLevel {}
 windows_core::imp::define_interface!(ISubunit, ISubunit_Vtbl, 0x82149a85_dba6_4487_86bb_ea8f7fefcc71);
 windows_core::imp::interface_hierarchy!(ISubunit, windows_core::IUnknown);

@@ -1,6 +1,6 @@
 windows_link::link!("vssapi.dll" "system" fn CreateVssExpressWriterInternal(ppwriter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("vssapi.dll" "system" fn CreateWriter(pwriter : *mut core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("vssapi.dll" "system" fn CreateWriterEx(pwriter : *mut core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("vssapi.dll" "system" fn CreateWriter(pwriter : *const core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("vssapi.dll" "system" fn CreateWriterEx(pwriter : *const core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type VSS_ALTERNATE_WRITER_STATE = i32;
 pub const VSS_AWS_ALTERNATE_WRITER_EXISTS: VSS_ALTERNATE_WRITER_STATE = 2;
 pub const VSS_AWS_NO_ALTERNATE_WRITER: VSS_ALTERNATE_WRITER_STATE = 1;

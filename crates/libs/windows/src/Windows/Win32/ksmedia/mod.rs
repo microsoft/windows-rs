@@ -1,9 +1,5 @@
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct APO_CLASS_UUID(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIOENDPOINT_CLASS_UUID(pub u8);
+pub const APO_CLASS_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
+pub const AUDIOENDPOINT_CLASS_UUID: windows_core::GUID = windows_core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
 pub const AUDIOLOOPBACK_TAPPOINT_CAPS_POSTVOLUMEMUTE: i32 = 2;
 pub const AUDIOLOOPBACK_TAPPOINT_CAPS_PREVOLUMEMUTE: i32 = 1;
 pub const AUDIOLOOPBACK_TAPPOINT_POSTVOLUMEMUTE: AUDIOLOOPBACK_TAPPOINT_TYPE = 1;
@@ -30,93 +26,35 @@ impl Default for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
 pub type AUDIO_CURVE_TYPE = i32;
 pub const AUDIO_CURVE_TYPE_NONE: AUDIO_CURVE_TYPE = 0;
 pub const AUDIO_CURVE_TYPE_WINDOWS_FADE: AUDIO_CURVE_TYPE = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_BASS_BOOST(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_BASS_MANAGEMENT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_BEAMFORMING(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_EQUALIZER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_ROOM_CORRECTION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_SPEAKER_FILL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_DEFAULT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_MEDIA(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_MOVIE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_RAW(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUDIO_SIGNALPROCESSINGMODE_SPEECH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BLUETOOTHLE_MIDI_SERVICE_UUID(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC(pub u8);
+pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_BOOST: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc5_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_MANAGEMENT: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adca_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BEAMFORMING: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc1_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc2_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION: windows_core::GUID = windows_core::GUID::from_u128(0x6f64add0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adce_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adcb_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_EQUALIZER: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc3_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adcf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc4_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adbf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ROOM_CORRECTION: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc9_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adcd_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc8_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adcc_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc7_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: windows_core::GUID = windows_core::GUID::from_u128(0x6f64adc6_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: windows_core::GUID = windows_core::GUID::from_u128(0x98951333_b9cd_48b1_a0a3_ff40682d73f7);
+pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: windows_core::GUID = windows_core::GUID::from_u128(0xc18e2f7e_933d_4965_b7d1_1eef228d2af3);
+pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: windows_core::GUID = windows_core::GUID::from_u128(0x28941cba_3be6_4a78_9a76_30fd91559b64);
+pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: windows_core::GUID = windows_core::GUID::from_u128(0x4780004e_7133_41d8_8c74_660dadd2c0ee);
+pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: windows_core::GUID = windows_core::GUID::from_u128(0xb26feb0d_ec94_477c_9494_d1ab8e753f6e);
+pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x9cf2a70b_f377_403b_bd6b_360863e0355c);
+pub const AUDIO_SIGNALPROCESSINGMODE_RAW: windows_core::GUID = windows_core::GUID::from_u128(0x9e90ea20_b493_4fd1_a1a8_7e1361a956cf);
+pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: windows_core::GUID = windows_core::GUID::from_u128(0xfc1cfc9b_b9d6_4cfa_b5e0_4bb2166878b2);
+pub const BLUETOOTHLE_MIDI_SERVICE_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
+pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: windows_core::GUID = windows_core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
 pub type CAPTURE_MEMORY_ALLOCATION_FLAGS = i32;
 pub const CASCADE_FORM: KSDS3D_HRTF_FILTER_METHOD = 1;
 #[repr(C)]
@@ -144,30 +82,14 @@ impl Default for CC_HW_FIELD {
     }
 }
 pub const CC_MAX_HW_DECODE_LINES: i32 = 12;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLSID_KsIBasicAudioInterfaceHandler(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_ALLSETTINGS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AUDIO_ENCODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_CHANGELISTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_CURRENTCHANGELIST(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_SETALLDEFAULTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_SUPPORTSEVENTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_VIDEO_ENCODER(pub u8);
+pub const CLSID_KsIBasicAudioInterfaceHandler: windows_core::GUID = windows_core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
+pub const CODECAPI_ALLSETTINGS: windows_core::GUID = windows_core::GUID::from_u128(0x6a577e92_83e1_4113_adc2_4fcec32f83a1);
+pub const CODECAPI_AUDIO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0xb9d19a3e_f897_429c_bc46_8138b7272b2d);
+pub const CODECAPI_CHANGELISTS: windows_core::GUID = windows_core::GUID::from_u128(0x62b12acf_f6b0_47d9_9456_96f22c4e0b9d);
+pub const CODECAPI_CURRENTCHANGELIST: windows_core::GUID = windows_core::GUID::from_u128(0x1cb14e83_7d72_4657_83fd_47a2c5b9d13d);
+pub const CODECAPI_SETALLDEFAULTS: windows_core::GUID = windows_core::GUID::from_u128(0x6c5e6a7c_acf8_4f55_a999_1a628109051b);
+pub const CODECAPI_SUPPORTSEVENTS: windows_core::GUID = windows_core::GUID::from_u128(0x0581af97_7693_4dbd_9dca_3f9ebd6585a1);
+pub const CODECAPI_VIDEO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0x7112e8e1_3d03_47ef_8e60_03f1cf537301);
 pub type CONSTRICTOR_OPTION = i32;
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = 0;
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = 1;
@@ -286,11 +208,11 @@ pub struct DEVCAPS {
     pub SimulatedHardware: i32,
 }
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: super::DEVPROPID(3) };
+pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: super::DEVPROPID(2) };
+pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: super::DEVPROPID(2) };
+pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
 pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -339,33 +261,19 @@ impl Default for DS3DVECTOR_2 {
 }
 pub const DS3D_HRTF_VERSION_1: KSDS3D_HRTF_FILTER_VERSION = 0;
 pub type EDeviceControlUseType = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENCAPIPARAM_BITRATE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENCAPIPARAM_BITRATE_MODE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENCAPIPARAM_PEAK_BITRATE(pub u8);
+pub const ENCAPIPARAM_BITRATE: windows_core::GUID = windows_core::GUID::from_u128(0x49cc4c43_ca83_4ad4_a9af_f3696af666df);
+pub const ENCAPIPARAM_BITRATE_MODE: windows_core::GUID = windows_core::GUID::from_u128(0xee5fb25c_c713_40d1_9d58_c0d7241e250f);
+pub const ENCAPIPARAM_PEAK_BITRATE: windows_core::GUID = windows_core::GUID::from_u128(0x703f16a9_3d48_44a1_b077_018dff915d19);
 pub type EPcxConnectionType = i32;
 pub type EPcxGenLocation = i32;
 pub const EPcxGenLocation_enum_count: EPcxGenLocation = 4;
 pub type EPcxGeoLocation = i32;
 pub const EPcxGeoLocation_enum_count: EPcxGeoLocation = 16;
 pub type EPxcPortConnection = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENTSETID_CROSSBAR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENTSETID_TUNER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENTSETID_VIDEODECODER(pub u8);
+pub const EVENTSETID_CROSSBAR: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_TUNER: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: windows_core::GUID = windows_core::GUID::from_u128(0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b);
+pub const EVENTSETID_VIDEODECODER: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
 pub const FLOAT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = 0;
 pub const FULL_FILTER: KSDS3D_HRTF_FILTER_QUALITY = 0;
 #[repr(C)]
@@ -425,27 +333,13 @@ pub const KSAC3_SERVICE_MAIN_AUDIO: i32 = 0;
 pub const KSAC3_SERVICE_NO_DIALOG: i32 = 1;
 pub const KSAC3_SERVICE_VISUALLY_IMPAIRED: i32 = 2;
 pub const KSAC3_SERVICE_VOICE_OVER: i32 = 7;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSALGORITHMINSTANCE_SYSTEM_AGC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSATTRIBUTEID_AUDIOLOOPBACK_TAPPOINT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSATTRIBUTEID_VIDEOFORMAT_DX12(pub u8);
+pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: windows_core::GUID = windows_core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
+pub const KSALGORITHMINSTANCE_SYSTEM_AGC: windows_core::GUID = windows_core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
+pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
+pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: windows_core::GUID = windows_core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
+pub const KSATTRIBUTEID_AUDIOLOOPBACK_TAPPOINT: windows_core::GUID = windows_core::GUID::from_u128(0x2795a0f7_1688_44fe_bc14_bf8273992141);
+pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: windows_core::GUID = windows_core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
+pub const KSATTRIBUTEID_VIDEOFORMAT_DX12: windows_core::GUID = windows_core::GUID::from_u128(0xfc9d87b5_0b02_438e_89b0_e241fce889ad);
 #[repr(C)]
 #[cfg(feature = "ks")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -463,159 +357,57 @@ pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
 pub const KSAUDDECOUTMODE_PCM_51: i32 = 2;
 pub const KSAUDDECOUTMODE_SPDIFF: i32 = 4;
 pub const KSAUDDECOUTMODE_STEREO_ANALOG: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_3D_CENTER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_3D_DEPTH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_3D_STEREO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_ALTERNATE_MICROPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_AUX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_AUX_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_AUX_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_BASS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_CD_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_CD_IN_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_CD_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_CD_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_LINE_IN(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_LINE_IN_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_LINE_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_LINE_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MASTER_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MASTER_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MICROPHONE_BOOST(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIC_IN_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIC_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIC_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIDI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIDI_IN_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIDI_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIDI_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MIDRANGE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MONO_MIX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MONO_MIX_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MONO_MIX_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MONO_OUT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MONO_OUT_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_MONO_OUT_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_PC_SPEAKER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_PC_SPEAKER_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_PC_SPEAKER_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_PEAKMETER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_RECORDING_CONTROL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_RECORDING_SOURCE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_STEREO_MIX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_STEREO_MIX_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_STEREO_MIX_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_TREBLE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_VIDEO_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_VIDEO_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_VOLUME_CONTROL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_WAVE_IN_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_WAVE_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_WAVE_OUT_MIX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSAUDFNAME_WAVE_VOLUME(pub u8);
+pub const KSAUDFNAME_3D_CENTER: windows_core::GUID = windows_core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_DEPTH: windows_core::GUID = windows_core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_STEREO: windows_core::GUID = windows_core::GUID::from_u128(0x185fede2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_ALTERNATE_MICROPHONE: windows_core::GUID = windows_core::GUID::from_u128(0x2bc31d6b_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_AUX: windows_core::GUID = windows_core::GUID::from_u128(0x185fedfe_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fedfd_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedfc_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_BASS: windows_core::GUID = windows_core::GUID::from_u128(0x185fede0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x185fedfb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_IN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fedea_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fede9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fedec_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedeb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fede4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fede3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MICROPHONE_BOOST: windows_core::GUID = windows_core::GUID::from_u128(0x2bc31d6a_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MIC_IN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf5_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fedee_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185feded_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_IN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fede8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fede7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDRANGE: windows_core::GUID = windows_core::GUID::from_u128(0xa2cbe478_ae84_49a1_8b72_4ad09b78ed34);
+pub const KSAUDFNAME_MONO_MIX: windows_core::GUID = windows_core::GUID::from_u128(0x00dff078_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x2bc31d69_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x22b0eafe_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT: windows_core::GUID = windows_core::GUID::from_u128(0xf9b41dc3_96e2_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x1ad247ec_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x1ad247eb_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_PC_SPEAKER: windows_core::GUID = windows_core::GUID::from_u128(0x185fedff_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PEAKMETER: windows_core::GUID = windows_core::GUID::from_u128(0x57e24340_fc5b_4612_a562_72b11a29dfae);
+pub const KSAUDFNAME_RECORDING_CONTROL: windows_core::GUID = windows_core::GUID::from_u128(0x185fedfa_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_RECORDING_SOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x185fedef_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_STEREO_MIX: windows_core::GUID = windows_core::GUID::from_u128(0x00dff077_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x22b0eafd_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x1ad247ed_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_TREBLE: windows_core::GUID = windows_core::GUID::from_u128(0x185fede1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x915daec4_a434_11d2_ac52_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x9b46e709_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x9b46e708_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VOLUME_CONTROL: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_IN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fedf6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x185fede6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_OUT_MIX: windows_core::GUID = windows_core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
@@ -834,12 +626,18 @@ pub struct KSAUDIO_POSITION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_POSITIONEX {
-    pub TimerFrequency: i64,
-    pub TimeStamp1: i64,
+    pub TimerFrequency: super::LARGE_INTEGER,
+    pub TimeStamp1: super::LARGE_INTEGER,
     pub Position: KSAUDIO_POSITION,
-    pub TimeStamp2: i64,
+    pub TimeStamp2: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for KSAUDIO_POSITIONEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -880,51 +678,25 @@ pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MAX: i32 = 180;
 pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MIN: i32 = 5;
 pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW: i32 = 10;
 pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_WIDE: i32 = 20;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_BalancedVideoAndPhoto(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_CompressedCamera(pub u8);
+pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: windows_core::GUID = windows_core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
+pub const KSCAMERAPROFILE_CompressedCamera: windows_core::GUID = windows_core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
 pub const KSCAMERAPROFILE_FLAGS_FACEDETECTION: i32 = 8;
 pub const KSCAMERAPROFILE_FLAGS_PHOTOHDR: i32 = 4;
 pub const KSCAMERAPROFILE_FLAGS_PREVIEW_RES_MUSTMATCH: i32 = 32;
 pub const KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE: i32 = 16;
 pub const KSCAMERAPROFILE_FLAGS_VIDEOHDR: i32 = 2;
 pub const KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_FaceAuth_Mode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_HDRWithWCGPhoto(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_HDRWithWCGVideo(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_HighFrameRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_HighQualityPhoto(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_Legacy(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_PhotoSequence(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_VariablePhotoSequence(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_VideoConferencing(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_VideoHDR8(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCAMERAPROFILE_VideoRecording(pub u8);
+pub const KSCAMERAPROFILE_FaceAuth_Mode: windows_core::GUID = windows_core::GUID::from_u128(0x81361b22_700b_4546_a2d4_c52e907bfc27);
+pub const KSCAMERAPROFILE_HDRWithWCGPhoto: windows_core::GUID = windows_core::GUID::from_u128(0x9bf6f1ff_b555_4625_b326_a46def318fb7);
+pub const KSCAMERAPROFILE_HDRWithWCGVideo: windows_core::GUID = windows_core::GUID::from_u128(0x4b27c336_4924_4989_b994_fdaf1dc7cd85);
+pub const KSCAMERAPROFILE_HighFrameRate: windows_core::GUID = windows_core::GUID::from_u128(0x566e6113_8c35_48e7_b89f_d23fdc1219dc);
+pub const KSCAMERAPROFILE_HighQualityPhoto: windows_core::GUID = windows_core::GUID::from_u128(0x32440725_961b_4ca3_b5b2_854e719d9e1b);
+pub const KSCAMERAPROFILE_Legacy: windows_core::GUID = windows_core::GUID::from_u128(0xb4894d81_62b7_4eec_8740_80658c4a9d3e);
+pub const KSCAMERAPROFILE_PhotoSequence: windows_core::GUID = windows_core::GUID::from_u128(0x02399d9d_4ee8_49ba_bc07_5ff156531413);
+pub const KSCAMERAPROFILE_VariablePhotoSequence: windows_core::GUID = windows_core::GUID::from_u128(0x9ff2cb56_e75a_49b1_a928_9985d5946f87);
+pub const KSCAMERAPROFILE_VideoConferencing: windows_core::GUID = windows_core::GUID::from_u128(0xc5444a88_e1bf_4597_b2dd_9e1ead864bb8);
+pub const KSCAMERAPROFILE_VideoHDR8: windows_core::GUID = windows_core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
+pub const KSCAMERAPROFILE_VideoRecording: windows_core::GUID = windows_core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO: i32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_FNF: i32 = 4;
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_HDR: i32 = 2;
@@ -1253,25 +1025,29 @@ pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SUNSET: i32 = 64;
 pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_DISABLED: i32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_ENABLED: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_VALUE {
     pub Value: KSCAMERA_EXTENDEDPROP_VALUE_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for KSCAMERA_EXTENDEDPROP_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union KSCAMERA_EXTENDEDPROP_VALUE_0 {
     pub dbl: f64,
     pub ull: u64,
     pub ul: u32,
-    pub ratio: u64,
+    pub ratio: super::ULARGE_INTEGER,
     pub l: i32,
     pub ll: i64,
 }
+#[cfg(feature = "winnt")]
 impl Default for KSCAMERA_EXTENDEDPROP_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1287,6 +1063,7 @@ pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_LOCK: i32 = 4;
 pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MANUAL: i32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MASK: i32 = 7;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     pub Mode: u32,
@@ -1296,6 +1073,7 @@ pub struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     pub VideoProc: KSCAMERA_EXTENDEDPROP_VALUE,
     pub Reserved: u64,
 }
+#[cfg(feature = "winnt")]
 impl Default for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1534,63 +1312,25 @@ pub struct KSCAMERA_PROFILE_PININFO_0_0 {
     pub PinIndex: u16,
     pub ProfileSensorType: u16,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_ACOUSTIC_ECHO_CANCEL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_CROSSBAR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_ENCODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_ESCALANTE_PLATFORM_DRIVER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_MULTIPLEXER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_NETWORK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_REALTIME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_TEXT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_TOPOLOGY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_TVAUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_TVTUNER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_VBICODEC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_VIRTUAL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_VPMUX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_WDMAUD_USE_PIN_NAME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCOMPONENTID_USBAUDIO(pub u8);
+pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_core::GUID = windows_core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSCATEGORY_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_CROSSBAR: windows_core::GUID = windows_core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
+pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: windows_core::GUID = windows_core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
+pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
+pub const KSCATEGORY_MULTIPLEXER: windows_core::GUID = windows_core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
+pub const KSCATEGORY_NETWORK: windows_core::GUID = windows_core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
+pub const KSCATEGORY_REALTIME: windows_core::GUID = windows_core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
+pub const KSCATEGORY_TEXT: windows_core::GUID = windows_core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_TOPOLOGY: windows_core::GUID = windows_core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
+pub const KSCATEGORY_TVAUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_TVTUNER: windows_core::GUID = windows_core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_VBICODEC: windows_core::GUID = windows_core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
+pub const KSCATEGORY_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_VIRTUAL: windows_core::GUID = windows_core::GUID::from_u128(0x3503eac4_1f26_11d1_8ab0_00a0c9223196);
+pub const KSCATEGORY_VPMUX: windows_core::GUID = windows_core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: windows_core::GUID = windows_core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
+pub const KSCOMPONENTID_USBAUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
 pub const KSCameraProfileSensorType_Custom: i32 = 128;
 pub const KSCameraProfileSensorType_Depth: i32 = 4;
 pub const KSCameraProfileSensorType_ImageSegmentation: i32 = 16;
@@ -1601,7 +1341,7 @@ pub const KSCameraProfileSensorType_RGB: i32 = 1;
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
 #[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_DSOUND {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub BufferDesc: KSDSOUND_BUFFERDESC,
 }
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
@@ -1610,386 +1350,134 @@ impl Default for KSDATAFORMAT_DSOUND {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_AC3_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_ANALOGVIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_DSOUND(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_H264_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_IMAGE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_JPEG_IMAGE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_LPCM_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_VBI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_VC_ID(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_VIDEOINFO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_VIDEOINFO2(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_WAVEFORMATEX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_AC3_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_ADPCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_ALAW(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_ANALOG(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_CC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_D16(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_DRM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_DSS_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_DSS_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_DTS_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_AAC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21_PROFILE4(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DST(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_BL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_LC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_BL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_LC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_BL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_LC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_BL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_LC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_BL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_LC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_IMAGE_RGB32(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_JPEG(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_L16(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_L16_CUSTOM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_L16_IR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_L8(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_L8_CUSTOM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_L8_IR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_LPCM_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_Line21_BytePair(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_Line21_GOPPacket(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MIDI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MIDI_BUS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MJPG_DEPTH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MJPG_IR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEG(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEG1Packet(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEG1Payload(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEG1Video(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEGLAYER3(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MPEG_HEAAC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_MULAW(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_NABTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_NABTS_FEC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_OVERLAY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_PCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_RAW8(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_RIFF(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_RIFFMIDI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_RIFFWAVE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_SDDS_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_SUBPICTURE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_TELETEXT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_UNIVERSALMIDIPACKET(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_VPVBI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_VPVideo(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_WMAUDIO2(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_WMAUDIO3(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_ANALOGAUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_ANALOGVIDEO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_AUXLine21Data(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_IMAGE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_MIDI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_MPEG2_PES(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_MPEG2_PROGRAM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_MPEG2_TRANSPORT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_MUSIC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_NABTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_STANDARD_PES_PACKET(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_TEXT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_VBI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_VIDEO(pub u8);
+pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b35_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b32_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b31_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b34_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b33_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DSOUND: windows_core::GUID = windows_core::GUID::from_u128(0x518590a2_a184_11d0_8522_00c04fd9baf3);
+pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
+pub const KSDATAFORMAT_SPECIFIER_IMAGE: windows_core::GUID = windows_core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: windows_core::GUID = windows_core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_VBI: windows_core::GUID = windows_core::GUID::from_u128(0xf72a76e0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_VC_ID: windows_core::GUID = windows_core::GUID::from_u128(0xad98d184_aac3_11d0_a41c_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO: windows_core::GUID = windows_core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO2: windows_core::GUID = windows_core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_WAVEFORMATEX: windows_core::GUID = windows_core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SUBTYPE_AC3_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_ADPCM: windows_core::GUID = windows_core::GUID::from_u128(0x00000002_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_ALAW: windows_core::GUID = windows_core::GUID::from_u128(0x00000006_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_ANALOG: windows_core::GUID = windows_core::GUID::from_u128(0x6dba3190_67bd_11cf_a0f7_0020afd156e4);
+pub const KSDATAFORMAT_SUBTYPE_CC: windows_core::GUID = windows_core::GUID::from_u128(0x33214cc1_011f_11d2_b4b1_00a0d102cfbe);
+pub const KSDATAFORMAT_SUBTYPE_D16: windows_core::GUID = windows_core::GUID::from_u128(0x00000050_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_DRM: windows_core::GUID = windows_core::GUID::from_u128(0x00000009_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_DSS_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DSS_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DTS_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_AAC: windows_core::GUID = windows_core::GUID::from_u128(0x00000006_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC: windows_core::GUID = windows_core::GUID::from_u128(0x00000008_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL: windows_core::GUID = windows_core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: windows_core::GUID = windows_core::GUID::from_u128(0x0000000a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: windows_core::GUID = windows_core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: windows_core::GUID = windows_core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: windows_core::GUID = windows_core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21_PROFILE4: windows_core::GUID = windows_core::GUID::from_u128(0x0000070c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: windows_core::GUID = windows_core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: windows_core::GUID = windows_core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: windows_core::GUID = windows_core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1: windows_core::GUID = windows_core::GUID::from_u128(0x0000010b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2: windows_core::GUID = windows_core::GUID::from_u128(0x0000030b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: windows_core::GUID = windows_core::GUID::from_u128(0x0000000b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: windows_core::GUID = windows_core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: windows_core::GUID = windows_core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: windows_core::GUID = windows_core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_BL: windows_core::GUID = windows_core::GUID::from_u128(0x000210bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_LC: windows_core::GUID = windows_core::GUID::from_u128(0x000110bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_BL: windows_core::GUID = windows_core::GUID::from_u128(0x000220bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_LC: windows_core::GUID = windows_core::GUID::from_u128(0x000120bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_BL: windows_core::GUID = windows_core::GUID::from_u128(0x000230bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_LC: windows_core::GUID = windows_core::GUID::from_u128(0x000130bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_BL: windows_core::GUID = windows_core::GUID::from_u128(0x000240bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_LC: windows_core::GUID = windows_core::GUID::from_u128(0x000140bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_BL: windows_core::GUID = windows_core::GUID::from_u128(0x000250bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_LC: windows_core::GUID = windows_core::GUID::from_u128(0x000150bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: windows_core::GUID = windows_core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: windows_core::GUID = windows_core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_JPEG: windows_core::GUID = windows_core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
+pub const KSDATAFORMAT_SUBTYPE_L16: windows_core::GUID = windows_core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_CUSTOM: windows_core::GUID = windows_core::GUID::from_u128(0x00000051_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_IR: windows_core::GUID = windows_core::GUID::from_u128(0x00000051_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8: windows_core::GUID = windows_core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_CUSTOM: windows_core::GUID = windows_core::GUID::from_u128(0x00000032_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_IR: windows_core::GUID = windows_core::GUID::from_u128(0x00000032_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_LPCM_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_Line21_BytePair: windows_core::GUID = windows_core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_Line21_GOPPacket: windows_core::GUID = windows_core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_MIDI: windows_core::GUID = windows_core::GUID::from_u128(0x1d262760_e957_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MIDI_BUS: windows_core::GUID = windows_core::GUID::from_u128(0x2ca15fa0_6cfe_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM: windows_core::GUID = windows_core::GUID::from_u128(0x47504a4d_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_DEPTH: windows_core::GUID = windows_core::GUID::from_u128(0x47504a4d_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_IR: windows_core::GUID = windows_core::GUID::from_u128(0x47504a4d_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG: windows_core::GUID = windows_core::GUID::from_u128(0x00000050_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Packet: windows_core::GUID = windows_core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Payload: windows_core::GUID = windows_core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Video: windows_core::GUID = windows_core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEGLAYER3: windows_core::GUID = windows_core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG_HEAAC: windows_core::GUID = windows_core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MULAW: windows_core::GUID = windows_core::GUID::from_u128(0x00000007_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_NABTS: windows_core::GUID = windows_core::GUID::from_u128(0xf72a76e2_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_NABTS_FEC: windows_core::GUID = windows_core::GUID::from_u128(0xe757bca1_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_SUBTYPE_OVERLAY: windows_core::GUID = windows_core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_RAW8: windows_core::GUID = windows_core::GUID::from_u128(0xca20d9a0_3e3e_11d1_9bf9_00c04fbbdebf);
+pub const KSDATAFORMAT_SUBTYPE_RIFF: windows_core::GUID = windows_core::GUID::from_u128(0x4995daee_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFFMIDI: windows_core::GUID = windows_core::GUID::from_u128(0x4995daf0_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFFWAVE: windows_core::GUID = windows_core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_SDDS_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b25_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b22_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b21_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b24_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: windows_core::GUID = windows_core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_TELETEXT: windows_core::GUID = windows_core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_UNIVERSALMIDIPACKET: windows_core::GUID = windows_core::GUID::from_u128(0xfbffd49e_ce26_464a_9dfc_fee42456c81c);
+pub const KSDATAFORMAT_SUBTYPE_VPVBI: windows_core::GUID = windows_core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_VPVideo: windows_core::GUID = windows_core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO2: windows_core::GUID = windows_core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO3: windows_core::GUID = windows_core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS: windows_core::GUID = windows_core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_ANALOGAUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_ANALOGVIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_AUXLine21Data: windows_core::GUID = windows_core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
+pub const KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK: windows_core::GUID = windows_core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
+pub const KSDATAFORMAT_TYPE_IMAGE: windows_core::GUID = windows_core::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const KSDATAFORMAT_TYPE_MIDI: windows_core::GUID = windows_core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_MPEG2_PES: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_PROGRAM: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_TRANSPORT: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MUSIC: windows_core::GUID = windows_core::GUID::from_u128(0xe725d360_62cc_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_TYPE_NABTS: windows_core::GUID = windows_core::GUID::from_u128(0xe757bca0_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM: windows_core::GUID = windows_core::GUID::from_u128(0x36523b11_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER: windows_core::GUID = windows_core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PES_PACKET: windows_core::GUID = windows_core::GUID::from_u128(0x36523b12_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_TEXT: windows_core::GUID = windows_core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_VBI: windows_core::GUID = windows_core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_TYPE_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[repr(C, packed(1))]
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
 #[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_WAVEFORMATEX {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub WaveFormatEx: super::WAVEFORMATEX,
 }
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
@@ -1999,13 +1487,13 @@ impl Default for KSDATAFORMAT_WAVEFORMATEX {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
 #[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
-    pub DataFormat: super::KSDATAFORMAT,
-    pub WaveFormatExt: WAVEFORMATEXTENSIBLE,
+    pub DataFormat: super::KSDATARANGE,
+    pub WaveFormatExt: super::WAVEFORMATEXTENSIBLE,
 }
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
 impl Default for KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2216,45 +1704,19 @@ pub const KSDSOUND_BUFFER_LOCHARDWARE: i32 = 4;
 pub const KSDSOUND_BUFFER_LOCSOFTWARE: i32 = 8;
 pub const KSDSOUND_BUFFER_PRIMARY: i32 = 1;
 pub const KSDSOUND_BUFFER_STATIC: i32 = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_AudioControlChange(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_CameraAsyncControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_CameraEvent(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_DynamicFormatChange(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_EXTDEV_Command(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_ExtendedCameraControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_LoopedStreaming(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_SoundDetector(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_Telephony(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_VIDCAPTOSTI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_VIDCAP_TVAUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_VPNotify(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_VPVBINotify(pub u8);
+pub const KSEVENTSETID_AudioControlChange: windows_core::GUID = windows_core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
+pub const KSEVENTSETID_CameraAsyncControl: windows_core::GUID = windows_core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
+pub const KSEVENTSETID_CameraEvent: windows_core::GUID = windows_core::GUID::from_u128(0x7899b2e0_6b43_4964_9d2a_a21f4061f576);
+pub const KSEVENTSETID_DynamicFormatChange: windows_core::GUID = windows_core::GUID::from_u128(0x162ac456_83d7_4239_96df_c75ffa138bc6);
+pub const KSEVENTSETID_EXTDEV_Command: windows_core::GUID = windows_core::GUID::from_u128(0x109c7988_b3cb_11d2_b48e_006097b3391b);
+pub const KSEVENTSETID_ExtendedCameraControl: windows_core::GUID = windows_core::GUID::from_u128(0x571c92c9_13a2_47e3_a649_d2a778166384);
+pub const KSEVENTSETID_LoopedStreaming: windows_core::GUID = windows_core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
+pub const KSEVENTSETID_SoundDetector: windows_core::GUID = windows_core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
+pub const KSEVENTSETID_Telephony: windows_core::GUID = windows_core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
+pub const KSEVENTSETID_VIDCAPTOSTI: windows_core::GUID = windows_core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
+pub const KSEVENTSETID_VIDCAP_TVAUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
+pub const KSEVENTSETID_VPNotify: windows_core::GUID = windows_core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
+pub const KSEVENTSETID_VPVBINotify: windows_core::GUID = windows_core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
 pub type KSEVENT_AUDIO_CONTROL_CHANGE = i32;
 pub type KSEVENT_CAMERACONTROL = i32;
 pub const KSEVENT_CAMERACONTROL_FOCUS: KSEVENT_CAMERACONTROL = 0;
@@ -2323,9 +1785,7 @@ impl Default for KSGOP_USERDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSINTERFACESETID_Media(pub u8);
+pub const KSINTERFACESETID_Media: windows_core::GUID = windows_core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
 pub type KSINTERFACE_MEDIA = i32;
 pub const KSINTERFACE_MEDIA_MUSIC: KSINTERFACE_MEDIA = 0;
 pub const KSINTERFACE_MEDIA_WAVE_BUFFERED: KSINTERFACE_MEDIA = 1;
@@ -2375,15 +1835,9 @@ impl Default for KSJACK_SINK_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEDIUMSETID_MidiBus(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEDIUMSETID_VPBus(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHODSETID_Wavetable(pub u8);
+pub const KSMEDIUMSETID_MidiBus: windows_core::GUID = windows_core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_VPBus: windows_core::GUID = windows_core::GUID::from_u128(0xa18c15ec_ce43_11d0_abe7_00a0c9223196);
+pub const KSMETHODSETID_Wavetable: windows_core::GUID = windows_core::GUID::from_u128(0xdcef31eb_d907_11d0_9583_00c04fb925d3);
 pub type KSMETHOD_WAVETABLE = i32;
 pub const KSMETHOD_WAVETABLE_WAVE_ALLOC: KSMETHOD_WAVETABLE = 0;
 pub const KSMETHOD_WAVETABLE_WAVE_FIND: KSMETHOD_WAVETABLE = 2;
@@ -2469,21 +1923,11 @@ pub struct KSMUSICFORMAT {
     pub TimeDeltaMs: u32,
     pub ByteCount: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMUSIC_TECHNOLOGY_FMSYNTH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMUSIC_TECHNOLOGY_PORT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMUSIC_TECHNOLOGY_SQSYNTH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMUSIC_TECHNOLOGY_SWSYNTH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMUSIC_TECHNOLOGY_WAVETABLE(pub u8);
+pub const KSMUSIC_TECHNOLOGY_FMSYNTH: windows_core::GUID = windows_core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_PORT: windows_core::GUID = windows_core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_SQSYNTH: windows_core::GUID = windows_core::GUID::from_u128(0x0ecf4380_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_SWSYNTH: windows_core::GUID = windows_core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
+pub const KSMUSIC_TECHNOLOGY_WAVETABLE: windows_core::GUID = windows_core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
 pub const KSNODEPIN_DEMUX_IN: i32 = 0;
 pub const KSNODEPIN_DEMUX_OUT: i32 = 1;
 pub const KSNODEPIN_STANDARD_IN: i32 = 1;
@@ -2597,321 +2041,111 @@ impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_1394_DA_STREAM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_1394_DV_STREAM_SOUNDTRACK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_3D_EFFECTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_ADC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_AGC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_ANALOG_CONNECTOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_ANALOG_TAPE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_AUDIO_ENGINE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_AUDIO_KEYWORDDETECTOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_AUDIO_LOOPBACK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_AUDIO_MODULE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_BIDIRECTIONAL_UNDEFINED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_CABLE_TUNER_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_CD_PLAYER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_CHORUS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_COMMUNICATION_SPEAKER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DAC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DELAY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DEMUX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DESKTOP_MICROPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DESKTOP_SPEAKER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DEV_SPECIFIC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DIGITAL_AUDIO_INTERFACE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DISPLAYPORT_INTERFACE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DOWN_LINE_PHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DRM_DESCRAMBLE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DSS_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DVD_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_DYN_RANGE_COMPRESSOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_EMBEDDED_UNDEFINED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_EQUALIZATION_NOISE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_EQUALIZER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_EXTERNAL_UNDEFINED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_FM_RX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_HANDSET(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_HDMI_INTERFACE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_HEADPHONES(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_HEADSET(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_INPUT_UNDEFINED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_LEGACY_AUDIO_CONNECTOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_LINE_CONNECTOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_LOUDNESS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MICROPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MICROPHONE_ARRAY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MIDI_ELEMENT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MIDI_JACK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MINIDISK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MULTITRACK_RECORDER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MUTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_MUX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_NOISE_SUPPRESS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_OUTPUT_UNDEFINED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PARAMETRIC_EQUALIZER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PEAKMETER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PERSONAL_MICROPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PHONE_LINE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PHONOGRAPH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PROCESSING_MICROPHONE_ARRAY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PROLOGIC_DECODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_PROLOGIC_ENCODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_RADIO_RECEIVER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_RADIO_TRANSMITTER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_REVERB(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_ROOM_SPEAKER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SATELLITE_RECEIVER_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SPDIF_INTERFACE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SPEAKER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SPEAKERS_STATIC_JACK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SRC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_STEREO_WIDE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SUM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SUPERMIX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_SYNTHESIZER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_TELEPHONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_TELEPHONY_BIDI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_TELEPHONY_UNDEFINED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_TONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_TV_TUNER_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_UPDOWN_MIX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VCR_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_CAMERA_TERMINAL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_DISC_AUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_INPUT_MTT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_INPUT_TERMINAL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_OUTPUT_MTT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_OUTPUT_TERMINAL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_PROCESSING(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_SELECTOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VIDEO_STREAMING(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNODETYPE_VOLUME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNOTIFICATIONID_AudioModule(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNOTIFICATIONID_SoundDetector(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTYSETID_ExtendedCameraControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTYSETID_NetworkCameraControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTYSETID_PerFrameSettingControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTYSETID_WindowsCameraEffect(pub u8);
+pub const KSNODETYPE_1394_DA_STREAM: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_3D_EFFECTS: windows_core::GUID = windows_core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ADC: windows_core::GUID = windows_core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_AGC: windows_core::GUID = windows_core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ANALOG_CONNECTOR: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ANALOG_TAPE: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_AUDIO_ENGINE: windows_core::GUID = windows_core::GUID::from_u128(0x35caf6e4_f3b3_4168_bb4b_55e77a461c7e);
+pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: windows_core::GUID = windows_core::GUID::from_u128(0x3817e0b8_df58_4375_b669_c49634331f9d);
+pub const KSNODETYPE_AUDIO_LOOPBACK: windows_core::GUID = windows_core::GUID::from_u128(0x8f42c0b2_91ce_4bcf_9ccd_0e599037ab35);
+pub const KSNODETYPE_AUDIO_MODULE: windows_core::GUID = windows_core::GUID::from_u128(0x45aab42e_caeb_4052_8aa9_b38cb5109619);
+pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: windows_core::GUID = windows_core::GUID::from_u128(0xdff21de0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CABLE_TUNER_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff220ee_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CD_PLAYER: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CHORUS: windows_core::GUID = windows_core::GUID::from_u128(0x20173f20_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_COMMUNICATION_SPEAKER: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DAC: windows_core::GUID = windows_core::GUID::from_u128(0x507ae360_c554_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DELAY: windows_core::GUID = windows_core::GUID::from_u128(0x144981e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DEMUX: windows_core::GUID = windows_core::GUID::from_u128(0xc0eb67d4_e807_11d0_958a_00c04fb925d3);
+pub const KSNODETYPE_DESKTOP_MICROPHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21be2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DESKTOP_SPEAKER: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DEV_SPECIFIC: windows_core::GUID = windows_core::GUID::from_u128(0x941c7ac0_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DISPLAYPORT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xe47e4031_3ea6_418d_8f9b_b73843ccba97);
+pub const KSNODETYPE_DOWN_LINE_PHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ee3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DRM_DESCRAMBLE: windows_core::GUID = windows_core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
+pub const KSNODETYPE_DSS_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff220ef_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DVD_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff220eb_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DYN_RANGE_COMPRESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x08c8a6a8_601f_4af8_8793_d905ff4ca97d);
+pub const KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21de5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21de4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EMBEDDED_UNDEFINED: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EQUALIZATION_NOISE: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EQUALIZER: windows_core::GUID = windows_core::GUID::from_u128(0x9d41b4a0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_EXTERNAL_UNDEFINED: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_FM_RX: windows_core::GUID = windows_core::GUID::from_u128(0x834a733c_f485_41c0_a62b_513025014e40);
+pub const KSNODETYPE_HANDSET: windows_core::GUID = windows_core::GUID::from_u128(0xdff21de1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HDMI_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
+pub const KSNODETYPE_HEADPHONES: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEADSET: windows_core::GUID = windows_core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_INPUT_UNDEFINED: windows_core::GUID = windows_core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LINE_CONNECTOR: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LOUDNESS: windows_core::GUID = windows_core::GUID::from_u128(0x41887440_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE_ARRAY: windows_core::GUID = windows_core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MIDI_ELEMENT: windows_core::GUID = windows_core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
+pub const KSNODETYPE_MIDI_JACK: windows_core::GUID = windows_core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
+pub const KSNODETYPE_MINIDISK: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MULTITRACK_RECORDER: windows_core::GUID = windows_core::GUID::from_u128(0xdff220f2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MUTE: windows_core::GUID = windows_core::GUID::from_u128(0x02b223c0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_MUX: windows_core::GUID = windows_core::GUID::from_u128(0x2ceaf780_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_NOISE_SUPPRESS: windows_core::GUID = windows_core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21be4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_OUTPUT_UNDEFINED: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PARAMETRIC_EQUALIZER: windows_core::GUID = windows_core::GUID::from_u128(0x19bb3a6a_ce2b_4442_87ec_6727c3cab477);
+pub const KSNODETYPE_PEAKMETER: windows_core::GUID = windows_core::GUID::from_u128(0xa085651e_5f0d_4b36_a869_d195d6ab4b9e);
+pub const KSNODETYPE_PERSONAL_MICROPHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONE_LINE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ee1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONOGRAPH: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PROCESSING_MICROPHONE_ARRAY: windows_core::GUID = windows_core::GUID::from_u128(0xdff21be6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PROLOGIC_DECODER: windows_core::GUID = windows_core::GUID::from_u128(0x831c2c80_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_PROLOGIC_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
+pub const KSNODETYPE_RADIO_RECEIVER: windows_core::GUID = windows_core::GUID::from_u128(0xdff220f0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_RADIO_TRANSMITTER: windows_core::GUID = windows_core::GUID::from_u128(0xdff220f1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_REVERB: windows_core::GUID = windows_core::GUID::from_u128(0xef0328e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ROOM_SPEAKER: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SATELLITE_RECEIVER_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff220ed_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPDIF_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21fe5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKER: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ce1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION: windows_core::GUID = windows_core::GUID::from_u128(0xdff21de3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKERS_STATIC_JACK: windows_core::GUID = windows_core::GUID::from_u128(0x28e04f87_4dbe_4f8d_8589_025d209dfb4a);
+pub const KSNODETYPE_SRC: windows_core::GUID = windows_core::GUID::from_u128(0x9db7b9e0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_STEREO_WIDE: windows_core::GUID = windows_core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUM: windows_core::GUID = windows_core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUPERMIX: windows_core::GUID = windows_core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SYNTHESIZER: windows_core::GUID = windows_core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONE: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONY_BIDI: windows_core::GUID = windows_core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
+pub const KSNODETYPE_TELEPHONY_UNDEFINED: windows_core::GUID = windows_core::GUID::from_u128(0xdff21ee0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TONE: windows_core::GUID = windows_core::GUID::from_u128(0x7607e580_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_TV_TUNER_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff220ec_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_UPDOWN_MIX: windows_core::GUID = windows_core::GUID::from_u128(0xb7edc5cf_7b63_4ee2_a100_29ee2cb6b2de);
+pub const KSNODETYPE_VCR_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff220e9_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_CAMERA_TERMINAL: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_DISC_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0xdff220ea_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_MTT: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_TERMINAL: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_MTT: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_TERMINAL: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_PROCESSING: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_SELECTOR: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_STREAMING: windows_core::GUID = windows_core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNOTIFICATIONID_AudioModule: windows_core::GUID = windows_core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
+pub const KSNOTIFICATIONID_SoundDetector: windows_core::GUID = windows_core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
+pub const KSPROPERTYSETID_ExtendedCameraControl: windows_core::GUID = windows_core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
+pub const KSPROPERTYSETID_NetworkCameraControl: windows_core::GUID = windows_core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
+pub const KSPROPERTYSETID_PerFrameSettingControl: windows_core::GUID = windows_core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
+pub const KSPROPERTYSETID_WindowsCameraEffect: windows_core::GUID = windows_core::GUID::from_u128(0x1666d655_21a6_4982_9728_52c39e869f90);
 pub type KSPROPERTY_AC3 = i32;
 pub const KSPROPERTY_AC3_ALTERNATE_AUDIO: KSPROPERTY_AC3 = 2;
 pub const KSPROPERTY_AC3_BIT_STREAM_MODE: KSPROPERTY_AC3 = 4;
@@ -3184,8 +2418,6 @@ impl Default for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "ks")]
-pub type KSPROPERTY_CAMERACONTROL_NODE_S = PKSPROPERTY_CAMERACONTROL_NODE_S;
 #[repr(C)]
 #[cfg(feature = "ks")]
 #[derive(Clone, Copy)]
@@ -3321,9 +2553,7 @@ pub const KSPROPERTY_CAMERACONTROL_ZOOM_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTRO
 pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_CLEAR: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = 0;
 pub type KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = i32;
 pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_SET: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct KSPROPERTY_COMPOSIT_ON(pub windows_core::BOOL);
+pub type KSPROPERTY_COMPOSIT_ON = windows_core::BOOL;
 pub type KSPROPERTY_COPYPROT = i32;
 pub const KSPROPERTY_COPY_MACROVISION: KSPROPERTY_COPYPROT = 5;
 #[repr(C)]
@@ -4477,129 +3707,47 @@ pub const KSPROPERTY_WAVE_OUTPUT_CAPABILITIES: KSPROPERTY_WAVE = 2;
 pub const KSPROPERTY_WAVE_PAN: KSPROPERTY_WAVE = 6;
 pub const KSPROPERTY_WAVE_VOLUME: KSPROPERTY_WAVE = 5;
 pub const KSPROPERYT_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AC3(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Audio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioBufferDuration(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioDecoderOut(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioEngine(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioLoopback(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioModule(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioPosture(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioResourceManagement(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_AudioSignalProcessing(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Bibliographic(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_BtAudio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_CopyProt(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Cyclic(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_DirectSound3DBuffer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_DirectSound3DListener(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_DrmAudioStream(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_DvdSubPic(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_FMRXControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_FMRXTopology(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Hrtf3d(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_InterleavedAudio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Itd3d(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Jack(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_MPEG4_MediaType_Attributes(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_MidiLoopedStreaming(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Mpeg2Vid(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_OverlayUpdate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_RtAudio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_SoundDetector(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_SoundDetector2(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_TSRateChange(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_TelephonyControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_TelephonyTopology(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_TopologyNode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_VBICAP_PROPERTIES(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_VBICodecFiltering(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_VPConfig(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_VPVBIConfig(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_VramCapture(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Wave(pub u8);
+pub const KSPROPSETID_AC3: windows_core::GUID = windows_core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
+pub const KSPROPSETID_Audio: windows_core::GUID = windows_core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_AudioBufferDuration: windows_core::GUID = windows_core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
+pub const KSPROPSETID_AudioDecoderOut: windows_core::GUID = windows_core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_AudioEngine: windows_core::GUID = windows_core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
+pub const KSPROPSETID_AudioLoopback: windows_core::GUID = windows_core::GUID::from_u128(0xb3648bc8_5b91_468a_b94d_f4641250917c);
+pub const KSPROPSETID_AudioModule: windows_core::GUID = windows_core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
+pub const KSPROPSETID_AudioPosture: windows_core::GUID = windows_core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
+pub const KSPROPSETID_AudioResourceManagement: windows_core::GUID = windows_core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
+pub const KSPROPSETID_AudioSignalProcessing: windows_core::GUID = windows_core::GUID::from_u128(0x4f67b528_30c9_40de_b2fb_859ddd1f3470);
+pub const KSPROPSETID_Bibliographic: windows_core::GUID = windows_core::GUID::from_u128(0x07ba150e_e2b1_11d0_ac17_00a0c9223196);
+pub const KSPROPSETID_BtAudio: windows_core::GUID = windows_core::GUID::from_u128(0x7fa06c40_b8f6_4c7e_8556_e8c33a12e54d);
+pub const KSPROPSETID_CopyProt: windows_core::GUID = windows_core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
+pub const KSPROPSETID_Cyclic: windows_core::GUID = windows_core::GUID::from_u128(0x3ffeaea0_2bee_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_DirectSound3DBuffer: windows_core::GUID = windows_core::GUID::from_u128(0x437b3411_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DirectSound3DListener: windows_core::GUID = windows_core::GUID::from_u128(0x437b3414_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DrmAudioStream: windows_core::GUID = windows_core::GUID::from_u128(0x2f2c8ddd_4198_4fac_ba29_61bb05b7de06);
+pub const KSPROPSETID_DvdSubPic: windows_core::GUID = windows_core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_FMRXControl: windows_core::GUID = windows_core::GUID::from_u128(0x947bba3a_e8ee_4786_90c4_8428185f05be);
+pub const KSPROPSETID_FMRXTopology: windows_core::GUID = windows_core::GUID::from_u128(0x0c46ce8f_dc2d_4204_9dc9_f58963366563);
+pub const KSPROPSETID_Hrtf3d: windows_core::GUID = windows_core::GUID::from_u128(0xb66decb0_a083_11d0_851e_00c04fd9baf3);
+pub const KSPROPSETID_InterleavedAudio: windows_core::GUID = windows_core::GUID::from_u128(0xe9ebe550_d619_4c0a_976b_7062322b3006);
+pub const KSPROPSETID_Itd3d: windows_core::GUID = windows_core::GUID::from_u128(0x6429f090_9fd9_11d0_a75b_00a0c90365e3);
+pub const KSPROPSETID_Jack: windows_core::GUID = windows_core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
+pub const KSPROPSETID_MPEG4_MediaType_Attributes: windows_core::GUID = windows_core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
+pub const KSPROPSETID_MidiLoopedStreaming: windows_core::GUID = windows_core::GUID::from_u128(0x1f306ba6_fd9b_427a_bcb3_27cbcf0e0f19);
+pub const KSPROPSETID_Mpeg2Vid: windows_core::GUID = windows_core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
+pub const KSPROPSETID_OverlayUpdate: windows_core::GUID = windows_core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
+pub const KSPROPSETID_RtAudio: windows_core::GUID = windows_core::GUID::from_u128(0xa855a48c_2f78_4729_9051_1968746b9eef);
+pub const KSPROPSETID_SoundDetector: windows_core::GUID = windows_core::GUID::from_u128(0x113c425e_fd17_4057_b422_ed4074f1afdf);
+pub const KSPROPSETID_SoundDetector2: windows_core::GUID = windows_core::GUID::from_u128(0xfe07e322_450c_4bd5_84ca_a948500ea6aa);
+pub const KSPROPSETID_TSRateChange: windows_core::GUID = windows_core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
+pub const KSPROPSETID_TelephonyControl: windows_core::GUID = windows_core::GUID::from_u128(0xb6df7eb1_d099_489f_a6a0_c0106f0887a7);
+pub const KSPROPSETID_TelephonyTopology: windows_core::GUID = windows_core::GUID::from_u128(0xabf25c7e_0e64_4e32_b190_d0f6d7c53e97);
+pub const KSPROPSETID_TopologyNode: windows_core::GUID = windows_core::GUID::from_u128(0x45ffaaa1_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_VBICAP_PROPERTIES: windows_core::GUID = windows_core::GUID::from_u128(0xf162c607_7b35_496f_ad7f_2dca3b46b718);
+pub const KSPROPSETID_VBICodecFiltering: windows_core::GUID = windows_core::GUID::from_u128(0xcafeb0ca_8715_11d0_bd6a_0035c0edbabe);
+pub const KSPROPSETID_VPConfig: windows_core::GUID = windows_core::GUID::from_u128(0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
+pub const KSPROPSETID_VPVBIConfig: windows_core::GUID = windows_core::GUID::from_u128(0xec529b00_1a1f_11d1_bad9_00609744111a);
+pub const KSPROPSETID_VramCapture: windows_core::GUID = windows_core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
+pub const KSPROPSETID_Wave: windows_core::GUID = windows_core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_BUFFER {
@@ -4869,7 +4017,7 @@ pub struct KSWAVETABLE_WAVE_DESC {
     pub Looped: windows_core::BOOL,
     pub LoopPoint: u32,
     pub InROM: windows_core::BOOL,
-    pub Format: super::KSDATAFORMAT,
+    pub Format: super::KSDATARANGE,
 }
 #[cfg(feature = "ks")]
 impl Default for KSWAVETABLE_WAVE_DESC {
@@ -4934,6 +4082,7 @@ pub struct KSWAVE_VOLUME {
     pub LeftAttenuation: i32,
     pub RightAttenuation: i32,
 }
+pub const KS_47NABTS_SCALER: f64 = 4.714286312925246;
 pub const KS_AMCONTROL_COLORINFO_PRESENT: i32 = 128;
 pub const KS_AMCONTROL_PAD_TO_16x9: i32 = 4;
 pub const KS_AMCONTROL_PAD_TO_4x3: i32 = 2;
@@ -4984,38 +4133,36 @@ pub const KS_AMVP_MODE_SKIPODD: KS_AMVP_MODE = 4;
 pub const KS_AMVP_MODE_WEAVE: KS_AMVP_MODE = 0;
 pub type KS_AMVP_SELECTFORMATBY = i32;
 #[repr(C)]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_ExactRateChange {
-    pub OutputZeroTime: REFERENCE_TIME,
+    pub OutputZeroTime: super::REFERENCE_TIME,
     pub Rate: i32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct KS_AM_MaxFullDataRate(pub i32);
+pub type KS_AM_MaxFullDataRate = i32;
 pub type KS_AM_PROPERTY_TS_RATE_CHANGE = i32;
 pub const KS_AM_RATE_ExactRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = 2;
 pub const KS_AM_RATE_MaxFullDataRate: KS_AM_PROPERTY_TS_RATE_CHANGE = 3;
 pub const KS_AM_RATE_SimpleRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = 1;
 pub const KS_AM_RATE_Step: KS_AM_PROPERTY_TS_RATE_CHANGE = 4;
 #[repr(C)]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_SimpleRateChange {
-    pub StartTime: REFERENCE_TIME,
+    pub StartTime: super::REFERENCE_TIME,
     pub Rate: i32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct KS_AM_Step(pub u32);
+pub type KS_AM_Step = u32;
 pub const KS_AM_UseNewCSSKey: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwActiveWidth: u32,
     pub dwActiveHeight: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
 }
 pub type KS_AnalogVideoStandard = i32;
 pub const KS_AnalogVideo_NTSC_433: KS_AnalogVideoStandard = 4;
@@ -5160,7 +4307,7 @@ pub const KS_CompressionCaps_CanWindow: KS_CompressionCaps = 16;
 #[cfg(feature = "ks")]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_H264VIDEOINFO {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub H264VideoInfoHeader: KS_H264VIDEOINFO,
 }
 #[cfg(feature = "ks")]
@@ -5173,7 +4320,7 @@ impl Default for KS_DATAFORMAT_H264VIDEOINFO {
 #[cfg(feature = "ks")]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_IMAGEINFO {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub ImageInfoHeader: KS_BITMAPINFOHEADER,
 }
 #[cfg(feature = "ks")]
@@ -5183,13 +4330,13 @@ impl Default for KS_DATAFORMAT_IMAGEINFO {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub MpegVideoInfoHeader2: KS_MPEGVIDEOINFO2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5199,7 +4346,7 @@ impl Default for KS_DATAFORMAT_MPEGVIDEOINFO2 {
 #[cfg(feature = "ks")]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VBIINFOHEADER {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
 #[cfg(feature = "ks")]
@@ -5209,52 +4356,52 @@ impl Default for KS_DATAFORMAT_VBIINFOHEADER {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub VideoInfoHeader2: KS_VIDEOINFOHEADER2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
-    pub DataFormat: super::KSDATAFORMAT,
+    pub DataFormat: super::KSDATARANGE,
     pub VideoInfo: KS_VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: super::KSDATARANGE,
     pub AnalogVideoInfo: KS_ANALOGVIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_ANALOGVIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5293,7 +4440,7 @@ impl Default for KS_DATARANGE_IMAGE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub DataRange: super::KSDATARANGE,
@@ -5304,14 +4451,14 @@ pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEG1VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_MPEG1_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub DataRange: super::KSDATARANGE,
@@ -5322,14 +4469,14 @@ pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEGVIDEOINFO2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_MPEG2_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO {
     pub DataRange: super::KSDATARANGE,
@@ -5340,14 +4487,14 @@ pub struct KS_DATARANGE_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO2 {
     pub DataRange: super::KSDATARANGE,
@@ -5358,14 +4505,14 @@ pub struct KS_DATARANGE_VIDEO2 {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub DataRange: super::KSDATARANGE,
@@ -5376,7 +4523,7 @@ pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfo: KS_VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO_PALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5610,7 +4757,7 @@ pub const KS_MACROVISION_LEVEL2: KS_COPY_MACROVISION_LEVEL = 2;
 pub const KS_MACROVISION_LEVEL3: KS_COPY_MACROVISION_LEVEL = 3;
 pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_MPEG1VIDEOINFO {
     pub hdr: KS_VIDEOINFOHEADER,
@@ -5618,7 +4765,7 @@ pub struct KS_MPEG1VIDEOINFO {
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5655,7 +4802,7 @@ pub struct KS_MPEGAUDIOINFO {
 }
 pub const KS_MPEGAUDIOINFO_27MhzTimebase: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_MPEGVIDEOINFO2 {
     pub hdr: KS_VIDEOINFOHEADER2,
@@ -5666,7 +4813,7 @@ pub struct KS_MPEGVIDEOINFO2 {
     pub dwFlags: u32,
     pub bSequenceHeader: [u32; 1],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_MPEGVIDEOINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5724,9 +4871,19 @@ pub struct KS_RGBQUAD {
     pub rgbRed: u8,
     pub rgbReserved: u8,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KS_SECURE_CAMERA_SCENARIO_ID(pub u8);
+pub const KS_SECURE_CAMERA_SCENARIO_ID: windows_core::GUID = windows_core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
+#[cfg(target_arch = "x86")]
+pub const KS_SIZE_EGA_PALETTE: u32 = 64;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const KS_SIZE_EGA_PALETTE: u64 = 64;
+#[cfg(target_arch = "x86")]
+pub const KS_SIZE_MASKS: u32 = 12;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const KS_SIZE_MASKS: u64 = 12;
+#[cfg(target_arch = "x86")]
+pub const KS_SIZE_PALETTE: u32 = 1024;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const KS_SIZE_PALETTE: u64 = 1024;
 pub const KS_SIZE_PREHEADER: i32 = 48;
 pub const KS_StreamingHint_CompQuality: KS_VideoStreamingHints = 2048;
 pub const KS_StreamingHint_CompWindowSize: KS_VideoStreamingHints = 4096;
@@ -5817,57 +4974,57 @@ pub const KS_VIDEODECODER_FLAGS_CAN_DISABLE_OUTPUT: KS_VIDEODECODER_FLAGS = 1;
 pub const KS_VIDEODECODER_FLAGS_CAN_INDICATE_LOCKED: KS_VIDEODECODER_FLAGS = 4;
 pub const KS_VIDEODECODER_FLAGS_CAN_USE_VCR_LOCKING: KS_VIDEODECODER_FLAGS = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_VIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwBitRate: u32,
     pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: KS_BITMAPINFOHEADER,
     pub Anonymous: KS_VIDEOINFO_0,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFO_0 {
     pub bmiColors: [KS_RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: KS_TRUECOLORINFO,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwBitRate: u32,
     pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_VIDEOINFOHEADER2 {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwBitRate: u32,
     pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub dwInterlaceFlags: u32,
     pub dwCopyProtectFlags: u32,
     pub dwPictAspectRatioX: u32,
@@ -5876,20 +5033,20 @@ pub struct KS_VIDEOINFOHEADER2 {
     pub dwReserved2: u32,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFOHEADER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6047,63 +5204,25 @@ pub type PCC_BYTE_PAIR = *mut CC_BYTE_PAIR;
 pub type PCC_HW_FIELD = *mut CC_HW_FIELD;
 pub type PDEVCAPS = *mut DEVCAPS;
 pub type PDS3DVECTOR = *mut DS3DVECTOR;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_DISPLAYPORT_OUT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_HDMI_OUT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_IMAGE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_SPDIF_IN(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_SPDIF_OUT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_ANALOGVIDEOIN(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_CAPTURE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_CC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_CC_CAPTURE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_EDS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_NABTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_NABTS_CAPTURE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_PREVIEW(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_STILL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_TELETEXT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_TIMECODE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_VBI(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_VIDEOPORT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PINNAME_VIDEO_VIDEOPORT_VBI(pub u8);
+pub const PINNAME_DISPLAYPORT_OUT: windows_core::GUID = windows_core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
+pub const PINNAME_HDMI_OUT: windows_core::GUID = windows_core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
+pub const PINNAME_IMAGE: windows_core::GUID = windows_core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
+pub const PINNAME_SPDIF_IN: windows_core::GUID = windows_core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
+pub const PINNAME_SPDIF_OUT: windows_core::GUID = windows_core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
+pub const PINNAME_VIDEO_ANALOGVIDEOIN: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CAPTURE: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CC: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CC_CAPTURE: windows_core::GUID = windows_core::GUID::from_u128(0x1aad8061_012d_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_EDS: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_NABTS: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_NABTS_CAPTURE: windows_core::GUID = windows_core::GUID::from_u128(0x29703660_498a_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_PREVIEW: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_STILL: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TELETEXT: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TIMECODE: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VBI: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT_VBI: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
 pub type PKSAC3_ALTERNATE_AUDIO = *mut KSAC3_ALTERNATE_AUDIO;
 pub type PKSAC3_BIT_STREAM_MODE = *mut KSAC3_BIT_STREAM_MODE;
 pub type PKSAC3_DIALOGUE_LEVEL = *mut KSAC3_DIALOGUE_LEVEL;
@@ -6160,7 +5279,9 @@ pub type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL = *mut KSCAMERA_EXTENDEDPROP_ROI_
 pub type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER = *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER;
 #[cfg(feature = "windef")]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE = *mut KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE;
+#[cfg(feature = "winnt")]
 pub type PKSCAMERA_EXTENDEDPROP_VALUE = *mut KSCAMERA_EXTENDEDPROP_VALUE;
+#[cfg(feature = "winnt")]
 pub type PKSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING = *mut KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING;
 pub type PKSCAMERA_MAXVIDEOFPS_FORPHOTORES = *mut KSCAMERA_MAXVIDEOFPS_FORPHOTORES;
 #[cfg(feature = "windef")]
@@ -6184,7 +5305,7 @@ pub type PKSCAMERA_PROFILE_PININFO = *mut KSCAMERA_PROFILE_PININFO;
 pub type PKSDATAFORMAT_DSOUND = *mut KSDATAFORMAT_DSOUND;
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
 pub type PKSDATAFORMAT_WAVEFORMATEX = *mut KSDATAFORMAT_WAVEFORMATEX;
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
 pub type PKSDATAFORMAT_WAVEFORMATEXTENSIBLE = *mut KSDATAFORMAT_WAVEFORMATEXTENSIBLE;
 #[cfg(feature = "ks")]
 pub type PKSDATARANGE_AUDIO = *mut KSDATARANGE_AUDIO;
@@ -6428,9 +5549,11 @@ pub type PKS_AMVPDATAINFO = *mut KS_AMVPDATAINFO;
 #[cfg(feature = "windef")]
 pub type PKS_AMVPDIMINFO = *mut KS_AMVPDIMINFO;
 pub type PKS_AMVPSIZE = *mut KS_AMVPSIZE;
+#[cfg(feature = "mediaobj")]
 pub type PKS_AM_ExactRateChange = *mut KS_AM_ExactRateChange;
+#[cfg(feature = "mediaobj")]
 pub type PKS_AM_SimpleRateChange = *mut KS_AM_SimpleRateChange;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_ANALOGVIDEOINFO = *mut KS_ANALOGVIDEOINFO;
 pub type PKS_BITMAPINFOHEADER = *mut KS_BITMAPINFOHEADER;
 pub type PKS_COLCON = *mut KS_COLCON;
@@ -6440,31 +5563,31 @@ pub type PKS_COPY_MACROVISION_LEVEL = *mut KS_COPY_MACROVISION_LEVEL;
 pub type PKS_DATAFORMAT_H264VIDEOINFO = *mut KS_DATAFORMAT_H264VIDEOINFO;
 #[cfg(feature = "ks")]
 pub type PKS_DATAFORMAT_IMAGEINFO = *mut KS_DATAFORMAT_IMAGEINFO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_MPEGVIDEOINFO2 = *mut KS_DATAFORMAT_MPEGVIDEOINFO2;
 #[cfg(feature = "ks")]
 pub type PKS_DATAFORMAT_VBIINFOHEADER = *mut KS_DATAFORMAT_VBIINFOHEADER;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFOHEADER = *mut KS_DATAFORMAT_VIDEOINFOHEADER;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFOHEADER2 = *mut KS_DATAFORMAT_VIDEOINFOHEADER2;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFO_PALETTE = *mut KS_DATAFORMAT_VIDEOINFO_PALETTE;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_ANALOGVIDEO = *mut KS_DATARANGE_ANALOGVIDEO;
 #[cfg(all(feature = "ks", feature = "windef"))]
 pub type PKS_DATARANGE_H264_VIDEO = *mut KS_DATARANGE_H264_VIDEO;
 #[cfg(all(feature = "ks", feature = "windef"))]
 pub type PKS_DATARANGE_IMAGE = *mut KS_DATARANGE_IMAGE;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_MPEG1_VIDEO = *mut KS_DATARANGE_MPEG1_VIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_MPEG2_VIDEO = *mut KS_DATARANGE_MPEG2_VIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO = *mut KS_DATARANGE_VIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO2 = *mut KS_DATARANGE_VIDEO2;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO_PALETTE = *mut KS_DATARANGE_VIDEO_PALETTE;
 #[cfg(all(feature = "ks", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO_VBI = *mut KS_DATARANGE_VIDEO_VBI;
@@ -6479,21 +5602,21 @@ pub type PKS_DVD_YUV = *mut KS_DVD_YUV;
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PKS_FRAME_INFO = *mut KS_FRAME_INFO;
 pub type PKS_H264VIDEOINFO = *mut KS_H264VIDEOINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_MPEG1VIDEOINFO = *mut KS_MPEG1VIDEOINFO;
 pub type PKS_MPEGAUDIOINFO = *mut KS_MPEGAUDIOINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_MPEGVIDEOINFO2 = *mut KS_MPEGVIDEOINFO2;
 pub type PKS_RGBQUAD = *mut KS_RGBQUAD;
 pub type PKS_TRUECOLORINFO = *mut KS_TRUECOLORINFO;
 pub type PKS_TVTUNER_CHANGE_INFO = *mut KS_TVTUNER_CHANGE_INFO;
 pub type PKS_VBIINFOHEADER = *mut KS_VBIINFOHEADER;
 pub type PKS_VBI_FRAME_INFO = *mut KS_VBI_FRAME_INFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_VIDEOINFO = *mut KS_VIDEOINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_VIDEOINFOHEADER = *mut KS_VIDEOINFOHEADER;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_VIDEOINFOHEADER2 = *mut KS_VIDEOINFOHEADER2;
 #[cfg(feature = "windef")]
 pub type PKS_VIDEO_STREAM_CONFIG_CAPS = *mut KS_VIDEO_STREAM_CONFIG_CAPS;
@@ -6503,63 +5626,25 @@ pub type PMEDIUM_INFO = *mut MEDIUM_INFO;
 pub type PNABTSFEC_BUFFER = *mut NABTSFEC_BUFFER;
 pub type PNABTS_BUFFER = *mut NABTS_BUFFER;
 pub type PNABTS_BUFFER_LINE = *mut NABTS_BUFFER_LINE;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_ALLOCATOR_CONTROL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_EXT_DEVICE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_EXT_TRANSPORT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_TIMECODE_READER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_TUNER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_CAMERACONTROL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_CAMERACONTROL_FLASH(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_CROSSBAR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_DROPPEDFRAMES(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_SELECTOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_TVAUDIO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_VIDEOCOMPRESSION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_VIDEOCONTROL(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_VIDEODECODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_VIDEOENCODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPSETID_VIDCAP_VIDEOPROCAMP(pub u8);
+pub const PROPSETID_ALLOCATOR_CONTROL: windows_core::GUID = windows_core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
+pub const PROPSETID_EXT_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
+pub const PROPSETID_EXT_TRANSPORT: windows_core::GUID = windows_core::GUID::from_u128(0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
+pub const PROPSETID_TIMECODE_READER: windows_core::GUID = windows_core::GUID::from_u128(0x9b496ce1_811b_11cf_8c77_00aa006b6814);
+pub const PROPSETID_TUNER: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0605_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CAMERACONTROL: windows_core::GUID = windows_core::GUID::from_u128(0xc6e13370_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: windows_core::GUID = windows_core::GUID::from_u128(0x785e8f49_63a2_4144_ab70_ffb278fa26ce);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x9d3d7bbf_5c6d_4138_bb00_584edd20f7c5);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: windows_core::GUID = windows_core::GUID::from_u128(0x9d12d198_f86c_4fed_b023_5d87653da793);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: windows_core::GUID = windows_core::GUID::from_u128(0x43964bd3_7716_404e_8be1_d299b20e50fd);
+pub const PROPSETID_VIDCAP_CROSSBAR: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0640_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_DROPPEDFRAMES: windows_core::GUID = windows_core::GUID::from_u128(0xc6e13344_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_SELECTOR: windows_core::GUID = windows_core::GUID::from_u128(0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
+pub const PROPSETID_VIDCAP_TVAUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0650_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: windows_core::GUID = windows_core::GUID::from_u128(0xc6e13343_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCONTROL: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEODECODER: windows_core::GUID = windows_core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOENCODER: windows_core::GUID = windows_core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOPROCAMP: windows_core::GUID = windows_core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
 pub type PSECURE_BUFFER_INFO = *mut SECURE_BUFFER_INFO;
 #[cfg(feature = "winnt")]
 pub type PTIMECODE = *mut TIMECODE;
@@ -6591,16 +5676,11 @@ pub type PVIDEOFORMAT_DX12 = *mut VIDEOFORMAT_DX12;
 pub type PVRAM_SURFACE_INFO = *mut VRAM_SURFACE_INFO;
 #[cfg(feature = "ks")]
 pub type PVRAM_SURFACE_INFO_PROPERTY_S = *mut VRAM_SURFACE_INFO_PROPERTY_S;
-#[cfg(feature = "mmeapi")]
-pub type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
 pub type PWAVEFORMATEXTENSIBLE_IEC61937 = *mut WAVEFORMATEXTENSIBLE_IEC61937;
 pub type PWNF_KSCAMERA_STREAMSTATE_INFO = *mut WNF_KSCAMERA_STREAMSTATE_INFO;
 pub type PWST_BUFFER = *mut WST_BUFFER;
 pub type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct REFERENCE_TIME(pub i64);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURE_BUFFER_INFO {
@@ -6621,26 +5701,6 @@ pub struct SOUNDDETECTOR_PATTERNHEADER {
     pub Size: u32,
     pub PatternType: windows_core::GUID,
 }
-pub const SPEAKER_ALL: u32 = 2147483648;
-pub const SPEAKER_BACK_CENTER: i32 = 256;
-pub const SPEAKER_BACK_LEFT: i32 = 16;
-pub const SPEAKER_BACK_RIGHT: i32 = 32;
-pub const SPEAKER_FRONT_CENTER: i32 = 4;
-pub const SPEAKER_FRONT_LEFT: i32 = 1;
-pub const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
-pub const SPEAKER_FRONT_RIGHT: i32 = 2;
-pub const SPEAKER_FRONT_RIGHT_OF_CENTER: i32 = 128;
-pub const SPEAKER_LOW_FREQUENCY: i32 = 8;
-pub const SPEAKER_RESERVED: i32 = 2147221504;
-pub const SPEAKER_SIDE_LEFT: i32 = 512;
-pub const SPEAKER_SIDE_RIGHT: i32 = 1024;
-pub const SPEAKER_TOP_BACK_CENTER: i32 = 65536;
-pub const SPEAKER_TOP_BACK_LEFT: i32 = 32768;
-pub const SPEAKER_TOP_BACK_RIGHT: i32 = 131072;
-pub const SPEAKER_TOP_CENTER: i32 = 2048;
-pub const SPEAKER_TOP_FRONT_CENTER: i32 = 8192;
-pub const SPEAKER_TOP_FRONT_LEFT: i32 = 4096;
-pub const SPEAKER_TOP_FRONT_RIGHT: i32 = 16384;
 pub type TELEPHONY_CALLCONTROLOP = i32;
 pub const TELEPHONY_CALLCONTROLOP_DISABLE: TELEPHONY_CALLCONTROLOP = 0;
 pub const TELEPHONY_CALLCONTROLOP_ENABLE: TELEPHONY_CALLCONTROLOP = 1;
@@ -6943,50 +6003,20 @@ impl Default for VRAM_SURFACE_INFO_PROPERTY_S {
 pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = 1;
 pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = 2;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub struct WAVEFORMATEXTENSIBLE {
-    pub Format: super::WAVEFORMATEX,
-    pub Samples: WAVEFORMATEXTENSIBLE_0,
-    pub dwChannelMask: u32,
-    pub SubFormat: windows_core::GUID,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub union WAVEFORMATEXTENSIBLE_0 {
-    pub wValidBitsPerSample: u16,
-    pub wSamplesPerBlock: u16,
-    pub wReserved: u16,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
 #[derive(Clone, Copy)]
 pub struct WAVEFORMATEXTENSIBLE_IEC61937 {
-    pub FormatExt: WAVEFORMATEXTENSIBLE,
+    pub FormatExt: super::WAVEFORMATEXTENSIBLE,
     pub dwEncodedSamplesPerSec: u32,
     pub dwEncodedChannelCount: u32,
     pub dwAverageBytesPerSec: u32,
 }
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
 impl Default for WAVEFORMATEXTENSIBLE_IEC61937 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WAVE_FORMAT_EXTENSIBLE: i32 = 65534;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNF_KSCAMERA_STREAMSTATE_INFO {
@@ -7050,7 +6080,7 @@ pub const eGeoLocNotApplicable: EPcxGeoLocation = 14;
 pub const eGeoLocOutsideMobileLid: EPcxGeoLocation = 12;
 pub const eGeoLocRear: EPcxGeoLocation = 1;
 pub const eGeoLocRearPanel: EPcxGeoLocation = 7;
-pub const eGeoLocReserved5: i32 = 14;
+pub const eGeoLocReserved5: EPcxGeoLocation = 14;
 pub const eGeoLocReserved6: EPcxGeoLocation = 15;
 pub const eGeoLocRight: EPcxGeoLocation = 4;
 pub const eGeoLocRiser: EPcxGeoLocation = 8;

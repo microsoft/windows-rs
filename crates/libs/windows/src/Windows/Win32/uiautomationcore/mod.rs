@@ -20,9 +20,7 @@ pub const BulletStyle_HollowRoundBullet: BulletStyle = 1;
 pub const BulletStyle_HollowSquareBullet: BulletStyle = 3;
 pub const BulletStyle_None: BulletStyle = 0;
 pub const BulletStyle_Other: BulletStyle = -1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CONTROLTYPEID(pub i32);
+pub type CONTROLTYPEID = i32;
 pub const CUIAutomationClientInfo: windows_core::GUID = windows_core::GUID::from_u128(0xc2d4f567_8a9b_4c3e_9f1a_2b5c7d8e0f3a);
 pub const CUIAutomationClientInfoSource: windows_core::GUID = windows_core::GUID::from_u128(0xa8d4f123_7b2c_4e5f_9a1b_3c8d6e9f0a2b);
 pub const CUIAutomationRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
@@ -49,9 +47,7 @@ pub const DockPosition_Left: DockPosition = 1;
 pub const DockPosition_None: DockPosition = 5;
 pub const DockPosition_Right: DockPosition = 3;
 pub const DockPosition_Top: DockPosition = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EVENTID(pub i32);
+pub type EVENTID = i32;
 pub type ExpandCollapseState = i32;
 pub const ExpandCollapseState_Collapsed: ExpandCollapseState = 0;
 pub const ExpandCollapseState_Expanded: ExpandCollapseState = 1;
@@ -68,9 +64,7 @@ pub const FlowDirections_BottomToTop: FlowDirections = 2;
 pub const FlowDirections_Default: FlowDirections = 0;
 pub const FlowDirections_RightToLeft: FlowDirections = 1;
 pub const FlowDirections_Vertical: FlowDirections = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HEADINGLEVELID(pub i32);
+pub type HEADINGLEVELID = i32;
 pub type HorizontalTextAlignment = i32;
 pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = 1;
 pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = 3;
@@ -5219,13 +5213,9 @@ impl IWindowProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWindowProvider {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LANDMARKTYPEID(pub i32);
+pub type LANDMARKTYPEID = i32;
 pub type LiveSetting = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct METADATAID(pub i32);
+pub type METADATAID = i32;
 pub type NavigateDirection = i32;
 pub const NavigateDirection_FirstChild: NavigateDirection = 3;
 pub const NavigateDirection_LastChild: NavigateDirection = 4;
@@ -5256,12 +5246,8 @@ pub const OutlineStyles_Engraved: OutlineStyles = 4;
 pub const OutlineStyles_None: OutlineStyles = 0;
 pub const OutlineStyles_Outline: OutlineStyles = 1;
 pub const OutlineStyles_Shadow: OutlineStyles = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PATTERNID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPERTYID(pub i32);
+pub type PATTERNID = i32;
+pub type PROPERTYID = i32;
 pub const Polite: LiveSetting = 1;
 pub type ProviderOptions = u32;
 pub const ProviderOptions_ClientSideProvider: ProviderOptions = 1;
@@ -5329,9 +5315,7 @@ pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = 8;
 pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = 4;
 pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = 32;
 pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = 16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TEXTATTRIBUTEID(pub i32);
+pub type TEXTATTRIBUTEID = i32;
 pub type TextDecorationLineStyle = i32;
 pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = 5;
 pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = 6;

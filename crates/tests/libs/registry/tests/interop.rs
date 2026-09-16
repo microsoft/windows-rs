@@ -13,7 +13,7 @@ fn sys_interop() -> Result<()> {
     key.set_u32("2", 2)?;
     key.set_u32("3", 3)?;
 
-    let raw: HKEY = key.as_raw();
+    let raw = key.as_raw();
     std::mem::forget(key);
     let owned = unsafe { Key::from_raw(raw) };
 
@@ -21,7 +21,7 @@ fn sys_interop() -> Result<()> {
 
     unsafe {
         RegQueryInfoKeyW(
-            owned.as_raw(),
+            owned.as_raw() as HKEY,
             std::ptr::null_mut(),
             std::ptr::null_mut(),
             std::ptr::null_mut(),
@@ -52,30 +52,27 @@ fn windows_interop() -> Result<()> {
     key.set_u32("2", 2)?;
     key.set_u32("3", 3)?;
 
-    let raw = HKEY(key.as_raw());
+    let raw = key.as_raw() as HKEY;
     std::mem::forget(key);
-    let owned = unsafe { Key::from_raw(raw.0) };
+    let owned = unsafe { Key::from_raw(raw.cast()) };
 
     let mut count = 0;
 
     unsafe {
-        windows_result::WIN32_ERROR(
-            RegQueryInfoKeyW(
-                HKEY(owned.as_raw()),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                Some(&mut count),
-                None,
-                None,
-                None,
-                None,
-            )
-            .0 as u32,
-        )
+        windows_result::WIN32_ERROR(RegQueryInfoKeyW(
+            owned.as_raw().cast(),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Some(&mut count),
+            None,
+            None,
+            None,
+            None,
+        ) as u32)
         .ok()?;
     };
 

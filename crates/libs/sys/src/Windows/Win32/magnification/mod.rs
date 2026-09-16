@@ -1,32 +1,32 @@
 #[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagGetColorEffect(hwnd : super::HWND, peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
-windows_link::link!("magnification.dll" "system" fn MagGetFullscreenColorEffect(peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagGetColorEffect(hwnd : super::HWND, peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagGetFullscreenColorEffect(peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagGetFullscreenTransform(pmaglevel : *mut f32, pxoffset : *mut i32, pyoffset : *mut i32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincodec", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagGetImageScalingCallback(hwnd : super::HWND) -> MagImageScalingCallback);
 #[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagGetInputTransform(pfenabled : *mut windows_sys::core::BOOL, prectsource : *mut super::RECT, prectdest : *mut super::RECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagGetInputTransform(pfenabled : *mut windows_sys::core::BOOL, prectsource : super::LPRECT, prectdest : super::LPRECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("magnification.dll" "system" fn MagGetWindowFilterList(hwnd : super::HWND, pdwfiltermode : *mut u32, count : i32, phwnd : *mut super::HWND) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("magnification.dll" "system" fn MagGetWindowSource(hwnd : super::HWND, prect : *mut super::RECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::HWND, ptransform : *mut MAGTRANSFORM) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::HWND, ptransform : PMAGTRANSFORM) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagInitialize() -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::HWND, peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
-windows_link::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : *const MAGCOLOREFFECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::HWND, peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetFullscreenTransform(maglevel : f32, xoffset : i32, yoffset : i32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincodec", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagSetImageScalingCallback(hwnd : super::HWND, callback : MagImageScalingCallback) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_sys::core::BOOL, prectsource : *const super::RECT, prectdest : *const super::RECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_sys::core::BOOL, prectsource : super::LPRECT, prectdest : super::LPRECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("magnification.dll" "system" fn MagSetWindowFilterList(hwnd : super::HWND, dwfiltermode : u32, count : i32, phwnd : *mut super::HWND) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("magnification.dll" "system" fn MagSetWindowSource(hwnd : super::HWND, rect : super::RECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::HWND, ptransform : *mut MAGTRANSFORM) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::HWND, ptransform : PMAGTRANSFORM) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagShowSystemCursor(fshowcursor : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagUninitialize() -> windows_sys::core::BOOL);
 #[repr(C)]
@@ -71,5 +71,6 @@ pub type PMAGCOLOREFFECT = *mut MAGCOLOREFFECT;
 #[cfg(feature = "wincodec")]
 pub type PMAGIMAGEHEADER = *mut MAGIMAGEHEADER;
 pub type PMAGTRANSFORM = *mut MAGTRANSFORM;
+pub const WC_MAGNIFIER: windows_sys::core::PCSTR = windows_sys::core::s!("Magnifier");
 pub const WC_MAGNIFIERA: windows_sys::core::PCSTR = windows_sys::core::s!("Magnifier");
 pub const WC_MAGNIFIERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");

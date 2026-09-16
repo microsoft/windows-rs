@@ -23,14 +23,14 @@ mod Windows {
         #[guid(0x00020d03_0000_0000_c000_000000000046)]
         interface IRichEditOleCallback: IUnknown {
             fn GetNewStorage(&self, lplpstg: *mut IStorage) -> HRESULT;
-            fn GetInPlaceContext(&self, lplpFrame: *mut IOleInPlaceFrame, lplpDoc: *mut IOleInPlaceUIWindow, lpFrameInfo: *mut OLEINPLACEFRAMEINFO) -> HRESULT;
+            fn GetInPlaceContext(&self, lplpFrame: *mut IOleInPlaceFrame, lplpDoc: *mut IOleInPlaceUIWindow, lpFrameInfo: LPOLEINPLACEFRAMEINFO) -> HRESULT;
             fn ShowContainerUI(&self, fShow: BOOL) -> HRESULT;
-            fn QueryInsertObject(&self, lpclsid: *mut GUID, lpstg: IStorage, cp: i32) -> HRESULT;
+            fn QueryInsertObject(&self, lpclsid: LPCLSID, lpstg: IStorage, cp: i32) -> HRESULT;
             fn DeleteObject(&self, lpoleobj: IOleObject) -> HRESULT;
             fn QueryAcceptData(&self, lpdataobj: IDataObject, lpcfFormat: *mut CLIPFORMAT, reco: u32, fReally: BOOL, hMetaPict: HGLOBAL) -> HRESULT;
             fn ContextSensitiveHelp(&self, fEnterMode: BOOL) -> HRESULT;
             fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut IDataObject) -> HRESULT;
-            fn GetDragDropEffect(&self, fDrag: BOOL, grfKeyState: u32, pdwEffect: *mut u32) -> HRESULT;
+            fn GetDragDropEffect(&self, fDrag: BOOL, grfKeyState: u32, pdwEffect: LPDWORD) -> HRESULT;
             fn GetContextMenu(&self, seltype: u16, lpoleobj: IOleObject, lpchrg: *mut CHARRANGE, lphmenu: *mut HMENU) -> HRESULT;
         }
         const RECO_COPY: i32 = 2;

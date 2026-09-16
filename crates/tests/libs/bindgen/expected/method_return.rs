@@ -125,6 +125,16 @@ impl Interface {
             .map(|| result__)
         }
     }
+    pub unsafe fn ConstResultValue(&self) -> windows_core::Result<*const u16> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ConstResultValue)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
 }
 #[repr(C)]
 pub struct Interface_Vtbl {
@@ -162,6 +172,10 @@ pub struct Interface_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    pub ConstResultValue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const *const u16,
+    ) -> windows_core::HRESULT,
 }
 pub trait Interface_Impl {
     fn ResultVoid(&self, value: u32) -> windows_core::Result<()>;
@@ -181,6 +195,7 @@ pub trait Interface_Impl {
     fn ExplicitLarge(&self) -> windows_core::Result<Large>;
     fn HeuristicLarge(&self, result: *mut Large) -> windows_core::Result<()>;
     fn ExplicitVoidPointer(&self) -> windows_core::Result<*mut core::ffi::c_void>;
+    fn ConstResultValue(&self) -> windows_core::Result<*const u16>;
 }
 impl Interface_Vtbl {
     pub const fn new<Identity: Interface_Impl>() -> Self {
@@ -359,6 +374,22 @@ impl Interface_Vtbl {
                 }
             }
         }
+        unsafe extern "system" fn ConstResultValue<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            result: *const *const u16,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                match Interface_Impl::ConstResultValue(this) {
+                    Ok(ok__) => {
+                        (result as *mut *const u16).write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
         Self {
             ResultVoid: ResultVoid::<Identity>,
             ResultValue: ResultValue::<Identity>,
@@ -373,6 +404,7 @@ impl Interface_Vtbl {
             ExplicitLarge: ExplicitLarge::<Identity>,
             HeuristicLarge: HeuristicLarge::<Identity>,
             ExplicitVoidPointer: ExplicitVoidPointer::<Identity>,
+            ConstResultValue: ConstResultValue::<Identity>,
         }
     }
 }

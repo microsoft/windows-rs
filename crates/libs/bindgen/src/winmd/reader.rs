@@ -4,8 +4,37 @@ fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: 
     types.entry(name).or_default().push(ty);
 }
 
+fn has_numerics(index: &windows_metadata::reader::Index) -> bool {
+    const TYPES: [(&str, usize); 5] = [
+        ("Matrix3x2", 6),
+        ("Matrix4x4", 16),
+        ("Vector2", 2),
+        ("Vector3", 3),
+        ("Vector4", 4),
+    ];
+    let mut found = [false; TYPES.len()];
+    for (namespace, name, item) in index.iter_items() {
+        if namespace == "Windows.Foundation.Numerics"
+            && let windows_metadata::reader::Item::Type(def) = item
+            && def.category() == windows_metadata::reader::TypeCategory::Struct
+            && let Some(index) = TYPES.iter().position(|candidate| candidate.0 == name)
+            && def.fields().len() == TYPES[index].1
+            && def
+                .fields()
+                .all(|field| field.ty() == windows_metadata::Type::F32)
+        {
+            found[index] = true;
+            if found.into_iter().all(|found| found) {
+                return true;
+            }
+        }
+    }
+    false
+}
+
 pub struct Reader {
     map: HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
+    project_numerics: bool,
 }
 
 impl std::ops::Deref for Reader {
@@ -18,20 +47,28 @@ impl std::ops::Deref for Reader {
 
 impl Reader {
     pub fn new(files: Vec<File>) -> Self {
-        // Build a `'static` metadata index that owns the parsed winmd files for the lifetime
-        // of the process. This is the single sanctioned leak point - all subsequent
-        // `TypeDef<'static>`, `Field<'static>`, etc. values reference data owned by it.
-        let index: &'static windows_metadata::reader::Index =
-            windows_metadata::reader::Index::new(files).leak();
+        Self::from_index(windows_metadata::reader::Index::new(files).leak(), true)
+    }
+
+    pub fn new_sys(files: Vec<File>) -> Self {
+        Self::from_index(windows_metadata::reader::Index::new(files).leak(), false)
+    }
+
+    pub fn from_index(
+        index: &'static windows_metadata::reader::Index,
+        project_numerics: bool,
+    ) -> Self {
+        let project_numerics = project_numerics && has_numerics(index);
 
         let mut reader = Self {
             map: HashMap::new(),
+            project_numerics,
         };
 
         for (namespace, name, item) in index.iter_items() {
             match item {
                 windows_metadata::reader::Item::Type(def) => {
-                    if Type::remap(namespace, name) != Remap::None {
+                    if Type::remap(namespace, name, project_numerics) != Remap::None {
                         continue;
                     }
 
@@ -169,9 +206,25 @@ impl Reader {
         reader
     }
 
+    pub fn project_numerics(&self) -> bool {
+        self.project_numerics
+    }
+
     #[track_caller]
     pub fn unwrap_full_name(&self, namespace: &str, name: &str) -> Type {
         if let Some(ty) = self.with_full_name(namespace, name).next() {
+            ty
+        } else {
+            panic!("type not found: {namespace}.{name}")
+        }
+    }
+
+    #[track_caller]
+    pub fn unwrap_type_name(&self, namespace: &str, name: &str) -> Type {
+        if let Some(ty) = self
+            .with_full_name(namespace, name)
+            .find(|ty| !matches!(ty, Type::CppConst(_) | Type::CppFn(_)))
+        {
             ty
         } else {
             panic!("type not found: {namespace}.{name}")

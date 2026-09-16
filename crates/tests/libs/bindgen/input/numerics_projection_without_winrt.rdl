@@ -1,0 +1,18 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Values {
+        matrix: Windows::Win32::dcommon::D2D_MATRIX_3X2_F,
+    }
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod dcommon {
+            struct D2D_MATRIX_3X2_F {
+                value: [f32; 6],
+            }
+        }
+    }
+}

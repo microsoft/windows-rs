@@ -2,6 +2,8 @@
 mod Windows {
     mod Win32 {
         #[encoding("ansi")]
+        const ACCCTRL_DEFAULT_PROVIDER: String = "Windows NT Access Provider";
+        #[encoding("ansi")]
         const ACCCTRL_DEFAULT_PROVIDERA: String = "Windows NT Access Provider";
         #[encoding("utf-16")]
         const ACCCTRL_DEFAULT_PROVIDERW: String = "Windows NT Access Provider";
@@ -17,14 +19,8 @@ mod Windows {
         }
         type ACCESS_RIGHTS = u32;
         type ACTRL_ACCESS = ACTRL_ACCESSA;
-        struct ACTRL_ACCESSA {
-            cEntries: u32,
-            pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
-        }
-        struct ACTRL_ACCESSW {
-            cEntries: u32,
-            pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
-        }
+        type ACTRL_ACCESSA = _ACTRL_ALISTA;
+        type ACTRL_ACCESSW = _ACTRL_ALISTW;
         const ACTRL_ACCESS_ALLOWED: i32 = 1;
         const ACTRL_ACCESS_DENIED: i32 = 2;
         type ACTRL_ACCESS_ENTRY = ACTRL_ACCESS_ENTRYA;
@@ -66,8 +62,8 @@ mod Windows {
         const ACTRL_ACCESS_PROTECTED: i32 = 1;
         const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: i32 = 1;
         type ACTRL_AUDIT = ACTRL_AUDITA;
-        type ACTRL_AUDITA = ACTRL_ACCESSA;
-        type ACTRL_AUDITW = ACTRL_ACCESSW;
+        type ACTRL_AUDITA = _ACTRL_ALISTA;
+        type ACTRL_AUDITW = _ACTRL_ALISTW;
         const ACTRL_AUDIT_FAILURE: i32 = 8;
         const ACTRL_AUDIT_SUCCESS: i32 = 4;
         const ACTRL_CHANGE_ACCESS: i32 = 536870912;
@@ -259,8 +255,8 @@ mod Windows {
         }
         type PACCESS_RIGHTS = *mut u32;
         type PACTRL_ACCESS = PACTRL_ACCESSA;
-        type PACTRL_ACCESSA = *mut ACTRL_ACCESSA;
-        type PACTRL_ACCESSW = *mut ACTRL_ACCESSW;
+        type PACTRL_ACCESSA = *mut _ACTRL_ALISTA;
+        type PACTRL_ACCESSW = *mut _ACTRL_ALISTW;
         type PACTRL_ACCESS_ENTRY = PACTRL_ACCESS_ENTRYA;
         type PACTRL_ACCESS_ENTRYA = *mut ACTRL_ACCESS_ENTRYA;
         type PACTRL_ACCESS_ENTRYW = *mut ACTRL_ACCESS_ENTRYW;
@@ -271,8 +267,8 @@ mod Windows {
         type PACTRL_ACCESS_INFOA = *mut ACTRL_ACCESS_INFOA;
         type PACTRL_ACCESS_INFOW = *mut ACTRL_ACCESS_INFOW;
         type PACTRL_AUDIT = PACTRL_AUDITA;
-        type PACTRL_AUDITA = *mut ACTRL_ACCESSA;
-        type PACTRL_AUDITW = *mut ACTRL_ACCESSW;
+        type PACTRL_AUDITA = *mut _ACTRL_ALISTA;
+        type PACTRL_AUDITW = *mut _ACTRL_ALISTW;
         type PACTRL_CONTROL_INFO = PACTRL_CONTROL_INFOA;
         type PACTRL_CONTROL_INFOA = *mut ACTRL_CONTROL_INFOA;
         type PACTRL_CONTROL_INFOW = *mut ACTRL_CONTROL_INFOW;
@@ -393,6 +389,14 @@ mod Windows {
             TrusteeForm: TRUSTEE_FORM,
             TrusteeType: TRUSTEE_TYPE,
             ptstrName: LPWCH,
+        }
+        struct _ACTRL_ALISTA {
+            cEntries: u32,
+            pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
+        }
+        struct _ACTRL_ALISTW {
+            cEntries: u32,
+            pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
         }
     }
 }

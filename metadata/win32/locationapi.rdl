@@ -43,7 +43,7 @@ mod Windows {
             #[special]
             fn get_DetailLevel(&self, #[retval] pDetailLevel: *mut u32) -> HRESULT;
             #[special]
-            fn get_Timestamp(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            fn get_Timestamp(&self, #[retval] pVal: *mut DATE) -> HRESULT;
         }
         #[guid(0x8ae32723_389b_4a11_9957_5bdd48fc9617)]
         interface IDispLatLongReport: IDispatch {
@@ -58,7 +58,7 @@ mod Windows {
             #[special]
             fn get_AltitudeError(&self, #[retval] pVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_Timestamp(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            fn get_Timestamp(&self, #[retval] pVal: *mut DATE) -> HRESULT;
         }
         #[guid(0x7fed806d_0ef8_4f07_80ac_36a0beae3134)]
         interface ILatLongReport: ILocationReport {
@@ -83,7 +83,7 @@ mod Windows {
             fn SetReportInterval(&self, reportType: *const GUID, millisecondsRequested: u32) -> HRESULT;
             fn GetDesiredAccuracy(&self, reportType: *const GUID, #[retval] pDesiredAccuracy: *mut LOCATION_DESIRED_ACCURACY) -> HRESULT;
             fn SetDesiredAccuracy(&self, reportType: *const GUID, desiredAccuracy: LOCATION_DESIRED_ACCURACY) -> HRESULT;
-            fn RequestPermissions(&self, hParent: HWND, pReportTypes: *const GUID, count: u32, fModal: BOOL) -> HRESULT;
+            fn RequestPermissions(&self, hParent: HWND, #[in] pReportTypes: *mut GUID, count: u32, fModal: BOOL) -> HRESULT;
         }
         #[guid(0xcae02bbf_798b_4508_a207_35a7906dc73d)]
         interface ILocationEvents: IUnknown {
@@ -115,7 +115,7 @@ mod Windows {
             fn get_DesiredAccuracy(&self, #[retval] pDesiredAccuracy: *mut u32) -> HRESULT;
             #[special]
             fn put_DesiredAccuracy(&self, desiredAccuracy: u32) -> HRESULT;
-            fn RequestPermissions(&self, hWnd: *const u32) -> HRESULT;
+            fn RequestPermissions(&self, #[in] hWnd: *mut u32) -> HRESULT;
         }
         const LOCATION_API_VERSION: i32 = 1;
         #[repr(i32)]

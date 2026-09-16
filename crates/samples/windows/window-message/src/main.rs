@@ -6,7 +6,7 @@ fn main() -> windows::core::Result<()> {
         .on_message(|hwnd, message, wparam, lparam| match message as i32 {
             WM_PAINT => {
                 println!("WM_PAINT");
-                unsafe { _ = ValidateRect(Some(HWND(hwnd)), None) };
+                unsafe { _ = ValidateRect(Some(hwnd as HWND), None) };
                 Some(0)
             }
             WM_LBUTTONDOWN => {

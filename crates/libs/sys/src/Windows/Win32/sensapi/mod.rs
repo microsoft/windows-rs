@@ -1,6 +1,7 @@
-windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_sys::core::PCSTR, lpqocinfo : *mut QOCINFO) -> windows_sys::core::BOOL);
-windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_sys::core::PCWSTR, lpqocinfo : *mut QOCINFO) -> windows_sys::core::BOOL);
-windows_link::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_sys::core::PCSTR, lpqocinfo : LPQOCINFO) -> windows_sys::core::BOOL);
+windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_sys::core::PCWSTR, lpqocinfo : LPQOCINFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : super::LPDWORD) -> windows_sys::core::BOOL);
 pub type LPQOCINFO = *mut QOCINFO;
 pub const NETWORK_ALIVE_AOL: i32 = 4;
 pub const NETWORK_ALIVE_INTERNET: i32 = 8;

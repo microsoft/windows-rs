@@ -1764,16 +1764,16 @@ impl ISAXAttributes {
             (windows_core::Interface::vtable(self).getLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getURI(&self, nindex: i32, ppwchuri: *const *const u16, pcchuri: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), nindex, ppwchuri as _, pcchuri as _) }
     }
-    pub unsafe fn getLocalName(&self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getLocalName(&self, nindex: i32, ppwchlocalname: *const *const u16, pcchlocalname: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getLocalName)(windows_core::Interface::as_raw(self), nindex, ppwchlocalname as _, pcchlocalname as _) }
     }
-    pub unsafe fn getQName(&self, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getQName(&self, nindex: i32, ppwchqname: *const *const u16, pcchqname: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getQName)(windows_core::Interface::as_raw(self), nindex, ppwchqname as _, pcchqname as _) }
     }
-    pub unsafe fn getName(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getName(&self, nindex: i32, ppwchuri: *const *const u16, pcchuri: *mut i32, ppwchlocalname: *const *const u16, pcchlocalname: *mut i32, ppwchqname: *const *const u16, pcchqname: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getName)(windows_core::Interface::as_raw(self), nindex, ppwchuri as _, pcchuri as _, ppwchlocalname as _, pcchlocalname as _, ppwchqname as _, pcchqname as _) }
     }
     pub unsafe fn getIndexFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32) -> windows_core::Result<i32> {
@@ -1788,22 +1788,22 @@ impl ISAXAttributes {
             (windows_core::Interface::vtable(self).getIndexFromQName)(windows_core::Interface::as_raw(self), pwchqname, cchqname, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getType(&self, nindex: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getType)(windows_core::Interface::as_raw(self), nindex, ppwchtype as _, pcchtype as _) }
     }
-    pub unsafe fn getTypeFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getTypeFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getTypeFromName)(windows_core::Interface::as_raw(self), pwchuri, cchuri, pwchlocalname, cchlocalname, ppwchtype as _, pcchtype as _) }
     }
-    pub unsafe fn getTypeFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getTypeFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getTypeFromQName)(windows_core::Interface::as_raw(self), pwchqname, cchqname, ppwchtype as _, pcchtype as _) }
     }
-    pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getValue)(windows_core::Interface::as_raw(self), nindex, ppwchvalue as _, pcchvalue as _) }
     }
-    pub unsafe fn getValueFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getValueFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getValueFromName)(windows_core::Interface::as_raw(self), pwchuri, cchuri, pwchlocalname, cchlocalname, ppwchvalue as _, pcchvalue as _) }
     }
-    pub unsafe fn getValueFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+    pub unsafe fn getValueFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).getValueFromQName)(windows_core::Interface::as_raw(self), pwchqname, cchqname, ppwchvalue as _, pcchvalue as _) }
     }
 }
@@ -1812,33 +1812,33 @@ impl ISAXAttributes {
 pub struct ISAXAttributes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub getLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub getURI: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getLocalName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getQName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut u16, *mut i32, *mut *mut u16, *mut i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
+    pub getURI: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getLocalName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getQName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *const u16, *mut i32, *const *const u16, *mut i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
     pub getIndexFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *const u16, i32, *mut i32) -> windows_core::HRESULT,
     pub getIndexFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *mut i32) -> windows_core::HRESULT,
-    pub getType: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getTypeFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *const u16, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getTypeFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getValueFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *const u16, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
-    pub getValueFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
+    pub getType: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getTypeFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *const u16, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getTypeFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getValueFromName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *const u16, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
+    pub getValueFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, i32, *const *const u16, *mut i32) -> windows_core::HRESULT,
 }
 pub trait ISAXAttributes_Impl: windows_core::IUnknownImpl {
     fn getLength(&self) -> windows_core::Result<i32>;
-    fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::Result<()>;
-    fn getLocalName(&self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::Result<()>;
-    fn getQName(&self, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::Result<()>;
-    fn getName(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::Result<()>;
+    fn getURI(&self, nindex: i32, ppwchuri: *const *const u16, pcchuri: *mut i32) -> windows_core::Result<()>;
+    fn getLocalName(&self, nindex: i32, ppwchlocalname: *const *const u16, pcchlocalname: *mut i32) -> windows_core::Result<()>;
+    fn getQName(&self, nindex: i32, ppwchqname: *const *const u16, pcchqname: *mut i32) -> windows_core::Result<()>;
+    fn getName(&self, nindex: i32, ppwchuri: *const *const u16, pcchuri: *mut i32, ppwchlocalname: *const *const u16, pcchlocalname: *mut i32, ppwchqname: *const *const u16, pcchqname: *mut i32) -> windows_core::Result<()>;
     fn getIndexFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32) -> windows_core::Result<i32>;
     fn getIndexFromQName(&self, pwchqname: *const u16, cchqname: i32) -> windows_core::Result<i32>;
-    fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()>;
-    fn getTypeFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()>;
-    fn getTypeFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()>;
-    fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
-    fn getValueFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
-    fn getValueFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
+    fn getType(&self, nindex: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::Result<()>;
+    fn getTypeFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::Result<()>;
+    fn getTypeFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::Result<()>;
+    fn getValue(&self, nindex: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
+    fn getValueFromName(&self, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
+    fn getValueFromQName(&self, pwchqname: *const u16, cchqname: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
 }
 impl ISAXAttributes_Vtbl {
     pub const fn new<Identity: ISAXAttributes_Impl, const OFFSET: isize>() -> Self {
@@ -1854,25 +1854,25 @@ impl ISAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getURI<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURI<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *const *const u16, pcchuri: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getURI(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchuri), core::mem::transmute_copy(&pcchuri)).into()
             }
         }
-        unsafe extern "system" fn getLocalName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getLocalName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchlocalname: *const *const u16, pcchlocalname: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getLocalName(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchlocalname), core::mem::transmute_copy(&pcchlocalname)).into()
             }
         }
-        unsafe extern "system" fn getQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchqname: *const *const u16, pcchqname: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getQName(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchqname), core::mem::transmute_copy(&pcchqname)).into()
             }
         }
-        unsafe extern "system" fn getName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *const *const u16, pcchuri: *mut i32, ppwchlocalname: *const *const u16, pcchlocalname: *mut i32, ppwchqname: *const *const u16, pcchqname: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getName(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchuri), core::mem::transmute_copy(&pcchuri), core::mem::transmute_copy(&ppwchlocalname), core::mem::transmute_copy(&pcchlocalname), core::mem::transmute_copy(&ppwchqname), core::mem::transmute_copy(&pcchqname)).into()
@@ -1902,37 +1902,37 @@ impl ISAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getType<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getType<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getType(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchtype), core::mem::transmute_copy(&pcchtype)).into()
             }
         }
-        unsafe extern "system" fn getTypeFromName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getTypeFromName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getTypeFromName(this, core::mem::transmute_copy(&pwchuri), core::mem::transmute_copy(&cchuri), core::mem::transmute_copy(&pwchlocalname), core::mem::transmute_copy(&cchlocalname), core::mem::transmute_copy(&ppwchtype), core::mem::transmute_copy(&pcchtype)).into()
             }
         }
-        unsafe extern "system" fn getTypeFromQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: *const u16, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getTypeFromQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: *const u16, cchqname: i32, ppwchtype: *const *const u16, pcchtype: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getTypeFromQName(this, core::mem::transmute_copy(&pwchqname), core::mem::transmute_copy(&cchqname), core::mem::transmute_copy(&ppwchtype), core::mem::transmute_copy(&pcchtype)).into()
             }
         }
-        unsafe extern "system" fn getValue<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValue<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getValue(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchvalue), core::mem::transmute_copy(&pcchvalue)).into()
             }
         }
-        unsafe extern "system" fn getValueFromName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValueFromName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: *const u16, cchuri: i32, pwchlocalname: *const u16, cchlocalname: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getValueFromName(this, core::mem::transmute_copy(&pwchuri), core::mem::transmute_copy(&cchuri), core::mem::transmute_copy(&pwchlocalname), core::mem::transmute_copy(&cchlocalname), core::mem::transmute_copy(&ppwchvalue), core::mem::transmute_copy(&pcchvalue)).into()
             }
         }
-        unsafe extern "system" fn getValueFromQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: *const u16, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValueFromQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: *const u16, cchqname: i32, ppwchvalue: *const *const u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISAXAttributes_Impl::getValueFromQName(this, core::mem::transmute_copy(&pwchqname), core::mem::transmute_copy(&cchqname), core::mem::transmute_copy(&ppwchvalue), core::mem::transmute_copy(&pcchvalue)).into()
@@ -2471,13 +2471,13 @@ impl ISAXLocator {
             (windows_core::Interface::vtable(self).getLineNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn getPublicId(&self) -> windows_core::Result<*mut u16> {
+    pub unsafe fn getPublicId(&self) -> windows_core::Result<*const u16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).getPublicId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn getSystemId(&self) -> windows_core::Result<*mut u16> {
+    pub unsafe fn getSystemId(&self) -> windows_core::Result<*const u16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).getSystemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2490,14 +2490,14 @@ pub struct ISAXLocator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub getColumnNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub getLineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub getPublicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
-    pub getSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
+    pub getPublicId: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const u16) -> windows_core::HRESULT,
+    pub getSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const u16) -> windows_core::HRESULT,
 }
 pub trait ISAXLocator_Impl: windows_core::IUnknownImpl {
     fn getColumnNumber(&self) -> windows_core::Result<i32>;
     fn getLineNumber(&self) -> windows_core::Result<i32>;
-    fn getPublicId(&self) -> windows_core::Result<*mut u16>;
-    fn getSystemId(&self) -> windows_core::Result<*mut u16>;
+    fn getPublicId(&self) -> windows_core::Result<*const u16>;
+    fn getSystemId(&self) -> windows_core::Result<*const u16>;
 }
 impl ISAXLocator_Vtbl {
     pub const fn new<Identity: ISAXLocator_Impl, const OFFSET: isize>() -> Self {
@@ -2525,24 +2525,24 @@ impl ISAXLocator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getPublicId<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getPublicId<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchpublicid: *const *const u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXLocator_Impl::getPublicId(this) {
                     Ok(ok__) => {
-                        ppwchpublicid.write(ok__);
+                        (ppwchpublicid as *mut *const u16).write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
                 }
             }
         }
-        unsafe extern "system" fn getSystemId<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsystemid: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getSystemId<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsystemid: *const *const u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXLocator_Impl::getSystemId(this) {
                     Ok(ok__) => {
-                        ppwchsystemid.write(ok__);
+                        (ppwchsystemid as *mut *const u16).write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2698,7 +2698,7 @@ impl ISAXXMLReader {
     {
         unsafe { (windows_core::Interface::vtable(self).putErrorHandler)(windows_core::Interface::as_raw(self), phandler.param().abi()) }
     }
-    pub unsafe fn getBaseURL(&self) -> windows_core::Result<*mut u16> {
+    pub unsafe fn getBaseURL(&self) -> windows_core::Result<*const u16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).getBaseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2707,7 +2707,7 @@ impl ISAXXMLReader {
     pub unsafe fn putBaseURL(&self, pwchbaseurl: *const u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).putBaseURL)(windows_core::Interface::as_raw(self), pwchbaseurl) }
     }
-    pub unsafe fn getSecureBaseURL(&self) -> windows_core::Result<*mut u16> {
+    pub unsafe fn getSecureBaseURL(&self) -> windows_core::Result<*const u16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).getSecureBaseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2752,9 +2752,9 @@ pub struct ISAXXMLReader_Vtbl {
     pub putDTDHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub getErrorHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putErrorHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub getBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
+    pub getBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const u16) -> windows_core::HRESULT,
     pub putBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16) -> windows_core::HRESULT,
-    pub getSecureBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
+    pub getSecureBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const u16) -> windows_core::HRESULT,
     pub putSecureBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16) -> windows_core::HRESULT,
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub parse: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
@@ -2776,9 +2776,9 @@ pub trait ISAXXMLReader_Impl: windows_core::IUnknownImpl {
     fn putDTDHandler(&self, phandler: windows_core::Ref<ISAXDTDHandler>) -> windows_core::Result<()>;
     fn getErrorHandler(&self) -> windows_core::Result<ISAXErrorHandler>;
     fn putErrorHandler(&self, phandler: windows_core::Ref<ISAXErrorHandler>) -> windows_core::Result<()>;
-    fn getBaseURL(&self) -> windows_core::Result<*mut u16>;
+    fn getBaseURL(&self) -> windows_core::Result<*const u16>;
     fn putBaseURL(&self, pwchbaseurl: *const u16) -> windows_core::Result<()>;
-    fn getSecureBaseURL(&self) -> windows_core::Result<*mut u16>;
+    fn getSecureBaseURL(&self) -> windows_core::Result<*const u16>;
     fn putSecureBaseURL(&self, pwchsecurebaseurl: *const u16) -> windows_core::Result<()>;
     fn parse(&self, varinput: &super::VARIANT) -> windows_core::Result<()>;
     fn parseURL(&self, pwchurl: *const u16) -> windows_core::Result<()>;
@@ -2894,12 +2894,12 @@ impl ISAXXMLReader_Vtbl {
                 ISAXXMLReader_Impl::putErrorHandler(this, core::mem::transmute_copy(&phandler)).into()
             }
         }
-        unsafe extern "system" fn getBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchbaseurl: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchbaseurl: *const *const u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getBaseURL(this) {
                     Ok(ok__) => {
-                        ppwchbaseurl.write(ok__);
+                        (ppwchbaseurl as *mut *const u16).write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2912,12 +2912,12 @@ impl ISAXXMLReader_Vtbl {
                 ISAXXMLReader_Impl::putBaseURL(this, core::mem::transmute_copy(&pwchbaseurl)).into()
             }
         }
-        unsafe extern "system" fn getSecureBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsecurebaseurl: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getSecureBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsecurebaseurl: *const *const u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getSecureBaseURL(this) {
                     Ok(ok__) => {
-                        ppwchsecurebaseurl.write(ok__);
+                        (ppwchsecurebaseurl as *mut *const u16).write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

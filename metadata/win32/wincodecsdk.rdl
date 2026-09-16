@@ -142,7 +142,7 @@ mod Windows {
             fn CreateMetadataWriterFromReader(&self, pIReader: IWICMetadataReader, pguidVendor: *const GUID, ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
             fn CreateQueryReaderFromBlockReader(&self, pIBlockReader: IWICMetadataBlockReader, ppIQueryReader: *mut IWICMetadataQueryReader) -> HRESULT;
             fn CreateQueryWriterFromBlockWriter(&self, pIBlockWriter: IWICMetadataBlockWriter, ppIQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
-            fn CreateEncoderPropertyBag(&self, ppropOptions: *const PROPBAG2, cCount: u32, ppIPropertyBag: *mut IPropertyBag2) -> HRESULT;
+            fn CreateEncoderPropertyBag(&self, #[in] ppropOptions: *mut PROPBAG2, cCount: u32, ppIPropertyBag: *mut IPropertyBag2) -> HRESULT;
         }
         #[guid(0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1)]
         interface IWICMetadataBlockReader: IUnknown {
@@ -193,7 +193,7 @@ mod Windows {
         }
         #[guid(0xb22e3fba_3925_4323_b5c1_9ebfc430f236)]
         interface IWICMetadataWriterInfo: IWICMetadataHandlerInfo {
-            fn GetHeader(&self, guidContainerFormat: *const GUID, cbSize: u32, #[size_param(1)] #[opt] pHeader: *mut WICMetadataHeader, #[opt] pcbActual: *mut u32) -> HRESULT;
+            fn GetHeader(&self, guidContainerFormat: *const GUID, cbSize: u32, #[size_param(1)] #[in] #[out] #[opt] pHeader: *mut WICMetadataHeader, #[in] #[out] #[opt] pcbActual: *mut u32) -> HRESULT;
             fn CreateInstance(&self, ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
         }
         #[guid(0x00675040_6908_45f8_86a3_49c7dfd6d9ad)]
@@ -209,7 +209,7 @@ mod Windows {
             fn RefreshStream(&self) -> HRESULT;
         }
         #[library("WindowsCodecs.dll")]
-        extern fn WICGetMetadataContentSize(guidContainerFormat: *const GUID, pIWriter: IWICMetadataWriter, pcbSize: *mut u64) -> HRESULT;
+        extern fn WICGetMetadataContentSize(guidContainerFormat: *const GUID, pIWriter: IWICMetadataWriter, pcbSize: *mut ULARGE_INTEGER) -> HRESULT;
         #[library("WindowsCodecs.dll")]
         extern fn WICMatchMetadataContent(guidContainerFormat: *const GUID, #[opt] pguidVendor: *const GUID, pIStream: IStream, pguidMetadataFormat: *mut GUID) -> HRESULT;
         #[repr(i32)]
@@ -220,17 +220,17 @@ mod Windows {
             WICMetadataCreationMask = -65536,
         }
         struct WICMetadataHeader {
-            Position: u64,
+            Position: ULARGE_INTEGER,
             Length: u32,
             Header: *mut u8,
-            DataOffset: u64,
+            DataOffset: ULARGE_INTEGER,
         }
         struct WICMetadataPattern {
-            Position: u64,
+            Position: ULARGE_INTEGER,
             Length: u32,
             Pattern: *mut u8,
             Mask: *mut u8,
-            DataOffset: u64,
+            DataOffset: ULARGE_INTEGER,
         }
         #[repr(i32)]
         enum WICPersistOptions {

@@ -1,6 +1,4 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_HASH_FLAGS(pub u32);
+pub type NDIS_HASH_FLAGS = u32;
 pub const NDIS_HASH_FUNCTION_MASK: i32 = 255;
 pub const NDIS_HASH_IPV4: i32 = 256;
 pub const NDIS_HASH_IPV6: i32 = 1024;

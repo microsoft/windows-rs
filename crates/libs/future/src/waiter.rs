@@ -8,7 +8,7 @@ mod imp {
     impl Waiter {
         pub fn new() -> Result<(Self, WaiterSignaler)> {
             unsafe {
-                let handle = CreateEventW(core::ptr::null(), 1, 0, core::ptr::null());
+                let handle = CreateEventW(core::ptr::null_mut(), 1, 0, core::ptr::null());
                 if handle.is_null() {
                     Err(Error::from_thread())
                 } else {

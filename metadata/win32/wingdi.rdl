@@ -55,13 +55,13 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn AbortPath(hdc: HDC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn AddFontMemResourceEx(#[size_param(1)] pFileView: *const void, cjSize: u32, #[reserved] pvResrved: *const void, pNumFonts: *const u32) -> HANDLE;
+        extern fn AddFontMemResourceEx(#[size_param(1)] #[in] pFileView: *mut void, cjSize: u32, #[reserved] pvResrved: *mut void, #[in] pNumFonts: *mut u32) -> HANDLE;
         #[library("GDI32.dll")]
         extern fn AddFontResourceA(param0: PCSTR) -> i32;
         #[library("GDI32.dll")]
-        extern fn AddFontResourceExA(name: PCSTR, fl: u32, #[reserved] res: *const void) -> i32;
+        extern fn AddFontResourceExA(name: PCSTR, fl: u32, #[reserved] res: *mut void) -> i32;
         #[library("GDI32.dll")]
-        extern fn AddFontResourceExW(name: PCWSTR, fl: u32, #[reserved] res: *const void) -> i32;
+        extern fn AddFontResourceExW(name: PCWSTR, fl: u32, #[reserved] res: *mut void) -> i32;
         #[library("GDI32.dll")]
         extern fn AddFontResourceW(param0: PCWSTR) -> i32;
         #[library("MSIMG32.dll")]
@@ -292,7 +292,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn CancelDC(hdc: HDC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn CheckColorsInGamut(hdc: HDC, #[len_param(3)] lpRGBTriple: *const RGBTRIPLE, #[size_param(3)] dlpBuffer: *mut void, nCount: u32) -> BOOL;
+        extern fn CheckColorsInGamut(hdc: HDC, #[len_param(3)] lpRGBTriple: LPRGBTRIPLE, #[size_param(3)] dlpBuffer: *mut void, nCount: u32) -> BOOL;
         #[library("GDI32.dll")]
         extern fn ChoosePixelFormat(hdc: HDC, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
         #[library("GDI32.dll")]
@@ -310,7 +310,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn CombineRgn(#[opt] hrgnDst: HRGN, #[opt] hrgnSrc1: HRGN, #[opt] hrgnSrc2: HRGN, iMode: i32) -> i32;
         #[library("GDI32.dll")]
-        extern fn CombineTransform(lpxfOut: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> BOOL;
+        extern fn CombineTransform(#[out] lpxfOut: LPXFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> BOOL;
         #[library("GDI32.dll")]
         extern fn CopyEnhMetaFileA(hEnh: HENHMETAFILE, #[opt] lpFileName: PCSTR) -> HENHMETAFILE;
         #[library("GDI32.dll")]
@@ -326,9 +326,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH;
         #[library("GDI32.dll")]
-        extern fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
+        extern fn CreateColorSpaceA(lplcs: LPLOGCOLORSPACEA) -> HCOLORSPACE;
         #[library("GDI32.dll")]
-        extern fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
+        extern fn CreateColorSpaceW(lplcs: LPLOGCOLORSPACEW) -> HCOLORSPACE;
         #[library("GDI32.dll")]
         extern fn CreateCompatibleBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
         #[library("GDI32.dll")]
@@ -1233,7 +1233,7 @@ mod Windows {
         const DOWNLOADFACE: i32 = 514;
         const DOWNLOADHEADER: i32 = 4111;
         #[library("GDI32.dll")]
-        extern fn DPtoLP(hdc: HDC, #[len_param(2)] #[in] #[out] lppt: *mut POINT, c: i32) -> BOOL;
+        extern fn DPtoLP(hdc: HDC, #[len_param(2)] #[in] #[out] lppt: LPPOINT, c: i32) -> BOOL;
         const DRAFTMODE: i32 = 7;
         const DRAFT_QUALITY: i32 = 1;
         struct DRAWPATRECT {
@@ -1263,7 +1263,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn DeleteObject(ho: HGDIOBJ) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn DescribePixelFormat(hdc: HDC, iPixelFormat: i32, nBytes: u32, #[size_param(2)] #[opt] ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
+        extern fn DescribePixelFormat(hdc: HDC, iPixelFormat: i32, nBytes: u32, #[size_param(2)] #[out] #[opt] ppfd: LPPIXELFORMATDESCRIPTOR) -> i32;
         #[library("WINSPOOL.DRV")]
         extern fn DeviceCapabilitiesA(pDevice: PCSTR, #[opt] pPort: PCSTR, fwCapability: u16, #[out] #[opt] pOutput: PSTR, #[opt] pDevMode: *const DEVMODEA) -> i32;
         #[library("WINSPOOL.DRV")]
@@ -1278,9 +1278,7 @@ mod Windows {
             iType: u32,
             nSize: u32,
         }
-        struct EMRABORTPATH {
-            emr: EMR,
-        }
+        type EMRABORTPATH = tagABORTPATH;
         struct EMRALPHABLEND {
             emr: EMR,
             rclBounds: RECTL,
@@ -1308,14 +1306,9 @@ mod Windows {
             eStartAngle: f32,
             eSweepAngle: f32,
         }
-        struct EMRARC {
-            emr: EMR,
-            rclBox: RECTL,
-            ptlStart: POINTL,
-            ptlEnd: POINTL,
-        }
-        type EMRARCTO = EMRARC;
-        type EMRBEGINPATH = EMRABORTPATH;
+        type EMRARC = tagEMRARC;
+        type EMRARCTO = tagEMRARC;
+        type EMRBEGINPATH = tagABORTPATH;
         struct EMRBITBLT {
             emr: EMR,
             rclBounds: RECTL,
@@ -1334,8 +1327,8 @@ mod Windows {
             offBitsSrc: u32,
             cbBitsSrc: u32,
         }
-        type EMRCHORD = EMRARC;
-        type EMRCLOSEFIGURE = EMRABORTPATH;
+        type EMRCHORD = tagEMRARC;
+        type EMRCLOSEFIGURE = tagABORTPATH;
         struct EMRCOLORCORRECTPALETTE {
             emr: EMR,
             ihPalette: u32,
@@ -1397,24 +1390,18 @@ mod Windows {
             ihPen: u32,
             lopn: LOGPEN,
         }
-        type EMRDELETECOLORSPACE = EMRSETCOLORSPACE;
-        type EMRDELETEOBJECT = EMRSELECTOBJECT;
-        type EMRDRAWESCAPE = EMREXTESCAPE;
-        struct EMRELLIPSE {
-            emr: EMR,
-            rclBox: RECTL,
-        }
-        type EMRENDPATH = EMRABORTPATH;
+        type EMRDELETECOLORSPACE = tagEMRSETCOLORSPACE;
+        type EMRDELETEOBJECT = tagEMRSELECTOBJECT;
+        type EMRDRAWESCAPE = tagEMREXTESCAPE;
+        type EMRELLIPSE = tagEMRELLIPSE;
+        type EMRENDPATH = tagABORTPATH;
         struct EMREOF {
             emr: EMR,
             nPalEntries: u32,
             offPalEntries: u32,
             nSizeLast: u32,
         }
-        struct EMREXCLUDECLIPRECT {
-            emr: EMR,
-            rclClip: RECTL,
-        }
+        type EMREXCLUDECLIPRECT = tagEMREXCLUDECLIPRECT;
         struct EMREXTCREATEFONTINDIRECTW {
             emr: EMR,
             ihFont: u32,
@@ -1429,12 +1416,7 @@ mod Windows {
             cbBits: u32,
             elp: EXTLOGPEN32,
         }
-        struct EMREXTESCAPE {
-            emr: EMR,
-            iEscape: i32,
-            cbEscData: i32,
-            EscData: [u8; 1],
-        }
+        type EMREXTESCAPE = tagEMREXTESCAPE;
         struct EMREXTFLOODFILL {
             emr: EMR,
             ptlStart: POINTL,
@@ -1447,19 +1429,9 @@ mod Windows {
             iMode: u32,
             RgnData: [u8; 1],
         }
-        struct EMREXTTEXTOUTA {
-            emr: EMR,
-            rclBounds: RECTL,
-            iGraphicsMode: u32,
-            exScale: f32,
-            eyScale: f32,
-            emrtext: EMRTEXT,
-        }
-        type EMREXTTEXTOUTW = EMREXTTEXTOUTA;
-        struct EMRFILLPATH {
-            emr: EMR,
-            rclBounds: RECTL,
-        }
+        type EMREXTTEXTOUTA = tagEMREXTTEXTOUTA;
+        type EMREXTTEXTOUTW = tagEMREXTTEXTOUTA;
+        type EMRFILLPATH = tagEMRFILLPATH;
         struct EMRFILLRGN {
             emr: EMR,
             rclBounds: RECTL,
@@ -1467,7 +1439,7 @@ mod Windows {
             ihBrush: u32,
             RgnData: [u8; 1],
         }
-        type EMRFLATTENPATH = EMRABORTPATH;
+        type EMRFLATTENPATH = tagABORTPATH;
         struct EMRFORMAT {
             dSignature: u32,
             nVersion: u32,
@@ -1506,17 +1478,9 @@ mod Windows {
             ulMode: u32,
             Ver: [TRIVERTEX; 1],
         }
-        type EMRINTERSECTCLIPRECT = EMREXCLUDECLIPRECT;
-        struct EMRINVERTRGN {
-            emr: EMR,
-            rclBounds: RECTL,
-            cbRgnData: u32,
-            RgnData: [u8; 1],
-        }
-        struct EMRLINETO {
-            emr: EMR,
-            ptl: POINTL,
-        }
+        type EMRINTERSECTCLIPRECT = tagEMREXCLUDECLIPRECT;
+        type EMRINVERTRGN = tagEMRINVERTRGN;
+        type EMRLINETO = tagEMRLINETO;
         struct EMRMASKBLT {
             emr: EMR,
             rclBounds: RECTL,
@@ -1547,7 +1511,7 @@ mod Windows {
             xform: XFORM,
             iMode: u32,
         }
-        type EMRMOVETOEX = EMRLINETO;
+        type EMRMOVETOEX = tagEMRLINETO;
         struct EMRNAMEDESCAPE {
             emr: EMR,
             iEscape: i32,
@@ -1559,8 +1523,8 @@ mod Windows {
             emr: EMR,
             ptlOffset: POINTL,
         }
-        type EMRPAINTRGN = EMRINVERTRGN;
-        type EMRPIE = EMRARC;
+        type EMRPAINTRGN = tagEMRINVERTRGN;
+        type EMRPIE = tagEMRARC;
         struct EMRPIXELFORMAT {
             emr: EMR,
             pfd: PIXELFORMATDESCRIPTOR,
@@ -1588,10 +1552,10 @@ mod Windows {
             offBitsMask: u32,
             cbBitsMask: u32,
         }
-        type EMRPOLYBEZIER = EMRPOLYLINE;
-        type EMRPOLYBEZIER16 = EMRPOLYLINE16;
-        type EMRPOLYBEZIERTO = EMRPOLYLINE;
-        type EMRPOLYBEZIERTO16 = EMRPOLYLINE16;
+        type EMRPOLYBEZIER = tagEMRPOLYLINE;
+        type EMRPOLYBEZIER16 = tagEMRPOLYLINE16;
+        type EMRPOLYBEZIERTO = tagEMRPOLYLINE;
+        type EMRPOLYBEZIERTO16 = tagEMRPOLYLINE16;
         struct EMRPOLYDRAW {
             emr: EMR,
             rclBounds: RECTL,
@@ -1606,52 +1570,20 @@ mod Windows {
             apts: [POINTS; 1],
             abTypes: [u8; 1],
         }
-        type EMRPOLYGON = EMRPOLYLINE;
-        type EMRPOLYGON16 = EMRPOLYLINE16;
-        struct EMRPOLYLINE {
-            emr: EMR,
-            rclBounds: RECTL,
-            cptl: u32,
-            aptl: [POINTL; 1],
-        }
-        struct EMRPOLYLINE16 {
-            emr: EMR,
-            rclBounds: RECTL,
-            cpts: u32,
-            apts: [POINTS; 1],
-        }
-        type EMRPOLYLINETO = EMRPOLYLINE;
-        type EMRPOLYLINETO16 = EMRPOLYLINE16;
-        type EMRPOLYPOLYGON = EMRPOLYPOLYLINE;
-        type EMRPOLYPOLYGON16 = EMRPOLYPOLYLINE16;
-        struct EMRPOLYPOLYLINE {
-            emr: EMR,
-            rclBounds: RECTL,
-            nPolys: u32,
-            cptl: u32,
-            aPolyCounts: [u32; 1],
-            aptl: [POINTL; 1],
-        }
-        struct EMRPOLYPOLYLINE16 {
-            emr: EMR,
-            rclBounds: RECTL,
-            nPolys: u32,
-            cpts: u32,
-            aPolyCounts: [u32; 1],
-            apts: [POINTS; 1],
-        }
-        struct EMRPOLYTEXTOUTA {
-            emr: EMR,
-            rclBounds: RECTL,
-            iGraphicsMode: u32,
-            exScale: f32,
-            eyScale: f32,
-            cStrings: i32,
-            aemrtext: [EMRTEXT; 1],
-        }
-        type EMRPOLYTEXTOUTW = EMRPOLYTEXTOUTA;
-        type EMRREALIZEPALETTE = EMRABORTPATH;
-        type EMRRECTANGLE = EMRELLIPSE;
+        type EMRPOLYGON = tagEMRPOLYLINE;
+        type EMRPOLYGON16 = tagEMRPOLYLINE16;
+        type EMRPOLYLINE = tagEMRPOLYLINE;
+        type EMRPOLYLINE16 = tagEMRPOLYLINE16;
+        type EMRPOLYLINETO = tagEMRPOLYLINE;
+        type EMRPOLYLINETO16 = tagEMRPOLYLINE16;
+        type EMRPOLYPOLYGON = tagEMRPOLYPOLYLINE;
+        type EMRPOLYPOLYGON16 = tagEMRPOLYPOLYLINE16;
+        type EMRPOLYPOLYLINE = tagEMRPOLYPOLYLINE;
+        type EMRPOLYPOLYLINE16 = tagEMRPOLYPOLYLINE16;
+        type EMRPOLYTEXTOUTA = tagEMRPOLYTEXTOUTA;
+        type EMRPOLYTEXTOUTW = tagEMRPOLYTEXTOUTA;
+        type EMRREALIZEPALETTE = tagABORTPATH;
+        type EMRRECTANGLE = tagEMRELLIPSE;
         struct EMRRESIZEPALETTE {
             emr: EMR,
             ihPal: u32,
@@ -1666,24 +1598,12 @@ mod Windows {
             rclBox: RECTL,
             szlCorner: SIZEL,
         }
-        type EMRSAVEDC = EMRABORTPATH;
-        struct EMRSCALEVIEWPORTEXTEX {
-            emr: EMR,
-            xNum: i32,
-            xDenom: i32,
-            yNum: i32,
-            yDenom: i32,
-        }
-        type EMRSCALEWINDOWEXTEX = EMRSCALEVIEWPORTEXTEX;
-        struct EMRSELECTCLIPPATH {
-            emr: EMR,
-            iMode: u32,
-        }
-        type EMRSELECTCOLORSPACE = EMRSETCOLORSPACE;
-        struct EMRSELECTOBJECT {
-            emr: EMR,
-            ihObject: u32,
-        }
+        type EMRSAVEDC = tagABORTPATH;
+        type EMRSCALEVIEWPORTEXTEX = tagEMRSCALEVIEWPORTEXTEX;
+        type EMRSCALEWINDOWEXTEX = tagEMRSCALEVIEWPORTEXTEX;
+        type EMRSELECTCLIPPATH = tagEMRSELECTCLIPPATH;
+        type EMRSELECTCOLORSPACE = tagEMRSETCOLORSPACE;
+        type EMRSELECTOBJECT = tagEMRSELECTOBJECT;
         struct EMRSELECTPALETTE {
             emr: EMR,
             ihPal: u32,
@@ -1692,20 +1612,14 @@ mod Windows {
             emr: EMR,
             iArcDirection: u32,
         }
-        struct EMRSETBKCOLOR {
-            emr: EMR,
-            crColor: COLORREF,
-        }
-        type EMRSETBKMODE = EMRSELECTCLIPPATH;
-        type EMRSETBRUSHORGEX = EMRSETVIEWPORTORGEX;
+        type EMRSETBKCOLOR = tagEMRSETTEXTCOLOR;
+        type EMRSETBKMODE = tagEMRSELECTCLIPPATH;
+        type EMRSETBRUSHORGEX = tagEMRSETVIEWPORTORGEX;
         struct EMRSETCOLORADJUSTMENT {
             emr: EMR,
             ColorAdjustment: COLORADJUSTMENT,
         }
-        struct EMRSETCOLORSPACE {
-            emr: EMR,
-            ihCS: u32,
-        }
+        type EMRSETCOLORSPACE = tagEMRSETCOLORSPACE;
         struct EMRSETDIBITSTODEVICE {
             emr: EMR,
             rclBounds: RECTL,
@@ -1723,23 +1637,17 @@ mod Windows {
             iStartScan: u32,
             cScans: u32,
         }
-        type EMRSETICMMODE = EMRSELECTCLIPPATH;
-        struct EMRSETICMPROFILE {
-            emr: EMR,
-            dwFlags: u32,
-            cbName: u32,
-            cbData: u32,
-            Data: [u8; 1],
-        }
-        type EMRSETICMPROFILEA = EMRSETICMPROFILE;
-        type EMRSETICMPROFILEW = EMRSETICMPROFILE;
-        type EMRSETLAYOUT = EMRSELECTCLIPPATH;
-        type EMRSETMAPMODE = EMRSELECTCLIPPATH;
+        type EMRSETICMMODE = tagEMRSELECTCLIPPATH;
+        type EMRSETICMPROFILE = tagEMRSETICMPROFILE;
+        type EMRSETICMPROFILEA = tagEMRSETICMPROFILE;
+        type EMRSETICMPROFILEW = tagEMRSETICMPROFILE;
+        type EMRSETLAYOUT = tagEMRSELECTCLIPPATH;
+        type EMRSETMAPMODE = tagEMRSELECTCLIPPATH;
         struct EMRSETMAPPERFLAGS {
             emr: EMR,
             dwFlags: u32,
         }
-        type EMRSETMETARGN = EMRABORTPATH;
+        type EMRSETMETARGN = tagABORTPATH;
         struct EMRSETMITERLIMIT {
             emr: EMR,
             eMiterLimit: f32,
@@ -1756,21 +1664,15 @@ mod Windows {
             ptlPixel: POINTL,
             crColor: COLORREF,
         }
-        type EMRSETPOLYFILLMODE = EMRSELECTCLIPPATH;
-        type EMRSETROP2 = EMRSELECTCLIPPATH;
-        type EMRSETSTRETCHBLTMODE = EMRSELECTCLIPPATH;
-        type EMRSETTEXTALIGN = EMRSELECTCLIPPATH;
-        type EMRSETTEXTCOLOR = EMRSETBKCOLOR;
-        struct EMRSETVIEWPORTEXTEX {
-            emr: EMR,
-            szlExtent: SIZEL,
-        }
-        struct EMRSETVIEWPORTORGEX {
-            emr: EMR,
-            ptlOrigin: POINTL,
-        }
-        type EMRSETWINDOWEXTEX = EMRSETVIEWPORTEXTEX;
-        type EMRSETWINDOWORGEX = EMRSETVIEWPORTORGEX;
+        type EMRSETPOLYFILLMODE = tagEMRSELECTCLIPPATH;
+        type EMRSETROP2 = tagEMRSELECTCLIPPATH;
+        type EMRSETSTRETCHBLTMODE = tagEMRSELECTCLIPPATH;
+        type EMRSETTEXTALIGN = tagEMRSELECTCLIPPATH;
+        type EMRSETTEXTCOLOR = tagEMRSETTEXTCOLOR;
+        type EMRSETVIEWPORTEXTEX = tagEMRSETVIEWPORTEXTEX;
+        type EMRSETVIEWPORTORGEX = tagEMRSETVIEWPORTORGEX;
+        type EMRSETWINDOWEXTEX = tagEMRSETVIEWPORTEXTEX;
+        type EMRSETWINDOWORGEX = tagEMRSETVIEWPORTORGEX;
         struct EMRSETWORLDTRANSFORM {
             emr: EMR,
             xform: XFORM,
@@ -1813,8 +1715,8 @@ mod Windows {
             cxDest: i32,
             cyDest: i32,
         }
-        type EMRSTROKEANDFILLPATH = EMRFILLPATH;
-        type EMRSTROKEPATH = EMRFILLPATH;
+        type EMRSTROKEANDFILLPATH = tagEMRFILLPATH;
+        type EMRSTROKEPATH = tagEMRFILLPATH;
         struct EMRTEXT {
             ptlReference: POINTL,
             nChars: u32,
@@ -1843,7 +1745,7 @@ mod Windows {
             cxSrc: i32,
             cySrc: i32,
         }
-        type EMRWIDENPATH = EMRABORTPATH;
+        type EMRWIDENPATH = tagABORTPATH;
         const EMR_ABORTPATH: i32 = 68;
         const EMR_ALPHABLEND: i32 = 114;
         const EMR_ANGLEARC: i32 = 41;
@@ -2001,7 +1903,7 @@ mod Windows {
         }
         const ENHMETA_SIGNATURE: i32 = 1179469088;
         const ENHMETA_STOCK_OBJECT: u32 = 2147483648;
-        extern fn ENHMFENUMPROC(hdc: HDC, #[len_param(3)] lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nHandles: i32, #[opt] data: LPARAM) -> i32;
+        extern fn ENHMFENUMPROC(hdc: HDC, #[len_param(3)] #[in] lpht: *mut HANDLETABLE, lpmr: *const ENHMETARECORD, nHandles: i32, #[opt] data: LPARAM) -> i32;
         type ENUMLOGFONT = ENUMLOGFONTA;
         struct ENUMLOGFONTA {
             elfLogFont: LOGFONTA,
@@ -2112,13 +2014,13 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn EndPath(hdc: HDC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn EnumEnhMetaFile(#[opt] hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, #[opt] param: *const void, #[opt] lpRect: *const RECT) -> BOOL;
+        extern fn EnumEnhMetaFile(#[opt] hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, #[in] #[opt] param: *mut void, #[opt] lpRect: *const RECT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn EnumFontFamiliesA(hdc: HDC, #[opt] lpLogfont: PCSTR, lpProc: FONTENUMPROCA, lParam: LPARAM) -> i32;
         #[library("GDI32.dll")]
-        extern fn EnumFontFamiliesExA(hdc: HDC, lpLogfont: *const LOGFONTA, lpProc: FONTENUMPROCA, lParam: LPARAM, dwFlags: u32) -> i32;
+        extern fn EnumFontFamiliesExA(hdc: HDC, lpLogfont: LPLOGFONTA, lpProc: FONTENUMPROCA, lParam: LPARAM, dwFlags: u32) -> i32;
         #[library("GDI32.dll")]
-        extern fn EnumFontFamiliesExW(hdc: HDC, lpLogfont: *const LOGFONTW, lpProc: FONTENUMPROCW, lParam: LPARAM, dwFlags: u32) -> i32;
+        extern fn EnumFontFamiliesExW(hdc: HDC, lpLogfont: LPLOGFONTW, lpProc: FONTENUMPROCW, lParam: LPARAM, dwFlags: u32) -> i32;
         #[library("GDI32.dll")]
         extern fn EnumFontFamiliesW(hdc: HDC, #[opt] lpLogfont: PCWSTR, lpProc: FONTENUMPROCW, lParam: LPARAM) -> i32;
         #[library("GDI32.dll")]
@@ -2226,7 +2128,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn FixBrushOrgEx(hdc: HDC, x: i32, y: i32, #[opt] ptl: *const POINT) -> BOOL;
+        extern fn FixBrushOrgEx(hdc: HDC, x: i32, y: i32, #[opt] ptl: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn FlattenPath(hdc: HDC) -> BOOL;
         #[library("GDI32.dll")]
@@ -2383,7 +2285,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GdiGetBatchLimit() -> u32;
         #[library("GDI32.dll")]
-        extern fn GdiGradientFill(hdc: HDC, #[len_param(2)] pVertex: *const TRIVERTEX, nVertex: u32, pMesh: *const void, nCount: u32, ulMode: u32) -> BOOL;
+        extern fn GdiGradientFill(hdc: HDC, #[len_param(2)] pVertex: PTRIVERTEX, nVertex: u32, #[in] pMesh: *mut void, nCount: u32, ulMode: u32) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GdiSetBatchLimit(dw: u32) -> u32;
         #[library("GDI32.dll")]
@@ -2391,69 +2293,69 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetArcDirection(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetAspectRatioFilterEx(hdc: HDC, lpsize: *mut SIZE) -> BOOL;
+        extern fn GetAspectRatioFilterEx(hdc: HDC, #[out] lpsize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetBitmapBits(hbit: HBITMAP, cb: i32, #[size_param(1)] lpvBits: *mut void) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetBitmapDimensionEx(hbit: HBITMAP, lpsize: *mut SIZE) -> BOOL;
+        extern fn GetBitmapDimensionEx(hbit: HBITMAP, #[out] lpsize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetBkColor(hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
         extern fn GetBkMode(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetBoundsRect(hdc: HDC, lprect: *mut RECT, flags: u32) -> u32;
+        extern fn GetBoundsRect(hdc: HDC, #[out] lprect: LPRECT, flags: u32) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetBrushOrgEx(hdc: HDC, lppt: *mut POINT) -> BOOL;
+        extern fn GetBrushOrgEx(hdc: HDC, #[out] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsA(hdc: HDC, wFirst: u32, wLast: u32, lpABC: *mut ABC) -> BOOL;
+        extern fn GetCharABCWidthsA(hdc: HDC, wFirst: u32, wLast: u32, #[out] lpABC: LPABC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsFloatA(hdc: HDC, iFirst: u32, iLast: u32, lpABC: *mut ABCFLOAT) -> BOOL;
+        extern fn GetCharABCWidthsFloatA(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpABC: LPABCFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsFloatW(hdc: HDC, iFirst: u32, iLast: u32, lpABC: *mut ABCFLOAT) -> BOOL;
+        extern fn GetCharABCWidthsFloatW(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpABC: LPABCFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsI(hdc: HDC, giFirst: u32, cgi: u32, #[len_param(2)] #[opt] pgi: *const u16, #[len_param(2)] pabc: *mut ABC) -> BOOL;
+        extern fn GetCharABCWidthsI(hdc: HDC, giFirst: u32, cgi: u32, #[len_param(2)] #[opt] pgi: LPWORD, #[len_param(2)] #[out] pabc: LPABC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharABCWidthsW(hdc: HDC, wFirst: u32, wLast: u32, lpABC: *mut ABC) -> BOOL;
+        extern fn GetCharABCWidthsW(hdc: HDC, wFirst: u32, wLast: u32, #[out] lpABC: LPABC) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidth32A(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        extern fn GetCharWidth32A(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidth32W(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        extern fn GetCharWidth32W(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthA(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        extern fn GetCharWidthA(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthFloatA(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut f32) -> BOOL;
+        extern fn GetCharWidthFloatA(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpBuffer: PFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthFloatW(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut f32) -> BOOL;
+        extern fn GetCharWidthFloatW(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpBuffer: PFLOAT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthI(hdc: HDC, giFirst: u32, cgi: u32, #[len_param(2)] #[opt] pgi: *const u16, #[len_param(2)] piWidths: *mut i32) -> BOOL;
+        extern fn GetCharWidthI(hdc: HDC, giFirst: u32, cgi: u32, #[len_param(2)] #[opt] pgi: LPWORD, #[len_param(2)] #[out] piWidths: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharWidthW(hdc: HDC, iFirst: u32, iLast: u32, lpBuffer: *mut i32) -> BOOL;
+        extern fn GetCharWidthW(hdc: HDC, iFirst: u32, iLast: u32, #[out] lpBuffer: LPINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetCharacterPlacementA(hdc: HDC, #[len_param(2)] lpString: PCSTR, nCount: i32, nMexExtent: i32, #[in] #[out] lpResults: *mut GCP_RESULTSA, dwFlags: u32) -> u32;
+        extern fn GetCharacterPlacementA(hdc: HDC, #[len_param(2)] lpString: PCSTR, nCount: i32, nMexExtent: i32, #[in] #[out] lpResults: LPGCP_RESULTSA, dwFlags: u32) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetCharacterPlacementW(hdc: HDC, #[len_param(2)] lpString: PCWSTR, nCount: i32, nMexExtent: i32, #[in] #[out] lpResults: *mut GCP_RESULTSW, dwFlags: u32) -> u32;
+        extern fn GetCharacterPlacementW(hdc: HDC, #[len_param(2)] lpString: PCWSTR, nCount: i32, nMexExtent: i32, #[in] #[out] lpResults: LPGCP_RESULTSW, dwFlags: u32) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetClipBox(hdc: HDC, lprect: *mut RECT) -> i32;
+        extern fn GetClipBox(hdc: HDC, #[out] lprect: LPRECT) -> i32;
         #[library("GDI32.dll")]
         extern fn GetClipRgn(hdc: HDC, hrgn: HRGN) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetColorAdjustment(hdc: HDC, lpca: *mut COLORADJUSTMENT) -> BOOL;
+        extern fn GetColorAdjustment(hdc: HDC, #[out] lpca: LPCOLORADJUSTMENT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetColorSpace(hdc: HDC) -> HCOLORSPACE;
         #[library("GDI32.dll")]
         extern fn GetCurrentObject(hdc: HDC, r#type: u32) -> HGDIOBJ;
         #[library("GDI32.dll")]
-        extern fn GetCurrentPositionEx(hdc: HDC, lppt: *mut POINT) -> BOOL;
+        extern fn GetCurrentPositionEx(hdc: HDC, #[out] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetDCBrushColor(hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
-        extern fn GetDCOrgEx(hdc: HDC, lppt: *mut POINT) -> BOOL;
+        extern fn GetDCOrgEx(hdc: HDC, #[out] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetDCPenColor(hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
         extern fn GetDIBColorTable(hdc: HDC, iStart: u32, cEntries: u32, #[len_param(2)] prgbq: *mut RGBQUAD) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, cLines: u32, #[opt] lpvBits: *mut void, lpbmi: *mut BITMAPINFO, usage: u32) -> i32;
+        extern fn GetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, cLines: u32, #[opt] lpvBits: *mut void, lpbmi: LPBITMAPINFO, usage: u32) -> i32;
         #[library("GDI32.dll")]
         extern fn GetDeviceCaps(#[opt] hdc: HDC, index: i32) -> i32;
         #[library("GDI32.dll")]
@@ -2461,15 +2363,15 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetEnhMetaFileA(lpName: PCSTR) -> HENHMETAFILE;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFileBits(hEMF: HENHMETAFILE, nSize: u32, #[size_param(1)] #[opt] lpData: *mut u8) -> u32;
+        extern fn GetEnhMetaFileBits(hEMF: HENHMETAFILE, nSize: u32, #[size_param(1)] #[out] #[opt] lpData: LPBYTE) -> u32;
         #[library("GDI32.dll")]
         extern fn GetEnhMetaFileDescriptionA(hemf: HENHMETAFILE, cchBuffer: u32, #[len_param(1)] #[out] #[opt] lpDescription: PSTR) -> u32;
         #[library("GDI32.dll")]
         extern fn GetEnhMetaFileDescriptionW(hemf: HENHMETAFILE, cchBuffer: u32, #[len_param(1)] #[out] #[opt] lpDescription: PWSTR) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFileHeader(hemf: HENHMETAFILE, nSize: u32, #[size_param(1)] #[opt] lpEnhMetaHeader: *mut ENHMETAHEADER) -> u32;
+        extern fn GetEnhMetaFileHeader(hemf: HENHMETAFILE, nSize: u32, #[size_param(1)] #[out] #[opt] lpEnhMetaHeader: LPENHMETAHEADER) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, nNumEntries: u32, #[len_param(1)] #[opt] lpPaletteEntries: *mut PALETTEENTRY) -> u32;
+        extern fn GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, nNumEntries: u32, #[len_param(1)] #[out] #[opt] lpPaletteEntries: LPPALETTEENTRY) -> u32;
         #[library("GDI32.dll")]
         extern fn GetEnhMetaFilePixelFormat(hemf: HENHMETAFILE, cbBuffer: u32, #[size_param(1)] #[opt] ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
         #[library("GDI32.dll")]
@@ -2479,31 +2381,31 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetFontLanguageInfo(hdc: HDC) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetFontUnicodeRanges(hdc: HDC, #[opt] lpgs: *mut GLYPHSET) -> u32;
+        extern fn GetFontUnicodeRanges(hdc: HDC, #[out] #[opt] lpgs: LPGLYPHSET) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetGlyphIndicesA(hdc: HDC, #[len_param(2)] lpstr: PCSTR, c: i32, #[len_param(2)] pgi: *mut u16, fl: u32) -> u32;
+        extern fn GetGlyphIndicesA(hdc: HDC, #[len_param(2)] lpstr: PCSTR, c: i32, #[len_param(2)] #[out] pgi: LPWORD, fl: u32) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetGlyphIndicesW(hdc: HDC, #[len_param(2)] lpstr: PCWSTR, c: i32, #[len_param(2)] pgi: *mut u16, fl: u32) -> u32;
+        extern fn GetGlyphIndicesW(hdc: HDC, #[len_param(2)] lpstr: PCWSTR, c: i32, #[len_param(2)] #[out] pgi: LPWORD, fl: u32) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetGlyphOutlineA(hdc: HDC, uChar: u32, fuFormat: u32, lpgm: *mut GLYPHMETRICS, cjBuffer: u32, #[size_param(4)] #[opt] pvBuffer: *mut void, lpmat2: *const MAT2) -> u32;
+        extern fn GetGlyphOutlineA(hdc: HDC, uChar: u32, fuFormat: u32, #[out] lpgm: LPGLYPHMETRICS, cjBuffer: u32, #[size_param(4)] #[opt] pvBuffer: *mut void, lpmat2: *const MAT2) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetGlyphOutlineW(hdc: HDC, uChar: u32, fuFormat: u32, lpgm: *mut GLYPHMETRICS, cjBuffer: u32, #[size_param(4)] #[opt] pvBuffer: *mut void, lpmat2: *const MAT2) -> u32;
+        extern fn GetGlyphOutlineW(hdc: HDC, uChar: u32, fuFormat: u32, #[out] lpgm: LPGLYPHMETRICS, cjBuffer: u32, #[size_param(4)] #[opt] pvBuffer: *mut void, lpmat2: *const MAT2) -> u32;
         #[library("GDI32.dll")]
         extern fn GetGraphicsMode(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetICMProfileA(hdc: HDC, #[in] #[out] pBufSize: *mut u32, #[len_param(1)] #[out] #[opt] pszFilename: PSTR) -> BOOL;
+        extern fn GetICMProfileA(hdc: HDC, #[in] #[out] pBufSize: LPDWORD, #[len_param(1)] #[out] #[opt] pszFilename: PSTR) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetICMProfileW(hdc: HDC, #[in] #[out] pBufSize: *mut u32, #[len_param(1)] #[out] #[opt] pszFilename: PWSTR) -> BOOL;
+        extern fn GetICMProfileW(hdc: HDC, #[in] #[out] pBufSize: LPDWORD, #[len_param(1)] #[out] #[opt] pszFilename: PWSTR) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetKerningPairsA(hdc: HDC, nPairs: u32, #[len_param(1)] #[opt] lpKernPair: *mut KERNINGPAIR) -> u32;
+        extern fn GetKerningPairsA(hdc: HDC, nPairs: u32, #[len_param(1)] #[out] #[opt] lpKernPair: LPKERNINGPAIR) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetKerningPairsW(hdc: HDC, nPairs: u32, #[len_param(1)] #[opt] lpKernPair: *mut KERNINGPAIR) -> u32;
+        extern fn GetKerningPairsW(hdc: HDC, nPairs: u32, #[len_param(1)] #[out] #[opt] lpKernPair: LPKERNINGPAIR) -> u32;
         #[library("GDI32.dll")]
         extern fn GetLayout(hdc: HDC) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetLogColorSpaceA(hColorSpace: HCOLORSPACE, #[size_param(2)] lpBuffer: *mut LOGCOLORSPACEA, nSize: u32) -> BOOL;
+        extern fn GetLogColorSpaceA(hColorSpace: HCOLORSPACE, #[size_param(2)] #[out] lpBuffer: LPLOGCOLORSPACEA, nSize: u32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetLogColorSpaceW(hColorSpace: HCOLORSPACE, #[size_param(2)] lpBuffer: *mut LOGCOLORSPACEW, nSize: u32) -> BOOL;
+        extern fn GetLogColorSpaceW(hColorSpace: HCOLORSPACE, #[size_param(2)] #[out] lpBuffer: LPLOGCOLORSPACEW, nSize: u32) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetMapMode(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
@@ -2515,7 +2417,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetMetaRgn(hdc: HDC, hrgn: HRGN) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetMiterLimit(hdc: HDC, plimit: *mut f32) -> BOOL;
+        extern fn GetMiterLimit(hdc: HDC, #[out] plimit: PFLOAT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetNearestColor(hdc: HDC, color: COLORREF) -> COLORREF;
         #[library("GDI32.dll")]
@@ -2527,13 +2429,13 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetObjectW(h: HANDLE, c: i32, #[size_param(1)] #[opt] pv: *mut void) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetOutlineTextMetricsA(hdc: HDC, cjCopy: u32, #[size_param(1)] #[opt] potm: *mut OUTLINETEXTMETRICA) -> u32;
+        extern fn GetOutlineTextMetricsA(hdc: HDC, cjCopy: u32, #[size_param(1)] #[out] #[opt] potm: LPOUTLINETEXTMETRICA) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetOutlineTextMetricsW(hdc: HDC, cjCopy: u32, #[size_param(1)] #[opt] potm: *mut OUTLINETEXTMETRICW) -> u32;
+        extern fn GetOutlineTextMetricsW(hdc: HDC, cjCopy: u32, #[size_param(1)] #[out] #[opt] potm: LPOUTLINETEXTMETRICW) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetPaletteEntries(hpal: HPALETTE, iStart: u32, cEntries: u32, #[len_param(2)] #[opt] pPalEntries: *mut PALETTEENTRY) -> u32;
+        extern fn GetPaletteEntries(hpal: HPALETTE, iStart: u32, cEntries: u32, #[len_param(2)] #[out] #[opt] pPalEntries: LPPALETTEENTRY) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetPath(hdc: HDC, #[len_param(3)] #[opt] apt: *mut POINT, #[len_param(3)] #[opt] aj: *mut u8, cpt: i32) -> i32;
+        extern fn GetPath(hdc: HDC, #[len_param(3)] #[out] #[opt] apt: LPPOINT, #[len_param(3)] #[out] #[opt] aj: LPBYTE, cpt: i32) -> i32;
         #[library("GDI32.dll")]
         extern fn GetPixel(hdc: HDC, x: i32, y: i32) -> COLORREF;
         #[library("GDI32.dll")]
@@ -2545,17 +2447,17 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetRandomRgn(hdc: HDC, hrgn: HRGN, i: i32) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetRasterizerCaps(#[size_param(1)] lpraststat: *mut RASTERIZER_STATUS, cjBytes: u32) -> BOOL;
+        extern fn GetRasterizerCaps(#[size_param(1)] #[out] lpraststat: LPRASTERIZER_STATUS, cjBytes: u32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetRegionData(hrgn: HRGN, nCount: u32, #[size_param(1)] #[opt] lpRgnData: *mut RGNDATA) -> u32;
+        extern fn GetRegionData(hrgn: HRGN, nCount: u32, #[size_param(1)] #[out] #[opt] lpRgnData: LPRGNDATA) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetRgnBox(hrgn: HRGN, lprc: *mut RECT) -> i32;
+        extern fn GetRgnBox(hrgn: HRGN, #[out] lprc: LPRECT) -> i32;
         #[library("GDI32.dll")]
         extern fn GetStockObject(i: i32) -> HGDIOBJ;
         #[library("GDI32.dll")]
         extern fn GetStretchBltMode(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetSystemPaletteEntries(hdc: HDC, iStart: u32, cEntries: u32, #[len_param(2)] #[opt] pPalEntries: *mut PALETTEENTRY) -> u32;
+        extern fn GetSystemPaletteEntries(hdc: HDC, iStart: u32, cEntries: u32, #[len_param(2)] #[out] #[opt] pPalEntries: LPPALETTEENTRY) -> u32;
         #[library("GDI32.dll")]
         extern fn GetSystemPaletteUse(hdc: HDC) -> u32;
         #[library("GDI32.dll")]
@@ -2565,47 +2467,47 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn GetTextCharset(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetTextCharsetInfo(hdc: HDC, #[opt] lpSig: *mut FONTSIGNATURE, dwFlags: u32) -> i32;
+        extern fn GetTextCharsetInfo(hdc: HDC, #[out] #[opt] lpSig: LPFONTSIGNATURE, dwFlags: u32) -> i32;
         #[library("GDI32.dll")]
         extern fn GetTextColor(hdc: HDC) -> COLORREF;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentExPointA(hdc: HDC, #[len_param(2)] lpszString: PCSTR, cchString: i32, nMaxExtent: i32, #[opt] lpnFit: *mut i32, #[len_param(2)] #[opt] lpnDx: *mut i32, lpSize: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentExPointA(hdc: HDC, #[len_param(2)] lpszString: PCSTR, cchString: i32, nMaxExtent: i32, #[out] #[opt] lpnFit: LPINT, #[len_param(2)] #[out] #[opt] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentExPointI(hdc: HDC, #[len_param(2)] lpwszString: *const u16, cwchString: i32, nMaxExtent: i32, #[opt] lpnFit: *mut i32, #[len_param(2)] #[opt] lpnDx: *mut i32, lpSize: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentExPointI(hdc: HDC, #[len_param(2)] lpwszString: LPWORD, cwchString: i32, nMaxExtent: i32, #[out] #[opt] lpnFit: LPINT, #[len_param(2)] #[out] #[opt] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentExPointW(hdc: HDC, #[len_param(2)] lpszString: PCWSTR, cchString: i32, nMaxExtent: i32, #[opt] lpnFit: *mut i32, #[len_param(2)] #[opt] lpnDx: *mut i32, lpSize: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentExPointW(hdc: HDC, #[len_param(2)] lpszString: PCWSTR, cchString: i32, nMaxExtent: i32, #[out] #[opt] lpnFit: LPINT, #[len_param(2)] #[out] #[opt] lpnDx: LPINT, #[out] lpSize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPoint32A(hdc: HDC, #[len_param(2)] lpString: PCSTR, c: i32, psizl: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentPoint32A(hdc: HDC, #[len_param(2)] lpString: PCSTR, c: i32, #[out] psizl: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPoint32W(hdc: HDC, #[len_param(2)] lpString: PCWSTR, c: i32, psizl: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentPoint32W(hdc: HDC, #[len_param(2)] lpString: PCWSTR, c: i32, #[out] psizl: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPointA(hdc: HDC, #[len_param(2)] lpString: PCSTR, c: i32, lpsz: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentPointA(hdc: HDC, #[len_param(2)] lpString: PCSTR, c: i32, #[out] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPointI(hdc: HDC, #[len_param(2)] pgiIn: *const u16, cgi: i32, psize: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentPointI(hdc: HDC, #[len_param(2)] pgiIn: LPWORD, cgi: i32, #[out] psize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextExtentPointW(hdc: HDC, #[len_param(2)] lpString: PCWSTR, c: i32, lpsz: *mut SIZE) -> BOOL;
+        extern fn GetTextExtentPointW(hdc: HDC, #[len_param(2)] lpString: PCWSTR, c: i32, #[out] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
         extern fn GetTextFaceA(hdc: HDC, c: i32, #[len_param(1)] #[out] #[opt] lpName: PSTR) -> i32;
         #[library("GDI32.dll")]
         extern fn GetTextFaceW(hdc: HDC, c: i32, #[len_param(1)] #[out] #[opt] lpName: PWSTR) -> i32;
         #[library("GDI32.dll")]
-        extern fn GetTextMetricsA(hdc: HDC, lptm: *mut TEXTMETRICA) -> BOOL;
+        extern fn GetTextMetricsA(hdc: HDC, #[out] lptm: LPTEXTMETRICA) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetTextMetricsW(hdc: HDC, lptm: *mut TEXTMETRICW) -> BOOL;
+        extern fn GetTextMetricsW(hdc: HDC, #[out] lptm: LPTEXTMETRICW) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetViewportExtEx(hdc: HDC, lpsize: *mut SIZE) -> BOOL;
+        extern fn GetViewportExtEx(hdc: HDC, #[out] lpsize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetViewportOrgEx(hdc: HDC, lppoint: *mut POINT) -> BOOL;
+        extern fn GetViewportOrgEx(hdc: HDC, #[out] lppoint: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetWinMetaFileBits(hemf: HENHMETAFILE, cbData16: u32, #[size_param(1)] #[opt] pData16: *mut u8, iMapMode: i32, hdcRef: HDC) -> u32;
+        extern fn GetWinMetaFileBits(hemf: HENHMETAFILE, cbData16: u32, #[size_param(1)] #[out] #[opt] pData16: LPBYTE, iMapMode: i32, hdcRef: HDC) -> u32;
         #[library("GDI32.dll")]
-        extern fn GetWindowExtEx(hdc: HDC, lpsize: *mut SIZE) -> BOOL;
+        extern fn GetWindowExtEx(hdc: HDC, #[out] lpsize: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetWindowOrgEx(hdc: HDC, lppoint: *mut POINT) -> BOOL;
+        extern fn GetWindowOrgEx(hdc: HDC, #[out] lppoint: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn GetWorldTransform(hdc: HDC, lpxf: *mut XFORM) -> BOOL;
+        extern fn GetWorldTransform(hdc: HDC, #[out] lpxf: LPXFORM) -> BOOL;
         #[library("MSIMG32.dll")]
-        extern fn GradientFill(hdc: HDC, #[len_param(2)] pVertex: *const TRIVERTEX, nVertex: u32, pMesh: *const void, nMesh: u32, ulMode: u32) -> BOOL;
+        extern fn GradientFill(hdc: HDC, #[len_param(2)] pVertex: PTRIVERTEX, nVertex: u32, #[in] pMesh: *mut void, nMesh: u32, ulMode: u32) -> BOOL;
         const HALFTONE: i32 = 4;
         struct HANDLETABLE {
             objectHandle: [HGDIOBJ; 1],
@@ -2613,6 +2515,8 @@ mod Windows {
         const HANGEUL_CHARSET: i32 = 129;
         const HANGUL_CHARSET: i32 = 129;
         const HEBREW_CHARSET: i32 = 177;
+        #[arch(X86)]
+        const HGDI_ERROR: HANDLE = -1;
         const HOLLOW_BRUSH: i32 = 5;
         const HORZRES: i32 = 8;
         const HORZSIZE: i32 = 4;
@@ -2920,7 +2824,7 @@ mod Windows {
         type LPWGLSWAP = *mut WGLSWAP;
         type LPXFORM = *mut XFORM;
         #[library("GDI32.dll")]
-        extern fn LPtoDP(hdc: HDC, #[len_param(2)] #[in] #[out] lppt: *mut POINT, c: i32) -> BOOL;
+        extern fn LPtoDP(hdc: HDC, #[len_param(2)] #[in] #[out] lppt: LPPOINT, c: i32) -> BOOL;
         const LTGRAY_BRUSH: i32 = 1;
         #[library("GDI32.dll")]
         extern fn LineDDA(xStart: i32, yStart: i32, xEnd: i32, yEnd: i32, lpProc: LINEDDAPROC, #[opt] data: LPARAM) -> BOOL;
@@ -3028,7 +2932,7 @@ mod Windows {
         const META_STRETCHDIB: i32 = 3907;
         const META_TEXTOUT: i32 = 1313;
         const MFCOMMENT: i32 = 15;
-        extern fn MFENUMPROC(hdc: HDC, #[len_param(3)] lpht: *const HANDLETABLE, lpMR: *const METARECORD, nObj: i32, #[opt] param: LPARAM) -> i32;
+        extern fn MFENUMPROC(hdc: HDC, #[len_param(3)] #[in] lpht: *mut HANDLETABLE, #[in] lpMR: *mut METARECORD, nObj: i32, #[opt] param: LPARAM) -> i32;
         const MILCORE_TS_QUERYVER_RESULT_FALSE: i32 = 0;
         const MILCORE_TS_QUERYVER_RESULT_TRUE: i32 = 2147483647;
         const MM_ANISOTROPIC: i32 = 8;
@@ -3056,7 +2960,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn ModifyWorldTransform(hdc: HDC, #[opt] lpxf: *const XFORM, mode: u32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn MoveToEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        extern fn MoveToEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lppt: LPPOINT) -> BOOL;
         const NEWFRAME: i32 = 1;
         type NEWTEXTMETRIC = NEWTEXTMETRICA;
         struct NEWTEXTMETRICA {
@@ -3283,9 +3187,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> i32;
         #[library("GDI32.dll")]
-        extern fn OffsetViewportOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        extern fn OffsetViewportOrgEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn OffsetWindowOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        extern fn OffsetWindowOrgEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lppt: LPPOINT) -> BOOL;
         type PABC = *mut ABC;
         type PABCFLOAT = *mut ABCFLOAT;
         struct PALETTEENTRY {
@@ -3468,15 +3372,15 @@ mod Windows {
             paRGBs: u8,
         }
         type PEMR = *mut EMR;
-        type PEMRABORTPATH = *mut EMRABORTPATH;
+        type PEMRABORTPATH = *mut tagABORTPATH;
         type PEMRALPHABLEND = *mut EMRALPHABLEND;
         type PEMRANGLEARC = *mut EMRANGLEARC;
-        type PEMRARC = *mut EMRARC;
-        type PEMRARCTO = *mut EMRARC;
-        type PEMRBEGINPATH = *mut EMRABORTPATH;
+        type PEMRARC = *mut tagEMRARC;
+        type PEMRARCTO = *mut tagEMRARC;
+        type PEMRBEGINPATH = *mut tagABORTPATH;
         type PEMRBITBLT = *mut EMRBITBLT;
-        type PEMRCHORD = *mut EMRARC;
-        type PEMRCLOSEFIGURE = *mut EMRABORTPATH;
+        type PEMRCHORD = *mut tagEMRARC;
+        type PEMRCLOSEFIGURE = *mut tagABORTPATH;
         type PEMRCOLORCORRECTPALETTE = *mut EMRCOLORCORRECTPALETTE;
         type PEMRCOLORMATCHTOTARGET = *mut EMRCOLORMATCHTOTARGET;
         type PEMRCREATEBRUSHINDIRECT = *mut EMRCREATEBRUSHINDIRECT;
@@ -3486,106 +3390,106 @@ mod Windows {
         type PEMRCREATEMONOBRUSH = *mut EMRCREATEMONOBRUSH;
         type PEMRCREATEPALETTE = *mut EMRCREATEPALETTE;
         type PEMRCREATEPEN = *mut EMRCREATEPEN;
-        type PEMRDELETECOLORSPACE = *mut EMRSETCOLORSPACE;
-        type PEMRDELETEOBJECT = *mut EMRSELECTOBJECT;
-        type PEMRDRAWESCAPE = *mut EMREXTESCAPE;
-        type PEMRELLIPSE = *mut EMRELLIPSE;
-        type PEMRENDPATH = *mut EMRABORTPATH;
+        type PEMRDELETECOLORSPACE = *mut tagEMRSETCOLORSPACE;
+        type PEMRDELETEOBJECT = *mut tagEMRSELECTOBJECT;
+        type PEMRDRAWESCAPE = *mut tagEMREXTESCAPE;
+        type PEMRELLIPSE = *mut tagEMRELLIPSE;
+        type PEMRENDPATH = *mut tagABORTPATH;
         type PEMREOF = *mut EMREOF;
-        type PEMREXCLUDECLIPRECT = *mut EMREXCLUDECLIPRECT;
+        type PEMREXCLUDECLIPRECT = *mut tagEMREXCLUDECLIPRECT;
         type PEMREXTCREATEFONTINDIRECTW = *mut EMREXTCREATEFONTINDIRECTW;
         type PEMREXTCREATEPEN = *mut EMREXTCREATEPEN;
-        type PEMREXTESCAPE = *mut EMREXTESCAPE;
+        type PEMREXTESCAPE = *mut tagEMREXTESCAPE;
         type PEMREXTFLOODFILL = *mut EMREXTFLOODFILL;
         type PEMREXTSELECTCLIPRGN = *mut EMREXTSELECTCLIPRGN;
-        type PEMREXTTEXTOUTA = *mut EMREXTTEXTOUTA;
-        type PEMREXTTEXTOUTW = *mut EMREXTTEXTOUTA;
-        type PEMRFILLPATH = *mut EMRFILLPATH;
+        type PEMREXTTEXTOUTA = *mut tagEMREXTTEXTOUTA;
+        type PEMREXTTEXTOUTW = *mut tagEMREXTTEXTOUTA;
+        type PEMRFILLPATH = *mut tagEMRFILLPATH;
         type PEMRFILLRGN = *mut EMRFILLRGN;
-        type PEMRFLATTENPATH = *mut EMRABORTPATH;
+        type PEMRFLATTENPATH = *mut tagABORTPATH;
         type PEMRFORMAT = *mut EMRFORMAT;
         type PEMRFRAMERGN = *mut EMRFRAMERGN;
         type PEMRGDICOMMENT = *mut EMRGDICOMMENT;
         type PEMRGLSBOUNDEDRECORD = *mut EMRGLSBOUNDEDRECORD;
         type PEMRGLSRECORD = *mut EMRGLSRECORD;
         type PEMRGRADIENTFILL = *mut EMRGRADIENTFILL;
-        type PEMRINTERSECTCLIPRECT = *mut EMREXCLUDECLIPRECT;
-        type PEMRINVERTRGN = *mut EMRINVERTRGN;
-        type PEMRLINETO = *mut EMRLINETO;
+        type PEMRINTERSECTCLIPRECT = *mut tagEMREXCLUDECLIPRECT;
+        type PEMRINVERTRGN = *mut tagEMRINVERTRGN;
+        type PEMRLINETO = *mut tagEMRLINETO;
         type PEMRMASKBLT = *mut EMRMASKBLT;
         type PEMRMODIFYWORLDTRANSFORM = *mut EMRMODIFYWORLDTRANSFORM;
-        type PEMRMOVETOEX = *mut EMRLINETO;
+        type PEMRMOVETOEX = *mut tagEMRLINETO;
         type PEMRNAMEDESCAPE = *mut EMRNAMEDESCAPE;
         type PEMROFFSETCLIPRGN = *mut EMROFFSETCLIPRGN;
-        type PEMRPAINTRGN = *mut EMRINVERTRGN;
-        type PEMRPIE = *mut EMRARC;
+        type PEMRPAINTRGN = *mut tagEMRINVERTRGN;
+        type PEMRPIE = *mut tagEMRARC;
         type PEMRPIXELFORMAT = *mut EMRPIXELFORMAT;
         type PEMRPLGBLT = *mut EMRPLGBLT;
-        type PEMRPOLYBEZIER = *mut EMRPOLYLINE;
-        type PEMRPOLYBEZIER16 = *mut EMRPOLYLINE16;
-        type PEMRPOLYBEZIERTO = *mut EMRPOLYLINE;
-        type PEMRPOLYBEZIERTO16 = *mut EMRPOLYLINE16;
+        type PEMRPOLYBEZIER = *mut tagEMRPOLYLINE;
+        type PEMRPOLYBEZIER16 = *mut tagEMRPOLYLINE16;
+        type PEMRPOLYBEZIERTO = *mut tagEMRPOLYLINE;
+        type PEMRPOLYBEZIERTO16 = *mut tagEMRPOLYLINE16;
         type PEMRPOLYDRAW = *mut EMRPOLYDRAW;
         type PEMRPOLYDRAW16 = *mut EMRPOLYDRAW16;
-        type PEMRPOLYGON = *mut EMRPOLYLINE;
-        type PEMRPOLYGON16 = *mut EMRPOLYLINE16;
-        type PEMRPOLYLINE = *mut EMRPOLYLINE;
-        type PEMRPOLYLINE16 = *mut EMRPOLYLINE16;
-        type PEMRPOLYLINETO = *mut EMRPOLYLINE;
-        type PEMRPOLYLINETO16 = *mut EMRPOLYLINE16;
-        type PEMRPOLYPOLYGON = *mut EMRPOLYPOLYLINE;
-        type PEMRPOLYPOLYGON16 = *mut EMRPOLYPOLYLINE16;
-        type PEMRPOLYPOLYLINE = *mut EMRPOLYPOLYLINE;
-        type PEMRPOLYPOLYLINE16 = *mut EMRPOLYPOLYLINE16;
-        type PEMRPOLYTEXTOUTA = *mut EMRPOLYTEXTOUTA;
-        type PEMRPOLYTEXTOUTW = *mut EMRPOLYTEXTOUTA;
-        type PEMRREALIZEPALETTE = *mut EMRABORTPATH;
-        type PEMRRECTANGLE = *mut EMRELLIPSE;
+        type PEMRPOLYGON = *mut tagEMRPOLYLINE;
+        type PEMRPOLYGON16 = *mut tagEMRPOLYLINE16;
+        type PEMRPOLYLINE = *mut tagEMRPOLYLINE;
+        type PEMRPOLYLINE16 = *mut tagEMRPOLYLINE16;
+        type PEMRPOLYLINETO = *mut tagEMRPOLYLINE;
+        type PEMRPOLYLINETO16 = *mut tagEMRPOLYLINE16;
+        type PEMRPOLYPOLYGON = *mut tagEMRPOLYPOLYLINE;
+        type PEMRPOLYPOLYGON16 = *mut tagEMRPOLYPOLYLINE16;
+        type PEMRPOLYPOLYLINE = *mut tagEMRPOLYPOLYLINE;
+        type PEMRPOLYPOLYLINE16 = *mut tagEMRPOLYPOLYLINE16;
+        type PEMRPOLYTEXTOUTA = *mut tagEMRPOLYTEXTOUTA;
+        type PEMRPOLYTEXTOUTW = *mut tagEMRPOLYTEXTOUTA;
+        type PEMRREALIZEPALETTE = *mut tagABORTPATH;
+        type PEMRRECTANGLE = *mut tagEMRELLIPSE;
         type PEMRRESIZEPALETTE = *mut EMRRESIZEPALETTE;
         type PEMRRESTOREDC = *mut EMRRESTOREDC;
         type PEMRROUNDRECT = *mut EMRROUNDRECT;
-        type PEMRSAVEDC = *mut EMRABORTPATH;
-        type PEMRSCALEVIEWPORTEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
-        type PEMRSCALEWINDOWEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
-        type PEMRSELECTCLIPPATH = *mut EMRSELECTCLIPPATH;
-        type PEMRSELECTCOLORSPACE = *mut EMRSETCOLORSPACE;
-        type PEMRSELECTOBJECT = *mut EMRSELECTOBJECT;
+        type PEMRSAVEDC = *mut tagABORTPATH;
+        type PEMRSCALEVIEWPORTEXTEX = *mut tagEMRSCALEVIEWPORTEXTEX;
+        type PEMRSCALEWINDOWEXTEX = *mut tagEMRSCALEVIEWPORTEXTEX;
+        type PEMRSELECTCLIPPATH = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSELECTCOLORSPACE = *mut tagEMRSETCOLORSPACE;
+        type PEMRSELECTOBJECT = *mut tagEMRSELECTOBJECT;
         type PEMRSELECTPALETTE = *mut EMRSELECTPALETTE;
         type PEMRSETARCDIRECTION = *mut EMRSETARCDIRECTION;
-        type PEMRSETBKCOLOR = *mut EMRSETBKCOLOR;
-        type PEMRSETBKMODE = *mut EMRSELECTCLIPPATH;
-        type PEMRSETBRUSHORGEX = *mut EMRSETVIEWPORTORGEX;
+        type PEMRSETBKCOLOR = *mut tagEMRSETTEXTCOLOR;
+        type PEMRSETBKMODE = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSETBRUSHORGEX = *mut tagEMRSETVIEWPORTORGEX;
         type PEMRSETCOLORADJUSTMENT = *mut EMRSETCOLORADJUSTMENT;
-        type PEMRSETCOLORSPACE = *mut EMRSETCOLORSPACE;
+        type PEMRSETCOLORSPACE = *mut tagEMRSETCOLORSPACE;
         type PEMRSETDIBITSTODEVICE = *mut EMRSETDIBITSTODEVICE;
-        type PEMRSETICMMODE = *mut EMRSELECTCLIPPATH;
-        type PEMRSETICMPROFILE = *mut EMRSETICMPROFILE;
-        type PEMRSETICMPROFILEA = *mut EMRSETICMPROFILE;
-        type PEMRSETICMPROFILEW = *mut EMRSETICMPROFILE;
-        type PEMRSETLAYOUT = *mut EMRSELECTCLIPPATH;
-        type PEMRSETMAPMODE = *mut EMRSELECTCLIPPATH;
+        type PEMRSETICMMODE = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSETICMPROFILE = *mut tagEMRSETICMPROFILE;
+        type PEMRSETICMPROFILEA = *mut tagEMRSETICMPROFILE;
+        type PEMRSETICMPROFILEW = *mut tagEMRSETICMPROFILE;
+        type PEMRSETLAYOUT = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSETMAPMODE = *mut tagEMRSELECTCLIPPATH;
         type PEMRSETMAPPERFLAGS = *mut EMRSETMAPPERFLAGS;
-        type PEMRSETMETARGN = *mut EMRABORTPATH;
+        type PEMRSETMETARGN = *mut tagABORTPATH;
         type PEMRSETMITERLIMIT = *mut EMRSETMITERLIMIT;
         type PEMRSETPALETTEENTRIES = *mut EMRSETPALETTEENTRIES;
         type PEMRSETPIXELV = *mut EMRSETPIXELV;
-        type PEMRSETPOLYFILLMODE = *mut EMRSELECTCLIPPATH;
-        type PEMRSETROP2 = *mut EMRSELECTCLIPPATH;
-        type PEMRSETSTRETCHBLTMODE = *mut EMRSELECTCLIPPATH;
-        type PEMRSETTEXTALIGN = *mut EMRSELECTCLIPPATH;
-        type PEMRSETTEXTCOLOR = *mut EMRSETBKCOLOR;
-        type PEMRSETVIEWPORTEXTEX = *mut EMRSETVIEWPORTEXTEX;
-        type PEMRSETVIEWPORTORGEX = *mut EMRSETVIEWPORTORGEX;
-        type PEMRSETWINDOWEXTEX = *mut EMRSETVIEWPORTEXTEX;
-        type PEMRSETWINDOWORGEX = *mut EMRSETVIEWPORTORGEX;
+        type PEMRSETPOLYFILLMODE = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSETROP2 = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSETSTRETCHBLTMODE = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSETTEXTALIGN = *mut tagEMRSELECTCLIPPATH;
+        type PEMRSETTEXTCOLOR = *mut tagEMRSETTEXTCOLOR;
+        type PEMRSETVIEWPORTEXTEX = *mut tagEMRSETVIEWPORTEXTEX;
+        type PEMRSETVIEWPORTORGEX = *mut tagEMRSETVIEWPORTORGEX;
+        type PEMRSETWINDOWEXTEX = *mut tagEMRSETVIEWPORTEXTEX;
+        type PEMRSETWINDOWORGEX = *mut tagEMRSETVIEWPORTORGEX;
         type PEMRSETWORLDTRANSFORM = *mut EMRSETWORLDTRANSFORM;
         type PEMRSTRETCHBLT = *mut EMRSTRETCHBLT;
         type PEMRSTRETCHDIBITS = *mut EMRSTRETCHDIBITS;
-        type PEMRSTROKEANDFILLPATH = *mut EMRFILLPATH;
-        type PEMRSTROKEPATH = *mut EMRFILLPATH;
+        type PEMRSTROKEANDFILLPATH = *mut tagEMRFILLPATH;
+        type PEMRSTROKEPATH = *mut tagEMRFILLPATH;
         type PEMRTEXT = *mut EMRTEXT;
         type PEMRTRANSPARENTBLT = *mut EMRTRANSPARENTBLT;
-        type PEMRWIDENPATH = *mut EMRABORTPATH;
+        type PEMRWIDENPATH = *mut tagABORTPATH;
         type PENHMETAHEADER = *mut ENHMETAHEADER;
         type PENHMETARECORD = *mut ENHMETARECORD;
         type PENUMLOGFONTEXDV = PENUMLOGFONTEXDVA;
@@ -3832,11 +3736,11 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn PlayEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, lprect: *const RECT) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PlayEnhMetaFileRecord(hdc: HDC, #[len_param(3)] pht: *const HANDLETABLE, pmr: *const ENHMETARECORD, cht: u32) -> BOOL;
+        extern fn PlayEnhMetaFileRecord(hdc: HDC, #[len_param(3)] pht: LPHANDLETABLE, pmr: *const ENHMETARECORD, cht: u32) -> BOOL;
         #[library("GDI32.dll")]
         extern fn PlayMetaFile(hdc: HDC, hmf: HMETAFILE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn PlayMetaFileRecord(hdc: HDC, #[len_param(3)] lpHandleTable: *const HANDLETABLE, lpMR: *const METARECORD, noObjs: u32) -> BOOL;
+        extern fn PlayMetaFileRecord(hdc: HDC, #[len_param(3)] lpHandleTable: LPHANDLETABLE, lpMR: LPMETARECORD, noObjs: u32) -> BOOL;
         #[library("GDI32.dll")]
         extern fn PlgBlt(hdcDest: HDC, #[len_const(3)] lpPoint: *const POINT, hdcSrc: HDC, xSrc: i32, ySrc: i32, width: i32, height: i32, #[opt] hbmMask: HBITMAP, xMask: i32, yMask: i32) -> BOOL;
         #[library("GDI32.dll")]
@@ -3968,9 +3872,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn RemoveFontResourceA(lpFileName: PCSTR) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn RemoveFontResourceExA(name: PCSTR, fl: u32, #[reserved] pdv: *const void) -> BOOL;
+        extern fn RemoveFontResourceExA(name: PCSTR, fl: u32, #[reserved] pdv: *mut void) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn RemoveFontResourceExW(name: PCWSTR, fl: u32, #[reserved] pdv: *const void) -> BOOL;
+        extern fn RemoveFontResourceExW(name: PCWSTR, fl: u32, #[reserved] pdv: *mut void) -> BOOL;
         #[library("GDI32.dll")]
         extern fn RemoveFontResourceW(lpFileName: PCWSTR) -> BOOL;
         #[library("GDI32.dll")]
@@ -4067,9 +3971,9 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SaveDC(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn ScaleViewportExtEx(hdc: HDC, xn: i32, dx: i32, yn: i32, yd: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        extern fn ScaleViewportExtEx(hdc: HDC, xn: i32, dx: i32, yn: i32, yd: i32, #[out] #[opt] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn ScaleWindowExtEx(hdc: HDC, xn: i32, xd: i32, yn: i32, yd: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        extern fn ScaleWindowExtEx(hdc: HDC, xn: i32, xd: i32, yn: i32, yd: i32, #[out] #[opt] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
         extern fn SelectClipPath(hdc: HDC, mode: i32) -> BOOL;
         #[library("GDI32.dll")]
@@ -4085,7 +3989,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetBitmapBits(hbm: HBITMAP, cb: u32, #[size_param(1)] pvBits: *const void) -> i32;
         #[library("GDI32.dll")]
-        extern fn SetBitmapDimensionEx(hbm: HBITMAP, w: i32, h: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        extern fn SetBitmapDimensionEx(hbm: HBITMAP, w: i32, h: i32, #[out] #[opt] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
         extern fn SetBkColor(hdc: HDC, color: COLORREF) -> COLORREF;
         #[library("GDI32.dll")]
@@ -4093,7 +3997,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetBoundsRect(hdc: HDC, #[opt] lprect: *const RECT, flags: u32) -> u32;
         #[library("GDI32.dll")]
-        extern fn SetBrushOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        extern fn SetBrushOrgEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn SetColorAdjustment(hdc: HDC, lpca: *const COLORADJUSTMENT) -> BOOL;
         #[library("GDI32.dll")]
@@ -4109,7 +4013,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetDIBitsToDevice(hdc: HDC, xDest: i32, yDest: i32, w: u32, h: u32, xSrc: i32, ySrc: i32, StartScan: u32, cLines: u32, lpvBits: *const void, lpbmi: *const BITMAPINFO, ColorUse: u32) -> i32;
         #[library("GDI32.dll")]
-        extern fn SetDeviceGammaRamp(hdc: HDC, lpRamp: *const void) -> BOOL;
+        extern fn SetDeviceGammaRamp(hdc: HDC, #[in] lpRamp: *mut void) -> BOOL;
         #[library("GDI32.dll")]
         extern fn SetEnhMetaFileBits(nSize: u32, #[size_param(0)] pb: *const u8) -> HENHMETAFILE;
         #[library("GDI32.dll")]
@@ -4131,7 +4035,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetMetaRgn(hdc: HDC) -> i32;
         #[library("GDI32.dll")]
-        extern fn SetMiterLimit(hdc: HDC, limit: f32, #[opt] old: *mut f32) -> BOOL;
+        extern fn SetMiterLimit(hdc: HDC, limit: f32, #[out] #[opt] old: PFLOAT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn SetPaletteEntries(hpal: HPALETTE, iStart: u32, cEntries: u32, #[len_param(2)] pPalEntries: *const PALETTEENTRY) -> u32;
         #[library("GDI32.dll")]
@@ -4159,15 +4063,15 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn SetTextJustification(hdc: HDC, extra: i32, count: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn SetViewportExtEx(hdc: HDC, x: i32, y: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        extern fn SetViewportExtEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn SetViewportOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        extern fn SetViewportOrgEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn SetWinMetaFileBits(nSize: u32, #[size_param(0)] lpMeta16Data: *const u8, #[opt] hdcRef: HDC, #[opt] lpMFP: *const METAFILEPICT) -> HENHMETAFILE;
         #[library("GDI32.dll")]
-        extern fn SetWindowExtEx(hdc: HDC, x: i32, y: i32, #[opt] lpsz: *mut SIZE) -> BOOL;
+        extern fn SetWindowExtEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lpsz: LPSIZE) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn SetWindowOrgEx(hdc: HDC, x: i32, y: i32, #[opt] lppt: *mut POINT) -> BOOL;
+        extern fn SetWindowOrgEx(hdc: HDC, x: i32, y: i32, #[out] #[opt] lppt: LPPOINT) -> BOOL;
         #[library("GDI32.dll")]
         extern fn SetWorldTransform(hdc: HDC, lpxf: *const XFORM) -> BOOL;
         #[library("GDI32.dll")]
@@ -4302,7 +4206,7 @@ mod Windows {
         #[library("GDI32.dll")]
         extern fn TextOutW(hdc: HDC, x: i32, y: i32, #[len_param(4)] lpString: PCWSTR, c: i32) -> BOOL;
         #[library("GDI32.dll")]
-        extern fn TranslateCharsetInfo(#[in] #[out] lpSrc: *mut u32, lpCs: *mut CHARSETINFO, dwFlags: u32) -> BOOL;
+        extern fn TranslateCharsetInfo(#[in] #[out] lpSrc: *mut u32, #[out] lpCs: LPCHARSETINFO, dwFlags: u32) -> BOOL;
         #[library("MSIMG32.dll")]
         extern fn TransparentBlt(hdcDest: HDC, xoriginDest: i32, yoriginDest: i32, wDest: i32, hDest: i32, hdcSrc: HDC, xoriginSrc: i32, yoriginSrc: i32, wSrc: i32, hSrc: i32, crTransparent: u32) -> BOOL;
         #[library("GDI32.dll")]
@@ -4381,6 +4285,126 @@ mod Windows {
             eDx: f32,
             eDy: f32,
         }
+        struct tagABORTPATH {
+            emr: EMR,
+        }
+        struct tagEMRARC {
+            emr: EMR,
+            rclBox: RECTL,
+            ptlStart: POINTL,
+            ptlEnd: POINTL,
+        }
+        struct tagEMRELLIPSE {
+            emr: EMR,
+            rclBox: RECTL,
+        }
+        struct tagEMREXCLUDECLIPRECT {
+            emr: EMR,
+            rclClip: RECTL,
+        }
+        struct tagEMREXTESCAPE {
+            emr: EMR,
+            iEscape: i32,
+            cbEscData: i32,
+            EscData: [u8; 1],
+        }
+        struct tagEMREXTTEXTOUTA {
+            emr: EMR,
+            rclBounds: RECTL,
+            iGraphicsMode: u32,
+            exScale: f32,
+            eyScale: f32,
+            emrtext: EMRTEXT,
+        }
+        struct tagEMRFILLPATH {
+            emr: EMR,
+            rclBounds: RECTL,
+        }
+        struct tagEMRINVERTRGN {
+            emr: EMR,
+            rclBounds: RECTL,
+            cbRgnData: u32,
+            RgnData: [u8; 1],
+        }
+        struct tagEMRLINETO {
+            emr: EMR,
+            ptl: POINTL,
+        }
+        struct tagEMRPOLYLINE {
+            emr: EMR,
+            rclBounds: RECTL,
+            cptl: u32,
+            aptl: [POINTL; 1],
+        }
+        struct tagEMRPOLYLINE16 {
+            emr: EMR,
+            rclBounds: RECTL,
+            cpts: u32,
+            apts: [POINTS; 1],
+        }
+        struct tagEMRPOLYPOLYLINE {
+            emr: EMR,
+            rclBounds: RECTL,
+            nPolys: u32,
+            cptl: u32,
+            aPolyCounts: [u32; 1],
+            aptl: [POINTL; 1],
+        }
+        struct tagEMRPOLYPOLYLINE16 {
+            emr: EMR,
+            rclBounds: RECTL,
+            nPolys: u32,
+            cpts: u32,
+            aPolyCounts: [u32; 1],
+            apts: [POINTS; 1],
+        }
+        struct tagEMRPOLYTEXTOUTA {
+            emr: EMR,
+            rclBounds: RECTL,
+            iGraphicsMode: u32,
+            exScale: f32,
+            eyScale: f32,
+            cStrings: i32,
+            aemrtext: [EMRTEXT; 1],
+        }
+        struct tagEMRSCALEVIEWPORTEXTEX {
+            emr: EMR,
+            xNum: i32,
+            xDenom: i32,
+            yNum: i32,
+            yDenom: i32,
+        }
+        struct tagEMRSELECTCLIPPATH {
+            emr: EMR,
+            iMode: u32,
+        }
+        struct tagEMRSELECTOBJECT {
+            emr: EMR,
+            ihObject: u32,
+        }
+        struct tagEMRSETCOLORSPACE {
+            emr: EMR,
+            ihCS: u32,
+        }
+        struct tagEMRSETICMPROFILE {
+            emr: EMR,
+            dwFlags: u32,
+            cbName: u32,
+            cbData: u32,
+            Data: [u8; 1],
+        }
+        struct tagEMRSETTEXTCOLOR {
+            emr: EMR,
+            crColor: COLORREF,
+        }
+        struct tagEMRSETVIEWPORTEXTEX {
+            emr: EMR,
+            szlExtent: SIZEL,
+        }
+        struct tagEMRSETVIEWPORTORGEX {
+            emr: EMR,
+            ptlOrigin: POINTL,
+        }
         #[library("OPENGL32.dll")]
         extern fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> BOOL;
         #[library("OPENGL32.dll")]
@@ -4390,7 +4414,7 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn wglDeleteContext(param0: HGLRC) -> BOOL;
         #[library("OPENGL32.dll")]
-        extern fn wglDescribeLayerPlane(param0: HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> BOOL;
+        extern fn wglDescribeLayerPlane(param0: HDC, param1: i32, param2: i32, param3: u32, param4: LPLAYERPLANEDESCRIPTOR) -> BOOL;
         #[library("OPENGL32.dll")]
         extern fn wglGetCurrentContext() -> HGLRC;
         #[library("OPENGL32.dll")]
@@ -4416,8 +4440,8 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn wglUseFontBitmapsW(param0: HDC, param1: u32, param2: u32, param3: u32) -> BOOL;
         #[library("OPENGL32.dll")]
-        extern fn wglUseFontOutlinesA(param0: HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> BOOL;
+        extern fn wglUseFontOutlinesA(param0: HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: LPGLYPHMETRICSFLOAT) -> BOOL;
         #[library("OPENGL32.dll")]
-        extern fn wglUseFontOutlinesW(param0: HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> BOOL;
+        extern fn wglUseFontOutlinesW(param0: HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: LPGLYPHMETRICSFLOAT) -> BOOL;
     }
 }

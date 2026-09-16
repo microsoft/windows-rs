@@ -53,7 +53,7 @@ mod Windows {
         }
         #[guid(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb)]
         interface IDXGISwapChain4: IDXGISwapChain3 {
-            fn SetHDRMetaData(&self, Type: DXGI_HDR_METADATA_TYPE, Size: u32, #[len_param(1)] #[opt] pMetaData: *const void) -> HRESULT;
+            fn SetHDRMetaData(&self, Type: DXGI_HDR_METADATA_TYPE, Size: u32, #[len_param(1)] #[in] #[opt] pMetaData: *mut void) -> HRESULT;
         }
     }
 }

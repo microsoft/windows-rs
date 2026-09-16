@@ -62,9 +62,7 @@ pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IPSEC_AUTH_CONFIG(pub u8);
+pub type IPSEC_AUTH_CONFIG = u8;
 pub const IPSEC_AUTH_CONFIG_GCM_AES_128: i32 = 3;
 pub const IPSEC_AUTH_CONFIG_GCM_AES_192: i32 = 4;
 pub const IPSEC_AUTH_CONFIG_GCM_AES_256: i32 = 5;
@@ -89,9 +87,7 @@ pub struct IPSEC_AUTH_TRANSFORM_ID0 {
     pub authConfig: IPSEC_AUTH_CONFIG,
 }
 pub type IPSEC_AUTH_TYPE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IPSEC_CIPHER_CONFIG(pub u8);
+pub type IPSEC_CIPHER_CONFIG = u8;
 pub const IPSEC_CIPHER_CONFIG_CBC_3DES: i32 = 2;
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_128: i32 = 3;
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_192: i32 = 4;
@@ -627,9 +623,7 @@ pub struct IPSEC_SA_LIFETIME0 {
     pub lifetimeKilobytes: u32,
     pub lifetimePackets: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IPSEC_SA_SPI(pub u32);
+pub type IPSEC_SA_SPI = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPSEC_SA_TRANSFORM0 {
@@ -683,9 +677,7 @@ pub struct IPSEC_TOKEN0 {
     pub mode: IPSEC_TOKEN_MODE,
     pub token: IPSEC_TOKEN_HANDLE,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IPSEC_TOKEN_HANDLE(pub u64);
+pub type IPSEC_TOKEN_HANDLE = u64;
 pub type IPSEC_TOKEN_MODE = i32;
 pub const IPSEC_TOKEN_MODE_EXTENDED: IPSEC_TOKEN_MODE = 1;
 pub const IPSEC_TOKEN_MODE_MAIN: IPSEC_TOKEN_MODE = 0;

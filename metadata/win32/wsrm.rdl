@@ -12,7 +12,7 @@ mod Windows {
             FECBlockSize: u16,
             FECProActivePackets: u16,
             FECGroupSize: u8,
-            fFECOnDemandParityEnabled: bool,
+            fFECOnDemandParityEnabled: BOOLEAN,
         }
         const RM_FLUSHCACHE: i32 = 1003;
         const RM_HIGH_SPEED_INTRANET_OPT: i32 = 1014;

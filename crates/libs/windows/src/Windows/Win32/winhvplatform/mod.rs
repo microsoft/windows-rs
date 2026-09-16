@@ -1,12 +1,9 @@
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "winhvplatformdefs", feature = "winnt"))]
 #[inline]
-pub unsafe fn WHvAcceptPartitionMigration(migrationhandle: super::HANDLE) -> windows_core::Result<super::WHV_PARTITION_HANDLE> {
+pub unsafe fn WHvAcceptPartitionMigration(migrationhandle: super::HANDLE, partition: *mut super::WHV_PARTITION_HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvAcceptPartitionMigration(migrationhandle : super::HANDLE, partition : *mut super::WHV_PARTITION_HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvAcceptPartitionMigration(migrationhandle, &mut result__).map(|| result__)
-    }
+    unsafe { WHvAcceptPartitionMigration(migrationhandle, partition as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]
@@ -18,12 +15,9 @@ pub unsafe fn WHvAdviseGpaRange(partition: super::WHV_PARTITION_HANDLE, gparange
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "winhvplatformdefs", feature = "winnt"))]
 #[inline]
-pub unsafe fn WHvAllocateVpciResource(providerid: Option<*const windows_core::GUID>, flags: super::WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: Option<&[u8]>) -> windows_core::Result<super::HANDLE> {
+pub unsafe fn WHvAllocateVpciResource(providerid: Option<*const windows_core::GUID>, flags: super::WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: Option<&[u8]>, vpciresource: *mut super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const windows_core::GUID, flags : super::WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
-    }
+    unsafe { WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.map_or(0, |slice| slice.len().try_into().unwrap()), vpciresource as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]
@@ -49,22 +43,16 @@ pub unsafe fn WHvCompletePartitionMigration(partition: super::WHV_PARTITION_HAND
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "winhvplatformdefs", feature = "winnt"))]
 #[inline]
-pub unsafe fn WHvCreateNotificationPort(partition: super::WHV_PARTITION_HANDLE, parameters: *const super::WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: super::HANDLE) -> windows_core::Result<super::WHV_NOTIFICATION_PORT_HANDLE> {
+pub unsafe fn WHvCreateNotificationPort(partition: super::WHV_PARTITION_HANDLE, parameters: *const super::WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: super::HANDLE, porthandle: *mut super::WHV_NOTIFICATION_PORT_HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvCreateNotificationPort(partition : super::WHV_PARTITION_HANDLE, parameters : *const super::WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle : super::HANDLE, porthandle : *mut super::WHV_NOTIFICATION_PORT_HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvCreateNotificationPort(partition, parameters, eventhandle, &mut result__).map(|| result__)
-    }
+    unsafe { WHvCreateNotificationPort(partition, parameters, eventhandle, porthandle as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]
 #[inline]
-pub unsafe fn WHvCreatePartition() -> windows_core::Result<super::WHV_PARTITION_HANDLE> {
+pub unsafe fn WHvCreatePartition(partition: *mut super::WHV_PARTITION_HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvCreatePartition(partition : *mut super::WHV_PARTITION_HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvCreatePartition(&mut result__).map(|| result__)
-    }
+    unsafe { WHvCreatePartition(partition as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "winhvplatformdefs", feature = "winnt"))]
@@ -408,12 +396,9 @@ pub unsafe fn WHvSignalVirtualProcessorSynicEvent(partition: super::WHV_PARTITIO
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "winhvplatformdefs", feature = "winnt"))]
 #[inline]
-pub unsafe fn WHvStartPartitionMigration(partition: super::WHV_PARTITION_HANDLE) -> windows_core::Result<super::HANDLE> {
+pub unsafe fn WHvStartPartitionMigration(partition: super::WHV_PARTITION_HANDLE, migrationhandle: *mut super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvStartPartitionMigration(partition : super::WHV_PARTITION_HANDLE, migrationhandle : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvStartPartitionMigration(partition, &mut result__).map(|| result__)
-    }
+    unsafe { WHvStartPartitionMigration(partition, migrationhandle as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]

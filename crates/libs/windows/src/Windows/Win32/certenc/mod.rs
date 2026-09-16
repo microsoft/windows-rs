@@ -781,7 +781,8 @@ impl ICertEncodeDateArray {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetValue(&self, index: i32) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn GetValue(&self, index: i32) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
@@ -790,7 +791,8 @@ impl ICertEncodeDateArray {
     pub unsafe fn Reset(&self, count: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), count) }
     }
-    pub unsafe fn SetValue(&self, index: i32, value: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetValue(&self, index: i32, value: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), index, value) }
     }
     pub unsafe fn Encode(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -807,18 +809,24 @@ pub struct ICertEncodeDateArray_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    GetValue: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetValue: usize,
     pub Encode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeDateArray_Impl: super::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<i32>;
-    fn GetValue(&self, index: i32) -> windows_core::Result<f64>;
+    fn GetValue(&self, index: i32) -> windows_core::Result<super::DATE>;
     fn Reset(&self, count: i32) -> windows_core::Result<()>;
-    fn SetValue(&self, index: i32, value: f64) -> windows_core::Result<()>;
+    fn SetValue(&self, index: i32, value: super::DATE) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -842,7 +850,7 @@ impl ICertEncodeDateArray_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvalue: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvalue: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeDateArray_Impl::GetValue(this, core::mem::transmute_copy(&index)) {
@@ -860,7 +868,7 @@ impl ICertEncodeDateArray_Vtbl {
                 ICertEncodeDateArray_Impl::Reset(this, core::mem::transmute_copy(&count)).into()
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, value: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertEncodeDateArray_Impl::SetValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()

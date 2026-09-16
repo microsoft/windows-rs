@@ -1,29 +1,29 @@
 #[cfg(feature = "oaidl")]
 windows_link::link!("oleaut32.dll" "system" fn BstrFromVector(psa : *const super::SAFEARRAY, pbstr : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn ClearCustData(pcustdata : *mut super::CUSTDATA));
+windows_link::link!("oleaut32.dll" "system" fn ClearCustData(pcustdata : super::LPCUSTDATA));
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("oleaut32.dll" "system" fn CreateDispTypeInfo(pidata : *mut INTERFACEDATA, lcid : super::LCID, pptinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "oaidl")]
 windows_link::link!("oleaut32.dll" "system" fn CreateErrorInfo(pperrinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "oaidl")]
 windows_link::link!("oleaut32.dll" "system" fn CreateStdDispatch(punkouter : *mut core::ffi::c_void, pvthis : *mut core::ffi::c_void, ptinfo : *mut core::ffi::c_void, ppunkstddisp : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "oaidl")]
-windows_link::link!("oleaut32.dll" "system" fn CreateTypeLib(syskind : super::SYSKIND, szfile : windows_sys::core::PCWSTR, ppctlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "oaidl")]
-windows_link::link!("oleaut32.dll" "system" fn CreateTypeLib2(syskind : super::SYSKIND, szfile : windows_sys::core::PCWSTR, ppctlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn CreateTypeLib(syskind : super::SYSKIND, szfile : super::LPCOLESTR, ppctlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn CreateTypeLib2(syskind : super::SYSKIND, szfile : super::LPCOLESTR, ppctlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("oleaut32.dll" "system" fn DispCallFunc(pvinstance : *const core::ffi::c_void, ovft : usize, cc : super::CALLCONV, vtreturn : super::VARTYPE, cactuals : u32, prgvt : *const super::VARTYPE, prgpvarg : *const *const super::VARIANTARG, pvargresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "oaidl")]
-windows_link::link!("oleaut32.dll" "system" fn DispGetIDsOfNames(ptinfo : *mut core::ffi::c_void, rgsznames : *const windows_sys::core::PCWSTR, cnames : u32, rgdispid : *mut super::DISPID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn DispGetIDsOfNames(ptinfo : *mut core::ffi::c_void, rgsznames : *const super::LPOLESTR, cnames : u32, rgdispid : *mut super::DISPID) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("oleaut32.dll" "system" fn DispGetParam(pdispparams : *const super::DISPPARAMS, position : u32, vttarg : super::VARTYPE, pvarresult : *mut super::VARIANT, puargerr : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("oleaut32.dll" "system" fn DispInvoke(_this : *mut core::ffi::c_void, ptinfo : *mut core::ffi::c_void, dispidmember : super::DISPID, wflags : u16, pparams : *mut super::DISPPARAMS, pvarresult : *mut super::VARIANT, pexcepinfo : *mut super::EXCEPINFO, puargerr : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn DosDateTimeToVariantTime(wdosdate : u16, wdostime : u16, pvtime : *mut f64) -> i32);
 windows_link::link!("oleaut32.dll" "system" fn GetActiveObject(rclsid : *const windows_sys::core::GUID, pvreserved : *mut core::ffi::c_void, ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn GetAltMonthNames(lcid : super::LCID, prgp : *mut *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn GetAltMonthNames(lcid : super::LCID, prgp : *mut *mut super::LPOLESTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "oaidl")]
 windows_link::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -36,17 +36,17 @@ windows_link::link!("oleaut32.dll" "system" fn LHashValOfNameSys(syskind : super
 windows_link::link!("oleaut32.dll" "system" fn LHashValOfNameSysA(syskind : super::SYSKIND, lcid : super::LCID, szname : windows_sys::core::PCSTR) -> u32);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
 windows_link::link!("oleaut32.dll" "system" fn LoadRegTypeLib(rguid : *const windows_sys::core::GUID, wvermajor : u16, wverminor : u16, lcid : super::LCID, pptlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "oaidl")]
-windows_link::link!("oleaut32.dll" "system" fn LoadTypeLib(szfile : windows_sys::core::PCWSTR, pptlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "oaidl")]
-windows_link::link!("oleaut32.dll" "system" fn LoadTypeLibEx(szfile : windows_sys::core::PCWSTR, regkind : REGKIND, pptlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn LoadTypeLib(szfile : super::LPCOLESTR, pptlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn LoadTypeLibEx(szfile : super::LPCOLESTR, regkind : REGKIND, pptlib : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn OaBuildVersion() -> u32);
 windows_link::link!("oleaut32.dll" "system" fn OaEnablePerUserTLibRegistration());
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn QueryPathOfRegTypeLib(guid : *const windows_sys::core::GUID, wmaj : u16, wmin : u16, lcid : super::LCID, lpbstrpathname : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypes"))]
+windows_link::link!("oleaut32.dll" "system" fn QueryPathOfRegTypeLib(guid : *const windows_sys::core::GUID, wmaj : u16, wmin : u16, lcid : super::LCID, lpbstrpathname : super::LPBSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn RegisterActiveObject(punk : *mut core::ffi::c_void, rclsid : *const windows_sys::core::GUID, dwflags : u32, pdwregister : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "oaidl")]
-windows_link::link!("oleaut32.dll" "system" fn RegisterTypeLib(ptlib : *mut core::ffi::c_void, szfullpath : windows_sys::core::PCWSTR, szhelpdir : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn RegisterTypeLib(ptlib : *mut core::ffi::c_void, szfullpath : super::LPCOLESTR, szhelpdir : super::LPCOLESTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
 windows_link::link!("oleaut32.dll" "system" fn RegisterTypeLibForUser(ptlib : *mut core::ffi::c_void, szfullpath : *const super::OLECHAR, szhelpdir : *const super::OLECHAR) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn RevokeActiveObject(dwregister : u32, pvreserved : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -130,21 +130,21 @@ windows_link::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : win
 windows_link::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : windows_sys::core::BSTR) -> u32);
 windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : windows_sys::core::BSTR) -> u32);
 #[cfg(feature = "minwinbase")]
-windows_link::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::SYSTEMTIME, pvtime : *mut f64) -> i32);
+windows_link::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : super::LPSYSTEMTIME, pvtime : *mut f64) -> i32);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
 windows_link::link!("oleaut32.dll" "system" fn UnRegisterTypeLib(libid : *const windows_sys::core::GUID, wvermajor : u16, wverminor : u16, lcid : super::LCID, syskind : super::SYSKIND) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
 windows_link::link!("oleaut32.dll" "system" fn UnRegisterTypeLibForUser(libid : *const windows_sys::core::GUID, wmajorvernum : u16, wminorvernum : u16, lcid : super::LCID, syskind : super::SYSKIND) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarAbs(pvarin : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarAbs(pvarin : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarAdd(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarAdd(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarAnd(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarAnd(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarBoolFromCy(cyin : super::CY, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarBoolFromDate(datein : f64, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarBoolFromDate(datein : super::DATE, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarBoolFromDec(pdecin : *const super::DECIMAL, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes"))]
@@ -161,8 +161,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarBoolFromI8(i64in : i64, pboolo
 windows_link::link!("oleaut32.dll" "system" fn VarBoolFromR4(fltin : f32, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarBoolFromR8(dblin : f64, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
-windows_link::link!("oleaut32.dll" "system" fn VarBoolFromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarBoolFromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarBoolFromUI1(bin : u8, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
@@ -171,15 +171,16 @@ windows_link::link!("oleaut32.dll" "system" fn VarBoolFromUI2(uiin : u16, pboolo
 windows_link::link!("oleaut32.dll" "system" fn VarBoolFromUI4(ulin : u32, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarBoolFromUI8(i64in : u64, pboolout : *mut super::VARIANT_BOOL) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarBstrCat(bstrleft : windows_sys::core::BSTR, bstrright : windows_sys::core::BSTR, pbstrresult : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarBstrCat(bstrleft : windows_sys::core::BSTR, bstrright : windows_sys::core::BSTR, pbstrresult : super::LPBSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("oleaut32.dll" "system" fn VarBstrCmp(bstrleft : windows_sys::core::BSTR, bstrright : windows_sys::core::BSTR, lcid : super::LCID, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "winnt", feature = "wtypes"))]
 windows_link::link!("oleaut32.dll" "system" fn VarBstrFromBool(boolin : super::VARIANT_BOOL, lcid : super::LCID, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "winnt", feature = "wtypes"))]
 windows_link::link!("oleaut32.dll" "system" fn VarBstrFromCy(cyin : super::CY, lcid : super::LCID, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarBstrFromDate(datein : f64, lcid : super::LCID, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypes"))]
+windows_link::link!("oleaut32.dll" "system" fn VarBstrFromDate(datein : super::DATE, lcid : super::LCID, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "winnt", feature = "wtypes"))]
 windows_link::link!("oleaut32.dll" "system" fn VarBstrFromDec(pdecin : *const super::DECIMAL, lcid : super::LCID, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -205,23 +206,23 @@ windows_link::link!("oleaut32.dll" "system" fn VarBstrFromUI4(ulin : u32, lcid :
 #[cfg(feature = "winnt")]
 windows_link::link!("oleaut32.dll" "system" fn VarBstrFromUI8(ui64in : u64, lcid : super::LCID, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarCat(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCat(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarCmp(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, lcid : super::LCID, dwflags : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCmp(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, lcid : super::LCID, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyAbs(cyin : super::CY, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyAbs(cyin : super::CY, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyAdd(cyleft : super::CY, cyright : super::CY, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyAdd(cyleft : super::CY, cyright : super::CY, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarCyCmp(cyleft : super::CY, cyright : super::CY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarCyCmpR8(cyleft : super::CY, dblright : f64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyFix(cyin : super::CY, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyFix(cyin : super::CY, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarCyFromBool(boolin : super::VARIANT_BOOL, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyFromDate(datein : f64, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyFromDate(datein : super::DATE, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarCyFromDec(pdecin : *const super::DECIMAL, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes"))]
@@ -238,8 +239,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarCyFromI8(i64in : i64, pcyout :
 windows_link::link!("oleaut32.dll" "system" fn VarCyFromR4(fltin : f32, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarCyFromR8(dblin : f64, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
-windows_link::link!("oleaut32.dll" "system" fn VarCyFromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarCyFromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarCyFromUI1(bin : u8, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
@@ -249,61 +250,71 @@ windows_link::link!("oleaut32.dll" "system" fn VarCyFromUI4(ulin : u32, pcyout :
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarCyFromUI8(ui64in : u64, pcyout : *mut super::CY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyInt(cyin : super::CY, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyInt(cyin : super::CY, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyMul(cyleft : super::CY, cyright : super::CY, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyMul(cyleft : super::CY, cyright : super::CY, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyMulI4(cyleft : super::CY, lright : i32, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyMulI4(cyleft : super::CY, lright : i32, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyMulI8(cyleft : super::CY, lright : i64, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyMulI8(cyleft : super::CY, lright : i64, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyNeg(cyin : super::CY, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyNeg(cyin : super::CY, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCyRound(cyin : super::CY, cdecimals : i32, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCyRound(cyin : super::CY, cdecimals : i32, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarCySub(cyleft : super::CY, cyright : super::CY, pcyresult : *mut super::CY) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarCySub(cyleft : super::CY, cyright : super::CY, pcyresult : super::LPCY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromBool(boolin : super::VARIANT_BOOL, pdateout : *mut f64) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromBool(boolin : super::VARIANT_BOOL, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromCy(cyin : super::CY, pdateout : *mut f64) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromCy(cyin : super::CY, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromDec(pdecin : *const super::DECIMAL, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "oaidl", feature = "winnt"))]
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromDisp(pdispin : *mut core::ffi::c_void, lcid : super::LCID, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromI1(cin : i8, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromI2(sin : i16, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromI4(lin : i32, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromI8(i64in : i64, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromR4(fltin : f32, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromR8(dblin : f64, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI1(bin : u8, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI2(uiin : u16, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI4(ulin : u32, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI8(ui64in : u64, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwinbase")]
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromUdate(pudatein : *const UDATE, dwflags : u32, pdateout : *mut f64) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("oleaut32.dll" "system" fn VarDateFromUdateEx(pudatein : *const UDATE, lcid : super::LCID, dwflags : u32, pdateout : *mut f64) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromDec(pdecin : *const super::DECIMAL, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes"))]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromDisp(pdispin : *mut core::ffi::c_void, lcid : super::LCID, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecAbs(pdecin : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromI1(cin : i8, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecAdd(pdecleft : *const super::DECIMAL, pdecright : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromI2(sin : i16, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecCmp(pdecleft : *const super::DECIMAL, pdecright : *const super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromI4(lin : i32, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecCmpR8(pdecleft : *const super::DECIMAL, dblright : f64) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromI8(i64in : i64, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecDiv(pdecleft : *const super::DECIMAL, pdecright : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromR4(fltin : f32, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecFix(pdecin : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromR8(dblin : f64, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI1(bin : u8, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI2(uiin : u16, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI4(ulin : u32, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromUI8(ui64in : u64, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwinbase", feature = "wtypes"))]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromUdate(pudatein : *const UDATE, dwflags : u32, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "wtypes"))]
+windows_link::link!("oleaut32.dll" "system" fn VarDateFromUdateEx(pudatein : *const UDATE, lcid : super::LCID, dwflags : u32, pdateout : *mut super::DATE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDecAbs(pdecin : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDecAdd(pdecleft : super::LPDECIMAL, pdecright : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDecCmp(pdecleft : super::LPDECIMAL, pdecright : super::LPDECIMAL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDecCmpR8(pdecleft : super::LPDECIMAL, dblright : f64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDecDiv(pdecleft : super::LPDECIMAL, pdecright : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarDecFix(pdecin : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarDecFromBool(boolin : super::VARIANT_BOOL, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarDecFromCy(cyin : super::CY, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecFromDate(datein : f64, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDecFromDate(datein : super::DATE, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes"))]
 windows_link::link!("oleaut32.dll" "system" fn VarDecFromDisp(pdispin : *mut core::ffi::c_void, lcid : super::LCID, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
@@ -318,8 +329,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarDecFromI8(i64in : i64, pdecout
 windows_link::link!("oleaut32.dll" "system" fn VarDecFromR4(fltin : f32, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarDecFromR8(dblin : f64, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
-windows_link::link!("oleaut32.dll" "system" fn VarDecFromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarDecFromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarDecFromUI1(bin : u8, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
@@ -329,38 +340,39 @@ windows_link::link!("oleaut32.dll" "system" fn VarDecFromUI4(ulin : u32, pdecout
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarDecFromUI8(ui64in : u64, pdecout : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecInt(pdecin : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDecInt(pdecin : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecMul(pdecleft : *const super::DECIMAL, pdecright : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDecMul(pdecleft : super::LPDECIMAL, pdecright : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecNeg(pdecin : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDecNeg(pdecin : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecRound(pdecin : *const super::DECIMAL, cdecimals : i32, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDecRound(pdecin : super::LPDECIMAL, cdecimals : i32, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
-windows_link::link!("oleaut32.dll" "system" fn VarDecSub(pdecleft : *const super::DECIMAL, pdecright : *const super::DECIMAL, pdecresult : *mut super::DECIMAL) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDecSub(pdecleft : super::LPDECIMAL, pdecright : super::LPDECIMAL, pdecresult : super::LPDECIMAL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarDiv(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarDiv(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarEqv(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarEqv(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarFix(pvarin : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarFix(pvarin : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarFormat(pvarin : *const super::VARIANT, pstrformat : windows_sys::core::PCWSTR, ifirstday : i32, ifirstweek : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarFormat(pvarin : super::LPVARIANT, pstrformat : super::LPOLESTR, ifirstday : i32, ifirstweek : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarFormatCurrency(pvarin : *const super::VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarFormatCurrency(pvarin : super::LPVARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarFormatDateTime(pvarin : *const super::VARIANT, inamedformat : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarFormatFromTokens(pvarin : *const super::VARIANT, pstrformat : windows_sys::core::PCWSTR, pbtokcur : *const u8, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR, lcid : super::LCID) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarFormatDateTime(pvarin : super::LPVARIANT, inamedformat : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarFormatFromTokens(pvarin : super::LPVARIANT, pstrformat : super::LPOLESTR, pbtokcur : super::LPBYTE, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR, lcid : super::LCID) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarFormatNumber(pvarin : *const super::VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarFormatNumber(pvarin : super::LPVARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarFormatPercent(pvarin : *const super::VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarFormatPercent(pvarin : super::LPVARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromBool(boolin : super::VARIANT_BOOL, pcout : *mut i8) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromCy(cyin : super::CY, pcout : *mut i8) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarI1FromDate(datein : f64, pcout : *mut i8) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarI1FromDate(datein : super::DATE, pcout : *mut i8) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromDec(pdecin : *const super::DECIMAL, pcout : *mut i8) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -370,8 +382,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarI1FromI4(lin : i32, pcout : *m
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromI8(i64in : i64, pcout : *mut i8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromR4(fltin : f32, pcout : *mut i8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromR8(dblin : f64, pcout : *mut i8) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarI1FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pcout : *mut i8) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarI1FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pcout : *mut i8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromUI1(bin : u8, pcout : *mut i8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromUI2(uiin : u16, pcout : *mut i8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI1FromUI4(ulin : u32, pcout : *mut i8) -> windows_sys::core::HRESULT);
@@ -380,7 +392,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarI1FromUI8(i64in : u64, pcout :
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromBool(boolin : super::VARIANT_BOOL, psout : *mut i16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromCy(cyin : super::CY, psout : *mut i16) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarI2FromDate(datein : f64, psout : *mut i16) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarI2FromDate(datein : super::DATE, psout : *mut i16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromDec(pdecin : *const super::DECIMAL, psout : *mut i16) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -390,8 +403,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarI2FromI4(lin : i32, psout : *m
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromI8(i64in : i64, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromR4(fltin : f32, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromR8(dblin : f64, psout : *mut i16) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarI2FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, psout : *mut i16) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarI2FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromUI1(bin : u8, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromUI2(uiin : u16, psout : *mut i16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI2FromUI4(ulin : u32, psout : *mut i16) -> windows_sys::core::HRESULT);
@@ -400,7 +413,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarI2FromUI8(ui64in : u64, psout 
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromBool(boolin : super::VARIANT_BOOL, plout : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromCy(cyin : super::CY, plout : *mut i32) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarI4FromDate(datein : f64, plout : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarI4FromDate(datein : super::DATE, plout : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromDec(pdecin : *const super::DECIMAL, plout : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -410,8 +424,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarI4FromI2(sin : i16, plout : *m
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromI8(i64in : i64, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromR4(fltin : f32, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromR8(dblin : f64, plout : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarI4FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, plout : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarI4FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromUI1(bin : u8, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromUI2(uiin : u16, plout : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI4FromUI4(ulin : u32, plout : *mut i32) -> windows_sys::core::HRESULT);
@@ -420,7 +434,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarI4FromUI8(ui64in : u64, plout 
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromBool(boolin : super::VARIANT_BOOL, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromCy(cyin : super::CY, pi64out : *mut i64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarI8FromDate(datein : f64, pi64out : *mut i64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarI8FromDate(datein : super::DATE, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromDec(pdecin : *const super::DECIMAL, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -429,41 +444,42 @@ windows_link::link!("oleaut32.dll" "system" fn VarI8FromI1(cin : i8, pi64out : *
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromI2(sin : i16, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromR4(fltin : f32, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromR8(dblin : f64, pi64out : *mut i64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarI8FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pi64out : *mut i64) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarI8FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromUI1(bin : u8, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromUI2(uiin : u16, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromUI4(ulin : u32, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarI8FromUI8(ui64in : u64, pi64out : *mut i64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarIdiv(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarIdiv(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarImp(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarImp(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarInt(pvarin : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarInt(pvarin : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarMod(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarMod(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarMonthName(imonth : i32, fabbrev : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarMul(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarMul(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarNeg(pvarin : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarNeg(pvarin : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarNot(pvarin : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarNot(pvarin : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("oleaut32.dll" "system" fn VarNumFromParseNum(pnumprs : *const NUMPARSE, rgbdig : *const u8, dwvtbits : u32, pvar : *mut super::VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarOr(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarParseNumFromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pnumprs : *mut NUMPARSE, rgbdig : *mut u8) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarOr(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarParseNumFromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pnumprs : *mut NUMPARSE, rgbdig : *mut u8) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarPow(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarPow(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR4CmpR8(fltleft : f32, dblright : f64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromBool(boolin : super::VARIANT_BOOL, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromCy(cyin : super::CY, pfltout : *mut f32) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarR4FromDate(datein : f64, pfltout : *mut f32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarR4FromDate(datein : super::DATE, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromDec(pdecin : *const super::DECIMAL, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -473,8 +489,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarR4FromI2(sin : i16, pfltout : 
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromI4(lin : i32, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromI8(i64in : i64, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromR8(dblin : f64, pfltout : *mut f32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarR4FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pfltout : *mut f32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarR4FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromUI1(bin : u8, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromUI2(uiin : u16, pfltout : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR4FromUI4(ulin : u32, pfltout : *mut f32) -> windows_sys::core::HRESULT);
@@ -483,7 +499,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarR4FromUI8(ui64in : u64, pfltou
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromBool(boolin : super::VARIANT_BOOL, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromCy(cyin : super::CY, pdblout : *mut f64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarR8FromDate(datein : f64, pdblout : *mut f64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarR8FromDate(datein : super::DATE, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromDec(pdecin : *const super::DECIMAL, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -493,8 +510,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarR8FromI2(sin : i16, pdblout : 
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromI4(lin : i32, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromI8(i64in : i64, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromR4(fltin : f32, pdblout : *mut f64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarR8FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pdblout : *mut f64) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarR8FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromUI1(bin : u8, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromUI2(uiin : u16, pdblout : *mut f64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR8FromUI4(ulin : u32, pdblout : *mut f64) -> windows_sys::core::HRESULT);
@@ -502,16 +519,17 @@ windows_link::link!("oleaut32.dll" "system" fn VarR8FromUI8(ui64in : u64, pdblou
 windows_link::link!("oleaut32.dll" "system" fn VarR8Pow(dblleft : f64, dblright : f64, pdblresult : *mut f64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarR8Round(dblin : f64, cdecimals : i32, pdblresult : *mut f64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarRound(pvarin : *const super::VARIANT, cdecimals : i32, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarRound(pvarin : super::LPVARIANT, cdecimals : i32, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarSub(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarTokenizeFormatString(pstrformat : windows_sys::core::PCWSTR, rgbtok : *mut u8, cbtok : i32, ifirstday : i32, ifirstweek : i32, lcid : super::LCID, pcbactual : *const i32) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarSub(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarTokenizeFormatString(pstrformat : super::LPOLESTR, rgbtok : super::LPBYTE, cbtok : i32, ifirstday : i32, ifirstweek : i32, lcid : super::LCID, pcbactual : *const i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromBool(boolin : super::VARIANT_BOOL, pbout : *mut u8) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromCy(cyin : super::CY, pbout : *mut u8) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarUI1FromDate(datein : f64, pbout : *mut u8) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarUI1FromDate(datein : super::DATE, pbout : *mut u8) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromDec(pdecin : *const super::DECIMAL, pbout : *mut u8) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -522,8 +540,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarUI1FromI4(lin : i32, pbout : *
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromI8(i64in : i64, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromR4(fltin : f32, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromR8(dblin : f64, pbout : *mut u8) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarUI1FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pbout : *mut u8) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarUI1FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromUI2(uiin : u16, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromUI4(ulin : u32, pbout : *mut u8) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI1FromUI8(ui64in : u64, pbout : *mut u8) -> windows_sys::core::HRESULT);
@@ -531,7 +549,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarUI1FromUI8(ui64in : u64, pbout
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromBool(boolin : super::VARIANT_BOOL, puiout : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromCy(cyin : super::CY, puiout : *mut u16) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarUI2FromDate(datein : f64, puiout : *mut u16) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarUI2FromDate(datein : super::DATE, puiout : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromDec(pdecin : *const super::DECIMAL, puiout : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -542,8 +561,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarUI2FromI4(lin : i32, puiout : 
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromI8(i64in : i64, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromR4(fltin : f32, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromR8(dblin : f64, puiout : *mut u16) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarUI2FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, puiout : *mut u16) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarUI2FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromUI1(bin : u8, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromUI4(ulin : u32, puiout : *mut u16) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI2FromUI8(i64in : u64, puiout : *mut u16) -> windows_sys::core::HRESULT);
@@ -551,7 +570,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarUI2FromUI8(i64in : u64, puiout
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromBool(boolin : super::VARIANT_BOOL, pulout : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromCy(cyin : super::CY, pulout : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarUI4FromDate(datein : f64, pulout : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarUI4FromDate(datein : super::DATE, pulout : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromDec(pdecin : *const super::DECIMAL, pulout : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -562,8 +582,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarUI4FromI4(lin : i32, pulout : 
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromI8(i64in : i64, plout : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromR4(fltin : f32, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromR8(dblin : f64, pulout : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarUI4FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pulout : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarUI4FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromUI1(bin : u8, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromUI2(uiin : u16, pulout : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI4FromUI8(ui64in : u64, plout : *mut u32) -> windows_sys::core::HRESULT);
@@ -571,7 +591,8 @@ windows_link::link!("oleaut32.dll" "system" fn VarUI4FromUI8(ui64in : u64, plout
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromBool(boolin : super::VARIANT_BOOL, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromCy(cyin : super::CY, pi64out : *mut u64) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn VarUI8FromDate(datein : f64, pi64out : *mut u64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypes")]
+windows_link::link!("oleaut32.dll" "system" fn VarUI8FromDate(datein : super::DATE, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromDec(pdecin : *const super::DECIMAL, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt"))]
@@ -581,16 +602,16 @@ windows_link::link!("oleaut32.dll" "system" fn VarUI8FromI2(sin : i16, pi64out :
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromI8(ui64in : i64, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromR4(fltin : f32, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromR8(dblin : f64, pi64out : *mut u64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("oleaut32.dll" "system" fn VarUI8FromStr(strin : windows_sys::core::PCWSTR, lcid : super::LCID, dwflags : u32, pi64out : *mut u64) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+windows_link::link!("oleaut32.dll" "system" fn VarUI8FromStr(strin : super::LPCOLESTR, lcid : super::LCID, dwflags : u32, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromUI1(bin : u8, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromUI2(uiin : u16, pi64out : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarUI8FromUI4(ulin : u32, pi64out : *mut u64) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwinbase")]
-windows_link::link!("oleaut32.dll" "system" fn VarUdateFromDate(datein : f64, dwflags : u32, pudateout : *mut UDATE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwinbase", feature = "wtypes"))]
+windows_link::link!("oleaut32.dll" "system" fn VarUdateFromDate(datein : super::DATE, dwflags : u32, pudateout : *mut UDATE) -> windows_sys::core::HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn VarWeekdayName(iweekday : i32, fabbrev : i32, ifirstday : i32, dwflags : u32, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleaut32.dll" "system" fn VarXor(pvarleft : *const super::VARIANT, pvarright : *const super::VARIANT, pvarresult : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("oleaut32.dll" "system" fn VarXor(pvarleft : super::LPVARIANT, pvarright : super::LPVARIANT, pvarresult : super::LPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantChangeType(pvargdest : *mut super::VARIANTARG, pvarsrc : *const super::VARIANTARG, wflags : u16, vt : super::VARTYPE) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -605,7 +626,7 @@ windows_link::link!("oleaut32.dll" "system" fn VariantCopyInd(pvardest : *mut su
 windows_link::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut super::VARIANTARG));
 windows_link::link!("oleaut32.dll" "system" fn VariantTimeToDosDateTime(vtime : f64, pwdosdate : *mut u16, pwdostime : *mut u16) -> i32);
 #[cfg(feature = "minwinbase")]
-windows_link::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::SYSTEMTIME) -> i32);
+windows_link::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : super::LPSYSTEMTIME) -> i32);
 #[cfg(feature = "oaidl")]
 windows_link::link!("oleaut32.dll" "system" fn VectorFromBstr(bstr : windows_sys::core::BSTR, ppsa : *mut *mut super::SAFEARRAY) -> windows_sys::core::HRESULT);
 pub const ACTIVEOBJECT_STRONG: i32 = 0;
@@ -731,4 +752,5 @@ pub const VTBIT_UI4: i32 = 524288;
 pub const VTBIT_UI8: i32 = 2097152;
 pub const VTDATEGRE_MAX: i32 = 2958465;
 pub const VTDATEGRE_MIN: i32 = -657434;
-pub const VT_HARDTYPE: i32 = 32768;
+#[cfg(feature = "wtypes")]
+pub const VT_HARDTYPE: super::VARENUM = 32768;

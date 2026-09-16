@@ -1,54 +1,35 @@
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[RUNTIME_FUNCTION], baseaddress: u64) -> bool {
-    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : *const RUNTIME_FUNCTION, entrycount : u32, baseaddress : u64) -> bool);
-    unsafe { RtlAddFunctionTable(functiontable.as_ptr(), functiontable.len().try_into().unwrap(), baseaddress) }
+pub unsafe fn RtlAddFunctionTable(functiontable: &[RUNTIME_FUNCTION], baseaddress: u64) -> BOOLEAN {
+    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : u32, baseaddress : u64) -> BOOLEAN);
+    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[ARM64_RUNTIME_FUNCTION], baseaddress: usize) -> bool {
-    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : *const ARM64_RUNTIME_FUNCTION, entrycount : u32, baseaddress : usize) -> bool);
-    unsafe { RtlAddFunctionTable(functiontable.as_ptr(), functiontable.len().try_into().unwrap(), baseaddress) }
+pub unsafe fn RtlAddFunctionTable(functiontable: &[RUNTIME_FUNCTION], baseaddress: usize) -> BOOLEAN {
+    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : u32, baseaddress : usize) -> BOOLEAN);
+    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[RUNTIME_FUNCTION], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const RUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, functiontable.as_ptr(), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
+    windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : PRUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
+    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
-#[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[ARM64_RUNTIME_FUNCTION], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const ARM64_RUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, functiontable.as_ptr(), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
-    windows_core::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
+pub unsafe fn RtlCaptureContext(contextrecord: PCONTEXT) {
+    windows_core::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : PCONTEXT));
     unsafe { RtlCaptureContext(contextrecord as _) }
 }
-#[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlCaptureContext(contextrecord: *mut ARM64_NT_CONTEXT) {
-    windows_core::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut ARM64_NT_CONTEXT));
-    unsafe { RtlCaptureContext(contextrecord as _) }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
-    windows_core::link!("ntdll.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
+pub unsafe fn RtlCaptureContext2(contextrecord: PCONTEXT) {
+    windows_core::link!("ntdll.dll" "system" fn RtlCaptureContext2(contextrecord : PCONTEXT));
     unsafe { RtlCaptureContext2(contextrecord as _) }
 }
-#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlCaptureContext2(contextrecord: *mut ARM64_NT_CONTEXT) {
-    windows_core::link!("ntdll.dll" "system" fn RtlCaptureContext2(contextrecord : *mut ARM64_NT_CONTEXT));
-    unsafe { RtlCaptureContext2(contextrecord as _) }
-}
-#[inline]
-pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, backtrace: *mut *mut core::ffi::c_void, backtracehash: Option<*mut u32>) -> u16 {
-    windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
+pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, backtrace: *mut *mut core::ffi::c_void, backtracehash: Option<super::PDWORD>) -> u16 {
+    windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : super::PDWORD) -> u16);
     unsafe { RtlCaptureStackBackTrace(framestoskip, framestocapture, backtrace as _, backtracehash.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -56,9 +37,10 @@ pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *cons
     windows_core::link!("kernel32.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : usize) -> usize);
     unsafe { RtlCompareMemory(source1, source2, length) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: windows_core::PWSTR, deviceform: windows_core::PWSTR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : *mut u32, puldeviceformbuffersize : *mut u32, devicefamily : windows_core::PWSTR, deviceform : windows_core::PWSTR) -> u32);
+pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: super::PDWORD, puldeviceformbuffersize: super::PDWORD, devicefamily: windows_core::PWSTR, deviceform: windows_core::PWSTR) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : super::PDWORD, puldeviceformbuffersize : super::PDWORD, devicefamily : windows_core::PWSTR, deviceform : windows_core::PWSTR) -> u32);
     unsafe { RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize as _, puldeviceformbuffersize as _, devicefamily, deviceform) }
 }
 #[inline]
@@ -71,16 +53,10 @@ pub unsafe fn RtlCrc64(buffer: *const core::ffi::c_void, size: usize, initialcrc
     windows_core::link!("ntdll.dll" "system" fn RtlCrc64(buffer : *const core::ffi::c_void, size : usize, initialcrc : u64) -> u64);
     unsafe { RtlCrc64(buffer, size, initialcrc) }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlDeleteFunctionTable(functiontable: *const RUNTIME_FUNCTION) -> bool {
-    windows_core::link!("kernel32.dll" "C" fn RtlDeleteFunctionTable(functiontable : *const RUNTIME_FUNCTION) -> bool);
-    unsafe { RtlDeleteFunctionTable(functiontable) }
-}
-#[cfg(target_arch = "aarch64")]
-#[inline]
-pub unsafe fn RtlDeleteFunctionTable(functiontable: *const ARM64_RUNTIME_FUNCTION) -> bool {
-    windows_core::link!("kernel32.dll" "C" fn RtlDeleteFunctionTable(functiontable : *const ARM64_RUNTIME_FUNCTION) -> bool);
+pub unsafe fn RtlDeleteFunctionTable(functiontable: PRUNTIME_FUNCTION) -> BOOLEAN {
+    windows_core::link!("kernel32.dll" "C" fn RtlDeleteFunctionTable(functiontable : PRUNTIME_FUNCTION) -> BOOLEAN);
     unsafe { RtlDeleteFunctionTable(functiontable) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -96,8 +72,8 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const core::ffi::c_void) -> u32
     unsafe { RtlDrainNonVolatileFlush(nvtoken) }
 }
 #[inline]
-pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlExtendCorrelationVector(correlationvector : *mut CORRELATION_VECTOR) -> u32);
+pub unsafe fn RtlExtendCorrelationVector(correlationvector: PCORRELATION_VECTOR) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlExtendCorrelationVector(correlationvector : PCORRELATION_VECTOR) -> u32);
     unsafe { RtlExtendCorrelationVector(correlationvector as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -120,8 +96,8 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvbuf
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const core::ffi::c_void, nvranges: &[NV_MEMORY_RANGE], flags: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : *const core::ffi::c_void, nvranges : *const NV_MEMORY_RANGE, numranges : usize, flags : u32) -> u32);
-    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, nvranges.as_ptr(), nvranges.len().try_into().unwrap(), flags) }
+    windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : *const core::ffi::c_void, nvranges : PNV_MEMORY_RANGE, numranges : usize, flags : u32) -> u32);
+    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, core::mem::transmute(nvranges.as_ptr()), nvranges.len().try_into().unwrap(), flags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -148,9 +124,10 @@ pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const core::ffi::c_void, size: u
     windows_core::link!("ntdll.dll" "system" fn RtlGetNonVolatileToken(nvbuffer : *const core::ffi::c_void, size : usize, nvtoken : *mut *mut core::ffi::c_void) -> u32);
     unsafe { RtlGetNonVolatileToken(nvbuffer, size, nvtoken as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : *mut u32) -> bool);
+pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: super::PDWORD) -> BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : super::PDWORD) -> BOOLEAN);
     unsafe { RtlGetProductInfo(osmajorversion, osminorversion, spmajorversion, spminorversion, returnedproducttype as _) }
 }
 #[inline]
@@ -170,18 +147,18 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut core::ffi::c_void, newentr
     unsafe { RtlGrowFunctionTable(dynamictable as _, newentrycount) }
 }
 #[inline]
-pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIncrementCorrelationVector(correlationvector : *mut CORRELATION_VECTOR) -> u32);
+pub unsafe fn RtlIncrementCorrelationVector(correlationvector: PCORRELATION_VECTOR) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlIncrementCorrelationVector(correlationvector : PCORRELATION_VECTOR) -> u32);
     unsafe { RtlIncrementCorrelationVector(correlationvector as _) }
 }
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> u32);
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: PCORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : PCORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> u32);
     unsafe { RtlInitializeCorrelationVector(correlationvector as _, version, guid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
-    windows_core::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : *mut SLIST_HEADER));
+    windows_core::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : PSLIST_HEADER));
     unsafe {
         let mut result__ = core::mem::zeroed();
         RtlInitializeSListHead(&mut result__);
@@ -190,76 +167,65 @@ pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> bool
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> BOOLEAN
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> bool);
+    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> BOOLEAN);
     unsafe { RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, context.unwrap_or(core::mem::zeroed()) as _, outofprocesscallbackdll.param().abi()) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: usize, baseaddress: usize, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> bool
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: usize, baseaddress: usize, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> BOOLEAN
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : usize, baseaddress : usize, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> bool);
+    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : usize, baseaddress : usize, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> BOOLEAN);
     unsafe { RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, context.unwrap_or(core::mem::zeroed()) as _, outofprocesscallbackdll.param().abi()) }
 }
 #[inline]
-pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> PSLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedFlushSList(listhead : *mut SLIST_HEADER) -> PSLIST_ENTRY);
+pub unsafe fn RtlInterlockedFlushSList(listhead: PSLIST_HEADER) -> PSLIST_ENTRY {
+    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedFlushSList(listhead : PSLIST_HEADER) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedFlushSList(listhead as _) }
 }
 #[inline]
-pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> PSLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPopEntrySList(listhead : *mut SLIST_HEADER) -> PSLIST_ENTRY);
+pub unsafe fn RtlInterlockedPopEntrySList(listhead: PSLIST_HEADER) -> PSLIST_ENTRY {
+    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPopEntrySList(listhead : PSLIST_HEADER) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedPopEntrySList(listhead as _) }
 }
-#[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SINGLE_LIST_ENTRY) -> PSLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushEntrySList(listhead : *mut SLIST_HEADER, listentry : *mut SINGLE_LIST_ENTRY) -> PSLIST_ENTRY);
+pub unsafe fn RtlInterlockedPushEntrySList(listhead: PSLIST_HEADER, listentry: PSLIST_ENTRY) -> PSLIST_ENTRY {
+    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushEntrySList(listhead : PSLIST_HEADER, listentry : PSLIST_ENTRY) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedPushEntrySList(listhead as _, listentry as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> PSLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushEntrySList(listhead : *mut SLIST_HEADER, listentry : *mut SLIST_ENTRY) -> PSLIST_ENTRY);
-    unsafe { RtlInterlockedPushEntrySList(listhead as _, listentry as _) }
-}
-#[cfg(target_arch = "x86")]
-#[inline]
-pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SINGLE_LIST_ENTRY, listend: *mut SINGLE_LIST_ENTRY, count: u32) -> PSLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : *mut SLIST_HEADER, list : *mut SINGLE_LIST_ENTRY, listend : *mut SINGLE_LIST_ENTRY, count : u32) -> PSLIST_ENTRY);
-    unsafe { RtlInterlockedPushListSListEx(listhead as _, list as _, listend as _, count) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> PSLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : *mut SLIST_HEADER, list : *mut SLIST_ENTRY, listend : *mut SLIST_ENTRY, count : u32) -> PSLIST_ENTRY);
+pub unsafe fn RtlInterlockedPushListSListEx(listhead: PSLIST_HEADER, list: PSLIST_ENTRY, listend: PSLIST_ENTRY, count: u32) -> PSLIST_ENTRY {
+    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : PSLIST_HEADER, list : PSLIST_ENTRY, listend : PSLIST_ENTRY, count : u32) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedPushListSListEx(listhead as _, list as _, listend as _, count) }
 }
 #[inline]
-pub unsafe fn RtlIsZeroMemory(buffer: *const core::ffi::c_void, length: usize) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : *const core::ffi::c_void, length : usize) -> bool);
+pub unsafe fn RtlIsZeroMemory(buffer: *const core::ffi::c_void, length: usize) -> BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : *const core::ffi::c_void, length : usize) -> BOOLEAN);
     unsafe { RtlIsZeroMemory(buffer, length) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "basetsd")]
 #[inline]
-pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
-    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
+pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: super::PDWORD64, historytable: Option<PUNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
+    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : super::PDWORD64, historytable : PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
     unsafe { RtlLookupFunctionEntry(controlpc, imagebase as _, historytable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "basetsd")]
 #[inline]
-pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut u64, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
-    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
+pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: super::PULONG_PTR, historytable: Option<PUNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
+    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : super::PULONG_PTR, historytable : PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
     unsafe { RtlLookupFunctionEntry(controlpc, imagebase as _, historytable.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<*mut u32>, checkonly: bool) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : *mut u32, checkonly : bool) -> bool);
+pub unsafe fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<super::PDWORD>, checkonly: BOOLEAN) -> BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : super::PDWORD, checkonly : BOOLEAN) -> BOOLEAN);
     unsafe { RtlNormalizeSecurityDescriptor(securitydescriptor as _, securitydescriptorlength, newsecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, newsecuritydescriptorlength.unwrap_or(core::mem::zeroed()) as _, checkonly) }
 }
 #[inline]
@@ -273,85 +239,72 @@ pub unsafe fn RtlPcToFileHeader(pcvalue: *const core::ffi::c_void, baseofimage: 
     unsafe { RtlPcToFileHeader(pcvalue, baseofimage as _) }
 }
 #[inline]
-pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
-    windows_core::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : *const SLIST_HEADER) -> u16);
+pub unsafe fn RtlQueryDepthSList(listhead: PSLIST_HEADER) -> u16 {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : PSLIST_HEADER) -> u16);
     unsafe { RtlQueryDepthSList(listhead) }
 }
 #[inline]
-pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlRaiseCustomSystemEventTrigger(triggerconfig : *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32);
+pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlRaiseCustomSystemEventTrigger(triggerconfig : PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32);
     unsafe { RtlRaiseCustomSystemEventTrigger(triggerconfig) }
 }
 #[inline]
-pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
-    windows_core::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
+pub unsafe fn RtlRaiseException(exceptionrecord: PEXCEPTION_RECORD) {
+    windows_core::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : PEXCEPTION_RECORD));
     unsafe { RtlRaiseException(exceptionrecord) }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
-    windows_core::link!("kernel32.dll" "C" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
-    unsafe { RtlRestoreContext(contextrecord, exceptionrecord.unwrap_or(core::mem::zeroed()) as _) }
-}
-#[cfg(target_arch = "aarch64")]
-#[inline]
-pub unsafe fn RtlRestoreContext(contextrecord: *const ARM64_NT_CONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
-    windows_core::link!("kernel32.dll" "C" fn RtlRestoreContext(contextrecord : *const ARM64_NT_CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
+pub unsafe fn RtlRestoreContext(contextrecord: PCONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
+    windows_core::link!("kernel32.dll" "C" fn RtlRestoreContext(contextrecord : PCONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
     unsafe { RtlRestoreContext(contextrecord, exceptionrecord.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : *const OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> u32);
+pub unsafe fn RtlSwitchedVVI(versioninfo: PRTL_OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : PRTL_OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> u32);
     unsafe { RtlSwitchedVVI(versioninfo, typemask, conditionmask) }
 }
 #[inline]
-pub unsafe fn RtlUnwind(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void) {
-    windows_core::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
+pub unsafe fn RtlUnwind(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<PEXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void) {
+    windows_core::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : PEXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
     unsafe { RtlUnwind(targetframe.unwrap_or(core::mem::zeroed()) as _, targetip.unwrap_or(core::mem::zeroed()) as _, exceptionrecord.unwrap_or(core::mem::zeroed()) as _, returnvalue) }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void, contextrecord: *const CONTEXT, historytable: Option<*const UNWIND_HISTORY_TABLE>) {
-    windows_core::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
-    unsafe { RtlUnwindEx(targetframe.unwrap_or(core::mem::zeroed()) as _, targetip.unwrap_or(core::mem::zeroed()) as _, exceptionrecord.unwrap_or(core::mem::zeroed()) as _, returnvalue, contextrecord, historytable.unwrap_or(core::mem::zeroed()) as _) }
-}
-#[cfg(target_arch = "aarch64")]
-#[inline]
-pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void, contextrecord: *const ARM64_NT_CONTEXT, historytable: Option<*const UNWIND_HISTORY_TABLE>) {
-    windows_core::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const ARM64_NT_CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
+pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<PEXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void, contextrecord: PCONTEXT, historytable: Option<PUNWIND_HISTORY_TABLE>) {
+    windows_core::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : PEXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : PCONTEXT, historytable : PUNWIND_HISTORY_TABLE));
     unsafe { RtlUnwindEx(targetframe.unwrap_or(core::mem::zeroed()) as _, targetip.unwrap_or(core::mem::zeroed()) as _, exceptionrecord.unwrap_or(core::mem::zeroed()) as _, returnvalue, contextrecord, historytable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : *const CORRELATION_VECTOR) -> u32);
+pub unsafe fn RtlValidateCorrelationVector(vector: PCORRELATION_VECTOR) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : PCORRELATION_VECTOR) -> u32);
     unsafe { RtlValidateCorrelationVector(vector) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: *const RUNTIME_FUNCTION, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : *const RUNTIME_FUNCTION, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
+pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: PRUNTIME_FUNCTION, contextrecord: PCONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PDWORD64, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PDWORD64, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
     unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: *const ARM64_RUNTIME_FUNCTION, contextrecord: *mut ARM64_NT_CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS_ARM64>) -> PEXCEPTION_ROUTINE {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : *const ARM64_RUNTIME_FUNCTION, contextrecord : *mut ARM64_NT_CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> PEXCEPTION_ROUTINE);
+pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: PRUNTIME_FUNCTION, contextrecord: PCONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PULONG_PTR, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PULONG_PTR, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
     unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: Option<*const RUNTIME_FUNCTION>, contextrecord: *mut CONTEXT, machineframeunwound: Option<*mut bool>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<*const u64>, highlimit: Option<*const u64>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : *const RUNTIME_FUNCTION, contextrecord : *mut CONTEXT, machineframeunwound : *mut bool, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS, lowlimit : *const u64, highlimit : *const u64, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
+pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: Option<PRUNTIME_FUNCTION>, contextrecord: PCONTEXT, machineframeunwound: Option<PBOOLEAN>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PDWORD64, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<super::PDWORD64>, highlimit: Option<super::PDWORD64>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, machineframeunwound : PBOOLEAN, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PDWORD64, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS, lowlimit : super::PDWORD64, highlimit : super::PDWORD64, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
     unsafe { RtlVirtualUnwind2(handlertype, imagebase, controlpc, functionentry.unwrap_or(core::mem::zeroed()) as _, contextrecord as _, machineframeunwound.unwrap_or(core::mem::zeroed()) as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _, lowlimit.unwrap_or(core::mem::zeroed()) as _, highlimit.unwrap_or(core::mem::zeroed()) as _, handlerroutine as _, unwindflags) }
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "basetsd", feature = "excpt"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: Option<*const ARM64_RUNTIME_FUNCTION>, contextrecord: *mut ARM64_NT_CONTEXT, machineframeunwound: Option<*mut bool>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS_ARM64>, lowlimit: Option<*const u64>, highlimit: Option<*const u64>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : *const ARM64_RUNTIME_FUNCTION, contextrecord : *mut ARM64_NT_CONTEXT, machineframeunwound : *mut bool, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64, lowlimit : *const u64, highlimit : *const u64, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
+pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: Option<PRUNTIME_FUNCTION>, contextrecord: PCONTEXT, machineframeunwound: Option<PBOOLEAN>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PULONG_PTR, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<super::PULONG_PTR>, highlimit: Option<super::PULONG_PTR>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, machineframeunwound : PBOOLEAN, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PULONG_PTR, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS, lowlimit : super::PULONG_PTR, highlimit : super::PULONG_PTR, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
     unsafe { RtlVirtualUnwind2(handlertype, imagebase, controlpc, functionentry.unwrap_or(core::mem::zeroed()) as _, contextrecord as _, machineframeunwound.unwrap_or(core::mem::zeroed()) as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _, lowlimit.unwrap_or(core::mem::zeroed()) as _, highlimit.unwrap_or(core::mem::zeroed()) as _, handlerroutine as _, unwindflags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -359,11 +312,6 @@ pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: usize, controlpc: u
 pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvdestination: *mut core::ffi::c_void, source: *const core::ffi::c_void, size: usize, flags: u32) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlWriteNonVolatileMemory(nvtoken : *const core::ffi::c_void, nvdestination : *mut core::ffi::c_void, source : *const core::ffi::c_void, size : usize, flags : u32) -> u32);
     unsafe { RtlWriteNonVolatileMemory(nvtoken, nvdestination as _, source, size, flags) }
-}
-#[inline]
-pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: u32, condition: u8) -> u64 {
-    windows_core::link!("kernel32.dll" "system" fn VerSetConditionMask(conditionmask : u64, typemask : u32, condition : u8) -> u64);
-    unsafe { VerSetConditionMask(conditionmask, typemask, condition) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -447,9 +395,7 @@ pub const ACCESS_DS_OBJECT_TYPE_NAME_W: windows_core::PCWSTR = windows_core::w!(
 pub const ACCESS_DS_SOURCE_A: windows_core::PCSTR = windows_core::s!("DS");
 pub const ACCESS_DS_SOURCE_W: windows_core::PCWSTR = windows_core::w!("DS");
 pub const ACCESS_FILTER_SECURITY_INFORMATION: i32 = 256;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ACCESS_MASK(pub u32);
+pub type ACCESS_MASK = u32;
 pub const ACCESS_MAX_LEVEL: i32 = 4;
 pub const ACCESS_MAX_MS_ACE_TYPE: i32 = 8;
 pub const ACCESS_MAX_MS_OBJECT_ACE_TYPE: i32 = 8;
@@ -462,9 +408,7 @@ pub const ACCESS_MIN_MS_OBJECT_ACE_TYPE: i32 = 5;
 pub const ACCESS_OBJECT_GUID: i32 = 0;
 pub const ACCESS_PROPERTY_GUID: i32 = 2;
 pub const ACCESS_PROPERTY_SET_GUID: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ACCESS_REASON(pub u32);
+pub type ACCESS_REASON = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_REASONS {
@@ -533,16 +477,16 @@ pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = 4;
 pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = 3;
 pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulEncodedAssemblyIdentityLength: u32,
     pub ulManifestPathType: u32,
     pub ulManifestPathLength: u32,
-    pub liManifestLastWriteTime: i64,
+    pub liManifestLastWriteTime: LARGE_INTEGER,
     pub ulPolicyPathType: u32,
     pub ulPolicyPathLength: u32,
-    pub liPolicyLastWriteTime: i64,
+    pub liPolicyLastWriteTime: LARGE_INTEGER,
     pub ulMetadataSatelliteRosterIndex: u32,
     pub ulManifestVersionMajor: u32,
     pub ulManifestVersionMinor: u32,
@@ -554,6 +498,11 @@ pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub lpAssemblyPolicyPath: windows_core::PCWSTR,
     pub lpAssemblyDirectoryName: windows_core::PCWSTR,
     pub ulFileCount: u32,
+}
+impl Default for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -622,7 +571,6 @@ pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSpindownTimeout: u32,
     pub MaxSpindownTimeout: u32,
 }
-pub const ALL_POWERSCHEMES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 pub const ALL_PROCESSOR_GROUPS: i32 = 65535;
 pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = 0;
 pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = 5;
@@ -677,11 +625,16 @@ pub const ANSI_NULL: i8 = 0;
 pub const ANYSIZE_ARRAY: i32 = 1;
 pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
-    pub ActivationTime: i64,
+    pub ActivationTime: LARGE_INTEGER,
     pub Flags: u32,
     pub ButtonInstanceID: u32,
+}
+impl Default for APPLICATIONLAUNCH_SETTING_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const APPLICATION_ERROR_MASK: i32 = 536870912;
 #[repr(C, align(16))]
@@ -1011,77 +964,7 @@ pub const ARM64_PREFETCH_PLI: i32 = 8;
 pub const ARM64_PREFETCH_PST: i32 = 16;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_PREFETCH_STRM: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ARM64_RUNTIME_FUNCTION {
-    pub BeginAddress: u32,
-    pub Anonymous: ARM64_RUNTIME_FUNCTION_0,
-}
-impl Default for ARM64_RUNTIME_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ARM64_RUNTIME_FUNCTION_0 {
-    pub UnwindData: u32,
-    pub Anonymous: ARM64_RUNTIME_FUNCTION_0_0,
-}
-impl Default for ARM64_RUNTIME_FUNCTION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ARM64_RUNTIME_FUNCTION_0_0 {
-    pub _bitfield: u32,
-}
-impl ARM64_RUNTIME_FUNCTION_0_0 {
-    pub fn Flag(&self) -> u32 {
-        (self._bitfield << 30) >> 30
-    }
-    pub fn set_Flag(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !3) | (value & 3);
-    }
-    pub fn FunctionLength(&self) -> u32 {
-        (self._bitfield << 19) >> 21
-    }
-    pub fn set_FunctionLength(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(2047 << 2)) | ((value & 2047) << 2);
-    }
-    pub fn RegF(&self) -> u32 {
-        (self._bitfield << 16) >> 29
-    }
-    pub fn set_RegF(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
-    }
-    pub fn RegI(&self) -> u32 {
-        (self._bitfield << 12) >> 28
-    }
-    pub fn set_RegI(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
-    }
-    pub fn H(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
-    }
-    pub fn set_H(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
-    }
-    pub fn CR(&self) -> u32 {
-        (self._bitfield << 9) >> 30
-    }
-    pub fn set_CR(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(3 << 21)) | ((value & 3) << 21);
-    }
-    pub fn FrameSize(&self) -> u32 {
-        self._bitfield >> 23
-    }
-    pub fn set_FrameSize(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(511 << 23)) | ((value & 511) << 23);
-    }
-}
+pub type ARM64_RUNTIME_FUNCTION = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_SVCR: i32 = 23058;
 #[cfg(target_arch = "aarch64")]
@@ -1163,6 +1046,7 @@ pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
     pub Capacity: u32,
 }
+pub type BOOLEAN = u8;
 pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = 86;
 pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = 97;
 pub const BootLoad: SERVICE_LOAD_TYPE = 0;
@@ -1208,9 +1092,7 @@ impl Default for CACHE_RELATIONSHIP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CCHAR(pub i8);
+pub type CCHAR = i8;
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: i32 = 4;
 pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: i32 = 16;
 #[repr(C)]
@@ -1692,7 +1574,7 @@ pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = 74;
 pub const DACL_SECURITY_INFORMATION: i32 = 4;
 pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: i32 = 1;
 pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = 1;
-pub const DEFAULT_IMPERSONATION_LEVEL: i32 = 2;
+pub const DEFAULT_IMPERSONATION_LEVEL: SECURITY_IMPERSONATION_LEVEL = 2;
 pub const DELETE: i32 = 65536;
 pub const DEVICEFAMILYDEVICEFORM_ALLINONE: i32 = 7;
 pub const DEVICEFAMILYDEVICEFORM_BANKING: i32 = 14;
@@ -1808,7 +1690,7 @@ pub struct DISPATCHER_CONTEXT_ARM64 {
     pub HandlerData: *mut core::ffi::c_void,
     pub HistoryTable: *mut _UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
-    pub ControlPcIsUnwound: bool,
+    pub ControlPcIsUnwound: BOOLEAN,
     pub NonVolatileRegisters: super::PBYTE,
 }
 #[repr(C)]
@@ -1826,7 +1708,7 @@ pub struct DISPATCHER_CONTEXT_ARM64 {
     pub HandlerData: *mut core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
-    pub ControlPcIsUnwound: bool,
+    pub ControlPcIsUnwound: BOOLEAN,
     pub NonVolatileRegisters: super::PBYTE,
 }
 #[repr(C)]
@@ -2038,9 +1920,7 @@ impl DRIVER_RUNTIME_REPORT_0_0 {
 }
 pub const DUPLICATE_CLOSE_SOURCE: i32 = 1;
 pub const DUPLICATE_SAME_ACCESS: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DWORDLONG(pub u64);
+pub type DWORDLONG = u64;
 pub const DYNAMIC_EH_CONTINUATION_TARGET_ADD: i32 = 1;
 pub const DYNAMIC_EH_CONTINUATION_TARGET_PROCESSED: i32 = 2;
 pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: i32 = 1;
@@ -2165,7 +2045,7 @@ pub struct ENCLAVE_LOAD_DATA_VBS_BASIC {
 }
 pub const ENCLAVE_LONG_ID_LENGTH: i32 = 32;
 pub const ENCLAVE_SHORT_ID_LENGTH: i32 = 16;
-pub type ENCLAVE_TARGET_FUNCTION = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type ENCLAVE_TARGET_FUNCTION = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
 pub const ENCLAVE_TYPE_SGX: i32 = 1;
 pub const ENCLAVE_TYPE_SGX2: i32 = 2;
 pub const ENCLAVE_TYPE_VBS: i32 = 16;
@@ -2336,9 +2216,7 @@ pub const EXCEPTION_TARGET_UNWIND: i32 = 32;
 pub const EXCEPTION_UNWIND: i32 = 102;
 pub const EXCEPTION_UNWINDING: i32 = 2;
 pub const EXCEPTION_WRITE_FAULT: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EXECUTION_STATE(pub u32);
+pub type EXECUTION_STATE = u32;
 pub const EndpointParamRegNone: IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = 0;
 pub const EndpointParamRegR8: IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = 9;
 pub const EndpointParamRegR9: IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = 10;
@@ -2443,9 +2321,7 @@ pub const FAST_FAIL_UNSAFE_EXTENSION_CALL: i32 = 26;
 pub const FAST_FAIL_UNSAFE_REGISTRY_ACCESS: i32 = 9;
 pub const FAST_FAIL_VEH_CORRUPTION: i32 = 60;
 pub const FAST_FAIL_VTGUARD_CHECK_FAILURE: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FCHAR(pub u8);
+pub type FCHAR = u8;
 pub const FILE_ACTION_ADDED: i32 = 1;
 pub const FILE_ACTION_MODIFIED: i32 = 3;
 pub const FILE_ACTION_REMOVED: i32 = 2;
@@ -2525,16 +2401,16 @@ pub const FILE_NOTIFY_CHANGE_SIZE: i32 = 8;
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: u32,
-    pub CreationTime: i64,
-    pub LastModificationTime: i64,
-    pub LastChangeTime: i64,
-    pub LastAccessTime: i64,
-    pub AllocatedLength: i64,
-    pub FileSize: i64,
+    pub CreationTime: LARGE_INTEGER,
+    pub LastModificationTime: LARGE_INTEGER,
+    pub LastChangeTime: LARGE_INTEGER,
+    pub LastAccessTime: LARGE_INTEGER,
+    pub AllocatedLength: LARGE_INTEGER,
+    pub FileSize: LARGE_INTEGER,
     pub FileAttributes: u32,
     pub Anonymous: FILE_NOTIFY_EXTENDED_INFORMATION_0,
-    pub FileId: i64,
-    pub ParentFileId: i64,
+    pub FileId: LARGE_INTEGER,
+    pub ParentFileId: LARGE_INTEGER,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
@@ -2559,16 +2435,16 @@ impl Default for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
 pub struct FILE_NOTIFY_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: u32,
-    pub CreationTime: i64,
-    pub LastModificationTime: i64,
-    pub LastChangeTime: i64,
-    pub LastAccessTime: i64,
-    pub AllocatedLength: i64,
-    pub FileSize: i64,
+    pub CreationTime: LARGE_INTEGER,
+    pub LastModificationTime: LARGE_INTEGER,
+    pub LastChangeTime: LARGE_INTEGER,
+    pub LastAccessTime: LARGE_INTEGER,
+    pub AllocatedLength: LARGE_INTEGER,
+    pub FileSize: LARGE_INTEGER,
     pub FileAttributes: u32,
     pub Anonymous: FILE_NOTIFY_FULL_INFORMATION_0,
-    pub FileId: i64,
-    pub ParentFileId: i64,
+    pub FileId: LARGE_INTEGER,
+    pub ParentFileId: LARGE_INTEGER,
     pub FileNameLength: u16,
     pub FileNameFlags: u8,
     pub Reserved: u8,
@@ -2625,49 +2501,59 @@ pub const FILE_SHARE_DELETE: i32 = 4;
 pub const FILE_SHARE_READ: i32 = 1;
 pub const FILE_SHARE_WRITE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILE_STAT_BASIC_INFORMATION {
-    pub FileId: i64,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
+    pub FileId: LARGE_INTEGER,
+    pub CreationTime: LARGE_INTEGER,
+    pub LastAccessTime: LARGE_INTEGER,
+    pub LastWriteTime: LARGE_INTEGER,
+    pub ChangeTime: LARGE_INTEGER,
+    pub AllocationSize: LARGE_INTEGER,
+    pub EndOfFile: LARGE_INTEGER,
     pub FileAttributes: u32,
     pub ReparseTag: u32,
     pub NumberOfLinks: u32,
     pub DeviceType: u32,
     pub DeviceCharacteristics: u32,
     pub Reserved: u32,
-    pub VolumeSerialNumber: i64,
+    pub VolumeSerialNumber: LARGE_INTEGER,
     pub FileId128: FILE_ID_128,
 }
+impl Default for FILE_STAT_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILE_STAT_INFORMATION {
-    pub FileId: i64,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
+    pub FileId: LARGE_INTEGER,
+    pub CreationTime: LARGE_INTEGER,
+    pub LastAccessTime: LARGE_INTEGER,
+    pub LastWriteTime: LARGE_INTEGER,
+    pub ChangeTime: LARGE_INTEGER,
+    pub AllocationSize: LARGE_INTEGER,
+    pub EndOfFile: LARGE_INTEGER,
     pub FileAttributes: u32,
     pub ReparseTag: u32,
     pub NumberOfLinks: u32,
     pub EffectiveAccess: ACCESS_MASK,
 }
+impl Default for FILE_STAT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILE_STAT_LX_INFORMATION {
-    pub FileId: i64,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
+    pub FileId: LARGE_INTEGER,
+    pub CreationTime: LARGE_INTEGER,
+    pub LastAccessTime: LARGE_INTEGER,
+    pub LastWriteTime: LARGE_INTEGER,
+    pub ChangeTime: LARGE_INTEGER,
+    pub AllocationSize: LARGE_INTEGER,
+    pub EndOfFile: LARGE_INTEGER,
     pub FileAttributes: u32,
     pub ReparseTag: u32,
     pub NumberOfLinks: u32,
@@ -2678,6 +2564,11 @@ pub struct FILE_STAT_LX_INFORMATION {
     pub LxMode: u32,
     pub LxDeviceIdMajor: u32,
     pub LxDeviceIdMinor: u32,
+}
+impl Default for FILE_STAT_LX_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_SUPPORTS_BLOCK_REFCOUNTING: i32 = 134217728;
 pub const FILE_SUPPORTS_BYPASS_IO: i32 = 2048;
@@ -2735,15 +2626,16 @@ impl Default for FLOATING_SAVE_AREA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FLONG(pub u32);
+pub type FLONG = u32;
 pub const FLS_MAXIMUM_AVAILABLE: i32 = 4080;
 pub const FLUSH_FLAGS_FILE_DATA_ONLY: i32 = 1;
 pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
 pub const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
 pub const FLUSH_FLAGS_NO_SYNC: i32 = 2;
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = -1i32 as usize;
+#[cfg(target_arch = "x86")]
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 4294967295;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 18446744073709551615u64 as usize;
 pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
 pub const FOREST_USER_RID_MAX: i32 = 499;
 #[repr(C)]
@@ -2797,9 +2689,7 @@ pub const FRAME_FPO: i32 = 0;
 pub const FRAME_NONFPO: i32 = 3;
 pub const FRAME_TRAP: i32 = 1;
 pub const FRAME_TSS: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FSHORT(pub u16);
+pub type FSHORT = u16;
 pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = 4;
 pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = 4;
 pub const FileSystemType: SERVICE_NODE_TYPE = 2;
@@ -2821,9 +2711,9 @@ pub struct GENERIC_MAPPING {
 pub const GENERIC_READ: u32 = 2147483648;
 pub const GENERIC_WRITE: i32 = 1073741824;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(controlpc: u64, context: *const core::ffi::c_void) -> PRUNTIME_FUNCTION>;
+pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: u64, context: *const core::ffi::c_void) -> PRUNTIME_FUNCTION>;
 #[cfg(target_arch = "aarch64")]
-pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(controlpc: u64, context: *const core::ffi::c_void) -> PARM64_RUNTIME_FUNCTION>;
+pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: u64, context: *const core::ffi::c_void) -> PARM64_RUNTIME_FUNCTION>;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2878,253 +2768,6 @@ impl Default for GROUP_RELATIONSHIP {
     }
 }
 pub const GROUP_SECURITY_INFORMATION: i32 = 2;
-pub const GUID_ACDC_POWER_SOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
-pub const GUID_ACTIVE_POWERSCHEME: windows_core::GUID = windows_core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
-pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
-pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698);
-pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: windows_core::GUID = windows_core::GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167);
-pub const GUID_ALLOW_AWAYMODE: windows_core::GUID = windows_core::GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187);
-pub const GUID_ALLOW_DISPLAY_REQUIRED: windows_core::GUID = windows_core::GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623);
-pub const GUID_ALLOW_RTC_WAKE: windows_core::GUID = windows_core::GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d);
-pub const GUID_ALLOW_STANDBY_STATES: windows_core::GUID = windows_core::GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab);
-pub const GUID_ALLOW_SYSTEM_REQUIRED: windows_core::GUID = windows_core::GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2);
-pub const GUID_APPLAUNCH_BUTTON: windows_core::GUID = windows_core::GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa);
-pub const GUID_BACKGROUND_TASK_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e);
-pub const GUID_BATTERY_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24);
-pub const GUID_BATTERY_DISCHARGE_ACTION_0: windows_core::GUID = windows_core::GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546);
-pub const GUID_BATTERY_DISCHARGE_ACTION_1: windows_core::GUID = windows_core::GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06);
-pub const GUID_BATTERY_DISCHARGE_ACTION_2: windows_core::GUID = windows_core::GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4);
-pub const GUID_BATTERY_DISCHARGE_ACTION_3: windows_core::GUID = windows_core::GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_0: windows_core::GUID = windows_core::GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_1: windows_core::GUID = windows_core::GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_2: windows_core::GUID = windows_core::GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_3: windows_core::GUID = windows_core::GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_0: windows_core::GUID = windows_core::GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_1: windows_core::GUID = windows_core::GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_2: windows_core::GUID = windows_core::GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_3: windows_core::GUID = windows_core::GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965);
-pub const GUID_BATTERY_PERCENTAGE_REMAINING: windows_core::GUID = windows_core::GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1);
-pub const GUID_BATTERY_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f);
-pub const GUID_CONNECTIVITY_IN_STANDBY: windows_core::GUID = windows_core::GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9);
-pub const GUID_CONSOLE_DISPLAY_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47);
-pub const GUID_CRITICAL_POWER_TRANSITION: windows_core::GUID = windows_core::GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1);
-pub const GUID_DEEP_SLEEP_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545);
-pub const GUID_DEEP_SLEEP_PLATFORM_STATE: windows_core::GUID = windows_core::GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152);
-pub const GUID_DEVICE_IDLE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19);
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb);
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96);
-pub const GUID_DISCONNECTED_STANDBY_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1);
-pub const GUID_DISK_ADAPTIVE_POWERDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667);
-pub const GUID_DISK_BURST_IGNORE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663);
-pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433);
-pub const GUID_DISK_IDLE_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6);
-pub const GUID_DISK_MAX_POWER: windows_core::GUID = windows_core::GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8);
-pub const GUID_DISK_NVME_NOPPME: windows_core::GUID = windows_core::GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca);
-pub const GUID_DISK_POWERDOWN_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e);
-pub const GUID_DISK_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442);
-pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6);
-pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
-pub const GUID_ENERGY_SAVER_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
-pub const GUID_ENERGY_SAVER_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
-pub const GUID_ENERGY_SAVER_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x550e8400_e29b_41d4_a716_446655440000);
-pub const GUID_ENERGY_SAVER_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
-pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
-pub const GUID_GLOBAL_USER_PRESENCE: windows_core::GUID = windows_core::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
-pub const GUID_GPU_PREFERENCE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c);
-pub const GUID_GRAPHICS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
-pub const GUID_HIBERNATE_FASTS4_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
-pub const GUID_HIBERNATE_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
-pub const GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xa79c8e0e_f271_482d_8f8a_5db9a18312de);
-pub const GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
-pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xcf8c6097_12b8_4279_bbdd_44601ee5209d);
-pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xee16691e_6ab3_4619_bb48_1c77c9357e5a);
-pub const GUID_IDLE_BACKGROUND_TASK: windows_core::GUID = windows_core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
-pub const GUID_IDLE_RESILIENCY_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
-pub const GUID_IDLE_RESILIENCY_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
-pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: windows_core::GUID = windows_core::GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2);
-pub const GUID_INTSTEER_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d);
-pub const GUID_INTSTEER_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e);
-pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: windows_core::GUID = windows_core::GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25);
-pub const GUID_LEGACY_RTC_MITIGATION: windows_core::GUID = windows_core::GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84);
-pub const GUID_LIDCLOSE_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936);
-pub const GUID_LIDOPEN_POWERSTATE: windows_core::GUID = windows_core::GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4);
-pub const GUID_LIDSWITCH_STATE_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3);
-pub const GUID_LIDSWITCH_STATE_RELIABILITY: windows_core::GUID = windows_core::GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94);
-pub const GUID_LOCK_CONSOLE_ON_WAKE: windows_core::GUID = windows_core::GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51);
-pub const GUID_MAX_POWER_SAVINGS: windows_core::GUID = windows_core::GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a);
-pub const GUID_MIN_POWER_SAVINGS: windows_core::GUID = windows_core::GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c);
-pub const GUID_MIXED_REALITY_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391);
-pub const GUID_MONITOR_POWER_ON: windows_core::GUID = windows_core::GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea);
-pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3);
-pub const GUID_PCIEXPRESS_ASPM_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5);
-pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
-pub const GUID_POWERBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
-pub const GUID_POWERSCHEME_PERSONALITY: windows_core::GUID = windows_core::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
-pub const GUID_POWER_MODE_BEST_EFFICIENCY: windows_core::GUID = windows_core::GUID::from_u128(0x961cc777_2547_4f9d_8174_7d86181b8a7a);
-pub const GUID_POWER_MODE_BEST_PERFORMANCE: windows_core::GUID = windows_core::GUID::from_u128(0xded574b5_45a0_4f42_8737_46345c09c238);
-pub const GUID_POWER_MODE_NONE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const GUID_POWER_MODE_PERFORMANCE: windows_core::GUID = windows_core::GUID::from_u128(0x3af9b8d9_7c97_431d_ad78_34a8bfea439f);
-pub const GUID_POWER_SAVING_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
-pub const GUID_PROCESSOR_ALLOW_THROTTLING: windows_core::GUID = windows_core::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
-pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: windows_core::GUID = windows_core::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
-pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: windows_core::GUID = windows_core::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
-pub const GUID_PROCESSOR_COMPLEX_PARKING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xb669a5e9_7b1d_4132_baaa_49190abcfeb6);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: windows_core::GUID = windows_core::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: windows_core::GUID = windows_core::GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732);
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: windows_core::GUID = windows_core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028);
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: windows_core::GUID = windows_core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029);
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: windows_core::GUID = windows_core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583);
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: windows_core::GUID = windows_core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: windows_core::GUID = windows_core::GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: windows_core::GUID = windows_core::GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db);
-pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: windows_core::GUID = windows_core::GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3);
-pub const GUID_PROCESSOR_DUTY_CYCLING: windows_core::GUID = windows_core::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT_2: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e102);
-pub const GUID_PROCESSOR_FREQUENCY_MINIMUM: windows_core::GUID = windows_core::GUID::from_u128(0x2ac92cea_5efa_4a1b_bed5_1a2bd9aa0b94);
-pub const GUID_PROCESSOR_FREQUENCY_MINIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0x2ac92cea_5efa_4a1b_bed5_1a2bd9aa0b95);
-pub const GUID_PROCESSOR_FREQUENCY_MINIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0x2ac92cea_5efa_4a1b_bed5_1a2bd9aa0b96);
-pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
-pub const GUID_PROCESSOR_HETERO_CONTAINMENT_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x6ff13aeb_7897_4356_9999_dd9930af065f);
-pub const GUID_PROCESSOR_HETERO_CONTAINMENT_EFFICIENCY_IMP_UTIL_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6ece9e1f_b6dd_42bf_b1b7_5a512b10c092);
-pub const GUID_PROCESSOR_HETERO_CONTAINMENT_EFFICIENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x69439b22_221b_4830_bd34_f7bcece24583);
-pub const GUID_PROCESSOR_HETERO_CONTAINMENT_HYBRID_IMP_UTIL_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x12fd031f_53d2_4bf4_ac6d_c699fc9538c7);
-pub const GUID_PROCESSOR_HETERO_CONTAINMENT_HYBRID_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6788488b_1b90_4d11_8fa7_973e470dff47);
-pub const GUID_PROCESSOR_HETERO_CONTAINMENT_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x64fcee6b_5b1f_45a4_a76a_19b2c36ee290);
-pub const GUID_PROCESSOR_HETERO_CONTAINMENT_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x60fbe21b_efd9_49f2_b066_8674d8e9f423);
-pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
-pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6c);
-pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
-pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
-pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfc0);
-pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
-pub const GUID_PROCESSOR_IDLESTATE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c);
-pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: windows_core::GUID = windows_core::GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06);
-pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119);
-pub const GUID_PROCESSOR_IDLE_DISABLE: windows_core::GUID = windows_core::GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad);
-pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c);
-pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: windows_core::GUID = windows_core::GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2);
-pub const GUID_PROCESSOR_IDLE_TIME_CHECK: windows_core::GUID = windows_core::GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b);
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: windows_core::GUID = windows_core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: windows_core::GUID = windows_core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
-pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_LOWER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x43f278bc_0f8a_46d0_8b31_9a23e615d713);
-pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_UPPER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xbf903d33_9d24_49d3_a468_e65e0325046a);
-pub const GUID_PROCESSOR_MODULE_PARKING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xb0deaf6b_59c0_4523_8a45_ca7f40244114);
-pub const GUID_PROCESSOR_PACKAGE_C6_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xfc1b015c_eb75_496a_ab47_028b0459c8f8);
-pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
-pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: windows_core::GUID = windows_core::GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f);
-pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef);
-pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d);
-pub const GUID_PROCESSOR_PARKING_PERF_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b);
-pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: windows_core::GUID = windows_core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c);
-pub const GUID_PROCESSOR_PERFSTATE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0);
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: windows_core::GUID = windows_core::GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa);
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537);
-pub const GUID_PROCESSOR_PERF_BOOST_MODE: windows_core::GUID = windows_core::GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7);
-pub const GUID_PROCESSOR_PERF_BOOST_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59);
-pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8);
-pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5);
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6);
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: windows_core::GUID = windows_core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7);
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6);
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7);
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8);
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_2: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6865);
-pub const GUID_PROCESSOR_PERF_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
-pub const GUID_PROCESSOR_PERF_HISTORY_1: windows_core::GUID = windows_core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
-pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418);
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: windows_core::GUID = windows_core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419);
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d);
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e);
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT: windows_core::GUID = windows_core::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98173);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP_1: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98174);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP_2: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98175);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_FREQ: windows_core::GUID = windows_core::GUID::from_u128(0x81202931_acbb_405c_a7ee_3e2ba4866f6f);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_FREQ_1: windows_core::GUID = windows_core::GUID::from_u128(0x81202931_acbb_405c_a7ee_3e2ba4866f70);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_FREQ_2: windows_core::GUID = windows_core::GUID::from_u128(0x81202931_acbb_405c_a7ee_3e2ba4866f71);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_2: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300973);
-pub const GUID_PROCESSOR_PERF_TIME_CHECK: windows_core::GUID = windows_core::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
-pub const GUID_PROCESSOR_RESOURCE_PRIORITY: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5c);
-pub const GUID_PROCESSOR_RESOURCE_PRIORITY_1: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5d);
-pub const GUID_PROCESSOR_RESOURCE_PRIORITY_2: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5e);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201);
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: windows_core::GUID = windows_core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320);
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: windows_core::GUID = windows_core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: windows_core::GUID = windows_core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: windows_core::GUID = windows_core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
-pub const GUID_PROCESSOR_RESTRICTION_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x1a98ad09_af22_42ca_8e61_f0a5802c270a);
-pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
-pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_LOWER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x53824d46_87bd_4739_aa1b_aa793fac36d6);
-pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_UPPER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x828423eb_8662_4344_90f7_52bf15870f5a);
-pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
-pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
-pub const GUID_PROCESSOR_SMT_UNPARKING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xb28a6829_c5f7_444e_8f61_10e24e85c532);
-pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: windows_core::GUID = windows_core::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
-pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ee);
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964e);
-pub const GUID_PROCESSOR_THROTTLE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
-pub const GUID_PROCESSOR_WPS_MIN_EFFICIENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x5ba7419a_295c_4b02_841b_66799388d6da);
-pub const GUID_SESSION_DISPLAY_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
-pub const GUID_SESSION_USER_PRESENCE: windows_core::GUID = windows_core::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
-pub const GUID_SLEEPBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
-pub const GUID_SLEEP_IDLE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70);
-pub const GUID_SLEEP_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20);
-pub const GUID_SPR_ACTIVE_SESSION_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
-pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
-pub const GUID_STANDBY_BUDGET_PERCENT: windows_core::GUID = windows_core::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
-pub const GUID_STANDBY_BUDGET_REFRESH_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0xaca8648e_c4b1_4baa_8cce_9390ad647f8c);
-pub const GUID_STANDBY_BUDGET_REFRESH_INTERVAL: windows_core::GUID = windows_core::GUID::from_u128(0x61f45dfe_1919_4180_bb46_8cc70e0b38f1);
-pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
-pub const GUID_STANDBY_RESERVE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
-pub const GUID_STANDBY_RESET_PERCENT: windows_core::GUID = windows_core::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
-pub const GUID_STANDBY_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da);
-pub const GUID_SYSTEM_AWAYMODE: windows_core::GUID = windows_core::GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0);
-pub const GUID_SYSTEM_BUTTON_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347);
-pub const GUID_SYSTEM_COOLING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f);
-pub const GUID_TYPICAL_POWER_SAVINGS: windows_core::GUID = windows_core::GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e);
-pub const GUID_UNATTEND_SLEEP_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0);
-pub const GUID_USERINTERFACEBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5);
-pub const GUID_USER_PRESENCE_PREDICTION: windows_core::GUID = windows_core::GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def);
-pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8);
-pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: windows_core::GUID = windows_core::GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864);
-pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b);
-pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663);
-pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7);
-pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff);
-pub const GUID_VIDEO_DIM_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee);
-pub const GUID_VIDEO_POWERDOWN_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e);
-pub const GUID_VIDEO_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
 pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = 45;
 pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = 59;
 pub const GlobalDataIdConsoleSharedDataFlags: RTL_SYSTEM_GLOBAL_DATA_ID = 14;
@@ -3147,9 +2790,7 @@ pub const GlobalDataIdTimeZoneBias: RTL_SYSTEM_GLOBAL_DATA_ID = 3;
 pub const GlobalDataIdTimeZoneId: RTL_SYSTEM_GLOBAL_DATA_ID = 6;
 pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = 0;
 pub const GroupPark: POWER_INFORMATION_LEVEL = 48;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HANDLE(pub *mut core::ffi::c_void);
+pub type HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
@@ -3249,6 +2890,9 @@ pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub HandlerData: u32,
     pub PrologEndAddress: u32,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3299,7 +2943,77 @@ impl Default for IMAGE_ARCHIVE_MEMBER_HEADER {
 pub const IMAGE_ARCHIVE_PAD: windows_core::PCSTR = windows_core::s!("\n");
 pub const IMAGE_ARCHIVE_START: windows_core::PCSTR = windows_core::s!("!<arch>\n");
 pub const IMAGE_ARCHIVE_START_SIZE: i32 = 8;
-pub type IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = ARM64_RUNTIME_FUNCTION;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+    pub BeginAddress: u32,
+    pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
+}
+impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
+    pub UnwindData: u32,
+    pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
+}
+impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
+    pub _bitfield: u32,
+}
+impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
+    pub fn Flag(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_Flag(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn FunctionLength(&self) -> u32 {
+        (self._bitfield << 19) >> 21
+    }
+    pub fn set_FunctionLength(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 2)) | ((value & 2047) << 2);
+    }
+    pub fn RegF(&self) -> u32 {
+        (self._bitfield << 16) >> 29
+    }
+    pub fn set_RegF(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
+    pub fn RegI(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_RegI(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn H(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_H(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn CR(&self) -> u32 {
+        (self._bitfield << 9) >> 30
+    }
+    pub fn set_CR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 21)) | ((value & 3) << 21);
+    }
+    pub fn FrameSize(&self) -> u32 {
+        self._bitfield >> 23
+    }
+    pub fn set_FrameSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(511 << 23)) | ((value & 511) << 23);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
@@ -3841,7 +3555,7 @@ pub struct IMAGE_DEBUG_DIRECTORY {
 pub struct IMAGE_DEBUG_MISC {
     pub DataType: u32,
     pub Length: u32,
-    pub Unicode: bool,
+    pub Unicode: BOOLEAN,
     pub Reserved: [u8; 3],
     pub Data: [u8; 1],
 }
@@ -4470,6 +4184,9 @@ impl IMAGE_HOT_PATCH_MACHINE_0 {
 pub const IMAGE_HOT_PATCH_NONE: i32 = 0;
 pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: i32 = 409600;
 pub const IMAGE_HOT_PATCH_REL32: i32 = 245760;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4919,7 +4636,7 @@ impl Default for IMAGE_POLICY_ENTRY {
 #[derive(Clone, Copy)]
 pub union IMAGE_POLICY_ENTRY_0 {
     pub None: *const core::ffi::c_void,
-    pub BoolValue: bool,
+    pub BoolValue: BOOLEAN,
     pub Int8Value: i8,
     pub UInt8Value: u8,
     pub Int16Value: i16,
@@ -5384,8 +5101,10 @@ impl Default for IMAGE_ROM_OPTIONAL_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 pub type IMAGE_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type IMAGE_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
 #[cfg(target_arch = "aarch64")]
 pub type IMAGE_RUNTIME_FUNCTION_ENTRY = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 pub const IMAGE_SCN_ALIGN_1024BYTES: i32 = 11534336;
@@ -6050,28 +5769,38 @@ pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     pub CompletionPort: HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
-    pub TotalUserTime: i64,
-    pub TotalKernelTime: i64,
-    pub ThisPeriodTotalUserTime: i64,
-    pub ThisPeriodTotalKernelTime: i64,
+    pub TotalUserTime: LARGE_INTEGER,
+    pub TotalKernelTime: LARGE_INTEGER,
+    pub ThisPeriodTotalUserTime: LARGE_INTEGER,
+    pub ThisPeriodTotalKernelTime: LARGE_INTEGER,
     pub TotalPageFaultCount: u32,
     pub TotalProcesses: u32,
     pub ActiveProcesses: u32,
     pub TotalTerminatedProcesses: u32,
 }
+impl Default for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     pub BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION,
     pub IoInfo: IO_COUNTERS,
 }
+impl Default for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
-    pub PerProcessUserTimeLimit: i64,
-    pub PerJobUserTimeLimit: i64,
+    pub PerProcessUserTimeLimit: LARGE_INTEGER,
+    pub PerJobUserTimeLimit: LARGE_INTEGER,
     pub LimitFlags: u32,
     pub MinimumWorkingSetSize: usize,
     pub MaximumWorkingSetSize: usize,
@@ -6079,6 +5808,11 @@ pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub Affinity: usize,
     pub PriorityClass: u32,
     pub SchedulingClass: u32,
+}
+impl Default for JOBOBJECT_BASIC_LIMIT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -6132,7 +5866,7 @@ pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     pub EndOfJobTimeAction: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION,
     pub IoInfo: IO_COUNTERS,
@@ -6140,6 +5874,11 @@ pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub JobMemoryLimit: usize,
     pub PeakProcessMemoryUsed: usize,
     pub PeakJobMemoryUsed: usize,
+}
+impl Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = 2;
 pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = 1;
@@ -6218,7 +5957,7 @@ pub struct JOBOBJECT_JOBSET_INFORMATION {
     pub MemberLevel: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub LimitFlags: u32,
     pub ViolationLimitFlags: u32,
@@ -6226,12 +5965,17 @@ pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytes: u64,
     pub IoWriteBytesLimit: u64,
-    pub PerJobUserTime: i64,
-    pub PerJobUserTimeLimit: i64,
+    pub PerJobUserTime: LARGE_INTEGER,
+    pub PerJobUserTimeLimit: LARGE_INTEGER,
     pub JobMemory: u64,
     pub JobMemoryLimit: u64,
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
+}
+impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6242,8 +5986,8 @@ pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytes: u64,
     pub IoWriteBytesLimit: u64,
-    pub PerJobUserTime: i64,
-    pub PerJobUserTimeLimit: i64,
+    pub PerJobUserTime: LARGE_INTEGER,
+    pub PerJobUserTimeLimit: LARGE_INTEGER,
     pub JobMemory: u64,
     pub Anonymous: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0,
     pub Anonymous2: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1,
@@ -6306,22 +6050,27 @@ pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     pub DscpTag: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
-    pub PerJobUserTimeLimit: i64,
+    pub PerJobUserTimeLimit: LARGE_INTEGER,
     pub JobMemoryLimit: u64,
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub LimitFlags: u32,
+}
+impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
-    pub PerJobUserTimeLimit: i64,
+    pub PerJobUserTimeLimit: LARGE_INTEGER,
     pub Anonymous: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0,
     pub Anonymous2: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1,
     pub Anonymous3: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2,
@@ -6714,9 +6463,7 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub D14: super::PDWORD64,
     pub D15: super::PDWORD64,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct KSPIN_LOCK(pub usize);
+pub type KSPIN_LOCK = usize;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KTMOBJECT_CURSOR {
@@ -6736,9 +6483,7 @@ pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = 0;
 pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = 1;
 pub type KTMOBJECT_TYPE = i32;
 pub const LABEL_SECURITY_INFORMATION: i32 = 16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LANGID(pub u16);
+pub type LANGID = u16;
 pub const LANG_AFRIKAANS: i32 = 54;
 pub const LANG_ALBANIAN: i32 = 28;
 pub const LANG_ALSATIAN: i32 = 132;
@@ -6881,10 +6626,32 @@ pub const LANG_YAKUT: i32 = 133;
 pub const LANG_YI: i32 = 120;
 pub const LANG_YORUBA: i32 = 106;
 pub const LANG_ZULU: i32 = 53;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union LARGE_INTEGER {
+    pub Anonymous: LARGE_INTEGER_0,
+    pub u: LARGE_INTEGER_1,
+    pub QuadPart: i64,
+}
+impl Default for LARGE_INTEGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LARGE_INTEGER_0 {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LARGE_INTEGER_1 {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
 pub type LATENCY_TIME = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LCID(pub u32);
+pub type LCID = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LDT_ENTRY {
@@ -7103,6 +6870,10 @@ pub const MAXWORD: i32 = 65535;
 pub const MAX_ACL_REVISION: i32 = 4;
 pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = 1024;
 pub const MAX_HW_COUNTERS: i32 = 16;
+#[cfg(target_arch = "x86")]
+pub const MAX_NATURAL_ALIGNMENT: u32 = 4;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const MAX_NATURAL_ALIGNMENT: u64 = 8;
 pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = 1024;
 pub const MAX_UCSCHAR: i32 = 1114111;
 #[cfg(target_arch = "x86")]
@@ -7158,8 +6929,8 @@ pub struct MEMORY_BASIC_INFORMATION64 {
     pub Type: u32,
     pub __alignment2: u32,
 }
-pub const MEMORY_CURRENT_PARTITION_HANDLE: HANDLE = HANDLE(-1 as _);
-pub const MEMORY_EXISTING_VAD_PARTITION_HANDLE: HANDLE = HANDLE(-3 as _);
+pub const MEMORY_CURRENT_PARTITION_HANDLE: HANDLE = -1 as _;
+pub const MEMORY_EXISTING_VAD_PARTITION_HANDLE: HANDLE = -3 as _;
 pub const MEMORY_PARTITION_ALL_ACCESS: i32 = 2031619;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7187,7 +6958,7 @@ pub const MEMORY_PRIORITY_LOWEST: i32 = 0;
 pub const MEMORY_PRIORITY_MEDIUM: i32 = 3;
 pub const MEMORY_PRIORITY_NORMAL: i32 = 5;
 pub const MEMORY_PRIORITY_VERY_LOW: i32 = 1;
-pub const MEMORY_SYSTEM_PARTITION_HANDLE: HANDLE = HANDLE(-2 as _);
+pub const MEMORY_SYSTEM_PARTITION_HANDLE: HANDLE = -2 as _;
 pub const MEM_4MB_PAGES: u32 = 2147483648;
 pub const MEM_64K_PAGES: i32 = 541065216;
 #[repr(C)]
@@ -7426,7 +7197,15 @@ pub struct NETWORK_APP_INSTANCE_EA {
 }
 pub const NLS_VALID_LOCALE_MASK: i32 = 1048575;
 pub const NONVOL_FP_NUMREG_ARM64: i32 = 8;
+#[cfg(target_arch = "x86")]
+pub const NONVOL_FP_SIZE_ARM64: u32 = 64;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NONVOL_FP_SIZE_ARM64: u64 = 64;
 pub const NONVOL_INT_NUMREG_ARM64: i32 = 11;
+#[cfg(target_arch = "x86")]
+pub const NONVOL_INT_SIZE_ARM64: u32 = 88;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NONVOL_INT_SIZE_ARM64: u64 = 88;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct NON_PAGED_DEBUG_INFO {
@@ -7448,7 +7227,6 @@ pub struct NOTIFY_USER_POWER_SETTING {
     pub Guid: windows_core::GUID,
 }
 pub const NO_PROPAGATE_INHERIT_ACE: i32 = 4;
-pub const NO_SUBGROUP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
 pub type NPSTR = *mut i8;
 #[repr(C)]
 #[cfg(feature = "excpt")]
@@ -7670,9 +7448,11 @@ pub type OS_DEPLOYEMENT_STATE_VALUES = i32;
 pub const OS_DEPLOYMENT_COMPACT: OS_DEPLOYEMENT_STATE_VALUES = 2;
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = 1;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut PRUNTIME_FUNCTION) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: *const core::ffi::c_void, entries: super::PDWORD, functions: *mut PRUNTIME_FUNCTION) -> u32>;
 #[cfg(target_arch = "aarch64")]
-pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut PARM64_RUNTIME_FUNCTION) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: *const core::ffi::c_void, entries: super::PDWORD, functions: *mut PARM64_RUNTIME_FUNCTION) -> u32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: windows_core::PCSTR = windows_core::s!("OutOfProcessFunctionTableCallback");
 pub const OWNER_SECURITY_INFORMATION: i32 = 1;
@@ -7686,9 +7466,7 @@ pub type PACCESS_DENIED_CALLBACK_OBJECT_ACE = *mut ACCESS_DENIED_CALLBACK_OBJECT
 pub type PACCESS_DENIED_OBJECT_ACE = *mut ACCESS_DENIED_OBJECT_ACE;
 pub type PACCESS_MASK = *mut ACCESS_MASK;
 pub type PACCESS_REASONS = *mut ACCESS_REASONS;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACCESS_TOKEN(pub *mut core::ffi::c_void);
+pub type PACCESS_TOKEN = *mut core::ffi::c_void;
 pub type PACE_HEADER = *mut ACE_HEADER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -7751,13 +7529,13 @@ pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL_P_SEQUENTIAL_E: i32 = 4;
 pub type PARM64EC_NT_CONTEXT = *mut ARM64EC_NT_CONTEXT;
 pub type PARM64_NT_CONTEXT = *mut ARM64_NT_CONTEXT;
 pub type PARM64_NT_NEON128 = *mut ARM64_NT_NEON128;
-pub type PARM64_RUNTIME_FUNCTION = *mut ARM64_RUNTIME_FUNCTION;
+pub type PARM64_RUNTIME_FUNCTION = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 pub type PARM64_TPIDR2_BLOCK = *mut ARM64_TPIDR2_BLOCK;
 pub type PASSEMBLY_FILE_DETAILED_INFORMATION = *mut ASSEMBLY_FILE_DETAILED_INFORMATION;
 pub type PATTRIBUTES_AND_SID = *mut ATTRIBUTES_AND_SID;
 pub type PAUDIT_EVENT_TYPE = *mut AUDIT_EVENT_TYPE;
 pub type PBATTERY_REPORTING_SCALE = *mut BATTERY_REPORTING_SCALE;
-pub type PBOOLEAN = *mut bool;
+pub type PBOOLEAN = *mut BOOLEAN;
 pub type PCACHE_DESCRIPTOR = *mut CACHE_DESCRIPTOR;
 #[cfg(feature = "basetsd")]
 pub type PCACHE_RELATIONSHIP = *mut CACHE_RELATIONSHIP;
@@ -7775,9 +7553,7 @@ pub type PCHAR = *mut i8;
 pub type PCIMAGE_DELAYLOAD_DESCRIPTOR = *const IMAGE_DELAYLOAD_DESCRIPTOR;
 pub type PCIMAGE_POLICY_ENTRY = *const IMAGE_POLICY_ENTRY;
 pub type PCIMAGE_POLICY_METADATA = *const IMAGE_POLICY_METADATA;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCLAIMS_BLOB(pub *mut core::ffi::c_void);
+pub type PCLAIMS_BLOB = *mut core::ffi::c_void;
 #[cfg(feature = "basetsd")]
 pub type PCLAIM_SECURITY_ATTRIBUTES_INFORMATION = *mut CLAIM_SECURITY_ATTRIBUTES_INFORMATION;
 pub type PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE = *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE;
@@ -7849,7 +7625,7 @@ pub type PENCLAVE_INIT_INFO_SGX = *mut ENCLAVE_INIT_INFO_SGX;
 pub type PENCLAVE_INIT_INFO_VBS = *mut ENCLAVE_INIT_INFO_VBS;
 pub type PENCLAVE_INIT_INFO_VBS_BASIC = *mut ENCLAVE_INIT_INFO_VBS_BASIC;
 pub type PENCLAVE_LOAD_DATA_VBS_BASIC = *mut ENCLAVE_LOAD_DATA_VBS_BASIC;
-pub type PENCLAVE_TARGET_FUNCTION = *mut ENCLAVE_TARGET_FUNCTION;
+pub type PENCLAVE_TARGET_FUNCTION = *mut u8;
 pub type PENERGY_SAVER_STATUS = *mut ENERGY_SAVER_STATUS;
 pub type PENLISTMENT_BASIC_INFORMATION = *mut ENLISTMENT_BASIC_INFORMATION;
 pub type PENLISTMENT_CRM_INFORMATION = *mut ENLISTMENT_CRM_INFORMATION;
@@ -7881,9 +7657,9 @@ pub const PERFSTATE_POLICY_CHANGE_SINGLE: i32 = 1;
 pub type PEVENTLOGRECORD = *mut EVENTLOGRECORD;
 pub type PEVENTSFORLOGFILE = *mut EVENTSFORLOGFILE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PEXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: *mut core::ffi::c_void) -> i32>;
+pub type PEXCEPTION_FILTER = Option<unsafe extern "C" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: *mut core::ffi::c_void) -> i32>;
 #[cfg(target_arch = "aarch64")]
-pub type PEXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: u64) -> i32>;
+pub type PEXCEPTION_FILTER = Option<unsafe extern "C" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: u64) -> i32>;
 pub type PEXCEPTION_POINTERS = *mut EXCEPTION_POINTERS;
 pub type PEXCEPTION_RECORD = *mut EXCEPTION_RECORD;
 pub type PEXCEPTION_RECORD32 = *mut EXCEPTION_RECORD32;
@@ -8020,7 +7796,7 @@ pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: i32 = 6;
 pub const PF_XSAVE_ENABLED: i32 = 17;
 pub type PGENERIC_MAPPING = *mut GENERIC_MAPPING;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = *mut GET_RUNTIME_FUNCTION_CALLBACK;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = *mut u8;
 #[cfg(feature = "basetsd")]
 pub type PGROUP_AFFINITY = *mut GROUP_AFFINITY;
 pub type PGROUP_AFFINITY32 = *mut GROUP_AFFINITY32;
@@ -8041,7 +7817,7 @@ pub type PIMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = _PIMAGE_RUNTIME_FUNCTION_ENTRY;
 pub type PIMAGE_ARCHITECTURE_ENTRY = *mut IMAGE_ARCHITECTURE_ENTRY;
 pub type PIMAGE_ARCHITECTURE_HEADER = *mut IMAGE_ARCHITECTURE_HEADER;
 pub type PIMAGE_ARCHIVE_MEMBER_HEADER = *mut IMAGE_ARCHIVE_MEMBER_HEADER;
-pub type PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = *mut ARM64_RUNTIME_FUNCTION;
+pub type PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 pub type PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ARM_RUNTIME_FUNCTION_ENTRY;
 pub type PIMAGE_AUX_SYMBOL = *mut IMAGE_AUX_SYMBOL;
 pub type PIMAGE_AUX_SYMBOL_EX = *mut IMAGE_AUX_SYMBOL_EX;
@@ -8194,7 +7970,7 @@ pub type PKNONVOLATILE_CONTEXT_POINTERS_ARM64 = *mut KNONVOLATILE_CONTEXT_POINTE
 pub type PKSPIN_LOCK = *mut KSPIN_LOCK;
 pub type PKTMOBJECT_CURSOR = *mut KTMOBJECT_CURSOR;
 pub type PKTMOBJECT_TYPE = *mut KTMOBJECT_TYPE;
-pub type PLARGE_INTEGER = *mut i64;
+pub type PLARGE_INTEGER = *mut LARGE_INTEGER;
 #[cfg(feature = "minwindef")]
 pub type PLCID = super::PDWORD;
 pub type PLDT_ENTRY = *mut LDT_ENTRY;
@@ -8248,7 +8024,7 @@ pub type POSVERSIONINFOEXA = *mut OSVERSIONINFOEXA;
 pub type POSVERSIONINFOEXW = *mut OSVERSIONINFOEXW;
 pub type POSVERSIONINFOW = *mut OSVERSIONINFOW;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = *mut OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK;
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = *mut u8;
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: i32 = 2;
 pub const POWERBUTTON_ACTION_INDEX_NOTHING: i32 = 0;
 pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: i32 = 3;
@@ -8360,7 +8136,7 @@ pub const POWER_LIMIT_VALUE_NO_CONTROL: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
-    pub Console: bool,
+    pub Console: BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
 pub type POWER_MONITOR_REQUEST_REASON = i32;
@@ -8368,7 +8144,7 @@ pub type POWER_MONITOR_REQUEST_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
-    pub AoAc: bool,
+    pub AoAc: BOOLEAN,
 }
 pub type POWER_PLATFORM_ROLE = i32;
 pub const POWER_PLATFORM_ROLE_V1: i32 = 1;
@@ -8384,18 +8160,18 @@ pub type POWER_REQUEST_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    pub IsAllowed: bool,
+    pub IsAllowed: BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
-    pub Connected: bool,
-    pub Console: bool,
+    pub Connected: BOOLEAN,
+    pub Console: BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
-    pub Active: bool,
+    pub Active: BOOLEAN,
     pub LastInputTime: u64,
 }
 #[repr(C)]
@@ -8408,8 +8184,8 @@ pub struct POWER_SESSION_TIMEOUTS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
-    pub Console: bool,
-    pub Locked: bool,
+    pub Console: BOOLEAN,
+    pub Locked: BOOLEAN,
 }
 pub type POWER_SETTING_ALTITUDE = i32;
 pub const POWER_SETTING_VALUE_VERSION: i32 = 1;
@@ -9376,7 +9152,7 @@ impl PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
-    pub Permanent: bool,
+    pub Permanent: BOOLEAN,
 }
 impl Default for PROCESS_MITIGATION_DEP_POLICY {
     fn default() -> Self {
@@ -10379,7 +10155,7 @@ pub type PRTL_UMS_THREAD_INFO_CLASS = *mut RTL_UMS_THREAD_INFO_CLASS;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PRUNTIME_FUNCTION = *mut RUNTIME_FUNCTION;
 #[cfg(target_arch = "aarch64")]
-pub type PRUNTIME_FUNCTION = *mut ARM64_RUNTIME_FUNCTION;
+pub type PRUNTIME_FUNCTION = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 pub type PRUNTIME_REPORT_DIGEST_HEADER = *mut RUNTIME_REPORT_DIGEST_HEADER;
 pub type PRUNTIME_REPORT_HEADER = *mut RUNTIME_REPORT_HEADER;
 pub type PRUNTIME_REPORT_PACKAGE_HEADER = *mut RUNTIME_REPORT_PACKAGE_HEADER;
@@ -10394,15 +10170,11 @@ pub type PSCRUB_DATA_INPUT = *mut SCRUB_DATA_INPUT;
 pub type PSCRUB_DATA_OUTPUT = *mut SCRUB_DATA_OUTPUT;
 pub type PSCRUB_PARITY_EXTENT = *mut SCRUB_PARITY_EXTENT;
 pub type PSCRUB_PARITY_EXTENT_DATA = *mut SCRUB_PARITY_EXTENT_DATA;
-pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> bool>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSECURITY_ATTRIBUTES_OPAQUE(pub *mut core::ffi::c_void);
+pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> BOOLEAN>;
+pub type PSECURITY_ATTRIBUTES_OPAQUE = *mut core::ffi::c_void;
 pub type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
-pub type PSECURITY_CONTEXT_TRACKING_MODE = *mut bool;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSECURITY_DESCRIPTOR(pub *mut core::ffi::c_void);
+pub type PSECURITY_CONTEXT_TRACKING_MODE = *mut BOOLEAN;
+pub type PSECURITY_DESCRIPTOR = *mut core::ffi::c_void;
 pub type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
 pub type PSECURITY_IMPERSONATION_LEVEL = *mut SECURITY_IMPERSONATION_LEVEL;
 pub type PSECURITY_INFORMATION = *mut u32;
@@ -10420,15 +10192,13 @@ pub type PSE_IMPERSONATION_STATE = *mut SE_IMPERSONATION_STATE;
 pub type PSE_SECURITY_DESCRIPTOR = *mut SE_SECURITY_DESCRIPTOR;
 pub type PSE_SID = *mut SE_SID;
 pub type PSE_SIGNING_LEVEL = *mut u8;
-pub type PSE_TOKEN_USER = SE_TOKEN_USER;
+pub type PSE_TOKEN_USER = _SE_TOKEN_USER;
 #[cfg(feature = "basetsd")]
 pub type PSHARED_COMPUTE_UNIT_RELATIONSHIP = *mut SHARED_COMPUTE_UNIT_RELATIONSHIP;
 pub type PSHARED_VIRTUAL_DISK_SUPPORT = *mut SHARED_VIRTUAL_DISK_SUPPORT;
 pub type PSHORT = *mut i16;
 pub type PSHUFFLE_FILE_DATA = *mut SHUFFLE_FILE_DATA;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSID(pub *mut core::ffi::c_void);
+pub type PSID = *mut core::ffi::c_void;
 pub type PSID_AND_ATTRIBUTES = *mut SID_AND_ATTRIBUTES;
 pub type PSID_AND_ATTRIBUTES_ARRAY = *mut SID_AND_ATTRIBUTES_ARRAY;
 pub type PSID_AND_ATTRIBUTES_HASH = *mut SID_AND_ATTRIBUTES_HASH;
@@ -10483,9 +10253,9 @@ pub type PTBYTE = *mut u8;
 pub type PTCH = LPCH;
 pub type PTCHAR = *mut i8;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: *mut core::ffi::c_void)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "C" fn(_abnormal_termination: BOOLEAN, establisherframe: *mut core::ffi::c_void)>;
 #[cfg(target_arch = "aarch64")]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: u64)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "C" fn(_abnormal_termination: BOOLEAN, establisherframe: u64)>;
 pub type PTOKEN_ACCESS_INFORMATION = *mut TOKEN_ACCESS_INFORMATION;
 pub type PTOKEN_APPCONTAINER_INFORMATION = *mut TOKEN_APPCONTAINER_INFORMATION;
 pub type PTOKEN_AUDIT_POLICY = *mut TOKEN_AUDIT_POLICY;
@@ -10519,14 +10289,14 @@ pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(ob
 pub type PTP_IO = *mut TP_IO;
 pub type PTP_POOL = *mut TP_POOL;
 pub type PTP_POOL_STACK_INFORMATION = *mut TP_POOL_STACK_INFORMATION;
-pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
+pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
 pub type PTP_TIMER = *mut TP_TIMER;
-pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: *mut TP_TIMER)>;
+pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: PTP_TIMER)>;
 pub type PTP_VERSION = *mut u32;
 pub type PTP_WAIT = *mut TP_WAIT;
-pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: *mut TP_WAIT, waitresult: TP_WAIT_RESULT)>;
+pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: PTP_WAIT, waitresult: TP_WAIT_RESULT)>;
 pub type PTP_WORK = *mut TP_WORK;
-pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut TP_WORK)>;
+pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: PTP_WORK)>;
 pub type PTRANSACTIONMANAGER_BASIC_INFORMATION = *mut TRANSACTIONMANAGER_BASIC_INFORMATION;
 pub type PTRANSACTIONMANAGER_LOGPATH_INFORMATION = *mut TRANSACTIONMANAGER_LOGPATH_INFORMATION;
 pub type PTRANSACTIONMANAGER_LOG_INFORMATION = *mut TRANSACTIONMANAGER_LOG_INFORMATION;
@@ -10545,7 +10315,7 @@ pub type PTRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION = *mut TRANSACTION_SUPERIO
 pub type PTSTR = windows_core::PSTR;
 pub type PUCSCHAR = *mut UCSCHAR;
 pub type PUCSSTR = *mut UCSCHAR;
-pub type PULARGE_INTEGER = *mut u64;
+pub type PULARGE_INTEGER = *mut ULARGE_INTEGER;
 pub type PULONGLONG = *mut u64;
 pub type PUMS_CREATE_THREAD_ATTRIBUTES = *mut UMS_CREATE_THREAD_ATTRIBUTES;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -10562,6 +10332,7 @@ pub type PUWSTR = *mut u16;
 pub type PUZZTSTR = PZZSTR;
 pub type PUZZWSTR = *mut u16;
 pub type PVECTORED_EXCEPTION_HANDLER = Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
+pub type PVOID64 = *mut core::ffi::c_void;
 pub type PWCH = *mut u16;
 pub type PWCHAR = *mut u16;
 pub type PWOW64_CONTEXT = *mut WOW64_CONTEXT;
@@ -10710,14 +10481,19 @@ pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = 55;
 pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = 7;
 pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = 13;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct QUOTA_LIMITS {
     pub PagedPoolLimit: usize,
     pub NonPagedPoolLimit: usize,
     pub MinimumWorkingSetSize: usize,
     pub MaximumWorkingSetSize: usize,
     pub PagefileLimit: usize,
-    pub TimeLimit: i64,
+    pub TimeLimit: LARGE_INTEGER,
+}
+impl Default for QUOTA_LIMITS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10727,7 +10503,7 @@ pub struct QUOTA_LIMITS_EX {
     pub MinimumWorkingSetSize: usize,
     pub MaximumWorkingSetSize: usize,
     pub PagefileLimit: usize,
-    pub TimeLimit: i64,
+    pub TimeLimit: LARGE_INTEGER,
     pub WorkingSetLimit: usize,
     pub Reserved2: usize,
     pub Reserved3: usize,
@@ -10935,7 +10711,7 @@ pub const RTL_CORRELATION_VECTOR_V2_LENGTH: i32 = 128;
 pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: i32 = 22;
 pub const RTL_CORRELATION_VECTOR_VERSION_1: i8 = 1;
 pub const RTL_CORRELATION_VECTOR_VERSION_2: i8 = 2;
-pub const RTL_CORRELATION_VECTOR_VERSION_CURRENT: u32 = 2;
+pub const RTL_CORRELATION_VECTOR_VERSION_CURRENT: i8 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_CRITICAL_SECTION {
@@ -10969,12 +10745,8 @@ pub const RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: i32 = 134217728;
 pub const RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: i32 = 67108864;
 pub type RTL_OSVERSIONINFOEXW = OSVERSIONINFOEXW;
 pub type RTL_OSVERSIONINFOW = OSVERSIONINFOW;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RTL_REFERENCE_COUNT(pub isize);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RTL_REFERENCE_COUNT32(pub i32);
+pub type RTL_REFERENCE_COUNT = isize;
+pub type RTL_REFERENCE_COUNT32 = i32;
 pub type RTL_RESOURCE_DEBUG = RTL_CRITICAL_SECTION_DEBUG;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11029,7 +10801,7 @@ impl Default for RUNTIME_FUNCTION_0 {
     }
 }
 #[cfg(target_arch = "aarch64")]
-pub type RUNTIME_FUNCTION = ARM64_RUNTIME_FUNCTION;
+pub type RUNTIME_FUNCTION = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const RUNTIME_FUNCTION_INDIRECT: i32 = 1;
 #[repr(C)]
@@ -11296,9 +11068,7 @@ pub const SECURITY_CHILD_PACKAGE_RID_COUNT: i32 = 12;
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85;
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6;
 pub const SECURITY_COM_ID_BASE_RID: i32 = 89;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SECURITY_CONTEXT_TRACKING_MODE(pub bool);
+pub type SECURITY_CONTEXT_TRACKING_MODE = BOOLEAN;
 pub const SECURITY_CREATOR_GROUP_RID: i32 = 1;
 pub const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3;
 pub const SECURITY_CREATOR_OWNER_RID: i32 = 0;
@@ -11320,9 +11090,11 @@ pub struct SECURITY_DESCRIPTOR {
     pub Sacl: PACL,
     pub Dacl: PACL,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SECURITY_DESCRIPTOR_CONTROL(pub u16);
+pub type SECURITY_DESCRIPTOR_CONTROL = u16;
+#[cfg(target_arch = "x86")]
+pub const SECURITY_DESCRIPTOR_MIN_LENGTH: u32 = 20;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SECURITY_DESCRIPTOR_MIN_LENGTH: u64 = 40;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR_RELATIVE {
@@ -11342,9 +11114,7 @@ pub const SECURITY_EDGE_CLOUD_INFRASTRUCTURE_SERVICE_ID_BASE_RID: i32 = 98;
 pub const SECURITY_ENTERPRISE_CONTROLLERS_RID: i32 = 9;
 pub const SECURITY_ENTERPRISE_READONLY_CONTROLLERS_RID: i32 = 22;
 pub type SECURITY_IMPERSONATION_LEVEL = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SECURITY_INFORMATION(pub u32);
+pub type SECURITY_INFORMATION = u32;
 pub const SECURITY_INSTALLER_CAPABILITY_RID_COUNT: i32 = 10;
 pub const SECURITY_INSTALLER_GROUP_CAPABILITY_BASE: i32 = 32;
 pub const SECURITY_INSTALLER_GROUP_CAPABILITY_RID_COUNT: i32 = 9;
@@ -11369,10 +11139,14 @@ pub const SECURITY_MANDATORY_SYSTEM_RID: i32 = 16384;
 pub const SECURITY_MANDATORY_UNTRUSTED_RID: i32 = 0;
 pub const SECURITY_MAX_ALWAYS_FILTERED: i32 = 999;
 pub const SECURITY_MAX_BASE_RID: i32 = 111;
-pub const SECURITY_MAX_IMPERSONATION_LEVEL: i32 = 3;
+pub const SECURITY_MAX_IMPERSONATION_LEVEL: SECURITY_IMPERSONATION_LEVEL = 3;
+#[cfg(target_arch = "x86")]
+pub const SECURITY_MAX_SID_SIZE: u32 = 68;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SECURITY_MAX_SID_SIZE: u64 = 68;
 pub const SECURITY_MAX_SID_STRING_CHARACTERS: i32 = 187;
 pub const SECURITY_MIN_BASE_RID: i32 = 80;
-pub const SECURITY_MIN_IMPERSONATION_LEVEL: i32 = 0;
+pub const SECURITY_MIN_IMPERSONATION_LEVEL: SECURITY_IMPERSONATION_LEVEL = 0;
 pub const SECURITY_MIN_NEVER_FILTERED: i32 = 1000;
 pub const SECURITY_NETWORK_RID: i32 = 2;
 pub const SECURITY_NETWORK_SERVICE_RID: i32 = 20;
@@ -11411,7 +11185,7 @@ pub struct SECURITY_QUALITY_OF_SERVICE {
     pub Length: u32,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
     pub ContextTrackingMode: SECURITY_CONTEXT_TRACKING_MODE,
-    pub EffectiveOnly: bool,
+    pub EffectiveOnly: BOOLEAN,
 }
 pub const SECURITY_RDV_GFX_BASE_RID: i32 = 91;
 pub const SECURITY_REMOTE_LOGON_RID: i32 = 14;
@@ -11485,7 +11259,7 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
     pub ExitStatus: u32,
-    pub Reserved: bool,
+    pub Reserved: BOOLEAN,
     pub ApiSetSchema: *mut core::ffi::c_void,
     pub HostApiSetSchema: *mut core::ffi::c_void,
     pub ContainerBuildNumber: u32,
@@ -11609,8 +11383,8 @@ pub type SE_IMAGE_SIGNATURE_TYPE = i32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: PACCESS_TOKEN,
-    pub CopyOnOpen: bool,
-    pub EffectiveOnly: bool,
+    pub CopyOnOpen: BOOLEAN,
+    pub EffectiveOnly: BOOLEAN,
     pub Level: SECURITY_IMPERSONATION_LEVEL,
 }
 pub const SE_LEARNING_MODE_LOGGING_CAPABILITY: windows_core::PCWSTR = windows_core::w!("learningModeLogging");
@@ -11652,9 +11426,7 @@ impl Default for SE_SID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SE_SIGNING_LEVEL(pub u8);
+pub type SE_SIGNING_LEVEL = u8;
 pub const SE_SIGNING_LEVEL_ANTIMALWARE: i32 = 7;
 pub const SE_SIGNING_LEVEL_AUTHENTICODE: i32 = 4;
 pub const SE_SIGNING_LEVEL_CUSTOM_1: i32 = 3;
@@ -11673,39 +11445,7 @@ pub const SE_SIGNING_LEVEL_UNCHECKED: i32 = 0;
 pub const SE_SIGNING_LEVEL_UNSIGNED: i32 = 1;
 pub const SE_SIGNING_LEVEL_WINDOWS: i32 = 12;
 pub const SE_SIGNING_LEVEL_WINDOWS_TCB: i32 = 14;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SE_TOKEN_USER {
-    pub Anonymous: SE_TOKEN_USER_0,
-    pub Anonymous2: SE_TOKEN_USER_1,
-}
-impl Default for SE_TOKEN_USER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SE_TOKEN_USER_0 {
-    pub TokenUser: TOKEN_USER,
-    pub User: SID_AND_ATTRIBUTES,
-}
-impl Default for SE_TOKEN_USER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SE_TOKEN_USER_1 {
-    pub Sid: SID,
-    pub Buffer: [u8; 68],
-}
-impl Default for SE_TOKEN_USER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type SE_TOKEN_USER = _SE_TOKEN_USER;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -11768,9 +11508,7 @@ impl Default for SID_AND_ATTRIBUTES_HASH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SID_HASH_ENTRY(pub usize);
+pub type SID_HASH_ENTRY = usize;
 pub const SID_HASH_SIZE: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -11792,7 +11530,7 @@ pub struct SILOOBJECT_BASIC_INFORMATION {
     pub SiloId: u32,
     pub SiloParentId: u32,
     pub NumberOfProcesses: u32,
-    pub IsInServerSilo: bool,
+    pub IsInServerSilo: BOOLEAN,
     pub Reserved: [u8; 3],
 }
 impl Default for SILOOBJECT_BASIC_INFORMATION {
@@ -12315,11 +12053,11 @@ pub const SYSTEM_AUDIT_OBJECT_ACE_TYPE: i32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BATTERY_STATE {
-    pub AcOnLine: bool,
-    pub BatteryPresent: bool,
-    pub Charging: bool,
-    pub Discharging: bool,
-    pub Spare1: [bool; 3],
+    pub AcOnLine: BOOLEAN,
+    pub BatteryPresent: BOOLEAN,
+    pub Charging: BOOLEAN,
+    pub Discharging: BOOLEAN,
+    pub Spare1: [BOOLEAN; 3],
     pub Tag: u8,
     pub MaxCapacity: u32,
     pub RemainingCapacity: u32,
@@ -12521,38 +12259,38 @@ pub const SYSTEM_MANDATORY_LABEL_VALID_MASK: i32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
-    pub PoolZeroingSupportPresent: bool,
+    pub PoolZeroingSupportPresent: BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CAPABILITIES {
-    pub PowerButtonPresent: bool,
-    pub SleepButtonPresent: bool,
-    pub LidPresent: bool,
-    pub SystemS1: bool,
-    pub SystemS2: bool,
-    pub SystemS3: bool,
-    pub SystemS4: bool,
-    pub SystemS5: bool,
-    pub HiberFilePresent: bool,
-    pub FullWake: bool,
-    pub VideoDimPresent: bool,
-    pub ApmPresent: bool,
-    pub UpsPresent: bool,
-    pub ThermalControl: bool,
-    pub ProcessorThrottle: bool,
+    pub PowerButtonPresent: BOOLEAN,
+    pub SleepButtonPresent: BOOLEAN,
+    pub LidPresent: BOOLEAN,
+    pub SystemS1: BOOLEAN,
+    pub SystemS2: BOOLEAN,
+    pub SystemS3: BOOLEAN,
+    pub SystemS4: BOOLEAN,
+    pub SystemS5: BOOLEAN,
+    pub HiberFilePresent: BOOLEAN,
+    pub FullWake: BOOLEAN,
+    pub VideoDimPresent: BOOLEAN,
+    pub ApmPresent: BOOLEAN,
+    pub UpsPresent: BOOLEAN,
+    pub ThermalControl: BOOLEAN,
+    pub ProcessorThrottle: BOOLEAN,
     pub ProcessorMinThrottle: u8,
     pub ProcessorMaxThrottle: u8,
-    pub FastSystemS4: bool,
-    pub Hiberboot: bool,
-    pub WakeAlarmPresent: bool,
-    pub AoAc: bool,
-    pub DiskSpinDown: bool,
+    pub FastSystemS4: BOOLEAN,
+    pub Hiberboot: BOOLEAN,
+    pub WakeAlarmPresent: BOOLEAN,
+    pub AoAc: BOOLEAN,
+    pub DiskSpinDown: BOOLEAN,
     pub HiberFileType: u8,
-    pub AoAcConnectivitySupported: bool,
+    pub AoAcConnectivitySupported: BOOLEAN,
     pub spare3: [u8; 6],
-    pub SystemBatteriesPresent: bool,
-    pub BatteriesAreShortTerm: bool,
+    pub SystemBatteriesPresent: BOOLEAN,
+    pub BatteriesAreShortTerm: BOOLEAN,
     pub BatteryScale: [BATTERY_REPORTING_SCALE; 3],
     pub AcOnLineWake: SYSTEM_POWER_STATE,
     pub SoftLidWake: SYSTEM_POWER_STATE,
@@ -12569,7 +12307,7 @@ pub type SYSTEM_POWER_CONDITION = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_LEVEL {
-    pub Enable: bool,
+    pub Enable: BOOLEAN,
     pub Spare: [u8; 3],
     pub BatteryLevel: u32,
     pub PowerPolicy: POWER_ACTION_POLICY,
@@ -12603,10 +12341,10 @@ pub struct SYSTEM_POWER_POLICY {
     pub BroadcastCapacityResolution: u32,
     pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
     pub VideoTimeout: u32,
-    pub VideoDimDisplay: bool,
+    pub VideoDimDisplay: BOOLEAN,
     pub VideoReserved: [u32; 3],
     pub SpindownTimeout: u32,
-    pub OptimizeForPower: bool,
+    pub OptimizeForPower: BOOLEAN,
     pub FanThrottleTolerance: u8,
     pub ForcedThrottle: u8,
     pub MinThrottle: u8,
@@ -12851,7 +12589,7 @@ pub const TAPE_DRIVE_WRITE_SHORT_FMKS: u32 = 2214592512;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_ERASE {
     pub Type: u32,
-    pub Immediate: bool,
+    pub Immediate: BOOLEAN,
 }
 pub const TAPE_ERASE_LONG: i32 = 1;
 pub const TAPE_ERASE_SHORT: i32 = 0;
@@ -12861,10 +12599,10 @@ pub const TAPE_FORMAT: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
-    pub ECC: bool,
-    pub Compression: bool,
-    pub DataPadding: bool,
-    pub ReportSetmarks: bool,
+    pub ECC: BOOLEAN,
+    pub Compression: BOOLEAN,
+    pub DataPadding: BOOLEAN,
+    pub ReportSetmarks: BOOLEAN,
     pub DefaultBlockSize: u32,
     pub MaximumBlockSize: u32,
     pub MinimumBlockSize: u32,
@@ -12874,20 +12612,30 @@ pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub EOTWarningZoneSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
-    pub Capacity: i64,
-    pub Remaining: i64,
+    pub Capacity: LARGE_INTEGER,
+    pub Remaining: LARGE_INTEGER,
     pub BlockSize: u32,
     pub PartitionCount: u32,
-    pub WriteProtected: bool,
+    pub WriteProtected: BOOLEAN,
+}
+impl Default for TAPE_GET_MEDIA_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TAPE_GET_POSITION {
     pub Type: u32,
     pub Partition: u32,
-    pub Offset: i64,
+    pub Offset: LARGE_INTEGER,
+}
+impl Default for TAPE_GET_POSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TAPE_INITIATOR_PARTITIONS: i32 = 2;
 pub const TAPE_LOAD: i32 = 0;
@@ -12899,7 +12647,7 @@ pub const TAPE_LONG_FILEMARKS: i32 = 3;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_PREPARE {
     pub Operation: u32,
-    pub Immediate: bool,
+    pub Immediate: BOOLEAN,
 }
 pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3;
 pub const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2;
@@ -12913,10 +12661,10 @@ pub const TAPE_SETMARKS: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
-    pub ECC: bool,
-    pub Compression: bool,
-    pub DataPadding: bool,
-    pub ReportSetmarks: bool,
+    pub ECC: BOOLEAN,
+    pub Compression: BOOLEAN,
+    pub DataPadding: BOOLEAN,
+    pub ReportSetmarks: BOOLEAN,
     pub EOTWarningZoneSize: u32,
 }
 #[repr(C)]
@@ -12925,12 +12673,17 @@ pub struct TAPE_SET_MEDIA_PARAMETERS {
     pub BlockSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TAPE_SET_POSITION {
     pub Method: u32,
     pub Partition: u32,
-    pub Offset: i64,
-    pub Immediate: bool,
+    pub Offset: LARGE_INTEGER,
+    pub Immediate: BOOLEAN,
+}
+impl Default for TAPE_SET_POSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TAPE_SHORT_FILEMARKS: i32 = 2;
 pub const TAPE_SPACE_END_OF_DATA: i32 = 4;
@@ -12954,14 +12707,10 @@ pub struct TAPE_WMI_OPERATIONS {
 pub struct TAPE_WRITE_MARKS {
     pub Type: u32,
     pub Count: u32,
-    pub Immediate: bool,
+    pub Immediate: BOOLEAN,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TBYTE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TCHAR(pub i8);
+pub type TBYTE = u8;
+pub type TCHAR = i8;
 pub const THREAD_ALL_ACCESS: i32 = 2097151;
 pub const THREAD_BASE_PRIORITY_IDLE: i32 = -15;
 pub const THREAD_BASE_PRIORITY_LOWRT: i32 = 15;
@@ -13018,6 +12767,10 @@ pub const TOKEN_ALL_ACCESS_P: i32 = 983295;
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: PSID,
 }
+#[cfg(target_arch = "x86")]
+pub const TOKEN_APPCONTAINER_SID_MAX_SIZE: u32 = 72;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const TOKEN_APPCONTAINER_SID_MAX_SIZE: u64 = 76;
 pub const TOKEN_ASSIGN_PRIMARY: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -13033,7 +12786,7 @@ impl Default for TOKEN_AUDIT_POLICY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_core::PWSTR,
-    pub IsolationEnabled: bool,
+    pub IsolationEnabled: BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13088,6 +12841,10 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
 }
 pub const TOKEN_IMPERSONATE: i32 = 4;
 pub type TOKEN_INFORMATION_CLASS = i32;
+#[cfg(target_arch = "x86")]
+pub const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: u32 = 76;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: u64 = 84;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_LINKED_TOKEN {
@@ -13134,6 +12891,10 @@ pub struct TOKEN_ORIGIN {
 pub struct TOKEN_OWNER {
     pub Owner: PSID,
 }
+#[cfg(target_arch = "x86")]
+pub const TOKEN_OWNER_MAX_SIZE: u32 = 72;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const TOKEN_OWNER_MAX_SIZE: u64 = 76;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_PRIMARY_GROUP {
@@ -13171,11 +12932,11 @@ impl Default for TOKEN_SOURCE {
 }
 pub const TOKEN_SOURCE_LENGTH: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_STATISTICS {
     pub TokenId: LUID,
     pub AuthenticationId: LUID,
-    pub ExpirationTime: i64,
+    pub ExpirationTime: LARGE_INTEGER,
     pub TokenType: TOKEN_TYPE,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
     pub DynamicCharged: u32,
@@ -13183,6 +12944,11 @@ pub struct TOKEN_STATISTICS {
     pub GroupCount: u32,
     pub PrivilegeCount: u32,
     pub ModifiedId: LUID,
+}
+impl Default for TOKEN_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TOKEN_TRUST_ALLOWED_MASK: i32 = 131102;
 pub const TOKEN_TRUST_CONSTRAINT_MASK: i32 = 131096;
@@ -13197,6 +12963,10 @@ pub struct TOKEN_USER {
 pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: PCLAIMS_BLOB,
 }
+#[cfg(target_arch = "x86")]
+pub const TOKEN_USER_MAX_SIZE: u32 = 76;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const TOKEN_USER_MAX_SIZE: u64 = 84;
 pub const TOKEN_WRITE: i32 = 131296;
 pub type TP_CALLBACK_ENVIRON = TP_CALLBACK_ENVIRON_V3;
 #[repr(C)]
@@ -13279,31 +13049,32 @@ pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
 }
-pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
+pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_TIMER(pub u8);
-pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: *mut TP_TIMER)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TP_VERSION(pub u32);
+pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: PTP_TIMER)>;
+pub type TP_VERSION = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_WAIT(pub u8);
-pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: *mut TP_WAIT, waitresult: TP_WAIT_RESULT)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TP_WAIT_RESULT(pub u32);
+pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: PTP_WAIT, waitresult: TP_WAIT_RESULT)>;
+pub type TP_WAIT_RESULT = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_WORK(pub u8);
-pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut TP_WORK)>;
+pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: PTP_WORK)>;
 pub const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
     pub TmIdentity: windows_core::GUID,
-    pub VirtualClock: i64,
+    pub VirtualClock: LARGE_INTEGER,
+}
+impl Default for TRANSACTIONMANAGER_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TRANSACTIONMANAGER_BIND_TRANSACTION: i32 = 32;
 pub const TRANSACTIONMANAGER_CREATE_RM: i32 = 16;
@@ -13399,11 +13170,11 @@ impl Default for TRANSACTION_LIST_INFORMATION {
 pub type TRANSACTION_OUTCOME = i32;
 pub const TRANSACTION_PROPAGATE: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_PROPERTIES_INFORMATION {
     pub IsolationLevel: u32,
     pub IsolationFlags: u32,
-    pub Timeout: i64,
+    pub Timeout: LARGE_INTEGER,
     pub Outcome: u32,
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
@@ -13529,10 +13300,32 @@ pub const TransactionStateCommittedNotify: TRANSACTION_STATE = 3;
 pub const TransactionStateIndoubt: TRANSACTION_STATE = 2;
 pub const TransactionStateNormal: TRANSACTION_STATE = 1;
 pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct UCSCHAR(pub u32);
+pub type UCSCHAR = u32;
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ULARGE_INTEGER {
+    pub Anonymous: ULARGE_INTEGER_0,
+    pub u: ULARGE_INTEGER_1,
+    pub QuadPart: u64,
+}
+impl Default for ULARGE_INTEGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ULARGE_INTEGER_0 {
+    pub LowPart: u32,
+    pub HighPart: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ULARGE_INTEGER_1 {
+    pub LowPart: u32,
+    pub HighPart: u32,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES {
@@ -13587,9 +13380,7 @@ pub const UNW_FLAG_NHANDLER: i32 = 0;
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648;
 pub const UNW_FLAG_UHANDLER: i32 = 2;
 pub type USER_ACTIVITY_PRESENCE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct USN(pub i64);
+pub type USN = i64;
 pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = 0;
 pub const UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = 1;
 pub const UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = 2;
@@ -13664,7 +13455,7 @@ pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 21;
 pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = 2;
 pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = 3;
 pub type WAITORTIMERCALLBACK = WAITORTIMERCALLBACKFUNC;
-pub type WAITORTIMERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: bool)>;
+pub type WAITORTIMERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: BOOLEAN)>;
 pub type WELL_KNOWN_SID_TYPE = i32;
 pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
 #[repr(C)]
@@ -14455,11 +14246,11 @@ pub const XSTATE_XFD_MASK: u64 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ACTIVATION_CONTEXT(pub u8);
-#[repr(C, align(1))]
+#[cfg(target_arch = "aarch64")]
+pub const _ARM64_MULT_INTRINS_SUPPORTED: i32 = 1;
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ENUM_FLAG_INTEGER_FOR_SIZE(pub u8);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type _IMAGE_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[derive(Clone, Copy)]
@@ -14487,13 +14278,51 @@ impl Default for _IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+pub const _MM_HINT_NTA: i32 = 0;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+pub const _MM_HINT_T0: i32 = 1;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+pub const _MM_HINT_T1: i32 = 2;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+pub const _MM_HINT_T2: i32 = 3;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut RUNTIME_FUNCTION;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _TEB(pub u8);
+#[derive(Clone, Copy)]
+pub struct _SE_TOKEN_USER {
+    pub Anonymous: _SE_TOKEN_USER_0,
+    pub Anonymous2: _SE_TOKEN_USER_1,
+}
+impl Default for _SE_TOKEN_USER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union _SE_TOKEN_USER_0 {
+    pub TokenUser: TOKEN_USER,
+    pub User: SID_AND_ATTRIBUTES,
+}
+impl Default for _SE_TOKEN_USER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union _SE_TOKEN_USER_1 {
+    pub Sid: SID,
+    pub Buffer: [u8; 68],
+}
+impl Default for _SE_TOKEN_USER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

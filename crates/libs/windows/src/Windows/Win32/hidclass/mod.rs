@@ -1,32 +1,34 @@
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(8) };
+pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 8 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(4) };
+pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 4 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_ProductId: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(6) };
+pub const DEVPKEY_DeviceInterface_HID_ProductId: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 6 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_UsageId: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(3) };
+pub const DEVPKEY_DeviceInterface_HID_UsageId: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 3 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(2) };
+pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 2 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_VendorId: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(5) };
+pub const DEVPKEY_DeviceInterface_HID_VendorId: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 5 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(7) };
+pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 7 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: super::DEVPROPID(9) };
+pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 9 };
 pub const GUID_DEVINTERFACE_HID: windows_core::GUID = windows_core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
 pub const GUID_HID_INTERFACE_HIDPARSE: windows_core::GUID = windows_core::GUID::from_u128(0xf5c315a5_69ac_4bc2_9279_d0b64576f44b);
 pub const GUID_HID_INTERFACE_NOTIFY: windows_core::GUID = windows_core::GUID::from_u128(0x2c4e2e88_25e6_4c33_882f_3d82e6073681);
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HID_COLLECTION_INFORMATION {
     pub DescriptorSize: u32,
-    pub Polled: bool,
+    pub Polled: super::BOOLEAN,
     pub Reserved1: [u8; 1],
     pub VendorID: u16,
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
+#[cfg(feature = "winnt")]
 impl Default for HID_COLLECTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -39,14 +41,6 @@ pub struct HID_DRIVER_CONFIG {
     pub RingBufferSize: u32,
 }
 pub const HID_REVISION: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HID_XFER_PACKET {
-    pub reportBuffer: super::PUCHAR,
-    pub reportBufferLen: u32,
-    pub reportId: u8,
-}
 pub const IOCTL_GET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721312;
 pub const IOCTL_GET_PHYSICAL_DESCRIPTOR: i32 = 721306;
 pub const IOCTL_HID_DEVICERESET_NOTIFICATION: i32 = 721459;
@@ -73,7 +67,6 @@ pub const IOCTL_HID_SET_OUTPUT_REPORT: i32 = 721301;
 pub const IOCTL_HID_SET_POLL_FREQUENCY_MSEC: i32 = 721308;
 pub const IOCTL_HID_SET_S0_IDLE_TIMEOUT: i32 = 721328;
 pub const IOCTL_SET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721316;
+#[cfg(feature = "winnt")]
 pub type PHID_COLLECTION_INFORMATION = *mut HID_COLLECTION_INFORMATION;
 pub type PHID_DRIVER_CONFIG = *mut HID_DRIVER_CONFIG;
-#[cfg(feature = "minwindef")]
-pub type PHID_XFER_PACKET = *mut HID_XFER_PACKET;

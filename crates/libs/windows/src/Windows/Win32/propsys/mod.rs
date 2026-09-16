@@ -1,104 +1,76 @@
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PSCoerceToCanonicalValue(key: *const super::PROPERTYKEY, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSCoerceToCanonicalValue(key : *const super::PROPERTYKEY, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
     unsafe { PSCoerceToCanonicalValue(key, ppropvar) }
 }
 #[inline]
-pub unsafe fn PSCreateAdapterFromPropertyStore<P0, T>(pps: P0) -> windows_core::Result<T>
+pub unsafe fn PSCreateAdapterFromPropertyStore<P0>(pps: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IPropertyStore>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSCreateAdapterFromPropertyStore(pps : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreateAdapterFromPropertyStore(pps.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreateAdapterFromPropertyStore(pps.param().abi(), riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSCreateDelayedMultiplexPropertyStore<P1, T>(flags: GETPROPERTYSTOREFLAGS, pdpsf: P1, rgstoreids: &[u32]) -> windows_core::Result<T>
+pub unsafe fn PSCreateDelayedMultiplexPropertyStore<P1>(flags: GETPROPERTYSTOREFLAGS, pdpsf: P1, rgstoreids: &[u32], riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<IDelayedPropertyStoreFactory>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSCreateDelayedMultiplexPropertyStore(flags : GETPROPERTYSTOREFLAGS, pdpsf : *mut core::ffi::c_void, rgstoreids : *const u32, cstores : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.param().abi(), rgstoreids.as_ptr(), rgstoreids.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.param().abi(), rgstoreids.as_ptr(), rgstoreids.len().try_into().unwrap(), riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSCreateMemoryPropertyStore<T>() -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn PSCreateMemoryPropertyStore(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSCreateMemoryPropertyStore(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreateMemoryPropertyStore(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreateMemoryPropertyStore(riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSCreateMultiplexPropertyStore<T>(prgpunkstores: &[Option<windows_core::IUnknown>]) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[Option<windows_core::IUnknown>], riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSCreateMultiplexPropertyStore(prgpunkstores : *const *mut core::ffi::c_void, cstores : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreateMultiplexPropertyStore(core::mem::transmute(prgpunkstores.as_ptr()), prgpunkstores.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreateMultiplexPropertyStore(core::mem::transmute(prgpunkstores.as_ptr()), prgpunkstores.len().try_into().unwrap(), riid, ppv as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSCreatePropertyChangeArray<T>(rgpropkey: Option<*const super::PROPERTYKEY>, rgflags: Option<*const PKA_FLAGS>, rgpropvar: Option<*const super::PROPVARIANT>, cchanges: u32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: Option<*const super::PROPERTYKEY>, rgflags: Option<*const PKA_FLAGS>, rgpropvar: Option<*const super::PROPVARIANT>, cchanges: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSCreatePropertyChangeArray(rgpropkey : *const super::PROPERTYKEY, rgflags : *const PKA_FLAGS, rgpropvar : *const super::PROPVARIANT, cchanges : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreatePropertyChangeArray(rgpropkey.unwrap_or(core::mem::zeroed()) as _, rgflags.unwrap_or(core::mem::zeroed()) as _, rgpropvar.unwrap_or(core::mem::zeroed()) as _, cchanges, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreatePropertyChangeArray(rgpropkey.unwrap_or(core::mem::zeroed()) as _, rgflags.unwrap_or(core::mem::zeroed()) as _, rgpropvar.unwrap_or(core::mem::zeroed()) as _, cchanges, riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSCreatePropertyStoreFromObject<P0, T>(punk: P0, grfmode: u32) -> windows_core::Result<T>
+pub unsafe fn PSCreatePropertyStoreFromObject<P0>(punk: P0, grfmode: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSCreatePropertyStoreFromObject(punk : *mut core::ffi::c_void, grfmode : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreatePropertyStoreFromObject(punk.param().abi(), grfmode, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreatePropertyStoreFromObject(punk.param().abi(), grfmode, riid, ppv as _) }
 }
 #[cfg(feature = "propidlbase")]
 #[inline]
-pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<P0, T>(ppss: P0, grfmode: u32) -> windows_core::Result<T>
+pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<P0>(ppss: P0, grfmode: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertySetStorage>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSCreatePropertyStoreFromPropertySetStorage(ppss : *mut core::ffi::c_void, grfmode : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreatePropertyStoreFromPropertySetStorage(ppss.param().abi(), grfmode, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreatePropertyStoreFromPropertySetStorage(ppss.param().abi(), grfmode, riid, ppv as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSCreateSimplePropertyChange<T>(flags: PKA_FLAGS, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSCreateSimplePropertyChange(flags : PKA_FLAGS, key : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreateSimplePropertyChange(flags, key, propvar, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSCreateSimplePropertyChange(flags, key, propvar, riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSEnumeratePropertyDescriptions<T>(filteron: PROPDESC_ENUMFILTER) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSEnumeratePropertyDescriptions(filteron : PROPDESC_ENUMFILTER, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSEnumeratePropertyDescriptions(filteron, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSEnumeratePropertyDescriptions(filteron, riid, ppv as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PSFormatForDisplay(propkey: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSFormatForDisplay(propkey : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT, pdfflags : PROPDESC_FORMAT_FLAGS, pwsztext : windows_core::PWSTR, cchtext : u32) -> windows_core::HRESULT);
     unsafe { PSFormatForDisplay(propkey, propvar, pdfflags, pwsztext, cchtext) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PSFormatForDisplayAlloc(key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
     windows_core::link!("propsys.dll" "system" fn PSFormatForDisplayAlloc(key : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_core::PWSTR) -> windows_core::HRESULT);
@@ -119,7 +91,7 @@ where
         PSFormatPropertyValue(pps.param().abi(), ppd.param().abi(), pdff, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PSGetImageReferenceForValue(propkey: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
     windows_core::link!("propsys.dll" "system" fn PSGetImageReferenceForValue(propkey : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT, ppszimageres : *mut windows_core::PWSTR) -> windows_core::HRESULT);
@@ -129,25 +101,21 @@ pub unsafe fn PSGetImageReferenceForValue(propkey: *const super::PROPERTYKEY, pr
     }
 }
 #[inline]
-pub unsafe fn PSGetItemPropertyHandler<P0, T>(punkitem: P0, freadwrite: bool) -> windows_core::Result<T>
+pub unsafe fn PSGetItemPropertyHandler<P0>(punkitem: P0, freadwrite: bool, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSGetItemPropertyHandler(punkitem : *mut core::ffi::c_void, freadwrite : windows_core::BOOL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSGetItemPropertyHandler(punkitem.param().abi(), freadwrite.into(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSGetItemPropertyHandler(punkitem.param().abi(), freadwrite.into(), riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<P0, P2, T>(punkitem: P0, freadwrite: bool, punkcreateobject: P2) -> windows_core::Result<T>
+pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<P0, P2>(punkitem: P0, freadwrite: bool, punkcreateobject: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P2: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSGetItemPropertyHandlerWithCreateObject(punkitem : *mut core::ffi::c_void, freadwrite : windows_core::BOOL, punkcreateobject : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSGetItemPropertyHandlerWithCreateObject(punkitem.param().abi(), freadwrite.into(), punkcreateobject.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSGetItemPropertyHandlerWithCreateObject(punkitem.param().abi(), freadwrite.into(), punkcreateobject.param().abi(), riid, ppv as _) }
 }
 #[cfg(feature = "wtypes")]
 #[inline]
@@ -158,13 +126,13 @@ pub unsafe fn PSGetNameFromPropertyKey(propkey: *const super::PROPERTYKEY) -> wi
         PSGetNameFromPropertyKey(propkey, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSGetNamedPropertyFromPropertyStorage<P2>(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: P2) -> windows_core::Result<super::PROPVARIANT>
+pub unsafe fn PSGetNamedPropertyFromPropertyStorage<P2>(psps: PCUSERIALIZEDPROPSTORAGE, cb: u32, pszname: P2) -> windows_core::Result<super::PROPVARIANT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("propsys.dll" "system" fn PSGetNamedPropertyFromPropertyStorage(psps : *const SERIALIZEDPROPSTORAGE, cb : u32, pszname : windows_core::PCWSTR, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PSGetNamedPropertyFromPropertyStorage(psps : PCUSERIALIZEDPROPSTORAGE, cb : u32, pszname : windows_core::PCWSTR, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PSGetNamedPropertyFromPropertyStorage(psps, cb, pszname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
@@ -172,38 +140,30 @@ where
 }
 #[cfg(feature = "wtypes")]
 #[inline]
-pub unsafe fn PSGetPropertyDescription<T>(propkey: *const super::PROPERTYKEY) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn PSGetPropertyDescription(propkey: *const super::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSGetPropertyDescription(propkey : *const super::PROPERTYKEY, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSGetPropertyDescription(propkey, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSGetPropertyDescription(propkey, riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSGetPropertyDescriptionByName<P0, T>(pszcanonicalname: P0) -> windows_core::Result<T>
+pub unsafe fn PSGetPropertyDescriptionByName<P0>(pszcanonicalname: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSGetPropertyDescriptionByName(pszcanonicalname : windows_core::PCWSTR, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSGetPropertyDescriptionByName(pszcanonicalname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSGetPropertyDescriptionByName(pszcanonicalname.param().abi(), riid, ppv as _) }
 }
 #[inline]
-pub unsafe fn PSGetPropertyDescriptionListFromString<P0, T>(pszproplist: P0) -> windows_core::Result<T>
+pub unsafe fn PSGetPropertyDescriptionListFromString<P0>(pszproplist: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSGetPropertyDescriptionListFromString(pszproplist : windows_core::PCWSTR, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSGetPropertyDescriptionListFromString(pszproplist.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSGetPropertyDescriptionListFromString(pszproplist.param().abi(), riid, ppv as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT> {
-    windows_core::link!("propsys.dll" "system" fn PSGetPropertyFromPropertyStorage(psps : *const SERIALIZEDPROPSTORAGE, cb : u32, rpkey : *const super::PROPERTYKEY, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
+pub unsafe fn PSGetPropertyFromPropertyStorage(psps: PCUSERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT> {
+    windows_core::link!("propsys.dll" "system" fn PSGetPropertyFromPropertyStorage(psps : PCUSERIALIZEDPROPSTORAGE, cb : u32, rpkey : *const super::PROPERTYKEY, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PSGetPropertyFromPropertyStorage(psps, cb, rpkey, &mut result__).map(|| core::mem::transmute(result__))
@@ -219,15 +179,11 @@ where
     unsafe { PSGetPropertyKeyFromName(pszname.param().abi(), ppropkey as _) }
 }
 #[inline]
-pub unsafe fn PSGetPropertySystem<T>() -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn PSGetPropertySystem(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSGetPropertySystem(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSGetPropertySystem(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSGetPropertySystem(riid, ppv as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PSGetPropertyValue<P0, P1>(pps: P0, ppd: P1) -> windows_core::Result<super::PROPVARIANT>
 where
@@ -462,15 +418,13 @@ where
 }
 #[cfg(feature = "oaidl")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadUnknown<P0, P1, T>(propbag: P0, propname: P1) -> windows_core::Result<T>
+pub unsafe fn PSPropertyBag_ReadUnknown<P0, P1>(propbag: P0, propname: P1, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadUnknown(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { PSPropertyBag_ReadUnknown(propbag.param().abi(), propname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { PSPropertyBag_ReadUnknown(propbag.param().abi(), propname.param().abi(), riid, ppv as _) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
@@ -647,7 +601,7 @@ where
     windows_core::link!("propsys.dll" "system" fn PSRegisterPropertySchema(pszpath : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { PSRegisterPropertySchema(pszpath.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PSSetPropertyValue<P0, P1>(pps: P0, ppd: P1, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT
 where
@@ -671,7 +625,7 @@ where
     windows_core::link!("propsys.dll" "system" fn PSUnregisterPropertySchema(pszpath : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { PSUnregisterPropertySchema(pszpath.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToWinRTPropertyValue<T>(propvar: *const super::PROPVARIANT) -> windows_core::Result<T>
 where
@@ -681,7 +635,7 @@ where
     let mut result__ = core::ptr::null_mut();
     unsafe { PropVariantToWinRTPropertyValue(propvar, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn WinRTPropertyValueToPropVariant<P0>(punkpropertyvalue: P0) -> windows_core::Result<super::PROPVARIANT>
 where
@@ -693,9 +647,9 @@ where
         WinRTPropertyValueToPropVariant(punkpropertyvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-pub const FPSPS_DEFAULT: PERSIST_SPROPSTORE_FLAGS = 0;
-pub const FPSPS_READONLY: PERSIST_SPROPSTORE_FLAGS = 1;
-pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: PERSIST_SPROPSTORE_FLAGS = 2;
+pub const FPSPS_DEFAULT: PERSIST_SPROPSTORE_FLAGS = 0x0_u32 as _;
+pub const FPSPS_READONLY: PERSIST_SPROPSTORE_FLAGS = 0x1_u32 as _;
+pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: PERSIST_SPROPSTORE_FLAGS = 0x2_u32 as _;
 pub type GETPROPERTYSTOREFLAGS = u32;
 pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = 64;
 pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = 0;
@@ -871,7 +825,7 @@ impl windows_core::RuntimeName for IInitializeWithStream {}
 windows_core::imp::define_interface!(INamedPropertyStore, INamedPropertyStore_Vtbl, 0x71604b0f_97b0_4764_8577_2f13e98a1422);
 windows_core::imp::interface_hierarchy!(INamedPropertyStore, windows_core::IUnknown);
 impl INamedPropertyStore {
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetNamedValue<P0>(&self, pszname: P0) -> windows_core::Result<super::PROPVARIANT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -881,7 +835,7 @@ impl INamedPropertyStore {
             (windows_core::Interface::vtable(self).GetNamedValue)(windows_core::Interface::as_raw(self), pszname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetNamedValue<P0>(&self, pszname: P0, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -905,25 +859,25 @@ impl INamedPropertyStore {
 #[doc(hidden)]
 pub struct INamedPropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetNamedValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetNamedValue: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetNamedValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetNamedValue: usize,
     pub GetNameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetNameAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INamedPropertyStore_Impl: windows_core::IUnknownImpl {
     fn GetNamedValue(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<super::PROPVARIANT>;
     fn SetNamedValue(&self, pszname: &windows_core::PCWSTR, propvar: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn GetNameCount(&self) -> windows_core::Result<u32>;
     fn GetNameAt(&self, iprop: u32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INamedPropertyStore_Vtbl {
     pub const fn new<Identity: INamedPropertyStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNamedValue<Identity: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
@@ -980,7 +934,7 @@ impl INamedPropertyStore_Vtbl {
         iid == &<INamedPropertyStore as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for INamedPropertyStore {}
 windows_core::imp::define_interface!(IObjectWithPropertyKey, IObjectWithPropertyKey_Vtbl, 0xfc0ca0a7_c316_4fd2_9031_3e628e6d4f23);
 windows_core::imp::interface_hierarchy!(IObjectWithPropertyKey, windows_core::IUnknown);
@@ -1045,7 +999,7 @@ impl IPersistSerializedPropStorage {
     pub unsafe fn SetFlags(&self, flags: PERSIST_SPROPSTORE_FLAGS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), flags) }
     }
-    pub unsafe fn SetPropertyStorage(&self, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> windows_core::HRESULT {
+    pub unsafe fn SetPropertyStorage(&self, psps: PCUSERIALIZEDPROPSTORAGE, cb: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPropertyStorage)(windows_core::Interface::as_raw(self), psps, cb) }
     }
     pub unsafe fn GetPropertyStorage(&self, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> windows_core::HRESULT {
@@ -1057,12 +1011,12 @@ impl IPersistSerializedPropStorage {
 pub struct IPersistSerializedPropStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, PERSIST_SPROPSTORE_FLAGS) -> windows_core::HRESULT,
-    pub SetPropertyStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *const SERIALIZEDPROPSTORAGE, u32) -> windows_core::HRESULT,
+    pub SetPropertyStorage: unsafe extern "system" fn(*mut core::ffi::c_void, PCUSERIALIZEDPROPSTORAGE, u32) -> windows_core::HRESULT,
     pub GetPropertyStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SERIALIZEDPROPSTORAGE, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IPersistSerializedPropStorage_Impl: windows_core::IUnknownImpl {
     fn SetFlags(&self, flags: PERSIST_SPROPSTORE_FLAGS) -> windows_core::Result<()>;
-    fn SetPropertyStorage(&self, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> windows_core::Result<()>;
+    fn SetPropertyStorage(&self, psps: PCUSERIALIZEDPROPSTORAGE, cb: u32) -> windows_core::Result<()>;
     fn GetPropertyStorage(&self, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> windows_core::Result<()>;
 }
 impl IPersistSerializedPropStorage_Vtbl {
@@ -1073,7 +1027,7 @@ impl IPersistSerializedPropStorage_Vtbl {
                 IPersistSerializedPropStorage_Impl::SetFlags(this, core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn SetPropertyStorage<Identity: IPersistSerializedPropStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPropertyStorage<Identity: IPersistSerializedPropStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psps: PCUSERIALIZEDPROPSTORAGE, cb: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPersistSerializedPropStorage_Impl::SetPropertyStorage(this, core::mem::transmute_copy(&psps), core::mem::transmute_copy(&cb)).into()
@@ -1167,7 +1121,7 @@ impl core::ops::Deref for IPropertyChange {
 }
 windows_core::imp::interface_hierarchy!(IPropertyChange, windows_core::IUnknown, IObjectWithPropertyKey);
 impl IPropertyChange {
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ApplyToPropVariant(&self, propvarin: *const super::PROPVARIANT) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1179,16 +1133,16 @@ impl IPropertyChange {
 #[doc(hidden)]
 pub struct IPropertyChange_Vtbl {
     pub base__: IObjectWithPropertyKey_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ApplyToPropVariant: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPVARIANT, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ApplyToPropVariant: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyChange_Impl: IObjectWithPropertyKey_Impl {
     fn ApplyToPropVariant(&self, propvarin: *const super::PROPVARIANT) -> windows_core::Result<super::PROPVARIANT>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyChange_Vtbl {
     pub const fn new<Identity: IPropertyChange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ApplyToPropVariant<Identity: IPropertyChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvarin: *const super::PROPVARIANT, ppropvarout: *mut super::PROPVARIANT) -> windows_core::HRESULT {
@@ -1209,7 +1163,7 @@ impl IPropertyChange_Vtbl {
         iid == &<IPropertyChange as windows_core::Interface>::IID || iid == &<IObjectWithPropertyKey as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyChange {}
 windows_core::imp::define_interface!(IPropertyChangeArray, IPropertyChangeArray_Vtbl, 0x380f5cad_1b5e_42f2_805d_637fd392d31e);
 windows_core::imp::interface_hierarchy!(IPropertyChangeArray, windows_core::IUnknown);
@@ -1421,7 +1375,7 @@ impl IPropertyDescription {
             (windows_core::Interface::vtable(self).GetRelativeDescriptionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: *const super::PROPVARIANT, propvar2: *const super::PROPVARIANT, ppszdesc1: *mut windows_core::PWSTR, ppszdesc2: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRelativeDescription)(windows_core::Interface::as_raw(self), propvar1, propvar2, ppszdesc1 as _, ppszdesc2 as _) }
     }
@@ -1454,18 +1408,18 @@ impl IPropertyDescription {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetEnumTypeList)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CoerceToCanonicalValue(&self, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CoerceToCanonicalValue)(windows_core::Interface::as_raw(self), ppropvar) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FormatForDisplay(&self, propvar: *const super::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), propvar, pdfflags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn IsValueCanonical(&self, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsValueCanonical)(windows_core::Interface::as_raw(self), propvar) }
     }
@@ -1495,9 +1449,9 @@ pub struct IPropertyDescription_Vtbl {
     GetColumnState: usize,
     pub GetGroupingRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPDESC_GROUPING_RANGE) -> windows_core::HRESULT,
     pub GetRelativeDescriptionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetRelativeDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPVARIANT, *const super::PROPVARIANT, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRelativeDescription: usize,
     pub GetSortDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPDESC_SORTDESCRIPTION) -> windows_core::HRESULT,
     pub GetSortDescriptionLabel: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1507,20 +1461,20 @@ pub struct IPropertyDescription_Vtbl {
     #[cfg(not(feature = "structuredquerycondition"))]
     GetConditionType: usize,
     pub GetEnumTypeList: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CoerceToCanonicalValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CoerceToCanonicalValue: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub FormatForDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPVARIANT, PROPDESC_FORMAT_FLAGS, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     FormatForDisplay: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub IsValueCanonical: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     IsValueCanonical: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyDescription_Impl: windows_core::IUnknownImpl {
     fn GetPropertyKey(&self, pkey: *mut super::PROPERTYKEY) -> windows_core::Result<()>;
     fn GetCanonicalName(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -1544,7 +1498,7 @@ pub trait IPropertyDescription_Impl: windows_core::IUnknownImpl {
     fn FormatForDisplay(&self, propvar: *const super::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR>;
     fn IsValueCanonical(&self, propvar: *const super::PROPVARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyDescription_Vtbl {
     pub const fn new<Identity: IPropertyDescription_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyKey<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut super::PROPERTYKEY) -> windows_core::HRESULT {
@@ -1792,7 +1746,7 @@ impl IPropertyDescription_Vtbl {
         iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyDescription {}
 windows_core::imp::define_interface!(IPropertyDescription2, IPropertyDescription2_Vtbl, 0x57d2eded_5062_400e_b107_5dae79fe57a6);
 impl core::ops::Deref for IPropertyDescription2 {
@@ -1803,7 +1757,7 @@ impl core::ops::Deref for IPropertyDescription2 {
 }
 windows_core::imp::interface_hierarchy!(IPropertyDescription2, windows_core::IUnknown, IPropertyDescription);
 impl IPropertyDescription2 {
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetImageReferenceForValue(&self, propvar: *const super::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1815,16 +1769,16 @@ impl IPropertyDescription2 {
 #[doc(hidden)]
 pub struct IPropertyDescription2_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetImageReferenceForValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPVARIANT, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetImageReferenceForValue: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyDescription2_Impl: IPropertyDescription_Impl {
     fn GetImageReferenceForValue(&self, propvar: *const super::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyDescription2_Vtbl {
     pub const fn new<Identity: IPropertyDescription2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetImageReferenceForValue<Identity: IPropertyDescription2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvar: *const super::PROPVARIANT, ppszimageres: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1845,7 +1799,7 @@ impl IPropertyDescription2_Vtbl {
         iid == &<IPropertyDescription2 as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyDescription2 {}
 windows_core::imp::define_interface!(IPropertyDescriptionAliasInfo, IPropertyDescriptionAliasInfo_Vtbl, 0xf67104fc_2af9_46fd_b32d_243c1404f3d1);
 impl core::ops::Deref for IPropertyDescriptionAliasInfo {
@@ -1878,12 +1832,12 @@ pub struct IPropertyDescriptionAliasInfo_Vtbl {
     pub GetSortByAlias: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAdditionalSortByAliases: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyDescriptionAliasInfo_Impl: IPropertyDescription_Impl {
     fn GetSortByAlias(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAdditionalSortByAliases(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyDescriptionAliasInfo_Vtbl {
     pub const fn new<Identity: IPropertyDescriptionAliasInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSortByAlias<Identity: IPropertyDescriptionAliasInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1908,7 +1862,7 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
         iid == &<IPropertyDescriptionAliasInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyDescriptionAliasInfo {}
 windows_core::imp::define_interface!(IPropertyDescriptionList, IPropertyDescriptionList_Vtbl, 0x1f9fc1d0_c39b_4b26_817f_011967d3440e);
 windows_core::imp::interface_hierarchy!(IPropertyDescriptionList, windows_core::IUnknown);
@@ -1989,11 +1943,11 @@ pub struct IPropertyDescriptionRelatedPropertyInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
     pub GetRelatedProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyDescriptionRelatedPropertyInfo_Impl: IPropertyDescription_Impl {
     fn GetRelatedProperty(&self, pszrelationshipname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
     pub const fn new<Identity: IPropertyDescriptionRelatedPropertyInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRelatedProperty<Identity: IPropertyDescriptionRelatedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrelationshipname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2008,7 +1962,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         iid == &<IPropertyDescriptionRelatedPropertyInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyDescriptionRelatedPropertyInfo {}
 windows_core::imp::define_interface!(IPropertyDescriptionSearchInfo, IPropertyDescriptionSearchInfo_Vtbl, 0x078f91bd_29a2_440f_924e_46a291524520);
 impl core::ops::Deref for IPropertyDescriptionSearchInfo {
@@ -2053,14 +2007,14 @@ pub struct IPropertyDescriptionSearchInfo_Vtbl {
     pub GetProjectionString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetMaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyDescriptionSearchInfo_Impl: IPropertyDescription_Impl {
     fn GetSearchInfoFlags(&self) -> windows_core::Result<PROPDESC_SEARCHINFO_FLAGS>;
     fn GetColumnIndexType(&self) -> windows_core::Result<PROPDESC_COLUMNINDEX_TYPE>;
     fn GetProjectionString(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetMaxSize(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyDescriptionSearchInfo_Vtbl {
     pub const fn new<Identity: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSearchInfoFlags<Identity: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> windows_core::HRESULT {
@@ -2123,7 +2077,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         iid == &<IPropertyDescriptionSearchInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "structuredquerycondition", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyDescriptionSearchInfo {}
 windows_core::imp::define_interface!(IPropertyEnumType, IPropertyEnumType_Vtbl, 0x11e1fbf9_2d56_4a6b_8db3_7cd193a471f2);
 windows_core::imp::interface_hierarchy!(IPropertyEnumType, windows_core::IUnknown);
@@ -2134,21 +2088,21 @@ impl IPropertyEnumType {
             (windows_core::Interface::vtable(self).GetEnumType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetRangeMinValue(&self) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRangeMinValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetRangeSetValue(&self) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2167,21 +2121,21 @@ impl IPropertyEnumType {
 pub struct IPropertyEnumType_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnumType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPENUMTYPE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetRangeMinValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRangeMinValue: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetRangeSetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRangeSetValue: usize,
     pub GetDisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyEnumType_Impl: windows_core::IUnknownImpl {
     fn GetEnumType(&self) -> windows_core::Result<PROPENUMTYPE>;
     fn GetValue(&self) -> windows_core::Result<super::PROPVARIANT>;
@@ -2189,7 +2143,7 @@ pub trait IPropertyEnumType_Impl: windows_core::IUnknownImpl {
     fn GetRangeSetValue(&self) -> windows_core::Result<super::PROPVARIANT>;
     fn GetDisplayText(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyEnumType_Vtbl {
     pub const fn new<Identity: IPropertyEnumType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEnumType<Identity: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penumtype: *mut PROPENUMTYPE) -> windows_core::HRESULT {
@@ -2265,7 +2219,7 @@ impl IPropertyEnumType_Vtbl {
         iid == &<IPropertyEnumType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyEnumType {}
 windows_core::imp::define_interface!(IPropertyEnumType2, IPropertyEnumType2_Vtbl, 0x9b6e051c_5ddd_4321_9070_fe2acb55e794);
 impl core::ops::Deref for IPropertyEnumType2 {
@@ -2289,11 +2243,11 @@ pub struct IPropertyEnumType2_Vtbl {
     pub base__: IPropertyEnumType_Vtbl,
     pub GetImageReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyEnumType2_Impl: IPropertyEnumType_Impl {
     fn GetImageReference(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyEnumType2_Vtbl {
     pub const fn new<Identity: IPropertyEnumType2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetImageReference<Identity: IPropertyEnumType2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszimageres: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -2314,7 +2268,7 @@ impl IPropertyEnumType2_Vtbl {
         iid == &<IPropertyEnumType2 as windows_core::Interface>::IID || iid == &<IPropertyEnumType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyEnumType2 {}
 windows_core::imp::define_interface!(IPropertyEnumTypeList, IPropertyEnumTypeList_Vtbl, 0xa99400f4_3d84_4557_94ba_1242fb2cc9a6);
 windows_core::imp::interface_hierarchy!(IPropertyEnumTypeList, windows_core::IUnknown);
@@ -2339,7 +2293,7 @@ impl IPropertyEnumTypeList {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetConditionAt)(windows_core::Interface::as_raw(self), nindex, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindMatchingIndex(&self, propvarcmp: *const super::PROPVARIANT) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2354,19 +2308,19 @@ pub struct IPropertyEnumTypeList_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConditionAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub FindMatchingIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPVARIANT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     FindMatchingIndex: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyEnumTypeList_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, itype: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetConditionAt(&self, nindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn FindMatchingIndex(&self, propvarcmp: *const super::PROPVARIANT) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyEnumTypeList_Vtbl {
     pub const fn new<Identity: IPropertyEnumTypeList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctypes: *mut u32) -> windows_core::HRESULT {
@@ -2417,7 +2371,7 @@ impl IPropertyEnumTypeList_Vtbl {
         iid == &<IPropertyEnumTypeList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyEnumTypeList {}
 windows_core::imp::define_interface!(IPropertyStore, IPropertyStore_Vtbl, 0x886d8eeb_8cf2_4446_8d02_cdba1dbdcf99);
 windows_core::imp::interface_hierarchy!(IPropertyStore, windows_core::IUnknown);
@@ -2432,14 +2386,14 @@ impl IPropertyStore {
     pub unsafe fn GetAt(&self, iprop: u32, pkey: *mut super::PROPERTYKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), iprop, pkey as _) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, propvar) }
     }
@@ -2456,17 +2410,17 @@ pub struct IPropertyStore_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::PROPERTYKEY) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     GetAt: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyStore_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, iprop: u32, pkey: *mut super::PROPERTYKEY) -> windows_core::Result<()>;
@@ -2474,7 +2428,7 @@ pub trait IPropertyStore_Impl: windows_core::IUnknownImpl {
     fn SetValue(&self, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyStore_Vtbl {
     pub const fn new<Identity: IPropertyStore_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cprops: *mut u32) -> windows_core::HRESULT {
@@ -2532,7 +2486,7 @@ impl IPropertyStore_Vtbl {
         iid == &<IPropertyStore as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyStore {}
 windows_core::imp::define_interface!(IPropertyStoreCache, IPropertyStoreCache_Vtbl, 0x3017056d_9a91_4e90_937d_746c72abbf4f);
 impl core::ops::Deref for IPropertyStoreCache {
@@ -2550,7 +2504,7 @@ impl IPropertyStoreCache {
             (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValueAndState(&self, key: *const super::PROPERTYKEY, ppropvar: *mut super::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetValueAndState)(windows_core::Interface::as_raw(self), key, ppropvar, pstate as _) }
     }
@@ -2558,7 +2512,7 @@ impl IPropertyStoreCache {
     pub unsafe fn SetState(&self, key: *const super::PROPERTYKEY, state: PSC_STATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), key, state) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValueAndState(&self, key: *const super::PROPERTYKEY, ppropvar: *const super::PROPVARIANT, state: PSC_STATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValueAndState)(windows_core::Interface::as_raw(self), key, ppropvar, state) }
     }
@@ -2571,27 +2525,27 @@ pub struct IPropertyStoreCache_Vtbl {
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut PSC_STATE) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     GetState: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValueAndState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut super::PROPVARIANT, *mut PSC_STATE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetValueAndState: usize,
     #[cfg(feature = "wtypes")]
     pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, PSC_STATE) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetState: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValueAndState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *const super::PROPVARIANT, PSC_STATE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetValueAndState: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyStoreCache_Impl: IPropertyStore_Impl {
     fn GetState(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<PSC_STATE>;
     fn GetValueAndState(&self, key: *const super::PROPERTYKEY, ppropvar: *mut super::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::Result<()>;
     fn SetState(&self, key: *const super::PROPERTYKEY, state: PSC_STATE) -> windows_core::Result<()>;
     fn SetValueAndState(&self, key: *const super::PROPERTYKEY, ppropvar: *const super::PROPVARIANT, state: PSC_STATE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyStoreCache_Vtbl {
     pub const fn new<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
@@ -2636,7 +2590,7 @@ impl IPropertyStoreCache_Vtbl {
         iid == &<IPropertyStoreCache as windows_core::Interface>::IID || iid == &<IPropertyStore as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyStoreCache {}
 windows_core::imp::define_interface!(IPropertyStoreCapabilities, IPropertyStoreCapabilities_Vtbl, 0xc8e2d566_186e_4d49_bf41_6909ead56acc);
 windows_core::imp::interface_hierarchy!(IPropertyStoreCapabilities, windows_core::IUnknown);
@@ -2772,11 +2726,11 @@ impl IPropertySystem {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).EnumeratePropertyDescriptions)(windows_core::Interface::as_raw(self), filteron, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FormatForDisplay(&self, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), key, propvar, pdff, psztext, cchtext) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FormatForDisplayAlloc(&self, key: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2810,19 +2764,19 @@ pub struct IPropertySystem_Vtbl {
     pub GetPropertyDescriptionByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyDescriptionListFromString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumeratePropertyDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, PROPDESC_ENUMFILTER, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub FormatForDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *const super::PROPVARIANT, PROPDESC_FORMAT_FLAGS, windows_core::PWSTR, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     FormatForDisplay: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub FormatForDisplayAlloc: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *const super::PROPVARIANT, PROPDESC_FORMAT_FLAGS, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     FormatForDisplayAlloc: usize,
     pub RegisterPropertySchema: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub UnregisterPropertySchema: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub RefreshPropertySchema: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertySystem_Impl: windows_core::IUnknownImpl {
     fn GetPropertyDescription(&self, propkey: *const super::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyDescriptionByName(&self, pszcanonicalname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -2834,7 +2788,7 @@ pub trait IPropertySystem_Impl: windows_core::IUnknownImpl {
     fn UnregisterPropertySchema(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn RefreshPropertySchema(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertySystem_Vtbl {
     pub const fn new<Identity: IPropertySystem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyDescription<Identity: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const super::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2914,7 +2868,7 @@ impl IPropertySystem_Vtbl {
         iid == &<IPropertySystem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertySystem {}
 windows_core::imp::define_interface!(IPropertySystemChangeNotify, IPropertySystemChangeNotify_Vtbl, 0xfa955fd9_38be_4879_a6ce_824cf52d609f);
 windows_core::imp::interface_hierarchy!(IPropertySystemChangeNotify, windows_core::IUnknown);
@@ -2990,6 +2944,7 @@ pub const PDFF_HIDETIME: PROPDESC_FORMAT_FLAGS = 64;
 pub const PDFF_LONGDATE: PROPDESC_FORMAT_FLAGS = 256;
 pub const PDFF_LONGTIME: PROPDESC_FORMAT_FLAGS = 32;
 pub const PDFF_NOAUTOREADINGORDER: PROPDESC_FORMAT_FLAGS = 8192;
+pub const PDFF_PREFERFRIENDLY: PROPDESC_FORMAT_FLAGS = 268435456;
 pub const PDFF_PREFIXNAME: PROPDESC_FORMAT_FLAGS = 1;
 pub const PDFF_READONLY: PROPDESC_FORMAT_FLAGS = 4096;
 pub const PDFF_RELATIVEDATE: PROPDESC_FORMAT_FLAGS = 1024;
@@ -3087,6 +3042,7 @@ pub const PSC_READONLY: PSC_STATE = 3;
 pub type PSC_STATE = i32;
 pub type PUSERIALIZEDPROPSTORAGE = *mut SERIALIZEDPROPSTORAGE;
 pub const PropertySystem: windows_core::GUID = windows_core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
+pub type SERIALIZEDPROPSTORAGE = tagSERIALIZEDPROPSTORAGE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SERIALIZEDPROPSTORAGE(pub u8);
+pub struct tagSERIALIZEDPROPSTORAGE(pub u8);

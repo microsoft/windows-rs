@@ -5,12 +5,12 @@ mod helpers;
 mod metadata;
 mod schema;
 
+use ::helpers::nuget_package;
 use metadata::MetadataResolver;
 use schema::workspace_path;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
-use windows_clang::nuget_package;
 
 const OUTPUT: &str = "crates/libs/reactor/src/generated.rs";
 const BINDINGS: &str = "crates/libs/reactor/src/native/winui/bindings.rs";

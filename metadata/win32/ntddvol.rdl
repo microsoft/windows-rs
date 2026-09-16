@@ -48,9 +48,9 @@ mod Windows {
             Version: u32,
             RequestsPerPeriod: u32,
             Period: u32,
-            RetryFailures: bool,
-            Discardable: bool,
-            Reserved1: [bool; 2],
+            RetryFailures: BOOLEAN,
+            Discardable: BOOLEAN,
+            Reserved1: [BOOLEAN; 2],
             LowestByteOffset: u64,
             HighestByteOffset: u64,
             AccessType: u32,
@@ -109,14 +109,14 @@ mod Windows {
             PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
         }
         struct VOLUME_READ_PLEX_INPUT {
-            ByteOffset: i64,
+            ByteOffset: LARGE_INTEGER,
             Length: u32,
             PlexNumber: u32,
         }
         struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
             GptAttributes: u64,
-            RevertOnClose: bool,
-            ApplyToAllConnectedVolumes: bool,
+            RevertOnClose: BOOLEAN,
+            ApplyToAllConnectedVolumes: BOOLEAN,
             Reserved1: u16,
             Reserved2: u32,
         }

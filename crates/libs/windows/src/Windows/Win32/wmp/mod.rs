@@ -9079,16 +9079,12 @@ pub type WMPBurnFormat = i32;
 pub type WMPBurnState = i32;
 pub type WMPDeviceStatus = i32;
 pub type WMPFolderScanState = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMPLib(pub u8);
+pub const WMPLib: windows_core::GUID = windows_core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
 pub type WMPLibraryType = i32;
 pub type WMPOpenState = i32;
 pub type WMPPlayState = i32;
 pub type WMPPlaylistChangeEventType = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMPRemoteMediaServices(pub u8);
+pub const WMPRemoteMediaServices: windows_core::GUID = windows_core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 pub type WMPRipState = i32;
 pub type WMPStringCollectionChangeEventType = i32;
 pub type WMPSyncState = i32;

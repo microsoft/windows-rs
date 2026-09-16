@@ -212,6 +212,10 @@ impl Default for CHARFORMATA {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const CHARFORMATDELTA: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CHARFORMATDELTA: u64 = 24;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -292,6 +296,7 @@ pub const ECO_VERTICAL: i32 = 4194304;
 pub const ECO_WANTRETURN: i32 = 4096;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
@@ -300,14 +305,16 @@ pub struct EDITSTREAM {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
     pub pfnCallback: EDITSTREAMCALLBACK,
 }
-pub type EDITSTREAMCALLBACK = Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32>;
-pub type EDITWORDBREAKPROCEX = Option<unsafe extern "system" fn(pchtext: *mut i8, cchtext: i32, bcharset: u8, action: i32) -> i32>;
+#[cfg(feature = "minwindef")]
+pub type EDITSTREAMCALLBACK = Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: super::LPBYTE, cb: i32, pcb: *mut i32) -> u32>;
+pub type EDITWORDBREAKPROCEX = Option<unsafe extern "C" fn(pchtext: *mut i8, cchtext: i32, bcharset: u8, action: i32) -> i32>;
 pub const ELLIPSIS_END: i32 = 1;
 pub const ELLIPSIS_MASK: i32 = 3;
 pub const ELLIPSIS_NONE: i32 = 0;
@@ -1080,6 +1087,7 @@ pub struct REQRESIZE {
     pub rc: super::RECT,
 }
 pub const RICHEDIT60_CLASS: windows_core::PCWSTR = windows_core::w!("RICHEDIT60W");
+pub const RICHEDIT_CLASS: windows_core::PCSTR = windows_core::s!("RichEdit20A");
 pub const RICHEDIT_CLASS10A: windows_core::PCSTR = windows_core::s!("RICHEDIT");
 pub const RICHEDIT_CLASSA: windows_core::PCSTR = windows_core::s!("RichEdit20A");
 pub const RICHEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("RichEdit20W");
@@ -1393,6 +1401,7 @@ pub const WB_NEXTBREAK: i32 = 7;
 pub const WB_PREVBREAK: i32 = 6;
 pub const WB_RIGHTBREAK: i32 = 7;
 pub const WCH_EMBEDDING: u16 = 65532;
+pub const _RICHEDIT_VER: i32 = 2064;
 pub const cchTextLimitDefault: i32 = 32767;
 pub const khyphAddBefore: KHYPH = 2;
 pub const khyphChangeAfter: KHYPH = 5;

@@ -23,7 +23,7 @@ fn main() -> windows::core::Result<()> {
         }
 
         let event = CreateEventW(None, true, false, None);
-        if event.0.is_null() {
+        if event.is_null() {
             return Err(Error::from_thread());
         }
 
@@ -57,10 +57,10 @@ fn main() -> windows::core::Result<()> {
         if wait == WAIT_FAILED {
             return Err(Error::from_thread());
         }
-        assert_eq!(wait, WAIT_OBJECT_0 as u32);
+        assert_eq!(wait, WAIT_OBJECT_0.0 as u32);
 
         let mut bytes_copied = 0;
-        GetOverlappedResult(file, &overlapped, &mut bytes_copied, false).ok()?;
+        GetOverlappedResult(file, &mut overlapped, &mut bytes_copied, false).ok()?;
         assert!(bytes_copied == 12);
 
         println!("{}", String::from_utf8_lossy(&buffer));

@@ -324,24 +324,38 @@ pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE: DXGI_FRAME_PRESENTAT
 pub const DXGI_FRAME_PRESENTATION_MODE_NONE: DXGI_FRAME_PRESENTATION_MODE = 2;
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
     pub SyncRefreshCount: u32,
-    pub SyncQPCTime: i64,
-    pub SyncGPUTime: i64,
+    pub SyncQPCTime: super::LARGE_INTEGER,
+    pub SyncGPUTime: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for DXGI_FRAME_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
     pub SyncRefreshCount: u32,
-    pub SyncQPCTime: i64,
-    pub SyncGPUTime: i64,
+    pub SyncQPCTime: super::LARGE_INTEGER,
+    pub SyncGPUTime: super::LARGE_INTEGER,
     pub CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
     pub ApprovedPresentDuration: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for DXGI_FRAME_STATISTICS_MEDIA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -576,17 +590,23 @@ pub struct DXGI_OUTDUPL_DESC {
 }
 pub type DXGI_OUTDUPL_FLAG = i32;
 #[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
-    pub LastPresentTime: i64,
-    pub LastMouseUpdateTime: i64,
+    pub LastPresentTime: super::LARGE_INTEGER,
+    pub LastMouseUpdateTime: super::LARGE_INTEGER,
     pub AccumulatedFrames: u32,
     pub RectsCoalesced: windows_sys::core::BOOL,
     pub ProtectedContentMaskedOut: windows_sys::core::BOOL,
     pub PointerPosition: DXGI_OUTDUPL_POINTER_POSITION,
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
+}
+#[cfg(all(feature = "windef", feature = "winnt"))]
+impl Default for DXGI_OUTDUPL_FRAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -809,3 +829,4 @@ pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32;
 pub const DXGI_USAGE_SHADER_INPUT: u32 = 16;
 pub const DXGI_USAGE_SHARED: u32 = 128;
 pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024;
+pub const _FACDXGI: i32 = 2170;

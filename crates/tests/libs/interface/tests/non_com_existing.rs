@@ -157,7 +157,7 @@ fn test() -> Result<()> {
         XAudio2CreateWithVersionInfo(
             &mut audio,
             0,
-            XAUDIO2_PROCESSOR(XAUDIO2_DEFAULT_PROCESSOR as u32),
+            XAUDIO2_DEFAULT_PROCESSOR as XAUDIO2_PROCESSOR,
             NTDDI_VERSION as u32,
         )
         .ok()?;

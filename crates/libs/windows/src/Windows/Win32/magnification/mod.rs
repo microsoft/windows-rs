@@ -1,12 +1,12 @@
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn MagGetColorEffect(hwnd: super::HWND, peffect: *mut MAGCOLOREFFECT) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagGetColorEffect(hwnd : super::HWND, peffect : *mut MAGCOLOREFFECT) -> windows_core::BOOL);
-    unsafe { MagGetColorEffect(hwnd, peffect as _) }
+pub unsafe fn MagGetColorEffect(hwnd: super::HWND, peffect: PMAGCOLOREFFECT) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagGetColorEffect(hwnd : super::HWND, peffect : PMAGCOLOREFFECT) -> windows_core::BOOL);
+    unsafe { MagGetColorEffect(hwnd, peffect) }
 }
 #[inline]
-pub unsafe fn MagGetFullscreenColorEffect(peffect: *mut MAGCOLOREFFECT) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagGetFullscreenColorEffect(peffect : *mut MAGCOLOREFFECT) -> windows_core::BOOL);
+pub unsafe fn MagGetFullscreenColorEffect(peffect: PMAGCOLOREFFECT) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagGetFullscreenColorEffect(peffect : PMAGCOLOREFFECT) -> windows_core::BOOL);
     unsafe { MagGetFullscreenColorEffect(peffect as _) }
 }
 #[inline]
@@ -22,8 +22,8 @@ pub unsafe fn MagGetImageScalingCallback(hwnd: super::HWND) -> MagImageScalingCa
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn MagGetInputTransform(pfenabled: *mut windows_core::BOOL, prectsource: *mut super::RECT, prectdest: *mut super::RECT) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagGetInputTransform(pfenabled : *mut windows_core::BOOL, prectsource : *mut super::RECT, prectdest : *mut super::RECT) -> windows_core::BOOL);
+pub unsafe fn MagGetInputTransform(pfenabled: *mut windows_core::BOOL, prectsource: super::LPRECT, prectdest: super::LPRECT) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagGetInputTransform(pfenabled : *mut windows_core::BOOL, prectsource : super::LPRECT, prectdest : super::LPRECT) -> windows_core::BOOL);
     unsafe { MagGetInputTransform(pfenabled as _, prectsource as _, prectdest as _) }
 }
 #[cfg(feature = "windef")]
@@ -40,9 +40,9 @@ pub unsafe fn MagGetWindowSource(hwnd: super::HWND, prect: *mut super::RECT) -> 
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn MagGetWindowTransform(hwnd: super::HWND, ptransform: *mut MAGTRANSFORM) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::HWND, ptransform : *mut MAGTRANSFORM) -> windows_core::BOOL);
-    unsafe { MagGetWindowTransform(hwnd, ptransform as _) }
+pub unsafe fn MagGetWindowTransform(hwnd: super::HWND, ptransform: PMAGTRANSFORM) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::HWND, ptransform : PMAGTRANSFORM) -> windows_core::BOOL);
+    unsafe { MagGetWindowTransform(hwnd, ptransform) }
 }
 #[inline]
 pub unsafe fn MagInitialize() -> windows_core::BOOL {
@@ -51,13 +51,13 @@ pub unsafe fn MagInitialize() -> windows_core::BOOL {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn MagSetColorEffect(hwnd: super::HWND, peffect: *mut MAGCOLOREFFECT) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::HWND, peffect : *mut MAGCOLOREFFECT) -> windows_core::BOOL);
-    unsafe { MagSetColorEffect(hwnd, peffect as _) }
+pub unsafe fn MagSetColorEffect(hwnd: super::HWND, peffect: PMAGCOLOREFFECT) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::HWND, peffect : PMAGCOLOREFFECT) -> windows_core::BOOL);
+    unsafe { MagSetColorEffect(hwnd, peffect) }
 }
 #[inline]
-pub unsafe fn MagSetFullscreenColorEffect(peffect: *const MAGCOLOREFFECT) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : *const MAGCOLOREFFECT) -> windows_core::BOOL);
+pub unsafe fn MagSetFullscreenColorEffect(peffect: PMAGCOLOREFFECT) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : PMAGCOLOREFFECT) -> windows_core::BOOL);
     unsafe { MagSetFullscreenColorEffect(peffect) }
 }
 #[inline]
@@ -73,8 +73,8 @@ pub unsafe fn MagSetImageScalingCallback(hwnd: super::HWND, callback: MagImageSc
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn MagSetInputTransform(fenabled: bool, prectsource: *const super::RECT, prectdest: *const super::RECT) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_core::BOOL, prectsource : *const super::RECT, prectdest : *const super::RECT) -> windows_core::BOOL);
+pub unsafe fn MagSetInputTransform(fenabled: bool, prectsource: super::LPRECT, prectdest: super::LPRECT) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_core::BOOL, prectsource : super::LPRECT, prectdest : super::LPRECT) -> windows_core::BOOL);
     unsafe { MagSetInputTransform(fenabled.into(), prectsource, prectdest) }
 }
 #[cfg(feature = "windef")]
@@ -91,9 +91,9 @@ pub unsafe fn MagSetWindowSource(hwnd: super::HWND, rect: super::RECT) -> window
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn MagSetWindowTransform(hwnd: super::HWND, ptransform: *mut MAGTRANSFORM) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::HWND, ptransform : *mut MAGTRANSFORM) -> windows_core::BOOL);
-    unsafe { MagSetWindowTransform(hwnd, ptransform as _) }
+pub unsafe fn MagSetWindowTransform(hwnd: super::HWND, ptransform: PMAGTRANSFORM) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::HWND, ptransform : PMAGTRANSFORM) -> windows_core::BOOL);
+    unsafe { MagSetWindowTransform(hwnd, ptransform) }
 }
 #[inline]
 pub unsafe fn MagShowSystemCursor(fshowcursor: bool) -> windows_core::BOOL {
@@ -147,5 +147,6 @@ pub type PMAGCOLOREFFECT = *mut MAGCOLOREFFECT;
 #[cfg(feature = "wincodec")]
 pub type PMAGIMAGEHEADER = *mut MAGIMAGEHEADER;
 pub type PMAGTRANSFORM = *mut MAGTRANSFORM;
+pub const WC_MAGNIFIER: windows_core::PCSTR = windows_core::s!("Magnifier");
 pub const WC_MAGNIFIERA: windows_core::PCSTR = windows_core::s!("Magnifier");
 pub const WC_MAGNIFIERW: windows_core::PCWSTR = windows_core::w!("Magnifier");

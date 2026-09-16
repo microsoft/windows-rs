@@ -11,7 +11,7 @@ mod Windows {
             fn Close(&self) -> HRESULT;
         }
         #[library("XPSPRINT.DLL")]
-        extern fn StartXpsPrintJob(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, printablePagesOn: *const u8, printablePagesOnCount: u32, xpsPrintJob: *mut IXpsPrintJob, documentStream: *mut IXpsPrintJobStream, printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
+        extern fn StartXpsPrintJob(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, #[in] printablePagesOn: *mut u8, printablePagesOnCount: u32, xpsPrintJob: *mut IXpsPrintJob, documentStream: *mut IXpsPrintJobStream, printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
         #[library("XPSPRINT.DLL")]
         extern fn StartXpsPrintJob1(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, xpsPrintJob: *mut IXpsPrintJob, printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
         #[repr(i32)]

@@ -27,6 +27,10 @@ mod Windows {
         const LM20_UNLEN: i32 = 20;
         const LM_DNS_MAX_NAME_LENGTH: i32 = 255;
         const MAXCOMMENTSZ: i32 = 256;
+        #[arch(X64 | Arm64)]
+        const MAXDEVENTRIES: u64 = 32;
+        #[arch(X86)]
+        const MAXDEVENTRIES: u32 = 32;
         const MAX_LANMAN_MESSAGE_ID: i32 = 5899;
         const MAX_PREFERRED_LENGTH: u32 = 4294967295;
         const MIN_LANMAN_MESSAGE_ID: i32 = 2100;

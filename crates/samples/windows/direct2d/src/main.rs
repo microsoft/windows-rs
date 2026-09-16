@@ -63,8 +63,9 @@ fn main() -> windows::core::Result<()> {
             let mut dpiy = 0.0;
             unsafe { factory.GetDesktopDpi(&mut dpi, &mut dpiy) };
 
-            let mut frequency = 0;
+            let mut frequency = LARGE_INTEGER { QuadPart: 0 };
             unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
+            let frequency = unsafe { frequency.QuadPart };
 
             let variable = manager.create_variable(0.0)?;
             manager.schedule_transition(&variable, &transition, get_time(frequency)?)?;
@@ -322,7 +323,7 @@ fn main() -> windows::core::Result<()> {
                         _ = EndPaint(self.handle, &ps);
                     }
                     WM_SIZE => {
-                        if wparam.0 != SIZE_MINIMIZED as usize {
+                        if wparam != SIZE_MINIMIZED as usize {
                             self.resize_swapchain_bitmap().unwrap();
                         }
                     }
@@ -337,7 +338,7 @@ fn main() -> windows::core::Result<()> {
                         }
                     }
                     WM_ACTIVATE => {
-                        self.visible = (wparam.0 >> 16) as u16 == 0;
+                        self.visible = (wparam >> 16) as u16 == 0;
                     }
                     WM_DESTROY => {
                         PostQuitMessage(0);
@@ -353,9 +354,9 @@ fn main() -> windows::core::Result<()> {
 
     fn get_time(frequency: i64) -> Result<f64> {
         unsafe {
-            let mut time = 0;
+            let mut time = LARGE_INTEGER { QuadPart: 0 };
             QueryPerformanceCounter(&mut time).ok()?;
-            Ok(time as f64 / frequency as f64)
+            Ok(time.QuadPart as f64 / frequency as f64)
         }
     }
 
@@ -391,7 +392,16 @@ fn main() -> windows::core::Result<()> {
             options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
         }
 
-        unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, Some(&options)) }
+        unsafe {
+            let mut result__ = core::ptr::null_mut();
+            D2D1CreateFactory(
+                D2D1_FACTORY_TYPE_SINGLE_THREADED,
+                &ID2D1Factory1::IID,
+                Some(&options),
+                &mut result__,
+            )
+            .and_then(|| imp::Type::from_abi(result__))
+        }
     }
 
     fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1> {
@@ -499,7 +509,7 @@ fn main() -> windows::core::Result<()> {
                 Count: 1,
                 Quality: 0,
             },
-            BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT),
+            BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
             BufferCount: 2,
             SwapEffect: DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
             ..Default::default()
@@ -519,12 +529,12 @@ fn main() -> windows::core::Result<()> {
         .on_message(move |_, message, wparam, _| {
             handler
                 .borrow_mut()
-                .message_handler(message, WPARAM(wparam))
+                .message_handler(message, wparam)
                 .then_some(0)
         })
         .create()?;
 
-    app.borrow_mut().handle = HWND(window.hwnd());
+    app.borrow_mut().handle = window.hwnd() as HWND;
 
     run_with(move || {
         let mut app = app.borrow_mut();

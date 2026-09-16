@@ -1,11 +1,11 @@
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::HINSTANCE, idbitmap : isize, wflags : u32, lpcolormap : *const COLORMAP, inummaps : i32) -> super::HBITMAP);
+windows_link::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::HINSTANCE, idbitmap : isize, wflags : u32, lpcolormap : LPCOLORMAP, inummaps : i32) -> super::HBITMAP);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : windows_sys::core::PCSTR, hwndparent : super::HWND, wid : u32) -> super::HWND);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : windows_sys::core::PCWSTR, hwndparent : super::HWND, wid : u32) -> super::HWND);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::HINSTANCE, wbmid : usize, lpbuttons : *const TBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::HWND);
+windows_link::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::HINSTANCE, wbmid : usize, lpbuttons : LPCTBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::HWND);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn CreateUpDownControl(dwstyle : u32, x : i32, y : i32, cx : i32, cy : i32, hparent : super::HWND, nid : i32, hinst : super::HINSTANCE, hbuddy : super::HWND, nupper : i32, nlower : i32, npos : i32) -> super::HWND);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -15,21 +15,21 @@ windows_link::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::HW
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::HDC, psztext : windows_sys::core::PCWSTR, cch : u32, prc : *const super::RECT, dwflags : u32, crtext : super::COLORREF, crshadow : super::COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::HDC, lprc : *const super::RECT, psztext : windows_sys::core::PCSTR, uflags : u32));
+windows_link::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::HDC, lprc : super::LPCRECT, psztext : windows_sys::core::PCSTR, uflags : u32));
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::HDC, lprc : *const super::RECT, psztext : windows_sys::core::PCWSTR, uflags : u32));
+windows_link::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::HDC, lprc : super::LPCRECT, psztext : windows_sys::core::PCWSTR, uflags : u32));
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_EnableScrollBar(param0 : super::HWND, param1 : i32, param2 : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winuser"))]
-windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollInfo(param0 : super::HWND, code : i32, param2 : *mut super::SCROLLINFO) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollInfo(param0 : super::HWND, code : i32, param2 : super::LPSCROLLINFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollPos(param0 : super::HWND, code : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollProp(param0 : super::HWND, propindex : i32, param2 : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 : super::HWND, code : i32, param2 : *mut i32, param3 : *mut i32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollProp(param0 : super::HWND, propindex : i32, param2 : super::LPINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 : super::HWND, code : i32, param2 : super::LPINT, param3 : super::LPINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winuser"))]
-windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::HWND, code : i32, psi : *mut super::SCROLLINFO, fredraw : windows_sys::core::BOOL) -> i32);
+windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::HWND, code : i32, psi : super::LPSCROLLINFO, fredraw : windows_sys::core::BOOL) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollPos(param0 : super::HWND, code : i32, pos : i32, fredraw : windows_sys::core::BOOL) -> i32);
 #[cfg(feature = "windef")]
@@ -39,20 +39,20 @@ windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : su
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::HWND, code : i32, param2 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::HWND, lprc : *mut super::RECT, lpinfo : *const i32));
+windows_link::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::HWND, lprc : super::LPRECT, lpinfo : *const i32));
 #[cfg(feature = "winnt")]
 windows_link::link!("comctl32.dll" "system" fn GetMUILanguage() -> super::LANGID);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn GetWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, pdwrefdata : *mut usize) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : *const _IMAGELIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_Add(himl : *const _IMAGELIST, hbmimage : super::HBITMAP, hbmmask : super::HBITMAP) -> i32);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Add(himl : HIMAGELIST, hbmimage : super::HBITMAP, hbmmask : super::HBITMAP) -> i32);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_AddMasked(himl : *const _IMAGELIST, hbmimage : super::HBITMAP, crmask : super::COLORREF) -> i32);
-windows_link::link!("comctl32.dll" "system" fn ImageList_BeginDrag(himltrack : *const _IMAGELIST, itrack : i32, dxhotspot : i32, dyhotspot : i32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : *const _IMAGELIST, idst : i32, himlsrc : *const _IMAGELIST, isrc : i32, uflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_AddMasked(himl : HIMAGELIST, hbmimage : super::HBITMAP, crmask : super::COLORREF) -> i32);
+windows_link::link!("comctl32.dll" "system" fn ImageList_BeginDrag(himltrack : HIMAGELIST, itrack : i32, dxhotspot : i32, dyhotspot : i32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : HIMAGELIST, idst : i32, himlsrc : HIMAGELIST, isrc : i32, uflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_Create(cx : i32, cy : i32, flags : u32, cinitial : i32, cgrow : i32) -> HIMAGELIST);
-windows_link::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : *const _IMAGELIST) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : HIMAGELIST) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_DragEnter(hwndlock : super::HWND, x : i32, y : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
@@ -60,47 +60,47 @@ windows_link::link!("comctl32.dll" "system" fn ImageList_DragLeave(hwndlock : su
 windows_link::link!("comctl32.dll" "system" fn ImageList_DragMove(x : i32, y : i32) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_DragShowNolock(fshow : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_Draw(himl : *const _IMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, fstyle : u32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Draw(himl : HIMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, fstyle : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : *const _IMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::COLORREF, rgbfg : super::COLORREF, fstyle : u32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : HIMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::COLORREF, rgbfg : super::COLORREF, fstyle : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_DrawIndirect(pimldp : *const IMAGELISTDRAWPARAMS) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_Duplicate(himl : *const _IMAGELIST) -> HIMAGELIST);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Duplicate(himl : HIMAGELIST) -> HIMAGELIST);
 windows_link::link!("comctl32.dll" "system" fn ImageList_EndDrag());
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_GetBkColor(himl : *const _IMAGELIST) -> super::COLORREF);
+windows_link::link!("comctl32.dll" "system" fn ImageList_GetBkColor(himl : HIMAGELIST) -> super::COLORREF);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_GetDragImage(ppt : *mut super::POINT, ppthotspot : *mut super::POINT) -> HIMAGELIST);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : *const _IMAGELIST, i : i32, flags : u32) -> super::HICON);
-windows_link::link!("comctl32.dll" "system" fn ImageList_GetIconSize(himl : *const _IMAGELIST, cx : *mut i32, cy : *mut i32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_GetImageCount(himl : *const _IMAGELIST) -> i32);
+windows_link::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : u32) -> super::HICON);
+windows_link::link!("comctl32.dll" "system" fn ImageList_GetIconSize(himl : HIMAGELIST, cx : *mut i32, cy : *mut i32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_GetImageCount(himl : HIMAGELIST) -> i32);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : *const _IMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : HIMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::HINSTANCE, lpbmp : windows_sys::core::PCSTR, cx : i32, cgrow : i32, crmask : super::COLORREF, utype : u32, uflags : u32) -> HIMAGELIST);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::HINSTANCE, lpbmp : windows_sys::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::COLORREF, utype : u32, uflags : u32) -> HIMAGELIST);
-windows_link::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : *const _IMAGELIST, i1 : i32, himl2 : *const _IMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_Read(pstm : *mut core::ffi::c_void) -> HIMAGELIST);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("comctl32.dll" "system" fn ImageList_Remove(himl : *const _IMAGELIST, i : i32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_Replace(himl : *const _IMAGELIST, i : i32, hbmimage : super::HBITMAP, hbmmask : super::HBITMAP) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::HBITMAP, hbmmask : super::HBITMAP) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_ReplaceIcon(himl : *const _IMAGELIST, i : i32, hicon : super::HICON) -> i32);
+windows_link::link!("comctl32.dll" "system" fn ImageList_ReplaceIcon(himl : HIMAGELIST, i : i32, hicon : super::HICON) -> i32);
 #[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_SetBkColor(himl : *const _IMAGELIST, clrbk : super::COLORREF) -> super::COLORREF);
-windows_link::link!("comctl32.dll" "system" fn ImageList_SetDragCursorImage(himldrag : *const _IMAGELIST, idrag : i32, dxhotspot : i32, dyhotspot : i32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : *const _IMAGELIST, cx : i32, cy : i32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : *const _IMAGELIST, unewcount : u32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : *const _IMAGELIST, iimage : i32, ioverlay : i32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_SetBkColor(himl : HIMAGELIST, clrbk : super::COLORREF) -> super::COLORREF);
+windows_link::link!("comctl32.dll" "system" fn ImageList_SetDragCursorImage(himldrag : HIMAGELIST, idrag : i32, dxhotspot : i32, dyhotspot : i32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_Write(himl : *const _IMAGELIST, pstm : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : *const _IMAGELIST, dwflags : u32, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : u32, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("comctl32.dll" "system" fn InitCommonControls());
 windows_link::link!("comctl32.dll" "system" fn InitCommonControlsEx(picce : *const INITCOMMONCONTROLSEX) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -121,8 +121,8 @@ windows_link::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : sup
 windows_link::link!("comctl32.dll" "system" fn RemoveWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn SetWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, dwrefdata : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::HWND, uflags : usize, lpinfo : *const i32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::HWND, uflags : usize, lpinfo : super::LPINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::HWND, hinstance : super::HINSTANCE, pszwindowtitle : windows_sys::core::PCWSTR, pszmaininstruction : windows_sys::core::PCWSTR, pszcontent : windows_sys::core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : windows_sys::core::PCWSTR, pnbutton : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -130,7 +130,7 @@ windows_link::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : 
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::HWND) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "winuser"))]
-windows_link::link!("comctl32.dll" "system" fn _TrackMouseEvent(lpeventtrack : *mut super::TRACKMOUSEEVENT) -> windows_sys::core::BOOL);
+windows_link::link!("comctl32.dll" "system" fn _TrackMouseEvent(lpeventtrack : super::LPTRACKMOUSEEVENT) -> windows_sys::core::BOOL);
 pub const ACM_ISPLAYING: i32 = 1128;
 pub const ACM_OPEN: i32 = 1124;
 pub const ACM_OPENA: i32 = 1124;
@@ -143,8 +143,10 @@ pub const ACS_AUTOPLAY: i32 = 4;
 pub const ACS_CENTER: i32 = 1;
 pub const ACS_TIMER: i32 = 8;
 pub const ACS_TRANSPARENT: i32 = 2;
+pub const ANIMATE_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("SysAnimate32");
 pub const ANIMATE_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysAnimate32");
 pub const ANIMATE_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysAnimate32");
+pub const BCCL_NOGLYPH: HIMAGELIST = -1 as _;
 pub const BCM_FIRST: i32 = 5632;
 pub const BCM_GETIDEALSIZE: i32 = 5633;
 pub const BCM_GETIMAGELIST: i32 = 5635;
@@ -384,6 +386,7 @@ pub struct DATETIMEPICKERINFO {
     pub hwndUD: super::HWND,
     pub hwndDropDown: super::HWND,
 }
+pub const DATETIMEPICK_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
 pub const DL_BEGINDRAG: i32 = 1157;
@@ -744,6 +747,7 @@ pub const HOTKEYF_ALT: i32 = 4;
 pub const HOTKEYF_CONTROL: i32 = 2;
 pub const HOTKEYF_EXT: i32 = 8;
 pub const HOTKEYF_SHIFT: i32 = 1;
+pub const HOTKEY_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_hotkey32");
 pub const HOTKEY_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_hotkey32");
 pub const HOTKEY_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_hotkey32");
 pub type HTREEITEM = *mut _TREEITEM;
@@ -1129,6 +1133,7 @@ pub type LPREBARBANDINFOA = *mut REBARBANDINFOA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPREBARBANDINFOW = *mut REBARBANDINFOW;
 pub type LPREBARINFO = *mut REBARINFO;
+pub const LPSTR_TEXTCALLBACK: windows_sys::core::PCSTR = -1 as _;
 pub const LPSTR_TEXTCALLBACKA: windows_sys::core::PCSTR = -1 as _;
 pub const LPSTR_TEXTCALLBACKW: windows_sys::core::PCWSTR = -1 as _;
 #[cfg(feature = "minwindef")]
@@ -2023,6 +2028,7 @@ pub const MCS_NOTRAILINGDATES: i32 = 64;
 pub const MCS_SHORTDAYSOFWEEK: i32 = 128;
 pub const MCS_WEEKNUMBERS: i32 = 4;
 pub const MINSYSCOMMAND: i32 = 61440;
+pub const MONTHCAL_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("SysMonthCal32");
 pub const MONTHCAL_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysMonthCal32");
 pub const MONTHCAL_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysMonthCal32");
 pub type MONTHDAYSTATE = u32;
@@ -3114,6 +3120,7 @@ pub type PNMLINK = *mut NMLINK;
 #[cfg(all(feature = "windef", feature = "winuser"))]
 pub type PNMLVLINK = *mut NMLVLINK;
 pub type PPBRANGE = *mut PBRANGE;
+pub const PROGRESS_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_progress32");
 pub const PROGRESS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_progress32");
 pub const PROGRESS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
 pub type PTBBUTTON = *mut TBBUTTON;
@@ -3318,6 +3325,7 @@ pub const REBARBANDINFO_V3_SIZE: u64 = 76;
 pub const REBARBANDINFO_V6_SIZE: u32 = 80;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const REBARBANDINFO_V6_SIZE: u64 = 108;
+pub const REBARCLASSNAME: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
 pub const REBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
 pub const REBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
 #[repr(C)]
@@ -3366,6 +3374,7 @@ pub const SB_SETTIPTEXTW: i32 = 1041;
 pub const SB_SETUNICODEFORMAT: i32 = 8197;
 pub const SB_SIMPLE: i32 = 1033;
 pub const SB_SIMPLEID: i32 = 255;
+pub const STATUSCLASSNAME: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_statusbar32");
 pub const STATUSCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_statusbar32");
 pub const STATUSCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_statusbar32");
 pub const STD_COPY: i32 = 1;
@@ -3973,34 +3982,34 @@ pub const TCS_SINGLELINE: i32 = 0;
 pub const TCS_TABS: i32 = 0;
 pub const TCS_TOOLTIPS: i32 = 16384;
 pub const TCS_VERTICAL: i32 = 128;
-pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 8;
-pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 32;
-pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 4;
-pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 1;
-pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 16;
-pub const TDCBF_YES_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 2;
+pub const TDCBF_CANCEL_BUTTON: _TASKDIALOG_COMMON_BUTTON_FLAGS = 8;
+pub const TDCBF_CLOSE_BUTTON: _TASKDIALOG_COMMON_BUTTON_FLAGS = 32;
+pub const TDCBF_NO_BUTTON: _TASKDIALOG_COMMON_BUTTON_FLAGS = 4;
+pub const TDCBF_OK_BUTTON: _TASKDIALOG_COMMON_BUTTON_FLAGS = 1;
+pub const TDCBF_RETRY_BUTTON: _TASKDIALOG_COMMON_BUTTON_FLAGS = 16;
+pub const TDCBF_YES_BUTTON: _TASKDIALOG_COMMON_BUTTON_FLAGS = 2;
 pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = 0;
 pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = 1;
 pub const TDE_FOOTER: TASKDIALOG_ELEMENTS = 2;
 pub const TDE_MAIN_INSTRUCTION: TASKDIALOG_ELEMENTS = 3;
-pub const TDF_ALLOW_DIALOG_CANCELLATION: TASKDIALOG_FLAGS = 8;
-pub const TDF_CALLBACK_TIMER: TASKDIALOG_FLAGS = 2048;
-pub const TDF_CAN_BE_MINIMIZED: TASKDIALOG_FLAGS = 32768;
-pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = 1;
-pub const TDF_EXPANDED_BY_DEFAULT: TASKDIALOG_FLAGS = 128;
-pub const TDF_EXPAND_FOOTER_AREA: TASKDIALOG_FLAGS = 64;
-pub const TDF_NO_DEFAULT_RADIO_BUTTON: TASKDIALOG_FLAGS = 16384;
-pub const TDF_NO_SET_FOREGROUND: TASKDIALOG_FLAGS = 65536;
-pub const TDF_POSITION_RELATIVE_TO_WINDOW: TASKDIALOG_FLAGS = 4096;
-pub const TDF_RTL_LAYOUT: TASKDIALOG_FLAGS = 8192;
-pub const TDF_SHOW_MARQUEE_PROGRESS_BAR: TASKDIALOG_FLAGS = 1024;
-pub const TDF_SHOW_PROGRESS_BAR: TASKDIALOG_FLAGS = 512;
-pub const TDF_SIZE_TO_CONTENT: TASKDIALOG_FLAGS = 16777216;
-pub const TDF_USE_COMMAND_LINKS: TASKDIALOG_FLAGS = 16;
-pub const TDF_USE_COMMAND_LINKS_NO_ICON: TASKDIALOG_FLAGS = 32;
-pub const TDF_USE_HICON_FOOTER: TASKDIALOG_FLAGS = 4;
-pub const TDF_USE_HICON_MAIN: TASKDIALOG_FLAGS = 2;
-pub const TDF_VERIFICATION_FLAG_CHECKED: TASKDIALOG_FLAGS = 256;
+pub const TDF_ALLOW_DIALOG_CANCELLATION: _TASKDIALOG_FLAGS = 8;
+pub const TDF_CALLBACK_TIMER: _TASKDIALOG_FLAGS = 2048;
+pub const TDF_CAN_BE_MINIMIZED: _TASKDIALOG_FLAGS = 32768;
+pub const TDF_ENABLE_HYPERLINKS: _TASKDIALOG_FLAGS = 1;
+pub const TDF_EXPANDED_BY_DEFAULT: _TASKDIALOG_FLAGS = 128;
+pub const TDF_EXPAND_FOOTER_AREA: _TASKDIALOG_FLAGS = 64;
+pub const TDF_NO_DEFAULT_RADIO_BUTTON: _TASKDIALOG_FLAGS = 16384;
+pub const TDF_NO_SET_FOREGROUND: _TASKDIALOG_FLAGS = 65536;
+pub const TDF_POSITION_RELATIVE_TO_WINDOW: _TASKDIALOG_FLAGS = 4096;
+pub const TDF_RTL_LAYOUT: _TASKDIALOG_FLAGS = 8192;
+pub const TDF_SHOW_MARQUEE_PROGRESS_BAR: _TASKDIALOG_FLAGS = 1024;
+pub const TDF_SHOW_PROGRESS_BAR: _TASKDIALOG_FLAGS = 512;
+pub const TDF_SIZE_TO_CONTENT: _TASKDIALOG_FLAGS = 16777216;
+pub const TDF_USE_COMMAND_LINKS: _TASKDIALOG_FLAGS = 16;
+pub const TDF_USE_COMMAND_LINKS_NO_ICON: _TASKDIALOG_FLAGS = 32;
+pub const TDF_USE_HICON_FOOTER: _TASKDIALOG_FLAGS = 4;
+pub const TDF_USE_HICON_MAIN: _TASKDIALOG_FLAGS = 2;
+pub const TDF_VERIFICATION_FLAG_CHECKED: _TASKDIALOG_FLAGS = 256;
 pub const TDIE_ICON_FOOTER: TASKDIALOG_ICON_ELEMENTS = 1;
 pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = 0;
 pub const TDM_CLICK_BUTTON: TASKDIALOG_MESSAGES = 1126;
@@ -4033,10 +4042,13 @@ pub const TD_ERROR_ICON: windows_sys::core::PCWSTR = 65534 as _;
 pub const TD_INFORMATION_ICON: windows_sys::core::PCWSTR = 65533 as _;
 pub const TD_SHIELD_ICON: windows_sys::core::PCWSTR = 65532 as _;
 pub const TD_WARNING_ICON: windows_sys::core::PCWSTR = 65535 as _;
+pub const TOOLBARCLASSNAME: windows_sys::core::PCSTR = windows_sys::core::s!("ToolbarWindow32");
 pub const TOOLBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ToolbarWindow32");
 pub const TOOLBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ToolbarWindow32");
+pub const TOOLTIPS_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("tooltips_class32");
 pub const TOOLTIPS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("tooltips_class32");
 pub const TOOLTIPS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("tooltips_class32");
+pub const TRACKBAR_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_trackbar32");
 pub const TRACKBAR_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_trackbar32");
 pub const TRACKBAR_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_trackbar32");
 pub const TRBN_FIRST: u32 = 4294965795;
@@ -4621,6 +4633,7 @@ pub const UDS_SETBUDDYINT: i32 = 2;
 pub const UDS_WRAP: i32 = 1;
 pub const UD_MAXVAL: i32 = 32767;
 pub const UD_MINVAL: i32 = -32767;
+pub const UPDOWN_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_updown32");
 pub const UPDOWN_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_updown32");
 pub const UPDOWN_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_updown32");
 pub const VIEW_DETAILS: i32 = 3;
@@ -4636,33 +4649,47 @@ pub const VIEW_SORTNAME: i32 = 4;
 pub const VIEW_SORTSIZE: i32 = 5;
 pub const VIEW_SORTTYPE: i32 = 7;
 pub const VIEW_VIEWMENU: i32 = 12;
+pub const WC_BUTTON: windows_sys::core::PCSTR = windows_sys::core::s!("Button");
 pub const WC_BUTTONA: windows_sys::core::PCSTR = windows_sys::core::s!("Button");
 pub const WC_BUTTONW: windows_sys::core::PCWSTR = windows_sys::core::w!("Button");
+pub const WC_COMBOBOX: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBox");
 pub const WC_COMBOBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBox");
+pub const WC_COMBOBOXEX: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBoxEx32");
 pub const WC_COMBOBOXEXA: windows_sys::core::PCSTR = windows_sys::core::s!("ComboBoxEx32");
 pub const WC_COMBOBOXEXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBoxEx32");
 pub const WC_COMBOBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ComboBox");
+pub const WC_EDIT: windows_sys::core::PCSTR = windows_sys::core::s!("Edit");
 pub const WC_EDITA: windows_sys::core::PCSTR = windows_sys::core::s!("Edit");
 pub const WC_EDITW: windows_sys::core::PCWSTR = windows_sys::core::w!("Edit");
+pub const WC_HEADER: windows_sys::core::PCSTR = windows_sys::core::s!("SysHeader32");
 pub const WC_HEADERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysHeader32");
 pub const WC_HEADERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysHeader32");
+pub const WC_IPADDRESS: windows_sys::core::PCSTR = windows_sys::core::s!("SysIPAddress32");
 pub const WC_IPADDRESSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysIPAddress32");
 pub const WC_IPADDRESSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysIPAddress32");
 pub const WC_LINK: windows_sys::core::PCWSTR = windows_sys::core::w!("SysLink");
+pub const WC_LISTBOX: windows_sys::core::PCSTR = windows_sys::core::s!("ListBox");
 pub const WC_LISTBOXA: windows_sys::core::PCSTR = windows_sys::core::s!("ListBox");
 pub const WC_LISTBOXW: windows_sys::core::PCWSTR = windows_sys::core::w!("ListBox");
+pub const WC_LISTVIEW: windows_sys::core::PCSTR = windows_sys::core::s!("SysListView32");
 pub const WC_LISTVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysListView32");
 pub const WC_LISTVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysListView32");
+pub const WC_NATIVEFONTCTL: windows_sys::core::PCSTR = windows_sys::core::s!("NativeFontCtl");
 pub const WC_NATIVEFONTCTLA: windows_sys::core::PCSTR = windows_sys::core::s!("NativeFontCtl");
 pub const WC_NATIVEFONTCTLW: windows_sys::core::PCWSTR = windows_sys::core::w!("NativeFontCtl");
+pub const WC_PAGESCROLLER: windows_sys::core::PCSTR = windows_sys::core::s!("SysPager");
 pub const WC_PAGESCROLLERA: windows_sys::core::PCSTR = windows_sys::core::s!("SysPager");
 pub const WC_PAGESCROLLERW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysPager");
+pub const WC_SCROLLBAR: windows_sys::core::PCSTR = windows_sys::core::s!("ScrollBar");
 pub const WC_SCROLLBARA: windows_sys::core::PCSTR = windows_sys::core::s!("ScrollBar");
 pub const WC_SCROLLBARW: windows_sys::core::PCWSTR = windows_sys::core::w!("ScrollBar");
+pub const WC_STATIC: windows_sys::core::PCSTR = windows_sys::core::s!("Static");
 pub const WC_STATICA: windows_sys::core::PCSTR = windows_sys::core::s!("Static");
 pub const WC_STATICW: windows_sys::core::PCWSTR = windows_sys::core::w!("Static");
+pub const WC_TABCONTROL: windows_sys::core::PCSTR = windows_sys::core::s!("SysTabControl32");
 pub const WC_TABCONTROLA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTabControl32");
 pub const WC_TABCONTROLW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTabControl32");
+pub const WC_TREEVIEW: windows_sys::core::PCSTR = windows_sys::core::s!("SysTreeView32");
 pub const WC_TREEVIEWA: windows_sys::core::PCSTR = windows_sys::core::s!("SysTreeView32");
 pub const WC_TREEVIEWW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysTreeView32");
 pub const WMN_FIRST: u32 = 4294966296;
@@ -4684,6 +4711,8 @@ pub const WSB_PROP_WINSTYLE: i32 = 1024;
 #[derive(Clone, Copy, Default)]
 pub struct _IMAGELIST(pub u8);
 pub type _LI_METRIC = i32;
+pub type _TASKDIALOG_COMMON_BUTTON_FLAGS = i32;
+pub type _TASKDIALOG_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct _TREEITEM(pub u8);

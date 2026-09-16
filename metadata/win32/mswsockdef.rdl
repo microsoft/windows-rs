@@ -22,13 +22,20 @@ mod Windows {
         }
         type RIO_BUFFERID = *mut RIO_BUFFERID_t;
         struct RIO_BUFFERID_t {}
+        #[arch(X64 | Arm64)]
+        const RIO_CMSG_BASE_SIZE: u64 = 8;
+        #[arch(X86)]
+        const RIO_CMSG_BASE_SIZE: u32 = 4;
         struct RIO_CMSG_BUFFER {
             TotalLength: u32,
         }
         const RIO_CORRUPT_CQ: u32 = 4294967295;
         type RIO_CQ = *mut RIO_CQ_t;
         struct RIO_CQ_t {}
+        #[arch(X64 | Arm64)]
         const RIO_INVALID_BUFFERID: RIO_BUFFERID = 4294967295;
+        #[arch(X86)]
+        const RIO_INVALID_BUFFERID: RIO_BUFFERID = -1;
         const RIO_INVALID_CQ: RIO_CQ = 0;
         const RIO_INVALID_RQ: RIO_RQ = 0;
         const RIO_MAX_CQ_SIZE: i32 = 134217728;

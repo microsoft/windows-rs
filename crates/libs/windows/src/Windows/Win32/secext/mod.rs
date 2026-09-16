@@ -1,37 +1,43 @@
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: super::PULONG) -> super::BOOLEAN {
+    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : super::PULONG) -> super::BOOLEAN);
     unsafe { GetComputerObjectNameA(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: super::PULONG) -> super::BOOLEAN {
+    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : super::PULONG) -> super::BOOLEAN);
     unsafe { GetComputerObjectNameW(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetUserNameExA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: super::PULONG) -> super::BOOLEAN {
+    windows_core::link!("secur32.dll" "system" fn GetUserNameExA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : super::PULONG) -> super::BOOLEAN);
     unsafe { GetUserNameExA(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetUserNameExW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: super::PULONG) -> super::BOOLEAN {
+    windows_core::link!("secur32.dll" "system" fn GetUserNameExW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : super::PULONG) -> super::BOOLEAN);
     unsafe { GetUserNameExW(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TranslateNameA<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PSTR>, nsize: *mut u32) -> bool
+pub unsafe fn TranslateNameA<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PSTR>, nsize: super::PULONG) -> super::BOOLEAN
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("secur32.dll" "system" fn TranslateNameA(lpaccountname : windows_core::PCSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PSTR, nsize : *mut u32) -> bool);
+    windows_core::link!("secur32.dll" "system" fn TranslateNameA(lpaccountname : windows_core::PCSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PSTR, nsize : super::PULONG) -> super::BOOLEAN);
     unsafe { TranslateNameA(lpaccountname.param().abi(), accountnameformat, desirednameformat, lptranslatedname.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TranslateNameW<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PWSTR>, nsize: *mut u32) -> bool
+pub unsafe fn TranslateNameW<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PWSTR>, nsize: super::PULONG) -> super::BOOLEAN
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("secur32.dll" "system" fn TranslateNameW(lpaccountname : windows_core::PCWSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PWSTR, nsize : *mut u32) -> bool);
+    windows_core::link!("secur32.dll" "system" fn TranslateNameW(lpaccountname : windows_core::PCWSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PWSTR, nsize : super::PULONG) -> super::BOOLEAN);
     unsafe { TranslateNameW(lpaccountname.param().abi(), accountnameformat, desirednameformat, lptranslatedname.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 pub type EXTENDED_NAME_FORMAT = i32;

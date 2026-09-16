@@ -1,6 +1,9 @@
-windows_link::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : windows_sys::core::PCWSTR, lpclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : windows_sys::core::PCWSTR, lpclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CLSIDFromString(lpsz : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : super::LPCOLESTR, lpclsid : super::LPCLSID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : super::LPCOLESTR, lpclsid : super::LPCLSID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CLSIDFromString(lpsz : super::LPCOLESTR, pclsid : super::LPCLSID) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoAddRefServerProcess() -> u32);
 windows_link::link!("ole32.dll" "system" fn CoAllowUnmarshalerCLSID(clsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoCancelCall(dwthreadid : u32, ultimeout : u32) -> windows_sys::core::HRESULT);
@@ -12,7 +15,7 @@ windows_link::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const win
 windows_link::link!("ole32.dll" "system" fn CoCreateInstanceEx(clsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, pserverinfo : *const super::COSERVERINFO, dwcount : u32, presults : *mut super::MULTI_QI) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("ole32.dll" "system" fn CoCreateInstanceFromApp(clsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, reserved : *const core::ffi::c_void, dwcount : u32, presults : *mut super::MULTI_QI) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoDecodeProxy(dwclientpid : u32, ui64proxyaddress : u64, pserverinformation : *mut ServerInformation) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoDecodeProxy(dwclientpid : u32, ui64proxyaddress : u64, pserverinformation : PServerInformation) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoDecrementMTAUsage(cookie : CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoDisableCallCancellation(preserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoDisconnectContext(dwtimeout : u32) -> windows_sys::core::HRESULT);
@@ -25,7 +28,8 @@ windows_link::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddela
 #[cfg(feature = "objidlbase")]
 windows_link::link!("ole32.dll" "system" fn CoGetApartmentType(papttype : *mut super::APTTYPE, paptqualifier : *mut super::APTTYPEQUALIFIER) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const windows_sys::core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : super::LPDWORD) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const windows_sys::core::GUID, ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_sys::core::GUID, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetContextToken(ptoken : *mut usize) -> windows_sys::core::HRESULT);
@@ -43,13 +47,15 @@ windows_link::link!("ole32.dll" "system" fn CoGetPSClsid(riid : *const windows_s
 #[cfg(feature = "objidlbase")]
 windows_link::link!("ole32.dll" "system" fn CoGetStandardMarshal(riid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32, ppmarshal : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetStdMarshalEx(punkouter : *mut core::ffi::c_void, smexflags : u32, ppunkinner : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const windows_sys::core::GUID, pclsidnew : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const windows_sys::core::GUID, pclsidnew : super::LPCLSID) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoImpersonateClient() -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const super::SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : u32, dwimplevel : u32, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : super::LPOLESTR) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoIsHandlerConnected(punk : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("ole32.dll" "system" fn CoLockObjectExternal(punk : *mut core::ffi::c_void, flock : windows_sys::core::BOOL, flastunlockreleases : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
@@ -60,13 +66,14 @@ windows_link::link!("ole32.dll" "system" fn CoMarshalInterThreadInterfaceInStrea
 windows_link::link!("ole32.dll" "system" fn CoMarshalInterface(pstm : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidlbase", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn CoQueryAuthenticationServices(pcauthsvc : *mut u32, asauthsvc : *mut *mut super::SOLE_AUTHENTICATION_SERVICE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "rpc")]
-windows_link::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "rpc")]
-windows_link::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut super::LPOLESTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut super::LPOLESTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwclscontext : u32, flags : u32, lpdwregister : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwclscontext : u32, flags : u32, lpdwregister : super::LPDWORD) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-com-l1-1-3.dll" "system" fn CoRegisterDeviceCatalog(deviceinstanceid : windows_sys::core::PCWSTR, cookie : *mut CO_DEVICE_CATALOG_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRegisterPSClsid(riid : *const windows_sys::core::GUID, rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
@@ -92,33 +99,41 @@ windows_link::link!("ole32.dll" "system" fn CoUninitialize());
 windows_link::link!("ole32.dll" "system" fn CoUnmarshalHresult(pstm : *mut core::ffi::c_void, phresult : *mut windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("ole32.dll" "system" fn CoUnmarshalInterface(pstm : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::HANDLE, lpdwindex : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::HANDLE, lpdwindex : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : super::LPHANDLE, lpdwindex : super::LPDWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::HANDLE, lpdwindex : super::LPDWORD) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
 windows_link::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::HGLOBAL, fdeleteonrelease : windows_sys::core::BOOL, ppstm : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn FreePropVariantArray(cvariants : u32, rgvars : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
 windows_link::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : *mut core::ffi::c_void, phglobal : *mut super::HGLOBAL) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn IIDFromString(lpsz : windows_sys::core::PCWSTR, lpiid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const windows_sys::core::GUID, lplpszprogid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn IIDFromString(lpsz : super::LPCOLESTR, lpiid : super::LPIID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const windows_sys::core::GUID, lplpszprogid : *mut super::LPOLESTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn PropVariantClear(pvar : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn PropVariantCopy(pvardest : *mut super::PROPVARIANT, pvarsrc : *const super::PROPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, ppagilereference : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_sys::core::GUID, lpsz : windows_sys::core::PWSTR, cchmax : i32) -> i32);
-windows_link::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut super::LPOLESTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_sys::core::GUID, lpsz : super::LPOLESTR, cchmax : i32) -> i32);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut super::LPOLESTR) -> windows_sys::core::HRESULT);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0;
 pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = 1;
 pub type AgileReferenceOptions = i32;
-pub const CLSCTX_ALL: i32 = 23;
-pub const CLSCTX_INPROC: i32 = 3;
-pub const CLSCTX_SERVER: i32 = 21;
+#[cfg(feature = "wtypesbase")]
+pub const CLSCTX_ALL: super::CLSCTX = 23;
+#[cfg(feature = "wtypesbase")]
+pub const CLSCTX_INPROC: super::CLSCTX = 3;
+#[cfg(feature = "wtypesbase")]
+pub const CLSCTX_SERVER: super::CLSCTX = 21;
 pub type COINITBASE = i32;
 pub const COINITBASE_MULTITHREADED: COINITBASE = 0;
 pub const COM_RIGHTS_ACTIVATE_LOCAL: i32 = 8;
@@ -135,8 +150,18 @@ pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = 16;
 pub type COWAIT_FLAGS = u32;
 pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = 4;
 pub const COWAIT_WAITALL: COWAIT_FLAGS = 1;
-pub type CO_DEVICE_CATALOG_COOKIE = *mut core::ffi::c_void;
-pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
+pub type CO_DEVICE_CATALOG_COOKIE = *mut CO_DEVICE_CATALOG_COOKIE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CO_DEVICE_CATALOG_COOKIE__ {
+    pub unused: i32,
+}
+pub type CO_MTA_USAGE_COOKIE = *mut CO_MTA_USAGE_COOKIE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CO_MTA_USAGE_COOKIE__ {
+    pub unused: i32,
+}
 pub const CWMO_DEFAULT: CWMO_FLAGS = 0;
 pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = 1;
 pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = 2;
@@ -162,3 +187,7 @@ pub struct ServerInformation {
     pub dwServerTid: u32,
     pub ui64ServerAddress: u64,
 }
+#[cfg(target_arch = "x86")]
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: windows_sys::core::PCSTR = windows_sys::core::s!("_");
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: windows_sys::core::PCSTR = windows_sys::core::s!("");

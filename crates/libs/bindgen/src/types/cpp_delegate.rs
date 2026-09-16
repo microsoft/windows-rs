@@ -91,17 +91,22 @@ fn write_param(config: &Config, param: &Param) -> TokenStream {
         return quote! { #name: #type_name, };
     }
 
+    let projection_type = param.projection_type(config.reader);
+
     if param.is_input_only() {
-        if param.is_copyable(config.reader) {
+        if projection_type.is_copyable(config.reader) {
             return quote! { #name: #type_name, };
         } else {
             return quote! { #name: windows_core::Ref<#type_name>, };
         }
     }
 
-    let deref = param.deref();
+    let deref = param.projection_pointee(config.reader);
 
-    if deref.is_interface() {
+    if deref
+        .projection_type(config.reader)
+        .is_interface_with_reader(config.reader)
+    {
         let type_name = deref.write_name(config);
         quote! { #name: windows_core::OutRef<#type_name>, }
     } else {

@@ -1,4 +1,4 @@
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::PROPVARIANT]) {
     windows_core::link!("propsys.dll" "system" fn ClearPropVariantArray(rgpropvar : *mut super::PROPVARIANT, cvars : u32));
@@ -10,7 +10,7 @@ pub unsafe fn ClearVariantArray(pvars: &mut [super::VARIANT]) {
     windows_core::link!("propsys.dll" "system" fn ClearVariantArray(pvars : *mut super::VARIANT, cvars : u32));
     unsafe { ClearVariantArray(pvars.as_mut_ptr(), pvars.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromBooleanVector(prgf: Option<&[windows_core::BOOL]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromBooleanVector(prgf : *const windows_core::BOOL, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -19,7 +19,7 @@ pub unsafe fn InitPropVariantFromBooleanVector(prgf: Option<&[windows_core::BOOL
         InitPropVariantFromBooleanVector(prgf.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgf.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromBuffer(pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromBuffer(pv : *const core::ffi::c_void, cb : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -28,7 +28,7 @@ pub unsafe fn InitPropVariantFromBuffer(pv: *const core::ffi::c_void, cb: u32) -
         InitPropVariantFromBuffer(pv, cb, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSID(clsid: *const windows_core::GUID) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromCLSID(clsid : *const windows_core::GUID, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -37,7 +37,7 @@ pub unsafe fn InitPropVariantFromCLSID(clsid: *const windows_core::GUID) -> wind
         InitPropVariantFromCLSID(clsid, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromDoubleVector(prgn: Option<&[f64]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromDoubleVector(prgn : *const f64, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -46,7 +46,7 @@ pub unsafe fn InitPropVariantFromDoubleVector(prgn: Option<&[f64]>) -> windows_c
         InitPropVariantFromDoubleVector(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::FILETIME) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromFileTime(pftin : *const super::FILETIME, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -55,7 +55,7 @@ pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::FILETIME) -> wind
         InitPropVariantFromFileTime(pftin, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTimeVector(prgft: Option<&[super::FILETIME]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromFileTimeVector(prgft : *const super::FILETIME, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -64,7 +64,7 @@ pub unsafe fn InitPropVariantFromFileTimeVector(prgft: Option<&[super::FILETIME]
         InitPropVariantFromFileTimeVector(prgft.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgft.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const windows_core::GUID) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromGUIDAsString(guid : *const windows_core::GUID, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -73,7 +73,7 @@ pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const windows_core::GUID) -
         InitPropVariantFromGUIDAsString(guid, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt16Vector(prgn: Option<&[i16]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromInt16Vector(prgn : *const i16, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -82,7 +82,7 @@ pub unsafe fn InitPropVariantFromInt16Vector(prgn: Option<&[i16]>) -> windows_co
         InitPropVariantFromInt16Vector(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt32Vector(prgn: Option<&[i32]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromInt32Vector(prgn : *const i32, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -91,7 +91,7 @@ pub unsafe fn InitPropVariantFromInt32Vector(prgn: Option<&[i32]>) -> windows_co
         InitPropVariantFromInt32Vector(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt64Vector(prgn: Option<&[i64]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromInt64Vector(prgn : *const i64, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -100,7 +100,7 @@ pub unsafe fn InitPropVariantFromInt64Vector(prgn: Option<&[i64]>) -> windows_co
         InitPropVariantFromInt64Vector(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromPropVariantVectorElem(propvarin : *const super::PROPVARIANT, ielem : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -109,7 +109,7 @@ pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::
         InitPropVariantFromPropVariantVectorElem(propvarin, ielem, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromResource(hinst: super::HINSTANCE, id: u32) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromResource(hinst : super::HINSTANCE, id : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -118,13 +118,13 @@ pub unsafe fn InitPropVariantFromResource(hinst: super::HINSTANCE, id: u32) -> w
         InitPropVariantFromResource(hinst, id, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn InitPropVariantFromStrRet(pstrret: *mut super::STRRET, pidl: Option<*const super::ITEMIDLIST>, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
-    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromStrRet(pstrret : *mut super::STRRET, pidl : *const super::ITEMIDLIST, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
+pub unsafe fn InitPropVariantFromStrRet(pstrret: *mut super::STRRET, pidl: Option<super::LPCITEMIDLIST>, ppropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
+    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromStrRet(pstrret : *mut super::STRRET, pidl : super::LPCITEMIDLIST, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
     unsafe { InitPropVariantFromStrRet(pstrret as _, pidl.unwrap_or(core::mem::zeroed()) as _, ppropvar) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStringAsVector<P0>(psz: P0) -> windows_core::Result<super::PROPVARIANT>
 where
@@ -136,7 +136,7 @@ where
         InitPropVariantFromStringAsVector(psz.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStringVector(prgsz: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromStringVector(prgsz : *const windows_core::PCWSTR, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -145,7 +145,7 @@ pub unsafe fn InitPropVariantFromStringVector(prgsz: Option<&[windows_core::PCWS
         InitPropVariantFromStringVector(prgsz.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgsz.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt16Vector(prgn: Option<&[u16]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromUInt16Vector(prgn : *const u16, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -154,7 +154,7 @@ pub unsafe fn InitPropVariantFromUInt16Vector(prgn: Option<&[u16]>) -> windows_c
         InitPropVariantFromUInt16Vector(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt32Vector(prgn: Option<&[u32]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromUInt32Vector(prgn : *const u32, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -163,7 +163,7 @@ pub unsafe fn InitPropVariantFromUInt32Vector(prgn: Option<&[u32]>) -> windows_c
         InitPropVariantFromUInt32Vector(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt64Vector(prgn: Option<&[u64]>) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromUInt64Vector(prgn : *const u64, celems : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -172,7 +172,7 @@ pub unsafe fn InitPropVariantFromUInt64Vector(prgn: Option<&[u64]>) -> windows_c
         InitPropVariantFromUInt64Vector(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr()), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::PROPVARIANT) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn InitPropVariantVectorFromPropVariant(propvarsingle : *const super::PROPVARIANT, ppropvarvector : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -273,8 +273,8 @@ pub unsafe fn InitVariantFromResource(hinst: super::HINSTANCE, id: u32) -> windo
 }
 #[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn InitVariantFromStrRet(pstrret: *const super::STRRET, pidl: *const super::ITEMIDLIST) -> windows_core::Result<super::VARIANT> {
-    windows_core::link!("propsys.dll" "system" fn InitVariantFromStrRet(pstrret : *const super::STRRET, pidl : *const super::ITEMIDLIST, pvar : *mut super::VARIANT) -> windows_core::HRESULT);
+pub unsafe fn InitVariantFromStrRet(pstrret: *const super::STRRET, pidl: super::LPCITEMIDLIST) -> windows_core::Result<super::VARIANT> {
+    windows_core::link!("propsys.dll" "system" fn InitVariantFromStrRet(pstrret : *const super::STRRET, pidl : super::LPCITEMIDLIST, pvar : *mut super::VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitVariantFromStrRet(pstrret, pidl, &mut result__).map(|| core::mem::transmute(result__))
@@ -325,19 +325,19 @@ pub unsafe fn InitVariantFromVariantArrayElem(varin: *const super::VARIANT, iele
         InitVariantFromVariantArrayElem(varin, ielem, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantChangeType(ppropvardest: *mut super::PROPVARIANT, propvarsrc: *const super::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::VARTYPE) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantChangeType(ppropvardest : *mut super::PROPVARIANT, propvarsrc : *const super::PROPVARIANT, flags : PROPVAR_CHANGE_FLAGS, vt : super::VARTYPE) -> windows_core::HRESULT);
     unsafe { PropVariantChangeType(ppropvardest, propvarsrc, flags, vt) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantCompareEx(propvar1: *const super::PROPVARIANT, propvar2: *const super::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32 {
     windows_core::link!("propsys.dll" "system" fn PropVariantCompareEx(propvar1 : *const super::PROPVARIANT, propvar2 : *const super::PROPVARIANT, unit : PROPVAR_COMPARE_UNIT, flags : PROPVAR_COMPARE_FLAGS) -> i32);
     unsafe { PropVariantCompareEx(propvar1, propvar2, unit, flags) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetBooleanElem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<windows_core::BOOL> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetBooleanElem(propvar : *const super::PROPVARIANT, ielem : u32, pfval : *mut windows_core::BOOL) -> windows_core::HRESULT);
@@ -346,7 +346,7 @@ pub unsafe fn PropVariantGetBooleanElem(propvar: *const super::PROPVARIANT, iele
         PropVariantGetBooleanElem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetDoubleElem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<f64> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetDoubleElem(propvar : *const super::PROPVARIANT, ielem : u32, pnval : *mut f64) -> windows_core::HRESULT);
@@ -355,13 +355,13 @@ pub unsafe fn PropVariantGetDoubleElem(propvar: *const super::PROPVARIANT, ielem
         PropVariantGetDoubleElem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetElementCount(propvar: *const super::PROPVARIANT) -> u32 {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetElementCount(propvar : *const super::PROPVARIANT) -> u32);
     unsafe { PropVariantGetElementCount(propvar) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetFileTimeElem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<super::FILETIME> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetFileTimeElem(propvar : *const super::PROPVARIANT, ielem : u32, pftval : *mut super::FILETIME) -> windows_core::HRESULT);
@@ -370,7 +370,7 @@ pub unsafe fn PropVariantGetFileTimeElem(propvar: *const super::PROPVARIANT, iel
         PropVariantGetFileTimeElem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetInt16Elem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<i16> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetInt16Elem(propvar : *const super::PROPVARIANT, ielem : u32, pnval : *mut i16) -> windows_core::HRESULT);
@@ -379,7 +379,7 @@ pub unsafe fn PropVariantGetInt16Elem(propvar: *const super::PROPVARIANT, ielem:
         PropVariantGetInt16Elem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetInt32Elem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<i32> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetInt32Elem(propvar : *const super::PROPVARIANT, ielem : u32, pnval : *mut i32) -> windows_core::HRESULT);
@@ -388,7 +388,7 @@ pub unsafe fn PropVariantGetInt32Elem(propvar: *const super::PROPVARIANT, ielem:
         PropVariantGetInt32Elem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetInt64Elem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<i64> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetInt64Elem(propvar : *const super::PROPVARIANT, ielem : u32, pnval : *mut i64) -> windows_core::HRESULT);
@@ -397,7 +397,7 @@ pub unsafe fn PropVariantGetInt64Elem(propvar: *const super::PROPVARIANT, ielem:
         PropVariantGetInt64Elem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetStringElem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<windows_core::PWSTR> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetStringElem(propvar : *const super::PROPVARIANT, ielem : u32, ppszval : *mut windows_core::PWSTR) -> windows_core::HRESULT);
@@ -406,7 +406,7 @@ pub unsafe fn PropVariantGetStringElem(propvar: *const super::PROPVARIANT, ielem
         PropVariantGetStringElem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt16Elem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<u16> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetUInt16Elem(propvar : *const super::PROPVARIANT, ielem : u32, pnval : *mut u16) -> windows_core::HRESULT);
@@ -415,7 +415,7 @@ pub unsafe fn PropVariantGetUInt16Elem(propvar: *const super::PROPVARIANT, ielem
         PropVariantGetUInt16Elem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt32Elem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<u32> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetUInt32Elem(propvar : *const super::PROPVARIANT, ielem : u32, pnval : *mut u32) -> windows_core::HRESULT);
@@ -424,7 +424,7 @@ pub unsafe fn PropVariantGetUInt32Elem(propvar: *const super::PROPVARIANT, ielem
         PropVariantGetUInt32Elem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::PROPVARIANT, ielem: u32) -> windows_core::Result<u64> {
     windows_core::link!("propsys.dll" "system" fn PropVariantGetUInt64Elem(propvar : *const super::PROPVARIANT, ielem : u32, pnval : *mut u64) -> windows_core::HRESULT);
@@ -433,7 +433,7 @@ pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::PROPVARIANT, ielem
         PropVariantGetUInt64Elem(propvar, ielem, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToBSTR(propvar: *const super::PROPVARIANT) -> windows_core::Result<windows_core::BSTR> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBSTR(propvar : *const super::PROPVARIANT, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -442,7 +442,7 @@ pub unsafe fn PropVariantToBSTR(propvar: *const super::PROPVARIANT) -> windows_c
         PropVariantToBSTR(propvar, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToBoolean(propvarin: *const super::PROPVARIANT) -> windows_core::Result<windows_core::BOOL> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBoolean(propvarin : *const super::PROPVARIANT, pfret : *mut windows_core::BOOL) -> windows_core::HRESULT);
@@ -451,31 +451,31 @@ pub unsafe fn PropVariantToBoolean(propvarin: *const super::PROPVARIANT) -> wind
         PropVariantToBoolean(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanVector(propvar: *const super::PROPVARIANT, prgf: *mut windows_core::BOOL, crgf: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBooleanVector(propvar : *const super::PROPVARIANT, prgf : *mut windows_core::BOOL, crgf : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToBooleanVector(propvar, prgf as _, crgf, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: *const super::PROPVARIANT, pprgf: *mut *mut windows_core::BOOL, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBooleanVectorAlloc(propvar : *const super::PROPVARIANT, pprgf : *mut *mut windows_core::BOOL, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToBooleanVectorAlloc(propvar, pprgf as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanWithDefault(propvarin: *const super::PROPVARIANT, fdefault: bool) -> windows_core::BOOL {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBooleanWithDefault(propvarin : *const super::PROPVARIANT, fdefault : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { PropVariantToBooleanWithDefault(propvarin, fdefault.into()) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToBuffer(propvar: *const super::PROPVARIANT, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBuffer(propvar : *const super::PROPVARIANT, pv : *mut core::ffi::c_void, cb : u32) -> windows_core::HRESULT);
     unsafe { PropVariantToBuffer(propvar, pv as _, cb) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToDouble(propvarin: *const super::PROPVARIANT) -> windows_core::Result<f64> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToDouble(propvarin : *const super::PROPVARIANT, pdblret : *mut f64) -> windows_core::HRESULT);
@@ -484,25 +484,25 @@ pub unsafe fn PropVariantToDouble(propvarin: *const super::PROPVARIANT) -> windo
         PropVariantToDouble(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleVector(propvar: *const super::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToDoubleVector(propvar : *const super::PROPVARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToDoubleVector(propvar, prgn as _, crgn, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: *const super::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToDoubleVectorAlloc(propvar : *const super::PROPVARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToDoubleVectorAlloc(propvar, pprgn as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::PROPVARIANT, dbldefault: f64) -> f64 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToDoubleWithDefault(propvarin : *const super::PROPVARIANT, dbldefault : f64) -> f64);
     unsafe { PropVariantToDoubleWithDefault(propvarin, dbldefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToFileTime(propvar: *const super::PROPVARIANT, pstfout: PSTIME_FLAGS) -> windows_core::Result<super::FILETIME> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToFileTime(propvar : *const super::PROPVARIANT, pstfout : PSTIME_FLAGS, pftout : *mut super::FILETIME) -> windows_core::HRESULT);
@@ -511,19 +511,19 @@ pub unsafe fn PropVariantToFileTime(propvar: *const super::PROPVARIANT, pstfout:
         PropVariantToFileTime(propvar, pstfout, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::PROPVARIANT, prgft: *mut super::FILETIME, crgft: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToFileTimeVector(propvar : *const super::PROPVARIANT, prgft : *mut super::FILETIME, crgft : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToFileTimeVector(propvar, prgft as _, crgft, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const super::PROPVARIANT, pprgft: *mut *mut super::FILETIME, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToFileTimeVectorAlloc(propvar : *const super::PROPVARIANT, pprgft : *mut *mut super::FILETIME, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToFileTimeVectorAlloc(propvar, pprgft as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToGUID(propvar: *const super::PROPVARIANT) -> windows_core::Result<windows_core::GUID> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToGUID(propvar : *const super::PROPVARIANT, pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
@@ -532,7 +532,7 @@ pub unsafe fn PropVariantToGUID(propvar: *const super::PROPVARIANT) -> windows_c
         PropVariantToGUID(propvar, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt16(propvarin: *const super::PROPVARIANT) -> windows_core::Result<i16> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt16(propvarin : *const super::PROPVARIANT, piret : *mut i16) -> windows_core::HRESULT);
@@ -541,25 +541,25 @@ pub unsafe fn PropVariantToInt16(propvarin: *const super::PROPVARIANT) -> window
         PropVariantToInt16(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt16Vector(propvar: *const super::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt16Vector(propvar : *const super::PROPVARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToInt16Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt16VectorAlloc(propvar: *const super::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt16VectorAlloc(propvar : *const super::PROPVARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToInt16VectorAlloc(propvar, pprgn as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const super::PROPVARIANT, idefault: i16) -> i16 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt16WithDefault(propvarin : *const super::PROPVARIANT, idefault : i16) -> i16);
     unsafe { PropVariantToInt16WithDefault(propvarin, idefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt32(propvarin: *const super::PROPVARIANT) -> windows_core::Result<i32> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt32(propvarin : *const super::PROPVARIANT, plret : *mut i32) -> windows_core::HRESULT);
@@ -568,25 +568,25 @@ pub unsafe fn PropVariantToInt32(propvarin: *const super::PROPVARIANT) -> window
         PropVariantToInt32(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt32Vector(propvar: *const super::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt32Vector(propvar : *const super::PROPVARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToInt32Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt32VectorAlloc(propvar: *const super::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt32VectorAlloc(propvar : *const super::PROPVARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToInt32VectorAlloc(propvar, pprgn as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const super::PROPVARIANT, ldefault: i32) -> i32 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt32WithDefault(propvarin : *const super::PROPVARIANT, ldefault : i32) -> i32);
     unsafe { PropVariantToInt32WithDefault(propvarin, ldefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt64(propvarin: *const super::PROPVARIANT) -> windows_core::Result<i64> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt64(propvarin : *const super::PROPVARIANT, pllret : *mut i64) -> windows_core::HRESULT);
@@ -595,37 +595,37 @@ pub unsafe fn PropVariantToInt64(propvarin: *const super::PROPVARIANT) -> window
         PropVariantToInt64(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt64Vector(propvar: *const super::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt64Vector(propvar : *const super::PROPVARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToInt64Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt64VectorAlloc(propvar: *const super::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt64VectorAlloc(propvar : *const super::PROPVARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToInt64VectorAlloc(propvar, pprgn as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const super::PROPVARIANT, lldefault: i64) -> i64 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt64WithDefault(propvarin : *const super::PROPVARIANT, lldefault : i64) -> i64);
     unsafe { PropVariantToInt64WithDefault(propvarin, lldefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToStrRet(propvar: *const super::PROPVARIANT, pstrret: *mut super::STRRET) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToStrRet(propvar : *const super::PROPVARIANT, pstrret : *mut super::STRRET) -> windows_core::HRESULT);
     unsafe { PropVariantToStrRet(propvar, pstrret as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToString(propvar: *const super::PROPVARIANT, psz: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToString(propvar : *const super::PROPVARIANT, psz : windows_core::PWSTR, cch : u32) -> windows_core::HRESULT);
     unsafe { PropVariantToString(propvar, psz, cch) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToStringAlloc(propvar: *const super::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToStringAlloc(propvar : *const super::PROPVARIANT, ppszout : *mut windows_core::PWSTR) -> windows_core::HRESULT);
@@ -634,19 +634,19 @@ pub unsafe fn PropVariantToStringAlloc(propvar: *const super::PROPVARIANT) -> wi
         PropVariantToStringAlloc(propvar, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToStringVector(propvar: *const super::PROPVARIANT, prgsz: *mut windows_core::PWSTR, crgsz: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToStringVector(propvar : *const super::PROPVARIANT, prgsz : *mut windows_core::PWSTR, crgsz : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToStringVector(propvar, prgsz as _, crgsz, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToStringVectorAlloc(propvar: *const super::PROPVARIANT, pprgsz: *mut *mut windows_core::PWSTR, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToStringVectorAlloc(propvar : *const super::PROPVARIANT, pprgsz : *mut *mut windows_core::PWSTR, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToStringVectorAlloc(propvar, pprgsz as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToStringWithDefault<P1>(propvarin: *const super::PROPVARIANT, pszdefault: P1) -> windows_core::PCWSTR
 where
@@ -655,7 +655,7 @@ where
     windows_core::link!("propsys.dll" "system" fn PropVariantToStringWithDefault(propvarin : *const super::PROPVARIANT, pszdefault : windows_core::PCWSTR) -> windows_core::PCWSTR);
     unsafe { PropVariantToStringWithDefault(propvarin, pszdefault.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16(propvarin: *const super::PROPVARIANT) -> windows_core::Result<u16> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt16(propvarin : *const super::PROPVARIANT, puiret : *mut u16) -> windows_core::HRESULT);
@@ -664,25 +664,25 @@ pub unsafe fn PropVariantToUInt16(propvarin: *const super::PROPVARIANT) -> windo
         PropVariantToUInt16(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt16Vector(propvar : *const super::PROPVARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToUInt16Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: *const super::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt16VectorAlloc(propvar : *const super::PROPVARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToUInt16VectorAlloc(propvar, pprgn as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const super::PROPVARIANT, uidefault: u16) -> u16 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt16WithDefault(propvarin : *const super::PROPVARIANT, uidefault : u16) -> u16);
     unsafe { PropVariantToUInt16WithDefault(propvarin, uidefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32(propvarin: *const super::PROPVARIANT) -> windows_core::Result<u32> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt32(propvarin : *const super::PROPVARIANT, pulret : *mut u32) -> windows_core::HRESULT);
@@ -691,25 +691,25 @@ pub unsafe fn PropVariantToUInt32(propvarin: *const super::PROPVARIANT) -> windo
         PropVariantToUInt32(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt32Vector(propvar : *const super::PROPVARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToUInt32Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: *const super::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt32VectorAlloc(propvar : *const super::PROPVARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToUInt32VectorAlloc(propvar, pprgn as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const super::PROPVARIANT, uldefault: u32) -> u32 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt32WithDefault(propvarin : *const super::PROPVARIANT, uldefault : u32) -> u32);
     unsafe { PropVariantToUInt32WithDefault(propvarin, uldefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64(propvarin: *const super::PROPVARIANT) -> windows_core::Result<u64> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt64(propvarin : *const super::PROPVARIANT, pullret : *mut u64) -> windows_core::HRESULT);
@@ -718,25 +718,25 @@ pub unsafe fn PropVariantToUInt64(propvarin: *const super::PROPVARIANT) -> windo
         PropVariantToUInt64(propvarin, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt64Vector(propvar : *const super::PROPVARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToUInt64Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: *const super::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt64VectorAlloc(propvar : *const super::PROPVARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToUInt64VectorAlloc(propvar, pprgn as _, pcelem as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::PROPVARIANT, ulldefault: u64) -> u64 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt64WithDefault(propvarin : *const super::PROPVARIANT, ulldefault : u64) -> u64);
     unsafe { PropVariantToUInt64WithDefault(propvarin, ulldefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantToVariant(ppropvar: *const super::PROPVARIANT) -> windows_core::Result<super::VARIANT> {
     windows_core::link!("propsys.dll" "system" fn PropVariantToVariant(ppropvar : *const super::PROPVARIANT, pvar : *mut super::VARIANT) -> windows_core::HRESULT);
@@ -745,7 +745,7 @@ pub unsafe fn PropVariantToVariant(ppropvar: *const super::PROPVARIANT) -> windo
         PropVariantToVariant(ppropvar, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidl", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidl", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn StgDeserializePropVariant(pprop: *const super::SERIALIZEDPROPERTYVALUE, cbmax: u32) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn StgDeserializePropVariant(pprop : *const super::SERIALIZEDPROPERTYVALUE, cbmax : u32, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -754,7 +754,7 @@ pub unsafe fn StgDeserializePropVariant(pprop: *const super::SERIALIZEDPROPERTYV
         StgDeserializePropVariant(pprop, cbmax, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidl", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidl", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn StgSerializePropVariant(ppropvar: *const super::PROPVARIANT, ppprop: *mut *mut super::SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn StgSerializePropVariant(ppropvar : *const super::PROPVARIANT, ppprop : *mut *mut super::SERIALIZEDPROPERTYVALUE, pcb : *mut u32) -> windows_core::HRESULT);
@@ -1018,7 +1018,7 @@ pub unsafe fn VariantToInt64WithDefault(varin: *const super::VARIANT, lldefault:
     windows_core::link!("propsys.dll" "system" fn VariantToInt64WithDefault(varin : *const super::VARIANT, lldefault : i64) -> i64);
     unsafe { VariantToInt64WithDefault(varin, lldefault) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn VariantToPropVariant(pvar: *const super::VARIANT) -> windows_core::Result<super::PROPVARIANT> {
     windows_core::link!("propsys.dll" "system" fn VariantToPropVariant(pvar : *const super::VARIANT, ppropvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -1157,18 +1157,12 @@ pub const DPF_NONE: DRAWPROGRESSFLAGS = 0;
 pub const DPF_STOPPED: DRAWPROGRESSFLAGS = 16;
 pub const DPF_WARNING: DRAWPROGRESSFLAGS = 8;
 pub type DRAWPROGRESSFLAGS = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPVAR_CHANGE_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPVAR_COMPARE_FLAGS(pub i32);
+pub type PROPVAR_CHANGE_FLAGS = i32;
+pub type PROPVAR_COMPARE_FLAGS = i32;
 pub type PROPVAR_COMPARE_UNIT = i32;
 pub const PSTF_LOCAL: tagPSTIME_FLAGS = 1;
 pub const PSTF_UTC: tagPSTIME_FLAGS = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSTIME_FLAGS(pub i32);
+pub type PSTIME_FLAGS = i32;
 pub const PVCF_DEFAULT: tagPROPVAR_COMPARE_FLAGS = 0;
 pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: tagPROPVAR_COMPARE_FLAGS = 32;
 pub const PVCF_TREATEMPTYASGREATERTHAN: tagPROPVAR_COMPARE_FLAGS = 1;

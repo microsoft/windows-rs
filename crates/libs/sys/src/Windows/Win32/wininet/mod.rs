@@ -1,39 +1,40 @@
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn CommitUrlCacheEntryA(lpszurlname : windows_sys::core::PCSTR, lpszlocalfilename : windows_sys::core::PCSTR, expiretime : super::FILETIME, lastmodifiedtime : super::FILETIME, cacheentrytype : u32, lpheaderinfo : *const u8, cchheaderinfo : u32, lpszfileextension : windows_sys::core::PCSTR, lpszoriginalurl : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn CommitUrlCacheEntryA(lpszurlname : windows_sys::core::PCSTR, lpszlocalfilename : windows_sys::core::PCSTR, expiretime : super::FILETIME, lastmodifiedtime : super::FILETIME, cacheentrytype : u32, lpheaderinfo : super::LPBYTE, cchheaderinfo : u32, lpszfileextension : windows_sys::core::PCSTR, lpszoriginalurl : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("wininet.dll" "system" fn CommitUrlCacheEntryW(lpszurlname : windows_sys::core::PCWSTR, lpszlocalfilename : windows_sys::core::PCWSTR, expiretime : super::FILETIME, lastmodifiedtime : super::FILETIME, cacheentrytype : u32, lpszheaderinfo : windows_sys::core::PCWSTR, cchheaderinfo : u32, lpszfileextension : windows_sys::core::PCWSTR, lpszoriginalurl : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn CreateMD5SSOHash(pszchallengeinfo : windows_sys::core::PCWSTR, pwszrealm : windows_sys::core::PCWSTR, pwsztarget : windows_sys::core::PCWSTR, pbhexhash : *mut u8) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn CreateMD5SSOHash(pszchallengeinfo : windows_sys::core::PCWSTR, pwszrealm : windows_sys::core::PCWSTR, pwsztarget : windows_sys::core::PCWSTR, pbhexhash : super::PBYTE) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn CreateUrlCacheEntryA(lpszurlname : windows_sys::core::PCSTR, dwexpectedfilesize : u32, lpszfileextension : windows_sys::core::PCSTR, lpszfilename : windows_sys::core::PSTR, dwreserved : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn CreateUrlCacheEntryW(lpszurlname : windows_sys::core::PCWSTR, dwexpectedfilesize : u32, lpszfileextension : windows_sys::core::PCWSTR, lpszfilename : windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn CreateUrlCacheGroup(dwflags : u32, lpreserved : *const core::ffi::c_void) -> GROUPID);
+windows_link::link!("wininet.dll" "system" fn CreateUrlCacheGroup(dwflags : u32, lpreserved : *mut core::ffi::c_void) -> GROUPID);
 windows_link::link!("wininet.dll" "system" fn DeleteUrlCacheEntry(lpszurlname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn DeleteUrlCacheEntryA(lpszurlname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn DeleteUrlCacheEntryW(lpszurlname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn DeleteUrlCacheGroup(groupid : GROUPID, dwflags : u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn DeleteUrlCacheGroup(groupid : GROUPID, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn DeleteWpadCacheForNetworks(param0 : WPAD_CACHE_DELETE) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn DetectAutoProxyUrl(pszautoproxyurl : windows_sys::core::PSTR, cchautoproxyurl : u32, dwdetectflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wininet.dll" "system" fn FindCloseUrlCache(henumhandle : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryA(lpszurlsearchpattern : windows_sys::core::PCSTR, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32) -> super::HANDLE);
+windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryA(lpszurlsearchpattern : windows_sys::core::PCSTR, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD) -> super::HANDLE);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern : windows_sys::core::PCSTR, dwflags : u32, dwfilter : u32, groupid : GROUPID, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, lpgroupattributes : *const core::ffi::c_void, lpcbgroupattributes : *const u32, lpreserved : *const core::ffi::c_void) -> super::HANDLE);
+windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern : windows_sys::core::PCSTR, dwflags : u32, dwfilter : u32, groupid : GROUPID, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> super::HANDLE);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern : windows_sys::core::PCWSTR, dwflags : u32, dwfilter : u32, groupid : GROUPID, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, lpgroupattributes : *const core::ffi::c_void, lpcbgroupattributes : *const u32, lpreserved : *const core::ffi::c_void) -> super::HANDLE);
+windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern : windows_sys::core::PCWSTR, dwflags : u32, dwfilter : u32, groupid : GROUPID, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> super::HANDLE);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryW(lpszurlsearchpattern : windows_sys::core::PCWSTR, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32) -> super::HANDLE);
+windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryW(lpszurlsearchpattern : windows_sys::core::PCWSTR, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheGroup(dwflags : u32, dwfilter : u32, lpsearchcondition : *const core::ffi::c_void, dwsearchcondition : u32, lpgroupid : *mut GROUPID, lpreserved : *const core::ffi::c_void) -> super::HANDLE);
+windows_link::link!("wininet.dll" "system" fn FindFirstUrlCacheGroup(dwflags : u32, dwfilter : u32, lpsearchcondition : *mut core::ffi::c_void, dwsearchcondition : u32, lpgroupid : *mut GROUPID, lpreserved : *mut core::ffi::c_void) -> super::HANDLE);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryA(henumhandle : super::HANDLE, lpnextcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryA(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExA(henumhandle : super::HANDLE, lpnextcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, lpgroupattributes : *const core::ffi::c_void, lpcbgroupattributes : *const u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExA(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExW(henumhandle : super::HANDLE, lpnextcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, lpgroupattributes : *const core::ffi::c_void, lpcbgroupattributes : *const u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExW(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryW(henumhandle : super::HANDLE, lpnextcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheEntryW(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheGroup(hfind : super::HANDLE, lpgroupid : *mut GROUPID, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn FindNextUrlCacheGroup(hfind : super::HANDLE, lpgroupid : *mut GROUPID, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn FtpCommandA(hconnect : super::HINTERNET, fexpectresponse : windows_sys::core::BOOL, dwflags : u32, lpszcommand : windows_sys::core::PCSTR, dwcontext : usize, phftpcommand : *mut super::HINTERNET) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
@@ -47,19 +48,19 @@ windows_link::link!("wininet.dll" "system" fn FtpDeleteFileA(hconnect : super::H
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn FtpDeleteFileW(hconnect : super::HINTERNET, lpszfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winhttp"))]
-windows_link::link!("wininet.dll" "system" fn FtpFindFirstFileA(hconnect : super::HINTERNET, lpszsearchfile : windows_sys::core::PCSTR, lpfindfiledata : *mut super::WIN32_FIND_DATAA, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+windows_link::link!("wininet.dll" "system" fn FtpFindFirstFileA(hconnect : super::HINTERNET, lpszsearchfile : windows_sys::core::PCSTR, lpfindfiledata : super::LPWIN32_FIND_DATAA, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winhttp"))]
-windows_link::link!("wininet.dll" "system" fn FtpFindFirstFileW(hconnect : super::HINTERNET, lpszsearchfile : windows_sys::core::PCWSTR, lpfindfiledata : *mut super::WIN32_FIND_DATAW, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryA(hconnect : super::HINTERNET, lpszcurrentdirectory : windows_sys::core::PSTR, lpdwcurrentdirectory : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryW(hconnect : super::HINTERNET, lpszcurrentdirectory : windows_sys::core::PWSTR, lpdwcurrentdirectory : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn FtpFindFirstFileW(hconnect : super::HINTERNET, lpszsearchfile : windows_sys::core::PCWSTR, lpfindfiledata : super::LPWIN32_FIND_DATAW, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryA(hconnect : super::HINTERNET, lpszcurrentdirectory : windows_sys::core::PSTR, lpdwcurrentdirectory : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryW(hconnect : super::HINTERNET, lpszcurrentdirectory : windows_sys::core::PWSTR, lpdwcurrentdirectory : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn FtpGetFileA(hconnect : super::HINTERNET, lpszremotefile : windows_sys::core::PCSTR, lpsznewfile : windows_sys::core::PCSTR, ffailifexists : windows_sys::core::BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn FtpGetFileEx(hftpsession : super::HINTERNET, lpszremotefile : windows_sys::core::PCSTR, lpsznewfile : windows_sys::core::PCWSTR, ffailifexists : windows_sys::core::BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn FtpGetFileSize(hfile : super::HINTERNET, lpdwfilesizehigh : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn FtpGetFileSize(hfile : super::HINTERNET, lpdwfilesizehigh : super::LPDWORD) -> u32);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn FtpGetFileW(hconnect : super::HINTERNET, lpszremotefile : windows_sys::core::PCWSTR, lpsznewfile : windows_sys::core::PCWSTR, ffailifexists : windows_sys::core::BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
@@ -85,29 +86,33 @@ windows_link::link!("wininet.dll" "system" fn FtpSetCurrentDirectoryA(hconnect :
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn FtpSetCurrentDirectoryW(hconnect : super::HINTERNET, lpszdirectory : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExA(lpszurl : windows_sys::core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, lpszredirecturl : windows_sys::core::PCSTR, lpcbredirecturl : *const u32, lpreserved : *const core::ffi::c_void, dwflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExA(lpszurl : windows_sys::core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpszredirecturl : windows_sys::core::PCSTR, lpcbredirecturl : super::LPDWORD, lpreserved : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExW(lpszurl : windows_sys::core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, lpszredirecturl : windows_sys::core::PCWSTR, lpcbredirecturl : *const u32, lpreserved : *const core::ffi::c_void, dwflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExW(lpszurl : windows_sys::core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpszredirecturl : windows_sys::core::PCWSTR, lpcbredirecturl : super::LPDWORD, lpreserved : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : *mut INTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : *mut INTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn GopherCreateLocatorA(lpszhost : windows_sys::core::PCSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_sys::core::PCSTR, lpszselectorstring : windows_sys::core::PCSTR, dwgophertype : u32, lpszlocator : windows_sys::core::PSTR, lpdwbufferlength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn GopherCreateLocatorW(lpszhost : windows_sys::core::PCWSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_sys::core::PCWSTR, lpszselectorstring : windows_sys::core::PCWSTR, dwgophertype : u32, lpszlocator : windows_sys::core::PWSTR, lpdwbufferlength : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winhttp"))]
-windows_link::link!("wininet.dll" "system" fn GopherFindFirstFileA(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCSTR, lpszsearchstring : windows_sys::core::PCSTR, lpfinddata : *mut GOPHER_FIND_DATAA, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+windows_link::link!("wininet.dll" "system" fn GopherCreateLocatorA(lpszhost : windows_sys::core::PCSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_sys::core::PCSTR, lpszselectorstring : windows_sys::core::PCSTR, dwgophertype : u32, lpszlocator : windows_sys::core::PSTR, lpdwbufferlength : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winhttp"))]
-windows_link::link!("wininet.dll" "system" fn GopherFindFirstFileW(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCWSTR, lpszsearchstring : windows_sys::core::PCWSTR, lpfinddata : *mut GOPHER_FIND_DATAW, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+windows_link::link!("wininet.dll" "system" fn GopherCreateLocatorW(lpszhost : windows_sys::core::PCWSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_sys::core::PCWSTR, lpszselectorstring : windows_sys::core::PCWSTR, dwgophertype : u32, lpszlocator : windows_sys::core::PWSTR, lpdwbufferlength : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn GopherFindFirstFileA(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCSTR, lpszsearchstring : windows_sys::core::PCSTR, lpfinddata : LPGOPHER_FIND_DATAA, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn GopherFindFirstFileW(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCWSTR, lpszsearchstring : windows_sys::core::PCWSTR, lpfinddata : LPGOPHER_FIND_DATAW, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
 #[cfg(all(feature = "minwindef", feature = "winhttp", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn GopherGetAttributeA(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCSTR, lpszattributename : windows_sys::core::PCSTR, lpbuffer : *mut u8, dwbufferlength : u32, lpdwcharactersreturned : *mut u32, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn GopherGetAttributeA(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCSTR, lpszattributename : windows_sys::core::PCSTR, lpbuffer : super::LPBYTE, dwbufferlength : u32, lpdwcharactersreturned : super::LPDWORD, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winhttp", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn GopherGetAttributeW(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCWSTR, lpszattributename : windows_sys::core::PCWSTR, lpbuffer : *mut u8, dwbufferlength : u32, lpdwcharactersreturned : *mut u32, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn GopherGetLocatorTypeA(lpszlocator : windows_sys::core::PCSTR, lpdwgophertype : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn GopherGetLocatorTypeW(lpszlocator : windows_sys::core::PCWSTR, lpdwgophertype : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn GopherGetAttributeW(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCWSTR, lpszattributename : windows_sys::core::PCWSTR, lpbuffer : super::LPBYTE, dwbufferlength : u32, lpdwcharactersreturned : super::LPDWORD, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn GopherGetLocatorTypeA(lpszlocator : windows_sys::core::PCSTR, lpdwgophertype : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn GopherGetLocatorTypeW(lpszlocator : windows_sys::core::PCWSTR, lpdwgophertype : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn GopherOpenFileA(hconnect : super::HINTERNET, lpszlocator : windows_sys::core::PCSTR, lpszview : windows_sys::core::PCSTR, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
 #[cfg(feature = "winhttp")]
@@ -117,39 +122,44 @@ windows_link::link!("wininet.dll" "system" fn HttpAddRequestHeadersA(hrequest : 
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn HttpAddRequestHeadersW(hrequest : super::HINTERNET, lpszheaders : windows_sys::core::PCWSTR, dwheaderslength : u32, dwmodifiers : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn HttpEndRequestA(hrequest : super::HINTERNET, lpbuffersout : *mut INTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn HttpEndRequestA(hrequest : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn HttpEndRequestW(hrequest : super::HINTERNET, lpbuffersout : *mut INTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn HttpIsHostHstsEnabled(pcwszurl : windows_sys::core::PCWSTR, pfishsts : *mut windows_sys::core::BOOL) -> u32);
+windows_link::link!("wininet.dll" "system" fn HttpEndRequestW(hrequest : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn HttpIsHostHstsEnabled(pcwszurl : windows_sys::core::PCWSTR, pfishsts : super::PBOOL) -> u32);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn HttpOpenRequestA(hconnect : super::HINTERNET, lpszverb : windows_sys::core::PCSTR, lpszobjectname : windows_sys::core::PCSTR, lpszversion : windows_sys::core::PCSTR, lpszreferrer : windows_sys::core::PCSTR, lplpszaccepttypes : *const windows_sys::core::PCSTR, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn HttpOpenRequestW(hconnect : super::HINTERNET, lpszverb : windows_sys::core::PCWSTR, lpszobjectname : windows_sys::core::PCWSTR, lpszversion : windows_sys::core::PCWSTR, lpszreferrer : windows_sys::core::PCWSTR, lplpszaccepttypes : *const windows_sys::core::PCWSTR, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn HttpQueryInfoA(hrequest : super::HINTERNET, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32, lpdwindex : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn HttpQueryInfoW(hrequest : super::HINTERNET, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32, lpdwindex : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn HttpQueryInfoA(hrequest : super::HINTERNET, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD, lpdwindex : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn HttpQueryInfoW(hrequest : super::HINTERNET, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD, lpdwindex : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn HttpSendRequestA(hrequest : super::HINTERNET, lpszheaders : windows_sys::core::PCSTR, dwheaderslength : u32, lpoptional : *const core::ffi::c_void, dwoptionallength : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn HttpSendRequestExA(hrequest : super::HINTERNET, lpbuffersin : *const INTERNET_BUFFERSA, lpbuffersout : *mut INTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn HttpSendRequestExA(hrequest : super::HINTERNET, lpbuffersin : LPINTERNET_BUFFERSA, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn HttpSendRequestExW(hrequest : super::HINTERNET, lpbuffersin : *const INTERNET_BUFFERSW, lpbuffersout : *mut INTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn HttpSendRequestExW(hrequest : super::HINTERNET, lpbuffersin : LPINTERNET_BUFFERSW, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn HttpSendRequestW(hrequest : super::HINTERNET, lpszheaders : windows_sys::core::PCWSTR, dwheaderslength : u32, lpoptional : *const core::ffi::c_void, dwoptionallength : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetAttemptConnect(dwreserved : u32) -> u32);
 #[cfg(feature = "windef")]
 windows_link::link!("wininet.dll" "system" fn InternetAutodial(dwflags : u32, hwndparent : super::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetAutodialHangup(dwreserved : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetCanonicalizeUrlA(lpszurl : windows_sys::core::PCSTR, lpszbuffer : windows_sys::core::PSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetCanonicalizeUrlW(lpszurl : windows_sys::core::PCWSTR, lpszbuffer : windows_sys::core::PWSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetCanonicalizeUrlA(lpszurl : windows_sys::core::PCSTR, lpszbuffer : windows_sys::core::PSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetCanonicalizeUrlW(lpszurl : windows_sys::core::PCWSTR, lpszbuffer : windows_sys::core::PWSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetCheckConnectionA(lpszurl : windows_sys::core::PCSTR, dwflags : u32, dwreserved : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetCheckConnectionW(lpszurl : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetClearAllPerSiteCookieDecisions() -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn InternetCloseHandle(hinternet : super::HINTERNET) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetCombineUrlA(lpszbaseurl : windows_sys::core::PCSTR, lpszrelativeurl : windows_sys::core::PCSTR, lpszbuffer : windows_sys::core::PSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetCombineUrlW(lpszbaseurl : windows_sys::core::PCWSTR, lpszrelativeurl : windows_sys::core::PCWSTR, lpszbuffer : windows_sys::core::PWSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetCombineUrlA(lpszbaseurl : windows_sys::core::PCSTR, lpszrelativeurl : windows_sys::core::PCSTR, lpszbuffer : windows_sys::core::PSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetCombineUrlW(lpszbaseurl : windows_sys::core::PCWSTR, lpszrelativeurl : windows_sys::core::PCWSTR, lpszbuffer : windows_sys::core::PWSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("wininet.dll" "system" fn InternetConfirmZoneCrossing(hwnd : super::HWND, szurlprev : windows_sys::core::PCSTR, szurlnew : windows_sys::core::PCSTR, bpost : windows_sys::core::BOOL) -> u32);
 #[cfg(feature = "windef")]
@@ -161,15 +171,15 @@ windows_link::link!("wininet.dll" "system" fn InternetConnectA(hinternet : super
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn InternetConnectW(hinternet : super::HINTERNET, lpszservername : windows_sys::core::PCWSTR, nserverport : super::INTERNET_PORT, lpszusername : windows_sys::core::PCWSTR, lpszpassword : windows_sys::core::PCWSTR, dwservice : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
 #[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetCrackUrlA(lpszurl : windows_sys::core::PCSTR, dwurllength : u32, dwflags : u32, lpurlcomponents : *mut URL_COMPONENTSA) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn InternetCrackUrlA(lpszurl : windows_sys::core::PCSTR, dwurllength : u32, dwflags : u32, lpurlcomponents : LPURL_COMPONENTSA) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn InternetCrackUrlW(lpszurl : windows_sys::core::PCWSTR, dwurllength : u32, dwflags : u32, lpurlcomponents : super::LPURL_COMPONENTSW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetCreateUrlA(lpurlcomponents : *const URL_COMPONENTSA, dwflags : u32, lpszurl : windows_sys::core::PSTR, lpdwurllength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetCreateUrlW(lpurlcomponents : super::LPURL_COMPONENTSW, dwflags : u32, lpszurl : windows_sys::core::PWSTR, lpdwurllength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("wininet.dll" "system" fn InternetDial(hwndparent : super::HWND, lpszconnectoid : windows_sys::core::PCSTR, dwflags : u32, lpdwconnection : *mut u32, dwreserved : u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn InternetCreateUrlA(lpurlcomponents : LPURL_COMPONENTSA, dwflags : u32, lpszurl : windows_sys::core::PSTR, lpdwurllength : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn InternetCreateUrlW(lpurlcomponents : super::LPURL_COMPONENTSW, dwflags : u32, lpszurl : windows_sys::core::PWSTR, lpdwurllength : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("wininet.dll" "system" fn InternetDial(hwndparent : super::HWND, lpszconnectoid : windows_sys::core::PCSTR, dwflags : u32, lpdwconnection : super::LPDWORD, dwreserved : u32) -> u32);
 #[cfg(feature = "windef")]
 windows_link::link!("wininet.dll" "system" fn InternetDialA(hwndparent : super::HWND, lpszconnectoid : windows_sys::core::PCSTR, dwflags : u32, lpdwconnection : *mut usize, dwreserved : u32) -> u32);
 #[cfg(feature = "windef")]
@@ -184,18 +194,28 @@ windows_link::link!("wininet.dll" "system" fn InternetFindNextFileA(hfind : supe
 windows_link::link!("wininet.dll" "system" fn InternetFindNextFileW(hfind : super::HINTERNET, lpvfinddata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("wininet.dll" "system" fn InternetFreeCookies(pcookies : *mut INTERNET_COOKIE2, dwcookiecount : u32));
-windows_link::link!("wininet.dll" "system" fn InternetGetConnectedState(lpdwflags : *mut u32, dwreserved : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetConnectedStateEx(lpdwflags : *mut u32, lpszconnectionname : windows_sys::core::PSTR, dwnamelen : u32, dwreserved : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetConnectedStateExA(lpdwflags : *mut u32, lpszconnectionname : windows_sys::core::PSTR, cchnamelen : u32, dwreserved : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetConnectedStateExW(lpdwflags : *mut u32, lpszconnectionname : windows_sys::core::PWSTR, cchnamelen : u32, dwreserved : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetCookieA(lpszurl : windows_sys::core::PCSTR, lpszcookiename : windows_sys::core::PCSTR, lpszcookiedata : windows_sys::core::PSTR, lpdwsize : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn InternetGetCookieEx2(pcwszurl : windows_sys::core::PCWSTR, pcwszcookiename : windows_sys::core::PCWSTR, dwflags : u32, ppcookies : *mut *mut INTERNET_COOKIE2, pdwcookiecount : *mut u32) -> u32);
-windows_link::link!("wininet.dll" "system" fn InternetGetCookieExA(lpszurl : windows_sys::core::PCSTR, lpszcookiename : windows_sys::core::PCSTR, lpszcookiedata : windows_sys::core::PCSTR, lpdwsize : *mut u32, dwflags : u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetCookieExW(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PCWSTR, lpdwsize : *mut u32, dwflags : u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetCookieW(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PWSTR, lpdwsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetLastResponseInfoA(lpdwerror : *mut u32, lpszbuffer : windows_sys::core::PSTR, lpdwbufferlength : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn InternetGetLastResponseInfoW(lpdwerror : *mut u32, lpszbuffer : windows_sys::core::PWSTR, lpdwbufferlength : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn InternetGetConnectedState(lpdwflags : super::LPDWORD, dwreserved : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetConnectedStateEx(lpdwflags : super::LPDWORD, lpszconnectionname : windows_sys::core::PSTR, dwnamelen : u32, dwreserved : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetConnectedStateExA(lpdwflags : super::LPDWORD, lpszconnectionname : windows_sys::core::PSTR, cchnamelen : u32, dwreserved : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetConnectedStateExW(lpdwflags : super::LPDWORD, lpszconnectionname : windows_sys::core::PWSTR, cchnamelen : u32, dwreserved : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetCookieA(lpszurl : windows_sys::core::PCSTR, lpszcookiename : windows_sys::core::PCSTR, lpszcookiedata : windows_sys::core::PSTR, lpdwsize : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetCookieEx2(pcwszurl : windows_sys::core::PCWSTR, pcwszcookiename : windows_sys::core::PCWSTR, dwflags : u32, ppcookies : *mut *mut INTERNET_COOKIE2, pdwcookiecount : super::PDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetCookieExA(lpszurl : windows_sys::core::PCSTR, lpszcookiename : windows_sys::core::PCSTR, lpszcookiedata : windows_sys::core::PCSTR, lpdwsize : super::LPDWORD, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetCookieExW(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PCWSTR, lpdwsize : super::LPDWORD, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetCookieW(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PWSTR, lpdwsize : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetLastResponseInfoA(lpdwerror : super::LPDWORD, lpszbuffer : windows_sys::core::PSTR, lpdwbufferlength : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn InternetGetLastResponseInfoW(lpdwerror : super::LPDWORD, lpszbuffer : windows_sys::core::PWSTR, lpdwbufferlength : super::LPDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetGetPerSiteCookieDecisionA(pchhostname : windows_sys::core::PCSTR, presult : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetGetPerSiteCookieDecisionW(pchhostname : windows_sys::core::PCWSTR, presult : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
@@ -216,29 +236,29 @@ windows_link::link!("wininet.dll" "system" fn InternetOpenUrlA(hinternet : super
 windows_link::link!("wininet.dll" "system" fn InternetOpenUrlW(hinternet : super::HINTERNET, lpszurl : windows_sys::core::PCWSTR, lpszheaders : windows_sys::core::PCWSTR, dwheaderslength : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn InternetOpenW(lpszagent : windows_sys::core::PCWSTR, dwaccesstype : u32, lpszproxy : windows_sys::core::PCWSTR, lpszproxybypass : windows_sys::core::PCWSTR, dwflags : u32) -> super::HINTERNET);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn InternetQueryDataAvailable(hfile : super::HINTERNET, lpdwnumberofbytesavailable : super::LPDWORD, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn InternetQueryOptionA(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn InternetQueryOptionW(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn InternetReadFile(hfile : super::HINTERNET, lpbuffer : *mut core::ffi::c_void, dwnumberofbytestoread : u32, lpdwnumberofbytesread : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetQueryDataAvailable(hfile : super::HINTERNET, lpdwnumberofbytesavailable : *mut u32, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn InternetReadFileExA(hfile : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetQueryOptionA(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetQueryOptionW(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetReadFile(hfile : super::HINTERNET, lpbuffer : *mut core::ffi::c_void, dwnumberofbytestoread : u32, lpdwnumberofbytesread : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetReadFileExA(hfile : super::HINTERNET, lpbuffersout : *mut INTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetReadFileExW(hfile : super::HINTERNET, lpbuffersout : *mut INTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn InternetReadFileExW(hfile : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetSetCookieA(lpszurl : windows_sys::core::PCSTR, lpszcookiename : windows_sys::core::PCSTR, lpszcookiedata : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn InternetSetCookieEx2(pcwszurl : windows_sys::core::PCWSTR, pcookie : *const INTERNET_COOKIE2, pcwszp3ppolicy : windows_sys::core::PCWSTR, dwflags : u32, pdwcookiestate : *mut u32) -> u32);
+windows_link::link!("wininet.dll" "system" fn InternetSetCookieEx2(pcwszurl : windows_sys::core::PCWSTR, pcookie : *const INTERNET_COOKIE2, pcwszp3ppolicy : windows_sys::core::PCWSTR, dwflags : u32, pdwcookiestate : super::PDWORD) -> u32);
 windows_link::link!("wininet.dll" "system" fn InternetSetCookieExA(lpszurl : windows_sys::core::PCSTR, lpszcookiename : windows_sys::core::PCSTR, lpszcookiedata : windows_sys::core::PCSTR, dwflags : u32, dwreserved : usize) -> u32);
 windows_link::link!("wininet.dll" "system" fn InternetSetCookieExW(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize) -> u32);
 windows_link::link!("wininet.dll" "system" fn InternetSetCookieW(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetSetDialState(lpszconnectoid : windows_sys::core::PCSTR, dwstate : u32, dwreserved : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetSetDialStateA(lpszconnectoid : windows_sys::core::PCSTR, dwstate : u32, dwreserved : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn InternetSetDialStateW(lpszconnectoid : windows_sys::core::PCWSTR, dwstate : u32, dwreserved : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetSetFilePointer(hfile : super::HINTERNET, ldistancetomove : i32, lpdistancetomovehigh : *mut i32, dwmovemethod : u32, dwcontext : usize) -> u32);
+#[cfg(all(feature = "winhttp", feature = "winnt"))]
+windows_link::link!("wininet.dll" "system" fn InternetSetFilePointer(hfile : super::HINTERNET, ldistancetomove : i32, lpdistancetomovehigh : super::PLONG, dwmovemethod : u32, dwcontext : usize) -> u32);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn InternetSetOptionA(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *const core::ffi::c_void, dwbufferlength : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
@@ -269,33 +289,37 @@ windows_link::link!("wininet.dll" "system" fn InternetTimeToSystemTimeA(lpsztime
 windows_link::link!("wininet.dll" "system" fn InternetTimeToSystemTimeW(lpsztime : windows_sys::core::PCWSTR, pst : *mut super::SYSTEMTIME, dwreserved : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wininet.dll" "system" fn InternetUnlockRequestFile(hlockrequestinfo : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winhttp")]
-windows_link::link!("wininet.dll" "system" fn InternetWriteFile(hfile : super::HINTERNET, lpbuffer : *const core::ffi::c_void, dwnumberofbytestowrite : u32, lpdwnumberofbyteswritten : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn PrivacyGetZonePreferenceW(dwzone : u32, dwtype : u32, pdwtemplate : *mut u32, pszbuffer : windows_sys::core::PWSTR, pdwbufferlength : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+windows_link::link!("wininet.dll" "system" fn InternetWriteFile(hfile : super::HINTERNET, lpbuffer : super::LPCVOID, dwnumberofbytestowrite : u32, lpdwnumberofbyteswritten : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn PrivacyGetZonePreferenceW(dwzone : u32, dwtype : u32, pdwtemplate : super::LPDWORD, pszbuffer : windows_sys::core::PWSTR, pdwbufferlength : super::LPDWORD) -> u32);
 windows_link::link!("wininet.dll" "system" fn PrivacySetZonePreferenceW(dwzone : u32, dwtype : u32, dwtemplate : u32, pszpreference : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wininet.dll" "system" fn ReadUrlCacheEntryStream(hurlcachestream : super::HANDLE, dwlocation : u32, lpbuffer : *mut core::ffi::c_void, lpdwlen : *mut u32, reserved : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wininet.dll" "system" fn ReadUrlCacheEntryStreamEx(hurlcachestream : super::HANDLE, qwlocation : super::DWORDLONG, lpbuffer : *mut core::ffi::c_void, lpdwlen : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wininet.dll" "system" fn ReadUrlCacheEntryStream(hurlcachestream : super::HANDLE, dwlocation : u32, lpbuffer : *mut core::ffi::c_void, lpdwlen : super::LPDWORD, reserved : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wininet.dll" "system" fn ReadUrlCacheEntryStreamEx(hurlcachestream : super::HANDLE, qwlocation : super::DWORDLONG, lpbuffer : *mut core::ffi::c_void, lpdwlen : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winhttp")]
 windows_link::link!("wininet.dll" "system" fn ResumeSuspendedDownload(hrequest : super::HINTERNET, dwresultcode : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, dwreserved : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, dwreserved : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, dwreserved : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, dwreserved : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, frandomread : windows_sys::core::BOOL, dwreserved : u32) -> super::HANDLE);
+windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, frandomread : windows_sys::core::BOOL, dwreserved : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, frandomread : windows_sys::core::BOOL, dwreserved : u32) -> super::HANDLE);
-windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryGroup(lpszurlname : windows_sys::core::PCSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : *const u8, cbgroupattributes : u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupA(lpszurlname : windows_sys::core::PCSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : *const u8, cbgroupattributes : u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupW(lpszurlname : windows_sys::core::PCWSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : *const u8, cbgroupattributes : u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, frandomread : windows_sys::core::BOOL, dwreserved : u32) -> super::HANDLE);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : *const INTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryGroup(lpszurlname : windows_sys::core::PCSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : *const INTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol : u32) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : *const INTERNET_CACHE_GROUP_INFOA, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : *const INTERNET_CACHE_GROUP_INFOW, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupA(lpszurlname : windows_sys::core::PCSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupW(lpszurlname : windows_sys::core::PCWSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoA(lpszurlname : windows_sys::core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoW(lpszurlname : windows_sys::core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol : u32) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOA, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOW, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFile(lpszurlname : windows_sys::core::PCSTR, dwreserved : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFileA(lpszurlname : windows_sys::core::PCSTR, dwreserved : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFileW(lpszurlname : windows_sys::core::PCWSTR, dwreserved : u32) -> windows_sys::core::BOOL);
@@ -510,7 +534,7 @@ pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionText: super::LPCTSTR,
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> windows_sys::core::BOOL>;
+pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: LPGOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> windows_sys::core::BOOL>;
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526;
 pub const GOPHER_ATTRIBUTE_ID_ADMIN: u32 = 2882325514;
 pub const GOPHER_ATTRIBUTE_ID_ALL: u32 = 2882325513;
@@ -1576,8 +1600,8 @@ pub struct OutgoingCookieState {
     pub pszLocation: *const i8,
 }
 pub type PFN_AUTH_NOTIFY = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
-#[cfg(feature = "windef")]
-pub type PFN_DIAL_HANDLER = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PCSTR, param2: u32, param3: *mut u32) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type PFN_DIAL_HANDLER = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PCSTR, param2: u32, param3: super::LPDWORD) -> u32>;
 pub const PRE_CONFIG_INTERNET_ACCESS: i32 = 0;
 pub const PRIVACY_TEMPLATE_ADVANCED: i32 = 101;
 pub const PRIVACY_TEMPLATE_CUSTOM: i32 = 100;
@@ -1649,5 +1673,6 @@ pub type WPAD_CACHE_DELETE = i32;
 pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = 1;
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = 0;
 pub type pfnInternetDeInitializeAutoProxyDll = Option<unsafe extern "system" fn(lpszmime: windows_sys::core::PCSTR, dwreserved: u32) -> windows_sys::core::BOOL>;
-pub type pfnInternetGetProxyInfo = Option<unsafe extern "system" fn(lpszurl: windows_sys::core::PCSTR, dwurllength: u32, lpszurlhostname: windows_sys::core::PCSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut windows_sys::core::PSTR, lpdwproxyhostnamelength: *mut u32) -> windows_sys::core::BOOL>;
-pub type pfnInternetInitializeAutoProxyDll = Option<unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: windows_sys::core::PCSTR, lpszmime: windows_sys::core::PCSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER) -> windows_sys::core::BOOL>;
+#[cfg(feature = "minwindef")]
+pub type pfnInternetGetProxyInfo = Option<unsafe extern "system" fn(lpszurl: windows_sys::core::PCSTR, dwurllength: u32, lpszurlhostname: windows_sys::core::PCSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut windows_sys::core::PSTR, lpdwproxyhostnamelength: super::LPDWORD) -> windows_sys::core::BOOL>;
+pub type pfnInternetInitializeAutoProxyDll = Option<unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: windows_sys::core::PCSTR, lpszmime: windows_sys::core::PCSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: LPAUTO_PROXY_SCRIPT_BUFFER) -> windows_sys::core::BOOL>;

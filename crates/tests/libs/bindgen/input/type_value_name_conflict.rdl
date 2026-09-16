@@ -1,0 +1,10 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    const MODE: i32 = 16;
+
+    #[repr(i32)]
+    enum MODE {
+        KernelMode = 0,
+    }
+}

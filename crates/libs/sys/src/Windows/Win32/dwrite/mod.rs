@@ -119,7 +119,7 @@ pub struct DWRITE_FONT_AXIS_RANGE {
     pub minValue: f32,
     pub maxValue: f32,
 }
-pub type DWRITE_FONT_AXIS_TAG = i32;
+pub type DWRITE_FONT_AXIS_TAG = u32;
 pub const DWRITE_FONT_AXIS_TAG_ITALIC: DWRITE_FONT_AXIS_TAG = 1818326121;
 pub const DWRITE_FONT_AXIS_TAG_OPTICAL_SIZE: DWRITE_FONT_AXIS_TAG = 2054385775;
 pub const DWRITE_FONT_AXIS_TAG_SLANT: DWRITE_FONT_AXIS_TAG = 1953393779;
@@ -357,11 +357,11 @@ pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageDataSize: u32,
     pub uniqueDataId: u32,
     pub pixelsPerEm: u32,
-    pub pixelSize: super::D2D_SIZE_U,
-    pub horizontalLeftOrigin: super::D2D_POINT_2L,
-    pub horizontalRightOrigin: super::D2D_POINT_2L,
-    pub verticalTopOrigin: super::D2D_POINT_2L,
-    pub verticalBottomOrigin: super::D2D_POINT_2L,
+    pub pixelSize: super::D2D1_SIZE_U,
+    pub horizontalLeftOrigin: super::D2D1_POINT_2L,
+    pub horizontalRightOrigin: super::D2D1_POINT_2L,
+    pub verticalTopOrigin: super::D2D1_POINT_2L,
+    pub verticalBottomOrigin: super::D2D1_POINT_2L,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -553,97 +553,13 @@ pub struct DWRITE_PAINT_COLOR {
 #[derive(Clone, Copy)]
 pub struct DWRITE_PAINT_ELEMENT {
     pub paintType: DWRITE_PAINT_TYPE,
-    pub paint: DWRITE_PAINT_ELEMENT_0,
+    pub paint: PAINT_UNION,
 }
 #[cfg(all(feature = "dcommon", feature = "dxgi"))]
 impl Default for DWRITE_PAINT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-#[derive(Clone, Copy)]
-pub union DWRITE_PAINT_ELEMENT_0 {
-    pub layers: DWRITE_PAINT_ELEMENT_0_0,
-    pub solidGlyph: DWRITE_PAINT_ELEMENT_0_1,
-    pub solid: DWRITE_PAINT_COLOR,
-    pub linearGradient: DWRITE_PAINT_ELEMENT_0_2,
-    pub radialGradient: DWRITE_PAINT_ELEMENT_0_3,
-    pub sweepGradient: DWRITE_PAINT_ELEMENT_0_4,
-    pub glyph: DWRITE_PAINT_ELEMENT_0_5,
-    pub colorGlyph: DWRITE_PAINT_ELEMENT_0_6,
-    pub transform: DWRITE_MATRIX,
-    pub composite: DWRITE_PAINT_ELEMENT_0_7,
-}
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-impl Default for DWRITE_PAINT_ELEMENT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_0 {
-    pub childCount: u32,
-}
-#[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_1 {
-    pub glyphIndex: u32,
-    pub color: DWRITE_PAINT_COLOR,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_2 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub x2: f32,
-    pub y2: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_3 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub radius0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub radius1: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_4 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub centerX: f32,
-    pub centerY: f32,
-    pub startAngle: f32,
-    pub endAngle: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_5 {
-    pub glyphIndex: u32,
-}
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_6 {
-    pub glyphIndex: u32,
-    pub clipBox: super::D2D_RECT_F,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_7 {
-    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
 }
 pub type DWRITE_PAINT_FEATURE_LEVEL = i32;
 pub const DWRITE_PAINT_FEATURE_LEVEL_COLR_V0: DWRITE_PAINT_FEATURE_LEVEL = 1;
@@ -1199,3 +1115,89 @@ pub const DWRITE_WORD_WRAPPING_NO_WRAP: DWRITE_WORD_WRAPPING = 1;
 pub const DWRITE_WORD_WRAPPING_WHOLE_WORD: DWRITE_WORD_WRAPPING = 3;
 pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = 0;
 pub const FACILITY_DWRITE: i32 = 2200;
+#[cfg(feature = "d2d")]
+pub type IDWriteGeometrySink = *mut core::ffi::c_void;
+#[repr(C)]
+#[cfg(feature = "dcommon")]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_COLOR_GLYPH {
+    pub glyphIndex: u32,
+    pub clipBox: super::D2D_RECT_F,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_COMPOSITE {
+    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_GLYPH {
+    pub glyphIndex: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_LAYERS {
+    pub childCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_LINEAR_GRADIENT {
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub x0: f32,
+    pub y0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub x2: f32,
+    pub y2: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_RADIAL_GRADIENT {
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub x0: f32,
+    pub y0: f32,
+    pub radius0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub radius1: f32,
+}
+#[repr(C)]
+#[cfg(feature = "dxgi")]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_SOLID_GLYPH {
+    pub glyphIndex: u32,
+    pub color: DWRITE_PAINT_COLOR,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_SWEEP_GRADIENT {
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub centerX: f32,
+    pub centerY: f32,
+    pub startAngle: f32,
+    pub endAngle: f32,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[derive(Clone, Copy)]
+pub union PAINT_UNION {
+    pub layers: PAINT_LAYERS,
+    pub solidGlyph: PAINT_SOLID_GLYPH,
+    pub solid: DWRITE_PAINT_COLOR,
+    pub linearGradient: PAINT_LINEAR_GRADIENT,
+    pub radialGradient: PAINT_RADIAL_GRADIENT,
+    pub sweepGradient: PAINT_SWEEP_GRADIENT,
+    pub glyph: PAINT_GLYPH,
+    pub colorGlyph: PAINT_COLOR_GLYPH,
+    pub transform: DWRITE_MATRIX,
+    pub composite: PAINT_COMPOSITE,
+}
+#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+impl Default for PAINT_UNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}

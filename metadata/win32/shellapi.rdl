@@ -169,7 +169,16 @@ mod Windows {
         extern fn FindExecutableA(lpFile: PCSTR, #[opt] lpDirectory: PCSTR, #[out] lpResult: PSTR) -> HINSTANCE;
         #[library("SHELL32.dll")]
         extern fn FindExecutableW(lpFile: PCWSTR, #[opt] lpDirectory: PCWSTR, #[out] lpResult: PWSTR) -> HINSTANCE;
-        type HDROP = *mut void;
+        type HDROP = *mut HDROP__;
+        #[arch(X64 | Arm64)]
+        struct HDROP__ {
+            unused: i32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct HDROP__ {
+            unused: i32,
+        }
         #[library("SHELL32.dll")]
         extern fn InitNetworkAddressControl() -> BOOL;
         #[library("SHELL32.dll")]
@@ -479,7 +488,7 @@ mod Windows {
         const SE_ERR_PNF: i32 = 3;
         const SE_ERR_SHARE: i32 = 26;
         #[library("SHELL32.dll")]
-        extern fn SHAppBarMessage(dwMessage: u32, #[in] #[out] pData: *mut APPBARDATA) -> usize;
+        extern fn SHAppBarMessage(dwMessage: u32, #[in] #[out] pData: PAPPBARDATA) -> usize;
         #[arch(X64 | Arm64)]
         struct SHCREATEPROCESSINFOW {
             cbSize: u32,
@@ -514,7 +523,7 @@ mod Windows {
             lpProcessInformation: LPPROCESS_INFORMATION,
         }
         #[library("SHELL32.dll")]
-        extern fn SHCreateProcessAsUserW(#[in] #[out] pscpi: *mut SHCREATEPROCESSINFOW) -> BOOL;
+        extern fn SHCreateProcessAsUserW(#[in] #[out] pscpi: PSHCREATEPROCESSINFOW) -> BOOL;
         type SHELLEXECUTEINFO = SHELLEXECUTEINFOA;
         #[arch(X64 | Arm64)]
         struct SHELLEXECUTEINFOA {
@@ -696,9 +705,9 @@ mod Windows {
             lpszProgressTitle: PCWSTR,
         }
         #[library("SHELL32.dll")]
-        extern fn SHFileOperationA(#[in] #[out] lpFileOp: *mut SHFILEOPSTRUCTA) -> i32;
+        extern fn SHFileOperationA(#[in] #[out] lpFileOp: LPSHFILEOPSTRUCTA) -> i32;
         #[library("SHELL32.dll")]
-        extern fn SHFileOperationW(#[in] #[out] lpFileOp: *mut SHFILEOPSTRUCTW) -> i32;
+        extern fn SHFileOperationW(#[in] #[out] lpFileOp: LPSHFILEOPSTRUCTW) -> i32;
         #[library("SHELL32.dll")]
         extern fn SHFreeNameMappings(#[opt] hNameMappings: HANDLE);
         const SHGFI_ADDOVERLAYS: i32 = 32;
@@ -734,9 +743,9 @@ mod Windows {
         const SHGSI_SMALLICON: i32 = 1;
         const SHGSI_SYSICONINDEX: i32 = 16384;
         #[library("SHELL32.dll")]
-        extern fn SHGetDiskFreeSpaceExA(pszDirectoryName: PCSTR, #[opt] pulFreeBytesAvailableToCaller: *mut u64, #[opt] pulTotalNumberOfBytes: *mut u64, #[opt] pulTotalNumberOfFreeBytes: *mut u64) -> BOOL;
+        extern fn SHGetDiskFreeSpaceExA(pszDirectoryName: PCSTR, #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetDiskFreeSpaceExW(pszDirectoryName: PCWSTR, #[opt] pulFreeBytesAvailableToCaller: *mut u64, #[opt] pulTotalNumberOfBytes: *mut u64, #[opt] pulTotalNumberOfFreeBytes: *mut u64) -> BOOL;
+        extern fn SHGetDiskFreeSpaceExW(pszDirectoryName: PCWSTR, #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHGetDriveMedia(pszDrive: PCWSTR, pdwMediaContent: *mut u32) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -744,7 +753,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetFileInfoW(pszPath: PCWSTR, dwFileAttributes: u32, #[size_param(3)] #[in] #[out] #[opt] psfi: *mut SHFILEINFOW, cbFileInfo: u32, uFlags: u32) -> usize;
         #[library("SHELL32.dll")]
-        extern fn SHGetImageList(iImageList: i32, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn SHGetImageList(iImageList: i32, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetLocalizedName(pszPath: PCWSTR, #[len_param(2)] #[out] pszResModule: PWSTR, cch: u32, pidsRes: *mut i32) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -752,7 +761,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetNewLinkInfoW(pszLinkTo: PCWSTR, pszDir: PCWSTR, #[out] pszName: PWSTR, pfMustCopy: *mut BOOL, uFlags: u32) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreForWindow(hwnd: HWND, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreForWindow(hwnd: HWND, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: u32, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -816,9 +825,9 @@ mod Windows {
             i64NumItems: i64,
         }
         #[library("SHELL32.dll")]
-        extern fn SHQueryRecycleBinA(#[opt] pszRootPath: PCSTR, #[in] #[out] pSHQueryRBInfo: *mut SHQUERYRBINFO) -> HRESULT;
+        extern fn SHQueryRecycleBinA(#[opt] pszRootPath: PCSTR, #[in] #[out] pSHQueryRBInfo: LPSHQUERYRBINFO) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHQueryRecycleBinW(#[opt] pszRootPath: PCWSTR, #[in] #[out] pSHQueryRBInfo: *mut SHQUERYRBINFO) -> HRESULT;
+        extern fn SHQueryRecycleBinW(#[opt] pszRootPath: PCWSTR, #[in] #[out] pSHQueryRBInfo: LPSHQUERYRBINFO) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHQueryUserNotificationState(pquns: *mut QUERY_USER_NOTIFICATION_STATE) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -961,11 +970,11 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern "C" fn ShellMessageBoxW(#[opt] hAppInst: HINSTANCE, #[opt] hWnd: HWND, lpcText: PCWSTR, #[opt] lpcTitle: PCWSTR, fuStyle: u32, ...) -> i32;
         #[library("SHELL32.dll")]
-        extern fn Shell_NotifyIconA(dwMessage: u32, lpData: *const NOTIFYICONDATAA) -> BOOL;
+        extern fn Shell_NotifyIconA(dwMessage: u32, lpData: PNOTIFYICONDATAA) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER, iconLocation: *mut RECT) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn Shell_NotifyIconW(dwMessage: u32, lpData: *const NOTIFYICONDATAW) -> BOOL;
+        extern fn Shell_NotifyIconW(dwMessage: u32, lpData: PNOTIFYICONDATAW) -> BOOL;
         #[encoding("utf-16")]
         const WC_NETADDRESS: String = "msctls_netaddress";
     }

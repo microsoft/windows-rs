@@ -1,7 +1,8 @@
-windows_link::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_sys::core::PCWSTR, buffer : *const u8, jobid : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_sys::core::PCWSTR, buffer : super::LPBYTE, jobid : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetScheduleJobDel(servername : windows_sys::core::PCWSTR, minjobid : u32, maxjobid : u32) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : windows_sys::core::PCWSTR, pointertobuffer : *mut super::LPBYTE, prefferedmaximumlength : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : windows_sys::core::PCWSTR, pointertobuffer : *mut super::LPBYTE, prefferedmaximumlength : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetScheduleJobGetInfo(servername : windows_sys::core::PCWSTR, jobid : u32, pointertobuffer : *mut super::LPBYTE) -> u32);
 #[repr(C)]

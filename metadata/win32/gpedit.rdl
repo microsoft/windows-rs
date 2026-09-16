@@ -2,27 +2,27 @@
 mod Windows {
     mod Win32 {
         #[library("GPEDIT.DLL")]
-        extern fn BrowseForGPO(lpBrowseInfo: *mut GPOBROWSEINFO) -> HRESULT;
+        extern fn BrowseForGPO(lpBrowseInfo: LPGPOBROWSEINFO) -> HRESULT;
         const CLSID_GPESnapIn: GUID = 0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3;
         const CLSID_GroupPolicyObject: GUID = 0xea502722_a23d_11d1_a7d3_0000f87571e3;
         const CLSID_RSOPSnapIn: GUID = 0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2;
         #[library("GPEDIT.DLL")]
-        extern fn CreateGPOLink(lpGPO: PCWSTR, lpContainer: PCWSTR, fHighPriority: BOOL) -> HRESULT;
+        extern fn CreateGPOLink(lpGPO: LPOLESTR, lpContainer: LPOLESTR, fHighPriority: BOOL) -> HRESULT;
         #[library("GPEDIT.DLL")]
-        extern fn DeleteAllGPOLinks(lpContainer: PCWSTR) -> HRESULT;
+        extern fn DeleteAllGPOLinks(lpContainer: LPOLESTR) -> HRESULT;
         #[library("GPEDIT.DLL")]
-        extern fn DeleteGPOLink(lpGPO: PCWSTR, lpContainer: PCWSTR) -> HRESULT;
+        extern fn DeleteGPOLink(lpGPO: LPOLESTR, lpContainer: LPOLESTR) -> HRESULT;
         #[library("GPEDIT.DLL")]
-        extern fn ExportRSoPData(lpNameSpace: PCWSTR, lpFileName: PCWSTR) -> HRESULT;
+        extern fn ExportRSoPData(lpNameSpace: LPOLESTR, lpFileName: LPOLESTR) -> HRESULT;
         struct GPOBROWSEINFO {
             dwSize: u32,
             dwFlags: u32,
             hwndOwner: HWND,
-            lpTitle: PWSTR,
-            lpInitialOU: PWSTR,
-            lpDSPath: PWSTR,
+            lpTitle: LPOLESTR,
+            lpInitialOU: LPOLESTR,
+            lpDSPath: LPOLESTR,
             dwDSPathSize: u32,
-            lpName: PWSTR,
+            lpName: LPOLESTR,
             dwNameSize: u32,
             gpoType: GROUP_POLICY_OBJECT_TYPE,
             gpoHint: GROUP_POLICY_HINT_TYPE,
@@ -59,11 +59,11 @@ mod Windows {
         }
         #[guid(0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3)]
         interface IGPEInformation: IUnknown {
-            fn GetName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
-            fn GetDisplayName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
+            fn GetName(&self, #[len_param(1)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetDisplayName(&self, #[len_param(1)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn GetRegistryKey(&self, dwSection: u32, hKey: *mut HKEY) -> HRESULT;
-            fn GetDSPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: PWSTR, cchMaxPath: i32) -> HRESULT;
-            fn GetFileSysPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: PWSTR, cchMaxPath: i32) -> HRESULT;
+            fn GetDSPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
+            fn GetFileSysPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
             fn GetOptions(&self, dwOptions: *mut u32) -> HRESULT;
             fn GetType(&self, gpoType: *mut GROUP_POLICY_OBJECT_TYPE) -> HRESULT;
             fn GetHint(&self, gpHint: *mut GROUP_POLICY_HINT_TYPE) -> HRESULT;
@@ -71,33 +71,33 @@ mod Windows {
         }
         #[guid(0xea502723_a23d_11d1_a7d3_0000f87571e3)]
         interface IGroupPolicyObject: IUnknown {
-            fn New(&self, pszDomainName: PCWSTR, #[opt] pszDisplayName: PCWSTR, dwFlags: u32) -> HRESULT;
-            fn OpenDSGPO(&self, pszPath: PCWSTR, dwFlags: u32) -> HRESULT;
+            fn New(&self, pszDomainName: LPOLESTR, #[opt] pszDisplayName: LPOLESTR, dwFlags: u32) -> HRESULT;
+            fn OpenDSGPO(&self, pszPath: LPOLESTR, dwFlags: u32) -> HRESULT;
             fn OpenLocalMachineGPO(&self, dwFlags: u32) -> HRESULT;
-            fn OpenRemoteMachineGPO(&self, pszComputerName: PCWSTR, dwFlags: u32) -> HRESULT;
+            fn OpenRemoteMachineGPO(&self, pszComputerName: LPOLESTR, dwFlags: u32) -> HRESULT;
             fn Save(&self, bMachine: BOOL, bAdd: BOOL, pGuidExtension: *mut GUID, pGuid: *mut GUID) -> HRESULT;
             fn Delete(&self) -> HRESULT;
-            fn GetName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
-            fn GetDisplayName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
-            fn SetDisplayName(&self, pszName: PCWSTR) -> HRESULT;
-            fn GetPath(&self, #[len_param(1)] #[out] pszPath: PWSTR, cchMaxLength: i32) -> HRESULT;
-            fn GetDSPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: PWSTR, cchMaxPath: i32) -> HRESULT;
-            fn GetFileSysPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: PWSTR, cchMaxPath: i32) -> HRESULT;
+            fn GetName(&self, #[len_param(1)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetDisplayName(&self, #[len_param(1)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn SetDisplayName(&self, pszName: LPOLESTR) -> HRESULT;
+            fn GetPath(&self, #[len_param(1)] #[out] pszPath: LPOLESTR, cchMaxLength: i32) -> HRESULT;
+            fn GetDSPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
+            fn GetFileSysPath(&self, dwSection: u32, #[len_param(2)] #[out] pszPath: LPOLESTR, cchMaxPath: i32) -> HRESULT;
             fn GetRegistryKey(&self, dwSection: u32, hKey: *mut HKEY) -> HRESULT;
             fn GetOptions(&self, dwOptions: *mut u32) -> HRESULT;
             fn SetOptions(&self, dwOptions: u32, dwMask: u32) -> HRESULT;
             fn GetType(&self, gpoType: *mut GROUP_POLICY_OBJECT_TYPE) -> HRESULT;
-            fn GetMachineName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
+            fn GetMachineName(&self, #[len_param(1)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn GetPropertySheetPages(&self, hPages: *mut *mut HPROPSHEETPAGE, uPageCount: *mut u32) -> HRESULT;
         }
         #[guid(0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d)]
         interface IRSOPInformation: IUnknown {
-            fn GetNamespace(&self, dwSection: u32, #[len_param(2)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
+            fn GetNamespace(&self, dwSection: u32, #[len_param(2)] #[out] pszName: LPOLESTR, cchMaxLength: i32) -> HRESULT;
             fn GetFlags(&self, pdwFlags: *mut u32) -> HRESULT;
-            fn GetEventLogEntryText(&self, pszEventSource: PCWSTR, pszEventLogName: PCWSTR, pszEventTime: PCWSTR, dwEventID: u32, ppszText: *mut PWSTR) -> HRESULT;
+            fn GetEventLogEntryText(&self, pszEventSource: LPOLESTR, pszEventLogName: LPOLESTR, pszEventTime: LPOLESTR, dwEventID: u32, ppszText: *mut LPOLESTR) -> HRESULT;
         }
         #[library("GPEDIT.DLL")]
-        extern fn ImportRSoPData(lpNameSpace: PCWSTR, lpFileName: PCWSTR) -> HRESULT;
+        extern fn ImportRSoPData(lpNameSpace: LPOLESTR, lpFileName: LPOLESTR) -> HRESULT;
         type LPGPOBROWSEINFO = *mut GPOBROWSEINFO;
         const NODEID_Machine: GUID = 0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3;
         const NODEID_MachineSWSettings: GUID = 0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3;

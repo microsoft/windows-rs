@@ -24,8 +24,8 @@ impl IPersistStream_Impl for Test_Impl {
         Ok(())
     }
 
-    fn GetSizeMax(&self) -> Result<u64> {
-        Ok(0)
+    fn GetSizeMax(&self) -> Result<ULARGE_INTEGER> {
+        Ok(ULARGE_INTEGER { QuadPart: 0 })
     }
 }
 

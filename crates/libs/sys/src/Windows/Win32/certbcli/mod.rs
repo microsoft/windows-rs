@@ -4,7 +4,8 @@ windows_link::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *const core
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : HCSBC, ppwszzbackuplogfiles : *mut windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : HCSBC, ppwszzattachmentinformation : *mut windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : HCSBC, ppwszzfilelist : *mut windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : HCSBC, pwszattachmentname : *const u16, cbreadhintsize : u32, plifilesize : *mut i64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : HCSBC, pwszattachmentname : *const u16, cbreadhintsize : u32, plifilesize : *mut super::LARGE_INTEGER) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupPrepareW(pwszservername : *const u16, grbitjet : u32, dwbackupflags : u32, phbc : *mut HCSBC) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupRead(hbc : HCSBC, pvbuffer : *mut core::ffi::c_void, cbbuffer : u32, pcbread : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupTruncateLogs(hbc : HCSBC) -> windows_sys::core::HRESULT);
@@ -21,15 +22,15 @@ pub const CSBACKUP_TYPE_FULL: i32 = 1;
 pub const CSBACKUP_TYPE_LOGS_ONLY: i32 = 2;
 pub const CSBACKUP_TYPE_MASK: i32 = 3;
 pub type CSBFT = u16;
-pub const CSBFT_CERTSERVER_DATABASE: u32 = 68;
-pub const CSBFT_CHECKPOINT_DIR: u32 = 131;
+pub const CSBFT_CERTSERVER_DATABASE: CSBFT = 68;
+pub const CSBFT_CHECKPOINT_DIR: CSBFT = 131;
 pub const CSBFT_DATABASE_DIRECTORY: i32 = 64;
 pub const CSBFT_DIRECTORY: i32 = 128;
-pub const CSBFT_LOG: u32 = 33;
-pub const CSBFT_LOG_DIR: u32 = 130;
+pub const CSBFT_LOG: CSBFT = 33;
+pub const CSBFT_LOG_DIR: CSBFT = 130;
 pub const CSBFT_LOG_DIRECTORY: i32 = 32;
-pub const CSBFT_PATCH_FILE: u32 = 37;
-pub const CSBFT_UNKNOWN: u32 = 15;
+pub const CSBFT_PATCH_FILE: CSBFT = 37;
+pub const CSBFT_UNKNOWN: CSBFT = 15;
 pub const CSCONTROL_RESTART: i32 = 3;
 pub const CSCONTROL_SHUTDOWN: i32 = 1;
 pub const CSCONTROL_SUSPEND: i32 = 2;
@@ -49,7 +50,8 @@ pub type FNCERTSRVBACKUPFREE = Option<unsafe extern "system" fn(pv: *mut core::f
 pub type FNCERTSRVBACKUPGETBACKUPLOGSW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPGETDATABASENAMESW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> windows_sys::core::HRESULT>;
-pub type FNCERTSRVBACKUPOPENFILEW = Option<unsafe extern "system" fn(hbc: HCSBC, pwszattachmentname: *const u16, cbreadhintsize: u32, plifilesize: *mut i64) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "winnt")]
+pub type FNCERTSRVBACKUPOPENFILEW = Option<unsafe extern "system" fn(hbc: HCSBC, pwszattachmentname: *const u16, cbreadhintsize: u32, plifilesize: *mut super::LARGE_INTEGER) -> windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPPREPAREW = Option<unsafe extern "system" fn(pwszservername: *const u16, grbitjet: u32, dwbackupflags: u32, phbc: *mut HCSBC) -> windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPREAD = Option<unsafe extern "system" fn(hbc: HCSBC, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPTRUNCATELOGS = Option<unsafe extern "system" fn(hbc: HCSBC) -> windows_sys::core::HRESULT>;

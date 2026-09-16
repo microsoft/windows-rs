@@ -746,15 +746,16 @@ mod Windows {
             fn GetBufferPointer(&self) -> *mut void;
             fn GetBufferSize(&self) -> usize;
         }
+        type ID3DBlob = ID3D10Blob;
         #[guid(0xa06eb39a_50da_425b_8c31_4eecd6c270f3)]
         interface ID3DDestructionNotifier: IUnknown {
-            fn RegisterDestructionCallback(&self, callbackFn: PFN_DESTRUCTION_CALLBACK, pData: *const void, pCallbackID: *mut u32) -> HRESULT;
+            fn RegisterDestructionCallback(&self, callbackFn: PFN_DESTRUCTION_CALLBACK, #[in] pData: *mut void, pCallbackID: *mut u32) -> HRESULT;
             fn UnregisterDestructionCallback(&self, callbackID: u32) -> HRESULT;
         }
         #[no_guid]
         interface ID3DInclude {
-            fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: PCSTR, pParentData: *const void, ppData: *mut *mut void, pBytes: *mut u32) -> HRESULT;
-            fn Close(&self, pData: *const void) -> HRESULT;
+            fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: PCSTR, pParentData: LPCVOID, ppData: *mut LPCVOID, pBytes: *mut u32) -> HRESULT;
+            fn Close(&self, pData: LPCVOID) -> HRESULT;
         }
         type LPD3D_SHADER_MACRO = *mut D3D_SHADER_MACRO;
         extern fn PFN_DESTRUCTION_CALLBACK(pData: *mut void);

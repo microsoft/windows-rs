@@ -1,11 +1,11 @@
-windows_core::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : HWND, message : u32, action : u32, pchangefilterstruct : *mut CHANGEFILTERSTRUCT) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : HWND, message : u32, action : u32, pchangefilterstruct : PCHANGEFILTERSTRUCT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn DestroyIcon(hicon : HICON) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
 windows_core::link!("user32.dll" "system" fn LoadImageW(hinst : HINSTANCE, name : windows_core::PCWSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> HANDLE);
 windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_core::PCWSTR) -> u32);
 windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut RECT) -> windows_core::HRESULT);
-windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : *const NOTIFYICONDATAW) -> windows_core::BOOL);
+windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : PNOTIFYICONDATAW) -> windows_core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGEFILTERSTRUCT {
@@ -15,9 +15,24 @@ pub struct CHANGEFILTERSTRUCT {
 pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HICON = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
-pub type HWND = *mut core::ffi::c_void;
+pub type HICON = *mut HICON__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HICON__ {
+    pub unused: i32,
+}
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 pub const IMAGE_ICON: i32 = 1;
 pub type LPARAM = isize;
 pub const LR_LOADFROMFILE: i32 = 16;
@@ -149,6 +164,8 @@ pub struct NOTIFYICONIDENTIFIER {
     pub guidItem: windows_core::GUID,
 }
 pub const NOTIFYICON_VERSION_4: i32 = 4;
+pub type PCHANGEFILTERSTRUCT = *mut CHANGEFILTERSTRUCT;
+pub type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {

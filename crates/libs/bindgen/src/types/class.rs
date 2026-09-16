@@ -375,7 +375,7 @@ impl Class {
                 break;
             }
 
-            let Type::Class(base) = reader.unwrap_full_name(extends.namespace(), extends.name())
+            let Type::Class(base) = reader.unwrap_type_name(extends.namespace(), extends.name())
             else {
                 panic!("type not found: {extends:?}");
             };

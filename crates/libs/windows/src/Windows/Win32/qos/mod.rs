@@ -40,9 +40,7 @@ pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapingRate: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SERVICETYPE(pub u32);
+pub type SERVICETYPE = u32;
 pub const SERVICETYPE_BESTEFFORT: i32 = 1;
 pub const SERVICETYPE_CONTROLLEDLOAD: i32 = 2;
 pub const SERVICETYPE_GENERAL_INFORMATION: i32 = 5;

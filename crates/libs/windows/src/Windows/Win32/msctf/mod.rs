@@ -1,3 +1,51 @@
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserFree(param0: *mut u32, param1: *mut super::CLIPFORMAT) {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserFree(param0 : *mut u32, param1 : *mut super::CLIPFORMAT));
+    unsafe { CLIPFORMAT_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserFree64(param0: *mut u32, param1: *mut super::CLIPFORMAT) {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserFree64(param0 : *mut u32, param1 : *mut super::CLIPFORMAT));
+    unsafe { CLIPFORMAT_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::CLIPFORMAT) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
+    unsafe { CLIPFORMAT_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::CLIPFORMAT) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
+    unsafe { CLIPFORMAT_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserSize(param0: *mut u32, param1: u32, param2: *mut super::CLIPFORMAT) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::CLIPFORMAT) -> u32);
+    unsafe { CLIPFORMAT_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::CLIPFORMAT) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::CLIPFORMAT) -> u32);
+    unsafe { CLIPFORMAT_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::CLIPFORMAT) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
+    unsafe { CLIPFORMAT_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "wtypes")]
+#[inline]
+pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::CLIPFORMAT) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
+    unsafe { CLIPFORMAT_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
 windows_core::imp::define_interface!(IEnumITfCompositionView, IEnumITfCompositionView_Vtbl, 0x5efd22ba_7838_46cb_88e2_cadb14124f8f);
 windows_core::imp::interface_hierarchy!(IEnumITfCompositionView, windows_core::IUnknown);
 impl IEnumITfCompositionView {
@@ -5317,19 +5365,19 @@ windows_core::imp::define_interface!(ITfMessagePump, ITfMessagePump_Vtbl, 0x8f1b
 windows_core::imp::interface_hierarchy!(ITfMessagePump, windows_core::IUnknown);
 impl ITfMessagePump {
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub unsafe fn PeekMessage(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PeekMessage)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult as _) }
+    pub unsafe fn PeekMessageA(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PeekMessageA)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub unsafe fn GetMessage(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, pfresult as _) }
+    pub unsafe fn GetMessageA(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMessageA)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, pfresult as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub unsafe fn PeekMessageW(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+    pub unsafe fn PeekMessageW(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PeekMessageW)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult as _) }
     }
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub unsafe fn GetMessageW(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+    pub unsafe fn GetMessageW(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMessageW)(windows_core::Interface::as_raw(self), pmsg as _, hwnd, wmsgfiltermin, wmsgfiltermax, pfresult as _) }
     }
 }
@@ -5338,51 +5386,51 @@ impl ITfMessagePump {
 pub struct ITfMessagePump_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub PeekMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::MSG, super::HWND, u32, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub PeekMessageA: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPMSG, super::HWND, u32, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
-    PeekMessage: usize,
+    PeekMessageA: usize,
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub GetMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::MSG, super::HWND, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetMessageA: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPMSG, super::HWND, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
-    GetMessage: usize,
+    GetMessageA: usize,
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub PeekMessageW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::MSG, super::HWND, u32, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub PeekMessageW: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPMSG, super::HWND, u32, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     PeekMessageW: usize,
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-    pub GetMessageW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::MSG, super::HWND, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetMessageW: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPMSG, super::HWND, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     GetMessageW: usize,
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub trait ITfMessagePump_Impl: windows_core::IUnknownImpl {
-    fn PeekMessage(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetMessage(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn PeekMessageW(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetMessageW(&self, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn PeekMessageA(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetMessageA(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn PeekMessageW(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetMessageW(&self, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl ITfMessagePump_Vtbl {
     pub const fn new<Identity: ITfMessagePump_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PeekMessage<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekMessageA<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfMessagePump_Impl::PeekMessage(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&wmsgfiltermin), core::mem::transmute_copy(&wmsgfiltermax), core::mem::transmute_copy(&wremovemsg), core::mem::transmute_copy(&pfresult)).into()
+                ITfMessagePump_Impl::PeekMessageA(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&wmsgfiltermin), core::mem::transmute_copy(&wmsgfiltermax), core::mem::transmute_copy(&wremovemsg), core::mem::transmute_copy(&pfresult)).into()
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMessageA<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITfMessagePump_Impl::GetMessage(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&wmsgfiltermin), core::mem::transmute_copy(&wmsgfiltermax), core::mem::transmute_copy(&pfresult)).into()
+                ITfMessagePump_Impl::GetMessageA(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&wmsgfiltermin), core::mem::transmute_copy(&wmsgfiltermax), core::mem::transmute_copy(&pfresult)).into()
             }
         }
-        unsafe extern "system" fn PeekMessageW<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekMessageW<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITfMessagePump_Impl::PeekMessageW(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&wmsgfiltermin), core::mem::transmute_copy(&wmsgfiltermax), core::mem::transmute_copy(&wremovemsg), core::mem::transmute_copy(&pfresult)).into()
             }
         }
-        unsafe extern "system" fn GetMessageW<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *mut super::MSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMessageW<Identity: ITfMessagePump_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: super::LPMSG, hwnd: super::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITfMessagePump_Impl::GetMessageW(this, core::mem::transmute_copy(&pmsg), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&wmsgfiltermin), core::mem::transmute_copy(&wmsgfiltermax), core::mem::transmute_copy(&pfresult)).into()
@@ -5390,8 +5438,8 @@ impl ITfMessagePump_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            PeekMessage: PeekMessage::<Identity, OFFSET>,
-            GetMessage: GetMessage::<Identity, OFFSET>,
+            PeekMessageA: PeekMessageA::<Identity, OFFSET>,
+            GetMessageA: GetMessageA::<Identity, OFFSET>,
             PeekMessageW: PeekMessageW::<Identity, OFFSET>,
             GetMessageW: GetMessageW::<Identity, OFFSET>,
         }
@@ -8378,7 +8426,7 @@ pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = -1;
 pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = 1;
 pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = 3;
 pub const TF_CHAR_EMBEDDED: i32 = 65532;
-pub const TF_CLIENTID_NULL: TfClientId = TfClientId(0);
+pub const TF_CLIENTID_NULL: TfClientId = 0;
 pub const TF_CLUIE_COUNT: i32 = 2;
 pub const TF_CLUIE_CURRENTPAGE: i32 = 32;
 pub const TF_CLUIE_DOCUMENTMGR: i32 = 1;
@@ -8454,27 +8502,27 @@ pub const TF_ES_ASYNCDONTCARE: i32 = 0;
 pub const TF_ES_READ: i32 = 2;
 pub const TF_ES_READWRITE: i32 = 6;
 pub const TF_ES_SYNC: i32 = 1;
-pub const TF_E_ALREADY_EXISTS: i32 = -2147220218;
-pub const TF_E_COMPOSITION_REJECTED: i32 = -2147220216;
-pub const TF_E_DISCONNECTED: i32 = -2147220220;
-pub const TF_E_EMPTYCONTEXT: i32 = -2147220215;
-pub const TF_E_FORMAT: i32 = -2147220982;
-pub const TF_E_INVALIDPOINT: i32 = -2147220985;
-pub const TF_E_INVALIDPOS: i32 = -2147220992;
-pub const TF_E_INVALIDVIEW: i32 = -2147220219;
-pub const TF_E_LOCKED: i32 = -2147220224;
-pub const TF_E_NOINTERFACE: i32 = -2147220988;
-pub const TF_E_NOLAYOUT: i32 = -2147220986;
-pub const TF_E_NOLOCK: i32 = -2147220991;
-pub const TF_E_NOOBJECT: i32 = -2147220990;
-pub const TF_E_NOPROVIDER: i32 = -2147220221;
-pub const TF_E_NOSELECTION: i32 = -2147220987;
-pub const TF_E_NOSERVICE: i32 = -2147220989;
-pub const TF_E_NOTOWNEDRANGE: i32 = -2147220222;
-pub const TF_E_RANGE_NOT_COVERED: i32 = -2147220217;
-pub const TF_E_READONLY: i32 = -2147220983;
-pub const TF_E_STACKFULL: i32 = -2147220223;
-pub const TF_E_SYNCHRONOUS: i32 = -2147220984;
+pub const TF_E_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80040506_u32 as _);
+pub const TF_E_COMPOSITION_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040508_u32 as _);
+pub const TF_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040504_u32 as _);
+pub const TF_E_EMPTYCONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80040509_u32 as _);
+pub const TF_E_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8004020A_u32 as _);
+pub const TF_E_INVALIDPOINT: windows_core::HRESULT = windows_core::HRESULT(0x80040207_u32 as _);
+pub const TF_E_INVALIDPOS: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
+pub const TF_E_INVALIDVIEW: windows_core::HRESULT = windows_core::HRESULT(0x80040505_u32 as _);
+pub const TF_E_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80040500_u32 as _);
+pub const TF_E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80040204_u32 as _);
+pub const TF_E_NOLAYOUT: windows_core::HRESULT = windows_core::HRESULT(0x80040206_u32 as _);
+pub const TF_E_NOLOCK: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
+pub const TF_E_NOOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
+pub const TF_E_NOPROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x80040503_u32 as _);
+pub const TF_E_NOSELECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040205_u32 as _);
+pub const TF_E_NOSERVICE: windows_core::HRESULT = windows_core::HRESULT(0x80040203_u32 as _);
+pub const TF_E_NOTOWNEDRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80040502_u32 as _);
+pub const TF_E_RANGE_NOT_COVERED: windows_core::HRESULT = windows_core::HRESULT(0x80040507_u32 as _);
+pub const TF_E_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x80040209_u32 as _);
+pub const TF_E_STACKFULL: windows_core::HRESULT = windows_core::HRESULT(0x80040501_u32 as _);
+pub const TF_E_SYNCHRONOUS: windows_core::HRESULT = windows_core::HRESULT(0x80040208_u32 as _);
 pub const TF_GRAVITY_BACKWARD: TfGravity = 0;
 pub const TF_GRAVITY_FORWARD: TfGravity = 1;
 pub const TF_GTP_INCL_TEXT: i32 = 1;
@@ -8506,7 +8554,7 @@ pub struct TF_INPUTPROCESSORPROFILE {
 }
 pub const TF_INVALID_COOKIE: u32 = 4294967295;
 pub const TF_INVALID_EDIT_COOKIE: i32 = 0;
-pub const TF_INVALID_GUIDATOM: TfGuidAtom = TfGuidAtom(0);
+pub const TF_INVALID_GUIDATOM: TfGuidAtom = 0;
 pub const TF_INVALID_UIELEMENTID: u32 = 4294967295;
 pub const TF_IPPMF_DISABLEPROFILE: i32 = 2;
 pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: i32 = 4;
@@ -8649,7 +8697,7 @@ pub const TF_SS_TRANSITORY: i32 = 4;
 #[cfg(feature = "textstor")]
 pub type TF_STATUS = super::TS_STATUS;
 pub const TF_ST_CORRECTION: i32 = 1;
-pub const TF_S_ASYNC: i32 = 262912;
+pub const TF_S_ASYNC: windows_core::HRESULT = windows_core::HRESULT(0x40300_u32 as _);
 pub const TF_TF_IGNOREEND: i32 = 2;
 pub const TF_TF_MOVESTART: i32 = 1;
 pub const TF_TMAE_COMLESS: i32 = 8;
@@ -8681,15 +8729,9 @@ pub const TKB_ALTERNATES_FOR_PREDICTION: i32 = 3;
 pub const TKB_ALTERNATES_STANDARD: i32 = 1;
 pub type TfActiveSelEnd = i32;
 pub type TfAnchor = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TfClientId(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TfEditCookie(pub u32);
+pub type TfClientId = u32;
+pub type TfEditCookie = u32;
 pub type TfGravity = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TfGuidAtom(pub u32);
+pub type TfGuidAtom = u32;
 pub type TfLayoutCode = i32;
 pub type TfShiftDir = i32;

@@ -161,7 +161,7 @@ fn options(
     has_filters: bool,
 ) -> (FILEOPENDIALOGOPTIONS, FILEOPENDIALOGOPTIONS) {
     let mut set = FOS_FORCEFILESYSTEM;
-    let mut clear = 0;
+    let mut clear: FILEOPENDIALOGOPTIONS = 0;
     if has_filters {
         set |= FOS_STRICTFILETYPES;
     }

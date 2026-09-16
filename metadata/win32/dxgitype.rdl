@@ -70,5 +70,6 @@ mod Windows {
             Blue: f32,
         }
         type DXGI_RGBA = D3DCOLORVALUE;
+        const _FACDXGI: i32 = 2170;
     }
 }

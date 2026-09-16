@@ -12,6 +12,6 @@ fn main() {
             "FileTimeToSystemTime",
             "FileTimeToLocalFileTime",
         ])
-        .derives(["SYSTEMTIME=Debug", "SERVICE_TIMECHANGE_INFO=Debug"])
+        .derives(["SYSTEMTIME=Debug"])
         .write();
 }

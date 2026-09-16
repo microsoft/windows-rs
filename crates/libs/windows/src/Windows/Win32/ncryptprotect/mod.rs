@@ -81,9 +81,12 @@ pub unsafe fn NCryptUnprotectSecret(phdescriptor: Option<*mut NCRYPT_DESCRIPTOR_
     unsafe { NCryptUnprotectSecret(phdescriptor.unwrap_or(core::mem::zeroed()) as _, dwflags, pbprotectedblob.as_ptr(), pbprotectedblob.len().try_into().unwrap(), pmempara.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, ppbdata as _, pcbdata as _) }
 }
 pub const MS_KEY_PROTECTION_PROVIDER: windows_core::PCWSTR = windows_core::w!("Microsoft Key Protection Provider");
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NCRYPT_DESCRIPTOR_HANDLE(pub *mut core::ffi::c_void);
+pub type NCRYPT_DESCRIPTOR_HANDLE = *mut NCRYPT_DESCRIPTOR_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NCRYPT_DESCRIPTOR_HANDLE__ {
+    pub unused: i32,
+}
 pub const NCRYPT_DESCR_DELIMITER_AND: windows_core::PCWSTR = windows_core::w!("AND");
 pub const NCRYPT_DESCR_DELIMITER_OR: windows_core::PCWSTR = windows_core::w!("OR");
 pub const NCRYPT_DESCR_EQUAL: windows_core::PCWSTR = windows_core::w!("=");
@@ -114,9 +117,12 @@ pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NCRYPT_STREAM_HANDLE(pub *mut core::ffi::c_void);
+pub type NCRYPT_STREAM_HANDLE = *mut NCRYPT_STREAM_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NCRYPT_STREAM_HANDLE__ {
+    pub unused: i32,
+}
 pub const NCRYPT_UNPROTECT_NO_DECRYPT: i32 = 1;
 #[cfg(feature = "ncrypt")]
 pub type PFNCryptStreamOutputCallback = Option<unsafe extern "system" fn(pvcallbackctxt: *const core::ffi::c_void, pbdata: *const u8, cbdata: usize, ffinal: windows_core::BOOL) -> super::SECURITY_STATUS>;

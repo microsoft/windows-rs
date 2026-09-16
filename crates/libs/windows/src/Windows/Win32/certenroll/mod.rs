@@ -177,9 +177,9 @@ pub const ExportCAs: X509EnrollmentPolicyExportFlags = 4;
 pub const ExportOIDs: X509EnrollmentPolicyExportFlags = 2;
 pub const ExportTemplates: X509EnrollmentPolicyExportFlags = 1;
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
-pub type FNIMPORTPFXTOPROVIDER = Option<unsafe extern "system" fn(hwndparent: super::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: windows_core::PCWSTR, pwszprovidername: windows_core::PCWSTR, pwszreadername: windows_core::PCWSTR, pwszcontainernameprefix: windows_core::PCWSTR, pwszpin: windows_core::PCWSTR, pwszfriendlyname: windows_core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut super::PCCERT_CONTEXT) -> windows_core::HRESULT>;
+pub type FNIMPORTPFXTOPROVIDER = Option<unsafe extern "C" fn(hwndparent: super::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: windows_core::PCWSTR, pwszprovidername: windows_core::PCWSTR, pwszreadername: windows_core::PCWSTR, pwszcontainernameprefix: windows_core::PCWSTR, pwszpin: windows_core::PCWSTR, pwszfriendlyname: windows_core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut super::PCCERT_CONTEXT) -> windows_core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type FNIMPORTPFXTOPROVIDERFREEDATA = Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const super::PCCERT_CONTEXT)>;
+pub type FNIMPORTPFXTOPROVIDERFREEDATA = Option<unsafe extern "C" fn(ccert: u32, rgpcert: *const super::PCCERT_CONTEXT)>;
 pub const GeneralCA: X509CertificateTemplateGeneralFlag = 128;
 pub const GeneralCrossCA: X509CertificateTemplateGeneralFlag = 2048;
 pub const GeneralDefault: X509CertificateTemplateGeneralFlag = 65536;
@@ -1213,7 +1213,7 @@ impl ICertPropertyBackedUp {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromCurrentTime)(windows_core::Interface::as_raw(self), backedupvalue) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Initialize(&self, backedupvalue: super::VARIANT_BOOL, date: f64) -> windows_core::HRESULT {
+    pub unsafe fn Initialize(&self, backedupvalue: super::VARIANT_BOOL, date: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), backedupvalue, date) }
     }
     #[cfg(feature = "wtypes")]
@@ -1223,7 +1223,8 @@ impl ICertPropertyBackedUp {
             (windows_core::Interface::vtable(self).BackedUpValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BackedUpTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn BackedUpTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackedUpTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1240,21 +1241,24 @@ pub struct ICertPropertyBackedUp_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     InitializeFromCurrentTime: usize,
     #[cfg(feature = "wtypes")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL, f64) -> windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL, super::DATE) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     Initialize: usize,
     #[cfg(feature = "wtypes")]
     pub BackedUpValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     BackedUpValue: usize,
-    pub BackedUpTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub BackedUpTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    BackedUpTime: usize,
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertPropertyBackedUp_Impl: ICertProperty_Impl {
     fn InitializeFromCurrentTime(&self, backedupvalue: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Initialize(&self, backedupvalue: super::VARIANT_BOOL, date: f64) -> windows_core::Result<()>;
+    fn Initialize(&self, backedupvalue: super::VARIANT_BOOL, date: super::DATE) -> windows_core::Result<()>;
     fn BackedUpValue(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn BackedUpTime(&self) -> windows_core::Result<f64>;
+    fn BackedUpTime(&self) -> windows_core::Result<super::DATE>;
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertPropertyBackedUp_Vtbl {
@@ -1265,7 +1269,7 @@ impl ICertPropertyBackedUp_Vtbl {
                 ICertPropertyBackedUp_Impl::InitializeFromCurrentTime(this, core::mem::transmute_copy(&backedupvalue)).into()
             }
         }
-        unsafe extern "system" fn Initialize<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backedupvalue: super::VARIANT_BOOL, date: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backedupvalue: super::VARIANT_BOOL, date: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertPropertyBackedUp_Impl::Initialize(this, core::mem::transmute_copy(&backedupvalue), core::mem::transmute_copy(&date)).into()
@@ -1283,7 +1287,7 @@ impl ICertPropertyBackedUp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BackedUpTime<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn BackedUpTime<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyBackedUp_Impl::BackedUpTime(this) {
@@ -7322,22 +7326,26 @@ impl IX509CertificateRequestCertificate {
     {
         unsafe { (windows_core::Interface::vtable(self).SetIssuer)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
-    pub unsafe fn NotBefore(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn NotBefore(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NotBefore)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNotBefore(&self, value: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetNotBefore(&self, value: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNotBefore)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn NotAfter(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn NotAfter(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NotAfter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNotAfter(&self, value: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetNotAfter(&self, value: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNotAfter)(windows_core::Interface::as_raw(self), value) }
     }
     pub unsafe fn SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR> {
@@ -7370,10 +7378,22 @@ pub struct IX509CertificateRequestCertificate_Vtbl {
     pub CheckPublicKeySignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Issuer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIssuer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetNotBefore: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub NotAfter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetNotAfter: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub NotBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    NotBefore: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetNotBefore: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetNotBefore: usize,
+    #[cfg(feature = "wtypes")]
+    pub NotAfter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    NotAfter: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetNotAfter: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetNotAfter: usize,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SignerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7384,10 +7404,10 @@ pub trait IX509CertificateRequestCertificate_Impl: IX509CertificateRequestPkcs10
     fn CheckPublicKeySignature(&self, ppublickey: windows_core::Ref<IX509PublicKey>) -> windows_core::Result<()>;
     fn Issuer(&self) -> windows_core::Result<IX500DistinguishedName>;
     fn SetIssuer(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::Result<()>;
-    fn NotBefore(&self) -> windows_core::Result<f64>;
-    fn SetNotBefore(&self, value: f64) -> windows_core::Result<()>;
-    fn NotAfter(&self) -> windows_core::Result<f64>;
-    fn SetNotAfter(&self, value: f64) -> windows_core::Result<()>;
+    fn NotBefore(&self) -> windows_core::Result<super::DATE>;
+    fn SetNotBefore(&self, value: super::DATE) -> windows_core::Result<()>;
+    fn NotAfter(&self) -> windows_core::Result<super::DATE>;
+    fn SetNotAfter(&self, value: super::DATE) -> windows_core::Result<()>;
     fn SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn SetSerialNumber(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
@@ -7420,7 +7440,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 IX509CertificateRequestCertificate_Impl::SetIssuer(this, core::mem::transmute_copy(&pvalue)).into()
             }
         }
-        unsafe extern "system" fn NotBefore<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn NotBefore<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCertificate_Impl::NotBefore(this) {
@@ -7432,13 +7452,13 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNotBefore<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNotBefore<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IX509CertificateRequestCertificate_Impl::SetNotBefore(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn NotAfter<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn NotAfter<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCertificate_Impl::NotAfter(this) {
@@ -7450,7 +7470,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNotAfter<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNotAfter<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IX509CertificateRequestCertificate_Impl::SetNotAfter(this, core::mem::transmute_copy(&value)).into()
@@ -9599,22 +9619,26 @@ impl IX509CertificateRevocationList {
     {
         unsafe { (windows_core::Interface::vtable(self).SetIssuer)(windows_core::Interface::as_raw(self), pvalue.param().abi()) }
     }
-    pub unsafe fn ThisUpdate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn ThisUpdate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ThisUpdate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetThisUpdate(&self, value: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetThisUpdate(&self, value: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetThisUpdate)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn NextUpdate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn NextUpdate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NextUpdate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNextUpdate(&self, value: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetNextUpdate(&self, value: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNextUpdate)(windows_core::Interface::as_raw(self), value) }
     }
     pub unsafe fn X509CRLEntries(&self) -> windows_core::Result<IX509CertificateRevocationListEntries> {
@@ -9740,10 +9764,22 @@ pub struct IX509CertificateRevocationList_Vtbl {
     pub CheckSignature: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Issuer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIssuer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ThisUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetThisUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub NextUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetNextUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub ThisUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    ThisUpdate: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetThisUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetThisUpdate: usize,
+    #[cfg(feature = "wtypes")]
+    pub NextUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    NextUpdate: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetNextUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetNextUpdate: usize,
     pub X509CRLEntries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub X509Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CriticalExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9786,10 +9822,10 @@ pub trait IX509CertificateRevocationList_Impl: super::IDispatch_Impl {
     fn CheckSignature(&self) -> windows_core::Result<()>;
     fn Issuer(&self) -> windows_core::Result<IX500DistinguishedName>;
     fn SetIssuer(&self, pvalue: windows_core::Ref<IX500DistinguishedName>) -> windows_core::Result<()>;
-    fn ThisUpdate(&self) -> windows_core::Result<f64>;
-    fn SetThisUpdate(&self, value: f64) -> windows_core::Result<()>;
-    fn NextUpdate(&self) -> windows_core::Result<f64>;
-    fn SetNextUpdate(&self, value: f64) -> windows_core::Result<()>;
+    fn ThisUpdate(&self) -> windows_core::Result<super::DATE>;
+    fn SetThisUpdate(&self, value: super::DATE) -> windows_core::Result<()>;
+    fn NextUpdate(&self) -> windows_core::Result<super::DATE>;
+    fn SetNextUpdate(&self, value: super::DATE) -> windows_core::Result<()>;
     fn X509CRLEntries(&self) -> windows_core::Result<IX509CertificateRevocationListEntries>;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
     fn CriticalExtensions(&self) -> windows_core::Result<IObjectIds>;
@@ -9867,7 +9903,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 IX509CertificateRevocationList_Impl::SetIssuer(this, core::mem::transmute_copy(&pvalue)).into()
             }
         }
-        unsafe extern "system" fn ThisUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn ThisUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::ThisUpdate(this) {
@@ -9879,13 +9915,13 @@ impl IX509CertificateRevocationList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetThisUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetThisUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IX509CertificateRevocationList_Impl::SetThisUpdate(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn NextUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn NextUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::NextUpdate(this) {
@@ -9897,7 +9933,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNextUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNextUpdate<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IX509CertificateRevocationList_Impl::SetNextUpdate(this, core::mem::transmute_copy(&value)).into()
@@ -10329,7 +10365,8 @@ impl core::ops::Deref for IX509CertificateRevocationListEntry {
 windows_core::imp::interface_hierarchy!(IX509CertificateRevocationListEntry, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IX509CertificateRevocationListEntry {
-    pub unsafe fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), encoding, core::mem::transmute_copy(serialnumber), revocationdate) }
     }
     pub unsafe fn SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR> {
@@ -10338,7 +10375,8 @@ impl IX509CertificateRevocationListEntry {
             (windows_core::Interface::vtable(self).SerialNumber)(windows_core::Interface::as_raw(self), encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RevocationDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn RevocationDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RevocationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10371,9 +10409,15 @@ impl IX509CertificateRevocationListEntry {
 #[doc(hidden)]
 pub struct IX509CertificateRevocationListEntry_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    Initialize: usize,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, EncodingType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RevocationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub RevocationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    RevocationDate: usize,
     pub RevocationReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CRLRevocationReason) -> windows_core::HRESULT,
     pub SetRevocationReason: unsafe extern "system" fn(*mut core::ffi::c_void, CRLRevocationReason) -> windows_core::HRESULT,
     pub X509Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10381,9 +10425,9 @@ pub struct IX509CertificateRevocationListEntry_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IX509CertificateRevocationListEntry_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: f64) -> windows_core::Result<()>;
+    fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: super::DATE) -> windows_core::Result<()>;
     fn SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn RevocationDate(&self) -> windows_core::Result<f64>;
+    fn RevocationDate(&self) -> windows_core::Result<super::DATE>;
     fn RevocationReason(&self) -> windows_core::Result<CRLRevocationReason>;
     fn SetRevocationReason(&self, value: CRLRevocationReason) -> windows_core::Result<()>;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
@@ -10392,7 +10436,7 @@ pub trait IX509CertificateRevocationListEntry_Impl: super::IDispatch_Impl {
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IX509CertificateRevocationListEntry_Vtbl {
     pub const fn new<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, serialnumber: *mut core::ffi::c_void, revocationdate: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, serialnumber: *mut core::ffi::c_void, revocationdate: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IX509CertificateRevocationListEntry_Impl::Initialize(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&serialnumber), core::mem::transmute_copy(&revocationdate)).into()
@@ -10410,7 +10454,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RevocationDate<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RevocationDate<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationListEntry_Impl::RevocationDate(this) {
@@ -11812,13 +11856,15 @@ impl IX509EnrollmentPolicyServer {
             (windows_core::Interface::vtable(self).GetCustomOids)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNextUpdateTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn GetNextUpdateTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextUpdateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLastUpdateTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn GetLastUpdateTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastUpdateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11929,8 +11975,14 @@ pub struct IX509EnrollmentPolicyServer_Vtbl {
     pub GetCAs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCustomOids: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetNextUpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub GetLastUpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub GetNextUpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    GetNextUpdateTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub GetLastUpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    GetLastUpdateTime: usize,
     pub GetPolicyServerUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPolicyServerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11980,8 +12032,8 @@ pub trait IX509EnrollmentPolicyServer_Impl: super::IDispatch_Impl {
     fn GetCAs(&self) -> windows_core::Result<ICertificationAuthorities>;
     fn Validate(&self) -> windows_core::Result<()>;
     fn GetCustomOids(&self) -> windows_core::Result<IObjectIds>;
-    fn GetNextUpdateTime(&self) -> windows_core::Result<f64>;
-    fn GetLastUpdateTime(&self) -> windows_core::Result<f64>;
+    fn GetNextUpdateTime(&self) -> windows_core::Result<super::DATE>;
+    fn GetLastUpdateTime(&self) -> windows_core::Result<super::DATE>;
     fn GetPolicyServerUrl(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetPolicyServerId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetFriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -12067,7 +12119,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNextUpdateTime<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNextUpdateTime<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetNextUpdateTime(this) {
@@ -12079,7 +12131,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLastUpdateTime<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLastUpdateTime<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetLastUpdateTime(this) {

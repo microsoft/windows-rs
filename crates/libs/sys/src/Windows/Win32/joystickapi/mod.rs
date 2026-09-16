@@ -1,16 +1,14 @@
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : LPJOYCAPSA, cbjc : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : *mut JOYCAPSA, cbjc : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : *mut JOYCAPSW, cbjc : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : LPJOYCAPSW, cbjc : u32) -> super::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn joyGetNumDevs() -> u32);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : *mut JOYINFO) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : LPJOYINFO) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : *mut JOYINFOEX) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : LPJOYINFOEX) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : *mut u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : super::LPUINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> super::MMRESULT);
 #[cfg(all(feature = "mmsyscom", feature = "windef"))]

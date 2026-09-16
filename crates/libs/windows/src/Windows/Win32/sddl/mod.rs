@@ -1,13 +1,13 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: super::SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PSTR, stringsecuritydescriptorlen: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor : super::PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super::SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PSTR, stringsecuritydescriptorlen : *mut u32) -> windows_core::BOOL);
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: super::SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PSTR, stringsecuritydescriptorlen: Option<super::PULONG>) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor : super::PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super::SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PSTR, stringsecuritydescriptorlen : super::PULONG) -> windows_core::BOOL);
     unsafe { ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor, requestedstringsdrevision, securityinformation, stringsecuritydescriptor as _, stringsecuritydescriptorlen.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: super::SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PWSTR, stringsecuritydescriptorlen: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor : super::PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super::SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PWSTR, stringsecuritydescriptorlen : *mut u32) -> windows_core::BOOL);
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: super::SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PWSTR, stringsecuritydescriptorlen: Option<super::PULONG>) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor : super::PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super::SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PWSTR, stringsecuritydescriptorlen : super::PULONG) -> windows_core::BOOL);
     unsafe { ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor, requestedstringsdrevision, securityinformation, stringsecuritydescriptor as _, stringsecuritydescriptorlen.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -22,22 +22,22 @@ pub unsafe fn ConvertSidToStringSidW(sid: super::PSID, stringsid: *mut windows_c
     windows_core::link!("advapi32.dll" "system" fn ConvertSidToStringSidW(sid : super::PSID, stringsid : *mut windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { ConvertSidToStringSidW(sid, stringsid as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<super::PULONG>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor : windows_core::PCSTR, stringsdrevision : u32, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor : windows_core::PCSTR, stringsdrevision : u32, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize : super::PULONG) -> windows_core::BOOL);
     unsafe { ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.param().abi(), stringsdrevision, securitydescriptor as _, securitydescriptorsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<super::PULONG>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor : windows_core::PCWSTR, stringsdrevision : u32, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor : windows_core::PCWSTR, stringsdrevision : u32, securitydescriptor : *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize : super::PULONG) -> windows_core::BOOL);
     unsafe { ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.param().abi(), stringsdrevision, securitydescriptor as _, securitydescriptorsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -58,21 +58,21 @@ where
     windows_core::link!("advapi32.dll" "system" fn ConvertStringSidToSidW(stringsid : windows_core::PCWSTR, sid : *mut super::PSID) -> windows_core::BOOL);
     unsafe { ConvertStringSidToSidW(stringsid.param().abi(), sid as _) }
 }
-pub const SDDL_ACE_BEGINC: u32 = 40;
-pub const SDDL_ACE_COND_BEGINC: u32 = 40;
-pub const SDDL_ACE_COND_BLOB_PREFIXC: u32 = 35;
-pub const SDDL_ACE_COND_COMPOSITEVALUE_BEGINC: u32 = 123;
-pub const SDDL_ACE_COND_COMPOSITEVALUE_ENDC: u32 = 125;
-pub const SDDL_ACE_COND_COMPOSITEVALUE_SEPERATORC: u32 = 44;
-pub const SDDL_ACE_COND_ENDC: u32 = 41;
-pub const SDDL_ACE_COND_SID_BEGINC: u32 = 40;
-pub const SDDL_ACE_COND_SID_ENDC: u32 = 41;
-pub const SDDL_ACE_COND_STRING_BEGINC: u32 = 34;
-pub const SDDL_ACE_COND_STRING_ENDC: u32 = 34;
-pub const SDDL_ACE_ENDC: u32 = 41;
+pub const SDDL_ACE_BEGINC: i8 = 40;
+pub const SDDL_ACE_COND_BEGINC: i8 = 40;
+pub const SDDL_ACE_COND_BLOB_PREFIXC: i8 = 35;
+pub const SDDL_ACE_COND_COMPOSITEVALUE_BEGINC: i8 = 123;
+pub const SDDL_ACE_COND_COMPOSITEVALUE_ENDC: i8 = 125;
+pub const SDDL_ACE_COND_COMPOSITEVALUE_SEPERATORC: i8 = 44;
+pub const SDDL_ACE_COND_ENDC: i8 = 41;
+pub const SDDL_ACE_COND_SID_BEGINC: i8 = 40;
+pub const SDDL_ACE_COND_SID_ENDC: i8 = 41;
+pub const SDDL_ACE_COND_STRING_BEGINC: i8 = 34;
+pub const SDDL_ACE_COND_STRING_ENDC: i8 = 34;
+pub const SDDL_ACE_ENDC: i8 = 41;
 pub const SDDL_ALIAS_SIZE: i32 = 2;
-pub const SDDL_DELIMINATORC: u32 = 58;
+pub const SDDL_DELIMINATORC: i8 = 58;
 pub const SDDL_REVISION: i32 = 1;
 pub const SDDL_REVISION_1: i32 = 1;
-pub const SDDL_SEPERATORC: u32 = 59;
-pub const SDDL_SPACEC: u32 = 32;
+pub const SDDL_SEPERATORC: i8 = 59;
+pub const SDDL_SPACEC: i8 = 32;

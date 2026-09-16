@@ -24,7 +24,7 @@ mod Windows {
             nodeIndex: u32,
             segmentGroup: DXCoreSegmentGroup,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreAdapterPreference {
             Hardware = 0,
@@ -39,7 +39,7 @@ mod Windows {
             processesWritten: u32,
             processesTotal: u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreAdapterProperty {
             InstanceLuid = 0,
@@ -61,7 +61,7 @@ mod Windows {
             AdapterEngineCount = 16,
             AdapterEngineName = 17,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreAdapterState {
             IsDriverUpdateInProgress = 0,
@@ -125,7 +125,7 @@ mod Windows {
             physicalAdapterIndex: u32,
             memoryType: DXCoreMemoryType,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreMemoryType {
             Dedicated = 0,
@@ -135,7 +135,7 @@ mod Windows {
             committed: u64,
             resident: u64,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreNotificationType {
             AdapterListStale = 0,
@@ -160,20 +160,20 @@ mod Windows {
             D3D11 = 1,
             D3D12 = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreSegmentGroup {
             Local = 0,
             NonLocal = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreSingleAdapterHybridMode {
             Unspecified = 0,
             MinimumPower = 1,
             HighPerformance = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreWorkload {
             Graphics = 0,
@@ -203,7 +203,7 @@ mod Windows {
             fn CreateAdapterList(&self, numAttributes: u32, #[len_param(0)] filterAttributes: *const GUID, riid: *const GUID, #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
             fn GetAdapterByLuid(&self, adapterLUID: *const LUID, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
             fn IsNotificationTypeSupported(&self, notificationType: DXCoreNotificationType) -> bool;
-            fn RegisterEventNotification(&self, dxCoreObject: IUnknown, notificationType: DXCoreNotificationType, callbackFunction: PFN_DXCORE_NOTIFICATION_CALLBACK, #[opt] callbackContext: *const void, eventCookie: *mut u32) -> HRESULT;
+            fn RegisterEventNotification(&self, dxCoreObject: IUnknown, notificationType: DXCoreNotificationType, callbackFunction: PFN_DXCORE_NOTIFICATION_CALLBACK, #[in] #[opt] callbackContext: *mut void, eventCookie: *mut u32) -> HRESULT;
             fn UnregisterEventNotification(&self, eventCookie: u32) -> HRESULT;
         }
         #[guid(0xd5682e19_6d21_401c_827a_9a51a4ea35d7)]
@@ -219,6 +219,7 @@ mod Windows {
             fn Sort(&self, numPreferences: u32, #[len_param(0)] preferences: *const DXCoreAdapterPreference) -> HRESULT;
             fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool;
         }
-        extern fn PFN_DXCORE_NOTIFICATION_CALLBACK(notificationType: DXCoreNotificationType, object: IUnknown, #[opt] context: *const void);
+        extern fn PFN_DXCORE_NOTIFICATION_CALLBACK(notificationType: DXCoreNotificationType, object: IUnknown, #[in] #[opt] context: *mut void);
+        const _FACDXCORE: i32 = 2176;
     }
 }

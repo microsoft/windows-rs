@@ -1,7 +1,7 @@
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut super::PROPVARIANT, pma : *const PMemoryAllocator) -> bool);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const super::PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : super::PROPID, freserved : bool, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut super::PROPVARIANT, pma : *const core::ffi::c_void) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const super::PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : super::PROPID, freserved : super::BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
 pub const PIDDI_THUMBNAIL: i32 = 2;
 pub const PIDDSI_BYTECOUNT: i32 = 4;
 pub const PIDDSI_CATEGORY: i32 = 2;
@@ -57,9 +57,6 @@ pub const PIDSI_TEMPLATE: i32 = 7;
 pub const PIDSI_THUMBNAIL: i32 = 17;
 pub const PIDSI_TITLE: i32 = 2;
 pub const PIDSI_WORDCOUNT: i32 = 15;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PMemoryAllocator(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERIALIZEDPROPERTYVALUE {

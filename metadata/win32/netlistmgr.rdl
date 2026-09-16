@@ -74,14 +74,14 @@ mod Windows {
         }
         #[guid(0xdcb00008_570f_4a9b_8d69_199fdba5723b)]
         interface INetworkCostManager: IUnknown {
-            fn GetCost(&self, pCost: *mut u32, pDestIPAddr: *const NLM_SOCKADDR) -> HRESULT;
-            fn GetDataPlanStatus(&self, pDataPlanStatus: *mut NLM_DATAPLAN_STATUS, pDestIPAddr: *const NLM_SOCKADDR) -> HRESULT;
-            fn SetDestinationAddresses(&self, length: u32, pDestIPAddrList: *const NLM_SOCKADDR, bAppend: VARIANT_BOOL) -> HRESULT;
+            fn GetCost(&self, pCost: *mut u32, #[in] pDestIPAddr: *mut NLM_SOCKADDR) -> HRESULT;
+            fn GetDataPlanStatus(&self, pDataPlanStatus: *mut NLM_DATAPLAN_STATUS, #[in] pDestIPAddr: *mut NLM_SOCKADDR) -> HRESULT;
+            fn SetDestinationAddresses(&self, length: u32, #[in] pDestIPAddrList: *mut NLM_SOCKADDR, bAppend: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xdcb00009_570f_4a9b_8d69_199fdba5723b)]
         interface INetworkCostManagerEvents: IUnknown {
-            fn CostChanged(&self, newCost: u32, pDestAddr: *const NLM_SOCKADDR) -> HRESULT;
-            fn DataPlanStatusChanged(&self, pDestAddr: *const NLM_SOCKADDR) -> HRESULT;
+            fn CostChanged(&self, newCost: u32, #[in] pDestAddr: *mut NLM_SOCKADDR) -> HRESULT;
+            fn DataPlanStatusChanged(&self, #[in] pDestAddr: *mut NLM_SOCKADDR) -> HRESULT;
         }
         #[guid(0xdcb00004_570f_4a9b_8d69_199fdba5723b)]
         interface INetworkEvents: IUnknown {
@@ -101,7 +101,7 @@ mod Windows {
             #[special]
             fn get_IsConnected(&self, #[retval] pbIsConnected: *mut VARIANT_BOOL) -> HRESULT;
             fn GetConnectivity(&self, #[retval] pConnectivity: *mut NLM_CONNECTIVITY) -> HRESULT;
-            fn SetSimulatedProfileInfo(&self, pSimulatedInfo: *const NLM_SIMULATED_PROFILE_INFO) -> HRESULT;
+            fn SetSimulatedProfileInfo(&self, #[in] pSimulatedInfo: *mut NLM_SIMULATED_PROFILE_INFO) -> HRESULT;
             fn ClearSimulatedProfileInfo(&self) -> HRESULT;
         }
         #[guid(0xdcb00001_570f_4a9b_8d69_199fdba5723b)]

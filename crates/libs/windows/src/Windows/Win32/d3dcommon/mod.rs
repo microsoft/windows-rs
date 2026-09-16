@@ -734,6 +734,7 @@ impl ID3D10Blob_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D10Blob {}
+pub type ID3DBlob = ID3D10Blob;
 windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
 impl ID3DDestructionNotifier {
@@ -791,36 +792,46 @@ impl ID3DDestructionNotifier_Vtbl {
 impl windows_core::RuntimeName for ID3DDestructionNotifier {}
 windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
-    pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::HRESULT
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: super::LPCVOID, ppdata: *mut super::LPCVOID, pbytes: *mut u32) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), includetype, pfilename.param().abi(), pparentdata, ppdata as _, pbytes as _) }
     }
-    pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn Close(&self, pdata: super::LPCVOID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), pdata) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DInclude_Vtbl {
-    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_INCLUDE_TYPE, windows_core::PCSTR, *const core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_INCLUDE_TYPE, windows_core::PCSTR, super::LPCVOID, *mut super::LPCVOID, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    Open: usize,
+    #[cfg(feature = "minwindef")]
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCVOID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    Close: usize,
 }
+#[cfg(feature = "minwindef")]
 pub trait ID3DInclude_Impl {
-    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>;
-    fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: super::LPCVOID, ppdata: *mut super::LPCVOID, pbytes: *mut u32) -> windows_core::Result<()>;
+    fn Close(&self, pdata: super::LPCVOID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl ID3DInclude_Vtbl {
     pub const fn new<Identity: ID3DInclude_Impl>() -> Self {
-        unsafe extern "system" fn Open<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: windows_core::PCSTR, pparentdata: super::LPCVOID, ppdata: *mut super::LPCVOID, pbytes: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
                 ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes)).into()
             }
         }
-        unsafe extern "system" fn Close<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Close<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, pdata: super::LPCVOID) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
@@ -830,10 +841,13 @@ impl ID3DInclude_Vtbl {
         Self { Open: Open::<Identity>, Close: Close::<Identity> }
     }
 }
+#[cfg(feature = "minwindef")]
 struct ID3DInclude_ImplVtbl<T: ID3DInclude_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "minwindef")]
 impl<T: ID3DInclude_Impl> ID3DInclude_ImplVtbl<T> {
     const VTABLE: ID3DInclude_Vtbl = ID3DInclude_Vtbl::new::<T>();
 }
+#[cfg(feature = "minwindef")]
 impl ID3DInclude {
     pub fn new<'a, T: ID3DInclude_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3DInclude_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };

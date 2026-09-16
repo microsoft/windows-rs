@@ -28,7 +28,7 @@ mod Windows {
             #[special]
             fn get_ClassificationReportFormats(&self, #[retval] formats: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_ClassificationReportFormats(&self, formats: *const SAFEARRAY) -> HRESULT;
+            fn put_ClassificationReportFormats(&self, #[in] formats: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_Logging(&self, #[retval] logging: *mut i32) -> HRESULT;
             #[special]
@@ -66,7 +66,7 @@ mod Windows {
         }
         #[guid(0x0004c1c9_127e_4765_ba07_6a3147bca112)]
         interface IFsrmClassificationManager2: IFsrmClassificationManager {
-            fn ClassifyFiles(&self, filePaths: *const SAFEARRAY, propertyNames: *const SAFEARRAY, propertyValues: *const SAFEARRAY, options: FsrmGetFilePropertyOptions) -> HRESULT;
+            fn ClassifyFiles(&self, #[in] filePaths: *mut SAFEARRAY, #[in] propertyNames: *mut SAFEARRAY, #[in] propertyValues: *mut SAFEARRAY, options: FsrmGetFilePropertyOptions) -> HRESULT;
         }
         #[guid(0xafc052c2_5315_45ab_841b_c6db0e120148)]
         interface IFsrmClassificationRule: IFsrmRule {
@@ -88,11 +88,11 @@ mod Windows {
             #[special]
             fn get_PropertiesAffected(&self, #[retval] propertiesAffected: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_PropertiesAffected(&self, propertiesAffected: *const SAFEARRAY) -> HRESULT;
+            fn put_PropertiesAffected(&self, #[in] propertiesAffected: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_PropertiesUsed(&self, #[retval] propertiesUsed: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_PropertiesUsed(&self, propertiesUsed: *const SAFEARRAY) -> HRESULT;
+            fn put_PropertiesUsed(&self, #[in] propertiesUsed: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_NeedsExplicitValue(&self, #[retval] needsExplicitValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -103,7 +103,7 @@ mod Windows {
             #[special]
             fn get_LastModified(&self, #[retval] lastModified: *mut VARIANT) -> HRESULT;
             fn UseRulesAndDefinitions(&self, rules: IFsrmCollection, propertyDefinitions: IFsrmCollection) -> HRESULT;
-            fn OnBeginFile(&self, propertyBag: IFsrmPropertyBag, arrayRuleIds: *const SAFEARRAY) -> HRESULT;
+            fn OnBeginFile(&self, propertyBag: IFsrmPropertyBag, #[in] arrayRuleIds: *mut SAFEARRAY) -> HRESULT;
             fn DoesPropertyValueApply(&self, property: BSTR, value: BSTR, applyValue: *mut VARIANT_BOOL, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
             fn GetPropertyValueToApply(&self, property: BSTR, value: *mut BSTR, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
             fn OnEndFile(&self) -> HRESULT;
@@ -155,11 +155,11 @@ mod Windows {
             #[special]
             fn get_SupportedExtensions(&self, #[retval] supportedExtensions: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_SupportedExtensions(&self, supportedExtensions: *const SAFEARRAY) -> HRESULT;
+            fn put_SupportedExtensions(&self, #[in] supportedExtensions: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_Parameters(&self, parameters: *const SAFEARRAY) -> HRESULT;
+            fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd)]
         interface IFsrmPipelineModuleImplementation: IDispatch {
@@ -236,15 +236,15 @@ mod Windows {
             #[special]
             fn get_PossibleValues(&self, #[retval] possibleValues: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_PossibleValues(&self, possibleValues: *const SAFEARRAY) -> HRESULT;
+            fn put_PossibleValues(&self, #[in] possibleValues: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_ValueDescriptions(&self, #[retval] valueDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_ValueDescriptions(&self, valueDescriptions: *const SAFEARRAY) -> HRESULT;
+            fn put_ValueDescriptions(&self, #[in] valueDescriptions: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_Parameters(&self, parameters: *const SAFEARRAY) -> HRESULT;
+            fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x47782152_d16c_4229_b4e1_0ddfe308b9f6)]
         interface IFsrmPropertyDefinition2: IFsrmPropertyDefinition {
@@ -285,7 +285,7 @@ mod Windows {
             #[special]
             fn get_NamespaceRoots(&self, #[retval] namespaceRoots: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_NamespaceRoots(&self, namespaceRoots: *const SAFEARRAY) -> HRESULT;
+            fn put_NamespaceRoots(&self, #[in] namespaceRoots: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_RuleFlags(&self, #[retval] ruleFlags: *mut i32) -> HRESULT;
             #[special]
@@ -293,7 +293,7 @@ mod Windows {
             #[special]
             fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_Parameters(&self, parameters: *const SAFEARRAY) -> HRESULT;
+            fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_LastModified(&self, #[retval] lastModified: *mut VARIANT) -> HRESULT;
         }

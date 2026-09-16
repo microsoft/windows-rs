@@ -315,7 +315,7 @@ impl IWbemLevel1Login {
         }
     }
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn WBEMLogin<P0, P3>(&self, wszpreferredlocale: P0, accesstoken: *const u8, lflags: i32, pctx: P3) -> windows_core::Result<super::IWbemServices>
+    pub unsafe fn WBEMLogin<P0, P3>(&self, wszpreferredlocale: P0, accesstoken: WBEM_128BITS, lflags: i32, pctx: P3) -> windows_core::Result<super::IWbemServices>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::IWbemContext>,
@@ -343,9 +343,9 @@ impl IWbemLevel1Login {
 pub struct IWbemLevel1Login_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EstablishPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub RequestChallenge: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u8) -> windows_core::HRESULT,
+    pub RequestChallenge: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, WBEM_128BITS) -> windows_core::HRESULT,
     #[cfg(feature = "wbemcli")]
-    pub WBEMLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub WBEMLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, WBEM_128BITS, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "wbemcli"))]
     WBEMLogin: usize,
     #[cfg(feature = "wbemcli")]
@@ -357,7 +357,7 @@ pub struct IWbemLevel1Login_Vtbl {
 pub trait IWbemLevel1Login_Impl: windows_core::IUnknownImpl {
     fn EstablishPosition(&self, wszlocalelist: &windows_core::PCWSTR, dwnumlocales: u32) -> windows_core::Result<u32>;
     fn RequestChallenge(&self, wsznetworkresource: &windows_core::PCWSTR, wszuser: &windows_core::PCWSTR) -> windows_core::Result<u8>;
-    fn WBEMLogin(&self, wszpreferredlocale: &windows_core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>) -> windows_core::Result<super::IWbemServices>;
+    fn WBEMLogin(&self, wszpreferredlocale: &windows_core::PCWSTR, accesstoken: WBEM_128BITS, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>) -> windows_core::Result<super::IWbemServices>;
     fn NTLMLogin(&self, wsznetworkresource: &windows_core::PCWSTR, wszpreferredlocale: &windows_core::PCWSTR, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>) -> windows_core::Result<super::IWbemServices>;
 }
 #[cfg(feature = "wbemcli")]
@@ -375,7 +375,7 @@ impl IWbemLevel1Login_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RequestChallenge<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznetworkresource: windows_core::PCWSTR, wszuser: windows_core::PCWSTR, nonce: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestChallenge<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsznetworkresource: windows_core::PCWSTR, wszuser: windows_core::PCWSTR, nonce: WBEM_128BITS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemLevel1Login_Impl::RequestChallenge(this, core::mem::transmute(&wsznetworkresource), core::mem::transmute(&wszuser)) {
@@ -387,7 +387,7 @@ impl IWbemLevel1Login_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn WBEMLogin<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpreferredlocale: windows_core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn WBEMLogin<Identity: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpreferredlocale: windows_core::PCWSTR, accesstoken: WBEM_128BITS, lflags: i32, pctx: *mut core::ffi::c_void, ppnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemLevel1Login_Impl::WBEMLogin(this, core::mem::transmute(&wszpreferredlocale), core::mem::transmute_copy(&accesstoken), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx)) {

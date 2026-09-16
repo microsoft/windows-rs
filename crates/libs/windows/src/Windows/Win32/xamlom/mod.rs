@@ -37,7 +37,7 @@ pub struct CollectionElementValue {
     pub MetadataBits: i64,
 }
 pub const DefaultStyleTrigger: BaseValueSource = 6;
-pub const E_UNKNOWNTYPE: i32 = -2144665560;
+pub const E_UNKNOWNTYPE: windows_core::HRESULT = windows_core::HRESULT(0x802B0028_u32 as _);
 #[repr(C)]
 #[cfg(feature = "oaidl")]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -828,9 +828,7 @@ impl IXamlDiagnostics_Vtbl {
 impl windows_core::RuntimeName for IXamlDiagnostics {}
 pub const ImplicitStyleReference: BaseValueSource = 9;
 pub const Inherited: BaseValueSource = 5;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct InstanceHandle(pub u64);
+pub type InstanceHandle = u64;
 pub const IsPropertyReadOnly: MetadataBit = 2;
 pub const IsValueBindingExpression: MetadataBit = 16;
 pub const IsValueCollection: MetadataBit = 4;

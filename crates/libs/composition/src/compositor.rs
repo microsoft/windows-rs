@@ -59,7 +59,7 @@ impl Compositor {
         is_topmost: bool,
     ) -> Result<DesktopWindowTarget> {
         let interop: bindings::ICompositorDesktopInterop = self.0.cast()?;
-        let target = unsafe { interop.CreateDesktopWindowTarget(hwnd, is_topmost)? };
+        let target = unsafe { interop.CreateDesktopWindowTarget(hwnd.cast(), is_topmost)? };
         Ok(DesktopWindowTarget::new(target))
     }
 

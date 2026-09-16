@@ -483,6 +483,10 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_ALGORITHM: String = "ML-KEM";
         const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1153;
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_DECAPSULATION_BLOB: String = "MLKEMPRIVATEBLOB";
+        #[encoding("utf-16")]
+        const BCRYPT_MLKEM_ENCAPSULATION_BLOB: String = "MLKEMPUBLICBLOB";
         struct BCRYPT_MLKEM_KEY_BLOB {
             dwMagic: u32,
             cbParameterSet: u32,
@@ -749,27 +753,27 @@ mod Windows {
         #[library("bcrypt.dll")]
         extern fn BCryptCloseAlgorithmProvider(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptConfigureContext(dwTable: u32, pszContext: PCWSTR, pConfig: *const CRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptConfigureContext(dwTable: u32, pszContext: PCWSTR, pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptConfigureContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pConfig: *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
+        extern fn BCryptConfigureContextFunction(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pConfig: PCRYPT_CONTEXT_FUNCTION_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptCreateContext(dwTable: u32, pszContext: PCWSTR, #[opt] pConfig: *const CRYPT_CONTEXT_CONFIG) -> NTSTATUS;
+        extern fn BCryptCreateContext(dwTable: u32, pszContext: PCWSTR, #[opt] pConfig: PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptCreateHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[opt] pbHashObject: *mut u8, cbHashObject: u32, #[size_param(5)] #[opt] pbSecret: *const u8, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptCreateHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[out] #[opt] pbHashObject: PUCHAR, cbHashObject: u32, #[size_param(5)] #[opt] pbSecret: PUCHAR, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptCreateMultiHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, nHashes: u32, #[size_param(4)] #[opt] pbHashObject: *mut u8, cbHashObject: u32, #[size_param(6)] #[opt] pbSecret: *const u8, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptCreateMultiHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phHash: *mut BCRYPT_HASH_HANDLE, nHashes: u32, #[size_param(4)] #[out] #[opt] pbHashObject: PUCHAR, cbHashObject: u32, #[size_param(6)] #[opt] pbSecret: PUCHAR, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptDecapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] pbCipherText: *const u8, cbCipherText: u32, #[size_param(4)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDecapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] pbCipherText: PUCHAR, cbCipherText: u32, #[size_param(4)] #[out] #[opt] pbSecretKey: PUCHAR, cbSecretKey: u32, pcbSecretKey: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptDecrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[in] #[out] #[opt] pbIV: *mut u8, cbIV: u32, #[size_param(7)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDecrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: PUCHAR, cbInput: u32, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(5)] #[in] #[out] #[opt] pbIV: PUCHAR, cbIV: u32, #[size_param(7)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptDeleteContext(dwTable: u32, pszContext: PCWSTR) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptDeriveKey(hSharedSecret: BCRYPT_SECRET_HANDLE, pwszKDF: PCWSTR, #[opt] pParameterList: *const BCryptBufferDesc, #[size_param(4)] #[opt] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDeriveKey(hSharedSecret: BCRYPT_SECRET_HANDLE, pwszKDF: PCWSTR, #[in] #[opt] pParameterList: *mut BCryptBufferDesc, #[size_param(4)] #[out] #[opt] pbDerivedKey: PUCHAR, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptDeriveKeyCapi(hHash: BCRYPT_HASH_HANDLE, #[opt] hTargetAlg: BCRYPT_ALG_HANDLE, #[size_param(3)] pbDerivedKey: *mut u8, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDeriveKeyCapi(hHash: BCRYPT_HASH_HANDLE, #[opt] hTargetAlg: BCRYPT_ALG_HANDLE, #[size_param(3)] #[out] pbDerivedKey: PUCHAR, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptDeriveKeyPBKDF2(hPrf: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbPassword: *const u8, cbPassword: u32, #[size_param(4)] #[opt] pbSalt: *const u8, cbSalt: u32, cIterations: u64, #[size_param(7)] pbDerivedKey: *mut u8, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDeriveKeyPBKDF2(hPrf: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbPassword: PUCHAR, cbPassword: u32, #[size_param(4)] #[opt] pbSalt: PUCHAR, cbSalt: u32, cIterations: u64, #[size_param(7)] #[out] pbDerivedKey: PUCHAR, cbDerivedKey: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptDestroyHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE) -> NTSTATUS;
         #[library("bcrypt.dll")]
@@ -777,13 +781,13 @@ mod Windows {
         #[library("bcrypt.dll")]
         extern fn BCryptDestroySecret(#[in] #[out] hSecret: BCRYPT_SECRET_HANDLE) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptDuplicateHash(hHash: BCRYPT_HASH_HANDLE, phNewHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[opt] pbHashObject: *mut u8, cbHashObject: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDuplicateHash(hHash: BCRYPT_HASH_HANDLE, phNewHash: *mut BCRYPT_HASH_HANDLE, #[size_param(3)] #[out] #[opt] pbHashObject: PUCHAR, cbHashObject: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptDuplicateKey(hKey: BCRYPT_KEY_HANDLE, phNewKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[opt] pbKeyObject: *mut u8, cbKeyObject: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptDuplicateKey(hKey: BCRYPT_KEY_HANDLE, phNewKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[out] #[opt] pbKeyObject: PUCHAR, cbKeyObject: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptEncapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, #[size_param(5)] #[opt] pbCipherText: *mut u8, cbCipherText: u32, pcbCipherText: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptEncapsulate(hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[out] #[opt] pbSecretKey: PUCHAR, cbSecretKey: u32, pcbSecretKey: *mut u32, #[size_param(5)] #[out] #[opt] pbCipherText: PUCHAR, cbCipherText: u32, pcbCipherText: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptEncrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[in] #[out] #[opt] pbIV: *mut u8, cbIV: u32, #[size_param(7)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptEncrypt(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: PUCHAR, cbInput: u32, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(5)] #[in] #[out] #[opt] pbIV: PUCHAR, cbIV: u32, #[size_param(7)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptEnumAlgorithms(dwAlgOperations: u32, pAlgCount: *mut u32, ppAlgList: *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
@@ -797,37 +801,37 @@ mod Windows {
         #[library("bcrypt.dll")]
         extern fn BCryptEnumRegisteredProviders(#[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_PROVIDERS) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptExportKey(hKey: BCRYPT_KEY_HANDLE, #[opt] hExportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[size_param(4)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptExportKey(hKey: BCRYPT_KEY_HANDLE, #[opt] hExportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[size_param(4)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptFinalizeKeyPair(#[in] #[out] hKey: BCRYPT_KEY_HANDLE, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] pbOutput: *mut u8, cbOutput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] #[out] pbOutput: PUCHAR, cbOutput: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptFreeBuffer(pvBuffer: *const void);
+        extern fn BCryptFreeBuffer(#[in] pvBuffer: *mut void);
         #[library("bcrypt.dll")]
-        extern fn BCryptGenRandom(#[opt] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] pbBuffer: *mut u8, cbBuffer: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptGenRandom(#[opt] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] #[out] pbBuffer: PUCHAR, cbBuffer: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptGenerateKeyPair(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, dwLength: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptGenerateSymmetricKey(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[opt] pbKeyObject: *mut u8, cbKeyObject: u32, #[size_param(5)] pbSecret: *const u8, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptGenerateSymmetricKey(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[out] #[opt] pbKeyObject: PUCHAR, cbKeyObject: u32, #[size_param(5)] pbSecret: PUCHAR, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptGetFipsAlgorithmMode(pfEnabled: *mut bool) -> NTSTATUS;
+        extern fn BCryptGetFipsAlgorithmMode(pfEnabled: *mut BOOLEAN) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptGetProperty(hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptGetProperty(hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbSecret: *const u8, cbSecret: u32, #[size_param(4)] pbInput: *const u8, cbInput: u32, #[size_param(6)] pbOutput: *mut u8, cbOutput: u32) -> NTSTATUS;
+        extern fn BCryptHash(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, #[size_param(2)] #[opt] pbSecret: PUCHAR, cbSecret: u32, #[size_param(4)] pbInput: PUCHAR, cbInput: u32, #[size_param(6)] #[out] pbOutput: PUCHAR, cbOutput: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptHashData(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptHashData(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[size_param(2)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptImportKey(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] #[opt] pbKeyObject: *mut u8, cbKeyObject: u32, #[size_param(7)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptImportKey(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] #[out] #[opt] pbKeyObject: PUCHAR, cbKeyObject: u32, #[size_param(7)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptImportKeyPair(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptImportKeyPair(hAlgorithm: BCRYPT_ALG_HANDLE, #[opt] hImportKey: BCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(5)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptKeyDerivation(hKey: BCRYPT_KEY_HANDLE, #[opt] pParameterList: *const BCryptBufferDesc, #[size_param(3)] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptKeyDerivation(hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pParameterList: *mut BCryptBufferDesc, #[size_param(3)] #[out] pbDerivedKey: PUCHAR, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptOpenAlgorithmProvider(phAlgorithm: *mut BCRYPT_ALG_HANDLE, pszAlgId: PCWSTR, #[opt] pszImplementation: PCWSTR, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptProcessMultiOperations(#[in] #[out] hObject: BCRYPT_HANDLE, operationType: BCRYPT_MULTI_OPERATION_TYPE, #[size_param(3)] pOperations: *const void, cbOperations: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptProcessMultiOperations(#[in] #[out] hObject: BCRYPT_HANDLE, operationType: BCRYPT_MULTI_OPERATION_TYPE, #[size_param(3)] #[in] pOperations: *mut void, cbOperations: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptQueryContextConfiguration(dwTable: u32, pszContext: PCWSTR, #[in] #[out] pcbBuffer: *mut u32, ppBuffer: *mut PCRYPT_CONTEXT_CONFIG) -> NTSTATUS;
         #[library("bcrypt.dll")]
@@ -845,15 +849,15 @@ mod Windows {
         #[library("bcrypt.dll")]
         extern fn BCryptSecretAgreement(hPrivKey: BCRYPT_KEY_HANDLE, hPubKey: BCRYPT_KEY_HANDLE, phAgreedSecret: *mut BCRYPT_SECRET_HANDLE, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptSetContextFunctionProperty(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pszProperty: PCWSTR, cbValue: u32, #[size_param(5)] #[opt] pbValue: *const u8) -> NTSTATUS;
+        extern fn BCryptSetContextFunctionProperty(dwTable: u32, pszContext: PCWSTR, dwInterface: u32, pszFunction: PCWSTR, pszProperty: PCWSTR, cbValue: u32, #[size_param(5)] #[opt] pbValue: PUCHAR) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptSetProperty(#[in] #[out] hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptSetProperty(#[in] #[out] hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] pbInput: PUCHAR, cbInput: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptSignHash(hKey: BCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbInput: *const u8, cbInput: u32, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptSignHash(hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(3)] pbInput: PUCHAR, cbInput: u32, #[size_param(5)] #[out] #[opt] pbOutput: PUCHAR, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptUnregisterConfigChangeNotify(hEvent: HANDLE) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptVerifySignature(hKey: BCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbHash: *const u8, cbHash: u32, #[size_param(5)] pbSignature: *const u8, cbSignature: u32, dwFlags: u32) -> NTSTATUS;
+        extern fn BCryptVerifySignature(hKey: BCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(3)] pbHash: PUCHAR, cbHash: u32, #[size_param(5)] pbSignature: PUCHAR, cbSignature: u32, dwFlags: u32) -> NTSTATUS;
         const CRYPT_ALL_FUNCTIONS: i32 = 1;
         const CRYPT_ALL_PROVIDERS: i32 = 2;
         const CRYPT_ANY: i32 = 4;

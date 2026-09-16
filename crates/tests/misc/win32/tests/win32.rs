@@ -114,7 +114,7 @@ fn function() -> Result<()> {
 fn bool_as_error() {
     unsafe {
         helpers::set_thread_ui_language();
-        let error = SetEvent(HANDLE(0 as _)).ok().unwrap_err();
+        let error = SetEvent(core::ptr::null_mut()).ok().unwrap_err();
 
         assert_eq!(error.code(), HRESULT(-2147024890));
         let message: String = error.message();
@@ -134,11 +134,15 @@ fn com() -> Result<()> {
             .ok()?;
         assert!(copied == 4);
 
-        let mut position = 0;
+        let mut position = ULARGE_INTEGER::default();
         stream
-            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut position))
+            .Seek(
+                LARGE_INTEGER { QuadPart: 0 },
+                STREAM_SEEK_SET as u32,
+                Some(&mut position),
+            )
             .ok()?;
-        assert!(position == 0);
+        assert!(position.QuadPart == 0);
 
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
@@ -229,16 +233,16 @@ fn interface() -> Result<()> {
 fn callback() {
     unsafe {
         let a: PROPENUMPROCA = Some(callback_a);
-        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), s!("hello a"), HANDLE(456 as _)));
+        assert!(BOOL(789) == a.unwrap()(123 as HWND, s!("hello a"), 456 as HANDLE));
 
         let a: PROPENUMPROCW = Some(callback_w);
-        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), w!("hello w"), HANDLE(456 as _)));
+        assert!(BOOL(789) == a.unwrap()(123 as HWND, w!("hello w"), 456 as HANDLE));
     }
 }
 
 extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BOOL {
-    assert!(param0.0 == 123 as _);
-    assert!(param2.0 == 456 as _);
+    assert!(param0 as usize == 123);
+    assert!(param2 as usize == 456);
 
     let s = unsafe { param1.to_string().unwrap() };
     assert!(s == "hello a");
@@ -246,8 +250,8 @@ extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BO
 }
 
 extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> BOOL {
-    assert!(param0.0 == 123 as _);
-    assert!(param2.0 == 456 as _);
+    assert!(param0 as usize == 123);
+    assert!(param2 as usize == 456);
     let s = unsafe { param1.to_string().unwrap() };
     assert!(s == "hello w");
     BOOL(789)

@@ -107,12 +107,9 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtwqJoinWorkQueue(workqueueid: u32, hfile: super::HANDLE) -> windows_core::Result<super::HANDLE> {
+pub unsafe fn RtwqJoinWorkQueue(workqueueid: u32, hfile: super::HANDLE, out: *mut super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqJoinWorkQueue(workqueueid : u32, hfile : super::HANDLE, out : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqJoinWorkQueue(workqueueid, hfile, &mut result__).map(|| result__)
-    }
+    unsafe { RtwqJoinWorkQueue(workqueueid, hfile, out as _) }
 }
 #[inline]
 pub unsafe fn RtwqLockPlatform() -> windows_core::HRESULT {
@@ -180,21 +177,15 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> windows_core::Result<super::HANDLE> {
+pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64, prequest: *mut super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqSetDeadline(workqueueid : u32, deadlineinhns : i64, prequest : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).map(|| result__)
-    }
+    unsafe { RtwqSetDeadline(workqueueid, deadlineinhns, prequest as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtwqSetDeadline2(workqueueid: u32, deadlineinhns: i64, predeadlineinhns: i64) -> windows_core::Result<super::HANDLE> {
+pub unsafe fn RtwqSetDeadline2(workqueueid: u32, deadlineinhns: i64, predeadlineinhns: i64, prequest: *mut super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("rtworkq.dll" "system" fn RtwqSetDeadline2(workqueueid : u32, deadlineinhns : i64, predeadlineinhns : i64, prequest : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, &mut result__).map(|| result__)
-    }
+    unsafe { RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, prequest as _) }
 }
 #[inline]
 pub unsafe fn RtwqSetLongRunning(workqueueid: u32, enable: bool) -> windows_core::HRESULT {
@@ -470,16 +461,14 @@ impl Default for RTWQASYNCRESULT {
     }
 }
 pub type RTWQPERIODICCALLBACK = Option<unsafe extern "system" fn(context: windows_core::Ref<windows_core::IUnknown>)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RTWQWORKITEM_KEY(pub u64);
-pub const RTWQ_E_BUFFERTOOSMALL: i32 = -1072875855;
-pub const RTWQ_E_INVALID_WORKQUEUE: i32 = -1072875777;
-pub const RTWQ_E_NOT_FOUND: i32 = -1072875819;
-pub const RTWQ_E_NOT_INITIALIZED: i32 = -1072875850;
-pub const RTWQ_E_OPERATION_CANCELLED: i32 = -1072875795;
-pub const RTWQ_E_SHUTDOWN: i32 = -1072873851;
-pub const RTWQ_E_UNEXPECTED: i32 = -1072875845;
+pub type RTWQWORKITEM_KEY = u64;
+pub const RTWQ_E_BUFFERTOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D36B1_u32 as _);
+pub const RTWQ_E_INVALID_WORKQUEUE: windows_core::HRESULT = windows_core::HRESULT(0xC00D36FF_u32 as _);
+pub const RTWQ_E_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D36D5_u32 as _);
+pub const RTWQ_E_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0xC00D36B6_u32 as _);
+pub const RTWQ_E_OPERATION_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D36ED_u32 as _);
+pub const RTWQ_E_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D3E85_u32 as _);
+pub const RTWQ_E_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D36BB_u32 as _);
 pub const RTWQ_MULTITHREADED_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 2;
 pub const RTWQ_STANDARD_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 0;
 pub const RTWQ_WINDOW_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = 1;

@@ -1,6 +1,4 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BOOL(pub i32);
+pub type BOOL = i32;
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
     pub unsafe fn IntoParam(&self, value: *const Struct) {

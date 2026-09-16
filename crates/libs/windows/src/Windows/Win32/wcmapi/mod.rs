@@ -4,30 +4,30 @@ pub unsafe fn WcmFreeMemory(pmemory: *mut core::ffi::c_void) {
     unsafe { WcmFreeMemory(pmemory as _) }
 }
 #[inline]
-pub unsafe fn WcmGetProfileList(preserved: Option<*const core::ffi::c_void>, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32 {
-    windows_core::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *const core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
+pub unsafe fn WcmGetProfileList(preserved: Option<*mut core::ffi::c_void>, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32 {
+    windows_core::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *mut core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
     unsafe { WcmGetProfileList(preserved.unwrap_or(core::mem::zeroed()) as _, ppprofilelist as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn WcmQueryProperty<P1>(pinterface: Option<*const windows_core::GUID>, strprofilename: P1, property: WCM_PROPERTY, preserved: Option<*const core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut super::PBYTE) -> u32
+pub unsafe fn WcmQueryProperty<P1>(pinterface: Option<*const windows_core::GUID>, strprofilename: P1, property: WCM_PROPERTY, preserved: Option<*mut core::ffi::c_void>, pdwdatasize: super::PDWORD, ppdata: *mut super::PBYTE) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut super::PBYTE) -> u32);
+    windows_core::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *mut core::ffi::c_void, pdwdatasize : super::PDWORD, ppdata : *mut super::PBYTE) -> u32);
     unsafe { WcmQueryProperty(pinterface.unwrap_or(core::mem::zeroed()) as _, strprofilename.param().abi(), property, preserved.unwrap_or(core::mem::zeroed()) as _, pdwdatasize as _, ppdata as _) }
 }
 #[inline]
-pub unsafe fn WcmSetProfileList(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: bool, preserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : windows_core::BOOL, preserved : *const core::ffi::c_void) -> u32);
+pub unsafe fn WcmSetProfileList(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: bool, preserved: Option<*mut core::ffi::c_void>) -> u32 {
+    windows_core::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : windows_core::BOOL, preserved : *mut core::ffi::c_void) -> u32);
     unsafe { WcmSetProfileList(pprofilelist, dwposition, fignoreunknownprofiles.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WcmSetProperty<P1>(pinterface: Option<*const windows_core::GUID>, strprofilename: P1, property: WCM_PROPERTY, preserved: Option<*const core::ffi::c_void>, pbdata: Option<&[u8]>) -> u32
+pub unsafe fn WcmSetProperty<P1>(pinterface: Option<*const windows_core::GUID>, strprofilename: P1, property: WCM_PROPERTY, preserved: Option<*mut core::ffi::c_void>, pbdata: Option<&[u8]>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
+    windows_core::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *mut core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
     unsafe { WcmSetProperty(pinterface.unwrap_or(core::mem::zeroed()) as _, strprofilename.param().abi(), property, preserved.unwrap_or(core::mem::zeroed()) as _, pbdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 pub type PWCM_CONNECTION_COST = *mut WCM_CONNECTION_COST;

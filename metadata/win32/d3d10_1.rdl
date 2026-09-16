@@ -4,7 +4,7 @@ mod Windows {
         #[library("d3d10_1.dll")]
         extern fn D3D10CreateDevice1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
         #[library("d3d10_1.dll")]
-        extern fn D3D10CreateDeviceAndSwapChain1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[opt] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
+        extern fn D3D10CreateDeviceAndSwapChain1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[in] #[opt] pSwapChainDesc: *mut DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
         const D3D10_1_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
         const D3D10_1_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6;
         const D3D10_1_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6;

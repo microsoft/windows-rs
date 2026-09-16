@@ -309,7 +309,7 @@ mod Windows {
             fn GetAppendWindowEnd(&self) -> f64;
             fn SetAppendWindowEnd(&self, time: f64) -> HRESULT;
             fn Append(&self, #[size_param(1)] pData: *const u8, len: u32) -> HRESULT;
-            fn AppendByteStream(&self, pStream: IMFByteStream, #[opt] pMaxLen: *const DWORDLONG) -> HRESULT;
+            fn AppendByteStream(&self, pStream: IMFByteStream, #[in] #[opt] pMaxLen: *mut DWORDLONG) -> HRESULT;
             fn Abort(&self) -> HRESULT;
             fn Remove(&self, start: f64, end: f64) -> HRESULT;
         }
@@ -335,8 +335,8 @@ mod Windows {
         interface IMFTimedText: IUnknown {
             fn RegisterNotifications(&self, #[opt] notify: IMFTimedTextNotify) -> HRESULT;
             fn SelectTrack(&self, trackId: u32, selected: BOOL) -> HRESULT;
-            fn AddDataSource(&self, byteStream: IMFByteStream, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, trackId: *mut u32) -> HRESULT;
-            fn AddDataSourceFromUrl(&self, url: PCWSTR, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, trackId: *mut u32) -> HRESULT;
+            fn AddDataSource(&self, byteStream: IMFByteStream, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, #[in] #[out] trackId: *mut u32) -> HRESULT;
+            fn AddDataSourceFromUrl(&self, url: PCWSTR, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, isDefault: BOOL, #[in] #[out] trackId: *mut u32) -> HRESULT;
             fn AddTrack(&self, #[opt] label: PCWSTR, #[opt] language: PCWSTR, kind: MF_TIMED_TEXT_TRACK_KIND, track: *mut IMFTimedTextTrack) -> HRESULT;
             fn RemoveTrack(&self, track: IMFTimedTextTrack) -> HRESULT;
             fn GetCueTimeOffset(&self, offset: *mut f64) -> HRESULT;
@@ -350,7 +350,7 @@ mod Windows {
         }
         #[guid(0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432)]
         interface IMFTimedTextBinary: IUnknown {
-            fn GetData(&self, data: *mut *mut u8, length: *mut u32) -> HRESULT;
+            fn GetData(&self, #[out] data: *const *const u8, length: *mut u32) -> HRESULT;
         }
         #[guid(0x3c5f3e8a_90c0_464e_8136_898d2975f847)]
         interface IMFTimedTextBouten: IUnknown {

@@ -1,7 +1,7 @@
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-windows_link::link!("scarddlg.dll" "system" fn GetOpenCardNameA(param0 : *mut OPENCARDNAMEA) -> i32);
+windows_link::link!("scarddlg.dll" "system" fn GetOpenCardNameA(param0 : LPOPENCARDNAMEA) -> i32);
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-windows_link::link!("scarddlg.dll" "system" fn GetOpenCardNameW(param0 : *mut OPENCARDNAMEW) -> i32);
+windows_link::link!("scarddlg.dll" "system" fn GetOpenCardNameW(param0 : LPOPENCARDNAMEW) -> i32);
 #[cfg(feature = "winnt")]
 windows_link::link!("winscard.dll" "system" fn SCardAccessStartedEvent() -> super::HANDLE);
 windows_link::link!("winscard.dll" "system" fn SCardAddReaderToGroupA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, szgroupname : windows_sys::core::PCSTR) -> i32);
@@ -9,76 +9,113 @@ windows_link::link!("winscard.dll" "system" fn SCardAddReaderToGroupW(hcontext :
 windows_link::link!("winscard.dll" "system" fn SCardAudit(hcontext : SCARDCONTEXT, dwevent : u32) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardBeginTransaction(hcard : SCARDHANDLE) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardCancel(hcontext : SCARDCONTEXT) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardConnectA(hcontext : SCARDCONTEXT, szreader : windows_sys::core::PCSTR, dwsharemode : u32, dwpreferredprotocols : u32, phcard : *mut SCARDHANDLE, pdwactiveprotocol : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardConnectW(hcontext : SCARDCONTEXT, szreader : windows_sys::core::PCWSTR, dwsharemode : u32, dwpreferredprotocols : u32, phcard : *mut SCARDHANDLE, pdwactiveprotocol : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardControl(hcard : SCARDHANDLE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardConnectA(hcontext : SCARDCONTEXT, szreader : windows_sys::core::PCSTR, dwsharemode : u32, dwpreferredprotocols : u32, phcard : LPSCARDHANDLE, pdwactiveprotocol : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardConnectW(hcontext : SCARDCONTEXT, szreader : windows_sys::core::PCWSTR, dwsharemode : u32, dwpreferredprotocols : u32, phcard : LPSCARDHANDLE, pdwactiveprotocol : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardControl(hcard : SCARDHANDLE, dwcontrolcode : u32, lpinbuffer : super::LPCVOID, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardDisconnect(hcard : SCARDHANDLE, dwdisposition : u32) -> i32);
 windows_link::link!("scarddlg.dll" "system" fn SCardDlgExtendedError() -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardEndTransaction(hcard : SCARDHANDLE, dwdisposition : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardEstablishContext(dwscope : u32, pvreserved1 : *const core::ffi::c_void, pvreserved2 : *const core::ffi::c_void, phcontext : *mut SCARDCONTEXT) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardEstablishContext(dwscope : u32, pvreserved1 : super::LPCVOID, pvreserved2 : super::LPCVOID, phcontext : LPSCARDCONTEXT) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardForgetCardTypeA(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardForgetCardTypeW(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardForgetReaderA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardForgetReaderGroupA(hcontext : SCARDCONTEXT, szgroupname : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardForgetReaderGroupW(hcontext : SCARDCONTEXT, szgroupname : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardForgetReaderW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardFreeMemory(hcontext : SCARDCONTEXT, pvmem : *const core::ffi::c_void) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetAttrib(hcard : SCARDHANDLE, dwattrid : u32, pbattr : *mut u8, pcbattrlen : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameA(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCSTR, dwproviderid : u32, szprovider : *mut i8, pcchprovider : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameW(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCWSTR, dwproviderid : u32, szprovider : *mut u16, pcchprovider : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetDeviceTypeIdA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, pdwdevicetypeid : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetDeviceTypeIdW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, pdwdevicetypeid : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetProviderIdA(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCSTR, pguidproviderid : *mut windows_sys::core::GUID) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetProviderIdW(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCWSTR, pguidproviderid : *mut windows_sys::core::GUID) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, szdeviceinstanceid : windows_sys::core::PCSTR, pcchdeviceinstanceid : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, szdeviceinstanceid : windows_sys::core::PCWSTR, pcchdeviceinstanceid : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetReaderIconA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, pbicon : *mut u8, pcbicon : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetReaderIconW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, pbicon : *mut u8, pcbicon : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetStatusChangeA(hcontext : SCARDCONTEXT, dwtimeout : u32, rgreaderstates : *mut SCARD_READERSTATEA, creaders : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetStatusChangeW(hcontext : SCARDCONTEXT, dwtimeout : u32, rgreaderstates : *mut SCARD_READERSTATEW, creaders : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardGetTransmitCount(hcard : SCARDHANDLE, pctransmitcount : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardIntroduceCardTypeA(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCSTR, pguidprimaryprovider : *const windows_sys::core::GUID, rgguidinterfaces : *const windows_sys::core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardIntroduceCardTypeW(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCWSTR, pguidprimaryprovider : *const windows_sys::core::GUID, rgguidinterfaces : *const windows_sys::core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardFreeMemory(hcontext : SCARDCONTEXT, pvmem : super::LPCVOID) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetAttrib(hcard : SCARDHANDLE, dwattrid : u32, pbattr : super::LPBYTE, pcbattrlen : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameA(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCSTR, dwproviderid : u32, szprovider : *mut i8, pcchprovider : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameW(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCWSTR, dwproviderid : u32, szprovider : *mut u16, pcchprovider : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetDeviceTypeIdA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, pdwdevicetypeid : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetDeviceTypeIdW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, pdwdevicetypeid : super::LPDWORD) -> i32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetProviderIdA(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCSTR, pguidproviderid : super::LPGUID) -> i32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetProviderIdW(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCWSTR, pguidproviderid : super::LPGUID) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, szdeviceinstanceid : windows_sys::core::PCSTR, pcchdeviceinstanceid : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, szdeviceinstanceid : windows_sys::core::PCWSTR, pcchdeviceinstanceid : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetReaderIconA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, pbicon : super::LPBYTE, pcbicon : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetReaderIconW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, pbicon : super::LPBYTE, pcbicon : super::LPDWORD) -> i32);
+windows_link::link!("winscard.dll" "system" fn SCardGetStatusChangeA(hcontext : SCARDCONTEXT, dwtimeout : u32, rgreaderstates : LPSCARD_READERSTATEA, creaders : u32) -> i32);
+windows_link::link!("winscard.dll" "system" fn SCardGetStatusChangeW(hcontext : SCARDCONTEXT, dwtimeout : u32, rgreaderstates : LPSCARD_READERSTATEW, creaders : u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardGetTransmitCount(hcard : SCARDHANDLE, pctransmitcount : super::LPDWORD) -> i32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("winscard.dll" "system" fn SCardIntroduceCardTypeA(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCSTR, pguidprimaryprovider : super::LPCGUID, rgguidinterfaces : super::LPCGUID, dwinterfacecount : u32, pbatr : LPCBYTE, pbatrmask : LPCBYTE, cbatrlen : u32) -> i32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("winscard.dll" "system" fn SCardIntroduceCardTypeW(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCWSTR, pguidprimaryprovider : super::LPCGUID, rgguidinterfaces : super::LPCGUID, dwinterfacecount : u32, pbatr : LPCBYTE, pbatrmask : LPCBYTE, cbatrlen : u32) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardIntroduceReaderA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, szdevicename : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardIntroduceReaderGroupA(hcontext : SCARDCONTEXT, szgroupname : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardIntroduceReaderGroupW(hcontext : SCARDCONTEXT, szgroupname : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardIntroduceReaderW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, szdevicename : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardIsValidContext(hcontext : SCARDCONTEXT) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListCardsA(hcontext : SCARDCONTEXT, pbatr : *const u8, rgquidinterfaces : *const windows_sys::core::GUID, cguidinterfacecount : u32, mszcards : *mut i8, pcchcards : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListCardsW(hcontext : SCARDCONTEXT, pbatr : *const u8, rgquidinterfaces : *const windows_sys::core::GUID, cguidinterfacecount : u32, mszcards : *mut u16, pcchcards : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListInterfacesA(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCSTR, pguidinterfaces : *mut windows_sys::core::GUID, pcguidinterfaces : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListInterfacesW(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCWSTR, pguidinterfaces : *mut windows_sys::core::GUID, pcguidinterfaces : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListReaderGroupsA(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PSTR, pcchgroups : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListReaderGroupsW(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PWSTR, pcchgroups : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListReadersA(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PCSTR, mszreaders : windows_sys::core::PCSTR, pcchreaders : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListReadersW(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PCWSTR, mszreaders : windows_sys::core::PCWSTR, pcchreaders : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdA(hcontext : SCARDCONTEXT, szdeviceinstanceid : windows_sys::core::PCSTR, mszreaders : windows_sys::core::PCSTR, pcchreaders : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdW(hcontext : SCARDCONTEXT, szdeviceinstanceid : windows_sys::core::PCWSTR, mszreaders : windows_sys::core::PCWSTR, pcchreaders : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardLocateCardsA(hcontext : SCARDCONTEXT, mszcards : windows_sys::core::PCSTR, rgreaderstates : *mut SCARD_READERSTATEA, creaders : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardLocateCardsByATRA(hcontext : SCARDCONTEXT, rgatrmasks : *const SCARD_ATRMASK, catrs : u32, rgreaderstates : *mut SCARD_READERSTATEA, creaders : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardLocateCardsByATRW(hcontext : SCARDCONTEXT, rgatrmasks : *const SCARD_ATRMASK, catrs : u32, rgreaderstates : *mut SCARD_READERSTATEW, creaders : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardLocateCardsW(hcontext : SCARDCONTEXT, mszcards : windows_sys::core::PCWSTR, rgreaderstates : *mut SCARD_READERSTATEW, creaders : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardReadCacheA(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCSTR, data : *mut u8, datalen : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardReadCacheW(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCWSTR, data : *mut u8, datalen : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardReconnect(hcard : SCARDHANDLE, dwsharemode : u32, dwpreferredprotocols : u32, dwinitialization : u32, pdwactiveprotocol : *mut u32) -> i32);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("winscard.dll" "system" fn SCardListCardsA(hcontext : SCARDCONTEXT, pbatr : LPCBYTE, rgquidinterfaces : super::LPCGUID, cguidinterfacecount : u32, mszcards : *mut i8, pcchcards : super::LPDWORD) -> i32);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("winscard.dll" "system" fn SCardListCardsW(hcontext : SCARDCONTEXT, pbatr : LPCBYTE, rgquidinterfaces : super::LPCGUID, cguidinterfacecount : u32, mszcards : *mut u16, pcchcards : super::LPDWORD) -> i32);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("winscard.dll" "system" fn SCardListInterfacesA(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCSTR, pguidinterfaces : super::LPGUID, pcguidinterfaces : super::LPDWORD) -> i32);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("winscard.dll" "system" fn SCardListInterfacesW(hcontext : SCARDCONTEXT, szcard : windows_sys::core::PCWSTR, pguidinterfaces : super::LPGUID, pcguidinterfaces : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardListReaderGroupsA(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PSTR, pcchgroups : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardListReaderGroupsW(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PWSTR, pcchgroups : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardListReadersA(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PCSTR, mszreaders : windows_sys::core::PCSTR, pcchreaders : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardListReadersW(hcontext : SCARDCONTEXT, mszgroups : windows_sys::core::PCWSTR, mszreaders : windows_sys::core::PCWSTR, pcchreaders : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdA(hcontext : SCARDCONTEXT, szdeviceinstanceid : windows_sys::core::PCSTR, mszreaders : windows_sys::core::PCSTR, pcchreaders : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdW(hcontext : SCARDCONTEXT, szdeviceinstanceid : windows_sys::core::PCWSTR, mszreaders : windows_sys::core::PCWSTR, pcchreaders : super::LPDWORD) -> i32);
+windows_link::link!("winscard.dll" "system" fn SCardLocateCardsA(hcontext : SCARDCONTEXT, mszcards : windows_sys::core::PCSTR, rgreaderstates : LPSCARD_READERSTATEA, creaders : u32) -> i32);
+windows_link::link!("winscard.dll" "system" fn SCardLocateCardsByATRA(hcontext : SCARDCONTEXT, rgatrmasks : LPSCARD_ATRMASK, catrs : u32, rgreaderstates : LPSCARD_READERSTATEA, creaders : u32) -> i32);
+windows_link::link!("winscard.dll" "system" fn SCardLocateCardsByATRW(hcontext : SCARDCONTEXT, rgatrmasks : LPSCARD_ATRMASK, catrs : u32, rgreaderstates : LPSCARD_READERSTATEW, creaders : u32) -> i32);
+windows_link::link!("winscard.dll" "system" fn SCardLocateCardsW(hcontext : SCARDCONTEXT, mszcards : windows_sys::core::PCWSTR, rgreaderstates : LPSCARD_READERSTATEW, creaders : u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardReadCacheA(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCSTR, data : super::PBYTE, datalen : *mut u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardReadCacheW(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCWSTR, data : super::PBYTE, datalen : *mut u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardReconnect(hcard : SCARDHANDLE, dwsharemode : u32, dwpreferredprotocols : u32, dwinitialization : u32, pdwactiveprotocol : super::LPDWORD) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardReleaseContext(hcontext : SCARDCONTEXT) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardReleaseStartedEvent());
 windows_link::link!("winscard.dll" "system" fn SCardRemoveReaderFromGroupA(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCSTR, szgroupname : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardRemoveReaderFromGroupW(hcontext : SCARDCONTEXT, szreadername : windows_sys::core::PCWSTR, szgroupname : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardSetAttrib(hcard : SCARDHANDLE, dwattrid : u32, pbattr : *const u8, cbattrlen : u32) -> i32);
+windows_link::link!("winscard.dll" "system" fn SCardSetAttrib(hcard : SCARDHANDLE, dwattrid : u32, pbattr : LPCBYTE, cbattrlen : u32) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardSetCardTypeProviderNameA(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCSTR, dwproviderid : u32, szprovider : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardSetCardTypeProviderNameW(hcontext : SCARDCONTEXT, szcardname : windows_sys::core::PCWSTR, dwproviderid : u32, szprovider : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardState(hcard : SCARDHANDLE, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardStatusA(hcard : SCARDHANDLE, mszreadernames : windows_sys::core::PCSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardStatusW(hcard : SCARDHANDLE, mszreadernames : windows_sys::core::PCWSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
-#[cfg(feature = "winsmcrd")]
-windows_link::link!("winscard.dll" "system" fn SCardTransmit(hcard : SCARDHANDLE, piosendpci : *const super::SCARD_IO_REQUEST, pbsendbuffer : *const u8, cbsendlength : u32, piorecvpci : *mut super::SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardState(hcard : SCARDHANDLE, pdwstate : super::LPDWORD, pdwprotocol : super::LPDWORD, pbatr : super::LPBYTE, pcbatrlen : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardStatusA(hcard : SCARDHANDLE, mszreadernames : windows_sys::core::PCSTR, pcchreaderlen : super::LPDWORD, pdwstate : super::LPDWORD, pdwprotocol : super::LPDWORD, pbatr : super::LPBYTE, pcbatrlen : super::LPDWORD) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardStatusW(hcard : SCARDHANDLE, mszreadernames : windows_sys::core::PCWSTR, pcchreaderlen : super::LPDWORD, pdwstate : super::LPDWORD, pdwprotocol : super::LPDWORD, pbatr : super::LPBYTE, pcbatrlen : super::LPDWORD) -> i32);
+#[cfg(all(feature = "minwindef", feature = "winsmcrd"))]
+windows_link::link!("winscard.dll" "system" fn SCardTransmit(hcard : SCARDHANDLE, piosendpci : super::LPCSCARD_IO_REQUEST, pbsendbuffer : LPCBYTE, cbsendlength : u32, piorecvpci : super::LPSCARD_IO_REQUEST, pbrecvbuffer : super::LPBYTE, pcbrecvlength : super::LPDWORD) -> i32);
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-windows_link::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardA(param0 : *mut OPENCARDNAME_EXA) -> i32);
+windows_link::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardA(param0 : LPOPENCARDNAME_EXA) -> i32);
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-windows_link::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardW(param0 : *mut OPENCARDNAME_EXW) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCSTR, data : *const u8, datalen : u32) -> i32);
-windows_link::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCWSTR, data : *const u8, datalen : u32) -> i32);
+windows_link::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardW(param0 : LPOPENCARDNAME_EXW) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCSTR, data : super::PBYTE, datalen : u32) -> i32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : SCARDCONTEXT, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCWSTR, data : super::PBYTE, datalen : u32) -> i32);
 pub type LPCBYTE = *const u8;
 pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: SCARDHANDLE, param2: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *const core::ffi::c_void) -> SCARDHANDLE>;

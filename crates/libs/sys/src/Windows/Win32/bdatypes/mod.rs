@@ -886,3 +886,4 @@ pub const StatusInactive: ComponentStatus = 1;
 pub const StatusUnavailable: ComponentStatus = 2;
 pub type TransmissionMode = i32;
 pub const USER_PRIVATE: MPEG2StreamType = 16;
+pub const _BDATYPES_: i32 = 1;

@@ -32,13 +32,13 @@ fn types() {
 #[test]
 fn callback() {
     unsafe {
-        extern "system" fn enum_window(_: *mut core::ffi::c_void, _: isize) -> i32 {
+        extern "system" fn enum_window(_: HWND, _: isize) -> i32 {
             0
         }
 
         EnumWindows(Some(enum_window), 0);
 
-        extern "system" fn wndproc(_: *mut core::ffi::c_void, _: u32, _: usize, _: isize) -> isize {
+        extern "system" fn wndproc(_: HWND, _: u32, _: usize, _: isize) -> isize {
             0
         }
 

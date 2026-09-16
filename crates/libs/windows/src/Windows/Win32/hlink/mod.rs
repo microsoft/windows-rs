@@ -1,79 +1,67 @@
 #[inline]
-pub unsafe fn HlinkClone<P0, P2, T>(pihl: P0, pihlsiteforclone: P2, dwsitedata: u32) -> windows_core::Result<T>
+pub unsafe fn HlinkClone<P0, P2>(pihl: P0, riid: *const windows_core::GUID, pihlsiteforclone: P2, dwsitedata: u32, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<IHlink>,
     P2: windows_core::Param<IHlinkSite>,
-    T: windows_core::Interface,
 {
     windows_core::link!("hlink.dll" "system" fn HlinkClone(pihl : *mut core::ffi::c_void, riid : *const windows_core::GUID, pihlsiteforclone : *mut core::ffi::c_void, dwsitedata : u32, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { HlinkClone(pihl.param().abi(), &T::IID, pihlsiteforclone.param().abi(), dwsitedata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { HlinkClone(pihl.param().abi(), riid, pihlsiteforclone.param().abi(), dwsitedata, ppvobj as _) }
 }
 #[inline]
-pub unsafe fn HlinkCreateBrowseContext<P0, T>(piunkouter: P0) -> windows_core::Result<T>
+pub unsafe fn HlinkCreateBrowseContext<P0>(piunkouter: P0, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("hlink.dll" "system" fn HlinkCreateBrowseContext(piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { HlinkCreateBrowseContext(piunkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { HlinkCreateBrowseContext(piunkouter.param().abi(), riid, ppvobj as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn HlinkCreateExtensionServices<P0, P2, P3, P4, T>(pwzadditionalheaders: P0, phwnd: super::HWND, pszusername: P2, pszpassword: P3, piunkouter: P4) -> windows_core::Result<T>
+pub unsafe fn HlinkCreateExtensionServices<P0, P2, P3, P4>(pwzadditionalheaders: P0, phwnd: super::HWND, pszusername: P2, pszpassword: P3, piunkouter: P4, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("hlink.dll" "system" fn HlinkCreateExtensionServices(pwzadditionalheaders : windows_core::PCWSTR, phwnd : super::HWND, pszusername : windows_core::PCWSTR, pszpassword : windows_core::PCWSTR, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { HlinkCreateExtensionServices(pwzadditionalheaders.param().abi(), phwnd, pszusername.param().abi(), pszpassword.param().abi(), piunkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { HlinkCreateExtensionServices(pwzadditionalheaders.param().abi(), phwnd, pszusername.param().abi(), pszpassword.param().abi(), piunkouter.param().abi(), riid, ppvobj as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn HlinkCreateFromData<P0, P1, P3, T>(pidataobj: P0, pihlsite: P1, dwsitedata: u32, piunkouter: P3) -> windows_core::Result<T>
+pub unsafe fn HlinkCreateFromData<P0, P1, P3>(pidataobj: P0, pihlsite: P1, dwsitedata: u32, piunkouter: P3, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IDataObject>,
     P1: windows_core::Param<IHlinkSite>,
     P3: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("hlink.dll" "system" fn HlinkCreateFromData(pidataobj : *mut core::ffi::c_void, pihlsite : *mut core::ffi::c_void, dwsitedata : u32, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { HlinkCreateFromData(pidataobj.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { HlinkCreateFromData(pidataobj.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), riid, ppvobj as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn HlinkCreateFromMoniker<P0, P1, P2, P3, P5, T>(pimktrgt: P0, pwzlocation: P1, pwzfriendlyname: P2, pihlsite: P3, dwsitedata: u32, piunkouter: P5) -> windows_core::Result<T>
+pub unsafe fn HlinkCreateFromMoniker<P0, P1, P2, P3, P5>(pimktrgt: P0, pwzlocation: P1, pwzfriendlyname: P2, pihlsite: P3, dwsitedata: u32, piunkouter: P5, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMoniker>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<IHlinkSite>,
     P5: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("hlink.dll" "system" fn HlinkCreateFromMoniker(pimktrgt : *mut core::ffi::c_void, pwzlocation : windows_core::PCWSTR, pwzfriendlyname : windows_core::PCWSTR, pihlsite : *mut core::ffi::c_void, dwsitedata : u32, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { HlinkCreateFromMoniker(pimktrgt.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { HlinkCreateFromMoniker(pimktrgt.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), riid, ppvobj as _) }
 }
 #[inline]
-pub unsafe fn HlinkCreateFromString<P0, P1, P2, P3, P5, T>(pwztarget: P0, pwzlocation: P1, pwzfriendlyname: P2, pihlsite: P3, dwsitedata: u32, piunkouter: P5) -> windows_core::Result<T>
+pub unsafe fn HlinkCreateFromString<P0, P1, P2, P3, P5>(pwztarget: P0, pwzlocation: P1, pwzfriendlyname: P2, pihlsite: P3, dwsitedata: u32, piunkouter: P5, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<IHlinkSite>,
     P5: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("hlink.dll" "system" fn HlinkCreateFromString(pwztarget : windows_core::PCWSTR, pwzlocation : windows_core::PCWSTR, pwzfriendlyname : windows_core::PCWSTR, pihlsite : *mut core::ffi::c_void, dwsitedata : u32, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { HlinkCreateFromString(pwztarget.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { HlinkCreateFromString(pwztarget.param().abi(), pwzlocation.param().abi(), pwzfriendlyname.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), riid, ppvobj as _) }
 }
 #[inline]
 pub unsafe fn HlinkCreateShortcut<P1, P2, P3>(grfhlshortcutf: u32, pihl: P1, pwzdir: P2, pwzfilename: P3, ppwzshortcutfile: *mut windows_core::PWSTR, dwreserved: u32) -> windows_core::HRESULT
@@ -236,16 +224,14 @@ where
     unsafe { HlinkResolveMonikerForData(pimkreference.param().abi(), reserved, pibc.param().abi(), cfmtetc, rgfmtetc as _, pibsc.param().abi(), pimkbase.param().abi()) }
 }
 #[inline]
-pub unsafe fn HlinkResolveShortcut<P0, P1, P3, T>(pwzshortcutfilename: P0, pihlsite: P1, dwsitedata: u32, piunkouter: P3) -> windows_core::Result<T>
+pub unsafe fn HlinkResolveShortcut<P0, P1, P3>(pwzshortcutfilename: P0, pihlsite: P1, dwsitedata: u32, piunkouter: P3, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IHlinkSite>,
     P3: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("hlink.dll" "system" fn HlinkResolveShortcut(pwzshortcutfilename : windows_core::PCWSTR, pihlsite : *mut core::ffi::c_void, dwsitedata : u32, piunkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { HlinkResolveShortcut(pwzshortcutfilename.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { HlinkResolveShortcut(pwzshortcutfilename.param().abi(), pihlsite.param().abi(), dwsitedata, piunkouter.param().abi(), riid, ppvobj as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -358,9 +344,9 @@ pub const HLINKSETF_TARGET: HLINKSETF = 1;
 pub type HLINKWHICHMK = i32;
 pub const HLINKWHICHMK_BASE: HLINKWHICHMK = 2;
 pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = 1;
-pub const HLINK_E_FIRST: i32 = -2147221248;
-pub const HLINK_S_DONTHIDE: i32 = 262400;
-pub const HLINK_S_FIRST: i32 = 262400;
+pub const HLINK_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
+pub const HLINK_S_DONTHIDE: windows_core::HRESULT = windows_core::HRESULT(0x40100_u32 as _);
+pub const HLINK_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40100_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLITEM {

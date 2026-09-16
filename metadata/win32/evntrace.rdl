@@ -10,11 +10,11 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CloseTrace(TraceHandle: PROCESSTRACE_HANDLE) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn ControlTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES, ControlCode: u32) -> u32;
+        extern fn ControlTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES, ControlCode: u32) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn ControlTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES, ControlCode: u32) -> u32;
+        extern fn ControlTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES, ControlCode: u32) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn CreateTraceInstanceId(RegHandle: HANDLE, #[in] #[out] InstInfo: *mut EVENT_INSTANCE_INFO) -> u32;
+        extern fn CreateTraceInstanceId(RegHandle: HANDLE, #[in] #[out] InstInfo: PEVENT_INSTANCE_INFO) -> u32;
         #[encoding("ansi")]
         const DIAG_LOGGER_NAMEA: String = "DiagLog";
         #[encoding("utf-16")]
@@ -58,7 +58,7 @@ mod Windows {
         }
         struct ETW_BUFFER_HEADER {
             Reserved1: [u32; 4],
-            TimeStamp: i64,
+            TimeStamp: LARGE_INTEGER,
             Reserved2: [u32; 4],
             ClientContext: ETW_BUFFER_CONTEXT,
             Reserved3: u32,
@@ -188,7 +188,7 @@ mod Windows {
             },
             ThreadId: u32,
             ProcessId: u32,
-            TimeStamp: i64,
+            TimeStamp: LARGE_INTEGER,
             RegHandle: u64,
             InstanceId: u32,
             ParentInstanceId: u32,
@@ -209,6 +209,8 @@ mod Windows {
             RegHandle: HANDLE,
             InstanceId: u32,
         }
+        #[encoding("ansi")]
+        const EVENT_LOGGER_NAME: String = "EventLog";
         #[encoding("ansi")]
         const EVENT_LOGGER_NAMEA: String = "EventLog";
         #[encoding("utf-16")]
@@ -292,7 +294,7 @@ mod Windows {
             },
             ThreadId: u32,
             ProcessId: u32,
-            TimeStamp: i64,
+            TimeStamp: LARGE_INTEGER,
             Anonymous3: union {
                 Guid: GUID,
                 GuidPtr: u64,
@@ -549,21 +551,23 @@ mod Windows {
         const EVENT_TRACE_USE_PAGED_MEMORY: i32 = 16777216;
         const EVENT_TRACE_USE_PROCTIME: i32 = 1;
         #[library("ADVAPI32.dll")]
-        extern fn EnableTrace(Enable: u32, EnableFlag: u32, EnableLevel: u32, ControlGuid: *const GUID, TraceId: CONTROLTRACE_ID) -> u32;
+        extern fn EnableTrace(Enable: u32, EnableFlag: u32, EnableLevel: u32, ControlGuid: LPCGUID, TraceId: CONTROLTRACE_ID) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EnableTraceEx(ProviderId: *const GUID, #[opt] SourceId: *const GUID, TraceId: CONTROLTRACE_ID, IsEnabled: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, EnableProperty: u32, #[opt] EnableFilterDesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
+        extern fn EnableTraceEx(ProviderId: LPCGUID, #[opt] SourceId: LPCGUID, TraceId: CONTROLTRACE_ID, IsEnabled: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, EnableProperty: u32, #[opt] EnableFilterDesc: PEVENT_FILTER_DESCRIPTOR) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EnableTraceEx2(TraceId: CONTROLTRACE_ID, ProviderId: *const GUID, ControlCode: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, Timeout: u32, #[opt] EnableParameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
+        extern fn EnableTraceEx2(TraceId: CONTROLTRACE_ID, ProviderId: LPCGUID, ControlCode: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, Timeout: u32, #[opt] EnableParameters: PENABLE_TRACE_PARAMETERS) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EnumerateTraceGuids(#[len_param(1)] #[in] #[out] GuidPropertiesArray: *mut PTRACE_GUID_PROPERTIES, PropertyArrayCount: u32, GuidCount: *mut u32) -> u32;
+        extern fn EnumerateTraceGuids(#[len_param(1)] #[in] #[out] GuidPropertiesArray: *mut PTRACE_GUID_PROPERTIES, PropertyArrayCount: u32, #[out] GuidCount: PULONG) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EnumerateTraceGuidsEx(TraceQueryInfoClass: TRACE_QUERY_INFO_CLASS, #[size_param(2)] #[opt] InBuffer: *const void, InBufferSize: u32, #[size_param(4)] #[opt] OutBuffer: *mut void, OutBufferSize: u32, ReturnLength: *mut u32) -> u32;
+        extern fn EnumerateTraceGuidsEx(TraceQueryInfoClass: TRACE_QUERY_INFO_CLASS, #[size_param(2)] #[in] #[opt] InBuffer: *mut void, InBufferSize: u32, #[size_param(4)] #[opt] OutBuffer: *mut void, OutBufferSize: u32, #[out] ReturnLength: PULONG) -> u32;
         const EventTraceConfigGuid: GUID = 0x01853a65_418f_4f36_aefc_dc0f1d2fd235;
         const EventTraceGuid: GUID = 0x68fdd900_4a3e_11d1_84f4_0000f80464e3;
         #[library("ADVAPI32.dll")]
-        extern fn FlushTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn FlushTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn FlushTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn FlushTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
+        #[encoding("ansi")]
+        const GLOBAL_LOGGER_NAME: String = "GlobalLogger";
         #[encoding("ansi")]
         const GLOBAL_LOGGER_NAMEA: String = "GlobalLogger";
         #[encoding("utf-16")]
@@ -573,11 +577,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn GetTraceEnableLevel(TraceHandle: TRACELOGGER_HANDLE) -> u8;
         #[library("ADVAPI32.dll")]
-        extern fn GetTraceLoggerHandle(Buffer: *const void) -> TRACELOGGER_HANDLE;
+        extern fn GetTraceLoggerHandle(#[in] Buffer: *mut void) -> TRACELOGGER_HANDLE;
         #[arch(X64 | Arm64)]
-        const INVALID_PROCESSTRACE_HANDLE: u64 = 18446744073709551615;
+        const INVALID_PROCESSTRACE_HANDLE: PROCESSTRACE_HANDLE = 18446744073709551615;
         #[arch(X86)]
-        const INVALID_PROCESSTRACE_HANDLE: u64 = 4294967295;
+        const INVALID_PROCESSTRACE_HANDLE: PROCESSTRACE_HANDLE = 4294967295;
+        #[encoding("ansi")]
+        const KERNEL_LOGGER_NAME: String = "NT Kernel Logger";
         #[encoding("ansi")]
         const KERNEL_LOGGER_NAMEA: String = "NT Kernel Logger";
         #[encoding("utf-16")]
@@ -590,9 +596,9 @@ mod Windows {
             DataType: u32,
         }
         #[library("ADVAPI32.dll")]
-        extern fn OpenTraceA(#[in] #[out] Logfile: *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE;
+        extern fn OpenTraceA(#[in] #[out] Logfile: PEVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
-        extern fn OpenTraceFromBufferStream(Options: *const ETW_OPEN_TRACE_OPTIONS, BufferCompletionCallback: PETW_BUFFER_COMPLETION_CALLBACK, #[opt] BufferCompletionContext: *const void) -> PROCESSTRACE_HANDLE;
+        extern fn OpenTraceFromBufferStream(Options: *const ETW_OPEN_TRACE_OPTIONS, BufferCompletionCallback: PETW_BUFFER_COMPLETION_CALLBACK, #[in] #[opt] BufferCompletionContext: *mut void) -> PROCESSTRACE_HANDLE;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromFile(LogFileName: PCWSTR, Options: *const ETW_OPEN_TRACE_OPTIONS, #[opt] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
@@ -600,26 +606,26 @@ mod Windows {
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromRealTimeLoggerWithAllocationOptions(LoggerName: PCWSTR, Options: *const ETW_OPEN_TRACE_OPTIONS, AllocationSize: usize, #[opt] MemoryPartitionHandle: HANDLE, #[opt] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
         #[library("ADVAPI32.dll")]
-        extern fn OpenTraceW(#[in] #[out] Logfile: *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE;
+        extern fn OpenTraceW(#[in] #[out] Logfile: PEVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE;
         type PCLASSIC_EVENT_ID = *mut CLASSIC_EVENT_ID;
         type PENABLE_TRACE_PARAMETERS = *mut ENABLE_TRACE_PARAMETERS;
         type PENABLE_TRACE_PARAMETERS_V1 = *mut ENABLE_TRACE_PARAMETERS_V1;
-        extern fn PETW_BUFFER_CALLBACK(#[size_param(1)] Buffer: *const ETW_BUFFER_HEADER, BufferSize: u32, ConsumerInfo: *const ETW_BUFFER_CALLBACK_INFORMATION, #[opt] CallbackContext: *const void) -> BOOL;
-        extern fn PETW_BUFFER_COMPLETION_CALLBACK(Buffer: *const ETW_BUFFER_HEADER, #[opt] CallbackContext: *const void);
+        extern fn PETW_BUFFER_CALLBACK(#[size_param(1)] Buffer: *const ETW_BUFFER_HEADER, BufferSize: u32, ConsumerInfo: *const ETW_BUFFER_CALLBACK_INFORMATION, #[in] #[opt] CallbackContext: *mut void) -> BOOL;
+        extern fn PETW_BUFFER_COMPLETION_CALLBACK(Buffer: *const ETW_BUFFER_HEADER, #[in] #[opt] CallbackContext: *mut void);
         type PETW_BUFFER_CONTEXT = *mut ETW_BUFFER_CONTEXT;
         type PETW_PMC_COUNTER_OWNER = *mut ETW_PMC_COUNTER_OWNER;
         type PETW_PMC_COUNTER_OWNERSHIP_STATUS = *mut ETW_PMC_COUNTER_OWNERSHIP_STATUS;
         type PETW_TRACE_PARTITION_INFORMATION = *mut ETW_TRACE_PARTITION_INFORMATION;
         type PETW_TRACE_PARTITION_INFORMATION_V2 = *mut ETW_TRACE_PARTITION_INFORMATION_V2;
-        extern fn PEVENT_CALLBACK(pEvent: *mut EVENT_TRACE);
+        extern fn PEVENT_CALLBACK(pEvent: PEVENT_TRACE);
         type PEVENT_FILTER_DESCRIPTOR = *mut EVENT_FILTER_DESCRIPTOR;
         type PEVENT_INSTANCE_HEADER = *mut EVENT_INSTANCE_HEADER;
         type PEVENT_INSTANCE_INFO = *mut EVENT_INSTANCE_INFO;
         type PEVENT_RECORD = *mut EVENT_RECORD;
-        extern fn PEVENT_RECORD_CALLBACK(EventRecord: *mut EVENT_RECORD);
+        extern fn PEVENT_RECORD_CALLBACK(EventRecord: PEVENT_RECORD);
         type PEVENT_TRACE = *mut EVENT_TRACE;
-        extern fn PEVENT_TRACE_BUFFER_CALLBACKA(Logfile: *mut EVENT_TRACE_LOGFILEA) -> u32;
-        extern fn PEVENT_TRACE_BUFFER_CALLBACKW(Logfile: *mut EVENT_TRACE_LOGFILEW) -> u32;
+        extern fn PEVENT_TRACE_BUFFER_CALLBACKA(Logfile: PEVENT_TRACE_LOGFILEA) -> u32;
+        extern fn PEVENT_TRACE_BUFFER_CALLBACKW(Logfile: PEVENT_TRACE_LOGFILEW) -> u32;
         type PEVENT_TRACE_HEADER = *mut EVENT_TRACE_HEADER;
         type PEVENT_TRACE_LOGFILEA = *mut EVENT_TRACE_LOGFILEA;
         type PEVENT_TRACE_LOGFILEW = *mut EVENT_TRACE_LOGFILEW;
@@ -651,7 +657,7 @@ mod Windows {
         type PTRACE_VERSION_INFO = *mut TRACE_VERSION_INFO;
         const PrivateLoggerNotificationGuid: GUID = 0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1;
         #[library("ADVAPI32.dll")]
-        extern fn ProcessTrace(#[len_param(1)] HandleArray: *const PROCESSTRACE_HANDLE, HandleCount: u32, #[opt] StartTime: *const FILETIME, #[opt] EndTime: *const FILETIME) -> u32;
+        extern fn ProcessTrace(#[len_param(1)] #[in] HandleArray: *mut PROCESSTRACE_HANDLE, HandleCount: u32, #[opt] StartTime: LPFILETIME, #[opt] EndTime: LPFILETIME) -> u32;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn ProcessTraceAddBufferToBufferStream(TraceHandle: PROCESSTRACE_HANDLE, #[size_param(2)] Buffer: *const ETW_BUFFER_HEADER, BufferSize: u32) -> u32;
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
@@ -659,21 +665,21 @@ mod Windows {
         #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn ProcessTraceBufferIncrementReference(TraceHandle: PROCESSTRACE_HANDLE, Buffer: *const ETW_BUFFER_HEADER) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn QueryAllTracesA(#[len_param(1)] PropertyArray: *mut PEVENT_TRACE_PROPERTIES, PropertyArrayCount: u32, LoggerCount: *mut u32) -> u32;
+        extern fn QueryAllTracesA(#[len_param(1)] PropertyArray: *mut PEVENT_TRACE_PROPERTIES, PropertyArrayCount: u32, #[out] LoggerCount: PULONG) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn QueryAllTracesW(#[len_param(1)] PropertyArray: *mut PEVENT_TRACE_PROPERTIES, PropertyArrayCount: u32, LoggerCount: *mut u32) -> u32;
+        extern fn QueryAllTracesW(#[len_param(1)] PropertyArray: *mut PEVENT_TRACE_PROPERTIES, PropertyArrayCount: u32, #[out] LoggerCount: PULONG) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn QueryTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn QueryTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn QueryTraceProcessingHandle(ProcessingHandle: PROCESSTRACE_HANDLE, InformationClass: ETW_PROCESS_HANDLE_INFO_TYPE, #[opt] InBuffer: *const void, InBufferSize: u32, #[opt] OutBuffer: *mut void, OutBufferSize: u32, #[in] #[out] ReturnLength: *mut u32) -> u32;
+        extern fn QueryTraceProcessingHandle(ProcessingHandle: PROCESSTRACE_HANDLE, InformationClass: ETW_PROCESS_HANDLE_INFO_TYPE, #[in] #[opt] InBuffer: *mut void, InBufferSize: u32, #[opt] OutBuffer: *mut void, OutBufferSize: u32, #[in] #[out] ReturnLength: PULONG) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn QueryTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn QueryTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn RegisterTraceGuidsA(RequestAddress: WMIDPREQUEST, #[opt] RequestContext: *const void, ControlGuid: *const GUID, GuidCount: u32, #[len_param(3)] #[opt] TraceGuidReg: *const TRACE_GUID_REGISTRATION, #[opt] MofImagePath: PCSTR, #[opt] MofResourceName: PCSTR, RegistrationHandle: *mut TRACEGUID_HANDLE) -> u32;
+        extern fn RegisterTraceGuidsA(RequestAddress: WMIDPREQUEST, #[in] #[opt] RequestContext: *mut void, ControlGuid: LPCGUID, GuidCount: u32, #[len_param(3)] #[opt] TraceGuidReg: PTRACE_GUID_REGISTRATION, #[opt] MofImagePath: PCSTR, #[opt] MofResourceName: PCSTR, RegistrationHandle: *mut TRACEGUID_HANDLE) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn RegisterTraceGuidsW(RequestAddress: WMIDPREQUEST, #[opt] RequestContext: *const void, ControlGuid: *const GUID, GuidCount: u32, #[len_param(3)] #[opt] TraceGuidReg: *const TRACE_GUID_REGISTRATION, #[opt] MofImagePath: PCWSTR, #[opt] MofResourceName: PCWSTR, RegistrationHandle: *mut TRACEGUID_HANDLE) -> u32;
+        extern fn RegisterTraceGuidsW(RequestAddress: WMIDPREQUEST, #[in] #[opt] RequestContext: *mut void, ControlGuid: LPCGUID, GuidCount: u32, #[len_param(3)] #[opt] TraceGuidReg: PTRACE_GUID_REGISTRATION, #[opt] MofImagePath: PCWSTR, #[opt] MofResourceName: PCWSTR, RegistrationHandle: *mut TRACEGUID_HANDLE) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn RemoveTraceCallback(pGuid: *const GUID) -> u32;
+        extern fn RemoveTraceCallback(pGuid: LPCGUID) -> u32;
         const SYSTEM_ALPC_KW_GENERAL: i32 = 1;
         const SYSTEM_CONFIG_KW_GRAPHICS: i32 = 2;
         const SYSTEM_CONFIG_KW_NETWORK: i32 = 8;
@@ -779,15 +785,15 @@ mod Windows {
         const SYSTEM_TIMER_KW_CLOCK_TIMER: i32 = 2;
         const SYSTEM_TIMER_KW_GENERAL: i32 = 1;
         #[library("ADVAPI32.dll")]
-        extern fn SetTraceCallback(pGuid: *const GUID, EventCallback: PEVENT_CALLBACK) -> u32;
+        extern fn SetTraceCallback(pGuid: LPCGUID, EventCallback: PEVENT_CALLBACK) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn StartTraceA(TraceId: *mut CONTROLTRACE_ID, InstanceName: PCSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn StartTraceA(TraceId: *mut CONTROLTRACE_ID, InstanceName: PCSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn StartTraceW(TraceId: *mut CONTROLTRACE_ID, InstanceName: PCWSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn StartTraceW(TraceId: *mut CONTROLTRACE_ID, InstanceName: PCWSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn StopTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn StopTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn StopTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+        extern fn StopTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
         const SystemAlpcProviderGuid: GUID = 0xfcb9baaf_e529_4980_92e9_ced1a6aadfdf;
         const SystemConfigProviderGuid: GUID = 0xfef3a8b6_318d_4b67_a96a_3b0f6b8f18fe;
         const SystemCpuProviderGuid: GUID = 0xc6c5265f_eae8_4650_aae4_9d48603d8510;
@@ -833,7 +839,7 @@ mod Windows {
             LoggerId: u32,
             EnableLevel: u32,
             EnableFlags: u32,
-            IsEnable: bool,
+            IsEnable: BOOLEAN,
         }
         struct TRACE_GUID_REGISTRATION {
             Guid: LPCGUID,
@@ -844,7 +850,7 @@ mod Windows {
         const TRACE_HEADER_FLAG_USE_GUID_PTR: i32 = 524288;
         const TRACE_HEADER_FLAG_USE_MOF_PTR: i32 = 1048576;
         const TRACE_HEADER_FLAG_USE_TIMESTAMP: i32 = 512;
-        type TRACE_INFO_CLASS = TRACE_QUERY_INFO_CLASS;
+        type TRACE_INFO_CLASS = _TRACE_QUERY_INFO_CLASS;
         #[repr(u32)]
         #[flags]
         enum TRACE_LBR_CONFIGURATION {
@@ -887,7 +893,7 @@ mod Windows {
             },
             ProviderVersion: u32,
             NumberOfProcessors: u32,
-            EndTime: i64,
+            EndTime: LARGE_INTEGER,
             TimerResolution: u32,
             MaximumFileSize: u32,
             LogFileMode: u32,
@@ -904,9 +910,9 @@ mod Windows {
             LoggerName: PWSTR,
             LogFileName: PWSTR,
             TimeZone: TIME_ZONE_INFORMATION,
-            BootTime: i64,
-            PerfFreq: i64,
-            StartTime: i64,
+            BootTime: LARGE_INTEGER,
+            PerfFreq: LARGE_INTEGER,
+            StartTime: LARGE_INTEGER,
             ReservedFlags: u32,
             BuffersLost: u32,
         }
@@ -923,7 +929,7 @@ mod Windows {
             },
             ProviderVersion: u32,
             NumberOfProcessors: u32,
-            EndTime: i64,
+            EndTime: LARGE_INTEGER,
             TimerResolution: u32,
             MaximumFileSize: u32,
             LogFileMode: u32,
@@ -940,9 +946,9 @@ mod Windows {
             LoggerName: u32,
             LogFileName: u32,
             TimeZone: TIME_ZONE_INFORMATION,
-            BootTime: i64,
-            PerfFreq: i64,
-            StartTime: i64,
+            BootTime: LARGE_INTEGER,
+            PerfFreq: LARGE_INTEGER,
+            StartTime: LARGE_INTEGER,
             ReservedFlags: u32,
             BuffersLost: u32,
         }
@@ -959,7 +965,7 @@ mod Windows {
             },
             ProviderVersion: u32,
             NumberOfProcessors: u32,
-            EndTime: i64,
+            EndTime: LARGE_INTEGER,
             TimerResolution: u32,
             MaximumFileSize: u32,
             LogFileMode: u32,
@@ -976,9 +982,9 @@ mod Windows {
             LoggerName: u64,
             LogFileName: u64,
             TimeZone: TIME_ZONE_INFORMATION,
-            BootTime: i64,
-            PerfFreq: i64,
-            StartTime: i64,
+            BootTime: LARGE_INTEGER,
+            PerfFreq: LARGE_INTEGER,
+            StartTime: LARGE_INTEGER,
             ReservedFlags: u32,
             BuffersLost: u32,
         }
@@ -1009,8 +1015,39 @@ mod Windows {
             Pid: u32,
             Flags: u32,
         }
+        type TRACE_QUERY_INFO_CLASS = _TRACE_QUERY_INFO_CLASS;
+        struct TRACE_STACK_CACHING_INFO {
+            Enabled: BOOLEAN,
+            CacheSize: u32,
+            BucketCount: u32,
+        }
+        struct TRACE_VERSION_INFO {
+            EtwTraceProcessingVersion: u32,
+            Reserved: u32,
+        }
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
+        extern "C" fn TraceConfigureLastBranchRecord(TraceId: CONTROLTRACE_ID, LbrConfiguration: TRACE_LBR_CONFIGURATION, #[len_param(3)] Events: *const CLASSIC_EVENT_ID, EventCount: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TraceEvent(TraceHandle: TRACELOGGER_HANDLE, EventTrace: PEVENT_TRACE_HEADER) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TraceEventInstance(TraceHandle: TRACELOGGER_HANDLE, EventTrace: PEVENT_INSTANCE_HEADER, InstInfo: PEVENT_INSTANCE_INFO, #[opt] ParentInstInfo: PEVENT_INSTANCE_INFO) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern "C" fn TraceMessage(LoggerHandle: TRACELOGGER_HANDLE, MessageFlags: u32, MessageGuid: LPCGUID, MessageNumber: u16, ...) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern "C" fn TraceMessageVa(LoggerHandle: TRACELOGGER_HANDLE, MessageFlags: u32, MessageGuid: LPCGUID, MessageNumber: u16, MessageArgList: va_list) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TraceQueryInformation(TraceId: CONTROLTRACE_ID, InformationClass: TRACE_INFO_CLASS, #[size_param(3)] TraceInformation: *mut void, InformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn TraceSetInformation(TraceId: CONTROLTRACE_ID, InformationClass: TRACE_INFO_CLASS, #[size_param(3)] #[in] TraceInformation: *mut void, InformationLength: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn UnregisterTraceGuids(RegistrationHandle: TRACEGUID_HANDLE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn UpdateTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn UpdateTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: PEVENT_TRACE_PROPERTIES) -> u32;
+        extern fn WMIDPREQUEST(RequestCode: WMIDPREQUESTCODE, #[in] RequestContext: *mut void, #[in] #[out] BufferSize: *mut u32, #[in] #[out] Buffer: *mut void) -> u32;
         #[repr(i32)]
-        enum TRACE_QUERY_INFO_CLASS {
+        enum _TRACE_QUERY_INFO_CLASS {
             TraceGuidQueryList = 0,
             TraceGuidQueryInfo = 1,
             TraceGuidQueryProcess = 2,
@@ -1042,39 +1079,6 @@ mod Windows {
             TraceContextRegisterInfo = 28,
             MaxTraceSetInfoClass = 29,
         }
-        struct TRACE_STACK_CACHING_INFO {
-            Enabled: bool,
-            CacheSize: u32,
-            BucketCount: u32,
-        }
-        struct TRACE_VERSION_INFO {
-            EtwTraceProcessingVersion: u32,
-            Reserved: u32,
-        }
-        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
-        extern "C" fn TraceConfigureLastBranchRecord(TraceId: CONTROLTRACE_ID, LbrConfiguration: TRACE_LBR_CONFIGURATION, #[len_param(3)] Events: *const CLASSIC_EVENT_ID, EventCount: u32) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern fn TraceEvent(TraceHandle: TRACELOGGER_HANDLE, EventTrace: *const EVENT_TRACE_HEADER) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern fn TraceEventInstance(TraceHandle: TRACELOGGER_HANDLE, EventTrace: *const EVENT_INSTANCE_HEADER, InstInfo: *const EVENT_INSTANCE_INFO, #[opt] ParentInstInfo: *const EVENT_INSTANCE_INFO) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern "C" fn TraceMessage(LoggerHandle: TRACELOGGER_HANDLE, MessageFlags: u32, MessageGuid: *const GUID, MessageNumber: u16, ...) -> u32;
-        #[arch(X64)]
-        #[library("ADVAPI32.dll")]
-        extern "C" fn TraceMessageVa(LoggerHandle: TRACELOGGER_HANDLE, MessageFlags: u32, MessageGuid: *const GUID, MessageNumber: u16, MessageArgList: *const i8) -> u32;
-        #[arch(X86 | Arm64)]
-        #[library("ADVAPI32.dll")]
-        extern "C" fn TraceMessageVa(LoggerHandle: TRACELOGGER_HANDLE, MessageFlags: u32, MessageGuid: *const GUID, MessageNumber: u16, MessageArgList: va_list) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern fn TraceQueryInformation(TraceId: CONTROLTRACE_ID, InformationClass: TRACE_INFO_CLASS, #[size_param(3)] TraceInformation: *mut void, InformationLength: u32, #[opt] ReturnLength: *mut u32) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern fn TraceSetInformation(TraceId: CONTROLTRACE_ID, InformationClass: TRACE_INFO_CLASS, #[size_param(3)] TraceInformation: *const void, InformationLength: u32) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern fn UnregisterTraceGuids(RegistrationHandle: TRACEGUID_HANDLE) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern fn UpdateTraceA(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-        #[library("ADVAPI32.dll")]
-        extern fn UpdateTraceW(TraceId: CONTROLTRACE_ID, #[opt] InstanceName: PCWSTR, #[in] #[out] Properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-        extern fn WMIDPREQUEST(RequestCode: WMIDPREQUESTCODE, RequestContext: *const void, #[in] #[out] BufferSize: *mut u32, #[in] #[out] Buffer: *mut void) -> u32;
+        const _typedef_TRACELOGGER_HANDLE: i32 = 1;
     }
 }

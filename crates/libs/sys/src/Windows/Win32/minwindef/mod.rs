@@ -12,25 +12,81 @@ pub type GLOBALHANDLE = super::HANDLE;
 pub type HFILE = i32;
 #[cfg(feature = "winnt")]
 pub type HGLOBAL = super::HANDLE;
-pub type HINSTANCE = *mut core::ffi::c_void;
-pub type HKEY = *mut core::ffi::c_void;
-pub type HKL = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HKEY = *mut HKEY__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HKEY__ {
+    pub unused: i32,
+}
+pub type HKL = *mut HKL__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HKL__ {
+    pub unused: i32,
+}
 #[cfg(feature = "winnt")]
 pub type HLOCAL = super::HANDLE;
-pub type HLSURF = *mut core::ffi::c_void;
-pub type HMETAFILE = *mut core::ffi::c_void;
+pub type HLSURF = *mut HLSURF__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HLSURF__ {
+    pub unused: i32,
+}
+pub type HMETAFILE = *mut HMETAFILE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HMETAFILE__ {
+    pub unused: i32,
+}
 pub type HMODULE = HINSTANCE;
-pub type HRGN = *mut core::ffi::c_void;
-pub type HRSRC = *mut core::ffi::c_void;
-pub type HSPRITE = *mut core::ffi::c_void;
-pub type HSTR = *mut core::ffi::c_void;
-pub type HTASK = *mut core::ffi::c_void;
-pub type HWINSTA = *mut core::ffi::c_void;
+pub type HRGN = *mut HRGN__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HRGN__ {
+    pub unused: i32,
+}
+pub type HRSRC = *mut HRSRC__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HRSRC__ {
+    pub unused: i32,
+}
+pub type HSPRITE = *mut HSPRITE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HSPRITE__ {
+    pub unused: i32,
+}
+pub type HSTR = *mut HSTR__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HSTR__ {
+    pub unused: i32,
+}
+pub type HTASK = *mut HTASK__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HTASK__ {
+    pub unused: i32,
+}
+pub type HWINSTA = *mut HWINSTA__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HWINSTA__ {
+    pub unused: i32,
+}
 #[cfg(feature = "winnt")]
 pub type LOCALHANDLE = super::HANDLE;
 pub type LPARAM = isize;
 pub type LPBOOL = *mut windows_sys::core::BOOL;
 pub type LPBYTE = *mut u8;
+pub type LPCVOID = *const core::ffi::c_void;
 pub type LPDWORD = *mut u32;
 pub type LPFILETIME = *mut FILETIME;
 #[cfg(feature = "winnt")]

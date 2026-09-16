@@ -112,54 +112,60 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryW(param0 : super::HWND, param1 : windows_core::PCWSTR, param2 : windows_core::PCWSTR) -> u32);
     unsafe { RasEditPhonebookEntryW(param0, param1.param().abi(), param2.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: Option<*mut windows_core::PSTR>, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesA(lpprasautodialaddresses : *mut windows_core::PSTR, lpdwcbrasautodialaddresses : *mut u32, lpdwcrasautodialaddresses : *mut u32) -> u32);
+pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: Option<*mut windows_core::PSTR>, lpdwcbrasautodialaddresses: super::LPDWORD, lpdwcrasautodialaddresses: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesA(lpprasautodialaddresses : *mut windows_core::PSTR, lpdwcbrasautodialaddresses : super::LPDWORD, lpdwcrasautodialaddresses : super::LPDWORD) -> u32);
     unsafe { RasEnumAutodialAddressesA(lpprasautodialaddresses.unwrap_or(core::mem::zeroed()) as _, lpdwcbrasautodialaddresses as _, lpdwcrasautodialaddresses as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: Option<*mut windows_core::PWSTR>, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesW(lpprasautodialaddresses : *mut windows_core::PWSTR, lpdwcbrasautodialaddresses : *mut u32, lpdwcrasautodialaddresses : *mut u32) -> u32);
+pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: Option<*mut windows_core::PWSTR>, lpdwcbrasautodialaddresses: super::LPDWORD, lpdwcrasautodialaddresses: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumAutodialAddressesW(lpprasautodialaddresses : *mut windows_core::PWSTR, lpdwcbrasautodialaddresses : super::LPDWORD, lpdwcrasautodialaddresses : super::LPDWORD) -> u32);
     unsafe { RasEnumAutodialAddressesW(lpprasautodialaddresses.unwrap_or(core::mem::zeroed()) as _, lpdwcbrasautodialaddresses as _, lpdwcrasautodialaddresses as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RasEnumConnectionsA(param0: Option<*mut tagRASCONNA>, param1: *mut u32, param2: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumConnectionsA(param0 : *mut tagRASCONNA, param1 : *mut u32, param2 : *mut u32) -> u32);
+pub unsafe fn RasEnumConnectionsA(param0: Option<*mut tagRASCONNA>, param1: super::LPDWORD, param2: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumConnectionsA(param0 : *mut tagRASCONNA, param1 : super::LPDWORD, param2 : super::LPDWORD) -> u32);
     unsafe { RasEnumConnectionsA(param0.unwrap_or(core::mem::zeroed()) as _, param1 as _, param2 as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RasEnumConnectionsW(param0: Option<*mut tagRASCONNW>, param1: *mut u32, param2: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumConnectionsW(param0 : *mut tagRASCONNW, param1 : *mut u32, param2 : *mut u32) -> u32);
+pub unsafe fn RasEnumConnectionsW(param0: Option<*mut tagRASCONNW>, param1: super::LPDWORD, param2: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumConnectionsW(param0 : *mut tagRASCONNW, param1 : super::LPDWORD, param2 : super::LPDWORD) -> u32);
     unsafe { RasEnumConnectionsW(param0.unwrap_or(core::mem::zeroed()) as _, param1 as _, param2 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasEnumDevicesA(param0: Option<*mut tagRASDEVINFOA>, param1: *mut u32, param2: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumDevicesA(param0 : *mut tagRASDEVINFOA, param1 : *mut u32, param2 : *mut u32) -> u32);
+pub unsafe fn RasEnumDevicesA(param0: Option<*mut tagRASDEVINFOA>, param1: super::LPDWORD, param2: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumDevicesA(param0 : *mut tagRASDEVINFOA, param1 : super::LPDWORD, param2 : super::LPDWORD) -> u32);
     unsafe { RasEnumDevicesA(param0.unwrap_or(core::mem::zeroed()) as _, param1 as _, param2 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasEnumDevicesW(param0: Option<*mut tagRASDEVINFOW>, param1: *mut u32, param2: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumDevicesW(param0 : *mut tagRASDEVINFOW, param1 : *mut u32, param2 : *mut u32) -> u32);
+pub unsafe fn RasEnumDevicesW(param0: Option<*mut tagRASDEVINFOW>, param1: super::LPDWORD, param2: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumDevicesW(param0 : *mut tagRASDEVINFOW, param1 : super::LPDWORD, param2 : super::LPDWORD) -> u32);
     unsafe { RasEnumDevicesW(param0.unwrap_or(core::mem::zeroed()) as _, param1 as _, param2 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasEnumEntriesA<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYNAMEA>, param3: *mut u32, param4: *mut u32) -> u32
+pub unsafe fn RasEnumEntriesA<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYNAMEA>, param3: super::LPDWORD, param4: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumEntriesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut tagRASENTRYNAMEA, param3 : *mut u32, param4 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumEntriesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut tagRASENTRYNAMEA, param3 : super::LPDWORD, param4 : super::LPDWORD) -> u32);
     unsafe { RasEnumEntriesA(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasEnumEntriesW<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYNAMEW>, param3: *mut u32, param4: *mut u32) -> u32
+pub unsafe fn RasEnumEntriesW<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYNAMEW>, param3: super::LPDWORD, param4: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasEnumEntriesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *mut tagRASENTRYNAMEW, param3 : *mut u32, param4 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasEnumEntriesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *mut tagRASENTRYNAMEW, param3 : super::LPDWORD, param4 : super::LPDWORD) -> u32);
     unsafe { RasEnumEntriesW(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
 #[inline]
@@ -172,40 +178,46 @@ pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const tagRASEAPUSERI
     windows_core::link!("rasapi32.dll" "system" fn RasFreeEapUserIdentityW(praseapuseridentity : *const tagRASEAPUSERIDENTITYW));
     unsafe { RasFreeEapUserIdentityW(praseapuseridentity) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetAutodialAddressA<P0>(param0: P0, param1: Option<*const u32>, param2: Option<*mut tagRASAUTODIALENTRYA>, param3: *mut u32, param4: *mut u32) -> u32
+pub unsafe fn RasGetAutodialAddressA<P0>(param0: P0, param1: Option<super::LPDWORD>, param2: Option<*mut tagRASAUTODIALENTRYA>, param3: super::LPDWORD, param4: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialAddressA(param0 : windows_core::PCSTR, param1 : *const u32, param2 : *mut tagRASAUTODIALENTRYA, param3 : *mut u32, param4 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialAddressA(param0 : windows_core::PCSTR, param1 : super::LPDWORD, param2 : *mut tagRASAUTODIALENTRYA, param3 : super::LPDWORD, param4 : super::LPDWORD) -> u32);
     unsafe { RasGetAutodialAddressA(param0.param().abi(), param1.unwrap_or(core::mem::zeroed()) as _, param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetAutodialAddressW<P0>(param0: P0, param1: Option<*const u32>, param2: Option<*mut tagRASAUTODIALENTRYW>, param3: *mut u32, param4: *mut u32) -> u32
+pub unsafe fn RasGetAutodialAddressW<P0>(param0: P0, param1: Option<super::LPDWORD>, param2: Option<*mut tagRASAUTODIALENTRYW>, param3: super::LPDWORD, param4: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : windows_core::PCWSTR, param1 : *const u32, param2 : *mut tagRASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : windows_core::PCWSTR, param1 : super::LPDWORD, param2 : *mut tagRASAUTODIALENTRYW, param3 : super::LPDWORD, param4 : super::LPDWORD) -> u32);
     unsafe { RasGetAutodialAddressW(param0.param().abi(), param1.unwrap_or(core::mem::zeroed()) as _, param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut windows_core::BOOL) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialEnableA(param0 : u32, param1 : *mut windows_core::BOOL) -> u32);
+pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: super::LPBOOL) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialEnableA(param0 : u32, param1 : super::LPBOOL) -> u32);
     unsafe { RasGetAutodialEnableA(param0, param1 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut windows_core::BOOL) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialEnableW(param0 : u32, param1 : *mut windows_core::BOOL) -> u32);
+pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: super::LPBOOL) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialEnableW(param0 : u32, param1 : super::LPBOOL) -> u32);
     unsafe { RasGetAutodialEnableW(param0, param1 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut core::ffi::c_void, param2: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialParamA(param0 : u32, param1 : *mut core::ffi::c_void, param2 : *mut u32) -> u32);
+pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut core::ffi::c_void, param2: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialParamA(param0 : u32, param1 : *mut core::ffi::c_void, param2 : super::LPDWORD) -> u32);
     unsafe { RasGetAutodialParamA(param0, param1 as _, param2 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut core::ffi::c_void, param2: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialParamW(param0 : u32, param1 : *mut core::ffi::c_void, param2 : *mut u32) -> u32);
+pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut core::ffi::c_void, param2: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialParamW(param0 : u32, param1 : *mut core::ffi::c_void, param2 : super::LPDWORD) -> u32);
     unsafe { RasGetAutodialParamW(param0, param1 as _, param2 as _) }
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
@@ -225,14 +237,16 @@ pub unsafe fn RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: *mut 
     windows_core::link!("rasapi32.dll" "system" fn RasGetConnectionStatistics(hrasconn : HRASCONN, lpstatistics : *mut RAS_STATS) -> u32);
     unsafe { RasGetConnectionStatistics(hrasconn, lpstatistics as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetCountryInfoA(param0: Option<*mut RASCTRYINFO>, param1: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetCountryInfoA(param0 : *mut RASCTRYINFO, param1 : *mut u32) -> u32);
+pub unsafe fn RasGetCountryInfoA(param0: Option<*mut RASCTRYINFO>, param1: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetCountryInfoA(param0 : *mut RASCTRYINFO, param1 : super::LPDWORD) -> u32);
     unsafe { RasGetCountryInfoA(param0.unwrap_or(core::mem::zeroed()) as _, param1 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetCountryInfoW(param0: Option<*mut RASCTRYINFO>, param1: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetCountryInfoW(param0 : *mut RASCTRYINFO, param1 : *mut u32) -> u32);
+pub unsafe fn RasGetCountryInfoW(param0: Option<*mut RASCTRYINFO>, param1: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetCountryInfoW(param0 : *mut RASCTRYINFO, param1 : super::LPDWORD) -> u32);
     unsafe { RasGetCountryInfoW(param0.unwrap_or(core::mem::zeroed()) as _, param1 as _) }
 }
 #[inline]
@@ -311,40 +325,42 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, dwflags : u32, hwnd : super::HWND, ppraseapuseridentity : *mut *mut tagRASEAPUSERIDENTITYW) -> u32);
     unsafe { RasGetEapUserIdentityW(pszphonebook.param().abi(), pszentry.param().abi(), dwflags, hwnd, ppraseapuseridentity as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetEntryDialParamsA<P0>(param0: P0, param1: *mut tagRASDIALPARAMSA, param2: *mut windows_core::BOOL) -> u32
+pub unsafe fn RasGetEntryDialParamsA<P0>(param0: P0, param1: *mut tagRASDIALPARAMSA, param2: super::LPBOOL) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : windows_core::PCSTR, param1 : *mut tagRASDIALPARAMSA, param2 : *mut windows_core::BOOL) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : windows_core::PCSTR, param1 : *mut tagRASDIALPARAMSA, param2 : super::LPBOOL) -> u32);
     unsafe { RasGetEntryDialParamsA(param0.param().abi(), param1 as _, param2 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetEntryDialParamsW<P0>(param0: P0, param1: *mut tagRASDIALPARAMSW, param2: *mut windows_core::BOOL) -> u32
+pub unsafe fn RasGetEntryDialParamsW<P0>(param0: P0, param1: *mut tagRASDIALPARAMSW, param2: super::LPBOOL) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *mut tagRASDIALPARAMSW, param2 : *mut windows_core::BOOL) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *mut tagRASDIALPARAMSW, param2 : super::LPBOOL) -> u32);
     unsafe { RasGetEntryDialParamsW(param0.param().abi(), param1 as _, param2 as _) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RasGetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYA>, param3: *mut u32, param4: Option<*mut u8>, param5: Option<*mut u32>) -> u32
+pub unsafe fn RasGetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYA>, param3: super::LPDWORD, param4: Option<super::LPBYTE>, param5: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut tagRASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut tagRASENTRYA, param3 : super::LPDWORD, param4 : super::LPBYTE, param5 : super::LPDWORD) -> u32);
     unsafe { RasGetEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RasGetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYW>, param3: *mut u32, param4: Option<*mut u8>, param5: Option<*mut u32>) -> u32
+pub unsafe fn RasGetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: Option<*mut tagRASENTRYW>, param3: super::LPDWORD, param4: Option<super::LPBYTE>, param5: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *mut tagRASENTRYW, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *mut tagRASENTRYW, param3 : super::LPDWORD, param4 : super::LPBYTE, param5 : super::LPDWORD) -> u32);
     unsafe { RasGetEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -367,20 +383,22 @@ pub unsafe fn RasGetPCscf(lpszpcscf: windows_core::PWSTR) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetPCscf(lpszpcscf : windows_core::PWSTR) -> u32);
     unsafe { RasGetPCscf(lpszpcscf) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut core::ffi::c_void, param3: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoA(param0 : HRASCONN, param1 : tagRASPROJECTION, param2 : *mut core::ffi::c_void, param3 : *mut u32) -> u32);
+pub unsafe fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut core::ffi::c_void, param3: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoA(param0 : HRASCONN, param1 : tagRASPROJECTION, param2 : *mut core::ffi::c_void, param3 : super::LPDWORD) -> u32);
     unsafe { RasGetProjectionInfoA(param0, param1, param2 as _, param3 as _) }
 }
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: Option<*mut RAS_PROJECTION_INFO>, lpdwsize: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoEx(hrasconn : HRASCONN, prasprojection : *mut RAS_PROJECTION_INFO, lpdwsize : *mut u32) -> u32);
+pub unsafe fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: Option<PRAS_PROJECTION_INFO>, lpdwsize: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoEx(hrasconn : HRASCONN, prasprojection : PRAS_PROJECTION_INFO, lpdwsize : super::LPDWORD) -> u32);
     unsafe { RasGetProjectionInfoEx(hrasconn, prasprojection.unwrap_or(core::mem::zeroed()) as _, lpdwsize as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetProjectionInfoW(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut core::ffi::c_void, param3: *mut u32) -> u32 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoW(param0 : HRASCONN, param1 : tagRASPROJECTION, param2 : *mut core::ffi::c_void, param3 : *mut u32) -> u32);
+pub unsafe fn RasGetProjectionInfoW(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut core::ffi::c_void, param3: super::LPDWORD) -> u32 {
+    windows_core::link!("rasapi32.dll" "system" fn RasGetProjectionInfoW(param0 : HRASCONN, param1 : tagRASPROJECTION, param2 : *mut core::ffi::c_void, param3 : super::LPDWORD) -> u32);
     unsafe { RasGetProjectionInfoW(param0, param1, param2 as _, param3 as _) }
 }
 #[inline]
@@ -393,22 +411,24 @@ pub unsafe fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut 
     windows_core::link!("rasapi32.dll" "system" fn RasGetSubEntryHandleW(param0 : HRASCONN, param1 : u32, param2 : *mut HRASCONN) -> u32);
     unsafe { RasGetSubEntryHandleW(param0, param1, param2 as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetSubEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: u32, param3: Option<*mut tagRASSUBENTRYA>, param4: Option<*mut u32>, param5: Option<*mut u8>, param6: Option<*mut u32>) -> u32
+pub unsafe fn RasGetSubEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: u32, param3: Option<*mut tagRASSUBENTRYA>, param4: Option<super::LPDWORD>, param5: Option<super::LPBYTE>, param6: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : u32, param3 : *mut tagRASSUBENTRYA, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : u32, param3 : *mut tagRASSUBENTRYA, param4 : super::LPDWORD, param5 : super::LPBYTE, param6 : super::LPDWORD) -> u32);
     unsafe { RasGetSubEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2, param3.unwrap_or(core::mem::zeroed()) as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _, param6.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasGetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: Option<*mut tagRASSUBENTRYW>, param4: Option<*mut u32>, param5: Option<*mut u8>, param6: Option<*mut u32>) -> u32
+pub unsafe fn RasGetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: Option<*mut tagRASSUBENTRYW>, param4: Option<super::LPDWORD>, param5: Option<super::LPBYTE>, param6: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : u32, param3 : *mut tagRASSUBENTRYW, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : u32, param3 : *mut tagRASSUBENTRYW, param4 : super::LPDWORD, param5 : super::LPBYTE, param6 : super::LPDWORD) -> u32);
     unsafe { RasGetSubEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2, param3.unwrap_or(core::mem::zeroed()) as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _, param6.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -555,42 +575,44 @@ where
     windows_core::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *const tagRASDIALPARAMSW, param2 : windows_core::BOOL) -> u32);
     unsafe { RasSetEntryDialParamsW(param0.param().abi(), param1, param2.into()) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RasSetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: *const tagRASENTRYA, param3: u32, param4: Option<*const u8>, param5: u32) -> u32
+pub unsafe fn RasSetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: *const tagRASENTRYA, param3: u32, param4: Option<super::LPBYTE>, param5: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *const tagRASENTRYA, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *const tagRASENTRYA, param3 : u32, param4 : super::LPBYTE, param5 : u32) -> u32);
     unsafe { RasSetEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RasSetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: *const tagRASENTRYW, param3: u32, param4: Option<*const u8>, param5: u32) -> u32
+pub unsafe fn RasSetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: *const tagRASENTRYW, param3: u32, param4: Option<super::LPBYTE>, param5: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *const tagRASENTRYW, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *const tagRASENTRYW, param3 : u32, param4 : super::LPBYTE, param5 : u32) -> u32);
     unsafe { RasSetEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasSetSubEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const tagRASSUBENTRYA, param4: u32, param5: Option<*const u8>, param6: u32) -> u32
+pub unsafe fn RasSetSubEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const tagRASSUBENTRYA, param4: u32, param5: Option<super::LPBYTE>, param6: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : u32, param3 : *const tagRASSUBENTRYA, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : u32, param3 : *const tagRASSUBENTRYA, param4 : u32, param5 : super::LPBYTE, param6 : u32) -> u32);
     unsafe { RasSetSubEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2, param3, param4, param5.unwrap_or(core::mem::zeroed()) as _, param6) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RasSetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const tagRASSUBENTRYW, param4: u32, param5: Option<*const u8>, param6: u32) -> u32
+pub unsafe fn RasSetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const tagRASSUBENTRYW, param4: u32, param5: Option<super::LPBYTE>, param6: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : u32, param3 : *const tagRASSUBENTRYW, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
+    windows_core::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : u32, param3 : *const tagRASSUBENTRYW, param4 : u32, param5 : super::LPBYTE, param6 : u32) -> u32);
     unsafe { RasSetSubEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2, param3, param4, param5.unwrap_or(core::mem::zeroed()) as _, param6) }
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
@@ -621,9 +643,12 @@ pub const ET_None: i32 = 0;
 pub const ET_Optional: i32 = 3;
 pub const ET_Require: i32 = 1;
 pub const ET_RequireMax: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HRASCONN(pub *mut core::ffi::c_void);
+pub type HRASCONN = *mut HRASCONN__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HRASCONN__ {
+    pub unused: i32,
+}
 pub type IKEV2_ID_PAYLOAD_TYPE = i32;
 pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = 9;
 pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = 10;
@@ -638,17 +663,18 @@ pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = 6;
 pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = 7;
 pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = 8;
 pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = 3;
-#[cfg(feature = "windef")]
-pub type ORASADFUNC = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_core::PCSTR, param2: u32, param3: *mut u32) -> windows_core::BOOL>;
-pub type PFNRASFREEBUFFER = Option<unsafe extern "system" fn(pbufer: *mut u8) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type ORASADFUNC = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_core::PCSTR, param2: u32, param3: super::LPDWORD) -> windows_core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type PFNRASGETBUFFER = Option<unsafe extern "system" fn(ppbuffer: *mut super::PBYTE, pdwsize: *mut u32) -> u32>;
-#[cfg(feature = "winnt")]
-pub type PFNRASRECEIVEBUFFER = Option<unsafe extern "system" fn(hport: super::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32, dwtimeout: u32, hevent: super::HANDLE) -> u32>;
-#[cfg(feature = "winnt")]
-pub type PFNRASRETRIEVEBUFFER = Option<unsafe extern "system" fn(hport: super::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32) -> u32>;
-#[cfg(feature = "winnt")]
-pub type PFNRASSENDBUFFER = Option<unsafe extern "system" fn(hport: super::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32>;
+pub type PFNRASFREEBUFFER = Option<unsafe extern "system" fn(pbufer: super::PBYTE) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type PFNRASGETBUFFER = Option<unsafe extern "system" fn(ppbuffer: *mut super::PBYTE, pdwsize: super::PDWORD) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PFNRASRECEIVEBUFFER = Option<unsafe extern "system" fn(hport: super::HANDLE, pbuffer: super::PBYTE, pdwsize: super::PDWORD, dwtimeout: u32, hevent: super::HANDLE) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PFNRASRETRIEVEBUFFER = Option<unsafe extern "system" fn(hport: super::HANDLE, pbuffer: super::PBYTE, pdwsize: super::PDWORD) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PFNRASSENDBUFFER = Option<unsafe extern "system" fn(hport: super::HANDLE, pbuffer: super::PBYTE, dwsize: u32) -> u32>;
 #[cfg(feature = "winnt")]
 pub type PFNRASSETCOMMSETTINGS = Option<unsafe extern "system" fn(hport: super::HANDLE, prascommsettings: *mut tagRASCOMMSETTINGS, pvreserved: *mut core::ffi::c_void) -> u32>;
 pub type PRASDEVSPECIFICINFO = *mut RASDEVSPECIFICINFO;
@@ -662,10 +688,10 @@ pub type PRAS_STATS = *mut RAS_STATS;
 pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2;
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1;
 pub const RASADFLG_PositionDlg: i32 = 1;
-#[cfg(feature = "windef")]
-pub type RASADFUNCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> windows_core::BOOL>;
-#[cfg(feature = "windef")]
-pub type RASADFUNCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: windows_core::PCWSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> windows_core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type RASADFUNCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: *mut tagRASADPARAMS, param3: super::LPDWORD) -> windows_core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type RASADFUNCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: windows_core::PCWSTR, param2: *mut tagRASADPARAMS, param3: super::LPDWORD) -> windows_core::BOOL>;
 pub const RASADP_ConnectionQueryTimeout: i32 = 4;
 pub const RASADP_DisableConnectionQuery: i32 = 0;
 pub const RASADP_FailedConnectionTimeout: i32 = 3;
@@ -676,7 +702,7 @@ pub const RASAPIVERSION_500: RASAPIVERSION = 1;
 pub const RASAPIVERSION_501: RASAPIVERSION = 2;
 pub const RASAPIVERSION_600: RASAPIVERSION = 3;
 pub const RASAPIVERSION_601: RASAPIVERSION = 4;
-pub const RASAPIVERSION_CURRENT: i32 = 4;
+pub const RASAPIVERSION_CURRENT: RASAPIVERSION = 4;
 pub const RASCCPCA_MPPC: i32 = 6;
 pub const RASCCPCA_STAC: i32 = 5;
 pub const RASCCPO_Compression: i32 = 1;

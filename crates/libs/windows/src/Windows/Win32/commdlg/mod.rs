@@ -1,26 +1,26 @@
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn ChooseColorA(param0 : *mut CHOOSECOLORA) -> windows_core::BOOL);
-    unsafe { ChooseColorA(param0 as _) }
+pub unsafe fn ChooseColorA(param0: LPCHOOSECOLORA) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn ChooseColorA(param0 : LPCHOOSECOLORA) -> windows_core::BOOL);
+    unsafe { ChooseColorA(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> windows_core::BOOL);
-    unsafe { ChooseColorW(param0 as _) }
+pub unsafe fn ChooseColorW(param0: LPCHOOSECOLORW) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : LPCHOOSECOLORW) -> windows_core::BOOL);
+    unsafe { ChooseColorW(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> windows_core::BOOL);
-    unsafe { ChooseFontA(param0 as _) }
+pub unsafe fn ChooseFontA(param0: LPCHOOSEFONTA) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : LPCHOOSEFONTA) -> windows_core::BOOL);
+    unsafe { ChooseFontA(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> windows_core::BOOL);
-    unsafe { ChooseFontW(param0 as _) }
+pub unsafe fn ChooseFontW(param0: LPCHOOSEFONTW) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn ChooseFontW(param0 : LPCHOOSEFONTW) -> windows_core::BOOL);
+    unsafe { ChooseFontW(param0) }
 }
 #[inline]
 pub unsafe fn CommDlgExtendedError() -> u32 {
@@ -29,15 +29,15 @@ pub unsafe fn CommDlgExtendedError() -> u32 {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::HWND {
-    windows_core::link!("comdlg32.dll" "system" fn FindTextA(param0 : *mut FINDREPLACEA) -> super::HWND);
-    unsafe { FindTextA(param0 as _) }
+pub unsafe fn FindTextA(param0: LPFINDREPLACEA) -> super::HWND {
+    windows_core::link!("comdlg32.dll" "system" fn FindTextA(param0 : LPFINDREPLACEA) -> super::HWND);
+    unsafe { FindTextA(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::HWND {
-    windows_core::link!("comdlg32.dll" "system" fn FindTextW(param0 : *mut FINDREPLACEW) -> super::HWND);
-    unsafe { FindTextW(param0 as _) }
+pub unsafe fn FindTextW(param0: LPFINDREPLACEW) -> super::HWND {
+    windows_core::link!("comdlg32.dll" "system" fn FindTextW(param0 : LPFINDREPLACEW) -> super::HWND);
+    unsafe { FindTextW(param0) }
 }
 #[inline]
 pub unsafe fn GetFileTitleA<P0>(param0: P0, buf: windows_core::PSTR, cchsize: u16) -> i16
@@ -57,75 +57,75 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn GetOpenFileNameA(param0 : *mut OPENFILENAMEA) -> windows_core::BOOL);
-    unsafe { GetOpenFileNameA(param0 as _) }
+pub unsafe fn GetOpenFileNameA(param0: LPOPENFILENAMEA) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn GetOpenFileNameA(param0 : LPOPENFILENAMEA) -> windows_core::BOOL);
+    unsafe { GetOpenFileNameA(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn GetOpenFileNameW(param0 : *mut OPENFILENAMEW) -> windows_core::BOOL);
-    unsafe { GetOpenFileNameW(param0 as _) }
+pub unsafe fn GetOpenFileNameW(param0: LPOPENFILENAMEW) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn GetOpenFileNameW(param0 : LPOPENFILENAMEW) -> windows_core::BOOL);
+    unsafe { GetOpenFileNameW(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn GetSaveFileNameA(param0 : *mut OPENFILENAMEA) -> windows_core::BOOL);
-    unsafe { GetSaveFileNameA(param0 as _) }
+pub unsafe fn GetSaveFileNameA(param0: LPOPENFILENAMEA) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn GetSaveFileNameA(param0 : LPOPENFILENAMEA) -> windows_core::BOOL);
+    unsafe { GetSaveFileNameA(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn GetSaveFileNameW(param0 : *mut OPENFILENAMEW) -> windows_core::BOOL);
-    unsafe { GetSaveFileNameW(param0 as _) }
+pub unsafe fn GetSaveFileNameW(param0: LPOPENFILENAMEW) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn GetSaveFileNameW(param0 : LPOPENFILENAMEW) -> windows_core::BOOL);
+    unsafe { GetSaveFileNameW(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn PageSetupDlgA(param0 : *mut PAGESETUPDLGA) -> windows_core::BOOL);
-    unsafe { PageSetupDlgA(param0 as _) }
+pub unsafe fn PageSetupDlgA(param0: LPPAGESETUPDLGA) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn PageSetupDlgA(param0 : LPPAGESETUPDLGA) -> windows_core::BOOL);
+    unsafe { PageSetupDlgA(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> windows_core::BOOL);
-    unsafe { PageSetupDlgW(param0 as _) }
+pub unsafe fn PageSetupDlgW(param0: LPPAGESETUPDLGW) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : LPPAGESETUPDLGW) -> windows_core::BOOL);
+    unsafe { PageSetupDlgW(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : *mut PRINTDLGA) -> windows_core::BOOL);
+pub unsafe fn PrintDlgA(ppd: LPPRINTDLGA) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : LPPRINTDLGA) -> windows_core::BOOL);
     unsafe { PrintDlgA(ppd as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> windows_core::HRESULT {
-    windows_core::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> windows_core::HRESULT);
+pub unsafe fn PrintDlgExA(ppd: LPPRINTDLGEXA) -> windows_core::HRESULT {
+    windows_core::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : LPPRINTDLGEXA) -> windows_core::HRESULT);
     unsafe { PrintDlgExA(ppd) }
 }
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> windows_core::HRESULT {
-    windows_core::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> windows_core::HRESULT);
+pub unsafe fn PrintDlgExW(ppd: LPPRINTDLGEXW) -> windows_core::HRESULT {
+    windows_core::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : LPPRINTDLGEXW) -> windows_core::HRESULT);
     unsafe { PrintDlgExW(ppd) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> windows_core::BOOL {
-    windows_core::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : *mut PRINTDLGW) -> windows_core::BOOL);
+pub unsafe fn PrintDlgW(ppd: LPPRINTDLGW) -> windows_core::BOOL {
+    windows_core::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : LPPRINTDLGW) -> windows_core::BOOL);
     unsafe { PrintDlgW(ppd as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::HWND {
-    windows_core::link!("comdlg32.dll" "system" fn ReplaceTextA(param0 : *mut FINDREPLACEA) -> super::HWND);
-    unsafe { ReplaceTextA(param0 as _) }
+pub unsafe fn ReplaceTextA(param0: LPFINDREPLACEA) -> super::HWND {
+    windows_core::link!("comdlg32.dll" "system" fn ReplaceTextA(param0 : LPFINDREPLACEA) -> super::HWND);
+    unsafe { ReplaceTextA(param0) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::HWND {
-    windows_core::link!("comdlg32.dll" "system" fn ReplaceTextW(param0 : *mut FINDREPLACEW) -> super::HWND);
-    unsafe { ReplaceTextW(param0 as _) }
+pub unsafe fn ReplaceTextW(param0: LPFINDREPLACEW) -> super::HWND {
+    windows_core::link!("comdlg32.dll" "system" fn ReplaceTextW(param0 : LPFINDREPLACEW) -> super::HWND);
+    unsafe { ReplaceTextW(param0) }
 }
 pub const BOLD_FONTTYPE: i32 = 256;
 pub const CC_ANYCOLOR: i32 = 256;
@@ -341,6 +341,7 @@ pub struct CHOOSEFONTW {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
+pub const COLOROKSTRING: windows_core::PCSTR = windows_core::s!("commdlg_ColorOK");
 pub const COLOROKSTRINGA: windows_core::PCSTR = windows_core::s!("commdlg_ColorOK");
 pub const COLOROKSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_ColorOK");
 #[repr(C, packed(1))]
@@ -362,8 +363,10 @@ pub struct DEVNAMES {
     pub wDefault: u16,
 }
 pub const DN_DEFAULTPRN: i32 = 1;
+pub const FILEOKSTRING: windows_core::PCSTR = windows_core::s!("commdlg_FileNameOK");
 pub const FILEOKSTRINGA: windows_core::PCSTR = windows_core::s!("commdlg_FileNameOK");
 pub const FILEOKSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_FileNameOK");
+pub const FINDMSGSTRING: windows_core::PCSTR = windows_core::s!("commdlg_FindReplace");
 pub const FINDMSGSTRINGA: windows_core::PCSTR = windows_core::s!("commdlg_FindReplace");
 pub const FINDMSGSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_FindReplace");
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -464,6 +467,7 @@ pub const FR_SHOWHELP: i32 = 128;
 pub const FR_SHOWWRAPAROUND: i32 = 262144;
 pub const FR_WHOLEWORD: i32 = 2;
 pub const FR_WRAPAROUND: i32 = 1048576;
+pub const HELPMSGSTRING: windows_core::PCSTR = windows_core::s!("commdlg_help");
 pub const HELPMSGSTRINGA: windows_core::PCSTR = windows_core::s!("commdlg_help");
 pub const HELPMSGSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_help");
 windows_core::imp::define_interface!(IPrintDialogCallback, IPrintDialogCallback_Vtbl, 0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
@@ -606,6 +610,7 @@ impl IPrintDialogServices_Vtbl {
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IPrintDialogServices {}
 pub const ITALIC_FONTTYPE: i32 = 512;
+pub const LBSELCHSTRING: windows_core::PCSTR = windows_core::s!("commdlg_LBSelChangedNotify");
 pub const LBSELCHSTRINGA: windows_core::PCSTR = windows_core::s!("commdlg_LBSelChangedNotify");
 pub const LBSELCHSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_LBSelChangedNotify");
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -1403,8 +1408,10 @@ pub const PSD_SHOWHELP: i32 = 2048;
 pub const PS_OPENTYPE_FONTTYPE: i32 = 65536;
 pub const REGULAR_FONTTYPE: i32 = 1024;
 pub const SCREEN_FONTTYPE: i32 = 8192;
+pub const SETRGBSTRING: windows_core::PCSTR = windows_core::s!("commdlg_SetRGBColor");
 pub const SETRGBSTRINGA: windows_core::PCSTR = windows_core::s!("commdlg_SetRGBColor");
 pub const SETRGBSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_SetRGBColor");
+pub const SHAREVISTRING: windows_core::PCSTR = windows_core::s!("commdlg_ShareViolation");
 pub const SHAREVISTRINGA: windows_core::PCSTR = windows_core::s!("commdlg_ShareViolation");
 pub const SHAREVISTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_ShareViolation");
 pub const SIMULATED_FONTTYPE: i32 = 32768;

@@ -1,13 +1,16 @@
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn I_NetLogonControl2(servername : windows_sys::core::PCWSTR, functioncode : u32, querylevel : u32, data : *const u8, buffer : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetAccessAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn I_NetLogonControl2(servername : windows_sys::core::PCWSTR, functioncode : u32, querylevel : u32, data : super::LPBYTE, buffer : *mut super::LPBYTE) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetAccessAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetAccessDel(servername : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetAccessEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, recursive : u32, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetAccessEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, recursive : u32, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetAccessGetInfo(servername : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetAccessGetUserPerms(servername : windows_sys::core::PCWSTR, ugname : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR, perms : *mut u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetAccessSetInfo(servername : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetAccessGetUserPerms(servername : windows_sys::core::PCWSTR, ugname : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR, perms : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetAccessSetInfo(servername : windows_sys::core::PCWSTR, resource : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "C" fn NetAddServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("netapi32.dll" "C" fn NetEnumerateServiceAccounts(servername : windows_sys::core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut super::PZPWSTR) -> windows_sys::core::NTSTATUS);
@@ -15,57 +18,71 @@ windows_link::link!("netapi32.dll" "C" fn NetEnumerateServiceAccounts(servername
 windows_link::link!("netapi32.dll" "system" fn NetGetAnyDCName(servername : windows_sys::core::PCWSTR, domainname : windows_sys::core::PCWSTR, buffer : *mut super::LPBYTE) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetGetDCName(servername : windows_sys::core::PCWSTR, domainname : windows_sys::core::PCWSTR, buffer : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetGetDisplayInformationIndex(servername : windows_sys::core::PCWSTR, level : u32, prefix : windows_sys::core::PCWSTR, index : *mut u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetGroupAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetGetDisplayInformationIndex(servername : windows_sys::core::PCWSTR, level : u32, prefix : windows_sys::core::PCWSTR, index : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetGroupAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetGroupAddUser(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetGroupDel(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetGroupDelUser(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetGroupEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+windows_link::link!("netapi32.dll" "system" fn NetGroupEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::PDWORD_PTR) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetGroupGetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+windows_link::link!("netapi32.dll" "system" fn NetGroupGetUsers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::PDWORD_PTR) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetGroupGetUsers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetGroupSetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetGroupSetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, totalentries : u32) -> u32);
 windows_link::link!("netapi32.dll" "C" fn NetIsServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut windows_sys::core::BOOL) -> windows_sys::core::NTSTATUS);
 windows_link::link!("netapi32.dll" "C" fn NetIsServiceAccount2(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut windows_sys::core::BOOL, accounttype : *mut MSA_INFO_ACCOUNT_TYPE) -> windows_sys::core::NTSTATUS);
-windows_link::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, membersid : super::PSID) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetLocalGroupAddMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetLocalGroupAddMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, totalentries : u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetLocalGroupDel(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, membersid : super::PSID) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetLocalGroupDelMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetLocalGroupEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetLocalGroupDelMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, totalentries : u32) -> u32);
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+windows_link::link!("netapi32.dll" "system" fn NetLocalGroupEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::PDWORD_PTR) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetLocalGroupGetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+windows_link::link!("netapi32.dll" "system" fn NetLocalGroupGetMembers(servername : windows_sys::core::PCWSTR, localgroupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::PDWORD_PTR) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetLocalGroupGetMembers(servername : windows_sys::core::PCWSTR, localgroupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetLocalGroupSetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetLocalGroupSetMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetQueryDisplayInformation(servername : windows_sys::core::PCWSTR, level : u32, index : u32, entriesrequested : u32, preferredmaximumlength : u32, returnedentrycount : *mut u32, sortedbuffer : *mut *mut core::ffi::c_void) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetLocalGroupSetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetLocalGroupSetMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, totalentries : u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetQueryDisplayInformation(servername : windows_sys::core::PCWSTR, level : u32, index : u32, entriesrequested : u32, preferredmaximumlength : u32, returnedentrycount : super::LPDWORD, sortedbuffer : *mut *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "C" fn NetQueryServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, infolevel : u32, buffer : *mut super::PBYTE) -> windows_sys::core::NTSTATUS);
 windows_link::link!("netapi32.dll" "C" fn NetRemoveServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("netapi32.dll" "system" fn NetUserAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetUserAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetUserChangePassword(domainname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, oldpassword : windows_sys::core::PCWSTR, newpassword : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetUserDel(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetUserEnum(servername : windows_sys::core::PCWSTR, level : u32, filter : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetUserEnum(servername : windows_sys::core::PCWSTR, level : u32, filter : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::PDWORD) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetUserGetGroups(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetUserGetGroups(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetUserGetInfo(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetUserGetLocalGroups(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, flags : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetUserGetLocalGroups(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, flags : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetUserModalsGet(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetUserModalsSet(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetUserSetGroups(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, buf : *const u8, num_entries : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetUserSetInfo(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetUserModalsSet(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetUserSetGroups(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, num_entries : u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetUserSetInfo(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetValidatePasswordPolicy(servername : windows_sys::core::PCWSTR, qualifier : *const core::ffi::c_void, validationtype : NET_VALIDATE_PASSWORD_TYPE, inputarg : *const core::ffi::c_void, outputarg : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetValidatePasswordPolicyFree(outputarg : *const *const core::ffi::c_void) -> u32);
 pub const ACCESS_ACCESS_LIST_INFOLEVEL: i32 = 1004;
@@ -461,11 +478,11 @@ pub struct NET_DISPLAY_USER {
     pub usri1_next_index: u32,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub PasswordMatched: bool,
+    pub PasswordMatched: super::BOOLEAN,
 }
 pub const NET_VALIDATE_BAD_PASSWORD_COUNT: i32 = 8;
 pub const NET_VALIDATE_BAD_PASSWORD_TIME: i32 = 2;
@@ -478,14 +495,14 @@ pub struct NET_VALIDATE_OUTPUT_ARG {
     pub ValidationStatus: u32,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ClearPassword: windows_sys::core::PWSTR,
     pub UserAccountName: windows_sys::core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMatch: bool,
+    pub PasswordMatch: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -498,15 +515,15 @@ pub const NET_VALIDATE_PASSWORD_HISTORY: i32 = 32;
 pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: i32 = 16;
 pub const NET_VALIDATE_PASSWORD_LAST_SET: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ClearPassword: windows_sys::core::PWSTR,
     pub UserAccountName: windows_sys::core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMustChangeAtNextLogon: bool,
-    pub ClearLockout: bool,
+    pub PasswordMustChangeAtNextLogon: super::BOOLEAN,
+    pub ClearLockout: super::BOOLEAN,
 }
 pub type NET_VALIDATE_PASSWORD_TYPE = i32;
 #[repr(C)]
@@ -564,15 +581,15 @@ pub type PNETLOGON_INFO_4 = *mut NETLOGON_INFO_4;
 pub type PNET_DISPLAY_GROUP = *mut NET_DISPLAY_GROUP;
 pub type PNET_DISPLAY_MACHINE = *mut NET_DISPLAY_MACHINE;
 pub type PNET_DISPLAY_USER = *mut NET_DISPLAY_USER;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PNET_VALIDATE_AUTHENTICATION_INPUT_ARG = *mut NET_VALIDATE_AUTHENTICATION_INPUT_ARG;
 #[cfg(feature = "minwindef")]
 pub type PNET_VALIDATE_OUTPUT_ARG = *mut NET_VALIDATE_OUTPUT_ARG;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PNET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG = *mut NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG;
 #[cfg(feature = "minwindef")]
 pub type PNET_VALIDATE_PASSWORD_HASH = *mut NET_VALIDATE_PASSWORD_HASH;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PNET_VALIDATE_PASSWORD_RESET_INPUT_ARG = *mut NET_VALIDATE_PASSWORD_RESET_INPUT_ARG;
 pub type PNET_VALIDATE_PASSWORD_TYPE = *mut NET_VALIDATE_PASSWORD_TYPE;
 #[cfg(feature = "minwindef")]

@@ -2,10 +2,10 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn GetProcessGroupAffinity(hProcess: HANDLE, #[in] #[out] GroupCount: *mut u16, #[len_param(1)] GroupArray: *mut u16) -> BOOL;
+        extern fn GetProcessGroupAffinity(hProcess: HANDLE, #[in] #[out] GroupCount: PUSHORT, #[len_param(1)] #[out] GroupArray: PUSHORT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadGroupAffinity(hThread: HANDLE, GroupAffinity: *mut GROUP_AFFINITY) -> BOOL;
+        extern fn GetThreadGroupAffinity(hThread: HANDLE, #[out] GroupAffinity: PGROUP_AFFINITY) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadGroupAffinity(hThread: HANDLE, GroupAffinity: *const GROUP_AFFINITY, #[opt] PreviousGroupAffinity: *mut GROUP_AFFINITY) -> BOOL;
+        extern fn SetThreadGroupAffinity(hThread: HANDLE, GroupAffinity: *const GROUP_AFFINITY, #[out] #[opt] PreviousGroupAffinity: PGROUP_AFFINITY) -> BOOL;
     }
 }

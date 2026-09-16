@@ -1,9 +1,9 @@
 #[cfg(all(feature = "oaidl", feature = "shobjidl_core", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, pkey : *const super::PROPERTYKEY, pv : *mut super::VARIANT, pffoundpropkey : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, pkey : *const super::PROPERTYKEY, pv : *mut super::VARIANT, pffoundpropkey : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const super::ITEMIDLIST, hwnd : super::HWND, cidl : u32, apidl : *const super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : super::LPCITEMIDLIST, hwnd : super::HWND, cidl : u32, apidl : *const super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const super::ITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : super::LPCITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn DAD_AutoScroll(hwnd : super::HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::POINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
@@ -14,43 +14,40 @@ windows_link::link!("shell32.dll" "system" fn DAD_DragLeave() -> windows_sys::co
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn DAD_DragMove(pt : super::POINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "commctrl", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn DAD_SetDragImage(him : *mut super::_IMAGELIST, pptoffset : *mut super::POINT) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn DAD_SetDragImage(him : super::HIMAGELIST, pptoffset : *mut super::POINT) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn DAD_ShowDragImage(fshow : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::HWND, pszfilepath : windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : windows_sys::core::PCWSTR, pszdefext : windows_sys::core::PCWSTR, pszfilters : windows_sys::core::PCWSTR, psztitle : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILAppendID(pidl : *const super::ITEMIDLIST, pmkid : *const super::SHITEMID, fappend : windows_sys::core::BOOL) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn ILAppendID(pidl : super::LPITEMIDLIST, pmkid : super::LPCSHITEMID, fappend : windows_sys::core::BOOL) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILClone(pidl : *const super::ITEMIDLIST) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn ILClone(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILCloneFirst(pidl : *const super::ITEMIDLIST) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn ILCloneFirst(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILCombine(pidl1 : *const super::ITEMIDLIST, pidl2 : *const super::ITEMIDLIST) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn ILCombine(pidl1 : super::LPCITEMIDLIST, pidl2 : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILCreateFromPathA(pszpath : windows_sys::core::PCSTR) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn ILCreateFromPathW(pszpath : windows_sys::core::PCWSTR) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILFindChild(pidlparent : *const super::ITEMIDLIST, pidlchild : *const super::ITEMIDLIST) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn ILFindChild(pidlparent : super::LPITEMIDLIST, pidlchild : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILFindLastID(pidl : *const super::ITEMIDLIST) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn ILFindLastID(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILFree(pidl : *const super::ITEMIDLIST));
+windows_link::link!("shell32.dll" "system" fn ILFree(pidl : super::LPITEMIDLIST));
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILGetNext(pidl : *const super::ITEMIDLIST) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn ILGetNext(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILGetSize(pidl : *const super::ITEMIDLIST) -> u32);
+windows_link::link!("shell32.dll" "system" fn ILGetSize(pidl : super::LPCITEMIDLIST) -> u32);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILIsEqual(pidl1 : *const super::ITEMIDLIST, pidl2 : *const super::ITEMIDLIST) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn ILIsEqual(pidl1 : super::LPCITEMIDLIST, pidl2 : super::LPCITEMIDLIST) -> windows_sys::core::BOOL);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILIsParent(pidl1 : *const super::ITEMIDLIST, pidl2 : *const super::ITEMIDLIST, fimmediate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn ILIsParent(pidl1 : super::LPCITEMIDLIST, pidl2 : super::LPCITEMIDLIST, fimmediate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILLoadFromStreamEx(pstm : *mut core::ffi::c_void, pidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : *mut super::ITEMIDLIST) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : super::LPITEMIDLIST) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn ILSaveToStream(pstm : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn ILSaveToStream(pstm : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn IsNetDrive(idrive : i32) -> i32);
 windows_link::link!("shell32.dll" "system" fn IsUserAnAdmin() -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
@@ -59,7 +56,8 @@ windows_link::link!("shell32.dll" "system" fn PathCleanupSpec(pszdir : windows_s
 windows_link::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : windows_sys::core::PWSTR));
 windows_link::link!("shell32.dll" "system" fn PathIsExe(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, cchmax : u32, psztemplate : windows_sys::core::PCWSTR, pszlongplate : windows_sys::core::PCWSTR, pszdir : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : *const windows_sys::core::PCWSTR, fflags : u32) -> i32);
+#[cfg(feature = "winnt")]
+windows_link::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : super::PZPCWSTR, fflags : u32) -> i32);
 windows_link::link!("shell32.dll" "system" fn PathYetAnotherMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, pszpath : windows_sys::core::PCWSTR, pszshort : windows_sys::core::PCWSTR, pszfilespec : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::HWND, psziconpath : windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
@@ -79,26 +77,28 @@ windows_link::link!("shell32.dll" "system" fn RestartDialog(hwnd : super::HWND, 
 windows_link::link!("shell32.dll" "system" fn RestartDialogEx(hwnd : super::HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
 windows_link::link!("shell32.dll" "system" fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::LPFNADDPROPSHEETPAGE, lparam : super::LPARAM) -> u32);
-windows_link::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : *const core::ffi::c_void));
+#[cfg(feature = "minwindef")]
+windows_link::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : super::LPCVOID));
 windows_link::link!("shell32.dll" "system" fn SHAlloc(cb : usize) -> *mut core::ffi::c_void);
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, ppbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, ppbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHBindToObject(psf : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHBindToObject(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const super::ITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHBindToParent(pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderA(lpbi : *const BROWSEINFOA) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderA(lpbi : LPBROWSEINFOA) -> super::LPITEMIDLIST);
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderW(lpbi : *const BROWSEINFOW) -> super::LPITEMIDLIST);
+windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderW(lpbi : LPBROWSEINFOW) -> super::LPITEMIDLIST);
 windows_link::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shtypes", feature = "winnt"))]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::HANDLE, dwprocid : u32, pppidl : *mut *mut super::LPITEMIDLIST, plevent : *mut i32) -> super::HANDLE);
 #[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotification_Unlock(hlock : super::HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : u32, dwitem1 : *const core::ffi::c_void, dwitem2 : *const core::ffi::c_void));
+#[cfg(feature = "minwindef")]
+windows_link::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : u32, dwitem1 : super::LPCVOID, dwitem2 : super::LPCVOID));
 windows_link::link!("shell32.dll" "system" fn SHChangeNotifyDeregister(ulid : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : super::HWND, fsources : i32, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
@@ -106,7 +106,7 @@ windows_link::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : supe
 windows_link::link!("shell32.dll" "system" fn SHCloneSpecialIDList(hwnd : super::HWND, csidl : i32, fcreate : windows_sys::core::BOOL) -> super::LPITEMIDLIST);
 windows_link::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_sys::core::PCWSTR, pclsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const super::ITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : super::LPCITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
@@ -121,7 +121,7 @@ windows_link::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *c
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : *const super::ITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, ppsi : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : super::LPCITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, ppsi : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "wtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::FORMATETC, ppenumformatetc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
@@ -132,7 +132,7 @@ windows_link::link!("shell32.dll" "system" fn SHDestroyPropSheetExtArray(hpsxa :
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHDoDragDrop(hwnd : super::HWND, pdata : *mut core::ffi::c_void, pdsrc : *mut core::ffi::c_void, dweffect : u32, pdweffect : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHFindFiles(pidlfolder : *const super::ITEMIDLIST, pidlsavefile : *const super::ITEMIDLIST) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn SHFindFiles(pidlfolder : super::LPCITEMIDLIST, pidlsavefile : super::LPCITEMIDLIST) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : super::HMENU, hwndowner : super::HWND, idcmdfirst : u32, idcmdlast : u32) -> *mut core::ffi::c_void);
 windows_link::link!("shell32.dll" "system" fn SHFlushSFCache());
@@ -142,9 +142,9 @@ windows_link::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_vo
 #[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : *mut core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListW(psf : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListW(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shobjidl_core")]
 windows_link::link!("shell32.dll" "system" fn SHGetDesktopFolder(ppshf : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shtypes", feature = "windef", feature = "winnt"))]
@@ -169,16 +169,16 @@ windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const
 #[cfg(feature = "objidlbase")]
 windows_link::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : *const super::ITEMIDLIST, pszpath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : super::LPCITEMIDLIST, pszpath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : *const super::ITEMIDLIST, pszpath : windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : super::LPCITEMIDLIST, pszpath : windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> windows_sys::core::BOOL);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : *const super::ITEMIDLIST, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : super::LPCITEMIDLIST, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHGetRealIDL(psf : *mut core::ffi::c_void, pidlsimple : *const super::ITEMIDLIST, ppidlreal : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHGetRealIDL(psf : *mut core::ffi::c_void, pidlsimple : super::LPCITEMIDLIST, ppidlreal : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shobjidl_core")]
-windows_link::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : *mut SHFOLDERCUSTOMSETTINGS, pszpath : windows_sys::core::PCWSTR, dwreadwrite : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHGetSetSettings(lpss : *mut SHELLSTATEA, dwmask : u32, bset : windows_sys::core::BOOL));
+windows_link::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : LPSHFOLDERCUSTOMSETTINGS, pszpath : windows_sys::core::PCWSTR, dwreadwrite : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHGetSetSettings(lpss : LPSHELLSTATEA, dwmask : u32, bset : windows_sys::core::BOOL));
 windows_link::link!("shell32.dll" "system" fn SHGetSettings(psfs : *mut SHELLFLAGSTATE, dwmask : u32));
 #[cfg(all(feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderLocation(hwnd : super::HWND, csidl : i32, ppidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
@@ -187,18 +187,18 @@ windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderPathA(hwnd : sup
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderPathW(hwnd : super::HWND, pszpath : windows_sys::core::PWSTR, csidl : i32, fcreate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHHandleUpdateImage(pidlextra : *const super::ITEMIDLIST) -> i32);
+windows_link::link!("shell32.dll" "system" fn SHHandleUpdateImage(pidlextra : super::LPCITEMIDLIST) -> i32);
 #[cfg(feature = "shtypes")]
 windows_link::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : windows_sys::core::PCWSTR, ppidl : *mut super::LPITEMIDLIST, rgfinout : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHLimitInputEdit(hwndedit : super::HWND, psf : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, piindexsel : *mut i32) -> i32);
+windows_link::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, piindexsel : *mut i32) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::HWND, shopobjecttype : u32, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const super::ITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, dwflags : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : super::LPCITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHOpenWithDialog(hwndparent : super::HWND, poainfo : *const OPENASINFO) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
@@ -209,9 +209,9 @@ windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : supe
 windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "propidlbase")]
 windows_link::link!("shell32.dll" "system" fn SHPropStgCreate(psstg : *mut core::ffi::c_void, fmtid : *const windows_sys::core::GUID, pclsid : *const windows_sys::core::GUID, grfflags : u32, grfmode : u32, dwdisposition : u32, ppstg : *mut *mut core::ffi::c_void, pucodepage : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHPropStgReadMultiple(pps : *mut core::ffi::c_void, ucodepage : u32, cpspec : u32, rgpspec : *const super::PROPSPEC, rgvar : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHPropStgWriteMultiple(pps : *mut core::ffi::c_void, pucodepage : *mut u32, cpspec : u32, rgpspec : *const super::PROPSPEC, rgvar : *mut super::PROPVARIANT, propidnamefirst : super::PROPID) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
 windows_link::link!("shell32.dll" "system" fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : u32, lpfnreplacewith : super::LPFNADDPROPSHEETPAGE, lparam : super::LPARAM) -> u32);
@@ -239,7 +239,7 @@ windows_link::link!("shell32.dll" "system" fn Shell_GetImageLists(phiml : *mut s
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn Shell_MergeMenus(hmdst : super::HMENU, hmsrc : super::HMENU, uinsert : u32, uidadjust : u32, uidadjustmax : u32, uflags : u32) -> u32);
 #[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SignalFileOpen(pidl : *const super::ITEMIDLIST) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn SignalFileOpen(pidl : super::LPCITEMIDLIST) -> windows_sys::core::BOOL);
 #[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : *mut core::ffi::c_void, pszfilespec : windows_sys::core::PCWSTR, grfmode : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn Win32DeleteFile(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
@@ -816,7 +816,12 @@ pub const GPFIDL_ALTNAME: i32 = 1;
 pub const GPFIDL_DEFAULT: i32 = 0;
 pub type GPFIDL_FLAGS = i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2;
-pub type HPSXA = *mut core::ffi::c_void;
+pub type HPSXA = *mut HPSXA__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HPSXA__ {
+    pub unused: i32,
+}
 pub const IDO_SHGIOI_DEFAULT: u32 = 4294967292;
 pub const IDO_SHGIOI_LINK: i32 = 268435454;
 pub const IDO_SHGIOI_SHARE: i32 = 268435455;
@@ -1409,7 +1414,7 @@ pub const SHARD_APPIDINFO: SHARD = 4;
 pub const SHARD_APPIDINFOIDLIST: SHARD = 5;
 pub const SHARD_APPIDINFOLINK: SHARD = 7;
 pub const SHARD_LINK: SHARD = 6;
-pub const SHARD_PATH: i32 = 2;
+pub const SHARD_PATH: SHARD = 2;
 pub const SHARD_PATHA: SHARD = 2;
 pub const SHARD_PATHW: SHARD = 3;
 pub const SHARD_PIDL: SHARD = 1;
@@ -1550,6 +1555,10 @@ pub struct SHELLSTATEW {
 }
 pub const SHELLSTATE_SIZE_IE4: i32 = 24;
 pub const SHELLSTATE_SIZE_NT4: i32 = 20;
+#[cfg(target_arch = "x86")]
+pub const SHELLSTATE_SIZE_WIN2K: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SHELLSTATE_SIZE_WIN2K: u64 = 32;
 pub const SHELLSTATE_SIZE_WIN95: i32 = 12;
 pub type SHELL_LINK_DATA_FLAGS = u32;
 pub const SHFMT_CANCEL: u32 = 4294967294;

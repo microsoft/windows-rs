@@ -45,7 +45,8 @@ impl ICertAdmin {
             (windows_core::Interface::vtable(self).GetRevocationReason)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: i32, date: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: i32, date: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RevokeCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strserialnumber), reason, date) }
     }
     pub unsafe fn SetRequestAttributes(&self, strconfig: &windows_core::BSTR, requestid: i32, strattributes: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -64,7 +65,8 @@ impl ICertAdmin {
             (windows_core::Interface::vtable(self).ResubmitRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PublishCRL(&self, strconfig: &windows_core::BSTR, date: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn PublishCRL(&self, strconfig: &windows_core::BSTR, date: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PublishCRL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), date) }
     }
     pub unsafe fn GetCRL(&self, strconfig: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR> {
@@ -87,7 +89,10 @@ pub struct ICertAdmin_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub IsValidCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetRevocationReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub RevokeCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub RevokeCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    RevokeCertificate: usize,
     pub SetRequestAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub SetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, i32, *const super::VARIANT) -> windows_core::HRESULT,
@@ -95,7 +100,10 @@ pub struct ICertAdmin_Vtbl {
     SetCertificateExtension: usize,
     pub DenyRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ResubmitRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    pub PublishCRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub PublishCRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    PublishCRL: usize,
     pub GetCRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ImportCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
@@ -103,12 +111,12 @@ pub struct ICertAdmin_Vtbl {
 pub trait ICertAdmin_Impl: super::IDispatch_Impl {
     fn IsValidCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn GetRevocationReason(&self) -> windows_core::Result<i32>;
-    fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: i32, date: f64) -> windows_core::Result<()>;
+    fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: i32, date: super::DATE) -> windows_core::Result<()>;
     fn SetRequestAttributes(&self, strconfig: &windows_core::BSTR, requestid: i32, strattributes: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: i32, strextensionname: &windows_core::BSTR, r#type: i32, flags: i32, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
     fn DenyRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::Result<()>;
     fn ResubmitRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::Result<i32>;
-    fn PublishCRL(&self, strconfig: &windows_core::BSTR, date: f64) -> windows_core::Result<()>;
+    fn PublishCRL(&self, strconfig: &windows_core::BSTR, date: super::DATE) -> windows_core::Result<()>;
     fn GetCRL(&self, strconfig: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn ImportCertificate(&self, strconfig: &windows_core::BSTR, strcertificate: &windows_core::BSTR, flags: i32) -> windows_core::Result<i32>;
 }
@@ -139,7 +147,7 @@ impl ICertAdmin_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RevokeCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, reason: i32, date: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RevokeCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, reason: i32, date: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin_Impl::RevokeCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strserialnumber), core::mem::transmute_copy(&reason), core::mem::transmute_copy(&date)).into()
@@ -175,7 +183,7 @@ impl ICertAdmin_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PublishCRL<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn PublishCRL<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin_Impl::PublishCRL(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&date)).into()
@@ -238,7 +246,8 @@ impl core::ops::Deref for ICertAdmin2 {
 windows_core::imp::interface_hierarchy!(ICertAdmin2, windows_core::IUnknown, super::IDispatch, ICertAdmin);
 #[cfg(feature = "oaidl")]
 impl ICertAdmin2 {
-    pub unsafe fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: f64, crlflags: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: super::DATE, crlflags: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PublishCRLs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), date, crlflags) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -290,7 +299,8 @@ impl ICertAdmin2 {
             (windows_core::Interface::vtable(self).GetMyRoles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: i32, date: f64, table: i32, rowid: i32) -> windows_core::Result<i32> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: i32, date: super::DATE, table: i32, rowid: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeleteRow)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), flags, date, table, rowid, &mut result__).map(|| result__)
@@ -302,7 +312,10 @@ impl ICertAdmin2 {
 #[doc(hidden)]
 pub struct ICertAdmin2_Vtbl {
     pub base__: ICertAdmin_Vtbl,
-    pub PublishCRLs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub PublishCRLs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DATE, i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    PublishCRLs: usize,
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub GetCAProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32, i32, *mut super::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
@@ -324,11 +337,14 @@ pub struct ICertAdmin2_Vtbl {
     SetConfigEntry: usize,
     pub ImportKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMyRoles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub DeleteRow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, f64, i32, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub DeleteRow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::DATE, i32, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    DeleteRow: usize,
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertAdmin2_Impl: ICertAdmin_Impl {
-    fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: f64, crlflags: i32) -> windows_core::Result<()>;
+    fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: super::DATE, crlflags: i32) -> windows_core::Result<()>;
     fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::VARIANT>;
     fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, pvarpropertyvalue: *const super::VARIANT) -> windows_core::Result<()>;
     fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<i32>;
@@ -338,12 +354,12 @@ pub trait ICertAdmin2_Impl: ICertAdmin_Impl {
     fn SetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR, pvarentry: *const super::VARIANT) -> windows_core::Result<()>;
     fn ImportKey(&self, strconfig: &windows_core::BSTR, requestid: i32, strcerthash: &windows_core::BSTR, flags: i32, strkey: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetMyRoles(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: i32, date: f64, table: i32, rowid: i32) -> windows_core::Result<i32>;
+    fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: i32, date: super::DATE, table: i32, rowid: i32) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertAdmin2_Vtbl {
     pub const fn new<Identity: ICertAdmin2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PublishCRLs<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: f64, crlflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PublishCRLs<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: super::DATE, crlflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin2_Impl::PublishCRLs(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&date), core::mem::transmute_copy(&crlflags)).into()
@@ -439,7 +455,7 @@ impl ICertAdmin2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DeleteRow<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: i32, date: f64, table: i32, rowid: i32, pcdeleted: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteRow<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: i32, date: super::DATE, table: i32, rowid: i32, pcdeleted: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::DeleteRow(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&date), core::mem::transmute_copy(&table), core::mem::transmute_copy(&rowid)) {

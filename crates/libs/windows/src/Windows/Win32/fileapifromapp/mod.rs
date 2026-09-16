@@ -9,29 +9,29 @@ where
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
-pub unsafe fn CreateDirectoryFromAppW<P0>(lppathname: P0, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> windows_core::BOOL
+pub unsafe fn CreateDirectoryFromAppW<P0>(lppathname: P0, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateDirectoryFromAppW(lppathname : windows_core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateDirectoryFromAppW(lppathname : windows_core::PCWSTR, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> windows_core::BOOL);
     unsafe { CreateDirectoryFromAppW(lppathname.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "fileapi", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFile2FromAppW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: Option<*const super::CREATEFILE2_EXTENDED_PARAMETERS>) -> super::HANDLE
+pub unsafe fn CreateFile2FromAppW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: Option<super::LPCREATEFILE2_EXTENDED_PARAMETERS>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFile2FromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const super::CREATEFILE2_EXTENDED_PARAMETERS) -> super::HANDLE);
+    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFile2FromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : super::LPCREATEFILE2_EXTENDED_PARAMETERS) -> super::HANDLE);
     unsafe { CreateFile2FromAppW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFileFromAppW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Option<super::HANDLE>) -> super::HANDLE
+pub unsafe fn CreateFileFromAppW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Option<super::HANDLE>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFileFromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::HANDLE) -> super::HANDLE);
+    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFileFromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::HANDLE) -> super::HANDLE);
     unsafe { CreateFileFromAppW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -44,11 +44,11 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstFileExFromAppW<P0>(lpfilename: P0, finfolevelid: super::FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: super::FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: u32) -> super::HANDLE
+pub unsafe fn FindFirstFileExFromAppW<P0>(lpfilename: P0, finfolevelid: super::FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: super::FINDEX_SEARCH_OPS, lpsearchfilter: Option<*mut core::ffi::c_void>, dwadditionalflags: u32) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn FindFirstFileExFromAppW(lpfilename : windows_core::PCWSTR, finfolevelid : super::FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : super::FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32) -> super::HANDLE);
+    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn FindFirstFileExFromAppW(lpfilename : windows_core::PCWSTR, finfolevelid : super::FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : super::FINDEX_SEARCH_OPS, lpsearchfilter : *mut core::ffi::c_void, dwadditionalflags : u32) -> super::HANDLE);
     unsafe { FindFirstFileExFromAppW(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) }
 }
 #[cfg(feature = "minwinbase")]
@@ -78,13 +78,13 @@ where
     unsafe { RemoveDirectoryFromAppW(lppathname.param().abi()) }
 }
 #[inline]
-pub unsafe fn ReplaceFileFromAppW<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: u32, lpexclude: Option<*const core::ffi::c_void>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn ReplaceFileFromAppW<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: u32, lpexclude: Option<*mut core::ffi::c_void>, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn ReplaceFileFromAppW(lpreplacedfilename : windows_core::PCWSTR, lpreplacementfilename : windows_core::PCWSTR, lpbackupfilename : windows_core::PCWSTR, dwreplaceflags : u32, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn ReplaceFileFromAppW(lpreplacedfilename : windows_core::PCWSTR, lpreplacementfilename : windows_core::PCWSTR, lpbackupfilename : windows_core::PCWSTR, dwreplaceflags : u32, lpexclude : *mut core::ffi::c_void, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ReplaceFileFromAppW(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), dwreplaceflags, lpexclude.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]

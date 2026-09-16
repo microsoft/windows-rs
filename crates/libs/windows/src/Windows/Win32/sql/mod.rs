@@ -98,7 +98,7 @@ pub unsafe fn SQLCompleteAsync(handletype: super::SQLSMALLINT, handle: super::SQ
 #[inline]
 pub unsafe fn SQLConnect(connectionhandle: super::SQLHDBC, servername: &[super::SQLCHAR], username: &[super::SQLCHAR], authentication: &[super::SQLCHAR]) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLConnect(connectionhandle : super::SQLHDBC, servername : *const super::SQLCHAR, namelength1 : super::SQLSMALLINT, username : *const super::SQLCHAR, namelength2 : super::SQLSMALLINT, authentication : *const super::SQLCHAR, namelength3 : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLConnect(connectionhandle, servername.as_ptr(), super::SQLSMALLINT(servername.len().try_into().unwrap()), username.as_ptr(), super::SQLSMALLINT(username.len().try_into().unwrap()), authentication.as_ptr(), super::SQLSMALLINT(authentication.len().try_into().unwrap())) }
+    unsafe { SQLConnect(connectionhandle, servername.as_ptr(), servername.len().try_into().unwrap(), username.as_ptr(), username.len().try_into().unwrap(), authentication.as_ptr(), authentication.len().try_into().unwrap()) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -316,7 +316,7 @@ pub unsafe fn SQLParamData(statementhandle: super::SQLHSTMT, value: Option<*mut 
 #[inline]
 pub unsafe fn SQLPrepare(statementhandle: super::SQLHSTMT, statementtext: &[super::SQLCHAR]) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLPrepare(statementhandle : super::SQLHSTMT, statementtext : *const super::SQLCHAR, textlength : super::SQLINTEGER) -> super::SQLRETURN);
-    unsafe { SQLPrepare(statementhandle, statementtext.as_ptr(), super::SQLINTEGER(statementtext.len().try_into().unwrap())) }
+    unsafe { SQLPrepare(statementhandle, statementtext.as_ptr(), statementtext.len().try_into().unwrap()) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
@@ -370,7 +370,7 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: super::SQLHDBC, option: supe
 #[inline]
 pub unsafe fn SQLSetCursorName(statementhandle: super::SQLHSTMT, cursorname: &[super::SQLCHAR]) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLSetCursorName(statementhandle : super::SQLHSTMT, cursorname : *const super::SQLCHAR, namelength : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLSetCursorName(statementhandle, cursorname.as_ptr(), super::SQLSMALLINT(cursorname.len().try_into().unwrap())) }
+    unsafe { SQLSetCursorName(statementhandle, cursorname.as_ptr(), cursorname.len().try_into().unwrap()) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]

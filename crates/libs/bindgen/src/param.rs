@@ -34,6 +34,18 @@ impl Param {
         self.is_input_only() && self.ty.is_convertible()
     }
 
+    pub fn is_convertible_with_reader(&self, reader: &Reader) -> bool {
+        self.is_input_only() && self.projection_type(reader).is_convertible()
+    }
+
+    pub fn projection_type(&self, reader: &Reader) -> Type {
+        self.ty.projection_type(reader)
+    }
+
+    pub fn projection_pointee(&self, reader: &Reader) -> Type {
+        self.ty.projection_pointee(reader)
+    }
+
     /// Returns the inner type for input `IReference<T>` parameters exposed as `Option<T>`.
     pub fn ireference_inner(&self, reader: &Reader) -> Option<&Type> {
         if !self.is_input_only() {
@@ -87,11 +99,13 @@ impl Param {
     }
 
     fn is_retval_candidate(&self, reader: &Reader, explicit: bool) -> bool {
-        if !self.ty.is_pointer() {
+        let ty = self.projection_type(reader);
+
+        if !ty.is_pointer() {
             return false;
         }
 
-        if !explicit && self.ty.is_void() {
+        if !explicit && ty.is_void() {
             return false;
         }
 
@@ -117,7 +131,7 @@ impl Param {
 
         // Void-pointee and size limits are only heuristics for unmarked trailing pointers. An
         // explicit retval preserves its existing value projection.
-        !(!explicit && self.ty.deref().size(reader) > 16)
+        !(!explicit && ty.deref().size(reader) > 16)
     }
 
     pub fn write_ident(&self) -> TokenStream {

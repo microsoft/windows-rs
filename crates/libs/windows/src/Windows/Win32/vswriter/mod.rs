@@ -7,158 +7,19 @@ pub unsafe fn CreateVssExpressWriterInternal() -> windows_core::Result<IVssExpre
     }
 }
 #[inline]
-pub unsafe fn CreateWriter<P0>(pwriter: P0) -> windows_core::Result<IVssWriterImpl>
-where
-    P0: windows_core::Param<CVssWriter>,
-{
-    windows_core::link!("vssapi.dll" "system" fn CreateWriter(pwriter : *mut core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn CreateWriter(pwriter: *const core::ffi::c_void) -> windows_core::Result<IVssWriterImpl> {
+    windows_core::link!("vssapi.dll" "system" fn CreateWriter(pwriter : *const core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateWriter(pwriter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CreateWriter(pwriter, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
-pub unsafe fn CreateWriterEx<P0>(pwriter: P0) -> windows_core::Result<IVssWriterImpl>
-where
-    P0: windows_core::Param<CVssWriterEx>,
-{
-    windows_core::link!("vssapi.dll" "system" fn CreateWriterEx(pwriter : *mut core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn CreateWriterEx(pwriter: *const core::ffi::c_void) -> windows_core::Result<IVssWriterImpl> {
+    windows_core::link!("vssapi.dll" "system" fn CreateWriterEx(pwriter : *const core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateWriterEx(pwriter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
-}
-windows_core::imp::define_interface!(CVssWriter, CVssWriter_Vtbl);
-impl CVssWriter {
-    pub unsafe fn OnPrepareSnapshot(&self) -> bool {
-        unsafe { (windows_core::Interface::vtable(self).OnPrepareSnapshot)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn OnFreeze(&self) -> bool {
-        unsafe { (windows_core::Interface::vtable(self).OnFreeze)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn OnThaw(&self) -> bool {
-        unsafe { (windows_core::Interface::vtable(self).OnThaw)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn OnAbort(&self) -> bool {
-        unsafe { (windows_core::Interface::vtable(self).OnAbort)(windows_core::Interface::as_raw(self)) }
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct CVssWriter_Vtbl {
-    pub OnPrepareSnapshot: unsafe extern "system" fn(*mut core::ffi::c_void) -> bool,
-    pub OnFreeze: unsafe extern "system" fn(*mut core::ffi::c_void) -> bool,
-    pub OnThaw: unsafe extern "system" fn(*mut core::ffi::c_void) -> bool,
-    pub OnAbort: unsafe extern "system" fn(*mut core::ffi::c_void) -> bool,
-}
-pub trait CVssWriter_Impl {
-    fn OnPrepareSnapshot(&self) -> bool;
-    fn OnFreeze(&self) -> bool;
-    fn OnThaw(&self) -> bool;
-    fn OnAbort(&self) -> bool;
-}
-impl CVssWriter_Vtbl {
-    pub const fn new<Identity: CVssWriter_Impl>() -> Self {
-        unsafe extern "system" fn OnPrepareSnapshot<Identity: CVssWriter_Impl>(this: *mut core::ffi::c_void) -> bool {
-            unsafe {
-                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-                let this = &*((*this).this as *const Identity);
-                CVssWriter_Impl::OnPrepareSnapshot(this)
-            }
-        }
-        unsafe extern "system" fn OnFreeze<Identity: CVssWriter_Impl>(this: *mut core::ffi::c_void) -> bool {
-            unsafe {
-                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-                let this = &*((*this).this as *const Identity);
-                CVssWriter_Impl::OnFreeze(this)
-            }
-        }
-        unsafe extern "system" fn OnThaw<Identity: CVssWriter_Impl>(this: *mut core::ffi::c_void) -> bool {
-            unsafe {
-                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-                let this = &*((*this).this as *const Identity);
-                CVssWriter_Impl::OnThaw(this)
-            }
-        }
-        unsafe extern "system" fn OnAbort<Identity: CVssWriter_Impl>(this: *mut core::ffi::c_void) -> bool {
-            unsafe {
-                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-                let this = &*((*this).this as *const Identity);
-                CVssWriter_Impl::OnAbort(this)
-            }
-        }
-        Self { OnPrepareSnapshot: OnPrepareSnapshot::<Identity>, OnFreeze: OnFreeze::<Identity>, OnThaw: OnThaw::<Identity>, OnAbort: OnAbort::<Identity> }
-    }
-}
-struct CVssWriter_ImplVtbl<T: CVssWriter_Impl>(core::marker::PhantomData<T>);
-impl<T: CVssWriter_Impl> CVssWriter_ImplVtbl<T> {
-    const VTABLE: CVssWriter_Vtbl = CVssWriter_Vtbl::new::<T>();
-}
-impl CVssWriter {
-    pub fn new<'a, T: CVssWriter_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
-        let this = windows_core::ScopedHeap { vtable: &CVssWriter_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
-    }
-}
-windows_core::imp::define_interface!(CVssWriterEx, CVssWriterEx_Vtbl);
-impl core::ops::Deref for CVssWriterEx {
-    type Target = CVssWriter;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-windows_core::imp::interface_hierarchy!(CVssWriterEx, CVssWriter);
-#[repr(C)]
-#[doc(hidden)]
-pub struct CVssWriterEx_Vtbl {
-    pub base__: CVssWriter_Vtbl,
-}
-pub trait CVssWriterEx_Impl: CVssWriter_Impl {}
-impl CVssWriterEx_Vtbl {
-    pub const fn new<Identity: CVssWriterEx_Impl>() -> Self {
-        Self { base__: CVssWriter_Vtbl::new::<Identity>() }
-    }
-}
-struct CVssWriterEx_ImplVtbl<T: CVssWriterEx_Impl>(core::marker::PhantomData<T>);
-impl<T: CVssWriterEx_Impl> CVssWriterEx_ImplVtbl<T> {
-    const VTABLE: CVssWriterEx_Vtbl = CVssWriterEx_Vtbl::new::<T>();
-}
-impl CVssWriterEx {
-    pub fn new<'a, T: CVssWriterEx_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
-        let this = windows_core::ScopedHeap { vtable: &CVssWriterEx_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
-    }
-}
-windows_core::imp::define_interface!(CVssWriterEx2, CVssWriterEx2_Vtbl);
-impl core::ops::Deref for CVssWriterEx2 {
-    type Target = CVssWriterEx;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-windows_core::imp::interface_hierarchy!(CVssWriterEx2, CVssWriter, CVssWriterEx);
-#[repr(C)]
-#[doc(hidden)]
-pub struct CVssWriterEx2_Vtbl {
-    pub base__: CVssWriterEx_Vtbl,
-}
-pub trait CVssWriterEx2_Impl: CVssWriterEx_Impl {}
-impl CVssWriterEx2_Vtbl {
-    pub const fn new<Identity: CVssWriterEx2_Impl>() -> Self {
-        Self { base__: CVssWriterEx_Vtbl::new::<Identity>() }
-    }
-}
-struct CVssWriterEx2_ImplVtbl<T: CVssWriterEx2_Impl>(core::marker::PhantomData<T>);
-impl<T: CVssWriterEx2_Impl> CVssWriterEx2_ImplVtbl<T> {
-    const VTABLE: CVssWriterEx2_Vtbl = CVssWriterEx2_Vtbl::new::<T>();
-}
-impl CVssWriterEx2 {
-    pub fn new<'a, T: CVssWriterEx2_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
-        let this = windows_core::ScopedHeap { vtable: &CVssWriterEx2_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        CreateWriterEx(pwriter, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 windows_core::imp::define_interface!(IVssComponent, IVssComponent_Vtbl, 0xd2c72c96_c121_4518_b627_e5a93d010ead);

@@ -46,19 +46,19 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetWkstaGetInfo(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaSetInfo(#[opt] servername: PCWSTR, level: u32, buffer: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetWkstaSetInfo(#[opt] servername: PCWSTR, level: u32, buffer: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaTransportAdd(#[opt] servername: LPTSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetWkstaTransportAdd(#[opt] servername: LPTSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetWkstaTransportDel(#[opt] servername: PCWSTR, #[opt] transportname: PCWSTR, ucond: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaTransportEnum(#[opt] servername: LPTSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetWkstaTransportEnum(#[opt] servername: LPTSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaUserEnum(#[opt] servername: PCWSTR, level: u32, #[opt] bufptr: *mut LPBYTE, prefmaxlen: u32, #[opt] entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut u32) -> u32;
+        extern fn NetWkstaUserEnum(#[opt] servername: PCWSTR, level: u32, #[opt] bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] #[opt] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetWkstaUserGetInfo(#[opt] reserved: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaUserSetInfo(#[opt] reserved: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetWkstaUserSetInfo(#[opt] reserved: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         type PWKSTA_INFO_100 = *mut WKSTA_INFO_100;
         type PWKSTA_INFO_101 = *mut WKSTA_INFO_101;
         type PWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;

@@ -339,7 +339,7 @@ mod Windows {
             #[special]
             fn get_MediaType(&self, #[retval] MediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
             #[special]
-            fn put_MediaType(&self, MediaType: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn put_MediaType(&self, #[in] MediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
             fn Clone(&self, #[retval] NewCT: *mut IComponentType) -> HRESULT;
         }
         #[guid(0x0dc13d4a_0313_11d3_9d8e_00c04f72d980)]
@@ -571,7 +571,7 @@ mod Windows {
         }
         #[guid(0x506a09b8_7f86_4e04_ac05_3303bfe8fc49)]
         interface IESEventFactory: IUnknown {
-            fn CreateESEvent(&self, pServiceProvider: IUnknown, dwEventId: u32, guidEventType: GUID, dwEventDataLength: u32, pEventData: *const u8, bstrBaseUrl: BSTR, pInitContext: IUnknown, #[retval] ppESEvent: *mut IESEvent) -> HRESULT;
+            fn CreateESEvent(&self, pServiceProvider: IUnknown, dwEventId: u32, guidEventType: GUID, dwEventDataLength: u32, #[in] pEventData: *mut u8, bstrBaseUrl: BSTR, pInitContext: IUnknown, #[retval] ppESEvent: *mut IESEvent) -> HRESULT;
         }
         #[guid(0xed89a619_4c06_4b2f_99eb_c7669b13047c)]
         interface IESEventService: IUnknown {

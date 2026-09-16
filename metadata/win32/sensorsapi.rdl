@@ -21,7 +21,7 @@ mod Windows {
             fn GetData(&self, ppDataReport: *mut ISensorDataReport) -> HRESULT;
             fn SupportsEvent(&self, eventGuid: *const GUID, pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetEventInterest(&self, ppValues: *mut *mut GUID, pCount: *mut u32) -> HRESULT;
-            fn SetEventInterest(&self, pValues: *const GUID, count: u32) -> HRESULT;
+            fn SetEventInterest(&self, #[in] pValues: *mut GUID, count: u32) -> HRESULT;
             fn SetEventSink(&self, pEvents: ISensorEvents) -> HRESULT;
         }
         #[guid(0x23571e11_e545_4dd8_a337_b89bf44b10df)]

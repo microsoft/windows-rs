@@ -31,7 +31,7 @@ mod Windows {
             Value: BSTR,
             MetadataBits: i64,
         }
-        const E_UNKNOWNTYPE: i32 = -2144665560;
+        const E_UNKNOWNTYPE: HRESULT = -2144665560;
         struct EnumType {
             Name: BSTR,
             ValueInts: *mut SAFEARRAY,

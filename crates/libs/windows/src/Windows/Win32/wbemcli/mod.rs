@@ -1,6 +1,4 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CIMTYPE(pub i32);
+pub type CIMTYPE = i32;
 pub type CIMTYPE_ENUMERATION = i32;
 pub const CIM_BOOLEAN: CIMTYPE_ENUMERATION = 11;
 pub const CIM_CHAR16: CIMTYPE_ENUMERATION = 103;

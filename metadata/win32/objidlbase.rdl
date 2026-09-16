@@ -39,24 +39,25 @@ mod Windows {
         interface AsyncIPipeByte: IUnknown {
             fn Begin_Pull(&self, cRequest: u32) -> HRESULT;
             fn Finish_Pull(&self, buf: *mut u8, pcReturned: *mut u32) -> HRESULT;
-            fn Begin_Push(&self, buf: *const u8, cSent: u32) -> HRESULT;
+            fn Begin_Push(&self, #[in] buf: *mut u8, cSent: u32) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
         #[guid(0xdb2f3acf_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeDouble: IUnknown {
             fn Begin_Pull(&self, cRequest: u32) -> HRESULT;
             fn Finish_Pull(&self, buf: *mut f64, pcReturned: *mut u32) -> HRESULT;
-            fn Begin_Push(&self, buf: *const f64, cSent: u32) -> HRESULT;
+            fn Begin_Push(&self, #[in] buf: *mut f64, cSent: u32) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
         #[guid(0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a)]
         interface AsyncIPipeLong: IUnknown {
             fn Begin_Pull(&self, cRequest: u32) -> HRESULT;
             fn Finish_Pull(&self, buf: *mut i32, pcReturned: *mut u32) -> HRESULT;
-            fn Begin_Push(&self, buf: *const i32, cSent: u32) -> HRESULT;
+            fn Begin_Push(&self, #[in] buf: *mut i32, cSent: u32) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
-        const COLE_DEFAULT_PRINCIPAL: PWSTR = -1;
+        const COLE_DEFAULT_AUTHINFO: *mut void = -1;
+        const COLE_DEFAULT_PRINCIPAL: *mut u16 = -1;
         struct COSERVERINFO {
             dwReserved1: u32,
             pwszName: PWSTR,
@@ -182,14 +183,14 @@ mod Windows {
         #[guid(0x0000002a_0000_0000_c000_000000000046)]
         interface IAsyncManager: IUnknown {
             fn CompleteCall(&self, Result: HRESULT) -> HRESULT;
-            fn GetCallContext(&self, riid: *const GUID, #[iid_is] pInterface: *mut *mut void) -> HRESULT;
+            fn GetCallContext(&self, riid: *const GUID, pInterface: *mut *mut void) -> HRESULT;
             fn GetState(&self, pulStateFlags: *mut u32) -> HRESULT;
         }
         #[guid(0xa5029fb6_3c34_11d1_9c99_00c04fb998aa)]
         interface IAsyncRpcChannelBuffer: IRpcChannelBuffer2 {
             fn Send(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pSync: ISynchronize, pulStatus: *mut u32) -> HRESULT;
             fn Receive(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pulStatus: *mut u32) -> HRESULT;
-            fn GetDestCtxEx(&self, pMsg: *const RPCOLEMESSAGE, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
+            fn GetDestCtxEx(&self, #[in] pMsg: *mut RPCOLEMESSAGE, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
         }
         #[guid(0x1c733a30_2a1c_11ce_ade5_00aa0044773d)]
         interface ICallFactory: IUnknown {
@@ -203,16 +204,16 @@ mod Windows {
         #[guid(0x1008c4a0_7613_11cf_9af1_0020af6e72f4)]
         interface IChannelHook: IUnknown {
             fn ClientGetSize(&self, uExtent: *const GUID, riid: *const GUID, pDataSize: *mut u32);
-            fn ClientFillBuffer(&self, uExtent: *const GUID, riid: *const GUID, #[in] #[out] pDataSize: *mut u32, pDataBuffer: *const void);
-            fn ClientNotify(&self, uExtent: *const GUID, riid: *const GUID, cbDataSize: u32, pDataBuffer: *const void, lDataRep: u32, hrFault: HRESULT);
-            fn ServerNotify(&self, uExtent: *const GUID, riid: *const GUID, cbDataSize: u32, pDataBuffer: *const void, lDataRep: u32);
+            fn ClientFillBuffer(&self, uExtent: *const GUID, riid: *const GUID, #[in] #[out] pDataSize: *mut u32, #[in] pDataBuffer: *mut void);
+            fn ClientNotify(&self, uExtent: *const GUID, riid: *const GUID, cbDataSize: u32, #[in] pDataBuffer: *mut void, lDataRep: u32, hrFault: HRESULT);
+            fn ServerNotify(&self, uExtent: *const GUID, riid: *const GUID, cbDataSize: u32, #[in] pDataBuffer: *mut void, lDataRep: u32);
             fn ServerGetSize(&self, uExtent: *const GUID, riid: *const GUID, hrFault: HRESULT, pDataSize: *mut u32);
-            fn ServerFillBuffer(&self, uExtent: *const GUID, riid: *const GUID, #[in] #[out] pDataSize: *mut u32, pDataBuffer: *const void, hrFault: HRESULT);
+            fn ServerFillBuffer(&self, uExtent: *const GUID, riid: *const GUID, #[in] #[out] pDataSize: *mut u32, #[in] pDataBuffer: *mut void, hrFault: HRESULT);
         }
         #[guid(0x0000013d_0000_0000_c000_000000000046)]
         interface IClientSecurity: IUnknown {
             fn QueryBlanket(&self, pProxy: IUnknown, pAuthnSvc: *mut u32, #[opt] pAuthzSvc: *mut u32, pServerPrincName: *mut *mut OLECHAR, #[opt] pAuthnLevel: *mut u32, #[opt] pImpLevel: *mut u32, pAuthInfo: *mut *mut void, #[opt] pCapabilites: *mut u32) -> HRESULT;
-            fn SetBlanket(&self, pProxy: IUnknown, dwAuthnSvc: u32, dwAuthzSvc: u32, pServerPrincName: *const OLECHAR, dwAuthnLevel: u32, dwImpLevel: u32, #[opt] pAuthInfo: *const void, dwCapabilities: u32) -> HRESULT;
+            fn SetBlanket(&self, pProxy: IUnknown, dwAuthnSvc: u32, dwAuthzSvc: u32, #[in] pServerPrincName: *mut OLECHAR, dwAuthnLevel: u32, dwImpLevel: u32, #[in] #[opt] pAuthInfo: *mut void, dwCapabilities: u32) -> HRESULT;
             fn CopyProxy(&self, pProxy: IUnknown, ppCopy: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x000001ce_0000_0000_c000_000000000046)]
@@ -226,7 +227,7 @@ mod Windows {
         struct IEnumContextProps {}
         #[guid(0x00000101_0000_0000_c000_000000000046)]
         interface IEnumString: IUnknown {
-            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut PWSTR, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut LPOLESTR, #[opt] pceltFetched: *mut u32) -> HRESULT;
             fn Skip(&self, celt: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, ppenum: *mut IEnumString) -> HRESULT;
@@ -258,7 +259,7 @@ mod Windows {
         }
         #[guid(0x00000021_0000_0000_c000_000000000046)]
         interface IInternalUnknown: IUnknown {
-            fn QueryInternalInterface(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn QueryInternalInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x26d709ac_f70b_4421_a96f_d2878fafb00d)]
         interface IMachineGlobalObjectTable: IUnknown {
@@ -269,18 +270,18 @@ mod Windows {
         #[guid(0x00000002_0000_0000_c000_000000000046)]
         interface IMalloc: IUnknown {
             fn Alloc(&self, cb: usize) -> *mut void;
-            fn Realloc(&self, #[opt] pv: *const void, cb: usize) -> *mut void;
-            fn Free(&self, #[opt] pv: *const void);
-            fn GetSize(&self, #[opt] pv: *const void) -> usize;
-            fn DidAlloc(&self, #[opt] pv: *const void) -> i32;
+            fn Realloc(&self, #[in] #[opt] pv: *mut void, cb: usize) -> *mut void;
+            fn Free(&self, #[in] #[opt] pv: *mut void);
+            fn GetSize(&self, #[in] #[opt] pv: *mut void) -> usize;
+            fn DidAlloc(&self, #[in] #[opt] pv: *mut void) -> i32;
             fn HeapMinimize(&self);
         }
         #[guid(0x00000003_0000_0000_c000_000000000046)]
         interface IMarshal: IUnknown {
-            fn GetUnmarshalClass(&self, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32, pCid: *mut GUID) -> HRESULT;
-            fn GetMarshalSizeMax(&self, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32, pSize: *mut u32) -> HRESULT;
-            fn MarshalInterface(&self, pStm: IStream, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32) -> HRESULT;
-            fn UnmarshalInterface(&self, pStm: IStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetUnmarshalClass(&self, riid: *const GUID, #[in] #[opt] pv: *mut void, dwDestContext: u32, #[reserved] #[in] pvDestContext: *mut void, mshlflags: u32, pCid: *mut GUID) -> HRESULT;
+            fn GetMarshalSizeMax(&self, riid: *const GUID, #[in] #[opt] pv: *mut void, dwDestContext: u32, #[reserved] #[in] pvDestContext: *mut void, mshlflags: u32, pSize: *mut u32) -> HRESULT;
+            fn MarshalInterface(&self, pStm: IStream, riid: *const GUID, #[in] #[opt] pv: *mut void, dwDestContext: u32, #[reserved] #[in] pvDestContext: *mut void, mshlflags: u32) -> HRESULT;
+            fn UnmarshalInterface(&self, pStm: IStream, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
             fn ReleaseMarshalData(&self, pStm: IStream) -> HRESULT;
             fn DisconnectObject(&self, dwReserved: u32) -> HRESULT;
         }
@@ -299,7 +300,7 @@ mod Windows {
         struct IObjContext {}
         #[guid(0xd5f569d0_593b_101a_b569_08002b2dbf7a)]
         interface IPSFactoryBuffer: IUnknown {
-            fn CreateProxy(&self, pUnkOuter: IUnknown, riid: *const GUID, ppProxy: *mut IRpcProxyBuffer, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateProxy(&self, pUnkOuter: IUnknown, riid: *const GUID, ppProxy: *mut IRpcProxyBuffer, ppv: *mut *mut void) -> HRESULT;
             fn CreateStub(&self, riid: *const GUID, #[opt] pUnkServer: IUnknown, ppStub: *mut IRpcStubBuffer) -> HRESULT;
         }
         #[guid(0x8f146474_b228_48fb_a58c_105ebb273abc)]
@@ -309,17 +310,17 @@ mod Windows {
         #[guid(0xdb2f3aca_2f86_11d1_8e04_00c04fb9989a)]
         interface IPipeByte: IUnknown {
             fn Pull(&self, buf: *mut u8, cRequest: u32, pcReturned: *mut u32) -> HRESULT;
-            fn Push(&self, buf: *const u8, cSent: u32) -> HRESULT;
+            fn Push(&self, #[in] buf: *mut u8, cSent: u32) -> HRESULT;
         }
         #[guid(0xdb2f3ace_2f86_11d1_8e04_00c04fb9989a)]
         interface IPipeDouble: IUnknown {
             fn Pull(&self, buf: *mut f64, cRequest: u32, pcReturned: *mut u32) -> HRESULT;
-            fn Push(&self, buf: *const f64, cSent: u32) -> HRESULT;
+            fn Push(&self, #[in] buf: *mut f64, cSent: u32) -> HRESULT;
         }
         #[guid(0xdb2f3acc_2f86_11d1_8e04_00c04fb9989a)]
         interface IPipeLong: IUnknown {
             fn Pull(&self, buf: *mut i32, cRequest: u32, pcReturned: *mut u32) -> HRESULT;
-            fn Push(&self, buf: *const i32, cSent: u32) -> HRESULT;
+            fn Push(&self, #[in] buf: *mut i32, cSent: u32) -> HRESULT;
         }
         #[guid(0x72380d55_8d2b_43a3_8513_2b6ef31434e9)]
         interface IProcessInitControl: IUnknown {
@@ -346,15 +347,15 @@ mod Windows {
             fn Send(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pulStatus: *mut u32) -> HRESULT;
             fn Receive(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, ulSize: u32, pulStatus: *mut u32) -> HRESULT;
             fn Cancel(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE) -> HRESULT;
-            fn GetCallContext(&self, pMsg: *const RPCOLEMESSAGE, riid: *const GUID, #[iid_is] pInterface: *mut *mut void) -> HRESULT;
-            fn GetDestCtxEx(&self, pMsg: *const RPCOLEMESSAGE, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
-            fn GetState(&self, pMsg: *const RPCOLEMESSAGE, pState: *mut u32) -> HRESULT;
+            fn GetCallContext(&self, #[in] pMsg: *mut RPCOLEMESSAGE, riid: *const GUID, pInterface: *mut *mut void) -> HRESULT;
+            fn GetDestCtxEx(&self, #[in] pMsg: *mut RPCOLEMESSAGE, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
+            fn GetState(&self, #[in] pMsg: *mut RPCOLEMESSAGE, pState: *mut u32) -> HRESULT;
             fn RegisterAsync(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pAsyncMgr: IAsyncManager) -> HRESULT;
         }
         #[guid(0x00000149_0000_0000_c000_000000000046)]
         interface IRpcHelper: IUnknown {
             fn GetDCOMProtocolVersion(&self, pComVersion: *mut u32) -> HRESULT;
-            fn GetIIDFromOBJREF(&self, pObjRef: *const void, piid: *mut *mut GUID) -> HRESULT;
+            fn GetIIDFromOBJREF(&self, #[in] pObjRef: *mut void, piid: *mut *mut GUID) -> HRESULT;
         }
         #[guid(0x00000144_0000_0000_c000_000000000046)]
         interface IRpcOptions: IUnknown {
@@ -374,7 +375,7 @@ mod Windows {
             fn IsIIDSupported(&self, riid: *const GUID) -> IRpcStubBuffer;
             fn CountRefs(&self) -> u32;
             fn DebugServerQueryInterface(&self, ppv: *mut *mut void) -> HRESULT;
-            fn DebugServerRelease(&self, pv: *const void);
+            fn DebugServerRelease(&self, #[in] pv: *mut void);
         }
         #[guid(0x58a08519_24c8_4935_b482_3fd823333a4f)]
         interface IRpcSyntaxNegotiate: IUnknown {
@@ -394,17 +395,17 @@ mod Windows {
         }
         #[guid(0x00000018_0000_0000_c000_000000000046)]
         interface IStdMarshalInfo: IUnknown {
-            fn GetClassForHandler(&self, dwDestContext: u32, #[reserved] pvDestContext: *const void, pClsid: *mut GUID) -> HRESULT;
+            fn GetClassForHandler(&self, dwDestContext: u32, #[reserved] #[in] pvDestContext: *mut void, pClsid: *mut GUID) -> HRESULT;
         }
         #[guid(0x0000000c_0000_0000_c000_000000000046)]
         interface IStream: ISequentialStream {
-            fn Seek(&self, dlibMove: i64, dwOrigin: u32, #[opt] plibNewPosition: *mut u64) -> HRESULT;
-            fn SetSize(&self, libNewSize: u64) -> HRESULT;
-            fn CopyTo(&self, pstm: IStream, cb: u64, #[opt] pcbRead: *mut u64, #[opt] pcbWritten: *mut u64) -> HRESULT;
+            fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: u32, #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+            fn SetSize(&self, libNewSize: ULARGE_INTEGER) -> HRESULT;
+            fn CopyTo(&self, pstm: IStream, cb: ULARGE_INTEGER, #[opt] pcbRead: *mut ULARGE_INTEGER, #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
             fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
             fn Revert(&self) -> HRESULT;
-            fn LockRegion(&self, libOffset: u64, cb: u64, dwLockType: u32) -> HRESULT;
-            fn UnlockRegion(&self, libOffset: u64, cb: u64, dwLockType: u32) -> HRESULT;
+            fn LockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
+            fn UnlockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
             fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: u32) -> HRESULT;
             fn Clone(&self, ppstm: *mut IStream) -> HRESULT;
         }
@@ -442,7 +443,7 @@ mod Windows {
         }
         #[guid(0x00000032_0000_0000_c000_000000000046)]
         interface ISynchronizeEvent: ISynchronizeHandle {
-            fn SetEventHandle(&self, ph: *const HANDLE) -> HRESULT;
+            fn SetEventHandle(&self, #[in] ph: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x00000031_0000_0000_c000_000000000046)]
         interface ISynchronizeHandle: IUnknown {
@@ -468,7 +469,10 @@ mod Windows {
             pItf: IUnknown,
             hr: HRESULT,
         }
-        type MachineGlobalObjectTableRegistrationToken = *mut void;
+        type MachineGlobalObjectTableRegistrationToken = *mut MachineGlobalObjectTableRegistrationToken__;
+        struct MachineGlobalObjectTableRegistrationToken__ {
+            unused: i32,
+        }
         type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
         type PSOLE_AUTHENTICATION_INFO = *mut SOLE_AUTHENTICATION_INFO;
         type PSOLE_AUTHENTICATION_LIST = *mut SOLE_AUTHENTICATION_LIST;
@@ -522,9 +526,9 @@ mod Windows {
             hr: HRESULT,
         }
         struct STATSTG {
-            pwcsName: PWSTR,
+            pwcsName: LPOLESTR,
             r#type: u32,
-            cbSize: u64,
+            cbSize: ULARGE_INTEGER,
             mtime: FILETIME,
             ctime: FILETIME,
             atime: FILETIME,

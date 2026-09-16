@@ -16,27 +16,30 @@ windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryA(command
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthA(exename : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthW(exename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryW(commands : windows_sys::core::PWSTR, commandbufferlength : u32, exename : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetConsoleDisplayMode(lpmodeflags : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetConsoleDisplayMode(lpmodeflags : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
 windows_link::link!("kernel32.dll" "system" fn GetConsoleFontSize(hconsoleoutput : super::HANDLE, nfont : u32) -> super::COORD);
-windows_link::link!("kernel32.dll" "system" fn GetConsoleHistoryInfo(lpconsolehistoryinfo : *mut CONSOLE_HISTORY_INFO) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetConsoleProcessList(lpdwprocesslist : *mut u32, dwprocesscount : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleHistoryInfo(lpconsolehistoryinfo : PCONSOLE_HISTORY_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetConsoleProcessList(lpdwprocesslist : super::LPDWORD, dwprocesscount : u32) -> u32);
 #[cfg(feature = "wincontypes")]
-windows_link::link!("kernel32.dll" "system" fn GetConsoleSelectionInfo(lpconsoleselectioninfo : *mut CONSOLE_SELECTION_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleSelectionInfo(lpconsoleselectioninfo : PCONSOLE_SELECTION_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("kernel32.dll" "system" fn GetConsoleWindow() -> super::HWND);
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetCurrentConsoleFont(hconsoleoutput : super::HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfont : *mut super::CONSOLE_FONT_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetCurrentConsoleFont(hconsoleoutput : super::HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfont : super::PCONSOLE_FONT_INFO) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetCurrentConsoleFontEx(hconsoleoutput : super::HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfontex : *mut CONSOLE_FONT_INFOEX) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetCurrentConsoleFontEx(hconsoleoutput : super::HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfontex : PCONSOLE_FONT_INFOEX) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn SetConsoleDisplayMode(hconsoleoutput : super::HANDLE, dwflags : u32, lpnewscreenbufferdimensions : *mut super::COORD) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn SetConsoleHistoryInfo(lpconsolehistoryinfo : *const CONSOLE_HISTORY_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleDisplayMode(hconsoleoutput : super::HANDLE, dwflags : u32, lpnewscreenbufferdimensions : super::PCOORD) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleHistoryInfo(lpconsolehistoryinfo : PCONSOLE_HISTORY_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsA(number : u32, exename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsW(number : u32, exename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn SetCurrentConsoleFontEx(hconsoleoutput : super::HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfontex : *const CONSOLE_FONT_INFOEX) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetCurrentConsoleFontEx(hconsoleoutput : super::HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfontex : PCONSOLE_FONT_INFOEX) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[cfg(feature = "wincontypes")]
 #[derive(Clone, Copy)]

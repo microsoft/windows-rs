@@ -83,7 +83,10 @@ unsafe fn submit_with_environment<F: FnOnce() + Send>(
     }
 
     let context = Box::into_raw(Box::new(f));
-    if unsafe { TrySubmitThreadpoolCallback(Some(callback::<F>), context as _, environment) } != 0 {
+    if unsafe {
+        TrySubmitThreadpoolCallback(Some(callback::<F>), context as _, environment.cast_mut())
+    } != 0
+    {
         true
     } else {
         // SAFETY: the thread pool rejected the callback and did not take ownership.

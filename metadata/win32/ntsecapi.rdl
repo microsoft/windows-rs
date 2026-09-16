@@ -31,49 +31,49 @@ mod Windows {
         const AUTH_REQ_TRANSITIVE_TRUST: i32 = 1024;
         const AUTH_REQ_VALIDATE_CLIENT: i32 = 128;
         #[library("ADVAPI32.dll")]
-        extern fn AuditComputeEffectivePolicyBySid(pSid: PSID, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool;
+        extern fn AuditComputeEffectivePolicyBySid(pSid: PSID, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditComputeEffectivePolicyByToken(hTokenHandle: HANDLE, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool;
+        extern fn AuditComputeEffectivePolicyByToken(hTokenHandle: HANDLE, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditEnumerateCategories(ppAuditCategoriesArray: *mut *mut GUID, pdwCountReturned: *mut u32) -> bool;
+        extern fn AuditEnumerateCategories(ppAuditCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditEnumeratePerUserPolicy(ppAuditSidArray: *mut PPOLICY_AUDIT_SID_ARRAY) -> bool;
+        extern fn AuditEnumeratePerUserPolicy(ppAuditSidArray: *mut PPOLICY_AUDIT_SID_ARRAY) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditEnumerateSubCategories(#[opt] pAuditCategoryGuid: *const GUID, bRetrieveAllSubCategories: bool, ppAuditSubCategoriesArray: *mut *mut GUID, pdwCountReturned: *mut u32) -> bool;
+        extern fn AuditEnumerateSubCategories(#[opt] pAuditCategoryGuid: *const GUID, bRetrieveAllSubCategories: BOOLEAN, ppAuditSubCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditFree(Buffer: *const void);
+        extern fn AuditFree(#[in] Buffer: *mut void);
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryGuidFromCategoryId(AuditCategoryId: POLICY_AUDIT_EVENT_TYPE, pAuditCategoryGuid: *mut GUID) -> bool;
+        extern fn AuditLookupCategoryGuidFromCategoryId(AuditCategoryId: POLICY_AUDIT_EVENT_TYPE, pAuditCategoryGuid: *mut GUID) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryIdFromCategoryGuid(pAuditCategoryGuid: *const GUID, pAuditCategoryId: *mut POLICY_AUDIT_EVENT_TYPE) -> bool;
+        extern fn AuditLookupCategoryIdFromCategoryGuid(pAuditCategoryGuid: *const GUID, #[out] pAuditCategoryId: PPOLICY_AUDIT_EVENT_TYPE) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryNameA(pAuditCategoryGuid: *const GUID, ppszCategoryName: *mut PSTR) -> bool;
+        extern fn AuditLookupCategoryNameA(pAuditCategoryGuid: *const GUID, ppszCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryNameW(pAuditCategoryGuid: *const GUID, ppszCategoryName: *mut PWSTR) -> bool;
+        extern fn AuditLookupCategoryNameW(pAuditCategoryGuid: *const GUID, ppszCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupSubCategoryNameA(pAuditSubCategoryGuid: *const GUID, ppszSubCategoryName: *mut PSTR) -> bool;
+        extern fn AuditLookupSubCategoryNameA(pAuditSubCategoryGuid: *const GUID, ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupSubCategoryNameW(pAuditSubCategoryGuid: *const GUID, ppszSubCategoryName: *mut PWSTR) -> bool;
+        extern fn AuditLookupSubCategoryNameW(pAuditSubCategoryGuid: *const GUID, ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQueryGlobalSaclA(ObjectTypeName: PCSTR, Acl: *mut PACL) -> bool;
+        extern fn AuditQueryGlobalSaclA(ObjectTypeName: PCSTR, Acl: *mut PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQueryGlobalSaclW(ObjectTypeName: PCWSTR, Acl: *mut PACL) -> bool;
+        extern fn AuditQueryGlobalSaclW(ObjectTypeName: PCWSTR, Acl: *mut PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQueryPerUserPolicy(pSid: PSID, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool;
+        extern fn AuditQueryPerUserPolicy(pSid: PSID, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQuerySecurity(SecurityInformation: SECURITY_INFORMATION, ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> bool;
+        extern fn AuditQuerySecurity(SecurityInformation: SECURITY_INFORMATION, ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQuerySystemPolicy(#[len_param(1)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool;
+        extern fn AuditQuerySystemPolicy(#[len_param(1)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetGlobalSaclA(ObjectTypeName: PCSTR, #[opt] Acl: *const ACL) -> bool;
+        extern fn AuditSetGlobalSaclA(ObjectTypeName: PCSTR, #[opt] Acl: PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetGlobalSaclW(ObjectTypeName: PCWSTR, #[opt] Acl: *const ACL) -> bool;
+        extern fn AuditSetGlobalSaclW(ObjectTypeName: PCWSTR, #[opt] Acl: PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetPerUserPolicy(pSid: PSID, #[len_param(2)] pAuditPolicy: PCAUDIT_POLICY_INFORMATION, dwPolicyCount: u32) -> bool;
+        extern fn AuditSetPerUserPolicy(pSid: PSID, #[len_param(2)] pAuditPolicy: PCAUDIT_POLICY_INFORMATION, dwPolicyCount: u32) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetSecurity(SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> bool;
+        extern fn AuditSetSecurity(SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetSystemPolicy(#[len_param(1)] pAuditPolicy: PCAUDIT_POLICY_INFORMATION, dwPolicyCount: u32) -> bool;
+        extern fn AuditSetSystemPolicy(#[len_param(1)] pAuditPolicy: PCAUDIT_POLICY_INFORMATION, dwPolicyCount: u32) -> BOOLEAN;
         const Audit_AccountLogon: GUID = 0x69979850_797a_11d9_bed3_505054503030;
         const Audit_AccountLogon_CredentialValidation: GUID = 0x0cce923f_69ae_11d9_bed3_505054503030;
         const Audit_AccountLogon_KerbCredentialValidation: GUID = 0x0cce9242_69ae_11d9_bed3_505054503030;
@@ -175,8 +175,8 @@ mod Windows {
             MinPasswordLength: u16,
             PasswordHistoryLength: u16,
             PasswordProperties: u32,
-            MaxPasswordAge: i64,
-            MinPasswordAge: i64,
+            MaxPasswordAge: LARGE_INTEGER,
+            MinPasswordAge: LARGE_INTEGER,
         }
         const DOMAIN_PASSWORD_NO_ANON_CHANGE: i32 = 2;
         const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: i32 = 4;
@@ -192,7 +192,7 @@ mod Windows {
             LogonId: LUID,
             CredUserName: UNICODE_STRING,
             CredDomainName: UNICODE_STRING,
-            GlobalCache: bool,
+            GlobalCache: BOOLEAN,
         }
         const KERBEROS_REVISION: i32 = 6;
         const KERBEROS_VERSION: i32 = 5;
@@ -278,7 +278,7 @@ mod Windows {
         }
         struct KERB_CHANGEMACHINEPASSWORD_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            ForcePasswordChange: bool,
+            ForcePasswordChange: BOOLEAN,
         }
         struct KERB_CHANGEPASSWORD_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -286,7 +286,7 @@ mod Windows {
             AccountName: UNICODE_STRING,
             OldPassword: UNICODE_STRING,
             NewPassword: UNICODE_STRING,
-            Impersonating: bool,
+            Impersonating: BOOLEAN,
         }
         const KERB_CHECKSUM_CRC32: i32 = 1;
         const KERB_CHECKSUM_DES_MAC: i32 = -133;
@@ -433,11 +433,11 @@ mod Windows {
             SessionKey: KERB_CRYPTO_KEY,
             TicketFlags: u32,
             Flags: u32,
-            KeyExpirationTime: i64,
-            StartTime: i64,
-            EndTime: i64,
-            RenewUntil: i64,
-            TimeSkew: i64,
+            KeyExpirationTime: LARGE_INTEGER,
+            StartTime: LARGE_INTEGER,
+            EndTime: LARGE_INTEGER,
+            RenewUntil: LARGE_INTEGER,
+            TimeSkew: LARGE_INTEGER,
             EncodedTicketSize: u32,
             EncodedTicket: PUCHAR,
         }
@@ -451,12 +451,12 @@ mod Windows {
             MessageType: KERB_PROFILE_BUFFER_TYPE,
             LogonCount: u16,
             BadPasswordCount: u16,
-            LogonTime: i64,
-            LogoffTime: i64,
-            KickOffTime: i64,
-            PasswordLastSet: i64,
-            PasswordCanChange: i64,
-            PasswordMustChange: i64,
+            LogonTime: LARGE_INTEGER,
+            LogoffTime: LARGE_INTEGER,
+            KickOffTime: LARGE_INTEGER,
+            PasswordLastSet: LARGE_INTEGER,
+            PasswordCanChange: LARGE_INTEGER,
+            PasswordMustChange: LARGE_INTEGER,
             LogonScript: UNICODE_STRING,
             HomeDirectory: UNICODE_STRING,
             FullName: UNICODE_STRING,
@@ -691,7 +691,7 @@ mod Windows {
             ServerName: UNICODE_STRING,
             Flags: u32,
             LastStatus: NTSTATUS,
-            Expiry: i64,
+            Expiry: LARGE_INTEGER,
         }
         const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: i32 = 1;
         struct KERB_S4U2PROXY_CRED {
@@ -699,7 +699,7 @@ mod Windows {
             DomainName: UNICODE_STRING,
             Flags: u32,
             LastStatus: NTSTATUS,
-            Expiry: i64,
+            Expiry: LARGE_INTEGER,
             CountOfEntries: u32,
             Entries: PKERB_S4U2PROXY_CACHE_ENTRY_INFO,
         }
@@ -722,7 +722,7 @@ mod Windows {
             Password: UNICODE_STRING,
             ClientRealm: UNICODE_STRING,
             ClientName: UNICODE_STRING,
-            Impersonating: bool,
+            Impersonating: BOOLEAN,
             KdcAddress: UNICODE_STRING,
             KdcAddressType: u32,
         }
@@ -763,9 +763,9 @@ mod Windows {
         struct KERB_TICKET_CACHE_INFO {
             ServerName: UNICODE_STRING,
             RealmName: UNICODE_STRING,
-            StartTime: i64,
-            EndTime: i64,
-            RenewTime: i64,
+            StartTime: LARGE_INTEGER,
+            EndTime: LARGE_INTEGER,
+            RenewTime: LARGE_INTEGER,
             EncryptionType: i32,
             TicketFlags: u32,
         }
@@ -774,9 +774,9 @@ mod Windows {
             ClientRealm: UNICODE_STRING,
             ServerName: UNICODE_STRING,
             ServerRealm: UNICODE_STRING,
-            StartTime: i64,
-            EndTime: i64,
-            RenewTime: i64,
+            StartTime: LARGE_INTEGER,
+            EndTime: LARGE_INTEGER,
+            RenewTime: LARGE_INTEGER,
             EncryptionType: i32,
             TicketFlags: u32,
         }
@@ -785,9 +785,9 @@ mod Windows {
             ClientRealm: UNICODE_STRING,
             ServerName: UNICODE_STRING,
             ServerRealm: UNICODE_STRING,
-            StartTime: i64,
-            EndTime: i64,
-            RenewTime: i64,
+            StartTime: LARGE_INTEGER,
+            EndTime: LARGE_INTEGER,
+            RenewTime: LARGE_INTEGER,
             EncryptionType: i32,
             TicketFlags: u32,
             SessionKeyType: u32,
@@ -798,9 +798,9 @@ mod Windows {
             ClientRealm: UNICODE_STRING,
             ServerName: UNICODE_STRING,
             ServerRealm: UNICODE_STRING,
-            StartTime: i64,
-            EndTime: i64,
-            RenewTime: i64,
+            StartTime: LARGE_INTEGER,
+            EndTime: LARGE_INTEGER,
+            RenewTime: LARGE_INTEGER,
             EncryptionType: i32,
             TicketFlags: u32,
             SessionKeyType: u32,
@@ -897,7 +897,7 @@ mod Windows {
         const LSASETCAPS_RELOAD_FLAG: i32 = 1;
         const LSASETCAPS_VALID_FLAG_MASK: i32 = 1;
         struct LSA_AUTH_INFORMATION {
-            LastUpdateTime: i64,
+            LastUpdateTime: LARGE_INTEGER,
             AuthType: u32,
             AuthInfoLength: u32,
             AuthInfo: PUCHAR,
@@ -942,7 +942,7 @@ mod Windows {
         struct LSA_FOREST_TRUST_RECORD {
             Flags: u32,
             ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
-            Time: i64,
+            Time: LARGE_INTEGER,
             ForestTrustData: union {
                 TopLevelName: LSA_UNICODE_STRING,
                 DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
@@ -952,7 +952,7 @@ mod Windows {
         struct LSA_FOREST_TRUST_RECORD2 {
             Flags: u32,
             ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
-            Time: i64,
+            Time: LARGE_INTEGER,
             ForestTrustData: union {
                 TopLevelName: LSA_UNICODE_STRING,
                 DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
@@ -977,8 +977,8 @@ mod Windows {
         const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535;
         type LSA_HANDLE = *mut void;
         struct LSA_LAST_INTER_LOGON_INFO {
-            LastSuccessfulLogon: i64,
-            LastFailedLogon: i64,
+            LastSuccessfulLogon: LARGE_INTEGER,
+            LastFailedLogon: LARGE_INTEGER,
             FailedAttemptCountSinceLastSuccessfulLogon: u32,
         }
         const LSA_MODE_INDIVIDUAL_ACCOUNTS: i32 = 2;
@@ -1001,98 +1001,100 @@ mod Windows {
             DomainIndex: i32,
         }
         #[library("ADVAPI32.dll")]
-        extern fn LsaAddAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, #[len_param(3)] UserRights: *const LSA_UNICODE_STRING, CountOfRights: u32) -> NTSTATUS;
+        extern fn LsaAddAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, #[len_param(3)] UserRights: PLSA_UNICODE_STRING, CountOfRights: u32) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaCallAuthenticationPackage(LsaHandle: HANDLE, AuthenticationPackage: u32, #[size_param(3)] ProtocolSubmitBuffer: *const void, SubmitBufferLength: u32, ProtocolReturnBuffer: *mut *mut void, #[opt] ReturnBufferLength: *mut u32, #[opt] ProtocolStatus: *mut i32) -> NTSTATUS;
+        extern fn LsaCallAuthenticationPackage(LsaHandle: HANDLE, AuthenticationPackage: u32, #[size_param(3)] #[in] ProtocolSubmitBuffer: *mut void, SubmitBufferLength: u32, ProtocolReturnBuffer: *mut *mut void, #[out] #[opt] ReturnBufferLength: PULONG, #[out] #[opt] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaClose(ObjectHandle: LSA_HANDLE) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaConnectUntrusted(LsaHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn LsaConnectUntrusted(#[out] LsaHandle: PHANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaCreateTrustedDomainEx(PolicyHandle: LSA_HANDLE, TrustedDomainInformation: *const TRUSTED_DOMAIN_INFORMATION_EX, AuthenticationInformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, DesiredAccess: ACCESS_MASK, TrustedDomainHandle: *mut *mut void) -> NTSTATUS;
+        extern fn LsaCreateTrustedDomainEx(PolicyHandle: LSA_HANDLE, TrustedDomainInformation: PTRUSTED_DOMAIN_INFORMATION_EX, AuthenticationInformation: PTRUSTED_DOMAIN_AUTH_INFORMATION, DesiredAccess: ACCESS_MASK, #[out] TrustedDomainHandle: PLSA_HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaDeleteTrustedDomain(PolicyHandle: LSA_HANDLE, TrustedDomainSid: PSID) -> NTSTATUS;
         #[library("Secur32.dll")]
         extern fn LsaDeregisterLogonProcess(LsaHandle: HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, UserRights: *mut PLSA_UNICODE_STRING, CountOfRights: *mut u32) -> NTSTATUS;
+        extern fn LsaEnumerateAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, UserRights: *mut PLSA_UNICODE_STRING, #[out] CountOfRights: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateAccountsWithUserRight(PolicyHandle: LSA_HANDLE, #[opt] UserRight: *const LSA_UNICODE_STRING, Buffer: *mut *mut void, CountReturned: *mut u32) -> NTSTATUS;
+        extern fn LsaEnumerateAccountsWithUserRight(PolicyHandle: LSA_HANDLE, #[opt] UserRight: PLSA_UNICODE_STRING, Buffer: *mut *mut void, #[out] CountReturned: PULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaEnumerateLogonSessions(LogonSessionCount: *mut u32, LogonSessionList: *mut PLUID) -> NTSTATUS;
+        extern fn LsaEnumerateLogonSessions(#[out] LogonSessionCount: PULONG, LogonSessionList: *mut PLUID) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateTrustedDomains(PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: *mut u32, Buffer: *mut *mut void, PreferedMaximumLength: u32, CountReturned: *mut u32) -> NTSTATUS;
+        extern fn LsaEnumerateTrustedDomains(PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: PLSA_ENUMERATION_HANDLE, Buffer: *mut *mut void, PreferedMaximumLength: u32, #[out] CountReturned: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateTrustedDomainsEx(PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: *mut u32, Buffer: *mut *mut void, PreferedMaximumLength: u32, CountReturned: *mut u32) -> NTSTATUS;
+        extern fn LsaEnumerateTrustedDomainsEx(PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: PLSA_ENUMERATION_HANDLE, Buffer: *mut *mut void, PreferedMaximumLength: u32, #[out] CountReturned: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaFreeMemory(#[opt] Buffer: *const void) -> NTSTATUS;
+        extern fn LsaFreeMemory(#[in] #[opt] Buffer: *mut void) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaFreeReturnBuffer(Buffer: *const void) -> NTSTATUS;
+        extern fn LsaFreeReturnBuffer(#[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaGetAppliedCAPIDs(#[opt] SystemName: *const LSA_UNICODE_STRING, CAPIDs: *mut *mut PSID, CAPIDCount: *mut u32) -> NTSTATUS;
+        extern fn LsaGetAppliedCAPIDs(#[opt] SystemName: PLSA_UNICODE_STRING, CAPIDs: *mut *mut PSID, #[out] CAPIDCount: PULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaGetLogonSessionData(LogonId: *const LUID, ppLogonSessionData: *mut PSECURITY_LOGON_SESSION_DATA) -> NTSTATUS;
+        extern fn LsaGetLogonSessionData(LogonId: PLUID, ppLogonSessionData: *mut PSECURITY_LOGON_SESSION_DATA) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaLogonUser(LsaHandle: HANDLE, OriginName: *const LSA_STRING, LogonType: SECURITY_LOGON_TYPE, AuthenticationPackage: u32, #[size_param(5)] AuthenticationInformation: *const void, AuthenticationInformationLength: u32, #[opt] LocalGroups: *const TOKEN_GROUPS, SourceContext: *const TOKEN_SOURCE, ProfileBuffer: *mut *mut void, ProfileBufferLength: *mut u32, #[in] #[out] LogonId: *mut LUID, Token: *mut HANDLE, Quotas: *mut QUOTA_LIMITS, SubStatus: *mut i32) -> NTSTATUS;
+        extern fn LsaLogonUser(LsaHandle: HANDLE, OriginName: PLSA_STRING, LogonType: SECURITY_LOGON_TYPE, AuthenticationPackage: u32, #[size_param(5)] #[in] AuthenticationInformation: *mut void, AuthenticationInformationLength: u32, #[opt] LocalGroups: PTOKEN_GROUPS, SourceContext: PTOKEN_SOURCE, ProfileBuffer: *mut *mut void, #[out] ProfileBufferLength: PULONG, #[in] #[out] LogonId: PLUID, #[out] Token: PHANDLE, #[out] Quotas: PQUOTA_LIMITS, #[out] SubStatus: PNTSTATUS) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaLookupAuthenticationPackage(LsaHandle: HANDLE, PackageName: *const LSA_STRING, AuthenticationPackage: *mut u32) -> NTSTATUS;
+        extern fn LsaLookupAuthenticationPackage(LsaHandle: HANDLE, PackageName: PLSA_STRING, #[out] AuthenticationPackage: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupNames(PolicyHandle: LSA_HANDLE, Count: u32, Names: *const LSA_UNICODE_STRING, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Sids: *mut PLSA_TRANSLATED_SID) -> NTSTATUS;
+        extern fn LsaLookupNames(PolicyHandle: LSA_HANDLE, Count: u32, Names: PLSA_UNICODE_STRING, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Sids: *mut PLSA_TRANSLATED_SID) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupNames2(PolicyHandle: LSA_HANDLE, Flags: u32, Count: u32, Names: *const LSA_UNICODE_STRING, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Sids: *mut PLSA_TRANSLATED_SID2) -> NTSTATUS;
+        extern fn LsaLookupNames2(PolicyHandle: LSA_HANDLE, Flags: u32, Count: u32, Names: PLSA_UNICODE_STRING, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Sids: *mut PLSA_TRANSLATED_SID2) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupSids(PolicyHandle: LSA_HANDLE, Count: u32, Sids: *const PSID, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
+        extern fn LsaLookupSids(PolicyHandle: LSA_HANDLE, Count: u32, #[in] Sids: *mut PSID, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupSids2(PolicyHandle: LSA_HANDLE, LookupOptions: u32, Count: u32, Sids: *const PSID, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
+        extern fn LsaLookupSids2(PolicyHandle: LSA_HANDLE, LookupOptions: u32, Count: u32, #[in] Sids: *mut PSID, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaNtStatusToWinError(Status: NTSTATUS) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn LsaOpenPolicy(#[opt] SystemName: *const LSA_UNICODE_STRING, ObjectAttributes: *const LSA_OBJECT_ATTRIBUTES, DesiredAccess: ACCESS_MASK, PolicyHandle: *mut *mut void) -> NTSTATUS;
+        extern fn LsaOpenPolicy(#[opt] SystemName: PLSA_UNICODE_STRING, ObjectAttributes: PLSA_OBJECT_ATTRIBUTES, DesiredAccess: ACCESS_MASK, #[out] PolicyHandle: PLSA_HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaOpenTrustedDomainByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: *const LSA_UNICODE_STRING, DesiredAccess: ACCESS_MASK, TrustedDomainHandle: *mut *mut void) -> NTSTATUS;
+        extern fn LsaOpenTrustedDomainByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, DesiredAccess: ACCESS_MASK, #[out] TrustedDomainHandle: PLSA_HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryCAPs(#[len_param(1)] #[opt] CAPIDs: *const PSID, CAPIDCount: u32, CAPs: *mut PCENTRAL_ACCESS_POLICY, CAPCount: *mut u32) -> NTSTATUS;
+        extern fn LsaQueryCAPs(#[len_param(1)] #[in] #[opt] CAPIDs: *mut PSID, CAPIDCount: u32, CAPs: *mut PCENTRAL_ACCESS_POLICY, #[out] CAPCount: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaQueryDomainInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryForestTrustInformation(PolicyHandle: LSA_HANDLE, TrustedDomainName: *const LSA_UNICODE_STRING, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> NTSTATUS;
+        extern fn LsaQueryForestTrustInformation(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryForestTrustInformation2(PolicyHandle: LSA_HANDLE, TrustedDomainName: *const LSA_UNICODE_STRING, HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION2) -> NTSTATUS;
+        extern fn LsaQueryForestTrustInformation2(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION2) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaQueryInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaQueryTrustedDomainInfo(PolicyHandle: LSA_HANDLE, TrustedDomainSid: PSID, InformationClass: TRUSTED_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryTrustedDomainInfoByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: *const LSA_UNICODE_STRING, InformationClass: TRUSTED_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
+        extern fn LsaQueryTrustedDomainInfoByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, InformationClass: TRUSTED_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaRegisterLogonProcess(LogonProcessName: *const LSA_STRING, LsaHandle: *mut HANDLE, SecurityMode: *mut u32) -> NTSTATUS;
+        extern fn LsaRegisterLogonProcess(LogonProcessName: PLSA_STRING, #[out] LsaHandle: PHANDLE, #[out] SecurityMode: PLSA_OPERATIONAL_MODE) -> NTSTATUS;
         #[library("Secur32.dll")]
         extern fn LsaRegisterPolicyChangeNotification(InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, NotificationEventHandle: HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaRemoveAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, AllRights: bool, #[len_param(4)] #[opt] UserRights: *const LSA_UNICODE_STRING, CountOfRights: u32) -> NTSTATUS;
+        extern fn LsaRemoveAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, AllRights: BOOLEAN, #[len_param(4)] #[opt] UserRights: PLSA_UNICODE_STRING, CountOfRights: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaRetrievePrivateData(PolicyHandle: LSA_HANDLE, KeyName: *const LSA_UNICODE_STRING, PrivateData: *mut PLSA_UNICODE_STRING) -> NTSTATUS;
+        extern fn LsaRetrievePrivateData(PolicyHandle: LSA_HANDLE, KeyName: PLSA_UNICODE_STRING, PrivateData: *mut PLSA_UNICODE_STRING) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetCAPs(#[len_param(1)] #[opt] CAPDNs: *const LSA_UNICODE_STRING, CAPDNCount: u32, Flags: u32) -> NTSTATUS;
+        extern fn LsaSetCAPs(#[len_param(1)] #[opt] CAPDNs: PLSA_UNICODE_STRING, CAPDNCount: u32, Flags: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetDomainInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, #[opt] Buffer: *const void) -> NTSTATUS;
+        extern fn LsaSetDomainInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, #[in] #[opt] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetForestTrustInformation(PolicyHandle: LSA_HANDLE, TrustedDomainName: *const LSA_UNICODE_STRING, ForestTrustInfo: *const LSA_FOREST_TRUST_INFORMATION, CheckOnly: bool, CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
+        extern fn LsaSetForestTrustInformation(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, ForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION, CheckOnly: BOOLEAN, CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetForestTrustInformation2(PolicyHandle: LSA_HANDLE, TrustedDomainName: *const LSA_UNICODE_STRING, HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, ForestTrustInfo: *const LSA_FOREST_TRUST_INFORMATION2, CheckOnly: bool, CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
+        extern fn LsaSetForestTrustInformation2(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, ForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION2, CheckOnly: BOOLEAN, CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_INFORMATION_CLASS, Buffer: *const void) -> NTSTATUS;
+        extern fn LsaSetInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_INFORMATION_CLASS, #[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetTrustedDomainInfoByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: *const LSA_UNICODE_STRING, InformationClass: TRUSTED_INFORMATION_CLASS, Buffer: *const void) -> NTSTATUS;
+        extern fn LsaSetTrustedDomainInfoByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, InformationClass: TRUSTED_INFORMATION_CLASS, #[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetTrustedDomainInformation(PolicyHandle: LSA_HANDLE, TrustedDomainSid: PSID, InformationClass: TRUSTED_INFORMATION_CLASS, Buffer: *const void) -> NTSTATUS;
+        extern fn LsaSetTrustedDomainInformation(PolicyHandle: LSA_HANDLE, TrustedDomainSid: PSID, InformationClass: TRUSTED_INFORMATION_CLASS, #[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaStorePrivateData(PolicyHandle: LSA_HANDLE, KeyName: *const LSA_UNICODE_STRING, #[opt] PrivateData: *const LSA_UNICODE_STRING) -> NTSTATUS;
+        extern fn LsaStorePrivateData(PolicyHandle: LSA_HANDLE, KeyName: PLSA_UNICODE_STRING, #[opt] PrivateData: PLSA_UNICODE_STRING) -> NTSTATUS;
         #[library("Secur32.dll")]
         extern fn LsaUnregisterPolicyChangeNotification(InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, NotificationEventHandle: HANDLE) -> NTSTATUS;
         const MAXIMUM_CAPES_PER_CAP: i32 = 127;
         const MAX_FOREST_TRUST_BINARY_DATA_SIZE: i32 = 131072;
         const MAX_RECORDS_IN_FOREST_TRUST_INFO: i32 = 4000;
+        #[encoding("utf-16")]
+        const MICROSOFT_KERBEROS_NAME: String = "Kerberos";
         #[encoding("ansi")]
         const MICROSOFT_KERBEROS_NAME_A: String = "Kerberos";
         #[encoding("utf-16")]
@@ -1129,11 +1131,11 @@ mod Windows {
             AccountName: UNICODE_STRING,
             OldPassword: UNICODE_STRING,
             NewPassword: UNICODE_STRING,
-            Impersonating: bool,
+            Impersonating: BOOLEAN,
         }
         struct MSV1_0_CHANGEPASSWORD_RESPONSE {
             MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-            PasswordInfoValid: bool,
+            PasswordInfoValid: BOOLEAN,
             DomainPasswordInfo: DOMAIN_PASSWORD_INFORMATION,
         }
         const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: i32 = 262144;
@@ -1176,12 +1178,12 @@ mod Windows {
             MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
             LogonCount: u16,
             BadPasswordCount: u16,
-            LogonTime: i64,
-            LogoffTime: i64,
-            KickOffTime: i64,
-            PasswordLastSet: i64,
-            PasswordCanChange: i64,
-            PasswordMustChange: i64,
+            LogonTime: LARGE_INTEGER,
+            LogoffTime: LARGE_INTEGER,
+            KickOffTime: LARGE_INTEGER,
+            PasswordLastSet: LARGE_INTEGER,
+            PasswordCanChange: LARGE_INTEGER,
+            PasswordMustChange: LARGE_INTEGER,
             LogonScript: UNICODE_STRING,
             HomeDirectory: UNICODE_STRING,
             FullName: UNICODE_STRING,
@@ -1209,8 +1211,8 @@ mod Windows {
         }
         struct MSV1_0_LM20_LOGON_PROFILE {
             MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
-            KickOffTime: i64,
-            LogoffTime: i64,
+            KickOffTime: LARGE_INTEGER,
+            LogoffTime: LARGE_INTEGER,
             UserFlags: u32,
             UserSessionKey: [u8; 16],
             LogonDomainName: UNICODE_STRING,
@@ -1234,6 +1236,10 @@ mod Windows {
         const MSV1_0_MAX_NTLM3_LIFE: i32 = 129600;
         const MSV1_0_MNS_LOGON: i32 = 16777216;
         #[arch(X64 | Arm64)]
+        const MSV1_0_NTLM3_INPUT_LENGTH: u64 = 32;
+        #[arch(X86)]
+        const MSV1_0_NTLM3_INPUT_LENGTH: u32 = 32;
+        #[arch(X64 | Arm64)]
         const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u64 = 44;
         #[arch(X86)]
         const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u32 = 44;
@@ -1255,6 +1261,10 @@ mod Windows {
         const MSV1_0_PACKAGE_NAME: String = "MICROSOFT_AUTHENTICATION_PACKAGE_V1_0";
         #[encoding("utf-16")]
         const MSV1_0_PACKAGE_NAMEW: String = "MICROSOFT_AUTHENTICATION_PACKAGE_V1_0";
+        #[arch(X64 | Arm64)]
+        const MSV1_0_PACKAGE_NAMEW_LENGTH: u64 = 74;
+        #[arch(X86)]
+        const MSV1_0_PACKAGE_NAMEW_LENGTH: u32 = 74;
         struct MSV1_0_PASSTHROUGH_REQUEST {
             MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
             DomainName: UNICODE_STRING,
@@ -1529,6 +1539,8 @@ mod Windows {
         const PKU2U_PACKAGE_NAME: String = "pku2u";
         #[encoding("ansi")]
         const PKU2U_PACKAGE_NAME_A: String = "pku2u";
+        #[encoding("utf-16")]
+        const PKU2U_PACKAGE_NAME_W: String = "pku2u";
         type PLSA_AUTH_INFORMATION = *mut LSA_AUTH_INFORMATION;
         type PLSA_ENUMERATION_HANDLE = *mut u32;
         type PLSA_ENUMERATION_INFORMATION = *mut LSA_ENUMERATION_INFORMATION;
@@ -1578,7 +1590,7 @@ mod Windows {
             SubCategoriesInfo: PPOLICY_AUDIT_SUBCATEGORIES_INFO,
         }
         struct POLICY_AUDIT_EVENTS_INFO {
-            AuditingMode: bool,
+            AuditingMode: BOOLEAN,
             EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
             MaximumAuditEventCount: u32,
         }
@@ -1601,19 +1613,19 @@ mod Windows {
         }
         const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0;
         struct POLICY_AUDIT_FULL_QUERY_INFO {
-            ShutDownOnFull: bool,
-            LogIsFull: bool,
+            ShutDownOnFull: BOOLEAN,
+            LogIsFull: BOOLEAN,
         }
         struct POLICY_AUDIT_FULL_SET_INFO {
-            ShutDownOnFull: bool,
+            ShutDownOnFull: BOOLEAN,
         }
         const POLICY_AUDIT_LOG_ADMIN: i32 = 512;
         struct POLICY_AUDIT_LOG_INFO {
             AuditLogPercentFull: u32,
             MaximumLogSize: u32,
-            AuditRetentionPeriod: i64,
-            AuditLogFullShutdownInProgress: bool,
-            TimeToShutdown: i64,
+            AuditRetentionPeriod: LARGE_INTEGER,
+            AuditLogFullShutdownInProgress: BOOLEAN,
+            TimeToShutdown: LARGE_INTEGER,
             NextAuditRecordId: u32,
         }
         struct POLICY_AUDIT_SID_ARRAY {
@@ -1641,11 +1653,11 @@ mod Windows {
         }
         struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
             AuthenticationOptions: u32,
-            MaxServiceTicketAge: i64,
-            MaxTicketAge: i64,
-            MaxRenewAge: i64,
-            MaxClockSkew: i64,
-            Reserved: i64,
+            MaxServiceTicketAge: LARGE_INTEGER,
+            MaxTicketAge: LARGE_INTEGER,
+            MaxRenewAge: LARGE_INTEGER,
+            MaxClockSkew: LARGE_INTEGER,
+            Reserved: LARGE_INTEGER,
         }
         const POLICY_EXECUTE: i32 = 133121;
         const POLICY_GET_PRIVATE_INFORMATION: i32 = 4;
@@ -1689,8 +1701,8 @@ mod Windows {
             ObjectGuid: GUID,
         }
         struct POLICY_MODIFICATION_INFO {
-            ModifiedId: i64,
-            DatabaseCreationTime: i64,
+            ModifiedId: LARGE_INTEGER,
+            DatabaseCreationTime: LARGE_INTEGER,
         }
         const POLICY_NOTIFICATION: i32 = 4096;
         #[repr(i32)]
@@ -1751,9 +1763,9 @@ mod Windows {
         type PPOLICY_PD_ACCOUNT_INFO = *mut POLICY_PD_ACCOUNT_INFO;
         type PPOLICY_PRIMARY_DOMAIN_INFO = *mut POLICY_PRIMARY_DOMAIN_INFO;
         type PPOLICY_REPLICA_SOURCE_INFO = *mut POLICY_REPLICA_SOURCE_INFO;
-        extern fn PSAM_INIT_NOTIFICATION_ROUTINE() -> bool;
-        extern fn PSAM_PASSWORD_FILTER_ROUTINE(AccountName: *const LSA_UNICODE_STRING, FullName: *const LSA_UNICODE_STRING, Password: *const LSA_UNICODE_STRING, SetOperation: bool) -> bool;
-        extern fn PSAM_PASSWORD_NOTIFICATION_ROUTINE(UserName: *mut LSA_UNICODE_STRING, RelativeId: u32, NewPassword: *mut LSA_UNICODE_STRING) -> NTSTATUS;
+        extern "C" fn PSAM_INIT_NOTIFICATION_ROUTINE() -> BOOLEAN;
+        extern "C" fn PSAM_PASSWORD_FILTER_ROUTINE(AccountName: PUNICODE_STRING, FullName: PUNICODE_STRING, Password: PUNICODE_STRING, SetOperation: BOOLEAN) -> BOOLEAN;
+        extern "C" fn PSAM_PASSWORD_NOTIFICATION_ROUTINE(UserName: PUNICODE_STRING, RelativeId: u32, NewPassword: PUNICODE_STRING) -> NTSTATUS;
         type PSECURITY_LOGON_SESSION_DATA = *mut SECURITY_LOGON_SESSION_DATA;
         type PSECURITY_LOGON_TYPE = *mut SECURITY_LOGON_TYPE;
         type PSE_ADT_ACCESS_REASON = *mut SE_ADT_ACCESS_REASON;
@@ -1763,6 +1775,7 @@ mod Windows {
         type PSE_ADT_PARAMETER_ARRAY_ENTRY = *mut SE_ADT_PARAMETER_ARRAY_ENTRY;
         type PSE_ADT_PARAMETER_ARRAY_EX = *mut SE_ADT_PARAMETER_ARRAY_EX;
         type PSE_ADT_PARAMETER_TYPE = *mut SE_ADT_PARAMETER_TYPE;
+        type PSTRING = *mut LSA_STRING;
         type PTRUSTED_CONTROLLERS_INFO = *mut TRUSTED_CONTROLLERS_INFO;
         type PTRUSTED_DOMAIN_AUTH_INFORMATION = *mut TRUSTED_DOMAIN_AUTH_INFORMATION;
         type PTRUSTED_DOMAIN_FULL_INFORMATION = *mut TRUSTED_DOMAIN_FULL_INFORMATION;
@@ -1775,6 +1788,7 @@ mod Windows {
         type PTRUSTED_INFORMATION_CLASS = *mut TRUSTED_INFORMATION_CLASS;
         type PTRUSTED_PASSWORD_INFO = *mut TRUSTED_PASSWORD_INFO;
         type PTRUSTED_POSIX_OFFSET_INFO = *mut TRUSTED_POSIX_OFFSET_INFO;
+        type PUNICODE_STRING = *mut LSA_UNICODE_STRING;
         const RTL_ENCRYPT_MEMORY_SIZE: i32 = 8;
         const RTL_ENCRYPT_OPTION_CROSS_PROCESS: i32 = 1;
         const RTL_ENCRYPT_OPTION_FOR_SYSTEM: i32 = 4;
@@ -1784,7 +1798,7 @@ mod Windows {
         #[library("ADVAPI32.dll", import = "SystemFunction040")]
         extern fn RtlEncryptMemory(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll", import = "SystemFunction036")]
-        extern fn RtlGenRandom(#[size_param(1)] RandomBuffer: *mut void, RandomBufferLength: u32) -> bool;
+        extern fn RtlGenRandom(#[size_param(1)] RandomBuffer: *mut void, RandomBufferLength: u32) -> BOOLEAN;
         #[encoding("ansi")]
         const SAM_INIT_NOTIFICATION_ROUTINE: String = "InitializeChangeNotify";
         #[encoding("ansi")]
@@ -1800,7 +1814,7 @@ mod Windows {
             LogonType: u32,
             Session: u32,
             Sid: PSID,
-            LogonTime: i64,
+            LogonTime: LARGE_INTEGER,
             LogonServer: LSA_UNICODE_STRING,
             DnsDomainName: LSA_UNICODE_STRING,
             Upn: LSA_UNICODE_STRING,
@@ -1810,11 +1824,11 @@ mod Windows {
             ProfilePath: LSA_UNICODE_STRING,
             HomeDirectory: LSA_UNICODE_STRING,
             HomeDirectoryDrive: LSA_UNICODE_STRING,
-            LogoffTime: i64,
-            KickOffTime: i64,
-            PasswordLastSet: i64,
-            PasswordCanChange: i64,
-            PasswordMustChange: i64,
+            LogoffTime: LARGE_INTEGER,
+            KickOffTime: LARGE_INTEGER,
+            PasswordLastSet: LARGE_INTEGER,
+            PasswordCanChange: LARGE_INTEGER,
+            PasswordMustChange: LARGE_INTEGER,
         }
         #[repr(i32)]
         enum SECURITY_LOGON_TYPE {
@@ -1923,12 +1937,6 @@ mod Windows {
         const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: i32 = 16;
         const SE_MAX_AUDIT_PARAMETERS: i32 = 32;
         const SE_MAX_GENERIC_AUDIT_PARAMETERS: i32 = 28;
-        struct STRING {
-            Length: u16,
-            MaximumLength: u16,
-            Buffer: PCHAR,
-        }
-        type STRING = LSA_STRING;
         struct TRUSTED_CONTROLLERS_INFO {
             Entries: u32,
             Names: PLSA_UNICODE_STRING,
@@ -2028,12 +2036,6 @@ mod Windows {
         const TRUST_TYPE_DOWNLEVEL: i32 = 1;
         const TRUST_TYPE_MIT: i32 = 3;
         const TRUST_TYPE_UPLEVEL: i32 = 2;
-        struct UNICODE_STRING {
-            Length: u16,
-            MaximumLength: u16,
-            Buffer: PWSTR,
-        }
-        type UNICODE_STRING = LSA_UNICODE_STRING;
         const VALID_PER_USER_AUDIT_POLICY_FLAG: i32 = 31;
     }
 }

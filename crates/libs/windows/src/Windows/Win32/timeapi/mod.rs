@@ -12,14 +12,14 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> super::MMRESULT {
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
-pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : *mut TIMECAPS, cbtc : u32) -> super::MMRESULT);
+pub unsafe fn timeGetDevCaps(ptc: LPTIMECAPS, cbtc: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn timeGetDevCaps(ptc : LPTIMECAPS, cbtc : u32) -> super::MMRESULT);
     unsafe { timeGetDevCaps(ptc as _, cbtc) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
-pub unsafe fn timeGetSystemTime(pmmt: *mut super::MMTIME, cbmmt: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : *mut super::MMTIME, cbmmt : u32) -> super::MMRESULT);
+pub unsafe fn timeGetSystemTime(pmmt: super::LPMMTIME, cbmmt: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn timeGetSystemTime(pmmt : super::LPMMTIME, cbmmt : u32) -> super::MMRESULT);
     unsafe { timeGetSystemTime(pmmt as _, cbmmt) }
 }
 #[inline]

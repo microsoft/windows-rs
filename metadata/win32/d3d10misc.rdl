@@ -6,7 +6,7 @@ mod Windows {
         #[library("d3d10.dll")]
         extern fn D3D10CreateDevice(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, SDKVersion: u32, #[opt] ppDevice: *mut ID3D10Device) -> HRESULT;
         #[library("d3d10.dll")]
-        extern fn D3D10CreateDeviceAndSwapChain(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, SDKVersion: u32, #[opt] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D10Device) -> HRESULT;
+        extern fn D3D10CreateDeviceAndSwapChain(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, SDKVersion: u32, #[in] #[opt] pSwapChainDesc: *mut DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D10Device) -> HRESULT;
         #[repr(i32)]
         enum D3D10_DRIVER_TYPE {
             D3D10_DRIVER_TYPE_HARDWARE = 0,

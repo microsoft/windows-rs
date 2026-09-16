@@ -13,11 +13,11 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetServiceControl(#[opt] servername: PCWSTR, service: PCWSTR, opcode: u32, arg: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetServiceEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetServiceGetInfo(#[opt] servername: PCWSTR, service: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceInstall(#[opt] servername: PCWSTR, service: PCWSTR, argc: u32, #[len_param(2)] argv: *const PCWSTR, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetServiceInstall(#[opt] servername: PCWSTR, service: PCWSTR, argc: u32, #[len_param(2)] #[in] argv: *mut PCWSTR, bufptr: *mut LPBYTE) -> u32;
         type PSERVICE_INFO_0 = *mut SERVICE_INFO_0;
         type PSERVICE_INFO_1 = *mut SERVICE_INFO_1;
         type PSERVICE_INFO_2 = *mut SERVICE_INFO_2;

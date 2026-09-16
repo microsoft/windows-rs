@@ -96,10 +96,10 @@ mod Windows {
         extern fn WHvGetVpciDeviceProperty(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, PropertyCode: WHV_VPCI_DEVICE_PROPERTY_CODE, #[size_param(4)] PropertyBuffer: *mut void, PropertyBufferSizeInBytes: u32, #[opt] WrittenSizeInBytes: *mut u32) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
-        extern fn WHvMapGpaRange(Partition: WHV_PARTITION_HANDLE, SourceAddress: *const void, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, SizeInBytes: u64, Flags: WHV_MAP_GPA_RANGE_FLAGS) -> HRESULT;
+        extern fn WHvMapGpaRange(Partition: WHV_PARTITION_HANDLE, #[in] SourceAddress: *mut void, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, SizeInBytes: u64, Flags: WHV_MAP_GPA_RANGE_FLAGS) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
-        extern fn WHvMapGpaRange2(Partition: WHV_PARTITION_HANDLE, Process: HANDLE, SourceAddress: *const void, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, SizeInBytes: u64, Flags: WHV_MAP_GPA_RANGE_FLAGS) -> HRESULT;
+        extern fn WHvMapGpaRange2(Partition: WHV_PARTITION_HANDLE, Process: HANDLE, #[in] SourceAddress: *mut void, GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS, SizeInBytes: u64, Flags: WHV_MAP_GPA_RANGE_FLAGS) -> HRESULT;
         #[arch(X64 | Arm64)]
         #[library("WinHvPlatform.dll")]
         extern fn WHvMapVpciDeviceInterrupt(Partition: WHV_PARTITION_HANDLE, LogicalDeviceId: u64, Index: u32, MessageCount: u32, Target: *const WHV_VPCI_INTERRUPT_TARGET, MsiAddress: *mut u64, MsiData: *mut u32) -> HRESULT;

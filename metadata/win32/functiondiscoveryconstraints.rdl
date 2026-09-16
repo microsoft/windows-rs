@@ -12,6 +12,8 @@ mod Windows {
         #[encoding("utf-16")]
         const FD_CONSTRAINTVALUE_PAIRED: String = "Paired";
         #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_RECURSESUBCATEGORY_TRUE: String = "TRUE";
+        #[encoding("utf-16")]
         const FD_CONSTRAINTVALUE_ROUTINGSCOPE_ALL: String = "All";
         #[encoding("utf-16")]
         const FD_CONSTRAINTVALUE_ROUTINGSCOPE_DIRECT: String = "Direct";
@@ -43,6 +45,10 @@ mod Windows {
         const MAX_FDCONSTRAINTVALUE_LENGTH: i32 = 1000;
         #[encoding("utf-16")]
         const ONLINE_PROVIDER_DEVICES_QUERYCONSTRAINT_OWNERNAME: String = "OwnerName";
+        #[encoding("utf-16")]
+        const PNP_CONSTRAINTVALUE_NOTIFICATIONSONLY: String = "TRUE";
+        #[encoding("utf-16")]
+        const PNP_CONSTRAINTVALUE_NOTPRESENT: String = "TRUE";
         #[encoding("utf-16")]
         const PROVIDERDDO_QUERYCONSTRAINT_DEVICEFUNCTIONDISPLAYOBJECTS: String = "DeviceFunctionDisplayObjects";
         #[encoding("utf-16")]

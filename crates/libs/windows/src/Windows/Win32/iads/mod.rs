@@ -14,9 +14,7 @@ pub const ADSIPROP_TIME_LIMIT: ADS_PREFERENCES_ENUM = 3;
 pub type ADSI_DIALECT_ENUM = i32;
 pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = 0;
 pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADSTYPE(pub ADSTYPEENUM);
+pub type ADSTYPE = ADSTYPEENUM;
 pub type ADSTYPEENUM = i32;
 pub const ADSTYPE_BACKLINK: ADSTYPEENUM = 18;
 pub const ADSTYPE_BOOLEAN: ADSTYPEENUM = 6;
@@ -48,20 +46,20 @@ pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = 19;
 pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = 26;
 pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = 9;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ADSVALUE {
     pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl Default for ADSVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union ADSVALUE_0 {
     pub DNString: ADS_DN_STRING,
@@ -92,7 +90,7 @@ pub union ADSVALUE_0 {
     pub pDNWithBinary: PADS_DN_WITH_BINARY,
     pub pDNWithString: PADS_DN_WITH_STRING,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl Default for ADSVALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -135,7 +133,7 @@ pub struct ADS_ATTR_DEF {
 }
 pub const ADS_ATTR_DELETE: i32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: windows_core::PWSTR,
@@ -153,9 +151,7 @@ pub struct ADS_BACKLINK {
     pub RemoteID: u32,
     pub ObjectName: windows_core::PWSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADS_BOOLEAN(pub u32);
+pub type ADS_BOOLEAN = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_CASEIGNORE_LIST {
@@ -258,12 +254,9 @@ pub struct ADS_HOLD {
     pub ObjectName: windows_core::PWSTR,
     pub Amount: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADS_INTEGER(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADS_LARGE_INTEGER(pub i64);
+pub type ADS_INTEGER = u32;
+#[cfg(feature = "winnt")]
+pub type ADS_LARGE_INTEGER = super::LARGE_INTEGER;
 pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = 1;
 pub type ADS_NAME_INITTYPE_ENUM = i32;
 pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = 3;
@@ -426,9 +419,7 @@ pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = 1;
 pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = 2;
 pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = 4;
 pub type ADS_SD_REVISION_ENUM = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADS_SEARCHPREF(pub ADS_SEARCHPREF_ENUM);
+pub type ADS_SEARCHPREF = ADS_SEARCHPREF_ENUM;
 pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = 0;
 pub const ADS_SEARCHPREF_ATTRIBTYPES_ONLY: ADS_SEARCHPREF_ENUM = 4;
 pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = 15;
@@ -440,14 +431,14 @@ pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = 17;
 pub type ADS_SEARCHPREF_ENUM = i32;
 pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = 18;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ADS_SEARCHPREF_INFO {
     pub dwSearchPref: ADS_SEARCHPREF,
     pub vValue: ADSVALUE,
     pub dwStatus: ADS_STATUS,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl Default for ADS_SEARCHPREF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -488,15 +479,14 @@ pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = 1;
 pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = 2;
 pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_core::PWSTR,
     pub pszReserved: windows_core::PWSTR,
-    pub fReverseorder: bool,
+    pub fReverseorder: super::BOOLEAN,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADS_STATUS(pub ADS_STATUSENUM);
+pub type ADS_STATUS = ADS_STATUSENUM;
 pub type ADS_STATUSENUM = i32;
 pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = 1;
 pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = 2;
@@ -7094,7 +7084,8 @@ impl IADsPrintJob {
             (windows_core::Interface::vtable(self).UserPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn TimeSubmitted(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn TimeSubmitted(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeSubmitted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7130,22 +7121,26 @@ impl IADsPrintJob {
     pub unsafe fn SetPriority(&self, lnpriority: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), lnpriority) }
     }
-    pub unsafe fn StartTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn StartTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStartTime(&self, dastarttime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetStartTime(&self, dastarttime: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), dastarttime) }
     }
-    pub unsafe fn UntilTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn UntilTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UntilTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUntilTime(&self, dauntiltime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetUntilTime(&self, dauntiltime: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUntilTime)(windows_core::Interface::as_raw(self), dauntiltime) }
     }
     pub unsafe fn Notify(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -7175,17 +7170,32 @@ pub struct IADsPrintJob_Vtbl {
     pub HostPrintQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UserPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TimeSubmitted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub TimeSubmitted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    TimeSubmitted: usize,
     pub TotalPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub UntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetUntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    StartTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetStartTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub UntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    UntilTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetUntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetUntilTime: usize,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7196,17 +7206,17 @@ pub trait IADsPrintJob_Impl: IADs_Impl {
     fn HostPrintQueue(&self) -> windows_core::Result<windows_core::BSTR>;
     fn User(&self) -> windows_core::Result<windows_core::BSTR>;
     fn UserPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn TimeSubmitted(&self) -> windows_core::Result<f64>;
+    fn TimeSubmitted(&self) -> windows_core::Result<super::DATE>;
     fn TotalPages(&self) -> windows_core::Result<i32>;
     fn Size(&self) -> windows_core::Result<i32>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Priority(&self) -> windows_core::Result<i32>;
     fn SetPriority(&self, lnpriority: i32) -> windows_core::Result<()>;
-    fn StartTime(&self) -> windows_core::Result<f64>;
-    fn SetStartTime(&self, dastarttime: f64) -> windows_core::Result<()>;
-    fn UntilTime(&self) -> windows_core::Result<f64>;
-    fn SetUntilTime(&self, dauntiltime: f64) -> windows_core::Result<()>;
+    fn StartTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetStartTime(&self, dastarttime: super::DATE) -> windows_core::Result<()>;
+    fn UntilTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetUntilTime(&self, dauntiltime: super::DATE) -> windows_core::Result<()>;
     fn Notify(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetNotify(&self, bstrnotify: &windows_core::BSTR) -> windows_core::Result<()>;
     fn NotifyPath(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7251,7 +7261,7 @@ impl IADsPrintJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TimeSubmitted<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn TimeSubmitted<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsPrintJob_Impl::TimeSubmitted(this) {
@@ -7323,7 +7333,7 @@ impl IADsPrintJob_Vtbl {
                 IADsPrintJob_Impl::SetPriority(this, core::mem::transmute_copy(&lnpriority)).into()
             }
         }
-        unsafe extern "system" fn StartTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsPrintJob_Impl::StartTime(this) {
@@ -7335,13 +7345,13 @@ impl IADsPrintJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStartTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dastarttime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStartTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dastarttime: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IADsPrintJob_Impl::SetStartTime(this, core::mem::transmute_copy(&dastarttime)).into()
             }
         }
-        unsafe extern "system" fn UntilTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn UntilTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsPrintJob_Impl::UntilTime(this) {
@@ -7353,7 +7363,7 @@ impl IADsPrintJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetUntilTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dauntiltime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUntilTime<Identity: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dauntiltime: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IADsPrintJob_Impl::SetUntilTime(this, core::mem::transmute_copy(&dauntiltime)).into()
@@ -7646,22 +7656,26 @@ impl IADsPrintQueue {
     pub unsafe fn SetLocation(&self, bstrlocation: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLocation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrlocation)) }
     }
-    pub unsafe fn StartTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn StartTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStartTime(&self, dastarttime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetStartTime(&self, dastarttime: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), dastarttime) }
     }
-    pub unsafe fn UntilTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn UntilTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UntilTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUntilTime(&self, dauntiltime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetUntilTime(&self, dauntiltime: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUntilTime)(windows_core::Interface::as_raw(self), dauntiltime) }
     }
     pub unsafe fn DefaultJobPriority(&self) -> windows_core::Result<i32> {
@@ -7731,10 +7745,22 @@ pub struct IADsPrintQueue_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub UntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetUntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    StartTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetStartTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub UntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    UntilTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetUntilTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetUntilTime: usize,
     pub DefaultJobPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetDefaultJobPriority: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7772,10 +7798,10 @@ pub trait IADsPrintQueue_Impl: IADs_Impl {
     fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Location(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetLocation(&self, bstrlocation: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn StartTime(&self) -> windows_core::Result<f64>;
-    fn SetStartTime(&self, dastarttime: f64) -> windows_core::Result<()>;
-    fn UntilTime(&self) -> windows_core::Result<f64>;
-    fn SetUntilTime(&self, dauntiltime: f64) -> windows_core::Result<()>;
+    fn StartTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetStartTime(&self, dastarttime: super::DATE) -> windows_core::Result<()>;
+    fn UntilTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetUntilTime(&self, dauntiltime: super::DATE) -> windows_core::Result<()>;
     fn DefaultJobPriority(&self) -> windows_core::Result<i32>;
     fn SetDefaultJobPriority(&self, lndefaultjobpriority: i32) -> windows_core::Result<()>;
     fn Priority(&self) -> windows_core::Result<i32>;
@@ -7898,7 +7924,7 @@ impl IADsPrintQueue_Vtbl {
                 IADsPrintQueue_Impl::SetLocation(this, core::mem::transmute(&bstrlocation)).into()
             }
         }
-        unsafe extern "system" fn StartTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsPrintQueue_Impl::StartTime(this) {
@@ -7910,13 +7936,13 @@ impl IADsPrintQueue_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStartTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dastarttime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStartTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dastarttime: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IADsPrintQueue_Impl::SetStartTime(this, core::mem::transmute_copy(&dastarttime)).into()
             }
         }
-        unsafe extern "system" fn UntilTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn UntilTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsPrintQueue_Impl::UntilTime(this) {
@@ -7928,7 +7954,7 @@ impl IADsPrintQueue_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetUntilTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dauntiltime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUntilTime<Identity: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dauntiltime: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IADsPrintQueue_Impl::SetUntilTime(this, core::mem::transmute_copy(&dauntiltime)).into()
@@ -8915,13 +8941,15 @@ impl IADsPropertyValue {
     {
         unsafe { (windows_core::Interface::vtable(self).SetLargeInteger)(windows_core::Interface::as_raw(self), plargeinteger.param().abi()) }
     }
-    pub unsafe fn UTCTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn UTCTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UTCTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUTCTime(&self, dautctime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetUTCTime(&self, dautctime: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUTCTime)(windows_core::Interface::as_raw(self), dautctime) }
     }
 }
@@ -8959,8 +8987,14 @@ pub struct IADsPropertyValue_Vtbl {
     pub SetSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LargeInteger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLargeInteger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UTCTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetUTCTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub UTCTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    UTCTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetUTCTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetUTCTime: usize,
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IADsPropertyValue_Impl: super::IDispatch_Impl {
@@ -8987,8 +9021,8 @@ pub trait IADsPropertyValue_Impl: super::IDispatch_Impl {
     fn SetSecurityDescriptor(&self, psecuritydescriptor: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
     fn LargeInteger(&self) -> windows_core::Result<super::IDispatch>;
     fn SetLargeInteger(&self, plargeinteger: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
-    fn UTCTime(&self) -> windows_core::Result<f64>;
-    fn SetUTCTime(&self, dautctime: f64) -> windows_core::Result<()>;
+    fn UTCTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetUTCTime(&self, dautctime: super::DATE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IADsPropertyValue_Vtbl {
@@ -9197,7 +9231,7 @@ impl IADsPropertyValue_Vtbl {
                 IADsPropertyValue_Impl::SetLargeInteger(this, core::mem::transmute_copy(&plargeinteger)).into()
             }
         }
-        unsafe extern "system" fn UTCTime<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn UTCTime<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsPropertyValue_Impl::UTCTime(this) {
@@ -9209,7 +9243,7 @@ impl IADsPropertyValue_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetUTCTime<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dautctime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUTCTime<Identity: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dautctime: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IADsPropertyValue_Impl::SetUTCTime(this, core::mem::transmute_copy(&dautctime)).into()
@@ -11266,25 +11300,29 @@ impl IADsUser {
             (windows_core::Interface::vtable(self).BadLoginCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastLogin(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastLogin(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastLogin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastLogoff(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastLogoff(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastLogoff)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastFailedLogin(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastFailedLogin(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastFailedLogin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PasswordLastChanged(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn PasswordLastChanged(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PasswordLastChanged)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11508,13 +11546,15 @@ impl IADsUser {
     pub unsafe fn SetAccountDisabled(&self, faccountdisabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAccountDisabled)(windows_core::Interface::as_raw(self), faccountdisabled) }
     }
-    pub unsafe fn AccountExpirationDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn AccountExpirationDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AccountExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAccountExpirationDate(&self, daaccountexpirationdate: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetAccountExpirationDate(&self, daaccountexpirationdate: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAccountExpirationDate)(windows_core::Interface::as_raw(self), daaccountexpirationdate) }
     }
     pub unsafe fn GraceLoginsAllowed(&self) -> windows_core::Result<i32> {
@@ -11586,13 +11626,15 @@ impl IADsUser {
     pub unsafe fn SetMaxStorage(&self, lnmaxstorage: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaxStorage)(windows_core::Interface::as_raw(self), lnmaxstorage) }
     }
-    pub unsafe fn PasswordExpirationDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn PasswordExpirationDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PasswordExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPasswordExpirationDate)(windows_core::Interface::as_raw(self), dapasswordexpirationdate) }
     }
     pub unsafe fn PasswordMinimumLength(&self) -> windows_core::Result<i32> {
@@ -11713,10 +11755,22 @@ pub struct IADsUser_Vtbl {
     pub base__: IADs_Vtbl,
     pub BadLoginAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BadLoginCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub LastLogin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub LastLogoff: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub LastFailedLogin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub PasswordLastChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub LastLogin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastLogin: usize,
+    #[cfg(feature = "wtypes")]
+    pub LastLogoff: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastLogoff: usize,
+    #[cfg(feature = "wtypes")]
+    pub LastFailedLogin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastFailedLogin: usize,
+    #[cfg(feature = "wtypes")]
+    pub PasswordLastChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    PasswordLastChanged: usize,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Division: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11821,8 +11875,14 @@ pub struct IADsUser_Vtbl {
     pub SetAccountDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetAccountDisabled: usize,
-    pub AccountExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetAccountExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub AccountExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    AccountExpirationDate: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetAccountExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetAccountExpirationDate: usize,
     pub GraceLoginsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetGraceLoginsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GraceLoginsRemaining: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11855,8 +11915,14 @@ pub struct IADsUser_Vtbl {
     pub SetMaxLogins: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub MaxStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMaxStorage: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub PasswordExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetPasswordExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub PasswordExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    PasswordExpirationDate: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetPasswordExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetPasswordExpirationDate: usize,
     pub PasswordMinimumLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetPasswordMinimumLength: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
@@ -11909,10 +11975,10 @@ pub struct IADsUser_Vtbl {
 pub trait IADsUser_Impl: IADs_Impl {
     fn BadLoginAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BadLoginCount(&self) -> windows_core::Result<i32>;
-    fn LastLogin(&self) -> windows_core::Result<f64>;
-    fn LastLogoff(&self) -> windows_core::Result<f64>;
-    fn LastFailedLogin(&self) -> windows_core::Result<f64>;
-    fn PasswordLastChanged(&self) -> windows_core::Result<f64>;
+    fn LastLogin(&self) -> windows_core::Result<super::DATE>;
+    fn LastLogoff(&self) -> windows_core::Result<super::DATE>;
+    fn LastFailedLogin(&self) -> windows_core::Result<super::DATE>;
+    fn PasswordLastChanged(&self) -> windows_core::Result<super::DATE>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Division(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -11957,8 +12023,8 @@ pub trait IADsUser_Impl: IADs_Impl {
     fn SetSeeAlso(&self, vseealso: &super::VARIANT) -> windows_core::Result<()>;
     fn AccountDisabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetAccountDisabled(&self, faccountdisabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn AccountExpirationDate(&self) -> windows_core::Result<f64>;
-    fn SetAccountExpirationDate(&self, daaccountexpirationdate: f64) -> windows_core::Result<()>;
+    fn AccountExpirationDate(&self) -> windows_core::Result<super::DATE>;
+    fn SetAccountExpirationDate(&self, daaccountexpirationdate: super::DATE) -> windows_core::Result<()>;
     fn GraceLoginsAllowed(&self) -> windows_core::Result<i32>;
     fn SetGraceLoginsAllowed(&self, lngraceloginsallowed: i32) -> windows_core::Result<()>;
     fn GraceLoginsRemaining(&self) -> windows_core::Result<i32>;
@@ -11973,8 +12039,8 @@ pub trait IADsUser_Impl: IADs_Impl {
     fn SetMaxLogins(&self, lnmaxlogins: i32) -> windows_core::Result<()>;
     fn MaxStorage(&self) -> windows_core::Result<i32>;
     fn SetMaxStorage(&self, lnmaxstorage: i32) -> windows_core::Result<()>;
-    fn PasswordExpirationDate(&self) -> windows_core::Result<f64>;
-    fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: f64) -> windows_core::Result<()>;
+    fn PasswordExpirationDate(&self) -> windows_core::Result<super::DATE>;
+    fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: super::DATE) -> windows_core::Result<()>;
     fn PasswordMinimumLength(&self) -> windows_core::Result<i32>;
     fn SetPasswordMinimumLength(&self, lnpasswordminimumlength: i32) -> windows_core::Result<()>;
     fn PasswordRequired(&self) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -12026,7 +12092,7 @@ impl IADsUser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LastLogin<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastLogin<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsUser_Impl::LastLogin(this) {
@@ -12038,7 +12104,7 @@ impl IADsUser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LastLogoff<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastLogoff<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsUser_Impl::LastLogoff(this) {
@@ -12050,7 +12116,7 @@ impl IADsUser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LastFailedLogin<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastFailedLogin<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsUser_Impl::LastFailedLogin(this) {
@@ -12062,7 +12128,7 @@ impl IADsUser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PasswordLastChanged<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn PasswordLastChanged<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsUser_Impl::PasswordLastChanged(this) {
@@ -12470,7 +12536,7 @@ impl IADsUser_Vtbl {
                 IADsUser_Impl::SetAccountDisabled(this, core::mem::transmute_copy(&faccountdisabled)).into()
             }
         }
-        unsafe extern "system" fn AccountExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn AccountExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsUser_Impl::AccountExpirationDate(this) {
@@ -12482,7 +12548,7 @@ impl IADsUser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAccountExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, daaccountexpirationdate: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAccountExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, daaccountexpirationdate: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IADsUser_Impl::SetAccountExpirationDate(this, core::mem::transmute_copy(&daaccountexpirationdate)).into()
@@ -12614,7 +12680,7 @@ impl IADsUser_Vtbl {
                 IADsUser_Impl::SetMaxStorage(this, core::mem::transmute_copy(&lnmaxstorage)).into()
             }
         }
-        unsafe extern "system" fn PasswordExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn PasswordExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsUser_Impl::PasswordExpirationDate(this) {
@@ -12626,7 +12692,7 @@ impl IADsUser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPasswordExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dapasswordexpirationdate: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPasswordExpirationDate<Identity: IADsUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dapasswordexpirationdate: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IADsUser_Impl::SetPasswordExpirationDate(this, core::mem::transmute_copy(&dapasswordexpirationdate)).into()
@@ -13066,19 +13132,19 @@ impl IDirectoryObject {
             (windows_core::Interface::vtable(self).GetObjectInformation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
     pub unsafe fn GetObjectAttributes(&self, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32, ppattributeentries: *mut PADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetObjectAttributes)(windows_core::Interface::as_raw(self), pattributenames, dwnumberattributes, ppattributeentries as _, pdwnumattributesreturned as _) }
     }
-    #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-    pub unsafe fn SetObjectAttributes(&self, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub unsafe fn SetObjectAttributes(&self, pattributeentries: PADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetObjectAttributes)(windows_core::Interface::as_raw(self), pattributeentries, dwnumattributes, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl"))]
-    pub unsafe fn CreateDSObject<P0>(&self, pszrdnname: P0, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<super::IDispatch>
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "winnt"))]
+    pub unsafe fn CreateDSObject<P0>(&self, pszrdnname: P0, pattributeentries: PADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<super::IDispatch>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -13099,29 +13165,29 @@ impl IDirectoryObject {
 pub struct IDirectoryObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObjectInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PADS_OBJECT_INFO) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
     pub GetObjectAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, u32, *mut PADS_ATTR_INFO, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "minwindef")))]
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     GetObjectAttributes: usize,
-    #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-    pub SetObjectAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *const ADS_ATTR_INFO, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "minwindef")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub SetObjectAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, PADS_ATTR_INFO, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     SetObjectAttributes: usize,
-    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl"))]
-    pub CreateDSObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const ADS_ATTR_INFO, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "winnt"))]
+    pub CreateDSObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PADS_ATTR_INFO, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "winnt")))]
     CreateDSObject: usize,
     pub DeleteDSObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "winnt"))]
 pub trait IDirectoryObject_Impl: windows_core::IUnknownImpl {
     fn GetObjectInformation(&self) -> windows_core::Result<PADS_OBJECT_INFO>;
     fn GetObjectAttributes(&self, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32, ppattributeentries: *mut PADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> windows_core::Result<()>;
-    fn SetObjectAttributes(&self, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<u32>;
-    fn CreateDSObject(&self, pszrdnname: &windows_core::PCWSTR, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<super::IDispatch>;
+    fn SetObjectAttributes(&self, pattributeentries: PADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<u32>;
+    fn CreateDSObject(&self, pszrdnname: &windows_core::PCWSTR, pattributeentries: PADS_ATTR_INFO, dwnumattributes: u32) -> windows_core::Result<super::IDispatch>;
     fn DeleteDSObject(&self, pszrdnname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "winnt"))]
 impl IDirectoryObject_Vtbl {
     pub const fn new<Identity: IDirectoryObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetObjectInformation<Identity: IDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobjinfo: *mut PADS_OBJECT_INFO) -> windows_core::HRESULT {
@@ -13142,7 +13208,7 @@ impl IDirectoryObject_Vtbl {
                 IDirectoryObject_Impl::GetObjectAttributes(this, core::mem::transmute_copy(&pattributenames), core::mem::transmute_copy(&dwnumberattributes), core::mem::transmute_copy(&ppattributeentries), core::mem::transmute_copy(&pdwnumattributesreturned)).into()
             }
         }
-        unsafe extern "system" fn SetObjectAttributes<Identity: IDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32, pdwnumattributesmodified: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetObjectAttributes<Identity: IDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributeentries: PADS_ATTR_INFO, dwnumattributes: u32, pdwnumattributesmodified: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectoryObject_Impl::SetObjectAttributes(this, core::mem::transmute_copy(&pattributeentries), core::mem::transmute_copy(&dwnumattributes)) {
@@ -13154,7 +13220,7 @@ impl IDirectoryObject_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateDSObject<Identity: IDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrdnname: windows_core::PCWSTR, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDSObject<Identity: IDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrdnname: windows_core::PCWSTR, pattributeentries: PADS_ATTR_INFO, dwnumattributes: u32, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectoryObject_Impl::CreateDSObject(this, core::mem::transmute(&pszrdnname), core::mem::transmute_copy(&pattributeentries), core::mem::transmute_copy(&dwnumattributes)) {
@@ -13185,7 +13251,7 @@ impl IDirectoryObject_Vtbl {
         iid == &<IDirectoryObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectoryObject {}
 windows_core::imp::define_interface!(IDirectorySchemaMgmt, IDirectorySchemaMgmt_Vtbl, 0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8);
 windows_core::imp::interface_hierarchy!(IDirectorySchemaMgmt, windows_core::IUnknown);
@@ -13193,17 +13259,17 @@ impl IDirectorySchemaMgmt {
     pub unsafe fn EnumAttributes(&self, ppszattrnames: *mut windows_core::PWSTR, dwnumattributes: u32, ppattrdefinition: *mut PADS_ATTR_DEF, pdwnumattributes: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumAttributes)(windows_core::Interface::as_raw(self), ppszattrnames as _, dwnumattributes, ppattrdefinition as _, pdwnumattributes as _) }
     }
-    pub unsafe fn CreateAttributeDefinition<P0>(&self, pszattributename: P0, pattributedefinition: *mut ADS_ATTR_DEF) -> windows_core::HRESULT
+    pub unsafe fn CreateAttributeDefinition<P0>(&self, pszattributename: P0, pattributedefinition: PADS_ATTR_DEF) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateAttributeDefinition)(windows_core::Interface::as_raw(self), pszattributename.param().abi(), pattributedefinition as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateAttributeDefinition)(windows_core::Interface::as_raw(self), pszattributename.param().abi(), pattributedefinition) }
     }
-    pub unsafe fn WriteAttributeDefinition<P0>(&self, pszattributename: P0, pattributedefinition: *mut ADS_ATTR_DEF) -> windows_core::HRESULT
+    pub unsafe fn WriteAttributeDefinition<P0>(&self, pszattributename: P0, pattributedefinition: PADS_ATTR_DEF) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WriteAttributeDefinition)(windows_core::Interface::as_raw(self), pszattributename.param().abi(), pattributedefinition as _) }
+        unsafe { (windows_core::Interface::vtable(self).WriteAttributeDefinition)(windows_core::Interface::as_raw(self), pszattributename.param().abi(), pattributedefinition) }
     }
     pub unsafe fn DeleteAttributeDefinition<P0>(&self, pszattributename: P0) -> windows_core::HRESULT
     where
@@ -13214,17 +13280,17 @@ impl IDirectorySchemaMgmt {
     pub unsafe fn EnumClasses(&self, ppszclassnames: *mut windows_core::PWSTR, dwnumclasses: u32, ppclassdefinition: *mut PADS_CLASS_DEF, pdwnumclasses: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumClasses)(windows_core::Interface::as_raw(self), ppszclassnames as _, dwnumclasses, ppclassdefinition as _, pdwnumclasses as _) }
     }
-    pub unsafe fn WriteClassDefinition<P0>(&self, pszclassname: P0, pclassdefinition: *mut ADS_CLASS_DEF) -> windows_core::HRESULT
+    pub unsafe fn WriteClassDefinition<P0>(&self, pszclassname: P0, pclassdefinition: PADS_CLASS_DEF) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WriteClassDefinition)(windows_core::Interface::as_raw(self), pszclassname.param().abi(), pclassdefinition as _) }
+        unsafe { (windows_core::Interface::vtable(self).WriteClassDefinition)(windows_core::Interface::as_raw(self), pszclassname.param().abi(), pclassdefinition) }
     }
-    pub unsafe fn CreateClassDefinition<P0>(&self, pszclassname: P0, pclassdefinition: *mut ADS_CLASS_DEF) -> windows_core::HRESULT
+    pub unsafe fn CreateClassDefinition<P0>(&self, pszclassname: P0, pclassdefinition: PADS_CLASS_DEF) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClassDefinition)(windows_core::Interface::as_raw(self), pszclassname.param().abi(), pclassdefinition as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateClassDefinition)(windows_core::Interface::as_raw(self), pszclassname.param().abi(), pclassdefinition) }
     }
     pub unsafe fn DeleteClassDefinition<P0>(&self, pszclassname: P0) -> windows_core::HRESULT
     where
@@ -13238,22 +13304,22 @@ impl IDirectorySchemaMgmt {
 pub struct IDirectorySchemaMgmt_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, u32, *mut PADS_ATTR_DEF, *mut u32) -> windows_core::HRESULT,
-    pub CreateAttributeDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut ADS_ATTR_DEF) -> windows_core::HRESULT,
-    pub WriteAttributeDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut ADS_ATTR_DEF) -> windows_core::HRESULT,
+    pub CreateAttributeDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PADS_ATTR_DEF) -> windows_core::HRESULT,
+    pub WriteAttributeDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PADS_ATTR_DEF) -> windows_core::HRESULT,
     pub DeleteAttributeDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub EnumClasses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, u32, *mut PADS_CLASS_DEF, *mut u32) -> windows_core::HRESULT,
-    pub WriteClassDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut ADS_CLASS_DEF) -> windows_core::HRESULT,
-    pub CreateClassDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut ADS_CLASS_DEF) -> windows_core::HRESULT,
+    pub WriteClassDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PADS_CLASS_DEF) -> windows_core::HRESULT,
+    pub CreateClassDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PADS_CLASS_DEF) -> windows_core::HRESULT,
     pub DeleteClassDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDirectorySchemaMgmt_Impl: windows_core::IUnknownImpl {
     fn EnumAttributes(&self, ppszattrnames: *mut windows_core::PWSTR, dwnumattributes: u32, ppattrdefinition: *mut PADS_ATTR_DEF, pdwnumattributes: *mut u32) -> windows_core::Result<()>;
-    fn CreateAttributeDefinition(&self, pszattributename: &windows_core::PCWSTR, pattributedefinition: *mut ADS_ATTR_DEF) -> windows_core::Result<()>;
-    fn WriteAttributeDefinition(&self, pszattributename: &windows_core::PCWSTR, pattributedefinition: *mut ADS_ATTR_DEF) -> windows_core::Result<()>;
+    fn CreateAttributeDefinition(&self, pszattributename: &windows_core::PCWSTR, pattributedefinition: PADS_ATTR_DEF) -> windows_core::Result<()>;
+    fn WriteAttributeDefinition(&self, pszattributename: &windows_core::PCWSTR, pattributedefinition: PADS_ATTR_DEF) -> windows_core::Result<()>;
     fn DeleteAttributeDefinition(&self, pszattributename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn EnumClasses(&self, ppszclassnames: *mut windows_core::PWSTR, dwnumclasses: u32, ppclassdefinition: *mut PADS_CLASS_DEF, pdwnumclasses: *mut u32) -> windows_core::Result<()>;
-    fn WriteClassDefinition(&self, pszclassname: &windows_core::PCWSTR, pclassdefinition: *mut ADS_CLASS_DEF) -> windows_core::Result<()>;
-    fn CreateClassDefinition(&self, pszclassname: &windows_core::PCWSTR, pclassdefinition: *mut ADS_CLASS_DEF) -> windows_core::Result<()>;
+    fn WriteClassDefinition(&self, pszclassname: &windows_core::PCWSTR, pclassdefinition: PADS_CLASS_DEF) -> windows_core::Result<()>;
+    fn CreateClassDefinition(&self, pszclassname: &windows_core::PCWSTR, pclassdefinition: PADS_CLASS_DEF) -> windows_core::Result<()>;
     fn DeleteClassDefinition(&self, pszclassname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IDirectorySchemaMgmt_Vtbl {
@@ -13264,13 +13330,13 @@ impl IDirectorySchemaMgmt_Vtbl {
                 IDirectorySchemaMgmt_Impl::EnumAttributes(this, core::mem::transmute_copy(&ppszattrnames), core::mem::transmute_copy(&dwnumattributes), core::mem::transmute_copy(&ppattrdefinition), core::mem::transmute_copy(&pdwnumattributes)).into()
             }
         }
-        unsafe extern "system" fn CreateAttributeDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszattributename: windows_core::PCWSTR, pattributedefinition: *mut ADS_ATTR_DEF) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateAttributeDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszattributename: windows_core::PCWSTR, pattributedefinition: PADS_ATTR_DEF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectorySchemaMgmt_Impl::CreateAttributeDefinition(this, core::mem::transmute(&pszattributename), core::mem::transmute_copy(&pattributedefinition)).into()
             }
         }
-        unsafe extern "system" fn WriteAttributeDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszattributename: windows_core::PCWSTR, pattributedefinition: *mut ADS_ATTR_DEF) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteAttributeDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszattributename: windows_core::PCWSTR, pattributedefinition: PADS_ATTR_DEF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectorySchemaMgmt_Impl::WriteAttributeDefinition(this, core::mem::transmute(&pszattributename), core::mem::transmute_copy(&pattributedefinition)).into()
@@ -13288,13 +13354,13 @@ impl IDirectorySchemaMgmt_Vtbl {
                 IDirectorySchemaMgmt_Impl::EnumClasses(this, core::mem::transmute_copy(&ppszclassnames), core::mem::transmute_copy(&dwnumclasses), core::mem::transmute_copy(&ppclassdefinition), core::mem::transmute_copy(&pdwnumclasses)).into()
             }
         }
-        unsafe extern "system" fn WriteClassDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszclassname: windows_core::PCWSTR, pclassdefinition: *mut ADS_CLASS_DEF) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteClassDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszclassname: windows_core::PCWSTR, pclassdefinition: PADS_CLASS_DEF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectorySchemaMgmt_Impl::WriteClassDefinition(this, core::mem::transmute(&pszclassname), core::mem::transmute_copy(&pclassdefinition)).into()
             }
         }
-        unsafe extern "system" fn CreateClassDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszclassname: windows_core::PCWSTR, pclassdefinition: *mut ADS_CLASS_DEF) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateClassDefinition<Identity: IDirectorySchemaMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszclassname: windows_core::PCWSTR, pclassdefinition: PADS_CLASS_DEF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectorySchemaMgmt_Impl::CreateClassDefinition(this, core::mem::transmute(&pszclassname), core::mem::transmute_copy(&pclassdefinition)).into()
@@ -13326,19 +13392,16 @@ impl windows_core::RuntimeName for IDirectorySchemaMgmt {}
 windows_core::imp::define_interface!(IDirectorySearch, IDirectorySearch_Vtbl, 0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8);
 windows_core::imp::interface_hierarchy!(IDirectorySearch, windows_core::IUnknown);
 impl IDirectorySearch {
-    #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-    pub unsafe fn SetSearchPreference(&self, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub unsafe fn SetSearchPreference(&self, psearchprefs: PADS_SEARCHPREF_INFO, dwnumprefs: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSearchPreference)(windows_core::Interface::as_raw(self), psearchprefs, dwnumprefs) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn ExecuteSearch<P0>(&self, pszsearchfilter: P0, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32) -> windows_core::Result<super::HANDLE>
+    pub unsafe fn ExecuteSearch<P0>(&self, pszsearchfilter: P0, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32, phsearchresult: PADS_SEARCH_HANDLE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExecuteSearch)(windows_core::Interface::as_raw(self), pszsearchfilter.param().abi(), pattributenames, dwnumberattributes, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ExecuteSearch)(windows_core::Interface::as_raw(self), pszsearchfilter.param().abi(), pattributenames, dwnumberattributes, phsearchresult as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn AbandonSearch(&self, phsearchresult: ADS_SEARCH_HANDLE) -> windows_core::HRESULT {
@@ -13364,14 +13427,14 @@ impl IDirectorySearch {
         }
     }
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-    pub unsafe fn GetColumn<P1>(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: P1, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> windows_core::HRESULT
+    pub unsafe fn GetColumn<P1>(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: P1, psearchcolumn: PADS_SEARCH_COLUMN) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetColumn)(windows_core::Interface::as_raw(self), hsearchresult, szcolumnname.param().abi(), psearchcolumn as _) }
     }
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-    pub unsafe fn FreeColumn(&self, psearchcolumn: *const ADS_SEARCH_COLUMN) -> windows_core::HRESULT {
+    pub unsafe fn FreeColumn(&self, psearchcolumn: PADS_SEARCH_COLUMN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FreeColumn)(windows_core::Interface::as_raw(self), psearchcolumn) }
     }
     #[cfg(feature = "winnt")]
@@ -13383,12 +13446,12 @@ impl IDirectorySearch {
 #[doc(hidden)]
 pub struct IDirectorySearch_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-    pub SetSearchPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *const ADS_SEARCHPREF_INFO, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "minwindef")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub SetSearchPreference: unsafe extern "system" fn(*mut core::ffi::c_void, PADS_SEARCHPREF_INFO, u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     SetSearchPreference: usize,
     #[cfg(feature = "winnt")]
-    pub ExecuteSearch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *mut super::HANDLE) -> windows_core::HRESULT,
+    pub ExecuteSearch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, PADS_SEARCH_HANDLE) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     ExecuteSearch: usize,
     #[cfg(feature = "winnt")]
@@ -13412,11 +13475,11 @@ pub struct IDirectorySearch_Vtbl {
     #[cfg(not(feature = "winnt"))]
     GetNextColumnName: usize,
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-    pub GetColumn: unsafe extern "system" fn(*mut core::ffi::c_void, ADS_SEARCH_HANDLE, windows_core::PCWSTR, *mut ADS_SEARCH_COLUMN) -> windows_core::HRESULT,
+    pub GetColumn: unsafe extern "system" fn(*mut core::ffi::c_void, ADS_SEARCH_HANDLE, windows_core::PCWSTR, PADS_SEARCH_COLUMN) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     GetColumn: usize,
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-    pub FreeColumn: unsafe extern "system" fn(*mut core::ffi::c_void, *const ADS_SEARCH_COLUMN) -> windows_core::HRESULT,
+    pub FreeColumn: unsafe extern "system" fn(*mut core::ffi::c_void, PADS_SEARCH_COLUMN) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     FreeColumn: usize,
     #[cfg(feature = "winnt")]
@@ -13426,36 +13489,30 @@ pub struct IDirectorySearch_Vtbl {
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub trait IDirectorySearch_Impl: windows_core::IUnknownImpl {
-    fn SetSearchPreference(&self, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> windows_core::Result<()>;
-    fn ExecuteSearch(&self, pszsearchfilter: &windows_core::PCWSTR, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32) -> windows_core::Result<super::HANDLE>;
+    fn SetSearchPreference(&self, psearchprefs: PADS_SEARCHPREF_INFO, dwnumprefs: u32) -> windows_core::Result<()>;
+    fn ExecuteSearch(&self, pszsearchfilter: &windows_core::PCWSTR, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32, phsearchresult: PADS_SEARCH_HANDLE) -> windows_core::Result<()>;
     fn AbandonSearch(&self, phsearchresult: ADS_SEARCH_HANDLE) -> windows_core::Result<()>;
     fn GetFirstRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> windows_core::Result<()>;
     fn GetNextRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> windows_core::Result<()>;
     fn GetPreviousRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> windows_core::Result<()>;
     fn GetNextColumnName(&self, hsearchhandle: ADS_SEARCH_HANDLE) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetColumn(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: &windows_core::PCWSTR, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> windows_core::Result<()>;
-    fn FreeColumn(&self, psearchcolumn: *const ADS_SEARCH_COLUMN) -> windows_core::Result<()>;
+    fn GetColumn(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: &windows_core::PCWSTR, psearchcolumn: PADS_SEARCH_COLUMN) -> windows_core::Result<()>;
+    fn FreeColumn(&self, psearchcolumn: PADS_SEARCH_COLUMN) -> windows_core::Result<()>;
     fn CloseSearchHandle(&self, hsearchresult: ADS_SEARCH_HANDLE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl IDirectorySearch_Vtbl {
     pub const fn new<Identity: IDirectorySearch_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetSearchPreference<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSearchPreference<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psearchprefs: PADS_SEARCHPREF_INFO, dwnumprefs: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectorySearch_Impl::SetSearchPreference(this, core::mem::transmute_copy(&psearchprefs), core::mem::transmute_copy(&dwnumprefs)).into()
             }
         }
-        unsafe extern "system" fn ExecuteSearch<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsearchfilter: windows_core::PCWSTR, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32, phsearchresult: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecuteSearch<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsearchfilter: windows_core::PCWSTR, pattributenames: *const windows_core::PCWSTR, dwnumberattributes: u32, phsearchresult: PADS_SEARCH_HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectorySearch_Impl::ExecuteSearch(this, core::mem::transmute(&pszsearchfilter), core::mem::transmute_copy(&pattributenames), core::mem::transmute_copy(&dwnumberattributes)) {
-                    Ok(ok__) => {
-                        phsearchresult.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDirectorySearch_Impl::ExecuteSearch(this, core::mem::transmute(&pszsearchfilter), core::mem::transmute_copy(&pattributenames), core::mem::transmute_copy(&dwnumberattributes), core::mem::transmute_copy(&phsearchresult)).into()
             }
         }
         unsafe extern "system" fn AbandonSearch<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phsearchresult: ADS_SEARCH_HANDLE) -> windows_core::HRESULT {
@@ -13494,13 +13551,13 @@ impl IDirectorySearch_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetColumn<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: windows_core::PCWSTR, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetColumn<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: windows_core::PCWSTR, psearchcolumn: PADS_SEARCH_COLUMN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectorySearch_Impl::GetColumn(this, core::mem::transmute_copy(&hsearchresult), core::mem::transmute(&szcolumnname), core::mem::transmute_copy(&psearchcolumn)).into()
             }
         }
-        unsafe extern "system" fn FreeColumn<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psearchcolumn: *const ADS_SEARCH_COLUMN) -> windows_core::HRESULT {
+        unsafe extern "system" fn FreeColumn<Identity: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psearchcolumn: PADS_SEARCH_COLUMN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectorySearch_Impl::FreeColumn(this, core::mem::transmute_copy(&psearchcolumn)).into()
@@ -13702,19 +13759,19 @@ impl IPrivateUnknown_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPrivateUnknown {}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type LPADSVALUE = *mut ADSVALUE;
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type LPADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
 pub type LPNDS_BOOLEAN = *mut u32;
 pub const LargeInteger: windows_core::GUID = windows_core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NameTranslate: windows_core::GUID = windows_core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: windows_core::GUID = windows_core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 pub const OctetList: windows_core::GUID = windows_core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADSVALUE = *mut ADSVALUE;
 pub type PADS_ATTR_DEF = *mut ADS_ATTR_DEF;
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADS_ATTR_INFO = *mut ADS_ATTR_INFO;
 pub type PADS_BACKLINK = *mut ADS_BACKLINK;
 pub type PADS_CASEIGNORE_LIST = *mut ADS_CASEIGNORE_LIST;
@@ -13730,7 +13787,8 @@ pub type PADS_EMAIL = *mut ADS_EMAIL;
 pub type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
 pub type PADS_HOLD = *mut ADS_HOLD;
 pub type PADS_INTEGER = *mut u32;
-pub type PADS_LARGE_INTEGER = *mut i64;
+#[cfg(feature = "winnt")]
+pub type PADS_LARGE_INTEGER = *mut super::LARGE_INTEGER;
 pub type PADS_NETADDRESS = *mut ADS_NETADDRESS;
 #[cfg(feature = "minwindef")]
 pub type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
@@ -13746,12 +13804,13 @@ pub type PADS_PRINTABLE_STRING = *mut windows_core::PWSTR;
 #[cfg(feature = "minwindef")]
 pub type PADS_PROV_SPECIFIC = *mut ADS_PROV_SPECIFIC;
 pub type PADS_REPLICAPOINTER = *mut ADS_REPLICAPOINTER;
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADS_SEARCH_COLUMN = *mut ADS_SEARCH_COLUMN;
 #[cfg(feature = "winnt")]
 pub type PADS_SEARCH_HANDLE = *mut super::HANDLE;
+#[cfg(feature = "winnt")]
 pub type PADS_SORTKEY = *mut ADS_SORTKEY;
 pub type PADS_STATUS = *mut ADS_STATUSENUM;
 pub type PADS_TIMESTAMP = *mut ADS_TIMESTAMP;

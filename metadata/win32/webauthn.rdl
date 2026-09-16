@@ -682,31 +682,31 @@ mod Windows {
             pbData: PBYTE,
         }
         #[library("webauthn.dll")]
-        extern fn WebAuthNAuthenticatorGetAssertion(hWnd: HWND, pwszRpId: PCWSTR, pWebAuthNClientData: *const WEBAUTHN_CLIENT_DATA, #[opt] pWebAuthNGetAssertionOptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppWebAuthNAssertion: *mut PWEBAUTHN_ASSERTION) -> HRESULT;
+        extern fn WebAuthNAuthenticatorGetAssertion(hWnd: HWND, pwszRpId: PCWSTR, pWebAuthNClientData: PCWEBAUTHN_CLIENT_DATA, #[opt] pWebAuthNGetAssertionOptions: PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppWebAuthNAssertion: *mut PWEBAUTHN_ASSERTION) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNAuthenticatorMakeCredential(hWnd: HWND, pRpInformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, pUserInformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, pPubKeyCredParams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pWebAuthNClientData: *const WEBAUTHN_CLIENT_DATA, #[opt] pWebAuthNMakeCredentialOptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppWebAuthNCredentialAttestation: *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> HRESULT;
+        extern fn WebAuthNAuthenticatorMakeCredential(hWnd: HWND, pRpInformation: PCWEBAUTHN_RP_ENTITY_INFORMATION, pUserInformation: PCWEBAUTHN_USER_ENTITY_INFORMATION, pPubKeyCredParams: PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pWebAuthNClientData: PCWEBAUTHN_CLIENT_DATA, #[opt] pWebAuthNMakeCredentialOptions: PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppWebAuthNCredentialAttestation: *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> HRESULT;
         #[library("webauthn.dll")]
         extern fn WebAuthNCancelCurrentOperation(pCancellationId: *const GUID) -> HRESULT;
         #[library("webauthn.dll")]
         extern fn WebAuthNDeletePlatformCredential(cbCredentialId: u32, #[size_param(0)] pbCredentialId: *const u8) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreeAssertion(pWebAuthNAssertion: *const WEBAUTHN_ASSERTION);
+        extern fn WebAuthNFreeAssertion(pWebAuthNAssertion: PWEBAUTHN_ASSERTION);
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreeAuthenticatorList(pAuthenticatorDetailsList: *const WEBAUTHN_AUTHENTICATOR_DETAILS_LIST);
+        extern fn WebAuthNFreeAuthenticatorList(pAuthenticatorDetailsList: PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST);
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreeCredentialAttestation(#[opt] pWebAuthNCredentialAttestation: *const WEBAUTHN_CREDENTIAL_ATTESTATION);
+        extern fn WebAuthNFreeCredentialAttestation(#[opt] pWebAuthNCredentialAttestation: PWEBAUTHN_CREDENTIAL_ATTESTATION);
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreePlatformCredentialList(pCredentialDetailsList: *const WEBAUTHN_CREDENTIAL_DETAILS_LIST);
+        extern fn WebAuthNFreePlatformCredentialList(pCredentialDetailsList: PWEBAUTHN_CREDENTIAL_DETAILS_LIST);
         #[library("webauthn.dll")]
         extern fn WebAuthNGetApiVersionNumber() -> u32;
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetAuthenticatorList(#[opt] pWebAuthNGetAuthenticatorListOptions: *const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppAuthenticatorDetailsList: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> HRESULT;
+        extern fn WebAuthNGetAuthenticatorList(#[opt] pWebAuthNGetAuthenticatorListOptions: PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppAuthenticatorDetailsList: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> HRESULT;
         #[library("webauthn.dll")]
         extern fn WebAuthNGetCancellationId(pCancellationId: *mut GUID) -> HRESULT;
         #[library("webauthn.dll")]
         extern fn WebAuthNGetErrorName(hr: HRESULT) -> PCWSTR;
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetPlatformCredentialList(pGetCredentialsOptions: *const WEBAUTHN_GET_CREDENTIALS_OPTIONS, ppCredentialDetailsList: *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> HRESULT;
+        extern fn WebAuthNGetPlatformCredentialList(pGetCredentialsOptions: PCWEBAUTHN_GET_CREDENTIALS_OPTIONS, ppCredentialDetailsList: *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> HRESULT;
         #[library("webauthn.dll")]
         extern fn WebAuthNGetW3CExceptionDOMError(hr: HRESULT) -> HRESULT;
         #[library("webauthn.dll")]

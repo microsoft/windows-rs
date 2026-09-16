@@ -82,14 +82,20 @@ pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = 3;
 pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = 1;
 pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = 0;
 #[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "dxgi", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
-    pub lastFrameTime: i64,
+    pub lastFrameTime: super::LARGE_INTEGER,
     pub currentCompositionRate: super::DXGI_RATIONAL,
-    pub currentTime: i64,
-    pub timeFrequency: i64,
-    pub nextEstimatedFrameTime: i64,
+    pub currentTime: super::LARGE_INTEGER,
+    pub timeFrequency: super::LARGE_INTEGER,
+    pub nextEstimatedFrameTime: super::LARGE_INTEGER,
+}
+#[cfg(all(feature = "dxgi", feature = "winnt"))]
+impl Default for DCOMPOSITION_FRAME_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: i32 = 32;
 pub type DCOMPOSITION_OPACITY_MODE = i32;

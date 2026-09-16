@@ -72,9 +72,7 @@ impl PathBuilder {
 
     /// Starts a filled figure at `start`.
     pub fn begin(self, start: Vector2) -> PathFigure {
-        unsafe {
-            self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED);
-        }
+        unsafe { self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED) };
         PathFigure {
             sink: self.sink,
             geometry: self.geometry,
@@ -83,9 +81,7 @@ impl PathBuilder {
 
     /// Starts a hollow figure at `start`.
     pub fn begin_hollow(self, start: Vector2) -> PathFigure {
-        unsafe {
-            self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW);
-        }
+        unsafe { self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW) };
         PathFigure {
             sink: self.sink,
             geometry: self.geometry,

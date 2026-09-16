@@ -161,15 +161,60 @@ pub type D3DKMDT_GTFCOMPLIANCE = i32;
 pub const D3DKMDT_GTF_COMPLIANT: D3DKMDT_GTFCOMPLIANCE = 1;
 pub const D3DKMDT_GTF_NOTCOMPLIANT: D3DKMDT_GTFCOMPLIANCE = 2;
 pub const D3DKMDT_GTF_UNINITIALIZED: D3DKMDT_GTFCOMPLIANCE = 0;
-pub type D3DKMDT_HMONITORDESCRIPTORSET = *mut core::ffi::c_void;
-pub type D3DKMDT_HMONITORFREQUENCYRANGESET = *mut core::ffi::c_void;
-pub type D3DKMDT_HMONITORSOURCEMODESET = *mut core::ffi::c_void;
-pub type D3DKMDT_HVIDEOPRESENTSOURCESET = *mut core::ffi::c_void;
-pub type D3DKMDT_HVIDEOPRESENTTARGETSET = *mut core::ffi::c_void;
-pub type D3DKMDT_HVIDPN = *mut core::ffi::c_void;
-pub type D3DKMDT_HVIDPNSOURCEMODESET = *mut core::ffi::c_void;
-pub type D3DKMDT_HVIDPNTARGETMODESET = *mut core::ffi::c_void;
-pub type D3DKMDT_HVIDPNTOPOLOGY = *mut core::ffi::c_void;
+pub type D3DKMDT_HMONITORDESCRIPTORSET = *mut D3DKMDT_HMONITORDESCRIPTORSET__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HMONITORDESCRIPTORSET__ {
+    pub unused: i32,
+}
+pub type D3DKMDT_HMONITORFREQUENCYRANGESET = *mut D3DKMDT_HMONITORFREQUENCYRANGESET__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HMONITORFREQUENCYRANGESET__ {
+    pub unused: i32,
+}
+pub type D3DKMDT_HMONITORSOURCEMODESET = *mut D3DKMDT_HMONITORSOURCEMODESET__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HMONITORSOURCEMODESET__ {
+    pub unused: i32,
+}
+pub type D3DKMDT_HVIDEOPRESENTSOURCESET = *mut D3DKMDT_HVIDEOPRESENTSOURCESET__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HVIDEOPRESENTSOURCESET__ {
+    pub unused: i32,
+}
+pub type D3DKMDT_HVIDEOPRESENTTARGETSET = *mut D3DKMDT_HVIDEOPRESENTTARGETSET__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HVIDEOPRESENTTARGETSET__ {
+    pub unused: i32,
+}
+pub type D3DKMDT_HVIDPN = *mut D3DKMDT_HVIDPN__;
+pub type D3DKMDT_HVIDPNSOURCEMODESET = *mut D3DKMDT_HVIDPNSOURCEMODESET__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HVIDPNSOURCEMODESET__ {
+    pub unused: i32,
+}
+pub type D3DKMDT_HVIDPNTARGETMODESET = *mut D3DKMDT_HVIDPNTARGETMODESET__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HVIDPNTARGETMODESET__ {
+    pub unused: i32,
+}
+pub type D3DKMDT_HVIDPNTOPOLOGY = *mut D3DKMDT_HVIDPNTOPOLOGY__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HVIDPNTOPOLOGY__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMDT_HVIDPN__ {
+    pub unused: i32,
+}
 pub const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: i32 = 256;
 pub const D3DKMDT_MAX_OVERLAYS: i32 = 4;
 pub const D3DKMDT_MAX_OVERLAYS_BITCOUNT: i32 = 2;
@@ -343,14 +388,14 @@ pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
 }
 pub type D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID = u32;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub Id: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
     pub VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
     pub VideoOutputHpdAwareness: DXGK_CHILD_DEVICE_HPD_AWARENESS,
     pub MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
-    pub SupportsSdtvModes: bool,
+    pub SupportsSdtvModes: super::BOOLEAN,
 }
 pub type D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID = u32;
 #[repr(C)]
@@ -710,11 +755,13 @@ pub struct D3DKMT_MOVE_RECT {
     pub DestRect: super::RECT,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_NODEMETADATA {
     pub NodeOrdinalAndAdapterIndex: u32,
     pub NodeData: DXGK_NODEMETADATA,
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_NODEMETADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -969,6 +1016,7 @@ pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
 pub const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: i32 = 20;
 pub type DXGKARG_CALIBRATEGPUCLOCK = DXGK_GPUCLOCKDATA;
 pub type DXGKARG_FENCESTORAGEVALUETYPE = i32;
+#[cfg(feature = "winnt")]
 pub type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -1511,22 +1559,24 @@ pub const DXGK_DISPLAYMUX_RUNTIME_STATUS_NO_GPU_SUPPORT: DXGK_DISPLAYMUX_RUNTIME
 pub const DXGK_DISPLAYMUX_RUNTIME_STATUS_OK: DXGK_DISPLAYMUX_RUNTIME_STATUS = 1;
 pub const DXGK_DISPLAYMUX_RUNTIME_STATUS_UNINITIALIZED: DXGK_DISPLAYMUX_RUNTIME_STATUS = 0;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
-    pub Brightness3Supported: bool,
+    pub Brightness3Supported: super::BOOLEAN,
     pub Brightness3Caps: DXGK_BRIGHTNESS_CAPS,
     pub Bridgtness3Ranges: DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT,
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DXGK_DISPLAYMUX_SUPPORT_LEVEL = i32;
-pub type DXGK_DISPLAY_DESCRIPTOR_TYPE = i32;
+pub type DXGK_DISPLAY_DESCRIPTOR_TYPE = u8;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "d3dukmdt", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DXGK_DISPLAY_INFORMATION {
     pub Width: u32,
     pub Height: u32,
@@ -1536,8 +1586,14 @@ pub struct DXGK_DISPLAY_INFORMATION {
     pub TargetId: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
     pub AcpiId: u32,
 }
-pub type DXGK_DISPLAY_TECHNOLOGY = i32;
-pub type DXGK_DISPLAY_USAGE = i32;
+#[cfg(all(feature = "d3dukmdt", feature = "usb", feature = "winnt"))]
+impl Default for DXGK_DISPLAY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type DXGK_DISPLAY_TECHNOLOGY = u8;
+pub type DXGK_DISPLAY_USAGE = u8;
 pub const DXGK_DT_INVALID: DXGK_DISPLAY_TECHNOLOGY = 0;
 pub const DXGK_DT_LCD: DXGK_DISPLAY_TECHNOLOGY = 2;
 pub const DXGK_DT_MAX: DXGK_DISPLAY_TECHNOLOGY = 5;
@@ -1686,14 +1742,16 @@ pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA {
     pub EngineType: DXGK_ENGINE_TYPE,
     pub FriendlyName: [u16; 32],
     pub Flags: DXGK_NODEMETADATA_FLAGS,
-    pub GpuMmuSupported: bool,
-    pub IoMmuSupported: bool,
+    pub GpuMmuSupported: super::BOOLEAN,
+    pub IoMmuSupported: super::BOOLEAN,
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_NODEMETADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1788,10 +1846,11 @@ pub type PDXGK_BRIGHTNESS_GET_OUT = *mut DXGK_BRIGHTNESS_GET_OUT;
 pub type PDXGK_BRIGHTNESS_SET_IN = *mut DXGK_BRIGHTNESS_SET_IN;
 pub type PDXGK_CHILD_DEVICE_HPD_AWARENESS = *mut DXGK_CHILD_DEVICE_HPD_AWARENESS;
 pub type PDXGK_DISPLAYMUX_RUNTIME_STATUS = *mut DXGK_DISPLAYMUX_RUNTIME_STATUS;
+#[cfg(feature = "winnt")]
 pub type PDXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO = *mut DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO;
 pub type PDXGK_DISPLAYMUX_SUPPORT_LEVEL = *mut DXGK_DISPLAYMUX_SUPPORT_LEVEL;
 pub type PDXGK_DISPLAY_DESCRIPTOR_TYPE = *mut DXGK_DISPLAY_DESCRIPTOR_TYPE;
-#[cfg(all(feature = "d3dukmdt", feature = "usb"))]
+#[cfg(all(feature = "d3dukmdt", feature = "usb", feature = "winnt"))]
 pub type PDXGK_DISPLAY_INFORMATION = *mut DXGK_DISPLAY_INFORMATION;
 pub type PDXGK_DISPLAY_TECHNOLOGY = *mut DXGK_DISPLAY_TECHNOLOGY;
 pub type PDXGK_DISPLAY_USAGE = *mut DXGK_DISPLAY_USAGE;

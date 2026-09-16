@@ -90,9 +90,9 @@ mod Windows {
             #[special]
             fn get_IsBrowsable(&self, #[retval] pb: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_ModifyDate(&self, #[retval] pdt: *mut f64) -> HRESULT;
+            fn get_ModifyDate(&self, #[retval] pdt: *mut DATE) -> HRESULT;
             #[special]
-            fn put_ModifyDate(&self, dt: f64) -> HRESULT;
+            fn put_ModifyDate(&self, dt: DATE) -> HRESULT;
             #[special]
             fn get_Size(&self, #[retval] pul: *mut i32) -> HRESULT;
             #[special]
@@ -174,7 +174,7 @@ mod Windows {
         #[guid(0x2d91eea1_9932_11d2_be86_00a0c9a83da1)]
         interface IFileSearchBand: IDispatch {
             fn SetFocus(&self) -> HRESULT;
-            fn SetSearchParameters(&self, pbstrSearchID: *const BSTR, bNavToResults: VARIANT_BOOL, #[opt] pvarScope: *const VARIANT, #[opt] pvarQueryFile: *const VARIANT) -> HRESULT;
+            fn SetSearchParameters(&self, #[in] pbstrSearchID: *mut BSTR, bNavToResults: VARIANT_BOOL, #[in] #[opt] pvarScope: *mut VARIANT, #[in] #[opt] pvarQueryFile: *mut VARIANT) -> HRESULT;
             #[special]
             fn get_SearchID(&self, #[retval] pbstrSearchID: *mut BSTR) -> HRESULT;
             #[special]
@@ -260,7 +260,7 @@ mod Windows {
             fn SelectedItems(&self, #[retval] ppid: *mut FolderItems) -> HRESULT;
             #[special]
             fn get_FocusedItem(&self, #[retval] ppid: *mut FolderItem) -> HRESULT;
-            fn SelectItem(&self, pvfi: *const VARIANT, dwFlags: i32) -> HRESULT;
+            fn SelectItem(&self, #[in] pvfi: *mut VARIANT, dwFlags: i32) -> HRESULT;
             fn PopupItemMenu(&self, pfi: FolderItem, #[opt] vx: VARIANT, #[opt] vy: VARIANT, #[retval] pbs: *mut BSTR) -> HRESULT;
             #[special]
             fn get_Script(&self, #[retval] ppDisp: *mut IDispatch) -> HRESULT;
@@ -341,7 +341,7 @@ mod Windows {
             #[special]
             fn get_Caption(&self, #[retval] pbstrCaption: *mut BSTR) -> HRESULT;
             #[special]
-            fn put_Property(&self, bstrPropertyName: BSTR, pvProperty: *const VARIANT) -> HRESULT;
+            fn put_Property(&self, bstrPropertyName: BSTR, #[in] pvProperty: *mut VARIANT) -> HRESULT;
             #[special]
             fn get_Property(&self, bstrPropertyName: BSTR, #[retval] pvProperty: *mut VARIANT) -> HRESULT;
             fn SetWizardButtons(&self, vfEnableBack: VARIANT_BOOL, vfEnableNext: VARIANT_BOOL, vfLastPage: VARIANT_BOOL) -> HRESULT;

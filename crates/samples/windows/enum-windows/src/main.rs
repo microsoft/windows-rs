@@ -25,5 +25,5 @@ fn main() -> windows::core::Result<()> {
         }
     }
 
-    unsafe { EnumWindows(Some(enum_window), LPARAM(0)).ok() }
+    unsafe { EnumWindows(Some(enum_window), 0).ok() }
 }

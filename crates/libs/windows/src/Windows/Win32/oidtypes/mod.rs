@@ -1,7 +1,5 @@
 pub const NDIS_OBJECT_TYPE_OID_REQUEST: i32 = 150;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_OID(pub u32);
+pub type NDIS_OID = u32;
 pub type NDIS_REQUEST_TYPE = i32;
 pub const NdisRequestClose: NDIS_REQUEST_TYPE = 4;
 pub const NdisRequestGeneric1: NDIS_REQUEST_TYPE = 8;

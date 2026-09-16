@@ -17,6 +17,10 @@ pub struct ASYNC_DUPLICATE_EXTENTS_STATUS {
     pub ByteCount: super::DWORDLONG,
     pub BytesDuplicated: super::DWORDLONG,
 }
+#[cfg(target_arch = "x86")]
+pub const ASYNC_DUPLICATE_EXTENTS_STATUS_V1: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const ASYNC_DUPLICATE_EXTENTS_STATUS_V1: u64 = 40;
 pub const ATAPI_ID_CMD: i32 = 161;
 pub const AVATAR_F2: STORAGE_MEDIA_TYPE = 78;
 pub const AllElements: ELEMENT_TYPE = 0;
@@ -25,23 +29,39 @@ pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = 2;
 pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = 0;
 pub type BAD_TRACK_NUMBER = u16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct BIN_COUNT {
     pub BinRange: BIN_RANGE,
     pub BinCount: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct BIN_RANGE {
-    pub StartValue: i64,
-    pub Length: i64,
+#[cfg(feature = "winnt")]
+impl Default for BIN_COUNT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct BIN_RANGE {
+    pub StartValue: super::LARGE_INTEGER,
+    pub Length: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for BIN_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BIN_RESULTS {
     pub NumberOfBins: u32,
     pub BinCounts: [BIN_COUNT; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for BIN_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -49,20 +69,29 @@ impl Default for BIN_RESULTS {
 }
 pub type BIN_TYPES = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BOOT_AREA_INFO {
     pub BootSectorCount: u32,
     pub BootSectors: [BOOT_AREA_INFO_0; 2],
 }
+#[cfg(feature = "winnt")]
 impl Default for BOOT_AREA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct BOOT_AREA_INFO_0 {
-    pub Offset: i64,
+    pub Offset: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for BOOT_AREA_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -171,22 +200,24 @@ impl Default for CHANGER_ELEMENT_STATUS_EX {
 }
 pub const CHANGER_EXCHANGE_MEDIA: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
     pub Destination1: CHANGER_ELEMENT,
     pub Destination2: CHANGER_ELEMENT,
-    pub Flip1: bool,
-    pub Flip2: bool,
+    pub Flip1: super::BOOLEAN,
+    pub Flip2: super::BOOLEAN,
 }
 pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: u32 = 2147483904;
 pub const CHANGER_IEPORT_USER_CONTROL_OPEN: u32 = 2147483776;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
-    pub BarCodeScan: bool,
+    pub BarCodeScan: super::BOOLEAN,
 }
 pub const CHANGER_INIT_ELEM_STAT_WITH_RANGE: i32 = 2;
 pub const CHANGER_KEYPAD_ENABLE_DISABLE: i32 = 268435456;
@@ -194,12 +225,13 @@ pub const CHANGER_LOCK_UNLOCK: i32 = 128;
 pub const CHANGER_MEDIUM_FLIP: i32 = 512;
 pub const CHANGER_MOVE_EXTENDS_IEPORT: u32 = 2147484160;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
-    pub Flip: bool,
+    pub Flip: super::BOOLEAN,
 }
 pub const CHANGER_MOVE_RETRACTS_IEPORT: u32 = 2147484672;
 pub const CHANGER_OPEN_IEPORT: i32 = 8;
@@ -223,10 +255,11 @@ impl Default for CHANGER_PRODUCT_DATA {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
-    pub VolumeTagInfo: bool,
+    pub VolumeTagInfo: super::BOOLEAN,
 }
 pub const CHANGER_REPORT_IEPORT_STATE: i32 = 2048;
 pub const CHANGER_RESERVED_BIT: u32 = 2147483648;
@@ -251,11 +284,12 @@ pub struct CHANGER_SET_ACCESS {
     pub Control: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
-    pub Flip: bool,
+    pub Flip: super::BOOLEAN,
 }
 pub const CHANGER_SLOTS_USE_TRAYS: u32 = 2147483664;
 pub const CHANGER_STATUS_NON_VOLATILE: i32 = 16;
@@ -291,10 +325,17 @@ pub const CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = 50;
 #[cfg(feature = "winnt")]
 pub type CLSN = super::DWORDLONG;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_RANGE {
-    pub StartingCluster: i64,
-    pub ClusterCount: i64,
+    pub StartingCluster: super::LARGE_INTEGER,
+    pub ClusterCount: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for CLUSTER_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: i32 = 256;
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT: i32 = 128;
@@ -382,9 +423,10 @@ pub struct CSV_CONTROL_PARAM {
 }
 pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CSV_IS_OWNED_BY_CSVFS {
-    pub OwnedByCSVFS: bool,
+    pub OwnedByCSVFS: super::BOOLEAN,
 }
 pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: i32 = 1;
 #[repr(C)]
@@ -393,13 +435,24 @@ pub struct CSV_MGMT_LOCK {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct CSV_NAMESPACE_INFO {
     pub Version: u32,
     pub DeviceNumber: u32,
-    pub StartingOffset: i64,
+    pub StartingOffset: super::LARGE_INTEGER,
     pub SectorSize: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for CSV_NAMESPACE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+pub const CSV_NAMESPACE_INFO_V1: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CSV_NAMESPACE_INFO_V1: u64 = 24;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CSV_QUERY_FILE_REVISION {
@@ -457,11 +510,12 @@ pub struct CSV_QUERY_MDS_PATH_V2 {
 }
 pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
-    pub FileRedirected: bool,
+    pub FileRedirected: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -483,12 +537,13 @@ pub struct CSV_QUERY_VOLUME_ID {
     pub VolumeId: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
-    pub IsDiskConnected: bool,
-    pub ClusterEnableDirectIo: bool,
+    pub IsDiskConnected: super::BOOLEAN,
+    pub ClusterEnableDirectIo: super::BOOLEAN,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
 }
 #[repr(C)]
@@ -531,9 +586,10 @@ pub const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: i32 = 1;
 pub const DDS_4mm: STORAGE_MEDIA_TYPE = 32;
 pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DECRYPTION_STATUS_BUFFER {
-    pub NoEncryptedStreams: bool,
+    pub NoEncryptedStreams: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -829,6 +885,14 @@ pub type DEVICE_DSM_ACTION = u32;
 pub type DEVICE_DSM_ALLOCATION_OUTPUT = DEVICE_DATA_SET_LB_PROVISIONING_STATE;
 #[cfg(feature = "winnt")]
 pub type DEVICE_DSM_ALLOCATION_OUTPUT2 = DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
+#[cfg(target_arch = "x86")]
+pub const DEVICE_DSM_ALLOCATION_OUTPUT_V1: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DEVICE_DSM_ALLOCATION_OUTPUT_V1: u64 = 32;
+#[cfg(target_arch = "x86")]
+pub const DEVICE_DSM_ALLOCATION_OUTPUT_V2: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DEVICE_DSM_ALLOCATION_OUTPUT_V2: u64 = 40;
 pub type DEVICE_DSM_ALLOCATION_PARAMETERS = DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -837,13 +901,14 @@ pub struct DEVICE_DSM_CONVERSION_OUTPUT {
     pub Source: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: DEVICE_DSM_ACTION,
-    pub SingleRange: bool,
+    pub SingleRange: super::BOOLEAN,
     pub ParameterBlockAlignment: u32,
     pub ParameterBlockLength: u32,
-    pub HasOutput: bool,
+    pub HasOutput: super::BOOLEAN,
     pub OutputBlockAlignment: u32,
     pub OutputBlockLength: u32,
 }
@@ -963,10 +1028,11 @@ pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: i32 = 1;
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: i32 = 1;
 pub const DEVICE_DSM_PHYSICAL_ADDRESS_HAS_MEMORY_ERROR: i64 = -1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT {
     pub Version: u32,
-    pub PreferLocalRepair: bool,
+    pub PreferLocalRepair: super::BOOLEAN,
 }
 #[cfg(feature = "winnt")]
 pub type DEVICE_DSM_RANGE = DEVICE_DATA_SET_RANGE;
@@ -1174,31 +1240,36 @@ pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     pub OutputBlockLength: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO {
     pub DeviceSpecific: DEVICE_MEDIA_INFO_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_MEDIA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DEVICE_MEDIA_INFO_0 {
     pub DiskInfo: DEVICE_MEDIA_INFO_0_0,
     pub RemovableDiskInfo: DEVICE_MEDIA_INFO_0_1,
     pub TapeInfo: DEVICE_MEDIA_INFO_0_2,
 }
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_MEDIA_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO_0_0 {
-    pub Cylinders: i64,
+    pub Cylinders: super::LARGE_INTEGER,
     pub MediaType: STORAGE_MEDIA_TYPE,
     pub TracksPerCylinder: u32,
     pub SectorsPerTrack: u32,
@@ -1206,10 +1277,17 @@ pub struct DEVICE_MEDIA_INFO_0_0 {
     pub NumberMediaSides: u32,
     pub MediaCharacteristics: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for DEVICE_MEDIA_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO_0_1 {
-    pub Cylinders: i64,
+    pub Cylinders: super::LARGE_INTEGER,
     pub MediaType: STORAGE_MEDIA_TYPE,
     pub TracksPerCylinder: u32,
     pub SectorsPerTrack: u32,
@@ -1217,7 +1295,14 @@ pub struct DEVICE_MEDIA_INFO_0_1 {
     pub NumberMediaSides: u32,
     pub MediaCharacteristics: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for DEVICE_MEDIA_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO_0_2 {
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -1226,52 +1311,59 @@ pub struct DEVICE_MEDIA_INFO_0_2 {
     pub BusType: STORAGE_BUS_TYPE,
     pub BusSpecificData: DEVICE_MEDIA_INFO_0_2_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_MEDIA_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_MEDIA_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
     pub MediumType: u8,
     pub DensityCode: u8,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_POWER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub DeviceAttentionSupported: bool,
-    pub AsynchronousNotificationSupported: bool,
-    pub IdlePowerManagementEnabled: bool,
-    pub D3ColdEnabled: bool,
-    pub D3ColdSupported: bool,
-    pub NoVerifyDuringIdlePower: bool,
+    pub DeviceAttentionSupported: super::BOOLEAN,
+    pub AsynchronousNotificationSupported: super::BOOLEAN,
+    pub IdlePowerManagementEnabled: super::BOOLEAN,
+    pub D3ColdEnabled: super::BOOLEAN,
+    pub D3ColdSupported: super::BOOLEAN,
+    pub NoVerifyDuringIdlePower: super::BOOLEAN,
     pub Reserved: [u8; 2],
     pub IdleTimeoutInMS: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_POWER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub IncursSeekPenalty: bool,
+    pub IncursSeekPenalty: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1315,18 +1407,20 @@ pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub TrimEnabled: bool,
+    pub TrimEnabled: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub BenefitsFromWriteAggregation: bool,
+    pub BenefitsFromWriteAggregation: super::BOOLEAN,
 }
 #[cfg(feature = "devpropdef")]
 pub const DEVPKEY_Storage_Disk_Number: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
@@ -1349,34 +1443,39 @@ pub const DISK_ATTRIBUTE_OFFLINE: i32 = 1;
 pub const DISK_ATTRIBUTE_READ_ONLY: i32 = 2;
 pub const DISK_BINNING: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISK_CACHE_INFORMATION {
-    pub ParametersSavable: bool,
-    pub ReadCacheEnabled: bool,
-    pub WriteCacheEnabled: bool,
+    pub ParametersSavable: super::BOOLEAN,
+    pub ReadCacheEnabled: super::BOOLEAN,
+    pub WriteCacheEnabled: super::BOOLEAN,
     pub ReadRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
     pub WriteRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
     pub DisablePrefetchTransferLength: u16,
-    pub PrefetchScalar: bool,
+    pub PrefetchScalar: super::BOOLEAN,
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for DISK_CACHE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_0,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_1,
 }
+#[cfg(feature = "winnt")]
 impl Default for DISK_CACHE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
@@ -1384,6 +1483,7 @@ pub struct DISK_CACHE_INFORMATION_0_0 {
     pub MaximumBlocks: u16,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
@@ -1425,11 +1525,18 @@ pub struct DISK_DETECTION_INFO_0_0 {
     pub ExInt13: DISK_EX_INT13_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DISK_EXTENT {
     pub DiskNumber: u32,
-    pub StartingOffset: i64,
-    pub ExtentLength: i64,
+    pub StartingOffset: super::LARGE_INTEGER,
+    pub ExtentLength: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for DISK_EXTENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1444,47 +1551,74 @@ pub struct DISK_EX_INT13_INFO {
     pub ExReserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DISK_GEOMETRY {
-    pub Cylinders: i64,
+    pub Cylinders: super::LARGE_INTEGER,
     pub MediaType: MEDIA_TYPE,
     pub TracksPerCylinder: u32,
     pub SectorsPerTrack: u32,
     pub BytesPerSector: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for DISK_GEOMETRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISK_GEOMETRY_EX {
     pub Geometry: DISK_GEOMETRY,
-    pub DiskSize: i64,
+    pub DiskSize: super::LARGE_INTEGER,
     pub Data: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DISK_GEOMETRY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DISK_GROW_PARTITION {
     pub PartitionNumber: u32,
-    pub BytesToGrow: i64,
+    pub BytesToGrow: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for DISK_GROW_PARTITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DISK_HISTOGRAM {
-    pub DiskSize: i64,
-    pub Start: i64,
-    pub End: i64,
-    pub Average: i64,
-    pub AverageRead: i64,
-    pub AverageWrite: i64,
+    pub DiskSize: super::LARGE_INTEGER,
+    pub Start: super::LARGE_INTEGER,
+    pub End: super::LARGE_INTEGER,
+    pub Average: super::LARGE_INTEGER,
+    pub AverageRead: super::LARGE_INTEGER,
+    pub AverageWrite: super::LARGE_INTEGER,
     pub Granularity: u32,
     pub Size: u32,
     pub ReadCount: u32,
     pub WriteCount: u32,
     pub Histogram: PHISTOGRAM_BUCKET,
 }
+#[cfg(feature = "winnt")]
+impl Default for DISK_HISTOGRAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+pub const DISK_HISTOGRAM_SIZE: u32 = 72;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DISK_HISTOGRAM_SIZE: u64 = 72;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DISK_INT13_INFO {
@@ -1539,36 +1673,45 @@ pub struct DISK_PARTITION_INFO_0_1 {
     pub DiskId: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISK_PERFORMANCE {
-    pub BytesRead: i64,
-    pub BytesWritten: i64,
-    pub ReadTime: i64,
-    pub WriteTime: i64,
-    pub IdleTime: i64,
+    pub BytesRead: super::LARGE_INTEGER,
+    pub BytesWritten: super::LARGE_INTEGER,
+    pub ReadTime: super::LARGE_INTEGER,
+    pub WriteTime: super::LARGE_INTEGER,
+    pub IdleTime: super::LARGE_INTEGER,
     pub ReadCount: u32,
     pub WriteCount: u32,
     pub QueueDepth: u32,
     pub SplitCount: u32,
-    pub QueryTime: i64,
+    pub QueryTime: super::LARGE_INTEGER,
     pub StorageDeviceNumber: u32,
     pub StorageManagerName: [u16; 8],
 }
+#[cfg(feature = "winnt")]
 impl Default for DISK_PERFORMANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DISK_RECORD {
-    pub ByteOffset: i64,
-    pub StartTime: i64,
-    pub EndTime: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
+    pub StartTime: super::LARGE_INTEGER,
+    pub EndTime: super::LARGE_INTEGER,
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: u32,
     pub DeviceNumber: u8,
-    pub ReadRequest: bool,
+    pub ReadRequest: super::BOOLEAN,
+}
+#[cfg(feature = "winnt")]
+impl Default for DISK_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DLT: STORAGE_MEDIA_TYPE = 39;
 pub const DMI: STORAGE_MEDIA_TYPE = 48;
@@ -1586,18 +1729,21 @@ impl Default for DRIVERSTATUS {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DRIVE_LAYOUT_INFORMATION {
     pub PartitionCount: u32,
     pub Signature: u32,
     pub PartitionEntry: [PARTITION_INFORMATION; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DRIVE_LAYOUT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub PartitionStyle: u32,
@@ -1605,29 +1751,39 @@ pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub Anonymous: DRIVE_LAYOUT_INFORMATION_EX_0,
     pub PartitionEntry: [PARTITION_INFORMATION_EX; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DRIVE_LAYOUT_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
 }
+#[cfg(feature = "winnt")]
 impl Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DRIVE_LAYOUT_INFORMATION_GPT {
     pub DiskId: windows_sys::core::GUID,
-    pub StartingUsableOffset: i64,
-    pub UsableLength: i64,
+    pub StartingUsableOffset: super::LARGE_INTEGER,
+    pub UsableLength: super::LARGE_INTEGER,
     pub MaxPartitionCount: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for DRIVE_LAYOUT_INFORMATION_GPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1640,43 +1796,71 @@ pub const DST_M: STORAGE_MEDIA_TYPE = 81;
 pub const DST_S: STORAGE_MEDIA_TYPE = 80;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::HANDLE,
-    pub SourceFileOffset: i64,
-    pub TargetFileOffset: i64,
-    pub ByteCount: i64,
+    pub SourceFileOffset: super::LARGE_INTEGER,
+    pub TargetFileOffset: super::LARGE_INTEGER,
+    pub ByteCount: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for DUPLICATE_EXTENTS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA32 {
     pub FileHandle: u32,
-    pub SourceFileOffset: i64,
-    pub TargetFileOffset: i64,
-    pub ByteCount: i64,
+    pub SourceFileOffset: super::LARGE_INTEGER,
+    pub TargetFileOffset: super::LARGE_INTEGER,
+    pub ByteCount: super::LARGE_INTEGER,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DUPLICATE_EXTENTS_DATA32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub Size: usize,
     pub FileHandle: super::HANDLE,
-    pub SourceFileOffset: i64,
-    pub TargetFileOffset: i64,
-    pub ByteCount: i64,
+    pub SourceFileOffset: super::LARGE_INTEGER,
+    pub TargetFileOffset: super::LARGE_INTEGER,
+    pub ByteCount: super::LARGE_INTEGER,
     pub Flags: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for DUPLICATE_EXTENTS_DATA_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA_EX32 {
     pub Size: u32,
     pub FileHandle: u32,
-    pub SourceFileOffset: i64,
-    pub TargetFileOffset: i64,
-    pub ByteCount: i64,
+    pub SourceFileOffset: super::LARGE_INTEGER,
+    pub TargetFileOffset: super::LARGE_INTEGER,
+    pub ByteCount: super::LARGE_INTEGER,
     pub Flags: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DUPLICATE_EXTENTS_DATA_EX32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: i32 = 2;
 pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: i32 = 1;
@@ -1961,10 +2145,17 @@ pub const FILESYSTEM_STATISTICS_TYPE_FAT: i32 = 2;
 pub const FILESYSTEM_STATISTICS_TYPE_NTFS: i32 = 1;
 pub const FILESYSTEM_STATISTICS_TYPE_REFS: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_ALLOCATED_RANGE_BUFFER {
-    pub FileOffset: i64,
-    pub Length: i64,
+    pub FileOffset: super::LARGE_INTEGER,
+    pub Length: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_ALLOCATED_RANGE_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_ANY_ACCESS: i32 = 0;
 pub const FILE_CLEAR_ENCRYPTION: i32 = 2;
@@ -2145,7 +2336,7 @@ pub struct FILE_LAYOUT_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_LAYOUT_INFO_ENTRY {
     pub BasicInformation: FILE_LAYOUT_INFO_ENTRY_0,
     pub OwnerId: u32,
@@ -2153,15 +2344,27 @@ pub struct FILE_LAYOUT_INFO_ENTRY {
     pub Usn: super::USN,
     pub StorageReserveId: STORAGE_RESERVE_ID,
 }
+#[cfg(feature = "winnt")]
+impl Default for FILE_LAYOUT_INFO_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FILE_LAYOUT_INFO_ENTRY_0 {
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
+    pub CreationTime: super::LARGE_INTEGER,
+    pub LastAccessTime: super::LARGE_INTEGER,
+    pub LastWriteTime: super::LARGE_INTEGER,
+    pub ChangeTime: super::LARGE_INTEGER,
     pub FileAttributes: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_LAYOUT_INFO_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -2209,9 +2412,10 @@ pub struct FILE_LEVEL_TRIM_RANGE {
     pub Length: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
-    pub CloseDisc: bool,
+    pub CloseDisc: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2304,30 +2508,33 @@ pub struct FILE_PROVIDER_EXTERNAL_INFO_V1 {
 pub const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: i32 = 1;
 pub const FILE_PROVIDER_SINGLE_FILE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-    pub DirectoryCount: i64,
-    pub FileCount: i64,
+    pub DirectoryCount: super::LARGE_INTEGER,
+    pub FileCount: super::LARGE_INTEGER,
     pub FsFormatMajVersion: u16,
     pub FsFormatMinVersion: u16,
     pub FsFormatName: [u16; 12],
-    pub FormatTime: i64,
-    pub LastUpdateTime: i64,
+    pub FormatTime: super::LARGE_INTEGER,
+    pub LastUpdateTime: super::LARGE_INTEGER,
     pub CopyrightInfo: [u16; 34],
     pub AbstractInfo: [u16; 34],
     pub FormattingImplementationInfo: [u16; 34],
     pub LastModifyingImplementationInfo: [u16; 34],
 }
+#[cfg(feature = "winnt")]
 impl Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
-    pub SoftwareSparing: bool,
+    pub SoftwareSparing: super::BOOLEAN,
     pub TotalSpareBlocks: u32,
     pub FreeSpareBlocks: u32,
 }
@@ -2379,15 +2586,17 @@ pub const FILE_REGION_USAGE_QUERY_ALIGNMENT: i32 = 24;
 pub const FILE_REGION_USAGE_VALID_CACHED_DATA: i32 = 1;
 pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
-    pub Disable: bool,
+    pub Disable: super::BOOLEAN,
 }
 pub const FILE_SET_ENCRYPTION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_SET_SPARSE_BUFFER {
-    pub SetSparse: bool,
+    pub SetSparse: super::BOOLEAN,
 }
 pub const FILE_SPECIAL_ACCESS: i32 = 0;
 #[repr(C)]
@@ -2437,9 +2646,6 @@ impl Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
 }
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: i32 = 1;
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: i32 = 2;
-pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
-pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
-pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
@@ -2454,17 +2660,31 @@ impl Default for FILE_TYPE_NOTIFICATION_INPUT {
 }
 pub const FILE_WRITE_ACCESS: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_ZERO_DATA_INFORMATION {
-    pub FileOffset: i64,
-    pub BeyondFinalZero: i64,
+    pub FileOffset: super::LARGE_INTEGER,
+    pub BeyondFinalZero: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_ZERO_DATA_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_ZERO_DATA_INFORMATION_EX {
-    pub FileOffset: i64,
-    pub BeyondFinalZero: i64,
+    pub FileOffset: super::LARGE_INTEGER,
+    pub BeyondFinalZero: super::LARGE_INTEGER,
     pub Flags: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_ZERO_DATA_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: i32 = 1;
 #[repr(C)]
@@ -2724,6 +2944,10 @@ impl Default for FSCTL_QUERY_REGION_INFO_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const FSCTL_QUERY_REGION_INFO_INPUT_VERSION: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const FSCTL_QUERY_REGION_INFO_INPUT_VERSION: u64 = 32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -2743,6 +2967,10 @@ impl Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const FSCTL_QUERY_REGION_INFO_OUTPUT_VERSION: u32 = 64;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const FSCTL_QUERY_REGION_INFO_OUTPUT_VERSION: u64 = 64;
 pub const FSCTL_QUERY_RETRIEVAL_POINTERS: i32 = 589883;
 pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: i32 = 590592;
 pub const FSCTL_QUERY_SPARING_INFO: i32 = 590136;
@@ -2764,6 +2992,10 @@ impl Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const FSCTL_QUERY_STORAGE_CLASSES_OUTPUT_VERSION: u32 = 1088;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const FSCTL_QUERY_STORAGE_CLASSES_OUTPUT_VERSION: u64 = 1088;
 pub const FSCTL_QUERY_USN_JOURNAL: i32 = 590068;
 pub const FSCTL_QUERY_VOLUME_CONTAINER_STATE: i32 = 590736;
 pub const FSCTL_QUERY_VOLUME_NUMA_INFO: i32 = 590804;
@@ -3115,17 +3347,26 @@ impl Default for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct GET_LENGTH_INFORMATION {
-    pub Length: i64,
+    pub Length: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for GET_LENGTH_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct GET_MEDIA_TYPES {
     pub DeviceType: u32,
     pub MediaInfoCount: u32,
     pub MediaInfo: [DEVICE_MEDIA_INFO; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for GET_MEDIA_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3149,7 +3390,26 @@ pub struct GP_LOG_PAGE_DESCRIPTOR {
     pub LogAddress: u16,
     pub LogSectors: u16,
 }
+pub const GUID_DEVINTERFACE_CDCHANGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_CDROM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_COMPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
+pub const GUID_DEVINTERFACE_DISK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_FLOPPY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_HIDDEN_DISK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7fccc86c_228a_40ad_8a58_f590af7bfdce);
+pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
+pub const GUID_DEVINTERFACE_MEDIUMCHANGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_PARTITION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
 pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
+pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVINTERFACE_SERVICE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
+pub const GUID_DEVINTERFACE_SES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
+pub const GUID_DEVINTERFACE_STORAGEPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_TAPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
+pub const GUID_DEVINTERFACE_VMLUN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
+pub const GUID_DEVINTERFACE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_WRITEONCEDISK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_ZNSDISK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
 pub const GUID_SCM_PD_HEALTH_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
 pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
 #[repr(C)]
@@ -3158,6 +3418,10 @@ pub struct HISTOGRAM_BUCKET {
     pub Reads: u32,
     pub Writes: u32,
 }
+#[cfg(target_arch = "x86")]
+pub const HISTOGRAM_BUCKET_SIZE: u32 = 8;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const HISTOGRAM_BUCKET_SIZE: u64 = 8;
 pub const HIST_NO_OF_BUCKETS: i32 = 24;
 pub const HITACHI_12_WO: STORAGE_MEDIA_TYPE = 68;
 pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS = 4;
@@ -3262,11 +3526,6 @@ pub const IOCTL_SCM_PD_REINITIALIZE_MEDIA: i32 = 5871636;
 pub const IOCTL_SCM_PD_SET_PROPERTY: i32 = 5871640;
 pub const IOCTL_SCM_PD_UPDATE_MANAGEMENT_STATUS: i32 = 5838864;
 pub const IOCTL_SCM_PHYSICAL_DEVICE_FUNCTION_BASE: i32 = 1536;
-pub const IOCTL_SERENUM_EXPOSE_HARDWARE: i32 = 3604992;
-pub const IOCTL_SERENUM_GET_PORT_NAME: i32 = 3605004;
-pub const IOCTL_SERENUM_PORT_DESC: i32 = 3605000;
-pub const IOCTL_SERENUM_REMOVE_HARDWARE: i32 = 3604996;
-pub const IOCTL_SERIAL_LSRMST_INSERT: i32 = 1769596;
 pub const IOCTL_STORAGE_ALLOCATE_BC_STREAM: i32 = 3004420;
 pub const IOCTL_STORAGE_ATTRIBUTE_MANAGEMENT: i32 = 3005596;
 pub const IOCTL_STORAGE_BASE: i32 = 45;
@@ -3369,14 +3628,16 @@ pub const LOCK_UNLOCK_DOOR: i32 = 2;
 pub const LOCK_UNLOCK_IEPORT: i32 = 1;
 pub const LOCK_UNLOCK_KEYPAD: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     pub OffsetToNext: u32,
     pub Flags: u32,
-    pub Reserved: i64,
-    pub Cluster: i64,
+    pub Reserved: super::LARGE_INTEGER,
+    pub Cluster: super::LARGE_INTEGER,
     pub FileName: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3391,12 +3652,14 @@ pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_FS_SYSTEM_FILE: i32 = 4;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE: i32 = 1;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     pub Flags: u32,
     pub NumberOfClusters: u32,
-    pub Cluster: [i64; 1],
+    pub Cluster: [super::LARGE_INTEGER; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3525,29 +3788,49 @@ pub struct MFT_ENUM_DATA_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::HANDLE,
-    pub StartingVcn: i64,
-    pub StartingLcn: i64,
+    pub StartingVcn: super::LARGE_INTEGER,
+    pub StartingLcn: super::LARGE_INTEGER,
     pub ClusterCount: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for MOVE_FILE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct MOVE_FILE_DATA32 {
     pub FileHandle: u32,
-    pub StartingVcn: i64,
-    pub StartingLcn: i64,
+    pub StartingVcn: super::LARGE_INTEGER,
+    pub StartingLcn: super::LARGE_INTEGER,
     pub ClusterCount: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for MOVE_FILE_DATA32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::HANDLE,
-    pub SourceFileRecord: i64,
-    pub TargetFileRecord: i64,
+    pub SourceFileRecord: super::LARGE_INTEGER,
+    pub TargetFileRecord: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for MOVE_FILE_RECORD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MO_3_RW: STORAGE_MEDIA_TYPE = 57;
 pub const MO_5_LIMDOW: STORAGE_MEDIA_TYPE = 60;
@@ -3575,17 +3858,26 @@ pub struct NTFS_EXTENDED_VOLUME_DATA {
     pub MaxVolumeTrimByteCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct NTFS_FILE_RECORD_INPUT_BUFFER {
-    pub FileReferenceNumber: i64,
+    pub FileReferenceNumber: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for NTFS_FILE_RECORD_INPUT_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct NTFS_FILE_RECORD_OUTPUT_BUFFER {
-    pub FileReferenceNumber: i64,
+    pub FileReferenceNumber: super::LARGE_INTEGER,
     pub FileRecordLength: u32,
     pub FileRecordBuffer: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3800,22 +4092,29 @@ pub struct NTFS_STATISTICS_EX_4 {
     pub CacheMissClusters: super::DWORDLONG,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct NTFS_VOLUME_DATA_BUFFER {
-    pub VolumeSerialNumber: i64,
-    pub NumberSectors: i64,
-    pub TotalClusters: i64,
-    pub FreeClusters: i64,
-    pub TotalReserved: i64,
+    pub VolumeSerialNumber: super::LARGE_INTEGER,
+    pub NumberSectors: super::LARGE_INTEGER,
+    pub TotalClusters: super::LARGE_INTEGER,
+    pub FreeClusters: super::LARGE_INTEGER,
+    pub TotalReserved: super::LARGE_INTEGER,
     pub BytesPerSector: u32,
     pub BytesPerCluster: u32,
     pub BytesPerFileRecordSegment: u32,
     pub ClustersPerFileRecordSegment: u32,
-    pub MftValidDataLength: i64,
-    pub MftStartLcn: i64,
-    pub Mft2StartLcn: i64,
-    pub MftZoneStart: i64,
-    pub MftZoneEnd: i64,
+    pub MftValidDataLength: super::LARGE_INTEGER,
+    pub MftStartLcn: super::LARGE_INTEGER,
+    pub Mft2StartLcn: super::LARGE_INTEGER,
+    pub MftZoneStart: super::LARGE_INTEGER,
+    pub MftZoneEnd: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for NTFS_VOLUME_DATA_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE = 3;
 pub const NVMeDataTypeFeatureEx: STORAGE_PROTOCOL_NVME_DATA_TYPE = 5;
@@ -3845,40 +4144,51 @@ pub const PARTITION_GPT: i32 = 238;
 pub const PARTITION_HUGE: i32 = 6;
 pub const PARTITION_IFS: i32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct PARTITION_INFORMATION {
-    pub StartingOffset: i64,
-    pub PartitionLength: i64,
+    pub StartingOffset: super::LARGE_INTEGER,
+    pub PartitionLength: super::LARGE_INTEGER,
     pub HiddenSectors: u32,
     pub PartitionNumber: u32,
     pub PartitionType: u8,
-    pub BootIndicator: bool,
-    pub RecognizedPartition: bool,
-    pub RewritePartition: bool,
+    pub BootIndicator: super::BOOLEAN,
+    pub RecognizedPartition: super::BOOLEAN,
+    pub RewritePartition: super::BOOLEAN,
+}
+#[cfg(feature = "winnt")]
+impl Default for PARTITION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub PartitionOrdinal: u16,
-    pub StartingOffset: i64,
-    pub PartitionLength: i64,
+    pub StartingOffset: super::LARGE_INTEGER,
+    pub PartitionLength: super::LARGE_INTEGER,
     pub PartitionNumber: u32,
-    pub RewritePartition: bool,
-    pub IsServicePartition: bool,
+    pub RewritePartition: super::BOOLEAN,
+    pub IsServicePartition: super::BOOLEAN,
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for PARTITION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
     pub Gpt: PARTITION_INFORMATION_GPT,
 }
+#[cfg(feature = "winnt")]
 impl Default for PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3898,11 +4208,12 @@ impl Default for PARTITION_INFORMATION_GPT {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
-    pub BootIndicator: bool,
-    pub RecognizedPartition: bool,
+    pub BootIndicator: super::BOOLEAN,
+    pub RecognizedPartition: super::BOOLEAN,
     pub HiddenSectors: u32,
     pub PartitionId: windows_sys::core::GUID,
 }
@@ -3940,9 +4251,13 @@ impl Default for PATHNAME_BUFFER {
     }
 }
 pub type PBAD_TRACK_NUMBER = *mut u16;
+#[cfg(feature = "winnt")]
 pub type PBIN_COUNT = *mut BIN_COUNT;
+#[cfg(feature = "winnt")]
 pub type PBIN_RANGE = *mut BIN_RANGE;
+#[cfg(feature = "winnt")]
 pub type PBIN_RESULTS = *mut BIN_RESULTS;
+#[cfg(feature = "winnt")]
 pub type PBOOT_AREA_INFO = *mut BOOT_AREA_INFO;
 #[cfg(feature = "winnt")]
 pub type PBULK_SECURITY_TEST_DATA = *mut BULK_SECURITY_TEST_DATA;
@@ -3951,15 +4266,21 @@ pub type PCHANGER_ELEMENT = *mut CHANGER_ELEMENT;
 pub type PCHANGER_ELEMENT_LIST = *mut CHANGER_ELEMENT_LIST;
 pub type PCHANGER_ELEMENT_STATUS = *mut CHANGER_ELEMENT_STATUS;
 pub type PCHANGER_ELEMENT_STATUS_EX = *mut CHANGER_ELEMENT_STATUS_EX;
+#[cfg(feature = "winnt")]
 pub type PCHANGER_EXCHANGE_MEDIUM = *mut CHANGER_EXCHANGE_MEDIUM;
+#[cfg(feature = "winnt")]
 pub type PCHANGER_INITIALIZE_ELEMENT_STATUS = *mut CHANGER_INITIALIZE_ELEMENT_STATUS;
+#[cfg(feature = "winnt")]
 pub type PCHANGER_MOVE_MEDIUM = *mut CHANGER_MOVE_MEDIUM;
 pub type PCHANGER_PRODUCT_DATA = *mut CHANGER_PRODUCT_DATA;
+#[cfg(feature = "winnt")]
 pub type PCHANGER_READ_ELEMENT_STATUS = *mut CHANGER_READ_ELEMENT_STATUS;
 pub type PCHANGER_SEND_VOLUME_TAG_INFORMATION = *mut CHANGER_SEND_VOLUME_TAG_INFORMATION;
 pub type PCHANGER_SET_ACCESS = *mut CHANGER_SET_ACCESS;
+#[cfg(feature = "winnt")]
 pub type PCHANGER_SET_POSITION = *mut CHANGER_SET_POSITION;
 pub type PCLASS_MEDIA_CHANGE_CONTEXT = *mut CLASS_MEDIA_CHANGE_CONTEXT;
+#[cfg(feature = "winnt")]
 pub type PCLUSTER_RANGE = *mut CLUSTER_RANGE;
 pub type PCONTAINER_ROOT_INFO_INPUT = *mut CONTAINER_ROOT_INFO_INPUT;
 pub type PCONTAINER_ROOT_INFO_OUTPUT = *mut CONTAINER_ROOT_INFO_OUTPUT;
@@ -3974,22 +4295,27 @@ pub type PCSMB_SHARE_FLUSH_AND_PURGE_OUTPUT = *const SMB_SHARE_FLUSH_AND_PURGE_O
 pub type PCSVFS_DISK_CONNECTIVITY = *mut CSVFS_DISK_CONNECTIVITY;
 pub type PCSV_CONTROL_OP = *mut CSV_CONTROL_OP;
 pub type PCSV_CONTROL_PARAM = *mut CSV_CONTROL_PARAM;
+#[cfg(feature = "winnt")]
 pub type PCSV_IS_OWNED_BY_CSVFS = *mut CSV_IS_OWNED_BY_CSVFS;
 pub type PCSV_MGMT_LOCK = *mut CSV_MGMT_LOCK;
+#[cfg(feature = "winnt")]
 pub type PCSV_NAMESPACE_INFO = *mut CSV_NAMESPACE_INFO;
 pub type PCSV_QUERY_FILE_REVISION = *mut CSV_QUERY_FILE_REVISION;
 #[cfg(feature = "winnt")]
 pub type PCSV_QUERY_FILE_REVISION_FILE_ID_128 = *mut CSV_QUERY_FILE_REVISION_FILE_ID_128;
 pub type PCSV_QUERY_MDS_PATH = *mut CSV_QUERY_MDS_PATH;
 pub type PCSV_QUERY_MDS_PATH_V2 = *mut CSV_QUERY_MDS_PATH_V2;
+#[cfg(feature = "winnt")]
 pub type PCSV_QUERY_REDIRECT_STATE = *mut CSV_QUERY_REDIRECT_STATE;
 #[cfg(feature = "winnt")]
 pub type PCSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT = *mut CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT;
 pub type PCSV_QUERY_VOLUME_ID = *mut CSV_QUERY_VOLUME_ID;
+#[cfg(feature = "winnt")]
 pub type PCSV_QUERY_VOLUME_REDIRECT_STATE = *mut CSV_QUERY_VOLUME_REDIRECT_STATE;
 pub type PCSV_SET_VOLUME_ID = *mut CSV_SET_VOLUME_ID;
 pub const PC_5_RW: STORAGE_MEDIA_TYPE = 62;
 pub const PC_5_WO: STORAGE_MEDIA_TYPE = 61;
+#[cfg(feature = "winnt")]
 pub type PDECRYPTION_STATUS_BUFFER = *mut DECRYPTION_STATUS_BUFFER;
 #[cfg(feature = "winnt")]
 pub type PDELETE_USN_JOURNAL_DATA = *mut DELETE_USN_JOURNAL_DATA;
@@ -4029,6 +4355,7 @@ pub type PDEVICE_DSM_ALLOCATION_OUTPUT = *mut DEVICE_DATA_SET_LB_PROVISIONING_ST
 pub type PDEVICE_DSM_ALLOCATION_OUTPUT2 = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
 pub type PDEVICE_DSM_ALLOCATION_PARAMETERS = *mut DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
 pub type PDEVICE_DSM_CONVERSION_OUTPUT = *mut DEVICE_DSM_CONVERSION_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_DEFINITION = *mut DEVICE_DSM_DEFINITION;
 #[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_FREE_SPACE_OUTPUT = *mut DEVICE_DSM_FREE_SPACE_OUTPUT;
@@ -4045,6 +4372,7 @@ pub type PDEVICE_DSM_OFFLOAD_WRITE_PARAMETERS = *mut DEVICE_DSM_OFFLOAD_WRITE_PA
 pub type PDEVICE_DSM_OUTPUT = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
 #[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT = *mut DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT = *mut DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT;
 #[cfg(feature = "winnt")]
 pub type PDEVICE_DSM_RANGE = *mut DEVICE_DATA_SET_RANGE;
@@ -4079,41 +4407,59 @@ pub type PDEVICE_LB_PROVISIONING_DESCRIPTOR = *mut DEVICE_LB_PROVISIONING_DESCRI
 pub type PDEVICE_LOCATION = *mut DEVICE_LOCATION;
 pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
 pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PDEVICE_MEDIA_INFO = *mut DEVICE_MEDIA_INFO;
+#[cfg(feature = "winnt")]
 pub type PDEVICE_POWER_DESCRIPTOR = *mut DEVICE_POWER_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PDEVICE_SEEK_PENALTY_DESCRIPTOR = *mut DEVICE_SEEK_PENALTY_DESCRIPTOR;
 #[cfg(feature = "winnt")]
 pub type PDEVICE_STORAGE_ADDRESS_RANGE = *mut DEVICE_STORAGE_ADDRESS_RANGE;
 #[cfg(feature = "winnt")]
 pub type PDEVICE_STORAGE_RANGE_ATTRIBUTES = *mut DEVICE_STORAGE_RANGE_ATTRIBUTES;
+#[cfg(feature = "winnt")]
 pub type PDEVICE_TRIM_DESCRIPTOR = *mut DEVICE_TRIM_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PDEVICE_WRITE_AGGREGATION_DESCRIPTOR = *mut DEVICE_WRITE_AGGREGATION_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PDISK_CACHE_INFORMATION = *mut DISK_CACHE_INFORMATION;
 pub type PDISK_CONTROLLER_NUMBER = *mut DISK_CONTROLLER_NUMBER;
 pub type PDISK_DETECTION_INFO = *mut DISK_DETECTION_INFO;
+#[cfg(feature = "winnt")]
 pub type PDISK_EXTENT = *mut DISK_EXTENT;
 pub type PDISK_EX_INT13_INFO = *mut DISK_EX_INT13_INFO;
+#[cfg(feature = "winnt")]
 pub type PDISK_GEOMETRY = *mut DISK_GEOMETRY;
+#[cfg(feature = "winnt")]
 pub type PDISK_GEOMETRY_EX = *mut DISK_GEOMETRY_EX;
+#[cfg(feature = "winnt")]
 pub type PDISK_GROW_PARTITION = *mut DISK_GROW_PARTITION;
+#[cfg(feature = "winnt")]
 pub type PDISK_HISTOGRAM = *mut DISK_HISTOGRAM;
 pub type PDISK_INT13_INFO = *mut DISK_INT13_INFO;
 pub type PDISK_LOGGING = *mut DISK_LOGGING;
 pub type PDISK_PARTITION_INFO = *mut DISK_PARTITION_INFO;
+#[cfg(feature = "winnt")]
 pub type PDISK_PERFORMANCE = *mut DISK_PERFORMANCE;
+#[cfg(feature = "winnt")]
 pub type PDISK_RECORD = *mut DISK_RECORD;
 pub type PDRIVERSTATUS = *mut DRIVERSTATUS;
+#[cfg(feature = "winnt")]
 pub type PDRIVE_LAYOUT_INFORMATION = *mut DRIVE_LAYOUT_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PDRIVE_LAYOUT_INFORMATION_EX = *mut DRIVE_LAYOUT_INFORMATION_EX;
+#[cfg(feature = "winnt")]
 pub type PDRIVE_LAYOUT_INFORMATION_GPT = *mut DRIVE_LAYOUT_INFORMATION_GPT;
 pub type PDRIVE_LAYOUT_INFORMATION_MBR = *mut DRIVE_LAYOUT_INFORMATION_MBR;
 #[cfg(feature = "winnt")]
 pub type PDUPLICATE_EXTENTS_DATA = *mut DUPLICATE_EXTENTS_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 pub type PDUPLICATE_EXTENTS_DATA32 = *mut DUPLICATE_EXTENTS_DATA32;
 #[cfg(feature = "winnt")]
 pub type PDUPLICATE_EXTENTS_DATA_EX = *mut DUPLICATE_EXTENTS_DATA_EX;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 pub type PDUPLICATE_EXTENTS_DATA_EX32 = *mut DUPLICATE_EXTENTS_DATA_EX32;
 pub type PDUPLICATE_EXTENTS_STATE = *mut DUPLICATE_EXTENTS_STATE;
 pub const PD_5_RW: STORAGE_MEDIA_TYPE = 63;
@@ -4124,12 +4470,14 @@ pub type PENCRYPTION_BUFFER = *mut ENCRYPTION_BUFFER;
 #[cfg(feature = "winnt")]
 pub type PENCRYPTION_KEY_CTRL_INPUT = *mut ENCRYPTION_KEY_CTRL_INPUT;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PERF_BIN {
     pub NumberOfBins: u32,
     pub TypeOfBin: u32,
     pub BinsRanges: [BIN_RANGE; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for PERF_BIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4197,6 +4545,7 @@ pub type PFAT_STATISTICS = *mut FAT_STATISTICS;
 pub type PFILESYSTEM_STATISTICS = *mut FILESYSTEM_STATISTICS;
 #[cfg(feature = "winnt")]
 pub type PFILESYSTEM_STATISTICS_EX = *mut FILESYSTEM_STATISTICS_EX;
+#[cfg(feature = "winnt")]
 pub type PFILE_ALLOCATED_RANGE_BUFFER = *mut FILE_ALLOCATED_RANGE_BUFFER;
 pub type PFILE_DESIRED_STORAGE_CLASS_INFORMATION = *mut FILE_DESIRED_STORAGE_CLASS_INFORMATION;
 pub type PFILE_FS_PERSISTENT_VOLUME_INFORMATION = *mut FILE_FS_PERSISTENT_VOLUME_INFORMATION;
@@ -4213,6 +4562,7 @@ pub type PFILE_LEVEL_TRIM = *mut FILE_LEVEL_TRIM;
 pub type PFILE_LEVEL_TRIM_OUTPUT = *mut FILE_LEVEL_TRIM_OUTPUT;
 #[cfg(feature = "winnt")]
 pub type PFILE_LEVEL_TRIM_RANGE = *mut FILE_LEVEL_TRIM_RANGE;
+#[cfg(feature = "winnt")]
 pub type PFILE_MAKE_COMPATIBLE_BUFFER = *mut FILE_MAKE_COMPATIBLE_BUFFER;
 pub type PFILE_OBJECTID_BUFFER = *mut FILE_OBJECTID_BUFFER;
 #[cfg(feature = "winnt")]
@@ -4222,14 +4572,18 @@ pub type PFILE_PREFETCH_EX = *mut FILE_PREFETCH_EX;
 pub type PFILE_PROVIDER_EXTERNAL_INFO = PFILE_PROVIDER_EXTERNAL_INFO_V1;
 pub type PFILE_PROVIDER_EXTERNAL_INFO_V0 = *mut FILE_PROVIDER_EXTERNAL_INFO_V0;
 pub type PFILE_PROVIDER_EXTERNAL_INFO_V1 = *mut FILE_PROVIDER_EXTERNAL_INFO_V1;
+#[cfg(feature = "winnt")]
 pub type PFILE_QUERY_ON_DISK_VOL_INFO_BUFFER = *mut FILE_QUERY_ON_DISK_VOL_INFO_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PFILE_QUERY_SPARING_BUFFER = *mut FILE_QUERY_SPARING_BUFFER;
 #[cfg(feature = "winnt")]
 pub type PFILE_REFERENCE_RANGE = *mut FILE_REFERENCE_RANGE;
 pub type PFILE_REGION_INFO = *mut FILE_REGION_INFO;
 pub type PFILE_REGION_INPUT = *mut FILE_REGION_INPUT;
 pub type PFILE_REGION_OUTPUT = *mut FILE_REGION_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PFILE_SET_DEFECT_MGMT_BUFFER = *mut FILE_SET_DEFECT_MGMT_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PFILE_SET_SPARSE_BUFFER = *mut FILE_SET_SPARSE_BUFFER;
 #[cfg(feature = "winnt")]
 pub type PFILE_STORAGE_TIER = *mut FILE_STORAGE_TIER;
@@ -4239,7 +4593,9 @@ pub type PFILE_STORAGE_TIER_MEDIA_TYPE = *mut FILE_STORAGE_TIER_MEDIA_TYPE;
 pub type PFILE_STORAGE_TIER_REGION = *mut FILE_STORAGE_TIER_REGION;
 pub type PFILE_SYSTEM_RECOGNITION_INFORMATION = *mut FILE_SYSTEM_RECOGNITION_INFORMATION;
 pub type PFILE_TYPE_NOTIFICATION_INPUT = *mut FILE_TYPE_NOTIFICATION_INPUT;
+#[cfg(feature = "winnt")]
 pub type PFILE_ZERO_DATA_INFORMATION = *mut FILE_ZERO_DATA_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PFILE_ZERO_DATA_INFORMATION_EX = *mut FILE_ZERO_DATA_INFORMATION_EX;
 #[cfg(feature = "winnt")]
 pub type PFIND_BY_SID_DATA = *mut FIND_BY_SID_DATA;
@@ -4276,7 +4632,9 @@ pub type PGET_DEVICE_INTERNAL_STATUS_DATA_REQUEST = *mut GET_DEVICE_INTERNAL_STA
 pub type PGET_DISK_ATTRIBUTES = *mut GET_DISK_ATTRIBUTES;
 pub type PGET_FILTER_FILE_IDENTIFIER_INPUT = *mut GET_FILTER_FILE_IDENTIFIER_INPUT;
 pub type PGET_FILTER_FILE_IDENTIFIER_OUTPUT = *mut GET_FILTER_FILE_IDENTIFIER_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PGET_LENGTH_INFORMATION = *mut GET_LENGTH_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PGET_MEDIA_TYPES = *mut GET_MEDIA_TYPES;
 pub type PGP_LOG_PAGE_DESCRIPTOR = *mut GP_LOG_PAGE_DESCRIPTOR;
 pub const PHILIPS_12_WO: STORAGE_MEDIA_TYPE = 67;
@@ -4335,19 +4693,28 @@ impl Default for PHYSICAL_ELEMENT_STATUS_REQUEST {
 }
 pub type PIDEREGS = *mut IDEREGS;
 pub const PINNACLE_APEX_5_RW: STORAGE_MEDIA_TYPE = 65;
-pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "C" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
 pub type PIO_IRP_EXT_TRACK_OFFSET_HEADER = *mut IO_IRP_EXT_TRACK_OFFSET_HEADER;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct PLEX_READ_DATA_REQUEST {
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
     pub ByteLength: u32,
     pub PlexNumber: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for PLEX_READ_DATA_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PLMR_QUERY_INFO_CLASS = *mut LMR_QUERY_INFO_CLASS;
 pub type PLMR_QUERY_INFO_PARAM = *mut LMR_QUERY_INFO_PARAM;
 pub type PLMR_QUERY_SESSION_INFO = *mut LMR_QUERY_SESSION_INFO;
+#[cfg(feature = "winnt")]
 pub type PLOOKUP_STREAM_FROM_CLUSTER_ENTRY = *mut LOOKUP_STREAM_FROM_CLUSTER_ENTRY;
+#[cfg(feature = "winnt")]
 pub type PLOOKUP_STREAM_FROM_CLUSTER_INPUT = *mut LOOKUP_STREAM_FROM_CLUSTER_INPUT;
 pub type PLOOKUP_STREAM_FROM_CLUSTER_OUTPUT = *mut LOOKUP_STREAM_FROM_CLUSTER_OUTPUT;
 #[cfg(feature = "winnt")]
@@ -4364,21 +4731,29 @@ pub type PMFT_ENUM_DATA_V1 = *mut MFT_ENUM_DATA_V1;
 #[cfg(feature = "winnt")]
 pub type PMOVE_FILE_DATA = *mut MOVE_FILE_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 pub type PMOVE_FILE_DATA32 = *mut MOVE_FILE_DATA32;
 #[cfg(feature = "winnt")]
 pub type PMOVE_FILE_RECORD_DATA = *mut MOVE_FILE_RECORD_DATA;
 pub type PNTFS_EXTENDED_VOLUME_DATA = *mut NTFS_EXTENDED_VOLUME_DATA;
+#[cfg(feature = "winnt")]
 pub type PNTFS_FILE_RECORD_INPUT_BUFFER = *mut NTFS_FILE_RECORD_INPUT_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PNTFS_FILE_RECORD_OUTPUT_BUFFER = *mut NTFS_FILE_RECORD_OUTPUT_BUFFER;
 pub type PNTFS_STATISTICS = *mut NTFS_STATISTICS;
 #[cfg(feature = "winnt")]
 pub type PNTFS_STATISTICS_EX = *mut NTFS_STATISTICS_EX;
+#[cfg(feature = "winnt")]
 pub type PNTFS_VOLUME_DATA_BUFFER = *mut NTFS_VOLUME_DATA_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PPARTITION_INFORMATION = *mut PARTITION_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PPARTITION_INFORMATION_EX = *mut PARTITION_INFORMATION_EX;
 pub type PPARTITION_INFORMATION_GPT = *mut PARTITION_INFORMATION_GPT;
+#[cfg(feature = "winnt")]
 pub type PPARTITION_INFORMATION_MBR = *mut PARTITION_INFORMATION_MBR;
 pub type PPATHNAME_BUFFER = *mut PATHNAME_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PPERF_BIN = *mut PERF_BIN;
 pub type PPERSISTENT_RESERVE_COMMAND = *mut PERSISTENT_RESERVE_COMMAND;
 #[cfg(feature = "winnt")]
@@ -4386,7 +4761,9 @@ pub type PPHYSICAL_ELEMENT_STATUS = *mut PHYSICAL_ELEMENT_STATUS;
 #[cfg(feature = "winnt")]
 pub type PPHYSICAL_ELEMENT_STATUS_DESCRIPTOR = *mut PHYSICAL_ELEMENT_STATUS_DESCRIPTOR;
 pub type PPHYSICAL_ELEMENT_STATUS_REQUEST = *mut PHYSICAL_ELEMENT_STATUS_REQUEST;
+#[cfg(feature = "winnt")]
 pub type PPLEX_READ_DATA_REQUEST = *mut PLEX_READ_DATA_REQUEST;
+#[cfg(feature = "winnt")]
 pub type PPREVENT_MEDIA_REMOVAL = *mut PREVENT_MEDIA_REMOVAL;
 #[cfg(feature = "winnt")]
 pub type PQUERY_BAD_RANGES_INPUT = *mut QUERY_BAD_RANGES_INPUT;
@@ -4408,6 +4785,7 @@ pub type PREAD_USN_JOURNAL_DATA_V0 = *mut READ_USN_JOURNAL_DATA_V0;
 #[cfg(feature = "winnt")]
 pub type PREAD_USN_JOURNAL_DATA_V1 = *mut READ_USN_JOURNAL_DATA_V1;
 pub type PREASSIGN_BLOCKS = *mut REASSIGN_BLOCKS;
+#[cfg(feature = "winnt")]
 pub type PREASSIGN_BLOCKS_EX = *mut REASSIGN_BLOCKS_EX;
 pub type PREFS_SMR_VOLUME_GC_ACTION = *mut REFS_SMR_VOLUME_GC_ACTION;
 pub type PREFS_SMR_VOLUME_GC_METHOD = *mut REFS_SMR_VOLUME_GC_METHOD;
@@ -4416,23 +4794,30 @@ pub type PREFS_SMR_VOLUME_GC_PARAMETERS = *mut REFS_SMR_VOLUME_GC_PARAMETERS;
 pub type PREFS_SMR_VOLUME_GC_STATE = *mut REFS_SMR_VOLUME_GC_STATE;
 #[cfg(feature = "winnt")]
 pub type PREFS_SMR_VOLUME_INFO_OUTPUT = *mut REFS_SMR_VOLUME_INFO_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PREFS_VOLUME_DATA_BUFFER = *mut REFS_VOLUME_DATA_BUFFER;
 #[cfg(feature = "winnt")]
 pub type PREMOVE_ELEMENT_AND_TRUNCATE_REQUEST = *mut REMOVE_ELEMENT_AND_TRUNCATE_REQUEST;
+#[cfg(feature = "winnt")]
 pub type PREPAIR_COPIES_INPUT = *mut REPAIR_COPIES_INPUT;
+#[cfg(feature = "winnt")]
 pub type PREPAIR_COPIES_OUTPUT = *mut REPAIR_COPIES_OUTPUT;
 pub type PREQUEST_OPLOCK_INPUT_BUFFER = *mut REQUEST_OPLOCK_INPUT_BUFFER;
 #[cfg(feature = "winnt")]
 pub type PREQUEST_OPLOCK_OUTPUT_BUFFER = *mut REQUEST_OPLOCK_OUTPUT_BUFFER;
 pub type PREQUEST_RAW_ENCRYPTED_DATA = *mut REQUEST_RAW_ENCRYPTED_DATA;
+#[cfg(feature = "winnt")]
 pub type PRETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER = *mut RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PRETRIEVAL_POINTERS_BUFFER = *mut RETRIEVAL_POINTERS_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PRETRIEVAL_POINTER_BASE = *mut RETRIEVAL_POINTER_BASE;
 pub type PRETRIEVAL_POINTER_COUNT = *mut RETRIEVAL_POINTER_COUNT;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct PREVENT_MEDIA_REMOVAL {
-    pub PreventMediaRemoval: bool,
+    pub PreventMediaRemoval: super::BOOLEAN,
 }
 pub const PRODUCT_ID_LENGTH: i32 = 16;
 pub const PROJFS_PROTOCOL_VERSION: i32 = 3;
@@ -4440,6 +4825,7 @@ pub const PROJFS_PROTOCOL_VERSION: i32 = 3;
 pub type PSCM_BUS_DEDICATED_MEMORY_DEVICES_INFO = *mut SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO;
 #[cfg(feature = "winnt")]
 pub type PSCM_BUS_DEDICATED_MEMORY_DEVICE_INFO = *mut SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO;
+#[cfg(feature = "winnt")]
 pub type PSCM_BUS_DEDICATED_MEMORY_STATE = *mut SCM_BUS_DEDICATED_MEMORY_STATE;
 pub type PSCM_BUS_FIRMWARE_ACTIVATION_STATE = *mut SCM_BUS_FIRMWARE_ACTIVATION_STATE;
 pub type PSCM_BUS_PROPERTY_ID = *mut SCM_BUS_PROPERTY_ID;
@@ -4482,6 +4868,7 @@ pub type PSCM_PD_PROPERTY_SET = *mut SCM_PD_PROPERTY_SET;
 pub type PSCM_PD_QUERY_TYPE = *mut SCM_PD_QUERY_TYPE;
 pub type PSCM_PD_REINITIALIZE_MEDIA_INPUT = *mut SCM_PD_REINITIALIZE_MEDIA_INPUT;
 pub type PSCM_PD_REINITIALIZE_MEDIA_OUTPUT = *mut SCM_PD_REINITIALIZE_MEDIA_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PSCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE = *mut SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE;
 pub type PSCM_PD_RUNTIME_FW_ACTIVATION_INFO = *mut SCM_PD_RUNTIME_FW_ACTIVATION_INFO;
 pub type PSCM_PD_SET_TYPE = *mut SCM_PD_SET_TYPE;
@@ -4521,12 +4908,17 @@ pub type PSHRINK_VOLUME_REQUEST_TYPES = *mut SHRINK_VOLUME_REQUEST_TYPES;
 pub type PSI_COPYFILE = *mut SI_COPYFILE;
 pub type PSMB_SHARE_FLUSH_AND_PURGE_INPUT = *mut SMB_SHARE_FLUSH_AND_PURGE_INPUT;
 pub type PSMB_SHARE_FLUSH_AND_PURGE_OUTPUT = *mut SMB_SHARE_FLUSH_AND_PURGE_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PSTARTING_LCN_INPUT_BUFFER = *mut STARTING_LCN_INPUT_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PSTARTING_LCN_INPUT_BUFFER_EX = *mut STARTING_LCN_INPUT_BUFFER_EX;
+#[cfg(feature = "winnt")]
 pub type PSTARTING_VCN_INPUT_BUFFER = *mut STARTING_VCN_INPUT_BUFFER;
 pub type PSTORAGE_ACCESS_ALIGNMENT_DESCRIPTOR = *mut STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_ADAPTER_DESCRIPTOR = *mut STORAGE_ADAPTER_DESCRIPTOR;
 pub type PSTORAGE_ADAPTER_SERIAL_NUMBER = *mut STORAGE_ADAPTER_SERIAL_NUMBER;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_ALLOCATE_BC_STREAM_INPUT = *mut STORAGE_ALLOCATE_BC_STREAM_INPUT;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_ALLOCATE_BC_STREAM_OUTPUT = *mut STORAGE_ALLOCATE_BC_STREAM_OUTPUT;
@@ -4550,6 +4942,7 @@ pub type PSTORAGE_CRYPTO_DESCRIPTOR_V2 = *mut STORAGE_CRYPTO_DESCRIPTOR_V2;
 pub type PSTORAGE_CRYPTO_KEY_SIZE = *mut STORAGE_CRYPTO_KEY_SIZE;
 pub type PSTORAGE_DESCRIPTOR_HEADER = *mut STORAGE_DESCRIPTOR_HEADER;
 pub type PSTORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR = *mut STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_DEVICE_DESCRIPTOR = *mut STORAGE_DEVICE_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR = *mut STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_FORM_FACTOR = *mut STORAGE_DEVICE_FORM_FACTOR;
@@ -4567,7 +4960,9 @@ pub type PSTORAGE_DEVICE_NUMBER_EX = *mut STORAGE_DEVICE_NUMBER_EX;
 pub type PSTORAGE_DEVICE_POWER_CAP = *mut STORAGE_DEVICE_POWER_CAP;
 pub type PSTORAGE_DEVICE_POWER_CAP_UNITS = *mut STORAGE_DEVICE_POWER_CAP_UNITS;
 pub type PSTORAGE_DEVICE_RESILIENCY_DESCRIPTOR = *mut STORAGE_DEVICE_RESILIENCY_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_DEVICE_TIERING_DESCRIPTOR = *mut STORAGE_DEVICE_TIERING_DESCRIPTOR;
@@ -4581,12 +4976,14 @@ pub type PSTORAGE_DISK_OPERATIONAL_STATUS = *mut STORAGE_DISK_OPERATIONAL_STATUS
 pub type PSTORAGE_ENCRYPTION_TYPE = *mut STORAGE_ENCRYPTION_TYPE;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_EVENT_NOTIFICATION = *mut STORAGE_EVENT_NOTIFICATION;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_FAILURE_PREDICTION_CONFIG = *mut STORAGE_FAILURE_PREDICTION_CONFIG;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_FEATURE_SUPPORT = *mut STORAGE_FEATURE_SUPPORT;
 pub type PSTORAGE_FRU_ID_DESCRIPTOR = *mut STORAGE_FRU_ID_DESCRIPTOR;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_GET_BC_PROPERTIES_OUTPUT = *mut STORAGE_GET_BC_PROPERTIES_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_HOTPLUG_INFO = *mut STORAGE_HOTPLUG_INFO;
 pub type PSTORAGE_HW_BOOT_PARTITION_ACTIVATE = *mut STORAGE_HW_BOOT_PARTITION_ACTIVATE;
 #[cfg(feature = "winnt")]
@@ -4602,6 +4999,7 @@ pub type PSTORAGE_HW_FIRMWARE_ACTIVATE = *mut STORAGE_HW_FIRMWARE_ACTIVATE;
 pub type PSTORAGE_HW_FIRMWARE_DOWNLOAD = *mut STORAGE_HW_FIRMWARE_DOWNLOAD;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_HW_FIRMWARE_DOWNLOAD_V2 = *mut STORAGE_HW_FIRMWARE_DOWNLOAD_V2;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_HW_FIRMWARE_INFO = *mut STORAGE_HW_FIRMWARE_INFO;
 pub type PSTORAGE_HW_FIRMWARE_INFO_QUERY = *mut STORAGE_HW_FIRMWARE_INFO_QUERY;
 pub type PSTORAGE_HW_FIRMWARE_SLOT_INFO = *mut STORAGE_HW_FIRMWARE_SLOT_INFO;
@@ -4617,6 +5015,7 @@ pub type PSTORAGE_LB_PROVISIONING_MAP_RESOURCES = *mut STORAGE_LB_PROVISIONING_M
 pub type PSTORAGE_MEDIA_SERIAL_NUMBER_DATA = *mut STORAGE_MEDIA_SERIAL_NUMBER_DATA;
 pub type PSTORAGE_MEDIA_TYPE = *mut STORAGE_MEDIA_TYPE;
 pub type PSTORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR = *mut STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_MINIPORT_DESCRIPTOR = *mut STORAGE_MINIPORT_DESCRIPTOR;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_OFFLOAD_READ_OUTPUT = *mut STORAGE_OFFLOAD_READ_OUTPUT;
@@ -4625,6 +5024,7 @@ pub type PSTORAGE_OFFLOAD_TOKEN = *mut STORAGE_OFFLOAD_TOKEN;
 pub type PSTORAGE_OFFLOAD_WRITE_OUTPUT = *mut STORAGE_OFFLOAD_WRITE_OUTPUT;
 pub type PSTORAGE_OPERATIONAL_REASON = *mut STORAGE_OPERATIONAL_REASON;
 pub type PSTORAGE_OPERATIONAL_STATUS_REASON = *mut STORAGE_OPERATIONAL_STATUS_REASON;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_PHYSICAL_ADAPTER_DATA = *mut STORAGE_PHYSICAL_ADAPTER_DATA;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_PHYSICAL_DEVICE_DATA = *mut STORAGE_PHYSICAL_DEVICE_DATA;
@@ -4652,6 +5052,7 @@ pub type PSTORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY = *mut STORAGE_QUERY_DEPENDE
 pub type PSTORAGE_QUERY_DEPENDENT_VOLUME_REQUEST = *mut STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST;
 pub type PSTORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE = *mut STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE;
 pub type PSTORAGE_QUERY_TYPE = *mut STORAGE_QUERY_TYPE;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_READ_CAPACITY = *mut STORAGE_READ_CAPACITY;
 pub type PSTORAGE_REINITIALIZE_MEDIA = *mut STORAGE_REINITIALIZE_MEDIA;
 pub type PSTORAGE_RESERVE_ID = *mut STORAGE_RESERVE_ID;
@@ -4664,8 +5065,11 @@ pub type PSTORAGE_SET_TYPE = *mut STORAGE_SET_TYPE;
 pub type PSTORAGE_SPEC_VERSION = *mut STORAGE_SPEC_VERSION;
 pub type PSTORAGE_STACK_DESCRIPTOR = *mut STORAGE_STACK_DESCRIPTOR;
 pub type PSTORAGE_STACK_TYPE = *mut STORAGE_STACK_TYPE;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_TEMPERATURE_DATA_DESCRIPTOR = *mut STORAGE_TEMPERATURE_DATA_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_TEMPERATURE_INFO = *mut STORAGE_TEMPERATURE_INFO;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_TEMPERATURE_THRESHOLD = *mut STORAGE_TEMPERATURE_THRESHOLD;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_TIER = *mut STORAGE_TIER;
@@ -4673,6 +5077,7 @@ pub type PSTORAGE_TIER_CLASS = *mut STORAGE_TIER_CLASS;
 pub type PSTORAGE_TIER_MEDIA_TYPE = *mut STORAGE_TIER_MEDIA_TYPE;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_TIER_REGION = *mut STORAGE_TIER_REGION;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_WRITE_CACHE_PROPERTY = *mut STORAGE_WRITE_CACHE_PROPERTY;
 #[cfg(feature = "winnt")]
 pub type PSTORAGE_ZONED_DEVICE_DESCRIPTOR = *mut STORAGE_ZONED_DEVICE_DESCRIPTOR;
@@ -4687,11 +5092,14 @@ pub type PSTORAGE_ZONE_TYPES = *mut STORAGE_ZONE_TYPES;
 pub type PSTREAMS_ASSOCIATE_ID_INPUT_BUFFER = *mut STREAMS_ASSOCIATE_ID_INPUT_BUFFER;
 pub type PSTREAMS_QUERY_ID_OUTPUT_BUFFER = *mut STREAMS_QUERY_ID_OUTPUT_BUFFER;
 pub type PSTREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER = *mut STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PSTREAM_EXTENT_ENTRY = *mut STREAM_EXTENT_ENTRY;
 #[cfg(feature = "winnt")]
 pub type PSTREAM_INFORMATION_ENTRY = *mut STREAM_INFORMATION_ENTRY;
+#[cfg(feature = "winnt")]
 pub type PSTREAM_LAYOUT_ENTRY = *mut STREAM_LAYOUT_ENTRY;
 pub type PTAPE_GET_STATISTICS = *mut TAPE_GET_STATISTICS;
+#[cfg(feature = "winnt")]
 pub type PTAPE_STATISTICS = *mut TAPE_STATISTICS;
 pub type PTXFS_CREATE_MINIVERSION_INFO = *mut TXFS_CREATE_MINIVERSION_INFO;
 #[cfg(feature = "winnt")]
@@ -4715,6 +5123,7 @@ pub type PTXFS_ROLLFORWARD_REDO_INFORMATION = *mut TXFS_ROLLFORWARD_REDO_INFORMA
 pub type PTXFS_SAVEPOINT_INFORMATION = *mut TXFS_SAVEPOINT_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PTXFS_START_RM_INFORMATION = *mut TXFS_START_RM_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PTXFS_TRANSACTION_ACTIVE_INFO = *mut TXFS_TRANSACTION_ACTIVE_INFO;
 pub type PTXFS_WRITE_BACKUP_INFORMATION = *mut TXFS_WRITE_BACKUP_INFORMATION;
 #[cfg(feature = "winnt")]
@@ -4741,6 +5150,7 @@ pub type PUSN_RECORD_V3 = *mut USN_RECORD_V3;
 pub type PUSN_RECORD_V4 = *mut USN_RECORD_V4;
 #[cfg(feature = "winnt")]
 pub type PUSN_TRACK_MODIFIED_RANGES = *mut USN_TRACK_MODIFIED_RANGES;
+#[cfg(feature = "winnt")]
 pub type PVERIFY_INFORMATION = *mut VERIFY_INFORMATION;
 pub type PVIRTUALIZATION_INSTANCE_INFO_INPUT = *mut VIRTUALIZATION_INSTANCE_INFO_INPUT;
 pub type PVIRTUALIZATION_INSTANCE_INFO_INPUT_EX = *mut VIRTUALIZATION_INSTANCE_INFO_INPUT_EX;
@@ -4748,15 +5158,22 @@ pub type PVIRTUALIZATION_INSTANCE_INFO_OUTPUT = *mut VIRTUALIZATION_INSTANCE_INF
 pub type PVIRTUAL_STORAGE_BEHAVIOR_CODE = *mut VIRTUAL_STORAGE_BEHAVIOR_CODE;
 pub type PVIRTUAL_STORAGE_SET_BEHAVIOR_INPUT = *mut VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT;
 pub type PVIRTUAL_STORAGE_TYPE = *mut VIRTUAL_STORAGE_TYPE;
+#[cfg(feature = "winnt")]
 pub type PVOLUME_BITMAP_BUFFER = *mut VOLUME_BITMAP_BUFFER;
+#[cfg(feature = "winnt")]
 pub type PVOLUME_DISK_EXTENTS = *mut VOLUME_DISK_EXTENTS;
 #[cfg(feature = "winnt")]
 pub type PVOLUME_GET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_GET_GPT_ATTRIBUTES_INFORMATION;
 pub type PWIM_PROVIDER_ADD_OVERLAY_INPUT = *mut WIM_PROVIDER_ADD_OVERLAY_INPUT;
+#[cfg(feature = "winnt")]
 pub type PWIM_PROVIDER_EXTERNAL_INFO = *mut WIM_PROVIDER_EXTERNAL_INFO;
+#[cfg(feature = "winnt")]
 pub type PWIM_PROVIDER_OVERLAY_ENTRY = *mut WIM_PROVIDER_OVERLAY_ENTRY;
+#[cfg(feature = "winnt")]
 pub type PWIM_PROVIDER_REMOVE_OVERLAY_INPUT = *mut WIM_PROVIDER_REMOVE_OVERLAY_INPUT;
+#[cfg(feature = "winnt")]
 pub type PWIM_PROVIDER_SUSPEND_OVERLAY_INPUT = *mut WIM_PROVIDER_SUSPEND_OVERLAY_INPUT;
+#[cfg(feature = "winnt")]
 pub type PWIM_PROVIDER_UPDATE_OVERLAY_INPUT = *mut WIM_PROVIDER_UPDATE_OVERLAY_INPUT;
 #[cfg(feature = "winnt")]
 pub type PWOF_EXTERNAL_FILE_ID = *mut WOF_EXTERNAL_FILE_ID;
@@ -4968,12 +5385,14 @@ impl Default for REASSIGN_BLOCKS {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct REASSIGN_BLOCKS_EX {
     pub Reserved: u16,
     pub Count: u16,
-    pub BlockNumber: [i64; 1],
+    pub BlockNumber: [super::LARGE_INTEGER; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for REASSIGN_BLOCKS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5009,11 +5428,11 @@ pub type REFS_SMR_VOLUME_GC_STATE = i32;
 pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
     pub Version: u32,
     pub Flags: u32,
-    pub SizeOfRandomlyWritableTier: i64,
-    pub FreeSpaceInRandomlyWritableTier: i64,
-    pub SizeofSMRTier: i64,
-    pub FreeSpaceInSMRTier: i64,
-    pub UsableFreeSpaceInSMRTier: i64,
+    pub SizeOfRandomlyWritableTier: super::LARGE_INTEGER,
+    pub FreeSpaceInRandomlyWritableTier: super::LARGE_INTEGER,
+    pub SizeofSMRTier: super::LARGE_INTEGER,
+    pub FreeSpaceInSMRTier: super::LARGE_INTEGER,
+    pub UsableFreeSpaceInSMRTier: super::LARGE_INTEGER,
     pub VolumeGcState: REFS_SMR_VOLUME_GC_STATE,
     pub VolumeGcLastStatus: u32,
     pub CurrentGcBandFillPercentage: u32,
@@ -5028,20 +5447,21 @@ impl Default for REFS_SMR_VOLUME_INFO_OUTPUT {
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: i32 = 0;
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct REFS_VOLUME_DATA_BUFFER {
     pub ByteCount: u32,
     pub MajorVersion: u32,
     pub MinorVersion: u32,
     pub BytesPerPhysicalSector: u32,
-    pub VolumeSerialNumber: i64,
-    pub NumberSectors: i64,
-    pub TotalClusters: i64,
-    pub FreeClusters: i64,
-    pub TotalReserved: i64,
+    pub VolumeSerialNumber: super::LARGE_INTEGER,
+    pub NumberSectors: super::LARGE_INTEGER,
+    pub TotalClusters: super::LARGE_INTEGER,
+    pub FreeClusters: super::LARGE_INTEGER,
+    pub TotalReserved: super::LARGE_INTEGER,
     pub BytesPerSector: u32,
     pub BytesPerCluster: u32,
-    pub MaximumSizeOfResidentFile: i64,
+    pub MaximumSizeOfResidentFile: super::LARGE_INTEGER,
     pub FastTierDataFillRatio: u16,
     pub SlowTierDataFillRatio: u16,
     pub DestagesFastTierToSlowTierRate: u32,
@@ -5049,8 +5469,9 @@ pub struct REFS_VOLUME_DATA_BUFFER {
     pub Reserved0: [u8; 6],
     pub DriverMajorVersion: u32,
     pub DriverMinorVersion: u32,
-    pub Reserved: [i64; 7],
+    pub Reserved: [super::LARGE_INTEGER; 7],
 }
+#[cfg(feature = "winnt")]
 impl Default for REFS_VOLUME_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5067,27 +5488,36 @@ pub struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     pub Reserved: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct REPAIR_COPIES_INPUT {
     pub Size: u32,
     pub Flags: u32,
-    pub FileOffset: i64,
+    pub FileOffset: super::LARGE_INTEGER,
     pub Length: u32,
     pub SourceCopy: u32,
     pub NumberOfRepairCopies: u32,
     pub RepairCopies: [u32; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for REPAIR_COPIES_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct REPAIR_COPIES_OUTPUT {
     pub Size: u32,
     pub Status: u32,
-    pub ResumeFileOffset: i64,
+    pub ResumeFileOffset: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for REPAIR_COPIES_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REPLACE_ALTERNATE: i32 = 11;
 pub const REPLACE_PRIMARY: i32 = 10;
@@ -5130,46 +5560,71 @@ pub struct REQUEST_RAW_ENCRYPTED_DATA {
 }
 pub const RETRACT_IEPORT: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     pub ExtentCount: u32,
-    pub StartingVcn: i64,
+    pub StartingVcn: super::LARGE_INTEGER,
     pub Extents: [RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
-    pub NextVcn: i64,
-    pub Lcn: i64,
+    pub NextVcn: super::LARGE_INTEGER,
+    pub Lcn: super::LARGE_INTEGER,
     pub ReferenceCount: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_BUFFER {
     pub ExtentCount: u32,
-    pub StartingVcn: i64,
+    pub StartingVcn: super::LARGE_INTEGER,
     pub Extents: [RETRIEVAL_POINTERS_BUFFER_0; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for RETRIEVAL_POINTERS_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_BUFFER_0 {
-    pub NextVcn: i64,
-    pub Lcn: i64,
+    pub NextVcn: super::LARGE_INTEGER,
+    pub Lcn: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for RETRIEVAL_POINTERS_BUFFER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTER_BASE {
-    pub FileAreaOffset: i64,
+    pub FileAreaOffset: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for RETRIEVAL_POINTER_BASE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -5214,9 +5669,10 @@ pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
-    pub ActivateState: bool,
+    pub ActivateState: super::BOOLEAN,
 }
 pub type SCM_BUS_FIRMWARE_ACTIVATION_STATE = i32;
 pub type SCM_BUS_PROPERTY_ID = i32;
@@ -5255,7 +5711,7 @@ pub type SCM_BUS_QUERY_TYPE = i32;
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
-    pub RuntimeFwActivationSupported: bool,
+    pub RuntimeFwActivationSupported: super::BOOLEAN,
     pub FirmwareActivationState: SCM_BUS_FIRMWARE_ACTIVATION_STATE,
     pub FirmwareActivationCapability: SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0,
     pub EstimatedFirmwareActivationTimeInUSecs: super::DWORDLONG,
@@ -5600,9 +6056,10 @@ pub struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     pub Status: SCM_PD_MEDIA_REINITIALIZATION_STATUS,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
-    pub ArmState: bool,
+    pub ArmState: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -5838,23 +6295,6 @@ impl Default for SENDCMDOUTPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SERIAL_IOC_FCR_DMA_MODE: u32 = 8;
-pub const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1;
-pub const SERIAL_IOC_FCR_RCVR_RESET: u32 = 2;
-pub const SERIAL_IOC_FCR_RCVR_TRIGGER_LSB: u32 = 64;
-pub const SERIAL_IOC_FCR_RCVR_TRIGGER_MSB: u32 = 128;
-pub const SERIAL_IOC_FCR_RES1: u32 = 16;
-pub const SERIAL_IOC_FCR_RES2: u32 = 32;
-pub const SERIAL_IOC_FCR_XMIT_RESET: u32 = 4;
-pub const SERIAL_IOC_MCR_DTR: u32 = 1;
-pub const SERIAL_IOC_MCR_LOOP: u32 = 16;
-pub const SERIAL_IOC_MCR_OUT1: u32 = 4;
-pub const SERIAL_IOC_MCR_OUT2: u32 = 8;
-pub const SERIAL_IOC_MCR_RTS: u32 = 2;
-pub const SERIAL_LSRMST_ESCAPE: u8 = 0;
-pub const SERIAL_LSRMST_LSR_DATA: u8 = 1;
-pub const SERIAL_LSRMST_LSR_NODATA: u8 = 2;
-pub const SERIAL_LSRMST_MST: u8 = 3;
 pub const SERIAL_NUMBER_LENGTH: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -5870,7 +6310,7 @@ pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
 #[derive(Clone, Copy)]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
-    pub Persist: bool,
+    pub Persist: super::BOOLEAN,
     pub Reserved1: [u8; 3],
     pub Attributes: super::DWORDLONG,
     pub AttributesMask: super::DWORDLONG,
@@ -5988,20 +6428,41 @@ pub const SPACES_TRACKED_OFFSET_HEADER_FLAG: i32 = 2;
 pub const SRB_TYPE_SCSI_REQUEST_BLOCK: i32 = 0;
 pub const SRB_TYPE_STORAGE_REQUEST_BLOCK: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct STARTING_LCN_INPUT_BUFFER {
-    pub StartingLcn: i64,
+    pub StartingLcn: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for STARTING_LCN_INPUT_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct STARTING_LCN_INPUT_BUFFER_EX {
-    pub StartingLcn: i64,
+    pub StartingLcn: super::LARGE_INTEGER,
     pub Flags: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for STARTING_LCN_INPUT_BUFFER_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct STARTING_VCN_INPUT_BUFFER {
-    pub StartingVcn: i64,
+    pub StartingVcn: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for STARTING_VCN_INPUT_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STK_9840: STORAGE_MEDIA_TYPE = 85;
 pub const STK_9940: STORAGE_MEDIA_TYPE = 92;
@@ -6018,6 +6479,7 @@ pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     pub BytesOffsetForSectorAlignment: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub Version: u32,
@@ -6025,10 +6487,10 @@ pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub MaximumTransferLength: u32,
     pub MaximumPhysicalPages: u32,
     pub AlignmentMask: u32,
-    pub AdapterUsesPio: bool,
-    pub AdapterScansDown: bool,
-    pub CommandQueueing: bool,
-    pub AcceleratedTransfer: bool,
+    pub AdapterUsesPio: super::BOOLEAN,
+    pub AdapterScansDown: super::BOOLEAN,
+    pub CommandQueueing: super::BOOLEAN,
+    pub AcceleratedTransfer: super::BOOLEAN,
     pub BusType: u8,
     pub BusMajorVersion: u16,
     pub BusMinorVersion: u16,
@@ -6048,19 +6510,29 @@ impl Default for STORAGE_ADAPTER_SERIAL_NUMBER {
     }
 }
 pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: i32 = 128;
+#[cfg(target_arch = "x86")]
+pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_SIZE: u32 = 264;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_SIZE: u64 = 264;
+#[cfg(target_arch = "x86")]
+pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_VERSION: u32 = 264;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_VERSION: u64 = 264;
 pub const STORAGE_ADDRESS_TYPE_BTL8: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
     pub Period: u32,
-    pub RetryFailures: bool,
-    pub Discardable: bool,
-    pub Reserved1: [bool; 2],
+    pub RetryFailures: super::BOOLEAN,
+    pub Discardable: super::BOOLEAN,
+    pub Reserved1: [super::BOOLEAN; 2],
     pub AccessType: u32,
     pub AccessMode: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6156,6 +6628,10 @@ impl Default for STORAGE_COUNTERS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const STORAGE_COUNTERS_VERSION_V1: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const STORAGE_COUNTERS_VERSION_V1: u64 = 32;
 pub type STORAGE_COUNTER_TYPE = i32;
 pub const STORAGE_CRASH_TELEMETRY_REGKEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
 pub type STORAGE_CRYPTO_ALGORITHM_ID = i32;
@@ -6253,14 +6729,15 @@ pub struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     pub Attributes: u64,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub DeviceType: u8,
     pub DeviceTypeModifier: u8,
-    pub RemovableMedia: bool,
-    pub CommandQueueing: bool,
+    pub RemovableMedia: super::BOOLEAN,
+    pub CommandQueueing: super::BOOLEAN,
     pub VendorIdOffset: u32,
     pub ProductIdOffset: u32,
     pub ProductRevisionOffset: u32,
@@ -6269,6 +6746,7 @@ pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub RawPropertiesLength: u32,
     pub RawDeviceProperties: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6413,18 +6891,20 @@ pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     pub Interleave: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
     pub Size: u32,
-    pub SupportsSelfEncryption: bool,
+    pub SupportsSelfEncryption: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     pub Version: u32,
     pub Size: u32,
-    pub SupportsSelfEncryption: bool,
+    pub SupportsSelfEncryption: super::BOOLEAN,
     pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
 }
 pub const STORAGE_DEVICE_TELEMETRY_REGKEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
@@ -6496,12 +6976,13 @@ pub struct STORAGE_EVENT_NOTIFICATION {
 }
 pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
     pub Size: u32,
-    pub Set: bool,
-    pub Enabled: bool,
+    pub Set: super::BOOLEAN,
+    pub Enabled: super::BOOLEAN,
     pub Reserved: u16,
 }
 pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: i32 = 1;
@@ -6565,13 +7046,14 @@ pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT {
     pub RequestSize: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
-    pub MediaRemovable: bool,
-    pub MediaHotplug: bool,
-    pub DeviceHotplug: bool,
-    pub WriteCacheEnableOverride: bool,
+    pub MediaRemovable: super::BOOLEAN,
+    pub MediaHotplug: super::BOOLEAN,
+    pub DeviceHotplug: super::BOOLEAN,
+    pub WriteCacheEnableOverride: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6744,6 +7226,7 @@ impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_HW_FIRMWARE_INFO {
     pub Version: u32,
@@ -6752,12 +7235,13 @@ pub struct STORAGE_HW_FIRMWARE_INFO {
     pub SlotCount: u8,
     pub ActiveSlot: u8,
     pub PendingActivateSlot: u8,
-    pub FirmwareShared: bool,
+    pub FirmwareShared: super::BOOLEAN,
     pub Reserved: [u8; 3],
     pub ImagePayloadAlignment: u32,
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_HW_FIRMWARE_SLOT_INFO; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_HW_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6870,36 +7354,41 @@ pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     pub MediumProductType: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub Portdriver: STORAGE_PORT_CODE_SET,
-    pub LUNResetSupported: bool,
-    pub TargetResetSupported: bool,
+    pub LUNResetSupported: super::BOOLEAN,
+    pub TargetResetSupported: super::BOOLEAN,
     pub IoTimeoutValue: u16,
-    pub ExtraIoInfoSupported: bool,
+    pub ExtraIoInfoSupported: super::BOOLEAN,
     pub Flags: STORAGE_MINIPORT_DESCRIPTOR_0,
     pub Reserved0: [u8; 2],
     pub Reserved1: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_MINIPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
     pub AsBYTE: u8,
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
@@ -7019,6 +7508,7 @@ impl Default for STORAGE_OPERATIONAL_REASON_0_1 {
 }
 pub type STORAGE_OPERATIONAL_STATUS_REASON = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub AdapterId: u32,
@@ -7029,10 +7519,11 @@ pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub Model: [u8; 40],
     pub FirmwareRevision: [u8; 16],
     pub PhysicalLocation: [u8; 32],
-    pub ExpanderConnected: bool,
+    pub ExpanderConnected: super::BOOLEAN,
     pub Reserved0: [u8; 3],
     pub Reserved1: [u32; 3],
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_PHYSICAL_ADAPTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7307,13 +7798,20 @@ impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
 }
 pub type STORAGE_QUERY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct STORAGE_READ_CAPACITY {
     pub Version: u32,
     pub Size: u32,
     pub BlockLength: u32,
-    pub NumberOfBlocks: i64,
-    pub DiskLength: i64,
+    pub NumberOfBlocks: super::LARGE_INTEGER,
+    pub DiskLength: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for STORAGE_READ_CAPACITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -7426,6 +7924,7 @@ pub struct STORAGE_STACK_DESCRIPTOR {
 }
 pub type STORAGE_STACK_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Version: u32,
@@ -7437,25 +7936,28 @@ pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Reserved1: [u32; 2],
     pub TemperatureInfo: [STORAGE_TEMPERATURE_INFO; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_TEMPERATURE_INFO {
     pub Index: u16,
     pub Temperature: i16,
     pub OverThreshold: i16,
     pub UnderThreshold: i16,
-    pub OverThresholdChangable: bool,
-    pub UnderThresholdChangable: bool,
-    pub EventGenerated: bool,
+    pub OverThresholdChangable: super::BOOLEAN,
+    pub UnderThresholdChangable: super::BOOLEAN,
+    pub EventGenerated: super::BOOLEAN,
     pub Reserved0: u8,
     pub Reserved1: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Version: u32,
@@ -7463,7 +7965,7 @@ pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Flags: u16,
     pub Index: u16,
     pub Threshold: i16,
-    pub OverThreshold: bool,
+    pub OverThreshold: super::BOOLEAN,
     pub Reserved: u8,
 }
 pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: i32 = 1;
@@ -7504,6 +8006,7 @@ pub struct STORAGE_TIER_REGION {
     pub Length: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub Version: u32,
@@ -7512,9 +8015,9 @@ pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub WriteCacheEnabled: WRITE_CACHE_ENABLE,
     pub WriteCacheChangeable: WRITE_CACHE_CHANGE,
     pub WriteThroughSupported: WRITE_THROUGH,
-    pub FlushCacheSupported: bool,
-    pub UserDefinedPowerProtection: bool,
-    pub NVCacheEnabled: bool,
+    pub FlushCacheSupported: super::BOOLEAN,
+    pub UserDefinedPowerProtection: super::BOOLEAN,
+    pub NVCacheEnabled: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -7552,7 +8055,7 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
-    pub UnrestrictedRead: bool,
+    pub UnrestrictedRead: super::BOOLEAN,
     pub Reserved: [u8; 3],
 }
 #[cfg(feature = "winnt")]
@@ -7578,7 +8081,7 @@ pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
     pub ZoneCondition: STORAGE_ZONE_CONDITION,
-    pub ResetWritePointerRecommend: bool,
+    pub ResetWritePointerRecommend: super::BOOLEAN,
     pub Reserved0: [u8; 3],
     pub ZoneSize: super::DWORDLONG,
     pub WritePointerOffset: super::DWORDLONG,
@@ -7625,21 +8128,25 @@ pub struct STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
 }
 pub const STREAM_CLEAR_ENCRYPTION: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STREAM_EXTENT_ENTRY {
     pub Flags: u32,
     pub ExtentInformation: STREAM_EXTENT_ENTRY_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for STREAM_EXTENT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union STREAM_EXTENT_ENTRY_0 {
     pub RetrievalPointers: RETRIEVAL_POINTERS_BUFFER,
 }
+#[cfg(feature = "winnt")]
 impl Default for STREAM_EXTENT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7653,7 +8160,7 @@ pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: i32 = 1;
 pub struct STREAM_INFORMATION_ENTRY {
     pub Version: u32,
     pub Flags: u32,
-    pub StreamInformation: STREAM_INFORMATION_ENTRY_0,
+    pub StreamInformation: _StreamInformation,
 }
 #[cfg(feature = "winnt")]
 impl Default for STREAM_INFORMATION_ENTRY {
@@ -7664,64 +8171,20 @@ impl Default for STREAM_INFORMATION_ENTRY {
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
-pub union STREAM_INFORMATION_ENTRY_0 {
-    pub DesiredStorageClass: STREAM_INFORMATION_ENTRY_0_0,
-    pub DataStream: STREAM_INFORMATION_ENTRY_0_1,
-    pub Reparse: STREAM_INFORMATION_ENTRY_0_2,
-    pub Ea: STREAM_INFORMATION_ENTRY_0_3,
-}
-#[cfg(feature = "winnt")]
-impl Default for STREAM_INFORMATION_ENTRY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_0 {
-    pub Class: FILE_STORAGE_TIER_CLASS,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_1 {
-    pub Length: u16,
-    pub Flags: u16,
-    pub Reserved: u32,
-    pub Vdl: super::DWORDLONG,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_2 {
-    pub Length: u16,
-    pub Flags: u16,
-    pub ReparseDataSize: u32,
-    pub ReparseDataOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_3 {
-    pub Length: u16,
-    pub Flags: u16,
-    pub EaSize: u32,
-    pub EaInformationOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct STREAM_LAYOUT_ENTRY {
     pub Version: u32,
     pub NextStreamOffset: u32,
     pub Flags: u32,
     pub ExtentInformationOffset: u32,
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
+    pub AllocationSize: super::LARGE_INTEGER,
+    pub EndOfFile: super::LARGE_INTEGER,
     pub StreamInformationOffset: u32,
     pub AttributeTypeCode: u32,
     pub AttributeFlags: u32,
     pub StreamIdentifierLength: u32,
     pub StreamIdentifier: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for STREAM_LAYOUT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7955,7 +8418,7 @@ pub const StorageIdTypeEUI64: STORAGE_IDENTIFIER_TYPE = 2;
 pub const StorageIdTypeFCPHName: STORAGE_IDENTIFIER_TYPE = 3;
 pub const StorageIdTypeLogicalUnitGroup: STORAGE_IDENTIFIER_TYPE = 6;
 pub const StorageIdTypeMD5LogicalUnitIdentifier: STORAGE_IDENTIFIER_TYPE = 7;
-pub const StorageIdTypeNAA: i32 = 3;
+pub const StorageIdTypeNAA: STORAGE_IDENTIFIER_TYPE = 3;
 pub const StorageIdTypePortRelative: STORAGE_IDENTIFIER_TYPE = 4;
 pub const StorageIdTypeScsiNameString: STORAGE_IDENTIFIER_TYPE = 8;
 pub const StorageIdTypeTargetPortGroup: STORAGE_IDENTIFIER_TYPE = 5;
@@ -8006,16 +8469,23 @@ pub const TAPE_RESET_STATISTICS: i32 = 2;
 pub const TAPE_RETURN_ENV_INFO: i32 = 1;
 pub const TAPE_RETURN_STATISTICS: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct TAPE_STATISTICS {
     pub Version: u32,
     pub Flags: u32,
-    pub RecoveredWrites: i64,
-    pub UnrecoveredWrites: i64,
-    pub RecoveredReads: i64,
-    pub UnrecoveredReads: i64,
+    pub RecoveredWrites: super::LARGE_INTEGER,
+    pub UnrecoveredWrites: super::LARGE_INTEGER,
+    pub RecoveredReads: super::LARGE_INTEGER,
+    pub UnrecoveredReads: super::LARGE_INTEGER,
     pub CompressionRatioReads: u8,
     pub CompressionRatioWrites: u8,
+}
+#[cfg(feature = "winnt")]
+impl Default for TAPE_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TCCollectionApplicationRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = 2;
 pub const TCCollectionBugCheck: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = 1;
@@ -8123,14 +8593,14 @@ pub struct TXFS_MODIFY_RM {
 pub const TXFS_MODIFY_RM_VALID_FLAGS: i32 = 261631;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TXFS_QUERY_RM_INFORMATION {
     pub BytesRequired: u32,
     pub TailLsn: super::DWORDLONG,
     pub CurrentLsn: super::DWORDLONG,
     pub ArchiveTailLsn: super::DWORDLONG,
     pub LogContainerSize: super::DWORDLONG,
-    pub HighestVirtualClock: i64,
+    pub HighestVirtualClock: super::LARGE_INTEGER,
     pub LogContainerCount: u32,
     pub LogContainerCountMax: u32,
     pub LogContainerCountMin: u32,
@@ -8151,6 +8621,12 @@ pub struct TXFS_QUERY_RM_INFORMATION {
     pub OldestTransactionAge: super::DWORDLONG,
     pub RMName: windows_sys::core::GUID,
     pub TmLogPathOffset: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for TXFS_QUERY_RM_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TXFS_QUERY_RM_INFORMATION_VALID_FLAGS: i32 = 246192;
 #[repr(C)]
@@ -8199,12 +8675,18 @@ pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: i32 = 1;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TXFS_ROLLFORWARD_REDO_INFORMATION {
-    pub LastVirtualClock: i64,
+    pub LastVirtualClock: super::LARGE_INTEGER,
     pub LastRedoLsn: super::DWORDLONG,
     pub HighestRecoveryLsn: super::DWORDLONG,
     pub Flags: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TXFS_ROLLFORWARD_REDO_VALID_FLAGS: i32 = 3;
 pub const TXFS_SAVEPOINT_CLEAR: i32 = 4;
@@ -8259,9 +8741,10 @@ pub const TXFS_START_RM_VALID_FLAGS: i32 = 15999;
 pub const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294;
 pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
-    pub TransactionsActiveAtSnapshot: bool,
+    pub TransactionsActiveAtSnapshot: super::BOOLEAN,
 }
 pub const TXFS_TRANSACTION_STATE_ACTIVE: i32 = 1;
 pub const TXFS_TRANSACTION_STATE_NONE: i32 = 0;
@@ -8402,7 +8885,7 @@ pub struct USN_RECORD_V2 {
     pub FileReferenceNumber: super::DWORDLONG,
     pub ParentFileReferenceNumber: super::DWORDLONG,
     pub Usn: super::USN,
-    pub TimeStamp: i64,
+    pub TimeStamp: super::LARGE_INTEGER,
     pub Reason: u32,
     pub SourceInfo: u32,
     pub SecurityId: u32,
@@ -8427,7 +8910,7 @@ pub struct USN_RECORD_V3 {
     pub FileReferenceNumber: super::FILE_ID_128,
     pub ParentFileReferenceNumber: super::FILE_ID_128,
     pub Usn: super::USN,
-    pub TimeStamp: i64,
+    pub TimeStamp: super::LARGE_INTEGER,
     pub Reason: u32,
     pub SourceInfo: u32,
     pub SecurityId: u32,
@@ -8489,10 +8972,17 @@ pub const VALID_NTFT: i32 = 192;
 pub const VALID_WRITE_USN_REASON_MASK: u32 = 2147483649;
 pub const VENDOR_ID_LENGTH: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct VERIFY_INFORMATION {
-    pub StartingOffset: i64,
+    pub StartingOffset: super::LARGE_INTEGER,
     pub Length: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for VERIFY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -8528,23 +9018,27 @@ pub struct VIRTUAL_STORAGE_TYPE {
     pub VendorId: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct VOLUME_BITMAP_BUFFER {
-    pub StartingLcn: i64,
-    pub BitmapSize: i64,
+    pub StartingLcn: super::LARGE_INTEGER,
+    pub BitmapSize: super::LARGE_INTEGER,
     pub Buffer: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for VOLUME_BITMAP_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct VOLUME_DISK_EXTENTS {
     pub NumberOfDiskExtents: u32,
     pub Extents: [DISK_EXTENT; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for VOLUME_DISK_EXTENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8581,13 +9075,15 @@ pub const WIM_PROVIDER_CURRENT_VERSION: i32 = 1;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: i32 = 1;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_EXTERNAL_INFO {
     pub Version: u32,
     pub Flags: u32,
-    pub DataSourceId: i64,
+    pub DataSourceId: super::LARGE_INTEGER,
     pub ResourceHash: [u8; 20],
 }
+#[cfg(feature = "winnt")]
 impl Default for WIM_PROVIDER_EXTERNAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8595,32 +9091,60 @@ impl Default for WIM_PROVIDER_EXTERNAL_INFO {
 }
 pub const WIM_PROVIDER_HASH_SIZE: i32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_OVERLAY_ENTRY {
     pub NextEntryOffset: u32,
-    pub DataSourceId: i64,
+    pub DataSourceId: super::LARGE_INTEGER,
     pub WimGuid: windows_sys::core::GUID,
     pub WimFileNameOffset: u32,
     pub WimType: u32,
     pub WimIndex: u32,
     pub Flags: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for WIM_PROVIDER_OVERLAY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
-    pub DataSourceId: i64,
+    pub DataSourceId: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
-    pub DataSourceId: i64,
+    pub DataSourceId: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
-    pub DataSourceId: i64,
+    pub DataSourceId: super::LARGE_INTEGER,
     pub WimFileNameOffset: u32,
     pub WimFileNameLength: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WOF_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
@@ -8688,3 +9212,49 @@ pub const ZonesAttributeTypeAndLengthMayDifferent: STORAGE_ZONES_ATTRIBUTES = 0;
 pub const ZonesAttributeTypeMayDifferentLengthSame: STORAGE_ZONES_ATTRIBUTES = 3;
 pub const ZonesAttributeTypeSameLastZoneLengthDifferent: STORAGE_ZONES_ATTRIBUTES = 2;
 pub const ZonesAttributeTypeSameLengthSame: STORAGE_ZONES_ATTRIBUTES = 1;
+#[repr(C)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct _DataStream {
+    pub Length: u16,
+    pub Flags: u16,
+    pub Reserved: u32,
+    pub Vdl: super::DWORDLONG,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _DesiredStorageClass {
+    pub Class: FILE_STORAGE_TIER_CLASS,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _Ea {
+    pub Length: u16,
+    pub Flags: u16,
+    pub EaSize: u32,
+    pub EaInformationOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _Reparse {
+    pub Length: u16,
+    pub Flags: u16,
+    pub ReparseDataSize: u32,
+    pub ReparseDataOffset: u32,
+}
+#[repr(C)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union _StreamInformation {
+    pub DesiredStorageClass: _DesiredStorageClass,
+    pub DataStream: _DataStream,
+    pub Reparse: _Reparse,
+    pub Ea: _Ea,
+}
+#[cfg(feature = "winnt")]
+impl Default for _StreamInformation {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}

@@ -11,7 +11,7 @@ mod Windows {
         #[guid(0x241c033e_e659_43da_aa4d_4086dbc4758d)]
         interface ITravelLogClient: IUnknown {
             fn FindWindowByIndex(&self, dwID: u32, ppunk: *mut IUnknown) -> HRESULT;
-            fn GetWindowData(&self, pStream: IStream, pWinData: *mut WINDOWDATA) -> HRESULT;
+            fn GetWindowData(&self, pStream: IStream, #[out] pWinData: LPWINDOWDATA) -> HRESULT;
             fn LoadHistoryPosition(&self, pszUrlLocation: PCWSTR, dwPosition: u32) -> HRESULT;
         }
         #[guid(0x7ebfdd87_ad18_11d3_a4c5_00c04f72d6b8)]

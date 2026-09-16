@@ -5,8 +5,8 @@ pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDropped: u32,
 }
 pub const Desktop: RdpSessionType = 0;
-pub const E_DUPLICATE_WINDOW_HINT: i32 = -2147024713;
-pub const E_MAPPEDRENDERER_SHUTDOWN: i32 = -2147019873;
+pub const E_DUPLICATE_WINDOW_HINT: windows_core::HRESULT = windows_core::HRESULT(0x800700B7_u32 as _);
+pub const E_MAPPEDRENDERER_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0x8007139F_u32 as _);
 windows_core::imp::define_interface!(IWTSBitmapRenderService, IWTSBitmapRenderService_Vtbl, 0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, windows_core::IUnknown);
 impl IWTSBitmapRenderService {

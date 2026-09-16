@@ -31,12 +31,12 @@ impl Key {
     /// This function takes ownership of the handle.
     /// The handle must be owned by the caller and safe to free with `RegCloseKey`.
     pub unsafe fn from_raw(handle: *mut core::ffi::c_void) -> Self {
-        Self(handle)
+        Self(handle.cast())
     }
 
     /// Returns the underlying registry key handle.
     pub fn as_raw(&self) -> *mut core::ffi::c_void {
-        self.0
+        self.0.cast()
     }
 
     /// Changes the name of the specified registry key.
@@ -231,7 +231,7 @@ impl Key {
             RegQueryValueExW(
                 self.0,
                 name.as_ref().as_ptr(),
-                null(),
+                null_mut(),
                 &mut ty,
                 null_mut(),
                 &mut len,
@@ -259,7 +259,7 @@ impl Key {
             RegQueryValueExW(
                 self.0,
                 name.as_ref().as_ptr(),
-                null(),
+                null_mut(),
                 &mut ty,
                 value.as_mut_ptr(),
                 &mut len,

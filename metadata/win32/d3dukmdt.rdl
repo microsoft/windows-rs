@@ -1382,7 +1382,7 @@ mod Windows {
         const DXGK_FEATURE_ID_CATEGORY_SHIFT: i32 = 28;
         const DXGK_FEATURE_ID_FEATURE_BITS: i32 = 28;
         const DXGK_FEATURE_ID_MASK: i32 = 268435455;
-        const DXGK_FEATURE_MAX: i32 = 47;
+        const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
         type DXGK_FEATURE_VERSION = u16;
         struct DXGK_ISFEATUREENABLED_RESULT {
             Version: u16,
@@ -1448,7 +1448,7 @@ mod Windows {
                     FirstFreeEntryIndex: u32,
                     WraparoundCount: u32,
                 },
-                AtomicWraparoundAndEntryIndex: u64,
+                AtomicWraparoundAndEntryIndex: ULARGE_INTEGER,
             },
             Type: DXGK_NATIVE_FENCE_LOG_TYPE,
             NumberOfEntries: u64,

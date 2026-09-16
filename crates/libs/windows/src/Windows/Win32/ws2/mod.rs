@@ -1,50 +1,50 @@
 #[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn FreeAddrInfoEx(paddrinfoex: Option<*const ADDRINFOEXA>) {
-    windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoEx(paddrinfoex : *const ADDRINFOEXA));
+pub unsafe fn FreeAddrInfoEx(paddrinfoex: Option<PADDRINFOEXA>) {
+    windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoEx(paddrinfoex : PADDRINFOEXA));
     unsafe { FreeAddrInfoEx(paddrinfoex.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn FreeAddrInfoExW(paddrinfoex: Option<*const ADDRINFOEXW>) {
-    windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoExW(paddrinfoex : *const ADDRINFOEXW));
+pub unsafe fn FreeAddrInfoExW(paddrinfoex: Option<PADDRINFOEXW>) {
+    windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoExW(paddrinfoex : PADDRINFOEXW));
     unsafe { FreeAddrInfoExW(paddrinfoex.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FreeAddrInfoW(paddrinfo: Option<*const ADDRINFOW>) {
-    windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoW(paddrinfo : *const ADDRINFOW));
+pub unsafe fn FreeAddrInfoW(paddrinfo: Option<PADDRINFOW>) {
+    windows_core::link!("ws2_32.dll" "system" fn FreeAddrInfoW(paddrinfo : PADDRINFOW));
     unsafe { FreeAddrInfoW(paddrinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2"))]
 #[inline]
-pub unsafe fn GetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, hints: Option<*const ADDRINFOEXA>, ppresult: *mut PADDRINFOEXA, timeout: Option<*const super::timeval>, lpoverlapped: Option<*const super::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<*mut super::HANDLE>) -> i32
+pub unsafe fn GetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: Option<super::LPGUID>, hints: Option<*const ADDRINFOEXA>, ppresult: *mut PADDRINFOEXA, timeout: Option<*const super::TIMEVAL>, lpoverlapped: Option<super::LPOVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<super::LPHANDLE>) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, dwnamespace : u32, lpnspid : *const windows_core::GUID, hints : *const ADDRINFOEXA, ppresult : *mut PADDRINFOEXA, timeout : *const super::timeval, lpoverlapped : *const super::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::HANDLE) -> i32);
+    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, dwnamespace : u32, lpnspid : super::LPGUID, hints : *const ADDRINFOEXA, ppresult : *mut PADDRINFOEXA, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> i32);
     unsafe { GetAddrInfoExA(pname.param().abi(), pservicename.param().abi(), dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, hints.unwrap_or(core::mem::zeroed()) as _, ppresult as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::HANDLE) -> i32 {
-    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExCancel(lphandle : *const super::HANDLE) -> i32);
+pub unsafe fn GetAddrInfoExCancel(lphandle: super::LPHANDLE) -> i32 {
+    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExCancel(lphandle : super::LPHANDLE) -> i32);
     unsafe { GetAddrInfoExCancel(lphandle) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::OVERLAPPED) -> i32 {
-    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExOverlappedResult(lpoverlapped : *const super::OVERLAPPED) -> i32);
+pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: super::LPOVERLAPPED) -> i32 {
+    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExOverlappedResult(lpoverlapped : super::LPOVERLAPPED) -> i32);
     unsafe { GetAddrInfoExOverlappedResult(lpoverlapped) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2"))]
 #[inline]
-pub unsafe fn GetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, hints: Option<*const ADDRINFOEXW>, ppresult: *mut PADDRINFOEXW, timeout: Option<*const super::timeval>, lpoverlapped: Option<*const super::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: Option<*mut super::HANDLE>) -> i32
+pub unsafe fn GetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: Option<super::LPGUID>, hints: Option<*const ADDRINFOEXW>, ppresult: *mut PADDRINFOEXW, timeout: Option<*const super::TIMEVAL>, lpoverlapped: Option<super::LPOVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: Option<super::LPHANDLE>) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExW(pname : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, dwnamespace : u32, lpnspid : *const windows_core::GUID, hints : *const ADDRINFOEXW, ppresult : *mut PADDRINFOEXW, timeout : *const super::timeval, lpoverlapped : *const super::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle : *mut super::HANDLE) -> i32);
+    windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExW(pname : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, dwnamespace : u32, lpnspid : super::LPGUID, hints : *const ADDRINFOEXW, ppresult : *mut PADDRINFOEXW, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle : super::LPHANDLE) -> i32);
     unsafe { GetAddrInfoExW(pname.param().abi(), pservicename.param().abi(), dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, hints.unwrap_or(core::mem::zeroed()) as _, ppresult as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lphandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -56,9 +56,10 @@ where
     windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoW(pnodename : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, phints : *const ADDRINFOW, ppresult : *mut PADDRINFOW) -> i32);
     unsafe { GetAddrInfoW(pnodename.param().abi(), pservicename.param().abi(), phints.unwrap_or(core::mem::zeroed()) as _, ppresult as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<*mut u16>, nodebuffersize: u32, pservicebuffer: Option<*mut u16>, servicebuffersize: u32, flags: i32) -> i32 {
-    windows_core::link!("ws2_32.dll" "system" fn GetNameInfoW(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : *mut u16, nodebuffersize : u32, pservicebuffer : *mut u16, servicebuffersize : u32, flags : i32) -> i32);
+pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<super::PWCHAR>, nodebuffersize: u32, pservicebuffer: Option<super::PWCHAR>, servicebuffersize: u32, flags: i32) -> i32 {
+    windows_core::link!("ws2_32.dll" "system" fn GetNameInfoW(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : super::PWCHAR, nodebuffersize : u32, pservicebuffer : super::PWCHAR, servicebuffersize : u32, flags : i32) -> i32);
     unsafe { GetNameInfoW(psockaddr, sockaddrlength, pnodebuffer.unwrap_or(core::mem::zeroed()) as _, nodebuffersize, pservicebuffer.unwrap_or(core::mem::zeroed()) as _, servicebuffersize, flags) }
 }
 #[inline]
@@ -74,29 +75,29 @@ where
     windows_core::link!("ws2_32.dll" "system" fn InetPtonW(family : i32, pszaddrstring : windows_core::PCWSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
     unsafe { InetPtonW(family, pszaddrstring.param().abi(), paddrbuf as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn SetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, paddresses: Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: Option<*const super::BLOB>, dwflags: u32, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, timeout: Option<*const super::timeval>, lpoverlapped: Option<*const super::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<*mut super::HANDLE>) -> i32
+pub unsafe fn SetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, paddresses: Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: Option<super::LPBLOB>, dwflags: u32, dwnamespace: u32, lpnspid: Option<super::LPGUID>, timeout: Option<*const super::TIMEVAL>, lpoverlapped: Option<super::LPOVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<super::LPHANDLE>) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_core::GUID, timeout : *const super::timeval, lpoverlapped : *const super::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::HANDLE) -> i32);
+    windows_core::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : super::LPBLOB, dwflags : u32, dwnamespace : u32, lpnspid : super::LPGUID, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> i32);
     unsafe { SetAddrInfoExA(pname.param().abi(), pservicename.param().abi(), paddresses.unwrap_or(core::mem::zeroed()) as _, dwaddresscount, lpblob.unwrap_or(core::mem::zeroed()) as _, dwflags, dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn SetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, paddresses: Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: Option<*const super::BLOB>, dwflags: u32, dwnamespace: u32, lpnspid: Option<*const windows_core::GUID>, timeout: Option<*const super::timeval>, lpoverlapped: Option<*const super::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<*mut super::HANDLE>) -> i32
+pub unsafe fn SetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, paddresses: Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: Option<super::LPBLOB>, dwflags: u32, dwnamespace: u32, lpnspid: Option<super::LPGUID>, timeout: Option<*const super::TIMEVAL>, lpoverlapped: Option<super::LPOVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Option<super::LPHANDLE>) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ws2_32.dll" "system" fn SetAddrInfoExW(pname : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_core::GUID, timeout : *const super::timeval, lpoverlapped : *const super::OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::HANDLE) -> i32);
+    windows_core::link!("ws2_32.dll" "system" fn SetAddrInfoExW(pname : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : super::LPBLOB, dwflags : u32, dwnamespace : u32, lpnspid : super::LPGUID, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> i32);
     unsafe { SetAddrInfoExW(pname.param().abi(), pservicename.param().abi(), paddresses.unwrap_or(core::mem::zeroed()) as _, dwaddresscount, lpblob.unwrap_or(core::mem::zeroed()) as _, dwflags, dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn freeaddrinfo(paddrinfo: Option<*const ADDRINFOA>) {
-    windows_core::link!("ws2_32.dll" "system" fn freeaddrinfo(paddrinfo : *const ADDRINFOA));
+pub unsafe fn freeaddrinfo(paddrinfo: Option<PADDRINFOA>) {
+    windows_core::link!("ws2_32.dll" "system" fn freeaddrinfo(paddrinfo : PADDRINFOA));
     unsafe { freeaddrinfo(paddrinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -108,9 +109,10 @@ where
     windows_core::link!("ws2_32.dll" "system" fn getaddrinfo(pnodename : windows_core::PCSTR, pservicename : windows_core::PCSTR, phints : *const ADDRINFOA, ppresult : *mut PADDRINFOA) -> i32);
     unsafe { getaddrinfo(pnodename.param().abi(), pservicename.param().abi(), phints.unwrap_or(core::mem::zeroed()) as _, ppresult as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<*mut i8>, nodebuffersize: u32, pservicebuffer: Option<*mut i8>, servicebuffersize: u32, flags: i32) -> i32 {
-    windows_core::link!("ws2_32.dll" "system" fn getnameinfo(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : *mut i8, nodebuffersize : u32, pservicebuffer : *mut i8, servicebuffersize : u32, flags : i32) -> i32);
+pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<super::PCHAR>, nodebuffersize: u32, pservicebuffer: Option<super::PCHAR>, servicebuffersize: u32, flags: i32) -> i32 {
+    windows_core::link!("ws2_32.dll" "system" fn getnameinfo(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : super::PCHAR, nodebuffersize : u32, pservicebuffer : super::PCHAR, servicebuffersize : u32, flags : i32) -> i32);
     unsafe { getnameinfo(psockaddr, sockaddrlength, pnodebuffer.unwrap_or(core::mem::zeroed()) as _, nodebuffersize, pservicebuffer.unwrap_or(core::mem::zeroed()) as _, servicebuffersize, flags) }
 }
 #[inline]
@@ -126,9 +128,7 @@ where
     windows_core::link!("ws2_32.dll" "system" fn inet_pton(family : i32, pszaddrstring : windows_core::PCSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
     unsafe { inet_pton(family, pszaddrstring.param().abi(), paddrbuf as _) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADDRESS_FAMILY(pub u16);
+pub type ADDRESS_FAMILY = u16;
 pub type ADDRINFO = ADDRINFOA;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -979,8 +979,8 @@ pub type LPCSADDR_INFO = *mut CSADDR_INFO;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
 pub type LPINTERFACE_INFO = *mut INTERFACE_INFO;
 pub type LPINTERFACE_INFO_EX = *mut INTERFACE_INFO_EX;
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: *const super::OVERLAPPED)>;
+#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
+pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: super::LPWSAOVERLAPPED)>;
 pub type LPSOCKADDR = *mut SOCKADDR;
 #[cfg(feature = "in6addr")]
 pub type LPSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
@@ -1609,6 +1609,19 @@ pub struct WSAMSG {
     pub dwFlags: u32,
 }
 pub const WSK_SO_BASE: i32 = 16384;
+#[cfg(target_arch = "x86")]
+pub const _SS_ALIGNSIZE: u32 = 8;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const _SS_ALIGNSIZE: u64 = 8;
+pub const _SS_MAXSIZE: i32 = 128;
+#[cfg(target_arch = "x86")]
+pub const _SS_PAD1SIZE: u32 = 6;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const _SS_PAD1SIZE: u64 = 6;
+#[cfg(target_arch = "x86")]
+pub const _SS_PAD2SIZE: u32 = 112;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const _SS_PAD2SIZE: u64 = 112;
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
 #[derive(Clone, Copy)]
@@ -1638,6 +1651,4 @@ impl Default for sockaddr_in6_old {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct socklen_t(pub i32);
+pub type socklen_t = i32;

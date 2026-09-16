@@ -15,14 +15,14 @@ pub type KAFFINITY = usize;
 pub const MAXDWORD32: u32 = 4294967295;
 pub const MAXDWORD64: u64 = 18446744073709551615;
 #[cfg(target_arch = "x86")]
-pub const MAXHALF_PTR: u32 = 32767;
+pub const MAXHALF_PTR: HALF_PTR = 32767 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const MAXHALF_PTR: i32 = 2147483647;
+pub const MAXHALF_PTR: HALF_PTR = 2147483647 as _;
 pub const MAXINT: i32 = 2147483647;
-pub const MAXINT16: u32 = 32767;
+pub const MAXINT16: i16 = 32767;
 pub const MAXINT32: i32 = 2147483647;
 pub const MAXINT64: i64 = 9223372036854775807;
-pub const MAXINT8: u32 = 127;
+pub const MAXINT8: i8 = 127;
 #[cfg(target_arch = "x86")]
 pub const MAXINT_PTR: isize = 2147483647;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -42,14 +42,14 @@ pub const MAXSSIZE_T: isize = 2147483647;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const MAXSSIZE_T: isize = 9223372036854775807i64 as isize;
 #[cfg(target_arch = "x86")]
-pub const MAXUHALF_PTR: u32 = 65535;
+pub const MAXUHALF_PTR: UHALF_PTR = 65535 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const MAXUHALF_PTR: u32 = 4294967295;
+pub const MAXUHALF_PTR: UHALF_PTR = 4294967295u32 as _;
 pub const MAXUINT: u32 = 4294967295;
-pub const MAXUINT16: u32 = 65535;
+pub const MAXUINT16: u16 = 65535;
 pub const MAXUINT32: u32 = 4294967295;
 pub const MAXUINT64: u64 = 18446744073709551615;
-pub const MAXUINT8: u32 = 255;
+pub const MAXUINT8: u8 = 255;
 #[cfg(target_arch = "x86")]
 pub const MAXUINT_PTR: usize = 4294967295;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -64,12 +64,12 @@ pub const MAXULONG_PTR: usize = 18446744073709551615u64 as usize;
 #[cfg(target_arch = "x86")]
 pub const MINHALF_PTR: i32 = -32768;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const MINHALF_PTR: i32 = -2147483648;
+pub const MINHALF_PTR: HALF_PTR = -2147483648 as _;
 pub const MININT: i32 = -2147483648;
-pub const MININT16: i32 = -32768;
+pub const MININT16: i16 = -32768;
 pub const MININT32: i32 = -2147483648;
 pub const MININT64: i64 = -9223372036854775808;
-pub const MININT8: i32 = -128;
+pub const MININT8: i8 = -128;
 #[cfg(target_arch = "x86")]
 pub const MININT_PTR: isize = -2147483648;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

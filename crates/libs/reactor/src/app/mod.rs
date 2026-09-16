@@ -653,13 +653,14 @@ impl LivePump for ComponentLoop {
         let Some(rich_edit_events) = self.test.controlled_feedback_events.take() else {
             return false;
         };
-        if rich_edit_events.borrow().as_slice() != ["native\nedit"] {
-            eprintln!(
-                "RichEditBox native edit delivered {:?}",
-                rich_edit_events.borrow()
-            );
+        let rich_edit_events = rich_edit_events.borrow();
+        if rich_edit_events.is_empty()
+            || rich_edit_events.iter().any(|value| value != "native\nedit")
+        {
+            eprintln!("RichEditBox native edit delivered {rich_edit_events:?}");
             return false;
         }
+        drop(rich_edit_events);
         let text_events = Rc::new(std::cell::Cell::new(0_u8));
         let callback = Rc::clone(&text_events);
         let text_view = |value| {

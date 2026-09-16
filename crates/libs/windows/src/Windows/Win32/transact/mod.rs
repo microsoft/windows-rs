@@ -14,11 +14,8 @@ windows_core::imp::define_interface!(IKernelTransaction, IKernelTransaction_Vtbl
 windows_core::imp::interface_hierarchy!(IKernelTransaction, windows_core::IUnknown);
 impl IKernelTransaction {
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetHandle(&self) -> windows_core::Result<super::HANDLE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetHandle(&self, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetHandle)(windows_core::Interface::as_raw(self), phandle as _) }
     }
 }
 #[repr(C)]
@@ -32,7 +29,7 @@ pub struct IKernelTransaction_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IKernelTransaction_Impl: windows_core::IUnknownImpl {
-    fn GetHandle(&self) -> windows_core::Result<super::HANDLE>;
+    fn GetHandle(&self, phandle: *mut super::HANDLE) -> windows_core::Result<()>;
 }
 #[cfg(feature = "winnt")]
 impl IKernelTransaction_Vtbl {
@@ -40,13 +37,7 @@ impl IKernelTransaction_Vtbl {
         unsafe extern "system" fn GetHandle<Identity: IKernelTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IKernelTransaction_Impl::GetHandle(this) {
-                    Ok(ok__) => {
-                        phandle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IKernelTransaction_Impl::GetHandle(this, core::mem::transmute_copy(&phandle)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetHandle: GetHandle::<Identity, OFFSET> }
@@ -79,9 +70,7 @@ pub const ISOLATIONLEVEL_READUNCOMMITTED: ISOLATIONLEVEL = 256;
 pub const ISOLATIONLEVEL_REPEATABLEREAD: ISOLATIONLEVEL = 65536;
 pub const ISOLATIONLEVEL_SERIALIZABLE: ISOLATIONLEVEL = 1048576;
 pub const ISOLATIONLEVEL_UNSPECIFIED: ISOLATIONLEVEL = -1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ISOLEVEL(pub i32);
+pub type ISOLEVEL = i32;
 windows_core::imp::define_interface!(ITmNodeName, ITmNodeName_Vtbl, 0x30274f88_6ee4_474e_9b95_7807bc9ef8cf);
 windows_core::imp::interface_hierarchy!(ITmNodeName, windows_core::IUnknown);
 impl ITmNodeName {

@@ -2,7 +2,7 @@ fn main() -> windows::core::Result<()> {
     use windows::{Win32::*, core::*};
 
     fn check(status: PDH_STATUS) -> Result<()> {
-        HRESULT(status.0).ok()
+        HRESULT(status).ok()
     }
 
     unsafe {
@@ -31,7 +31,7 @@ fn main() -> windows::core::Result<()> {
                 None,
                 &mut value,
             ))?;
-            check(PDH_STATUS(value.CStatus as i32))?;
+            check(value.CStatus as PDH_STATUS)?;
             println!("{:.2}%", value.Anonymous.doubleValue);
         }
 

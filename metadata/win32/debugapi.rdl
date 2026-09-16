@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn CheckRemoteDebuggerPresent(hProcess: HANDLE, pbDebuggerPresent: *mut BOOL) -> BOOL;
+        extern fn CheckRemoteDebuggerPresent(hProcess: HANDLE, #[out] pbDebuggerPresent: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ContinueDebugEvent(dwProcessId: u32, dwThreadId: u32, dwContinueStatus: u32) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -18,8 +18,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn OutputDebugStringW(#[opt] lpOutputString: PCWSTR);
         #[library("KERNEL32.dll")]
-        extern fn WaitForDebugEvent(lpDebugEvent: *mut DEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
+        extern fn WaitForDebugEvent(#[out] lpDebugEvent: LPDEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WaitForDebugEventEx(lpDebugEvent: *mut DEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
+        extern fn WaitForDebugEventEx(#[out] lpDebugEvent: LPDEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
     }
 }

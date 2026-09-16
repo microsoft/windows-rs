@@ -15,9 +15,7 @@ pub const FWP_ACTION_FLAG_TERMINATING: i32 = 4096;
 pub const FWP_ACTION_NONE: i32 = 7;
 pub const FWP_ACTION_NONE_NO_MATCH: i32 = 8;
 pub const FWP_ACTION_PERMIT: i32 = 4098;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FWP_ACTION_TYPE(pub u32);
+pub type FWP_ACTION_TYPE = u32;
 pub const FWP_ACTRL_MATCH_FILTER: i32 = 1;
 pub type FWP_AF = i32;
 pub const FWP_AF_ETHER: FWP_AF = 2;

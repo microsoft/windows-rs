@@ -35,7 +35,7 @@ fn main() -> Result<()> {
 
     unsafe {
         let event = CreateEventW(None, true, false, None);
-        if event.0.is_null() {
+        if event.is_null() {
             return Err(Error::from_thread());
         }
         SetEvent(event).ok()?;

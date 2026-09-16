@@ -25,116 +25,9 @@ mod Windows {
         }
         const EAPHOST_METHOD_API_VERSION: i32 = 1;
         const EAPHOST_PEER_API_VERSION: i32 = 1;
-        struct EAP_ATTRIBUTE {
-            eaType: EAP_ATTRIBUTE_TYPE,
-            dwLength: u32,
-            pValue: *mut u8,
-        }
-        struct EAP_ATTRIBUTES {
-            dwNumberOfAttributes: u32,
-            pAttribs: *mut EAP_ATTRIBUTE,
-        }
-        #[repr(i32)]
-        enum EAP_ATTRIBUTE_TYPE {
-            eatMinimum = 0,
-            eatUserName = 1,
-            eatUserPassword = 2,
-            eatMD5CHAPPassword = 3,
-            eatNASIPAddress = 4,
-            eatNASPort = 5,
-            eatServiceType = 6,
-            eatFramedProtocol = 7,
-            eatFramedIPAddress = 8,
-            eatFramedIPNetmask = 9,
-            eatFramedRouting = 10,
-            eatFilterId = 11,
-            eatFramedMTU = 12,
-            eatFramedCompression = 13,
-            eatLoginIPHost = 14,
-            eatLoginService = 15,
-            eatLoginTCPPort = 16,
-            eatUnassigned17 = 17,
-            eatReplyMessage = 18,
-            eatCallbackNumber = 19,
-            eatCallbackId = 20,
-            eatUnassigned21 = 21,
-            eatFramedRoute = 22,
-            eatFramedIPXNetwork = 23,
-            eatState = 24,
-            eatClass = 25,
-            eatVendorSpecific = 26,
-            eatSessionTimeout = 27,
-            eatIdleTimeout = 28,
-            eatTerminationAction = 29,
-            eatCalledStationId = 30,
-            eatCallingStationId = 31,
-            eatNASIdentifier = 32,
-            eatProxyState = 33,
-            eatLoginLATService = 34,
-            eatLoginLATNode = 35,
-            eatLoginLATGroup = 36,
-            eatFramedAppleTalkLink = 37,
-            eatFramedAppleTalkNetwork = 38,
-            eatFramedAppleTalkZone = 39,
-            eatAcctStatusType = 40,
-            eatAcctDelayTime = 41,
-            eatAcctInputOctets = 42,
-            eatAcctOutputOctets = 43,
-            eatAcctSessionId = 44,
-            eatAcctAuthentic = 45,
-            eatAcctSessionTime = 46,
-            eatAcctInputPackets = 47,
-            eatAcctOutputPackets = 48,
-            eatAcctTerminateCause = 49,
-            eatAcctMultiSessionId = 50,
-            eatAcctLinkCount = 51,
-            eatAcctEventTimeStamp = 55,
-            eatMD5CHAPChallenge = 60,
-            eatNASPortType = 61,
-            eatPortLimit = 62,
-            eatLoginLATPort = 63,
-            eatTunnelType = 64,
-            eatTunnelMediumType = 65,
-            eatTunnelClientEndpoint = 66,
-            eatTunnelServerEndpoint = 67,
-            eatARAPPassword = 70,
-            eatARAPFeatures = 71,
-            eatARAPZoneAccess = 72,
-            eatARAPSecurity = 73,
-            eatARAPSecurityData = 74,
-            eatPasswordRetry = 75,
-            eatPrompt = 76,
-            eatConnectInfo = 77,
-            eatConfigurationToken = 78,
-            eatEAPMessage = 79,
-            eatSignature = 80,
-            eatARAPChallengeResponse = 84,
-            eatAcctInterimInterval = 85,
-            eatNASIPv6Address = 95,
-            eatFramedInterfaceId = 96,
-            eatFramedIPv6Prefix = 97,
-            eatLoginIPv6Host = 98,
-            eatFramedIPv6Route = 99,
-            eatFramedIPv6Pool = 100,
-            eatARAPGuestLogon = 8096,
-            eatCertificateOID = 8097,
-            eatEAPConfiguration = 8098,
-            eatPEAPEmbeddedEAPTypeId = 8099,
-            eatPEAPFastRoamedSession = 8100,
-            eatFastRoamedSession = 8100,
-            eatEAPTLV = 8102,
-            eatCredentialsChanged = 8103,
-            eatInnerEapMethodType = 8104,
-            eatClearTextPassword = 8107,
-            eatQuarantineSoH = 8150,
-            eatCertificateThumbprint = 8250,
-            eatPeerId = 9000,
-            eatServerId = 9001,
-            eatMethodId = 9002,
-            eatEMSK = 9003,
-            eatSessionId = 9004,
-            eatReserved = -1,
-        }
+        type EAP_ATTRIBUTE = _EAP_ATTRIBUTE;
+        type EAP_ATTRIBUTES = _EAP_ATTRIBUTES;
+        type EAP_ATTRIBUTE_TYPE = _EAP_ATTRIBUTE_TYPE;
         struct EAP_CONFIG_INPUT_FIELD_ARRAY {
             dwVersion: u32,
             dwNumberOfFields: u32,
@@ -165,11 +58,8 @@ mod Windows {
             EapConfigSmartCardError = 8,
         }
         const EAP_CREDENTIAL_VERSION: i32 = 1;
-        struct EAP_CRED_EXPIRY_REQ {
-            curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
-            newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
-        }
-        type EAP_CRED_EXPIRY_RESP = EAP_CRED_EXPIRY_REQ;
+        type EAP_CRED_EXPIRY_REQ = _EAP_CRED_EXPIRY_REQ;
+        type EAP_CRED_EXPIRY_RESP = _EAP_CRED_EXPIRY_REQ;
         type EAP_CRED_LOGON_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
         type EAP_CRED_LOGON_RESP = EAP_CONFIG_INPUT_FIELD_ARRAY;
         type EAP_CRED_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
@@ -336,9 +226,9 @@ mod Windows {
         const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: i32 = 4;
         #[encoding("utf-16")]
         const EAP_VALUENAME_PROPERTIES: String = "Properties";
-        type EapAttribute = EAP_ATTRIBUTE;
-        type EapAttributeType = EAP_ATTRIBUTE_TYPE;
-        type EapAttributes = EAP_ATTRIBUTES;
+        type EapAttribute = _EAP_ATTRIBUTE;
+        type EapAttributeType = _EAP_ATTRIBUTE_TYPE;
+        type EapAttributes = _EAP_ATTRIBUTES;
         struct EapCertificateCredential {
             certHash: [u8; 20],
             password: PWSTR,
@@ -372,6 +262,120 @@ mod Windows {
         type PEAP_CONFIG_INPUT_FIELD_ARRAY = *mut EAP_CONFIG_INPUT_FIELD_ARRAY;
         type PEAP_CONFIG_INPUT_FIELD_DATA = *mut EAP_CONFIG_INPUT_FIELD_DATA;
         type PEAP_CONFIG_INPUT_FIELD_TYPE = *mut EAP_CONFIG_INPUT_FIELD_TYPE;
+        struct _EAP_ATTRIBUTE {
+            eaType: EAP_ATTRIBUTE_TYPE,
+            dwLength: u32,
+            pValue: *mut u8,
+        }
+        struct _EAP_ATTRIBUTES {
+            dwNumberOfAttributes: u32,
+            pAttribs: *mut EAP_ATTRIBUTE,
+        }
+        #[repr(i32)]
+        enum _EAP_ATTRIBUTE_TYPE {
+            eatMinimum = 0,
+            eatUserName = 1,
+            eatUserPassword = 2,
+            eatMD5CHAPPassword = 3,
+            eatNASIPAddress = 4,
+            eatNASPort = 5,
+            eatServiceType = 6,
+            eatFramedProtocol = 7,
+            eatFramedIPAddress = 8,
+            eatFramedIPNetmask = 9,
+            eatFramedRouting = 10,
+            eatFilterId = 11,
+            eatFramedMTU = 12,
+            eatFramedCompression = 13,
+            eatLoginIPHost = 14,
+            eatLoginService = 15,
+            eatLoginTCPPort = 16,
+            eatUnassigned17 = 17,
+            eatReplyMessage = 18,
+            eatCallbackNumber = 19,
+            eatCallbackId = 20,
+            eatUnassigned21 = 21,
+            eatFramedRoute = 22,
+            eatFramedIPXNetwork = 23,
+            eatState = 24,
+            eatClass = 25,
+            eatVendorSpecific = 26,
+            eatSessionTimeout = 27,
+            eatIdleTimeout = 28,
+            eatTerminationAction = 29,
+            eatCalledStationId = 30,
+            eatCallingStationId = 31,
+            eatNASIdentifier = 32,
+            eatProxyState = 33,
+            eatLoginLATService = 34,
+            eatLoginLATNode = 35,
+            eatLoginLATGroup = 36,
+            eatFramedAppleTalkLink = 37,
+            eatFramedAppleTalkNetwork = 38,
+            eatFramedAppleTalkZone = 39,
+            eatAcctStatusType = 40,
+            eatAcctDelayTime = 41,
+            eatAcctInputOctets = 42,
+            eatAcctOutputOctets = 43,
+            eatAcctSessionId = 44,
+            eatAcctAuthentic = 45,
+            eatAcctSessionTime = 46,
+            eatAcctInputPackets = 47,
+            eatAcctOutputPackets = 48,
+            eatAcctTerminateCause = 49,
+            eatAcctMultiSessionId = 50,
+            eatAcctLinkCount = 51,
+            eatAcctEventTimeStamp = 55,
+            eatMD5CHAPChallenge = 60,
+            eatNASPortType = 61,
+            eatPortLimit = 62,
+            eatLoginLATPort = 63,
+            eatTunnelType = 64,
+            eatTunnelMediumType = 65,
+            eatTunnelClientEndpoint = 66,
+            eatTunnelServerEndpoint = 67,
+            eatARAPPassword = 70,
+            eatARAPFeatures = 71,
+            eatARAPZoneAccess = 72,
+            eatARAPSecurity = 73,
+            eatARAPSecurityData = 74,
+            eatPasswordRetry = 75,
+            eatPrompt = 76,
+            eatConnectInfo = 77,
+            eatConfigurationToken = 78,
+            eatEAPMessage = 79,
+            eatSignature = 80,
+            eatARAPChallengeResponse = 84,
+            eatAcctInterimInterval = 85,
+            eatNASIPv6Address = 95,
+            eatFramedInterfaceId = 96,
+            eatFramedIPv6Prefix = 97,
+            eatLoginIPv6Host = 98,
+            eatFramedIPv6Route = 99,
+            eatFramedIPv6Pool = 100,
+            eatARAPGuestLogon = 8096,
+            eatCertificateOID = 8097,
+            eatEAPConfiguration = 8098,
+            eatPEAPEmbeddedEAPTypeId = 8099,
+            eatPEAPFastRoamedSession = 8100,
+            eatFastRoamedSession = 8100,
+            eatEAPTLV = 8102,
+            eatCredentialsChanged = 8103,
+            eatInnerEapMethodType = 8104,
+            eatClearTextPassword = 8107,
+            eatQuarantineSoH = 8150,
+            eatCertificateThumbprint = 8250,
+            eatPeerId = 9000,
+            eatServerId = 9001,
+            eatMethodId = 9002,
+            eatEMSK = 9003,
+            eatSessionId = 9004,
+            eatReserved = -1,
+        }
+        struct _EAP_CRED_EXPIRY_REQ {
+            curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
+            newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
+        }
         const eapPropCertifiedMethod: i32 = 4194304;
         const eapPropChannelBinding: i32 = 65536;
         const eapPropCipherSuiteNegotiation: i32 = 1;

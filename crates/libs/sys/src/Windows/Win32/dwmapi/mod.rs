@@ -27,9 +27,9 @@ windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled :
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::HWND, crefreshes : i32, frelative : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : *mut super::SIZE) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : super::PSIZE) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::HWND, hwndsource : super::HWND, phthumbnailid : *mut HTHUMBNAIL) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::HWND, hwndsource : super::HWND, phthumbnailid : PHTHUMBNAIL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::POINT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
@@ -40,8 +40,8 @@ windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd 
 windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::HWND, hbmp : super::HBITMAP, dwsitflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : super::LPCVOID, cbattribute : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_sys::core::BOOL, pttether : super::POINT) -> windows_sys::core::HRESULT);

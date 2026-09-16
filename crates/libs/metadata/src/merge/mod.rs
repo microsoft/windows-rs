@@ -34,6 +34,7 @@ pub struct Merger {
     /// `(path, arch_bits)` where bits are 1=X86, 2=X64, 4=Arm64.
     arch_inputs: Vec<(PathBuf, i32)>,
     output: PathBuf,
+    assembly_name: Option<String>,
     union_enums: bool,
 }
 
@@ -84,6 +85,12 @@ impl Merger {
         self
     }
 
+    /// Sets the assembly and module name independently of the output file name.
+    pub fn assembly_name(&mut self, name: impl Into<String>) -> &mut Self {
+        self.assembly_name = Some(name.into());
+        self
+    }
+
     /// Combines the configured inputs and writes the output winmd.
     ///
     /// Returns an error when the output is missing, an input cannot be read, or the metadata
@@ -93,13 +100,16 @@ impl Merger {
             return Err(Error::new("output is required"));
         }
 
-        let name = self
-            .output
-            .file_stem()
-            .and_then(|s| s.to_str())
-            .ok_or_else(|| {
-                Error::new(format!("invalid output path `{}`", self.output.display()))
-            })?;
+        let name = if let Some(name) = &self.assembly_name {
+            name.as_str()
+        } else {
+            self.output
+                .file_stem()
+                .and_then(|s| s.to_str())
+                .ok_or_else(|| {
+                    Error::new(format!("invalid output path `{}`", self.output.display()))
+                })?
+        };
 
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);

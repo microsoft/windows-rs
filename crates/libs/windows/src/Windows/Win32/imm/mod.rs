@@ -86,41 +86,43 @@ pub unsafe fn ImmEscapeW(param0: super::HKL, param1: HIMC, param2: u32, param3: 
     unsafe { ImmEscapeW(param0, param1, param2, param3) }
 }
 #[inline]
-pub unsafe fn ImmGetCandidateListA(param0: HIMC, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
+pub unsafe fn ImmGetCandidateListA(param0: HIMC, deindex: u32, lpcandlist: Option<LPCANDIDATELIST>, dwbuflen: u32) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : LPCANDIDATELIST, dwbuflen : u32) -> u32);
     unsafe { ImmGetCandidateListA(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetCandidateListCountA(param0: HIMC, lpdwlistcount: *mut u32) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
+pub unsafe fn ImmGetCandidateListCountA(param0: HIMC, lpdwlistcount: super::LPDWORD) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> u32);
     unsafe { ImmGetCandidateListCountA(param0, lpdwlistcount as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetCandidateListCountW(param0: HIMC, lpdwlistcount: *mut u32) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
+pub unsafe fn ImmGetCandidateListCountW(param0: HIMC, lpdwlistcount: super::LPDWORD) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> u32);
     unsafe { ImmGetCandidateListCountW(param0, lpdwlistcount as _) }
 }
 #[inline]
-pub unsafe fn ImmGetCandidateListW(param0: HIMC, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
+pub unsafe fn ImmGetCandidateListW(param0: HIMC, deindex: u32, lpcandlist: Option<LPCANDIDATELIST>, dwbuflen: u32) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : LPCANDIDATELIST, dwbuflen : u32) -> u32);
     unsafe { ImmGetCandidateListW(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> windows_core::BOOL);
+pub unsafe fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpcandidate: LPCANDIDATEFORM) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : LPCANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmGetCandidateWindow(param0, param1, lpcandidate as _) }
 }
 #[cfg(feature = "wingdi")]
 #[inline]
-pub unsafe fn ImmGetCompositionFontA(param0: HIMC, lplf: *mut super::LOGFONTA) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::LOGFONTA) -> windows_core::BOOL);
+pub unsafe fn ImmGetCompositionFontA(param0: HIMC, lplf: super::LPLOGFONTA) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : super::LPLOGFONTA) -> windows_core::BOOL);
     unsafe { ImmGetCompositionFontA(param0, lplf as _) }
 }
 #[cfg(feature = "wingdi")]
 #[inline]
-pub unsafe fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut super::LOGFONTW) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::LOGFONTW) -> windows_core::BOOL);
+pub unsafe fn ImmGetCompositionFontW(param0: HIMC, lplf: super::LPLOGFONTW) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : super::LPLOGFONTW) -> windows_core::BOOL);
     unsafe { ImmGetCompositionFontW(param0, lplf as _) }
 }
 #[inline]
@@ -135,8 +137,8 @@ pub unsafe fn ImmGetCompositionStringW(param0: HIMC, param1: u32, lpbuf: Option<
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmGetCompositionWindow(param0: HIMC, lpcompform: *mut COMPOSITIONFORM) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> windows_core::BOOL);
+pub unsafe fn ImmGetCompositionWindow(param0: HIMC, lpcompform: LPCOMPOSITIONFORM) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : LPCOMPOSITIONFORM) -> windows_core::BOOL);
     unsafe { ImmGetCompositionWindow(param0, lpcompform as _) }
 }
 #[cfg(feature = "windef")]
@@ -147,25 +149,26 @@ pub unsafe fn ImmGetContext(param0: super::HWND) -> HIMC {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetConversionListA<P2>(param0: super::HKL, param1: HIMC, lpsrc: P2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: u32) -> u32
+pub unsafe fn ImmGetConversionListA<P2>(param0: super::HKL, param1: HIMC, lpsrc: P2, lpdst: LPCANDIDATELIST, dwbuflen: u32, uflag: u32) -> u32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::HKL, param1 : HIMC, lpsrc : windows_core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::HKL, param1 : HIMC, lpsrc : windows_core::PCSTR, lpdst : LPCANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
     unsafe { ImmGetConversionListA(param0, param1, lpsrc.param().abi(), lpdst as _, dwbuflen, uflag) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetConversionListW<P2>(param0: super::HKL, param1: HIMC, lpsrc: P2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: u32) -> u32
+pub unsafe fn ImmGetConversionListW<P2>(param0: super::HKL, param1: HIMC, lpsrc: P2, lpdst: LPCANDIDATELIST, dwbuflen: u32, uflag: u32) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::HKL, param1 : HIMC, lpsrc : windows_core::PCWSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::HKL, param1 : HIMC, lpsrc : windows_core::PCWSTR, lpdst : LPCANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
     unsafe { ImmGetConversionListW(param0, param1, lpsrc.param().abi(), lpdst as _, dwbuflen, uflag) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Option<*mut u32>, lpfdwsentence: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut u32, lpfdwsentence : *mut u32) -> windows_core::BOOL);
+pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Option<super::LPDWORD>, lpfdwsentence: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : super::LPDWORD, lpfdwsentence : super::LPDWORD) -> windows_core::BOOL);
     unsafe { ImmGetConversionStatus(param0, lpfdwconversion.unwrap_or(core::mem::zeroed()) as _, lpfdwsentence.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -210,14 +213,14 @@ pub unsafe fn ImmGetIMEFileNameW(param0: super::HKL, lpszfilename: Option<window
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOA>, lpimemenu: Option<*mut IMEMENUITEMINFOA>, dwsize: u32) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
+pub unsafe fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<LPIMEMENUITEMINFOA>, lpimemenu: Option<LPIMEMENUITEMINFOA>, dwsize: u32) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : LPIMEMENUITEMINFOA, lpimemenu : LPIMEMENUITEMINFOA, dwsize : u32) -> u32);
     unsafe { ImmGetImeMenuItemsA(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOW>, lpimemenu: Option<*mut IMEMENUITEMINFOW>, dwsize: u32) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
+pub unsafe fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<LPIMEMENUITEMINFOW>, lpimemenu: Option<LPIMEMENUITEMINFOW>, dwsize: u32) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : LPIMEMENUITEMINFOW, lpimemenu : LPIMEMENUITEMINFOW, dwsize : u32) -> u32);
     unsafe { ImmGetImeMenuItemsW(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
 #[inline]
@@ -233,20 +236,20 @@ pub unsafe fn ImmGetProperty(param0: super::HKL, param1: u32) -> u32 {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetRegisterWordStyleA(param0: super::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
+pub unsafe fn ImmGetRegisterWordStyleA(param0: super::HKL, nitem: u32, lpstylebuf: LPSTYLEBUFA) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::HKL, nitem : u32, lpstylebuf : LPSTYLEBUFA) -> u32);
     unsafe { ImmGetRegisterWordStyleA(param0, nitem, lpstylebuf as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetRegisterWordStyleW(param0: super::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32 {
-    windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
+pub unsafe fn ImmGetRegisterWordStyleW(param0: super::HKL, nitem: u32, lpstylebuf: LPSTYLEBUFW) -> u32 {
+    windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::HKL, nitem : u32, lpstylebuf : LPSTYLEBUFW) -> u32);
     unsafe { ImmGetRegisterWordStyleW(param0, nitem, lpstylebuf as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmGetStatusWindowPos(param0: HIMC, lpptpos: *mut super::POINT) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn ImmGetStatusWindowPos(param0: HIMC, lpptpos: super::LPPOINT) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : super::LPPOINT) -> windows_core::BOOL);
     unsafe { ImmGetStatusWindowPos(param0, lpptpos as _) }
 }
 #[cfg(feature = "windef")]
@@ -326,20 +329,20 @@ pub unsafe fn ImmReleaseContext(param0: super::HWND, param1: HIMC) -> windows_co
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmSetCandidateWindow(param0: HIMC, lpcandidate: *const CANDIDATEFORM) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> windows_core::BOOL);
+pub unsafe fn ImmSetCandidateWindow(param0: HIMC, lpcandidate: LPCANDIDATEFORM) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : LPCANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmSetCandidateWindow(param0, lpcandidate) }
 }
 #[cfg(feature = "wingdi")]
 #[inline]
-pub unsafe fn ImmSetCompositionFontA(param0: HIMC, lplf: *const super::LOGFONTA) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::LOGFONTA) -> windows_core::BOOL);
+pub unsafe fn ImmSetCompositionFontA(param0: HIMC, lplf: super::LPLOGFONTA) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : super::LPLOGFONTA) -> windows_core::BOOL);
     unsafe { ImmSetCompositionFontA(param0, lplf) }
 }
 #[cfg(feature = "wingdi")]
 #[inline]
-pub unsafe fn ImmSetCompositionFontW(param0: HIMC, lplf: *const super::LOGFONTW) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::LOGFONTW) -> windows_core::BOOL);
+pub unsafe fn ImmSetCompositionFontW(param0: HIMC, lplf: super::LPLOGFONTW) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : super::LPLOGFONTW) -> windows_core::BOOL);
     unsafe { ImmSetCompositionFontW(param0, lplf) }
 }
 #[inline]
@@ -354,8 +357,8 @@ pub unsafe fn ImmSetCompositionStringW(param0: HIMC, dwindex: u32, lpcomp: Optio
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmSetCompositionWindow(param0: HIMC, lpcompform: *const COMPOSITIONFORM) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> windows_core::BOOL);
+pub unsafe fn ImmSetCompositionWindow(param0: HIMC, lpcompform: LPCOMPOSITIONFORM) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : LPCOMPOSITIONFORM) -> windows_core::BOOL);
     unsafe { ImmSetCompositionWindow(param0, lpcompform) }
 }
 #[inline]
@@ -370,8 +373,8 @@ pub unsafe fn ImmSetOpenStatus(param0: HIMC, param1: bool) -> windows_core::BOOL
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ImmSetStatusWindowPos(param0: HIMC, lpptpos: *const super::POINT) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::POINT) -> windows_core::BOOL);
+pub unsafe fn ImmSetStatusWindowPos(param0: HIMC, lpptpos: super::LPPOINT) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : super::LPPOINT) -> windows_core::BOOL);
     unsafe { ImmSetStatusWindowPos(param0, lpptpos) }
 }
 #[cfg(feature = "windef")]
@@ -491,12 +494,18 @@ pub const GL_LEVEL_FATAL: i32 = 1;
 pub const GL_LEVEL_INFORMATION: i32 = 4;
 pub const GL_LEVEL_NOGUIDELINE: i32 = 0;
 pub const GL_LEVEL_WARNING: i32 = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HIMC(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HIMCC(pub *mut core::ffi::c_void);
+pub type HIMC = *mut HIMC__;
+pub type HIMCC = *mut HIMCC__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HIMCC__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HIMC__ {
+    pub unused: i32,
+}
 pub const IACE_CHILDREN: i32 = 1;
 pub const IACE_DEFAULT: i32 = 16;
 pub const IACE_IGNORENOCONTEXT: i32 = 32;

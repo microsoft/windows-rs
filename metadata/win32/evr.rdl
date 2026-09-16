@@ -31,7 +31,7 @@ mod Windows {
         }
         #[guid(0xfa993889_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookup: IUnknown {
-            fn LookupService(&self, Type: MF_SERVICE_LOOKUP_TYPE, dwIndex: u32, guidService: *const GUID, riid: *const GUID, #[len_const(1)] ppvObjects: *mut *mut void, #[in] #[out] pnObjects: *mut u32) -> HRESULT;
+            fn LookupService(&self, Type: MF_SERVICE_LOOKUP_TYPE, dwIndex: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] #[len_const(1)] ppvObjects: *mut *mut void, #[in] #[out] pnObjects: *mut u32) -> HRESULT;
         }
         #[guid(0xfa99388a_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookupClient: IUnknown {
@@ -46,8 +46,8 @@ mod Windows {
         interface IMFVideoDisplayControl: IUnknown {
             fn GetNativeVideoSize(&self, #[in] #[out] pszVideo: *mut SIZE, #[in] #[out] pszARVideo: *mut SIZE) -> HRESULT;
             fn GetIdealVideoSize(&self, #[in] #[out] pszMin: *mut SIZE, #[in] #[out] pszMax: *mut SIZE) -> HRESULT;
-            fn SetVideoPosition(&self, pnrcSource: *const MFVideoNormalizedRect, prcDest: *const RECT) -> HRESULT;
-            fn GetVideoPosition(&self, pnrcSource: *mut MFVideoNormalizedRect, prcDest: *mut RECT) -> HRESULT;
+            fn SetVideoPosition(&self, pnrcSource: *const MFVideoNormalizedRect, prcDest: LPRECT) -> HRESULT;
+            fn GetVideoPosition(&self, pnrcSource: *mut MFVideoNormalizedRect, #[out] prcDest: LPRECT) -> HRESULT;
             fn SetAspectRatioMode(&self, dwAspectRatioMode: u32) -> HRESULT;
             fn GetAspectRatioMode(&self, pdwAspectRatioMode: *mut u32) -> HRESULT;
             fn SetVideoWindow(&self, hwndVideo: HWND) -> HRESULT;
@@ -87,17 +87,17 @@ mod Windows {
             fn InitializeRenderer(&self, #[opt] pVideoMixer: IMFTransform, #[opt] pVideoPresenter: IMFVideoPresenter) -> HRESULT;
         }
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoMixer(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoMixer(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoMixerAndPresenter(#[opt] pMixerOwner: IUnknown, #[opt] pPresenterOwner: IUnknown, riidMixer: *const GUID, ppvVideoMixer: *mut *mut void, riidPresenter: *const GUID, ppvVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoMixerAndPresenter(#[opt] pMixerOwner: IUnknown, #[opt] pPresenterOwner: IUnknown, riidMixer: *const GUID, ppvVideoMixer: *mut *mut void, riidPresenter: *const GUID, ppvVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoPresenter(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, #[iid_is] ppVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoPresenter(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
-        extern "C" fn MFCreateVideoRenderer(riidRenderer: *const GUID, ppVideoRenderer: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoRenderer(riidRenderer: *const GUID, ppVideoRenderer: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoSampleAllocator(riid: *const GUID, #[iid_is] ppSampleAllocator: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoSampleAllocator(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoSampleFromSurface(pUnkSurface: IUnknown, ppSample: *mut IMFSample) -> HRESULT;
+        extern fn MFCreateVideoSampleFromSurface(pUnkSurface: IUnknown, ppSample: *mut IMFSample) -> HRESULT;
         const MFEVRDLL: i32 = 0;
         #[repr(i32)]
         enum MFVP_MESSAGE_TYPE {

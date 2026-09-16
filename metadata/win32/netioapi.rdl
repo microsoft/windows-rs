@@ -5,33 +5,33 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn CancelMibChangeNotify2(NotificationHandle: HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertCompartmentGuidToId(CompartmentGuid: *const GUID, CompartmentId: *mut u32) -> NTSTATUS;
+        extern fn ConvertCompartmentGuidToId(CompartmentGuid: *const GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertCompartmentIdToGuid(CompartmentId: NET_IF_COMPARTMENT_ID, CompartmentGuid: *mut GUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceAliasToLuid(InterfaceAlias: PCWSTR, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceAliasToLuid(InterfaceAlias: *const u16, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceGuidToLuid(InterfaceGuid: *const GUID, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceGuidToLuid(InterfaceGuid: *const GUID, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceIndexToLuid(InterfaceIndex: NET_IFINDEX, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceIndexToLuid(InterfaceIndex: NET_IFINDEX, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceLuidToAlias(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceAlias: PWSTR, Length: usize) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceLuidToGuid(InterfaceLuid: *const NET_LUID, InterfaceGuid: *mut GUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToIndex(InterfaceLuid: *const NET_LUID, InterfaceIndex: *mut u32) -> NTSTATUS;
+        extern fn ConvertInterfaceLuidToIndex(InterfaceLuid: *const NET_LUID, #[out] InterfaceIndex: PNET_IFINDEX) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceLuidToNameA(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceName: PSTR, Length: usize) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn ConvertInterfaceLuidToNameW(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceName: PWSTR, Length: usize) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceNameToLuidA(InterfaceName: PCSTR, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceNameToLuidA(InterfaceName: *const i8, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceNameToLuidW(InterfaceName: PCWSTR, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceNameToLuidW(InterfaceName: *const u16, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertIpv4MaskToLength(Mask: u32, MaskLength: *mut u8) -> NTSTATUS;
+        extern fn ConvertIpv4MaskToLength(Mask: u32, #[out] MaskLength: PUINT8) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertLengthToIpv4Mask(MaskLength: u32, Mask: *mut u32) -> NTSTATUS;
+        extern fn ConvertLengthToIpv4Mask(MaskLength: u32, #[out] Mask: PULONG) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn CreateAnycastIpAddressEntry(Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -41,7 +41,7 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn CreateIpNetEntry2(Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateSortedAddressPairs(#[opt] SourceAddressList: *const SOCKADDR_IN6_LH, SourceAddressCount: u32, DestinationAddressList: *const SOCKADDR_IN6_LH, DestinationAddressCount: u32, AddressSortOptions: u32, SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, SortedAddressPairCount: *mut u32) -> NTSTATUS;
+        extern fn CreateSortedAddressPairs(#[opt] SourceAddressList: PSOCKADDR_IN6, SourceAddressCount: u32, DestinationAddressList: PSOCKADDR_IN6, DestinationAddressCount: u32, AddressSortOptions: u32, SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, SortedAddressPairCount: *mut u32) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn CreateUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         const DNS_DDR_ADAPTER_ENABLE: i32 = 1;
@@ -212,31 +212,31 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn FreeInterfaceDnsSettings(#[in] #[out] Settings: *mut DNS_INTERFACE_SETTINGS);
         #[library("IPHLPAPI.DLL")]
-        extern fn FreeMibTable(Memory: *const void);
+        extern fn FreeMibTable(#[in] Memory: *mut void);
         #[library("IPHLPAPI.DLL")]
-        extern fn GetAnycastIpAddressEntry(#[in] #[out] Row: *mut MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
+        extern fn GetAnycastIpAddressEntry(#[in] #[out] Row: PMIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetAnycastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetBestInterfaceEx(DestinationAddress: *const SOCKADDR, BestIfIndex: *mut u32) -> NTSTATUS;
+        extern fn GetBestInterfaceEx(#[in] DestinationAddress: *mut SOCKADDR, #[out] BestIfIndex: PULONG) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetBestRoute2(#[opt] InterfaceLuid: *const NET_LUID, InterfaceIndex: NET_IFINDEX, #[opt] SourceAddress: *const SOCKADDR_INET, DestinationAddress: *const SOCKADDR_INET, AddressSortOptions: u32, BestRoute: *mut MIB_IPFORWARD_ROW2, BestSourceAddress: *mut SOCKADDR_INET) -> NTSTATUS;
+        extern fn GetBestRoute2(#[in] #[opt] InterfaceLuid: *mut NET_LUID, InterfaceIndex: NET_IFINDEX, #[opt] SourceAddress: *const SOCKADDR_INET, DestinationAddress: *const SOCKADDR_INET, AddressSortOptions: u32, #[out] BestRoute: PMIB_IPFORWARD_ROW2, BestSourceAddress: *mut SOCKADDR_INET) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetCurrentThreadCompartmentId() -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetCurrentThreadCompartmentScope(CompartmentScope: *mut u32, CompartmentId: *mut u32);
+        extern fn GetCurrentThreadCompartmentScope(#[out] CompartmentScope: PNET_IF_COMPARTMENT_SCOPE, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID);
         #[library("IPHLPAPI.DLL")]
         extern fn GetDefaultCompartmentId() -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
         extern fn GetDnsSettings(#[in] #[out] Settings: *mut DNS_SETTINGS) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetFlVirtualInterface(#[in] #[out] Row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
+        extern fn GetFlVirtualInterface(#[in] #[out] Row: PMIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetFlVirtualInterfaceTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfEntry2(#[in] #[out] Row: *mut MIB_IF_ROW2) -> NTSTATUS;
+        extern fn GetIfEntry2(#[in] #[out] Row: PMIB_IF_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfEntry2Ex(Level: MIB_IF_ENTRY_LEVEL, #[in] #[out] Row: *mut MIB_IF_ROW2) -> NTSTATUS;
+        extern fn GetIfEntry2Ex(Level: MIB_IF_ENTRY_LEVEL, #[in] #[out] Row: PMIB_IF_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIfStackTable(Table: *mut PMIB_IFSTACK_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -248,27 +248,27 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn GetInvertedIfStackTable(Table: *mut PMIB_INVERTEDIFSTACK_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpForwardEntry2(#[in] #[out] Row: *mut MIB_IPFORWARD_ROW2) -> NTSTATUS;
+        extern fn GetIpForwardEntry2(#[in] #[out] Row: PMIB_IPFORWARD_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpForwardTable2(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPFORWARD_TABLE2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpInterfaceEntry(#[in] #[out] Row: *mut MIB_IPINTERFACE_ROW) -> NTSTATUS;
+        extern fn GetIpInterfaceEntry(#[in] #[out] Row: PMIB_IPINTERFACE_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpInterfaceTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPINTERFACE_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpNetEntry2(#[in] #[out] Row: *mut MIB_IPNET_ROW2) -> NTSTATUS;
+        extern fn GetIpNetEntry2(#[in] #[out] Row: PMIB_IPNET_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpNetTable2(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPNET_TABLE2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpNetworkConnectionBandwidthEstimates(InterfaceIndex: NET_IFINDEX, AddressFamily: ADDRESS_FAMILY, BandwidthEstimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> NTSTATUS;
+        extern fn GetIpNetworkConnectionBandwidthEstimates(InterfaceIndex: NET_IFINDEX, AddressFamily: ADDRESS_FAMILY, #[out] BandwidthEstimates: PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpPathEntry(#[in] #[out] Row: *mut MIB_IPPATH_ROW) -> NTSTATUS;
+        extern fn GetIpPathEntry(#[in] #[out] Row: PMIB_IPPATH_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpPathTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPPATH_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetJobCompartmentId(JobHandle: HANDLE) -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetMulticastIpAddressEntry(#[in] #[out] Row: *mut MIB_MULTICASTIPADDRESS_ROW) -> NTSTATUS;
+        extern fn GetMulticastIpAddressEntry(#[in] #[out] Row: PMIB_MULTICASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetMulticastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -276,13 +276,13 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn GetNetworkConnectivityHintForInterface(InterfaceIndex: NET_IFINDEX, ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, CompartmentId: *mut u32, SiteId: *mut u32, #[len_param(4)] NetworkName: *mut u16, Length: u32) -> NTSTATUS;
+        extern fn GetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID, #[out] SiteId: PULONG, #[len_param(4)] #[out] NetworkName: PWCHAR, Length: u32) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetSessionCompartmentId(SessionId: u32) -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
         extern fn GetTeredoPort(Port: *mut u16) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUnicastIpAddressEntry(#[in] #[out] Row: *mut MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
+        extern fn GetUnicastIpAddressEntry(#[in] #[out] Row: PMIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> NTSTATUS;
         const IF_NAMESIZE: i32 = 256;
@@ -291,13 +291,13 @@ mod Windows {
             PrefixLength: u8,
         }
         #[library("IPHLPAPI.DLL")]
-        extern "C" fn InitializeFlVirtualInterfaceEntry(Row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW);
+        extern "C" fn InitializeFlVirtualInterfaceEntry(#[out] Row: PMIB_FL_VIRTUAL_INTERFACE_ROW);
         #[library("IPHLPAPI.DLL")]
-        extern fn InitializeIpForwardEntry(Row: *mut MIB_IPFORWARD_ROW2);
+        extern fn InitializeIpForwardEntry(#[out] Row: PMIB_IPFORWARD_ROW2);
         #[library("IPHLPAPI.DLL")]
-        extern fn InitializeIpInterfaceEntry(#[in] #[out] Row: *mut MIB_IPINTERFACE_ROW);
+        extern fn InitializeIpInterfaceEntry(#[in] #[out] Row: PMIB_IPINTERFACE_ROW);
         #[library("IPHLPAPI.DLL")]
-        extern fn InitializeUnicastIpAddressEntry(Row: *mut MIB_UNICASTIPADDRESS_ROW);
+        extern fn InitializeUnicastIpAddressEntry(#[out] Row: PMIB_UNICASTIPADDRESS_ROW);
         struct MIB_ANYCASTIPADDRESS_ROW {
             Address: SOCKADDR_INET,
             InterfaceLuid: NET_LUID,
@@ -317,7 +317,7 @@ mod Windows {
             Origin: NET_FL_VIRTUAL_INTERFACE_ORIGIN,
             VirtualIfLuid: IF_LUID,
             VirtualIfIndex: IF_INDEX,
-            AllowLocalNd: bool,
+            AllowLocalNd: BOOLEAN,
             AttachedFlsnpiClients: u32,
             FlsnpiClientConfigErrors: u32,
             FlsnpiClientInjectErrors: u64,
@@ -370,7 +370,7 @@ mod Windows {
             AccessType: NET_IF_ACCESS_TYPE,
             DirectionType: NET_IF_DIRECTION_TYPE,
             InterfaceAndOperStatusFlags: struct {
-                _bitfield: bool {
+                _bitfield: BOOLEAN {
                     HardwareInterface: 1,
                     FilterInterface: 1,
                     ConnectorPresent: 1,
@@ -436,10 +436,10 @@ mod Windows {
             PreferredLifetime: u32,
             Metric: u32,
             Protocol: NL_ROUTE_PROTOCOL,
-            Loopback: bool,
-            AutoconfigureAddress: bool,
-            Publish: bool,
-            Immortal: bool,
+            Loopback: BOOLEAN,
+            AutoconfigureAddress: BOOLEAN,
+            Publish: BOOLEAN,
+            Immortal: BOOLEAN,
             Age: u32,
             Origin: NL_ROUTE_ORIGIN,
         }
@@ -455,15 +455,15 @@ mod Windows {
             InterfaceIdentifier: u64,
             MinRouterAdvertisementInterval: u32,
             MaxRouterAdvertisementInterval: u32,
-            AdvertisingEnabled: bool,
-            ForwardingEnabled: bool,
-            WeakHostSend: bool,
-            WeakHostReceive: bool,
-            UseAutomaticMetric: bool,
-            UseNeighborUnreachabilityDetection: bool,
-            ManagedAddressConfigurationSupported: bool,
-            OtherStatefulConfigurationSupported: bool,
-            AdvertiseDefaultRoute: bool,
+            AdvertisingEnabled: BOOLEAN,
+            ForwardingEnabled: BOOLEAN,
+            WeakHostSend: BOOLEAN,
+            WeakHostReceive: BOOLEAN,
+            UseAutomaticMetric: BOOLEAN,
+            UseNeighborUnreachabilityDetection: BOOLEAN,
+            ManagedAddressConfigurationSupported: BOOLEAN,
+            OtherStatefulConfigurationSupported: BOOLEAN,
+            AdvertiseDefaultRoute: BOOLEAN,
             RouterDiscoveryBehavior: NL_ROUTER_DISCOVERY_BEHAVIOR,
             DadTransmits: u32,
             BaseReachableTime: u32,
@@ -475,14 +475,14 @@ mod Windows {
             SitePrefixLength: u32,
             Metric: u32,
             NlMtu: u32,
-            Connected: bool,
-            SupportsWakeUpPatterns: bool,
-            SupportsNeighborDiscovery: bool,
-            SupportsRouterDiscovery: bool,
+            Connected: BOOLEAN,
+            SupportsWakeUpPatterns: BOOLEAN,
+            SupportsNeighborDiscovery: BOOLEAN,
+            SupportsRouterDiscovery: BOOLEAN,
             ReachableTime: u32,
             TransmitOffload: NL_INTERFACE_OFFLOAD_ROD,
             ReceiveOffload: NL_INTERFACE_OFFLOAD_ROD,
-            DisableDefaultRoutes: bool,
+            DisableDefaultRoutes: BOOLEAN,
         }
         struct MIB_IPINTERFACE_TABLE {
             NumEntries: u32,
@@ -497,7 +497,7 @@ mod Windows {
             State: NL_NEIGHBOR_STATE,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: bool {
+                    _bitfield: BOOLEAN {
                         IsRouter: 1,
                         IsUnreachable: 1,
                     },
@@ -526,7 +526,7 @@ mod Windows {
                 LastReachable: u32,
                 LastUnreachable: u32,
             },
-            IsReachable: bool,
+            IsReachable: BOOLEAN,
             LinkTransmitSpeed: u64,
             LinkReceiveSpeed: u64,
         }
@@ -564,10 +564,10 @@ mod Windows {
             ValidLifetime: u32,
             PreferredLifetime: u32,
             OnLinkPrefixLength: u8,
-            SkipAsSource: bool,
+            SkipAsSource: BOOLEAN,
             DadState: NL_DAD_STATE,
             ScopeId: SCOPE_ID,
-            CreationTimeStamp: i64,
+            CreationTimeStamp: LARGE_INTEGER,
         }
         struct MIB_UNICASTIPADDRESS_TABLE {
             NumEntries: u32,
@@ -586,19 +586,19 @@ mod Windows {
             NetFlVirtualInterfaceOriginDefault = 2,
         }
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyIpInterfaceChange(Family: ADDRESS_FAMILY, Callback: PIPINTERFACE_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyIpInterfaceChange(Family: ADDRESS_FAMILY, Callback: PIPINTERFACE_CHANGE_CALLBACK, #[in] #[opt] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyNetworkConnectivityHintChange(Callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: bool, NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyNetworkConnectivityHintChange(Callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, #[in] #[opt] CallerContext: *mut void, InitialNotification: BOOLEAN, #[out] NotificationHandle: PHANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyRouteChange2(AddressFamily: ADDRESS_FAMILY, Callback: PIPFORWARD_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyRouteChange2(AddressFamily: ADDRESS_FAMILY, Callback: PIPFORWARD_CHANGE_CALLBACK, #[in] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyStableUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE, CallerCallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, CallerContext: *const void, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyStableUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE, CallerCallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, #[in] CallerContext: *mut void, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyTeredoPortChange(Callback: PTEREDO_PORT_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyTeredoPortChange(Callback: PTEREDO_PORT_CHANGE_CALLBACK, #[in] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyUnicastIpAddressChange(Family: ADDRESS_FAMILY, Callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
-        extern fn PIPFORWARD_CHANGE_CALLBACK(CallerContext: *const void, #[opt] Row: *const MIB_IPFORWARD_ROW2, NotificationType: MIB_NOTIFICATION_TYPE);
-        extern fn PIPINTERFACE_CHANGE_CALLBACK(CallerContext: *const void, Row: *const MIB_IPINTERFACE_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn NotifyUnicastIpAddressChange(Family: ADDRESS_FAMILY, Callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, #[in] #[opt] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn PIPFORWARD_CHANGE_CALLBACK(#[in] CallerContext: *mut void, #[opt] Row: PMIB_IPFORWARD_ROW2, NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn PIPINTERFACE_CHANGE_CALLBACK(#[in] CallerContext: *mut void, Row: PMIB_IPINTERFACE_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
         type PIP_ADDRESS_PREFIX = *mut IP_ADDRESS_PREFIX;
         type PMIB_ANYCASTIPADDRESS_ROW = *mut MIB_ANYCASTIPADDRESS_ROW;
         type PMIB_ANYCASTIPADDRESS_TABLE = *mut MIB_ANYCASTIPADDRESS_TABLE;
@@ -626,12 +626,12 @@ mod Windows {
         type PMIB_NOTIFICATION_TYPE = *mut MIB_NOTIFICATION_TYPE;
         type PMIB_UNICASTIPADDRESS_ROW = *mut MIB_UNICASTIPADDRESS_ROW;
         type PMIB_UNICASTIPADDRESS_TABLE = *mut MIB_UNICASTIPADDRESS_TABLE;
-        extern fn PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(CallerContext: *const void, ConnectivityHint: NL_NETWORK_CONNECTIVITY_HINT);
-        extern fn PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(CallerContext: *const void, AddressTable: *const MIB_UNICASTIPADDRESS_TABLE);
-        extern fn PTEREDO_PORT_CHANGE_CALLBACK(CallerContext: *const void, Port: u16, #[in] #[out] NotificationType: MIB_NOTIFICATION_TYPE);
-        extern fn PUNICAST_IPADDRESS_CHANGE_CALLBACK(CallerContext: *const void, #[opt] Row: *const MIB_UNICASTIPADDRESS_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(#[in] CallerContext: *mut void, ConnectivityHint: NL_NETWORK_CONNECTIVITY_HINT);
+        extern fn PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(#[in] CallerContext: *mut void, AddressTable: PMIB_UNICASTIPADDRESS_TABLE);
+        extern fn PTEREDO_PORT_CHANGE_CALLBACK(#[in] CallerContext: *mut void, Port: u16, #[in] #[out] NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn PUNICAST_IPADDRESS_CHANGE_CALLBACK(#[in] CallerContext: *mut void, #[opt] Row: PMIB_UNICASTIPADDRESS_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
         #[library("IPHLPAPI.DLL")]
-        extern fn ResolveIpNetEntry2(#[in] #[out] Row: *mut MIB_IPNET_ROW2, #[opt] SourceAddress: *const SOCKADDR_INET) -> NTSTATUS;
+        extern fn ResolveIpNetEntry2(#[in] #[out] Row: PMIB_IPNET_ROW2, #[opt] SourceAddress: *const SOCKADDR_INET) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn SetCurrentThreadCompartmentId(CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -645,19 +645,19 @@ mod Windows {
         #[library("IPHLPAPI.DLL")]
         extern fn SetIpForwardEntry2(Route: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpInterfaceEntry(#[in] #[out] Row: *mut MIB_IPINTERFACE_ROW) -> NTSTATUS;
+        extern fn SetIpInterfaceEntry(#[in] #[out] Row: PMIB_IPINTERFACE_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpNetEntry2(Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
+        extern fn SetIpNetEntry2(Row: PMIB_IPNET_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn SetJobCompartmentId(JobHandle: HANDLE, CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, CompartmentId: NET_IF_COMPARTMENT_ID, NetworkName: PCWSTR) -> NTSTATUS;
+        extern fn SetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, CompartmentId: NET_IF_COMPARTMENT_ID, NetworkName: *const u16) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn SetSessionCompartmentId(SessionId: u32, CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn SetUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn if_indextoname(InterfaceIndex: NET_IFINDEX, InterfaceName: *mut i8) -> PCHAR;
+        extern fn if_indextoname(InterfaceIndex: NET_IFINDEX, #[out] InterfaceName: PCHAR) -> PCHAR;
         #[library("IPHLPAPI.DLL")]
         extern fn if_nametoindex(InterfaceName: PCSTR) -> NET_IFINDEX;
     }

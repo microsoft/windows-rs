@@ -246,15 +246,14 @@ windows_core::imp::define_interface!(ISpGrammarCompiler, ISpGrammarCompiler_Vtbl
 windows_core::imp::interface_hierarchy!(ISpGrammarCompiler, windows_core::IUnknown);
 impl ISpGrammarCompiler {
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn CompileStream<P0, P1, P2, P3, P4>(&self, psource: P0, pdest: P1, pheader: P2, preserved: P3, perrorlog: P4, dwflags: u32) -> windows_core::HRESULT
+    pub unsafe fn CompileStream<P0, P2, P3, P4>(&self, psource: P0, pdest: &Option<super::IStream>, pheader: P2, preserved: P3, perrorlog: P4, dwflags: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
-        P1: windows_core::Param<super::IStream>,
         P2: windows_core::Param<super::IStream>,
         P3: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<ISpErrorLog>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompileStream)(windows_core::Interface::as_raw(self), psource.param().abi(), pdest.param().abi(), pheader.param().abi(), preserved.param().abi(), perrorlog.param().abi(), dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).CompileStream)(windows_core::Interface::as_raw(self), psource.param().abi(), core::mem::transmute_copy(pdest), pheader.param().abi(), preserved.param().abi(), perrorlog.param().abi(), dwflags) }
     }
 }
 #[repr(C)]
@@ -268,7 +267,7 @@ pub struct ISpGrammarCompiler_Vtbl {
 }
 #[cfg(feature = "objidlbase")]
 pub trait ISpGrammarCompiler_Impl: windows_core::IUnknownImpl {
-    fn CompileStream(&self, psource: windows_core::Ref<super::IStream>, pdest: windows_core::Ref<super::IStream>, pheader: windows_core::Ref<super::IStream>, preserved: windows_core::Ref<windows_core::IUnknown>, perrorlog: windows_core::Ref<ISpErrorLog>, dwflags: u32) -> windows_core::Result<()>;
+    fn CompileStream(&self, psource: windows_core::Ref<super::IStream>, pdest: windows_core::OutRef<super::IStream>, pheader: windows_core::Ref<super::IStream>, preserved: windows_core::Ref<windows_core::IUnknown>, perrorlog: windows_core::Ref<ISpErrorLog>, dwflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "objidlbase")]
 impl ISpGrammarCompiler_Vtbl {
@@ -276,7 +275,7 @@ impl ISpGrammarCompiler_Vtbl {
         unsafe extern "system" fn CompileStream<Identity: ISpGrammarCompiler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, pdest: *mut core::ffi::c_void, pheader: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void, perrorlog: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarCompiler_Impl::CompileStream(this, core::mem::transmute_copy(&psource), core::mem::transmute_copy(&pdest), core::mem::transmute_copy(&pheader), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&perrorlog), core::mem::transmute_copy(&dwflags)).into()
+                ISpGrammarCompiler_Impl::CompileStream(this, core::mem::transmute_copy(&psource), core::mem::transmute(&pdest), core::mem::transmute_copy(&pheader), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&perrorlog), core::mem::transmute_copy(&dwflags)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CompileStream: CompileStream::<Identity, OFFSET> }
@@ -2567,9 +2566,12 @@ pub const SPCFGN_ADD: SPCFGNOTIFY = 0;
 pub const SPCFGN_DEACTIVATE: SPCFGNOTIFY = 4;
 pub const SPCFGN_INVALIDATE: SPCFGNOTIFY = 2;
 pub const SPCFGN_REMOVE: SPCFGNOTIFY = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPGRAMMARHANDLE(pub *mut core::ffi::c_void);
+pub type SPGRAMMARHANDLE = *mut SPGRAMMARHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPGRAMMARHANDLE__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[cfg(feature = "sapi")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2615,19 +2617,28 @@ pub struct SPPHRASEALTREQUEST {
     pub pPhrase: core::mem::ManuallyDrop<Option<super::ISpPhrase>>,
     pub pRecoContext: core::mem::ManuallyDrop<Option<super::ISpRecoContext>>,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPPHRASEPROPERTYHANDLE(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPPHRASERULEHANDLE(pub *mut core::ffi::c_void);
+pub type SPPHRASEPROPERTYHANDLE = *mut SPPHRASEPROPERTYHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPHRASEPROPERTYHANDLE__ {
+    pub unused: i32,
+}
+pub type SPPHRASERULEHANDLE = *mut SPPHRASERULEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPHRASERULEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPPROPSRC = i32;
 pub const SPPROPSRC_RECO_CTX: SPPROPSRC = 1;
 pub const SPPROPSRC_RECO_GRAMMAR: SPPROPSRC = 2;
 pub const SPPROPSRC_RECO_INST: SPPROPSRC = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPRECOCONTEXTHANDLE(pub *mut core::ffi::c_void);
+pub type SPRECOCONTEXTHANDLE = *mut SPRECOCONTEXTHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRECOCONTEXTHANDLE__ {
+    pub unused: i32,
+}
 pub const SPRECOEXTENSION: windows_core::PCWSTR = windows_core::w!("RecoExtension");
 #[repr(C)]
 #[cfg(feature = "sapi")]
@@ -2673,9 +2684,12 @@ pub struct SPRULEENTRY {
     pub pvClientRuleContext: *mut core::ffi::c_void,
     pub pvClientGrammarContext: *mut core::ffi::c_void,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPRULEHANDLE(pub *mut core::ffi::c_void);
+pub type SPRULEHANDLE = *mut SPRULEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRULEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPRULEINFOOPT = i32;
 #[repr(C)]
 #[cfg(feature = "sapi")]
@@ -2757,9 +2771,12 @@ pub struct SPTRANSITIONENTRY_1_1 {
 pub struct SPTRANSITIONENTRY_1_2 {
     pub pvGrammarCookie: *mut core::ffi::c_void,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPTRANSITIONID(pub *mut core::ffi::c_void);
+pub type SPTRANSITIONID = *mut SPTRANSITIONID__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPTRANSITIONID__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub struct SPTRANSITIONPROPERTY {
@@ -2816,9 +2833,12 @@ pub struct SPWORDENTRY {
     pub aPhoneId: *mut super::SPPHONEID,
     pub pvClientContext: *mut core::ffi::c_void,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPWORDHANDLE(pub *mut core::ffi::c_void);
+pub type SPWORDHANDLE = *mut SPWORDHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPWORDHANDLE__ {
+    pub unused: i32,
+}
 pub type SPWORDINFOOPT = i32;
 pub const SR_LOCALIZED_DESCRIPTION: windows_core::PCWSTR = windows_core::w!("Description");
 pub const SpDataKey: windows_core::GUID = windows_core::GUID::from_u128(0xd9f6ee60_58c9_458b_88e1_2f908fd7f87c);

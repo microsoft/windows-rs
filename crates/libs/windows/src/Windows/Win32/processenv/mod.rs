@@ -14,14 +14,16 @@ where
     windows_core::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsW(lpsrc : windows_core::PCWSTR, lpdst : windows_core::PWSTR, nsize : u32) -> u32);
     unsafe { ExpandEnvironmentStringsW(lpsrc.param().abi(), lpdst.unwrap_or(core::mem::zeroed()) as _, nsize) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn FreeEnvironmentStringsA(penv: *const i8) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FreeEnvironmentStringsA(penv : *const i8) -> windows_core::BOOL);
+pub unsafe fn FreeEnvironmentStringsA(penv: super::LPCH) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FreeEnvironmentStringsA(penv : super::LPCH) -> windows_core::BOOL);
     unsafe { FreeEnvironmentStringsA(penv) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn FreeEnvironmentStringsW(penv: *const u16) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FreeEnvironmentStringsW(penv : *const u16) -> windows_core::BOOL);
+pub unsafe fn FreeEnvironmentStringsW(penv: super::LPWCH) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FreeEnvironmentStringsW(penv : super::LPWCH) -> windows_core::BOOL);
     unsafe { FreeEnvironmentStringsW(penv) }
 }
 #[inline]
@@ -130,9 +132,10 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetCurrentDirectoryW(lppathname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetCurrentDirectoryW(lppathname.param().abi()) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SetEnvironmentStringsW(newenvironment: *const u16) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetEnvironmentStringsW(newenvironment : *const u16) -> windows_core::BOOL);
+pub unsafe fn SetEnvironmentStringsW(newenvironment: super::LPWCH) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetEnvironmentStringsW(newenvironment : super::LPWCH) -> windows_core::BOOL);
     unsafe { SetEnvironmentStringsW(newenvironment) }
 }
 #[inline]
@@ -161,7 +164,7 @@ pub unsafe fn SetStdHandle(nstdhandle: u32, hhandle: super::HANDLE) -> windows_c
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SetStdHandleEx(nstdhandle: u32, hhandle: super::HANDLE, phprevvalue: Option<*mut super::HANDLE>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetStdHandleEx(nstdhandle : u32, hhandle : super::HANDLE, phprevvalue : *mut super::HANDLE) -> windows_core::BOOL);
+pub unsafe fn SetStdHandleEx(nstdhandle: u32, hhandle: super::HANDLE, phprevvalue: Option<super::PHANDLE>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetStdHandleEx(nstdhandle : u32, hhandle : super::HANDLE, phprevvalue : super::PHANDLE) -> windows_core::BOOL);
     unsafe { SetStdHandleEx(nstdhandle, hhandle, phprevvalue.unwrap_or(core::mem::zeroed()) as _) }
 }

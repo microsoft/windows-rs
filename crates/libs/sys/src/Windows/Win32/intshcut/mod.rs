@@ -1,9 +1,12 @@
+pub type CIUniformResourceLocator = *mut core::ffi::c_void;
 #[cfg(feature = "windef")]
 pub type CURLINVOKECOMMANDINFOA = URLINVOKECOMMANDINFOA;
 #[cfg(feature = "windef")]
 pub type CURLINVOKECOMMANDINFOW = URLINVOKECOMMANDINFOW;
-pub const E_FLAGS: i32 = -2147217408;
-pub const IS_E_EXEC_FAILED: i32 = -2147213310;
+#[cfg(feature = "wtypesbase")]
+pub const E_FLAGS: super::SCODE = 0x80041000_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const IS_E_EXEC_FAILED: super::SCODE = 0x80042002_u32 as _;
 pub type IURL_INVOKECOMMAND_FLAGS = i32;
 pub const IURL_INVOKECOMMAND_FL_ALLOW_UI: IURL_INVOKECOMMAND_FLAGS = 1;
 pub const IURL_INVOKECOMMAND_FL_ASYNCOK: IURL_INVOKECOMMAND_FLAGS = 8;
@@ -47,5 +50,7 @@ pub struct URLINVOKECOMMANDINFOW {
     pub hwndParent: super::HWND,
     pub pcszVerb: windows_sys::core::PCWSTR,
 }
-pub const URL_E_INVALID_SYNTAX: i32 = -2147217407;
-pub const URL_E_UNREGISTERED_PROTOCOL: i32 = -2147217406;
+#[cfg(feature = "wtypesbase")]
+pub const URL_E_INVALID_SYNTAX: super::SCODE = 0x80041001_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const URL_E_UNREGISTERED_PROTOCOL: super::SCODE = 0x80041002_u32 as _;

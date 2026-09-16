@@ -1,12 +1,10 @@
 #[inline]
-pub unsafe fn MFCreateVideoMixer<P0, T>(powner: P0, riiddevice: *const windows_core::GUID) -> windows_core::Result<T>
+pub unsafe fn MFCreateVideoMixer<P0>(powner: P0, riiddevice: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
-    windows_core::link!("evr.dll" "C" fn MFCreateVideoMixer(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { MFCreateVideoMixer(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoMixer(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { MFCreateVideoMixer(powner.param().abi(), riiddevice, riid, ppv as _) }
 }
 #[inline]
 pub unsafe fn MFCreateVideoMixerAndPresenter<P0, P1>(pmixerowner: P0, ppresenterowner: P1, riidmixer: *const windows_core::GUID, ppvvideomixer: *mut *mut core::ffi::c_void, riidpresenter: *const windows_core::GUID, ppvvideopresenter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
@@ -14,32 +12,26 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("evr.dll" "C" fn MFCreateVideoMixerAndPresenter(pmixerowner : *mut core::ffi::c_void, ppresenterowner : *mut core::ffi::c_void, riidmixer : *const windows_core::GUID, ppvvideomixer : *mut *mut core::ffi::c_void, riidpresenter : *const windows_core::GUID, ppvvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoMixerAndPresenter(pmixerowner : *mut core::ffi::c_void, ppresenterowner : *mut core::ffi::c_void, riidmixer : *const windows_core::GUID, ppvvideomixer : *mut *mut core::ffi::c_void, riidpresenter : *const windows_core::GUID, ppvvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoMixerAndPresenter(pmixerowner.param().abi(), ppresenterowner.param().abi(), riidmixer, ppvvideomixer as _, riidpresenter, ppvvideopresenter as _) }
 }
 #[inline]
-pub unsafe fn MFCreateVideoPresenter<P0, T>(powner: P0, riiddevice: *const windows_core::GUID) -> windows_core::Result<T>
+pub unsafe fn MFCreateVideoPresenter<P0>(powner: P0, riiddevice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvideopresenter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
-    windows_core::link!("evr.dll" "C" fn MFCreateVideoPresenter(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { MFCreateVideoPresenter(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoPresenter(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { MFCreateVideoPresenter(powner.param().abi(), riiddevice, riid, ppvideopresenter as _) }
 }
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const windows_core::GUID, ppvideorenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("mf.dll" "C" fn MFCreateVideoRenderer(riidrenderer : *const windows_core::GUID, ppvideorenderer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateVideoRenderer(riidrenderer : *const windows_core::GUID, ppvideorenderer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoRenderer(riidrenderer, ppvideorenderer as _) }
 }
 #[inline]
-pub unsafe fn MFCreateVideoSampleAllocator<T>() -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
-    windows_core::link!("evr.dll" "C" fn MFCreateVideoSampleAllocator(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { MFCreateVideoSampleAllocator(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+pub unsafe fn MFCreateVideoSampleAllocator(riid: *const windows_core::GUID, ppsampleallocator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoSampleAllocator(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { MFCreateVideoSampleAllocator(riid, ppsampleallocator as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -47,7 +39,7 @@ pub unsafe fn MFCreateVideoSampleFromSurface<P0>(punksurface: P0) -> windows_cor
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("evr.dll" "C" fn MFCreateVideoSampleFromSurface(punksurface : *mut core::ffi::c_void, ppsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoSampleFromSurface(punksurface : *mut core::ffi::c_void, ppsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVideoSampleFromSurface(punksurface.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -325,8 +317,12 @@ impl windows_core::RuntimeName for IMFDesiredSample {}
 windows_core::imp::define_interface!(IMFTopologyServiceLookup, IMFTopologyServiceLookup_Vtbl, 0xfa993889_4383_415a_a930_dd472a8cf6f7);
 windows_core::imp::interface_hierarchy!(IMFTopologyServiceLookup, windows_core::IUnknown);
 impl IMFTopologyServiceLookup {
-    pub unsafe fn LookupService(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobjects: *mut *mut core::ffi::c_void, pnobjects: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LookupService)(windows_core::Interface::as_raw(self), r#type, dwindex, guidservice, riid, ppvobjects as _, pnobjects as _) }
+    pub unsafe fn LookupService<T>(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const windows_core::GUID, pnobjects: *mut u32) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).LookupService)(windows_core::Interface::as_raw(self), r#type, dwindex, guidservice, &T::IID, &mut result__, pnobjects as _).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -454,11 +450,11 @@ impl IMFVideoDisplayControl {
         unsafe { (windows_core::Interface::vtable(self).GetIdealVideoSize)(windows_core::Interface::as_raw(self), pszmin as _, pszmax as _) }
     }
     #[cfg(all(feature = "mfidl", feature = "windef"))]
-    pub unsafe fn SetVideoPosition(&self, pnrcsource: *const super::MFVideoNormalizedRect, prcdest: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn SetVideoPosition(&self, pnrcsource: *const super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVideoPosition)(windows_core::Interface::as_raw(self), pnrcsource, prcdest) }
     }
     #[cfg(all(feature = "mfidl", feature = "windef"))]
-    pub unsafe fn GetVideoPosition(&self, pnrcsource: *mut super::MFVideoNormalizedRect, prcdest: *mut super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn GetVideoPosition(&self, pnrcsource: *mut super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVideoPosition)(windows_core::Interface::as_raw(self), pnrcsource as _, prcdest as _) }
     }
     pub unsafe fn SetAspectRatioMode(&self, dwaspectratiomode: u32) -> windows_core::HRESULT {
@@ -531,11 +527,11 @@ pub struct IMFVideoDisplayControl_Vtbl {
     #[cfg(not(feature = "windef"))]
     GetIdealVideoSize: usize,
     #[cfg(all(feature = "mfidl", feature = "windef"))]
-    pub SetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::MFVideoNormalizedRect, *const super::RECT) -> windows_core::HRESULT,
+    pub SetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::MFVideoNormalizedRect, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "mfidl", feature = "windef")))]
     SetVideoPosition: usize,
     #[cfg(all(feature = "mfidl", feature = "windef"))]
-    pub GetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::MFVideoNormalizedRect, *mut super::RECT) -> windows_core::HRESULT,
+    pub GetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::MFVideoNormalizedRect, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "mfidl", feature = "windef")))]
     GetVideoPosition: usize,
     pub SetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -570,8 +566,8 @@ pub struct IMFVideoDisplayControl_Vtbl {
 pub trait IMFVideoDisplayControl_Impl: windows_core::IUnknownImpl {
     fn GetNativeVideoSize(&self, pszvideo: *mut super::SIZE, pszarvideo: *mut super::SIZE) -> windows_core::Result<()>;
     fn GetIdealVideoSize(&self, pszmin: *mut super::SIZE, pszmax: *mut super::SIZE) -> windows_core::Result<()>;
-    fn SetVideoPosition(&self, pnrcsource: *const super::MFVideoNormalizedRect, prcdest: *const super::RECT) -> windows_core::Result<()>;
-    fn GetVideoPosition(&self, pnrcsource: *mut super::MFVideoNormalizedRect, prcdest: *mut super::RECT) -> windows_core::Result<()>;
+    fn SetVideoPosition(&self, pnrcsource: *const super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::Result<()>;
+    fn GetVideoPosition(&self, pnrcsource: *mut super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::Result<()>;
     fn SetAspectRatioMode(&self, dwaspectratiomode: u32) -> windows_core::Result<()>;
     fn GetAspectRatioMode(&self) -> windows_core::Result<u32>;
     fn SetVideoWindow(&self, hwndvideo: super::HWND) -> windows_core::Result<()>;
@@ -600,13 +596,13 @@ impl IMFVideoDisplayControl_Vtbl {
                 IMFVideoDisplayControl_Impl::GetIdealVideoSize(this, core::mem::transmute_copy(&pszmin), core::mem::transmute_copy(&pszmax)).into()
             }
         }
-        unsafe extern "system" fn SetVideoPosition<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnrcsource: *const super::MFVideoNormalizedRect, prcdest: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVideoPosition<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnrcsource: *const super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFVideoDisplayControl_Impl::SetVideoPosition(this, core::mem::transmute_copy(&pnrcsource), core::mem::transmute_copy(&prcdest)).into()
             }
         }
-        unsafe extern "system" fn GetVideoPosition<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnrcsource: *mut super::MFVideoNormalizedRect, prcdest: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVideoPosition<Identity: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnrcsource: *mut super::MFVideoNormalizedRect, prcdest: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFVideoDisplayControl_Impl::GetVideoPosition(this, core::mem::transmute_copy(&pnrcsource), core::mem::transmute_copy(&prcdest)).into()

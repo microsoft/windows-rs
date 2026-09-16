@@ -1,3 +1,51 @@
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserFree(param0: *mut u32, param1: *mut super::HMENU) {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserFree(param0 : *mut u32, param1 : *mut super::HMENU));
+    unsafe { HMENU_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserFree64(param0: *mut u32, param1: *mut super::HMENU) {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserFree64(param0 : *mut u32, param1 : *mut super::HMENU));
+    unsafe { HMENU_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
+    unsafe { HMENU_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
+    unsafe { HMENU_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HMENU) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
+    unsafe { HMENU_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HMENU) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
+    unsafe { HMENU_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
+    unsafe { HMENU_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMENU_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMENU_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
+    unsafe { HMENU_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
 pub type DOCMISC = i32;
 pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = 1;
 pub const DOCMISC_CANTOPENEDIT: DOCMISC = 4;
@@ -328,7 +376,7 @@ impl IOleDocumentView {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn SetRect(&self, prcview: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn SetRect(&self, prcview: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), prcview) }
     }
     #[cfg(feature = "windef")]
@@ -339,7 +387,7 @@ impl IOleDocumentView {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn SetRectComplex(&self, prcview: *const super::RECT, prchscroll: *const super::RECT, prcvscroll: *const super::RECT, prcsizebox: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn SetRectComplex(&self, prcview: super::LPRECT, prchscroll: super::LPRECT, prcvscroll: super::LPRECT, prcsizebox: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRectComplex)(windows_core::Interface::as_raw(self), prcview, prchscroll, prcvscroll, prcsizebox) }
     }
     pub unsafe fn Show(&self, fshow: bool) -> windows_core::HRESULT {
@@ -393,15 +441,15 @@ pub struct IOleDocumentView_Vtbl {
     GetInPlaceSite: usize,
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub SetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT) -> windows_core::HRESULT,
+    pub SetRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     SetRect: usize,
     #[cfg(feature = "windef")]
-    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
+    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetRect: usize,
     #[cfg(feature = "windef")]
-    pub SetRectComplex: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, *const super::RECT, *const super::RECT, *const super::RECT) -> windows_core::HRESULT,
+    pub SetRectComplex: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT, super::LPRECT, super::LPRECT, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     SetRectComplex: usize,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -426,9 +474,9 @@ pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
     fn SetInPlaceSite(&self, pipsite: windows_core::Ref<super::IOleInPlaceSite>) -> windows_core::Result<()>;
     fn GetInPlaceSite(&self) -> windows_core::Result<super::IOleInPlaceSite>;
     fn GetDocument(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetRect(&self, prcview: *const super::RECT) -> windows_core::Result<()>;
+    fn SetRect(&self, prcview: super::LPRECT) -> windows_core::Result<()>;
     fn GetRect(&self) -> windows_core::Result<super::RECT>;
-    fn SetRectComplex(&self, prcview: *const super::RECT, prchscroll: *const super::RECT, prcvscroll: *const super::RECT, prcsizebox: *const super::RECT) -> windows_core::Result<()>;
+    fn SetRectComplex(&self, prcview: super::LPRECT, prchscroll: super::LPRECT, prcvscroll: super::LPRECT, prcsizebox: super::LPRECT) -> windows_core::Result<()>;
     fn Show(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn UIActivate(&self, fuiactivate: windows_core::BOOL) -> windows_core::Result<()>;
     fn Open(&self) -> windows_core::Result<()>;
@@ -470,13 +518,13 @@ impl IOleDocumentView_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRect<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRect<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleDocumentView_Impl::SetRect(this, core::mem::transmute_copy(&prcview)).into()
             }
         }
-        unsafe extern "system" fn GetRect<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRect<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocumentView_Impl::GetRect(this) {
@@ -488,7 +536,7 @@ impl IOleDocumentView_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRectComplex<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: *const super::RECT, prchscroll: *const super::RECT, prcvscroll: *const super::RECT, prcsizebox: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRectComplex<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcview: super::LPRECT, prchscroll: super::LPRECT, prcvscroll: super::LPRECT, prcsizebox: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleDocumentView_Impl::SetRectComplex(this, core::mem::transmute_copy(&prcview), core::mem::transmute_copy(&prchscroll), core::mem::transmute_copy(&prcvscroll), core::mem::transmute_copy(&prcsizebox)).into()
@@ -574,7 +622,7 @@ impl IPrint {
     pub unsafe fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPageInfo)(windows_core::Interface::as_raw(self), pnfirstpage as _, pcpages as _) }
     }
-    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Print<P4>(&self, grfflags: u32, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: P4, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IContinueCallback>,
@@ -588,18 +636,18 @@ pub struct IPrint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInitialPageNum: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetPageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Print: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut super::DVTARGETDEVICE, *mut *mut PAGESET, *mut super::STGMEDIUM, *mut core::ffi::c_void, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
+    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Print: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPrint_Impl: windows_core::IUnknownImpl {
     fn SetInitialPageNum(&self, nfirstpage: i32) -> windows_core::Result<()>;
     fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> windows_core::Result<()>;
     fn Print(&self, grfflags: u32, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: windows_core::Ref<IContinueCallback>, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPrint_Vtbl {
     pub const fn new<Identity: IPrint_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInitialPageNum<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nfirstpage: i32) -> windows_core::HRESULT {
@@ -631,7 +679,7 @@ impl IPrint_Vtbl {
         iid == &<IPrint as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPrint {}
 windows_core::imp::define_interface!(IProtectFocus, IProtectFocus_Vtbl, 0xd81f90a3_8156_44f7_ad28_5abb87003274);
 windows_core::imp::interface_hierarchy!(IProtectFocus, windows_core::IUnknown);
@@ -816,43 +864,43 @@ pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = 2;
 pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = 0;
 pub const MEDIAPLAYBACK_RESUME_FROM_SUSPEND: MEDIAPLAYBACK_STATE = 3;
 pub type MEDIAPLAYBACK_STATE = i32;
-pub const MSOCMDERR_E_CANCELED: i32 = -2147221245;
-pub const MSOCMDERR_E_DISABLED: i32 = -2147221247;
-pub const MSOCMDERR_E_FIRST: i32 = -2147221248;
-pub const MSOCMDERR_E_NOHELP: i32 = -2147221246;
-pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248;
-pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
-pub const MSOCMDEXECOPT_DODEFAULT: i32 = 0;
-pub const MSOCMDEXECOPT_DONTPROMPTUSER: i32 = 2;
-pub const MSOCMDEXECOPT_PROMPTUSER: i32 = 1;
-pub const MSOCMDEXECOPT_SHOWHELP: i32 = 3;
-pub const MSOCMDF_ENABLED: i32 = 2;
-pub const MSOCMDF_LATCHED: i32 = 4;
-pub const MSOCMDF_NINCHED: i32 = 8;
-pub const MSOCMDF_SUPPORTED: i32 = 1;
-pub const MSOCMDID_CLEARSELECTION: i32 = 18;
-pub const MSOCMDID_COPY: i32 = 12;
-pub const MSOCMDID_CUT: i32 = 11;
-pub const MSOCMDID_GETZOOMRANGE: i32 = 20;
-pub const MSOCMDID_NEW: i32 = 2;
-pub const MSOCMDID_OPEN: i32 = 1;
-pub const MSOCMDID_PAGESETUP: i32 = 8;
-pub const MSOCMDID_PASTE: i32 = 13;
-pub const MSOCMDID_PASTESPECIAL: i32 = 14;
-pub const MSOCMDID_PRINT: i32 = 6;
-pub const MSOCMDID_PRINTPREVIEW: i32 = 7;
-pub const MSOCMDID_PROPERTIES: i32 = 10;
-pub const MSOCMDID_REDO: i32 = 16;
-pub const MSOCMDID_SAVE: i32 = 3;
-pub const MSOCMDID_SAVEAS: i32 = 4;
-pub const MSOCMDID_SAVECOPYAS: i32 = 5;
-pub const MSOCMDID_SELECTALL: i32 = 17;
-pub const MSOCMDID_SPELL: i32 = 9;
-pub const MSOCMDID_UNDO: i32 = 15;
-pub const MSOCMDID_ZOOM: i32 = 19;
-pub const MSOCMDTEXTF_NAME: i32 = 1;
-pub const MSOCMDTEXTF_NONE: i32 = 0;
-pub const MSOCMDTEXTF_STATUS: i32 = 2;
+pub const MSOCMDERR_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80040103_u32 as _);
+pub const MSOCMDERR_E_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80040101_u32 as _);
+pub const MSOCMDERR_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
+pub const MSOCMDERR_E_NOHELP: windows_core::HRESULT = windows_core::HRESULT(0x80040102_u32 as _);
+pub const MSOCMDERR_E_NOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
+pub const MSOCMDERR_E_UNKNOWNGROUP: windows_core::HRESULT = windows_core::HRESULT(0x80040104_u32 as _);
+pub const MSOCMDEXECOPT_DODEFAULT: OLECMDEXECOPT = 0;
+pub const MSOCMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = 2;
+pub const MSOCMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = 1;
+pub const MSOCMDEXECOPT_SHOWHELP: OLECMDEXECOPT = 3;
+pub const MSOCMDF_ENABLED: OLECMDF = 2;
+pub const MSOCMDF_LATCHED: OLECMDF = 4;
+pub const MSOCMDF_NINCHED: OLECMDF = 8;
+pub const MSOCMDF_SUPPORTED: OLECMDF = 1;
+pub const MSOCMDID_CLEARSELECTION: OLECMDID = 18;
+pub const MSOCMDID_COPY: OLECMDID = 12;
+pub const MSOCMDID_CUT: OLECMDID = 11;
+pub const MSOCMDID_GETZOOMRANGE: OLECMDID = 20;
+pub const MSOCMDID_NEW: OLECMDID = 2;
+pub const MSOCMDID_OPEN: OLECMDID = 1;
+pub const MSOCMDID_PAGESETUP: OLECMDID = 8;
+pub const MSOCMDID_PASTE: OLECMDID = 13;
+pub const MSOCMDID_PASTESPECIAL: OLECMDID = 14;
+pub const MSOCMDID_PRINT: OLECMDID = 6;
+pub const MSOCMDID_PRINTPREVIEW: OLECMDID = 7;
+pub const MSOCMDID_PROPERTIES: OLECMDID = 10;
+pub const MSOCMDID_REDO: OLECMDID = 16;
+pub const MSOCMDID_SAVE: OLECMDID = 3;
+pub const MSOCMDID_SAVEAS: OLECMDID = 4;
+pub const MSOCMDID_SAVECOPYAS: OLECMDID = 5;
+pub const MSOCMDID_SELECTALL: OLECMDID = 17;
+pub const MSOCMDID_SPELL: OLECMDID = 9;
+pub const MSOCMDID_UNDO: OLECMDID = 15;
+pub const MSOCMDID_ZOOM: OLECMDID = 19;
+pub const MSOCMDTEXTF_NAME: OLECMDTEXTF = 1;
+pub const MSOCMDTEXTF_NONE: OLECMDTEXTF = 0;
+pub const MSOCMDTEXTF_STATUS: OLECMDTEXTF = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMD {
@@ -867,12 +915,12 @@ pub const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: i32 = 4;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: i32 = 0;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: i32 = 1;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: i32 = 2;
-pub const OLECMDERR_E_CANCELED: i32 = -2147221245;
-pub const OLECMDERR_E_DISABLED: i32 = -2147221247;
-pub const OLECMDERR_E_FIRST: i32 = -2147221248;
-pub const OLECMDERR_E_NOHELP: i32 = -2147221246;
-pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248;
-pub const OLECMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
+pub const OLECMDERR_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80040103_u32 as _);
+pub const OLECMDERR_E_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80040101_u32 as _);
+pub const OLECMDERR_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
+pub const OLECMDERR_E_NOHELP: windows_core::HRESULT = windows_core::HRESULT(0x80040102_u32 as _);
+pub const OLECMDERR_E_NOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
+pub const OLECMDERR_E_UNKNOWNGROUP: windows_core::HRESULT = windows_core::HRESULT(0x80040104_u32 as _);
 pub type OLECMDEXECOPT = i32;
 pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = 0;
 pub const OLECMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = 2;
@@ -1093,7 +1141,7 @@ impl Default for PAGESET {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PAGESET_TOLASTPAGE: u32 = 65535;
+pub const PAGESET_TOLASTPAGE: u16 = 65535;
 pub type PRINTFLAG = i32;
 pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = 16;
 pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = 32;

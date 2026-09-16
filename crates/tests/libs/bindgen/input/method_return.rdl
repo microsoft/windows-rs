@@ -42,6 +42,10 @@ mod Test {
             &self,
             #[retval] result: *mut *mut void,
         ) -> HRESULT;
+        fn ConstResultValue(
+            &self,
+            #[out] result: *const *const u16,
+        ) -> HRESULT;
     }
 }
 

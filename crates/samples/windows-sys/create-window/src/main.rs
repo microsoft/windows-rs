@@ -31,7 +31,7 @@ fn main() {
         let window_class = s!("window");
 
         let wc = WNDCLASSA {
-            hCursor: LoadCursorW(core::ptr::null_mut(), IDC_ARROW),
+            hCursor: LoadCursorW(core::ptr::null_mut(), IDC_ARROW.cast()),
             hInstance: instance,
             lpszClassName: window_class,
             style: (CS_HREDRAW | CS_VREDRAW) as u32,

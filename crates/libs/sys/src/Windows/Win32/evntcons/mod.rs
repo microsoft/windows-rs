@@ -1,8 +1,9 @@
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_sys::core::GUID, operation : u32, sid : super::PSID, rights : u32, allowordeny : bool) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn EventAccessQuery(guid : *const windows_sys::core::GUID, buffer : super::PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventAccessRemove(guid : *const windows_sys::core::GUID) -> u32);
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn EventAccessControl(guid : super::LPGUID, operation : u32, sid : super::PSID, rights : u32, allowordeny : super::BOOLEAN) -> u32);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn EventAccessQuery(guid : super::LPGUID, buffer : super::PSECURITY_DESCRIPTOR, buffersize : super::PULONG) -> u32);
+#[cfg(feature = "guiddef")]
+windows_link::link!("advapi32.dll" "system" fn EventAccessRemove(guid : super::LPGUID) -> u32);
 pub type ETW_PROVIDER_TRAIT_TYPE = i32;
 pub type EVENTSECURITYOPERATION = i32;
 pub const EVENT_ENABLE_PROPERTY_ENABLE_KEYWORD_0: i32 = 64;
@@ -95,7 +96,7 @@ pub struct EVENT_EXTENDED_ITEM_TS_ID {
     pub SessionId: u32,
 }
 #[repr(C)]
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_HEADER {
     pub Size: u16,
@@ -104,33 +105,33 @@ pub struct EVENT_HEADER {
     pub EventProperty: u16,
     pub ThreadId: u32,
     pub ProcessId: u32,
-    pub TimeStamp: i64,
+    pub TimeStamp: super::LARGE_INTEGER,
     pub ProviderId: windows_sys::core::GUID,
     pub EventDescriptor: super::EVENT_DESCRIPTOR,
     pub Anonymous: EVENT_HEADER_0,
     pub ActivityId: windows_sys::core::GUID,
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "winnt"))]
 impl Default for EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union EVENT_HEADER_0 {
     pub Anonymous: EVENT_HEADER_0_0,
     pub ProcessorTime: u64,
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "winnt"))]
 impl Default for EVENT_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_HEADER_0_0 {
     pub KernelTime: u32,
@@ -185,7 +186,7 @@ pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: i32 = 4;
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: i32 = 8;
 pub const EVENT_HEADER_PROPERTY_XML: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "evntprov", feature = "evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_RECORD {
     pub EventHeader: EVENT_HEADER,
@@ -196,7 +197,7 @@ pub struct EVENT_RECORD {
     pub UserData: *mut core::ffi::c_void,
     pub UserContext: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "evntprov", feature = "evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "winnt"))]
 impl Default for EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -210,7 +211,7 @@ pub const EventSecurityAddSACL: EVENTSECURITYOPERATION = 3;
 pub const EventSecurityMax: EVENTSECURITYOPERATION = 4;
 pub const EventSecuritySetDACL: EVENTSECURITYOPERATION = 0;
 pub const EventSecuritySetSACL: EVENTSECURITYOPERATION = 1;
-#[cfg(all(feature = "evntprov", feature = "evntrace"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "winnt"))]
 pub type PCEVENT_RECORD = *const EVENT_RECORD;
 pub type PEVENT_EXTENDED_ITEM_EVENT_KEY = *mut EVENT_EXTENDED_ITEM_EVENT_KEY;
 pub type PEVENT_EXTENDED_ITEM_INSTANCE = *mut EVENT_EXTENDED_ITEM_INSTANCE;
@@ -223,7 +224,7 @@ pub type PEVENT_EXTENDED_ITEM_STACK_KEY64 = *mut EVENT_EXTENDED_ITEM_STACK_KEY64
 pub type PEVENT_EXTENDED_ITEM_STACK_TRACE32 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE32;
 pub type PEVENT_EXTENDED_ITEM_STACK_TRACE64 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE64;
 pub type PEVENT_EXTENDED_ITEM_TS_ID = *mut EVENT_EXTENDED_ITEM_TS_ID;
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "winnt"))]
 pub type PEVENT_HEADER = *mut EVENT_HEADER;
 pub type PEVENT_HEADER_EXTENDED_DATA_ITEM = *mut EVENT_HEADER_EXTENDED_DATA_ITEM;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: i32 = 268435456;

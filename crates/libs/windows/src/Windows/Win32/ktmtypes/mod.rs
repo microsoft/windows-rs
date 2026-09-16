@@ -3,6 +3,10 @@ pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: i32 = 1;
 pub type CRM_PROTOCOL_ID = windows_core::GUID;
 pub const CRM_PROTOCOL_MAXIMUM_OPTION: i32 = 3;
 pub const ENLISTMENT_MAXIMUM_OPTION: i32 = 1;
+#[cfg(target_arch = "x86")]
+pub const ENLISTMENT_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 102;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const ENLISTMENT_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 102;
 pub const ENLISTMENT_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Enlistment\\");
 pub const ENLISTMENT_SUPERIOR: i32 = 1;
 #[repr(C)]
@@ -41,9 +45,7 @@ pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: i32 = 1;
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: i32 = 1;
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: i32 = 64;
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: i32 = 64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NOTIFICATION_MASK(pub u32);
+pub type NOTIFICATION_MASK = u32;
 pub type PCRM_PROTOCOL_ID = *mut windows_core::GUID;
 pub type PKCRM_MARSHAL_HEADER = *mut KCRM_MARSHAL_HEADER;
 pub type PKCRM_PROTOCOL_BLOB = *mut KCRM_PROTOCOL_BLOB;
@@ -52,6 +54,7 @@ pub type PRKCRM_MARSHAL_HEADER = *mut KCRM_MARSHAL_HEADER;
 pub type PRKCRM_PROTOCOL_BLOB = *mut KCRM_PROTOCOL_BLOB;
 pub type PRKCRM_TRANSACTION_BLOB = *mut KCRM_TRANSACTION_BLOB;
 pub type PSAVEPOINT_ID = *mut u32;
+#[cfg(feature = "winnt")]
 pub type PTRANSACTION_NOTIFICATION = *mut TRANSACTION_NOTIFICATION;
 pub type PTRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT = *mut TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT;
 pub type PTRANSACTION_NOTIFICATION_PROMOTE_ARGUMENT = *mut TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
@@ -62,11 +65,17 @@ pub type PTRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT = *mut TRANSACTION_NOTIFIC
 pub type PUOW = *mut windows_core::GUID;
 pub const RESOURCE_MANAGER_COMMUNICATION: i32 = 2;
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: i32 = 3;
+#[cfg(target_arch = "x86")]
+pub const RESOURCE_MANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 112;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const RESOURCE_MANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 112;
 pub const RESOURCE_MANAGER_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\ResourceManager\\");
 pub const RESOURCE_MANAGER_VOLATILE: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SAVEPOINT_ID(pub u32);
+pub type SAVEPOINT_ID = u32;
+#[cfg(target_arch = "x86")]
+pub const TRANSACTIONMANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 118;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const TRANSACTIONMANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 118;
 pub const TRANSACTIONMANAGER_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\TransactionManager\\");
 pub const TRANSACTION_DO_NOT_PROMOTE: i32 = 1;
 pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: i32 = 0;
@@ -79,12 +88,19 @@ pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: i32 = 63;
 pub const TRANSACTION_MANAGER_VOLATILE: i32 = 1;
 pub const TRANSACTION_MAXIMUM_OPTION: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut core::ffi::c_void,
     pub TransactionNotification: u32,
-    pub TmVirtualClock: i64,
+    pub TmVirtualClock: super::LARGE_INTEGER,
     pub ArgumentLength: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for TRANSACTION_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -146,5 +162,9 @@ pub const TRANSACTION_NOTIFY_ROLLBACK: i32 = 8;
 pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: i32 = 128;
 pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: i32 = 512;
 pub const TRANSACTION_NOTIFY_TM_ONLINE: i32 = 33554432;
+#[cfg(target_arch = "x86")]
+pub const TRANSACTION_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 104;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const TRANSACTION_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 104;
 pub const TRANSACTION_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Transaction\\");
 pub type UOW = windows_core::GUID;

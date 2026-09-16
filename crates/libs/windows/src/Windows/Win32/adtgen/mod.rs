@@ -22,9 +22,7 @@ pub const AP_ParamTypeBits: i32 = 8;
 pub const AP_ParamTypeMask: i32 = 255;
 pub const AP_PrimaryLogonId: i32 = 256;
 pub const AP_SidAsLogonId: i32 = 256;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct AUDIT_HANDLE(pub *mut core::ffi::c_void);
+pub type AUDIT_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_IP_ADDRESS {
@@ -150,9 +148,7 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
 }
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: i32 = 2;
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PAUDIT_HANDLE(pub *mut *mut core::ffi::c_void);
+pub type PAUDIT_HANDLE = *mut *mut core::ffi::c_void;
 pub type PAUDIT_IP_ADDRESS = *mut AUDIT_IP_ADDRESS;
 #[cfg(feature = "winnt")]
 pub type PAUDIT_OBJECT_TYPE = *mut AUDIT_OBJECT_TYPE;
@@ -166,3 +162,4 @@ pub type PAUTHZ_AUDIT_EVENT_TYPE_LEGACY = *mut AUTHZ_AUDIT_EVENT_TYPE_LEGACY;
 #[cfg(feature = "winnt")]
 pub type PAUTHZ_AUDIT_EVENT_TYPE_OLD = *mut AUTHZ_AUDIT_EVENT_TYPE_OLD;
 pub type PAUTHZ_AUDIT_EVENT_TYPE_UNION = *mut AUTHZ_AUDIT_EVENT_TYPE_UNION;
+pub const _AUTHZ_SS_MAXSIZE: i32 = 128;

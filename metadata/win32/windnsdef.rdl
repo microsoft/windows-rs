@@ -168,7 +168,6 @@ mod Windows {
             chRcode: u8,
             chVersion: u8,
         }
-        type DNS_KEY_DATA = DNS_DNSKEY_DATA;
         struct DNS_LOC_DATA {
             wVersion: u16,
             wSize: u16,
@@ -335,10 +334,10 @@ mod Windows {
                 WKS: DNS_WKS_DATA,
                 Wks: DNS_WKS_DATA,
                 AAAA: DNS_AAAA_DATA,
-                KEY: DNS_KEY_DATA,
-                Key: DNS_KEY_DATA,
-                SIG: DNS_SIG_DATAA,
-                Sig: DNS_SIG_DATAA,
+                KEY: DNS_DNSKEY_DATA,
+                Key: DNS_DNSKEY_DATA,
+                SIG: DNS_RRSIG_DATAA,
+                Sig: DNS_RRSIG_DATAA,
                 ATMA: DNS_ATMA_DATA,
                 Atma: DNS_ATMA_DATA,
                 NXT: DNS_NXT_DATAA,
@@ -435,10 +434,10 @@ mod Windows {
                 WKS: DNS_WKS_DATA,
                 Wks: DNS_WKS_DATA,
                 AAAA: DNS_AAAA_DATA,
-                KEY: DNS_KEY_DATA,
-                Key: DNS_KEY_DATA,
-                SIG: DNS_SIG_DATAW,
-                Sig: DNS_SIG_DATAW,
+                KEY: DNS_DNSKEY_DATA,
+                Key: DNS_DNSKEY_DATA,
+                SIG: DNS_RRSIG_DATAW,
+                Sig: DNS_RRSIG_DATAW,
                 ATMA: DNS_ATMA_DATA,
                 Atma: DNS_ATMA_DATA,
                 NXT: DNS_NXT_DATAW,
@@ -625,9 +624,7 @@ mod Windows {
             DnsSectionAuthority = 2,
             DnsSectionAddtional = 3,
         }
-        type DNS_SIG_DATA = DNS_SIG_DATAA;
-        type DNS_SIG_DATAA = DNS_RRSIG_DATAA;
-        type DNS_SIG_DATAW = DNS_RRSIG_DATAW;
+        type DNS_SIG_DATA = DNS_RRSIG_DATAA;
         type DNS_SOA_DATA = DNS_SOA_DATAA;
         struct DNS_SOA_DATAA {
             pNamePrimaryServer: PSTR,
@@ -894,9 +891,9 @@ mod Windows {
             chProtocol: u8,
             BitMask: [u8; 1],
         }
-        const DnsSectionPrereq: i32 = 1;
-        const DnsSectionUpdate: i32 = 2;
-        const DnsSectionZone: i32 = 0;
+        const DnsSectionPrereq: DNS_SECTION = 1;
+        const DnsSectionUpdate: DNS_SECTION = 2;
+        const DnsSectionZone: DNS_SECTION = 0;
         type IP4_ADDRESS = u32;
         const IP4_ADDRESS_STRING_BUFFER_LENGTH: i32 = 16;
         const IP4_ADDRESS_STRING_LENGTH: i32 = 16;
@@ -957,7 +954,7 @@ mod Windows {
         type PDNS_RRSIG_DATA = *mut DNS_RRSIG_DATAA;
         type PDNS_RRSIG_DATAA = *mut DNS_RRSIG_DATAA;
         type PDNS_RRSIG_DATAW = *mut DNS_RRSIG_DATAW;
-        type PDNS_SIG_DATA = *mut DNS_SIG_DATAA;
+        type PDNS_SIG_DATA = *mut DNS_RRSIG_DATAA;
         type PDNS_SIG_DATAA = *mut DNS_RRSIG_DATAA;
         type PDNS_SIG_DATAW = *mut DNS_RRSIG_DATAW;
         type PDNS_SOA_DATA = *mut DNS_SOA_DATAA;

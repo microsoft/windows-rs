@@ -36,9 +36,9 @@ windows_link::link!("shell32.dll" "system" fn InitNetworkAddressControl() -> win
 windows_link::link!("shell32.dll" "system" fn IsLFNDriveA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn IsLFNDriveW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHAppBarMessage(dwmessage : u32, pdata : *mut APPBARDATA) -> usize);
+windows_link::link!("shell32.dll" "system" fn SHAppBarMessage(dwmessage : u32, pdata : PAPPBARDATA) -> usize);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHCreateProcessAsUserW(pscpi : *mut SHCREATEPROCESSINFOW) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn SHCreateProcessAsUserW(pscpi : PSHCREATEPROCESSINFOW) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHEmptyRecycleBinA(hwnd : super::HWND, pszrootpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
@@ -47,13 +47,15 @@ windows_link::link!("shell32.dll" "system" fn SHEmptyRecycleBinW(hwnd : super::H
 windows_link::link!("shell32.dll" "system" fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::HKEY, dwindex : u32, pszmailaddress : windows_sys::core::PWSTR, cchmailaddress : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHEvaluateSystemCommandTemplate(pszcmdtemplate : windows_sys::core::PCWSTR, ppszapplication : *mut windows_sys::core::PWSTR, ppszcommandline : *mut windows_sys::core::PWSTR, ppszparameters : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHFileOperationA(lpfileop : *mut SHFILEOPSTRUCTA) -> i32);
+windows_link::link!("shell32.dll" "system" fn SHFileOperationA(lpfileop : LPSHFILEOPSTRUCTA) -> i32);
 #[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHFileOperationW(lpfileop : *mut SHFILEOPSTRUCTW) -> i32);
+windows_link::link!("shell32.dll" "system" fn SHFileOperationW(lpfileop : LPSHFILEOPSTRUCTW) -> i32);
 #[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHFreeNameMappings(hnamemappings : super::HANDLE));
-windows_link::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : windows_sys::core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : windows_sys::core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : windows_sys::core::PCSTR, pulfreebytesavailabletocaller : *mut super::ULARGE_INTEGER, pultotalnumberofbytes : *mut super::ULARGE_INTEGER, pultotalnumberoffreebytes : *mut super::ULARGE_INTEGER) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : windows_sys::core::PCWSTR, pulfreebytesavailabletocaller : *mut super::ULARGE_INTEGER, pultotalnumberofbytes : *mut super::ULARGE_INTEGER, pultotalnumberoffreebytes : *mut super::ULARGE_INTEGER) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn SHGetDriveMedia(pszdrive : windows_sys::core::PCWSTR, pdwmediacontent : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetFileInfoA(pszpath : windows_sys::core::PCSTR, dwfileattributes : u32, psfi : *mut SHFILEINFOA, cbfileinfo : u32, uflags : u32) -> usize);
@@ -75,8 +77,8 @@ windows_link::link!("shell32.dll" "system" fn SHInvokePrinterCommandA(hwnd : sup
 windows_link::link!("shell32.dll" "system" fn SHInvokePrinterCommandW(hwnd : super::HWND, uaction : u32, lpbuf1 : windows_sys::core::PCWSTR, lpbuf2 : windows_sys::core::PCWSTR, fmodal : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn SHIsFileAvailableOffline(pwszpath : windows_sys::core::PCWSTR, pdwstatus : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHLoadNonloadedIconOverlayIdentifiers() -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHQueryRecycleBinA(pszrootpath : windows_sys::core::PCSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHQueryRecycleBinW(pszrootpath : windows_sys::core::PCWSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHQueryRecycleBinA(pszrootpath : windows_sys::core::PCSTR, pshqueryrbinfo : LPSHQUERYRBINFO) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn SHQueryRecycleBinW(pszrootpath : windows_sys::core::PCWSTR, pshqueryrbinfo : LPSHQUERYRBINFO) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHQueryUserNotificationState(pquns : *mut QUERY_USER_NOTIFICATION_STATE) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHRemoveLocalizedName(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHSetLocalizedName(pszpath : windows_sys::core::PCWSTR, pszresmodule : windows_sys::core::PCWSTR, idsres : i32) -> windows_sys::core::HRESULT);
@@ -100,11 +102,11 @@ windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxA(happinst : super::HINS
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxW(happinst : super::HINSTANCE, hwnd : super::HWND, lpctext : windows_sys::core::PCWSTR, lpctitle : windows_sys::core::PCWSTR, fustyle : u32, ...) -> i32);
 #[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconA(dwmessage : u32, lpdata : *const NOTIFYICONDATAA) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconA(dwmessage : u32, lpdata : PNOTIFYICONDATAA) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut super::RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : *const NOTIFYICONDATAW) -> windows_sys::core::BOOL);
+windows_link::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : PNOTIFYICONDATAW) -> windows_sys::core::BOOL);
 pub const ABC_OVERLAYDESKTOPICONS: i32 = 1;
 pub const ABE_BOTTOM: i32 = 3;
 pub const ABE_LEFT: i32 = 0;
@@ -252,7 +254,19 @@ pub const FO_COPY: i32 = 2;
 pub const FO_DELETE: i32 = 3;
 pub const FO_MOVE: i32 = 1;
 pub const FO_RENAME: i32 = 4;
-pub type HDROP = *mut core::ffi::c_void;
+pub type HDROP = *mut HDROP__;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct HDROP__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct HDROP__ {
+    pub unused: i32,
+}
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPDRAGINFO = LPDRAGINFOA;
 #[cfg(all(feature = "windef", feature = "winnt"))]

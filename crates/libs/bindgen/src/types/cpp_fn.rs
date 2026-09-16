@@ -231,8 +231,11 @@ impl CppFn {
             }
             ReturnHint::ResultValue => {
                 let where_clause = method.write_where(config, false);
-                let return_type = signature.params[signature.params.len() - 1].deref();
-                let map = return_type.write_result_map(config.reader);
+                let return_type =
+                    signature.params[signature.params.len() - 1].projection_pointee(config.reader);
+                let map = return_type
+                    .projection_type(config.reader)
+                    .write_result_map(config.reader);
                 let return_type = return_type.write_name(config);
 
                 quote! {
@@ -250,10 +253,11 @@ impl CppFn {
             ReturnHint::ReturnValue => {
                 let where_clause = method.write_where(config, false);
 
-                let return_type =
-                    method.signature.params[method.signature.params.len() - 1].deref();
+                let return_type = method.signature.params[method.signature.params.len() - 1]
+                    .projection_pointee(config.reader);
+                let projection_type = return_type.projection_type(config.reader);
 
-                if return_type.is_interface() {
+                if projection_type.is_interface_with_reader(config.reader) {
                     let return_type = return_type.write_name(config);
 
                     quote! {
@@ -269,7 +273,7 @@ impl CppFn {
                         }
                     }
                 } else {
-                    let map = if return_type.is_copyable(config.reader) {
+                    let map = if projection_type.is_copyable(config.reader) {
                         quote! { result__ }
                     } else {
                         quote! { core::mem::transmute(result__) }

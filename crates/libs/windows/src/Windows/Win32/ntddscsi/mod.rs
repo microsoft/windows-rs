@@ -133,7 +133,7 @@ impl Default for DSM_NOTIFICATION_REQUEST_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> i32>;
+pub type DUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_DRIVER {
@@ -167,19 +167,21 @@ pub const DUMP_EX_FLAG_RESUME_SUPPORT: i32 = 4;
 pub const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: i32 = 1;
 pub const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DUMP_POINTERS {
     pub AdapterObject: *mut _ADAPTER_OBJECT,
     pub MappedRegisterBase: *mut core::ffi::c_void,
     pub DumpData: *mut core::ffi::c_void,
     pub CommonBufferVa: *mut core::ffi::c_void,
-    pub CommonBufferPa: i64,
+    pub CommonBufferPa: super::LARGE_INTEGER,
     pub CommonBufferSize: u32,
-    pub AllocateCommonBuffers: bool,
-    pub UseDiskDump: bool,
+    pub AllocateCommonBuffers: super::BOOLEAN,
+    pub UseDiskDump: super::BOOLEAN,
     pub Spare1: [u8; 2],
     pub DeviceObject: *mut core::ffi::c_void,
 }
+#[cfg(feature = "winnt")]
 impl Default for DUMP_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -193,7 +195,7 @@ pub struct DUMP_POINTERS_EX {
     pub DumpData: *mut core::ffi::c_void,
     pub CommonBufferVa: *mut core::ffi::c_void,
     pub CommonBufferSize: u32,
-    pub AllocateCommonBuffers: bool,
+    pub AllocateCommonBuffers: super::BOOLEAN,
     pub DeviceObject: *mut core::ffi::c_void,
     pub DriverList: *mut core::ffi::c_void,
     pub dwPortFlags: u32,
@@ -214,6 +216,10 @@ pub const DUMP_POINTERS_EX_V2_SIZE: u32 = 48;
 pub const DUMP_POINTERS_EX_V3_SIZE: u32 = 60;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DUMP_POINTERS_EX_V3_SIZE: u32 = 88;
+#[cfg(target_arch = "x86")]
+pub const DUMP_POINTERS_EX_V4_SIZE: u32 = 68;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DUMP_POINTERS_EX_V4_SIZE: u64 = 104;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUMP_POINTERS_VERSION {
@@ -290,11 +296,12 @@ pub const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: i32 = 17;
 pub const HYBRID_FUNCTION_GET_INFO: i32 = 1;
 pub const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: i32 = 18;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION {
     pub Version: u32,
     pub Size: u32,
-    pub HybridSupported: bool,
+    pub HybridSupported: super::BOOLEAN,
     pub Status: NVCACHE_STATUS,
     pub CacheTypeEffective: NVCACHE_TYPE,
     pub CacheTypeDefault: NVCACHE_TYPE,
@@ -304,10 +311,12 @@ pub struct HYBRID_INFORMATION {
     pub Priorities: HYBRID_INFORMATION_1,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
 impl HYBRID_INFORMATION_0 {
     pub fn WriteCacheChangeable(&self) -> bool {
         self._bitfield & 1 != 0
@@ -341,10 +350,11 @@ impl HYBRID_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_1 {
     pub PriorityLevelCount: u8,
-    pub MaxPriorityBehavior: bool,
+    pub MaxPriorityBehavior: super::BOOLEAN,
     pub OptimalWriteGranularity: u8,
     pub Reserved: u8,
     pub DirtyThresholdLow: u32,
@@ -352,12 +362,14 @@ pub struct HYBRID_INFORMATION_1 {
     pub SupportedCommands: HYBRID_INFORMATION_1_0,
     pub Priority: [NVCACHE_PRIORITY_LEVEL_DESCRIPTOR; 0],
 }
+#[cfg(feature = "winnt")]
 impl Default for HYBRID_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
@@ -365,6 +377,7 @@ pub struct HYBRID_INFORMATION_1_0 {
     pub MaxLbaRangeCountForEvict: u32,
     pub MaxLbaRangeCountForChangeLba: u32,
 }
+#[cfg(feature = "winnt")]
 impl HYBRID_INFORMATION_1_0 {
     pub fn CacheDisable(&self) -> bool {
         self._bitfield & 1 != 0
@@ -474,6 +487,7 @@ pub const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: i32 = 315464;
 pub const IOCTL_SCSI_PASS_THROUGH_EX: i32 = 315460;
 pub const IOCTL_SCSI_RESCAN_BUS: i32 = 266268;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SCSI_CAPABILITIES {
     pub Length: u32,
@@ -481,9 +495,9 @@ pub struct IO_SCSI_CAPABILITIES {
     pub MaximumPhysicalPages: u32,
     pub SupportedAsynchronousEvents: u32,
     pub AlignmentMask: u32,
-    pub TaggedQueuing: bool,
-    pub AdapterScansDown: bool,
-    pub AdapterUsesPio: bool,
+    pub TaggedQueuing: super::BOOLEAN,
+    pub AdapterScansDown: super::BOOLEAN,
+    pub AdapterUsesPio: super::BOOLEAN,
 }
 pub const MINIPORT_DSM_NOTIFICATION_VERSION: i32 = 1;
 pub const MINIPORT_DSM_NOTIFICATION_VERSION_1: i32 = 1;
@@ -778,10 +792,11 @@ pub type PATA_PASS_THROUGH_EX = *mut ATA_PASS_THROUGH_EX;
 pub type PATA_PASS_THROUGH_EX32 = *mut ATA_PASS_THROUGH_EX32;
 pub type PBOOT_PARTITION_REQUEST_BLOCK = *mut BOOT_PARTITION_REQUEST_BLOCK;
 pub type PDSM_NOTIFICATION_REQUEST_BLOCK = *mut DSM_NOTIFICATION_REQUEST_BLOCK;
-pub type PDUMP_DEVICE_POWERON_ROUTINE = *mut DUMP_DEVICE_POWERON_ROUTINE;
+pub type PDUMP_DEVICE_POWERON_ROUTINE = *mut u8;
 pub type PDUMP_DRIVER = *mut DUMP_DRIVER;
 #[cfg(feature = "winnt")]
 pub type PDUMP_DRIVER_EX = *mut DUMP_DRIVER_EX;
+#[cfg(feature = "winnt")]
 pub type PDUMP_POINTERS = *mut DUMP_POINTERS;
 #[cfg(feature = "winnt")]
 pub type PDUMP_POINTERS_EX = *mut DUMP_POINTERS_EX;
@@ -789,9 +804,11 @@ pub type PDUMP_POINTERS_VERSION = *mut DUMP_POINTERS_VERSION;
 pub type PFIRMWARE_REQUEST_BLOCK = *mut FIRMWARE_REQUEST_BLOCK;
 pub type PHYBRID_DEMOTE_BY_SIZE = *mut HYBRID_DEMOTE_BY_SIZE;
 pub type PHYBRID_DIRTY_THRESHOLDS = *mut HYBRID_DIRTY_THRESHOLDS;
+#[cfg(feature = "winnt")]
 pub type PHYBRID_INFORMATION = *mut HYBRID_INFORMATION;
 pub type PHYBRID_REQUEST_BLOCK = *mut HYBRID_REQUEST_BLOCK;
 pub type PIDE_IO_CONTROL = *mut IDE_IO_CONTROL;
+#[cfg(feature = "winnt")]
 pub type PIO_SCSI_CAPABILITIES = *mut IO_SCSI_CAPABILITIES;
 pub type PMPIO_PASS_THROUGH_PATH = *mut MPIO_PASS_THROUGH_PATH;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -819,6 +836,7 @@ pub type PNV_SEP_WRITE_CACHE_TYPE = *mut NV_SEP_WRITE_CACHE_TYPE;
 pub type PSCSI_ADAPTER_BUS_INFO = *mut SCSI_ADAPTER_BUS_INFO;
 pub type PSCSI_ADDRESS = *mut SCSI_ADDRESS;
 pub type PSCSI_BUS_DATA = *mut SCSI_BUS_DATA;
+#[cfg(feature = "winnt")]
 pub type PSCSI_INQUIRY_DATA = *mut SCSI_INQUIRY_DATA;
 pub type PSCSI_PASS_THROUGH = *mut SCSI_PASS_THROUGH;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -842,9 +860,13 @@ pub type PSTORAGE_ENDURANCE_INFO = *mut STORAGE_ENDURANCE_INFO;
 pub type PSTORAGE_FIRMWARE_ACTIVATE = *mut STORAGE_FIRMWARE_ACTIVATE;
 pub type PSTORAGE_FIRMWARE_DOWNLOAD = *mut STORAGE_FIRMWARE_DOWNLOAD;
 pub type PSTORAGE_FIRMWARE_DOWNLOAD_V2 = *mut STORAGE_FIRMWARE_DOWNLOAD_V2;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_FIRMWARE_INFO = *mut STORAGE_FIRMWARE_INFO;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_FIRMWARE_INFO_V2 = *mut STORAGE_FIRMWARE_INFO_V2;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_FIRMWARE_SLOT_INFO = *mut STORAGE_FIRMWARE_SLOT_INFO;
+#[cfg(feature = "winnt")]
 pub type PSTORAGE_FIRMWARE_SLOT_INFO_V2 = *mut STORAGE_FIRMWARE_SLOT_INFO_V2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -874,16 +896,18 @@ pub struct SCSI_BUS_DATA {
     pub InquiryDataOffset: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_INQUIRY_DATA {
     pub PathId: u8,
     pub TargetId: u8,
     pub Lun: u8,
-    pub DeviceClaimed: bool,
+    pub DeviceClaimed: super::BOOLEAN,
     pub InquiryDataLength: u32,
     pub NextInquiryDataOffset: u32,
     pub InquiryData: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for SCSI_INQUIRY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1259,17 +1283,19 @@ impl Default for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
-    pub UpgradeSupport: bool,
+    pub UpgradeSupport: super::BOOLEAN,
     pub SlotCount: u8,
     pub ActiveSlot: u8,
     pub PendingActivateSlot: u8,
     pub Reserved: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO; 0],
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1279,57 +1305,65 @@ pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: i32 = 255;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: i32 = 1;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub Version: u32,
     pub Size: u32,
-    pub UpgradeSupport: bool,
+    pub UpgradeSupport: super::BOOLEAN,
     pub SlotCount: u8,
     pub ActiveSlot: u8,
     pub PendingActivateSlot: u8,
-    pub FirmwareShared: bool,
+    pub FirmwareShared: super::BOOLEAN,
     pub Reserved: [u8; 3],
     pub ImagePayloadAlignment: u32,
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO_V2; 0],
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_FIRMWARE_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO {
     pub SlotNumber: u8,
-    pub ReadOnly: bool,
+    pub ReadOnly: super::BOOLEAN,
     pub Reserved: [u8; 6],
     pub Revision: STORAGE_FIRMWARE_SLOT_INFO_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_FIRMWARE_SLOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
     pub AsUlonglong: u64,
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub SlotNumber: u8,
-    pub ReadOnly: bool,
+    pub ReadOnly: super::BOOLEAN,
     pub Reserved: [u8; 6],
     pub Revision: [u8; 16],
 }
+#[cfg(feature = "winnt")]
 impl Default for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

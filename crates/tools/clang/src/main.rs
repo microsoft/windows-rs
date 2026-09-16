@@ -1,4 +1,4 @@
-//! Validator for the libclang pin owned by the `windows-clang` crate. Like the other
+//! Validator for the libclang pin owned by the generator helpers. Like the other
 //! `gen`-matrix tools it is run by CI and "validates by running": it writes nothing, so the
 //! tree stays clean, and any inconsistency in how libclang is pinned fails the run loudly.
 //!
@@ -9,18 +9,18 @@
 //! git tag), so this tool confirms that pin loads and self-provisions rather than checking a
 //! version literal for drift - there is only one to bump.
 
+use helpers::LIBCLANG_VERSION;
 use std::path::Path;
-use windows_clang::LIBCLANG_VERSION;
 
 fn main() {
     // `tool-clang path` prints the directory holding the pinned `libclang.dll` (respecting an
     // existing `LIBCLANG_PATH`). CI's `test.yml` captures it into `LIBCLANG_PATH` for the
-    // `test_clang` suite, so the multithreaded test runner never calls the unsafe `set_var`.
+    // `windows-clang` tests, so the multithreaded test runner never calls the unsafe `set_var`.
     if std::env::args().nth(1).as_deref() == Some("path") {
         if let Some(dir) = std::env::var_os("LIBCLANG_PATH") {
             println!("{}", Path::new(&dir).display());
         } else {
-            println!("{}", windows_clang::libclang_dir().display());
+            println!("{}", helpers::libclang_dir().display());
         }
         return;
     }
@@ -28,8 +28,8 @@ fn main() {
     // Fetch + load the pinned `libclang.dll` and assert it reports `LIBCLANG_VERSION`. This is the
     // same provisioning as the scrapers, so a broken or missing pin fails here rather than
     // during a scrape.
-    windows_clang::ensure_libclang();
-    windows_clang::assert_libclang_version();
+    helpers::ensure_libclang();
+    helpers::assert_libclang_version();
 
     println!("clang pin OK: libclang {LIBCLANG_VERSION}");
 }

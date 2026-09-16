@@ -86,6 +86,7 @@ mod Windows {
             DIRECTMANIPULATION_INTERACTION_END = 100,
         }
         const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294;
+        const DIRECTMANIPULATION_MINIMUM_ZOOM: f32 = 0.1;
         #[repr(u32)]
         #[flags]
         enum DIRECTMANIPULATION_MOTION_TYPES {
@@ -183,7 +184,7 @@ mod Windows {
         #[guid(0x814b5af5_c2c8_4270_a9b7_a198ce8d02fa)]
         interface IDirectManipulationDragDropBehavior: IUnknown {
             fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> HRESULT;
-            fn GetStatus(&self, status: *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> HRESULT;
+            fn GetStatus(&self, #[retval] status: *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> HRESULT;
         }
         #[guid(0x1fa11b10_701b_41ae_b5f2_49e36bd595aa)]
         interface IDirectManipulationDragDropEventHandler: IUnknown {
@@ -202,7 +203,7 @@ mod Windows {
             fn Activate(&self, window: HWND) -> HRESULT;
             fn Deactivate(&self, window: HWND) -> HRESULT;
             fn RegisterHitTestTarget(&self, window: HWND, #[opt] hitTestWindow: HWND, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> HRESULT;
-            fn ProcessInput(&self, message: *const MSG, handled: *mut BOOL) -> HRESULT;
+            fn ProcessInput(&self, message: *const MSG, #[retval] handled: *mut BOOL) -> HRESULT;
             fn GetUpdateManager(&self, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
             fn CreateViewport(&self, #[opt] frameInfo: IDirectManipulationFrameInfoProvider, window: HWND, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
             fn CreateContent(&self, #[opt] frameInfo: IDirectManipulationFrameInfoProvider, clsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
@@ -251,10 +252,10 @@ mod Windows {
             fn SetContact(&self, pointerId: u32) -> HRESULT;
             fn ReleaseContact(&self, pointerId: u32) -> HRESULT;
             fn ReleaseAllContacts(&self) -> HRESULT;
-            fn GetStatus(&self, status: *mut DIRECTMANIPULATION_STATUS) -> HRESULT;
+            fn GetStatus(&self, #[retval] status: *mut DIRECTMANIPULATION_STATUS) -> HRESULT;
             fn GetTag(&self, riid: *const GUID, #[iid_is] #[opt] object: *mut *mut void, #[opt] id: *mut u32) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
-            fn GetViewportRect(&self, viewport: *mut RECT) -> HRESULT;
+            fn GetViewportRect(&self, #[retval] viewport: *mut RECT) -> HRESULT;
             fn SetViewportRect(&self, viewport: *const RECT) -> HRESULT;
             fn ZoomToRect(&self, left: f32, top: f32, right: f32, bottom: f32, animate: BOOL) -> HRESULT;
             fn SetViewportTransform(&self, #[len_param(1)] matrix: *const f32, pointCount: u32) -> HRESULT;
@@ -268,7 +269,7 @@ mod Windows {
             fn ActivateConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> HRESULT;
             fn SetManualGesture(&self, configuration: DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> HRESULT;
             fn SetChaining(&self, enabledTypes: DIRECTMANIPULATION_MOTION_TYPES) -> HRESULT;
-            fn AddEventHandler(&self, #[opt] window: HWND, eventHandler: IDirectManipulationViewportEventHandler, cookie: *mut u32) -> HRESULT;
+            fn AddEventHandler(&self, #[opt] window: HWND, eventHandler: IDirectManipulationViewportEventHandler, #[retval] cookie: *mut u32) -> HRESULT;
             fn RemoveEventHandler(&self, cookie: u32) -> HRESULT;
             fn SetInputMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> HRESULT;
             fn SetUpdateMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> HRESULT;
@@ -277,7 +278,7 @@ mod Windows {
         }
         #[guid(0x923ccaac_61e1_4385_b726_017af189882a)]
         interface IDirectManipulationViewport2: IDirectManipulationViewport {
-            fn AddBehavior(&self, behavior: IUnknown, cookie: *mut u32) -> HRESULT;
+            fn AddBehavior(&self, behavior: IUnknown, #[retval] cookie: *mut u32) -> HRESULT;
             fn RemoveBehavior(&self, cookie: u32) -> HRESULT;
             fn RemoveAllBehaviors(&self) -> HRESULT;
         }

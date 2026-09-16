@@ -10,20 +10,20 @@ mod Windows {
             DaylightDate: SYSTEMTIME,
             DaylightBias: i32,
             TimeZoneKeyName: [u16; 128],
-            DynamicDaylightTimeDisabled: bool,
+            DynamicDaylightTimeDisabled: BOOLEAN,
         }
         #[library("ADVAPI32.dll")]
-        extern fn EnumDynamicTimeZoneInformation(dwIndex: u32, lpTimeZoneInformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
+        extern fn EnumDynamicTimeZoneInformation(dwIndex: u32, #[out] lpTimeZoneInformation: PDYNAMIC_TIME_ZONE_INFORMATION) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn FileTimeToSystemTime(lpFileTime: *const FILETIME, lpSystemTime: *mut SYSTEMTIME) -> BOOL;
+        extern fn FileTimeToSystemTime(lpFileTime: *const FILETIME, #[out] lpSystemTime: LPSYSTEMTIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetDynamicTimeZoneInformation(pTimeZoneInformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
+        extern fn GetDynamicTimeZoneInformation(#[out] pTimeZoneInformation: PDYNAMIC_TIME_ZONE_INFORMATION) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn GetDynamicTimeZoneInformationEffectiveYears(lpTimeZoneInformation: *const DYNAMIC_TIME_ZONE_INFORMATION, FirstYear: *mut u32, LastYear: *mut u32) -> u32;
+        extern fn GetDynamicTimeZoneInformationEffectiveYears(lpTimeZoneInformation: PDYNAMIC_TIME_ZONE_INFORMATION, #[out] FirstYear: LPDWORD, #[out] LastYear: LPDWORD) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetTimeZoneInformation(lpTimeZoneInformation: *mut TIME_ZONE_INFORMATION) -> u32;
+        extern fn GetTimeZoneInformation(#[out] lpTimeZoneInformation: LPTIME_ZONE_INFORMATION) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetTimeZoneInformationForYear(wYear: u16, #[opt] pdtzi: *const DYNAMIC_TIME_ZONE_INFORMATION, ptzi: *mut TIME_ZONE_INFORMATION) -> BOOL;
+        extern fn GetTimeZoneInformationForYear(wYear: u16, #[opt] pdtzi: PDYNAMIC_TIME_ZONE_INFORMATION, #[out] ptzi: LPTIME_ZONE_INFORMATION) -> BOOL;
         type LPTIME_ZONE_INFORMATION = *mut TIME_ZONE_INFORMATION;
         #[library("KERNEL32.dll")]
         extern fn LocalFileTimeToLocalSystemTime(#[opt] timeZoneInformation: *const TIME_ZONE_INFORMATION, localFileTime: *const FILETIME, localSystemTime: *mut SYSTEMTIME) -> BOOL;
@@ -36,11 +36,11 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetTimeZoneInformation(lpTimeZoneInformation: *const TIME_ZONE_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SystemTimeToFileTime(lpSystemTime: *const SYSTEMTIME, lpFileTime: *mut FILETIME) -> BOOL;
+        extern fn SystemTimeToFileTime(lpSystemTime: *const SYSTEMTIME, #[out] lpFileTime: LPFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SystemTimeToTzSpecificLocalTime(#[opt] lpTimeZoneInformation: *const TIME_ZONE_INFORMATION, lpUniversalTime: *const SYSTEMTIME, lpLocalTime: *mut SYSTEMTIME) -> BOOL;
+        extern fn SystemTimeToTzSpecificLocalTime(#[opt] lpTimeZoneInformation: *const TIME_ZONE_INFORMATION, lpUniversalTime: *const SYSTEMTIME, #[out] lpLocalTime: LPSYSTEMTIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SystemTimeToTzSpecificLocalTimeEx(#[opt] lpTimeZoneInformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lpUniversalTime: *const SYSTEMTIME, lpLocalTime: *mut SYSTEMTIME) -> BOOL;
+        extern fn SystemTimeToTzSpecificLocalTimeEx(#[opt] lpTimeZoneInformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lpUniversalTime: *const SYSTEMTIME, #[out] lpLocalTime: LPSYSTEMTIME) -> BOOL;
         const TIME_ZONE_ID_INVALID: u32 = 4294967295;
         struct TIME_ZONE_INFORMATION {
             Bias: i32,
@@ -52,8 +52,8 @@ mod Windows {
             DaylightBias: i32,
         }
         #[library("KERNEL32.dll")]
-        extern fn TzSpecificLocalTimeToSystemTime(#[opt] lpTimeZoneInformation: *const TIME_ZONE_INFORMATION, lpLocalTime: *const SYSTEMTIME, lpUniversalTime: *mut SYSTEMTIME) -> BOOL;
+        extern fn TzSpecificLocalTimeToSystemTime(#[opt] lpTimeZoneInformation: *const TIME_ZONE_INFORMATION, lpLocalTime: *const SYSTEMTIME, #[out] lpUniversalTime: LPSYSTEMTIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn TzSpecificLocalTimeToSystemTimeEx(#[opt] lpTimeZoneInformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lpLocalTime: *const SYSTEMTIME, lpUniversalTime: *mut SYSTEMTIME) -> BOOL;
+        extern fn TzSpecificLocalTimeToSystemTimeEx(#[opt] lpTimeZoneInformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lpLocalTime: *const SYSTEMTIME, #[out] lpUniversalTime: LPSYSTEMTIME) -> BOOL;
     }
 }

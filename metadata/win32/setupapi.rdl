@@ -672,7 +672,7 @@ mod Windows {
         type PCABINET_INFO_A = *mut CABINET_INFO_A;
         type PCABINET_INFO_W = *mut CABINET_INFO_W;
         type PCOINSTALLER_CONTEXT_DATA = *mut COINSTALLER_CONTEXT_DATA;
-        extern fn PDETECT_PROGRESS_NOTIFY(ProgressNotifyParam: *const void, DetectComplete: u32) -> BOOL;
+        extern fn PDETECT_PROGRESS_NOTIFY(#[in] ProgressNotifyParam: *mut void, DetectComplete: u32) -> BOOL;
         type PFILEPATHS = PFILEPATHS_A;
         type PFILEPATHS_A = *mut FILEPATHS_A;
         type PFILEPATHS_SIGNERINFO = PFILEPATHS_SIGNERINFO_A;
@@ -703,7 +703,7 @@ mod Windows {
         type PSP_CLASSIMAGELIST_DATA = *mut SP_CLASSIMAGELIST_DATA;
         type PSP_CLASSINSTALL_HEADER = *mut SP_CLASSINSTALL_HEADER;
         type PSP_DETECTDEVICE_PARAMS = *mut SP_DETECTDEVICE_PARAMS;
-        extern fn PSP_DETSIG_CMPPROC(DeviceInfoSet: HDEVINFO, NewDeviceData: *const SP_DEVINFO_DATA, ExistingDeviceData: *const SP_DEVINFO_DATA, #[opt] CompareContext: *const void) -> u32;
+        extern fn PSP_DETSIG_CMPPROC(DeviceInfoSet: HDEVINFO, NewDeviceData: PSP_DEVINFO_DATA, ExistingDeviceData: PSP_DEVINFO_DATA, #[in] #[opt] CompareContext: *mut void) -> u32;
         type PSP_DEVICE_INTERFACE_DATA = *mut SP_DEVICE_INTERFACE_DATA;
         type PSP_DEVICE_INTERFACE_DETAIL_DATA = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
         type PSP_DEVICE_INTERFACE_DETAIL_DATA_A = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
@@ -729,8 +729,8 @@ mod Windows {
         type PSP_DRVINFO_DETAIL_DATA_W = *mut SP_DRVINFO_DETAIL_DATA_W;
         type PSP_DRVINSTALL_PARAMS = *mut SP_DRVINSTALL_PARAMS;
         type PSP_ENABLECLASS_PARAMS = *mut SP_ENABLECLASS_PARAMS;
-        extern fn PSP_FILE_CALLBACK_A(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
-        extern fn PSP_FILE_CALLBACK_W(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        extern fn PSP_FILE_CALLBACK_A(#[in] Context: *mut void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        extern fn PSP_FILE_CALLBACK_W(#[in] Context: *mut void, Notification: u32, Param1: usize, Param2: usize) -> u32;
         type PSP_FILE_COPY_PARAMS = PSP_FILE_COPY_PARAMS_A;
         type PSP_FILE_COPY_PARAMS_A = *mut SP_FILE_COPY_PARAMS_A;
         type PSP_FILE_COPY_PARAMS_W = *mut SP_FILE_COPY_PARAMS_W;
@@ -1895,25 +1895,25 @@ mod Windows {
         const SUOI_FORCEDELETE: i32 = 1;
         const SUOI_INTERNAL1: i32 = 2;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAddInstallSectionToDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAddInstallSectionToDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCSTR, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAddInstallSectionToDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCWSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAddInstallSectionToDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCWSTR, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAddSectionToDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAddSectionToDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCSTR, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAddSectionToDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCWSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAddSectionToDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCWSTR, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAddToDiskSpaceListA(DiskSpace: HDSKSPC, TargetFilespec: PCSTR, FileSize: i64, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAddToDiskSpaceListA(DiskSpace: HDSKSPC, TargetFilespec: PCSTR, FileSize: i64, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAddToDiskSpaceListW(DiskSpace: HDSKSPC, TargetFilespec: PCWSTR, FileSize: i64, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAddToDiskSpaceListW(DiskSpace: HDSKSPC, TargetFilespec: PCWSTR, FileSize: i64, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupAddToSourceListA(Flags: u32, Source: PCSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupAddToSourceListW(Flags: u32, Source: PCWSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAdjustDiskSpaceListA(DiskSpace: HDSKSPC, DriveRoot: PCSTR, Amount: i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAdjustDiskSpaceListA(DiskSpace: HDSKSPC, DriveRoot: PCSTR, Amount: i64, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupAdjustDiskSpaceListW(DiskSpace: HDSKSPC, DriveRoot: PCWSTR, Amount: i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupAdjustDiskSpaceListW(DiskSpace: HDSKSPC, DriveRoot: PCWSTR, Amount: i64, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupBackupErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, SourceFile: PCSTR, #[opt] TargetFile: PCSTR, Win32ErrorCode: u32, Style: u32) -> u32;
         #[library("SETUPAPI.dll")]
@@ -1927,33 +1927,33 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupCloseLog();
         #[library("SETUPAPI.dll")]
-        extern fn SetupCommitFileQueueA(#[opt] Owner: HWND, QueueHandle: HSPFILEQ, MsgHandler: PSP_FILE_CALLBACK_A, Context: *const void) -> BOOL;
+        extern fn SetupCommitFileQueueA(#[opt] Owner: HWND, QueueHandle: HSPFILEQ, MsgHandler: PSP_FILE_CALLBACK_A, #[in] Context: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupCommitFileQueueW(#[opt] Owner: HWND, QueueHandle: HSPFILEQ, MsgHandler: PSP_FILE_CALLBACK_W, Context: *const void) -> BOOL;
+        extern fn SetupCommitFileQueueW(#[opt] Owner: HWND, QueueHandle: HSPFILEQ, MsgHandler: PSP_FILE_CALLBACK_W, #[in] Context: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupConfigureWmiFromInfSectionA(InfHandle: HINF, SectionName: PCSTR, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupConfigureWmiFromInfSectionW(InfHandle: HINF, SectionName: PCWSTR, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupCopyErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, #[opt] DiskName: PCSTR, PathToSource: PCSTR, SourceFile: PCSTR, #[opt] TargetPathFile: PCSTR, Win32ErrorCode: u32, Style: u32, #[len_param(9)] #[out] #[opt] PathBuffer: PSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        extern fn SetupCopyErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, #[opt] DiskName: PCSTR, PathToSource: PCSTR, SourceFile: PCSTR, #[opt] TargetPathFile: PCSTR, Win32ErrorCode: u32, Style: u32, #[len_param(9)] #[out] #[opt] PathBuffer: PSTR, PathBufferSize: u32, #[out] #[opt] PathRequiredSize: PDWORD) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupCopyErrorW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, #[opt] DiskName: PCWSTR, PathToSource: PCWSTR, SourceFile: PCWSTR, #[opt] TargetPathFile: PCWSTR, Win32ErrorCode: u32, Style: u32, #[len_param(9)] #[out] #[opt] PathBuffer: PWSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        extern fn SetupCopyErrorW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, #[opt] DiskName: PCWSTR, PathToSource: PCWSTR, SourceFile: PCWSTR, #[opt] TargetPathFile: PCWSTR, Win32ErrorCode: u32, Style: u32, #[len_param(9)] #[out] #[opt] PathBuffer: PWSTR, PathBufferSize: u32, #[out] #[opt] PathRequiredSize: PDWORD) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupCopyOEMInfA(SourceInfFileName: PCSTR, #[opt] OEMSourceMediaLocation: PCSTR, OEMSourceMediaType: u32, CopyStyle: u32, #[len_param(5)] #[out] #[opt] DestinationInfFileName: PSTR, DestinationInfFileNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DestinationInfFileNameComponent: *mut PSTR) -> BOOL;
+        extern fn SetupCopyOEMInfA(SourceInfFileName: PCSTR, #[opt] OEMSourceMediaLocation: PCSTR, OEMSourceMediaType: u32, CopyStyle: u32, #[len_param(5)] #[out] #[opt] DestinationInfFileName: PSTR, DestinationInfFileNameSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] DestinationInfFileNameComponent: *mut PSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupCopyOEMInfW(SourceInfFileName: PCWSTR, #[opt] OEMSourceMediaLocation: PCWSTR, OEMSourceMediaType: u32, CopyStyle: u32, #[len_param(5)] #[out] #[opt] DestinationInfFileName: PWSTR, DestinationInfFileNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DestinationInfFileNameComponent: *mut PWSTR) -> BOOL;
+        extern fn SetupCopyOEMInfW(SourceInfFileName: PCWSTR, #[opt] OEMSourceMediaLocation: PCWSTR, OEMSourceMediaType: u32, CopyStyle: u32, #[len_param(5)] #[out] #[opt] DestinationInfFileName: PWSTR, DestinationInfFileNameSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] DestinationInfFileNameComponent: *mut PWSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupCreateDiskSpaceListA(#[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        extern fn SetupCreateDiskSpaceListA(#[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
         #[library("SETUPAPI.dll")]
-        extern fn SetupCreateDiskSpaceListW(#[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        extern fn SetupCreateDiskSpaceListW(#[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDecompressOrCopyFileA(SourceFileName: PCSTR, TargetFileName: PCSTR, #[opt] CompressionType: *const u32) -> u32;
+        extern fn SetupDecompressOrCopyFileA(SourceFileName: PCSTR, TargetFileName: PCSTR, #[opt] CompressionType: PUINT) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDecompressOrCopyFileW(SourceFileName: PCWSTR, TargetFileName: PCWSTR, #[opt] CompressionType: *const u32) -> u32;
+        extern fn SetupDecompressOrCopyFileW(SourceFileName: PCWSTR, TargetFileName: PCWSTR, #[opt] CompressionType: PUINT) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDefaultQueueCallbackA(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        extern fn SetupDefaultQueueCallbackA(#[in] Context: *mut void, Notification: u32, Param1: usize, Param2: usize) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDefaultQueueCallbackW(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        extern fn SetupDefaultQueueCallbackW(#[in] Context: *mut void, Notification: u32, Param1: usize, Param2: usize) -> u32;
         #[library("SETUPAPI.dll")]
         extern fn SetupDeleteErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, File: PCSTR, Win32ErrorCode: u32, Style: u32) -> u32;
         #[library("SETUPAPI.dll")]
@@ -1961,305 +1961,305 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupDestroyDiskSpaceList(#[in] #[out] DiskSpace: HDSKSPC) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiAskForOEMDisk(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiAskForOEMDisk(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiBuildClassInfoList(Flags: u32, #[len_param(2)] #[opt] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiBuildClassInfoList(Flags: u32, #[len_param(2)] #[out] #[opt] ClassGuidList: LPGUID, ClassGuidListSize: u32, #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiBuildClassInfoListExA(Flags: u32, #[len_param(2)] #[opt] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiBuildClassInfoListExA(Flags: u32, #[len_param(2)] #[out] #[opt] ClassGuidList: LPGUID, ClassGuidListSize: u32, #[out] RequiredSize: PDWORD, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiBuildClassInfoListExW(Flags: u32, #[len_param(2)] #[opt] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiBuildClassInfoListExW(Flags: u32, #[len_param(2)] #[out] #[opt] ClassGuidList: LPGUID, ClassGuidListSize: u32, #[out] RequiredSize: PDWORD, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiBuildDriverInfoList(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA, DriverType: u32) -> BOOL;
+        extern fn SetupDiBuildDriverInfoList(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverType: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCallClassInstaller(InstallFunction: DI_FUNCTION, DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiCallClassInstaller(InstallFunction: DI_FUNCTION, DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiCancelDriverInfoSearch(DeviceInfoSet: HDEVINFO) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiChangeState(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiChangeState(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassGuidsFromNameA(ClassName: PCSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiClassGuidsFromNameA(ClassName: PCSTR, #[len_param(2)] #[out] ClassGuidList: LPGUID, ClassGuidListSize: u32, #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassGuidsFromNameExA(ClassName: PCSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiClassGuidsFromNameExA(ClassName: PCSTR, #[len_param(2)] #[out] ClassGuidList: LPGUID, ClassGuidListSize: u32, #[out] RequiredSize: PDWORD, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassGuidsFromNameExW(ClassName: PCWSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiClassGuidsFromNameExW(ClassName: PCWSTR, #[len_param(2)] #[out] ClassGuidList: LPGUID, ClassGuidListSize: u32, #[out] RequiredSize: PDWORD, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassGuidsFromNameW(ClassName: PCWSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiClassGuidsFromNameW(ClassName: PCWSTR, #[len_param(2)] #[out] ClassGuidList: LPGUID, ClassGuidListSize: u32, #[out] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassNameFromGuidA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiClassNameFromGuidA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PSTR, ClassNameSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassNameFromGuidExA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiClassNameFromGuidExA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PSTR, ClassNameSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassNameFromGuidExW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiClassNameFromGuidExW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiClassNameFromGuidW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiClassNameFromGuidW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDevRegKeyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCSTR) -> HKEY;
+        extern fn SetupDiCreateDevRegKeyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCSTR) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDevRegKeyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCWSTR) -> HKEY;
+        extern fn SetupDiCreateDevRegKeyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCWSTR) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInfoA(DeviceInfoSet: HDEVINFO, DeviceName: PCSTR, ClassGuid: *const GUID, #[opt] DeviceDescription: PCSTR, #[opt] hwndParent: HWND, CreationFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiCreateDeviceInfoA(DeviceInfoSet: HDEVINFO, DeviceName: PCSTR, ClassGuid: *const GUID, #[opt] DeviceDescription: PCSTR, #[opt] hwndParent: HWND, CreationFlags: u32, #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiCreateDeviceInfoList(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND) -> HDEVINFO;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInfoListExA(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        extern fn SetupDiCreateDeviceInfoListExA(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> HDEVINFO;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInfoListExW(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        extern fn SetupDiCreateDeviceInfoListExW(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> HDEVINFO;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInfoW(DeviceInfoSet: HDEVINFO, DeviceName: PCWSTR, ClassGuid: *const GUID, #[opt] DeviceDescription: PCWSTR, #[opt] hwndParent: HWND, CreationFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiCreateDeviceInfoW(DeviceInfoSet: HDEVINFO, DeviceName: PCWSTR, ClassGuid: *const GUID, #[opt] DeviceDescription: PCWSTR, #[opt] hwndParent: HWND, CreationFlags: u32, #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInterfaceA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, #[opt] ReferenceString: PCSTR, CreationFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiCreateDeviceInterfaceA(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, #[opt] ReferenceString: PCSTR, CreationFlags: u32, #[out] #[opt] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInterfaceRegKeyA(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCSTR) -> HKEY;
+        extern fn SetupDiCreateDeviceInterfaceRegKeyA(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCSTR) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInterfaceRegKeyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCWSTR) -> HKEY;
+        extern fn SetupDiCreateDeviceInterfaceRegKeyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCWSTR) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiCreateDeviceInterfaceW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, #[opt] ReferenceString: PCWSTR, CreationFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiCreateDeviceInterfaceW(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, #[opt] ReferenceString: PCWSTR, CreationFlags: u32, #[out] #[opt] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiDeleteDevRegKey(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32) -> BOOL;
+        extern fn SetupDiDeleteDevRegKey(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiDeleteDeviceInfo(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiDeleteDeviceInfo(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiDeleteDeviceInterfaceData(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiDeleteDeviceInterfaceData(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiDeleteDeviceInterfaceRegKey(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32) -> BOOL;
+        extern fn SetupDiDeleteDeviceInterfaceRegKey(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiDestroyClassImageList(ClassImageListData: *const SP_CLASSIMAGELIST_DATA) -> BOOL;
+        extern fn SetupDiDestroyClassImageList(ClassImageListData: PSP_CLASSIMAGELIST_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiDestroyDeviceInfoList(DeviceInfoSet: HDEVINFO) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiDestroyDriverInfoList(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverType: u32) -> BOOL;
+        extern fn SetupDiDestroyDriverInfoList(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverType: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiDrawMiniIcon(hdc: HDC, rc: RECT, MiniIconIndex: i32, Flags: u32) -> i32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiEnumDeviceInfo(DeviceInfoSet: HDEVINFO, MemberIndex: u32, DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiEnumDeviceInfo(DeviceInfoSet: HDEVINFO, MemberIndex: u32, #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiEnumDeviceInterfaces(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, MemberIndex: u32, DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiEnumDeviceInterfaces(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, MemberIndex: u32, #[out] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiEnumDriverInfoA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverType: u32, MemberIndex: u32, #[out] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
+        extern fn SetupDiEnumDriverInfoA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverType: u32, MemberIndex: u32, #[out] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiEnumDriverInfoW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverType: u32, MemberIndex: u32, #[out] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
+        extern fn SetupDiEnumDriverInfoW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverType: u32, MemberIndex: u32, #[out] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetActualModelsSectionA(Context: *const INFCONTEXT, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetActualModelsSectionA(Context: PINFCONTEXT, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetActualModelsSectionW(Context: *const INFCONTEXT, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetActualModelsSectionW(Context: PINFCONTEXT, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetActualSectionToInstallA(InfHandle: HINF, InfSectionName: PCSTR, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PSTR) -> BOOL;
+        extern fn SetupDiGetActualSectionToInstallA(InfHandle: HINF, InfSectionName: PCSTR, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] Extension: *mut PSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetActualSectionToInstallExA(InfHandle: HINF, InfSectionName: PCSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(4)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetActualSectionToInstallExA(InfHandle: HINF, InfSectionName: PCSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(4)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] Extension: *mut PSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetActualSectionToInstallExW(InfHandle: HINF, InfSectionName: PCWSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(4)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetActualSectionToInstallExW(InfHandle: HINF, InfSectionName: PCWSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(4)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] Extension: *mut PWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetActualSectionToInstallW(InfHandle: HINF, InfSectionName: PCWSTR, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PWSTR) -> BOOL;
+        extern fn SetupDiGetActualSectionToInstallW(InfHandle: HINF, InfSectionName: PCWSTR, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] Extension: *mut PWSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassBitmapIndex(#[opt] ClassGuid: *const GUID, MiniIconIndex: *mut i32) -> BOOL;
+        extern fn SetupDiGetClassBitmapIndex(#[opt] ClassGuid: *const GUID, #[out] MiniIconIndex: PINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDescriptionA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetClassDescriptionA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PSTR, ClassDescriptionSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDescriptionExA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassDescriptionExA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PSTR, ClassDescriptionSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDescriptionExW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PWSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassDescriptionExW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PWSTR, ClassDescriptionSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDescriptionW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PWSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetClassDescriptionW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PWSTR, ClassDescriptionSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDevPropertySheetsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, PropertySheetHeader: LPPROPSHEETHEADERA, PropertySheetHeaderPageListSize: u32, #[opt] RequiredSize: *mut u32, PropertySheetType: u32) -> BOOL;
+        extern fn SetupDiGetClassDevPropertySheetsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, PropertySheetHeader: LPPROPSHEETHEADERA, PropertySheetHeaderPageListSize: u32, #[out] #[opt] RequiredSize: PDWORD, PropertySheetType: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDevPropertySheetsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, PropertySheetHeader: LPPROPSHEETHEADERW, PropertySheetHeaderPageListSize: u32, #[opt] RequiredSize: *mut u32, PropertySheetType: u32) -> BOOL;
+        extern fn SetupDiGetClassDevPropertySheetsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, PropertySheetHeader: LPPROPSHEETHEADERW, PropertySheetHeaderPageListSize: u32, #[out] #[opt] RequiredSize: PDWORD, PropertySheetType: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetClassDevsA(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCSTR, #[opt] hwndParent: HWND, Flags: u32) -> HDEVINFO;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDevsExA(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCSTR, #[opt] hwndParent: HWND, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        extern fn SetupDiGetClassDevsExA(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCSTR, #[opt] hwndParent: HWND, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> HDEVINFO;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassDevsExW(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCWSTR, #[opt] hwndParent: HWND, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        extern fn SetupDiGetClassDevsExW(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCWSTR, #[opt] hwndParent: HWND, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> HDEVINFO;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiGetClassDevsW(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCWSTR, #[opt] hwndParent: HWND, Flags: u32) -> HDEVINFO;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassImageIndex(ClassImageListData: *const SP_CLASSIMAGELIST_DATA, ClassGuid: *const GUID, ImageIndex: *mut i32) -> BOOL;
+        extern fn SetupDiGetClassImageIndex(ClassImageListData: PSP_CLASSIMAGELIST_DATA, ClassGuid: *const GUID, #[out] ImageIndex: PINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassImageList(ClassImageListData: *mut SP_CLASSIMAGELIST_DATA) -> BOOL;
+        extern fn SetupDiGetClassImageList(#[out] ClassImageListData: PSP_CLASSIMAGELIST_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassImageListExA(ClassImageListData: *mut SP_CLASSIMAGELIST_DATA, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassImageListExA(#[out] ClassImageListData: PSP_CLASSIMAGELIST_DATA, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassImageListExW(ClassImageListData: *mut SP_CLASSIMAGELIST_DATA, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassImageListExW(#[out] ClassImageListData: PSP_CLASSIMAGELIST_DATA, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *mut SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetClassInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[size_param(3)] #[out] #[opt] ClassInstallParams: PSP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *mut SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetClassInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[size_param(3)] #[out] #[opt] ClassInstallParams: PSP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassPropertyExW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassPropertyExW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[out] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassPropertyKeys(ClassGuid: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32) -> BOOL;
+        extern fn SetupDiGetClassPropertyKeys(ClassGuid: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[out] #[opt] RequiredPropertyKeyCount: PDWORD, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassPropertyKeysExW(ClassGuid: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassPropertyKeysExW(ClassGuid: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[out] #[opt] RequiredPropertyKeyCount: PDWORD, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassPropertyW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32) -> BOOL;
+        extern fn SetupDiGetClassPropertyW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[out] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassRegistryPropertyA(ClassGuid: *const GUID, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(4)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassRegistryPropertyA(ClassGuid: *const GUID, Property: u32, #[out] #[opt] PropertyRegDataType: PDWORD, #[size_param(4)] #[out] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetClassRegistryPropertyW(ClassGuid: *const GUID, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(4)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetClassRegistryPropertyW(ClassGuid: *const GUID, Property: u32, #[out] #[opt] PropertyRegDataType: PDWORD, #[size_param(4)] #[out] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetCustomDevicePropertyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, CustomPropertyName: PCSTR, Flags: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(6)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetCustomDevicePropertyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, CustomPropertyName: PCSTR, Flags: u32, #[out] #[opt] PropertyRegDataType: PDWORD, #[size_param(6)] #[out] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetCustomDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, CustomPropertyName: PCWSTR, Flags: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(6)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetCustomDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, CustomPropertyName: PCWSTR, Flags: u32, #[out] #[opt] PropertyRegDataType: PDWORD, #[size_param(6)] #[out] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInfoListClass(DeviceInfoSet: HDEVINFO, ClassGuid: *mut GUID) -> BOOL;
+        extern fn SetupDiGetDeviceInfoListClass(DeviceInfoSet: HDEVINFO, #[out] ClassGuid: LPGUID) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInfoListDetailA(DeviceInfoSet: HDEVINFO, DeviceInfoSetDetailData: *mut SP_DEVINFO_LIST_DETAIL_DATA_A) -> BOOL;
+        extern fn SetupDiGetDeviceInfoListDetailA(DeviceInfoSet: HDEVINFO, #[out] DeviceInfoSetDetailData: PSP_DEVINFO_LIST_DETAIL_DATA_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInfoListDetailW(DeviceInfoSet: HDEVINFO, DeviceInfoSetDetailData: *mut SP_DEVINFO_LIST_DETAIL_DATA_W) -> BOOL;
+        extern fn SetupDiGetDeviceInfoListDetailW(DeviceInfoSet: HDEVINFO, #[out] DeviceInfoSetDetailData: PSP_DEVINFO_LIST_DETAIL_DATA_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *mut SP_DEVINSTALL_PARAMS_A) -> BOOL;
+        extern fn SetupDiGetDeviceInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[out] DeviceInstallParams: PSP_DEVINSTALL_PARAMS_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *mut SP_DEVINSTALL_PARAMS_W) -> BOOL;
+        extern fn SetupDiGetDeviceInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[out] DeviceInstallParams: PSP_DEVINSTALL_PARAMS_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInstanceIdA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[len_param(3)] #[out] #[opt] DeviceInstanceId: PSTR, DeviceInstanceIdSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetDeviceInstanceIdA(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, #[len_param(3)] #[out] #[opt] DeviceInstanceId: PSTR, DeviceInstanceIdSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInstanceIdW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[len_param(3)] #[out] #[opt] DeviceInstanceId: PWSTR, DeviceInstanceIdSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetDeviceInstanceIdW(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, #[len_param(3)] #[out] #[opt] DeviceInstanceId: PWSTR, DeviceInstanceIdSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInterfaceAlias(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, AliasInterfaceClassGuid: *const GUID, AliasDeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiGetDeviceInterfaceAlias(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, AliasInterfaceClassGuid: *const GUID, #[out] AliasDeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInterfaceDetailA(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[size_param(3)] #[in] #[out] #[opt] DeviceInterfaceDetailData: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, DeviceInterfaceDetailDataSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiGetDeviceInterfaceDetailA(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[size_param(3)] #[in] #[out] #[opt] DeviceInterfaceDetailData: PSP_DEVICE_INTERFACE_DETAIL_DATA_A, DeviceInterfaceDetailDataSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInterfaceDetailW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[size_param(3)] #[opt] DeviceInterfaceDetailData: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, DeviceInterfaceDetailDataSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiGetDeviceInterfaceDetailW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[size_param(3)] #[out] #[opt] DeviceInterfaceDetailData: PSP_DEVICE_INTERFACE_DETAIL_DATA_W, DeviceInterfaceDetailDataSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInterfacePropertyKeys(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[len_param(3)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32) -> BOOL;
+        extern fn SetupDiGetDeviceInterfacePropertyKeys(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[len_param(3)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[out] #[opt] RequiredPropertyKeyCount: PDWORD, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceInterfacePropertyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32) -> BOOL;
+        extern fn SetupDiGetDeviceInterfacePropertyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(5)] #[out] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDevicePropertyKeys(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[len_param(3)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32) -> BOOL;
+        extern fn SetupDiGetDevicePropertyKeys(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, #[len_param(3)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[out] #[opt] RequiredPropertyKeyCount: PDWORD, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32) -> BOOL;
+        extern fn SetupDiGetDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(5)] #[out] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceRegistryPropertyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetDeviceRegistryPropertyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Property: u32, #[out] #[opt] PropertyRegDataType: PDWORD, #[size_param(5)] #[out] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDeviceRegistryPropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetDeviceRegistryPropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Property: u32, #[out] #[opt] PropertyRegDataType: PDWORD, #[size_param(5)] #[out] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDriverInfoDetailA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, #[size_param(4)] #[in] #[out] #[opt] DriverInfoDetailData: *mut SP_DRVINFO_DETAIL_DATA_A, DriverInfoDetailDataSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetDriverInfoDetailA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, #[size_param(4)] #[in] #[out] #[opt] DriverInfoDetailData: PSP_DRVINFO_DETAIL_DATA_A, DriverInfoDetailDataSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDriverInfoDetailW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, #[size_param(4)] #[in] #[out] #[opt] DriverInfoDetailData: *mut SP_DRVINFO_DETAIL_DATA_W, DriverInfoDetailDataSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetDriverInfoDetailW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, #[size_param(4)] #[in] #[out] #[opt] DriverInfoDetailData: PSP_DRVINFO_DETAIL_DATA_W, DriverInfoDetailDataSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDriverInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, DriverInstallParams: *mut SP_DRVINSTALL_PARAMS) -> BOOL;
+        extern fn SetupDiGetDriverInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, #[out] DriverInstallParams: PSP_DRVINSTALL_PARAMS) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetDriverInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, DriverInstallParams: *mut SP_DRVINSTALL_PARAMS) -> BOOL;
+        extern fn SetupDiGetDriverInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, #[out] DriverInstallParams: PSP_DRVINSTALL_PARAMS) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetHwProfileFriendlyNameA(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetHwProfileFriendlyNameA(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PSTR, FriendlyNameSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetHwProfileFriendlyNameExA(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetHwProfileFriendlyNameExA(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PSTR, FriendlyNameSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetHwProfileFriendlyNameExW(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PWSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetHwProfileFriendlyNameExW(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PWSTR, FriendlyNameSize: u32, #[out] #[opt] RequiredSize: PDWORD, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetHwProfileFriendlyNameW(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PWSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetHwProfileFriendlyNameW(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PWSTR, FriendlyNameSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetHwProfileList(#[len_param(1)] HwProfileList: *mut u32, HwProfileListSize: u32, RequiredSize: *mut u32, #[opt] CurrentlyActiveIndex: *mut u32) -> BOOL;
+        extern fn SetupDiGetHwProfileList(#[len_param(1)] #[out] HwProfileList: PDWORD, HwProfileListSize: u32, #[out] RequiredSize: PDWORD, #[out] #[opt] CurrentlyActiveIndex: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetHwProfileListExA(#[len_param(1)] HwProfileList: *mut u32, HwProfileListSize: u32, RequiredSize: *mut u32, #[opt] CurrentlyActiveIndex: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetHwProfileListExA(#[len_param(1)] #[out] HwProfileList: PDWORD, HwProfileListSize: u32, #[out] RequiredSize: PDWORD, #[out] #[opt] CurrentlyActiveIndex: PDWORD, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetHwProfileListExW(#[len_param(1)] HwProfileList: *mut u32, HwProfileListSize: u32, RequiredSize: *mut u32, #[opt] CurrentlyActiveIndex: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiGetHwProfileListExW(#[len_param(1)] #[out] HwProfileList: PDWORD, HwProfileListSize: u32, #[out] RequiredSize: PDWORD, #[out] #[opt] CurrentlyActiveIndex: PDWORD, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetINFClassA(InfName: PCSTR, ClassGuid: *mut GUID, #[len_param(3)] #[out] ClassName: PSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetINFClassA(InfName: PCSTR, #[out] ClassGuid: LPGUID, #[len_param(3)] #[out] ClassName: PSTR, ClassNameSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetINFClassW(InfName: PCWSTR, ClassGuid: *mut GUID, #[len_param(3)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupDiGetINFClassW(InfName: PCWSTR, #[out] ClassGuid: LPGUID, #[len_param(3)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetSelectedDevice(DeviceInfoSet: HDEVINFO, DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiGetSelectedDevice(DeviceInfoSet: HDEVINFO, #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetSelectedDriverA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[out] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
+        extern fn SetupDiGetSelectedDriverA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[out] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetSelectedDriverW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[out] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
+        extern fn SetupDiGetSelectedDriverW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[out] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiGetWizardPage(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, InstallWizardData: *const SP_INSTALLWIZARD_DATA, PageType: u32, Flags: u32) -> HPROPSHEETPAGE;
+        extern fn SetupDiGetWizardPage(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, InstallWizardData: PSP_INSTALLWIZARD_DATA, PageType: u32, Flags: u32) -> HPROPSHEETPAGE;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiInstallClassA(#[opt] hwndParent: HWND, InfFileName: PCSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiInstallClassExA(#[opt] hwndParent: HWND, #[opt] InfFileName: PCSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ, #[opt] InterfaceClassGuid: *const GUID, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        extern fn SetupDiInstallClassExA(#[opt] hwndParent: HWND, #[opt] InfFileName: PCSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ, #[opt] InterfaceClassGuid: *const GUID, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiInstallClassExW(#[opt] hwndParent: HWND, #[opt] InfFileName: PCWSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ, #[opt] InterfaceClassGuid: *const GUID, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        extern fn SetupDiInstallClassExW(#[opt] hwndParent: HWND, #[opt] InfFileName: PCWSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ, #[opt] InterfaceClassGuid: *const GUID, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiInstallClassW(#[opt] hwndParent: HWND, InfFileName: PCWSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiInstallDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiInstallDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiInstallDeviceInterfaces(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiInstallDeviceInterfaces(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiInstallDriverFiles(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiInstallDriverFiles(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiLoadClassIcon(ClassGuid: *const GUID, #[opt] LargeIcon: *mut HICON, #[opt] MiniIconIndex: *mut i32) -> BOOL;
+        extern fn SetupDiLoadClassIcon(ClassGuid: *const GUID, #[opt] LargeIcon: *mut HICON, #[out] #[opt] MiniIconIndex: PINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiLoadDeviceIcon(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, cxIcon: u32, cyIcon: u32, Flags: u32, hIcon: *mut HICON) -> BOOL;
+        extern fn SetupDiLoadDeviceIcon(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, cxIcon: u32, cyIcon: u32, Flags: u32, hIcon: *mut HICON) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupDiOpenClassRegKey(#[opt] ClassGuid: *const GUID, samDesired: REGSAM) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenClassRegKeyExA(#[opt] ClassGuid: *const GUID, samDesired: REGSAM, Flags: u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> HKEY;
+        extern fn SetupDiOpenClassRegKeyExA(#[opt] ClassGuid: *const GUID, samDesired: REGSAM, Flags: u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenClassRegKeyExW(#[opt] ClassGuid: *const GUID, samDesired: REGSAM, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> HKEY;
+        extern fn SetupDiOpenClassRegKeyExW(#[opt] ClassGuid: *const GUID, samDesired: REGSAM, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenDevRegKey(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, samDesired: REGSAM) -> HKEY;
+        extern fn SetupDiOpenDevRegKey(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, samDesired: REGSAM) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenDeviceInfoA(DeviceInfoSet: HDEVINFO, DeviceInstanceId: PCSTR, #[opt] hwndParent: HWND, OpenFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiOpenDeviceInfoA(DeviceInfoSet: HDEVINFO, DeviceInstanceId: PCSTR, #[opt] hwndParent: HWND, OpenFlags: u32, #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenDeviceInfoW(DeviceInfoSet: HDEVINFO, DeviceInstanceId: PCWSTR, #[opt] hwndParent: HWND, OpenFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiOpenDeviceInfoW(DeviceInfoSet: HDEVINFO, DeviceInstanceId: PCWSTR, #[opt] hwndParent: HWND, OpenFlags: u32, #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenDeviceInterfaceA(DeviceInfoSet: HDEVINFO, DevicePath: PCSTR, OpenFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiOpenDeviceInterfaceA(DeviceInfoSet: HDEVINFO, DevicePath: PCSTR, OpenFlags: u32, #[out] #[opt] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenDeviceInterfaceRegKey(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM) -> HKEY;
+        extern fn SetupDiOpenDeviceInterfaceRegKey(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM) -> HKEY;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiOpenDeviceInterfaceW(DeviceInfoSet: HDEVINFO, DevicePath: PCWSTR, OpenFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiOpenDeviceInterfaceW(DeviceInfoSet: HDEVINFO, DevicePath: PCWSTR, OpenFlags: u32, #[out] #[opt] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiRegisterCoDeviceInstallers(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiRegisterCoDeviceInstallers(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiRegisterDeviceInfo(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA, Flags: u32, #[opt] CompareProc: PSP_DETSIG_CMPPROC, #[opt] CompareContext: *const void, #[opt] DupDeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiRegisterDeviceInfo(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA, Flags: u32, #[opt] CompareProc: PSP_DETSIG_CMPPROC, #[in] #[opt] CompareContext: *mut void, #[out] #[opt] DupDeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiRemoveDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiRemoveDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiRemoveDeviceInterface(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        extern fn SetupDiRemoveDeviceInterface(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiRestartDevices(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiRestartDevices(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSelectBestCompatDrv(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiSelectBestCompatDrv(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSelectDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiSelectDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSelectOEMDrv(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiSelectOEMDrv(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetClassInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *const SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32) -> BOOL;
+        extern fn SetupDiSetClassInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: PSP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetClassInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *const SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32) -> BOOL;
+        extern fn SetupDiSetClassInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: PSP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetClassPropertyExW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiSetClassPropertyExW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetClassPropertyW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32) -> BOOL;
+        extern fn SetupDiSetClassPropertyW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetClassRegistryPropertyA(ClassGuid: *const GUID, Property: u32, #[size_param(3)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiSetClassRegistryPropertyA(ClassGuid: *const GUID, Property: u32, #[size_param(3)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetClassRegistryPropertyW(ClassGuid: *const GUID, Property: u32, #[size_param(3)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiSetClassRegistryPropertyW(ClassGuid: *const GUID, Property: u32, #[size_param(3)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDeviceInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *const SP_DEVINSTALL_PARAMS_A) -> BOOL;
+        extern fn SetupDiSetDeviceInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DeviceInstallParams: PSP_DEVINSTALL_PARAMS_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDeviceInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *const SP_DEVINSTALL_PARAMS_W) -> BOOL;
+        extern fn SetupDiSetDeviceInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DeviceInstallParams: PSP_DEVINSTALL_PARAMS_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDeviceInterfaceDefault(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupDiSetDeviceInterfaceDefault(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, Flags: u32, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDeviceInterfacePropertyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32) -> BOOL;
+        extern fn SetupDiSetDeviceInterfacePropertyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: PSP_DEVICE_INTERFACE_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32) -> BOOL;
+        extern fn SetupDiSetDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: PBYTE, PropertyBufferSize: u32, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDeviceRegistryPropertyA(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA, Property: u32, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32) -> BOOL;
+        extern fn SetupDiSetDeviceRegistryPropertyA(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA, Property: u32, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDeviceRegistryPropertyW(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA, Property: u32, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32) -> BOOL;
+        extern fn SetupDiSetDeviceRegistryPropertyW(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA, Property: u32, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDriverInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, DriverInstallParams: *const SP_DRVINSTALL_PARAMS) -> BOOL;
+        extern fn SetupDiSetDriverInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, DriverInstallParams: PSP_DRVINSTALL_PARAMS) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetDriverInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, DriverInstallParams: *const SP_DRVINSTALL_PARAMS) -> BOOL;
+        extern fn SetupDiSetDriverInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, DriverInstallParams: PSP_DRVINSTALL_PARAMS) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetSelectedDevice(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiSetSelectedDevice(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetSelectedDriverA(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA, #[in] #[out] #[opt] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
+        extern fn SetupDiSetSelectedDriverA(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[out] #[opt] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiSetSelectedDriverW(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA, #[in] #[out] #[opt] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
+        extern fn SetupDiSetSelectedDriverW(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[out] #[opt] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDiUnremoveDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupDiUnremoveDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDuplicateDiskSpaceListA(DiskSpace: HDSKSPC, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        extern fn SetupDuplicateDiskSpaceListA(DiskSpace: HDSKSPC, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
         #[library("SETUPAPI.dll")]
-        extern fn SetupDuplicateDiskSpaceListW(DiskSpace: HDSKSPC, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        extern fn SetupDuplicateDiskSpaceListW(DiskSpace: HDSKSPC, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
         #[library("SETUPAPI.dll")]
         extern fn SetupEnumInfSectionsA(InfHandle: HINF, Index: u32, #[len_param(3)] #[out] #[opt] Buffer: PSTR, Size: u32, #[opt] SizeNeeded: *mut u32) -> BOOL;
         #[library("SETUPAPI.dll")]
@@ -2274,15 +2274,15 @@ mod Windows {
             SetupFileLogMax = 5,
         }
         #[library("SETUPAPI.dll")]
-        extern fn SetupFindFirstLineA(InfHandle: HINF, Section: PCSTR, #[opt] Key: PCSTR, Context: *mut INFCONTEXT) -> BOOL;
+        extern fn SetupFindFirstLineA(InfHandle: HINF, Section: PCSTR, #[opt] Key: PCSTR, #[out] Context: PINFCONTEXT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupFindFirstLineW(InfHandle: HINF, Section: PCWSTR, #[opt] Key: PCWSTR, Context: *mut INFCONTEXT) -> BOOL;
+        extern fn SetupFindFirstLineW(InfHandle: HINF, Section: PCWSTR, #[opt] Key: PCWSTR, #[out] Context: PINFCONTEXT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupFindNextLine(ContextIn: *const INFCONTEXT, ContextOut: *mut INFCONTEXT) -> BOOL;
+        extern fn SetupFindNextLine(ContextIn: PINFCONTEXT, #[out] ContextOut: PINFCONTEXT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupFindNextMatchLineA(ContextIn: *const INFCONTEXT, #[opt] Key: PCSTR, ContextOut: *mut INFCONTEXT) -> BOOL;
+        extern fn SetupFindNextMatchLineA(ContextIn: PINFCONTEXT, #[opt] Key: PCSTR, #[out] ContextOut: PINFCONTEXT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupFindNextMatchLineW(ContextIn: *const INFCONTEXT, #[opt] Key: PCWSTR, ContextOut: *mut INFCONTEXT) -> BOOL;
+        extern fn SetupFindNextMatchLineW(ContextIn: PINFCONTEXT, #[opt] Key: PCWSTR, #[out] ContextOut: PINFCONTEXT) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupFreeSourceListA(#[in] #[out] List: *mut *mut PCSTR, Count: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
@@ -2292,115 +2292,115 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupGetBackupInformationW(QueueHandle: HSPFILEQ, #[in] #[out] BackupParams: PSP_BACKUP_QUEUE_PARAMS_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetBinaryField(Context: *const INFCONTEXT, FieldIndex: u32, #[size_param(3)] #[opt] ReturnBuffer: *mut u8, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetBinaryField(Context: PINFCONTEXT, FieldIndex: u32, #[size_param(3)] #[out] #[opt] ReturnBuffer: PBYTE, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: LPDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetFieldCount(Context: *const INFCONTEXT) -> u32;
+        extern fn SetupGetFieldCount(Context: PINFCONTEXT) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetFileCompressionInfoA(SourceFileName: PCSTR, ActualSourceFileName: *mut PSTR, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> u32;
+        extern fn SetupGetFileCompressionInfoA(SourceFileName: PCSTR, ActualSourceFileName: *mut PSTR, #[out] SourceFileSize: PDWORD, #[out] TargetFileSize: PDWORD, #[out] CompressionType: PUINT) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetFileCompressionInfoExA(SourceFileName: PCSTR, #[len_param(2)] #[opt] ActualSourceFileNameBuffer: PCSTR, ActualSourceFileNameBufferLen: u32, #[opt] RequiredBufferLen: *mut u32, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> BOOL;
+        extern fn SetupGetFileCompressionInfoExA(SourceFileName: PCSTR, #[len_param(2)] #[opt] ActualSourceFileNameBuffer: PSTR, ActualSourceFileNameBufferLen: u32, #[out] #[opt] RequiredBufferLen: PDWORD, #[out] SourceFileSize: PDWORD, #[out] TargetFileSize: PDWORD, #[out] CompressionType: PUINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetFileCompressionInfoExW(SourceFileName: PCWSTR, #[len_param(2)] #[opt] ActualSourceFileNameBuffer: PCWSTR, ActualSourceFileNameBufferLen: u32, #[opt] RequiredBufferLen: *mut u32, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> BOOL;
+        extern fn SetupGetFileCompressionInfoExW(SourceFileName: PCWSTR, #[len_param(2)] #[opt] ActualSourceFileNameBuffer: PWSTR, ActualSourceFileNameBufferLen: u32, #[out] #[opt] RequiredBufferLen: PDWORD, #[out] SourceFileSize: PDWORD, #[out] TargetFileSize: PDWORD, #[out] CompressionType: PUINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetFileCompressionInfoW(SourceFileName: PCWSTR, ActualSourceFileName: *mut PWSTR, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> u32;
+        extern fn SetupGetFileCompressionInfoW(SourceFileName: PCWSTR, ActualSourceFileName: *mut PWSTR, #[out] SourceFileSize: PDWORD, #[out] TargetFileSize: PDWORD, #[out] CompressionType: PUINT) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetFileQueueCount(FileQueue: HSPFILEQ, SubQueueFileOp: u32, NumOperations: *mut u32) -> BOOL;
+        extern fn SetupGetFileQueueCount(FileQueue: HSPFILEQ, SubQueueFileOp: u32, #[out] NumOperations: PUINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetFileQueueFlags(FileQueue: HSPFILEQ, Flags: *mut u32) -> BOOL;
+        extern fn SetupGetFileQueueFlags(FileQueue: HSPFILEQ, #[out] Flags: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfDriverStoreLocationA(FileName: PCSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] LocaleName: PCSTR, #[len_param(4)] #[out] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfDriverStoreLocationA(FileName: PCSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] LocaleName: PCSTR, #[len_param(4)] #[out] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfDriverStoreLocationW(FileName: PCWSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] LocaleName: PCWSTR, #[len_param(4)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfDriverStoreLocationW(FileName: PCWSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] LocaleName: PCWSTR, #[len_param(4)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfFileListA(#[opt] DirectoryPath: PCSTR, InfStyle: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfFileListA(#[opt] DirectoryPath: PCSTR, InfStyle: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfFileListW(#[opt] DirectoryPath: PCWSTR, InfStyle: u32, #[len_param(3)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfFileListW(#[opt] DirectoryPath: PCWSTR, InfStyle: u32, #[len_param(3)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfInformationA(InfSpec: *const void, SearchControl: u32, #[size_param(3)] #[opt] ReturnBuffer: *mut SP_INF_INFORMATION, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfInformationA(InfSpec: LPCVOID, SearchControl: u32, #[size_param(3)] #[out] #[opt] ReturnBuffer: PSP_INF_INFORMATION, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfInformationW(InfSpec: *const void, SearchControl: u32, #[size_param(3)] #[opt] ReturnBuffer: *mut SP_INF_INFORMATION, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfInformationW(InfSpec: LPCVOID, SearchControl: u32, #[size_param(3)] #[out] #[opt] ReturnBuffer: PSP_INF_INFORMATION, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfPublishedNameA(DriverStoreLocation: PCSTR, #[len_param(2)] #[out] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfPublishedNameA(DriverStoreLocation: PCSTR, #[len_param(2)] #[out] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetInfPublishedNameW(DriverStoreLocation: PCWSTR, #[len_param(2)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetInfPublishedNameW(DriverStoreLocation: PCWSTR, #[len_param(2)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetIntField(Context: *const INFCONTEXT, FieldIndex: u32, IntegerValue: *mut i32) -> BOOL;
+        extern fn SetupGetIntField(Context: PINFCONTEXT, FieldIndex: u32, #[out] IntegerValue: PINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetLineByIndexA(InfHandle: HINF, Section: PCSTR, Index: u32, Context: *mut INFCONTEXT) -> BOOL;
+        extern fn SetupGetLineByIndexA(InfHandle: HINF, Section: PCSTR, Index: u32, #[out] Context: PINFCONTEXT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetLineByIndexW(InfHandle: HINF, Section: PCWSTR, Index: u32, Context: *mut INFCONTEXT) -> BOOL;
+        extern fn SetupGetLineByIndexW(InfHandle: HINF, Section: PCWSTR, Index: u32, #[out] Context: PINFCONTEXT) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupGetLineCountA(InfHandle: HINF, Section: PCSTR) -> i32;
         #[library("SETUPAPI.dll")]
         extern fn SetupGetLineCountW(InfHandle: HINF, Section: PCWSTR) -> i32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetLineTextA(#[opt] Context: *const INFCONTEXT, #[opt] InfHandle: HINF, #[opt] Section: PCSTR, #[opt] Key: PCSTR, #[len_param(5)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetLineTextA(#[opt] Context: PINFCONTEXT, #[opt] InfHandle: HINF, #[opt] Section: PCSTR, #[opt] Key: PCSTR, #[len_param(5)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetLineTextW(#[opt] Context: *const INFCONTEXT, #[opt] InfHandle: HINF, #[opt] Section: PCWSTR, #[opt] Key: PCWSTR, #[len_param(5)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetLineTextW(#[opt] Context: PINFCONTEXT, #[opt] InfHandle: HINF, #[opt] Section: PCWSTR, #[opt] Key: PCWSTR, #[len_param(5)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetMultiSzFieldA(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetMultiSzFieldA(Context: PINFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: LPDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetMultiSzFieldW(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetMultiSzFieldW(Context: PINFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: LPDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupGetNonInteractiveMode() -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetSourceFileLocationA(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCSTR, SourceId: *mut u32, #[len_param(5)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetSourceFileLocationA(InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] FileName: PCSTR, #[out] SourceId: PUINT, #[len_param(5)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetSourceFileLocationW(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCWSTR, SourceId: *mut u32, #[len_param(5)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetSourceFileLocationW(InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] FileName: PCWSTR, #[out] SourceId: PUINT, #[len_param(5)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetSourceFileSizeA(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCSTR, #[opt] Section: PCSTR, FileSize: *mut u32, RoundingFactor: u32) -> BOOL;
+        extern fn SetupGetSourceFileSizeA(InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] FileName: PCSTR, #[opt] Section: PCSTR, #[out] FileSize: PDWORD, RoundingFactor: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetSourceFileSizeW(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCWSTR, #[opt] Section: PCWSTR, FileSize: *mut u32, RoundingFactor: u32) -> BOOL;
+        extern fn SetupGetSourceFileSizeW(InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] FileName: PCWSTR, #[opt] Section: PCWSTR, #[out] FileSize: PDWORD, RoundingFactor: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetSourceInfoA(InfHandle: HINF, SourceId: u32, InfoDesired: u32, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetSourceInfoA(InfHandle: HINF, SourceId: u32, InfoDesired: u32, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetSourceInfoW(InfHandle: HINF, SourceId: u32, InfoDesired: u32, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetSourceInfoW(InfHandle: HINF, SourceId: u32, InfoDesired: u32, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetStringFieldA(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetStringFieldA(Context: PINFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetStringFieldW(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetStringFieldW(Context: PINFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetTargetPathA(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] Section: PCSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetTargetPathA(InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] Section: PCSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupGetTargetPathW(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] Section: PCWSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupGetTargetPathW(InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] Section: PCWSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupGetThreadLogToken() -> SP_LOG_TOKEN;
         #[library("SETUPAPI.dll")]
         extern fn SetupInitDefaultQueueCallback(#[opt] OwnerWindow: HWND) -> *mut void;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInitDefaultQueueCallbackEx(#[opt] OwnerWindow: HWND, #[opt] AlternateProgressWindow: HWND, ProgressMessage: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *const void) -> *mut void;
+        extern fn SetupInitDefaultQueueCallbackEx(#[opt] OwnerWindow: HWND, #[opt] AlternateProgressWindow: HWND, ProgressMessage: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *mut void) -> *mut void;
         #[library("SETUPAPI.dll")]
         extern fn SetupInitializeFileLogA(#[opt] LogFileName: PCSTR, Flags: u32) -> HSPFILELOG;
         #[library("SETUPAPI.dll")]
         extern fn SetupInitializeFileLogW(#[opt] LogFileName: PCWSTR, Flags: u32) -> HSPFILELOG;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallFileA(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCSTR, #[opt] SourcePathRoot: PCSTR, #[opt] DestinationName: PCSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_A, #[opt] Context: *const void) -> BOOL;
+        extern fn SetupInstallFileA(#[opt] InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] SourceFile: PCSTR, #[opt] SourcePathRoot: PCSTR, #[opt] DestinationName: PCSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_A, #[in] #[opt] Context: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallFileExA(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCSTR, #[opt] SourcePathRoot: PCSTR, #[opt] DestinationName: PCSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_A, #[opt] Context: *const void, FileWasInUse: *mut BOOL) -> BOOL;
+        extern fn SetupInstallFileExA(#[opt] InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] SourceFile: PCSTR, #[opt] SourcePathRoot: PCSTR, #[opt] DestinationName: PCSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_A, #[in] #[opt] Context: *mut void, #[out] FileWasInUse: PBOOL) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallFileExW(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCWSTR, #[opt] SourcePathRoot: PCWSTR, #[opt] DestinationName: PCWSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_W, #[opt] Context: *const void, FileWasInUse: *mut BOOL) -> BOOL;
+        extern fn SetupInstallFileExW(#[opt] InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] SourceFile: PCWSTR, #[opt] SourcePathRoot: PCWSTR, #[opt] DestinationName: PCWSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_W, #[in] #[opt] Context: *mut void, #[out] FileWasInUse: PBOOL) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallFileW(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCWSTR, #[opt] SourcePathRoot: PCWSTR, #[opt] DestinationName: PCWSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_W, #[opt] Context: *const void) -> BOOL;
+        extern fn SetupInstallFileW(#[opt] InfHandle: HINF, #[opt] InfContext: PINFCONTEXT, #[opt] SourceFile: PCWSTR, #[opt] SourcePathRoot: PCWSTR, #[opt] DestinationName: PCWSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_W, #[in] #[opt] Context: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupInstallFilesFromInfSectionA(InfHandle: HINF, #[opt] LayoutInfHandle: HINF, FileQueue: HSPFILEQ, SectionName: PCSTR, #[opt] SourceRootPath: PCSTR, CopyFlags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupInstallFilesFromInfSectionW(InfHandle: HINF, #[opt] LayoutInfHandle: HINF, FileQueue: HSPFILEQ, SectionName: PCWSTR, #[opt] SourceRootPath: PCWSTR, CopyFlags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallFromInfSectionA(#[opt] Owner: HWND, InfHandle: HINF, SectionName: PCSTR, Flags: u32, #[opt] RelativeKeyRoot: HKEY, #[opt] SourceRootPath: PCSTR, CopyFlags: u32, #[opt] MsgHandler: PSP_FILE_CALLBACK_A, #[opt] Context: *const void, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupInstallFromInfSectionA(#[opt] Owner: HWND, InfHandle: HINF, SectionName: PCSTR, Flags: u32, #[opt] RelativeKeyRoot: HKEY, #[opt] SourceRootPath: PCSTR, CopyFlags: u32, #[opt] MsgHandler: PSP_FILE_CALLBACK_A, #[in] #[opt] Context: *mut void, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallFromInfSectionW(#[opt] Owner: HWND, InfHandle: HINF, SectionName: PCWSTR, Flags: u32, #[opt] RelativeKeyRoot: HKEY, #[opt] SourceRootPath: PCWSTR, CopyFlags: u32, #[opt] MsgHandler: PSP_FILE_CALLBACK_W, #[opt] Context: *const void, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        extern fn SetupInstallFromInfSectionW(#[opt] Owner: HWND, InfHandle: HINF, SectionName: PCWSTR, Flags: u32, #[opt] RelativeKeyRoot: HKEY, #[opt] SourceRootPath: PCWSTR, CopyFlags: u32, #[opt] MsgHandler: PSP_FILE_CALLBACK_W, #[in] #[opt] Context: *mut void, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupInstallServicesFromInfSectionA(InfHandle: HINF, SectionName: PCSTR, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallServicesFromInfSectionExA(InfHandle: HINF, SectionName: PCSTR, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        extern fn SetupInstallServicesFromInfSectionExA(InfHandle: HINF, SectionName: PCSTR, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupInstallServicesFromInfSectionExW(InfHandle: HINF, SectionName: PCWSTR, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        extern fn SetupInstallServicesFromInfSectionExW(InfHandle: HINF, SectionName: PCWSTR, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: PSP_DEVINFO_DATA, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupInstallServicesFromInfSectionW(InfHandle: HINF, SectionName: PCWSTR, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupIterateCabinetA(CabinetFile: PCSTR, #[reserved] Reserved: u32, MsgHandler: PSP_FILE_CALLBACK_A, Context: *const void) -> BOOL;
+        extern fn SetupIterateCabinetA(CabinetFile: PCSTR, #[reserved] Reserved: u32, MsgHandler: PSP_FILE_CALLBACK_A, #[in] Context: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupIterateCabinetW(CabinetFile: PCWSTR, #[reserved] Reserved: u32, MsgHandler: PSP_FILE_CALLBACK_W, Context: *const void) -> BOOL;
+        extern fn SetupIterateCabinetW(CabinetFile: PCWSTR, #[reserved] Reserved: u32, MsgHandler: PSP_FILE_CALLBACK_W, #[in] Context: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupLogErrorA(MessageString: PCSTR, Severity: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
@@ -2410,15 +2410,15 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupLogFileW(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCWSTR, SourceFilename: PCWSTR, TargetFilename: PCWSTR, Checksum: u32, #[opt] DiskTagfile: PCWSTR, #[opt] DiskDescription: PCWSTR, #[opt] OtherInfo: PCWSTR, Flags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupOpenAppendInfFileA(#[opt] FileName: PCSTR, InfHandle: HINF, #[opt] ErrorLine: *mut u32) -> BOOL;
+        extern fn SetupOpenAppendInfFileA(#[opt] FileName: PCSTR, InfHandle: HINF, #[out] #[opt] ErrorLine: PUINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupOpenAppendInfFileW(#[opt] FileName: PCWSTR, InfHandle: HINF, #[opt] ErrorLine: *mut u32) -> BOOL;
+        extern fn SetupOpenAppendInfFileW(#[opt] FileName: PCWSTR, InfHandle: HINF, #[out] #[opt] ErrorLine: PUINT) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupOpenFileQueue() -> HSPFILEQ;
         #[library("SETUPAPI.dll")]
-        extern fn SetupOpenInfFileA(FileName: PCSTR, #[opt] InfClass: PCSTR, InfStyle: u32, #[opt] ErrorLine: *mut u32) -> HINF;
+        extern fn SetupOpenInfFileA(FileName: PCSTR, #[opt] InfClass: PCSTR, InfStyle: u32, #[out] #[opt] ErrorLine: PUINT) -> HINF;
         #[library("SETUPAPI.dll")]
-        extern fn SetupOpenInfFileW(FileName: PCWSTR, #[opt] InfClass: PCWSTR, InfStyle: u32, #[opt] ErrorLine: *mut u32) -> HINF;
+        extern fn SetupOpenInfFileW(FileName: PCWSTR, #[opt] InfClass: PCWSTR, InfStyle: u32, #[out] #[opt] ErrorLine: PUINT) -> HINF;
         #[library("SETUPAPI.dll")]
         extern fn SetupOpenLog(Erase: BOOL) -> BOOL;
         #[library("SETUPAPI.dll")]
@@ -2428,45 +2428,45 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupPrepareQueueForRestoreW(QueueHandle: HSPFILEQ, BackupPath: PCWSTR, RestoreFlags: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupPromptForDiskA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, #[opt] DiskName: PCSTR, #[opt] PathToSource: PCSTR, FileSought: PCSTR, #[opt] TagFile: PCSTR, DiskPromptStyle: u32, #[len_param(8)] #[out] #[opt] PathBuffer: PSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        extern fn SetupPromptForDiskA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, #[opt] DiskName: PCSTR, #[opt] PathToSource: PCSTR, FileSought: PCSTR, #[opt] TagFile: PCSTR, DiskPromptStyle: u32, #[len_param(8)] #[out] #[opt] PathBuffer: PSTR, PathBufferSize: u32, #[out] #[opt] PathRequiredSize: PDWORD) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupPromptForDiskW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, #[opt] DiskName: PCWSTR, #[opt] PathToSource: PCWSTR, FileSought: PCWSTR, #[opt] TagFile: PCWSTR, DiskPromptStyle: u32, #[len_param(8)] #[out] #[opt] PathBuffer: PWSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        extern fn SetupPromptForDiskW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, #[opt] DiskName: PCWSTR, #[opt] PathToSource: PCWSTR, FileSought: PCWSTR, #[opt] TagFile: PCWSTR, DiskPromptStyle: u32, #[len_param(8)] #[out] #[opt] PathBuffer: PWSTR, PathBufferSize: u32, #[out] #[opt] PathRequiredSize: PDWORD) -> u32;
         #[library("SETUPAPI.dll")]
         extern fn SetupPromptReboot(#[opt] FileQueue: HSPFILEQ, #[opt] Owner: HWND, ScanOnly: BOOL) -> i32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryDrivesInDiskSpaceListA(DiskSpace: HDSKSPC, #[len_param(2)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryDrivesInDiskSpaceListA(DiskSpace: HDSKSPC, #[len_param(2)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryDrivesInDiskSpaceListW(DiskSpace: HDSKSPC, #[len_param(2)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryDrivesInDiskSpaceListW(DiskSpace: HDSKSPC, #[len_param(2)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryFileLogA(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCSTR, TargetFilename: PCSTR, DesiredInfo: SetupFileLogInfo, #[len_param(5)] #[out] #[opt] DataOut: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryFileLogA(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCSTR, TargetFilename: PCSTR, DesiredInfo: SetupFileLogInfo, #[len_param(5)] #[out] #[opt] DataOut: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryFileLogW(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCWSTR, TargetFilename: PCWSTR, DesiredInfo: SetupFileLogInfo, #[len_param(5)] #[out] #[opt] DataOut: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryFileLogW(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCWSTR, TargetFilename: PCWSTR, DesiredInfo: SetupFileLogInfo, #[len_param(5)] #[out] #[opt] DataOut: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryInfFileInformationA(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryInfFileInformationA(InfInformation: PSP_INF_INFORMATION, InfIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryInfFileInformationW(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryInfFileInformationW(InfInformation: PSP_INF_INFORMATION, InfIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryInfOriginalFileInformationA(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, OriginalFileInfo: *mut SP_ORIGINAL_FILE_INFO_A) -> BOOL;
+        extern fn SetupQueryInfOriginalFileInformationA(InfInformation: PSP_INF_INFORMATION, InfIndex: u32, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[out] OriginalFileInfo: PSP_ORIGINAL_FILE_INFO_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryInfOriginalFileInformationW(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, OriginalFileInfo: *mut SP_ORIGINAL_FILE_INFO_W) -> BOOL;
+        extern fn SetupQueryInfOriginalFileInformationW(InfInformation: PSP_INF_INFORMATION, InfIndex: u32, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[out] OriginalFileInfo: PSP_ORIGINAL_FILE_INFO_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryInfVersionInformationA(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] Key: PCSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryInfVersionInformationA(InfInformation: PSP_INF_INFORMATION, InfIndex: u32, #[opt] Key: PCSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueryInfVersionInformationW(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] Key: PCWSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        extern fn SetupQueryInfVersionInformationW(InfInformation: PSP_INF_INFORMATION, InfIndex: u32, #[opt] Key: PCWSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[out] #[opt] RequiredSize: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQuerySourceListA(Flags: u32, List: *mut *mut PCSTR, Count: *mut u32) -> BOOL;
+        extern fn SetupQuerySourceListA(Flags: u32, List: *mut *mut PCSTR, #[out] Count: PUINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQuerySourceListW(Flags: u32, List: *mut *mut PCWSTR, Count: *mut u32) -> BOOL;
+        extern fn SetupQuerySourceListW(Flags: u32, List: *mut *mut PCWSTR, #[out] Count: PUINT) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQuerySpaceRequiredOnDriveA(DiskSpace: HDSKSPC, DriveSpec: PCSTR, SpaceRequired: *mut i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupQuerySpaceRequiredOnDriveA(DiskSpace: HDSKSPC, DriveSpec: PCSTR, SpaceRequired: *mut i64, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQuerySpaceRequiredOnDriveW(DiskSpace: HDSKSPC, DriveSpec: PCWSTR, SpaceRequired: *mut i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupQuerySpaceRequiredOnDriveW(DiskSpace: HDSKSPC, DriveSpec: PCWSTR, SpaceRequired: *mut i64, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupQueueCopyA(QueueHandle: HSPFILEQ, #[opt] SourceRootPath: PCSTR, #[opt] SourcePath: PCSTR, SourceFilename: PCSTR, #[opt] SourceDescription: PCSTR, #[opt] SourceTagfile: PCSTR, TargetDirectory: PCSTR, #[opt] TargetFilename: PCSTR, CopyStyle: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueueCopyIndirectA(CopyParams: *const SP_FILE_COPY_PARAMS_A) -> BOOL;
+        extern fn SetupQueueCopyIndirectA(CopyParams: PSP_FILE_COPY_PARAMS_A) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupQueueCopyIndirectW(CopyParams: *const SP_FILE_COPY_PARAMS_W) -> BOOL;
+        extern fn SetupQueueCopyIndirectW(CopyParams: PSP_FILE_COPY_PARAMS_W) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupQueueCopySectionA(QueueHandle: HSPFILEQ, #[opt] SourceRootPath: PCSTR, InfHandle: HINF, #[opt] ListInfHandle: HINF, Section: PCSTR, CopyStyle: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
@@ -2498,35 +2498,35 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupRemoveFileLogEntryW(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCWSTR, #[opt] TargetFilename: PCWSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupRemoveFromDiskSpaceListA(DiskSpace: HDSKSPC, TargetFilespec: PCSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupRemoveFromDiskSpaceListA(DiskSpace: HDSKSPC, TargetFilespec: PCSTR, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupRemoveFromDiskSpaceListW(DiskSpace: HDSKSPC, TargetFilespec: PCWSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupRemoveFromDiskSpaceListW(DiskSpace: HDSKSPC, TargetFilespec: PCWSTR, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupRemoveFromSourceListA(Flags: u32, Source: PCSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupRemoveFromSourceListW(Flags: u32, Source: PCWSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupRemoveInstallSectionFromDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupRemoveInstallSectionFromDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCSTR, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupRemoveInstallSectionFromDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCWSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupRemoveInstallSectionFromDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCWSTR, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupRemoveSectionFromDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupRemoveSectionFromDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCSTR, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupRemoveSectionFromDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCWSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        extern fn SetupRemoveSectionFromDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCWSTR, Operation: u32, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupRenameErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, SourceFile: PCSTR, TargetFile: PCSTR, Win32ErrorCode: u32, Style: u32) -> u32;
         #[library("SETUPAPI.dll")]
         extern fn SetupRenameErrorW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, SourceFile: PCWSTR, TargetFile: PCWSTR, Win32ErrorCode: u32, Style: u32) -> u32;
         #[library("SETUPAPI.dll")]
-        extern fn SetupScanFileQueueA(FileQueue: HSPFILEQ, Flags: u32, #[opt] Window: HWND, #[opt] CallbackRoutine: PSP_FILE_CALLBACK_A, #[opt] CallbackContext: *const void, Result: *mut u32) -> BOOL;
+        extern fn SetupScanFileQueueA(FileQueue: HSPFILEQ, Flags: u32, #[opt] Window: HWND, #[opt] CallbackRoutine: PSP_FILE_CALLBACK_A, #[in] #[opt] CallbackContext: *mut void, #[out] Result: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupScanFileQueueW(FileQueue: HSPFILEQ, Flags: u32, #[opt] Window: HWND, #[opt] CallbackRoutine: PSP_FILE_CALLBACK_W, #[opt] CallbackContext: *const void, Result: *mut u32) -> BOOL;
+        extern fn SetupScanFileQueueW(FileQueue: HSPFILEQ, Flags: u32, #[opt] Window: HWND, #[opt] CallbackRoutine: PSP_FILE_CALLBACK_W, #[in] #[opt] CallbackContext: *mut void, #[out] Result: PDWORD) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupSetDirectoryIdA(InfHandle: HINF, Id: u32, #[opt] Directory: PCSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupSetDirectoryIdExA(InfHandle: HINF, Id: u32, #[opt] Directory: PCSTR, Flags: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *const void) -> BOOL;
+        extern fn SetupSetDirectoryIdExA(InfHandle: HINF, Id: u32, #[opt] Directory: PCSTR, Flags: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupSetDirectoryIdExW(InfHandle: HINF, Id: u32, #[opt] Directory: PCWSTR, Flags: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *const void) -> BOOL;
+        extern fn SetupSetDirectoryIdExW(InfHandle: HINF, Id: u32, #[opt] Directory: PCWSTR, Flags: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupSetDirectoryIdW(InfHandle: HINF, Id: u32, #[opt] Directory: PCWSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
@@ -2542,21 +2542,21 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupSetPlatformPathOverrideW(#[opt] Override: PCWSTR) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupSetSourceListA(Flags: u32, #[len_param(2)] SourceList: *const PCSTR, SourceCount: u32) -> BOOL;
+        extern fn SetupSetSourceListA(Flags: u32, #[len_param(2)] #[in] SourceList: *mut PCSTR, SourceCount: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupSetSourceListW(Flags: u32, #[len_param(2)] SourceList: *const PCWSTR, SourceCount: u32) -> BOOL;
+        extern fn SetupSetSourceListW(Flags: u32, #[len_param(2)] #[in] SourceList: *mut PCWSTR, SourceCount: u32) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupSetThreadLogToken(LogToken: SP_LOG_TOKEN);
         #[library("SETUPAPI.dll")]
-        extern fn SetupTermDefaultQueueCallback(Context: *const void);
+        extern fn SetupTermDefaultQueueCallback(#[in] Context: *mut void);
         #[library("SETUPAPI.dll")]
         extern fn SetupTerminateFileLog(FileLogHandle: HSPFILELOG) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupUninstallNewlyCopiedInfs(FileQueue: HSPFILEQ, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupUninstallNewlyCopiedInfs(FileQueue: HSPFILEQ, Flags: u32, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupUninstallOEMInfA(InfFileName: PCSTR, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupUninstallOEMInfA(InfFileName: PCSTR, Flags: u32, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupUninstallOEMInfW(InfFileName: PCWSTR, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        extern fn SetupUninstallOEMInfW(InfFileName: PCWSTR, Flags: u32, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn SetupVerifyInfFileA(InfName: PCSTR, #[opt] AltPlatformInfo: PSP_ALTPLATFORM_INFO, #[in] #[out] InfSignerInfo: PSP_INF_SIGNER_INFO_A) -> BOOL;
         #[library("SETUPAPI.dll")]
@@ -2566,6 +2566,7 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern "C" fn SetupWriteTextLogError(LogToken: SP_LOG_TOKEN, Category: u32, LogFlags: u32, Error: u32, MessageStr: PCSTR, ...);
         #[library("SETUPAPI.dll")]
-        extern fn SetupWriteTextLogInfLine(LogToken: SP_LOG_TOKEN, Flags: u32, InfHandle: HINF, Context: *const INFCONTEXT);
+        extern fn SetupWriteTextLogInfLine(LogToken: SP_LOG_TOKEN, Flags: u32, InfHandle: HINF, Context: PINFCONTEXT);
+        const _SETUPAPI_VER: i32 = 2560;
     }
 }

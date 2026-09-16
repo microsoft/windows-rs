@@ -1,9 +1,12 @@
+pub type CIUniformResourceLocator = IUniformResourceLocatorA;
 #[cfg(feature = "windef")]
 pub type CURLINVOKECOMMANDINFOA = URLINVOKECOMMANDINFOA;
 #[cfg(feature = "windef")]
 pub type CURLINVOKECOMMANDINFOW = URLINVOKECOMMANDINFOW;
-pub const E_FLAGS: i32 = -2147217408;
-pub const IS_E_EXEC_FAILED: i32 = -2147213310;
+#[cfg(feature = "wtypesbase")]
+pub const E_FLAGS: super::SCODE = 0x80041000_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const IS_E_EXEC_FAILED: super::SCODE = 0x80042002_u32 as _;
 pub type IURL_INVOKECOMMAND_FLAGS = i32;
 pub const IURL_INVOKECOMMAND_FL_ALLOW_UI: IURL_INVOKECOMMAND_FLAGS = 1;
 pub const IURL_INVOKECOMMAND_FL_ASYNCOK: IURL_INVOKECOMMAND_FLAGS = 8;
@@ -29,11 +32,8 @@ impl IUniformResourceLocatorA {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOA> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOA) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), purlici) }
     }
 }
 #[repr(C)]
@@ -43,7 +43,7 @@ pub struct IUniformResourceLocatorA_Vtbl {
     pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PSTR) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut URLINVOKECOMMANDINFOA) -> windows_core::HRESULT,
+    pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, PURLINVOKECOMMANDINFOA) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     InvokeCommand: usize,
 }
@@ -51,7 +51,7 @@ pub struct IUniformResourceLocatorA_Vtbl {
 pub trait IUniformResourceLocatorA_Impl: windows_core::IUnknownImpl {
     fn SetURL(&self, pcszurl: &windows_core::PCSTR, dwinflags: u32) -> windows_core::Result<()>;
     fn GetURL(&self) -> windows_core::Result<windows_core::PSTR>;
-    fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOA>;
+    fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOA) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
 impl IUniformResourceLocatorA_Vtbl {
@@ -74,16 +74,10 @@ impl IUniformResourceLocatorA_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn InvokeCommand<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purlici: *mut URLINVOKECOMMANDINFOA) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeCommand<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purlici: PURLINVOKECOMMANDINFOA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUniformResourceLocatorA_Impl::InvokeCommand(this) {
-                    Ok(ok__) => {
-                        purlici.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUniformResourceLocatorA_Impl::InvokeCommand(this, core::mem::transmute_copy(&purlici)).into()
             }
         }
         Self {
@@ -115,11 +109,8 @@ impl IUniformResourceLocatorW {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOW> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOW) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), purlici) }
     }
 }
 #[repr(C)]
@@ -129,7 +120,7 @@ pub struct IUniformResourceLocatorW_Vtbl {
     pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut URLINVOKECOMMANDINFOW) -> windows_core::HRESULT,
+    pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, PURLINVOKECOMMANDINFOW) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     InvokeCommand: usize,
 }
@@ -137,7 +128,7 @@ pub struct IUniformResourceLocatorW_Vtbl {
 pub trait IUniformResourceLocatorW_Impl: windows_core::IUnknownImpl {
     fn SetURL(&self, pcszurl: &windows_core::PCWSTR, dwinflags: u32) -> windows_core::Result<()>;
     fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOW>;
+    fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOW) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
 impl IUniformResourceLocatorW_Vtbl {
@@ -160,16 +151,10 @@ impl IUniformResourceLocatorW_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn InvokeCommand<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purlici: *mut URLINVOKECOMMANDINFOW) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeCommand<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, purlici: PURLINVOKECOMMANDINFOW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUniformResourceLocatorW_Impl::InvokeCommand(this) {
-                    Ok(ok__) => {
-                        purlici.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUniformResourceLocatorW_Impl::InvokeCommand(this, core::mem::transmute_copy(&purlici)).into()
             }
         }
         Self {
@@ -219,5 +204,7 @@ pub struct URLINVOKECOMMANDINFOW {
     pub hwndParent: super::HWND,
     pub pcszVerb: windows_core::PCWSTR,
 }
-pub const URL_E_INVALID_SYNTAX: i32 = -2147217407;
-pub const URL_E_UNREGISTERED_PROTOCOL: i32 = -2147217406;
+#[cfg(feature = "wtypesbase")]
+pub const URL_E_INVALID_SYNTAX: super::SCODE = 0x80041001_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const URL_E_UNREGISTERED_PROTOCOL: super::SCODE = 0x80041002_u32 as _;

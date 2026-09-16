@@ -4,10 +4,11 @@ use windows_metadata::reader::{File, Index, Item, TypeCategory};
 use windows_metadata::{Signature, Type};
 
 /// The metadata that backs the published `windows` and `windows-sys` crates. Both crates share the
-/// same namespace-to-feature taxonomy, so a single index answers "which feature do I enable?" for
-/// either crate. These are the header-namespaced winmds staged by [`prepare_metadata`] under
-/// `target` - the same remap `tool-package` applies - so the page reports the crates' actual
-/// header-stem features such as `winnt` and `d2d`.
+/// same namespace-to-feature taxonomy, so a single index answers which feature owns a metadata
+/// API. Rich bindings may project some metadata type names to sibling crates. These are the
+/// header-namespaced winmds staged by [`prepare_metadata`] under `target` - the same remap
+/// `tool-package` applies - so the page reports the crates' actual header-stem features such as
+/// `winnt` and `d2d`.
 const WINMD: [&str; 2] = [
     "target/features/Windows.Win32.winmd",
     "target/features/Windows.winmd",
@@ -254,7 +255,7 @@ const PAGE: &str = r#"<!doctype html>
 </head>
 <body>
 <h1>windows-rs feature search</h1>
-<p>Type an API name to find the Cargo feature(s) to enable in the <code>windows</code> or <code>windows-sys</code> crate. A method or function may need more than one when its parameters span namespaces. Matching is a case-insensitive regular expression over <code>Namespace::Name</code>.</p>
+<p>Type a metadata API name to find the Cargo feature(s) to enable in the <code>windows</code> or <code>windows-sys</code> crate. Rich bindings may project some metadata types to sibling crates such as <code>windows-numerics</code>. A method or function may need more than one feature when its parameters span namespaces. Matching is a case-insensitive regular expression over <code>Namespace::Name</code>.</p>
 <input id="q" placeholder="CreateFileW, IDWriteFactory, Direct3D11, ..." autofocus>
 <div id="status" class="status">Loading index&hellip;</div>
 <table><thead><tr><th>API</th><th>Feature</th></tr></thead><tbody id="results"></tbody></table>

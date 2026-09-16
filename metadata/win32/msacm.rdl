@@ -132,8 +132,8 @@ mod Windows {
             szFilter: [u16; 128],
         }
         const ACMFILTERDETAILS_FILTER_CHARS: i32 = 128;
-        extern fn ACMFILTERENUMCBA(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
-        extern fn ACMFILTERENUMCBW(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFILTERENUMCBA(hadid: HACMDRIVERID, pafd: LPACMFILTERDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFILTERENUMCBW(hadid: HACMDRIVERID, pafd: LPACMFILTERDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
         #[packed(1)]
         struct ACMFILTERTAGDETAILSA {
             cbStruct: u32,
@@ -155,8 +155,8 @@ mod Windows {
             szFilterTag: [u16; 48],
         }
         const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: i32 = 48;
-        extern fn ACMFILTERTAGENUMCBA(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
-        extern fn ACMFILTERTAGENUMCBW(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFILTERTAGENUMCBA(hadid: HACMDRIVERID, paftd: LPACMFILTERTAGDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFILTERTAGENUMCBW(hadid: HACMDRIVERID, paftd: LPACMFILTERTAGDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
         #[packed(1)]
         struct ACMFORMATCHOOSEA {
             cbStruct: u32,
@@ -224,8 +224,8 @@ mod Windows {
             szFormat: [u16; 128],
         }
         const ACMFORMATDETAILS_FORMAT_CHARS: i32 = 128;
-        extern fn ACMFORMATENUMCBA(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
-        extern fn ACMFORMATENUMCBW(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFORMATENUMCBA(hadid: HACMDRIVERID, pafd: LPACMFORMATDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFORMATENUMCBW(hadid: HACMDRIVERID, pafd: LPACMFORMATDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
         #[packed(1)]
         struct ACMFORMATTAGDETAILSA {
             cbStruct: u32,
@@ -247,16 +247,22 @@ mod Windows {
             szFormatTag: [u16; 48],
         }
         const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: i32 = 48;
-        extern fn ACMFORMATTAGENUMCBA(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
-        extern fn ACMFORMATTAGENUMCBW(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFORMATTAGENUMCBA(hadid: HACMDRIVERID, paftd: LPACMFORMATTAGDETAILSA, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        extern fn ACMFORMATTAGENUMCBW(hadid: HACMDRIVERID, paftd: LPACMFORMATTAGDETAILSW, dwInstance: usize, fdwSupport: u32) -> BOOL;
+        #[encoding("ansi")]
+        const ACMHELPMSGCONTEXTHELP: String = "acmchoose_contexthelp";
         #[encoding("ansi")]
         const ACMHELPMSGCONTEXTHELPA: String = "acmchoose_contexthelp";
         #[encoding("utf-16")]
         const ACMHELPMSGCONTEXTHELPW: String = "acmchoose_contexthelp";
         #[encoding("ansi")]
+        const ACMHELPMSGCONTEXTMENU: String = "acmchoose_contextmenu";
+        #[encoding("ansi")]
         const ACMHELPMSGCONTEXTMENUA: String = "acmchoose_contextmenu";
         #[encoding("utf-16")]
         const ACMHELPMSGCONTEXTMENUW: String = "acmchoose_contextmenu";
+        #[encoding("ansi")]
+        const ACMHELPMSGSTRING: String = "acmchoose_help";
         #[encoding("ansi")]
         const ACMHELPMSGSTRINGA: String = "acmchoose_help";
         #[encoding("utf-16")]
@@ -377,10 +383,26 @@ mod Windows {
         const FORMATCHOOSE_FORMATTAG_VERIFY: i32 = 0;
         const FORMATCHOOSE_FORMAT_VERIFY: i32 = 1;
         const FORMATCHOOSE_MESSAGE: i32 = 0;
-        type HACMDRIVER = *mut void;
-        type HACMDRIVERID = *mut void;
-        type HACMOBJ = *mut void;
-        type HACMSTREAM = *mut void;
+        type HACMDRIVER = *mut HACMDRIVER__;
+        type HACMDRIVERID = *mut HACMDRIVERID__;
+        #[packed(1)]
+        struct HACMDRIVERID__ {
+            unused: i32,
+        }
+        #[packed(1)]
+        struct HACMDRIVER__ {
+            unused: i32,
+        }
+        type HACMOBJ = *mut HACMOBJ__;
+        #[packed(1)]
+        struct HACMOBJ__ {
+            unused: i32,
+        }
+        type HACMSTREAM = *mut HACMSTREAM__;
+        #[packed(1)]
+        struct HACMSTREAM__ {
+            unused: i32,
+        }
         type LPACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
         type LPACMDRIVERDETAILSW = *mut ACMDRIVERDETAILSW;
         type LPACMDRIVERPROC = *mut ACMDRIVERPROC;
@@ -433,70 +455,74 @@ mod Windows {
         const WAVEOUT_MAPPER_STATUS_MAPPED: i32 = 1;
         const WIDM_MAPPER_STATUS: i32 = 8192;
         const WODM_MAPPER_STATUS: i32 = 8192;
+        #[arch(X64 | Arm64)]
+        const _DRVRESERVED: i32 = 15;
+        #[arch(X86)]
+        const _DRVRESERVED: i32 = 10;
         #[library("MSACM32.dll")]
-        extern fn acmDriverAddA(phadid: *mut HACMDRIVERID, hinstModule: HINSTANCE, lParam: LPARAM, dwPriority: u32, fdwAdd: u32) -> MMRESULT;
+        extern fn acmDriverAddA(phadid: LPHACMDRIVERID, hinstModule: HINSTANCE, lParam: LPARAM, dwPriority: u32, fdwAdd: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmDriverAddW(phadid: *mut HACMDRIVERID, hinstModule: HINSTANCE, lParam: LPARAM, dwPriority: u32, fdwAdd: u32) -> MMRESULT;
+        extern fn acmDriverAddW(phadid: LPHACMDRIVERID, hinstModule: HINSTANCE, lParam: LPARAM, dwPriority: u32, fdwAdd: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmDriverClose(had: HACMDRIVER, fdwClose: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwDetails: u32) -> MMRESULT;
+        extern fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: LPACMDRIVERDETAILSA, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwDetails: u32) -> MMRESULT;
+        extern fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: LPACMDRIVERDETAILSW, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmDriverEnum(fnCallback: ACMDRIVERENUMCB, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmDriverID(hao: HACMOBJ, phadid: *mut HACMDRIVERID, fdwDriverID: u32) -> MMRESULT;
+        extern fn acmDriverID(hao: HACMOBJ, phadid: LPHACMDRIVERID, fdwDriverID: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmDriverMessage(had: HACMDRIVER, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> LRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmDriverOpen(phad: *mut HACMDRIVER, hadid: HACMDRIVERID, fdwOpen: u32) -> MMRESULT;
+        extern fn acmDriverOpen(phad: LPHACMDRIVER, hadid: HACMDRIVERID, fdwOpen: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmDriverPriority(hadid: HACMDRIVERID, dwPriority: u32, fdwPriority: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmDriverRemove(hadid: HACMDRIVERID, fdwRemove: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> MMRESULT;
+        extern fn acmFilterChooseA(pafltrc: LPACMFILTERCHOOSEA) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> MMRESULT;
+        extern fn acmFilterChooseW(pafltrc: LPACMFILTERCHOOSEW) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFilterDetailsA(had: HACMDRIVER, pafd: LPACMFILTERDETAILSA, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFilterDetailsW(had: HACMDRIVER, pafd: LPACMFILTERDETAILSW, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fnCallback: ACMFILTERENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFilterEnumA(had: HACMDRIVER, pafd: LPACMFILTERDETAILSA, fnCallback: ACMFILTERENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fnCallback: ACMFILTERENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFilterEnumW(had: HACMDRIVER, pafd: LPACMFILTERDETAILSW, fnCallback: ACMFILTERENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: LPACMFILTERTAGDETAILSA, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: LPACMFILTERTAGDETAILSW, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fnCallback: ACMFILTERTAGENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFilterTagEnumA(had: HACMDRIVER, paftd: LPACMFILTERTAGDETAILSA, fnCallback: ACMFILTERTAGENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fnCallback: ACMFILTERTAGENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFilterTagEnumW(had: HACMDRIVER, paftd: LPACMFILTERTAGDETAILSW, fnCallback: ACMFILTERTAGENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> MMRESULT;
+        extern fn acmFormatChooseA(pafmtc: LPACMFORMATCHOOSEA) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> MMRESULT;
+        extern fn acmFormatChooseW(pafmtc: LPACMFORMATCHOOSEW) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFormatDetailsA(had: HACMDRIVER, pafd: LPACMFORMATDETAILSA, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSW, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFormatDetailsW(had: HACMDRIVER, pafd: LPACMFORMATDETAILSW, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fnCallback: ACMFORMATENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFormatEnumA(had: HACMDRIVER, pafd: LPACMFORMATDETAILSA, fnCallback: ACMFORMATENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSW, fnCallback: ACMFORMATENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFormatEnumW(had: HACMDRIVER, pafd: LPACMFORMATDETAILSW, fnCallback: ACMFORMATENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatSuggest(had: HACMDRIVER, pwfxSrc: *mut WAVEFORMATEX, pwfxDst: *mut WAVEFORMATEX, cbwfxDst: u32, fdwSuggest: u32) -> MMRESULT;
+        extern fn acmFormatSuggest(had: HACMDRIVER, pwfxSrc: LPWAVEFORMATEX, pwfxDst: LPWAVEFORMATEX, cbwfxDst: u32, fdwSuggest: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: LPACMFORMATTAGDETAILSA, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwDetails: u32) -> MMRESULT;
+        extern fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: LPACMFORMATTAGDETAILSW, fdwDetails: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fnCallback: ACMFORMATTAGENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFormatTagEnumA(had: HACMDRIVER, paftd: LPACMFORMATTAGDETAILSA, fnCallback: ACMFORMATTAGENUMCBA, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fnCallback: ACMFORMATTAGENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
+        extern fn acmFormatTagEnumW(had: HACMDRIVER, paftd: LPACMFORMATTAGDETAILSW, fnCallback: ACMFORMATTAGENUMCBW, dwInstance: usize, fdwEnum: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmGetVersion() -> u32;
         #[library("MSACM32.dll")]
@@ -504,18 +530,18 @@ mod Windows {
         #[library("MSACM32.dll")]
         extern fn acmStreamClose(has: HACMSTREAM, fdwClose: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwConvert: u32) -> MMRESULT;
+        extern fn acmStreamConvert(has: HACMSTREAM, pash: LPACMSTREAMHEADER, fdwConvert: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmStreamMessage(has: HACMSTREAM, uMsg: u32, lParam1: LPARAM, lParam2: LPARAM) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmStreamOpen(phas: *mut HACMSTREAM, had: HACMDRIVER, pwfxSrc: *mut WAVEFORMATEX, pwfxDst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwCallback: usize, dwInstance: usize, fdwOpen: u32) -> MMRESULT;
+        extern fn acmStreamOpen(phas: LPHACMSTREAM, had: HACMDRIVER, pwfxSrc: LPWAVEFORMATEX, pwfxDst: LPWAVEFORMATEX, pwfltr: LPWAVEFILTER, dwCallback: usize, dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwPrepare: u32) -> MMRESULT;
+        extern fn acmStreamPrepareHeader(has: HACMSTREAM, pash: LPACMSTREAMHEADER, fdwPrepare: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
         extern fn acmStreamReset(has: HACMSTREAM, fdwReset: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmStreamSize(has: HACMSTREAM, cbInput: u32, pdwOutputBytes: *mut u32, fdwSize: u32) -> MMRESULT;
+        extern fn acmStreamSize(has: HACMSTREAM, cbInput: u32, pdwOutputBytes: LPDWORD, fdwSize: u32) -> MMRESULT;
         #[library("MSACM32.dll")]
-        extern fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwUnprepare: u32) -> MMRESULT;
+        extern fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: LPACMSTREAMHEADER, fdwUnprepare: u32) -> MMRESULT;
     }
 }

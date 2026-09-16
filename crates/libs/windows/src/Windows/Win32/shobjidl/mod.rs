@@ -1,3 +1,51 @@
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserFree(param0: *mut u32, param1: *mut super::HMONITOR) {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserFree(param0 : *mut u32, param1 : *mut super::HMONITOR));
+    unsafe { HMONITOR_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserFree64(param0: *mut u32, param1: *mut super::HMONITOR) {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserFree64(param0 : *mut u32, param1 : *mut super::HMONITOR));
+    unsafe { HMONITOR_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HMONITOR) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
+    unsafe { HMONITOR_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HMONITOR) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
+    unsafe { HMONITOR_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HMONITOR) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HMONITOR) -> u32);
+    unsafe { HMONITOR_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HMONITOR) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HMONITOR) -> u32);
+    unsafe { HMONITOR_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HMONITOR) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
+    unsafe { HMONITOR_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HMONITOR_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HMONITOR) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
+    unsafe { HMONITOR_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
 #[cfg(feature = "propsys")]
 #[inline]
 pub unsafe fn SHAddDefaultPropertiesByExt<P0, P1>(pszext: P0, ppropstore: P1) -> windows_core::HRESULT
@@ -832,7 +880,7 @@ impl IEnumerableView {
         unsafe { (windows_core::Interface::vtable(self).SetEnumReadyCallback)(windows_core::Interface::as_raw(self), percb.param().abi()) }
     }
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-    pub unsafe fn CreateEnumIDListFromContents(&self, pidlfolder: *const super::ITEMIDLIST, dwenumflags: u32) -> windows_core::Result<super::IEnumIDList> {
+    pub unsafe fn CreateEnumIDListFromContents(&self, pidlfolder: super::LPCITEMIDLIST, dwenumflags: u32) -> windows_core::Result<super::IEnumIDList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateEnumIDListFromContents)(windows_core::Interface::as_raw(self), pidlfolder, dwenumflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -845,14 +893,14 @@ pub struct IEnumerableView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetEnumReadyCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-    pub CreateEnumIDListFromContents: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateEnumIDListFromContents: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "shobjidl_core", feature = "shtypes")))]
     CreateEnumIDListFromContents: usize,
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 pub trait IEnumerableView_Impl: windows_core::IUnknownImpl {
     fn SetEnumReadyCallback(&self, percb: windows_core::Ref<IEnumReadyCallback>) -> windows_core::Result<()>;
-    fn CreateEnumIDListFromContents(&self, pidlfolder: *const super::ITEMIDLIST, dwenumflags: u32) -> windows_core::Result<super::IEnumIDList>;
+    fn CreateEnumIDListFromContents(&self, pidlfolder: super::LPCITEMIDLIST, dwenumflags: u32) -> windows_core::Result<super::IEnumIDList>;
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 impl IEnumerableView_Vtbl {
@@ -863,7 +911,7 @@ impl IEnumerableView_Vtbl {
                 IEnumerableView_Impl::SetEnumReadyCallback(this, core::mem::transmute_copy(&percb)).into()
             }
         }
-        unsafe extern "system" fn CreateEnumIDListFromContents<Identity: IEnumerableView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidlfolder: *const super::ITEMIDLIST, dwenumflags: u32, ppenumidlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateEnumIDListFromContents<Identity: IEnumerableView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidlfolder: super::LPCITEMIDLIST, dwenumflags: u32, ppenumidlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumerableView_Impl::CreateEnumIDListFromContents(this, core::mem::transmute_copy(&pidlfolder), core::mem::transmute_copy(&dwenumflags)) {
@@ -1404,7 +1452,7 @@ windows_core::imp::define_interface!(IInsertItem, IInsertItem_Vtbl, 0xd2b57227_3
 windows_core::imp::interface_hierarchy!(IInsertItem, windows_core::IUnknown);
 impl IInsertItem {
     #[cfg(feature = "shtypes")]
-    pub unsafe fn InsertItem(&self, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+    pub unsafe fn InsertItem(&self, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), pidl) }
     }
 }
@@ -1413,18 +1461,18 @@ impl IInsertItem {
 pub struct IInsertItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "shtypes")]
-    pub InsertItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST) -> windows_core::HRESULT,
+    pub InsertItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     InsertItem: usize,
 }
 #[cfg(feature = "shtypes")]
 pub trait IInsertItem_Impl: windows_core::IUnknownImpl {
-    fn InsertItem(&self, pidl: *const super::ITEMIDLIST) -> windows_core::Result<()>;
+    fn InsertItem(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<()>;
 }
 #[cfg(feature = "shtypes")]
 impl IInsertItem_Vtbl {
     pub const fn new<Identity: IInsertItem_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InsertItem<Identity: IInsertItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn InsertItem<Identity: IInsertItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInsertItem_Impl::InsertItem(this, core::mem::transmute_copy(&pidl)).into()
@@ -2465,7 +2513,7 @@ impl IResultsFolder {
         unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), psi.param().abi()) }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn AddIDList(&self, pidl: *const super::ITEMIDLIST) -> windows_core::Result<super::LPITEMIDLIST> {
+    pub unsafe fn AddIDList(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<super::LPITEMIDLIST> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddIDList)(windows_core::Interface::as_raw(self), pidl, &mut result__).map(|| result__)
@@ -2479,7 +2527,7 @@ impl IResultsFolder {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), psi.param().abi()) }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn RemoveIDList(&self, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+    pub unsafe fn RemoveIDList(&self, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveIDList)(windows_core::Interface::as_raw(self), pidl) }
     }
     pub unsafe fn RemoveAll(&self) -> windows_core::HRESULT {
@@ -2495,7 +2543,7 @@ pub struct IResultsFolder_Vtbl {
     #[cfg(not(feature = "shobjidl_core"))]
     AddItem: usize,
     #[cfg(feature = "shtypes")]
-    pub AddIDList: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST, *mut super::LPITEMIDLIST) -> windows_core::HRESULT,
+    pub AddIDList: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST, *mut super::LPITEMIDLIST) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     AddIDList: usize,
     #[cfg(feature = "shobjidl_core")]
@@ -2503,7 +2551,7 @@ pub struct IResultsFolder_Vtbl {
     #[cfg(not(feature = "shobjidl_core"))]
     RemoveItem: usize,
     #[cfg(feature = "shtypes")]
-    pub RemoveIDList: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST) -> windows_core::HRESULT,
+    pub RemoveIDList: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     RemoveIDList: usize,
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2511,9 +2559,9 @@ pub struct IResultsFolder_Vtbl {
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 pub trait IResultsFolder_Impl: windows_core::IUnknownImpl {
     fn AddItem(&self, psi: windows_core::Ref<super::IShellItem>) -> windows_core::Result<()>;
-    fn AddIDList(&self, pidl: *const super::ITEMIDLIST) -> windows_core::Result<super::LPITEMIDLIST>;
+    fn AddIDList(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<super::LPITEMIDLIST>;
     fn RemoveItem(&self, psi: windows_core::Ref<super::IShellItem>) -> windows_core::Result<()>;
-    fn RemoveIDList(&self, pidl: *const super::ITEMIDLIST) -> windows_core::Result<()>;
+    fn RemoveIDList(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
@@ -2525,7 +2573,7 @@ impl IResultsFolder_Vtbl {
                 IResultsFolder_Impl::AddItem(this, core::mem::transmute_copy(&psi)).into()
             }
         }
-        unsafe extern "system" fn AddIDList<Identity: IResultsFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST, ppidladded: *mut super::LPITEMIDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddIDList<Identity: IResultsFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, ppidladded: *mut super::LPITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IResultsFolder_Impl::AddIDList(this, core::mem::transmute_copy(&pidl)) {
@@ -2543,7 +2591,7 @@ impl IResultsFolder_Vtbl {
                 IResultsFolder_Impl::RemoveItem(this, core::mem::transmute_copy(&psi)).into()
             }
         }
-        unsafe extern "system" fn RemoveIDList<Identity: IResultsFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveIDList<Identity: IResultsFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IResultsFolder_Impl::RemoveIDList(this, core::mem::transmute_copy(&pidl)).into()
@@ -2925,16 +2973,16 @@ impl core::ops::Deref for IStreamAsync {
 windows_core::imp::interface_hierarchy!(IStreamAsync, windows_core::IUnknown, super::ISequentialStream, super::IStream);
 #[cfg(feature = "objidlbase")]
 impl IStreamAsync {
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn ReadAsync(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<*mut u32>, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub unsafe fn ReadAsync(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<super::LPDWORD>, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadAsync)(windows_core::Interface::as_raw(self), pv as _, cb, pcbread.unwrap_or(core::mem::zeroed()) as _, lpoverlapped) }
     }
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn WriteAsync(&self, lpbuffer: *const core::ffi::c_void, cb: u32, pcbwritten: Option<*mut u32>, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub unsafe fn WriteAsync(&self, lpbuffer: *const core::ffi::c_void, cb: u32, pcbwritten: Option<super::LPDWORD>, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteAsync)(windows_core::Interface::as_raw(self), lpbuffer, cb, pcbwritten.unwrap_or(core::mem::zeroed()) as _, lpoverlapped) }
     }
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn OverlappedResult(&self, lpoverlapped: *const super::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: bool) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub unsafe fn OverlappedResult(&self, lpoverlapped: super::LPOVERLAPPED, lpnumberofbytestransferred: super::LPDWORD, bwait: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OverlappedResult)(windows_core::Interface::as_raw(self), lpoverlapped, lpnumberofbytestransferred as _, bwait.into()) }
     }
     pub unsafe fn CancelIo(&self) -> windows_core::HRESULT {
@@ -2946,43 +2994,43 @@ impl IStreamAsync {
 #[doc(hidden)]
 pub struct IStreamAsync_Vtbl {
     pub base__: super::IStream_Vtbl,
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub ReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32, *const super::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub ReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::LPDWORD, super::LPOVERLAPPED) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     ReadAsync: usize,
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub WriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut u32, *const super::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub WriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, super::LPDWORD, super::LPOVERLAPPED) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     WriteAsync: usize,
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub OverlappedResult: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::OVERLAPPED, *mut u32, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub OverlappedResult: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOVERLAPPED, super::LPDWORD, windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     OverlappedResult: usize,
     pub CancelIo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamAsync_Impl: super::IStream_Impl {
-    fn ReadAsync(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::Result<()>;
-    fn WriteAsync(&self, lpbuffer: *const core::ffi::c_void, cb: u32, pcbwritten: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::Result<()>;
-    fn OverlappedResult(&self, lpoverlapped: *const super::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ReadAsync(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::Result<()>;
+    fn WriteAsync(&self, lpbuffer: *const core::ffi::c_void, cb: u32, pcbwritten: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::Result<()>;
+    fn OverlappedResult(&self, lpoverlapped: super::LPOVERLAPPED, lpnumberofbytestransferred: super::LPDWORD, bwait: windows_core::BOOL) -> windows_core::Result<()>;
     fn CancelIo(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IStreamAsync_Vtbl {
     pub const fn new<Identity: IStreamAsync_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReadAsync<Identity: IStreamAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *mut core::ffi::c_void, cb: u32, pcbread: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadAsync<Identity: IStreamAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *mut core::ffi::c_void, cb: u32, pcbread: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamAsync_Impl::ReadAsync(this, core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbread), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
-        unsafe extern "system" fn WriteAsync<Identity: IStreamAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *const core::ffi::c_void, cb: u32, pcbwritten: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteAsync<Identity: IStreamAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *const core::ffi::c_void, cb: u32, pcbwritten: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamAsync_Impl::WriteAsync(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbwritten), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
-        unsafe extern "system" fn OverlappedResult<Identity: IStreamAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpoverlapped: *const super::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OverlappedResult<Identity: IStreamAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpoverlapped: super::LPOVERLAPPED, lpnumberofbytestransferred: super::LPDWORD, bwait: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamAsync_Impl::OverlappedResult(this, core::mem::transmute_copy(&lpoverlapped), core::mem::transmute_copy(&lpnumberofbytestransferred), core::mem::transmute_copy(&bwait)).into()
@@ -3006,7 +3054,7 @@ impl IStreamAsync_Vtbl {
         iid == &<IStreamAsync as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStreamAsync {}
 windows_core::imp::define_interface!(IStreamUnbufferedInfo, IStreamUnbufferedInfo_Vtbl, 0x8a68fdda_1fdc_4c20_8ceb_416643b5a625);
 windows_core::imp::interface_hierarchy!(IStreamUnbufferedInfo, windows_core::IUnknown);
@@ -3812,7 +3860,7 @@ pub const NSTCEHT_ONITEMLABEL: NSTCEHITTEST = 4;
 pub const NSTCEHT_ONITEMRIGHT: NSTCEHITTEST = 32;
 pub const NSTCEHT_ONITEMSTATEICON: NSTCEHITTEST = 64;
 pub const NSTCEHT_ONITEMTABBUTTON: NSTCEHITTEST = 4096;
-pub const NSTCS2_ALLMASK: i32 = 7;
+pub const NSTCS2_ALLMASK: NSTCSTYLE2 = 7;
 pub const NSTCS2_DEFAULT: NSTCSTYLE2 = 0;
 pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = 4;
 pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = 8;

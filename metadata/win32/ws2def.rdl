@@ -603,5 +603,18 @@ mod Windows {
             dwFlags: u32,
         }
         const WSK_SO_BASE: i32 = 16384;
+        #[arch(X64 | Arm64)]
+        const _SS_ALIGNSIZE: u64 = 8;
+        #[arch(X86)]
+        const _SS_ALIGNSIZE: u32 = 8;
+        const _SS_MAXSIZE: i32 = 128;
+        #[arch(X64 | Arm64)]
+        const _SS_PAD1SIZE: u64 = 6;
+        #[arch(X86)]
+        const _SS_PAD1SIZE: u32 = 6;
+        #[arch(X64 | Arm64)]
+        const _SS_PAD2SIZE: u64 = 112;
+        #[arch(X86)]
+        const _SS_PAD2SIZE: u32 = 112;
     }
 }

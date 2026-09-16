@@ -3,7 +3,7 @@ windows_link::link!("gdi32.dll" "system" fn CreateCompatibleBitmap(hdc : HDC, cx
 windows_link::link!("gdi32.dll" "system" fn CreateCompatibleDC(hdc : HDC) -> HDC);
 windows_link::link!("gdi32.dll" "system" fn DeleteDC(hdc : HDC) -> BOOL);
 windows_link::link!("gdi32.dll" "system" fn DeleteObject(ho : HGDIOBJ) -> BOOL);
-windows_link::link!("user32.dll" "system" fn GetMessageA(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> BOOL);
+windows_link::link!("user32.dll" "system" fn GetMessageA(lpmsg : LPMSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> BOOL);
 windows_link::link!("user32.dll" "system" fn MessageBoxA(hwnd : HWND, lptext : PCSTR, lpcaption : PCSTR, utype : u32) -> i32);
 windows_link::link!("gdi32.dll" "system" fn Polyline(hdc : HDC, apt : *const POINT, cpt : i32) -> BOOL);
 windows_link::link!("gdi32.dll" "system" fn SelectObject(hdc : HDC, h : HGDIOBJ) -> HGDIOBJ);
@@ -358,18 +358,54 @@ pub const GUID_DEVINTERFACE_CDROM: GUID = GUID {
     data4: [148, 242, 0, 160, 201, 30, 251, 139],
 };
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HBITMAP = *mut core::ffi::c_void;
-pub type HBRUSH = *mut core::ffi::c_void;
+pub type HBITMAP = *mut HBITMAP__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HBITMAP__ {
+    pub unused: i32,
+}
+pub type HBRUSH = *mut HBRUSH__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HBRUSH__ {
+    pub unused: i32,
+}
 pub type HCURSOR = HICON;
-pub type HDC = *mut core::ffi::c_void;
+pub type HDC = *mut HDC__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HDC__ {
+    pub unused: i32,
+}
 pub type HGDIOBJ = *mut core::ffi::c_void;
-pub type HICON = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
-pub type HKEY = *mut core::ffi::c_void;
+pub type HICON = *mut HICON__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HICON__ {
+    pub unused: i32,
+}
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HKEY = *mut HKEY__;
 pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646 as _;
-pub type HWND = *mut core::ffi::c_void;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HKEY__ {
+    pub unused: i32,
+}
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 pub const INVALID_HANDLE_VALUE: HANDLE = -1 as _;
 pub type LPARAM = isize;
+pub type LPMSG = *mut MSG;
 pub type LRESULT = isize;
 #[repr(C, align(16))]
 #[derive(Clone, Copy, Default)]

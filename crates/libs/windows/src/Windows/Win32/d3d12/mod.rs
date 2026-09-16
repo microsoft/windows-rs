@@ -8,14 +8,16 @@ where
     windows_core::link!("d3d12.dll" "system" fn D3D12CreateDevice(padapter : *mut core::ffi::c_void, minimumfeaturelevel : super::D3D_FEATURE_LEVEL, riid : *const windows_core::GUID, ppdevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12CreateDevice(padapter.param().abi(), minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("d3d12.dll" "system" fn D3D12CreateRootSignatureDeserializer(psrcdata : *const core::ffi::c_void, srcdatasizeinbytes : usize, prootsignaturedeserializerinterface : *const windows_core::GUID, pprootsignaturedeserializer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: super::LPCVOID, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("d3d12.dll" "system" fn D3D12CreateRootSignatureDeserializer(psrcdata : super::LPCVOID, srcdatasizeinbytes : usize, prootsignaturedeserializerinterface : *const windows_core::GUID, pprootsignaturedeserializer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12CreateRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("d3d12.dll" "system" fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata : *const core::ffi::c_void, srcdatasizeinbytes : usize, prootsignaturedeserializerinterface : *const windows_core::GUID, pprootsignaturedeserializer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: super::LPCVOID, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("d3d12.dll" "system" fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata : super::LPCVOID, srcdatasizeinbytes : usize, prootsignaturedeserializerinterface : *const windows_core::GUID, pprootsignaturedeserializer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12CreateVersionedRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer as _) }
 }
 #[inline]
@@ -41,13 +43,13 @@ where
 }
 #[cfg(feature = "d3dcommon")]
 #[inline]
-pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut Option<super::ID3D10Blob>, pperrorblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
+pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut Option<super::ID3DBlob>, pperrorblob: *mut Option<super::ID3DBlob>) -> windows_core::HRESULT {
     windows_core::link!("d3d12.dll" "system" fn D3D12SerializeRootSignature(prootsignature : *const D3D12_ROOT_SIGNATURE_DESC, version : D3D_ROOT_SIGNATURE_VERSION, ppblob : *mut *mut core::ffi::c_void, pperrorblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12SerializeRootSignature(prootsignature, version, core::mem::transmute(ppblob), core::mem::transmute(pperrorblob)) }
 }
 #[cfg(feature = "d3dcommon")]
 #[inline]
-pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut Option<super::ID3D10Blob>, pperrorblob: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
+pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut Option<super::ID3DBlob>, pperrorblob: *mut Option<super::ID3DBlob>) -> windows_core::HRESULT {
     windows_core::link!("d3d12.dll" "system" fn D3D12SerializeVersionedRootSignature(prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob : *mut *mut core::ffi::c_void, pperrorblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12SerializeVersionedRootSignature(prootsignature, core::mem::transmute(ppblob), core::mem::transmute(pperrorblob)) }
 }
@@ -448,9 +450,7 @@ pub struct D3D12_CACHED_PIPELINE_STATE {
     pub CachedBlobSizeInBytes: usize,
 }
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_CBUFFER_TYPE(pub super::D3D_CBUFFER_TYPE);
+pub type D3D12_CBUFFER_TYPE = super::D3D_CBUFFER_TYPE;
 pub const D3D12_CENTER_MULTISAMPLE_PATTERN: D3D12_STANDARD_MULTISAMPLE_QUALITY_LEVELS = -2;
 pub type D3D12_CLEAR_FLAGS = u32;
 pub const D3D12_CLEAR_FLAG_DEPTH: D3D12_CLEAR_FLAGS = 1;
@@ -2513,6 +2513,7 @@ pub const D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_UNSIGNED_MIN_OR_MAX: D3D12_FORMAT_SUP
 pub const D3D12_FORMAT_SUPPORT2_UAV_TYPED_LOAD: D3D12_FORMAT_SUPPORT2 = 64;
 pub const D3D12_FORMAT_SUPPORT2_UAV_TYPED_STORE: D3D12_FORMAT_SUPPORT2 = 128;
 pub const D3D12_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D12_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
 pub const D3D12_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D12_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
@@ -2599,9 +2600,7 @@ pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_UNGUARDED_VALIDATION: D3D
 pub struct D3D12_GPU_DESCRIPTOR_HANDLE {
     pub ptr: u64,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_GPU_VIRTUAL_ADDRESS(pub u64);
+pub type D3D12_GPU_VIRTUAL_ADDRESS = u64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
@@ -4126,6 +4125,7 @@ pub const D3D12_MIN_FILTER_SHIFT: i32 = 4;
 pub const D3D12_MIN_MAXANISOTROPY: i32 = 0;
 pub const D3D12_MIP_FILTER_SHIFT: i32 = 0;
 pub const D3D12_MIP_LOD_BIAS_MAX: f32 = 15.99;
+pub const D3D12_MIP_LOD_BIAS_MIN: f32 = -16.0;
 pub const D3D12_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 8;
 pub const D3D12_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
 #[repr(C)]
@@ -4305,13 +4305,9 @@ pub const D3D12_PREDICATION_OP_NOT_EQUAL_ZERO: D3D12_PREDICATION_OP = 1;
 pub const D3D12_PREVIEW_SDK_VERSION: i32 = 718;
 pub const D3D12_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 16;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_PRIMITIVE(pub super::D3D_PRIMITIVE);
+pub type D3D12_PRIMITIVE = super::D3D_PRIMITIVE;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_PRIMITIVE_TOPOLOGY(pub super::D3D_PRIMITIVE_TOPOLOGY);
+pub type D3D12_PRIMITIVE_TOPOLOGY = super::D3D_PRIMITIVE_TOPOLOGY;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PRIMITIVE_TOPOLOGY_DESC {
@@ -5262,9 +5258,7 @@ pub type D3D12_RESOURCE_HEAP_TIER = i32;
 pub const D3D12_RESOURCE_HEAP_TIER_1: D3D12_RESOURCE_HEAP_TIER = 1;
 pub const D3D12_RESOURCE_HEAP_TIER_2: D3D12_RESOURCE_HEAP_TIER = 2;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_RESOURCE_RETURN_TYPE(pub super::D3D_RESOURCE_RETURN_TYPE);
+pub type D3D12_RESOURCE_RETURN_TYPE = super::D3D_RESOURCE_RETURN_TYPE;
 pub type D3D12_RESOURCE_STATES = u32;
 pub const D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE: D3D12_RESOURCE_STATES = 192;
 pub const D3D12_RESOURCE_STATE_COMMON: D3D12_RESOURCE_STATES = 0;
@@ -6156,9 +6150,7 @@ pub const D3D12_SUBTEXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
 pub const D3D12_SYSTEM_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295;
 pub const D3D12_SYSTEM_RESERVED_REGISTER_SPACE_VALUES_START: u32 = 4294967280;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_TESSELLATOR_DOMAIN(pub super::D3D_TESSELLATOR_DOMAIN);
+pub type D3D12_TESSELLATOR_DOMAIN = super::D3D_TESSELLATOR_DOMAIN;
 pub const D3D12_TESSELLATOR_MAX_EVEN_TESSELLATION_FACTOR: i32 = 64;
 pub const D3D12_TESSELLATOR_MAX_ISOLINE_DENSITY_TESSELLATION_FACTOR: i32 = 64;
 pub const D3D12_TESSELLATOR_MAX_ODD_TESSELLATION_FACTOR: i32 = 63;
@@ -6167,13 +6159,9 @@ pub const D3D12_TESSELLATOR_MIN_EVEN_TESSELLATION_FACTOR: i32 = 2;
 pub const D3D12_TESSELLATOR_MIN_ISOLINE_DENSITY_TESSELLATION_FACTOR: i32 = 1;
 pub const D3D12_TESSELLATOR_MIN_ODD_TESSELLATION_FACTOR: i32 = 1;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_TESSELLATOR_OUTPUT_PRIMITIVE(pub super::D3D_TESSELLATOR_OUTPUT_PRIMITIVE);
+pub type D3D12_TESSELLATOR_OUTPUT_PRIMITIVE = super::D3D_TESSELLATOR_OUTPUT_PRIMITIVE;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D12_TESSELLATOR_PARTITIONING(pub super::D3D_TESSELLATOR_PARTITIONING);
+pub type D3D12_TESSELLATOR_PARTITIONING = super::D3D_TESSELLATOR_PARTITIONING;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_DSV {
@@ -10709,15 +10697,12 @@ impl ID3D12Device {
         unsafe { (windows_core::Interface::vtable(self).CreateReservedResource)(windows_core::Interface::as_raw(self), pdesc, initialstate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn CreateSharedHandle<P0, P3>(&self, pobject: P0, pattributes: Option<*const super::SECURITY_ATTRIBUTES>, access: u32, name: P3) -> windows_core::Result<super::HANDLE>
+    pub unsafe fn CreateSharedHandle<P0, P3>(&self, pobject: P0, pattributes: Option<*const super::SECURITY_ATTRIBUTES>, access: u32, name: P3, phandle: *mut super::HANDLE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D12DeviceChild>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), pattributes.unwrap_or(core::mem::zeroed()) as _, access, name.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), pattributes.unwrap_or(core::mem::zeroed()) as _, access, name.param().abi(), phandle as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn OpenSharedHandle<T>(&self, nthandle: super::HANDLE, result__: *mut Option<T>) -> windows_core::Result<()>
@@ -10727,14 +10712,11 @@ impl ID3D12Device {
         unsafe { (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn OpenSharedHandleByName<P0>(&self, name: P0, access: u32) -> windows_core::Result<super::HANDLE>
+    pub unsafe fn OpenSharedHandleByName<P0>(&self, name: P0, access: u32, pnthandle: *mut super::HANDLE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenSharedHandleByName)(windows_core::Interface::as_raw(self), name.param().abi(), access, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OpenSharedHandleByName)(windows_core::Interface::as_raw(self), name.param().abi(), access, pnthandle as _) }
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())) }
@@ -10901,9 +10883,9 @@ pub trait ID3D12Device_Impl: ID3D12Object_Impl {
     fn CreateHeap(&self, pdesc: *const D3D12_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreatePlacedResource(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateReservedResource(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateSharedHandle(&self, pobject: windows_core::Ref<ID3D12DeviceChild>, pattributes: *const super::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::PCWSTR) -> windows_core::Result<super::HANDLE>;
+    fn CreateSharedHandle(&self, pobject: windows_core::Ref<ID3D12DeviceChild>, pattributes: *const super::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::PCWSTR, phandle: *mut super::HANDLE) -> windows_core::Result<()>;
     fn OpenSharedHandle(&self, nthandle: super::HANDLE, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn OpenSharedHandleByName(&self, name: &windows_core::PCWSTR, access: u32) -> windows_core::Result<super::HANDLE>;
+    fn OpenSharedHandleByName(&self, name: &windows_core::PCWSTR, access: u32, pnthandle: *mut super::HANDLE) -> windows_core::Result<()>;
     fn MakeResident(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>) -> windows_core::Result<()>;
     fn Evict(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>) -> windows_core::Result<()>;
     fn CreateFence(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const windows_core::GUID, ppfence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -11065,13 +11047,7 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CreateSharedHandle<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, pattributes: *const super::SECURITY_ATTRIBUTES, access: u32, name: windows_core::PCWSTR, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12Device_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
-                    Ok(ok__) => {
-                        phandle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12Device_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name), core::mem::transmute_copy(&phandle)).into()
             }
         }
         unsafe extern "system" fn OpenSharedHandle<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nthandle: super::HANDLE, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11083,13 +11059,7 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn OpenSharedHandleByName<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, access: u32, pnthandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12Device_Impl::OpenSharedHandleByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&access)) {
-                    Ok(ok__) => {
-                        pnthandle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12Device_Impl::OpenSharedHandleByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&access), core::mem::transmute_copy(&pnthandle)).into()
             }
         }
         unsafe extern "system" fn MakeResident<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numobjects: u32, ppobjects: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12365,7 +12335,7 @@ impl ID3D12DeviceConfiguration {
         unsafe { (windows_core::Interface::vtable(self).GetEnabledExperimentalFeatures)(windows_core::Interface::as_raw(self), pguids as _, numguids) }
     }
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: *mut Option<super::ID3D10Blob>, pperror: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
+    pub unsafe fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: *mut Option<super::ID3DBlob>, pperror: *mut Option<super::ID3DBlob>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SerializeVersionedRootSignature)(windows_core::Interface::as_raw(self), pdesc, core::mem::transmute(ppresult), core::mem::transmute(pperror)) }
     }
     pub unsafe fn CreateVersionedRootSignatureDeserializer<T>(&self, pblob: *const core::ffi::c_void, size: usize) -> windows_core::Result<T>
@@ -12392,7 +12362,7 @@ pub struct ID3D12DeviceConfiguration_Vtbl {
 pub trait ID3D12DeviceConfiguration_Impl: windows_core::IUnknownImpl {
     fn GetDesc(&self) -> D3D12_DEVICE_CONFIGURATION_DESC;
     fn GetEnabledExperimentalFeatures(&self, pguids: *mut windows_core::GUID, numguids: u32) -> windows_core::Result<()>;
-    fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: windows_core::OutRef<super::ID3D10Blob>, pperror: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::Result<()>;
+    fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: windows_core::OutRef<super::ID3DBlob>, pperror: windows_core::OutRef<super::ID3DBlob>) -> windows_core::Result<()>;
     fn CreateVersionedRootSignatureDeserializer(&self, pblob: *const core::ffi::c_void, size: usize, riid: *const windows_core::GUID, ppvdeserializer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "d3dcommon")]
@@ -12982,7 +12952,7 @@ impl core::ops::Deref for ID3D12DeviceTools1 {
 windows_core::imp::interface_hierarchy!(ID3D12DeviceTools1, windows_core::IUnknown, ID3D12DeviceTools);
 impl ID3D12DeviceTools1 {
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3D10Blob> {
+    pub unsafe fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3DBlob> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetApplicationSpecificDriverState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -13004,7 +12974,7 @@ pub struct ID3D12DeviceTools1_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D12DeviceTools1_Impl: ID3D12DeviceTools_Impl {
-    fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3D10Blob>;
+    fn GetApplicationSpecificDriverState(&self) -> windows_core::Result<super::ID3DBlob>;
     fn GetApplicationSpecificDriverBlobStatus(&self) -> D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS;
 }
 #[cfg(feature = "d3dcommon")]
@@ -13717,27 +13687,27 @@ impl ID3D12GraphicsCommandList {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: &[f32; 4], prects: &[D3D12_RECT]) {
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[D3D12_RECT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), rendertargetview, colorrgba.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), rendertargetview, colorrgba, prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn ClearUnorderedAccessViewUint<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: &[u32; 4], prects: &[D3D12_RECT])
+    pub unsafe fn ClearUnorderedAccessViewUint<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: *const u32, prects: &[D3D12_RECT])
     where
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values, prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn ClearUnorderedAccessViewFloat<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: &[f32; 4], prects: &[D3D12_RECT])
+    pub unsafe fn ClearUnorderedAccessViewFloat<P2>(&self, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: P2, values: *const f32, prects: &[D3D12_RECT])
     where
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values, prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -16137,7 +16107,7 @@ impl core::ops::Deref for ID3D12PipelineState {
 windows_core::imp::interface_hierarchy!(ID3D12PipelineState, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12PipelineState {
     #[cfg(feature = "d3dcommon")]
-    pub unsafe fn GetCachedBlob(&self) -> windows_core::Result<super::ID3D10Blob> {
+    pub unsafe fn GetCachedBlob(&self) -> windows_core::Result<super::ID3DBlob> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedBlob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -16155,7 +16125,7 @@ pub struct ID3D12PipelineState_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D12PipelineState_Impl: ID3D12Pageable_Impl {
-    fn GetCachedBlob(&self) -> windows_core::Result<super::ID3D10Blob>;
+    fn GetCachedBlob(&self) -> windows_core::Result<super::ID3DBlob>;
 }
 #[cfg(feature = "d3dcommon")]
 impl ID3D12PipelineState_Vtbl {
@@ -17970,7 +17940,7 @@ impl ID3D12Tools2 {
     pub unsafe fn SetApplicationSpecificDriverState<P0, P1>(&self, padapter: P0, pblob: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::ID3D10Blob>,
+        P1: windows_core::Param<super::ID3DBlob>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetApplicationSpecificDriverState)(windows_core::Interface::as_raw(self), padapter.param().abi(), pblob.param().abi()) }
     }
@@ -17986,7 +17956,7 @@ pub struct ID3D12Tools2_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D12Tools2_Impl: ID3D12Tools1_Impl {
-    fn SetApplicationSpecificDriverState(&self, padapter: windows_core::Ref<windows_core::IUnknown>, pblob: windows_core::Ref<super::ID3D10Blob>) -> windows_core::Result<()>;
+    fn SetApplicationSpecificDriverState(&self, padapter: windows_core::Ref<windows_core::IUnknown>, pblob: windows_core::Ref<super::ID3DBlob>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "d3dcommon")]
 impl ID3D12Tools2_Vtbl {
@@ -18008,7 +17978,7 @@ impl windows_core::RuntimeName for ID3D12Tools2 {}
 windows_core::imp::define_interface!(ID3D12VersionedRootSignatureDeserializer, ID3D12VersionedRootSignatureDeserializer_Vtbl, 0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);
 windows_core::imp::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, windows_core::IUnknown);
 impl ID3D12VersionedRootSignatureDeserializer {
-    pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
+    pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*const D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRootSignatureDescAtVersion)(windows_core::Interface::as_raw(self), converttoversion, &mut result__).map(|| result__)
@@ -18022,21 +17992,21 @@ impl ID3D12VersionedRootSignatureDeserializer {
 #[doc(hidden)]
 pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetRootSignatureDescAtVersion: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_ROOT_SIGNATURE_VERSION, *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::HRESULT,
+    pub GetRootSignatureDescAtVersion: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_ROOT_SIGNATURE_VERSION, *const *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::HRESULT,
     pub GetUnconvertedRootSignatureDesc: unsafe extern "system" fn(*mut core::ffi::c_void) -> *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC,
 }
 pub trait ID3D12VersionedRootSignatureDeserializer_Impl: windows_core::IUnknownImpl {
-    fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC>;
+    fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*const D3D12_VERSIONED_ROOT_SIGNATURE_DESC>;
     fn GetUnconvertedRootSignatureDesc(&self) -> *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC;
 }
 impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
     pub const fn new<Identity: ID3D12VersionedRootSignatureDeserializer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRootSignatureDescAtVersion<Identity: ID3D12VersionedRootSignatureDeserializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRootSignatureDescAtVersion<Identity: ID3D12VersionedRootSignatureDeserializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *const *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12VersionedRootSignatureDeserializer_Impl::GetRootSignatureDescAtVersion(this, core::mem::transmute_copy(&converttoversion)) {
                     Ok(ok__) => {
-                        ppdesc.write(ok__);
+                        (ppdesc as *mut *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC).write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20627,14 +20597,11 @@ windows_core::imp::define_interface!(ID3D12VirtualizationGuestDevice, ID3D12Virt
 windows_core::imp::interface_hierarchy!(ID3D12VirtualizationGuestDevice, windows_core::IUnknown);
 impl ID3D12VirtualizationGuestDevice {
     #[cfg(feature = "winnt")]
-    pub unsafe fn ShareWithHost<P0>(&self, pobject: P0) -> windows_core::Result<super::HANDLE>
+    pub unsafe fn ShareWithHost<P0>(&self, pobject: P0, phandle: *mut super::HANDLE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D12DeviceChild>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ShareWithHost)(windows_core::Interface::as_raw(self), pobject.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ShareWithHost)(windows_core::Interface::as_raw(self), pobject.param().abi(), phandle as _) }
     }
     pub unsafe fn CreateFenceFd<P0>(&self, pfence: P0, fencevalue: u64) -> windows_core::Result<i32>
     where
@@ -20658,7 +20625,7 @@ pub struct ID3D12VirtualizationGuestDevice_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait ID3D12VirtualizationGuestDevice_Impl: windows_core::IUnknownImpl {
-    fn ShareWithHost(&self, pobject: windows_core::Ref<ID3D12DeviceChild>) -> windows_core::Result<super::HANDLE>;
+    fn ShareWithHost(&self, pobject: windows_core::Ref<ID3D12DeviceChild>, phandle: *mut super::HANDLE) -> windows_core::Result<()>;
     fn CreateFenceFd(&self, pfence: windows_core::Ref<ID3D12Fence>, fencevalue: u64) -> windows_core::Result<i32>;
 }
 #[cfg(feature = "winnt")]
@@ -20667,13 +20634,7 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
         unsafe extern "system" fn ShareWithHost<Identity: ID3D12VirtualizationGuestDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ID3D12VirtualizationGuestDevice_Impl::ShareWithHost(this, core::mem::transmute_copy(&pobject)) {
-                    Ok(ok__) => {
-                        phandle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ID3D12VirtualizationGuestDevice_Impl::ShareWithHost(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&phandle)).into()
             }
         }
         unsafe extern "system" fn CreateFenceFd<Identity: ID3D12VirtualizationGuestDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfence: *mut core::ffi::c_void, fencevalue: u64, pfencefd: *mut i32) -> windows_core::HRESULT {
@@ -20894,13 +20855,16 @@ impl windows_core::RuntimeName for ID3D12WorkGraphProperties {}
 pub const NUM_D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODES: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 4;
 #[cfg(feature = "d3dcommon")]
 pub type PFN_D3D12_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::IUnknown>, param1: super::D3D_FEATURE_LEVEL, param2: *const windows_core::GUID, param3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER_FROM_SUBOBJECT_IN_LIBRARY = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, rootsignaturesubobjectname: windows_core::PCWSTR, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+#[cfg(feature = "minwindef")]
+pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = Option<unsafe extern "system" fn(psrcdata: super::LPCVOID, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+#[cfg(feature = "minwindef")]
+pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER = Option<unsafe extern "system" fn(psrcdata: super::LPCVOID, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+#[cfg(feature = "minwindef")]
+pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER_FROM_SUBOBJECT_IN_LIBRARY = Option<unsafe extern "system" fn(psrcdata: super::LPCVOID, srcdatasizeinbytes: usize, rootsignaturesubobjectname: windows_core::PCWSTR, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PFN_D3D12_GET_DEBUG_INTERFACE = Option<unsafe extern "system" fn(param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PFN_D3D12_GET_INTERFACE = Option<unsafe extern "system" fn(param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 #[cfg(feature = "d3dcommon")]
-pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = Option<unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: windows_core::OutRef<super::ID3D10Blob>, pperrorblob: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::HRESULT>;
+pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = Option<unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: windows_core::OutRef<super::ID3DBlob>, pperrorblob: windows_core::OutRef<super::ID3DBlob>) -> windows_core::HRESULT>;
 #[cfg(feature = "d3dcommon")]
-pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = Option<unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: windows_core::OutRef<super::ID3D10Blob>, pperrorblob: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::HRESULT>;
+pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = Option<unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: windows_core::OutRef<super::ID3DBlob>, pperrorblob: windows_core::OutRef<super::ID3DBlob>) -> windows_core::HRESULT>;
 pub const WKPDID_D3DAutoDebugObjectNameW: windows_core::GUID = windows_core::GUID::from_u128(0xd4902e36_757a_4942_9594_b6769afa43cd);

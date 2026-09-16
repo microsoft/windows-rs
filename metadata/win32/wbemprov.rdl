@@ -30,19 +30,19 @@ mod Windows {
         }
         #[guid(0x3ae0080a_7e3a_4366_bf89_0feedc931659)]
         interface IWbemEventSink: IWbemObjectSink {
-            fn SetSinkSecurity(&self, lSDLength: i32, pSD: *const u8) -> HRESULT;
+            fn SetSinkSecurity(&self, lSDLength: i32, #[in] pSD: *mut u8) -> HRESULT;
             fn IsActive(&self) -> HRESULT;
             fn GetRestrictedSink(&self, lNumQueries: i32, awszQueries: *const PCWSTR, pCallback: IUnknown, ppSink: *mut IWbemEventSink) -> HRESULT;
             fn SetBatchingParameters(&self, lFlags: i32, dwMaxBufferSize: u32, dwMaxSendLatency: u32) -> HRESULT;
         }
         #[guid(0x49353c93_516b_11d1_aea6_00c04fb68820)]
         interface IWbemHiPerfProvider: IUnknown {
-            fn QueryInstances(&self, pNamespace: IWbemServices, wszClass: *const u16, lFlags: i32, pCtx: IWbemContext, pSink: IWbemObjectSink) -> HRESULT;
+            fn QueryInstances(&self, pNamespace: IWbemServices, #[in] wszClass: *mut u16, lFlags: i32, pCtx: IWbemContext, #[in] #[out] pSink: IWbemObjectSink) -> HRESULT;
             fn CreateRefresher(&self, pNamespace: IWbemServices, lFlags: i32, ppRefresher: *mut IWbemRefresher) -> HRESULT;
             fn CreateRefreshableObject(&self, pNamespace: IWbemServices, pTemplate: IWbemObjectAccess, pRefresher: IWbemRefresher, lFlags: i32, pContext: IWbemContext, ppRefreshable: *mut IWbemObjectAccess, plId: *mut i32) -> HRESULT;
             fn StopRefreshing(&self, pRefresher: IWbemRefresher, lId: i32, lFlags: i32) -> HRESULT;
             fn CreateRefreshableEnum(&self, pNamespace: IWbemServices, wszClass: PCWSTR, pRefresher: IWbemRefresher, lFlags: i32, pContext: IWbemContext, pHiPerfEnum: IWbemHiPerfEnum, plId: *mut i32) -> HRESULT;
-            fn GetObjects(&self, pNamespace: IWbemServices, lNumObjects: i32, #[len_param(1)] apObj: *mut IWbemObjectAccess, lFlags: i32, pContext: IWbemContext) -> HRESULT;
+            fn GetObjects(&self, pNamespace: IWbemServices, lNumObjects: i32, #[len_param(1)] #[in] #[out] apObj: *mut IWbemObjectAccess, lFlags: i32, pContext: IWbemContext) -> HRESULT;
         }
         #[guid(0xce61e841_65bc_11d0_b6bd_00aa003240c7)]
         interface IWbemPropertyProvider: IUnknown {
@@ -63,7 +63,7 @@ mod Windows {
         }
         #[guid(0xe246107b_b06e_11d0_ad61_00c04fd8fdff)]
         interface IWbemUnboundObjectSink: IUnknown {
-            fn IndicateToConsumer(&self, pLogicalConsumer: IWbemClassObject, lNumObjects: i32, apObjects: *const IWbemClassObject) -> HRESULT;
+            fn IndicateToConsumer(&self, pLogicalConsumer: IWbemClassObject, lNumObjects: i32, #[in] apObjects: *mut IWbemClassObject) -> HRESULT;
         }
         #[repr(i32)]
         enum WBEM_BATCH_TYPE {

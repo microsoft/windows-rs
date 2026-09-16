@@ -10,6 +10,7 @@ features = [
     "bcrypt",
     "combaseapi",
     "d2d",
+    "d3d9",
     "d3d11",
     "d3dcommon",
     "dcommon",

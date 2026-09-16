@@ -69,6 +69,7 @@ mod Windows {
         const KEYBOARD_KANA_LOCK_ON: i32 = 8;
         const KEYBOARD_LED_INJECTED: i32 = 32768;
         const KEYBOARD_NUM_LOCK_ON: i32 = 2;
+        const KEYBOARD_OVERRUN_MAKE_CODE: i32 = 255;
         const KEYBOARD_SCROLL_LOCK_ON: i32 = 1;
         const KEYBOARD_SHADOW: i32 = 16384;
         struct KEYBOARD_TYPEMATIC_PARAMETERS {

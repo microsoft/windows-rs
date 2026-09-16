@@ -4,24 +4,24 @@ mod Windows {
         #[guid(0x3bc15af2_736c_477e_9e51_238af8667dcc)]
         interface IWbemPath: IUnknown {
             fn SetText(&self, uMode: u32, pszPath: PCWSTR) -> HRESULT;
-            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[out] pszText: PWSTR) -> HRESULT;
+            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[in] #[out] pszText: PWSTR) -> HRESULT;
             fn GetInfo(&self, uRequestedInfo: u32, puResponse: *mut u64) -> HRESULT;
             fn SetServer(&self, Name: PCWSTR) -> HRESULT;
-            fn GetServer(&self, #[in] #[out] puNameBufLength: *mut u32, #[len_param(0)] #[out] pName: PWSTR) -> HRESULT;
+            fn GetServer(&self, #[in] #[out] puNameBufLength: *mut u32, #[len_param(0)] #[in] #[out] pName: PWSTR) -> HRESULT;
             fn GetNamespaceCount(&self, puCount: *mut u32) -> HRESULT;
             fn SetNamespaceAt(&self, uIndex: u32, pszName: PCWSTR) -> HRESULT;
-            fn GetNamespaceAt(&self, uIndex: u32, #[in] #[out] puNameBufLength: *mut u32, #[len_param(1)] #[out] pName: PWSTR) -> HRESULT;
+            fn GetNamespaceAt(&self, uIndex: u32, #[in] #[out] puNameBufLength: *mut u32, #[len_param(1)] #[in] #[out] pName: PWSTR) -> HRESULT;
             fn RemoveNamespaceAt(&self, uIndex: u32) -> HRESULT;
             fn RemoveAllNamespaces(&self) -> HRESULT;
             fn GetScopeCount(&self, puCount: *mut u32) -> HRESULT;
             fn SetScope(&self, uIndex: u32, pszClass: PCWSTR) -> HRESULT;
             fn SetScopeFromText(&self, uIndex: u32, pszText: PCWSTR) -> HRESULT;
-            fn GetScope(&self, uIndex: u32, #[in] #[out] puClassNameBufSize: *mut u32, #[len_param(1)] #[out] pszClass: PWSTR, pKeyList: *mut IWbemPathKeyList) -> HRESULT;
-            fn GetScopeAsText(&self, uIndex: u32, #[in] #[out] puTextBufSize: *mut u32, #[len_param(1)] #[out] pszText: PWSTR) -> HRESULT;
+            fn GetScope(&self, uIndex: u32, #[in] #[out] puClassNameBufSize: *mut u32, #[len_param(1)] #[in] #[out] pszClass: PWSTR, pKeyList: *mut IWbemPathKeyList) -> HRESULT;
+            fn GetScopeAsText(&self, uIndex: u32, #[in] #[out] puTextBufSize: *mut u32, #[len_param(1)] #[in] #[out] pszText: PWSTR) -> HRESULT;
             fn RemoveScope(&self, uIndex: u32) -> HRESULT;
             fn RemoveAllScopes(&self) -> HRESULT;
             fn SetClassName(&self, Name: PCWSTR) -> HRESULT;
-            fn GetClassName(&self, #[in] #[out] puBuffLength: *mut u32, #[len_param(0)] #[out] #[opt] pszName: PWSTR) -> HRESULT;
+            fn GetClassName(&self, #[in] #[out] puBuffLength: *mut u32, #[len_param(0)] #[in] #[out] #[opt] pszName: PWSTR) -> HRESULT;
             fn GetKeyList(&self, pOut: *mut IWbemPathKeyList) -> HRESULT;
             fn CreateClassPart(&self, lFlags: i32, Name: PCWSTR) -> HRESULT;
             fn DeleteClassPart(&self, lFlags: i32) -> HRESULT;
@@ -33,24 +33,24 @@ mod Windows {
         #[guid(0x9ae62877_7544_4bb0_aa26_a13824659ed6)]
         interface IWbemPathKeyList: IUnknown {
             fn GetCount(&self, puKeyCount: *mut u32) -> HRESULT;
-            fn SetKey(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, pKeyVal: *const void) -> HRESULT;
-            fn SetKey2(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, pKeyVal: *const VARIANT) -> HRESULT;
-            fn GetKey(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] puKeyValBufSize: *mut u32, #[in] #[out] pKeyVal: *mut void, puApparentCimType: *mut u32) -> HRESULT;
-            fn GetKey2(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] pKeyValue: *mut VARIANT, puApparentCimType: *mut u32) -> HRESULT;
+            fn SetKey(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, #[in] pKeyVal: *mut void) -> HRESULT;
+            fn SetKey2(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, #[in] pKeyVal: *mut VARIANT) -> HRESULT;
+            fn GetKey(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[in] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] puKeyValBufSize: *mut u32, #[in] #[out] pKeyVal: *mut void, puApparentCimType: *mut u32) -> HRESULT;
+            fn GetKey2(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[in] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] pKeyValue: *mut VARIANT, puApparentCimType: *mut u32) -> HRESULT;
             fn RemoveKey(&self, wszName: PCWSTR, uFlags: u32) -> HRESULT;
             fn RemoveAllKeys(&self, uFlags: u32) -> HRESULT;
-            fn MakeSingleton(&self, bSet: boolean) -> HRESULT;
+            fn MakeSingleton(&self, bSet: u8) -> HRESULT;
             fn GetInfo(&self, uRequestedInfo: u32, puResponse: *mut u64) -> HRESULT;
-            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[out] pszText: PWSTR) -> HRESULT;
+            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[in] #[out] pszText: PWSTR) -> HRESULT;
         }
         #[guid(0x81166f58_dd98_11d3_a120_00105a1f515a)]
         interface IWbemQuery: IUnknown {
             fn Empty(&self) -> HRESULT;
-            fn SetLanguageFeatures(&self, uFlags: u32, uArraySize: u32, puFeatures: *const u32) -> HRESULT;
+            fn SetLanguageFeatures(&self, uFlags: u32, uArraySize: u32, #[in] puFeatures: *mut u32) -> HRESULT;
             fn TestLanguageFeatures(&self, uFlags: u32, #[in] #[out] uArraySize: *mut u32, puFeatures: *mut u32) -> HRESULT;
             fn Parse(&self, pszLang: PCWSTR, pszQuery: PCWSTR, uFlags: u32) -> HRESULT;
             fn GetAnalysis(&self, uAnalysisType: u32, uFlags: u32, pAnalysis: *mut *mut void) -> HRESULT;
-            fn FreeMemory(&self, pMem: *const void) -> HRESULT;
+            fn FreeMemory(&self, #[in] pMem: *mut void) -> HRESULT;
             fn GetQueryInfo(&self, uAnalysisType: u32, uInfoId: u32, uBufSize: u32, pDestBuf: *mut void) -> HRESULT;
         }
         struct SWbemAnalysisMatrix {

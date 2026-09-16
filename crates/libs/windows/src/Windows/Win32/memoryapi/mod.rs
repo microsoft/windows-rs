@@ -1,43 +1,19 @@
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn AllocateUserPhysicalPages(hprocess: super::HANDLE, numberofpages: *mut u32, pagearray: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn AllocateUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u32, pagearray : *mut u32) -> windows_core::BOOL);
+pub unsafe fn AllocateUserPhysicalPages(hprocess: super::HANDLE, numberofpages: super::PULONG_PTR, pagearray: super::PULONG_PTR) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn AllocateUserPhysicalPages(hprocess : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR) -> windows_core::BOOL);
     unsafe { AllocateUserPhysicalPages(hprocess, numberofpages as _, pagearray as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn AllocateUserPhysicalPages(hprocess: super::HANDLE, numberofpages: *mut u64, pagearray: *mut u64) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn AllocateUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u64, pagearray : *mut u64) -> windows_core::BOOL);
-    unsafe { AllocateUserPhysicalPages(hprocess, numberofpages as _, pagearray as _) }
+pub unsafe fn AllocateUserPhysicalPages2(objecthandle: super::HANDLE, numberofpages: super::PULONG_PTR, pagearray: super::PULONG_PTR, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR, extendedparameters : super::PMEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::BOOL);
+    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn AllocateUserPhysicalPages2(objecthandle: super::HANDLE, numberofpages: *mut u32, pagearray: *mut u32, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::HANDLE, numberofpages : *mut u32, pagearray : *mut u32, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::BOOL);
-    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-#[inline]
-pub unsafe fn AllocateUserPhysicalPages2(objecthandle: super::HANDLE, numberofpages: *mut u64, pagearray: *mut u64, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::HANDLE, numberofpages : *mut u64, pagearray : *mut u64, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::BOOL);
-    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-#[inline]
-pub unsafe fn AllocateUserPhysicalPagesNuma(hprocess: super::HANDLE, numberofpages: *mut u32, pagearray: *mut u32, nndpreferred: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn AllocateUserPhysicalPagesNuma(hprocess : super::HANDLE, numberofpages : *mut u32, pagearray : *mut u32, nndpreferred : u32) -> windows_core::BOOL);
-    unsafe { AllocateUserPhysicalPagesNuma(hprocess, numberofpages as _, pagearray as _, nndpreferred) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-#[inline]
-pub unsafe fn AllocateUserPhysicalPagesNuma(hprocess: super::HANDLE, numberofpages: *mut u64, pagearray: *mut u64, nndpreferred: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn AllocateUserPhysicalPagesNuma(hprocess : super::HANDLE, numberofpages : *mut u64, pagearray : *mut u64, nndpreferred : u32) -> windows_core::BOOL);
+pub unsafe fn AllocateUserPhysicalPagesNuma(hprocess: super::HANDLE, numberofpages: super::PULONG_PTR, pagearray: super::PULONG_PTR, nndpreferred: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn AllocateUserPhysicalPagesNuma(hprocess : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR, nndpreferred : u32) -> windows_core::BOOL);
     unsafe { AllocateUserPhysicalPagesNuma(hprocess, numberofpages as _, pagearray as _, nndpreferred) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
@@ -51,29 +27,29 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFileMappingFromApp<P4>(hfile: super::HANDLE, securityattributes: Option<*const super::SECURITY_ATTRIBUTES>, pageprotection: u32, maximumsize: u64, name: P4) -> super::HANDLE
+pub unsafe fn CreateFileMappingFromApp<P4>(hfile: super::HANDLE, securityattributes: Option<super::PSECURITY_ATTRIBUTES>, pageprotection: u32, maximumsize: u64, name: P4) -> super::HANDLE
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::HANDLE, securityattributes : *const super::SECURITY_ATTRIBUTES, pageprotection : u32, maximumsize : u64, name : windows_core::PCWSTR) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::HANDLE, securityattributes : super::PSECURITY_ATTRIBUTES, pageprotection : u32, maximumsize : u64, name : windows_core::PCWSTR) -> super::HANDLE);
     unsafe { CreateFileMappingFromApp(hfile, securityattributes.unwrap_or(core::mem::zeroed()) as _, pageprotection, maximumsize, name.param().abi()) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFileMappingNumaW<P5>(hfile: super::HANDLE, lpfilemappingattributes: Option<*const super::SECURITY_ATTRIBUTES>, flprotect: u32, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5, nndpreferred: u32) -> super::HANDLE
+pub unsafe fn CreateFileMappingNumaW<P5>(hfile: super::HANDLE, lpfilemappingattributes: Option<super::LPSECURITY_ATTRIBUTES>, flprotect: u32, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5, nndpreferred: u32) -> super::HANDLE
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::HANDLE, lpfilemappingattributes : *const super::SECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR, nndpreferred : u32) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::HANDLE, lpfilemappingattributes : super::LPSECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR, nndpreferred : u32) -> super::HANDLE);
     unsafe { CreateFileMappingNumaW(hfile, lpfilemappingattributes.unwrap_or(core::mem::zeroed()) as _, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.param().abi(), nndpreferred) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFileMappingW<P5>(hfile: super::HANDLE, lpfilemappingattributes: Option<*const super::SECURITY_ATTRIBUTES>, flprotect: u32, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5) -> super::HANDLE
+pub unsafe fn CreateFileMappingW<P5>(hfile: super::HANDLE, lpfilemappingattributes: Option<super::LPSECURITY_ATTRIBUTES>, flprotect: u32, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5) -> super::HANDLE
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::HANDLE, lpfilemappingattributes : *const super::SECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::HANDLE, lpfilemappingattributes : super::LPSECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR) -> super::HANDLE);
     unsafe { CreateFileMappingW(hfile, lpfilemappingattributes.unwrap_or(core::mem::zeroed()) as _, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.param().abi()) }
 }
 #[cfg(feature = "winnt")]
@@ -87,23 +63,16 @@ pub unsafe fn DiscardVirtualMemory(virtualaddress: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn DiscardVirtualMemory(virtualaddress : *mut core::ffi::c_void, size : usize) -> u32);
     unsafe { DiscardVirtualMemory(core::mem::transmute(virtualaddress.as_mut_ptr()), virtualaddress.len().try_into().unwrap()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn FlushViewOfFile(lpbaseaddress: *const core::ffi::c_void, dwnumberofbytestoflush: usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FlushViewOfFile(lpbaseaddress : *const core::ffi::c_void, dwnumberofbytestoflush : usize) -> windows_core::BOOL);
+pub unsafe fn FlushViewOfFile(lpbaseaddress: super::LPCVOID, dwnumberofbytestoflush: usize) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FlushViewOfFile(lpbaseaddress : super::LPCVOID, dwnumberofbytestoflush : usize) -> windows_core::BOOL);
     unsafe { FlushViewOfFile(lpbaseaddress, dwnumberofbytestoflush) }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn FreeUserPhysicalPages(hprocess: super::HANDLE, numberofpages: *mut u32, pagearray: *const u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u32, pagearray : *const u32) -> windows_core::BOOL);
-    unsafe { FreeUserPhysicalPages(hprocess, numberofpages as _, pagearray) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-#[inline]
-pub unsafe fn FreeUserPhysicalPages(hprocess: super::HANDLE, numberofpages: *mut u64, pagearray: *const u64) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u64, pagearray : *const u64) -> windows_core::BOOL);
+pub unsafe fn FreeUserPhysicalPages(hprocess: super::HANDLE, numberofpages: super::PULONG_PTR, pagearray: super::PULONG_PTR) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR) -> windows_core::BOOL);
     unsafe { FreeUserPhysicalPages(hprocess, numberofpages as _, pagearray) }
 }
 #[inline]
@@ -111,9 +80,10 @@ pub unsafe fn GetLargePageMinimum() -> usize {
     windows_core::link!("kernel32.dll" "system" fn GetLargePageMinimum() -> usize);
     unsafe { GetLargePageMinimum() }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetMemoryErrorHandlingCapabilities(capabilities : *mut u32) -> windows_core::BOOL);
+pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: super::PULONG) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetMemoryErrorHandlingCapabilities(capabilities : super::PULONG) -> windows_core::BOOL);
     unsafe { GetMemoryErrorHandlingCapabilities(capabilities as _) }
 }
 #[inline]
@@ -141,39 +111,35 @@ pub unsafe fn GetNumaNodeMemoryWriteLatency(targetnodenumber: u16, initiatornode
     windows_core::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetNumaNodeMemoryWriteLatency(targetnodenumber : u16, initiatornodenumber : u16, latency : *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> windows_core::BOOL);
     unsafe { GetNumaNodeMemoryWriteLatency(targetnodenumber, initiatornodenumber, latency as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetProcessWorkingSetSize(hprocess: super::HANDLE, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetProcessWorkingSetSize(hprocess : super::HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize) -> windows_core::BOOL);
+pub unsafe fn GetProcessWorkingSetSize(hprocess: super::HANDLE, lpminimumworkingsetsize: super::PSIZE_T, lpmaximumworkingsetsize: super::PSIZE_T) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetProcessWorkingSetSize(hprocess : super::HANDLE, lpminimumworkingsetsize : super::PSIZE_T, lpmaximumworkingsetsize : super::PSIZE_T) -> windows_core::BOOL);
     unsafe { GetProcessWorkingSetSize(hprocess, lpminimumworkingsetsize as _, lpmaximumworkingsetsize as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetProcessWorkingSetSizeEx(hprocess: super::HANDLE, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize, flags: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetProcessWorkingSetSizeEx(hprocess : super::HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize, flags : *mut u32) -> windows_core::BOOL);
+pub unsafe fn GetProcessWorkingSetSizeEx(hprocess: super::HANDLE, lpminimumworkingsetsize: super::PSIZE_T, lpmaximumworkingsetsize: super::PSIZE_T, flags: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetProcessWorkingSetSizeEx(hprocess : super::HANDLE, lpminimumworkingsetsize : super::PSIZE_T, lpmaximumworkingsetsize : super::PSIZE_T, flags : super::PDWORD) -> windows_core::BOOL);
     unsafe { GetProcessWorkingSetSizeEx(hprocess, lpminimumworkingsetsize as _, lpmaximumworkingsetsize as _, flags as _) }
 }
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
 #[inline]
-pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaximumfilecachesize: *mut usize, lpflags: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemFileCacheSize(lpminimumfilecachesize : *mut usize, lpmaximumfilecachesize : *mut usize, lpflags : *mut u32) -> windows_core::BOOL);
+pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: super::PSIZE_T, lpmaximumfilecachesize: super::PSIZE_T, lpflags: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemFileCacheSize(lpminimumfilecachesize : super::PSIZE_T, lpmaximumfilecachesize : super::PSIZE_T, lpflags : super::PDWORD) -> windows_core::BOOL);
     unsafe { GetSystemFileCacheSize(lpminimumfilecachesize as _, lpmaximumfilecachesize as _, lpflags as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const core::ffi::c_void, dwregionsize: usize, lpaddresses: Option<*mut *mut core::ffi::c_void>, lpdwcount: Option<*mut usize>, lpdwgranularity: Option<*mut u32>) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetWriteWatch(dwflags : u32, lpbaseaddress : *const core::ffi::c_void, dwregionsize : usize, lpaddresses : *mut *mut core::ffi::c_void, lpdwcount : *mut usize, lpdwgranularity : *mut u32) -> u32);
+pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const core::ffi::c_void, dwregionsize: usize, lpaddresses: Option<*mut *mut core::ffi::c_void>, lpdwcount: Option<*mut usize>, lpdwgranularity: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetWriteWatch(dwflags : u32, lpbaseaddress : *const core::ffi::c_void, dwregionsize : usize, lpaddresses : *mut *mut core::ffi::c_void, lpdwcount : *mut usize, lpdwgranularity : super::LPDWORD) -> u32);
     unsafe { GetWriteWatch(dwflags, lpbaseaddress, dwregionsize, lpaddresses.unwrap_or(core::mem::zeroed()) as _, lpdwcount.unwrap_or(core::mem::zeroed()) as _, lpdwgranularity.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(target_arch = "x86")]
+#[cfg(feature = "basetsd")]
 #[inline]
 pub unsafe fn MapUserPhysicalPages(virtualaddress: *const core::ffi::c_void, pagearray: Option<&[u32]>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : *const u32) -> windows_core::BOOL);
-    unsafe { MapUserPhysicalPages(virtualaddress, pagearray.map_or(0, |slice| slice.len().try_into().unwrap()), pagearray.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn MapUserPhysicalPages(virtualaddress: *const core::ffi::c_void, pagearray: Option<&[u64]>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : *const u64) -> windows_core::BOOL);
-    unsafe { MapUserPhysicalPages(virtualaddress, pagearray.map_or(0, |slice| slice.len().try_into().unwrap()), pagearray.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : super::PULONG_PTR) -> windows_core::BOOL);
+    unsafe { MapUserPhysicalPages(virtualaddress, pagearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pagearray.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -243,13 +209,13 @@ where
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn PrefetchVirtualMemory(hprocess: super::HANDLE, virtualaddresses: &[WIN32_MEMORY_RANGE_ENTRY], flags: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::HANDLE, numberofentries : usize, virtualaddresses : *const WIN32_MEMORY_RANGE_ENTRY, flags : u32) -> windows_core::BOOL);
-    unsafe { PrefetchVirtualMemory(hprocess, virtualaddresses.len().try_into().unwrap(), virtualaddresses.as_ptr(), flags) }
+    windows_core::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::HANDLE, numberofentries : usize, virtualaddresses : PWIN32_MEMORY_RANGE_ENTRY, flags : u32) -> windows_core::BOOL);
+    unsafe { PrefetchVirtualMemory(hprocess, virtualaddresses.len().try_into().unwrap(), core::mem::transmute(virtualaddresses.as_ptr()), flags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn QueryMemoryResourceNotification(resourcenotificationhandle: super::HANDLE, resourcestate: *mut windows_core::BOOL) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn QueryMemoryResourceNotification(resourcenotificationhandle : super::HANDLE, resourcestate : *mut windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn QueryMemoryResourceNotification(resourcenotificationhandle: super::HANDLE, resourcestate: super::PBOOL) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn QueryMemoryResourceNotification(resourcenotificationhandle : super::HANDLE, resourcestate : super::PBOOL) -> windows_core::BOOL);
     unsafe { QueryMemoryResourceNotification(resourcenotificationhandle, resourcestate as _) }
 }
 #[cfg(feature = "winnt")]
@@ -258,16 +224,16 @@ pub unsafe fn QueryPartitionInformation(partition: super::HANDLE, partitioninfor
     windows_core::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn QueryPartitionInformation(partition : super::HANDLE, partitioninformationclass : WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation : *mut core::ffi::c_void, partitioninformationlength : u32) -> windows_core::BOOL);
     unsafe { QueryPartitionInformation(partition, partitioninformationclass, partitioninformation as _, partitioninformationlength) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn QueryVirtualMemoryInformation(process: super::HANDLE, virtualaddress: *const core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationsize: usize, returnsize: Option<*mut usize>) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-4.dll" "system" fn QueryVirtualMemoryInformation(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, memoryinformationclass : WIN32_MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationsize : usize, returnsize : *mut usize) -> windows_core::BOOL);
+pub unsafe fn QueryVirtualMemoryInformation(process: super::HANDLE, virtualaddress: *const core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationsize: usize, returnsize: Option<super::PSIZE_T>) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-4.dll" "system" fn QueryVirtualMemoryInformation(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, memoryinformationclass : WIN32_MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationsize : usize, returnsize : super::PSIZE_T) -> windows_core::BOOL);
     unsafe { QueryVirtualMemoryInformation(process, virtualaddress, memoryinformationclass, memoryinformation as _, memoryinformationsize, returnsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadProcessMemory(hprocess: super::HANDLE, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, nsize: usize, lpnumberofbytesread: Option<*mut usize>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> windows_core::BOOL);
+pub unsafe fn ReadProcessMemory(hprocess: super::HANDLE, lpbaseaddress: super::LPCVOID, lpbuffer: *mut core::ffi::c_void, nsize: usize, lpnumberofbytesread: Option<*mut usize>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::HANDLE, lpbaseaddress : super::LPCVOID, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> windows_core::BOOL);
     unsafe { ReadProcessMemory(hprocess, lpbaseaddress, lpbuffer as _, nsize, lpnumberofbytesread.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -288,14 +254,14 @@ pub unsafe fn ResetWriteWatch(lpbaseaddress: *const core::ffi::c_void, dwregions
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessValidCallTargets(hprocess: super::HANDLE, virtualaddress: *const core::ffi::c_void, regionsize: usize, offsetinformation: &mut [super::CFG_CALL_TARGET_INFO]) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut super::CFG_CALL_TARGET_INFO) -> windows_core::BOOL);
-    unsafe { SetProcessValidCallTargets(hprocess, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), offsetinformation.as_mut_ptr()) }
+    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : super::PCFG_CALL_TARGET_INFO) -> windows_core::BOOL);
+    unsafe { SetProcessValidCallTargets(hprocess, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), core::mem::transmute(offsetinformation.as_mut_ptr())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessValidCallTargetsForMappedView(process: super::HANDLE, virtualaddress: *const core::ffi::c_void, regionsize: usize, offsetinformation: &mut [super::CFG_CALL_TARGET_INFO], section: super::HANDLE, expectedfileoffset: u64) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut super::CFG_CALL_TARGET_INFO, section : super::HANDLE, expectedfileoffset : u64) -> windows_core::BOOL);
-    unsafe { SetProcessValidCallTargetsForMappedView(process, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), offsetinformation.as_mut_ptr(), section, expectedfileoffset) }
+    windows_core::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : super::PCFG_CALL_TARGET_INFO, section : super::HANDLE, expectedfileoffset : u64) -> windows_core::BOOL);
+    unsafe { SetProcessValidCallTargetsForMappedView(process, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), core::mem::transmute(offsetinformation.as_mut_ptr()), section, expectedfileoffset) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -314,9 +280,10 @@ pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecac
     windows_core::link!("kernel32.dll" "system" fn SetSystemFileCacheSize(minimumfilecachesize : usize, maximumfilecachesize : usize, flags : u32) -> windows_core::BOOL);
     unsafe { SetSystemFileCacheSize(minimumfilecachesize, maximumfilecachesize, flags) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn UnmapViewOfFile(lpbaseaddress : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn UnmapViewOfFile(lpbaseaddress: super::LPCVOID) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn UnmapViewOfFile(lpbaseaddress : super::LPCVOID) -> windows_core::BOOL);
     unsafe { UnmapViewOfFile(lpbaseaddress) }
 }
 #[cfg(feature = "winnt")]
@@ -385,32 +352,34 @@ pub unsafe fn VirtualLock(lpaddress: *const core::ffi::c_void, dwsize: usize) ->
     windows_core::link!("kernel32.dll" "system" fn VirtualLock(lpaddress : *const core::ffi::c_void, dwsize : usize) -> windows_core::BOOL);
     unsafe { VirtualLock(lpaddress, dwsize) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn VirtualProtect(lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32, lpfloldprotect: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn VirtualProtect(lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : *mut u32) -> windows_core::BOOL);
+pub unsafe fn VirtualProtect(lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32, lpfloldprotect: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn VirtualProtect(lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : super::PDWORD) -> windows_core::BOOL);
     unsafe { VirtualProtect(lpaddress, dwsize, flnewprotect, lpfloldprotect as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn VirtualProtectEx(hprocess: super::HANDLE, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32, lpfloldprotect: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn VirtualProtectEx(hprocess : super::HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : *mut u32) -> windows_core::BOOL);
+pub unsafe fn VirtualProtectEx(hprocess: super::HANDLE, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32, lpfloldprotect: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn VirtualProtectEx(hprocess : super::HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : super::PDWORD) -> windows_core::BOOL);
     unsafe { VirtualProtectEx(hprocess, lpaddress, dwsize, flnewprotect, lpfloldprotect as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn VirtualProtectFromApp(address: *const core::ffi::c_void, size: usize, newprotection: u32, oldprotection: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn VirtualProtectFromApp(address : *const core::ffi::c_void, size : usize, newprotection : u32, oldprotection : *mut u32) -> windows_core::BOOL);
+pub unsafe fn VirtualProtectFromApp(address: *const core::ffi::c_void, size: usize, newprotection: u32, oldprotection: super::PULONG) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn VirtualProtectFromApp(address : *const core::ffi::c_void, size : usize, newprotection : u32, oldprotection : super::PULONG) -> windows_core::BOOL);
     unsafe { VirtualProtectFromApp(address, size, newprotection, oldprotection as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn VirtualQuery(lpaddress: Option<*const core::ffi::c_void>, lpbuffer: *mut super::MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
-    windows_core::link!("kernel32.dll" "system" fn VirtualQuery(lpaddress : *const core::ffi::c_void, lpbuffer : *mut super::MEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
+pub unsafe fn VirtualQuery(lpaddress: Option<super::LPCVOID>, lpbuffer: super::PMEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
+    windows_core::link!("kernel32.dll" "system" fn VirtualQuery(lpaddress : super::LPCVOID, lpbuffer : super::PMEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
     unsafe { VirtualQuery(lpaddress.unwrap_or(core::mem::zeroed()) as _, lpbuffer as _, dwlength) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn VirtualQueryEx(hprocess: super::HANDLE, lpaddress: Option<*const core::ffi::c_void>, lpbuffer: *mut super::MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
-    windows_core::link!("kernel32.dll" "system" fn VirtualQueryEx(hprocess : super::HANDLE, lpaddress : *const core::ffi::c_void, lpbuffer : *mut super::MEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
+pub unsafe fn VirtualQueryEx(hprocess: super::HANDLE, lpaddress: Option<super::LPCVOID>, lpbuffer: super::PMEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
+    windows_core::link!("kernel32.dll" "system" fn VirtualQueryEx(hprocess : super::HANDLE, lpaddress : super::LPCVOID, lpbuffer : super::PMEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
     unsafe { VirtualQueryEx(hprocess, lpaddress.unwrap_or(core::mem::zeroed()) as _, lpbuffer as _, dwlength) }
 }
 #[inline]
@@ -424,10 +393,10 @@ pub unsafe fn VirtualUnlockEx(process: Option<super::HANDLE>, address: *const co
     windows_core::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn VirtualUnlockEx(process : super::HANDLE, address : *const core::ffi::c_void, size : usize) -> windows_core::BOOL);
     unsafe { VirtualUnlockEx(process.unwrap_or(core::mem::zeroed()) as _, address, size) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteProcessMemory(hprocess: super::HANDLE, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: Option<*mut usize>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> windows_core::BOOL);
+pub unsafe fn WriteProcessMemory(hprocess: super::HANDLE, lpbaseaddress: *const core::ffi::c_void, lpbuffer: super::LPCVOID, nsize: usize, lpnumberofbyteswritten: Option<*mut usize>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : super::LPCVOID, nsize : usize, lpnumberofbyteswritten : *mut usize) -> windows_core::BOOL);
     unsafe { WriteProcessMemory(hprocess, lpbaseaddress, lpbuffer, nsize, lpnumberofbyteswritten.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub type BAD_MEMORY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;

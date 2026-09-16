@@ -1,14 +1,15 @@
-#[cfg(feature = "winnt")]
-windows_link::link!("netapi32.dll" "system" fn NetUseAdd(servername : super::LPTSTR, levelflags : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("netapi32.dll" "system" fn NetUseAdd(servername : super::LPTSTR, levelflags : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetUseDel(uncservername : windows_sys::core::PCWSTR, usename : windows_sys::core::PCWSTR, forcelevelflags : u32) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetUseEnum(uncservername : windows_sys::core::PCWSTR, levelflags : u32, bufptr : *mut super::LPBYTE, preferedmaximumsize : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetUseEnum(uncservername : windows_sys::core::PCWSTR, levelflags : u32, bufptr : *mut super::LPBYTE, preferedmaximumsize : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetUseGetInfo(uncservername : windows_sys::core::PCWSTR, usename : windows_sys::core::PCWSTR, levelflags : u32, bufptr : *mut super::LPBYTE) -> u32);
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct BLOCK_NTLM_INFO {
-    pub BlockNTLM: bool,
+    pub BlockNTLM: super::BOOLEAN,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
@@ -30,10 +31,13 @@ pub type LPUSE_INFO_4 = *mut USE_INFO_4;
 #[cfg(feature = "minwindef")]
 pub type LPUSE_INFO_5 = *mut USE_INFO_5;
 pub const NoneFlag: TRANSPORT_INFO_FLAG = 0;
+#[cfg(feature = "winnt")]
 pub type PBLOCK_NTLM_INFO = *mut BLOCK_NTLM_INFO;
+#[cfg(feature = "winnt")]
 pub type PSMB_COMPRESSION_INFO = *mut SMB_COMPRESSION_INFO;
 pub type PSMB_TREE_CONNECT_PARAMETERS = *mut SMB_TREE_CONNECT_PARAMETERS;
 pub type PSMB_USE_OPTION_COMPRESSION_PARAMETERS = *mut SMB_USE_OPTION_COMPRESSION_PARAMETERS;
+#[cfg(feature = "winnt")]
 pub type PTRANSPORT_INFO = *mut TRANSPORT_INFO;
 pub type PTRANSPORT_INFO_FLAG = *mut TRANSPORT_INFO_FLAG;
 pub type PTRANSPORT_TYPE = *mut TRANSPORT_TYPE;
@@ -53,9 +57,10 @@ pub type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS
 pub const QuicPortSetFlag: TRANSPORT_INFO_FLAG = 2;
 pub const RdmaPortSetFlag: TRANSPORT_INFO_FLAG = 4;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SMB_COMPRESSION_INFO {
-    pub Switch: bool,
+    pub Switch: super::BOOLEAN,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
@@ -76,10 +81,11 @@ pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     pub Reserved: u16,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
-    pub SkipCertificateCheck: bool,
+    pub SkipCertificateCheck: super::BOOLEAN,
     pub TcpPort: u16,
     pub QuicPort: u16,
     pub RdmaPort: u16,

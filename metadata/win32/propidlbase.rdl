@@ -31,7 +31,7 @@ mod Windows {
         }
         struct CADATE {
             cElems: u32,
-            pElems: *mut f64,
+            pElems: *mut DATE,
         }
         struct CADBL {
             cElems: u32,
@@ -47,7 +47,7 @@ mod Windows {
         }
         struct CAH {
             cElems: u32,
-            pElems: *mut i64,
+            pElems: *mut LARGE_INTEGER,
         }
         struct CAI {
             cElems: u32,
@@ -79,7 +79,7 @@ mod Windows {
         }
         struct CAUH {
             cElems: u32,
-            pElems: *mut u64,
+            pElems: *mut ULARGE_INTEGER,
         }
         struct CAUI {
             cElems: u32,
@@ -115,8 +115,8 @@ mod Windows {
             fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> HRESULT;
             fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
             fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> HRESULT;
-            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *mut PWSTR) -> HRESULT;
-            fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *const PWSTR) -> HRESULT;
+            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *mut LPOLESTR) -> HRESULT;
+            fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *const LPOLESTR) -> HRESULT;
             fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID) -> HRESULT;
             fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
             fn Revert(&self) -> HRESULT;
@@ -149,7 +149,7 @@ mod Windows {
             ulKind: u32,
             Anonymous: union {
                 propid: PROPID,
-                lpwstr: PWSTR,
+                lpwstr: LPOLESTR,
             },
         }
         struct PROPVARIANT {
@@ -168,15 +168,15 @@ mod Windows {
                         ulVal: u32,
                         intVal: i32,
                         uintVal: u32,
-                        hVal: i64,
-                        uhVal: u64,
+                        hVal: LARGE_INTEGER,
+                        uhVal: ULARGE_INTEGER,
                         fltVal: f32,
                         dblVal: f64,
                         boolVal: VARIANT_BOOL,
                         __OBSOLETE__VARIANT_BOOL: VARIANT_BOOL,
                         scode: SCODE,
                         cyVal: CY,
-                        date: f64,
+                        date: DATE,
                         filetime: FILETIME,
                         puuid: *mut GUID,
                         pclipdata: *mut CLIPDATA,
@@ -227,7 +227,7 @@ mod Windows {
                         pdecVal: *mut DECIMAL,
                         pscode: *mut SCODE,
                         pcyVal: *mut CY,
-                        pdate: *mut f64,
+                        pdate: *mut DATE,
                         pbstrVal: *mut BSTR,
                         ppunkVal: *mut IUnknown,
                         ppdispVal: *mut IDispatch,
@@ -254,7 +254,7 @@ mod Windows {
             dwOSVersion: u32,
         }
         struct STATPROPSTG {
-            lpwstrName: PWSTR,
+            lpwstrName: LPOLESTR,
             propid: PROPID,
             vt: VARTYPE,
         }

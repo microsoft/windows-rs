@@ -2671,12 +2671,8 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
 }
 pub type D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = i32;
 pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DDDI_VIDEO_PRESENT_SOURCE_ID(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DDDI_VIDEO_PRESENT_TARGET_ID(pub u32);
+pub type D3DDDI_VIDEO_PRESENT_SOURCE_ID = u32;
+pub type D3DDDI_VIDEO_PRESENT_TARGET_ID = u32;
 pub type D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = i32;
 pub const D3DDDI_VSSLO_INTERLACED_LOWERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 3;
 pub const D3DDDI_VSSLO_INTERLACED_UPPERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 2;
@@ -2731,13 +2727,9 @@ pub struct D3DGPU_PHYSICAL_ADDRESS {
     pub Padding: u32,
     pub SegmentOffset: u64,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DGPU_SIZE_T(pub u64);
+pub type D3DGPU_SIZE_T = u64;
 pub const D3DGPU_UNIQUE_DRIVER_PROTECTION: u64 = 9223372036854775808;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DGPU_VIRTUAL_ADDRESS(pub u64);
+pub type D3DGPU_VIRTUAL_ADDRESS = u64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_3x4_COLORSPACE_TRANSFORM {
@@ -2773,20 +2765,12 @@ pub const D3DKMDT_MAX_VIDPN_SOURCES: i32 = 16;
 pub const D3DKMDT_MAX_VIDPN_SOURCES_BITCOUNT: i32 = 4;
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: i32 = 4;
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: i32 = 128;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DKMT_HANDLE(pub u32);
+pub type D3DKMT_HANDLE = u32;
 #[cfg(feature = "winnt")]
 pub type D3DKMT_PTR_TYPE = super::HANDLE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DKMT_SIZE_T(pub usize);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DKMT_UINT_PTR(pub usize);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DKMT_ULONG_PTR(pub usize);
+pub type D3DKMT_SIZE_T = usize;
+pub type D3DKMT_UINT_PTR = usize;
+pub type D3DKMT_ULONG_PTR = usize;
 pub const D3D_UMD_INTERFACE_VERSION: i32 = 69633;
 pub const D3D_UMD_INTERFACE_VERSION_VISTA: i32 = 12;
 pub const D3D_UMD_INTERFACE_VERSION_WDDM1_3: i32 = 16386;
@@ -3081,7 +3065,7 @@ pub const DXGK_FEATURE_ID_MASK: i32 = 268435455;
 pub const DXGK_FEATURE_KERNEL_MODE_TESTING: DXGK_FEATURE_ID = 33;
 pub const DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT: DXGK_FEATURE_ID = 3;
 pub const DXGK_FEATURE_LDA_GPUPV: DXGK_FEATURE_ID = 2;
-pub const DXGK_FEATURE_MAX: i32 = 47;
+pub const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
 pub const DXGK_FEATURE_NATIVE_FENCE: DXGK_FEATURE_ID = 37;
 pub const DXGK_FEATURE_NOTIFY_RESIDENCY2: DXGK_FEATURE_ID = 43;
 pub const DXGK_FEATURE_OPPORTUNISTIC_64KB_PAGES: DXGK_FEATURE_ID = 268435463;
@@ -3099,9 +3083,7 @@ pub const DXGK_FEATURE_SUPPRESSVSYNC_INTERRUPTS: DXGK_FEATURE_ID = 268435460;
 pub const DXGK_FEATURE_SYNC_PRESENT_RENDER_HWQ_ONLY: DXGK_FEATURE_ID = 41;
 pub const DXGK_FEATURE_UNIFIED_SCHEDULING_MODEL: DXGK_FEATURE_ID = 42;
 pub const DXGK_FEATURE_USER_MODE_SUBMISSION: DXGK_FEATURE_ID = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DXGK_FEATURE_VERSION(pub u16);
+pub type DXGK_FEATURE_VERSION = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_ISFEATUREENABLED_RESULT {
@@ -3228,11 +3210,13 @@ pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = 4;
 pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = 3;
 pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_BUFFER {
     pub Header: DXGK_NATIVE_FENCE_LOG_HEADER,
     pub Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_NATIVE_FENCE_LOG_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3250,6 +3234,7 @@ pub struct DXGK_NATIVE_FENCE_LOG_ENTRY {
     pub FenceEndGpuTimestamp: u64,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0,
@@ -3257,23 +3242,27 @@ pub struct DXGK_NATIVE_FENCE_LOG_HEADER {
     pub NumberOfEntries: u64,
     pub Reserved: [u64; 2],
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0_0,
-    pub AtomicWraparoundAndEntryIndex: u64,
+    pub AtomicWraparoundAndEntryIndex: super::ULARGE_INTEGER,
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER_0_0 {
     pub FirstFreeEntryIndex: u32,

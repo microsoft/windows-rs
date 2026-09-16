@@ -9,10 +9,10 @@ fn propvariant(value: i32) -> PROPVARIANT {
     PROPVARIANT {
         Anonymous: PROPVARIANT_0 {
             Anonymous: ManuallyDrop::new(PROPVARIANT_0_0 {
-                vt: VARTYPE(VT_I4 as u16),
-                wReserved1: PROPVAR_PAD1(0),
-                wReserved2: PROPVAR_PAD2(0),
-                wReserved3: PROPVAR_PAD3(0),
+                vt: VT_I4 as VARTYPE,
+                wReserved1: 0,
+                wReserved2: 0,
+                wReserved3: 0,
                 Anonymous: PROPVARIANT_0_0_0 { lVal: value },
             }),
         },

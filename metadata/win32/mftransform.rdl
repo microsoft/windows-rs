@@ -50,7 +50,7 @@ mod Windows {
             fn GetInputStreamAttributes(&self, dwInputStreamID: u32, pAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetOutputStreamAttributes(&self, dwOutputStreamID: u32, pAttributes: *mut IMFAttributes) -> HRESULT;
             fn DeleteInputStream(&self, dwStreamID: u32) -> HRESULT;
-            fn AddInputStreams(&self, cStreams: u32, adwStreamIDs: *const u32) -> HRESULT;
+            fn AddInputStreams(&self, cStreams: u32, #[in] adwStreamIDs: *mut u32) -> HRESULT;
             fn GetInputAvailableType(&self, dwInputStreamID: u32, dwTypeIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
             fn GetOutputAvailableType(&self, dwOutputStreamID: u32, dwTypeIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
             fn SetInputType(&self, dwInputStreamID: u32, pType: IMFMediaType, dwFlags: u32) -> HRESULT;

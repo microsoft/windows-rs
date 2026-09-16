@@ -60,7 +60,7 @@ impl SwapChain {
         let swap_chain = unsafe {
             device.dxgi_factory().CreateSwapChainForHwnd(
                 device.d3d_device(),
-                hwnd,
+                hwnd.cast(),
                 &desc,
                 None,
                 None,

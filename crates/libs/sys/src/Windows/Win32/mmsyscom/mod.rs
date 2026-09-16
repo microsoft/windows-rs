@@ -5,7 +5,12 @@ pub const CALLBACK_THREAD: i32 = 131072;
 pub const CALLBACK_TYPEMASK: i32 = 458752;
 pub const CALLBACK_WINDOW: i32 = 65536;
 pub type DRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub type HDRVR = *mut core::ffi::c_void;
+pub type HDRVR = *mut HDRVR__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HDRVR__ {
+    pub unused: i32,
+}
 pub const JOYERR_BASE: i32 = 160;
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type LPMMTIME = *mut MMTIME;

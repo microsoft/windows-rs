@@ -1,34 +1,35 @@
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn CreateToolhelp32Snapshot(dwflags : u32, th32processid : u32) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Heap32First(lphe : *mut HEAPENTRY32, th32processid : u32, th32heapid : usize) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Heap32First(lphe : LPHEAPENTRY32, th32processid : u32, th32heapid : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Heap32ListFirst(hsnapshot : super::HANDLE, lphl : *mut HEAPLIST32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Heap32ListFirst(hsnapshot : super::HANDLE, lphl : LPHEAPLIST32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Heap32ListNext(hsnapshot : super::HANDLE, lphl : *mut HEAPLIST32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Heap32ListNext(hsnapshot : super::HANDLE, lphl : LPHEAPLIST32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Heap32Next(lphe : *mut HEAPENTRY32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Heap32Next(lphe : LPHEAPENTRY32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn Module32First(hsnapshot : super::HANDLE, lpme : *mut MODULEENTRY32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Module32First(hsnapshot : super::HANDLE, lpme : LPMODULEENTRY32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn Module32FirstW(hsnapshot : super::HANDLE, lpme : *mut MODULEENTRY32W) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Module32FirstW(hsnapshot : super::HANDLE, lpme : LPMODULEENTRY32W) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn Module32Next(hsnapshot : super::HANDLE, lpme : *mut MODULEENTRY32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Module32Next(hsnapshot : super::HANDLE, lpme : LPMODULEENTRY32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn Module32NextW(hsnapshot : super::HANDLE, lpme : *mut MODULEENTRY32W) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Module32NextW(hsnapshot : super::HANDLE, lpme : LPMODULEENTRY32W) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Process32First(hsnapshot : super::HANDLE, lppe : *mut PROCESSENTRY32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Process32First(hsnapshot : super::HANDLE, lppe : LPPROCESSENTRY32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Process32FirstW(hsnapshot : super::HANDLE, lppe : *mut PROCESSENTRY32W) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Process32FirstW(hsnapshot : super::HANDLE, lppe : LPPROCESSENTRY32W) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Process32Next(hsnapshot : super::HANDLE, lppe : *mut PROCESSENTRY32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Process32Next(hsnapshot : super::HANDLE, lppe : LPPROCESSENTRY32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Process32NextW(hsnapshot : super::HANDLE, lppe : *mut PROCESSENTRY32W) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Process32NextW(hsnapshot : super::HANDLE, lppe : LPPROCESSENTRY32W) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Thread32First(hsnapshot : super::HANDLE, lpte : *mut THREADENTRY32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Thread32First(hsnapshot : super::HANDLE, lpte : LPTHREADENTRY32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn Thread32Next(hsnapshot : super::HANDLE, lpte : *mut THREADENTRY32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn Toolhelp32ReadProcessMemory(th32processid : u32, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, cbread : usize, lpnumberofbytesread : *mut usize) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Thread32Next(hsnapshot : super::HANDLE, lpte : LPTHREADENTRY32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn Toolhelp32ReadProcessMemory(th32processid : u32, lpbaseaddress : super::LPCVOID, lpbuffer : *mut core::ffi::c_void, cbread : usize, lpnumberofbytesread : *mut usize) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]

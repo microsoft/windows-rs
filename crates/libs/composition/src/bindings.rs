@@ -1033,7 +1033,12 @@ pub struct DispatcherQueueOptions {
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
     pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
-pub type HWND = *mut core::ffi::c_void;
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 windows_core::imp::define_interface!(
     ICompositionAnimation,
     ICompositionAnimation_Vtbl,

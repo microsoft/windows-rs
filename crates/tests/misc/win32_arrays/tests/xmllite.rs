@@ -1,12 +1,24 @@
 #![cfg(windows)]
 use windows::{Win32::*, core::*};
 
+unsafe fn create_xml_reader<T: Interface>() -> Result<T> {
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateXmlReader(&T::IID, &mut result__, None).ok()? };
+    unsafe { imp::Type::from_abi(result__) }
+}
+
+unsafe fn create_xml_writer<T: Interface>() -> Result<T> {
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateXmlWriter(&T::IID, &mut result__, None).ok()? };
+    unsafe { imp::Type::from_abi(result__) }
+}
+
 #[test]
 fn test() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let writer: IXmlWriter = CreateXmlWriter(None)?;
+        let writer: IXmlWriter = create_xml_writer()?;
         writer.SetOutput(&stream).ok()?;
 
         writer.WriteStartDocument(XmlStandalone_Omit).ok()?;
@@ -25,13 +37,17 @@ fn test() -> Result<()> {
         writer.WriteEndDocument().ok()?;
         writer.Flush().ok()?;
 
-        let mut pos = 0;
+        let mut pos = ULARGE_INTEGER { QuadPart: 0 };
         stream
-            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut pos))
+            .Seek(
+                LARGE_INTEGER { QuadPart: 0 },
+                STREAM_SEEK_SET as u32,
+                Some(&mut pos),
+            )
             .ok()?;
-        assert_eq!(pos, 0);
+        assert_eq!(pos.QuadPart, 0);
 
-        let reader: IXmlReader = CreateXmlReader(None)?;
+        let reader: IXmlReader = create_xml_reader()?;
         reader.SetInput(&stream).ok()?;
 
         let mut node_type = XmlNodeType_None;
@@ -124,7 +140,7 @@ fn lite() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let writer: IXmlWriterLite = CreateXmlWriter(None)?;
+        let writer: IXmlWriterLite = create_xml_writer()?;
         writer.SetOutput(&stream).ok()?;
 
         writer.WriteStartElement(&HSTRING::from("html")).ok()?;
@@ -137,13 +153,17 @@ fn lite() -> Result<()> {
         writer.WriteEndElement(&HSTRING::from("html")).ok()?;
         writer.Flush().ok()?;
 
-        let mut pos = 0;
+        let mut pos = ULARGE_INTEGER { QuadPart: 0 };
         stream
-            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut pos))
+            .Seek(
+                LARGE_INTEGER { QuadPart: 0 },
+                STREAM_SEEK_SET as u32,
+                Some(&mut pos),
+            )
             .ok()?;
-        assert_eq!(pos, 0);
+        assert_eq!(pos.QuadPart, 0);
 
-        let reader: IXmlReader = CreateXmlReader(None)?;
+        let reader: IXmlReader = create_xml_reader()?;
         reader.SetInput(&stream).ok()?;
 
         let mut name = PCWSTR::null();

@@ -64,21 +64,21 @@ mod Windows {
             FileNameByteOffsetInStructure: u32,
         }
         #[library("txfw32.dll")]
-        extern fn TxfGetThreadMiniVersionForCreate(MiniVersion: *mut u16);
+        extern fn TxfGetThreadMiniVersionForCreate(#[out] MiniVersion: PUSHORT);
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateFileReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, TxfFileId: *const TXF_ID, TxfLogContext: *mut *mut void) -> BOOL;
+        extern fn TxfLogCreateFileReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, TxfFileId: PTXF_ID, TxfLogContext: *mut *mut void) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogCreateRangeReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, BeginningVirtualClock: *const i64, EndingVirtualClock: *const i64, RecordTypeMask: u32, TxfLogContext: *mut *mut void) -> BOOL;
+        extern fn TxfLogCreateRangeReadContext(LogPath: PCWSTR, BeginningLsn: CLFS_LSN, EndingLsn: CLFS_LSN, BeginningVirtualClock: PLARGE_INTEGER, EndingVirtualClock: PLARGE_INTEGER, RecordTypeMask: u32, TxfLogContext: *mut *mut void) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogDestroyReadContext(TxfLogContext: *const void) -> BOOL;
+        extern fn TxfLogDestroyReadContext(#[in] TxfLogContext: *mut void) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogReadRecords(TxfLogContext: *const void, BufferLength: u32, #[size_param(1)] Buffer: *mut void, BytesUsed: *mut u32, RecordCount: *mut u32) -> BOOL;
+        extern fn TxfLogReadRecords(#[in] TxfLogContext: *mut void, BufferLength: u32, #[size_param(1)] Buffer: *mut void, #[out] BytesUsed: PULONG, #[out] RecordCount: PULONG) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogRecordGetFileName(#[size_param(1)] RecordBuffer: *const void, RecordBufferLengthInBytes: u32, #[size_param(3)] #[out] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: *mut u32, #[opt] TxfId: *mut TXF_ID) -> BOOL;
+        extern fn TxfLogRecordGetFileName(#[size_param(1)] #[in] RecordBuffer: *mut void, RecordBufferLengthInBytes: u32, #[size_param(3)] #[out] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: PULONG, #[out] #[opt] TxfId: PTXF_ID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogRecordGetGenericType(RecordBuffer: *const void, RecordBufferLengthInBytes: u32, GenericType: *mut u32, #[opt] VirtualClock: *mut i64) -> BOOL;
+        extern fn TxfLogRecordGetGenericType(#[in] RecordBuffer: *mut void, RecordBufferLengthInBytes: u32, #[out] GenericType: PULONG, #[out] #[opt] VirtualClock: PLARGE_INTEGER) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfReadMetadataInfo(FileHandle: HANDLE, TxfFileId: *mut TXF_ID, LastLsn: *mut CLFS_LSN, TransactionState: *mut u32, LockingTransaction: *mut GUID) -> BOOL;
+        extern fn TxfReadMetadataInfo(FileHandle: HANDLE, #[out] TxfFileId: PTXF_ID, #[out] LastLsn: PCLFS_LSN, #[out] TransactionState: PULONG, #[out] LockingTransaction: PGUID) -> BOOL;
         #[library("txfw32.dll")]
         extern fn TxfSetThreadMiniVersionForCreate(MiniVersion: u16);
     }

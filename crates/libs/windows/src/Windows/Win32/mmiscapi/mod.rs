@@ -55,14 +55,14 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 #[inline]
-pub unsafe fn mmioAdvance(hmmio: HMMIO, pmmioinfo: Option<*const MMIOINFO>, fuadvance: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> super::MMRESULT);
+pub unsafe fn mmioAdvance(hmmio: HMMIO, pmmioinfo: Option<LPMMIOINFO>, fuadvance: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : LPMMIOINFO, fuadvance : u32) -> super::MMRESULT);
     unsafe { mmioAdvance(hmmio, pmmioinfo.unwrap_or(core::mem::zeroed()) as _, fuadvance) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
-pub unsafe fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> super::MMRESULT);
+pub unsafe fn mmioAscend(hmmio: HMMIO, pmmcki: LPMMCKINFO, fuascend: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : LPMMCKINFO, fuascend : u32) -> super::MMRESULT);
     unsafe { mmioAscend(hmmio, pmmcki, fuascend) }
 }
 #[cfg(feature = "mmsyscom")]
@@ -73,14 +73,14 @@ pub unsafe fn mmioClose(hmmio: HMMIO, fuclose: u32) -> super::MMRESULT {
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
-pub unsafe fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : *const MMCKINFO, fucreate : u32) -> super::MMRESULT);
+pub unsafe fn mmioCreateChunk(hmmio: HMMIO, pmmcki: LPMMCKINFO, fucreate: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : LPMMCKINFO, fucreate : u32) -> super::MMRESULT);
     unsafe { mmioCreateChunk(hmmio, pmmcki, fucreate) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
-pub unsafe fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: Option<*const MMCKINFO>, fudescend: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : *mut MMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> super::MMRESULT);
+pub unsafe fn mmioDescend(hmmio: HMMIO, pmmcki: LPMMCKINFO, pmmckiparent: Option<*const MMCKINFO>, fudescend: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : LPMMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> super::MMRESULT);
     unsafe { mmioDescend(hmmio, pmmcki as _, pmmckiparent.unwrap_or(core::mem::zeroed()) as _, fudescend) }
 }
 #[cfg(feature = "mmsyscom")]
@@ -91,8 +91,8 @@ pub unsafe fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> super::MMRESULT {
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 #[inline]
-pub unsafe fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> super::MMRESULT);
+pub unsafe fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: LPMMIOINFO, fuinfo: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : LPMMIOINFO, fuinfo : u32) -> super::MMRESULT);
     unsafe { mmioGetInfo(hmmio, pmmioinfo as _, fuinfo) }
 }
 #[cfg(feature = "minwindef")]
@@ -109,39 +109,39 @@ pub unsafe fn mmioInstallIOProcW(fccioproc: FOURCC, pioproc: LPMMIOPROC, dwflags
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn mmioOpenA(pszfilename: Option<windows_core::PSTR>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
-    windows_core::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    unsafe { mmioOpenA(pszfilename.unwrap_or(core::mem::zeroed()) as _, pmmioinfo.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
+pub unsafe fn mmioOpenA(pszfilename: Option<&mut [u8; 128]>, pmmioinfo: Option<LPMMIOINFO>, fdwopen: u32) -> HMMIO {
+    windows_core::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_core::PSTR, pmmioinfo : LPMMIOINFO, fdwopen : u32) -> HMMIO);
+    unsafe { mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pmmioinfo.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn mmioOpenW(pszfilename: Option<windows_core::PWSTR>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
-    windows_core::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    unsafe { mmioOpenW(pszfilename.unwrap_or(core::mem::zeroed()) as _, pmmioinfo.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
+pub unsafe fn mmioOpenW(pszfilename: Option<&mut [u16; 64]>, pmmioinfo: Option<LPMMIOINFO>, fdwopen: u32) -> HMMIO {
+    windows_core::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_core::PWSTR, pmmioinfo : LPMMIOINFO, fdwopen : u32) -> HMMIO);
+    unsafe { mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pmmioinfo.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[inline]
-pub unsafe fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32 {
-    windows_core::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
+pub unsafe fn mmioRead(hmmio: HMMIO, pch: HPSTR, cch: i32) -> i32 {
+    windows_core::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : HPSTR, cch : i32) -> i32);
     unsafe { mmioRead(hmmio, pch as _, cch) }
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 #[inline]
-pub unsafe fn mmioRenameA<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> super::MMRESULT
+pub unsafe fn mmioRenameA<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<LPCMMIOINFO>, fdwrename: u32) -> super::MMRESULT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_core::PCSTR, psznewfilename : windows_core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> super::MMRESULT);
+    windows_core::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_core::PCSTR, psznewfilename : windows_core::PCSTR, pmmioinfo : LPCMMIOINFO, fdwrename : u32) -> super::MMRESULT);
     unsafe { mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), pmmioinfo.unwrap_or(core::mem::zeroed()) as _, fdwrename) }
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 #[inline]
-pub unsafe fn mmioRenameW<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> super::MMRESULT
+pub unsafe fn mmioRenameW<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<LPCMMIOINFO>, fdwrename: u32) -> super::MMRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_core::PCWSTR, psznewfilename : windows_core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> super::MMRESULT);
+    windows_core::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_core::PCWSTR, psznewfilename : windows_core::PCWSTR, pmmioinfo : LPCMMIOINFO, fdwrename : u32) -> super::MMRESULT);
     unsafe { mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), pmmioinfo.unwrap_or(core::mem::zeroed()) as _, fdwrename) }
 }
 #[inline]
@@ -163,8 +163,8 @@ pub unsafe fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: Option<windows_core::PSTR>,
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 #[inline]
-pub unsafe fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuinfo : u32) -> super::MMRESULT);
+pub unsafe fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: LPCMMIOINFO, fuinfo: u32) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : LPCMMIOINFO, fuinfo : u32) -> super::MMRESULT);
     unsafe { mmioSetInfo(hmmio, pmmioinfo, fuinfo) }
 }
 #[inline]
@@ -190,15 +190,15 @@ pub unsafe fn mmioWrite(hmmio: HMMIO, pch: &[u8]) -> i32 {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn sndOpenSound<P0, P1>(eventname: P0, appname: P1, flags: i32, filehandle: *mut super::HANDLE) -> i32
+pub unsafe fn sndOpenSound<P0, P1>(eventname: P0, appname: P1, flags: i32, filehandle: super::PHANDLE) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_core::PCWSTR, appname : windows_core::PCWSTR, flags : i32, filehandle : *mut super::HANDLE) -> i32);
-    unsafe { sndOpenSound(eventname.param().abi(), appname.param().abi(), flags, filehandle as _) }
+    windows_core::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_core::PCWSTR, appname : windows_core::PCWSTR, flags : i32, filehandle : super::PHANDLE) -> i32);
+    unsafe { sndOpenSound(eventname.param().abi(), appname.param().abi(), flags, filehandle) }
 }
-pub const CFSEPCHAR: u32 = 43;
+pub const CFSEPCHAR: i8 = 43;
 pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: super::HDRVR, param2: u32, param3: super::LPARAM, param4: super::LPARAM) -> super::LRESULT>;
@@ -239,16 +239,17 @@ pub const DRV_REMOVE: i32 = 10;
 pub const DRV_RESERVED: i32 = 2048;
 pub const DRV_RESTART: i32 = 2;
 pub const DRV_USER: i32 = 16384;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FOURCC(pub u32);
+pub type FOURCC = u32;
 pub const FOURCC_DOS: u32 = 542330692;
 pub const FOURCC_LIST: u32 = 1414744396;
 pub const FOURCC_MEM: u32 = 541934925;
 pub const FOURCC_RIFF: u32 = 1179011410;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HMMIO(pub *mut core::ffi::c_void);
+pub type HMMIO = *mut HMMIO__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HMMIO__ {
+    pub unused: i32,
+}
 pub type HPSTR = *mut i8;
 pub type LPCMMCKINFO = *const MMCKINFO;
 #[cfg(feature = "minwindef")]

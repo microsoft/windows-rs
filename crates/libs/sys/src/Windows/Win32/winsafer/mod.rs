@@ -1,24 +1,27 @@
 windows_link::link!("advapi32.dll" "system" fn SaferCloseLevel(hlevelhandle : SAFER_LEVEL_HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn SaferComputeTokenFromLevel(levelhandle : SAFER_LEVEL_HANDLE, inaccesstoken : super::HANDLE, outaccesstoken : *mut super::HANDLE, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferCreateLevel(dwscopeid : u32, dwlevelid : u32, openflags : u32, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferGetLevelInformation(levelhandle : SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *mut core::ffi::c_void, dwinbuffersize : u32, lpdwoutbuffersize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferGetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *mut core::ffi::c_void, infobufferretsize : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn SaferComputeTokenFromLevel(levelhandle : SAFER_LEVEL_HANDLE, inaccesstoken : super::HANDLE, outaccesstoken : super::PHANDLE, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn SaferCreateLevel(dwscopeid : u32, dwlevelid : u32, openflags : u32, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("advapi32.dll" "system" fn SaferGetLevelInformation(levelhandle : SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *mut core::ffi::c_void, dwinbuffersize : u32, lpdwoutbuffersize : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("advapi32.dll" "system" fn SaferGetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *mut core::ffi::c_void, infobufferretsize : super::PDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : *const SAFER_CODE_PROPERTIES_V2, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : SAFER_LEVEL_HANDLE, sztargetpath : windows_sys::core::PCWSTR, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : PSAFER_CODE_PROPERTIES, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : SAFER_LEVEL_HANDLE, sztargetpath : windows_sys::core::PCWSTR, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn SaferSetLevelInformation(levelhandle : SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *const core::ffi::c_void, dwinbuffersize : u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferSetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_sys::core::PCWSTR, bfromshellexecute : bool) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn SaferSetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *const core::ffi::c_void, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_sys::core::PCWSTR, bfromshellexecute : super::BOOLEAN) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PSAFER_CODE_PROPERTIES = *mut SAFER_CODE_PROPERTIES_V2;
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PSAFER_CODE_PROPERTIES_V1 = *mut SAFER_CODE_PROPERTIES_V1;
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
 pub type PSAFER_CODE_PROPERTIES_V2 = *mut SAFER_CODE_PROPERTIES_V2;
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 pub type PSAFER_HASH_IDENTIFICATION = *mut SAFER_HASH_IDENTIFICATION;
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 pub type PSAFER_HASH_IDENTIFICATION2 = *mut SAFER_HASH_IDENTIFICATION2;
 #[cfg(feature = "minwindef")]
 pub type PSAFER_IDENTIFICATION_HEADER = *mut SAFER_IDENTIFICATION_HEADER;
@@ -39,7 +42,7 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
     pub UrlZoneId: u32,
     pub ImageHash: [u8; 64],
     pub dwImageHashSize: u32,
-    pub ImageSize: i64,
+    pub ImageSize: super::LARGE_INTEGER,
     pub HashAlgorithm: super::ALG_ID,
     pub pByteBlock: super::LPBYTE,
     pub hWndParent: super::HWND,
@@ -62,7 +65,7 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub UrlZoneId: u32,
     pub ImageHash: [u8; 64],
     pub dwImageHashSize: u32,
-    pub ImageSize: i64,
+    pub ImageSize: super::LARGE_INTEGER,
     pub HashAlgorithm: super::ALG_ID,
     pub pByteBlock: super::LPBYTE,
     pub hWndParent: super::HWND,
@@ -87,7 +90,7 @@ pub const SAFER_CRITERIA_IMAGEPATH_NT: i32 = 4096;
 pub const SAFER_CRITERIA_NOSIGNEDHASH: i32 = 2;
 pub const SAFER_CRITERIA_URLZONE: i32 = 16;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
@@ -96,17 +99,17 @@ pub struct SAFER_HASH_IDENTIFICATION {
     pub HashSize: u32,
     pub ImageHash: [u8; 64],
     pub HashAlgorithm: super::ALG_ID,
-    pub ImageSize: i64,
+    pub ImageSize: super::LARGE_INTEGER,
     pub dwSaferFlags: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl Default for SAFER_HASH_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
@@ -114,7 +117,7 @@ pub struct SAFER_HASH_IDENTIFICATION2 {
     pub ImageHash: [u8; 64],
     pub HashAlgorithm: super::ALG_ID,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl Default for SAFER_HASH_IDENTIFICATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -135,7 +138,12 @@ pub const SAFER_LEVELID_DISALLOWED: i32 = 0;
 pub const SAFER_LEVELID_FULLYTRUSTED: i32 = 262144;
 pub const SAFER_LEVELID_NORMALUSER: i32 = 131072;
 pub const SAFER_LEVELID_UNTRUSTED: i32 = 4096;
-pub type SAFER_LEVEL_HANDLE = *mut core::ffi::c_void;
+pub type SAFER_LEVEL_HANDLE = *mut SAFER_LEVEL_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SAFER_LEVEL_HANDLE__ {
+    pub unused: i32,
+}
 pub const SAFER_LEVEL_OPEN: i32 = 1;
 pub const SAFER_MAX_DESCRIPTION_SIZE: i32 = 256;
 pub const SAFER_MAX_FRIENDLYNAME_SIZE: i32 = 256;

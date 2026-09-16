@@ -108,7 +108,7 @@ pub struct IFhConfigMgr_Vtbl {
     pub GetBackupStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FH_BACKUP_STATUS) -> windows_core::HRESULT,
     pub SetBackupStatus: unsafe extern "system" fn(*mut core::ffi::c_void, FH_BACKUP_STATUS) -> windows_core::HRESULT,
     pub GetDefaultTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ValidateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT,
     pub ProvisionAndSetNewTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub QueryProtectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -215,7 +215,7 @@ impl IFhConfigMgr_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ValidateTarget<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValidateTarget<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhConfigMgr_Impl::ValidateTarget(this, core::mem::transmute(&targeturl)) {
@@ -295,7 +295,7 @@ impl IFhReassociation {
 #[doc(hidden)]
 pub struct IFhReassociation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ValidateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT,
     pub ScanTargetForConfigurations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "minwindef")]
     pub GetConfigurationDetails: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::FILETIME) -> windows_core::HRESULT,
@@ -315,7 +315,7 @@ pub trait IFhReassociation_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "minwindef")]
 impl IFhReassociation_Vtbl {
     pub const fn new<Identity: IFhReassociation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ValidateTarget<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValidateTarget<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: *mut core::ffi::c_void, validationresult: PFH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhReassociation_Impl::ValidateTarget(this, core::mem::transmute(&targeturl)) {

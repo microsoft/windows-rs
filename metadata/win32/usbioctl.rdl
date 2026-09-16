@@ -43,7 +43,7 @@ mod Windows {
             Reserved1: u32,
             Reserved2: u32,
             ResetCounters: u32,
-            TimeRead: i64,
+            TimeRead: LARGE_INTEGER,
             Counters: HCD_STAT_COUNTERS,
         }
         #[packed(1)]
@@ -51,7 +51,7 @@ mod Windows {
             Reserved1: u32,
             Reserved2: u32,
             ResetCounters: u32,
-            TimeRead: i64,
+            TimeRead: LARGE_INTEGER,
             LockedMemoryUsed: i32,
             Counters: HCD_STAT_COUNTERS,
             IsoCounters: HCD_ISO_STAT_COUNTERS,
@@ -196,7 +196,11 @@ mod Windows {
             ConsumedBandwidth: u32,
             ControllerNameLength: u32,
         }
-        type USB_CHANGE_REGISTRATION_HANDLE = *mut void;
+        type USB_CHANGE_REGISTRATION_HANDLE = *mut USB_CHANGE_REGISTRATION_HANDLE__;
+        #[packed(1)]
+        struct USB_CHANGE_REGISTRATION_HANDLE__ {
+            unused: i32,
+        }
         struct USB_COMPOSITE_DEVICE_INFO {
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
             CurrentConfigDescriptor: USB_CONFIGURATION_DESCRIPTOR,
@@ -208,7 +212,7 @@ mod Windows {
             FunctionNumber: u8,
             BaseInterfaceNumber: u8,
             NumberOfInterfaces: u8,
-            FunctionIsIdle: bool,
+            FunctionIsIdle: BOOLEAN,
         }
         #[packed(1)]
         struct USB_CONNECTION_NOTIFICATION {
@@ -338,11 +342,11 @@ mod Windows {
             TimeTrackingHandle: HANDLE,
             InputFrameNumber: u32,
             InputMicroFrameNumber: u32,
-            QueryPerformanceCounterAtInputFrameOrMicroFrame: i64,
-            QueryPerformanceCounterFrequency: i64,
+            QueryPerformanceCounterAtInputFrameOrMicroFrame: LARGE_INTEGER,
+            QueryPerformanceCounterFrequency: LARGE_INTEGER,
             PredictedAccuracyInMicroSeconds: u32,
             CurrentGenerationID: u32,
-            CurrentQueryPerformanceCounter: i64,
+            CurrentQueryPerformanceCounter: LARGE_INTEGER,
             CurrentHardwareFrameNumber: u32,
             CurrentHardwareMicroFrameNumber: u32,
             CurrentUSBFrameNumber: u32,
@@ -382,8 +386,8 @@ mod Windows {
             HubDescriptor: USB_HUB_DESCRIPTOR,
             HubNumber: u32,
             DeviceAddress: u16,
-            HubIsSelfPowered: bool,
-            HubIsRootHub: bool,
+            HubIsSelfPowered: BOOLEAN,
+            HubIsRootHub: BOOLEAN,
             HubCapabilities: USB_HUB_CAPABILITIES,
             NumberOfHubPorts: u32,
             PortInfo: [USB_HUB_PORT_INFORMATION; 1],
@@ -400,7 +404,7 @@ mod Windows {
         }
         struct USB_HUB_INFORMATION {
             HubDescriptor: USB_HUB_DESCRIPTOR,
-            HubIsBusPowered: bool,
+            HubIsBusPowered: BOOLEAN,
         }
         #[packed(1)]
         struct USB_HUB_INFORMATION_EX {
@@ -463,8 +467,8 @@ mod Windows {
             ConnectionIndex: u32,
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
             CurrentConfigurationValue: u8,
-            LowSpeed: bool,
-            DeviceIsHub: bool,
+            LowSpeed: BOOLEAN,
+            DeviceIsHub: BOOLEAN,
             DeviceAddress: u16,
             NumberOfOpenPipes: u32,
             ConnectionStatus: USB_CONNECTION_STATUS,
@@ -476,7 +480,7 @@ mod Windows {
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
             CurrentConfigurationValue: u8,
             Speed: u8,
-            DeviceIsHub: bool,
+            DeviceIsHub: BOOLEAN,
             DeviceAddress: u16,
             NumberOfOpenPipes: u32,
             ConnectionStatus: USB_CONNECTION_STATUS,
@@ -594,7 +598,7 @@ mod Windows {
         #[packed(1)]
         struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
             TimeTrackingHandle: HANDLE,
-            IsStartupDelayTolerable: bool,
+            IsStartupDelayTolerable: BOOLEAN,
         }
         #[packed(1)]
         struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {

@@ -1,3 +1,19 @@
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserFree(param0 : *mut u32, param1 : *mut super::HMONITOR));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserFree64(param0 : *mut u32, param1 : *mut super::HMONITOR));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HMONITOR) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HMONITOR) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
 #[cfg(feature = "propsys")]
 windows_link::link!("shell32.dll" "system" fn SHAddDefaultPropertiesByExt(pszext : windows_sys::core::PCWSTR, ppropstore : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shobjidl_core")]
@@ -77,7 +93,7 @@ pub const NSTCEHT_ONITEMLABEL: NSTCEHITTEST = 4;
 pub const NSTCEHT_ONITEMRIGHT: NSTCEHITTEST = 32;
 pub const NSTCEHT_ONITEMSTATEICON: NSTCEHITTEST = 64;
 pub const NSTCEHT_ONITEMTABBUTTON: NSTCEHITTEST = 4096;
-pub const NSTCS2_ALLMASK: i32 = 7;
+pub const NSTCS2_ALLMASK: NSTCSTYLE2 = 7;
 pub const NSTCS2_DEFAULT: NSTCSTYLE2 = 0;
 pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = 4;
 pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = 8;

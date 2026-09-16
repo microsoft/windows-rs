@@ -4,12 +4,65 @@ pub const D2D1_ALPHA_MODE_IGNORE: D2D1_ALPHA_MODE = 3;
 pub const D2D1_ALPHA_MODE_PREMULTIPLIED: D2D1_ALPHA_MODE = 1;
 pub const D2D1_ALPHA_MODE_STRAIGHT: D2D1_ALPHA_MODE = 2;
 pub const D2D1_ALPHA_MODE_UNKNOWN: D2D1_ALPHA_MODE = 0;
+pub type D2D1_MATRIX_3X2_F = D2D_MATRIX_3X2_F;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: super::DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
+}
+pub type D2D1_POINT_2F = D2D_POINT_2F;
+#[cfg(feature = "windef")]
+pub type D2D1_POINT_2L = D2D_POINT_2L;
+pub type D2D1_POINT_2U = D2D_POINT_2U;
+pub type D2D1_RECT_F = D2D_RECT_F;
+#[cfg(feature = "windef")]
+pub type D2D1_RECT_L = D2D_RECT_L;
+pub type D2D1_RECT_U = D2D_RECT_U;
+pub type D2D1_SIZE_F = D2D_SIZE_F;
+pub type D2D1_SIZE_U = D2D_SIZE_U;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D2D_MATRIX_3X2_F {
+    pub Anonymous: D2D_MATRIX_3X2_F_0,
+}
+impl Default for D2D_MATRIX_3X2_F {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D2D_MATRIX_3X2_F_0 {
+    pub Anonymous: D2D_MATRIX_3X2_F_0_0,
+    pub Anonymous2: D2D_MATRIX_3X2_F_0_1,
+    pub m: [[f32; 2]; 3],
+}
+impl Default for D2D_MATRIX_3X2_F_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D2D_MATRIX_3X2_F_0_0 {
+    pub m11: f32,
+    pub m12: f32,
+    pub m21: f32,
+    pub m22: f32,
+    pub dx: f32,
+    pub dy: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D2D_MATRIX_3X2_F_0_1 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _31: f32,
+    pub _32: f32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -47,6 +100,47 @@ pub struct D2D_MATRIX_4X3_F_0_0 {
     pub _41: f32,
     pub _42: f32,
     pub _43: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D2D_MATRIX_4X4_F {
+    pub Anonymous: D2D_MATRIX_4X4_F_0,
+}
+impl Default for D2D_MATRIX_4X4_F {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D2D_MATRIX_4X4_F_0 {
+    pub Anonymous: D2D_MATRIX_4X4_F_0_0,
+    pub m: [[f32; 4]; 4],
+}
+impl Default for D2D_MATRIX_4X4_F_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D2D_MATRIX_4X4_F_0_0 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _13: f32,
+    pub _14: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _23: f32,
+    pub _24: f32,
+    pub _31: f32,
+    pub _32: f32,
+    pub _33: f32,
+    pub _34: f32,
+    pub _41: f32,
+    pub _42: f32,
+    pub _43: f32,
+    pub _44: f32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -93,6 +187,12 @@ pub struct D2D_MATRIX_5X4_F_0_0 {
     pub _53: f32,
     pub _54: f32,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D2D_POINT_2F {
+    pub x: f32,
+    pub y: f32,
+}
 #[cfg(feature = "windef")]
 pub type D2D_POINT_2L = super::POINT;
 #[repr(C)]
@@ -130,6 +230,27 @@ pub struct D2D_SIZE_F {
 pub struct D2D_SIZE_U {
     pub width: u32,
     pub height: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D2D_VECTOR_2F {
+    pub x: f32,
+    pub y: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D2D_VECTOR_3F {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D2D_VECTOR_4F {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+    pub w: f32,
 }
 pub type DWRITE_GLYPH_IMAGE_FORMATS = u32;
 pub const DWRITE_GLYPH_IMAGE_FORMATS_CFF: DWRITE_GLYPH_IMAGE_FORMATS = 2;

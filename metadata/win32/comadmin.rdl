@@ -328,7 +328,7 @@ mod Windows {
             fn get_MajorVersion(&self, #[retval] plMajorVersion: *mut i32) -> HRESULT;
             #[special]
             fn get_MinorVersion(&self, #[retval] plMinorVersion: *mut i32) -> HRESULT;
-            fn GetCollectionByQuery(&self, bstrCollName: BSTR, ppsaVarQuery: *const *const SAFEARRAY, #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn GetCollectionByQuery(&self, bstrCollName: BSTR, #[in] ppsaVarQuery: *mut *mut SAFEARRAY, #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
             fn ImportComponent(&self, bstrApplIDOrName: BSTR, bstrCLSIDOrProgID: BSTR) -> HRESULT;
             fn InstallComponent(&self, bstrApplIDOrName: BSTR, bstrDLL: BSTR, bstrTLB: BSTR, bstrPSDLL: BSTR) -> HRESULT;
             fn ShutdownApplication(&self, bstrApplIDOrName: BSTR) -> HRESULT;
@@ -339,27 +339,27 @@ mod Windows {
             fn StartRouter(&self) -> HRESULT;
             fn Reserved1(&self) -> HRESULT;
             fn Reserved2(&self) -> HRESULT;
-            fn InstallMultipleComponents(&self, bstrApplIDOrName: BSTR, ppsaVarFileNames: *const *const SAFEARRAY, ppsaVarCLSIDs: *const *const SAFEARRAY) -> HRESULT;
-            fn GetMultipleComponentsInfo(&self, bstrApplIdOrName: BSTR, ppsaVarFileNames: *const *const SAFEARRAY, ppsaVarCLSIDs: *mut *mut SAFEARRAY, ppsaVarClassNames: *mut *mut SAFEARRAY, ppsaVarFileFlags: *mut *mut SAFEARRAY, ppsaVarComponentFlags: *mut *mut SAFEARRAY) -> HRESULT;
+            fn InstallMultipleComponents(&self, bstrApplIDOrName: BSTR, #[in] ppsaVarFileNames: *mut *mut SAFEARRAY, #[in] ppsaVarCLSIDs: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetMultipleComponentsInfo(&self, bstrApplIdOrName: BSTR, #[in] ppsaVarFileNames: *mut *mut SAFEARRAY, ppsaVarCLSIDs: *mut *mut SAFEARRAY, ppsaVarClassNames: *mut *mut SAFEARRAY, ppsaVarFileFlags: *mut *mut SAFEARRAY, ppsaVarComponentFlags: *mut *mut SAFEARRAY) -> HRESULT;
             fn RefreshComponents(&self) -> HRESULT;
             fn BackupREGDB(&self, bstrBackupFilePath: BSTR) -> HRESULT;
             fn RestoreREGDB(&self, bstrBackupFilePath: BSTR) -> HRESULT;
             fn QueryApplicationFile(&self, bstrApplicationFile: BSTR, pbstrApplicationName: *mut BSTR, pbstrApplicationDescription: *mut BSTR, pbHasUsers: *mut VARIANT_BOOL, pbIsProxy: *mut VARIANT_BOOL, ppsaVarFileNames: *mut *mut SAFEARRAY) -> HRESULT;
             fn StartApplication(&self, bstrApplIdOrName: BSTR) -> HRESULT;
             fn ServiceCheck(&self, lService: i32, #[retval] plStatus: *mut i32) -> HRESULT;
-            fn InstallMultipleEventClasses(&self, bstrApplIdOrName: BSTR, ppsaVarFileNames: *const *const SAFEARRAY, ppsaVarCLSIDS: *const *const SAFEARRAY) -> HRESULT;
+            fn InstallMultipleEventClasses(&self, bstrApplIdOrName: BSTR, #[in] ppsaVarFileNames: *mut *mut SAFEARRAY, #[in] ppsaVarCLSIDS: *mut *mut SAFEARRAY) -> HRESULT;
             fn InstallEventClass(&self, bstrApplIdOrName: BSTR, bstrDLL: BSTR, bstrTLB: BSTR, bstrPSDLL: BSTR) -> HRESULT;
             fn GetEventClassesForIID(&self, bstrIID: BSTR, ppsaVarCLSIDs: *mut *mut SAFEARRAY, ppsaVarProgIDs: *mut *mut SAFEARRAY, ppsaVarDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x790c6e0b_9194_4cc9_9426_a48a63185696)]
         interface ICOMAdminCatalog2: ICOMAdminCatalog {
-            fn GetCollectionByQuery2(&self, bstrCollectionName: BSTR, pVarQueryStrings: *const VARIANT, #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn GetCollectionByQuery2(&self, bstrCollectionName: BSTR, #[in] pVarQueryStrings: *mut VARIANT, #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
             fn GetApplicationInstanceIDFromProcessID(&self, lProcessID: i32, #[retval] pbstrApplicationInstanceID: *mut BSTR) -> HRESULT;
-            fn ShutdownApplicationInstances(&self, pVarApplicationInstanceID: *const VARIANT) -> HRESULT;
-            fn PauseApplicationInstances(&self, pVarApplicationInstanceID: *const VARIANT) -> HRESULT;
-            fn ResumeApplicationInstances(&self, pVarApplicationInstanceID: *const VARIANT) -> HRESULT;
-            fn RecycleApplicationInstances(&self, pVarApplicationInstanceID: *const VARIANT, lReasonCode: i32) -> HRESULT;
-            fn AreApplicationInstancesPaused(&self, pVarApplicationInstanceID: *const VARIANT, #[retval] pVarBoolPaused: *mut VARIANT_BOOL) -> HRESULT;
+            fn ShutdownApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT) -> HRESULT;
+            fn PauseApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT) -> HRESULT;
+            fn ResumeApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT) -> HRESULT;
+            fn RecycleApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT, lReasonCode: i32) -> HRESULT;
+            fn AreApplicationInstancesPaused(&self, #[in] pVarApplicationInstanceID: *mut VARIANT, #[retval] pVarBoolPaused: *mut VARIANT_BOOL) -> HRESULT;
             fn DumpApplicationInstance(&self, bstrApplicationInstanceID: BSTR, bstrDirectory: BSTR, lMaxImages: i32, #[retval] pbstrDumpFile: *mut BSTR) -> HRESULT;
             #[special]
             fn get_IsApplicationInstanceDumpSupported(&self, #[retval] pVarBoolDumpSupported: *mut VARIANT_BOOL) -> HRESULT;
@@ -376,14 +376,14 @@ mod Windows {
             #[special]
             fn get_GlobalPartitionID(&self, #[retval] pbstrGlobalPartitionID: *mut BSTR) -> HRESULT;
             fn FlushPartitionCache(&self) -> HRESULT;
-            fn CopyApplications(&self, bstrSourcePartitionIDOrName: BSTR, pVarApplicationID: *const VARIANT, bstrDestinationPartitionIDOrName: BSTR) -> HRESULT;
-            fn CopyComponents(&self, bstrSourceApplicationIDOrName: BSTR, pVarCLSIDOrProgID: *const VARIANT, bstrDestinationApplicationIDOrName: BSTR) -> HRESULT;
-            fn MoveComponents(&self, bstrSourceApplicationIDOrName: BSTR, pVarCLSIDOrProgID: *const VARIANT, bstrDestinationApplicationIDOrName: BSTR) -> HRESULT;
+            fn CopyApplications(&self, bstrSourcePartitionIDOrName: BSTR, #[in] pVarApplicationID: *mut VARIANT, bstrDestinationPartitionIDOrName: BSTR) -> HRESULT;
+            fn CopyComponents(&self, bstrSourceApplicationIDOrName: BSTR, #[in] pVarCLSIDOrProgID: *mut VARIANT, bstrDestinationApplicationIDOrName: BSTR) -> HRESULT;
+            fn MoveComponents(&self, bstrSourceApplicationIDOrName: BSTR, #[in] pVarCLSIDOrProgID: *mut VARIANT, bstrDestinationApplicationIDOrName: BSTR) -> HRESULT;
             fn AliasComponent(&self, bstrSrcApplicationIDOrName: BSTR, bstrCLSIDOrProgID: BSTR, bstrDestApplicationIDOrName: BSTR, bstrNewProgId: BSTR, bstrNewClsid: BSTR) -> HRESULT;
             fn IsSafeToDelete(&self, bstrDllName: BSTR, #[retval] pCOMAdminInUse: *mut COMAdminInUse) -> HRESULT;
-            fn ImportUnconfiguredComponents(&self, bstrApplicationIDOrName: BSTR, pVarCLSIDOrProgID: *const VARIANT, #[opt] pVarComponentType: *const VARIANT) -> HRESULT;
-            fn PromoteUnconfiguredComponents(&self, bstrApplicationIDOrName: BSTR, pVarCLSIDOrProgID: *const VARIANT, #[opt] pVarComponentType: *const VARIANT) -> HRESULT;
-            fn ImportComponents(&self, bstrApplicationIDOrName: BSTR, pVarCLSIDOrProgID: *const VARIANT, #[opt] pVarComponentType: *const VARIANT) -> HRESULT;
+            fn ImportUnconfiguredComponents(&self, bstrApplicationIDOrName: BSTR, #[in] pVarCLSIDOrProgID: *mut VARIANT, #[in] #[opt] pVarComponentType: *mut VARIANT) -> HRESULT;
+            fn PromoteUnconfiguredComponents(&self, bstrApplicationIDOrName: BSTR, #[in] pVarCLSIDOrProgID: *mut VARIANT, #[in] #[opt] pVarComponentType: *mut VARIANT) -> HRESULT;
+            fn ImportComponents(&self, bstrApplicationIDOrName: BSTR, #[in] pVarCLSIDOrProgID: *mut VARIANT, #[in] #[opt] pVarComponentType: *mut VARIANT) -> HRESULT;
             #[special]
             fn get_Is64BitCatalogServer(&self, #[retval] pbIs64Bit: *mut VARIANT_BOOL) -> HRESULT;
             fn ExportPartition(&self, bstrPartitionIDOrName: BSTR, bstrPartitionFileName: BSTR, lOptions: i32) -> HRESULT;
@@ -415,7 +415,7 @@ mod Windows {
             fn get_DataStoreMajorVersion(&self, #[retval] plMajorVersion: *mut i32) -> HRESULT;
             #[special]
             fn get_DataStoreMinorVersion(&self, #[retval] plMinorVersionl: *mut i32) -> HRESULT;
-            fn PopulateByKey(&self, psaKeys: *const SAFEARRAY) -> HRESULT;
+            fn PopulateByKey(&self, #[in] psaKeys: *mut SAFEARRAY) -> HRESULT;
             fn PopulateByQuery(&self, bstrQueryString: BSTR, lQueryType: i32) -> HRESULT;
         }
         #[guid(0x6eb22871_8a19_11d0_81b6_00a0c9231c29)]

@@ -13,17 +13,17 @@ mod Windows {
             fn BeginWriting(&self) -> HRESULT;
             fn WriteSample(&self, dwStreamIndex: u32, pSample: IMFSample) -> HRESULT;
             fn SendStreamTick(&self, dwStreamIndex: u32, llTimestamp: i64) -> HRESULT;
-            fn PlaceMarker(&self, dwStreamIndex: u32, pvContext: *const void) -> HRESULT;
+            fn PlaceMarker(&self, dwStreamIndex: u32, #[in] pvContext: *mut void) -> HRESULT;
             fn NotifyEndOfSegment(&self, dwStreamIndex: u32) -> HRESULT;
             fn Flush(&self, dwStreamIndex: u32) -> HRESULT;
             fn Finalize(&self) -> HRESULT;
-            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
             fn GetStatistics(&self, dwStreamIndex: u32, pStats: *mut MF_SINK_WRITER_STATISTICS) -> HRESULT;
         }
         #[guid(0x666f76de_33d2_41b9_a458_29ed0a972c58)]
         interface IMFSinkWriterCallback: IUnknown {
             fn OnFinalize(&self, hrStatus: HRESULT) -> HRESULT;
-            fn OnMarker(&self, dwStreamIndex: u32, pvContext: *const void) -> HRESULT;
+            fn OnMarker(&self, dwStreamIndex: u32, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x2456bd58_c067_4513_84fe_8d0c88ffdc61)]
         interface IMFSinkWriterCallback2: IMFSinkWriterCallback {
@@ -45,11 +45,11 @@ mod Windows {
             fn SetStreamSelection(&self, dwStreamIndex: u32, fSelected: BOOL) -> HRESULT;
             fn GetNativeMediaType(&self, dwStreamIndex: u32, dwMediaTypeIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetCurrentMediaType(&self, dwStreamIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn SetCurrentMediaType(&self, dwStreamIndex: u32, #[reserved] pdwReserved: *const u32, pMediaType: IMFMediaType) -> HRESULT;
+            fn SetCurrentMediaType(&self, dwStreamIndex: u32, #[reserved] #[in] #[out] pdwReserved: *mut u32, pMediaType: IMFMediaType) -> HRESULT;
             fn SetCurrentPosition(&self, guidTimeFormat: *const GUID, varPosition: *const PROPVARIANT) -> HRESULT;
             fn ReadSample(&self, dwStreamIndex: u32, dwControlFlags: u32, #[opt] pdwActualStreamIndex: *mut u32, #[opt] pdwStreamFlags: *mut u32, #[opt] pllTimestamp: *mut i64, #[opt] ppSample: *mut IMFSample) -> HRESULT;
             fn Flush(&self, dwStreamIndex: u32) -> HRESULT;
-            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
             fn GetPresentationAttribute(&self, dwStreamIndex: u32, guidAttribute: *const GUID, pvarAttribute: *mut PROPVARIANT) -> HRESULT;
         }
         #[guid(0xdeec8d99_fa1d_4d82_84c2_2c8969944867)]

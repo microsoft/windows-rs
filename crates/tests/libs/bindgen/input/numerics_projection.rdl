@@ -1,0 +1,174 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Values {
+        matrix3: Windows::Win32::dcommon::D2D_MATRIX_3X2_F,
+        matrix3_alias: Windows::Win32::dcommon::D2D1_MATRIX_3X2_F,
+        matrix4: Windows::Win32::dcommon::D2D_MATRIX_4X4_F,
+        matrix4_alias: Windows::Win32::d2d1_1::D2D1_MATRIX_4X4_F,
+        d3d_matrix: Windows::Win32::d3d9::D3DMATRIX,
+        point: Windows::Win32::dcommon::D2D_POINT_2F,
+        point_alias: Windows::Win32::dcommon::D2D1_POINT_2F,
+        vector2: Windows::Win32::dcommon::D2D_VECTOR_2F,
+        vector2_alias: Windows::Win32::d2d1_1::D2D1_VECTOR_2F,
+        vector3: Windows::Win32::dcommon::D2D_VECTOR_3F,
+        vector3_alias: Windows::Win32::d2d1_1::D2D1_VECTOR_3F,
+        vector4: Windows::Win32::dcommon::D2D_VECTOR_4F,
+        vector4_alias: Windows::Win32::d2d1_1::D2D1_VECTOR_4F,
+        native_matrix: Windows::Win32::dwrite::DWRITE_MATRIX,
+        native_size: Windows::Win32::dcommon::D2D_SIZE_F,
+        unrelated_point: Windows::Graphics::D2D_POINT_2F,
+        flat_point: Windows::dcommon::D2D_POINT_2F,
+        root_point: Windows::Win32::D2D_POINT_2F,
+    }
+
+    #[library("test.dll")]
+    extern fn UseMatrix(matrix: *const Windows::Win32::dcommon::D2D1_MATRIX_3X2_F);
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct D2D_POINT_2F {
+            x: f32,
+            y: f32,
+        }
+
+        mod dcommon {
+            struct D2D_MATRIX_3X2_F {
+                Anonymous: union {
+                    Anonymous: struct {
+                        m11: f32,
+                        m12: f32,
+                        m21: f32,
+                        m22: f32,
+                        m31: f32,
+                        m32: f32,
+                    },
+                    m: [[f32; 2]; 3],
+                },
+            }
+            type D2D1_MATRIX_3X2_F = D2D_MATRIX_3X2_F;
+
+            struct D2D_MATRIX_4X4_F {
+                value: [f32; 16],
+            }
+
+            struct D2D_POINT_2F {
+                x: f32,
+                y: f32,
+            }
+            type D2D1_POINT_2F = D2D_POINT_2F;
+
+            struct D2D_VECTOR_2F {
+                x: f32,
+                y: f32,
+            }
+
+            struct D2D_VECTOR_3F {
+                x: f32,
+                y: f32,
+                z: f32,
+            }
+
+            struct D2D_VECTOR_4F {
+                x: f32,
+                y: f32,
+                z: f32,
+                w: f32,
+            }
+
+            struct D2D_SIZE_F {
+                width: f32,
+                height: f32,
+            }
+        }
+
+        mod d2d1_1 {
+            type D2D1_MATRIX_4X4_F = Windows::Win32::dcommon::D2D_MATRIX_4X4_F;
+            type D2D1_VECTOR_2F = Windows::Win32::dcommon::D2D_VECTOR_2F;
+            type D2D1_VECTOR_3F = Windows::Win32::dcommon::D2D_VECTOR_3F;
+            type D2D1_VECTOR_4F = Windows::Win32::dcommon::D2D_VECTOR_4F;
+        }
+
+        mod d3d9 {
+            struct D3DMATRIX {
+                value: [f32; 16],
+            }
+        }
+
+        mod dwrite {
+            struct DWRITE_MATRIX {
+                m11: f32,
+                m12: f32,
+                m21: f32,
+                m22: f32,
+                dx: f32,
+                dy: f32,
+            }
+        }
+    }
+
+    mod Graphics {
+        struct D2D_POINT_2F {
+            x: f32,
+            y: f32,
+        }
+    }
+
+    mod dcommon {
+        struct D2D_POINT_2F {
+            x: f32,
+            y: f32,
+        }
+    }
+}
+
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Numerics {
+            struct Matrix3x2 {
+                M11: f32,
+                M12: f32,
+                M21: f32,
+                M22: f32,
+                M31: f32,
+                M32: f32,
+            }
+            struct Matrix4x4 {
+                M11: f32,
+                M12: f32,
+                M13: f32,
+                M14: f32,
+                M21: f32,
+                M22: f32,
+                M23: f32,
+                M24: f32,
+                M31: f32,
+                M32: f32,
+                M33: f32,
+                M34: f32,
+                M41: f32,
+                M42: f32,
+                M43: f32,
+                M44: f32,
+            }
+            struct Vector2 {
+                X: f32,
+                Y: f32,
+            }
+            struct Vector3 {
+                X: f32,
+                Y: f32,
+                Z: f32,
+            }
+            struct Vector4 {
+                X: f32,
+                Y: f32,
+                Z: f32,
+                W: f32,
+            }
+        }
+    }
+}

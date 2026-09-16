@@ -21,7 +21,12 @@ pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797;
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796;
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798;
 pub const E_PRINTTICKET_FORMAT: u32 = 2147745795;
-pub type HPTPROVIDER = *mut core::ffi::c_void;
+pub type HPTPROVIDER = *mut HPTPROVIDER__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HPTPROVIDER__ {
+    pub unused: i32,
+}
 pub const PRINTTICKET_ISTREAM_APIS: i32 = 1;
 pub const S_PT_CONFLICT_RESOLVED: i32 = 262146;
 pub const S_PT_NO_CONFLICT: i32 = 262145;

@@ -26,10 +26,10 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> windows_core
         IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn IsWow64Process(hprocess: super::HANDLE, wow64process: *mut windows_core::BOOL) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn IsWow64Process(hprocess : super::HANDLE, wow64process : *mut windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn IsWow64Process(hprocess: super::HANDLE, wow64process: super::PBOOL) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn IsWow64Process(hprocess : super::HANDLE, wow64process : super::PBOOL) -> windows_core::BOOL);
     unsafe { IsWow64Process(hprocess, wow64process as _) }
 }
 #[cfg(feature = "winnt")]
@@ -43,15 +43,16 @@ pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut core::ffi::c_vo
     windows_core::link!("kernel32.dll" "system" fn Wow64DisableWow64FsRedirection(oldvalue : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { Wow64DisableWow64FsRedirection(oldvalue as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: bool) -> bool {
-    windows_core::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : bool) -> bool);
+pub unsafe fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: super::BOOLEAN) -> super::BOOLEAN {
+    windows_core::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : super::BOOLEAN) -> super::BOOLEAN);
     unsafe { Wow64EnableWow64FsRedirection(wow64fsenableredirection) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn Wow64GetThreadContext(hthread: super::HANDLE, lpcontext: *mut super::WOW64_CONTEXT) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::HANDLE, lpcontext : *mut super::WOW64_CONTEXT) -> windows_core::BOOL);
+pub unsafe fn Wow64GetThreadContext(hthread: super::HANDLE, lpcontext: super::PWOW64_CONTEXT) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::HANDLE, lpcontext : super::PWOW64_CONTEXT) -> windows_core::BOOL);
     unsafe { Wow64GetThreadContext(hthread, lpcontext as _) }
 }
 #[inline]

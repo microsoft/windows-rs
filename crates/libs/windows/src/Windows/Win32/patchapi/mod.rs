@@ -11,8 +11,8 @@ where
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: Option<&[u8]>, newfilebuffer: *mut super::PBYTE, newfilebuffersize: u32, newfileactualsize: Option<*mut u32>, newfiletime: Option<*mut super::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut super::PBYTE, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ApplyPatchToFileByBuffers(patchfilemapped.as_ptr(), patchfilemapped.len().try_into().unwrap(), oldfilemapped.map_or(core::ptr::null(), |slice| slice.as_ptr()), oldfilemapped.map_or(0, |slice| slice.len().try_into().unwrap()), newfilebuffer as _, newfilebuffersize, newfileactualsize.unwrap_or(core::mem::zeroed()) as _, newfiletime.unwrap_or(core::mem::zeroed()) as _, applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : super::PBYTE, patchfilesize : u32, oldfilemapped : super::PBYTE, oldfilesize : u32, newfilebuffer : *mut super::PBYTE, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ApplyPatchToFileByBuffers(core::mem::transmute(patchfilemapped.as_ptr()), patchfilemapped.len().try_into().unwrap(), core::mem::transmute(oldfilemapped.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilemapped.map_or(0, |slice| slice.len().try_into().unwrap()), newfilebuffer as _, newfilebuffersize, newfileactualsize.unwrap_or(core::mem::zeroed()) as _, newfiletime.unwrap_or(core::mem::zeroed()) as _, applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -57,53 +57,53 @@ where
     unsafe { ApplyPatchToFileW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileA<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileA<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileA(oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileA(oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileA(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CreatePatchFileByHandles(oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
+pub unsafe fn CreatePatchFileByHandles(oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : u32, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileByHandles(oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileByHandlesEx(oldfileinfoarray.len().try_into().unwrap(), oldfileinfoarray.as_ptr(), newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : PPATCH_OLD_FILE_INFO_H, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : u32, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { CreatePatchFileByHandlesEx(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileExA<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileExA<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileExA(oldfileinfoarray.len().try_into().unwrap(), oldfileinfoarray.as_ptr(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : PPATCH_OLD_FILE_INFO_A, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { CreatePatchFileExA(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileExW<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileExW<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExW(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_W, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileExW(oldfileinfoarray.len().try_into().unwrap(), oldfileinfoarray.as_ptr(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExW(oldfilecount : u32, oldfileinfoarray : PPATCH_OLD_FILE_INFO_W, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { CreatePatchFileExW(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileW<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileW<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileW(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -135,32 +135,46 @@ pub unsafe fn GetFilePatchSignatureA<P0>(filename: P0, optionflags: u32, optiond
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureA(filename : windows_core::PCSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureA(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffersize, signaturebuffer) }
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureA(filename : windows_core::PCSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+    unsafe { GetFilePatchSignatureA(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffersize, signaturebuffer) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByBuffer(filebufferwritable : *mut u8, filesize : u32, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureByBuffer(filebufferwritable.as_mut_ptr(), filebufferwritable.len().try_into().unwrap(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffersize, signaturebuffer) }
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByBuffer(filebufferwritable : super::PBYTE, filesize : u32, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+    unsafe {
+        GetFilePatchSignatureByBuffer(
+            core::mem::transmute(filebufferwritable.as_mut_ptr()),
+            filebufferwritable.len().try_into().unwrap(),
+            optionflags,
+            optiondata.unwrap_or(core::mem::zeroed()) as _,
+            ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            signaturebuffersize,
+            signaturebuffer,
+        )
+    }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::HANDLE, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffersize, signaturebuffer) }
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+    unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffersize, signaturebuffer) }
 }
 #[inline]
 pub unsafe fn GetFilePatchSignatureW<P0>(filename: P0, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PWSTR) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureW(filename : windows_core::PCWSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureW(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffersize, signaturebuffer) }
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureW(filename : windows_core::PCWSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PWSTR) -> windows_core::BOOL);
+    unsafe { GetFilePatchSignatureW(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffersize, signaturebuffer) }
 }
 #[inline]
 pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
-    windows_core::link!("mspatchc.dll" "system" fn NormalizeFileForPatchSignature(filebuffer : *mut core::ffi::c_void, filesize : u32, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, newfilecoffbase : u32, newfilecofftime : u32, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE) -> i32);
-    unsafe { NormalizeFileForPatchSignature(filebuffer as _, filesize, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, newfilecoffbase, newfilecofftime, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    windows_core::link!("mspatchc.dll" "system" fn NormalizeFileForPatchSignature(filebuffer : *mut core::ffi::c_void, filesize : u32, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, newfilecoffbase : u32, newfilecofftime : u32, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE) -> i32);
+    unsafe { NormalizeFileForPatchSignature(filebuffer as _, filesize, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, newfilecoffbase, newfilecofftime, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn TestApplyPatchToFileA<P0, P1>(patchfilename: P0, oldfilename: P1, applyoptionflags: u32) -> windows_core::BOOL
@@ -171,10 +185,11 @@ where
     windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, applyoptionflags : u32) -> windows_core::BOOL);
     unsafe { TestApplyPatchToFileA(patchfilename.param().abi(), oldfilename.param().abi(), applyoptionflags) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &[u8], oldfilebuffer: Option<&[u8]>, newfilesize: Option<*mut u32>, applyoptionflags: u32) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : *const u8, patchfilesize : u32, oldfilebuffer : *const u8, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_core::BOOL);
-    unsafe { TestApplyPatchToFileByBuffers(patchfilebuffer.as_ptr(), patchfilebuffer.len().try_into().unwrap(), oldfilebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), oldfilebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), newfilesize.unwrap_or(core::mem::zeroed()) as _, applyoptionflags) }
+    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : super::PBYTE, patchfilesize : u32, oldfilebuffer : super::PBYTE, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_core::BOOL);
+    unsafe { TestApplyPatchToFileByBuffers(core::mem::transmute(patchfilebuffer.as_ptr()), patchfilebuffer.len().try_into().unwrap(), core::mem::transmute(oldfilebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), newfilesize.unwrap_or(core::mem::zeroed()) as _, applyoptionflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

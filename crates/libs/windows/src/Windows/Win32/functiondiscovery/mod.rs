@@ -70,6 +70,7 @@ pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_INPROC_SERVER: windows_core::PCWSTR =
 pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_LOCAL_SERVER: windows_core::PCWSTR = windows_core::w!("4");
 pub const FD_CONSTRAINTVALUE_FALSE: windows_core::PCWSTR = windows_core::w!("FALSE");
 pub const FD_CONSTRAINTVALUE_PAIRED: windows_core::PCWSTR = windows_core::w!("Paired");
+pub const FD_CONSTRAINTVALUE_RECURSESUBCATEGORY_TRUE: windows_core::PCWSTR = windows_core::w!("TRUE");
 pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_ALL: windows_core::PCWSTR = windows_core::w!("All");
 pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_DIRECT: windows_core::PCWSTR = windows_core::w!("Direct");
 pub const FD_CONSTRAINTVALUE_TRUE: windows_core::PCWSTR = windows_core::w!("TRUE");
@@ -630,7 +631,7 @@ impl IFunctionInstanceCollectionQuery {
     pub unsafe fn AddQueryConstraint(&self, pszconstraintname: *const u16, pszconstraintvalue: *const u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddQueryConstraint)(windows_core::Interface::as_raw(self), pszconstraintname, pszconstraintvalue) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddPropertyConstraint(&self, key: *const super::PROPERTYKEY, pv: *const super::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPropertyConstraint)(windows_core::Interface::as_raw(self), key, pv, enumpropertyconstraint) }
     }
@@ -646,19 +647,19 @@ impl IFunctionInstanceCollectionQuery {
 pub struct IFunctionInstanceCollectionQuery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddQueryConstraint: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddPropertyConstraint: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *const super::PROPVARIANT, PropertyConstraint) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddPropertyConstraint: usize,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFunctionInstanceCollectionQuery_Impl: windows_core::IUnknownImpl {
     fn AddQueryConstraint(&self, pszconstraintname: *const u16, pszconstraintvalue: *const u16) -> windows_core::Result<()>;
     fn AddPropertyConstraint(&self, key: *const super::PROPERTYKEY, pv: *const super::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::Result<()>;
     fn Execute(&self) -> windows_core::Result<IFunctionInstanceCollection>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFunctionInstanceCollectionQuery_Vtbl {
     pub const fn new<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddQueryConstraint<Identity: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszconstraintname: *const u16, pszconstraintvalue: *const u16) -> windows_core::HRESULT {
@@ -696,7 +697,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
         iid == &<IFunctionInstanceCollectionQuery as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFunctionInstanceCollectionQuery {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -757,14 +758,15 @@ pub struct IFunctionInstanceQuery2(pub u8);
 windows_core::imp::define_interface!(IPropertyStoreCollection, IPropertyStoreCollection_Vtbl, 0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
 windows_core::imp::interface_hierarchy!(IPropertyStoreCollection, windows_core::IUnknown);
 impl IPropertyStoreCollection {
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "propsys")]
-    pub unsafe fn Get(&self, pszinstanceidentity: *const u16, pdwindex: *mut u32) -> windows_core::Result<super::IPropertyStore> {
+    #[cfg(all(feature = "minwindef", feature = "propsys"))]
+    pub unsafe fn Get(&self, pszinstanceidentity: *const u16, pdwindex: super::LPDWORD) -> windows_core::Result<super::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), pszinstanceidentity, pdwindex as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -802,10 +804,13 @@ impl IPropertyStoreCollection {
 #[doc(hidden)]
 pub struct IPropertyStoreCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "propsys")]
-    pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "propsys"))]
+    #[cfg(feature = "minwindef")]
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetCount: usize,
+    #[cfg(all(feature = "minwindef", feature = "propsys"))]
+    pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, super::LPDWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "propsys")))]
     Get: usize,
     #[cfg(feature = "propsys")]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -822,20 +827,20 @@ pub struct IPropertyStoreCollection_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "propsys")]
+#[cfg(all(feature = "minwindef", feature = "propsys"))]
 pub trait IPropertyStoreCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
-    fn Get(&self, pszinstanceidentity: *const u16, pdwindex: *mut u32) -> windows_core::Result<super::IPropertyStore>;
+    fn Get(&self, pszinstanceidentity: *const u16, pdwindex: super::LPDWORD) -> windows_core::Result<super::IPropertyStore>;
     fn Item(&self, dwindex: u32) -> windows_core::Result<super::IPropertyStore>;
     fn Add(&self, pipropertystore: windows_core::Ref<super::IPropertyStore>) -> windows_core::Result<()>;
     fn Remove(&self, dwindex: u32) -> windows_core::Result<super::IPropertyStore>;
     fn Delete(&self, dwindex: u32) -> windows_core::Result<()>;
     fn DeleteAll(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "propsys")]
+#[cfg(all(feature = "minwindef", feature = "propsys"))]
 impl IPropertyStoreCollection_Vtbl {
     pub const fn new<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCount<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStoreCollection_Impl::GetCount(this) {
@@ -847,7 +852,7 @@ impl IPropertyStoreCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Get<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszinstanceidentity: *const u16, pdwindex: *mut u32, ppipropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszinstanceidentity: *const u16, pdwindex: super::LPDWORD, ppipropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStoreCollection_Impl::Get(this, core::mem::transmute_copy(&pszinstanceidentity), core::mem::transmute_copy(&pdwindex)) {
@@ -916,7 +921,7 @@ impl IPropertyStoreCollection_Vtbl {
         iid == &<IPropertyStoreCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "propsys")]
+#[cfg(all(feature = "minwindef", feature = "propsys"))]
 impl windows_core::RuntimeName for IPropertyStoreCollection {}
 pub const MAX_FDCONSTRAINTNAME_LENGTH: i32 = 100;
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: i32 = 1000;
@@ -1417,6 +1422,8 @@ pub const PNPX_INSTALLSTATE_FAILED: i32 = 3;
 pub const PNPX_INSTALLSTATE_INSTALLED: i32 = 1;
 pub const PNPX_INSTALLSTATE_INSTALLING: i32 = 2;
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: i32 = 0;
+pub const PNP_CONSTRAINTVALUE_NOTIFICATIONSONLY: windows_core::PCWSTR = windows_core::w!("TRUE");
+pub const PNP_CONSTRAINTVALUE_NOTPRESENT: windows_core::PCWSTR = windows_core::w!("TRUE");
 pub const PROVIDERDDO_QUERYCONSTRAINT_DEVICEFUNCTIONDISPLAYOBJECTS: windows_core::PCWSTR = windows_core::w!("DeviceFunctionDisplayObjects");
 pub const PROVIDERDDO_QUERYCONSTRAINT_DEVICEINTERFACES: windows_core::PCWSTR = windows_core::w!("DeviceInterfaces");
 pub const PROVIDERDDO_QUERYCONSTRAINT_ONLYCONNECTEDDEVICES: windows_core::PCWSTR = windows_core::w!("OnlyConnectedDevices");

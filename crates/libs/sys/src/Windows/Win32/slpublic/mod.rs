@@ -1,7 +1,7 @@
 windows_link::link!("slcext.dll" "system" fn SLAcquireGenuineTicket(ppticketblob : *mut *mut core::ffi::c_void, pcbticketblob : *mut u32, pwsztemplateid : windows_sys::core::PCWSTR, pwszserverurl : windows_sys::core::PCWSTR, pwszclienttoken : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("slcext.dll" "system" fn SLActivateProduct(hslc : HSLC, pproductskuid : *const SLID, cbappspecificdata : u32, pvappspecificdata : *const core::ffi::c_void, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver : windows_sys::core::PCWSTR, wproxyport : u16) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLClose(hslc : HSLC) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLConsumeRight(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_sys::core::PCWSTR, pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("slc.dll" "system" fn SLConsumeRight(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_sys::core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLDepositOfflineConfirmationId(hslc : HSLC, pproductskuid : *const SLID, pwszinstallationid : windows_sys::core::PCWSTR, pwszconfirmationid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLDepositOfflineConfirmationIdEx(hslc : HSLC, pproductskuid : *const SLID, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid : windows_sys::core::PCWSTR, pwszconfirmationid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLFireEvent(hslc : HSLC, pwszeventid : windows_sys::core::PCWSTR, papplicationid : *const SLID) -> windows_sys::core::HRESULT);
@@ -34,7 +34,8 @@ windows_link::link!("slc.dll" "system" fn SLGetServiceInformation(hslc : HSLC, p
 windows_link::link!("slc.dll" "system" fn SLGetWindowsInformation(pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLGetWindowsInformationDWORD(pwszvaluename : windows_sys::core::PCWSTR, pdwvalue : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLInstallLicense(hslc : HSLC, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut SLID) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_sys::core::PCWSTR, pwszpkeystring : windows_sys::core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_sys::core::PCWSTR, pwszpkeystring : windows_sys::core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : super::PBYTE, ppkeyid : *mut SLID) -> windows_sys::core::HRESULT);
 windows_link::link!("slwga.dll" "system" fn SLIsGenuineLocal(pappid : *const SLID, pgenuinestate : *mut SL_GENUINE_STATE, puioptions : *mut SL_NONGENUINE_UI_OPTIONS) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLOpen(phslc : *mut HSLC) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-slapi-l1-1-0.dll" "system" fn SLQueryLicenseValueFromApp(valuename : windows_sys::core::PCWSTR, valuetype : *mut u32, databuffer : *mut core::ffi::c_void, datasize : u32, resultdatasize : *mut u32) -> windows_sys::core::HRESULT);

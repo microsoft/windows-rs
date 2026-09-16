@@ -1,6 +1,22 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserFree(param0: *mut u32, param1: *mut CLIPFORMAT);
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserFree64(param0: *mut u32, param1: *mut CLIPFORMAT);
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut CLIPFORMAT) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut CLIPFORMAT) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserSize(param0: *mut u32, param1: u32, param2: *mut CLIPFORMAT) -> u32;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserSize64(param0: *mut u32, param1: u32, param2: *mut CLIPFORMAT) -> u32;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut CLIPFORMAT) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut CLIPFORMAT) -> *mut u8;
         #[guid(0x5efd22ba_7838_46cb_88e2_cadb14124f8f)]
         interface IEnumITfCompositionView: IUnknown {
             fn Clone(&self, ppEnum: *mut IEnumITfCompositionView) -> HRESULT;
@@ -104,7 +120,7 @@ mod Windows {
             fn GetSelection(&self, puIndex: *mut u32) -> HRESULT;
             fn GetString(&self, uIndex: u32, pstr: *mut BSTR) -> HRESULT;
             fn GetPageIndex(&self, pIndex: *mut u32, uSize: u32, puPageCnt: *mut u32) -> HRESULT;
-            fn SetPageIndex(&self, pIndex: *const u32, uPageCnt: u32) -> HRESULT;
+            fn SetPageIndex(&self, #[in] pIndex: *mut u32, uPageCnt: u32) -> HRESULT;
             fn GetCurrentPage(&self, puPage: *mut u32) -> HRESULT;
         }
         #[guid(0x85fad185_58ce_497a_9460_355366b64b9a)]
@@ -395,10 +411,10 @@ mod Windows {
         }
         #[guid(0x8f1b8ad8_0b6b_4874_90c5_bd76011e8f7c)]
         interface ITfMessagePump: IUnknown {
-            fn PeekMessage(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32, pfResult: *mut BOOL) -> HRESULT;
-            fn GetMessage(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, pfResult: *mut BOOL) -> HRESULT;
-            fn PeekMessageW(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32, pfResult: *mut BOOL) -> HRESULT;
-            fn GetMessageW(&self, pMsg: *mut MSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, pfResult: *mut BOOL) -> HRESULT;
+            fn PeekMessageA(&self, #[out] pMsg: LPMSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32, pfResult: *mut BOOL) -> HRESULT;
+            fn GetMessageA(&self, #[out] pMsg: LPMSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, pfResult: *mut BOOL) -> HRESULT;
+            fn PeekMessageW(&self, #[out] pMsg: LPMSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, wRemoveMsg: u32, pfResult: *mut BOOL) -> HRESULT;
+            fn GetMessageW(&self, #[out] pMsg: LPMSG, hwnd: HWND, wMsgFilterMin: u32, wMsgFilterMax: u32, pfResult: *mut BOOL) -> HRESULT;
         }
         #[guid(0xa1adaaa2_3a24_449d_ac96_5183e7f5c217)]
         interface ITfMouseSink: IUnknown {
@@ -688,27 +704,27 @@ mod Windows {
         const TF_ES_READ: i32 = 2;
         const TF_ES_READWRITE: i32 = 6;
         const TF_ES_SYNC: i32 = 1;
-        const TF_E_ALREADY_EXISTS: i32 = -2147220218;
-        const TF_E_COMPOSITION_REJECTED: i32 = -2147220216;
-        const TF_E_DISCONNECTED: i32 = -2147220220;
-        const TF_E_EMPTYCONTEXT: i32 = -2147220215;
-        const TF_E_FORMAT: i32 = -2147220982;
-        const TF_E_INVALIDPOINT: i32 = -2147220985;
-        const TF_E_INVALIDPOS: i32 = -2147220992;
-        const TF_E_INVALIDVIEW: i32 = -2147220219;
-        const TF_E_LOCKED: i32 = -2147220224;
-        const TF_E_NOINTERFACE: i32 = -2147220988;
-        const TF_E_NOLAYOUT: i32 = -2147220986;
-        const TF_E_NOLOCK: i32 = -2147220991;
-        const TF_E_NOOBJECT: i32 = -2147220990;
-        const TF_E_NOPROVIDER: i32 = -2147220221;
-        const TF_E_NOSELECTION: i32 = -2147220987;
-        const TF_E_NOSERVICE: i32 = -2147220989;
-        const TF_E_NOTOWNEDRANGE: i32 = -2147220222;
-        const TF_E_RANGE_NOT_COVERED: i32 = -2147220217;
-        const TF_E_READONLY: i32 = -2147220983;
-        const TF_E_STACKFULL: i32 = -2147220223;
-        const TF_E_SYNCHRONOUS: i32 = -2147220984;
+        const TF_E_ALREADY_EXISTS: HRESULT = -2147220218;
+        const TF_E_COMPOSITION_REJECTED: HRESULT = -2147220216;
+        const TF_E_DISCONNECTED: HRESULT = -2147220220;
+        const TF_E_EMPTYCONTEXT: HRESULT = -2147220215;
+        const TF_E_FORMAT: HRESULT = -2147220982;
+        const TF_E_INVALIDPOINT: HRESULT = -2147220985;
+        const TF_E_INVALIDPOS: HRESULT = -2147220992;
+        const TF_E_INVALIDVIEW: HRESULT = -2147220219;
+        const TF_E_LOCKED: HRESULT = -2147220224;
+        const TF_E_NOINTERFACE: HRESULT = -2147220988;
+        const TF_E_NOLAYOUT: HRESULT = -2147220986;
+        const TF_E_NOLOCK: HRESULT = -2147220991;
+        const TF_E_NOOBJECT: HRESULT = -2147220990;
+        const TF_E_NOPROVIDER: HRESULT = -2147220221;
+        const TF_E_NOSELECTION: HRESULT = -2147220987;
+        const TF_E_NOSERVICE: HRESULT = -2147220989;
+        const TF_E_NOTOWNEDRANGE: HRESULT = -2147220222;
+        const TF_E_RANGE_NOT_COVERED: HRESULT = -2147220217;
+        const TF_E_READONLY: HRESULT = -2147220983;
+        const TF_E_STACKFULL: HRESULT = -2147220223;
+        const TF_E_SYNCHRONOUS: HRESULT = -2147220984;
         const TF_GTP_INCL_TEXT: i32 = 1;
         struct TF_HALTCOND {
             pHaltRange: ITfRange,
@@ -840,7 +856,7 @@ mod Windows {
         const TF_SS_TRANSITORY: i32 = 4;
         type TF_STATUS = TS_STATUS;
         const TF_ST_CORRECTION: i32 = 1;
-        const TF_S_ASYNC: i32 = 262912;
+        const TF_S_ASYNC: HRESULT = 262912;
         const TF_TF_IGNOREEND: i32 = 2;
         const TF_TF_MOVESTART: i32 = 1;
         const TF_TMAE_COMLESS: i32 = 8;

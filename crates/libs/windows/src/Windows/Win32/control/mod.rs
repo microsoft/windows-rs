@@ -340,7 +340,8 @@ impl core::ops::Deref for IBasicVideo {
 windows_core::imp::interface_hierarchy!(IBasicVideo, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IBasicVideo {
-    pub unsafe fn AvgTimePerFrame(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn AvgTimePerFrame(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AvgTimePerFrame)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -481,7 +482,10 @@ impl IBasicVideo {
 #[doc(hidden)]
 pub struct IBasicVideo_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub AvgTimePerFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "strmif")]
+    pub AvgTimePerFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    AvgTimePerFrame: usize,
     pub BitRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub BitErrorRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub VideoWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -514,9 +518,9 @@ pub struct IBasicVideo_Vtbl {
     pub IsUsingDefaultSource: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsUsingDefaultDestination: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBasicVideo_Impl: super::IDispatch_Impl {
-    fn AvgTimePerFrame(&self) -> windows_core::Result<f64>;
+    fn AvgTimePerFrame(&self) -> windows_core::Result<super::REFTIME>;
     fn BitRate(&self) -> windows_core::Result<i32>;
     fn BitErrorRate(&self) -> windows_core::Result<i32>;
     fn VideoWidth(&self) -> windows_core::Result<i32>;
@@ -549,10 +553,10 @@ pub trait IBasicVideo_Impl: super::IDispatch_Impl {
     fn IsUsingDefaultSource(&self) -> windows_core::Result<()>;
     fn IsUsingDefaultDestination(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBasicVideo_Vtbl {
     pub const fn new<Identity: IBasicVideo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AvgTimePerFrame<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pavgtimeperframe: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn AvgTimePerFrame<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pavgtimeperframe: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBasicVideo_Impl::AvgTimePerFrame(this) {
@@ -862,7 +866,7 @@ impl IBasicVideo_Vtbl {
         iid == &<IBasicVideo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBasicVideo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBasicVideo2, IBasicVideo2_Vtbl, 0x329bb360_f6ea_11d1_9038_00a0c9697298);
@@ -888,11 +892,11 @@ pub struct IBasicVideo2_Vtbl {
     pub base__: IBasicVideo_Vtbl,
     pub GetPreferredAspectRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBasicVideo2_Impl: IBasicVideo_Impl {
     fn GetPreferredAspectRatio(&self, plaspectx: *mut i32, plaspecty: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBasicVideo2_Vtbl {
     pub const fn new<Identity: IBasicVideo2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPreferredAspectRatio<Identity: IBasicVideo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plaspectx: *mut i32, plaspecty: *mut i32) -> windows_core::HRESULT {
@@ -907,7 +911,7 @@ impl IBasicVideo2_Vtbl {
         iid == &<IBasicVideo2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IBasicVideo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBasicVideo2 {}
 windows_core::imp::define_interface!(IDeferredCommand, IDeferredCommand_Vtbl, 0x56a868b8_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IDeferredCommand, windows_core::IUnknown);
@@ -921,7 +925,8 @@ impl IDeferredCommand {
             (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Postpone(&self, newtime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn Postpone(&self, newtime: super::REFTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Postpone)(windows_core::Interface::as_raw(self), newtime) }
     }
     pub unsafe fn GetHResult(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -937,15 +942,20 @@ pub struct IDeferredCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Postpone: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "strmif")]
+    pub Postpone: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    Postpone: usize,
     pub GetHResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
+#[cfg(feature = "strmif")]
 pub trait IDeferredCommand_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self) -> windows_core::Result<()>;
     fn Confidence(&self) -> windows_core::Result<i32>;
-    fn Postpone(&self, newtime: f64) -> windows_core::Result<()>;
+    fn Postpone(&self, newtime: super::REFTIME) -> windows_core::Result<()>;
     fn GetHResult(&self) -> windows_core::Result<windows_core::HRESULT>;
 }
+#[cfg(feature = "strmif")]
 impl IDeferredCommand_Vtbl {
     pub const fn new<Identity: IDeferredCommand_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Cancel<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -966,7 +976,7 @@ impl IDeferredCommand_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Postpone<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newtime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Postpone<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newtime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDeferredCommand_Impl::Postpone(this, core::mem::transmute_copy(&newtime)).into()
@@ -996,6 +1006,7 @@ impl IDeferredCommand_Vtbl {
         iid == &<IDeferredCommand as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "strmif")]
 impl windows_core::RuntimeName for IDeferredCommand {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFilterInfo, IFilterInfo_Vtbl, 0x56a868ba_0ad4_11ce_b03a_0020af0ba770);
@@ -1592,37 +1603,44 @@ impl core::ops::Deref for IMediaPosition {
 windows_core::imp::interface_hierarchy!(IMediaPosition, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IMediaPosition {
-    pub unsafe fn Duration(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn Duration(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCurrentPosition(&self, lltime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn SetCurrentPosition(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), lltime) }
     }
-    pub unsafe fn CurrentPosition(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn CurrentPosition(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StopTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn StopTime(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StopTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStopTime(&self, lltime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn SetStopTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStopTime)(windows_core::Interface::as_raw(self), lltime) }
     }
-    pub unsafe fn PrerollTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn PrerollTime(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrerollTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPrerollTime(&self, lltime: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "strmif")]
+    pub unsafe fn SetPrerollTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPrerollTime)(windows_core::Interface::as_raw(self), lltime) }
     }
     pub unsafe fn SetRate(&self, drate: f64) -> windows_core::HRESULT {
@@ -1652,36 +1670,57 @@ impl IMediaPosition {
 #[doc(hidden)]
 pub struct IMediaPosition_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub CurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub StopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub PrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetPrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "strmif")]
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    Duration: usize,
+    #[cfg(feature = "strmif")]
+    pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    SetCurrentPosition: usize,
+    #[cfg(feature = "strmif")]
+    pub CurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    CurrentPosition: usize,
+    #[cfg(feature = "strmif")]
+    pub StopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    StopTime: usize,
+    #[cfg(feature = "strmif")]
+    pub SetStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    SetStopTime: usize,
+    #[cfg(feature = "strmif")]
+    pub PrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    PrerollTime: usize,
+    #[cfg(feature = "strmif")]
+    pub SetPrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "strmif"))]
+    SetPrerollTime: usize,
     pub SetRate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub CanSeekForward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CanSeekBackward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaPosition_Impl: super::IDispatch_Impl {
-    fn Duration(&self) -> windows_core::Result<f64>;
-    fn SetCurrentPosition(&self, lltime: f64) -> windows_core::Result<()>;
-    fn CurrentPosition(&self) -> windows_core::Result<f64>;
-    fn StopTime(&self) -> windows_core::Result<f64>;
-    fn SetStopTime(&self, lltime: f64) -> windows_core::Result<()>;
-    fn PrerollTime(&self) -> windows_core::Result<f64>;
-    fn SetPrerollTime(&self, lltime: f64) -> windows_core::Result<()>;
+    fn Duration(&self) -> windows_core::Result<super::REFTIME>;
+    fn SetCurrentPosition(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
+    fn CurrentPosition(&self) -> windows_core::Result<super::REFTIME>;
+    fn StopTime(&self) -> windows_core::Result<super::REFTIME>;
+    fn SetStopTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
+    fn PrerollTime(&self) -> windows_core::Result<super::REFTIME>;
+    fn SetPrerollTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
     fn SetRate(&self, drate: f64) -> windows_core::Result<()>;
     fn Rate(&self) -> windows_core::Result<f64>;
     fn CanSeekForward(&self) -> windows_core::Result<i32>;
     fn CanSeekBackward(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaPosition_Vtbl {
     pub const fn new<Identity: IMediaPosition_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Duration<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plength: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Duration<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plength: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaPosition_Impl::Duration(this) {
@@ -1693,13 +1732,13 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMediaPosition_Impl::SetCurrentPosition(this, core::mem::transmute_copy(&lltime)).into()
             }
         }
-        unsafe extern "system" fn CurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaPosition_Impl::CurrentPosition(this) {
@@ -1711,7 +1750,7 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn StopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaPosition_Impl::StopTime(this) {
@@ -1723,13 +1762,13 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMediaPosition_Impl::SetStopTime(this, core::mem::transmute_copy(&lltime)).into()
             }
         }
-        unsafe extern "system" fn PrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaPosition_Impl::PrerollTime(this) {
@@ -1741,7 +1780,7 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMediaPosition_Impl::SetPrerollTime(this, core::mem::transmute_copy(&lltime)).into()
@@ -1808,7 +1847,7 @@ impl IMediaPosition_Vtbl {
         iid == &<IMediaPosition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMediaPosition {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMediaTypeInfo, IMediaTypeInfo_Vtbl, 0x56a868bc_0ad4_11ce_b03a_0020af0ba770);
@@ -2161,12 +2200,12 @@ impl windows_core::RuntimeName for IPinInfo {}
 windows_core::imp::define_interface!(IQueueCommand, IQueueCommand_Vtbl, 0x56a868b7_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IQueueCommand, windows_core::IUnknown);
 impl IQueueCommand {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn InvokeAtStreamTime(&self, pcmd: *mut Option<IDeferredCommand>, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
+    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn InvokeAtStreamTime(&self, pcmd: *mut Option<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InvokeAtStreamTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn InvokeAtPresentationTime(&self, pcmd: *mut Option<IDeferredCommand>, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
+    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn InvokeAtPresentationTime(&self, pcmd: *mut Option<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InvokeAtPresentationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
     }
 }
@@ -2174,30 +2213,30 @@ impl IQueueCommand {
 #[doc(hidden)]
 pub struct IQueueCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub InvokeAtStreamTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, f64, *const windows_core::GUID, i32, i16, i32, *const super::VARIANT, *mut super::VARIANT, *mut i16) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    pub InvokeAtStreamTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::REFTIME, *const windows_core::GUID, i32, i16, i32, *const super::VARIANT, *mut super::VARIANT, *mut i16) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase")))]
     InvokeAtStreamTime: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub InvokeAtPresentationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, f64, *const windows_core::GUID, i32, i16, i32, *const super::VARIANT, *mut super::VARIANT, *mut i16) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    pub InvokeAtPresentationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::REFTIME, *const windows_core::GUID, i32, i16, i32, *const super::VARIANT, *mut super::VARIANT, *mut i16) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase")))]
     InvokeAtPresentationTime: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IQueueCommand_Impl: windows_core::IUnknownImpl {
-    fn InvokeAtStreamTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
-    fn InvokeAtPresentationTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
+    fn InvokeAtStreamTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
+    fn InvokeAtPresentationTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
 impl IQueueCommand_Vtbl {
     pub const fn new<Identity: IQueueCommand_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InvokeAtStreamTime<Identity: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeAtStreamTime<Identity: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IQueueCommand_Impl::InvokeAtStreamTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr)).into()
             }
         }
-        unsafe extern "system" fn InvokeAtPresentationTime<Identity: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: f64, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeAtPresentationTime<Identity: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IQueueCommand_Impl::InvokeAtPresentationTime(this, core::mem::transmute_copy(&pcmd), core::mem::transmute_copy(&time), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dispidmethod), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&cargs), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&puargerr)).into()
@@ -2213,7 +2252,7 @@ impl IQueueCommand_Vtbl {
         iid == &<IQueueCommand as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IQueueCommand {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IRegFilterInfo, IRegFilterInfo_Vtbl, 0x56a868bb_0ad4_11ce_b03a_0020af0ba770);
@@ -2938,12 +2977,6 @@ impl IVideoWindow_Vtbl {
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IVideoWindow {}
 pub const LIBID_QuartzTypeLib: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b0_0ad4_11ce_b03a_0020af0ba770);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OAEVENT(pub isize);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OAFilterState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OAHWND(pub isize);
+pub type OAEVENT = isize;
+pub type OAFilterState = i32;
+pub type OAHWND = isize;

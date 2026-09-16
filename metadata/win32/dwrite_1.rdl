@@ -549,7 +549,7 @@ mod Windows {
         #[guid(0x80dad800_e21f_4e83_96ce_bfcce500db7c)]
         interface IDWriteTextAnalyzer1: IDWriteTextAnalyzer {
             fn ApplyCharacterSpacing(&self, leadingSpacing: f32, trailingSpacing: f32, minimumAdvanceWidth: f32, textLength: u32, glyphCount: u32, #[len_param(3)] clusterMap: *const u16, #[len_param(4)] glyphAdvances: *const f32, #[len_param(4)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[len_param(4)] modifiedGlyphAdvances: *mut f32, #[len_param(4)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetBaseline(&self, fontFace: IDWriteFontFace, baseline: DWRITE_BASELINE, isVertical: BOOL, isSimulationAllowed: BOOL, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: PCWSTR, baselineCoordinate: *mut i32, exists: *mut BOOL) -> HRESULT;
+            fn GetBaseline(&self, fontFace: IDWriteFontFace, baseline: DWRITE_BASELINE, isVertical: BOOL, isSimulationAllowed: BOOL, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, baselineCoordinate: *mut i32, exists: *mut BOOL) -> HRESULT;
             fn AnalyzeVerticalGlyphOrientation(&self, analysisSource: IDWriteTextAnalysisSource1, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink1) -> HRESULT;
             fn GetGlyphOrientationTransform(&self, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, isSideways: BOOL, transform: *mut DWRITE_MATRIX) -> HRESULT;
             fn GetScriptProperties(&self, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, scriptProperties: *mut DWRITE_SCRIPT_PROPERTIES) -> HRESULT;

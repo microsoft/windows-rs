@@ -62,12 +62,8 @@ pub const IOCTL_NDIS_RESERVED6: i32 = 1540152;
 pub const IOCTL_NDIS_RESERVED7: i32 = 1507390;
 pub const IOCTL_NDIS_RESERVED8: i32 = 1507392;
 pub const IOCTL_NDIS_RESERVED9: i32 = 1507396;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IPAddr(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IPMask(pub u32);
+pub type IPAddr = u32;
+pub type IPMask = u32;
 pub const MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -94,9 +90,7 @@ pub struct NDIS_802_11_AI_RESFI {
 pub const NDIS_802_11_AI_RESFI_ASSOCIATIONID: i32 = 4;
 pub const NDIS_802_11_AI_RESFI_CAPABILITIES: i32 = 1;
 pub const NDIS_802_11_AI_RESFI_STATUSCODE: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_ANTENNA(pub u32);
+pub type NDIS_802_11_ANTENNA = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
@@ -198,9 +192,7 @@ pub struct NDIS_802_11_CONFIGURATION_FH {
     pub HopSet: u32,
     pub DwellTime: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_ENCRYPTION_STATUS(pub NDIS_802_11_WEP_STATUS);
+pub type NDIS_802_11_ENCRYPTION_STATUS = NDIS_802_11_WEP_STATUS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_FIXED_IEs {
@@ -213,9 +205,7 @@ impl Default for NDIS_802_11_FIXED_IEs {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_FRAGMENTATION_THRESHOLD(pub u32);
+pub type NDIS_802_11_FRAGMENTATION_THRESHOLD = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_KEY {
@@ -231,12 +221,8 @@ impl Default for NDIS_802_11_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_KEY_INDEX(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_KEY_RSC(pub u64);
+pub type NDIS_802_11_KEY_INDEX = u32;
+pub type NDIS_802_11_KEY_RSC = u64;
 pub const NDIS_802_11_LENGTH_RATES: i32 = 8;
 pub const NDIS_802_11_LENGTH_RATES_EX: i32 = 16;
 pub const NDIS_802_11_LENGTH_SSID: i32 = 32;
@@ -310,12 +296,8 @@ impl Default for NDIS_802_11_REMOVE_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_RSSI(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_RTS_THRESHOLD(pub u32);
+pub type NDIS_802_11_RSSI = i32;
+pub type NDIS_802_11_RTS_THRESHOLD = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_SSID {
@@ -328,33 +310,40 @@ impl Default for NDIS_802_11_SSID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_STATISTICS {
     pub Length: u32,
-    pub TransmittedFragmentCount: i64,
-    pub MulticastTransmittedFrameCount: i64,
-    pub FailedCount: i64,
-    pub RetryCount: i64,
-    pub MultipleRetryCount: i64,
-    pub RTSSuccessCount: i64,
-    pub RTSFailureCount: i64,
-    pub ACKFailureCount: i64,
-    pub FrameDuplicateCount: i64,
-    pub ReceivedFragmentCount: i64,
-    pub MulticastReceivedFrameCount: i64,
-    pub FCSErrorCount: i64,
-    pub TKIPLocalMICFailures: i64,
-    pub TKIPICVErrorCount: i64,
-    pub TKIPCounterMeasuresInvoked: i64,
-    pub TKIPReplays: i64,
-    pub CCMPFormatErrors: i64,
-    pub CCMPReplays: i64,
-    pub CCMPDecryptErrors: i64,
-    pub FourWayHandshakeFailures: i64,
-    pub WEPUndecryptableCount: i64,
-    pub WEPICVErrorCount: i64,
-    pub DecryptSuccessCount: i64,
-    pub DecryptFailureCount: i64,
+    pub TransmittedFragmentCount: super::LARGE_INTEGER,
+    pub MulticastTransmittedFrameCount: super::LARGE_INTEGER,
+    pub FailedCount: super::LARGE_INTEGER,
+    pub RetryCount: super::LARGE_INTEGER,
+    pub MultipleRetryCount: super::LARGE_INTEGER,
+    pub RTSSuccessCount: super::LARGE_INTEGER,
+    pub RTSFailureCount: super::LARGE_INTEGER,
+    pub ACKFailureCount: super::LARGE_INTEGER,
+    pub FrameDuplicateCount: super::LARGE_INTEGER,
+    pub ReceivedFragmentCount: super::LARGE_INTEGER,
+    pub MulticastReceivedFrameCount: super::LARGE_INTEGER,
+    pub FCSErrorCount: super::LARGE_INTEGER,
+    pub TKIPLocalMICFailures: super::LARGE_INTEGER,
+    pub TKIPICVErrorCount: super::LARGE_INTEGER,
+    pub TKIPCounterMeasuresInvoked: super::LARGE_INTEGER,
+    pub TKIPReplays: super::LARGE_INTEGER,
+    pub CCMPFormatErrors: super::LARGE_INTEGER,
+    pub CCMPReplays: super::LARGE_INTEGER,
+    pub CCMPDecryptErrors: super::LARGE_INTEGER,
+    pub FourWayHandshakeFailures: super::LARGE_INTEGER,
+    pub WEPUndecryptableCount: super::LARGE_INTEGER,
+    pub WEPICVErrorCount: super::LARGE_INTEGER,
+    pub DecryptSuccessCount: super::LARGE_INTEGER,
+    pub DecryptFailureCount: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for NDIS_802_11_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -385,9 +374,7 @@ impl Default for NDIS_802_11_TEST_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_802_11_TX_POWER_LEVEL(pub u32);
+pub type NDIS_802_11_TX_POWER_LEVEL = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_VARIABLE_IEs {
@@ -730,13 +717,9 @@ pub const NDIS_MAX_PHYS_ADDRESS_LENGTH: i32 = 32;
 pub const NDIS_MEDIA_CAP_RECEIVE: i32 = 2;
 pub const NDIS_MEDIA_CAP_TRANSMIT: i32 = 1;
 #[cfg(feature = "ifdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_MEDIA_CONNECT_STATE(pub super::NET_IF_MEDIA_CONNECT_STATE);
+pub type NDIS_MEDIA_CONNECT_STATE = super::NET_IF_MEDIA_CONNECT_STATE;
 #[cfg(feature = "ifdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_MEDIA_DUPLEX_STATE(pub super::NET_IF_MEDIA_DUPLEX_STATE);
+pub type NDIS_MEDIA_DUPLEX_STATE = super::NET_IF_MEDIA_DUPLEX_STATE;
 pub type NDIS_MEDIA_STATE = i32;
 pub type NDIS_MEDIUM = i32;
 pub type NDIS_NETWORK_CHANGE_TYPE = i32;
@@ -961,9 +944,7 @@ pub struct NDIS_PORT_CHARACTERISTICS {
 }
 pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: i32 = 1;
 pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_PORT_CONTROLL_STATE(pub NDIS_PORT_CONTROL_STATE);
+pub type NDIS_PORT_CONTROLL_STATE = NDIS_PORT_CONTROL_STATE;
 pub type NDIS_PORT_CONTROL_STATE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
@@ -1043,9 +1024,7 @@ pub const NDIS_RING_SOFT_ERROR: i32 = 8192;
 pub const NDIS_RING_TRANSMIT_BEACON: i32 = 4096;
 pub const NDIS_RSS_CAPS_CLASSIFICATION_AT_DPC: i32 = 67108864;
 pub const NDIS_RSS_CAPS_CLASSIFICATION_AT_ISR: i32 = 33554432;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_RSS_CAPS_FLAGS(pub u32);
+pub type NDIS_RSS_CAPS_FLAGS = u32;
 pub const NDIS_RSS_CAPS_HASH_TYPE_TCP_IPV4: i32 = 256;
 pub const NDIS_RSS_CAPS_HASH_TYPE_TCP_IPV6: i32 = 512;
 pub const NDIS_RSS_CAPS_HASH_TYPE_TCP_IPV6_EX: i32 = 1024;
@@ -1071,6 +1050,10 @@ pub const NDIS_SIZEOF_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u64 = 12;
 pub const NDIS_SIZEOF_IP_OPER_STATE_REVISION_1: u32 = 20;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const NDIS_SIZEOF_IP_OPER_STATE_REVISION_1: u64 = 20;
+#[cfg(target_arch = "x86")]
+pub const NDIS_SIZEOF_IP_OPER_STATUS_INFO_REVISION_1: u32 = 396;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NDIS_SIZEOF_IP_OPER_STATUS_INFO_REVISION_1: u64 = 396;
 #[cfg(target_arch = "x86")]
 pub const NDIS_SIZEOF_LINK_PARAMETERS_REVISION_1: u32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1510,34 +1493,35 @@ impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 }
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub HardwareClockFrequencyHz: u64,
-    pub CrossTimestamp: bool,
+    pub CrossTimestamp: super::BOOLEAN,
     pub Reserved1: u64,
     pub Reserved2: u64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
 }
 pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    pub PtpV2OverUdpIPv4EventMsgReceiveHw: bool,
-    pub PtpV2OverUdpIPv4AllMsgReceiveHw: bool,
-    pub PtpV2OverUdpIPv4EventMsgTransmitHw: bool,
-    pub PtpV2OverUdpIPv4AllMsgTransmitHw: bool,
-    pub PtpV2OverUdpIPv6EventMsgReceiveHw: bool,
-    pub PtpV2OverUdpIPv6AllMsgReceiveHw: bool,
-    pub PtpV2OverUdpIPv6EventMsgTransmitHw: bool,
-    pub PtpV2OverUdpIPv6AllMsgTransmitHw: bool,
-    pub AllReceiveHw: bool,
-    pub AllTransmitHw: bool,
-    pub TaggedTransmitHw: bool,
-    pub AllReceiveSw: bool,
-    pub AllTransmitSw: bool,
-    pub TaggedTransmitSw: bool,
+    pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::BOOLEAN,
+    pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::BOOLEAN,
+    pub PtpV2OverUdpIPv4EventMsgTransmitHw: super::BOOLEAN,
+    pub PtpV2OverUdpIPv4AllMsgTransmitHw: super::BOOLEAN,
+    pub PtpV2OverUdpIPv6EventMsgReceiveHw: super::BOOLEAN,
+    pub PtpV2OverUdpIPv6AllMsgReceiveHw: super::BOOLEAN,
+    pub PtpV2OverUdpIPv6EventMsgTransmitHw: super::BOOLEAN,
+    pub PtpV2OverUdpIPv6AllMsgTransmitHw: super::BOOLEAN,
+    pub AllReceiveHw: super::BOOLEAN,
+    pub AllTransmitHw: super::BOOLEAN,
+    pub TaggedTransmitHw: super::BOOLEAN,
+    pub AllReceiveSw: super::BOOLEAN,
+    pub AllTransmitSw: super::BOOLEAN,
+    pub TaggedTransmitSw: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1546,9 +1530,7 @@ pub struct NDIS_VAR_DATA_DESC {
     pub MaximumLength: u16,
     pub Offset: usize,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_VLAN_ID(pub u32);
+pub type NDIS_VLAN_ID = u32;
 pub type NDIS_WAN_HEADER_FORMAT = i32;
 pub type NDIS_WAN_MEDIUM_SUBTYPE = i32;
 #[repr(C)]
@@ -1880,6 +1862,18 @@ impl Default for NETWORK_ADDRESS_IPX {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const NETWORK_ADDRESS_LENGTH_IP: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NETWORK_ADDRESS_LENGTH_IP: u64 = 16;
+#[cfg(target_arch = "x86")]
+pub const NETWORK_ADDRESS_LENGTH_IP6: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NETWORK_ADDRESS_LENGTH_IP6: u64 = 28;
+#[cfg(target_arch = "x86")]
+pub const NETWORK_ADDRESS_LENGTH_IPX: u32 = 12;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NETWORK_ADDRESS_LENGTH_IPX: u64 = 12;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_LIST {
@@ -2942,6 +2936,7 @@ pub type PNDIS_802_11_RADIO_STATUS = *mut NDIS_802_11_RADIO_STATUS;
 pub type PNDIS_802_11_RELOAD_DEFAULTS = *mut NDIS_802_11_RELOAD_DEFAULTS;
 pub type PNDIS_802_11_REMOVE_KEY = *mut NDIS_802_11_REMOVE_KEY;
 pub type PNDIS_802_11_SSID = *mut NDIS_802_11_SSID;
+#[cfg(feature = "winnt")]
 pub type PNDIS_802_11_STATISTICS = *mut NDIS_802_11_STATISTICS;
 pub type PNDIS_802_11_STATUS_INDICATION = *mut NDIS_802_11_STATUS_INDICATION;
 pub type PNDIS_802_11_STATUS_TYPE = *mut NDIS_802_11_STATUS_TYPE;
@@ -3034,8 +3029,9 @@ pub type PNDIS_TCP_LARGE_SEND_OFFLOAD_V1 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V1;
 pub type PNDIS_TCP_LARGE_SEND_OFFLOAD_V2 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V2;
 #[cfg(feature = "objectheader")]
 pub type PNDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES = *mut NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "winnt"))]
 pub type PNDIS_TIMESTAMP_CAPABILITIES = *mut NDIS_TIMESTAMP_CAPABILITIES;
+#[cfg(feature = "winnt")]
 pub type PNDIS_TIMESTAMP_CAPABILITY_FLAGS = *mut NDIS_TIMESTAMP_CAPABILITY_FLAGS;
 pub type PNDIS_VAR_DATA_DESC = *mut NDIS_VAR_DATA_DESC;
 pub type PNDIS_WAN_HEADER_FORMAT = *mut NDIS_WAN_HEADER_FORMAT;
@@ -3081,14 +3077,10 @@ pub type POFFLOAD_SECURITY_ASSOCIATION = *mut OFFLOAD_SECURITY_ASSOCIATION;
 pub type PPMKID_CANDIDATE = *mut PMKID_CANDIDATE;
 pub type PTRANSPORT_HEADER_OFFSET = *mut TRANSPORT_HEADER_OFFSET;
 pub type PUDP_ENCAP_TYPE = *mut UDP_ENCAP_TYPE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct Priority_802_3(pub u32);
+pub type Priority_802_3 = u32;
 pub const READABLE_LOCAL_CLOCK: i32 = 1;
 pub const RECEIVE_TIME_INDICATION_CAPABLE: i32 = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPI_TYPE(pub u32);
+pub type SPI_TYPE = u32;
 pub const TIMED_SEND_CAPABLE: i32 = 16;
 pub const TIME_STAMP_CAPABLE: i32 = 32;
 #[repr(C)]

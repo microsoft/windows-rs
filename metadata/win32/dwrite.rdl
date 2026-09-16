@@ -455,7 +455,7 @@ mod Windows {
             DWRITE_WORD_WRAPPING_CHARACTER = 4,
         }
         #[library("DWrite.dll")]
-        extern fn DWriteCreateFactory(factoryType: DWRITE_FACTORY_TYPE, iid: *const GUID, #[iid_is] factory: *mut *mut void) -> HRESULT;
+        extern fn DWriteCreateFactory(factoryType: DWRITE_FACTORY_TYPE, iid: *const GUID, factory: *mut IUnknown) -> HRESULT;
         const FACILITY_DWRITE: i32 = 2200;
         #[guid(0x5e5a32a3_8dff_4773_9ff6_0696eab77267)]
         interface IDWriteBitmapRenderTarget: IUnknown {
@@ -474,7 +474,7 @@ mod Windows {
             fn CreateCustomFontCollection(&self, collectionLoader: IDWriteFontCollectionLoader, #[size_param(2)] collectionKey: *const void, collectionKeySize: u32, fontCollection: *mut IDWriteFontCollection) -> HRESULT;
             fn RegisterFontCollectionLoader(&self, fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
             fn UnregisterFontCollectionLoader(&self, fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
-            fn CreateFontFileReference(&self, filePath: PCWSTR, #[opt] lastWriteTime: *const FILETIME, fontFile: *mut IDWriteFontFile) -> HRESULT;
+            fn CreateFontFileReference(&self, filePath: *const u16, #[opt] lastWriteTime: *const FILETIME, fontFile: *mut IDWriteFontFile) -> HRESULT;
             fn CreateCustomFontFileReference(&self, #[size_param(1)] fontFileReferenceKey: *const void, fontFileReferenceKeySize: u32, fontFileLoader: IDWriteFontFileLoader, fontFile: *mut IDWriteFontFile) -> HRESULT;
             fn CreateFontFace(&self, fontFaceType: DWRITE_FONT_FACE_TYPE, numberOfFiles: u32, #[len_param(1)] fontFiles: *const IDWriteFontFile, faceIndex: u32, fontFaceSimulationFlags: DWRITE_FONT_SIMULATIONS, fontFace: *mut IDWriteFontFace) -> HRESULT;
             fn CreateRenderingParams(&self, renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
@@ -482,14 +482,14 @@ mod Windows {
             fn CreateCustomRenderingParams(&self, gamma: f32, enhancedContrast: f32, clearTypeLevel: f32, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, renderingParams: *mut IDWriteRenderingParams) -> HRESULT;
             fn RegisterFontFileLoader(&self, fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
             fn UnregisterFontFileLoader(&self, fontFileLoader: IDWriteFontFileLoader) -> HRESULT;
-            fn CreateTextFormat(&self, fontFamilyName: PCWSTR, #[opt] fontCollection: IDWriteFontCollection, fontWeight: DWRITE_FONT_WEIGHT, fontStyle: DWRITE_FONT_STYLE, fontStretch: DWRITE_FONT_STRETCH, fontSize: f32, localeName: PCWSTR, textFormat: *mut IDWriteTextFormat) -> HRESULT;
+            fn CreateTextFormat(&self, fontFamilyName: *const u16, #[opt] fontCollection: IDWriteFontCollection, fontWeight: DWRITE_FONT_WEIGHT, fontStyle: DWRITE_FONT_STYLE, fontStretch: DWRITE_FONT_STRETCH, fontSize: f32, localeName: *const u16, textFormat: *mut IDWriteTextFormat) -> HRESULT;
             fn CreateTypography(&self, typography: *mut IDWriteTypography) -> HRESULT;
             fn GetGdiInterop(&self, gdiInterop: *mut IDWriteGdiInterop) -> HRESULT;
             fn CreateTextLayout(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, maxWidth: f32, maxHeight: f32, textLayout: *mut IDWriteTextLayout) -> HRESULT;
             fn CreateGdiCompatibleTextLayout(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, layoutWidth: f32, layoutHeight: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, textLayout: *mut IDWriteTextLayout) -> HRESULT;
             fn CreateEllipsisTrimmingSign(&self, textFormat: IDWriteTextFormat, trimmingSign: *mut IDWriteInlineObject) -> HRESULT;
             fn CreateTextAnalyzer(&self, textAnalyzer: *mut IDWriteTextAnalyzer) -> HRESULT;
-            fn CreateNumberSubstitution(&self, substitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, localeName: PCWSTR, ignoreUserOverride: BOOL, numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
+            fn CreateNumberSubstitution(&self, substitutionMethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, localeName: *const u16, ignoreUserOverride: BOOL, numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
             fn CreateGlyphRunAnalysis(&self, glyphRun: *const DWRITE_GLYPH_RUN, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE, measuringMode: DWRITE_MEASURING_MODE, baselineOriginX: f32, baselineOriginY: f32, glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
         }
         #[guid(0xacd16696_8c14_4f5d_877e_fe3fc1d32737)]
@@ -510,7 +510,7 @@ mod Windows {
         interface IDWriteFontCollection: IUnknown {
             fn GetFontFamilyCount(&self) -> u32;
             fn GetFontFamily(&self, index: u32, fontFamily: *mut IDWriteFontFamily) -> HRESULT;
-            fn FindFamilyName(&self, familyName: PCWSTR, index: *mut u32, exists: *mut BOOL) -> HRESULT;
+            fn FindFamilyName(&self, familyName: *const u16, index: *mut u32, exists: *mut BOOL) -> HRESULT;
             fn GetFontFromFontFace(&self, fontFace: IDWriteFontFace, font: *mut IDWriteFont) -> HRESULT;
         }
         #[guid(0xcca920e4_52f0_492b_bfa8_29c72ee0a468)]
@@ -528,9 +528,9 @@ mod Windows {
             fn GetGlyphCount(&self) -> u16;
             fn GetDesignGlyphMetrics(&self, #[len_param(1)] glyphIndices: *const u16, glyphCount: u32, #[len_param(1)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, isSideways: BOOL) -> HRESULT;
             fn GetGlyphIndices(&self, #[len_param(1)] codePoints: *const u32, codePointCount: u32, #[len_param(1)] glyphIndices: *mut u16) -> HRESULT;
-            fn TryGetFontTable(&self, openTypeTableTag: u32, tableData: *mut *mut void, tableSize: *mut u32, tableContext: *mut *mut void, exists: *mut BOOL) -> HRESULT;
-            fn ReleaseFontTable(&self, tableContext: *const void);
-            fn GetGlyphRunOutline(&self, emSize: f32, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] #[opt] glyphAdvances: *const f32, #[len_param(4)] #[opt] glyphOffsets: *const DWRITE_GLYPH_OFFSET, glyphCount: u32, isSideways: BOOL, isRightToLeft: BOOL, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn TryGetFontTable(&self, openTypeTableTag: u32, tableData: *const *const void, tableSize: *mut u32, tableContext: *mut *mut void, exists: *mut BOOL) -> HRESULT;
+            fn ReleaseFontTable(&self, #[in] tableContext: *mut void);
+            fn GetGlyphRunOutline(&self, emSize: f32, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] #[opt] glyphAdvances: *const f32, #[len_param(4)] #[opt] glyphOffsets: *const DWRITE_GLYPH_OFFSET, glyphCount: u32, isSideways: BOOL, isRightToLeft: BOOL, geometrySink: IDWriteGeometrySink) -> HRESULT;
             fn GetRecommendedRenderingMode(&self, emSize: f32, pixelsPerDip: f32, measuringMode: DWRITE_MEASURING_MODE, renderingParams: IDWriteRenderingParams, renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
             fn GetGdiCompatibleMetrics(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, fontFaceMetrics: *mut DWRITE_FONT_METRICS) -> HRESULT;
             fn GetGdiCompatibleGlyphMetrics(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, #[len_param(5)] glyphIndices: *const u16, glyphCount: u32, #[len_param(5)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, isSideways: BOOL) -> HRESULT;
@@ -543,7 +543,7 @@ mod Windows {
         }
         #[guid(0x739d886a_cef5_47dc_8769_1a8b41bebbb0)]
         interface IDWriteFontFile: IUnknown {
-            fn GetReferenceKey(&self, fontFileReferenceKey: *mut *mut void, fontFileReferenceKeySize: *mut u32) -> HRESULT;
+            fn GetReferenceKey(&self, fontFileReferenceKey: *const *const void, fontFileReferenceKeySize: *mut u32) -> HRESULT;
             fn GetLoader(&self, fontFileLoader: *mut IDWriteFontFileLoader) -> HRESULT;
             fn Analyze(&self, isSupportedFontType: *mut BOOL, fontFileType: *mut DWRITE_FONT_FILE_TYPE, #[opt] fontFaceType: *mut DWRITE_FONT_FACE_TYPE, numberOfFaces: *mut u32) -> HRESULT;
         }
@@ -558,7 +558,7 @@ mod Windows {
         }
         #[guid(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0)]
         interface IDWriteFontFileStream: IUnknown {
-            fn ReadFileFragment(&self, fragmentStart: *mut *mut void, fileOffset: u64, fragmentSize: u64, fragmentContext: *mut *mut void) -> HRESULT;
+            fn ReadFileFragment(&self, fragmentStart: *const *const void, fileOffset: u64, fragmentSize: u64, fragmentContext: *mut *mut void) -> HRESULT;
             fn ReleaseFileFragment(&self, fragmentContext: *mut void);
             fn GetFileSize(&self, fileSize: *mut u64) -> HRESULT;
             fn GetLastWriteTime(&self, lastWriteTime: *mut u64) -> HRESULT;
@@ -577,6 +577,7 @@ mod Windows {
             fn CreateFontFaceFromHdc(&self, hdc: HDC, fontFace: *mut IDWriteFontFace) -> HRESULT;
             fn CreateBitmapRenderTarget(&self, #[opt] hdc: HDC, width: u32, height: u32, renderTarget: *mut IDWriteBitmapRenderTarget) -> HRESULT;
         }
+        type IDWriteGeometrySink = ID2D1SimplifiedGeometrySink;
         #[guid(0x7d97dbf7_e085_42d4_81e3_6a883bded118)]
         interface IDWriteGlyphRunAnalysis: IUnknown {
             fn GetAlphaTextureBounds(&self, textureType: DWRITE_TEXTURE_TYPE, textureBounds: *mut RECT) -> HRESULT;
@@ -585,7 +586,7 @@ mod Windows {
         }
         #[guid(0x8339fde3_106f_47ab_8373_1c6295eb10b3)]
         interface IDWriteInlineObject: IUnknown {
-            fn Draw(&self, #[opt] clientDrawingContext: *const void, renderer: IDWriteTextRenderer, originX: f32, originY: f32, isSideways: BOOL, isRightToLeft: BOOL, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn Draw(&self, #[in] #[opt] clientDrawingContext: *mut void, renderer: IDWriteTextRenderer, originX: f32, originY: f32, isSideways: BOOL, isRightToLeft: BOOL, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
             fn GetMetrics(&self, metrics: *mut DWRITE_INLINE_OBJECT_METRICS) -> HRESULT;
             fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> HRESULT;
             fn GetBreakConditions(&self, breakConditionBefore: *mut DWRITE_BREAK_CONDITION, breakConditionAfter: *mut DWRITE_BREAK_CONDITION) -> HRESULT;
@@ -599,7 +600,7 @@ mod Windows {
         #[guid(0x08256209_099a_4b34_b86d_c22b110e7771)]
         interface IDWriteLocalizedStrings: IUnknown {
             fn GetCount(&self) -> u32;
-            fn FindLocaleName(&self, localeName: PCWSTR, index: *mut u32, exists: *mut BOOL) -> HRESULT;
+            fn FindLocaleName(&self, localeName: *const u16, index: *mut u32, exists: *mut BOOL) -> HRESULT;
             fn GetLocaleNameLength(&self, index: u32, length: *mut u32) -> HRESULT;
             fn GetLocaleName(&self, index: u32, #[len_param(2)] localeName: *mut u16, size: u32) -> HRESULT;
             fn GetStringLength(&self, index: u32, length: *mut u32) -> HRESULT;
@@ -609,9 +610,9 @@ mod Windows {
         interface IDWriteNumberSubstitution: IUnknown {}
         #[guid(0xeaf3a2da_ecf4_4d24_b644_b34f6842024b)]
         interface IDWritePixelSnapping: IUnknown {
-            fn IsPixelSnappingDisabled(&self, #[opt] clientDrawingContext: *const void, isDisabled: *mut BOOL) -> HRESULT;
-            fn GetCurrentTransform(&self, #[opt] clientDrawingContext: *const void, transform: *mut DWRITE_MATRIX) -> HRESULT;
-            fn GetPixelsPerDip(&self, #[opt] clientDrawingContext: *const void, pixelsPerDip: *mut f32) -> HRESULT;
+            fn IsPixelSnappingDisabled(&self, #[in] #[opt] clientDrawingContext: *mut void, isDisabled: *mut BOOL) -> HRESULT;
+            fn GetCurrentTransform(&self, #[in] #[opt] clientDrawingContext: *mut void, transform: *mut DWRITE_MATRIX) -> HRESULT;
+            fn GetPixelsPerDip(&self, #[in] #[opt] clientDrawingContext: *mut void, pixelsPerDip: *mut f32) -> HRESULT;
         }
         #[guid(0x2f0da53a_2add_47cd_82ee_d9ec34688e75)]
         interface IDWriteRenderingParams: IUnknown {
@@ -630,10 +631,10 @@ mod Windows {
         }
         #[guid(0x688e1a58_5094_47c8_adc8_fbcea60ae92b)]
         interface IDWriteTextAnalysisSource: IUnknown {
-            fn GetTextAtPosition(&self, textPosition: u32, textString: *mut *mut u16, textLength: *mut u32) -> HRESULT;
-            fn GetTextBeforePosition(&self, textPosition: u32, textString: *mut *mut u16, textLength: *mut u32) -> HRESULT;
+            fn GetTextAtPosition(&self, textPosition: u32, textString: *const *const u16, textLength: *mut u32) -> HRESULT;
+            fn GetTextBeforePosition(&self, textPosition: u32, textString: *const *const u16, textLength: *mut u32) -> HRESULT;
             fn GetParagraphReadingDirection(&self) -> DWRITE_READING_DIRECTION;
-            fn GetLocaleName(&self, textPosition: u32, textLength: *mut u32, localeName: *mut *mut u16) -> HRESULT;
+            fn GetLocaleName(&self, textPosition: u32, textLength: *mut u32, localeName: *const *const u16) -> HRESULT;
             fn GetNumberSubstitution(&self, textPosition: u32, textLength: *mut u32, numberSubstitution: *mut IDWriteNumberSubstitution) -> HRESULT;
         }
         #[guid(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d)]
@@ -642,9 +643,9 @@ mod Windows {
             fn AnalyzeBidi(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
             fn AnalyzeNumberSubstitution(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
             fn AnalyzeLineBreakpoints(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink) -> HRESULT;
-            fn GetGlyphs(&self, #[len_param(1)] textString: *const u16, textLength: u32, fontFace: IDWriteFontFace, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: PCWSTR, #[opt] numberSubstitution: IDWriteNumberSubstitution, #[len_param(10)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(10)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, maxGlyphCount: u32, #[len_param(1)] clusterMap: *mut u16, #[len_param(1)] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, #[len_param(11)] glyphIndices: *mut u16, #[len_param(11)] glyphProps: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualGlyphCount: *mut u32) -> HRESULT;
-            fn GetGlyphPlacements(&self, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(3)] #[in] #[out] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: u32, #[len_param(6)] glyphIndices: *const u16, #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: u32, fontFace: IDWriteFontFace, fontEmSize: f32, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: PCWSTR, #[len_param(15)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(15)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, #[len_param(6)] glyphAdvances: *mut f32, #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetGdiCompatibleGlyphPlacements(&self, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(3)] textProps: *const DWRITE_SHAPING_TEXT_PROPERTIES, textLength: u32, #[len_param(6)] glyphIndices: *const u16, #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: u32, fontFace: IDWriteFontFace, fontEmSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: PCWSTR, #[len_param(18)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(18)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, #[len_param(6)] glyphAdvances: *mut f32, #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            fn GetGlyphs(&self, #[len_param(1)] textString: *const u16, textLength: u32, fontFace: IDWriteFontFace, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, #[opt] numberSubstitution: IDWriteNumberSubstitution, #[len_param(10)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(10)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, maxGlyphCount: u32, #[len_param(1)] clusterMap: *mut u16, #[len_param(1)] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, #[len_param(11)] glyphIndices: *mut u16, #[len_param(11)] glyphProps: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualGlyphCount: *mut u32) -> HRESULT;
+            fn GetGlyphPlacements(&self, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(3)] #[in] #[out] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: u32, #[len_param(6)] glyphIndices: *const u16, #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: u32, fontFace: IDWriteFontFace, fontEmSize: f32, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, #[len_param(15)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(15)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, #[len_param(6)] glyphAdvances: *mut f32, #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            fn GetGdiCompatibleGlyphPlacements(&self, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(3)] #[in] textProps: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textLength: u32, #[len_param(6)] glyphIndices: *const u16, #[len_param(6)] glyphProps: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphCount: u32, fontFace: IDWriteFontFace, fontEmSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, isRightToLeft: BOOL, scriptAnalysis: *const DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, #[len_param(18)] #[opt] features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, #[len_param(18)] #[opt] featureRangeLengths: *const u32, featureRanges: u32, #[len_param(6)] glyphAdvances: *mut f32, #[len_param(6)] glyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
         }
         #[guid(0x9c906818_31d7_4fd3_a151_7c5e225db55a)]
         interface IDWriteTextFormat: IUnknown {
@@ -679,7 +680,7 @@ mod Windows {
             fn SetMaxWidth(&self, maxWidth: f32) -> HRESULT;
             fn SetMaxHeight(&self, maxHeight: f32) -> HRESULT;
             fn SetFontCollection(&self, fontCollection: IDWriteFontCollection, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetFontFamilyName(&self, fontFamilyName: PCWSTR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            fn SetFontFamilyName(&self, fontFamilyName: *const u16, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetFontWeight(&self, fontWeight: DWRITE_FONT_WEIGHT, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetFontStyle(&self, fontStyle: DWRITE_FONT_STYLE, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetFontStretch(&self, fontStretch: DWRITE_FONT_STRETCH, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
@@ -689,7 +690,7 @@ mod Windows {
             fn SetDrawingEffect(&self, drawingEffect: IUnknown, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetInlineObject(&self, inlineObject: IDWriteInlineObject, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetTypography(&self, typography: IDWriteTypography, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetLocaleName(&self, localeName: PCWSTR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            fn SetLocaleName(&self, localeName: *const u16, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetMaxWidth(&self) -> f32;
             fn GetMaxHeight(&self) -> f32;
             fn GetFontCollection(&self, currentPosition: u32, fontCollection: *mut IDWriteFontCollection, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
@@ -706,7 +707,7 @@ mod Windows {
             fn GetTypography(&self, currentPosition: u32, typography: *mut IDWriteTypography, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetLocaleNameLength(&self, currentPosition: u32, nameLength: *mut u32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetLocaleName(&self, currentPosition: u32, #[len_param(2)] localeName: *mut u16, nameSize: u32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn Draw(&self, #[opt] clientDrawingContext: *const void, renderer: IDWriteTextRenderer, originX: f32, originY: f32) -> HRESULT;
+            fn Draw(&self, #[in] #[opt] clientDrawingContext: *mut void, renderer: IDWriteTextRenderer, originX: f32, originY: f32) -> HRESULT;
             fn GetLineMetrics(&self, #[len_param(1)] #[opt] lineMetrics: *mut DWRITE_LINE_METRICS, maxLineCount: u32, actualLineCount: *mut u32) -> HRESULT;
             fn GetMetrics(&self, textMetrics: *mut DWRITE_TEXT_METRICS) -> HRESULT;
             fn GetOverhangMetrics(&self, overhangs: *mut DWRITE_OVERHANG_METRICS) -> HRESULT;
@@ -718,10 +719,10 @@ mod Windows {
         }
         #[guid(0xef8a8135_5cc6_45fe_8825_c5a0724eb819)]
         interface IDWriteTextRenderer: IDWritePixelSnapping {
-            fn DrawGlyphRun(&self, #[opt] clientDrawingContext: *const void, baselineOriginX: f32, baselineOriginY: f32, measuringMode: DWRITE_MEASURING_MODE, glyphRun: *const DWRITE_GLYPH_RUN, glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
-            fn DrawUnderline(&self, #[opt] clientDrawingContext: *const void, baselineOriginX: f32, baselineOriginY: f32, underline: *const DWRITE_UNDERLINE, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
-            fn DrawStrikethrough(&self, #[opt] clientDrawingContext: *const void, baselineOriginX: f32, baselineOriginY: f32, strikethrough: *const DWRITE_STRIKETHROUGH, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
-            fn DrawInlineObject(&self, #[opt] clientDrawingContext: *const void, originX: f32, originY: f32, inlineObject: IDWriteInlineObject, isSideways: BOOL, isRightToLeft: BOOL, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn DrawGlyphRun(&self, #[in] #[opt] clientDrawingContext: *mut void, baselineOriginX: f32, baselineOriginY: f32, measuringMode: DWRITE_MEASURING_MODE, glyphRun: *const DWRITE_GLYPH_RUN, glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn DrawUnderline(&self, #[in] #[opt] clientDrawingContext: *mut void, baselineOriginX: f32, baselineOriginY: f32, underline: *const DWRITE_UNDERLINE, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn DrawStrikethrough(&self, #[in] #[opt] clientDrawingContext: *mut void, baselineOriginX: f32, baselineOriginY: f32, strikethrough: *const DWRITE_STRIKETHROUGH, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
+            fn DrawInlineObject(&self, #[in] #[opt] clientDrawingContext: *mut void, originX: f32, originY: f32, inlineObject: IDWriteInlineObject, isSideways: BOOL, isRightToLeft: BOOL, #[opt] clientDrawingEffect: IUnknown) -> HRESULT;
         }
         #[guid(0x55f1112b_1dc2_4b3c_9541_f46894ed85b6)]
         interface IDWriteTypography: IUnknown {

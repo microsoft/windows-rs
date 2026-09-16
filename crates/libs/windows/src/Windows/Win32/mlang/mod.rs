@@ -14,10 +14,10 @@ pub struct DetectEncodingInfo {
 windows_core::imp::define_interface!(IEnumCodePage, IEnumCodePage_Vtbl, 0x275c23e3_3747_11d0_9fea_00aa003f8646);
 windows_core::imp::interface_hierarchy!(IEnumCodePage, windows_core::IUnknown);
 impl IEnumCodePage {
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::HRESULT {
+    pub unsafe fn Clone(&self, ppenum: Option<*mut Option<Self>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+    pub unsafe fn Next(&self, celt: u32, rgelt: PMIMECPINFO, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -31,26 +31,26 @@ impl IEnumCodePage {
 #[doc(hidden)]
 pub struct IEnumCodePage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MIMECPINFO, *mut u32) -> windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, PMIMECPINFO, *mut u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IEnumCodePage_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self, ppenum: *const Option<IEnumCodePage>) -> windows_core::Result<()>;
-    fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumCodePage>) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: PMIMECPINFO, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
 }
 impl IEnumCodePage_Vtbl {
     pub const fn new<Identity: IEnumCodePage_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Clone<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumCodePage_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
             }
         }
-        unsafe extern "system" fn Next<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumCodePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: PMIMECPINFO, pceltfetched: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumCodePage_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
@@ -84,11 +84,11 @@ impl windows_core::RuntimeName for IEnumCodePage {}
 windows_core::imp::define_interface!(IEnumRfc1766, IEnumRfc1766_Vtbl, 0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f);
 windows_core::imp::interface_hierarchy!(IEnumRfc1766, windows_core::IUnknown);
 impl IEnumRfc1766 {
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::HRESULT {
+    pub unsafe fn Clone(&self, ppenum: Option<*mut Option<Self>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+    pub unsafe fn Next(&self, celt: u32, rgelt: PRFC1766INFO, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -102,9 +102,9 @@ impl IEnumRfc1766 {
 #[doc(hidden)]
 pub struct IEnumRfc1766_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut RFC1766INFO, *mut u32) -> windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, PRFC1766INFO, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     Next: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -112,21 +112,21 @@ pub struct IEnumRfc1766_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IEnumRfc1766_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self, ppenum: *const Option<IEnumRfc1766>) -> windows_core::Result<()>;
-    fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumRfc1766>) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: PRFC1766INFO, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "winnt")]
 impl IEnumRfc1766_Vtbl {
     pub const fn new<Identity: IEnumRfc1766_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Clone<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumRfc1766_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
             }
         }
-        unsafe extern "system" fn Next<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumRfc1766_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: PRFC1766INFO, pceltfetched: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumRfc1766_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
@@ -161,10 +161,10 @@ impl windows_core::RuntimeName for IEnumRfc1766 {}
 windows_core::imp::define_interface!(IEnumScript, IEnumScript_Vtbl, 0xae5f1430_388b_11d2_8380_00c04f8f5da1);
 windows_core::imp::interface_hierarchy!(IEnumScript, windows_core::IUnknown);
 impl IEnumScript {
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::HRESULT {
+    pub unsafe fn Clone(&self, ppenum: Option<*mut Option<Self>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+    pub unsafe fn Next(&self, celt: u32, rgelt: PSCRIPTINFO, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -178,26 +178,26 @@ impl IEnumScript {
 #[doc(hidden)]
 pub struct IEnumScript_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SCRIPTINFO, *mut u32) -> windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, PSCRIPTINFO, *mut u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IEnumScript_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self, ppenum: *const Option<IEnumScript>) -> windows_core::Result<()>;
-    fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: windows_core::OutRef<IEnumScript>) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: PSCRIPTINFO, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
 }
 impl IEnumScript_Vtbl {
     pub const fn new<Identity: IEnumScript_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Clone<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumScript_Impl::Clone(this, core::mem::transmute_copy(&ppenum)).into()
             }
         }
-        unsafe extern "system" fn Next<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumScript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: PSCRIPTINFO, pceltfetched: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumScript_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
@@ -574,8 +574,8 @@ impl IMLangFontLink2 {
         unsafe { (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc, dwcodepages, chsrc, pfont.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetFontUnicodeRanges(&self, hdc: super::HDC, puiranges: *const u32, puranges: Option<*mut UNICODERANGE>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFontUnicodeRanges)(windows_core::Interface::as_raw(self), hdc, puiranges, puranges.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn GetFontUnicodeRanges(&self, hdc: super::HDC, puiranges: *mut u32, puranges: Option<*mut UNICODERANGE>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFontUnicodeRanges)(windows_core::Interface::as_raw(self), hdc, puiranges as _, puranges.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetScriptFontInfo(&self, sid: SCRIPT_ID, dwflags: u32, puifonts: *mut u32, pscriptfont: Option<*mut SCRIPTFONTINFO>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetScriptFontInfo)(windows_core::Interface::as_raw(self), sid, dwflags, puifonts as _, pscriptfont.unwrap_or(core::mem::zeroed()) as _) }
@@ -605,7 +605,7 @@ pub struct IMLangFontLink2_Vtbl {
     #[cfg(not(feature = "windef"))]
     MapFont: usize,
     #[cfg(feature = "windef")]
-    pub GetFontUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, *const u32, *mut UNICODERANGE) -> windows_core::HRESULT,
+    pub GetFontUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, *mut u32, *mut UNICODERANGE) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetFontUnicodeRanges: usize,
     pub GetScriptFontInfo: unsafe extern "system" fn(*mut core::ffi::c_void, SCRIPT_ID, u32, *mut u32, *mut SCRIPTFONTINFO) -> windows_core::HRESULT,
@@ -617,7 +617,7 @@ pub trait IMLangFontLink2_Impl: IMLangCodePages_Impl {
     fn ReleaseFont(&self, hfont: super::HFONT) -> windows_core::Result<()>;
     fn ResetFontMapping(&self) -> windows_core::Result<()>;
     fn MapFont(&self, hdc: super::HDC, dwcodepages: u32, chsrc: u16, pfont: *mut super::HFONT) -> windows_core::Result<()>;
-    fn GetFontUnicodeRanges(&self, hdc: super::HDC, puiranges: *const u32, puranges: *mut UNICODERANGE) -> windows_core::Result<()>;
+    fn GetFontUnicodeRanges(&self, hdc: super::HDC, puiranges: *mut u32, puranges: *mut UNICODERANGE) -> windows_core::Result<()>;
     fn GetScriptFontInfo(&self, sid: SCRIPT_ID, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut SCRIPTFONTINFO) -> windows_core::Result<()>;
     fn CodePageToScriptID(&self, uicodepage: u32) -> windows_core::Result<SCRIPT_ID>;
 }
@@ -648,7 +648,7 @@ impl IMLangFontLink2_Vtbl {
                 IMLangFontLink2_Impl::MapFont(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&dwcodepages), core::mem::transmute_copy(&chsrc), core::mem::transmute_copy(&pfont)).into()
             }
         }
-        unsafe extern "system" fn GetFontUnicodeRanges<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, puiranges: *const u32, puranges: *mut UNICODERANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFontUnicodeRanges<Identity: IMLangFontLink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, puiranges: *mut u32, puranges: *mut UNICODERANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMLangFontLink2_Impl::GetFontUnicodeRanges(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&puiranges), core::mem::transmute_copy(&puranges)).into()
@@ -855,7 +855,7 @@ impl IMLangStringAStr {
     {
         unsafe { (windows_core::Interface::vtable(self).SetStrBufA)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.param().abi(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: Option<*const u32>, pszdest: Option<windows_core::PSTR>, cchdest: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
+    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: Option<*mut u32>, pszdest: Option<windows_core::PSTR>, cchdest: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, pucodepageout.unwrap_or(core::mem::zeroed()) as _, pszdest.unwrap_or(core::mem::zeroed()) as _, cchdest, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: Option<*mut u32>, ppdestbuf: *mut Option<IMLangStringBufA>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
@@ -882,7 +882,7 @@ pub struct IMLangStringAStr_Vtbl {
     pub base__: IMLangString_Vtbl,
     pub SetAStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, windows_core::PCSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub SetStrBufA: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
-    pub GetAStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *const u32, windows_core::PSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
+    pub GetAStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *mut u32, windows_core::PSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetStrBufA: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut u32, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub LockAStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, u32, i32, *mut u32, *mut windows_core::PSTR, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub UnlockAStr: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -899,7 +899,7 @@ pub struct IMLangStringAStr_Vtbl {
 pub trait IMLangStringAStr_Impl: IMLangString_Impl {
     fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: windows_core::Ref<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
-    fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *const u32, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
+    fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
     fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: windows_core::OutRef<IMLangStringBufA>, pldestlen: *mut i32) -> windows_core::Result<()>;
     fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: *mut u32, ppszdest: *mut windows_core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> windows_core::Result<()>;
     fn UnlockAStr(&self, pszsrc: &windows_core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::Result<()>;
@@ -921,7 +921,7 @@ impl IMLangStringAStr_Vtbl {
                 IMLangStringAStr_Impl::SetStrBufA(this, core::mem::transmute_copy(&ldestpos), core::mem::transmute_copy(&ldestlen), core::mem::transmute_copy(&ucodepage), core::mem::transmute_copy(&psrcbuf), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
             }
         }
-        unsafe extern "system" fn GetAStr<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *const u32, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAStr<Identity: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: windows_core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMLangStringAStr_Impl::GetAStr(this, core::mem::transmute_copy(&lsrcpos), core::mem::transmute_copy(&lsrclen), core::mem::transmute_copy(&ucodepagein), core::mem::transmute_copy(&pucodepageout), core::mem::transmute_copy(&pszdest), core::mem::transmute_copy(&cchdest), core::mem::transmute_copy(&pcchactual), core::mem::transmute_copy(&plactuallen)).into()
@@ -1286,7 +1286,7 @@ impl IMultiLanguage {
             (windows_core::Interface::vtable(self).GetNumberOfCodePageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> windows_core::HRESULT {
+    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCodePageInfo)(windows_core::Interface::as_raw(self), uicodepage, pcodepageinfo as _) }
     }
     pub unsafe fn GetFamilyCodePage(&self, uicodepage: u32) -> windows_core::Result<u32> {
@@ -1301,7 +1301,7 @@ impl IMultiLanguage {
             (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
+    pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCharsetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(charset), pcharsetinfo as _) }
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> windows_core::HRESULT {
@@ -1337,7 +1337,7 @@ impl IMultiLanguage {
         }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: *mut RFC1766INFO) -> windows_core::HRESULT {
+    pub unsafe fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, prfc1766info as _) }
     }
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset> {
@@ -1352,10 +1352,10 @@ impl IMultiLanguage {
 pub struct IMultiLanguage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MIMECPINFO) -> windows_core::HRESULT,
+    pub GetCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, PMIMECPINFO) -> windows_core::HRESULT,
     pub GetFamilyCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub EnumCodePages: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCharsetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut MIMECSETINFO) -> windows_core::HRESULT,
+    pub GetCharsetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PMIMECSETINFO) -> windows_core::HRESULT,
     pub IsConvertible: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub ConvertString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, u32, *const u8, *mut u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub ConvertStringToUnicode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const i8, *mut u32, *mut u16, *mut u32) -> windows_core::HRESULT,
@@ -1371,7 +1371,7 @@ pub struct IMultiLanguage_Vtbl {
     GetLcidFromRfc1766: usize,
     pub EnumRfc1766: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
-    pub GetRfc1766Info: unsafe extern "system" fn(*mut core::ffi::c_void, super::LCID, *mut RFC1766INFO) -> windows_core::HRESULT,
+    pub GetRfc1766Info: unsafe extern "system" fn(*mut core::ffi::c_void, super::LCID, PRFC1766INFO) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     GetRfc1766Info: usize,
     pub CreateConvertCharset: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1379,10 +1379,10 @@ pub struct IMultiLanguage_Vtbl {
 #[cfg(feature = "winnt")]
 pub trait IMultiLanguage_Impl: windows_core::IUnknownImpl {
     fn GetNumberOfCodePageInfo(&self) -> windows_core::Result<u32>;
-    fn GetCodePageInfo(&self, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> windows_core::Result<()>;
+    fn GetCodePageInfo(&self, uicodepage: u32, pcodepageinfo: PMIMECPINFO) -> windows_core::Result<()>;
     fn GetFamilyCodePage(&self, uicodepage: u32) -> windows_core::Result<u32>;
     fn EnumCodePages(&self, grfflags: u32) -> windows_core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::Result<()>;
+    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::Result<()>;
     fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> windows_core::Result<()>;
     fn ConvertString(&self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> windows_core::Result<()>;
     fn ConvertStringToUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: *const i8, pcsrcsize: *mut u32, pdststr: *mut u16, pcdstsize: *mut u32) -> windows_core::Result<()>;
@@ -1391,7 +1391,7 @@ pub trait IMultiLanguage_Impl: windows_core::IUnknownImpl {
     fn GetRfc1766FromLcid(&self, locale: super::LCID) -> windows_core::Result<windows_core::BSTR>;
     fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EnumRfc1766(&self) -> windows_core::Result<IEnumRfc1766>;
-    fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: *mut RFC1766INFO) -> windows_core::Result<()>;
+    fn GetRfc1766Info(&self, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::Result<()>;
     fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset>;
 }
 #[cfg(feature = "winnt")]
@@ -1409,7 +1409,7 @@ impl IMultiLanguage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCodePageInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCodePageInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: u32, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiLanguage_Impl::GetCodePageInfo(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&pcodepageinfo)).into()
@@ -1439,7 +1439,7 @@ impl IMultiLanguage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiLanguage_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo)).into()
@@ -1505,7 +1505,7 @@ impl IMultiLanguage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, prfc1766info: *mut RFC1766INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiLanguage_Impl::GetRfc1766Info(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&prfc1766info)).into()
@@ -1558,7 +1558,7 @@ impl IMultiLanguage2 {
         }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: super::LANGID, pcodepageinfo: *mut MIMECPINFO) -> windows_core::HRESULT {
+    pub unsafe fn GetCodePageInfo(&self, uicodepage: u32, langid: super::LANGID, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCodePageInfo)(windows_core::Interface::as_raw(self), uicodepage, langid, pcodepageinfo as _) }
     }
     pub unsafe fn GetFamilyCodePage(&self, uicodepage: u32) -> windows_core::Result<u32> {
@@ -1574,7 +1574,7 @@ impl IMultiLanguage2 {
             (windows_core::Interface::vtable(self).EnumCodePages)(windows_core::Interface::as_raw(self), grfflags, langid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
+    pub unsafe fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCharsetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(charset), pcharsetinfo as _) }
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> windows_core::HRESULT {
@@ -1611,7 +1611,7 @@ impl IMultiLanguage2 {
         }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: *mut RFC1766INFO) -> windows_core::HRESULT {
+    pub unsafe fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRfc1766Info)(windows_core::Interface::as_raw(self), locale, langid, prfc1766info as _) }
     }
     pub unsafe fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset> {
@@ -1682,7 +1682,7 @@ pub struct IMultiLanguage2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
-    pub GetCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LANGID, *mut MIMECPINFO) -> windows_core::HRESULT,
+    pub GetCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LANGID, PMIMECPINFO) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     GetCodePageInfo: usize,
     pub GetFamilyCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1690,7 +1690,7 @@ pub struct IMultiLanguage2_Vtbl {
     pub EnumCodePages: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LANGID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     EnumCodePages: usize,
-    pub GetCharsetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut MIMECSETINFO) -> windows_core::HRESULT,
+    pub GetCharsetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PMIMECSETINFO) -> windows_core::HRESULT,
     pub IsConvertible: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub ConvertString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, u32, *const u8, *mut u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub ConvertStringToUnicode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, *const i8, *mut u32, *mut u16, *mut u32) -> windows_core::HRESULT,
@@ -1709,7 +1709,7 @@ pub struct IMultiLanguage2_Vtbl {
     #[cfg(not(feature = "winnt"))]
     EnumRfc1766: usize,
     #[cfg(feature = "winnt")]
-    pub GetRfc1766Info: unsafe extern "system" fn(*mut core::ffi::c_void, super::LCID, super::LANGID, *mut RFC1766INFO) -> windows_core::HRESULT,
+    pub GetRfc1766Info: unsafe extern "system" fn(*mut core::ffi::c_void, super::LCID, super::LANGID, PRFC1766INFO) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     GetRfc1766Info: usize,
     pub CreateConvertCharset: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1747,10 +1747,10 @@ pub struct IMultiLanguage2_Vtbl {
 #[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn GetNumberOfCodePageInfo(&self) -> windows_core::Result<u32>;
-    fn GetCodePageInfo(&self, uicodepage: u32, langid: super::LANGID, pcodepageinfo: *mut MIMECPINFO) -> windows_core::Result<()>;
+    fn GetCodePageInfo(&self, uicodepage: u32, langid: super::LANGID, pcodepageinfo: PMIMECPINFO) -> windows_core::Result<()>;
     fn GetFamilyCodePage(&self, uicodepage: u32) -> windows_core::Result<u32>;
     fn EnumCodePages(&self, grfflags: u32, langid: super::LANGID) -> windows_core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::Result<()>;
+    fn GetCharsetInfo(&self, charset: &windows_core::BSTR, pcharsetinfo: PMIMECSETINFO) -> windows_core::Result<()>;
     fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> windows_core::Result<()>;
     fn ConvertString(&self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> windows_core::Result<()>;
     fn ConvertStringToUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: *const i8, pcsrcsize: *mut u32, pdststr: *mut u16, pcdstsize: *mut u32) -> windows_core::Result<()>;
@@ -1759,7 +1759,7 @@ pub trait IMultiLanguage2_Impl: windows_core::IUnknownImpl {
     fn GetRfc1766FromLcid(&self, locale: super::LCID) -> windows_core::Result<windows_core::BSTR>;
     fn GetLcidFromRfc1766(&self, plocale: *mut super::LCID, bstrrfc1766: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EnumRfc1766(&self, langid: super::LANGID) -> windows_core::Result<IEnumRfc1766>;
-    fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: *mut RFC1766INFO) -> windows_core::Result<()>;
+    fn GetRfc1766Info(&self, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::Result<()>;
     fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> windows_core::Result<IMLangConvertCharset>;
     fn ConvertStringInIStream(&self, pdwmode: *mut u32, dwflag: u32, lpfallback: *const u16, dwsrcencoding: u32, dwdstencoding: u32, pstmin: windows_core::Ref<super::IStream>, pstmout: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn ConvertStringToUnicodeEx(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: *const i8, pcsrcsize: *mut u32, pdststr: *mut u16, pcdstsize: *mut u32, dwflag: u32, lpfallback: *const u16) -> windows_core::Result<()>;
@@ -1789,7 +1789,7 @@ impl IMultiLanguage2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCodePageInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: u32, langid: super::LANGID, pcodepageinfo: *mut MIMECPINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCodePageInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uicodepage: u32, langid: super::LANGID, pcodepageinfo: PMIMECPINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiLanguage2_Impl::GetCodePageInfo(this, core::mem::transmute_copy(&uicodepage), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pcodepageinfo)).into()
@@ -1819,7 +1819,7 @@ impl IMultiLanguage2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: *mut MIMECSETINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCharsetInfo<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, charset: *mut core::ffi::c_void, pcharsetinfo: PMIMECSETINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiLanguage2_Impl::GetCharsetInfo(this, core::mem::transmute(&charset), core::mem::transmute_copy(&pcharsetinfo)).into()
@@ -1885,7 +1885,7 @@ impl IMultiLanguage2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, langid: super::LANGID, prfc1766info: *mut RFC1766INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRfc1766Info<Identity: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locale: super::LCID, langid: super::LANGID, prfc1766info: PRFC1766INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultiLanguage2_Impl::GetRfc1766Info(this, core::mem::transmute_copy(&locale), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&prfc1766info)).into()
@@ -2220,12 +2220,8 @@ impl Default for SCRIPTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SCRIPT_ID(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SCRIPT_IDS(pub i64);
+pub type SCRIPT_ID = u8;
+pub type SCRIPT_IDS = i64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNICODERANGE {

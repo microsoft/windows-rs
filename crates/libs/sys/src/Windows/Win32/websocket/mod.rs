@@ -1,14 +1,14 @@
 windows_link::link!("websocket.dll" "system" fn WebSocketAbortHandle(hwebsocket : WEB_SOCKET_HANDLE));
 #[cfg(feature = "winnt")]
-windows_link::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_sys::core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const windows_sys::core::PCSTR, ulextensioncount : u32, pinitialheaders : *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_sys::core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const windows_sys::core::PCSTR, ulextensioncount : u32, pinitialheaders : PWEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
-windows_link::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_sys::core::PCSTR, pszextensionselected : *const windows_sys::core::PCSTR, ulextensionselectedcount : u32, prequestheaders : *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut PWEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_sys::core::PCSTR, pszextensionselected : *const windows_sys::core::PCSTR, ulextensionselectedcount : u32, prequestheaders : PWEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut PWEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : *const core::ffi::c_void, ulbytestransferred : u32));
-windows_link::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("websocket.dll" "system" fn WebSocketDeleteHandle(hwebsocket : WEB_SOCKET_HANDLE));
 #[cfg(feature = "winnt")]
-windows_link::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : PWEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("websocket.dll" "system" fn WebSocketEndServerHandshake(hwebsocket : WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "minwindef")]
 windows_link::link!("websocket.dll" "system" fn WebSocketGetAction(hwebsocket : WEB_SOCKET_HANDLE, eactionqueue : WEB_SOCKET_ACTION_QUEUE, pdatabuffers : *mut WEB_SOCKET_BUFFER, puldatabuffercount : *mut u32, paction : *mut WEB_SOCKET_ACTION, pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext : *mut *mut core::ffi::c_void, pvactioncontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -65,7 +65,12 @@ pub const WEB_SOCKET_DISABLE_MASKING_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = 2
 pub const WEB_SOCKET_DISABLE_UTF8_VERIFICATION_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = 4;
 pub const WEB_SOCKET_EMPTY_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1005;
 pub const WEB_SOCKET_ENDPOINT_UNAVAILABLE_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1001;
-pub type WEB_SOCKET_HANDLE = *mut core::ffi::c_void;
+pub type WEB_SOCKET_HANDLE = *mut WEB_SOCKET_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WEB_SOCKET_HANDLE__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]

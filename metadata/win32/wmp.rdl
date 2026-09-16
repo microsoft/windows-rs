@@ -797,7 +797,7 @@ mod Windows {
             wmpfssUpdating = 2,
             wmpfssStopped = 3,
         }
-        struct WMPLib {}
+        const WMPLib: GUID = 0x6bf52a50_394a_11d3_b153_00c04f79faa6;
         #[repr(i32)]
         enum WMPLibraryType {
             wmpltUnknown = 0,
@@ -863,7 +863,7 @@ mod Windows {
             wmplcSort = 10,
             wmplcLast = 11,
         }
-        struct WMPRemoteMediaServices {}
+        const WMPRemoteMediaServices: GUID = 0xdf333473_2cf7_4be2_907f_9aad5661364f;
         #[repr(i32)]
         enum WMPRipState {
             wmprsUnknown = 0,

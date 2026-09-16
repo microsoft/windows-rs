@@ -27,7 +27,7 @@ pub struct CollectionElementValue {
     pub MetadataBits: i64,
 }
 pub const DefaultStyleTrigger: BaseValueSource = 6;
-pub const E_UNKNOWNTYPE: i32 = -2144665560;
+pub const E_UNKNOWNTYPE: windows_sys::core::HRESULT = 0x802B0028_u32 as _;
 #[repr(C)]
 #[cfg(feature = "oaidl")]
 #[derive(Clone, Copy, Default)]

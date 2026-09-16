@@ -1,10 +1,10 @@
 #[cfg(all(feature = "wincrypt", feature = "windef"))]
 #[inline]
-pub unsafe fn CryptProtectData<P1>(pdatain: *const super::DATA_BLOB, szdatadescr: P1, poptionalentropy: Option<*const super::DATA_BLOB>, pvreserved: Option<*const core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut super::DATA_BLOB) -> windows_core::BOOL
+pub unsafe fn CryptProtectData<P1>(pdatain: *const super::DATA_BLOB, szdatadescr: P1, poptionalentropy: Option<*const super::DATA_BLOB>, pvreserved: Option<*mut core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut super::DATA_BLOB) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("crypt32.dll" "system" fn CryptProtectData(pdatain : *const super::DATA_BLOB, szdatadescr : windows_core::PCWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_core::BOOL);
+    windows_core::link!("crypt32.dll" "system" fn CryptProtectData(pdatain : *const super::DATA_BLOB, szdatadescr : windows_core::PCWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *mut core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_core::BOOL);
     unsafe { CryptProtectData(pdatain, szdatadescr.param().abi(), poptionalentropy.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _, ppromptstruct.unwrap_or(core::mem::zeroed()) as _, dwflags, pdataout as _) }
 }
 #[inline]
@@ -14,8 +14,8 @@ pub unsafe fn CryptProtectMemory(pdatain: *mut core::ffi::c_void, cbdatain: u32,
 }
 #[cfg(all(feature = "wincrypt", feature = "windef"))]
 #[inline]
-pub unsafe fn CryptUnprotectData(pdatain: *const super::DATA_BLOB, ppszdatadescr: *mut windows_core::PWSTR, poptionalentropy: Option<*const super::DATA_BLOB>, pvreserved: Option<*const core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut super::DATA_BLOB) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptUnprotectData(pdatain : *const super::DATA_BLOB, ppszdatadescr : *mut windows_core::PWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_core::BOOL);
+pub unsafe fn CryptUnprotectData(pdatain: *const super::DATA_BLOB, ppszdatadescr: *mut windows_core::PWSTR, poptionalentropy: Option<*const super::DATA_BLOB>, pvreserved: Option<*mut core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut super::DATA_BLOB) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptUnprotectData(pdatain : *const super::DATA_BLOB, ppszdatadescr : *mut windows_core::PWSTR, poptionalentropy : *const super::DATA_BLOB, pvreserved : *mut core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut super::DATA_BLOB) -> windows_core::BOOL);
     unsafe { CryptUnprotectData(pdatain, ppszdatadescr as _, poptionalentropy.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _, ppromptstruct.unwrap_or(core::mem::zeroed()) as _, dwflags, pdataout as _) }
 }
 #[inline]

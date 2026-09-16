@@ -8,10 +8,26 @@ mod Windows {
             DOCMISC_CANTOPENEDIT = 4,
             DOCMISC_NOFILESUPPORT = 8,
         }
+        #[library("ole32.dll")]
+        extern fn HMENU_UserFree(param0: *mut u32, param1: *mut HMENU);
+        #[library("ole32.dll")]
+        extern fn HMENU_UserFree64(param0: *mut u32, param1: *mut HMENU);
+        #[library("ole32.dll")]
+        extern fn HMENU_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserSize(param0: *mut u32, param1: u32, param2: *mut HMENU) -> u32;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserSize64(param0: *mut u32, param1: u32, param2: *mut HMENU) -> u32;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
         #[guid(0xb722bcca_4e68_101b_a2bc_00aa00404770)]
         interface IContinueCallback: IUnknown {
             fn FContinue(&self) -> HRESULT;
-            fn FContinuePrinting(&self, nCntPrinted: i32, nCurPage: i32, pwszPrintStatus: *const u16) -> HRESULT;
+            fn FContinuePrinting(&self, nCntPrinted: i32, nCurPage: i32, #[in] pwszPrintStatus: *mut u16) -> HRESULT;
         }
         #[guid(0xb722bcc8_4e68_101b_a2bc_00aa00404770)]
         interface IEnumOleDocumentViews: IUnknown {
@@ -31,7 +47,7 @@ mod Windows {
         #[guid(0xb722bccb_4e68_101b_a2bc_00aa00404770)]
         interface IOleCommandTarget: IUnknown {
             fn QueryStatus(&self, pguidCmdGroup: *const GUID, cCmds: u32, #[in] #[out] prgCmds: *mut OLECMD, #[in] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
-            fn Exec(&self, pguidCmdGroup: *const GUID, nCmdID: u32, nCmdexecopt: u32, pvaIn: *const VARIANT, #[in] #[out] pvaOut: *mut VARIANT) -> HRESULT;
+            fn Exec(&self, pguidCmdGroup: *const GUID, nCmdID: u32, nCmdexecopt: u32, #[in] pvaIn: *mut VARIANT, #[in] #[out] pvaOut: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xb722bcc5_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocument: IUnknown {
@@ -48,9 +64,9 @@ mod Windows {
             fn SetInPlaceSite(&self, pIPSite: IOleInPlaceSite) -> HRESULT;
             fn GetInPlaceSite(&self, ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
             fn GetDocument(&self, ppunk: *mut IUnknown) -> HRESULT;
-            fn SetRect(&self, prcView: *const RECT) -> HRESULT;
-            fn GetRect(&self, prcView: *mut RECT) -> HRESULT;
-            fn SetRectComplex(&self, prcView: *const RECT, prcHScroll: *const RECT, prcVScroll: *const RECT, prcSizeBox: *const RECT) -> HRESULT;
+            fn SetRect(&self, prcView: LPRECT) -> HRESULT;
+            fn GetRect(&self, #[out] prcView: LPRECT) -> HRESULT;
+            fn SetRectComplex(&self, prcView: LPRECT, prcHScroll: LPRECT, prcVScroll: LPRECT, prcSizeBox: LPRECT) -> HRESULT;
             fn Show(&self, fShow: BOOL) -> HRESULT;
             fn UIActivate(&self, fUIActivate: BOOL) -> HRESULT;
             fn Open(&self) -> HRESULT;
@@ -86,43 +102,43 @@ mod Windows {
             MEDIAPLAYBACK_PAUSE_AND_SUSPEND = 2,
             MEDIAPLAYBACK_RESUME_FROM_SUSPEND = 3,
         }
-        const MSOCMDERR_E_CANCELED: i32 = -2147221245;
-        const MSOCMDERR_E_DISABLED: i32 = -2147221247;
-        const MSOCMDERR_E_FIRST: i32 = -2147221248;
-        const MSOCMDERR_E_NOHELP: i32 = -2147221246;
-        const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248;
-        const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
-        const MSOCMDEXECOPT_DODEFAULT: i32 = 0;
-        const MSOCMDEXECOPT_DONTPROMPTUSER: i32 = 2;
-        const MSOCMDEXECOPT_PROMPTUSER: i32 = 1;
-        const MSOCMDEXECOPT_SHOWHELP: i32 = 3;
-        const MSOCMDF_ENABLED: i32 = 2;
-        const MSOCMDF_LATCHED: i32 = 4;
-        const MSOCMDF_NINCHED: i32 = 8;
-        const MSOCMDF_SUPPORTED: i32 = 1;
-        const MSOCMDID_CLEARSELECTION: i32 = 18;
-        const MSOCMDID_COPY: i32 = 12;
-        const MSOCMDID_CUT: i32 = 11;
-        const MSOCMDID_GETZOOMRANGE: i32 = 20;
-        const MSOCMDID_NEW: i32 = 2;
-        const MSOCMDID_OPEN: i32 = 1;
-        const MSOCMDID_PAGESETUP: i32 = 8;
-        const MSOCMDID_PASTE: i32 = 13;
-        const MSOCMDID_PASTESPECIAL: i32 = 14;
-        const MSOCMDID_PRINT: i32 = 6;
-        const MSOCMDID_PRINTPREVIEW: i32 = 7;
-        const MSOCMDID_PROPERTIES: i32 = 10;
-        const MSOCMDID_REDO: i32 = 16;
-        const MSOCMDID_SAVE: i32 = 3;
-        const MSOCMDID_SAVEAS: i32 = 4;
-        const MSOCMDID_SAVECOPYAS: i32 = 5;
-        const MSOCMDID_SELECTALL: i32 = 17;
-        const MSOCMDID_SPELL: i32 = 9;
-        const MSOCMDID_UNDO: i32 = 15;
-        const MSOCMDID_ZOOM: i32 = 19;
-        const MSOCMDTEXTF_NAME: i32 = 1;
-        const MSOCMDTEXTF_NONE: i32 = 0;
-        const MSOCMDTEXTF_STATUS: i32 = 2;
+        const MSOCMDERR_E_CANCELED: HRESULT = -2147221245;
+        const MSOCMDERR_E_DISABLED: HRESULT = -2147221247;
+        const MSOCMDERR_E_FIRST: HRESULT = -2147221248;
+        const MSOCMDERR_E_NOHELP: HRESULT = -2147221246;
+        const MSOCMDERR_E_NOTSUPPORTED: HRESULT = -2147221248;
+        const MSOCMDERR_E_UNKNOWNGROUP: HRESULT = -2147221244;
+        const MSOCMDEXECOPT_DODEFAULT: OLECMDEXECOPT = 0;
+        const MSOCMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = 2;
+        const MSOCMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = 1;
+        const MSOCMDEXECOPT_SHOWHELP: OLECMDEXECOPT = 3;
+        const MSOCMDF_ENABLED: OLECMDF = 2;
+        const MSOCMDF_LATCHED: OLECMDF = 4;
+        const MSOCMDF_NINCHED: OLECMDF = 8;
+        const MSOCMDF_SUPPORTED: OLECMDF = 1;
+        const MSOCMDID_CLEARSELECTION: OLECMDID = 18;
+        const MSOCMDID_COPY: OLECMDID = 12;
+        const MSOCMDID_CUT: OLECMDID = 11;
+        const MSOCMDID_GETZOOMRANGE: OLECMDID = 20;
+        const MSOCMDID_NEW: OLECMDID = 2;
+        const MSOCMDID_OPEN: OLECMDID = 1;
+        const MSOCMDID_PAGESETUP: OLECMDID = 8;
+        const MSOCMDID_PASTE: OLECMDID = 13;
+        const MSOCMDID_PASTESPECIAL: OLECMDID = 14;
+        const MSOCMDID_PRINT: OLECMDID = 6;
+        const MSOCMDID_PRINTPREVIEW: OLECMDID = 7;
+        const MSOCMDID_PROPERTIES: OLECMDID = 10;
+        const MSOCMDID_REDO: OLECMDID = 16;
+        const MSOCMDID_SAVE: OLECMDID = 3;
+        const MSOCMDID_SAVEAS: OLECMDID = 4;
+        const MSOCMDID_SAVECOPYAS: OLECMDID = 5;
+        const MSOCMDID_SELECTALL: OLECMDID = 17;
+        const MSOCMDID_SPELL: OLECMDID = 9;
+        const MSOCMDID_UNDO: OLECMDID = 15;
+        const MSOCMDID_ZOOM: OLECMDID = 19;
+        const MSOCMDTEXTF_NAME: OLECMDTEXTF = 1;
+        const MSOCMDTEXTF_NONE: OLECMDTEXTF = 0;
+        const MSOCMDTEXTF_STATUS: OLECMDTEXTF = 2;
         struct OLECMD {
             cmdID: u32,
             cmdf: u32,
@@ -135,12 +151,12 @@ mod Windows {
         const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: i32 = 0;
         const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: i32 = 1;
         const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: i32 = 2;
-        const OLECMDERR_E_CANCELED: i32 = -2147221245;
-        const OLECMDERR_E_DISABLED: i32 = -2147221247;
-        const OLECMDERR_E_FIRST: i32 = -2147221248;
-        const OLECMDERR_E_NOHELP: i32 = -2147221246;
-        const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248;
-        const OLECMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
+        const OLECMDERR_E_CANCELED: HRESULT = -2147221245;
+        const OLECMDERR_E_DISABLED: HRESULT = -2147221247;
+        const OLECMDERR_E_FIRST: HRESULT = -2147221248;
+        const OLECMDERR_E_NOHELP: HRESULT = -2147221246;
+        const OLECMDERR_E_NOTSUPPORTED: HRESULT = -2147221248;
+        const OLECMDERR_E_UNKNOWNGROUP: HRESULT = -2147221244;
         #[repr(i32)]
         enum OLECMDEXECOPT {
             OLECMDEXECOPT_DODEFAULT = 0,
@@ -367,7 +383,7 @@ mod Windows {
             cPageRange: u32,
             rgPages: [PAGERANGE; 1],
         }
-        const PAGESET_TOLASTPAGE: u32 = 65535;
+        const PAGESET_TOLASTPAGE: u16 = 65535;
         #[repr(i32)]
         enum PRINTFLAG {
             PRINTFLAG_MAYBOTHERUSER = 1,
