@@ -110,41 +110,6 @@ const EXCLUDE_HEADERS: &[&str] = &[
     "specstrings_strict.h",
 ];
 
-fn type_references(
-    files: Vec<windows_metadata::reader::File>,
-) -> std::collections::BTreeMap<String, windows_clang::TypeReference> {
-    let index = windows_metadata::reader::Index::new(files);
-    let mut references = std::collections::BTreeMap::new();
-    let mut ambiguous = std::collections::BTreeSet::new();
-    for (namespace, name, ty) in index.iter() {
-        let kind = match ty.category() {
-            windows_metadata::reader::TypeCategory::Enum => windows_clang::TypeReferenceKind::Enum,
-            windows_metadata::reader::TypeCategory::Interface => {
-                windows_clang::TypeReferenceKind::Interface
-            }
-            _ => windows_clang::TypeReferenceKind::Type,
-        };
-        let mut reference = windows_clang::TypeReference::new(namespace, name, kind);
-        if kind == windows_clang::TypeReferenceKind::Enum {
-            reference = reference.with_enum_members(ty.fields().map(|field| field.name()));
-        }
-        if references
-            .insert(name.to_string(), reference.clone())
-            .is_some_and(|existing| existing != reference)
-        {
-            ambiguous.insert(name.to_string());
-        }
-    }
-    references.retain(|name, _| !ambiguous.contains(name));
-    references
-}
-
-fn winrt_type_references() -> std::collections::BTreeMap<String, windows_clang::TypeReference> {
-    type_references(vec![
-        windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
-    ])
-}
-
 /// Architectures to scrape and arch-merge. The committed RDL is always x64-canonical; any
 /// additional arch listed here (`arm64`, `x86`) is scraped to a throwaway winmd and folded in via
 /// `SupportedArchitecture` so symbols that exist on only a subset of arches are tagged.
@@ -1028,6 +993,10 @@ fn scrape_um(headers: &str) {
     let resource_dir = (archs.len() > 1).then(clang_resource_dir);
     let output_dir = std::path::Path::new("target/win32-clang");
     std::fs::create_dir_all(output_dir).unwrap();
+    let references = windows_clang::MetadataReferences::new([windows_metadata::reader::File::new(
+        windows_default::WINRT.to_vec(),
+    )
+    .unwrap()]);
 
     let outputs = std::thread::scope(|scope| {
         let handles: Vec<_> = archs
@@ -1036,6 +1005,7 @@ fn scrape_um(headers: &str) {
                 let inputs = inputs.clone();
                 let include_args = &include_args;
                 let import_libs = &import_libs;
+                let references = &references;
                 let resource_dir = resource_dir.as_deref();
                 scope.spawn(move || {
                     scrape_um_arch(
@@ -1043,6 +1013,7 @@ fn scrape_um(headers: &str) {
                         inputs,
                         include_args,
                         import_libs,
+                        references,
                         resource_dir,
                         output_dir,
                     )
@@ -1194,6 +1165,7 @@ fn scrape_um_arch(
     inputs: Vec<windows_clang::Input>,
     include_args: &[String],
     import_libs: &[String],
+    references: &windows_clang::MetadataReferences,
     resource_dir: Option<&str>,
     output_dir: &std::path::Path,
 ) -> ArchOutput {
@@ -1287,8 +1259,7 @@ fn scrape_um_arch(
         })
         .collect();
     let functions = libraries.keys().cloned().collect();
-    let references = winrt_type_references();
-    let mut options = windows_clang::EmitOptions::new(ROOT, &references);
+    let mut options = windows_clang::EmitOptions::new(ROOT, references.types());
     options.libraries = Some(&libraries);
     options.functions = Some(&functions);
     let emit_time = std::time::Instant::now();

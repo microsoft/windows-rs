@@ -25,7 +25,7 @@ fn builder_uses_the_snapshot_pipeline() {
         .input_text("#include \"api.h\"\n")
         .args(["-x", "c++", include.as_str()])
         .filter("api.h")
-        .symbol("GetApi")
+        .symbols(["GetApi"])
         .reference_default()
         .namespace("Builder")
         .library("builder.dll")
@@ -44,33 +44,47 @@ fn builder_uses_the_snapshot_pipeline() {
 }
 
 #[test]
-fn builder_scans_only_the_requested_directory() {
+fn builder_excludes_items_supplied_by_references() {
     helpers::ensure_libclang();
 
     let scratch = std::env::temp_dir().join(format!(
-        "windows-clang-builder-directory-{}",
+        "windows-clang-builder-reference-{}",
         std::process::id()
     ));
-    let nested = scratch.join("nested");
-    std::fs::create_dir_all(&nested).unwrap();
-    std::fs::write(
-        scratch.join("api.h"),
-        "typedef struct API { int value; } API;\n",
-    )
-    .unwrap();
-    std::fs::write(nested.join("unrelated.h"), "this is not valid C").unwrap();
+    std::fs::create_dir_all(&scratch).unwrap();
+    let reference = scratch.join("reference.winmd");
+    windows_rdl::reader()
+        .input_text(
+            "#[win32]
+            mod Reference {
+                const EXISTING_VALUE: i32 = 1;
+                #[library(\"reference.dll\")]
+                extern \"C\" fn ExistingFunction() -> i32;
+            }",
+        )
+        .output(&reference)
+        .write()
+        .unwrap();
 
     let output = scratch.join("api.rdl");
     windows_clang::clang()
-        .input(&scratch)
+        .input_text(
+            "#define EXISTING_VALUE 1
+             extern \"C\" int ExistingFunction();
+             extern \"C\" int NewFunction();",
+        )
         .args(["-x", "c++"])
+        .reference(&reference)
         .namespace("Builder")
+        .library("builder.dll")
         .output(&output)
         .write()
         .unwrap();
 
     let rdl = std::fs::read_to_string(output).unwrap();
-    assert!(rdl.contains("struct API"));
+    assert!(!rdl.contains("EXISTING_VALUE"));
+    assert!(!rdl.contains("ExistingFunction"));
+    assert!(rdl.contains("NewFunction"));
 
     std::fs::remove_dir_all(scratch).unwrap();
 }

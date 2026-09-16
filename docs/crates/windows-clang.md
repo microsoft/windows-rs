@@ -94,6 +94,9 @@ map of defining-header names to RDL partitions.
 
 References are explicit `TypeReference` values classified as `Type`, `Interface`, or `Enum`.
 Referenced enum member names let an overlay emit an enum only when it adds members to the base.
+`MetadataReferences` builds that map from WinMD files and records existing type, function, and
+constant names for exclusion. Both the high-level builder and repository generators use this
+indexing path.
 
 ## Architecture
 

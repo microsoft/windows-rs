@@ -10,6 +10,9 @@ pub use extract::extract;
 mod builder;
 pub use builder::{Clang, clang};
 
+mod references;
+pub use references::MetadataReferences;
+
 #[derive(Clone, Debug)]
 pub struct Input {
     pub name: String,
