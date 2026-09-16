@@ -114,7 +114,7 @@ impl Clang {
         let references = self.load_references()?;
         let mut options = EmitOptions::new(&self.namespace, references.types());
         options.library = (!self.library.is_empty()).then_some(self.library.as_str());
-        references.apply_exclusions(&mut options);
+        references.apply_reference_exclusions(&mut options);
         options.functions = (!self.functions.is_empty()).then_some(&self.functions);
         let rdl = snapshot.emit_with_options(&options)?;
         write_file(&self.output, rdl)

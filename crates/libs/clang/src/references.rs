@@ -3,6 +3,7 @@ use super::*;
 /// Type references and item names indexed from WinMD files.
 pub struct MetadataReferences {
     types: BTreeMap<String, TypeReference>,
+    reference_types: BTreeSet<String>,
     excluded_types: BTreeSet<String>,
     excluded_functions: BTreeSet<String>,
     excluded_constants: BTreeSet<String>,
@@ -32,6 +33,7 @@ impl MetadataReferences {
             }
         }
         types.retain(|name, _| !ambiguous.contains(name));
+        let reference_types = types.keys().cloned().collect();
 
         let mut excluded_types = BTreeSet::new();
         let mut excluded_functions = BTreeSet::new();
@@ -52,6 +54,7 @@ impl MetadataReferences {
 
         Self {
             types,
+            reference_types,
             excluded_types,
             excluded_functions,
             excluded_constants,
@@ -78,9 +81,16 @@ impl MetadataReferences {
         &self.excluded_constants
     }
 
-    /// Applies the indexed item names as emission exclusions.
+    /// Applies every indexed item name as an emission exclusion.
     pub fn apply_exclusions<'a>(&'a self, options: &mut EmitOptions<'a>) {
         options.excluded_types = Some(&self.excluded_types);
+        options.excluded_functions = Some(&self.excluded_functions);
+        options.excluded_constants = Some(&self.excluded_constants);
+    }
+
+    /// Applies exclusions that have unambiguous external type references.
+    pub fn apply_reference_exclusions<'a>(&'a self, options: &mut EmitOptions<'a>) {
+        options.excluded_types = Some(&self.reference_types);
         options.excluded_functions = Some(&self.excluded_functions);
         options.excluded_constants = Some(&self.excluded_constants);
     }
