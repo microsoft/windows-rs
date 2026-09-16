@@ -31,14 +31,19 @@ jobs:
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
             runner: windows-2025-vs2026
+            clang-exclude: ""
           - name: stable i686
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
             runner: windows-2025-vs2026
+            # The pinned libclang packages do not include an x86 DLL. The native x64 and Arm64
+            # jobs cover this host-tool crate; its output is target-independent.
+            clang-exclude: "--exclude windows-clang"
           - name: stable arm64
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
+            clang-exclude: ""
 
     runs-on: ${{ matrix.runner }}
 
@@ -74,14 +79,14 @@ jobs:
           key: ${{ matrix.target }}
       - name: Provision libclang (Windows)
         # Export LIBCLANG_PATH from the pinned NuGet build (the same one the scrapers use) for the
-        # test_clang suite. After rust-cache so the tool-clang build is cache-accelerated.
+        # windows-clang tests. After rust-cache so the tool-clang build is cache-accelerated.
         if: runner.os == 'Windows'
         run: echo "LIBCLANG_PATH=$(cargo run -q -p tool-clang -- path)" >> "$GITHUB_ENV"
         shell: bash
       - name: Test
         # The system Composition graph is excluded because Reactor consumers select the
         # incompatible lifted Composition stack.
-        run: cargo test --all --target ${{ matrix.target }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
+        run: cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
       - name: Test notification icon Shell integration
