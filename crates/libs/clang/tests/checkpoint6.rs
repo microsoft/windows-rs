@@ -566,6 +566,56 @@ fn floating_point_macros_are_evaluated() {
 }
 
 #[test]
+fn non_finite_floating_point_constants_are_omitted() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [Input::new(
+            "non_finite_floats.hpp",
+            "const float FLOAT_INFINITY = __builtin_huge_valf();\n\
+             const double DOUBLE_INFINITY = __builtin_huge_val();\n\
+             const double NOT_A_NUMBER = __builtin_nan(\"\");\n\
+             #define MACRO_INFINITY (__builtin_huge_val())\n\
+             #define MACRO_NAN (__builtin_nan(\"\"))\n\
+             #define NARROWED_INFINITY 1.0e100f\n\
+             const float SDK_POSITIVE_INFINITY = ((float)(1e308 * 10));\n\
+             const float SDK_NEGATIVE_INFINITY = ((float)(-1e308 * 10));\n\
+             const float SDK_NAN = ((float)((1e308 * 10) * 0.));\n\
+             const float FINITE_FLOAT = 1.5f;\n\
+             #define FINITE_MACRO 2.5\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let rdl = snapshot.emit("NonFiniteFloats").unwrap();
+
+    for name in [
+        "FLOAT_INFINITY",
+        "DOUBLE_INFINITY",
+        "NOT_A_NUMBER",
+        "MACRO_INFINITY",
+        "MACRO_NAN",
+        "NARROWED_INFINITY",
+        "SDK_POSITIVE_INFINITY",
+        "SDK_NEGATIVE_INFINITY",
+        "SDK_NAN",
+    ] {
+        assert!(!rdl.contains(name), "{rdl}");
+    }
+    assert!(rdl.contains("const FINITE_FLOAT: f32 = 1.5"), "{rdl}");
+    assert!(rdl.contains("const FINITE_MACRO: f64 = 2.5"), "{rdl}");
+
+    let output =
+        std::env::temp_dir().join(format!("windows-clang-floats-{}.winmd", std::process::id()));
+    windows_rdl::reader()
+        .input_text(&rdl)
+        .output(&output)
+        .write()
+        .unwrap();
+    std::fs::remove_file(output).unwrap();
+}
+
+#[test]
 fn character_macros_are_evaluated() {
     helpers::ensure_libclang();
 
