@@ -208,7 +208,7 @@ fn merge_options(
 }
 
 fn show_modal(dialog: &IFileDialog, owner: *mut core::ffi::c_void) -> Result<bool> {
-    let result = unsafe { dialog.Show(Some(owner)) };
+    let result = unsafe { dialog.Show(Some(owner.cast())) };
     if is_cancelled(result) {
         Ok(false)
     } else {

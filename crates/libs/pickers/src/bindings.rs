@@ -33,7 +33,12 @@ pub const FileOpenDialog: windows_core::GUID =
     windows_core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
 pub const FileSaveDialog: windows_core::GUID =
     windows_core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
-pub type HWND = *mut core::ffi::c_void;
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 windows_core::imp::define_interface!(
     IBindCtx,
     IBindCtx_Vtbl,
