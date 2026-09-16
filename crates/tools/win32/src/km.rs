@@ -177,24 +177,11 @@ pub fn scrape(um_winmd: &std::path::Path) {
         .collect();
 
     let um_bytes = std::fs::read(um_winmd).unwrap();
-    let um_file = windows_metadata::reader::File::new(um_bytes.clone()).unwrap();
-    let mut excluded_types = std::collections::BTreeSet::new();
-    let mut excluded_functions = std::collections::BTreeSet::new();
-    let mut excluded_constants = std::collections::BTreeSet::new();
-    for (_, name, item) in windows_metadata::reader::Index::new(vec![um_file]).iter_items() {
-        match item {
-            windows_metadata::reader::Item::Type(_) => {
-                excluded_types.insert(name.to_string());
-            }
-            windows_metadata::reader::Item::Fn(_) => {
-                excluded_functions.insert(name.to_string());
-            }
-            windows_metadata::reader::Item::Const(_) => {
-                excluded_constants.insert(name.to_string());
-            }
-        }
-    }
-    let references = crate::type_references(vec![
+    let exclusions = windows_clang::MetadataReferences::new([windows_metadata::reader::File::new(
+        um_bytes.clone(),
+    )
+    .unwrap()]);
+    let references = windows_clang::MetadataReferences::new([
         windows_metadata::reader::File::new(um_bytes).unwrap(),
         windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
     ]);
@@ -212,9 +199,7 @@ pub fn scrape(um_winmd: &std::path::Path) {
                 let include_args = &include_args;
                 let import_libs = &import_libs;
                 let references = &references;
-                let excluded_types = &excluded_types;
-                let excluded_functions = &excluded_functions;
-                let excluded_constants = &excluded_constants;
+                let exclusions = &exclusions;
                 let resource_dir = resource_dir.as_deref();
                 scope.spawn(move || {
                     scrape_arch(
@@ -223,9 +208,7 @@ pub fn scrape(um_winmd: &std::path::Path) {
                         include_args,
                         import_libs,
                         references,
-                        excluded_types,
-                        excluded_functions,
-                        excluded_constants,
+                        exclusions,
                         resource_dir,
                         output_dir,
                         um_winmd,
@@ -292,10 +275,8 @@ fn scrape_arch(
     inputs: Vec<windows_clang::Input>,
     include_args: &[String],
     import_libs: &[String],
-    references: &std::collections::BTreeMap<String, windows_clang::TypeReference>,
-    excluded_types: &std::collections::BTreeSet<String>,
-    excluded_functions: &std::collections::BTreeSet<String>,
-    excluded_constants: &std::collections::BTreeSet<String>,
+    references: &windows_clang::MetadataReferences,
+    exclusions: &windows_clang::MetadataReferences,
     resource_dir: Option<&str>,
     output_dir: &std::path::Path,
     um_winmd: &std::path::Path,
@@ -336,7 +317,7 @@ fn scrape_arch(
         .facts()
         .iter()
         .filter(|fact| fact.root)
-        .filter(|fact| !excluded_functions.contains(&fact.name))
+        .filter(|fact| !exclusions.excluded_functions().contains(&fact.name))
         .filter_map(|fact| {
             if let windows_clang::FactData::Function { link_name, .. } = &fact.data {
                 Some(link_name)
@@ -351,10 +332,8 @@ fn scrape_arch(
         })
         .collect();
     let functions = libraries.keys().cloned().collect();
-    let mut options = windows_clang::EmitOptions::new(crate::ROOT, references);
-    options.excluded_types = Some(excluded_types);
-    options.excluded_functions = Some(excluded_functions);
-    options.excluded_constants = Some(excluded_constants);
+    let mut options = windows_clang::EmitOptions::new(crate::ROOT, references.types());
+    exclusions.apply_exclusions(&mut options);
     options.functions = Some(&functions);
     options.libraries = Some(&libraries);
     let partitions = snapshot.emit_by_header_with_options(&options).unwrap();

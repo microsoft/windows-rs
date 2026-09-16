@@ -15,23 +15,27 @@ Add the crate to your Cargo.toml:
 version = "0.100"
 ```
 
-Pass each translation unit as an [`Input`][input], extract an immutable snapshot, and emit RDL:
+For ordinary header-to-RDL generation, configure and run the high-level builder:
 
 ```rust,no_run
-let source = std::fs::read_to_string("Example.h").unwrap();
-let input = windows_clang::Input::new("Example.h", source);
-let snapshot = windows_clang::extract(
-    [input],
-    &["-x", "c++", "--target=x86_64-pc-windows-msvc"],
-)
-.unwrap();
-let rdl = snapshot.emit("Example").unwrap();
-std::fs::write("Example.rdl", rdl).unwrap();
+windows_clang::clang()
+    .input("Example.h")
+    .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
+    .reference_default()
+    .namespace("Example")
+    .library("example.dll")
+    .output("Example.rdl")
+    .write()
+    .unwrap();
 ```
 
+The builder reads inputs and references, invokes the extractor, emits RDL, and writes the output.
+Use [`Input`][input], `extract`, and `EmitOptions` directly when a generator needs to inspect or
+combine immutable snapshots before emission.
+
 The caller owns libclang installation, compiler arguments, package versions, import-library
-mapping, output promotion, and RDL-to-WinMD compilation. See the
-[crate documentation][docs] for the extraction and emission model.
+discovery, architecture merging, output promotion, and RDL-to-WinMD compilation. See the [crate
+documentation][docs] for both APIs and the extraction model.
 
 [input]: https://docs.rs/windows-clang/latest/windows_clang/struct.Input.html
 [docs]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-clang.md
