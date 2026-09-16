@@ -1,4 +1,4 @@
-windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : u32, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : PCWSTR, nsize : u32, arguments : *const va_list) -> u32);
+windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : u32, lpsource : LPCVOID, dwmessageid : u32, dwlanguageid : u32, lpbuffer : PCWSTR, nsize : u32, arguments : *const va_list) -> u32);
 windows_link::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut *mut core::ffi::c_void) -> HRESULT);
 windows_link::link!("kernel32.dll" "system" fn GetLastError() -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
@@ -26,7 +26,12 @@ pub struct GUID {
     pub data4: [u8; 8],
 }
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
 pub type HMODULE = HINSTANCE;
 pub type HRESULT = i32;
 pub const IID_IErrorInfo: GUID = GUID {
@@ -79,6 +84,7 @@ pub struct IUnknown_Vtbl {
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
+pub type LPCVOID = *const core::ffi::c_void;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
 pub type va_list = *mut i8;
