@@ -1,5 +1,5 @@
 windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
-windows_link::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *const SERVICE_STATUS) -> BOOL);
+windows_link::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : LPSERVICE_STATUS) -> BOOL);
 windows_link::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherW(lpservicestarttable : *const SERVICE_TABLE_ENTRYW) -> BOOL);
 pub type BOOL = i32;
 pub type LPHANDLER_FUNCTION_EX = Option<
@@ -12,6 +12,7 @@ pub type LPHANDLER_FUNCTION_EX = Option<
 >;
 pub type LPSERVICE_MAIN_FUNCTIONW =
     Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut PWSTR)>;
+pub type LPSERVICE_STATUS = *mut SERVICE_STATUS;
 pub const NO_ERROR: i32 = 0;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
@@ -38,7 +39,12 @@ pub struct SERVICE_STATUS {
     pub dwCheckPoint: u32,
     pub dwWaitHint: u32,
 }
-pub type SERVICE_STATUS_HANDLE = *mut core::ffi::c_void;
+pub type SERVICE_STATUS_HANDLE = *mut SERVICE_STATUS_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SERVICE_STATUS_HANDLE__ {
+    pub unused: i32,
+}
 pub const SERVICE_STOPPED: i32 = 1;
 pub const SERVICE_STOP_PENDING: i32 = 3;
 #[repr(C)]
