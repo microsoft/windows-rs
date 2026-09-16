@@ -16,6 +16,7 @@ pub struct ITEMIDLIST {
 pub type ITEMIDLIST_ABSOLUTE = ITEMIDLIST;
 pub type ITEMIDLIST_RELATIVE = ITEMIDLIST;
 pub type ITEMID_CHILD = ITEMIDLIST;
+pub type KF_REDIRECT_FLAGS = u32;
 pub type KNOWNFOLDERID = windows_core::GUID;
 pub type LPCITEMIDLIST = *const ITEMIDLIST;
 #[cfg(feature = "wtypes")]
@@ -26,9 +27,7 @@ pub type LPSHELLDETAILS = *mut SHELLDETAILS;
 pub type LPSHITEMID = *mut SHITEMID;
 pub type LPSTRRET = *mut STRRET;
 pub type PERCEIVED = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PERCEIVEDFLAG(pub u32);
+pub type PERCEIVEDFLAG = u32;
 pub const PERCEIVEDFLAG_GDIPLUS: i32 = 16;
 pub const PERCEIVEDFLAG_HARDCODED: i32 = 2;
 pub const PERCEIVEDFLAG_NATIVESUPPORT: i32 = 4;
@@ -69,9 +68,7 @@ pub const SCALE_400_PERCENT: DEVICE_SCALE_FACTOR = 400;
 pub const SCALE_450_PERCENT: DEVICE_SCALE_FACTOR = 450;
 pub const SCALE_500_PERCENT: DEVICE_SCALE_FACTOR = 500;
 pub type SHCOLSTATE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SHCOLSTATEF(pub u32);
+pub type SHCOLSTATEF = u32;
 pub const SHCOLSTATE_BATCHREAD: SHCOLSTATE = 131072;
 pub const SHCOLSTATE_DEFAULT: SHCOLSTATE = 0;
 pub const SHCOLSTATE_DISPLAYMASK: SHCOLSTATE = 61440;

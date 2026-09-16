@@ -4,984 +4,332 @@ pub const AVENC_H264V_MAX_MBBITS: i32 = 3200;
 pub const AVEncAudioInputContent_Music: eAVEncAudioInputContent = 2;
 pub const AVEncAudioInputContent_Unknown: eAVEncAudioInputContent = 0;
 pub const AVEncAudioInputContent_Voice: eAVEncAudioInputContent = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVAudioChannelConfig(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVAudioChannelCount(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVAudioSampleRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDDSurroundMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDSPLoudnessEqualization(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDSPSpeakerFill(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecAACDownmixMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecAudioDualMono(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecAudioDualMonoReproMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecCommonInputFormat(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecCommonMeanBitRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecCommonMeanBitRateInterval(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecCommonOutputFormat(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecDDDynamicRangeScaleHigh(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecDDDynamicRangeScaleLow(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecDDMatrixDecodingMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecDDOperationalMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecDDStereoDownMixMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecDisableVideoPostProcessing(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecHEAACDynamicRangeControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecNumWorkerThreads(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecSoftwareDynamicFormatChange(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoAcceleration_H264(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoAcceleration_MPEG2(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoAcceleration_VC1(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoCodecType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoDXVABusEncryption(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoDXVAMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoDropPicWithMissingRef(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoFastDecodeMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoH264ErrorConcealment(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoImageSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoInputScanType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoMPEG2ErrorConcealment(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoMaxCodedHeight(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoMaxCodedWidth(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoPixelAspectRatio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoProcDeinterlaceCSC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoSWPowerLevel(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoSoftwareDeinterlaceMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVDecVideoThumbnailGenerationMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEnableInLoopDeblockFilter(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAACEnableVBR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAdaptiveMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioDualMono(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioInputContent(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioIntervalToEncode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioIntervalToSkip(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel0(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel1(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel10(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel11(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel12(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel13(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel14(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel15(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel2(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel3(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel4(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel5(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel6(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel7(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel8(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMapDestChannel9(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncAudioMeanBitRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncChromaEncodeMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncChromaUpdateTime(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCodecType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonAllowFrameDrops(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonBufferInLevel(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonBufferOutLevel(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonBufferSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonFormatConstraint(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonLowLatency(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonMaxBitRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonMeanBitRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonMeanBitRateInterval(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonMinBitRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonMultipassMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonPassEnd(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonPassStart(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonQuality(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonQualityVsSpeed(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonRateControlMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonRealTime(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonStreamEndHandling(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncCommonTranscodeEncodingProfile(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDAtoDConverterType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDCentreDownMixLevel(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDChannelBWLowPassFilter(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDCopyright(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDDCHighPassFilter(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDDialogNormalization(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDDigitalDeemphasis(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDDynamicRangeCompressionControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDHeadphoneMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDLFELowPassFilter(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDLoRoCenterMixLvl_x10(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDLoRoSurroundMixLvl_x10(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDLtRtCenterMixLvl_x10(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDLtRtSurroundMixLvl_x10(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDOriginalBitstream(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDPreferredStereoDownMixMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDProductionInfoExists(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDProductionMixLevel(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDProductionRoomType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDRFPreEmphasisFilter(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDService(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDSurround3dBAttenuation(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDSurround90DegreeePhaseShift(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDSurroundDownMixLevel(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncDDSurroundExMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncEnableVideoProcessing(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncH264CABACEnable(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncH264PPSID(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncH264SPSID(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncInputVideoSystem(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncLowPowerEncoder(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxDVDNavPacks(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxEarliestPTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxInitialSCR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxLargestPacketSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxMuxRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxNumStreams(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxPackSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxPacketOverhead(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxSysAudioLock(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxSysCSPS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxSysFixed(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxSysRateBound(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxSysSTDBufferBound(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxSysVideoLock(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12MuxTargetPacketizer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12PktzCopyright(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12PktzInitialPTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12PktzOriginal(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12PktzPacketSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12PktzSTDBuffer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMP12PktzStreamID(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPACodingMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPACopyright(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPAEmphasisType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPAEnableRedundancyProtection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPALayer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPAOriginalBitstream(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPAPrivateUserBit(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVAddSeqEndCode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVDefaultBPictureCount(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVFrameFieldMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGOPOpen(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGOPSInSeq(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGOPSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGOPSizeMax(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGOPSizeMin(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderPicDispExt(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderPicExt(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqDispExt(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqExt(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVIntraDCPrecision(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVIntraVLCTable(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVLevel(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVProfile(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVQScaleType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVQuantMatrixChromaIntra(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVQuantMatrixChromaNonIntra(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVQuantMatrixIntra(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVQuantMatrixNonIntra(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVScanPattern(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVSceneDetection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMPVUseConcealmentMotionVectors(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMaxFrameRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncMuxOutputStreamType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncNoInputCopy(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncNumWorkerThreads(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncProgressiveUpdateTime(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncSliceControlMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncSliceControlSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncSliceGenerationMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatAudioAverageBPS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatAudioAveragePCMValue(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatAudioPeakPCMValue(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatAverageBPS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatCommonCompletedPasses(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatHardwareBandwidthUtilitization(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatHardwareProcessorUtilitization(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatMPVSkippedEmptyFrames(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatVideoCodedFrames(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatVideoOutputFrameRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatVideoTotalFrames(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatWMVCBAvg(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatWMVCBMax(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncStatWMVDecoderComplexityProfile(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncTileColumns(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncTileRows(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoCBRMotionTradeoff(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoCTBSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoCodedVideoAccessUnitSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoConsecutiveFramesForLayer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoContentType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoD3D12ReconstructedPictureOutputMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoDefaultUpperFieldDominant(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoDirtyRectEnabled(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoDisplayDimension(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoEnableFramePsnrYuv(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoEnableSpatialAdaptiveQuantization(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoEncodeDimension(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoEncodeFrameTypeQP(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoEncodeOffsetOrigin(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoEncodeQP(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoFieldSwap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoForceKeyFrame(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoForceSourceScanType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoGradualIntraRefresh(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoHeaderDropFrame(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoHeaderFrames(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoHeaderHours(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoHeaderMinutes(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoHeaderSeconds(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputAbsoluteQPBlockSettings(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputChromaResolution(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputChromaSubsampling(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputColorLighting(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputColorNominalRange(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputColorPrimaries(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputColorTransferFunction(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputColorTransferMatrix(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInputDeltaQPBlockSettings(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInstantTemporalUpSwitching(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoIntraLayerPrediction(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInverseTelecineEnable(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoInverseTelecineThreshold(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoLTRBufferControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMarkLTRFrame(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMaxCTBSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMaxKeyframeDistance(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMaxNumRefFrame(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMaxNumRefFrameForLayer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMaxQP(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMaxTemporalLayers(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMeanAbsoluteDifference(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoMinQP(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoNoOfFieldsToEncode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoNoOfFieldsToSkip(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoNumGOPsPerIDR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputBitsUsedMapBlockSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputChromaResolution(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputChromaSubsampling(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputColorLighting(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputColorNominalRange(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputColorPrimaries(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputColorTransferFunction(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputColorTransferMatrix(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputFrameRate(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputFrameRateConversion(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputQPMapBlockSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoOutputScanType(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoPixelAspectRatio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoROIEnabled(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoRateControlParams(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoSatdMapBlockSize(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoSelectLayer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoSourceFilmContent(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoSourceIsBW(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoSupportedControls(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoTemporalLayerCount(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoUsage(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncVideoUseLTRFrame(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncWMVDecoderComplexity(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncWMVInterlacedEncoding(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncWMVKeyFrameBufferLevelMarker(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncWMVKeyFrameDistance(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVEncWMVProduceDummyFrames(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVLowLatencyMode(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVPriorityControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVRealtimeControl(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_AVScenarioInfo(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_FeatureMapFlagsUsed(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputAAC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputDTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputDolby(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputHEAAC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputMPEG(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputPCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputWMA(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioInputWMAPro(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatATSC(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVB(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_DashVR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_V(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatHighMAT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatHighMPV(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatMP3(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatSVCD(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatUnSpecified(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncCommonFormatVCD(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncDTS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncDTSHD(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncDV(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalConsumer(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalPlus(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalPro(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncH264Video(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncMLP(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncMPEG1Audio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncMPEG1Video(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncMPEG2Audio(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncMPEG2Video(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncPCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncSDDS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncWMALossless(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncWMAPro(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncWMAVoice(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEncWMV(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GUID_AVEndMPEG4Video(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_GetOPMContext(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_SetHDCPManagerContext(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CODECAPI_VideoEncoderDisplayContentType(pub u8);
+pub const CODECAPI_AVAudioChannelConfig: windows_core::GUID = windows_core::GUID::from_u128(0x17f89cb3_c38d_4368_9ede_63b94d177f9f);
+pub const CODECAPI_AVAudioChannelCount: windows_core::GUID = windows_core::GUID::from_u128(0x1d3583c4_1583_474e_b71a_5ee463c198e4);
+pub const CODECAPI_AVAudioSampleRate: windows_core::GUID = windows_core::GUID::from_u128(0x971d2723_1acb_42e7_855c_520a4b70a5f2);
+pub const CODECAPI_AVDDSurroundMode: windows_core::GUID = windows_core::GUID::from_u128(0x99f2f386_98d1_4452_a163_abc78a6eb770);
+pub const CODECAPI_AVDSPLoudnessEqualization: windows_core::GUID = windows_core::GUID::from_u128(0x8afd1a15_1812_4cbf_9319_433a5b2a3b27);
+pub const CODECAPI_AVDSPSpeakerFill: windows_core::GUID = windows_core::GUID::from_u128(0x5612bca1_56da_4582_8da1_ca8090f92768);
+pub const CODECAPI_AVDecAACDownmixMode: windows_core::GUID = windows_core::GUID::from_u128(0x01274475_f6bb_4017_b084_81a763c942d4);
+pub const CODECAPI_AVDecAudioDualMono: windows_core::GUID = windows_core::GUID::from_u128(0x4a52cda8_30f8_4216_be0f_ba0b2025921d);
+pub const CODECAPI_AVDecAudioDualMonoReproMode: windows_core::GUID = windows_core::GUID::from_u128(0xa5106186_cc94_4bc9_8cd9_aa2f61f6807e);
+pub const CODECAPI_AVDecCommonInputFormat: windows_core::GUID = windows_core::GUID::from_u128(0xe5005239_bd89_4be3_9c0f_5dde317988cc);
+pub const CODECAPI_AVDecCommonMeanBitRate: windows_core::GUID = windows_core::GUID::from_u128(0x59488217_007a_4f7a_8e41_5c48b1eac5c6);
+pub const CODECAPI_AVDecCommonMeanBitRateInterval: windows_core::GUID = windows_core::GUID::from_u128(0x0ee437c6_38a7_4c5c_944c_68ab42116b85);
+pub const CODECAPI_AVDecCommonOutputFormat: windows_core::GUID = windows_core::GUID::from_u128(0x3c790028_c0ce_4256_b1a2_1b0fc8b1dcdc);
+pub const CODECAPI_AVDecDDDynamicRangeScaleHigh: windows_core::GUID = windows_core::GUID::from_u128(0x50196c21_1f33_4af5_b296_11426d6c8789);
+pub const CODECAPI_AVDecDDDynamicRangeScaleLow: windows_core::GUID = windows_core::GUID::from_u128(0x044e62e4_11a5_42d5_a3b2_3bb2c7c2d7cf);
+pub const CODECAPI_AVDecDDMatrixDecodingMode: windows_core::GUID = windows_core::GUID::from_u128(0xddc811a5_04ed_4bf3_a0ca_d00449f9355f);
+pub const CODECAPI_AVDecDDOperationalMode: windows_core::GUID = windows_core::GUID::from_u128(0xd6d6c6d1_064e_4fdd_a40e_3ecbfcb7ebd0);
+pub const CODECAPI_AVDecDDStereoDownMixMode: windows_core::GUID = windows_core::GUID::from_u128(0x6ce4122c_3ee9_4182_b4ae_c10fc088649d);
+pub const CODECAPI_AVDecDisableVideoPostProcessing: windows_core::GUID = windows_core::GUID::from_u128(0xf8749193_667a_4f2c_a9e8_5d4af924f08f);
+pub const CODECAPI_AVDecHEAACDynamicRangeControl: windows_core::GUID = windows_core::GUID::from_u128(0x287c8abe_69a4_4d39_8080_d3d9712178a0);
+pub const CODECAPI_AVDecNumWorkerThreads: windows_core::GUID = windows_core::GUID::from_u128(0x9561c3e8_ea9e_4435_9b1e_a93e691894d8);
+pub const CODECAPI_AVDecSoftwareDynamicFormatChange: windows_core::GUID = windows_core::GUID::from_u128(0x862e2f0a_507b_47ff_af47_01e2624298b7);
+pub const CODECAPI_AVDecVideoAcceleration_H264: windows_core::GUID = windows_core::GUID::from_u128(0xf7db8a2f_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoAcceleration_MPEG2: windows_core::GUID = windows_core::GUID::from_u128(0xf7db8a2e_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoAcceleration_VC1: windows_core::GUID = windows_core::GUID::from_u128(0xf7db8a30_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoCodecType: windows_core::GUID = windows_core::GUID::from_u128(0x434528e5_21f0_46b6_b62c_9b1b6b658cd1);
+pub const CODECAPI_AVDecVideoDXVABusEncryption: windows_core::GUID = windows_core::GUID::from_u128(0x42153c8b_fd0b_4765_a462_ddd9e8bcc388);
+pub const CODECAPI_AVDecVideoDXVAMode: windows_core::GUID = windows_core::GUID::from_u128(0xf758f09e_7337_4ae7_8387_73dc2d54e67d);
+pub const CODECAPI_AVDecVideoDropPicWithMissingRef: windows_core::GUID = windows_core::GUID::from_u128(0xf8226383_14c2_4567_9734_5004e96ff887);
+pub const CODECAPI_AVDecVideoFastDecodeMode: windows_core::GUID = windows_core::GUID::from_u128(0x6b529f7d_d3b1_49c6_a999_9ec6911bedbf);
+pub const CODECAPI_AVDecVideoH264ErrorConcealment: windows_core::GUID = windows_core::GUID::from_u128(0xececace8_3436_462c_9294_cd7bacd758a9);
+pub const CODECAPI_AVDecVideoImageSize: windows_core::GUID = windows_core::GUID::from_u128(0x5ee5747c_6801_4cab_aaf1_6248fa841ba4);
+pub const CODECAPI_AVDecVideoInputScanType: windows_core::GUID = windows_core::GUID::from_u128(0x38477e1f_0ea7_42cd_8cd1_130ced57c580);
+pub const CODECAPI_AVDecVideoMPEG2ErrorConcealment: windows_core::GUID = windows_core::GUID::from_u128(0x9d2bfe18_728d_48d2_b358_bc7e436c6674);
+pub const CODECAPI_AVDecVideoMaxCodedHeight: windows_core::GUID = windows_core::GUID::from_u128(0x7262a16a_d2dc_4e75_9ba8_65c0c6d32b13);
+pub const CODECAPI_AVDecVideoMaxCodedWidth: windows_core::GUID = windows_core::GUID::from_u128(0x5ae557b8_77af_41f5_9fa6_4db2fe1d4bca);
+pub const CODECAPI_AVDecVideoPixelAspectRatio: windows_core::GUID = windows_core::GUID::from_u128(0xb0cf8245_f32d_41df_b02c_87bd304d12ab);
+pub const CODECAPI_AVDecVideoProcDeinterlaceCSC: windows_core::GUID = windows_core::GUID::from_u128(0xf7db8a31_4f48_4ee8_ae31_8b6ebe558ae2);
+pub const CODECAPI_AVDecVideoSWPowerLevel: windows_core::GUID = windows_core::GUID::from_u128(0xfb5d2347_4dd8_4509_aed0_db5fa9aa93f4);
+pub const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: windows_core::GUID = windows_core::GUID::from_u128(0x0c08d1ce_9ced_4540_bae3_ceb380141109);
+pub const CODECAPI_AVDecVideoThumbnailGenerationMode: windows_core::GUID = windows_core::GUID::from_u128(0x2efd8eee_1150_4328_9cf5_66dce933fcf4);
+pub const CODECAPI_AVEnableInLoopDeblockFilter: windows_core::GUID = windows_core::GUID::from_u128(0xd2e8e399_0623_4bf3_92a8_4d1818529ded);
+pub const CODECAPI_AVEncAACEnableVBR: windows_core::GUID = windows_core::GUID::from_u128(0xe836bb98_fca3_44b6_9a39_24786be41be1);
+pub const CODECAPI_AVEncAdaptiveMode: windows_core::GUID = windows_core::GUID::from_u128(0x4419b185_da1f_4f53_bc76_097d0c1efb1e);
+pub const CODECAPI_AVEncAudioDualMono: windows_core::GUID = windows_core::GUID::from_u128(0x3648126b_a3e8_4329_9b3a_5ce566a43bd3);
+pub const CODECAPI_AVEncAudioInputContent: windows_core::GUID = windows_core::GUID::from_u128(0x3e226c2b_60b9_4a39_b00b_a7b40f70d566);
+pub const CODECAPI_AVEncAudioIntervalToEncode: windows_core::GUID = windows_core::GUID::from_u128(0x866e4b4d_725a_467c_bb01_b496b23b25f9);
+pub const CODECAPI_AVEncAudioIntervalToSkip: windows_core::GUID = windows_core::GUID::from_u128(0x88c15f94_c38c_4796_a9e8_96e967983f26);
+pub const CODECAPI_AVEncAudioMapDestChannel0: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b60_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel1: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b61_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel10: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b6a_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel11: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b6b_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel12: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b6c_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel13: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b6d_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel14: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b6e_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel15: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b6f_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel2: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b62_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel3: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b63_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel4: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b64_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel5: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b65_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel6: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b66_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel7: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b67_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel8: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b68_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMapDestChannel9: windows_core::GUID = windows_core::GUID::from_u128(0xbc5d0b69_df6a_4e16_9803_b82007a30c8d);
+pub const CODECAPI_AVEncAudioMeanBitRate: windows_core::GUID = windows_core::GUID::from_u128(0x921295bb_4fca_4679_aab8_9e2a1d753384);
+pub const CODECAPI_AVEncChromaEncodeMode: windows_core::GUID = windows_core::GUID::from_u128(0x8a47ab5a_4798_4c93_b5a5_554f9a3b9f50);
+pub const CODECAPI_AVEncChromaUpdateTime: windows_core::GUID = windows_core::GUID::from_u128(0x4b4fd998_4274_40bb_8ee4_07553e7e2d3a);
+pub const CODECAPI_AVEncCodecType: windows_core::GUID = windows_core::GUID::from_u128(0x08af4ac1_f3f2_4c74_9dcf_37f2ec79f826);
+pub const CODECAPI_AVEncCommonAllowFrameDrops: windows_core::GUID = windows_core::GUID::from_u128(0xd8477dcb_9598_48e3_8d0c_752bf206093e);
+pub const CODECAPI_AVEncCommonBufferInLevel: windows_core::GUID = windows_core::GUID::from_u128(0xd9c5c8db_fc74_4064_94e9_cd19f947ed45);
+pub const CODECAPI_AVEncCommonBufferOutLevel: windows_core::GUID = windows_core::GUID::from_u128(0xccae7f49_d0bc_4e3d_a57e_fb5740140069);
+pub const CODECAPI_AVEncCommonBufferSize: windows_core::GUID = windows_core::GUID::from_u128(0x0db96574_b6a4_4c8b_8106_3773de0310cd);
+pub const CODECAPI_AVEncCommonFormatConstraint: windows_core::GUID = windows_core::GUID::from_u128(0x57cbb9b8_116f_4951_b40c_c2a035ed8f17);
+pub const CODECAPI_AVEncCommonLowLatency: windows_core::GUID = windows_core::GUID::from_u128(0x9d3ecd55_89e8_490a_970a_0c9548d5a56e);
+pub const CODECAPI_AVEncCommonMaxBitRate: windows_core::GUID = windows_core::GUID::from_u128(0x9651eae4_39b9_4ebf_85ef_d7f444ec7465);
+pub const CODECAPI_AVEncCommonMeanBitRate: windows_core::GUID = windows_core::GUID::from_u128(0xf7222374_2144_4815_b550_a37f8e12ee52);
+pub const CODECAPI_AVEncCommonMeanBitRateInterval: windows_core::GUID = windows_core::GUID::from_u128(0xbfaa2f0c_cb82_4bc0_8474_f06a8a0d0258);
+pub const CODECAPI_AVEncCommonMinBitRate: windows_core::GUID = windows_core::GUID::from_u128(0x101405b2_2083_4034_a806_efbeddd7c9ff);
+pub const CODECAPI_AVEncCommonMultipassMode: windows_core::GUID = windows_core::GUID::from_u128(0x22533d4c_47e1_41b5_9352_a2b7780e7ac4);
+pub const CODECAPI_AVEncCommonPassEnd: windows_core::GUID = windows_core::GUID::from_u128(0x0e3d01bc_c85c_467d_8b60_c41012ee3bf6);
+pub const CODECAPI_AVEncCommonPassStart: windows_core::GUID = windows_core::GUID::from_u128(0x6a67739f_4eb5_4385_9928_f276a939ef95);
+pub const CODECAPI_AVEncCommonQuality: windows_core::GUID = windows_core::GUID::from_u128(0xfcbf57a3_7ea5_4b0c_9644_69b40c39c391);
+pub const CODECAPI_AVEncCommonQualityVsSpeed: windows_core::GUID = windows_core::GUID::from_u128(0x98332df8_03cd_476b_89fa_3f9e442dec9f);
+pub const CODECAPI_AVEncCommonRateControlMode: windows_core::GUID = windows_core::GUID::from_u128(0x1c0608e9_370c_4710_8a58_cb6181c42423);
+pub const CODECAPI_AVEncCommonRealTime: windows_core::GUID = windows_core::GUID::from_u128(0x143a0ff6_a131_43da_b81e_98fbb8ec378e);
+pub const CODECAPI_AVEncCommonStreamEndHandling: windows_core::GUID = windows_core::GUID::from_u128(0x6aad30af_6ba8_4ccc_8fca_18d19beaeb1c);
+pub const CODECAPI_AVEncCommonTranscodeEncodingProfile: windows_core::GUID = windows_core::GUID::from_u128(0x6947787c_f508_4ea9_b1e9_a1fe3a49fbc9);
+pub const CODECAPI_AVEncDDAtoDConverterType: windows_core::GUID = windows_core::GUID::from_u128(0x719f9612_81a1_47e0_9a05_d94ad5fca948);
+pub const CODECAPI_AVEncDDCentreDownMixLevel: windows_core::GUID = windows_core::GUID::from_u128(0xe285072c_c958_4a81_afd2_e5e0daf1b148);
+pub const CODECAPI_AVEncDDChannelBWLowPassFilter: windows_core::GUID = windows_core::GUID::from_u128(0xe197821d_d2e7_43e2_ad2c_00582f518545);
+pub const CODECAPI_AVEncDDCopyright: windows_core::GUID = windows_core::GUID::from_u128(0x8694f076_cd75_481d_a5c6_a904dcc828f0);
+pub const CODECAPI_AVEncDDDCHighPassFilter: windows_core::GUID = windows_core::GUID::from_u128(0x9565239f_861c_4ac8_bfda_e00cb4db8548);
+pub const CODECAPI_AVEncDDDialogNormalization: windows_core::GUID = windows_core::GUID::from_u128(0xd7055acf_f125_437d_a704_79c79f0404a8);
+pub const CODECAPI_AVEncDDDigitalDeemphasis: windows_core::GUID = windows_core::GUID::from_u128(0xe024a2c2_947c_45ac_87d8_f1030c5c0082);
+pub const CODECAPI_AVEncDDDynamicRangeCompressionControl: windows_core::GUID = windows_core::GUID::from_u128(0xcfc2ff6d_79b8_4b8d_a8aa_a0c9bd1c2940);
+pub const CODECAPI_AVEncDDHeadphoneMode: windows_core::GUID = windows_core::GUID::from_u128(0x4052dbec_52f5_42f5_9b00_d134b1341b9d);
+pub const CODECAPI_AVEncDDLFELowPassFilter: windows_core::GUID = windows_core::GUID::from_u128(0xd3b80f6f_9d15_45e5_91be_019c3fab1f01);
+pub const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: windows_core::GUID = windows_core::GUID::from_u128(0x1cfba222_25b3_4bf4_9bfd_e7111267858c);
+pub const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: windows_core::GUID = windows_core::GUID::from_u128(0xe725cff6_eb56_40c7_8450_2b9367e91555);
+pub const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: windows_core::GUID = windows_core::GUID::from_u128(0xdca128a2_491f_4600_b2da_76e3344b4197);
+pub const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: windows_core::GUID = windows_core::GUID::from_u128(0x212246c7_3d2c_4dfa_bc21_652a9098690d);
+pub const CODECAPI_AVEncDDOriginalBitstream: windows_core::GUID = windows_core::GUID::from_u128(0x966ae800_5bd3_4ff9_95b9_d30566273856);
+pub const CODECAPI_AVEncDDPreferredStereoDownMixMode: windows_core::GUID = windows_core::GUID::from_u128(0x7f4e6b31_9185_403d_b0a2_763743e6f063);
+pub const CODECAPI_AVEncDDProductionInfoExists: windows_core::GUID = windows_core::GUID::from_u128(0xb0b7fe5f_b6ab_4f40_964d_8d91f17c19e8);
+pub const CODECAPI_AVEncDDProductionMixLevel: windows_core::GUID = windows_core::GUID::from_u128(0x301d103a_cbf9_4776_8899_7c15b461ab26);
+pub const CODECAPI_AVEncDDProductionRoomType: windows_core::GUID = windows_core::GUID::from_u128(0xdad7ad60_23d8_4ab7_a284_556986d8a6fe);
+pub const CODECAPI_AVEncDDRFPreEmphasisFilter: windows_core::GUID = windows_core::GUID::from_u128(0x21af44c0_244e_4f3d_a2cc_3d3068b2e73f);
+pub const CODECAPI_AVEncDDService: windows_core::GUID = windows_core::GUID::from_u128(0xd2e1bec7_5172_4d2a_a50e_2f3b82b1ddf8);
+pub const CODECAPI_AVEncDDSurround3dBAttenuation: windows_core::GUID = windows_core::GUID::from_u128(0x4d43b99d_31e2_48b9_bf2e_5cbf1a572784);
+pub const CODECAPI_AVEncDDSurround90DegreeePhaseShift: windows_core::GUID = windows_core::GUID::from_u128(0x25ecec9d_3553_42c0_bb56_d25792104f80);
+pub const CODECAPI_AVEncDDSurroundDownMixLevel: windows_core::GUID = windows_core::GUID::from_u128(0x7b20d6e5_0bcf_4273_a487_506b047997e9);
+pub const CODECAPI_AVEncDDSurroundExMode: windows_core::GUID = windows_core::GUID::from_u128(0x91607cee_dbdd_4eb6_bca2_aadfafa3dd68);
+pub const CODECAPI_AVEncEnableVideoProcessing: windows_core::GUID = windows_core::GUID::from_u128(0x006f4bf6_0ea3_4d42_8702_b5d8be0f7a92);
+pub const CODECAPI_AVEncH264CABACEnable: windows_core::GUID = windows_core::GUID::from_u128(0xee6cad62_d305_4248_a50e_e1b255f7caf8);
+pub const CODECAPI_AVEncH264PPSID: windows_core::GUID = windows_core::GUID::from_u128(0xbfe29ec2_056c_4d68_a38d_ae5944c8582e);
+pub const CODECAPI_AVEncH264SPSID: windows_core::GUID = windows_core::GUID::from_u128(0x50f38f51_2b79_40e3_b39c_7e9fa0770501);
+pub const CODECAPI_AVEncInputVideoSystem: windows_core::GUID = windows_core::GUID::from_u128(0xbede146d_b616_4dc7_92b2_f5d9fa9298f7);
+pub const CODECAPI_AVEncLowPowerEncoder: windows_core::GUID = windows_core::GUID::from_u128(0xb668d582_8bad_4f6a_9141_375a95358b6d);
+pub const CODECAPI_AVEncMP12MuxDVDNavPacks: windows_core::GUID = windows_core::GUID::from_u128(0xc7607ced_8cf1_4a99_83a1_ee5461be3574);
+pub const CODECAPI_AVEncMP12MuxEarliestPTS: windows_core::GUID = windows_core::GUID::from_u128(0x157232b6_f809_474e_9464_a7f93014a817);
+pub const CODECAPI_AVEncMP12MuxInitialSCR: windows_core::GUID = windows_core::GUID::from_u128(0x3433ad21_1b91_4a0b_b190_2b77063b63a4);
+pub const CODECAPI_AVEncMP12MuxLargestPacketSize: windows_core::GUID = windows_core::GUID::from_u128(0x35ceb711_f461_4b92_a4ef_17b6841ed254);
+pub const CODECAPI_AVEncMP12MuxMuxRate: windows_core::GUID = windows_core::GUID::from_u128(0xee047c72_4bdb_4a9d_8e21_41926c823da7);
+pub const CODECAPI_AVEncMP12MuxNumStreams: windows_core::GUID = windows_core::GUID::from_u128(0xf7164a41_dced_4659_a8f2_fb693f2a4cd0);
+pub const CODECAPI_AVEncMP12MuxPackSize: windows_core::GUID = windows_core::GUID::from_u128(0xf916053a_1ce8_4faf_aa0b_ba31c80034b8);
+pub const CODECAPI_AVEncMP12MuxPacketOverhead: windows_core::GUID = windows_core::GUID::from_u128(0xe40bd720_3955_4453_acf9_b79132a38fa0);
+pub const CODECAPI_AVEncMP12MuxSysAudioLock: windows_core::GUID = windows_core::GUID::from_u128(0x0fbb5752_1d43_47bf_bd79_f2293d8ce337);
+pub const CODECAPI_AVEncMP12MuxSysCSPS: windows_core::GUID = windows_core::GUID::from_u128(0x7952ff45_9c0d_4822_bc82_8ad772e02993);
+pub const CODECAPI_AVEncMP12MuxSysFixed: windows_core::GUID = windows_core::GUID::from_u128(0xcefb987e_894f_452e_8f89_a4ef8cec063a);
+pub const CODECAPI_AVEncMP12MuxSysRateBound: windows_core::GUID = windows_core::GUID::from_u128(0x05f0428a_ee30_489d_ae28_205c72446710);
+pub const CODECAPI_AVEncMP12MuxSysSTDBufferBound: windows_core::GUID = windows_core::GUID::from_u128(0x35746903_b545_43e7_bb35_c5e0a7d5093c);
+pub const CODECAPI_AVEncMP12MuxSysVideoLock: windows_core::GUID = windows_core::GUID::from_u128(0xb8296408_2430_4d37_a2a1_95b3e435a91d);
+pub const CODECAPI_AVEncMP12MuxTargetPacketizer: windows_core::GUID = windows_core::GUID::from_u128(0xd862212a_2015_45dd_9a32_1b3aa88205a0);
+pub const CODECAPI_AVEncMP12PktzCopyright: windows_core::GUID = windows_core::GUID::from_u128(0xc8f4b0c1_094c_43c7_8e68_a595405a6ef8);
+pub const CODECAPI_AVEncMP12PktzInitialPTS: windows_core::GUID = windows_core::GUID::from_u128(0x2a4f2065_9a63_4d20_ae22_0a1bc896a315);
+pub const CODECAPI_AVEncMP12PktzOriginal: windows_core::GUID = windows_core::GUID::from_u128(0x6b178416_31b9_4964_94cb_6bff866cdf83);
+pub const CODECAPI_AVEncMP12PktzPacketSize: windows_core::GUID = windows_core::GUID::from_u128(0xab71347a_1332_4dde_a0e5_ccf7da8a0f22);
+pub const CODECAPI_AVEncMP12PktzSTDBuffer: windows_core::GUID = windows_core::GUID::from_u128(0x0b751bd0_819e_478c_9435_75208926b377);
+pub const CODECAPI_AVEncMP12PktzStreamID: windows_core::GUID = windows_core::GUID::from_u128(0xc834d038_f5e8_4408_9b60_88f36493fedf);
+pub const CODECAPI_AVEncMPACodingMode: windows_core::GUID = windows_core::GUID::from_u128(0xb16ade03_4b93_43d7_a550_90b4fe224537);
+pub const CODECAPI_AVEncMPACopyright: windows_core::GUID = windows_core::GUID::from_u128(0xa6ae762a_d0a9_4454_b8ef_f2dbeefdd3bd);
+pub const CODECAPI_AVEncMPAEmphasisType: windows_core::GUID = windows_core::GUID::from_u128(0x2d59fcda_bf4e_4ed6_b5df_5b03b36b0a1f);
+pub const CODECAPI_AVEncMPAEnableRedundancyProtection: windows_core::GUID = windows_core::GUID::from_u128(0x5e54b09e_b2e7_4973_a89b_0b3650a3beda);
+pub const CODECAPI_AVEncMPALayer: windows_core::GUID = windows_core::GUID::from_u128(0x9d377230_f91b_453d_9ce0_78445414c22d);
+pub const CODECAPI_AVEncMPAOriginalBitstream: windows_core::GUID = windows_core::GUID::from_u128(0x3cfb7855_9cc9_47ff_b829_b36786c92346);
+pub const CODECAPI_AVEncMPAPrivateUserBit: windows_core::GUID = windows_core::GUID::from_u128(0xafa505ce_c1e3_4e3d_851b_61b700e5e6cc);
+pub const CODECAPI_AVEncMPVAddSeqEndCode: windows_core::GUID = windows_core::GUID::from_u128(0xa823178f_57df_4c7a_b8fd_e5ec8887708d);
+pub const CODECAPI_AVEncMPVDefaultBPictureCount: windows_core::GUID = windows_core::GUID::from_u128(0x8d390aac_dc5c_4200_b57f_814d04babab2);
+pub const CODECAPI_AVEncMPVFrameFieldMode: windows_core::GUID = windows_core::GUID::from_u128(0xacb5de96_7b93_4c2f_8825_b0295fa93bf4);
+pub const CODECAPI_AVEncMPVGOPOpen: windows_core::GUID = windows_core::GUID::from_u128(0xb1d5d4a6_3300_49b1_ae61_a09937ab0e49);
+pub const CODECAPI_AVEncMPVGOPSInSeq: windows_core::GUID = windows_core::GUID::from_u128(0x993410d4_2691_4192_9978_98dc2603669f);
+pub const CODECAPI_AVEncMPVGOPSize: windows_core::GUID = windows_core::GUID::from_u128(0x95f31b26_95a4_41aa_9303_246a7fc6eef1);
+pub const CODECAPI_AVEncMPVGOPSizeMax: windows_core::GUID = windows_core::GUID::from_u128(0xfe7de4c4_1936_4fe2_bdf7_1f18ca1d001f);
+pub const CODECAPI_AVEncMPVGOPSizeMin: windows_core::GUID = windows_core::GUID::from_u128(0x7155cf20_d440_4852_ad0f_9c4abfe37a6a);
+pub const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: windows_core::GUID = windows_core::GUID::from_u128(0xc6412f84_c03f_4f40_a00c_4293df8395bb);
+pub const CODECAPI_AVEncMPVGenerateHeaderPicExt: windows_core::GUID = windows_core::GUID::from_u128(0x1b8464ab_944f_45f0_b74e_3a58dad11f37);
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: windows_core::GUID = windows_core::GUID::from_u128(0x6437aa6f_5a3c_4de9_8a16_53d9c4ad326f);
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqExt: windows_core::GUID = windows_core::GUID::from_u128(0xd5e78611_082d_4e6b_98af_0f51ab139222);
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: windows_core::GUID = windows_core::GUID::from_u128(0x0722d62f_dd59_4a86_9cd5_644f8e2653d8);
+pub const CODECAPI_AVEncMPVIntraDCPrecision: windows_core::GUID = windows_core::GUID::from_u128(0xa0116151_cbc8_4af3_97dc_d00cceb82d79);
+pub const CODECAPI_AVEncMPVIntraVLCTable: windows_core::GUID = windows_core::GUID::from_u128(0xa2b83ff5_1a99_405a_af95_c5997d558d3a);
+pub const CODECAPI_AVEncMPVLevel: windows_core::GUID = windows_core::GUID::from_u128(0x6ee40c40_a60c_41ef_8f50_37c2249e2cb3);
+pub const CODECAPI_AVEncMPVProfile: windows_core::GUID = windows_core::GUID::from_u128(0xdabb534a_1d99_4284_975a_d90e2239baa1);
+pub const CODECAPI_AVEncMPVQScaleType: windows_core::GUID = windows_core::GUID::from_u128(0x2b79ebb7_f484_4af7_bb58_a2a188c5cbbe);
+pub const CODECAPI_AVEncMPVQuantMatrixChromaIntra: windows_core::GUID = windows_core::GUID::from_u128(0x9eb9ecd4_018d_4ffd_8f2d_39e49f07b17a);
+pub const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: windows_core::GUID = windows_core::GUID::from_u128(0x1415b6b1_362a_4338_ba9a_1ef58703c05b);
+pub const CODECAPI_AVEncMPVQuantMatrixIntra: windows_core::GUID = windows_core::GUID::from_u128(0x9bea04f3_6621_442c_8ba1_3ac378979698);
+pub const CODECAPI_AVEncMPVQuantMatrixNonIntra: windows_core::GUID = windows_core::GUID::from_u128(0x87f441d8_0997_4beb_a08e_8573d409cf75);
+pub const CODECAPI_AVEncMPVScanPattern: windows_core::GUID = windows_core::GUID::from_u128(0x7f8a478e_7bbb_4ae2_b2fc_96d17fc4a2d6);
+pub const CODECAPI_AVEncMPVSceneDetection: windows_core::GUID = windows_core::GUID::from_u128(0x552799f1_db4c_405b_8a3a_c93f2d0674dc);
+pub const CODECAPI_AVEncMPVUseConcealmentMotionVectors: windows_core::GUID = windows_core::GUID::from_u128(0xec770cf3_6908_4b4b_aa30_7fb986214fea);
+pub const CODECAPI_AVEncMaxFrameRate: windows_core::GUID = windows_core::GUID::from_u128(0xb98e1b31_19fa_4d4f_9931_d6a5b8aab93c);
+pub const CODECAPI_AVEncMuxOutputStreamType: windows_core::GUID = windows_core::GUID::from_u128(0xcedd9e8f_34d3_44db_a1d8_f81520254f3e);
+pub const CODECAPI_AVEncNoInputCopy: windows_core::GUID = windows_core::GUID::from_u128(0xd2b46a2a_e8ee_4ec5_869e_449b6c62c81a);
+pub const CODECAPI_AVEncNumWorkerThreads: windows_core::GUID = windows_core::GUID::from_u128(0xb0c8bf60_16f7_4951_a30b_1db1609293d6);
+pub const CODECAPI_AVEncProgressiveUpdateTime: windows_core::GUID = windows_core::GUID::from_u128(0x649faf66_afc6_4828_8fdc_0771cd9ab17d);
+pub const CODECAPI_AVEncSliceControlMode: windows_core::GUID = windows_core::GUID::from_u128(0xe9e782ef_5f18_44c9_a90b_e9c3c2c17b0b);
+pub const CODECAPI_AVEncSliceControlSize: windows_core::GUID = windows_core::GUID::from_u128(0x92f51df3_07a5_4172_aefe_c69ca3b60e35);
+pub const CODECAPI_AVEncSliceGenerationMode: windows_core::GUID = windows_core::GUID::from_u128(0x8a6bc67f_9497_4286_b46b_02db8d60edbc);
+pub const CODECAPI_AVEncStatAudioAverageBPS: windows_core::GUID = windows_core::GUID::from_u128(0xca6724db_7059_4351_8b43_f82198826a14);
+pub const CODECAPI_AVEncStatAudioAveragePCMValue: windows_core::GUID = windows_core::GUID::from_u128(0x979272f8_d17f_4e32_bb73_4e731c68ba2d);
+pub const CODECAPI_AVEncStatAudioPeakPCMValue: windows_core::GUID = windows_core::GUID::from_u128(0xdce7fd34_dc00_4c16_821b_35d9eb00fb1a);
+pub const CODECAPI_AVEncStatAverageBPS: windows_core::GUID = windows_core::GUID::from_u128(0xca6724db_7059_4351_8b43_f82198826a14);
+pub const CODECAPI_AVEncStatCommonCompletedPasses: windows_core::GUID = windows_core::GUID::from_u128(0x3e5de533_9df7_438c_854f_9f7dd3683d34);
+pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: windows_core::GUID = windows_core::GUID::from_u128(0x0124ba9b_dc41_4826_b45f_18ac01b3d5a8);
+pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: windows_core::GUID = windows_core::GUID::from_u128(0x995dc027_cb95_49e6_b91b_5967753cdcb8);
+pub const CODECAPI_AVEncStatMPVSkippedEmptyFrames: windows_core::GUID = windows_core::GUID::from_u128(0x32195fd3_590d_4812_a7ed_6d639a1f9711);
+pub const CODECAPI_AVEncStatVideoCodedFrames: windows_core::GUID = windows_core::GUID::from_u128(0xd47f8d61_6f5a_4a26_bb9f_cd9518462bcd);
+pub const CODECAPI_AVEncStatVideoOutputFrameRate: windows_core::GUID = windows_core::GUID::from_u128(0xbe747849_9ab4_4a63_98fe_f143f04f8ee9);
+pub const CODECAPI_AVEncStatVideoTotalFrames: windows_core::GUID = windows_core::GUID::from_u128(0xfdaa9916_119a_4222_9ad6_3f7cab99cc8b);
+pub const CODECAPI_AVEncStatWMVCBAvg: windows_core::GUID = windows_core::GUID::from_u128(0x6aa6229f_d602_4b9d_b68c_c1ad78884bef);
+pub const CODECAPI_AVEncStatWMVCBMax: windows_core::GUID = windows_core::GUID::from_u128(0xe976bef8_00fe_44b4_b625_8f238bc03499);
+pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: windows_core::GUID = windows_core::GUID::from_u128(0x89e69fc3_0f9b_436c_974a_df821227c90d);
+pub const CODECAPI_AVEncTileColumns: windows_core::GUID = windows_core::GUID::from_u128(0xb4b31205_01e8_452c_b876_8c6506545925);
+pub const CODECAPI_AVEncTileRows: windows_core::GUID = windows_core::GUID::from_u128(0xfbc650fc_41ab_4f9b_84b5_065be9cd99ee);
+pub const CODECAPI_AVEncVideoCBRMotionTradeoff: windows_core::GUID = windows_core::GUID::from_u128(0x0d49451e_18d5_4367_a4ef_3240df1693c4);
+pub const CODECAPI_AVEncVideoCTBSize: windows_core::GUID = windows_core::GUID::from_u128(0xd47db8b2_e73b_4cb9_8c3e_bd877d06d77b);
+pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: windows_core::GUID = windows_core::GUID::from_u128(0xb4b10c15_14a7_4ce8_b173_dc90a0b4fcdb);
+pub const CODECAPI_AVEncVideoConsecutiveFramesForLayer: windows_core::GUID = windows_core::GUID::from_u128(0x0af35522_d984_45ae_bbb8_53933e0ab1b5);
+pub const CODECAPI_AVEncVideoContentType: windows_core::GUID = windows_core::GUID::from_u128(0x66117aca_eb77_459d_930c_a48d9d0683fc);
+pub const CODECAPI_AVEncVideoD3D12ReconstructedPictureOutputMode: windows_core::GUID = windows_core::GUID::from_u128(0x4a7b2e8f_1d93_4c6a_b548_91e2f8c5a7d3);
+pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: windows_core::GUID = windows_core::GUID::from_u128(0x810167c4_0bc1_47ca_8fc2_57055a1474a5);
+pub const CODECAPI_AVEncVideoDirtyRectEnabled: windows_core::GUID = windows_core::GUID::from_u128(0x8acb8fdd_5e0c_4c66_8729_b8f629ab04fb);
+pub const CODECAPI_AVEncVideoDisplayDimension: windows_core::GUID = windows_core::GUID::from_u128(0xde053668_f4ec_47a9_86d0_836770f0c1d5);
+pub const CODECAPI_AVEncVideoEnableFramePsnrYuv: windows_core::GUID = windows_core::GUID::from_u128(0x2bbcdd1d_bc47_430e_b2e8_64801b47f5f0);
+pub const CODECAPI_AVEncVideoEnableSpatialAdaptiveQuantization: windows_core::GUID = windows_core::GUID::from_u128(0x659cb943_15ca_448d_b99a_875619db4de4);
+pub const CODECAPI_AVEncVideoEncodeDimension: windows_core::GUID = windows_core::GUID::from_u128(0x1074df28_7e0f_47a4_a453_cdd73870f5ce);
+pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: windows_core::GUID = windows_core::GUID::from_u128(0xaa70b610_e03f_450c_ad07_07314e639ce7);
+pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: windows_core::GUID = windows_core::GUID::from_u128(0x6bc098fe_a71a_4454_852e_4d2ddeb2cd24);
+pub const CODECAPI_AVEncVideoEncodeQP: windows_core::GUID = windows_core::GUID::from_u128(0x2cb5696b_23fb_4ce1_a0f9_ef5b90fd55ca);
+pub const CODECAPI_AVEncVideoFieldSwap: windows_core::GUID = windows_core::GUID::from_u128(0xfefd7569_4e0a_49f2_9f2b_360ea48c19a2);
+pub const CODECAPI_AVEncVideoForceKeyFrame: windows_core::GUID = windows_core::GUID::from_u128(0x398c1b98_8353_475a_9ef2_8f265d260345);
+pub const CODECAPI_AVEncVideoForceSourceScanType: windows_core::GUID = windows_core::GUID::from_u128(0x1ef2065f_058a_4765_a4fc_8a864c103012);
+pub const CODECAPI_AVEncVideoGradualIntraRefresh: windows_core::GUID = windows_core::GUID::from_u128(0x8f347dee_cb0d_49ba_b462_db6927ee2101);
+pub const CODECAPI_AVEncVideoHeaderDropFrame: windows_core::GUID = windows_core::GUID::from_u128(0x6ed9e124_7925_43fe_971b_e019f62222b4);
+pub const CODECAPI_AVEncVideoHeaderFrames: windows_core::GUID = windows_core::GUID::from_u128(0xafd5f567_5c1b_4adc_bdaf_735610381436);
+pub const CODECAPI_AVEncVideoHeaderHours: windows_core::GUID = windows_core::GUID::from_u128(0x2acc7702_e2da_4158_bf9b_88880129d740);
+pub const CODECAPI_AVEncVideoHeaderMinutes: windows_core::GUID = windows_core::GUID::from_u128(0xdc1a99ce_0307_408b_880b_b8348ee8ca7f);
+pub const CODECAPI_AVEncVideoHeaderSeconds: windows_core::GUID = windows_core::GUID::from_u128(0x4a2e1a05_a780_4f58_8120_9a449d69656b);
+pub const CODECAPI_AVEncVideoInputAbsoluteQPBlockSettings: windows_core::GUID = windows_core::GUID::from_u128(0xef95a145_4f91_4dea_8173_acff11434210);
+pub const CODECAPI_AVEncVideoInputChromaResolution: windows_core::GUID = windows_core::GUID::from_u128(0xbb0cec33_16f1_47b0_8a88_37815bee1739);
+pub const CODECAPI_AVEncVideoInputChromaSubsampling: windows_core::GUID = windows_core::GUID::from_u128(0xa8e73a39_4435_4ec3_a6ea_98300f4b36f7);
+pub const CODECAPI_AVEncVideoInputColorLighting: windows_core::GUID = windows_core::GUID::from_u128(0x46a99549_0015_4a45_9c30_1d5cfa258316);
+pub const CODECAPI_AVEncVideoInputColorNominalRange: windows_core::GUID = windows_core::GUID::from_u128(0x16cf25c6_a2a6_48e9_ae80_21aec41d427e);
+pub const CODECAPI_AVEncVideoInputColorPrimaries: windows_core::GUID = windows_core::GUID::from_u128(0xc24d783f_7ce6_4278_90ab_28a4f1e5f86c);
+pub const CODECAPI_AVEncVideoInputColorTransferFunction: windows_core::GUID = windows_core::GUID::from_u128(0x8c056111_a9c3_4b08_a0a0_ce13f8a27c75);
+pub const CODECAPI_AVEncVideoInputColorTransferMatrix: windows_core::GUID = windows_core::GUID::from_u128(0x52ed68b9_72d5_4089_958d_f5405d55081c);
+pub const CODECAPI_AVEncVideoInputDeltaQPBlockSettings: windows_core::GUID = windows_core::GUID::from_u128(0x5a4787dc_0648_47aa_b945_552bfad2a6d8);
+pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: windows_core::GUID = windows_core::GUID::from_u128(0xa3308307_0d96_4ba4_b1f0_b91a5e49df10);
+pub const CODECAPI_AVEncVideoIntraLayerPrediction: windows_core::GUID = windows_core::GUID::from_u128(0xd3af46b8_bf47_44bb_a283_69f0b0228ff9);
+pub const CODECAPI_AVEncVideoInverseTelecineEnable: windows_core::GUID = windows_core::GUID::from_u128(0x2ea9098b_e76d_4ccd_a030_d3b889c1b64c);
+pub const CODECAPI_AVEncVideoInverseTelecineThreshold: windows_core::GUID = windows_core::GUID::from_u128(0x40247d84_e895_497f_b44c_b74560acfe27);
+pub const CODECAPI_AVEncVideoLTRBufferControl: windows_core::GUID = windows_core::GUID::from_u128(0xa4a0e93d_4cbc_444c_89f4_826d310e92a7);
+pub const CODECAPI_AVEncVideoMarkLTRFrame: windows_core::GUID = windows_core::GUID::from_u128(0xe42f4748_a06d_4ef9_8cea_3d05fde3bd3b);
+pub const CODECAPI_AVEncVideoMaxCTBSize: windows_core::GUID = windows_core::GUID::from_u128(0x822363ff_cec8_43e5_92fd_e097488485e9);
+pub const CODECAPI_AVEncVideoMaxKeyframeDistance: windows_core::GUID = windows_core::GUID::from_u128(0x2987123a_ba93_4704_b489_ec1e5f25292c);
+pub const CODECAPI_AVEncVideoMaxNumRefFrame: windows_core::GUID = windows_core::GUID::from_u128(0x964829ed_94f9_43b4_b74d_ef40944b69a0);
+pub const CODECAPI_AVEncVideoMaxNumRefFrameForLayer: windows_core::GUID = windows_core::GUID::from_u128(0x3141c639_6329_40d1_b7e7_2f0e3ac18e02);
+pub const CODECAPI_AVEncVideoMaxQP: windows_core::GUID = windows_core::GUID::from_u128(0x3daf6f66_a6a7_45e0_a8e5_f2743f46a3a2);
+pub const CODECAPI_AVEncVideoMaxTemporalLayers: windows_core::GUID = windows_core::GUID::from_u128(0x9c668cfe_08e1_424a_934e_b764b064802a);
+pub const CODECAPI_AVEncVideoMeanAbsoluteDifference: windows_core::GUID = windows_core::GUID::from_u128(0xe5c0c10f_81a4_422d_8c3f_b474a4581336);
+pub const CODECAPI_AVEncVideoMinQP: windows_core::GUID = windows_core::GUID::from_u128(0x0ee22c6a_a37c_4568_b5f1_9d4c2b3ab886);
+pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: windows_core::GUID = windows_core::GUID::from_u128(0x61e4bbe2_4ee0_40e7_80ab_51ddeebe6291);
+pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: windows_core::GUID = windows_core::GUID::from_u128(0xa97e1240_1427_4c16_a7f7_3dcfd8ba4cc5);
+pub const CODECAPI_AVEncVideoNumGOPsPerIDR: windows_core::GUID = windows_core::GUID::from_u128(0x83bc5bdb_5b89_4521_8f66_33151c373176);
+pub const CODECAPI_AVEncVideoOutputBitsUsedMapBlockSize: windows_core::GUID = windows_core::GUID::from_u128(0x6c2cd11a_ca3b_44bd_9a9e_93b03634c36e);
+pub const CODECAPI_AVEncVideoOutputChromaResolution: windows_core::GUID = windows_core::GUID::from_u128(0x6097b4c9_7c1d_4e64_bfcc_9e9765318ae7);
+pub const CODECAPI_AVEncVideoOutputChromaSubsampling: windows_core::GUID = windows_core::GUID::from_u128(0xfa561c6c_7d17_44f0_83c9_32ed12e96343);
+pub const CODECAPI_AVEncVideoOutputColorLighting: windows_core::GUID = windows_core::GUID::from_u128(0x0e5aaac6_ace6_4c5c_998e_1a8c9c6c0f89);
+pub const CODECAPI_AVEncVideoOutputColorNominalRange: windows_core::GUID = windows_core::GUID::from_u128(0x972835ed_87b5_4e95_9500_c73958566e54);
+pub const CODECAPI_AVEncVideoOutputColorPrimaries: windows_core::GUID = windows_core::GUID::from_u128(0xbe95907c_9d04_4921_8985_a6d6d87d1a6c);
+pub const CODECAPI_AVEncVideoOutputColorTransferFunction: windows_core::GUID = windows_core::GUID::from_u128(0x4a7f884a_ea11_460d_bf57_b88bc75900de);
+pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: windows_core::GUID = windows_core::GUID::from_u128(0xa9b90444_af40_4310_8fbe_ed6d933f892b);
+pub const CODECAPI_AVEncVideoOutputFrameRate: windows_core::GUID = windows_core::GUID::from_u128(0xea85e7c3_9567_4d99_87c4_02c1c278ca7c);
+pub const CODECAPI_AVEncVideoOutputFrameRateConversion: windows_core::GUID = windows_core::GUID::from_u128(0x8c068bf4_369a_4ba3_82fd_b2518fb3396e);
+pub const CODECAPI_AVEncVideoOutputQPMapBlockSize: windows_core::GUID = windows_core::GUID::from_u128(0x97038743_4ae3_44c3_a0f2_5bd58a4634ef);
+pub const CODECAPI_AVEncVideoOutputScanType: windows_core::GUID = windows_core::GUID::from_u128(0x460b5576_842e_49ab_a62d_b36f7312c9db);
+pub const CODECAPI_AVEncVideoPixelAspectRatio: windows_core::GUID = windows_core::GUID::from_u128(0x3cdc718f_b3e9_4eb6_a57f_cf1f1b321b87);
+pub const CODECAPI_AVEncVideoROIEnabled: windows_core::GUID = windows_core::GUID::from_u128(0xd74f7f18_44dd_4b85_aba3_05d9f42a8280);
+pub const CODECAPI_AVEncVideoRateControlParams: windows_core::GUID = windows_core::GUID::from_u128(0x87d43767_7645_44ec_b438_d3322fbca29f);
+pub const CODECAPI_AVEncVideoSatdMapBlockSize: windows_core::GUID = windows_core::GUID::from_u128(0x596f1106_8ce0_4302_af79_c4ec67aadc6d);
+pub const CODECAPI_AVEncVideoSelectLayer: windows_core::GUID = windows_core::GUID::from_u128(0xeb1084f5_6aaa_4914_bb2f_6147227f12e7);
+pub const CODECAPI_AVEncVideoSourceFilmContent: windows_core::GUID = windows_core::GUID::from_u128(0x1791c64b_ccfc_4827_a0ed_2557793b2b1c);
+pub const CODECAPI_AVEncVideoSourceIsBW: windows_core::GUID = windows_core::GUID::from_u128(0x42ffc49b_1812_4fdc_8d24_7054c521e6eb);
+pub const CODECAPI_AVEncVideoSupportedControls: windows_core::GUID = windows_core::GUID::from_u128(0xd3f40fdd_77b9_473d_8196_061259e69cff);
+pub const CODECAPI_AVEncVideoTemporalLayerCount: windows_core::GUID = windows_core::GUID::from_u128(0x19caebff_b74d_4cfd_8c27_c2f9d97d5f52);
+pub const CODECAPI_AVEncVideoUsage: windows_core::GUID = windows_core::GUID::from_u128(0x1f636849_5dc1_49f1_b1d8_ce3cf62ea385);
+pub const CODECAPI_AVEncVideoUseLTRFrame: windows_core::GUID = windows_core::GUID::from_u128(0x00752db8_55f7_4f80_895b_27639195f2ad);
+pub const CODECAPI_AVEncWMVDecoderComplexity: windows_core::GUID = windows_core::GUID::from_u128(0xf32c0dab_f3cb_4217_b79f_8762768b5f67);
+pub const CODECAPI_AVEncWMVInterlacedEncoding: windows_core::GUID = windows_core::GUID::from_u128(0xe3d00f8a_c6f5_4e14_a588_0ec87a726f9b);
+pub const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: windows_core::GUID = windows_core::GUID::from_u128(0x51ff1115_33ac_426c_a1b1_09321bdf96b4);
+pub const CODECAPI_AVEncWMVKeyFrameDistance: windows_core::GUID = windows_core::GUID::from_u128(0x5569055e_e268_4771_b83e_9555ea28aed3);
+pub const CODECAPI_AVEncWMVProduceDummyFrames: windows_core::GUID = windows_core::GUID::from_u128(0xd669d001_183c_42e3_a3ca_2f4586d2396c);
+pub const CODECAPI_AVLowLatencyMode: windows_core::GUID = windows_core::GUID::from_u128(0x9c27891a_ed7a_40e1_88e8_b22727a024ee);
+pub const CODECAPI_AVPriorityControl: windows_core::GUID = windows_core::GUID::from_u128(0x54ba3dc8_bdde_4329_b187_2018bc5c2ba1);
+pub const CODECAPI_AVRealtimeControl: windows_core::GUID = windows_core::GUID::from_u128(0x6f440632_c4ad_4bf7_9e52_456942b454b0);
+pub const CODECAPI_AVScenarioInfo: windows_core::GUID = windows_core::GUID::from_u128(0xb28a6e64_3ff9_446a_8a4b_0d7a53413236);
+pub const CODECAPI_FeatureMapFlagsUsed: windows_core::GUID = windows_core::GUID::from_u128(0x8bfda3b8_7387_4c07_924f_fe63006cf22b);
+pub const CODECAPI_GUID_AVDecAudioInputAAC: windows_core::GUID = windows_core::GUID::from_u128(0x97df7828_b94a_47e2_a4bc_51194db22a4d);
+pub const CODECAPI_GUID_AVDecAudioInputDTS: windows_core::GUID = windows_core::GUID::from_u128(0x600bc0ca_6a1f_4e91_b241_1bbeb1cb19e0);
+pub const CODECAPI_GUID_AVDecAudioInputDolby: windows_core::GUID = windows_core::GUID::from_u128(0x8e4228a0_f000_4e0b_8f54_ab8d24ad61a2);
+pub const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: windows_core::GUID = windows_core::GUID::from_u128(0x0803e185_8f5d_47f5_9908_19a5bbc9fe34);
+pub const CODECAPI_GUID_AVDecAudioInputHEAAC: windows_core::GUID = windows_core::GUID::from_u128(0x16efb4aa_330e_4f5c_98a8_cf6ac55cbe60);
+pub const CODECAPI_GUID_AVDecAudioInputMPEG: windows_core::GUID = windows_core::GUID::from_u128(0x91106f36_02c5_4f75_9719_3b7abf75e1f6);
+pub const CODECAPI_GUID_AVDecAudioInputPCM: windows_core::GUID = windows_core::GUID::from_u128(0xf2421da5_bbb4_4cd5_a996_933c6b5d1347);
+pub const CODECAPI_GUID_AVDecAudioInputWMA: windows_core::GUID = windows_core::GUID::from_u128(0xc95e8dcf_4058_4204_8c42_cb24d91e4b9b);
+pub const CODECAPI_GUID_AVDecAudioInputWMAPro: windows_core::GUID = windows_core::GUID::from_u128(0x0128b7c7_da72_4fe3_bef8_5c52e3557704);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: windows_core::GUID = windows_core::GUID::from_u128(0x696e1d31_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: windows_core::GUID = windows_core::GUID::from_u128(0x696e1d34_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: windows_core::GUID = windows_core::GUID::from_u128(0x696e1d35_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: windows_core::GUID = windows_core::GUID::from_u128(0x696e1d30_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: windows_core::GUID = windows_core::GUID::from_u128(0x696e1d33_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: windows_core::GUID = windows_core::GUID::from_u128(0x696e1d32_548f_4036_825f_7026c60011bd);
+pub const CODECAPI_GUID_AVEncCommonFormatATSC: windows_core::GUID = windows_core::GUID::from_u128(0x8d7b897c_a019_4670_aa76_2edcac7ac296);
+pub const CODECAPI_GUID_AVEncCommonFormatDVB: windows_core::GUID = windows_core::GUID::from_u128(0x71830d8f_6c33_430d_844b_c2705baae6db);
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: windows_core::GUID = windows_core::GUID::from_u128(0xe55199d6_044c_4dae_a488_531ed306235b);
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: windows_core::GUID = windows_core::GUID::from_u128(0xe74c6f2e_ec37_478d_9af4_a5e135b6271c);
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_V: windows_core::GUID = windows_core::GUID::from_u128(0xcc9598c4_e7fe_451d_b1ca_761bc840b7f3);
+pub const CODECAPI_GUID_AVEncCommonFormatHighMAT: windows_core::GUID = windows_core::GUID::from_u128(0x1eabe760_fb2b_4928_90d1_78db88eee889);
+pub const CODECAPI_GUID_AVEncCommonFormatHighMPV: windows_core::GUID = windows_core::GUID::from_u128(0xa2d25db8_b8f9_42c2_8bc7_0b93cf604788);
+pub const CODECAPI_GUID_AVEncCommonFormatMP3: windows_core::GUID = windows_core::GUID::from_u128(0x349733cd_eb08_4dc2_8197_e49835ef828b);
+pub const CODECAPI_GUID_AVEncCommonFormatSVCD: windows_core::GUID = windows_core::GUID::from_u128(0x51d85818_8220_448c_8066_d69bed16c9ad);
+pub const CODECAPI_GUID_AVEncCommonFormatUnSpecified: windows_core::GUID = windows_core::GUID::from_u128(0xaf46a35a_6024_4525_a48a_094b97f5b3c2);
+pub const CODECAPI_GUID_AVEncCommonFormatVCD: windows_core::GUID = windows_core::GUID::from_u128(0x95035bf7_9d90_40ff_ad5c_5cf8cf71ca1d);
+pub const CODECAPI_GUID_AVEncDTS: windows_core::GUID = windows_core::GUID::from_u128(0x45fbcaa2_5e6e_4ab0_8893_5903bee93acf);
+pub const CODECAPI_GUID_AVEncDTSHD: windows_core::GUID = windows_core::GUID::from_u128(0x2052e630_469d_4bfb_80ca_1d656e7e918f);
+pub const CODECAPI_GUID_AVEncDV: windows_core::GUID = windows_core::GUID::from_u128(0x09b769c7_3329_44fb_8954_fa30937d3d5a);
+pub const CODECAPI_GUID_AVEncDolbyDigitalConsumer: windows_core::GUID = windows_core::GUID::from_u128(0xc1a7bf6c_0059_4bfa_94ef_ef747a768d52);
+pub const CODECAPI_GUID_AVEncDolbyDigitalPlus: windows_core::GUID = windows_core::GUID::from_u128(0x698d1b80_f7dd_415c_971c_42492a2056c6);
+pub const CODECAPI_GUID_AVEncDolbyDigitalPro: windows_core::GUID = windows_core::GUID::from_u128(0xf5be76cc_0ff8_40eb_9cb1_bba94004d44f);
+pub const CODECAPI_GUID_AVEncH264Video: windows_core::GUID = windows_core::GUID::from_u128(0x95044eab_31b3_47de_8e75_38a42bb03e28);
+pub const CODECAPI_GUID_AVEncMLP: windows_core::GUID = windows_core::GUID::from_u128(0x05f73e29_f0d1_431e_a41c_a47432ec5a66);
+pub const CODECAPI_GUID_AVEncMPEG1Audio: windows_core::GUID = windows_core::GUID::from_u128(0xd4dd1362_cd4a_4cd6_8138_b94db4542b04);
+pub const CODECAPI_GUID_AVEncMPEG1Video: windows_core::GUID = windows_core::GUID::from_u128(0xc8dafefe_da1e_4774_b27d_11830c16b1fe);
+pub const CODECAPI_GUID_AVEncMPEG2Audio: windows_core::GUID = windows_core::GUID::from_u128(0xee4cbb1f_9c3f_4770_92b5_fcb7c2a8d381);
+pub const CODECAPI_GUID_AVEncMPEG2Video: windows_core::GUID = windows_core::GUID::from_u128(0x046dc19a_6677_4aaa_a31d_c1ab716f4560);
+pub const CODECAPI_GUID_AVEncPCM: windows_core::GUID = windows_core::GUID::from_u128(0x844be7f4_26cf_4779_b386_cc05d187990c);
+pub const CODECAPI_GUID_AVEncSDDS: windows_core::GUID = windows_core::GUID::from_u128(0x1dc1b82f_11c8_4c71_b7b6_ee3eb9bc2b94);
+pub const CODECAPI_GUID_AVEncWMALossless: windows_core::GUID = windows_core::GUID::from_u128(0x55ca7265_23d8_4761_9031_b74fbe12f4c1);
+pub const CODECAPI_GUID_AVEncWMAPro: windows_core::GUID = windows_core::GUID::from_u128(0x1955f90c_33f7_4a68_ab81_53f5657125c4);
+pub const CODECAPI_GUID_AVEncWMAVoice: windows_core::GUID = windows_core::GUID::from_u128(0x13ed18cb_50e8_4276_a288_a6aa228382d9);
+pub const CODECAPI_GUID_AVEncWMV: windows_core::GUID = windows_core::GUID::from_u128(0x4e0fef9b_1d43_41bd_b8bd_4d7bf7457a2a);
+pub const CODECAPI_GUID_AVEndMPEG4Video: windows_core::GUID = windows_core::GUID::from_u128(0xdd37b12a_9503_4f8b_b8d0_324a00c0a1cf);
+pub const CODECAPI_GetOPMContext: windows_core::GUID = windows_core::GUID::from_u128(0x2f036c05_4c14_4689_8839_294c6d73e053);
+pub const CODECAPI_SetHDCPManagerContext: windows_core::GUID = windows_core::GUID::from_u128(0x6d2d1fc8_3dc9_47eb_a1a2_471c80cd60d0);
+pub const CODECAPI_VideoEncoderDisplayContentType: windows_core::GUID = windows_core::GUID::from_u128(0x79b90b27_f4b1_42dc_9dd7_cdaf8135c400);
 pub type eAVAudioChannelConfig = i32;
 pub const eAVAudioChannelConfig_BACK_CENTER: eAVAudioChannelConfig = 256;
 pub const eAVAudioChannelConfig_BACK_LEFT: eAVAudioChannelConfig = 16;
@@ -1221,7 +569,7 @@ pub const eAVEncH264VProfile_422: eAVEncH264VProfile = 122;
 pub const eAVEncH264VProfile_444: eAVEncH264VProfile = 244;
 pub const eAVEncH264VProfile_Base: eAVEncH264VProfile = 66;
 pub const eAVEncH264VProfile_ConstrainedBase: eAVEncH264VProfile = 256;
-pub const eAVEncH264VProfile_ConstrainedHigh: i32 = 257;
+pub const eAVEncH264VProfile_ConstrainedHigh: eAVEncH264VProfile = 257;
 pub const eAVEncH264VProfile_Extended: eAVEncH264VProfile = 88;
 pub const eAVEncH264VProfile_High: eAVEncH264VProfile = 100;
 pub const eAVEncH264VProfile_High10: eAVEncH264VProfile = 110;

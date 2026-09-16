@@ -1,3 +1,147 @@
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserFree(param0: *mut u32, param1: *mut super::HACCEL) {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserFree(param0 : *mut u32, param1 : *mut super::HACCEL));
+    unsafe { HACCEL_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserFree64(param0: *mut u32, param1: *mut super::HACCEL) {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserFree64(param0 : *mut u32, param1 : *mut super::HACCEL));
+    unsafe { HACCEL_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HACCEL) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+    unsafe { HACCEL_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HACCEL) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+    unsafe { HACCEL_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HACCEL) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HACCEL) -> u32);
+    unsafe { HACCEL_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HACCEL) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HACCEL) -> u32);
+    unsafe { HACCEL_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HACCEL) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+    unsafe { HACCEL_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HACCEL_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HACCEL) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+    unsafe { HACCEL_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserFree(param0: *mut u32, param1: *mut super::HPALETTE) {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserFree(param0 : *mut u32, param1 : *mut super::HPALETTE));
+    unsafe { HPALETTE_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserFree64(param0: *mut u32, param1: *mut super::HPALETTE) {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserFree64(param0 : *mut u32, param1 : *mut super::HPALETTE));
+    unsafe { HPALETTE_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HPALETTE) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+    unsafe { HPALETTE_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HPALETTE) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+    unsafe { HPALETTE_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HPALETTE) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HPALETTE) -> u32);
+    unsafe { HPALETTE_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HPALETTE) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HPALETTE) -> u32);
+    unsafe { HPALETTE_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HPALETTE) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+    unsafe { HPALETTE_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HPALETTE_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HPALETTE) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+    unsafe { HPALETTE_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserFree(param0: *mut u32, param1: *mut super::HRGN) {
+    windows_core::link!("ole32.dll" "system" fn HRGN_UserFree(param0 : *mut u32, param1 : *mut super::HRGN));
+    unsafe { HRGN_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserFree64(param0: *mut u32, param1: *mut super::HRGN) {
+    windows_core::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserFree64(param0 : *mut u32, param1 : *mut super::HRGN));
+    unsafe { HRGN_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HRGN) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HRGN_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+    unsafe { HRGN_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HRGN) -> *mut u8 {
+    windows_core::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+    unsafe { HRGN_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HRGN) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HRGN_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HRGN) -> u32);
+    unsafe { HRGN_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HRGN) -> u32 {
+    windows_core::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HRGN) -> u32);
+    unsafe { HRGN_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HRGN) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HRGN_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+    unsafe { HRGN_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn HRGN_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HRGN) -> *mut u8 {
+    windows_core::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+    unsafe { HRGN_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
 pub type ACTIVATEFLAGS = i32;
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1;
 #[repr(C)]
@@ -7,10 +151,11 @@ pub struct CADWORD {
     pub pElems: *mut u32,
 }
 #[repr(C)]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CALPOLESTR {
     pub cElems: u32,
-    pub pElems: *mut windows_core::PWSTR,
+    pub pElems: *mut super::LPOLESTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -60,9 +205,7 @@ pub const DVEXTENT_CONTENT: DVEXTENTMODE = 0;
 pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = 1;
 pub type GUIDKIND = i32;
 pub const GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HHANDLE(pub usize);
+pub type HHANDLE = usize;
 pub type HITRESULT = i32;
 pub const HITRESULT_CLOSE: HITRESULT = 2;
 pub const HITRESULT_HIT: HITRESULT = 3;
@@ -94,11 +237,11 @@ pub struct IAdviseSinkEx_Vtbl {
     pub base__: super::IAdviseSink_Vtbl,
     pub OnViewStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAdviseSinkEx_Impl: super::IAdviseSink_Impl {
     fn OnViewStatusChange(&self, dwviewstatus: u32);
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAdviseSinkEx_Vtbl {
     pub const fn new<Identity: IAdviseSinkEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnViewStatusChange<Identity: IAdviseSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwviewstatus: u32) {
@@ -113,7 +256,7 @@ impl IAdviseSinkEx_Vtbl {
         iid == &<IAdviseSinkEx as windows_core::Interface>::IID || iid == &<super::IAdviseSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAdviseSinkEx {}
 #[cfg(feature = "unknwnbase")]
 windows_core::imp::define_interface!(IClassFactory2, IClassFactory2_Vtbl, 0xb196b28f_bab4_101a_b69c_00aa00341d07);
@@ -469,7 +612,7 @@ impl windows_core::RuntimeName for IEnumConnectionPoints {}
 windows_core::imp::define_interface!(IEnumConnections, IEnumConnections_Vtbl, 0xb196b287_bab4_101a_b69c_00aa00341d07);
 windows_core::imp::interface_hierarchy!(IEnumConnections, windows_core::IUnknown);
 impl IEnumConnections {
-    pub unsafe fn Next(&self, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> windows_core::HRESULT {
+    pub unsafe fn Next(&self, cconnections: u32, rgcd: LPCONNECTDATA, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cconnections, rgcd, pcfetched as _) }
     }
     pub unsafe fn Skip(&self, cconnections: u32) -> windows_core::HRESULT {
@@ -489,20 +632,20 @@ impl IEnumConnections {
 #[doc(hidden)]
 pub struct IEnumConnections_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CONNECTDATA, *mut u32) -> windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPCONNECTDATA, *mut u32) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumConnections_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, cconnections: u32, rgcd: LPCONNECTDATA, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cconnections: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumConnections>;
 }
 impl IEnumConnections_Vtbl {
     pub const fn new<Identity: IEnumConnections_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cconnections: u32, rgcd: LPCONNECTDATA, pcfetched: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumConnections_Impl::Next(this, core::mem::transmute_copy(&cconnections), core::mem::transmute_copy(&rgcd), core::mem::transmute_copy(&pcfetched)).into()
@@ -1565,7 +1708,7 @@ impl IOleInPlaceSiteWindowless {
         unsafe { (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self), ffocus.into()) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetDC(&self, prect: *const super::RECT, grfflags: u32) -> windows_core::Result<super::HDC> {
+    pub unsafe fn GetDC(&self, prect: super::LPCRECT, grfflags: u32) -> windows_core::Result<super::HDC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), prect, grfflags, &mut result__).map(|| result__)
@@ -1576,7 +1719,7 @@ impl IOleInPlaceSiteWindowless {
         unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), hdc) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn InvalidateRect(&self, prect: *const super::RECT, ferase: bool) -> windows_core::HRESULT {
+    pub unsafe fn InvalidateRect(&self, prect: super::LPCRECT, ferase: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InvalidateRect)(windows_core::Interface::as_raw(self), prect, ferase.into()) }
     }
     #[cfg(feature = "minwindef")]
@@ -1584,11 +1727,11 @@ impl IOleInPlaceSiteWindowless {
         unsafe { (windows_core::Interface::vtable(self).InvalidateRgn)(windows_core::Interface::as_raw(self), hrgn, ferase.into()) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn ScrollRect(&self, dx: i32, dy: i32, prectscroll: *const super::RECT, prectclip: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn ScrollRect(&self, dx: i32, dy: i32, prectscroll: super::LPCRECT, prectclip: super::LPCRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ScrollRect)(windows_core::Interface::as_raw(self), dx, dy, prectscroll, prectclip) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn AdjustRect(&self, prc: *mut super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn AdjustRect(&self, prc: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AdjustRect)(windows_core::Interface::as_raw(self), prc as _) }
     }
     #[cfg(feature = "minwindef")]
@@ -1610,7 +1753,7 @@ pub struct IOleInPlaceSiteWindowless_Vtbl {
     pub GetFocus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, u32, *mut super::HDC) -> windows_core::HRESULT,
+    pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCRECT, u32, *mut super::HDC) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetDC: usize,
     #[cfg(feature = "windef")]
@@ -1618,7 +1761,7 @@ pub struct IOleInPlaceSiteWindowless_Vtbl {
     #[cfg(not(feature = "windef"))]
     ReleaseDC: usize,
     #[cfg(feature = "windef")]
-    pub InvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, windows_core::BOOL) -> windows_core::HRESULT,
+    pub InvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCRECT, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     InvalidateRect: usize,
     #[cfg(feature = "minwindef")]
@@ -1626,11 +1769,11 @@ pub struct IOleInPlaceSiteWindowless_Vtbl {
     #[cfg(not(feature = "minwindef"))]
     InvalidateRgn: usize,
     #[cfg(feature = "windef")]
-    pub ScrollRect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const super::RECT, *const super::RECT) -> windows_core::HRESULT,
+    pub ScrollRect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::LPCRECT, super::LPCRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     ScrollRect: usize,
     #[cfg(feature = "windef")]
-    pub AdjustRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
+    pub AdjustRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     AdjustRect: usize,
     #[cfg(feature = "minwindef")]
@@ -1645,12 +1788,12 @@ pub trait IOleInPlaceSiteWindowless_Impl: IOleInPlaceSiteEx_Impl {
     fn SetCapture(&self, fcapture: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFocus(&self) -> windows_core::Result<()>;
     fn SetFocus(&self, ffocus: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetDC(&self, prect: *const super::RECT, grfflags: u32) -> windows_core::Result<super::HDC>;
+    fn GetDC(&self, prect: super::LPCRECT, grfflags: u32) -> windows_core::Result<super::HDC>;
     fn ReleaseDC(&self, hdc: super::HDC) -> windows_core::Result<()>;
-    fn InvalidateRect(&self, prect: *const super::RECT, ferase: windows_core::BOOL) -> windows_core::Result<()>;
+    fn InvalidateRect(&self, prect: super::LPCRECT, ferase: windows_core::BOOL) -> windows_core::Result<()>;
     fn InvalidateRgn(&self, hrgn: super::HRGN, ferase: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ScrollRect(&self, dx: i32, dy: i32, prectscroll: *const super::RECT, prectclip: *const super::RECT) -> windows_core::Result<()>;
-    fn AdjustRect(&self, prc: *mut super::RECT) -> windows_core::Result<()>;
+    fn ScrollRect(&self, dx: i32, dy: i32, prectscroll: super::LPCRECT, prectclip: super::LPCRECT) -> windows_core::Result<()>;
+    fn AdjustRect(&self, prc: super::LPRECT) -> windows_core::Result<()>;
     fn OnDefWindowMessage(&self, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<super::LRESULT>;
 }
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "windef"))]
@@ -1686,7 +1829,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
                 IOleInPlaceSiteWindowless_Impl::SetFocus(this, core::mem::transmute_copy(&ffocus)).into()
             }
         }
-        unsafe extern "system" fn GetDC<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: *const super::RECT, grfflags: u32, phdc: *mut super::HDC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDC<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: super::LPCRECT, grfflags: u32, phdc: *mut super::HDC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleInPlaceSiteWindowless_Impl::GetDC(this, core::mem::transmute_copy(&prect), core::mem::transmute_copy(&grfflags)) {
@@ -1704,7 +1847,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
                 IOleInPlaceSiteWindowless_Impl::ReleaseDC(this, core::mem::transmute_copy(&hdc)).into()
             }
         }
-        unsafe extern "system" fn InvalidateRect<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: *const super::RECT, ferase: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvalidateRect<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: super::LPCRECT, ferase: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleInPlaceSiteWindowless_Impl::InvalidateRect(this, core::mem::transmute_copy(&prect), core::mem::transmute_copy(&ferase)).into()
@@ -1716,13 +1859,13 @@ impl IOleInPlaceSiteWindowless_Vtbl {
                 IOleInPlaceSiteWindowless_Impl::InvalidateRgn(this, core::mem::transmute_copy(&hrgn), core::mem::transmute_copy(&ferase)).into()
             }
         }
-        unsafe extern "system" fn ScrollRect<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dx: i32, dy: i32, prectscroll: *const super::RECT, prectclip: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn ScrollRect<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dx: i32, dy: i32, prectscroll: super::LPCRECT, prectclip: super::LPCRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleInPlaceSiteWindowless_Impl::ScrollRect(this, core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&prectscroll), core::mem::transmute_copy(&prectclip)).into()
             }
         }
-        unsafe extern "system" fn AdjustRect<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdjustRect<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleInPlaceSiteWindowless_Impl::AdjustRect(this, core::mem::transmute_copy(&prc)).into()
@@ -2199,7 +2342,7 @@ impl IPerPropertyBrowsing {
             (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
     pub unsafe fn GetPredefinedStrings(&self, dispid: super::DISPID, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, pcastringsout as _, pcacookiesout as _) }
     }
@@ -2223,9 +2366,9 @@ pub struct IPerPropertyBrowsing_Vtbl {
     pub MapPropertyToPage: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, *mut windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(not(feature = "oaidl"))]
     MapPropertyToPage: usize,
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
     pub GetPredefinedStrings: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, *mut CALPOLESTR, *mut CADWORD) -> windows_core::HRESULT,
-    #[cfg(not(feature = "oaidl"))]
+    #[cfg(not(all(feature = "oaidl", feature = "wtypesbase")))]
     GetPredefinedStrings: usize,
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPredefinedValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, u32, *mut super::VARIANT) -> windows_core::HRESULT,
@@ -2615,7 +2758,8 @@ impl IPersistStreamInit {
     {
         unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pstm.param().abi(), fcleardirty.into()) }
     }
-    pub unsafe fn GetSizeMax(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn GetSizeMax(&self) -> windows_core::Result<super::ULARGE_INTEGER> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSizeMax)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2639,18 +2783,21 @@ pub struct IPersistStreamInit_Vtbl {
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
     Save: usize,
-    pub GetSizeMax: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub GetSizeMax: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULARGE_INTEGER) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetSizeMax: usize,
     pub InitNew: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "objidl", feature = "objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase", feature = "winnt"))]
 pub trait IPersistStreamInit_Impl: super::IPersist_Impl {
     fn IsDirty(&self) -> windows_core::Result<()>;
     fn Load(&self, pstm: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn Save(&self, pstm: windows_core::Ref<super::IStream>, fcleardirty: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetSizeMax(&self) -> windows_core::Result<u64>;
+    fn GetSizeMax(&self) -> windows_core::Result<super::ULARGE_INTEGER>;
     fn InitNew(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "objidl", feature = "objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase", feature = "winnt"))]
 impl IPersistStreamInit_Vtbl {
     pub const fn new<Identity: IPersistStreamInit_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsDirty<Identity: IPersistStreamInit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2671,7 +2818,7 @@ impl IPersistStreamInit_Vtbl {
                 IPersistStreamInit_Impl::Save(this, core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&fcleardirty)).into()
             }
         }
-        unsafe extern "system" fn GetSizeMax<Identity: IPersistStreamInit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbsize: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSizeMax<Identity: IPersistStreamInit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbsize: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistStreamInit_Impl::GetSizeMax(this) {
@@ -2702,7 +2849,7 @@ impl IPersistStreamInit_Vtbl {
         iid == &<IPersistStreamInit as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidl", feature = "objidlbase"))]
+#[cfg(all(feature = "objidl", feature = "objidlbase", feature = "winnt"))]
 impl windows_core::RuntimeName for IPersistStreamInit {}
 windows_core::imp::define_interface!(IPicture, IPicture_Vtbl, 0x7bf80980_bf32_101a_8bbb_00aa00300cab);
 windows_core::imp::interface_hierarchy!(IPicture, windows_core::IUnknown);
@@ -2738,7 +2885,7 @@ impl IPicture {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: super::LPCRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), hdc, x, y, cx, cy, xsrc, ysrc, cxsrc, cysrc, prcwbounds) }
     }
     pub unsafe fn set_hPal(&self, hpal: OLE_HANDLE) -> windows_core::HRESULT {
@@ -2794,7 +2941,7 @@ pub struct IPicture_Vtbl {
     pub get_Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OLE_XSIZE_HIMETRIC) -> windows_core::HRESULT,
     pub get_Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OLE_YSIZE_HIMETRIC) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub Render: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, i32, i32, i32, i32, OLE_XPOS_HIMETRIC, OLE_YPOS_HIMETRIC, OLE_XSIZE_HIMETRIC, OLE_YSIZE_HIMETRIC, *const super::RECT) -> windows_core::HRESULT,
+    pub Render: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, i32, i32, i32, i32, OLE_XPOS_HIMETRIC, OLE_YPOS_HIMETRIC, OLE_XSIZE_HIMETRIC, OLE_YSIZE_HIMETRIC, super::LPCRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     Render: usize,
     pub set_hPal: unsafe extern "system" fn(*mut core::ffi::c_void, OLE_HANDLE) -> windows_core::HRESULT,
@@ -2822,7 +2969,7 @@ pub trait IPicture_Impl: windows_core::IUnknownImpl {
     fn get_Type(&self) -> windows_core::Result<i16>;
     fn get_Width(&self) -> windows_core::Result<OLE_XSIZE_HIMETRIC>;
     fn get_Height(&self) -> windows_core::Result<OLE_YSIZE_HIMETRIC>;
-    fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: *const super::RECT) -> windows_core::Result<()>;
+    fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: super::LPCRECT) -> windows_core::Result<()>;
     fn set_hPal(&self, hpal: OLE_HANDLE) -> windows_core::Result<()>;
     fn get_CurDC(&self) -> windows_core::Result<super::HDC>;
     fn SelectPicture(&self, hdcin: super::HDC, phdcout: *mut super::HDC, phbmpout: *mut OLE_HANDLE) -> windows_core::Result<()>;
@@ -2895,7 +3042,7 @@ impl IPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Render<Identity: IPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Render<Identity: IPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: super::LPCRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPicture_Impl::Render(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&cx), core::mem::transmute_copy(&cy), core::mem::transmute_copy(&xsrc), core::mem::transmute_copy(&ysrc), core::mem::transmute_copy(&cxsrc), core::mem::transmute_copy(&cysrc), core::mem::transmute_copy(&prcwbounds)).into()
@@ -3031,7 +3178,7 @@ impl IPicture2 {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: super::LPCRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), hdc, x, y, cx, cy, xsrc, ysrc, cxsrc, cysrc, prcwbounds) }
     }
     pub unsafe fn set_hPal(&self, hpal: HHANDLE) -> windows_core::HRESULT {
@@ -3087,7 +3234,7 @@ pub struct IPicture2_Vtbl {
     pub get_Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OLE_XSIZE_HIMETRIC) -> windows_core::HRESULT,
     pub get_Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OLE_YSIZE_HIMETRIC) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub Render: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, i32, i32, i32, i32, OLE_XPOS_HIMETRIC, OLE_YPOS_HIMETRIC, OLE_XSIZE_HIMETRIC, OLE_YSIZE_HIMETRIC, *const super::RECT) -> windows_core::HRESULT,
+    pub Render: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, i32, i32, i32, i32, OLE_XPOS_HIMETRIC, OLE_YPOS_HIMETRIC, OLE_XSIZE_HIMETRIC, OLE_YSIZE_HIMETRIC, super::LPCRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     Render: usize,
     pub set_hPal: unsafe extern "system" fn(*mut core::ffi::c_void, HHANDLE) -> windows_core::HRESULT,
@@ -3115,7 +3262,7 @@ pub trait IPicture2_Impl: windows_core::IUnknownImpl {
     fn get_Type(&self) -> windows_core::Result<i16>;
     fn get_Width(&self) -> windows_core::Result<OLE_XSIZE_HIMETRIC>;
     fn get_Height(&self) -> windows_core::Result<OLE_YSIZE_HIMETRIC>;
-    fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: *const super::RECT) -> windows_core::Result<()>;
+    fn Render(&self, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: super::LPCRECT) -> windows_core::Result<()>;
     fn set_hPal(&self, hpal: HHANDLE) -> windows_core::Result<()>;
     fn get_CurDC(&self) -> windows_core::Result<super::HDC>;
     fn SelectPicture(&self, hdcin: super::HDC, phdcout: *mut super::HDC, phbmpout: *mut HHANDLE) -> windows_core::Result<()>;
@@ -3188,7 +3335,7 @@ impl IPicture2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Render<Identity: IPicture2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Render<Identity: IPicture2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: OLE_XPOS_HIMETRIC, ysrc: OLE_YPOS_HIMETRIC, cxsrc: OLE_XSIZE_HIMETRIC, cysrc: OLE_YSIZE_HIMETRIC, prcwbounds: super::LPCRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPicture2_Impl::Render(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&cx), core::mem::transmute_copy(&cy), core::mem::transmute_copy(&xsrc), core::mem::transmute_copy(&ysrc), core::mem::transmute_copy(&cxsrc), core::mem::transmute_copy(&cysrc), core::mem::transmute_copy(&prcwbounds)).into()
@@ -3330,11 +3477,11 @@ impl IPointerInactive {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn OnInactiveMouseMove(&self, prectbounds: *const super::RECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::HRESULT {
+    pub unsafe fn OnInactiveMouseMove(&self, prectbounds: super::LPCRECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnInactiveMouseMove)(windows_core::Interface::as_raw(self), prectbounds, x, y, grfkeystate) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn OnInactiveSetCursor(&self, prectbounds: *const super::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: bool) -> windows_core::HRESULT {
+    pub unsafe fn OnInactiveSetCursor(&self, prectbounds: super::LPCRECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnInactiveSetCursor)(windows_core::Interface::as_raw(self), prectbounds, x, y, dwmousemsg, fsetalways.into()) }
     }
 }
@@ -3344,19 +3491,19 @@ pub struct IPointerInactive_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetActivationPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub OnInactiveMouseMove: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, i32, i32, u32) -> windows_core::HRESULT,
+    pub OnInactiveMouseMove: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCRECT, i32, i32, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     OnInactiveMouseMove: usize,
     #[cfg(feature = "windef")]
-    pub OnInactiveSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, i32, i32, u32, windows_core::BOOL) -> windows_core::HRESULT,
+    pub OnInactiveSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCRECT, i32, i32, u32, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     OnInactiveSetCursor: usize,
 }
 #[cfg(feature = "windef")]
 pub trait IPointerInactive_Impl: windows_core::IUnknownImpl {
     fn GetActivationPolicy(&self) -> windows_core::Result<u32>;
-    fn OnInactiveMouseMove(&self, prectbounds: *const super::RECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::Result<()>;
-    fn OnInactiveSetCursor(&self, prectbounds: *const super::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnInactiveMouseMove(&self, prectbounds: super::LPCRECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::Result<()>;
+    fn OnInactiveSetCursor(&self, prectbounds: super::LPCRECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
 impl IPointerInactive_Vtbl {
@@ -3373,13 +3520,13 @@ impl IPointerInactive_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OnInactiveMouseMove<Identity: IPointerInactive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prectbounds: *const super::RECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnInactiveMouseMove<Identity: IPointerInactive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prectbounds: super::LPCRECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPointerInactive_Impl::OnInactiveMouseMove(this, core::mem::transmute_copy(&prectbounds), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&grfkeystate)).into()
             }
         }
-        unsafe extern "system" fn OnInactiveSetCursor<Identity: IPointerInactive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prectbounds: *const super::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnInactiveSetCursor<Identity: IPointerInactive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prectbounds: super::LPCRECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPointerInactive_Impl::OnInactiveSetCursor(this, core::mem::transmute_copy(&prectbounds), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&dwmousemsg), core::mem::transmute_copy(&fsetalways)).into()
@@ -3418,18 +3565,17 @@ impl IPropertyBag2 {
             (windows_core::Interface::vtable(self).CountProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), iproperty, cproperties, ppropbag as _, pcproperties as _) }
     }
-    #[cfg(feature = "oaidl")]
-    pub unsafe fn LoadObject<P0, P2, P3>(&self, pstrname: P0, dwhint: u32, punkobject: P2, perrlog: P3) -> windows_core::HRESULT
+    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+    pub unsafe fn LoadObject<P2, P3>(&self, pstrname: super::LPCOLESTR, dwhint: u32, punkobject: P2, perrlog: P3) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<super::IErrorLog>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadObject)(windows_core::Interface::as_raw(self), pstrname.param().abi(), dwhint, punkobject.param().abi(), perrlog.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).LoadObject)(windows_core::Interface::as_raw(self), pstrname, dwhint, punkobject.param().abi(), perrlog.param().abi()) }
     }
 }
 #[repr(C)]
@@ -3445,13 +3591,13 @@ pub struct IPropertyBag2_Vtbl {
     #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     Write: usize,
     pub CountProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut PROPBAG2, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     GetPropertyInfo: usize,
-    #[cfg(feature = "oaidl")]
-    pub LoadObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "oaidl"))]
+    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+    pub LoadObject: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "oaidl", feature = "wtypesbase")))]
     LoadObject: usize,
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
@@ -3460,7 +3606,7 @@ pub trait IPropertyBag2_Impl: windows_core::IUnknownImpl {
     fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
     fn CountProperties(&self) -> windows_core::Result<u32>;
     fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> windows_core::Result<()>;
-    fn LoadObject(&self, pstrname: &windows_core::PCWSTR, dwhint: u32, punkobject: windows_core::Ref<windows_core::IUnknown>, perrlog: windows_core::Ref<super::IErrorLog>) -> windows_core::Result<()>;
+    fn LoadObject(&self, pstrname: super::LPCOLESTR, dwhint: u32, punkobject: windows_core::Ref<windows_core::IUnknown>, perrlog: windows_core::Ref<super::IErrorLog>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyBag2_Vtbl {
@@ -3495,10 +3641,10 @@ impl IPropertyBag2_Vtbl {
                 IPropertyBag2_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&iproperty), core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&pcproperties)).into()
             }
         }
-        unsafe extern "system" fn LoadObject<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrname: windows_core::PCWSTR, dwhint: u32, punkobject: *mut core::ffi::c_void, perrlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadObject<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrname: super::LPCOLESTR, dwhint: u32, punkobject: *mut core::ffi::c_void, perrlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyBag2_Impl::LoadObject(this, core::mem::transmute(&pstrname), core::mem::transmute_copy(&dwhint), core::mem::transmute_copy(&punkobject), core::mem::transmute_copy(&perrlog)).into()
+                IPropertyBag2_Impl::LoadObject(this, core::mem::transmute_copy(&pstrname), core::mem::transmute_copy(&dwhint), core::mem::transmute_copy(&punkobject), core::mem::transmute_copy(&perrlog)).into()
             }
         }
         Self {
@@ -3583,13 +3729,13 @@ impl IPropertyPage {
         unsafe { (windows_core::Interface::vtable(self).SetPageSite)(windows_core::Interface::as_raw(self), ppagesite.param().abi()) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn Activate(&self, hwndparent: super::HWND, prect: *const super::RECT, bmodal: bool) -> windows_core::HRESULT {
+    pub unsafe fn Activate(&self, hwndparent: super::HWND, prect: super::LPCRECT, bmodal: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), hwndparent, prect, bmodal.into()) }
     }
     pub unsafe fn Deactivate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "windef", feature = "wtypesbase"))]
     pub unsafe fn GetPageInfo(&self, ppageinfo: *mut PROPPAGEINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPageInfo)(windows_core::Interface::as_raw(self), ppageinfo as _) }
     }
@@ -3600,7 +3746,7 @@ impl IPropertyPage {
         unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), ncmdshow) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn Move(&self, prect: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn Move(&self, prect: super::LPCRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), prect) }
     }
     pub unsafe fn IsPageDirty(&self) -> windows_core::HRESULT {
@@ -3609,11 +3755,9 @@ impl IPropertyPage {
     pub unsafe fn Apply(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Apply)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Help<P0>(&self, pszhelpdir: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Help)(windows_core::Interface::as_raw(self), pszhelpdir.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn Help(&self, pszhelpdir: super::LPCOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Help)(windows_core::Interface::as_raw(self), pszhelpdir) }
     }
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::MSG) -> windows_core::HRESULT {
@@ -3626,43 +3770,46 @@ pub struct IPropertyPage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPageSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, *const super::RECT, windows_core::BOOL) -> windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, super::LPCRECT, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     Activate: usize,
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "windef", feature = "wtypesbase"))]
     pub GetPageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPPAGEINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "windef", feature = "wtypesbase")))]
     GetPageInfo: usize,
     pub SetObjects: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT) -> windows_core::HRESULT,
+    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     Move: usize,
     pub IsPageDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Apply: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Help: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub Help: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    Help: usize,
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub TranslateAccelerator: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::MSG) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     TranslateAccelerator: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
 pub trait IPropertyPage_Impl: windows_core::IUnknownImpl {
     fn SetPageSite(&self, ppagesite: windows_core::Ref<IPropertyPageSite>) -> windows_core::Result<()>;
-    fn Activate(&self, hwndparent: super::HWND, prect: *const super::RECT, bmodal: windows_core::BOOL) -> windows_core::Result<()>;
+    fn Activate(&self, hwndparent: super::HWND, prect: super::LPCRECT, bmodal: windows_core::BOOL) -> windows_core::Result<()>;
     fn Deactivate(&self) -> windows_core::Result<()>;
     fn GetPageInfo(&self, ppageinfo: *mut PROPPAGEINFO) -> windows_core::Result<()>;
     fn SetObjects(&self, cobjects: u32, ppunk: *const Option<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Show(&self, ncmdshow: u32) -> windows_core::Result<()>;
-    fn Move(&self, prect: *const super::RECT) -> windows_core::Result<()>;
+    fn Move(&self, prect: super::LPCRECT) -> windows_core::Result<()>;
     fn IsPageDirty(&self) -> windows_core::Result<()>;
     fn Apply(&self) -> windows_core::Result<()>;
-    fn Help(&self, pszhelpdir: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Help(&self, pszhelpdir: super::LPCOLESTR) -> windows_core::Result<()>;
     fn TranslateAccelerator(&self, pmsg: *const super::MSG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
 impl IPropertyPage_Vtbl {
     pub const fn new<Identity: IPropertyPage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPageSite<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppagesite: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3671,7 +3818,7 @@ impl IPropertyPage_Vtbl {
                 IPropertyPage_Impl::SetPageSite(this, core::mem::transmute_copy(&ppagesite)).into()
             }
         }
-        unsafe extern "system" fn Activate<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, prect: *const super::RECT, bmodal: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, prect: super::LPCRECT, bmodal: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyPage_Impl::Activate(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&bmodal)).into()
@@ -3701,7 +3848,7 @@ impl IPropertyPage_Vtbl {
                 IPropertyPage_Impl::Show(this, core::mem::transmute_copy(&ncmdshow)).into()
             }
         }
-        unsafe extern "system" fn Move<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Move<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prect: super::LPCRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyPage_Impl::Move(this, core::mem::transmute_copy(&prect)).into()
@@ -3719,10 +3866,10 @@ impl IPropertyPage_Vtbl {
                 IPropertyPage_Impl::Apply(this).into()
             }
         }
-        unsafe extern "system" fn Help<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelpdir: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Help<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelpdir: super::LPCOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyPage_Impl::Help(this, core::mem::transmute(&pszhelpdir)).into()
+                IPropertyPage_Impl::Help(this, core::mem::transmute_copy(&pszhelpdir)).into()
             }
         }
         unsafe extern "system" fn TranslateAccelerator<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmsg: *const super::MSG) -> windows_core::HRESULT {
@@ -3750,7 +3897,7 @@ impl IPropertyPage_Vtbl {
         iid == &<IPropertyPage as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyPage {}
 windows_core::imp::define_interface!(IPropertyPage2, IPropertyPage2_Vtbl, 0x01e44665_24ac_101b_84ed_08002b2ec713);
 impl core::ops::Deref for IPropertyPage2 {
@@ -3775,11 +3922,11 @@ pub struct IPropertyPage2_Vtbl {
     #[cfg(not(feature = "oaidl"))]
     EditProperty: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
 pub trait IPropertyPage2_Impl: IPropertyPage_Impl {
     fn EditProperty(&self, dispid: super::DISPID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
 impl IPropertyPage2_Vtbl {
     pub const fn new<Identity: IPropertyPage2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EditProperty<Identity: IPropertyPage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID) -> windows_core::HRESULT {
@@ -3794,7 +3941,7 @@ impl IPropertyPage2_Vtbl {
         iid == &<IPropertyPage2 as windows_core::Interface>::IID || iid == &<IPropertyPage as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "winuser", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyPage2 {}
 windows_core::imp::define_interface!(IPropertyPageSite, IPropertyPageSite_Vtbl, 0xb196b28c_bab4_101a_b69c_00aa00341d07);
 windows_core::imp::interface_hierarchy!(IPropertyPageSite, windows_core::IUnknown);
@@ -4067,7 +4214,7 @@ impl IQuickActivate {
         unsafe { (windows_core::Interface::vtable(self).QuickActivate)(windows_core::Interface::as_raw(self), pqacontainer, pqacontrol as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn SetContentExtent(&self, psizel: *const super::SIZE) -> windows_core::HRESULT {
+    pub unsafe fn SetContentExtent(&self, psizel: super::LPSIZEL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetContentExtent)(windows_core::Interface::as_raw(self), psizel) }
     }
     #[cfg(feature = "windef")]
@@ -4087,18 +4234,18 @@ pub struct IQuickActivate_Vtbl {
     #[cfg(not(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef")))]
     QuickActivate: usize,
     #[cfg(feature = "windef")]
-    pub SetContentExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SIZE) -> windows_core::HRESULT,
+    pub SetContentExtent: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPSIZEL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     SetContentExtent: usize,
     #[cfg(feature = "windef")]
-    pub GetContentExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::SIZE) -> windows_core::HRESULT,
+    pub GetContentExtent: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPSIZEL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetContentExtent: usize,
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef"))]
 pub trait IQuickActivate_Impl: windows_core::IUnknownImpl {
     fn QuickActivate(&self, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> windows_core::Result<()>;
-    fn SetContentExtent(&self, psizel: *const super::SIZE) -> windows_core::Result<()>;
+    fn SetContentExtent(&self, psizel: super::LPSIZEL) -> windows_core::Result<()>;
     fn GetContentExtent(&self) -> windows_core::Result<super::SIZE>;
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef"))]
@@ -4110,13 +4257,13 @@ impl IQuickActivate_Vtbl {
                 IQuickActivate_Impl::QuickActivate(this, core::mem::transmute_copy(&pqacontainer), core::mem::transmute_copy(&pqacontrol)).into()
             }
         }
-        unsafe extern "system" fn SetContentExtent<Identity: IQuickActivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psizel: *const super::SIZE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetContentExtent<Identity: IQuickActivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psizel: super::LPSIZEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IQuickActivate_Impl::SetContentExtent(this, core::mem::transmute_copy(&psizel)).into()
             }
         }
-        unsafe extern "system" fn GetContentExtent<Identity: IQuickActivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psizel: *mut super::SIZE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContentExtent<Identity: IQuickActivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psizel: super::LPSIZEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IQuickActivate_Impl::GetContentExtent(this) {
@@ -4265,14 +4412,14 @@ impl IViewObjectEx {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn QueryHitPoint(&self, dwaspect: u32, prectbounds: *const super::RECT, ptlloc: super::POINT, lclosehint: i32) -> windows_core::Result<u32> {
+    pub unsafe fn QueryHitPoint(&self, dwaspect: u32, prectbounds: super::LPCRECT, ptlloc: super::POINT, lclosehint: i32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryHitPoint)(windows_core::Interface::as_raw(self), dwaspect, prectbounds, ptlloc, lclosehint, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn QueryHitRect(&self, dwaspect: u32, prectbounds: *const super::RECT, prectloc: *const super::RECT, lclosehint: i32) -> windows_core::Result<u32> {
+    pub unsafe fn QueryHitRect(&self, dwaspect: u32, prectbounds: super::LPCRECT, prectloc: super::LPCRECT, lclosehint: i32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryHitRect)(windows_core::Interface::as_raw(self), dwaspect, prectbounds, prectloc, lclosehint, &mut result__).map(|| result__)
@@ -4292,20 +4439,20 @@ impl IViewObjectEx {
 pub struct IViewObjectEx_Vtbl {
     pub base__: super::IViewObject2_Vtbl,
     #[cfg(feature = "windef")]
-    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::RECTL) -> windows_core::HRESULT,
+    pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPRECTL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetRect: usize,
     pub GetViewStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub QueryHitPoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::RECT, super::POINT, i32, *mut u32) -> windows_core::HRESULT,
+    pub QueryHitPoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPCRECT, super::POINT, i32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     QueryHitPoint: usize,
     #[cfg(feature = "windef")]
-    pub QueryHitRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::RECT, *const super::RECT, i32, *mut u32) -> windows_core::HRESULT,
+    pub QueryHitRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPCRECT, super::LPCRECT, i32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     QueryHitRect: usize,
     #[cfg(all(feature = "objidl", feature = "windef"))]
-    pub GetNaturalExtent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *const super::DVTARGETDEVICE, super::HDC, *const DVEXTENTINFO, *mut super::SIZE) -> windows_core::HRESULT,
+    pub GetNaturalExtent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *const super::DVTARGETDEVICE, super::HDC, *const DVEXTENTINFO, super::LPSIZEL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "objidl", feature = "windef")))]
     GetNaturalExtent: usize,
 }
@@ -4313,14 +4460,14 @@ pub struct IViewObjectEx_Vtbl {
 pub trait IViewObjectEx_Impl: super::IViewObject2_Impl {
     fn GetRect(&self, dwaspect: u32) -> windows_core::Result<super::RECTL>;
     fn GetViewStatus(&self) -> windows_core::Result<u32>;
-    fn QueryHitPoint(&self, dwaspect: u32, prectbounds: *const super::RECT, ptlloc: &super::POINT, lclosehint: i32) -> windows_core::Result<u32>;
-    fn QueryHitRect(&self, dwaspect: u32, prectbounds: *const super::RECT, prectloc: *const super::RECT, lclosehint: i32) -> windows_core::Result<u32>;
+    fn QueryHitPoint(&self, dwaspect: u32, prectbounds: super::LPCRECT, ptlloc: &super::POINT, lclosehint: i32) -> windows_core::Result<u32>;
+    fn QueryHitRect(&self, dwaspect: u32, prectbounds: super::LPCRECT, prectloc: super::LPCRECT, lclosehint: i32) -> windows_core::Result<u32>;
     fn GetNaturalExtent(&self, dwaspect: u32, lindex: i32, ptd: *const super::DVTARGETDEVICE, hictargetdev: super::HDC, pextentinfo: *const DVEXTENTINFO) -> windows_core::Result<super::SIZE>;
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef", feature = "wingdi"))]
 impl IViewObjectEx_Vtbl {
     pub const fn new<Identity: IViewObjectEx_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRect<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, prect: *mut super::RECTL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRect<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, prect: super::LPRECTL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::GetRect(this, core::mem::transmute_copy(&dwaspect)) {
@@ -4344,7 +4491,7 @@ impl IViewObjectEx_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn QueryHitPoint<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, prectbounds: *const super::RECT, ptlloc: super::POINT, lclosehint: i32, phitresult: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryHitPoint<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, prectbounds: super::LPCRECT, ptlloc: super::POINT, lclosehint: i32, phitresult: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::QueryHitPoint(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&prectbounds), core::mem::transmute(&ptlloc), core::mem::transmute_copy(&lclosehint)) {
@@ -4356,7 +4503,7 @@ impl IViewObjectEx_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn QueryHitRect<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, prectbounds: *const super::RECT, prectloc: *const super::RECT, lclosehint: i32, phitresult: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryHitRect<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, prectbounds: super::LPCRECT, prectloc: super::LPCRECT, lclosehint: i32, phitresult: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::QueryHitRect(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&prectbounds), core::mem::transmute_copy(&prectloc), core::mem::transmute_copy(&lclosehint)) {
@@ -4368,7 +4515,7 @@ impl IViewObjectEx_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNaturalExtent<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, lindex: i32, ptd: *const super::DVTARGETDEVICE, hictargetdev: super::HDC, pextentinfo: *const DVEXTENTINFO, psizel: *mut super::SIZE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNaturalExtent<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, lindex: i32, ptd: *const super::DVTARGETDEVICE, hictargetdev: super::HDC, pextentinfo: *const DVEXTENTINFO, psizel: super::LPSIZEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::GetNaturalExtent(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&pextentinfo)) {
@@ -4403,6 +4550,7 @@ pub struct LICINFO {
     pub fLicVerified: windows_core::BOOL,
 }
 pub type LPCADWORD = *mut CADWORD;
+#[cfg(feature = "wtypesbase")]
 pub type LPCALPOLESTR = *mut CALPOLESTR;
 pub type LPCAUUID = *mut CAUUID;
 pub type LPCONNECTDATA = *mut CONNECTDATA;
@@ -4410,7 +4558,7 @@ pub type LPCONNECTDATA = *mut CONNECTDATA;
 pub type LPCONTROLINFO = *mut CONTROLINFO;
 pub type LPLICINFO = *mut LICINFO;
 pub type LPPOINTF = *mut POINTF;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 pub type LPPROPPAGEINFO = *mut PROPPAGEINFO;
 #[cfg(feature = "wingdi")]
 pub type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
@@ -4422,24 +4570,12 @@ pub type OLEDCFLAGS = i32;
 pub const OLEDC_NODRAW: OLEDCFLAGS = 1;
 pub const OLEDC_OFFSCREEN: OLEDCFLAGS = 4;
 pub const OLEDC_PAINTBKGND: OLEDCFLAGS = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_COLOR(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_HANDLE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_XPOS_HIMETRIC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_XSIZE_HIMETRIC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_YPOS_HIMETRIC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_YSIZE_HIMETRIC(pub i32);
+pub type OLE_COLOR = u32;
+pub type OLE_HANDLE = u32;
+pub type OLE_XPOS_HIMETRIC = i32;
+pub type OLE_XSIZE_HIMETRIC = i32;
+pub type OLE_YPOS_HIMETRIC = i32;
+pub type OLE_YSIZE_HIMETRIC = i32;
 pub type PCONNECTDATA = *mut CONNECTDATA;
 pub type PICTUREATTRIBUTES = i32;
 pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = 1;
@@ -4455,14 +4591,14 @@ pub struct POINTF {
     pub y: f32,
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::VARTYPE,
     pub cfType: super::CLIPFORMAT,
     pub dwHint: u32,
-    pub pstrName: windows_core::PWSTR,
+    pub pstrName: super::LPOLESTR,
     pub clsid: windows_core::GUID,
 }
 pub type PROPBAG2_TYPE = i32;
@@ -4474,14 +4610,14 @@ pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = 4;
 pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = 0;
 pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
-    pub pszTitle: windows_core::PWSTR,
+    pub pszTitle: super::LPOLESTR,
     pub size: super::SIZE,
-    pub pszDocString: windows_core::PWSTR,
-    pub pszHelpFile: windows_core::PWSTR,
+    pub pszDocString: super::LPOLESTR,
+    pub pszHelpFile: super::LPOLESTR,
     pub dwHelpContext: u32,
 }
 pub type PROPPAGESTATUS = i32;

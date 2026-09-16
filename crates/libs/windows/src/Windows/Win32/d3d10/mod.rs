@@ -3,7 +3,7 @@
 pub unsafe fn D3D10CompileEffectFromMemory<P2, P4>(pdata: *const core::ffi::c_void, datalength: usize, psrcfilename: P2, pdefines: Option<*const D3D10_SHADER_MACRO>, pinclude: P4, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut Option<super::ID3D10Blob>, pperrors: Option<*mut Option<super::ID3D10Blob>>) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<super::ID3DInclude>,
+    P4: windows_core::Param<ID3D10Include>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : *mut core::ffi::c_void, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut *mut core::ffi::c_void, pperrors : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D10CompileEffectFromMemory(pdata, datalength, psrcfilename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), hlslflags, fxflags, core::mem::transmute(ppcompiledeffect), pperrors.unwrap_or(core::mem::zeroed()) as _) }
@@ -443,9 +443,7 @@ impl Default for D3D10_BUFFER_SRV_1 {
     }
 }
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_CBUFFER_TYPE(pub super::D3D_CBUFFER_TYPE);
+pub type D3D10_CBUFFER_TYPE = super::D3D_CBUFFER_TYPE;
 pub const D3D10_CENTER_MULTISAMPLE_PATTERN: D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS = -2;
 pub const D3D10_CLEAR_DEPTH: D3D10_CLEAR_FLAG = 1;
 pub type D3D10_CLEAR_FLAG = i32;
@@ -801,6 +799,7 @@ pub const D3D10_FORMAT_SUPPORT_TEXTURE2D: D3D10_FORMAT_SUPPORT = 32;
 pub const D3D10_FORMAT_SUPPORT_TEXTURE3D: D3D10_FORMAT_SUPPORT = 64;
 pub const D3D10_FORMAT_SUPPORT_TEXTURECUBE: D3D10_FORMAT_SUPPORT = 128;
 pub const D3D10_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D10_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
 pub const D3D10_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D10_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COMPONENTS: i32 = 1;
@@ -830,9 +829,7 @@ pub const D3D10_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: i32 = 16;
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: i32 = 64;
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: i32 = 16;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_INCLUDE_TYPE(pub super::D3D_INCLUDE_TYPE);
+pub type D3D10_INCLUDE_TYPE = super::D3D_INCLUDE_TYPE;
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1437,13 +1434,12 @@ pub const D3D10_MIN_FILTER_SHIFT: i32 = 4;
 pub const D3D10_MIN_MAXANISOTROPY: i32 = 0;
 pub const D3D10_MIP_FILTER_SHIFT: i32 = 0;
 pub const D3D10_MIP_LOD_BIAS_MAX: f32 = 15.99;
+pub const D3D10_MIP_LOD_BIAS_MIN: f32 = -16.0;
 pub const D3D10_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 6;
 pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_NAME(pub super::D3D_NAME);
+pub type D3D10_NAME = super::D3D_NAME;
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1470,13 +1466,9 @@ pub struct D3D10_PASS_SHADER_DESC {
 pub const D3D10_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 13;
 pub const D3D10_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 15;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_PRIMITIVE(pub super::D3D_PRIMITIVE);
+pub type D3D10_PRIMITIVE = super::D3D_PRIMITIVE;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_PRIMITIVE_TOPOLOGY(pub super::D3D_PRIMITIVE_TOPOLOGY);
+pub type D3D10_PRIMITIVE_TOPOLOGY = super::D3D_PRIMITIVE_TOPOLOGY;
 pub const D3D10_PS_FRONTFACING_DEFAULT_VALUE: u32 = 4294967295;
 pub const D3D10_PS_FRONTFACING_FALSE_VALUE: i32 = 0;
 pub const D3D10_PS_FRONTFACING_TRUE_VALUE: u32 = 4294967295;
@@ -1553,9 +1545,7 @@ pub struct D3D10_RASTERIZER_DESC {
 #[cfg(feature = "windef")]
 pub type D3D10_RECT = super::RECT;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_REGISTER_COMPONENT_TYPE(pub super::D3D_REGISTER_COMPONENT_TYPE);
+pub type D3D10_REGISTER_COMPONENT_TYPE = super::D3D_REGISTER_COMPONENT_TYPE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
@@ -1638,9 +1628,7 @@ pub const D3D10_RESOURCE_MISC_SHARED: D3D10_RESOURCE_MISC_FLAG = 2;
 pub const D3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX: D3D10_RESOURCE_MISC_FLAG = 16;
 pub const D3D10_RESOURCE_MISC_TEXTURECUBE: D3D10_RESOURCE_MISC_FLAG = 4;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_RESOURCE_RETURN_TYPE(pub super::D3D_RESOURCE_RETURN_TYPE);
+pub type D3D10_RESOURCE_RETURN_TYPE = super::D3D_RESOURCE_RETURN_TYPE;
 pub type D3D10_RTV_DIMENSION = i32;
 pub const D3D10_RTV_DIMENSION_BUFFER: D3D10_RTV_DIMENSION = 1;
 pub const D3D10_RTV_DIMENSION_TEXTURE1D: D3D10_RTV_DIMENSION = 2;
@@ -1684,9 +1672,7 @@ pub struct D3D10_SHADER_BUFFER_DESC {
     pub uFlags: u32,
 }
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SHADER_CBUFFER_FLAGS(pub super::D3D_SHADER_CBUFFER_FLAGS);
+pub type D3D10_SHADER_CBUFFER_FLAGS = super::D3D_SHADER_CBUFFER_FLAGS;
 pub const D3D10_SHADER_DEBUG: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1908,13 +1894,9 @@ pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub NumSamples: u32,
 }
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SHADER_INPUT_FLAGS(pub super::D3D_SHADER_INPUT_FLAGS);
+pub type D3D10_SHADER_INPUT_FLAGS = super::D3D_SHADER_INPUT_FLAGS;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SHADER_INPUT_TYPE(pub super::D3D_SHADER_INPUT_TYPE);
+pub type D3D10_SHADER_INPUT_TYPE = super::D3D_SHADER_INPUT_TYPE;
 #[cfg(feature = "d3dcommon")]
 pub type D3D10_SHADER_MACRO = super::D3D_SHADER_MACRO;
 pub const D3D10_SHADER_MAJOR_VERSION: i32 = 4;
@@ -2013,9 +1995,7 @@ pub struct D3D10_SHADER_TYPE_DESC {
     pub Offset: u32,
 }
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SHADER_VARIABLE_CLASS(pub super::D3D_SHADER_VARIABLE_CLASS);
+pub type D3D10_SHADER_VARIABLE_CLASS = super::D3D_SHADER_VARIABLE_CLASS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_VARIABLE_DESC {
@@ -2026,13 +2006,9 @@ pub struct D3D10_SHADER_VARIABLE_DESC {
     pub DefaultValue: *mut core::ffi::c_void,
 }
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SHADER_VARIABLE_FLAGS(pub super::D3D_SHADER_VARIABLE_FLAGS);
+pub type D3D10_SHADER_VARIABLE_FLAGS = super::D3D_SHADER_VARIABLE_FLAGS;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SHADER_VARIABLE_TYPE(pub super::D3D_SHADER_VARIABLE_TYPE);
+pub type D3D10_SHADER_VARIABLE_TYPE = super::D3D_SHADER_VARIABLE_TYPE;
 pub const D3D10_SHADER_WARNINGS_ARE_ERRORS: i32 = 262144;
 pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: i32 = 0;
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: i32 = 5;
@@ -2072,13 +2048,9 @@ pub const D3D10_SRGB_TO_FLOAT_OFFSET: f32 = 0.055;
 pub const D3D10_SRGB_TO_FLOAT_THRESHOLD: f32 = 0.04045;
 pub const D3D10_SRGB_TO_FLOAT_TOLERANCE_IN_ULP: f32 = 0.5;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SRV_DIMENSION(pub super::D3D_SRV_DIMENSION);
+pub type D3D10_SRV_DIMENSION = super::D3D_SRV_DIMENSION;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3D10_SRV_DIMENSION1(pub super::D3D_SRV_DIMENSION);
+pub type D3D10_SRV_DIMENSION1 = super::D3D_SRV_DIMENSION;
 pub const D3D10_STANDARD_COMPONENT_BIT_COUNT: i32 = 32;
 pub const D3D10_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: i32 = 64;
 pub const D3D10_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: i32 = 4;
@@ -2998,12 +2970,12 @@ impl ID3D10Device {
             (windows_core::Interface::vtable(self).OMSetRenderTargets)(windows_core::Interface::as_raw(self), pprendertargetviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pprendertargetviews.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.param().abi());
         }
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: &[f32; 4], samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: *const f32, samplemask: u32)
     where
         P0: windows_core::Param<ID3D10BlendState>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).OMSetBlendState)(windows_core::Interface::as_raw(self), pblendstate.param().abi(), blendfactor.as_ptr(), samplemask);
+            (windows_core::Interface::vtable(self).OMSetBlendState)(windows_core::Interface::as_raw(self), pblendstate.param().abi(), blendfactor, samplemask);
         }
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
@@ -3069,12 +3041,12 @@ impl ID3D10Device {
             (windows_core::Interface::vtable(self).UpdateSubresource)(windows_core::Interface::as_raw(self), pdstresource.param().abi(), dstsubresource, pdstbox.unwrap_or(core::mem::zeroed()) as _, psrcdata, srcrowpitch, srcdepthpitch);
         }
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
     where
         P0: windows_core::Param<ID3D10RenderTargetView>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), prendertargetview.param().abi(), colorrgba.as_ptr());
+            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), prendertargetview.param().abi(), colorrgba);
         }
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
@@ -7088,6 +7060,8 @@ impl ID3D10GeometryShader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D10GeometryShader {}
+#[cfg(feature = "d3dcommon")]
+pub type ID3D10Include = super::ID3DInclude;
 windows_core::imp::define_interface!(ID3D10InfoQueue, ID3D10InfoQueue_Vtbl, 0x1b940b17_2642_4d1f_ab1f_b99bad0c395f);
 windows_core::imp::interface_hierarchy!(ID3D10InfoQueue, windows_core::IUnknown);
 impl ID3D10InfoQueue {
@@ -9099,3 +9073,5 @@ pub type LPD3D10_SHADER_VARIABLE_TYPE = *mut D3D10_SHADER_VARIABLE_TYPE;
 pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: windows_core::OutRef<ID3D10Device1>) -> windows_core::HRESULT>;
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "windef"))]
 pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::DXGI_SWAP_CHAIN_DESC, param7: windows_core::OutRef<super::IDXGISwapChain>, param8: windows_core::OutRef<ID3D10Device1>) -> windows_core::HRESULT>;
+pub const _FACD3D10: i32 = 2169;
+pub const _FACD3D10DEBUG: i32 = 2170;

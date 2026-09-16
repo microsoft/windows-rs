@@ -228,12 +228,8 @@ impl windows_core::RuntimeName for ICompositionGraphicsDeviceInterop {}
 windows_core::imp::define_interface!(ICompositionTextureInterop, ICompositionTextureInterop_Vtbl, 0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4);
 windows_core::imp::interface_hierarchy!(ICompositionTextureInterop, windows_core::IUnknown);
 impl ICompositionTextureInterop {
-    pub unsafe fn GetAvailableFence<T>(&self, fencevalue: *mut u64) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), fencevalue as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), fencevalue as _, iid, availablefence as _) }
     }
 }
 #[repr(C)]

@@ -33,45 +33,33 @@ pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::POINT, ppacc: *mut Opti
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn AccessibleObjectFromWindow<T>(hwnd: super::HWND, dwid: u32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn AccessibleObjectFromWindow(hwnd: super::HWND, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::HWND, dwid : u32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { AccessibleObjectFromWindow(hwnd, dwid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { AccessibleObjectFromWindow(hwnd, dwid, riid, ppvobject as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateStdAccessibleObject<T>(hwnd: super::HWND, idobject: i32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn CreateStdAccessibleObject(hwnd: super::HWND, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::HWND, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateStdAccessibleObject(hwnd, idobject, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateStdAccessibleObject(hwnd, idobject, riid, ppvobject as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyA<P1, T>(hwnd: super::HWND, pclassname: P1, idobject: i32) -> windows_core::Result<T>
+pub unsafe fn CreateStdAccessibleProxyA<P1>(hwnd: super::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::HWND, pclassname : windows_core::PCSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyW<P1, T>(hwnd: super::HWND, pclassname: P1, idobject: i32) -> windows_core::Result<T>
+pub unsafe fn CreateStdAccessibleProxyW<P1>(hwnd: super::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::HWND, pclassname : windows_core::PCWSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _) }
 }
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
@@ -109,13 +97,9 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ObjectFromLresult<T>(lresult: super::LRESULT, wparam: super::WPARAM) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn ObjectFromLresult(lresult: super::LRESULT, riid: *const windows_core::GUID, wparam: super::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::LRESULT, riid : *const windows_core::GUID, wparam : super::WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { ObjectFromLresult(lresult, &T::IID, wparam, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { ObjectFromLresult(lresult, riid, wparam, ppvobject as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "windef"))]
 #[inline]

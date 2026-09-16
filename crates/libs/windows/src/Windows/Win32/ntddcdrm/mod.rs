@@ -60,11 +60,13 @@ impl Default for CDROM_EXCLUSIVE_LOCK {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK_STATE {
-    pub LockState: bool,
+    pub LockState: super::BOOLEAN,
     pub CallerName: [u8; 64],
 }
+#[cfg(feature = "winnt")]
 impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -194,6 +196,7 @@ pub struct CDROM_SET_SPEED {
     pub RotationControl: WRITE_ROTATION,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SET_STREAMING {
     pub RequestType: CDROM_SPEED_REQUEST,
@@ -204,17 +207,18 @@ pub struct CDROM_SET_STREAMING {
     pub StartLba: u32,
     pub EndLba: u32,
     pub RotationControl: WRITE_ROTATION,
-    pub RestoreDefaults: bool,
-    pub SetExact: bool,
-    pub RandomAccess: bool,
-    pub Persistent: bool,
+    pub RestoreDefaults: super::BOOLEAN,
+    pub SetExact: super::BOOLEAN,
+    pub RandomAccess: super::BOOLEAN,
+    pub Persistent: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SIMPLE_OPC_INFO {
     pub RequestType: CDROM_OPC_INFO_TYPE,
-    pub Exclude0: bool,
-    pub Exclude1: bool,
+    pub Exclude0: super::BOOLEAN,
+    pub Exclude1: super::BOOLEAN,
 }
 pub type CDROM_SPEED_REQUEST = i32;
 #[repr(C)]
@@ -497,6 +501,10 @@ impl Default for CDROM_TOC_SESSION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const CDROM_TOC_SIZE: u32 = 804;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CDROM_TOC_SIZE: u64 = 804;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_WRITE_SPEED_DESCRIPTOR {
@@ -628,6 +636,7 @@ pub type PCDROM_DISK_DATA = *mut CDROM_DISK_DATA;
 pub type PCDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR = *mut CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR;
 pub type PCDROM_EXCLUSIVE_ACCESS = *mut CDROM_EXCLUSIVE_ACCESS;
 pub type PCDROM_EXCLUSIVE_LOCK = *mut CDROM_EXCLUSIVE_LOCK;
+#[cfg(feature = "winnt")]
 pub type PCDROM_EXCLUSIVE_LOCK_STATE = *mut CDROM_EXCLUSIVE_LOCK_STATE;
 pub type PCDROM_NOMINAL_PERFORMANCE_DESCRIPTOR = *mut CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR;
 pub type PCDROM_OPC_INFO_TYPE = *mut CDROM_OPC_INFO_TYPE;
@@ -641,7 +650,9 @@ pub type PCDROM_PLAY_AUDIO_MSF = *mut CDROM_PLAY_AUDIO_MSF;
 pub type PCDROM_READ_TOC_EX = *mut CDROM_READ_TOC_EX;
 pub type PCDROM_SEEK_AUDIO_MSF = *mut CDROM_SEEK_AUDIO_MSF;
 pub type PCDROM_SET_SPEED = *mut CDROM_SET_SPEED;
+#[cfg(feature = "winnt")]
 pub type PCDROM_SET_STREAMING = *mut CDROM_SET_STREAMING;
+#[cfg(feature = "winnt")]
 pub type PCDROM_SIMPLE_OPC_INFO = *mut CDROM_SIMPLE_OPC_INFO;
 pub type PCDROM_SPEED_REQUEST = *mut CDROM_SPEED_REQUEST;
 pub type PCDROM_STREAMING_CONTROL = *mut CDROM_STREAMING_CONTROL;
@@ -659,6 +670,7 @@ pub type PCDROM_WRITE_SPEED_DESCRIPTOR = *mut CDROM_WRITE_SPEED_DESCRIPTOR;
 pub type PCDROM_WRITE_SPEED_REQUEST = *mut CDROM_WRITE_SPEED_REQUEST;
 pub type PEXCLUSIVE_ACCESS_REQUEST_TYPE = *mut EXCLUSIVE_ACCESS_REQUEST_TYPE;
 pub type PMEDIA_BLANK_TYPE = *mut MEDIA_BLANK_TYPE;
+#[cfg(feature = "winnt")]
 pub type PRAW_READ_INFO = *mut RAW_READ_INFO;
 pub type PSTREAMING_CONTROL_REQUEST_TYPE = *mut STREAMING_CONTROL_REQUEST_TYPE;
 pub type PSUB_Q_CHANNEL_DATA = *mut SUB_Q_CHANNEL_DATA;
@@ -671,11 +683,18 @@ pub type PTRACK_MODE_TYPE = *mut TRACK_MODE_TYPE;
 pub type PVOLUME_CONTROL = *mut VOLUME_CONTROL;
 pub type PWRITE_ROTATION = *mut WRITE_ROTATION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct RAW_READ_INFO {
-    pub DiskOffset: i64,
+    pub DiskOffset: super::LARGE_INTEGER,
     pub SectorCount: u32,
     pub TrackMode: TRACK_MODE_TYPE,
+}
+#[cfg(feature = "winnt")]
+impl Default for RAW_READ_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RawWithC2: TRACK_MODE_TYPE = 4;
 pub const RawWithC2AndSubCode: TRACK_MODE_TYPE = 3;

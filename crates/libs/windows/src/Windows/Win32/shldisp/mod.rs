@@ -641,13 +641,15 @@ impl FolderItem {
             (windows_core::Interface::vtable(self).IsBrowsable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ModifyDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn ModifyDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModifyDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetModifyDate(&self, dt: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetModifyDate(&self, dt: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetModifyDate)(windows_core::Interface::as_raw(self), dt) }
     }
     pub unsafe fn Size(&self) -> windows_core::Result<i32> {
@@ -701,8 +703,14 @@ pub struct FolderItem_Vtbl {
     pub IsBrowsable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     IsBrowsable: usize,
-    pub ModifyDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetModifyDate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub ModifyDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    ModifyDate: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetModifyDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetModifyDate: usize,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Verbs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -724,8 +732,8 @@ pub trait FolderItem_Impl: super::IDispatch_Impl {
     fn IsFolder(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsFileSystem(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsBrowsable(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn ModifyDate(&self) -> windows_core::Result<f64>;
-    fn SetModifyDate(&self, dt: f64) -> windows_core::Result<()>;
+    fn ModifyDate(&self) -> windows_core::Result<super::DATE>;
+    fn SetModifyDate(&self, dt: super::DATE) -> windows_core::Result<()>;
     fn Size(&self) -> windows_core::Result<i32>;
     fn Type(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Verbs(&self) -> windows_core::Result<FolderItemVerbs>;
@@ -860,7 +868,7 @@ impl FolderItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ModifyDate<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdt: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyDate<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdt: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match FolderItem_Impl::ModifyDate(this) {
@@ -872,7 +880,7 @@ impl FolderItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetModifyDate<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dt: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetModifyDate<Identity: FolderItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dt: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 FolderItem_Impl::SetModifyDate(this, core::mem::transmute_copy(&dt)).into()
@@ -1805,13 +1813,13 @@ pub struct IEnumACString_Vtbl {
     pub SetEnumOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEnumOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "wtypesbase"))]
 pub trait IEnumACString_Impl: super::IEnumString_Impl {
     fn NextItem(&self, pszurl: windows_core::PWSTR, cchmax: u32, pulsortindex: *mut u32) -> windows_core::Result<()>;
     fn SetEnumOptions(&self, dwoptions: u32) -> windows_core::Result<()>;
     fn GetEnumOptions(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "wtypesbase"))]
 impl IEnumACString_Vtbl {
     pub const fn new<Identity: IEnumACString_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NextItem<Identity: IEnumACString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszurl: windows_core::PWSTR, cchmax: u32, pulsortindex: *mut u32) -> windows_core::HRESULT {
@@ -1849,7 +1857,7 @@ impl IEnumACString_Vtbl {
         iid == &<IEnumACString as windows_core::Interface>::IID || iid == &<super::IEnumString as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumACString {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFileSearchBand, IFileSearchBand_Vtbl, 0x2d91eea1_9932_11d2_be86_00a0c9a83da1);

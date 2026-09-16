@@ -65,20 +65,14 @@ pub const BDIF_TX_POWER: u32 = 2147483648;
 pub const BDIF_VALID_FLAGS: u32 = 4227856127;
 pub const BDIF_VISIBLE: i32 = 128;
 pub const BNEP_PROTOCOL_UUID16: i32 = 15;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BTHSTATUS(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BTH_ADDR(pub u64);
+pub type BTHSTATUS = u8;
+pub type BTH_ADDR = u64;
 pub const BTH_ADDR_GIAC: i32 = 10390323;
 pub const BTH_ADDR_IAC_FIRST: i32 = 10390272;
 pub const BTH_ADDR_IAC_LAST: i32 = 10390335;
 pub const BTH_ADDR_LIAC: i32 = 10390272;
 pub const BTH_ADDR_NULL: u64 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BTH_COD(pub u32);
+pub type BTH_COD = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_DEVICE_INFO {
@@ -192,9 +186,7 @@ pub struct BTH_L2CAP_EVENT_INFO {
     pub connected: u8,
     pub initiated: u8,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BTH_LAP(pub u32);
+pub type BTH_LAP = u32;
 pub const BTH_LINK_KEY_LENGTH: i32 = 16;
 pub const BTH_MAJORVERSION: i32 = 2;
 pub const BTH_MAX_NAME_SIZE: i32 = 248;
@@ -629,7 +621,7 @@ pub const SDP_ATTRIB_SERVICE_ID: i32 = 3;
 pub const SDP_ATTRIB_SERVICE_VERSION: i32 = 768;
 pub const SDP_ATTRIB_SYNCH_SUPPORTED_DATA_STORES_LIST: i32 = 769;
 #[cfg(feature = "bthsdpdef")]
-pub const SDP_ERROR_COULD_NOT_SEND_CONTINUE: super::SDP_ERROR = super::SDP_ERROR(1024);
+pub const SDP_ERROR_COULD_NOT_SEND_CONTINUE: super::SDP_ERROR = 1024;
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: i32 = 6;
 pub const SDP_ERROR_INVALID_CONTINUATION_STATE: i32 = 5;
 pub const SDP_ERROR_INVALID_PDU_SIZE: i32 = 4;
@@ -637,23 +629,26 @@ pub const SDP_ERROR_INVALID_RECORD_HANDLE: i32 = 2;
 pub const SDP_ERROR_INVALID_REQUEST_SYNTAX: i32 = 3;
 pub const SDP_ERROR_INVALID_SDP_VERSION: i32 = 1;
 #[cfg(feature = "bthsdpdef")]
-pub const SDP_ERROR_RESPONSE_TOO_LARGE: super::SDP_ERROR = super::SDP_ERROR(1280);
+pub const SDP_ERROR_RESPONSE_TOO_LARGE: super::SDP_ERROR = 1280;
 #[cfg(feature = "bthsdpdef")]
-pub const SDP_ERROR_SERVER_BAD_FORMAT: super::SDP_ERROR = super::SDP_ERROR(768);
+pub const SDP_ERROR_SERVER_BAD_FORMAT: super::SDP_ERROR = 768;
 #[cfg(feature = "bthsdpdef")]
-pub const SDP_ERROR_SERVER_INVALID_RESPONSE: super::SDP_ERROR = super::SDP_ERROR(256);
+pub const SDP_ERROR_SERVER_INVALID_RESPONSE: super::SDP_ERROR = 256;
 #[cfg(feature = "bthsdpdef")]
-pub const SDP_ERROR_SERVER_RESPONSE_DID_NOT_PARSE: super::SDP_ERROR = super::SDP_ERROR(512);
+pub const SDP_ERROR_SERVER_RESPONSE_DID_NOT_PARSE: super::SDP_ERROR = 512;
 #[cfg(feature = "bthsdpdef")]
-pub const SDP_ERROR_SUCCESS: super::SDP_ERROR = super::SDP_ERROR(0);
+pub const SDP_ERROR_SUCCESS: super::SDP_ERROR = 0;
 pub const SDP_PROTOCOL_UUID16: i32 = 1;
 pub const STRING_DESCRIPTION_OFFSET: i32 = 1;
 pub const STRING_NAME_OFFSET: i32 = 0;
 pub const STRING_PROVIDER_NAME_OFFSET: i32 = 2;
+pub const STR_ADDR_FMT: windows_core::PCSTR = windows_core::s!("(%02x:%02x:%02x:%02x:%02x:%02x)");
 pub const STR_ADDR_FMTA: windows_core::PCSTR = windows_core::s!("(%02x:%02x:%02x:%02x:%02x:%02x)");
 pub const STR_ADDR_FMTW: windows_core::PCWSTR = windows_core::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
+pub const STR_ADDR_SHORT_FMT: windows_core::PCSTR = windows_core::s!("%04x%08x");
 pub const STR_ADDR_SHORT_FMTA: windows_core::PCSTR = windows_core::s!("%04x%08x");
 pub const STR_ADDR_SHORT_FMTW: windows_core::PCWSTR = windows_core::w!("%04x%08x");
+pub const STR_USBHCI_CLASS_HARDWAREID: windows_core::PCSTR = windows_core::s!("USB\\Class_E0&SubClass_01&Prot_01");
 pub const STR_USBHCI_CLASS_HARDWAREIDA: windows_core::PCSTR = windows_core::s!("USB\\Class_E0&SubClass_01&Prot_01");
 pub const STR_USBHCI_CLASS_HARDWAREIDW: windows_core::PCWSTR = windows_core::w!("USB\\Class_E0&SubClass_01&Prot_01");
 pub const SYNCH_DATA_STORE_CALENDAR: i32 = 3;

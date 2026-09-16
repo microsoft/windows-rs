@@ -192,14 +192,14 @@ impl ISWbemDateTime {
         unsafe { (windows_core::Interface::vtable(self).SetIsInterval)(windows_core::Interface::as_raw(self), bisinterval) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn GetVarDate(&self, bislocal: super::VARIANT_BOOL) -> windows_core::Result<f64> {
+    pub unsafe fn GetVarDate(&self, bislocal: super::VARIANT_BOOL) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVarDate)(windows_core::Interface::as_raw(self), bislocal, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetVarDate(&self, dvardate: f64, bislocal: super::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub unsafe fn SetVarDate(&self, dvardate: super::DATE, bislocal: super::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVarDate)(windows_core::Interface::as_raw(self), dvardate, bislocal) }
     }
     #[cfg(feature = "wtypes")]
@@ -310,11 +310,11 @@ pub struct ISWbemDateTime_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetIsInterval: usize,
     #[cfg(feature = "wtypes")]
-    pub GetVarDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL, *mut f64) -> windows_core::HRESULT,
+    pub GetVarDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL, *mut super::DATE) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     GetVarDate: usize,
     #[cfg(feature = "wtypes")]
-    pub SetVarDate: unsafe extern "system" fn(*mut core::ffi::c_void, f64, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub SetVarDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetVarDate: usize,
     #[cfg(feature = "wtypes")]
@@ -364,8 +364,8 @@ pub trait ISWbemDateTime_Impl: super::IDispatch_Impl {
     fn SetUTCSpecified(&self, butcspecified: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn IsInterval(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetIsInterval(&self, bisinterval: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn GetVarDate(&self, bislocal: super::VARIANT_BOOL) -> windows_core::Result<f64>;
-    fn SetVarDate(&self, dvardate: f64, bislocal: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn GetVarDate(&self, bislocal: super::VARIANT_BOOL) -> windows_core::Result<super::DATE>;
+    fn SetVarDate(&self, dvardate: super::DATE, bislocal: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetFileTime(&self, bislocal: super::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR>;
     fn SetFileTime(&self, strfiletime: &windows_core::BSTR, bislocal: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
@@ -696,7 +696,7 @@ impl ISWbemDateTime_Vtbl {
                 ISWbemDateTime_Impl::SetIsInterval(this, core::mem::transmute_copy(&bisinterval)).into()
             }
         }
-        unsafe extern "system" fn GetVarDate<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bislocal: super::VARIANT_BOOL, dvardate: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVarDate<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bislocal: super::VARIANT_BOOL, dvardate: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::GetVarDate(this, core::mem::transmute_copy(&bislocal)) {
@@ -708,7 +708,7 @@ impl ISWbemDateTime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetVarDate<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dvardate: f64, bislocal: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVarDate<Identity: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dvardate: super::DATE, bislocal: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISWbemDateTime_Impl::SetVarDate(this, core::mem::transmute_copy(&dvardate), core::mem::transmute_copy(&bislocal)).into()

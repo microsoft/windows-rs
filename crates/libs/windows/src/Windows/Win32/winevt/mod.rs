@@ -57,73 +57,74 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtFormatMessage(publishermetadata: Option<EVT_HANDLE>, event: Option<EVT_HANDLE>, messageid: u32, values: Option<&[EVT_VARIANT]>, flags: u32, buffersize: u32, buffer: Option<windows_core::PWSTR>, bufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : windows_core::PWSTR, bufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EvtFormatMessage(publishermetadata.unwrap_or(core::mem::zeroed()) as _, event.unwrap_or(core::mem::zeroed()) as _, messageid, values.map_or(0, |slice| slice.len().try_into().unwrap()), values.map_or(core::ptr::null(), |slice| slice.as_ptr()), flags, buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _) }
+pub unsafe fn EvtFormatMessage(publishermetadata: Option<EVT_HANDLE>, event: Option<EVT_HANDLE>, messageid: u32, values: Option<&[EVT_VARIANT]>, flags: u32, buffersize: u32, buffer: Option<windows_core::PWSTR>, bufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : PEVT_VARIANT, flags : u32, buffersize : u32, buffer : windows_core::PWSTR, bufferused : super::PDWORD) -> windows_core::BOOL);
+    unsafe { EvtFormatMessage(publishermetadata.unwrap_or(core::mem::zeroed()) as _, event.unwrap_or(core::mem::zeroed()) as _, messageid, values.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(values.map_or(core::ptr::null(), |slice| slice.as_ptr())), flags, buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<PEVT_VARIANT>, propertyvaluebufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetChannelConfigProperty(channelconfig, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer.unwrap_or(core::mem::zeroed()) as _, propertyvaluebufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetEventInfo(event: EVT_HANDLE, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetEventInfo(event: EVT_HANDLE, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<PEVT_VARIANT>, propertyvaluebufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetEventInfo(event, propertyid, propertyvaluebuffersize, propertyvaluebuffer.unwrap_or(core::mem::zeroed()) as _, propertyvaluebufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: EVT_HANDLE, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: Option<*mut EVT_VARIANT>, eventmetadatapropertybufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : u32, eventmetadatapropertybuffersize : u32, eventmetadatapropertybuffer : *mut EVT_VARIANT, eventmetadatapropertybufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: EVT_HANDLE, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: Option<PEVT_VARIANT>, eventmetadatapropertybufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : u32, eventmetadatapropertybuffersize : u32, eventmetadatapropertybuffer : PEVT_VARIANT, eventmetadatapropertybufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetEventMetadataProperty(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, eventmetadatapropertybuffer.unwrap_or(core::mem::zeroed()) as _, eventmetadatapropertybufferused as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: Option<windows_core::PWSTR>, bufferused: *mut u32) -> u32 {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : windows_core::PWSTR, bufferused : *mut u32) -> u32);
+pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: Option<windows_core::PWSTR>, bufferused: super::PDWORD) -> u32 {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : windows_core::PWSTR, bufferused : super::PDWORD) -> u32);
     unsafe { EvtGetExtendedStatus(buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetLogInfo(log: EVT_HANDLE, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetLogInfo(log: EVT_HANDLE, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<PEVT_VARIANT>, propertyvaluebufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetLogInfo(log, propertyid, propertyvaluebuffersize, propertyvaluebuffer.unwrap_or(core::mem::zeroed()) as _, propertyvaluebufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetObjectArrayProperty(objectarray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetObjectArrayProperty(objectarray : EVT_OBJECT_ARRAY_PROPERTY_HANDLE, propertyid : u32, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetObjectArrayProperty(objectarray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<PEVT_VARIANT>, propertyvaluebufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetObjectArrayProperty(objectarray : EVT_OBJECT_ARRAY_PROPERTY_HANDLE, propertyid : u32, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer.unwrap_or(core::mem::zeroed()) as _, propertyvaluebufferused as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetObjectArraySize(objectarray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, objectarraysize: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetObjectArraySize(objectarray : EVT_OBJECT_ARRAY_PROPERTY_HANDLE, objectarraysize : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetObjectArraySize(objectarray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, objectarraysize: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetObjectArraySize(objectarray : EVT_OBJECT_ARRAY_PROPERTY_HANDLE, objectarraysize : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetObjectArraySize(objectarray, objectarraysize as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: EVT_HANDLE, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: Option<*mut EVT_VARIANT>, publishermetadatapropertybufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : u32, publishermetadatapropertybuffersize : u32, publishermetadatapropertybuffer : *mut EVT_VARIANT, publishermetadatapropertybufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: EVT_HANDLE, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: Option<PEVT_VARIANT>, publishermetadatapropertybufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : u32, publishermetadatapropertybuffersize : u32, publishermetadatapropertybuffer : PEVT_VARIANT, publishermetadatapropertybufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetPublisherMetadataProperty(publishermetadata, propertyid, flags, publishermetadatapropertybuffersize, publishermetadatapropertybuffer.unwrap_or(core::mem::zeroed()) as _, publishermetadatapropertybufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtGetQueryInfo(queryorsubscription: EVT_HANDLE, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtGetQueryInfo(queryorsubscription: EVT_HANDLE, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<PEVT_VARIANT>, propertyvaluebufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtGetQueryInfo(queryorsubscription, propertyid, propertyvaluebuffersize, propertyvaluebuffer.unwrap_or(core::mem::zeroed()) as _, propertyvaluebufferused as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtNext(resultset: EVT_HANDLE, eventssize: u32, events: *mut super::HANDLE, timeout: u32, flags: u32, returned: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : *mut super::HANDLE, timeout : u32, flags : u32, returned : *mut u32) -> windows_core::BOOL);
-    unsafe { EvtNext(resultset, eventssize, events as _, timeout, flags, returned as _) }
+pub unsafe fn EvtNext(resultset: EVT_HANDLE, eventssize: u32, events: PEVT_HANDLE, timeout: u32, flags: u32, returned: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : PEVT_HANDLE, timeout : u32, flags : u32, returned : super::PDWORD) -> windows_core::BOOL);
+    unsafe { EvtNext(resultset, eventssize, events as _, timeout, flags, returned) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffersize: u32, channelpathbuffer: Option<windows_core::PWSTR>, channelpathbufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : windows_core::PWSTR, channelpathbufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffersize: u32, channelpathbuffer: Option<windows_core::PWSTR>, channelpathbufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : windows_core::PWSTR, channelpathbufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtNextChannelPath(channelenum, channelpathbuffersize, channelpathbuffer.unwrap_or(core::mem::zeroed()) as _, channelpathbufferused as _) }
 }
 #[cfg(feature = "winnt")]
@@ -132,10 +133,10 @@ pub unsafe fn EvtNextEventMetadata(eventmetadataenum: EVT_HANDLE, flags: u32) ->
     windows_core::link!("wevtapi.dll" "system" fn EvtNextEventMetadata(eventmetadataenum : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     unsafe { EvtNextEventMetadata(eventmetadataenum, flags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtNextPublisherId(publisherenum: EVT_HANDLE, publisheridbuffersize: u32, publisheridbuffer: Option<windows_core::PWSTR>, publisheridbufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : windows_core::PWSTR, publisheridbufferused : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtNextPublisherId(publisherenum: EVT_HANDLE, publisheridbuffersize: u32, publisheridbuffer: Option<windows_core::PWSTR>, publisheridbufferused: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : windows_core::PWSTR, publisheridbufferused : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtNextPublisherId(publisherenum, publisheridbuffersize, publisheridbuffer.unwrap_or(core::mem::zeroed()) as _, publisheridbufferused as _) }
 }
 #[cfg(feature = "winnt")]
@@ -200,10 +201,10 @@ where
     windows_core::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : windows_core::PCWSTR, query : windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     unsafe { EvtQuery(session.unwrap_or(core::mem::zeroed()) as _, path.param().abi(), query.param().abi(), flags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtRender(context: Option<EVT_HANDLE>, fragment: EVT_HANDLE, flags: u32, buffersize: u32, buffer: Option<*mut core::ffi::c_void>, bufferused: *mut u32, propertycount: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut core::ffi::c_void, bufferused : *mut u32, propertycount : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EvtRender(context: Option<EVT_HANDLE>, fragment: EVT_HANDLE, flags: u32, buffersize: u32, buffer: Option<*mut core::ffi::c_void>, bufferused: super::PDWORD, propertycount: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut core::ffi::c_void, bufferused : super::PDWORD, propertycount : super::PDWORD) -> windows_core::BOOL);
     unsafe { EvtRender(context.unwrap_or(core::mem::zeroed()) as _, fragment, flags, buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _, propertycount as _) }
 }
 #[cfg(feature = "winnt")]
@@ -220,8 +221,8 @@ pub unsafe fn EvtSeek(resultset: EVT_HANDLE, position: i64, bookmark: Option<EVT
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> windows_core::BOOL {
-    windows_core::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvalue : *const EVT_VARIANT) -> windows_core::BOOL);
+pub unsafe fn EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: PEVT_VARIANT) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvalue : PEVT_VARIANT) -> windows_core::BOOL);
     unsafe { EvtSetChannelConfigProperty(channelconfig, propertyid, flags, propertyvalue) }
 }
 #[cfg(feature = "winnt")]

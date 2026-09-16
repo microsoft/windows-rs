@@ -599,7 +599,7 @@ pub struct ISpAudio_Vtbl {
     pub GetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpAudio_Impl: ISpStreamFormat_Impl {
     fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> windows_core::Result<()>;
     fn SetFormat(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
@@ -613,7 +613,7 @@ pub trait ISpAudio_Impl: ISpStreamFormat_Impl {
     fn GetBufferNotifySize(&self) -> windows_core::Result<u32>;
     fn SetBufferNotifySize(&self, cbsize: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl ISpAudio_Vtbl {
     pub const fn new<Identity: ISpAudio_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetState<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: SPAUDIOSTATE, ullreserved: u64) -> windows_core::HRESULT {
@@ -719,7 +719,7 @@ impl ISpAudio_Vtbl {
         iid == &<ISpAudio as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpAudio {}
 windows_core::imp::define_interface!(ISpContainerLexicon, ISpContainerLexicon_Vtbl, 0x8565572f_c094_41cc_b56e_10bd9c3ff044);
 impl core::ops::Deref for ISpContainerLexicon {
@@ -1525,17 +1525,19 @@ impl ISpLexicon {
     {
         unsafe { (windows_core::Interface::vtable(self).GetPronunciations)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, dwflags, pwordpronunciationlist as _) }
     }
-    pub unsafe fn AddPronunciation<P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: Option<PCSPPHONEID>) -> windows_core::HRESULT
+    pub unsafe fn AddPronunciation<P0, P3>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<PCSPPHONEID>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).AddPronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.param().abi()) }
     }
-    pub unsafe fn RemovePronunciation<P0>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: Option<PCSPPHONEID>) -> windows_core::HRESULT
+    pub unsafe fn RemovePronunciation<P0, P3>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<PCSPPHONEID>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemovePronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).RemovePronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.param().abi()) }
     }
     pub unsafe fn GetGeneration(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1674,7 +1676,7 @@ pub struct ISpMMSysAudio_Vtbl {
     pub GetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpMMSysAudio_Impl: ISpAudio_Impl {
     fn GetDeviceId(&self) -> windows_core::Result<u32>;
     fn SetDeviceId(&self, udeviceid: u32) -> windows_core::Result<()>;
@@ -1682,7 +1684,7 @@ pub trait ISpMMSysAudio_Impl: ISpAudio_Impl {
     fn GetLineId(&self) -> windows_core::Result<u32>;
     fn SetLineId(&self, ulineid: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl ISpMMSysAudio_Vtbl {
     pub const fn new<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pudeviceid: *mut u32) -> windows_core::HRESULT {
@@ -1740,7 +1742,7 @@ impl ISpMMSysAudio_Vtbl {
         iid == &<ISpMMSysAudio as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID || iid == &<ISpAudio as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpMMSysAudio {}
 windows_core::imp::define_interface!(ISpNotifyCallback, ISpNotifyCallback_Vtbl);
 impl ISpNotifyCallback {
@@ -2571,10 +2573,13 @@ impl ISpPhoneConverter {
             (windows_core::Interface::vtable(self).PhoneToId)(windows_core::Interface::as_raw(self), pszphone.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IdToPhone(&self, pid: PCSPPHONEID) -> windows_core::Result<u16> {
+    pub unsafe fn IdToPhone<P0>(&self, pid: P0) -> windows_core::Result<u16>
+    where
+        P0: windows_core::Param<PCSPPHONEID>,
+    {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IdToPhone)(windows_core::Interface::as_raw(self), pid, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IdToPhone)(windows_core::Interface::as_raw(self), pid.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -5032,14 +5037,14 @@ pub struct ISpStream_Vtbl {
     BindToFile: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStream_Impl: ISpStreamFormat_Impl {
     fn SetBaseStream(&self, pstream: windows_core::Ref<super::IStream>, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn GetBaseStream(&self) -> windows_core::Result<super::IStream>;
     fn BindToFile(&self, pszfilename: &windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: u64) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStream_Vtbl {
     pub const fn new<Identity: ISpStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBaseStream<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
@@ -5084,7 +5089,7 @@ impl ISpStream_Vtbl {
         iid == &<ISpStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpStream {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(ISpStreamFormat, ISpStreamFormat_Vtbl, 0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
@@ -5117,11 +5122,11 @@ pub struct ISpStreamFormat_Vtbl {
     #[cfg(not(feature = "mmeapi"))]
     GetFormat: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStreamFormat_Impl: super::IStream_Impl {
     fn GetFormat(&self, pguidformatid: *const windows_core::GUID) -> windows_core::Result<*mut super::WAVEFORMATEX>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStreamFormat_Vtbl {
     pub const fn new<Identity: ISpStreamFormat_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFormat<Identity: ISpStreamFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidformatid: *const windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
@@ -5142,7 +5147,7 @@ impl ISpStreamFormat_Vtbl {
         iid == &<ISpStreamFormat as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpStreamFormat {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(ISpStreamFormatConverter, ISpStreamFormatConverter_Vtbl, 0x678a932c_ea71_4446_9b41_78fda6280a29);
@@ -5204,7 +5209,7 @@ pub struct ISpStreamFormatConverter_Vtbl {
     pub ScaleConvertedToBaseOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
     pub ScaleBaseToConvertedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStreamFormatConverter_Impl: ISpStreamFormat_Impl {
     fn SetBaseStream(&self, pstream: windows_core::Ref<ISpStreamFormat>, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetBaseStream(&self) -> windows_core::Result<ISpStreamFormat>;
@@ -5213,7 +5218,7 @@ pub trait ISpStreamFormatConverter_Impl: ISpStreamFormat_Impl {
     fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: u64) -> windows_core::Result<u64>;
     fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: u64) -> windows_core::Result<u64>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStreamFormatConverter_Vtbl {
     pub const fn new<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBaseStream<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::HRESULT {
@@ -5284,7 +5289,7 @@ impl ISpStreamFormatConverter_Vtbl {
         iid == &<ISpStreamFormatConverter as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpStreamFormatConverter {}
 windows_core::imp::define_interface!(ISpTranscript, ISpTranscript_Vtbl, 0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpTranscript, windows_core::IUnknown);
@@ -15461,9 +15466,7 @@ pub struct SPNORMALIZATIONLIST {
 #[cfg(feature = "minwindef")]
 pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::WPARAM, lparam: super::LPARAM)>;
 pub type SPPARTOFSPEECH = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPPHONEID(pub u16);
+pub type SPPHONEID = u16;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -15697,7 +15700,7 @@ pub const SPREG_LOCAL_MACHINE_ROOT: windows_core::PCWSTR = windows_core::w!("HKE
 pub const SPREG_SAFE_USER_TOKENS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens");
 pub const SPREG_USER_ROOT: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech");
 pub const SPRP_NORMAL: i32 = 0;
-pub const SPRR_ALL_ELEMENTS: i32 = -1;
+pub const SPRR_ALL_ELEMENTS: SPPHRASERNG = -1;
 pub const SPRST_ACTIVE: SPRECOSTATE = 1;
 pub const SPRST_ACTIVE_ALWAYS: SPRECOSTATE = 2;
 pub const SPRST_INACTIVE: SPRECOSTATE = 0;
@@ -15717,6 +15720,9 @@ pub struct SPRULE {
     pub dwAttributes: u32,
 }
 pub type SPRULESTATE = i32;
+pub const SPRULETRANS_DICTATION: SPSTATEHANDLE = -3 as _;
+pub const SPRULETRANS_TEXTBUFFER: SPSTATEHANDLE = -1 as _;
+pub const SPRULETRANS_WILDCARD: SPSTATEHANDLE = -2 as _;
 pub type SPRUNSTATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15860,9 +15866,12 @@ pub const SPSModifier: SpeechPartOfSpeech = 12288;
 pub const SPSNotOverriden: SpeechPartOfSpeech = -1;
 pub const SPSNoun: SpeechPartOfSpeech = 4096;
 pub const SPSSuppressWord: SpeechPartOfSpeech = 61440;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPSTATEHANDLE(pub *mut core::ffi::c_void);
+pub type SPSTATEHANDLE = *mut SPSTATEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPSTATEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPSTREAMFORMAT = i32;
 pub type SPSTREAMFORMATTYPE = i32;
 pub const SPSUnknown: SpeechPartOfSpeech = 0;
@@ -16003,13 +16012,21 @@ pub type SPXMLRESULTOPTIONS = i32;
 pub const SPXRO_Alternates_SML: SPXMLRESULTOPTIONS = 1;
 pub const SPXRO_SML: SPXMLRESULTOPTIONS = 0;
 pub const SP_EMULATE_RESULT: i32 = 1073741824;
-pub const SP_GETWHOLEPHRASE: i32 = -1;
+pub const SP_GETWHOLEPHRASE: SPPHRASERNG = -1;
 pub const SP_HIGH_CONFIDENCE: i32 = 1;
 pub const SP_LOW_CONFIDENCE: i32 = -1;
 pub const SP_MAX_LANGIDS: i32 = 20;
 pub const SP_MAX_PRON_LENGTH: i32 = 384;
 pub const SP_MAX_WORD_LENGTH: i32 = 128;
 pub const SP_NORMAL_CONFIDENCE: i32 = 0;
+#[cfg(target_arch = "x86")]
+pub const SP_SPPHRASESIZE_500: u32 = 120;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SP_SPPHRASESIZE_500: u64 = 160;
+#[cfg(target_arch = "x86")]
+pub const SP_SPPHRASESIZE_530: u32 = 128;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SP_SPPHRASESIZE_530: u64 = 176;
 pub const SP_STREAMPOS_ASAP: i32 = 0;
 pub const SP_STREAMPOS_REALTIME: i32 = -1;
 pub const SP_VISEME_0: SPVISEMES = 0;
@@ -16195,9 +16212,7 @@ pub type SpeechGrammarRuleStateTransitionType = i32;
 pub type SpeechGrammarState = i32;
 pub type SpeechGrammarWordType = i32;
 pub type SpeechInterference = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SpeechLanguageId(pub i32);
+pub type SpeechLanguageId = i32;
 pub type SpeechLexiconType = i32;
 pub type SpeechLoadOption = i32;
 pub type SpeechPartOfSpeech = i32;
@@ -16284,6 +16299,7 @@ impl _ISpeechVoiceEvents_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _ISpeechVoiceEvents {}
+pub const _SAPI_VER: i32 = 84;
 pub const eLEXTYPE_APP: SPLEXICONTYPE = 2;
 pub const eLEXTYPE_LETTERTOSOUND: SPLEXICONTYPE = 8;
 pub const eLEXTYPE_MORPHOLOGY: SPLEXICONTYPE = 16;

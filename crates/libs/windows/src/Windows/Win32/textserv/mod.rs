@@ -203,7 +203,7 @@ impl ITextHost {
         unsafe { (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), fnbar, npos, fredraw.into()) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn TxInvalidateRect(&self, prc: *const super::RECT, fmode: bool) {
+    pub unsafe fn TxInvalidateRect(&self, prc: super::LPCRECT, fmode: bool) {
         unsafe {
             (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), prc, fmode.into());
         }
@@ -232,9 +232,9 @@ impl ITextHost {
         }
     }
     #[cfg(all(feature = "minwindef", feature = "windef"))]
-    pub unsafe fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *const super::RECT, lprcclip: *const super::RECT, hrgnupdate: super::HRGN, lprcupdate: *mut super::RECT, fuscroll: u32) {
+    pub unsafe fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: super::LPCRECT, lprcclip: super::LPCRECT, hrgnupdate: super::HRGN, lprcupdate: super::LPRECT, fuscroll: u32) {
         unsafe {
-            (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), dx, dy, lprcscroll, lprcclip, hrgnupdate, lprcupdate as _, fuscroll);
+            (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), dx, dy, lprcscroll, lprcclip, hrgnupdate, lprcupdate, fuscroll);
         }
     }
     pub unsafe fn TxSetCapture(&self, fcapture: bool) {
@@ -254,12 +254,12 @@ impl ITextHost {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn TxScreenToClient(&self, lppt: *mut super::POINT) -> windows_core::BOOL {
-        unsafe { (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), lppt as _) }
+    pub unsafe fn TxScreenToClient(&self, lppt: super::LPPOINT) -> windows_core::BOOL {
+        unsafe { (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), lppt) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn TxClientToScreen(&self, lppt: *mut super::POINT) -> windows_core::BOOL {
-        unsafe { (windows_core::Interface::vtable(self).TxClientToScreen)(windows_core::Interface::as_raw(self), lppt as _) }
+    pub unsafe fn TxClientToScreen(&self, lppt: super::LPPOINT) -> windows_core::BOOL {
+        unsafe { (windows_core::Interface::vtable(self).TxClientToScreen)(windows_core::Interface::as_raw(self), lppt) }
     }
     pub unsafe fn TxActivate(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -271,32 +271,20 @@ impl ITextHost {
         unsafe { (windows_core::Interface::vtable(self).TxDeactivate)(windows_core::Interface::as_raw(self), lnewstate) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn TxGetClientRect(&self) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetClientRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetClientRect(&self, prc: super::LPRECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TxGetClientRect)(windows_core::Interface::as_raw(self), prc) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn TxGetViewInset(&self) -> windows_core::Result<super::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetViewInset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetViewInset(&self, prc: super::LPRECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TxGetViewInset)(windows_core::Interface::as_raw(self), prc) }
     }
     #[cfg(all(feature = "richedit", feature = "windef"))]
-    pub unsafe fn TxGetCharFormat(&self) -> windows_core::Result<*mut super::CHARFORMATW> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetCharFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetCharFormat(&self, ppcf: *const *const super::CHARFORMATW) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TxGetCharFormat)(windows_core::Interface::as_raw(self), ppcf) }
     }
     #[cfg(feature = "richedit")]
-    pub unsafe fn TxGetParaFormat(&self) -> windows_core::Result<*mut super::PARAFORMAT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetParaFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetParaFormat(&self, pppf: *const *const super::PARAFORMAT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TxGetParaFormat)(windows_core::Interface::as_raw(self), pppf) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn TxGetSysColor(&self, nindex: i32) -> super::COLORREF {
@@ -334,11 +322,8 @@ impl ITextHost {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn TxGetExtent(&self) -> windows_core::Result<super::SIZE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetExtent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetExtent(&self, lpextent: super::LPSIZEL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TxGetExtent)(windows_core::Interface::as_raw(self), lpextent) }
     }
     #[cfg(all(feature = "richedit", feature = "windef"))]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const super::CHARFORMATW) -> windows_core::HRESULT {
@@ -391,7 +376,7 @@ pub struct ITextHost_Vtbl {
     pub TxSetScrollRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, windows_core::BOOL) -> windows_core::BOOL,
     pub TxSetScrollPos: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, windows_core::BOOL) -> windows_core::BOOL,
     #[cfg(feature = "windef")]
-    pub TxInvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, windows_core::BOOL),
+    pub TxInvalidateRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCRECT, windows_core::BOOL),
     #[cfg(not(feature = "windef"))]
     TxInvalidateRect: usize,
     pub TxViewChange: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
@@ -404,7 +389,7 @@ pub struct ITextHost_Vtbl {
     pub TxSetTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
     pub TxKillTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
     #[cfg(all(feature = "minwindef", feature = "windef"))]
-    pub TxScrollWindowEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const super::RECT, *const super::RECT, super::HRGN, *mut super::RECT, u32),
+    pub TxScrollWindowEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::LPCRECT, super::LPCRECT, super::HRGN, super::LPRECT, u32),
     #[cfg(not(all(feature = "minwindef", feature = "windef")))]
     TxScrollWindowEx: usize,
     pub TxSetCapture: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
@@ -414,29 +399,29 @@ pub struct ITextHost_Vtbl {
     #[cfg(not(feature = "windef"))]
     TxSetCursor: usize,
     #[cfg(feature = "windef")]
-    pub TxScreenToClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::POINT) -> windows_core::BOOL,
+    pub TxScreenToClient: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPPOINT) -> windows_core::BOOL,
     #[cfg(not(feature = "windef"))]
     TxScreenToClient: usize,
     #[cfg(feature = "windef")]
-    pub TxClientToScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::POINT) -> windows_core::BOOL,
+    pub TxClientToScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPPOINT) -> windows_core::BOOL,
     #[cfg(not(feature = "windef"))]
     TxClientToScreen: usize,
     pub TxActivate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TxDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub TxGetClientRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
+    pub TxGetClientRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     TxGetClientRect: usize,
     #[cfg(feature = "windef")]
-    pub TxGetViewInset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
+    pub TxGetViewInset: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     TxGetViewInset: usize,
     #[cfg(all(feature = "richedit", feature = "windef"))]
-    pub TxGetCharFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::CHARFORMATW) -> windows_core::HRESULT,
+    pub TxGetCharFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const super::CHARFORMATW) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "richedit", feature = "windef")))]
     TxGetCharFormat: usize,
     #[cfg(feature = "richedit")]
-    pub TxGetParaFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::PARAFORMAT) -> windows_core::HRESULT,
+    pub TxGetParaFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const super::PARAFORMAT) -> windows_core::HRESULT,
     #[cfg(not(feature = "richedit"))]
     TxGetParaFormat: usize,
     #[cfg(feature = "windef")]
@@ -452,7 +437,7 @@ pub struct ITextHost_Vtbl {
     TxGetPasswordChar: usize,
     pub TxGetAcceleratorPos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub TxGetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::SIZE) -> windows_core::HRESULT,
+    pub TxGetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPSIZEL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     TxGetExtent: usize,
     #[cfg(all(feature = "richedit", feature = "windef"))]
@@ -483,32 +468,32 @@ pub trait ITextHost_Impl: windows_core::IUnknownImpl {
     fn TxEnableScrollBar(&self, fusbflags: i32, fuarrowflags: i32) -> windows_core::BOOL;
     fn TxSetScrollRange(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: windows_core::BOOL) -> windows_core::BOOL;
     fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: windows_core::BOOL) -> windows_core::BOOL;
-    fn TxInvalidateRect(&self, prc: *const super::RECT, fmode: windows_core::BOOL);
+    fn TxInvalidateRect(&self, prc: super::LPCRECT, fmode: windows_core::BOOL);
     fn TxViewChange(&self, fupdate: windows_core::BOOL);
     fn TxCreateCaret(&self, hbmp: super::HBITMAP, xwidth: i32, yheight: i32) -> windows_core::BOOL;
     fn TxShowCaret(&self, fshow: windows_core::BOOL) -> windows_core::BOOL;
     fn TxSetCaretPos(&self, x: i32, y: i32) -> windows_core::BOOL;
     fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> windows_core::BOOL;
     fn TxKillTimer(&self, idtimer: u32);
-    fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *const super::RECT, lprcclip: *const super::RECT, hrgnupdate: super::HRGN, lprcupdate: *mut super::RECT, fuscroll: u32);
+    fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: super::LPCRECT, lprcclip: super::LPCRECT, hrgnupdate: super::HRGN, lprcupdate: super::LPRECT, fuscroll: u32);
     fn TxSetCapture(&self, fcapture: windows_core::BOOL);
     fn TxSetFocus(&self);
     fn TxSetCursor(&self, hcur: super::HCURSOR, ftext: windows_core::BOOL);
-    fn TxScreenToClient(&self, lppt: *mut super::POINT) -> windows_core::BOOL;
-    fn TxClientToScreen(&self, lppt: *mut super::POINT) -> windows_core::BOOL;
+    fn TxScreenToClient(&self, lppt: super::LPPOINT) -> windows_core::BOOL;
+    fn TxClientToScreen(&self, lppt: super::LPPOINT) -> windows_core::BOOL;
     fn TxActivate(&self) -> windows_core::Result<i32>;
     fn TxDeactivate(&self, lnewstate: i32) -> windows_core::Result<()>;
-    fn TxGetClientRect(&self) -> windows_core::Result<super::RECT>;
-    fn TxGetViewInset(&self) -> windows_core::Result<super::RECT>;
-    fn TxGetCharFormat(&self) -> windows_core::Result<*mut super::CHARFORMATW>;
-    fn TxGetParaFormat(&self) -> windows_core::Result<*mut super::PARAFORMAT>;
+    fn TxGetClientRect(&self, prc: super::LPRECT) -> windows_core::Result<()>;
+    fn TxGetViewInset(&self, prc: super::LPRECT) -> windows_core::Result<()>;
+    fn TxGetCharFormat(&self, ppcf: *const *const super::CHARFORMATW) -> windows_core::Result<()>;
+    fn TxGetParaFormat(&self, pppf: *const *const super::PARAFORMAT) -> windows_core::Result<()>;
     fn TxGetSysColor(&self, nindex: i32) -> super::COLORREF;
     fn TxGetBackStyle(&self) -> windows_core::Result<TXTBACKSTYLE>;
     fn TxGetMaxLength(&self) -> windows_core::Result<u32>;
     fn TxGetScrollBars(&self) -> windows_core::Result<u32>;
     fn TxGetPasswordChar(&self) -> windows_core::Result<super::TCHAR>;
     fn TxGetAcceleratorPos(&self) -> windows_core::Result<i32>;
-    fn TxGetExtent(&self) -> windows_core::Result<super::SIZE>;
+    fn TxGetExtent(&self, lpextent: super::LPSIZEL) -> windows_core::Result<()>;
     fn OnTxCharFormatChange(&self, pcf: *const super::CHARFORMATW) -> windows_core::Result<()>;
     fn OnTxParaFormatChange(&self, ppf: *const super::PARAFORMAT) -> windows_core::Result<()>;
     fn TxGetPropertyBits(&self, dwmask: u32) -> windows_core::Result<u32>;
@@ -556,7 +541,7 @@ impl ITextHost_Vtbl {
                 ITextHost_Impl::TxSetScrollPos(this, core::mem::transmute_copy(&fnbar), core::mem::transmute_copy(&npos), core::mem::transmute_copy(&fredraw))
             }
         }
-        unsafe extern "system" fn TxInvalidateRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *const super::RECT, fmode: windows_core::BOOL) {
+        unsafe extern "system" fn TxInvalidateRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: super::LPCRECT, fmode: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxInvalidateRect(this, core::mem::transmute_copy(&prc), core::mem::transmute_copy(&fmode));
@@ -598,7 +583,7 @@ impl ITextHost_Vtbl {
                 ITextHost_Impl::TxKillTimer(this, core::mem::transmute_copy(&idtimer));
             }
         }
-        unsafe extern "system" fn TxScrollWindowEx<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dx: i32, dy: i32, lprcscroll: *const super::RECT, lprcclip: *const super::RECT, hrgnupdate: super::HRGN, lprcupdate: *mut super::RECT, fuscroll: u32) {
+        unsafe extern "system" fn TxScrollWindowEx<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dx: i32, dy: i32, lprcscroll: super::LPCRECT, lprcclip: super::LPCRECT, hrgnupdate: super::HRGN, lprcupdate: super::LPRECT, fuscroll: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxScrollWindowEx(this, core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&lprcscroll), core::mem::transmute_copy(&lprcclip), core::mem::transmute_copy(&hrgnupdate), core::mem::transmute_copy(&lprcupdate), core::mem::transmute_copy(&fuscroll));
@@ -622,13 +607,13 @@ impl ITextHost_Vtbl {
                 ITextHost_Impl::TxSetCursor(this, core::mem::transmute_copy(&hcur), core::mem::transmute_copy(&ftext));
             }
         }
-        unsafe extern "system" fn TxScreenToClient<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: *mut super::POINT) -> windows_core::BOOL {
+        unsafe extern "system" fn TxScreenToClient<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: super::LPPOINT) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxScreenToClient(this, core::mem::transmute_copy(&lppt))
             }
         }
-        unsafe extern "system" fn TxClientToScreen<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: *mut super::POINT) -> windows_core::BOOL {
+        unsafe extern "system" fn TxClientToScreen<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: super::LPPOINT) -> windows_core::BOOL {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost_Impl::TxClientToScreen(this, core::mem::transmute_copy(&lppt))
@@ -652,52 +637,28 @@ impl ITextHost_Vtbl {
                 ITextHost_Impl::TxDeactivate(this, core::mem::transmute_copy(&lnewstate)).into()
             }
         }
-        unsafe extern "system" fn TxGetClientRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetClientRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetClientRect(this) {
-                    Ok(ok__) => {
-                        prc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetClientRect(this, core::mem::transmute_copy(&prc)).into()
             }
         }
-        unsafe extern "system" fn TxGetViewInset<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetViewInset<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetViewInset(this) {
-                    Ok(ok__) => {
-                        prc.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetViewInset(this, core::mem::transmute_copy(&prc)).into()
             }
         }
-        unsafe extern "system" fn TxGetCharFormat<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcf: *mut *mut super::CHARFORMATW) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetCharFormat<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcf: *const *const super::CHARFORMATW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetCharFormat(this) {
-                    Ok(ok__) => {
-                        ppcf.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetCharFormat(this, core::mem::transmute_copy(&ppcf)).into()
             }
         }
-        unsafe extern "system" fn TxGetParaFormat<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppf: *mut *mut super::PARAFORMAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetParaFormat<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppf: *const *const super::PARAFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetParaFormat(this) {
-                    Ok(ok__) => {
-                        pppf.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetParaFormat(this, core::mem::transmute_copy(&pppf)).into()
             }
         }
         unsafe extern "system" fn TxGetSysColor<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32) -> super::COLORREF {
@@ -766,16 +727,10 @@ impl ITextHost_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TxGetExtent<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpextent: *mut super::SIZE) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxGetExtent<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpextent: super::LPSIZEL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetExtent(this) {
-                    Ok(ok__) => {
-                        lpextent.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetExtent(this, core::mem::transmute_copy(&lpextent)).into()
             }
         }
         unsafe extern "system" fn OnTxCharFormatChange<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcf: *const super::CHARFORMATW) -> windows_core::HRESULT {
@@ -932,7 +887,7 @@ impl ITextHost2 {
         unsafe { (windows_core::Interface::vtable(self).TxGetWindowStyles)(windows_core::Interface::as_raw(self), pdwstyle as _, pdwexstyle as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn TxShowDropCaret(&self, fshow: bool, hdc: super::HDC, prc: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn TxShowDropCaret(&self, fshow: bool, hdc: super::HDC, prc: super::LPCRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.into(), hdc, prc) }
     }
     pub unsafe fn TxDestroyCaret(&self) -> windows_core::HRESULT {
@@ -968,7 +923,7 @@ pub struct ITextHost2_Vtbl {
     pub TxGetEditStyle: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub TxGetWindowStyles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub TxShowDropCaret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::HDC, *const super::RECT) -> windows_core::HRESULT,
+    pub TxShowDropCaret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::HDC, super::LPCRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     TxShowDropCaret: usize,
     pub TxDestroyCaret: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -985,7 +940,7 @@ pub trait ITextHost2_Impl: ITextHost_Impl {
     fn TxFreeTextServicesNotification(&self);
     fn TxGetEditStyle(&self, dwitem: u32) -> windows_core::Result<u32>;
     fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> windows_core::Result<()>;
-    fn TxShowDropCaret(&self, fshow: windows_core::BOOL, hdc: super::HDC, prc: *const super::RECT) -> windows_core::Result<()>;
+    fn TxShowDropCaret(&self, fshow: windows_core::BOOL, hdc: super::HDC, prc: super::LPCRECT) -> windows_core::Result<()>;
     fn TxDestroyCaret(&self) -> windows_core::Result<()>;
     fn TxGetHorzExtent(&self) -> windows_core::Result<i32>;
 }
@@ -1064,7 +1019,7 @@ impl ITextHost2_Vtbl {
                 ITextHost2_Impl::TxGetWindowStyles(this, core::mem::transmute_copy(&pdwstyle), core::mem::transmute_copy(&pdwexstyle)).into()
             }
         }
-        unsafe extern "system" fn TxShowDropCaret<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL, hdc: super::HDC, prc: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxShowDropCaret<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL, hdc: super::HDC, prc: super::LPCRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextHost2_Impl::TxShowDropCaret(this, core::mem::transmute_copy(&fshow), core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&prc)).into()
@@ -1121,8 +1076,8 @@ impl ITextServices {
         }
     }
     #[cfg(all(feature = "objidl", feature = "windef"))]
-    pub unsafe fn TxDraw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcbounds: *const super::RECTL, lprcwbounds: *const super::RECTL, lprcupdate: *mut super::RECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).TxDraw)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcbounds, lprcwbounds, lprcupdate as _, pfncontinue as _, dwcontinue, lviewid) }
+    pub unsafe fn TxDraw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcbounds: super::LPCRECTL, lprcwbounds: super::LPCRECTL, lprcupdate: super::LPRECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TxDraw)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcbounds, lprcwbounds, lprcupdate, pfncontinue as _, dwcontinue, lviewid) }
     }
     pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxGetHScroll)(windows_core::Interface::as_raw(self), plmin as _, plmax as _, plpos as _, plpage as _, pfenabled as _) }
@@ -1131,15 +1086,15 @@ impl ITextServices {
         unsafe { (windows_core::Interface::vtable(self).TxGetVScroll)(windows_core::Interface::as_raw(self), plmin as _, plmax as _, plpos as _, plpage as _, pfenabled as _) }
     }
     #[cfg(all(feature = "objidl", feature = "windef"))]
-    pub unsafe fn OnTxSetCursor(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: *const super::RECT, x: i32, y: i32) -> windows_core::HRESULT {
+    pub unsafe fn OnTxSetCursor(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: super::LPCRECT, x: i32, y: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTxSetCursor)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcclient, x, y) }
     }
     #[cfg(all(feature = "objidl", feature = "windef"))]
-    pub unsafe fn TxQueryHitPoint(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: *const super::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::HRESULT {
+    pub unsafe fn TxQueryHitPoint(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: super::LPCRECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxQueryHitPoint)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcclient, x, y, phitresult as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn OnTxInPlaceActivate(&self, prcclient: super::LPCRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTxInPlaceActivate)(windows_core::Interface::as_raw(self), prcclient) }
     }
     pub unsafe fn OnTxInPlaceDeactivate(&self) -> windows_core::HRESULT {
@@ -1202,21 +1157,21 @@ pub struct ITextServices_Vtbl {
     #[cfg(not(feature = "minwindef"))]
     TxSendMessage: usize,
     #[cfg(all(feature = "objidl", feature = "windef"))]
-    pub TxDraw: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::DVTARGETDEVICE, super::HDC, super::HDC, *const super::RECTL, *const super::RECTL, *mut super::RECT, *mut u8, u32, i32) -> windows_core::HRESULT,
+    pub TxDraw: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::DVTARGETDEVICE, super::HDC, super::HDC, super::LPCRECTL, super::LPCRECTL, super::LPRECT, *mut u8, u32, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "objidl", feature = "windef")))]
     TxDraw: usize,
     pub TxGetHScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub TxGetVScroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "objidl", feature = "windef"))]
-    pub OnTxSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::DVTARGETDEVICE, super::HDC, super::HDC, *const super::RECT, i32, i32) -> windows_core::HRESULT,
+    pub OnTxSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::DVTARGETDEVICE, super::HDC, super::HDC, super::LPCRECT, i32, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "objidl", feature = "windef")))]
     OnTxSetCursor: usize,
     #[cfg(all(feature = "objidl", feature = "windef"))]
-    pub TxQueryHitPoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::DVTARGETDEVICE, super::HDC, super::HDC, *const super::RECT, i32, i32, *mut u32) -> windows_core::HRESULT,
+    pub TxQueryHitPoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *mut core::ffi::c_void, *mut super::DVTARGETDEVICE, super::HDC, super::HDC, super::LPCRECT, i32, i32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "objidl", feature = "windef")))]
     TxQueryHitPoint: usize,
     #[cfg(feature = "windef")]
-    pub OnTxInPlaceActivate: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT) -> windows_core::HRESULT,
+    pub OnTxInPlaceActivate: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     OnTxInPlaceActivate: usize,
     pub OnTxInPlaceDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1240,12 +1195,12 @@ pub struct ITextServices_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 pub trait ITextServices_Impl: windows_core::IUnknownImpl {
     fn TxSendMessage(&self, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<super::LRESULT>;
-    fn TxDraw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcbounds: *const super::RECTL, lprcwbounds: *const super::RECTL, lprcupdate: *mut super::RECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>;
+    fn TxDraw(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcbounds: super::LPCRECTL, lprcwbounds: super::LPCRECTL, lprcupdate: super::LPRECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>;
     fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnTxSetCursor(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: *const super::RECT, x: i32, y: i32) -> windows_core::Result<()>;
-    fn TxQueryHitPoint(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: *const super::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::Result<()>;
-    fn OnTxInPlaceActivate(&self, prcclient: *const super::RECT) -> windows_core::Result<()>;
+    fn OnTxSetCursor(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: super::LPCRECT, x: i32, y: i32) -> windows_core::Result<()>;
+    fn TxQueryHitPoint(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: super::LPCRECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::Result<()>;
+    fn OnTxInPlaceActivate(&self, prcclient: super::LPCRECT) -> windows_core::Result<()>;
     fn OnTxInPlaceDeactivate(&self) -> windows_core::Result<()>;
     fn OnTxUIActivate(&self) -> windows_core::Result<()>;
     fn OnTxUIDeactivate(&self) -> windows_core::Result<()>;
@@ -1273,7 +1228,7 @@ impl ITextServices_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TxDraw<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcbounds: *const super::RECTL, lprcwbounds: *const super::RECTL, lprcupdate: *mut super::RECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxDraw<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcbounds: super::LPCRECTL, lprcwbounds: super::LPCRECTL, lprcupdate: super::LPRECT, pfncontinue: *mut u8, dwcontinue: u32, lviewid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextServices_Impl::TxDraw(this, core::mem::transmute_copy(&dwdrawaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&pvaspect), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&hdcdraw), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&lprcbounds), core::mem::transmute_copy(&lprcwbounds), core::mem::transmute_copy(&lprcupdate), core::mem::transmute_copy(&pfncontinue), core::mem::transmute_copy(&dwcontinue), core::mem::transmute_copy(&lviewid)).into()
@@ -1291,19 +1246,19 @@ impl ITextServices_Vtbl {
                 ITextServices_Impl::TxGetVScroll(this, core::mem::transmute_copy(&plmin), core::mem::transmute_copy(&plmax), core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&plpage), core::mem::transmute_copy(&pfenabled)).into()
             }
         }
-        unsafe extern "system" fn OnTxSetCursor<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: *const super::RECT, x: i32, y: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnTxSetCursor<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: super::LPCRECT, x: i32, y: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextServices_Impl::OnTxSetCursor(this, core::mem::transmute_copy(&dwdrawaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&pvaspect), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&hdcdraw), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&lprcclient), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
-        unsafe extern "system" fn TxQueryHitPoint<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: *const super::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxQueryHitPoint<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::DVTARGETDEVICE, hdcdraw: super::HDC, hictargetdev: super::HDC, lprcclient: super::LPCRECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextServices_Impl::TxQueryHitPoint(this, core::mem::transmute_copy(&dwdrawaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&pvaspect), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&hdcdraw), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&lprcclient), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&phitresult)).into()
             }
         }
-        unsafe extern "system" fn OnTxInPlaceActivate<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcclient: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnTxInPlaceActivate<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcclient: super::LPCRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextServices_Impl::OnTxInPlaceActivate(this, core::mem::transmute_copy(&prcclient)).into()
@@ -1441,11 +1396,11 @@ impl ITextServices2 {
         unsafe { (windows_core::Interface::vtable(self).TxGetNaturalSize2)(windows_core::Interface::as_raw(self), dwaspect, hdcdraw, hictargetdev, ptd as _, dwmode, psizelextent, pwidth as _, pheight as _, pascent as _) }
     }
     #[cfg(all(feature = "d2d", feature = "windef"))]
-    pub unsafe fn TxDrawD2D<P0>(&self, prendertarget: P0, lprcbounds: *const super::RECTL, lprcupdate: *mut super::RECT, lviewid: i32) -> windows_core::HRESULT
+    pub unsafe fn TxDrawD2D<P0>(&self, prendertarget: P0, lprcbounds: super::LPCRECTL, lprcupdate: super::LPRECT, lviewid: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::ID2D1RenderTarget>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TxDrawD2D)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), lprcbounds, lprcupdate as _, lviewid) }
+        unsafe { (windows_core::Interface::vtable(self).TxDrawD2D)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), lprcbounds, lprcupdate, lviewid) }
     }
 }
 #[repr(C)]
@@ -1457,14 +1412,14 @@ pub struct ITextServices2_Vtbl {
     #[cfg(not(all(feature = "objidl", feature = "windef")))]
     TxGetNaturalSize2: usize,
     #[cfg(all(feature = "d2d", feature = "windef"))]
-    pub TxDrawD2D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::RECTL, *mut super::RECT, i32) -> windows_core::HRESULT,
+    pub TxDrawD2D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCRECTL, super::LPRECT, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "d2d", feature = "windef")))]
     TxDrawD2D: usize,
 }
 #[cfg(all(feature = "d2d", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 pub trait ITextServices2_Impl: ITextServices_Impl {
     fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::HDC, hictargetdev: super::HDC, ptd: *mut super::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::Result<()>;
-    fn TxDrawD2D(&self, prendertarget: windows_core::Ref<super::ID2D1RenderTarget>, lprcbounds: *const super::RECTL, lprcupdate: *mut super::RECT, lviewid: i32) -> windows_core::Result<()>;
+    fn TxDrawD2D(&self, prendertarget: windows_core::Ref<super::ID2D1RenderTarget>, lprcbounds: super::LPCRECTL, lprcupdate: super::LPRECT, lviewid: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "d2d", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "windef"))]
 impl ITextServices2_Vtbl {
@@ -1475,7 +1430,7 @@ impl ITextServices2_Vtbl {
                 ITextServices2_Impl::TxGetNaturalSize2(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&hdcdraw), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&psizelextent), core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight), core::mem::transmute_copy(&pascent)).into()
             }
         }
-        unsafe extern "system" fn TxDrawD2D<Identity: ITextServices2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendertarget: *mut core::ffi::c_void, lprcbounds: *const super::RECTL, lprcupdate: *mut super::RECT, lviewid: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn TxDrawD2D<Identity: ITextServices2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendertarget: *mut core::ffi::c_void, lprcbounds: super::LPCRECTL, lprcupdate: super::LPRECT, lviewid: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITextServices2_Impl::TxDrawD2D(this, core::mem::transmute_copy(&prendertarget), core::mem::transmute_copy(&lprcbounds), core::mem::transmute_copy(&lprcupdate), core::mem::transmute_copy(&lviewid)).into()
@@ -1495,7 +1450,7 @@ impl ITextServices2_Vtbl {
 impl windows_core::RuntimeName for ITextServices2 {}
 pub type PCreateTextServices = Option<unsafe extern "system" fn(punkouter: windows_core::Ref<windows_core::IUnknown>, pitexthost: windows_core::Ref<ITextHost>, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT>;
 pub type PShutdownTextServices = Option<unsafe extern "system" fn(ptextservices: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT>;
-pub const S_MSG_KEY_IGNORED: i32 = 262657;
+pub const S_MSG_KEY_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x40201_u32 as _);
 pub const TXES_ISDIALOG: i32 = 1;
 pub type TXTBACKSTYLE = i32;
 pub const TXTBACK_OPAQUE: TXTBACKSTYLE = 1;

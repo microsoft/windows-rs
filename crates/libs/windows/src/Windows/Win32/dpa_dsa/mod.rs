@@ -1,6 +1,6 @@
 #[inline]
-pub unsafe fn DPA_Clone(hdpa: *const _DPA, hdpanew: Option<*mut _DPA>) -> HDPA {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Clone(hdpa : *const _DPA, hdpanew : *mut _DPA) -> HDPA);
+pub unsafe fn DPA_Clone(hdpa: HDPA, hdpanew: Option<HDPA>) -> HDPA {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Clone(hdpa : HDPA, hdpanew : HDPA) -> HDPA);
     unsafe { DPA_Clone(hdpa, hdpanew.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -15,53 +15,53 @@ pub unsafe fn DPA_CreateEx(cpgrow: i32, hheap: Option<super::HANDLE>) -> HDPA {
     unsafe { DPA_CreateEx(cpgrow, hheap.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DPA_DeleteAllPtrs(hdpa : *mut _DPA) -> windows_core::BOOL);
+pub unsafe fn DPA_DeleteAllPtrs(hdpa: HDPA) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DPA_DeleteAllPtrs(hdpa : HDPA) -> windows_core::BOOL);
     unsafe { DPA_DeleteAllPtrs(hdpa as _) }
 }
 #[inline]
-pub unsafe fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut core::ffi::c_void {
-    windows_core::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : *mut _DPA, i : i32) -> *mut core::ffi::c_void);
+pub unsafe fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> *mut core::ffi::c_void {
+    windows_core::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut core::ffi::c_void);
     unsafe { DPA_DeletePtr(hdpa as _, i) }
 }
 #[inline]
-pub unsafe fn DPA_Destroy(hdpa: Option<*mut _DPA>) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : *mut _DPA) -> windows_core::BOOL);
+pub unsafe fn DPA_Destroy(hdpa: Option<HDPA>) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : HDPA) -> windows_core::BOOL);
     unsafe { DPA_Destroy(hdpa.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DPA_DestroyCallback(hdpa: Option<*mut _DPA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
-    windows_core::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : *mut _DPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+pub unsafe fn DPA_DestroyCallback(hdpa: Option<HDPA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
+    windows_core::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
     unsafe { DPA_DestroyCallback(hdpa.unwrap_or(core::mem::zeroed()) as _, pfncb, pdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DPA_EnumCallback(hdpa: Option<*const _DPA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
-    windows_core::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : *const _DPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+pub unsafe fn DPA_EnumCallback(hdpa: Option<HDPA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
+    windows_core::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
     unsafe { DPA_EnumCallback(hdpa.unwrap_or(core::mem::zeroed()) as _, pfncb, pdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut core::ffi::c_void {
-    windows_core::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : *const _DPA, i : isize) -> *mut core::ffi::c_void);
+pub unsafe fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut core::ffi::c_void {
+    windows_core::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut core::ffi::c_void);
     unsafe { DPA_GetPtr(hdpa, i) }
 }
 #[inline]
-pub unsafe fn DPA_GetPtrIndex(hdpa: *const _DPA, p: Option<*const core::ffi::c_void>) -> i32 {
-    windows_core::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : *const _DPA, p : *const core::ffi::c_void) -> i32);
+pub unsafe fn DPA_GetPtrIndex(hdpa: HDPA, p: Option<*const core::ffi::c_void>) -> i32 {
+    windows_core::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p : *const core::ffi::c_void) -> i32);
     unsafe { DPA_GetPtrIndex(hdpa, p.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DPA_GetSize(hdpa: Option<*const _DPA>) -> u64 {
-    windows_core::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : *const _DPA) -> u64);
+pub unsafe fn DPA_GetSize(hdpa: Option<HDPA>) -> u64 {
+    windows_core::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
     unsafe { DPA_GetSize(hdpa.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : *mut _DPA, cp : i32) -> windows_core::BOOL);
+pub unsafe fn DPA_Grow(pdpa: HDPA, cp: i32) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> windows_core::BOOL);
     unsafe { DPA_Grow(pdpa as _, cp) }
 }
 #[inline]
-pub unsafe fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: Option<*const core::ffi::c_void>) -> i32 {
-    windows_core::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : *mut _DPA, i : i32, p : *const core::ffi::c_void) -> i32);
+pub unsafe fn DPA_InsertPtr(hdpa: HDPA, i: i32, p: Option<*const core::ffi::c_void>) -> i32 {
+    windows_core::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> i32);
     unsafe { DPA_InsertPtr(hdpa as _, i, p.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "objidlbase")]
@@ -75,39 +75,39 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DPA_Merge(hdpadest: *mut _DPA, hdpasrc: *const _DPA, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: super::LPARAM) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : *mut _DPA, hdpasrc : *const _DPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::LPARAM) -> windows_core::BOOL);
+pub unsafe fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: super::LPARAM) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::LPARAM) -> windows_core::BOOL);
     unsafe { DPA_Merge(hdpadest as _, hdpasrc, dwflags, pfncompare, pfnmerge, lparam) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn DPA_SaveStream<P2>(hdpa: *const _DPA, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
+pub unsafe fn DPA_SaveStream<P2>(hdpa: HDPA, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
 where
     P2: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : *const _DPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DPA_SaveStream(hdpa, pfn, pstream.param().abi(), pvinstdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DPA_Search(hdpa: *const _DPA, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: super::LPARAM, options: u32) -> i32 {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Search(hdpa : *const _DPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::LPARAM, options : u32) -> i32);
+pub unsafe fn DPA_Search(hdpa: HDPA, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: super::LPARAM, options: u32) -> i32 {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::LPARAM, options : u32) -> i32);
     unsafe { DPA_Search(hdpa, pfind.unwrap_or(core::mem::zeroed()) as _, istart, pfncompare, lparam, options) }
 }
 #[inline]
-pub unsafe fn DPA_SetPtr(hdpa: *mut _DPA, i: i32, p: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : *mut _DPA, i : i32, p : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn DPA_SetPtr(hdpa: HDPA, i: i32, p: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { DPA_SetPtr(hdpa as _, i, p.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DPA_Sort(hdpa: *mut _DPA, pfncompare: PFNDACOMPARE, lparam: super::LPARAM) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : *mut _DPA, pfncompare : PFNDACOMPARE, lparam : super::LPARAM) -> windows_core::BOOL);
+pub unsafe fn DPA_Sort(hdpa: HDPA, pfncompare: PFNDACOMPARE, lparam: super::LPARAM) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : HDPA, pfncompare : PFNDACOMPARE, lparam : super::LPARAM) -> windows_core::BOOL);
     unsafe { DPA_Sort(hdpa as _, pfncompare, lparam) }
 }
 #[inline]
-pub unsafe fn DSA_Clone(hdsa: *const _DSA) -> HDSA {
-    windows_core::link!("comctl32.dll" "system" fn DSA_Clone(hdsa : *const _DSA) -> HDSA);
+pub unsafe fn DSA_Clone(hdsa: HDSA) -> HDSA {
+    windows_core::link!("comctl32.dll" "system" fn DSA_Clone(hdsa : HDSA) -> HDSA);
     unsafe { DSA_Clone(hdsa) }
 }
 #[inline]
@@ -116,59 +116,59 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
     unsafe { DSA_Create(cbitem, citemgrow) }
 }
 #[inline]
-pub unsafe fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DSA_DeleteAllItems(hdsa : *mut _DSA) -> windows_core::BOOL);
+pub unsafe fn DSA_DeleteAllItems(hdsa: HDSA) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DSA_DeleteAllItems(hdsa : HDSA) -> windows_core::BOOL);
     unsafe { DSA_DeleteAllItems(hdsa as _) }
 }
 #[inline]
-pub unsafe fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DSA_DeleteItem(hdsa : *mut _DSA, i : i32) -> windows_core::BOOL);
+pub unsafe fn DSA_DeleteItem(hdsa: HDSA, i: i32) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DSA_DeleteItem(hdsa : HDSA, i : i32) -> windows_core::BOOL);
     unsafe { DSA_DeleteItem(hdsa as _, i) }
 }
 #[inline]
-pub unsafe fn DSA_Destroy(hdsa: Option<*mut _DSA>) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : *mut _DSA) -> windows_core::BOOL);
+pub unsafe fn DSA_Destroy(hdsa: Option<HDSA>) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : HDSA) -> windows_core::BOOL);
     unsafe { DSA_Destroy(hdsa.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DSA_DestroyCallback(hdsa: Option<*mut _DSA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
-    windows_core::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : *mut _DSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+pub unsafe fn DSA_DestroyCallback(hdsa: Option<HDSA>, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
+    windows_core::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
     unsafe { DSA_DestroyCallback(hdsa.unwrap_or(core::mem::zeroed()) as _, pfncb, pdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DSA_EnumCallback(hdsa: *const _DSA, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
-    windows_core::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : *const _DSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
+pub unsafe fn DSA_EnumCallback(hdsa: HDSA, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>) {
+    windows_core::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
     unsafe { DSA_EnumCallback(hdsa, pfncb, pdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DSA_GetItem(hdsa: *const _DSA, i: i32, pitem: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : *const _DSA, i : i32, pitem : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn DSA_GetItem(hdsa: HDSA, i: i32, pitem: *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { DSA_GetItem(hdsa, i, pitem as _) }
 }
 #[inline]
-pub unsafe fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut core::ffi::c_void {
-    windows_core::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : *const _DSA, i : i32) -> *mut core::ffi::c_void);
+pub unsafe fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> *mut core::ffi::c_void {
+    windows_core::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut core::ffi::c_void);
     unsafe { DSA_GetItemPtr(hdsa, i) }
 }
 #[inline]
-pub unsafe fn DSA_GetSize(hdsa: Option<*const _DSA>) -> u64 {
-    windows_core::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : *const _DSA) -> u64);
+pub unsafe fn DSA_GetSize(hdsa: Option<HDSA>) -> u64 {
+    windows_core::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> u64);
     unsafe { DSA_GetSize(hdsa.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const core::ffi::c_void) -> i32 {
-    windows_core::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : *mut _DSA, i : i32, pitem : *const core::ffi::c_void) -> i32);
+pub unsafe fn DSA_InsertItem(hdsa: HDSA, i: i32, pitem: *const core::ffi::c_void) -> i32 {
+    windows_core::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> i32);
     unsafe { DSA_InsertItem(hdsa as _, i, pitem) }
 }
 #[inline]
-pub unsafe fn DSA_SetItem(hdsa: *mut _DSA, i: i32, pitem: *const core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : *mut _DSA, i : i32, pitem : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn DSA_SetItem(hdsa: HDSA, i: i32, pitem: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { DSA_SetItem(hdsa as _, i, pitem) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DSA_Sort(pdsa: *mut _DSA, pfncompare: PFNDACOMPARE, lparam: super::LPARAM) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : *mut _DSA, pfncompare : PFNDACOMPARE, lparam : super::LPARAM) -> windows_core::BOOL);
+pub unsafe fn DSA_Sort(pdsa: HDSA, pfncompare: PFNDACOMPARE, lparam: super::LPARAM) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : HDSA, pfncompare : PFNDACOMPARE, lparam : super::LPARAM) -> windows_core::BOOL);
     unsafe { DSA_Sort(pdsa as _, pfncompare, lparam) }
 }
 #[inline]

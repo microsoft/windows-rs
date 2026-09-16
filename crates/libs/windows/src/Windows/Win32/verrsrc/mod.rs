@@ -76,6 +76,7 @@ pub const VS_FF_PATCHED: i32 = 4;
 pub const VS_FF_PRERELEASE: i32 = 2;
 pub const VS_FF_PRIVATEBUILD: i32 = 8;
 pub const VS_FF_SPECIALBUILD: i32 = 32;
+pub const VS_FILE_INFO: windows_core::PCSTR = windows_core::PCSTR(16 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VS_FIXEDFILEINFO {

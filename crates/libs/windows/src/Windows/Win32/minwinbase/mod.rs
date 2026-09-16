@@ -1,4 +1,4 @@
-pub const CONTROL_C_EXIT: i32 = -1073741510;
+pub const CONTROL_C_EXIT: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000013A_u32 as _);
 pub const CREATE_PROCESS_DEBUG_EVENT: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -63,10 +63,10 @@ impl Default for DEBUG_EVENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EXCEPTION_ACCESS_VIOLATION: i32 = -1073741819;
-pub const EXCEPTION_ARRAY_BOUNDS_EXCEEDED: i32 = -1073741684;
-pub const EXCEPTION_BREAKPOINT: i32 = -2147483645;
-pub const EXCEPTION_DATATYPE_MISALIGNMENT: i32 = -2147483646;
+pub const EXCEPTION_ACCESS_VIOLATION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000005_u32 as _);
+pub const EXCEPTION_ARRAY_BOUNDS_EXCEEDED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000008C_u32 as _);
+pub const EXCEPTION_BREAKPOINT: windows_core::NTSTATUS = windows_core::NTSTATUS(0x80000003_u32 as _);
+pub const EXCEPTION_DATATYPE_MISALIGNMENT: windows_core::NTSTATUS = windows_core::NTSTATUS(0x80000002_u32 as _);
 pub const EXCEPTION_DEBUG_EVENT: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -75,25 +75,25 @@ pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: super::EXCEPTION_RECORD,
     pub dwFirstChance: u32,
 }
-pub const EXCEPTION_FLT_DENORMAL_OPERAND: i32 = -1073741683;
-pub const EXCEPTION_FLT_DIVIDE_BY_ZERO: i32 = -1073741682;
-pub const EXCEPTION_FLT_INEXACT_RESULT: i32 = -1073741681;
-pub const EXCEPTION_FLT_INVALID_OPERATION: i32 = -1073741680;
-pub const EXCEPTION_FLT_OVERFLOW: i32 = -1073741679;
-pub const EXCEPTION_FLT_STACK_CHECK: i32 = -1073741678;
-pub const EXCEPTION_FLT_UNDERFLOW: i32 = -1073741677;
-pub const EXCEPTION_GUARD_PAGE: i32 = -2147483647;
-pub const EXCEPTION_ILLEGAL_INSTRUCTION: i32 = -1073741795;
-pub const EXCEPTION_INT_DIVIDE_BY_ZERO: i32 = -1073741676;
-pub const EXCEPTION_INT_OVERFLOW: i32 = -1073741675;
-pub const EXCEPTION_INVALID_DISPOSITION: i32 = -1073741786;
-pub const EXCEPTION_INVALID_HANDLE: i32 = -1073741816;
-pub const EXCEPTION_IN_PAGE_ERROR: i32 = -1073741818;
-pub const EXCEPTION_NONCONTINUABLE_EXCEPTION: i32 = -1073741787;
-pub const EXCEPTION_POSSIBLE_DEADLOCK: i32 = -1073741420;
-pub const EXCEPTION_PRIV_INSTRUCTION: i32 = -1073741674;
-pub const EXCEPTION_SINGLE_STEP: i32 = -2147483644;
-pub const EXCEPTION_STACK_OVERFLOW: i32 = -1073741571;
+pub const EXCEPTION_FLT_DENORMAL_OPERAND: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000008D_u32 as _);
+pub const EXCEPTION_FLT_DIVIDE_BY_ZERO: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000008E_u32 as _);
+pub const EXCEPTION_FLT_INEXACT_RESULT: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000008F_u32 as _);
+pub const EXCEPTION_FLT_INVALID_OPERATION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000090_u32 as _);
+pub const EXCEPTION_FLT_OVERFLOW: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000091_u32 as _);
+pub const EXCEPTION_FLT_STACK_CHECK: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000092_u32 as _);
+pub const EXCEPTION_FLT_UNDERFLOW: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000093_u32 as _);
+pub const EXCEPTION_GUARD_PAGE: windows_core::NTSTATUS = windows_core::NTSTATUS(0x80000001_u32 as _);
+pub const EXCEPTION_ILLEGAL_INSTRUCTION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000001D_u32 as _);
+pub const EXCEPTION_INT_DIVIDE_BY_ZERO: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000094_u32 as _);
+pub const EXCEPTION_INT_OVERFLOW: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000095_u32 as _);
+pub const EXCEPTION_INVALID_DISPOSITION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000026_u32 as _);
+pub const EXCEPTION_INVALID_HANDLE: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000008_u32 as _);
+pub const EXCEPTION_IN_PAGE_ERROR: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000006_u32 as _);
+pub const EXCEPTION_NONCONTINUABLE_EXCEPTION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000025_u32 as _);
+pub const EXCEPTION_POSSIBLE_DEADLOCK: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000194_u32 as _);
+pub const EXCEPTION_PRIV_INSTRUCTION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000096_u32 as _);
+pub const EXCEPTION_SINGLE_STEP: windows_core::NTSTATUS = windows_core::NTSTATUS(0x80000004_u32 as _);
+pub const EXCEPTION_STACK_OVERFLOW: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC00000FD_u32 as _);
 pub const EXIT_PROCESS_DEBUG_EVENT: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -201,7 +201,7 @@ pub type LPOUTPUT_DEBUG_STRING_INFO = *mut OUTPUT_DEBUG_STRING_INFO;
 #[cfg(feature = "winnt")]
 pub type LPOVERLAPPED = *mut OVERLAPPED;
 #[cfg(feature = "winnt")]
-pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
+pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: LPOVERLAPPED)>;
 #[cfg(feature = "winnt")]
 pub type LPOVERLAPPED_ENTRY = *mut OVERLAPPED_ENTRY;
 #[cfg(feature = "winnt")]
@@ -409,7 +409,7 @@ pub struct SECURITY_ATTRIBUTES {
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: windows_core::BOOL,
 }
-pub const STILL_ACTIVE: i32 = 259;
+pub const STILL_ACTIVE: windows_core::NTSTATUS = windows_core::NTSTATUS(0x103_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMTIME {

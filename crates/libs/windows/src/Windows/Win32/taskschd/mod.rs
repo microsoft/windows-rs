@@ -2655,7 +2655,8 @@ impl IRegisteredTask {
             (windows_core::Interface::vtable(self).GetInstances)(windows_core::Interface::as_raw(self), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LastRunTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastRunTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastRunTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2673,7 +2674,8 @@ impl IRegisteredTask {
             (windows_core::Interface::vtable(self).NumberOfMissedRuns)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NextRunTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn NextRunTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NextRunTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2704,7 +2706,7 @@ impl IRegisteredTask {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), flags) }
     }
     #[cfg(feature = "minwinbase")]
-    pub unsafe fn GetRunTimes(&self, pststart: *const super::SYSTEMTIME, pstend: *const super::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut super::LPSYSTEMTIME) -> windows_core::HRESULT {
+    pub unsafe fn GetRunTimes(&self, pststart: super::LPSYSTEMTIME, pstend: super::LPSYSTEMTIME, pcount: *mut u32, pruntimes: *mut super::LPSYSTEMTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pststart, pstend, pcount as _, pruntimes as _) }
     }
 }
@@ -2733,17 +2735,23 @@ pub struct IRegisteredTask_Vtbl {
     #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     RunEx: usize,
     pub GetInstances: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LastRunTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub LastRunTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastRunTime: usize,
     pub LastTaskResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NumberOfMissedRuns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub NextRunTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub NextRunTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    NextRunTime: usize,
     pub Definition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Xml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(feature = "minwinbase")]
-    pub GetRunTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SYSTEMTIME, *const super::SYSTEMTIME, *mut u32, *mut super::LPSYSTEMTIME) -> windows_core::HRESULT,
+    pub GetRunTimes: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPSYSTEMTIME, super::LPSYSTEMTIME, *mut u32, *mut super::LPSYSTEMTIME) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwinbase"))]
     GetRunTimes: usize,
 }
@@ -2757,16 +2765,16 @@ pub trait IRegisteredTask_Impl: super::IDispatch_Impl {
     fn Run(&self, params: &super::VARIANT) -> windows_core::Result<IRunningTask>;
     fn RunEx(&self, params: &super::VARIANT, flags: i32, sessionid: i32, user: &windows_core::BSTR) -> windows_core::Result<IRunningTask>;
     fn GetInstances(&self, flags: i32) -> windows_core::Result<IRunningTaskCollection>;
-    fn LastRunTime(&self) -> windows_core::Result<f64>;
+    fn LastRunTime(&self) -> windows_core::Result<super::DATE>;
     fn LastTaskResult(&self) -> windows_core::Result<i32>;
     fn NumberOfMissedRuns(&self) -> windows_core::Result<i32>;
-    fn NextRunTime(&self) -> windows_core::Result<f64>;
+    fn NextRunTime(&self) -> windows_core::Result<super::DATE>;
     fn Definition(&self) -> windows_core::Result<ITaskDefinition>;
     fn Xml(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetSecurityDescriptor(&self, securityinformation: i32) -> windows_core::Result<windows_core::BSTR>;
     fn SetSecurityDescriptor(&self, sddl: &windows_core::BSTR, flags: i32) -> windows_core::Result<()>;
     fn Stop(&self, flags: i32) -> windows_core::Result<()>;
-    fn GetRunTimes(&self, pststart: *const super::SYSTEMTIME, pstend: *const super::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut super::LPSYSTEMTIME) -> windows_core::Result<()>;
+    fn GetRunTimes(&self, pststart: super::LPSYSTEMTIME, pstend: super::LPSYSTEMTIME, pcount: *mut u32, pruntimes: *mut super::LPSYSTEMTIME) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwinbase", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRegisteredTask_Vtbl {
@@ -2861,7 +2869,7 @@ impl IRegisteredTask_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LastRunTime<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plastruntime: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastRunTime<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plastruntime: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::LastRunTime(this) {
@@ -2897,7 +2905,7 @@ impl IRegisteredTask_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn NextRunTime<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnextruntime: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn NextRunTime<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnextruntime: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::NextRunTime(this) {
@@ -2957,7 +2965,7 @@ impl IRegisteredTask_Vtbl {
                 IRegisteredTask_Impl::Stop(this, core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetRunTimes<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pststart: *const super::SYSTEMTIME, pstend: *const super::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut super::LPSYSTEMTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRunTimes<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pststart: super::LPSYSTEMTIME, pstend: super::LPSYSTEMTIME, pcount: *mut u32, pruntimes: *mut super::LPSYSTEMTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRegisteredTask_Impl::GetRunTimes(this, core::mem::transmute_copy(&pststart), core::mem::transmute_copy(&pstend), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pruntimes)).into()

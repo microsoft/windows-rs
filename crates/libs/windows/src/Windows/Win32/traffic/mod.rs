@@ -1,13 +1,13 @@
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TcAddFilter(flowhandle: super::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::HANDLE, pgenericfilter : *const TC_GEN_FILTER, pfilterhandle : *mut super::HANDLE) -> u32);
+pub unsafe fn TcAddFilter(flowhandle: super::HANDLE, pgenericfilter: PTC_GEN_FILTER, pfilterhandle: super::PHANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::HANDLE, pgenericfilter : PTC_GEN_FILTER, pfilterhandle : super::PHANDLE) -> u32);
     unsafe { TcAddFilter(flowhandle, pgenericfilter, pfilterhandle as _) }
 }
 #[cfg(all(feature = "qos", feature = "winnt"))]
 #[inline]
-pub unsafe fn TcAddFlow(ifchandle: super::HANDLE, clflowctx: super::HANDLE, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::HANDLE, clflowctx : super::HANDLE, flags : u32, pgenericflow : *const TC_GEN_FLOW, pflowhandle : *mut super::HANDLE) -> u32);
+pub unsafe fn TcAddFlow(ifchandle: super::HANDLE, clflowctx: super::HANDLE, flags: u32, pgenericflow: PTC_GEN_FLOW, pflowhandle: super::PHANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::HANDLE, clflowctx : super::HANDLE, flags : u32, pgenericflow : PTC_GEN_FLOW, pflowhandle : super::PHANDLE) -> u32);
     unsafe { TcAddFlow(ifchandle, clflowctx, flags, pgenericflow, pflowhandle as _) }
 }
 #[cfg(feature = "winnt")]
@@ -34,16 +34,16 @@ pub unsafe fn TcDeregisterClient(clienthandle: super::HANDLE) -> u32 {
     windows_core::link!("traffic.dll" "system" fn TcDeregisterClient(clienthandle : super::HANDLE) -> u32);
     unsafe { TcDeregisterClient(clienthandle) }
 }
-#[cfg(all(feature = "qos", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "qos", feature = "winnt"))]
 #[inline]
-pub unsafe fn TcEnumerateFlows(ifchandle: super::HANDLE, penumhandle: *mut super::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::HANDLE, penumhandle : *mut super::HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
+pub unsafe fn TcEnumerateFlows(ifchandle: super::HANDLE, penumhandle: super::PHANDLE, pflowcount: super::PULONG, pbufsize: super::PULONG, buffer: PENUMERATION_BUFFER) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::HANDLE, penumhandle : super::PHANDLE, pflowcount : super::PULONG, pbufsize : super::PULONG, buffer : PENUMERATION_BUFFER) -> u32);
     unsafe { TcEnumerateFlows(ifchandle, penumhandle as _, pflowcount as _, pbufsize as _, buffer as _) }
 }
-#[cfg(all(feature = "ntddndis", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "ntddndis", feature = "winnt"))]
 #[inline]
-pub unsafe fn TcEnumerateInterfaces(clienthandle: super::HANDLE, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
+pub unsafe fn TcEnumerateInterfaces(clienthandle: super::HANDLE, pbuffersize: super::PULONG, interfacebuffer: PTC_IFC_DESCRIPTOR) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::HANDLE, pbuffersize : super::PULONG, interfacebuffer : PTC_IFC_DESCRIPTOR) -> u32);
     unsafe { TcEnumerateInterfaces(clienthandle, pbuffersize as _, interfacebuffer as _) }
 }
 #[cfg(feature = "winnt")]
@@ -60,76 +60,80 @@ pub unsafe fn TcGetFlowNameW(flowhandle: super::HANDLE, strsize: u32, pflowname:
 }
 #[cfg(all(feature = "qos", feature = "winnt"))]
 #[inline]
-pub unsafe fn TcModifyFlow(flowhandle: super::HANDLE, pgenericflow: *const TC_GEN_FLOW) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
+pub unsafe fn TcModifyFlow(flowhandle: super::HANDLE, pgenericflow: PTC_GEN_FLOW) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::HANDLE, pgenericflow : PTC_GEN_FLOW) -> u32);
     unsafe { TcModifyFlow(flowhandle, pgenericflow) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TcOpenInterfaceA<P0>(pinterfacename: P0, clienthandle: super::HANDLE, clifcctx: super::HANDLE, pifchandle: *mut super::HANDLE) -> u32
+pub unsafe fn TcOpenInterfaceA<P0>(pinterfacename: P0, clienthandle: super::HANDLE, clifcctx: super::HANDLE, pifchandle: super::PHANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_core::PCSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : *mut super::HANDLE) -> u32);
+    windows_core::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_core::PCSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : super::PHANDLE) -> u32);
     unsafe { TcOpenInterfaceA(pinterfacename.param().abi(), clienthandle, clifcctx, pifchandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TcOpenInterfaceW<P0>(pinterfacename: P0, clienthandle: super::HANDLE, clifcctx: super::HANDLE, pifchandle: *mut super::HANDLE) -> u32
+pub unsafe fn TcOpenInterfaceW<P0>(pinterfacename: P0, clienthandle: super::HANDLE, clifcctx: super::HANDLE, pifchandle: super::PHANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_core::PCWSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : *mut super::HANDLE) -> u32);
+    windows_core::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_core::PCWSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : super::PHANDLE) -> u32);
     unsafe { TcOpenInterfaceW(pinterfacename.param().abi(), clienthandle, clifcctx, pifchandle as _) }
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 #[inline]
-pub unsafe fn TcQueryFlowA<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
+pub unsafe fn TcQueryFlowA<P0>(pflowname: P0, pguidparam: super::LPGUID, pbuffersize: super::PULONG, buffer: *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_core::PCSTR, pguidparam : *const windows_core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_core::PCSTR, pguidparam : super::LPGUID, pbuffersize : super::PULONG, buffer : *mut core::ffi::c_void) -> u32);
     unsafe { TcQueryFlowA(pflowname.param().abi(), pguidparam, pbuffersize as _, buffer as _) }
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 #[inline]
-pub unsafe fn TcQueryFlowW<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
+pub unsafe fn TcQueryFlowW<P0>(pflowname: P0, pguidparam: super::LPGUID, pbuffersize: super::PULONG, buffer: *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_core::PCWSTR, pguidparam : *const windows_core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_core::PCWSTR, pguidparam : super::LPGUID, pbuffersize : super::PULONG, buffer : *mut core::ffi::c_void) -> u32);
     unsafe { TcQueryFlowW(pflowname.param().abi(), pguidparam, pbuffersize as _, buffer as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TcQueryInterface(ifchandle: super::HANDLE, pguidparam: *const windows_core::GUID, notifychange: bool, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::HANDLE, pguidparam : *const windows_core::GUID, notifychange : bool, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+pub unsafe fn TcQueryInterface(ifchandle: super::HANDLE, pguidparam: super::LPGUID, notifychange: super::BOOLEAN, pbuffersize: super::PULONG, buffer: *mut core::ffi::c_void) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::HANDLE, pguidparam : super::LPGUID, notifychange : super::BOOLEAN, pbuffersize : super::PULONG, buffer : *mut core::ffi::c_void) -> u32);
     unsafe { TcQueryInterface(ifchandle, pguidparam, notifychange, pbuffersize as _, buffer as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TcRegisterClient(tciversion: u32, clregctx: super::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::HANDLE) -> u32);
+pub unsafe fn TcRegisterClient(tciversion: u32, clregctx: super::HANDLE, clienthandlerlist: PTCI_CLIENT_FUNC_LIST, pclienthandle: super::PHANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::HANDLE, clienthandlerlist : PTCI_CLIENT_FUNC_LIST, pclienthandle : super::PHANDLE) -> u32);
     unsafe { TcRegisterClient(tciversion, clregctx, clienthandlerlist, pclienthandle as _) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn TcSetFlowA<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
+pub unsafe fn TcSetFlowA<P0>(pflowname: P0, pguidparam: super::LPGUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_core::PCSTR, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+    windows_core::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_core::PCSTR, pguidparam : super::LPGUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
     unsafe { TcSetFlowA(pflowname.param().abi(), pguidparam, buffersize, buffer) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn TcSetFlowW<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
+pub unsafe fn TcSetFlowW<P0>(pflowname: P0, pguidparam: super::LPGUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_core::PCWSTR, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+    windows_core::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_core::PCWSTR, pguidparam : super::LPGUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
     unsafe { TcSetFlowW(pflowname.param().abi(), pguidparam, buffersize, buffer) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TcSetInterface(ifchandle: super::HANDLE, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::HANDLE, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+pub unsafe fn TcSetInterface(ifchandle: super::HANDLE, pguidparam: super::LPGUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::HANDLE, pguidparam : super::LPGUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
     unsafe { TcSetInterface(ifchandle, pguidparam, buffersize, buffer) }
 }
 #[repr(C)]
@@ -295,7 +299,7 @@ pub struct TC_IFC_DESCRIPTOR {
     pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
 }
 #[cfg(feature = "winnt")]
-pub const TC_INVALID_HANDLE: super::HANDLE = super::HANDLE(0 as _);
+pub const TC_INVALID_HANDLE: super::HANDLE = 0 as _;
 pub const TC_NOTIFY_FLOW_CLOSE: i32 = 5;
 pub const TC_NOTIFY_IFC_CHANGE: i32 = 3;
 pub const TC_NOTIFY_IFC_CLOSE: i32 = 2;

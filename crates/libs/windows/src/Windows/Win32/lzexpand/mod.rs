@@ -41,20 +41,20 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
 }
 #[cfg(feature = "winbase")]
 #[inline]
-pub unsafe fn LZOpenFileA<P0>(lpfilename: P0, lpreopenbuf: *mut super::OFSTRUCT, wstyle: u16) -> i32
+pub unsafe fn LZOpenFileA<P0>(lpfilename: P0, lpreopenbuf: super::LPOFSTRUCT, wstyle: u16) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("lz32.dll" "system" fn LZOpenFileA(lpfilename : windows_core::PCSTR, lpreopenbuf : *mut super::OFSTRUCT, wstyle : u16) -> i32);
+    windows_core::link!("lz32.dll" "system" fn LZOpenFileA(lpfilename : windows_core::PCSTR, lpreopenbuf : super::LPOFSTRUCT, wstyle : u16) -> i32);
     unsafe { LZOpenFileA(lpfilename.param().abi(), lpreopenbuf as _, wstyle) }
 }
 #[cfg(feature = "winbase")]
 #[inline]
-pub unsafe fn LZOpenFileW<P0>(lpfilename: P0, lpreopenbuf: *mut super::OFSTRUCT, wstyle: u16) -> i32
+pub unsafe fn LZOpenFileW<P0>(lpfilename: P0, lpreopenbuf: super::LPOFSTRUCT, wstyle: u16) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("lz32.dll" "system" fn LZOpenFileW(lpfilename : windows_core::PCWSTR, lpreopenbuf : *mut super::OFSTRUCT, wstyle : u16) -> i32);
+    windows_core::link!("lz32.dll" "system" fn LZOpenFileW(lpfilename : windows_core::PCWSTR, lpreopenbuf : super::LPOFSTRUCT, wstyle : u16) -> i32);
     unsafe { LZOpenFileW(lpfilename.param().abi(), lpreopenbuf as _, wstyle) }
 }
 #[inline]

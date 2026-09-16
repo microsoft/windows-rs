@@ -18,15 +18,16 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmEndSession(dwsessionhandle : u32) -> u32);
     unsafe { RmEndSession(dwsessionhandle) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<*mut u8>, cbfilterbuf: u32, cbfilterbufneeded: *mut u32) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> u32);
+pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<super::PBYTE>, cbfilterbuf: u32, cbfilterbufneeded: super::LPDWORD) -> u32 {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : super::PBYTE, cbfilterbuf : u32, cbfilterbufneeded : super::LPDWORD) -> u32);
     unsafe { RmGetFilterList(dwsessionhandle, pbfilterbuf.unwrap_or(core::mem::zeroed()) as _, cbfilterbuf, cbfilterbufneeded as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: *mut u32) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : *mut u32) -> u32);
+pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: super::LPDWORD) -> u32 {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : super::LPDWORD) -> u32);
     unsafe { RmGetList(dwsessionhandle, pnprocinfoneeded as _, pnprocinfo as _, rgaffectedapps.unwrap_or(core::mem::zeroed()) as _, lpdwrebootreasons as _) }
 }
 #[inline]
@@ -131,6 +132,10 @@ impl Default for RM_PROCESS_INFO {
     }
 }
 pub type RM_REBOOT_REASON = i32;
+#[cfg(target_arch = "x86")]
+pub const RM_SESSION_KEY_LEN: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const RM_SESSION_KEY_LEN: u64 = 16;
 pub type RM_SHUTDOWN_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -139,7 +144,7 @@ pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
     pub ProcessStartTime: super::FILETIME,
 }
-pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;
+pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "C" fn(npercentcomplete: u32)>;
 pub const RmConsole: RM_APP_TYPE = 5;
 pub const RmCritical: RM_APP_TYPE = 1000;
 pub const RmExplorer: RM_APP_TYPE = 4;

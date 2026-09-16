@@ -2421,31 +2421,37 @@ impl IFsiItem {
             (windows_core::Interface::vtable(self).FullPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CreationTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn CreationTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCreationTime(&self, newval: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetCreationTime(&self, newval: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCreationTime)(windows_core::Interface::as_raw(self), newval) }
     }
-    pub unsafe fn LastAccessedTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastAccessedTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastAccessedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLastAccessedTime(&self, newval: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetLastAccessedTime(&self, newval: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLastAccessedTime)(windows_core::Interface::as_raw(self), newval) }
     }
-    pub unsafe fn LastModifiedTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastModifiedTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModifiedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetLastModifiedTime(&self, newval: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLastModifiedTime)(windows_core::Interface::as_raw(self), newval) }
     }
     #[cfg(feature = "wtypes")]
@@ -2479,12 +2485,30 @@ pub struct IFsiItem_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FullPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetCreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub LastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetLastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub LastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetLastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    CreationTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetCreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetCreationTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub LastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastAccessedTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetLastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetLastAccessedTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub LastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastModifiedTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetLastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetLastModifiedTime: usize,
     #[cfg(feature = "wtypes")]
     pub IsHidden: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -2500,12 +2524,12 @@ pub struct IFsiItem_Vtbl {
 pub trait IFsiItem_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FullPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CreationTime(&self) -> windows_core::Result<f64>;
-    fn SetCreationTime(&self, newval: f64) -> windows_core::Result<()>;
-    fn LastAccessedTime(&self) -> windows_core::Result<f64>;
-    fn SetLastAccessedTime(&self, newval: f64) -> windows_core::Result<()>;
-    fn LastModifiedTime(&self) -> windows_core::Result<f64>;
-    fn SetLastModifiedTime(&self, newval: f64) -> windows_core::Result<()>;
+    fn CreationTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetCreationTime(&self, newval: super::DATE) -> windows_core::Result<()>;
+    fn LastAccessedTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetLastAccessedTime(&self, newval: super::DATE) -> windows_core::Result<()>;
+    fn LastModifiedTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetLastModifiedTime(&self, newval: super::DATE) -> windows_core::Result<()>;
     fn IsHidden(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetIsHidden(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn FileSystemName(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR>;
@@ -2538,7 +2562,7 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::CreationTime(this) {
@@ -2550,13 +2574,13 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFsiItem_Impl::SetCreationTime(this, core::mem::transmute_copy(&newval)).into()
             }
         }
-        unsafe extern "system" fn LastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::LastAccessedTime(this) {
@@ -2568,13 +2592,13 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFsiItem_Impl::SetLastAccessedTime(this, core::mem::transmute_copy(&newval)).into()
             }
         }
-        unsafe extern "system" fn LastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::LastModifiedTime(this) {
@@ -2586,7 +2610,7 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFsiItem_Impl::SetLastModifiedTime(this, core::mem::transmute_copy(&newval)).into()

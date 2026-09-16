@@ -1,13 +1,13 @@
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut super::PROPVARIANT, pma: *const PMemoryAllocator) -> bool {
-    windows_core::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut super::PROPVARIANT, pma : *const PMemoryAllocator) -> bool);
+pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut super::PROPVARIANT, pma: *const core::ffi::c_void) -> super::BOOLEAN {
+    windows_core::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut super::PROPVARIANT, pma : *const core::ffi::c_void) -> super::BOOLEAN);
     unsafe { StgConvertPropertyToVariant(pprop, codepage, pvar, pma) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn StgConvertVariantToProperty(pvar: *const super::PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: super::PROPID, freserved: Option<bool>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
-    windows_core::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const super::PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : super::PROPID, freserved : bool, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
+pub unsafe fn StgConvertVariantToProperty(pvar: *const super::PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: super::PROPID, freserved: Option<super::BOOLEAN>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
+    windows_core::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const super::PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : super::PROPID, freserved : super::BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
     unsafe { StgConvertVariantToProperty(pvar, codepage, pprop.unwrap_or(core::mem::zeroed()) as _, pcb as _, pid, freserved.unwrap_or(core::mem::zeroed()) as _, pcindirect.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const PIDDI_THUMBNAIL: i32 = 2;
@@ -65,9 +65,6 @@ pub const PIDSI_TEMPLATE: i32 = 7;
 pub const PIDSI_THUMBNAIL: i32 = 17;
 pub const PIDSI_TITLE: i32 = 2;
 pub const PIDSI_WORDCOUNT: i32 = 15;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PMemoryAllocator(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALIZEDPROPERTYVALUE {

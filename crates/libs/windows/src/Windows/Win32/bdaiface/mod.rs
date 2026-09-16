@@ -1324,13 +1324,15 @@ impl windows_core::RuntimeName for IBDA_DigitalDemodulator3 {}
 windows_core::imp::define_interface!(IBDA_DiseqCommand, IBDA_DiseqCommand_Vtbl, 0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11);
 windows_core::imp::interface_hierarchy!(IBDA_DiseqCommand, windows_core::IUnknown);
 impl IBDA_DiseqCommand {
-    pub unsafe fn put_EnableDiseqCommands(&self, benable: bool) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn put_EnableDiseqCommands(&self, benable: super::BOOLEAN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_EnableDiseqCommands)(windows_core::Interface::as_raw(self), benable) }
     }
     pub unsafe fn put_DiseqLNBSource(&self, ullnbsource: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_DiseqLNBSource)(windows_core::Interface::as_raw(self), ullnbsource) }
     }
-    pub unsafe fn put_DiseqUseToneBurst(&self, busetoneburst: bool) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn put_DiseqUseToneBurst(&self, busetoneburst: super::BOOLEAN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_DiseqUseToneBurst)(windows_core::Interface::as_raw(self), busetoneburst) }
     }
     pub unsafe fn put_DiseqRepeats(&self, ulrepeats: u32) -> windows_core::HRESULT {
@@ -1347,24 +1349,32 @@ impl IBDA_DiseqCommand {
 #[doc(hidden)]
 pub struct IBDA_DiseqCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub put_EnableDiseqCommands: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub put_EnableDiseqCommands: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    put_EnableDiseqCommands: usize,
     pub put_DiseqLNBSource: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub put_DiseqUseToneBurst: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub put_DiseqUseToneBurst: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    put_DiseqUseToneBurst: usize,
     pub put_DiseqRepeats: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub put_DiseqSendCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8) -> windows_core::HRESULT,
     pub get_DiseqResponse: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
+#[cfg(feature = "winnt")]
 pub trait IBDA_DiseqCommand_Impl: windows_core::IUnknownImpl {
-    fn put_EnableDiseqCommands(&self, benable: bool) -> windows_core::Result<()>;
+    fn put_EnableDiseqCommands(&self, benable: super::BOOLEAN) -> windows_core::Result<()>;
     fn put_DiseqLNBSource(&self, ullnbsource: u32) -> windows_core::Result<()>;
-    fn put_DiseqUseToneBurst(&self, busetoneburst: bool) -> windows_core::Result<()>;
+    fn put_DiseqUseToneBurst(&self, busetoneburst: super::BOOLEAN) -> windows_core::Result<()>;
     fn put_DiseqRepeats(&self, ulrepeats: u32) -> windows_core::Result<()>;
     fn put_DiseqSendCommand(&self, ulrequestid: u32, ulcbcommandlen: u32, pbcommand: *const u8) -> windows_core::Result<()>;
     fn get_DiseqResponse(&self, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> windows_core::Result<()>;
 }
+#[cfg(feature = "winnt")]
 impl IBDA_DiseqCommand_Vtbl {
     pub const fn new<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn put_EnableDiseqCommands<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EnableDiseqCommands<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::BOOLEAN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_DiseqCommand_Impl::put_EnableDiseqCommands(this, core::mem::transmute_copy(&benable)).into()
@@ -1376,7 +1386,7 @@ impl IBDA_DiseqCommand_Vtbl {
                 IBDA_DiseqCommand_Impl::put_DiseqLNBSource(this, core::mem::transmute_copy(&ullnbsource)).into()
             }
         }
-        unsafe extern "system" fn put_DiseqUseToneBurst<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busetoneburst: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DiseqUseToneBurst<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busetoneburst: super::BOOLEAN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_DiseqCommand_Impl::put_DiseqUseToneBurst(this, core::mem::transmute_copy(&busetoneburst)).into()
@@ -1414,6 +1424,7 @@ impl IBDA_DiseqCommand_Vtbl {
         iid == &<IBDA_DiseqCommand as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IBDA_DiseqCommand {}
 windows_core::imp::define_interface!(IBDA_EasMessage, IBDA_EasMessage_Vtbl, 0xd806973d_3ebe_46de_8fbb_6358fe784208);
 windows_core::imp::interface_hierarchy!(IBDA_EasMessage, windows_core::IUnknown);
@@ -2974,16 +2985,20 @@ impl IBDA_SignalStatistics {
     pub unsafe fn get_SignalQuality(&self, plpercentquality: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SignalQuality)(windows_core::Interface::as_raw(self), plpercentquality as _) }
     }
-    pub unsafe fn put_SignalPresent(&self, fpresent: bool) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn put_SignalPresent(&self, fpresent: super::BOOLEAN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_SignalPresent)(windows_core::Interface::as_raw(self), fpresent) }
     }
-    pub unsafe fn get_SignalPresent(&self, pfpresent: *mut bool) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn get_SignalPresent(&self, pfpresent: *mut super::BOOLEAN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SignalPresent)(windows_core::Interface::as_raw(self), pfpresent as _) }
     }
-    pub unsafe fn put_SignalLocked(&self, flocked: bool) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn put_SignalLocked(&self, flocked: super::BOOLEAN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_SignalLocked)(windows_core::Interface::as_raw(self), flocked) }
     }
-    pub unsafe fn get_SignalLocked(&self, pflocked: *mut bool) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn get_SignalLocked(&self, pflocked: *mut super::BOOLEAN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_SignalLocked)(windows_core::Interface::as_raw(self), pflocked as _) }
     }
     pub unsafe fn put_SampleTime(&self, lmssampletime: i32) -> windows_core::HRESULT {
@@ -3001,25 +3016,39 @@ pub struct IBDA_SignalStatistics_Vtbl {
     pub get_SignalStrength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub put_SignalQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_SignalQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub put_SignalPresent: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub get_SignalPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub put_SignalLocked: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub get_SignalLocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub put_SignalPresent: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    put_SignalPresent: usize,
+    #[cfg(feature = "winnt")]
+    pub get_SignalPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BOOLEAN) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    get_SignalPresent: usize,
+    #[cfg(feature = "winnt")]
+    pub put_SignalLocked: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    put_SignalLocked: usize,
+    #[cfg(feature = "winnt")]
+    pub get_SignalLocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BOOLEAN) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    get_SignalLocked: usize,
     pub put_SampleTime: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_SampleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "winnt")]
 pub trait IBDA_SignalStatistics_Impl: windows_core::IUnknownImpl {
     fn put_SignalStrength(&self, ldbstrength: i32) -> windows_core::Result<()>;
     fn get_SignalStrength(&self, pldbstrength: *mut i32) -> windows_core::Result<()>;
     fn put_SignalQuality(&self, lpercentquality: i32) -> windows_core::Result<()>;
     fn get_SignalQuality(&self, plpercentquality: *mut i32) -> windows_core::Result<()>;
-    fn put_SignalPresent(&self, fpresent: bool) -> windows_core::Result<()>;
-    fn get_SignalPresent(&self, pfpresent: *mut bool) -> windows_core::Result<()>;
-    fn put_SignalLocked(&self, flocked: bool) -> windows_core::Result<()>;
-    fn get_SignalLocked(&self, pflocked: *mut bool) -> windows_core::Result<()>;
+    fn put_SignalPresent(&self, fpresent: super::BOOLEAN) -> windows_core::Result<()>;
+    fn get_SignalPresent(&self, pfpresent: *mut super::BOOLEAN) -> windows_core::Result<()>;
+    fn put_SignalLocked(&self, flocked: super::BOOLEAN) -> windows_core::Result<()>;
+    fn get_SignalLocked(&self, pflocked: *mut super::BOOLEAN) -> windows_core::Result<()>;
     fn put_SampleTime(&self, lmssampletime: i32) -> windows_core::Result<()>;
     fn get_SampleTime(&self, plmssampletime: *mut i32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "winnt")]
 impl IBDA_SignalStatistics_Vtbl {
     pub const fn new<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_SignalStrength<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldbstrength: i32) -> windows_core::HRESULT {
@@ -3046,25 +3075,25 @@ impl IBDA_SignalStatistics_Vtbl {
                 IBDA_SignalStatistics_Impl::get_SignalQuality(this, core::mem::transmute_copy(&plpercentquality)).into()
             }
         }
-        unsafe extern "system" fn put_SignalPresent<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpresent: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SignalPresent<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpresent: super::BOOLEAN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_SignalStatistics_Impl::put_SignalPresent(this, core::mem::transmute_copy(&fpresent)).into()
             }
         }
-        unsafe extern "system" fn get_SignalPresent<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfpresent: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SignalPresent<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfpresent: *mut super::BOOLEAN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_SignalStatistics_Impl::get_SignalPresent(this, core::mem::transmute_copy(&pfpresent)).into()
             }
         }
-        unsafe extern "system" fn put_SignalLocked<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flocked: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SignalLocked<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flocked: super::BOOLEAN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_SignalStatistics_Impl::put_SignalLocked(this, core::mem::transmute_copy(&flocked)).into()
             }
         }
-        unsafe extern "system" fn get_SignalLocked<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflocked: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SignalLocked<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflocked: *mut super::BOOLEAN) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_SignalStatistics_Impl::get_SignalLocked(this, core::mem::transmute_copy(&pflocked)).into()
@@ -3100,6 +3129,7 @@ impl IBDA_SignalStatistics_Vtbl {
         iid == &<IBDA_SignalStatistics as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IBDA_SignalStatistics {}
 windows_core::imp::define_interface!(IBDA_Topology, IBDA_Topology_Vtbl, 0x79b56888_7fea_4690_b45d_38fd3c7849be);
 windows_core::imp::interface_hierarchy!(IBDA_Topology, windows_core::IUnknown);

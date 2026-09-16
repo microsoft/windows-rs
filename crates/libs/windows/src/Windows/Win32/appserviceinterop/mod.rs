@@ -1,3 +1,43 @@
+#[inline]
+pub unsafe fn HSTRING_UserFree(param0: *mut u32, param1: *mut windows_core::HSTRING) {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree(param0 : *mut u32, param1 : *mut *mut core::ffi::c_void));
+    unsafe { HSTRING_UserFree(param0 as _, core::mem::transmute(param1)) }
+}
+#[inline]
+pub unsafe fn HSTRING_UserFree64(param0: *mut u32, param1: *mut windows_core::HSTRING) {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserFree64(param0 : *mut u32, param1 : *mut *mut core::ffi::c_void));
+    unsafe { HSTRING_UserFree64(param0 as _, core::mem::transmute(param1)) }
+}
+#[inline]
+pub unsafe fn HSTRING_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::HSTRING) -> *mut u8 {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { HSTRING_UserMarshal(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn HSTRING_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::HSTRING) -> *mut u8 {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { HSTRING_UserMarshal64(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn HSTRING_UserSize(param0: *mut u32, param1: u32, param2: *mut windows_core::HSTRING) -> u32 {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut *mut core::ffi::c_void) -> u32);
+    unsafe { HSTRING_UserSize(param0 as _, param1, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn HSTRING_UserSize64(param0: *mut u32, param1: u32, param2: *mut windows_core::HSTRING) -> u32 {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut *mut core::ffi::c_void) -> u32);
+    unsafe { HSTRING_UserSize64(param0 as _, param1, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn HSTRING_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::HSTRING) -> *mut u8 {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { HSTRING_UserUnmarshal(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn HSTRING_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::HSTRING) -> *mut u8 {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { HSTRING_UserUnmarshal64(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
 windows_core::imp::define_interface!(IAppServiceConnectionExtendedExecution, IAppServiceConnectionExtendedExecution_Vtbl, 0x65219584_f9cb_4ae3_81f9_a28a6ca450d9);
 windows_core::imp::interface_hierarchy!(IAppServiceConnectionExtendedExecution, windows_core::IUnknown);
 impl IAppServiceConnectionExtendedExecution {

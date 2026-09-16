@@ -3390,7 +3390,8 @@ impl IUpdate {
             (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3587,7 +3588,10 @@ pub struct IUpdate_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     IsUninstallable: usize,
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LastDeploymentChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub LastDeploymentChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastDeploymentChangeTime: usize,
     #[cfg(feature = "wtypes")]
     pub MaxDownloadSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DECIMAL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -3644,7 +3648,7 @@ pub trait IUpdate_Impl: super::IDispatch_Impl {
     fn IsMandatory(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsUninstallable(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Languages(&self) -> windows_core::Result<IStringCollection>;
-    fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64>;
+    fn LastDeploymentChangeTime(&self) -> windows_core::Result<super::DATE>;
     fn MaxDownloadSize(&self) -> windows_core::Result<super::DECIMAL>;
     fn MinDownloadSize(&self) -> windows_core::Result<super::DECIMAL>;
     fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection>;
@@ -3940,7 +3944,7 @@ impl IUpdate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LastDeploymentChangeTime<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastDeploymentChangeTime<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdate_Impl::LastDeploymentChangeTime(this) {
@@ -5725,7 +5729,8 @@ impl IUpdateHistoryEntry {
             (windows_core::Interface::vtable(self).HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Date(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn Date(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5800,7 +5805,10 @@ pub struct IUpdateHistoryEntry_Vtbl {
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UpdateOperation) -> windows_core::HRESULT,
     pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OperationResultCode) -> windows_core::HRESULT,
     pub HResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    Date: usize,
     pub UpdateIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5817,7 +5825,7 @@ pub trait IUpdateHistoryEntry_Impl: super::IDispatch_Impl {
     fn Operation(&self) -> windows_core::Result<UpdateOperation>;
     fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
     fn HResult(&self) -> windows_core::Result<i32>;
-    fn Date(&self) -> windows_core::Result<f64>;
+    fn Date(&self) -> windows_core::Result<super::DATE>;
     fn UpdateIdentity(&self) -> windows_core::Result<IUpdateIdentity>;
     fn Title(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -5868,7 +5876,7 @@ impl IUpdateHistoryEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Date<Identity: IUpdateHistoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Date<Identity: IUpdateHistoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateHistoryEntry_Impl::Date(this) {
@@ -7637,7 +7645,8 @@ impl IUpdateService {
             (windows_core::Interface::vtable(self).ContentValidationCert)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ExpirationDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn ExpirationDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7657,7 +7666,8 @@ impl IUpdateService {
             (windows_core::Interface::vtable(self).IsRegisteredWithAU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IssueDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn IssueDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IssueDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7719,7 +7729,10 @@ pub struct IUpdateService_Vtbl {
     pub ContentValidationCert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     ContentValidationCert: usize,
-    pub ExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub ExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    ExpirationDate: usize,
     #[cfg(feature = "wtypes")]
     pub IsManaged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -7728,7 +7741,10 @@ pub struct IUpdateService_Vtbl {
     pub IsRegisteredWithAU: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     IsRegisteredWithAU: usize,
-    pub IssueDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub IssueDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    IssueDate: usize,
     #[cfg(feature = "wtypes")]
     pub OffersWindowsUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -7750,10 +7766,10 @@ pub struct IUpdateService_Vtbl {
 pub trait IUpdateService_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ContentValidationCert(&self) -> windows_core::Result<super::VARIANT>;
-    fn ExpirationDate(&self) -> windows_core::Result<f64>;
+    fn ExpirationDate(&self) -> windows_core::Result<super::DATE>;
     fn IsManaged(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsRegisteredWithAU(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn IssueDate(&self) -> windows_core::Result<f64>;
+    fn IssueDate(&self) -> windows_core::Result<super::DATE>;
     fn OffersWindowsUpdates(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn RedirectUrls(&self) -> windows_core::Result<IStringCollection>;
     fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7789,7 +7805,7 @@ impl IUpdateService_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExpirationDate<Identity: IUpdateService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Identity: IUpdateService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::ExpirationDate(this) {
@@ -7825,7 +7841,7 @@ impl IUpdateService_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IssueDate<Identity: IUpdateService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn IssueDate<Identity: IUpdateService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUpdateService_Impl::IssueDate(this) {
@@ -9166,7 +9182,8 @@ impl IWindowsDriverUpdate {
             (windows_core::Interface::vtable(self).DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9195,7 +9212,10 @@ pub struct IWindowsDriverUpdate_Vtbl {
     pub DriverManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DriverModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DriverProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DriverVerDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub DriverVerDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    DriverVerDate: usize,
     pub DeviceProblemNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
@@ -9206,7 +9226,7 @@ pub trait IWindowsDriverUpdate_Impl: IUpdate_Impl {
     fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverVerDate(&self) -> windows_core::Result<f64>;
+    fn DriverVerDate(&self) -> windows_core::Result<super::DATE>;
     fn DeviceProblemNumber(&self) -> windows_core::Result<i32>;
     fn DeviceStatus(&self) -> windows_core::Result<i32>;
 }
@@ -9273,7 +9293,7 @@ impl IWindowsDriverUpdate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DriverVerDate<Identity: IWindowsDriverUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn DriverVerDate<Identity: IWindowsDriverUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdate_Impl::DriverVerDate(this) {
@@ -9710,7 +9730,8 @@ impl IWindowsDriverUpdateEntry {
             (windows_core::Interface::vtable(self).DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9739,7 +9760,10 @@ pub struct IWindowsDriverUpdateEntry_Vtbl {
     pub DriverManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DriverModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DriverProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DriverVerDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub DriverVerDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    DriverVerDate: usize,
     pub DeviceProblemNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
@@ -9750,7 +9774,7 @@ pub trait IWindowsDriverUpdateEntry_Impl: super::IDispatch_Impl {
     fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverVerDate(&self) -> windows_core::Result<f64>;
+    fn DriverVerDate(&self) -> windows_core::Result<super::DATE>;
     fn DeviceProblemNumber(&self) -> windows_core::Result<i32>;
     fn DeviceStatus(&self) -> windows_core::Result<i32>;
 }
@@ -9817,7 +9841,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DriverVerDate<Identity: IWindowsDriverUpdateEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn DriverVerDate<Identity: IWindowsDriverUpdateEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsDriverUpdateEntry_Impl::DriverVerDate(this) {

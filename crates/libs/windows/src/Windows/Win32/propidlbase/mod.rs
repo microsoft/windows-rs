@@ -45,10 +45,11 @@ pub struct CACY {
     pub pElems: *mut super::CY,
 }
 #[repr(C)]
+#[cfg(feature = "wtypes")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CADATE {
     pub cElems: u32,
-    pub pElems: *mut f64,
+    pub pElems: *mut super::DATE,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -70,10 +71,11 @@ pub struct CAFLT {
     pub pElems: *mut f32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAH {
     pub cElems: u32,
-    pub pElems: *mut i64,
+    pub pElems: *mut super::LARGE_INTEGER,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -100,7 +102,7 @@ pub struct CALPWSTR {
     pub pElems: *mut windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
@@ -120,10 +122,11 @@ pub struct CAUB {
     pub pElems: *mut u8,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAUH {
     pub cElems: u32,
-    pub pElems: *mut u64,
+    pub pElems: *mut super::ULARGE_INTEGER,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -226,7 +229,7 @@ impl windows_core::RuntimeName for IEnumSTATPROPSETSTG {}
 windows_core::imp::define_interface!(IEnumSTATPROPSTG, IEnumSTATPROPSTG_Vtbl, 0x00000139_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumSTATPROPSTG, windows_core::IUnknown);
 impl IEnumSTATPROPSTG {
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -247,22 +250,22 @@ impl IEnumSTATPROPSTG {
 #[doc(hidden)]
 pub struct IEnumSTATPROPSTG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut STATPROPSTG, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumSTATPROPSTG_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSTATPROPSTG>;
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumSTATPROPSTG_Vtbl {
     pub const fn new<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> windows_core::HRESULT {
@@ -307,7 +310,7 @@ impl IEnumSTATPROPSTG_Vtbl {
         iid == &<IEnumSTATPROPSTG as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumSTATPROPSTG {}
 windows_core::imp::define_interface!(IPropertySetStorage, IPropertySetStorage_Vtbl, 0x0000013a_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IPropertySetStorage, windows_core::IUnknown);
@@ -409,30 +412,30 @@ impl windows_core::RuntimeName for IPropertySetStorage {}
 windows_core::imp::define_interface!(IPropertyStorage, IPropertyStorage_Vtbl, 0x00000138_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IPropertyStorage, windows_core::IUnknown);
 impl IPropertyStorage {
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> windows_core::Result<PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: super::PROPID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst) }
     }
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec) }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<super::LPOLESTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadPropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::HRESULT {
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const super::LPOLESTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname) }
     }
     #[cfg(feature = "wtypes")]
@@ -467,25 +470,25 @@ impl IPropertyStorage {
 #[doc(hidden)]
 pub struct IPropertyStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ReadMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const PROPSPEC, *mut PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ReadMultiple: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub WriteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const PROPSPEC, *const PROPVARIANT, super::PROPID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     WriteMultiple: usize,
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub DeleteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const PROPSPEC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     DeleteMultiple: usize,
-    #[cfg(feature = "wtypes")]
-    pub ReadPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub ReadPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *mut super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     ReadPropertyNames: usize,
-    #[cfg(feature = "wtypes")]
-    pub WritePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *const windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub WritePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *const super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     WritePropertyNames: usize,
     #[cfg(feature = "wtypes")]
     pub DeletePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID) -> windows_core::HRESULT,
@@ -504,13 +507,13 @@ pub struct IPropertyStorage_Vtbl {
     #[cfg(not(feature = "minwindef"))]
     Stat: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyStorage_Impl: windows_core::IUnknownImpl {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> windows_core::Result<PROPVARIANT>;
     fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: super::PROPID) -> windows_core::Result<()>;
     fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> windows_core::Result<()>;
-    fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<windows_core::PWSTR>;
-    fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<super::LPOLESTR>;
+    fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const super::LPOLESTR) -> windows_core::Result<()>;
     fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<()>;
     fn Commit(&self, grfcommitflags: u32) -> windows_core::Result<()>;
     fn Revert(&self) -> windows_core::Result<()>;
@@ -519,7 +522,7 @@ pub trait IPropertyStorage_Impl: windows_core::IUnknownImpl {
     fn SetClass(&self, clsid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyStorage_Vtbl {
     pub const fn new<Identity: IPropertyStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReadMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> windows_core::HRESULT {
@@ -546,7 +549,7 @@ impl IPropertyStorage_Vtbl {
                 IPropertyStorage_Impl::DeleteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec)).into()
             }
         }
-        unsafe extern "system" fn ReadPropertyNames<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadPropertyNames<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStorage_Impl::ReadPropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid)) {
@@ -558,7 +561,7 @@ impl IPropertyStorage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn WritePropertyNames<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePropertyNames<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyStorage_Impl::WritePropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid), core::mem::transmute_copy(&rglpwstrname)).into()
@@ -632,9 +635,9 @@ impl IPropertyStorage_Vtbl {
         iid == &<IPropertyStorage as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyStorage {}
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPPROPVARIANT = *mut PROPVARIANT;
 #[cfg(feature = "objidlbase")]
 pub type LPVERSIONEDSTREAM = *mut VERSIONEDSTREAM;
@@ -657,68 +660,68 @@ pub const PROPSETFLAG_UNBUFFERED: i32 = 4;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295;
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct PROPSPEC {
     pub ulKind: u32,
     pub Anonymous: PROPSPEC_0,
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
     pub propid: super::PROPID,
-    pub lpwstr: windows_core::PWSTR,
+    pub lpwstr: super::LPOLESTR,
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPSPEC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for PROPVARIANT {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub union PROPVARIANT_0 {
     pub Anonymous: core::mem::ManuallyDrop<PROPVARIANT_0_0>,
     pub decVal: super::DECIMAL,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for PROPVARIANT_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct PROPVARIANT_0_0 {
     pub vt: super::VARTYPE,
     pub wReserved1: PROPVAR_PAD1,
@@ -726,20 +729,20 @@ pub struct PROPVARIANT_0_0 {
     pub wReserved3: PROPVAR_PAD3,
     pub Anonymous: PROPVARIANT_0_0_0,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for PROPVARIANT_0_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: i8,
     pub bVal: u8,
@@ -749,15 +752,15 @@ pub union PROPVARIANT_0_0_0 {
     pub ulVal: u32,
     pub intVal: i32,
     pub uintVal: u32,
-    pub hVal: i64,
-    pub uhVal: u64,
+    pub hVal: super::LARGE_INTEGER,
+    pub uhVal: super::ULARGE_INTEGER,
     pub fltVal: f32,
     pub dblVal: f64,
     pub boolVal: super::VARIANT_BOOL,
     pub __OBSOLETE__VARIANT_BOOL: super::VARIANT_BOOL,
     pub scode: super::SCODE,
     pub cyVal: super::CY,
-    pub date: f64,
+    pub date: super::DATE,
     pub filetime: super::FILETIME,
     pub puuid: *mut windows_core::GUID,
     pub pclipdata: *mut super::CLIPDATA,
@@ -808,34 +811,28 @@ pub union PROPVARIANT_0_0_0 {
     pub pdecVal: *mut super::DECIMAL,
     pub pscode: *mut super::SCODE,
     pub pcyVal: *mut super::CY,
-    pub pdate: *mut f64,
+    pub pdate: *mut super::DATE,
     pub pbstrVal: *mut windows_core::BSTR,
     pub ppunkVal: *mut Option<windows_core::IUnknown>,
     pub ppdispVal: *mut Option<super::IDispatch>,
     pub pparray: *mut super::LPSAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for PROPVARIANT_0_0_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPVARIANT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPVAR_PAD1(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPVAR_PAD2(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPVAR_PAD3(pub u16);
+pub type PROPVAR_PAD1 = u16;
+pub type PROPVAR_PAD2 = u16;
+pub type PROPVAR_PAD3 = u16;
 pub const PRSPEC_INVALID: u32 = 4294967295;
 pub const PRSPEC_LPWSTR: i32 = 0;
 pub const PRSPEC_PROPID: i32 = 1;
@@ -852,10 +849,10 @@ pub struct STATPROPSETSTG {
     pub dwOSVersion: u32,
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATPROPSTG {
-    pub lpwstrName: windows_core::PWSTR,
+    pub lpwstrName: super::LPOLESTR,
     pub propid: super::PROPID,
     pub vt: super::VARTYPE,
 }

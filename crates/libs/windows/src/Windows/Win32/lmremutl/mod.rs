@@ -1,9 +1,10 @@
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetRemoteComputerSupports<P0>(uncservername: P0, optionswanted: u32, optionssupported: *mut u32) -> u32
+pub unsafe fn NetRemoteComputerSupports<P0>(uncservername: P0, optionswanted: u32, optionssupported: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRemoteComputerSupports(uncservername : windows_core::PCWSTR, optionswanted : u32, optionssupported : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetRemoteComputerSupports(uncservername : windows_core::PCWSTR, optionswanted : u32, optionssupported : super::LPDWORD) -> u32);
     unsafe { NetRemoteComputerSupports(uncservername.param().abi(), optionswanted, optionssupported as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -16,9 +17,7 @@ where
     unsafe { NetRemoteTOD(uncservername.param().abi(), bufferptr as _) }
 }
 pub const ALLOCATE_RESPONSE: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DESC_CHAR(pub i8);
+pub type DESC_CHAR = i8;
 pub type LPDESC = windows_core::PSTR;
 pub type LPTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
 pub const NO_PERMISSION_REQUIRED: i32 = 1;

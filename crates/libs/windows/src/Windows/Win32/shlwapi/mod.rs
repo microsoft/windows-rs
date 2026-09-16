@@ -1,11 +1,7 @@
 #[inline]
-pub unsafe fn AssocCreate<T>(clsid: windows_core::GUID) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn AssocCreate(clsid: windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn AssocCreate(clsid : windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { AssocCreate(clsid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { AssocCreate(clsid, riid, ppv as _) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -197,13 +193,13 @@ where
     windows_core::link!("shlwapi.dll" "system" fn IStream_Reset(pstm : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { IStream_Reset(pstm.param().abi()) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn IStream_Size<P0>(pstm: P0) -> windows_core::Result<u64>
+pub unsafe fn IStream_Size<P0>(pstm: P0) -> windows_core::Result<super::ULARGE_INTEGER>
 where
     P0: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn IStream_Size(pstm : *mut core::ffi::c_void, pui : *mut u64) -> windows_core::HRESULT);
+    windows_core::link!("shlwapi.dll" "system" fn IStream_Size(pstm : *mut core::ffi::c_void, pui : *mut super::ULARGE_INTEGER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IStream_Size(pstm.param().abi(), &mut result__).map(|| result__)
@@ -220,11 +216,11 @@ where
 }
 #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 #[inline]
-pub unsafe fn IStream_WritePidl<P0>(pstm: P0, pidlwrite: *const super::ITEMIDLIST) -> windows_core::HRESULT
+pub unsafe fn IStream_WritePidl<P0>(pstm: P0, pidlwrite: super::LPCITEMIDLIST) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn IStream_WritePidl(pstm : *mut core::ffi::c_void, pidlwrite : *const super::ITEMIDLIST) -> windows_core::HRESULT);
+    windows_core::link!("shlwapi.dll" "system" fn IStream_WritePidl(pstm : *mut core::ffi::c_void, pidlwrite : super::LPCITEMIDLIST) -> windows_core::HRESULT);
     unsafe { IStream_WritePidl(pstm.param().abi(), pidlwrite) }
 }
 #[cfg(feature = "objidlbase")]
@@ -243,14 +239,12 @@ pub unsafe fn IUnknown_AtomicRelease(ppunk: Option<*mut *mut core::ffi::c_void>)
     unsafe { IUnknown_AtomicRelease(ppunk.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn IUnknown_GetSite<P0, T>(punk: P0) -> windows_core::Result<T>
+pub unsafe fn IUnknown_GetSite<P0>(punk: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("shlwapi.dll" "system" fn IUnknown_GetSite(punk : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { IUnknown_GetSite(punk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { IUnknown_GetSite(punk.param().abi(), riid, ppv as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -565,14 +559,16 @@ where
     windows_core::link!("shlwapi.dll" "system" fn PathFindNextComponentW(pszpath : windows_core::PCWSTR) -> windows_core::PWSTR);
     unsafe { PathFindNextComponentW(pszpath.param().abi()) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn PathFindOnPathA(pszpath: windows_core::PSTR, ppszotherdirs: Option<*const windows_core::PCSTR>) -> windows_core::BOOL {
-    windows_core::link!("shlwapi.dll" "system" fn PathFindOnPathA(pszpath : windows_core::PSTR, ppszotherdirs : *const windows_core::PCSTR) -> windows_core::BOOL);
+pub unsafe fn PathFindOnPathA(pszpath: windows_core::PSTR, ppszotherdirs: Option<super::PZPCSTR>) -> windows_core::BOOL {
+    windows_core::link!("shlwapi.dll" "system" fn PathFindOnPathA(pszpath : windows_core::PSTR, ppszotherdirs : super::PZPCSTR) -> windows_core::BOOL);
     unsafe { PathFindOnPathA(pszpath, ppszotherdirs.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn PathFindOnPathW(pszpath: windows_core::PWSTR, ppszotherdirs: Option<*const windows_core::PCWSTR>) -> windows_core::BOOL {
-    windows_core::link!("shlwapi.dll" "system" fn PathFindOnPathW(pszpath : windows_core::PWSTR, ppszotherdirs : *const windows_core::PCWSTR) -> windows_core::BOOL);
+pub unsafe fn PathFindOnPathW(pszpath: windows_core::PWSTR, ppszotherdirs: Option<super::PZPCWSTR>) -> windows_core::BOOL {
+    windows_core::link!("shlwapi.dll" "system" fn PathFindOnPathW(pszpath : windows_core::PWSTR, ppszotherdirs : super::PZPCWSTR) -> windows_core::BOOL);
     unsafe { PathFindOnPathW(pszpath, ppszotherdirs.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1168,11 +1164,11 @@ pub unsafe fn PathUnquoteSpacesW(lpsz: windows_core::PWSTR) -> windows_core::BOO
     unsafe { PathUnquoteSpacesW(lpsz) }
 }
 #[inline]
-pub unsafe fn QISearch<T>(that: *mut core::ffi::c_void, pqit: *const QITAB) -> windows_core::Result<T>
+pub unsafe fn QISearch<T>(that: *mut core::ffi::c_void, pqit: LPCQITAB) -> windows_core::Result<T>
 where
     T: windows_core::Interface,
 {
-    windows_core::link!("shlwapi.dll" "system" fn QISearch(that : *mut core::ffi::c_void, pqit : *const QITAB, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("shlwapi.dll" "system" fn QISearch(that : *mut core::ffi::c_void, pqit : LPCQITAB, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
     unsafe { QISearch(that as _, pqit, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
@@ -1346,26 +1342,26 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHEnumKeyExA(hkey: super::HKEY, dwindex: u32, pszname: windows_core::PSTR, pcchname: *mut u32) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHEnumKeyExA(hkey : super::HKEY, dwindex : u32, pszname : windows_core::PSTR, pcchname : *mut u32) -> super::LSTATUS);
+pub unsafe fn SHEnumKeyExA(hkey: super::HKEY, dwindex: u32, pszname: windows_core::PSTR, pcchname: super::LPDWORD) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHEnumKeyExA(hkey : super::HKEY, dwindex : u32, pszname : windows_core::PSTR, pcchname : super::LPDWORD) -> super::LSTATUS);
     unsafe { SHEnumKeyExA(hkey, dwindex, pszname, pcchname as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHEnumKeyExW(hkey: super::HKEY, dwindex: u32, pszname: windows_core::PWSTR, pcchname: *mut u32) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHEnumKeyExW(hkey : super::HKEY, dwindex : u32, pszname : windows_core::PWSTR, pcchname : *mut u32) -> super::LSTATUS);
+pub unsafe fn SHEnumKeyExW(hkey: super::HKEY, dwindex: u32, pszname: windows_core::PWSTR, pcchname: super::LPDWORD) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHEnumKeyExW(hkey : super::HKEY, dwindex : u32, pszname : windows_core::PWSTR, pcchname : super::LPDWORD) -> super::LSTATUS);
     unsafe { SHEnumKeyExW(hkey, dwindex, pszname, pcchname as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHEnumValueA(hkey: super::HKEY, dwindex: u32, pszvaluename: Option<windows_core::PSTR>, pcchvaluename: Option<*mut u32>, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHEnumValueA(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
+pub unsafe fn SHEnumValueA(hkey: super::HKEY, dwindex: u32, pszvaluename: Option<windows_core::PSTR>, pcchvaluename: Option<super::LPDWORD>, pdwtype: Option<super::LPDWORD>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<super::LPDWORD>) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHEnumValueA(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_core::PSTR, pcchvaluename : super::LPDWORD, pdwtype : super::LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : super::LPDWORD) -> super::LSTATUS);
     unsafe { SHEnumValueA(hkey, dwindex, pszvaluename.unwrap_or(core::mem::zeroed()) as _, pcchvaluename.unwrap_or(core::mem::zeroed()) as _, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHEnumValueW(hkey: super::HKEY, dwindex: u32, pszvaluename: Option<windows_core::PWSTR>, pcchvaluename: Option<*mut u32>, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHEnumValueW(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
+pub unsafe fn SHEnumValueW(hkey: super::HKEY, dwindex: u32, pszvaluename: Option<windows_core::PWSTR>, pcchvaluename: Option<super::LPDWORD>, pdwtype: Option<super::LPDWORD>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<super::LPDWORD>) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHEnumValueW(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_core::PWSTR, pcchvaluename : super::LPDWORD, pdwtype : super::LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : super::LPDWORD) -> super::LSTATUS);
     unsafe { SHEnumValueW(hkey, dwindex, pszvaluename.unwrap_or(core::mem::zeroed()) as _, pcchvaluename.unwrap_or(core::mem::zeroed()) as _, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -1421,14 +1417,12 @@ where
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn SHGetViewStatePropertyBag<P1, T>(pidl: Option<*const super::ITEMIDLIST>, pszbagname: P1, dwflags: u32) -> windows_core::Result<T>
+pub unsafe fn SHGetViewStatePropertyBag<P1>(pidl: Option<super::LPCITEMIDLIST>, pszbagname: P1, dwflags: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    T: windows_core::Interface,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHGetViewStatePropertyBag(pidl : *const super::ITEMIDLIST, pszbagname : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetViewStatePropertyBag(pidl.unwrap_or(core::mem::zeroed()) as _, pszbagname.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    windows_core::link!("shlwapi.dll" "system" fn SHGetViewStatePropertyBag(pidl : super::LPCITEMIDLIST, pszbagname : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { SHGetViewStatePropertyBag(pidl.unwrap_or(core::mem::zeroed()) as _, pszbagname.param().abi(), dwflags, riid, ppv as _) }
 }
 #[inline]
 pub unsafe fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32 {
@@ -1451,11 +1445,11 @@ pub unsafe fn SHIsLowMemoryMachine(dwtype: u32) -> windows_core::BOOL {
     unsafe { SHIsLowMemoryMachine(dwtype) }
 }
 #[inline]
-pub unsafe fn SHLoadIndirectString<P0>(pszsource: P0, pszoutbuf: windows_core::PWSTR, cchoutbuf: u32, ppvreserved: Option<*const *const core::ffi::c_void>) -> windows_core::HRESULT
+pub unsafe fn SHLoadIndirectString<P0>(pszsource: P0, pszoutbuf: windows_core::PWSTR, cchoutbuf: u32, ppvreserved: Option<*mut *mut core::ffi::c_void>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHLoadIndirectString(pszsource : windows_core::PCWSTR, pszoutbuf : windows_core::PWSTR, cchoutbuf : u32, ppvreserved : *const *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("shlwapi.dll" "system" fn SHLoadIndirectString(pszsource : windows_core::PCWSTR, pszoutbuf : windows_core::PWSTR, cchoutbuf : u32, ppvreserved : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SHLoadIndirectString(pszsource.param().abi(), pszoutbuf, cchoutbuf, ppvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -1528,32 +1522,32 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHQueryInfoKeyA(hkey: super::HKEY, pcsubkeys: Option<*mut u32>, pcchmaxsubkeylen: Option<*mut u32>, pcvalues: Option<*mut u32>, pcchmaxvaluenamelen: Option<*mut u32>) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHQueryInfoKeyA(hkey : super::HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::LSTATUS);
+pub unsafe fn SHQueryInfoKeyA(hkey: super::HKEY, pcsubkeys: Option<super::LPDWORD>, pcchmaxsubkeylen: Option<super::LPDWORD>, pcvalues: Option<super::LPDWORD>, pcchmaxvaluenamelen: Option<super::LPDWORD>) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHQueryInfoKeyA(hkey : super::HKEY, pcsubkeys : super::LPDWORD, pcchmaxsubkeylen : super::LPDWORD, pcvalues : super::LPDWORD, pcchmaxvaluenamelen : super::LPDWORD) -> super::LSTATUS);
     unsafe { SHQueryInfoKeyA(hkey, pcsubkeys.unwrap_or(core::mem::zeroed()) as _, pcchmaxsubkeylen.unwrap_or(core::mem::zeroed()) as _, pcvalues.unwrap_or(core::mem::zeroed()) as _, pcchmaxvaluenamelen.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHQueryInfoKeyW(hkey: super::HKEY, pcsubkeys: Option<*mut u32>, pcchmaxsubkeylen: Option<*mut u32>, pcvalues: Option<*mut u32>, pcchmaxvaluenamelen: Option<*mut u32>) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHQueryInfoKeyW(hkey : super::HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::LSTATUS);
+pub unsafe fn SHQueryInfoKeyW(hkey: super::HKEY, pcsubkeys: Option<super::LPDWORD>, pcchmaxsubkeylen: Option<super::LPDWORD>, pcvalues: Option<super::LPDWORD>, pcchmaxvaluenamelen: Option<super::LPDWORD>) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHQueryInfoKeyW(hkey : super::HKEY, pcsubkeys : super::LPDWORD, pcchmaxsubkeylen : super::LPDWORD, pcvalues : super::LPDWORD, pcchmaxvaluenamelen : super::LPDWORD) -> super::LSTATUS);
     unsafe { SHQueryInfoKeyW(hkey, pcsubkeys.unwrap_or(core::mem::zeroed()) as _, pcchmaxsubkeylen.unwrap_or(core::mem::zeroed()) as _, pcvalues.unwrap_or(core::mem::zeroed()) as _, pcchmaxvaluenamelen.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHQueryValueExA<P1>(hkey: super::HKEY, pszvalue: P1, pdwreserved: Option<*const u32>, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> super::LSTATUS
+pub unsafe fn SHQueryValueExA<P1>(hkey: super::HKEY, pszvalue: P1, pdwreserved: Option<*mut u32>, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> super::LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHQueryValueExA(hkey : super::HKEY, pszvalue : windows_core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHQueryValueExA(hkey : super::HKEY, pszvalue : windows_core::PCSTR, pdwreserved : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
     unsafe { SHQueryValueExA(hkey, pszvalue.param().abi(), pdwreserved.unwrap_or(core::mem::zeroed()) as _, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHQueryValueExW<P1>(hkey: super::HKEY, pszvalue: P1, pdwreserved: Option<*const u32>, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> super::LSTATUS
+pub unsafe fn SHQueryValueExW<P1>(hkey: super::HKEY, pszvalue: P1, pdwreserved: Option<*mut u32>, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> super::LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHQueryValueExW(hkey : super::HKEY, pszvalue : windows_core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHQueryValueExW(hkey : super::HKEY, pszvalue : windows_core::PCWSTR, pdwreserved : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
     unsafe { SHQueryValueExW(hkey, pszvalue.param().abi(), pdwreserved.unwrap_or(core::mem::zeroed()) as _, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "winnt", feature = "winreg"))]
@@ -1564,20 +1558,20 @@ pub unsafe fn SHRegCloseUSKey(huskey: HUSKEY) -> super::LSTATUS {
 }
 #[cfg(all(feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegCreateUSKeyA<P0>(pszpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: *mut HUSKEY, dwflags: u32) -> super::LSTATUS
+pub unsafe fn SHRegCreateUSKeyA<P0>(pszpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: PHUSKEY, dwflags: u32) -> super::LSTATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyA(pszpath : windows_core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, dwflags : u32) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyA(pszpath : windows_core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : PHUSKEY, dwflags : u32) -> super::LSTATUS);
     unsafe { SHRegCreateUSKeyA(pszpath.param().abi(), samdesired, hrelativeuskey.unwrap_or(core::mem::zeroed()) as _, phnewuskey as _, dwflags) }
 }
 #[cfg(all(feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegCreateUSKeyW<P0>(pwzpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: *mut HUSKEY, dwflags: u32) -> super::LSTATUS
+pub unsafe fn SHRegCreateUSKeyW<P0>(pwzpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: PHUSKEY, dwflags: u32) -> super::LSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyW(pwzpath : windows_core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, dwflags : u32) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyW(pwzpath : windows_core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : PHUSKEY, dwflags : u32) -> super::LSTATUS);
     unsafe { SHRegCreateUSKeyW(pwzpath.param().abi(), samdesired, hrelativeuskey.unwrap_or(core::mem::zeroed()) as _, phnewuskey as _, dwflags) }
 }
 #[cfg(all(feature = "winnt", feature = "winreg"))]
@@ -1622,28 +1616,28 @@ pub unsafe fn SHRegDuplicateHKey(hkey: super::HKEY) -> super::HKEY {
     windows_core::link!("shlwapi.dll" "system" fn SHRegDuplicateHKey(hkey : super::HKEY) -> super::HKEY);
     unsafe { SHRegDuplicateHKey(hkey) }
 }
-#[cfg(all(feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegEnumUSKeyA(huskey: HUSKEY, dwindex: u32, pszname: windows_core::PSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyA(huskey : HUSKEY, dwindex : u32, pszname : windows_core::PSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
+pub unsafe fn SHRegEnumUSKeyA(huskey: HUSKEY, dwindex: u32, pszname: windows_core::PSTR, pcchname: super::LPDWORD, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyA(huskey : HUSKEY, dwindex : u32, pszname : windows_core::PSTR, pcchname : super::LPDWORD, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
     unsafe { SHRegEnumUSKeyA(huskey, dwindex, pszname, pcchname as _, enumregflags) }
 }
-#[cfg(all(feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegEnumUSKeyW(huskey: HUSKEY, dwindex: u32, pwzname: windows_core::PWSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyW(huskey : HUSKEY, dwindex : u32, pwzname : windows_core::PWSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
+pub unsafe fn SHRegEnumUSKeyW(huskey: HUSKEY, dwindex: u32, pwzname: windows_core::PWSTR, pcchname: super::LPDWORD, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyW(huskey : HUSKEY, dwindex : u32, pwzname : windows_core::PWSTR, pcchname : super::LPDWORD, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
     unsafe { SHRegEnumUSKeyW(huskey, dwindex, pwzname, pcchname as _, enumregflags) }
 }
-#[cfg(all(feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegEnumUSValueA(huskey: HUSKEY, dwindex: u32, pszvaluename: windows_core::PSTR, pcchvaluename: *mut u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSValueA(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
+pub unsafe fn SHRegEnumUSValueA(huskey: HUSKEY, dwindex: u32, pszvaluename: windows_core::PSTR, pcchvaluename: super::LPDWORD, pdwtype: Option<super::LPDWORD>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<super::LPDWORD>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSValueA(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_core::PSTR, pcchvaluename : super::LPDWORD, pdwtype : super::LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : super::LPDWORD, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
     unsafe { SHRegEnumUSValueA(huskey, dwindex, pszvaluename, pcchvaluename as _, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _, enumregflags) }
 }
-#[cfg(all(feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegEnumUSValueW(huskey: HUSKEY, dwindex: u32, pszvaluename: windows_core::PWSTR, pcchvaluename: *mut u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSValueW(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
+pub unsafe fn SHRegEnumUSValueW(huskey: HUSKEY, dwindex: u32, pszvaluename: windows_core::PWSTR, pcchvaluename: super::LPDWORD, pdwtype: Option<super::LPDWORD>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<super::LPDWORD>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHRegEnumUSValueW(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_core::PWSTR, pcchvaluename : super::LPDWORD, pdwtype : super::LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : super::LPDWORD, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
     unsafe { SHRegEnumUSValueW(huskey, dwindex, pszvaluename, pcchvaluename as _, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _, enumregflags) }
 }
 #[inline]
@@ -1745,32 +1739,32 @@ where
 }
 #[cfg(all(feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegOpenUSKeyA<P0>(pszpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: *mut HUSKEY, fignorehkcu: bool) -> super::LSTATUS
+pub unsafe fn SHRegOpenUSKeyA<P0>(pszpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: PHUSKEY, fignorehkcu: bool) -> super::LSTATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyA(pszpath : windows_core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, fignorehkcu : windows_core::BOOL) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyA(pszpath : windows_core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : PHUSKEY, fignorehkcu : windows_core::BOOL) -> super::LSTATUS);
     unsafe { SHRegOpenUSKeyA(pszpath.param().abi(), samdesired, hrelativeuskey.unwrap_or(core::mem::zeroed()) as _, phnewuskey as _, fignorehkcu.into()) }
 }
 #[cfg(all(feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegOpenUSKeyW<P0>(pwzpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: *mut HUSKEY, fignorehkcu: bool) -> super::LSTATUS
+pub unsafe fn SHRegOpenUSKeyW<P0>(pwzpath: P0, samdesired: super::REGSAM, hrelativeuskey: Option<HUSKEY>, phnewuskey: PHUSKEY, fignorehkcu: bool) -> super::LSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyW(pwzpath : windows_core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, fignorehkcu : windows_core::BOOL) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyW(pwzpath : windows_core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : PHUSKEY, fignorehkcu : windows_core::BOOL) -> super::LSTATUS);
     unsafe { SHRegOpenUSKeyW(pwzpath.param().abi(), samdesired, hrelativeuskey.unwrap_or(core::mem::zeroed()) as _, phnewuskey as _, fignorehkcu.into()) }
 }
-#[cfg(all(feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegQueryInfoUSKeyA(huskey: HUSKEY, pcsubkeys: Option<*mut u32>, pcchmaxsubkeylen: Option<*mut u32>, pcvalues: Option<*mut u32>, pcchmaxvaluenamelen: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyA(huskey : HUSKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
+pub unsafe fn SHRegQueryInfoUSKeyA(huskey: HUSKEY, pcsubkeys: Option<super::LPDWORD>, pcchmaxsubkeylen: Option<super::LPDWORD>, pcvalues: Option<super::LPDWORD>, pcchmaxvaluenamelen: Option<super::LPDWORD>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyA(huskey : HUSKEY, pcsubkeys : super::LPDWORD, pcchmaxsubkeylen : super::LPDWORD, pcvalues : super::LPDWORD, pcchmaxvaluenamelen : super::LPDWORD, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
     unsafe { SHRegQueryInfoUSKeyA(huskey, pcsubkeys.unwrap_or(core::mem::zeroed()) as _, pcchmaxsubkeylen.unwrap_or(core::mem::zeroed()) as _, pcvalues.unwrap_or(core::mem::zeroed()) as _, pcchmaxvaluenamelen.unwrap_or(core::mem::zeroed()) as _, enumregflags) }
 }
-#[cfg(all(feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHRegQueryInfoUSKeyW(huskey: HUSKEY, pcsubkeys: Option<*mut u32>, pcchmaxsubkeylen: Option<*mut u32>, pcvalues: Option<*mut u32>, pcchmaxvaluenamelen: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
-    windows_core::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyW(huskey : HUSKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
+pub unsafe fn SHRegQueryInfoUSKeyW(huskey: HUSKEY, pcsubkeys: Option<super::LPDWORD>, pcchmaxsubkeylen: Option<super::LPDWORD>, pcvalues: Option<super::LPDWORD>, pcchmaxvaluenamelen: Option<super::LPDWORD>, enumregflags: SHREGENUM_FLAGS) -> super::LSTATUS {
+    windows_core::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyW(huskey : HUSKEY, pcsubkeys : super::LPDWORD, pcchmaxsubkeylen : super::LPDWORD, pcvalues : super::LPDWORD, pcchmaxvaluenamelen : super::LPDWORD, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
     unsafe { SHRegQueryInfoUSKeyW(huskey, pcsubkeys.unwrap_or(core::mem::zeroed()) as _, pcchmaxsubkeylen.unwrap_or(core::mem::zeroed()) as _, pcvalues.unwrap_or(core::mem::zeroed()) as _, pcchmaxvaluenamelen.unwrap_or(core::mem::zeroed()) as _, enumregflags) }
 }
 #[cfg(all(feature = "winnt", feature = "winreg"))]
@@ -1878,22 +1872,22 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHSetValueA<P1, P2>(hkey: super::HKEY, pszsubkey: P1, pszvalue: P2, dwtype: u32, pvdata: Option<*const core::ffi::c_void>, cbdata: u32) -> super::LSTATUS
+pub unsafe fn SHSetValueA<P1, P2>(hkey: super::HKEY, pszsubkey: P1, pszvalue: P2, dwtype: u32, pvdata: Option<super::LPCVOID>, cbdata: u32) -> super::LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHSetValueA(hkey : super::HKEY, pszsubkey : windows_core::PCSTR, pszvalue : windows_core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHSetValueA(hkey : super::HKEY, pszsubkey : windows_core::PCSTR, pszvalue : windows_core::PCSTR, dwtype : u32, pvdata : super::LPCVOID, cbdata : u32) -> super::LSTATUS);
     unsafe { SHSetValueA(hkey, pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, pvdata.unwrap_or(core::mem::zeroed()) as _, cbdata) }
 }
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn SHSetValueW<P1, P2>(hkey: super::HKEY, pszsubkey: P1, pszvalue: P2, dwtype: u32, pvdata: Option<*const core::ffi::c_void>, cbdata: u32) -> super::LSTATUS
+pub unsafe fn SHSetValueW<P1, P2>(hkey: super::HKEY, pszsubkey: P1, pszvalue: P2, dwtype: u32, pvdata: Option<super::LPCVOID>, cbdata: u32) -> super::LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn SHSetValueW(hkey : super::HKEY, pszsubkey : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> super::LSTATUS);
+    windows_core::link!("shlwapi.dll" "system" fn SHSetValueW(hkey : super::HKEY, pszsubkey : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, dwtype : u32, pvdata : super::LPCVOID, cbdata : u32) -> super::LSTATUS);
     unsafe { SHSetValueW(hkey, pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, pvdata.unwrap_or(core::mem::zeroed()) as _, cbdata) }
 }
 #[cfg(feature = "objidl")]
@@ -2391,32 +2385,32 @@ where
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn StrRetToBSTR(pstr: *mut super::STRRET, pidl: Option<*const super::ITEMIDLIST>, pbstr: *mut windows_core::BSTR) -> windows_core::HRESULT {
-    windows_core::link!("shlwapi.dll" "system" fn StrRetToBSTR(pstr : *mut super::STRRET, pidl : *const super::ITEMIDLIST, pbstr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn StrRetToBSTR(pstr: *mut super::STRRET, pidl: Option<super::LPCITEMIDLIST>, pbstr: *mut windows_core::BSTR) -> windows_core::HRESULT {
+    windows_core::link!("shlwapi.dll" "system" fn StrRetToBSTR(pstr : *mut super::STRRET, pidl : super::LPCITEMIDLIST, pbstr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { StrRetToBSTR(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbstr)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn StrRetToBufA(pstr: *mut super::STRRET, pidl: Option<*const super::ITEMIDLIST>, pszbuf: windows_core::PSTR, cchbuf: u32) -> windows_core::HRESULT {
-    windows_core::link!("shlwapi.dll" "system" fn StrRetToBufA(pstr : *mut super::STRRET, pidl : *const super::ITEMIDLIST, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::HRESULT);
+pub unsafe fn StrRetToBufA(pstr: *mut super::STRRET, pidl: Option<super::LPCITEMIDLIST>, pszbuf: windows_core::PSTR, cchbuf: u32) -> windows_core::HRESULT {
+    windows_core::link!("shlwapi.dll" "system" fn StrRetToBufA(pstr : *mut super::STRRET, pidl : super::LPCITEMIDLIST, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::HRESULT);
     unsafe { StrRetToBufA(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, pszbuf, cchbuf) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn StrRetToBufW(pstr: *mut super::STRRET, pidl: Option<*const super::ITEMIDLIST>, pszbuf: windows_core::PWSTR, cchbuf: u32) -> windows_core::HRESULT {
-    windows_core::link!("shlwapi.dll" "system" fn StrRetToBufW(pstr : *mut super::STRRET, pidl : *const super::ITEMIDLIST, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::HRESULT);
+pub unsafe fn StrRetToBufW(pstr: *mut super::STRRET, pidl: Option<super::LPCITEMIDLIST>, pszbuf: windows_core::PWSTR, cchbuf: u32) -> windows_core::HRESULT {
+    windows_core::link!("shlwapi.dll" "system" fn StrRetToBufW(pstr : *mut super::STRRET, pidl : super::LPCITEMIDLIST, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::HRESULT);
     unsafe { StrRetToBufW(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, pszbuf, cchbuf) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn StrRetToStrA(pstr: *mut super::STRRET, pidl: Option<*const super::ITEMIDLIST>, ppsz: *mut windows_core::PSTR) -> windows_core::HRESULT {
-    windows_core::link!("shlwapi.dll" "system" fn StrRetToStrA(pstr : *mut super::STRRET, pidl : *const super::ITEMIDLIST, ppsz : *mut windows_core::PSTR) -> windows_core::HRESULT);
+pub unsafe fn StrRetToStrA(pstr: *mut super::STRRET, pidl: Option<super::LPCITEMIDLIST>, ppsz: *mut windows_core::PSTR) -> windows_core::HRESULT {
+    windows_core::link!("shlwapi.dll" "system" fn StrRetToStrA(pstr : *mut super::STRRET, pidl : super::LPCITEMIDLIST, ppsz : *mut windows_core::PSTR) -> windows_core::HRESULT);
     unsafe { StrRetToStrA(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, ppsz as _) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn StrRetToStrW(pstr: *mut super::STRRET, pidl: Option<*const super::ITEMIDLIST>, ppsz: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-    windows_core::link!("shlwapi.dll" "system" fn StrRetToStrW(pstr : *mut super::STRRET, pidl : *const super::ITEMIDLIST, ppsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn StrRetToStrW(pstr: *mut super::STRRET, pidl: Option<super::LPCITEMIDLIST>, ppsz: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+    windows_core::link!("shlwapi.dll" "system" fn StrRetToStrW(pstr : *mut super::STRRET, pidl : super::LPCITEMIDLIST, ppsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { StrRetToStrW(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, ppsz as _) }
 }
 #[inline]
@@ -2712,12 +2706,12 @@ where
     unsafe { UrlHashW(pszurl.param().abi(), pbhash as _, cbhash) }
 }
 #[inline]
-pub unsafe fn UrlIsA<P0>(pszurl: P0, urlis: URLIS) -> windows_core::BOOL
+pub unsafe fn UrlIs<P0>(pszurl: P0, urlis: URLIS) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("shlwapi.dll" "system" fn UrlIsA(pszurl : windows_core::PCSTR, urlis : URLIS) -> windows_core::BOOL);
-    unsafe { UrlIsA(pszurl.param().abi(), urlis) }
+    windows_core::link!("shlwapi.dll" "system" "UrlIsA" fn UrlIs(pszurl : windows_core::PCSTR, urlis : URLIS) -> windows_core::BOOL);
+    unsafe { UrlIs(pszurl.param().abi(), urlis) }
 }
 #[inline]
 pub unsafe fn UrlIsNoHistoryA<P0>(pszurl: P0) -> windows_core::BOOL
@@ -2774,16 +2768,6 @@ pub unsafe fn WhichPlatform() -> u32 {
     windows_core::link!("shlwapi.dll" "system" fn WhichPlatform() -> u32);
     unsafe { WhichPlatform() }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn wvnsprintfA<P2>(pszdest: windows_core::PSTR, cchdest: i32, pszfmt: P2, arglist: *const i8) -> i32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR, arglist : *const i8) -> i32);
-    unsafe { wvnsprintfA(pszdest, cchdest, pszfmt.param().abi(), arglist) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn wvnsprintfA<P2>(pszdest: windows_core::PSTR, cchdest: i32, pszfmt: P2, arglist: super::va_list) -> i32
@@ -2793,16 +2777,6 @@ where
     windows_core::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR, arglist : super::va_list) -> i32);
     unsafe { wvnsprintfA(pszdest, cchdest, pszfmt.param().abi(), arglist) }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn wvnsprintfW<P2>(pszdest: windows_core::PWSTR, cchdest: i32, pszfmt: P2, arglist: *const i8) -> i32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : windows_core::PWSTR, cchdest : i32, pszfmt : windows_core::PCWSTR, arglist : *const i8) -> i32);
-    unsafe { wvnsprintfW(pszdest, cchdest, pszfmt.param().abi(), arglist) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 #[inline]
 pub unsafe fn wvnsprintfW<P2>(pszdest: windows_core::PWSTR, cchdest: i32, pszfmt: P2, arglist: super::va_list) -> i32
@@ -2822,9 +2796,7 @@ pub const ASSOCDATA_UNUSED1: ASSOCDATA = 3;
 pub const ASSOCDATA_VALUE: ASSOCDATA = 6;
 pub type ASSOCENUM = i32;
 pub const ASSOCENUM_NONE: ASSOCENUM = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ASSOCF(pub u32);
+pub type ASSOCF = u32;
 pub const ASSOCF_APP_TO_APP: i32 = 65536;
 pub const ASSOCF_IGNOREBASECLASS: i32 = 512;
 pub const ASSOCF_INIT_BYEXENAME: i32 = 2;
@@ -3041,13 +3013,11 @@ impl IQueryAssociations {
     {
         unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), flags, data, pszextra.param().abi(), pvout.unwrap_or(core::mem::zeroed()) as _, pcbout.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetEnum<P2, T>(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: P2) -> windows_core::Result<T>
+    pub unsafe fn GetEnum<P2>(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: P2, riid: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetEnum)(windows_core::Interface::as_raw(self), flags, assocenum, pszextra.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEnum)(windows_core::Interface::as_raw(self), flags, assocenum, pszextra.param().abi(), riid, ppvout as _) }
     }
 }
 #[repr(C)]
@@ -3205,9 +3175,7 @@ pub struct QITAB {
     pub piid: *const windows_core::GUID,
     pub dwOffset: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SFBS_FLAGS(pub i32);
+pub type SFBS_FLAGS = i32;
 pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: tagSFBS_FLAGS = 1;
 pub const SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS: tagSFBS_FLAGS = 2;
 pub const SHACF_AUTOAPPEND_FORCE_OFF: u32 = 2147483648;
@@ -3223,9 +3191,7 @@ pub const SHACF_URLHISTORY: i32 = 2;
 pub const SHACF_URLMRU: i32 = 4;
 pub const SHACF_USETAB: i32 = 8;
 pub const SHACF_VIRTUAL_NAMESPACE: i32 = 64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SHCT_FLAGS(pub u32);
+pub type SHCT_FLAGS = u32;
 pub type SHGLOBALCOUNTER = i32;
 pub const SHGVSPB_ALLFOLDERS: i32 = 8;
 pub const SHGVSPB_ALLUSERS: i32 = 2;
@@ -3253,9 +3219,7 @@ pub const SHREGSET_FORCE_HKCU: i32 = 2;
 pub const SHREGSET_FORCE_HKLM: i32 = 8;
 pub const SHREGSET_HKCU: i32 = 1;
 pub const SHREGSET_HKLM: i32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SRRF(pub i32);
+pub type SRRF = i32;
 pub const SRRF_NOEXPAND: i32 = 268435456;
 pub const SRRF_NOVIRT: i32 = 1073741824;
 pub const SRRF_RM_ANY: i32 = 0;
@@ -3274,12 +3238,12 @@ pub const SRRF_RT_REG_QWORD: i32 = 64;
 pub const SRRF_RT_REG_SZ: i32 = 2;
 pub const SRRF_ZEROONFAILURE: i32 = 536870912;
 pub const STIF_DEFAULT: i32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct STIF_FLAGS(pub i32);
+pub type STIF_FLAGS = i32;
 pub const STIF_SUPPORT_HEX: i32 = 1;
+pub const SZ_CONTENTTYPE_CDF: windows_core::PCSTR = windows_core::s!("application/x-cdf");
 pub const SZ_CONTENTTYPE_CDFA: windows_core::PCSTR = windows_core::s!("application/x-cdf");
 pub const SZ_CONTENTTYPE_CDFW: windows_core::PCWSTR = windows_core::w!("application/x-cdf");
+pub const SZ_CONTENTTYPE_HTML: windows_core::PCSTR = windows_core::s!("text/html");
 pub const SZ_CONTENTTYPE_HTMLA: windows_core::PCSTR = windows_core::s!("text/html");
 pub const SZ_CONTENTTYPE_HTMLW: windows_core::PCWSTR = windows_core::w!("text/html");
 pub type URLIS = i32;

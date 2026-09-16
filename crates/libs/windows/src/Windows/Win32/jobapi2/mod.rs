@@ -6,11 +6,11 @@ pub unsafe fn AssignProcessToJobObject(hjob: super::HANDLE, hprocess: super::HAN
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateJobObjectW<P1>(lpjobattributes: Option<*const super::SECURITY_ATTRIBUTES>, lpname: P1) -> super::HANDLE
+pub unsafe fn CreateJobObjectW<P1>(lpjobattributes: Option<super::LPSECURITY_ATTRIBUTES>, lpname: P1) -> super::HANDLE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : super::LPSECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR) -> super::HANDLE);
     unsafe { CreateJobObjectW(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi()) }
 }
 #[inline]
@@ -27,10 +27,10 @@ where
     windows_core::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::HANDLE);
     unsafe { OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn QueryInformationJobObject(hjob: Option<super::HANDLE>, jobobjectinformationclass: super::JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::HANDLE, jobobjectinformationclass : super::JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryInformationJobObject(hjob: Option<super::HANDLE>, jobobjectinformationclass: super::JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::HANDLE, jobobjectinformationclass : super::JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryInformationJobObject(hjob.unwrap_or(core::mem::zeroed()) as _, jobobjectinformationclass, lpjobobjectinformation as _, cbjobobjectinformationlength, lpreturnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]

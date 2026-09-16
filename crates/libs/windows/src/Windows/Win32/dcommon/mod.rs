@@ -11,6 +11,15 @@ pub struct D2D1_PIXEL_FORMAT {
     pub format: super::DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
 }
+#[cfg(feature = "windef")]
+pub type D2D1_POINT_2L = D2D_POINT_2L;
+pub type D2D1_POINT_2U = D2D_POINT_2U;
+pub type D2D1_RECT_F = D2D_RECT_F;
+#[cfg(feature = "windef")]
+pub type D2D1_RECT_L = D2D_RECT_L;
+pub type D2D1_RECT_U = D2D_RECT_U;
+pub type D2D1_SIZE_F = D2D_SIZE_F;
+pub type D2D1_SIZE_U = D2D_SIZE_U;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D2D_MATRIX_4X3_F {

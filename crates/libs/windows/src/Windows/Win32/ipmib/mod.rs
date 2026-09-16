@@ -186,9 +186,7 @@ impl Default for MIB_IPFORWARDTABLE {
     }
 }
 #[cfg(feature = "nldef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MIB_IPFORWARD_PROTO(pub super::NL_ROUTE_PROTOCOL);
+pub type MIB_IPFORWARD_PROTO = super::NL_ROUTE_PROTOCOL;
 pub type MIB_IPFORWARD_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

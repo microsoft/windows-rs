@@ -1318,11 +1318,8 @@ windows_core::imp::define_interface!(IWSDHttpAuthParameters, IWSDHttpAuthParamet
 windows_core::imp::interface_hierarchy!(IWSDHttpAuthParameters, windows_core::IUnknown);
 impl IWSDHttpAuthParameters {
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetClientAccessToken(&self) -> windows_core::Result<super::HANDLE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClientAccessToken)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetClientAccessToken(&self, phtoken: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetClientAccessToken)(windows_core::Interface::as_raw(self), phtoken as _) }
     }
     pub unsafe fn GetAuthType(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1339,11 +1336,11 @@ pub struct IWSDHttpAuthParameters_Vtbl {
     pub GetClientAccessToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HANDLE) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     GetClientAccessToken: usize,
-    pub GetAuthType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetAuthType: unsafe extern "system" fn(*mut core::ffi::c_void, PWSD_SECURITY_HTTP_AUTH_SCHEMES) -> windows_core::HRESULT,
 }
 #[cfg(feature = "winnt")]
 pub trait IWSDHttpAuthParameters_Impl: windows_core::IUnknownImpl {
-    fn GetClientAccessToken(&self) -> windows_core::Result<super::HANDLE>;
+    fn GetClientAccessToken(&self, phtoken: *mut super::HANDLE) -> windows_core::Result<()>;
     fn GetAuthType(&self) -> windows_core::Result<u32>;
 }
 #[cfg(feature = "winnt")]
@@ -1352,16 +1349,10 @@ impl IWSDHttpAuthParameters_Vtbl {
         unsafe extern "system" fn GetClientAccessToken<Identity: IWSDHttpAuthParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phtoken: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWSDHttpAuthParameters_Impl::GetClientAccessToken(this) {
-                    Ok(ok__) => {
-                        phtoken.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWSDHttpAuthParameters_Impl::GetClientAccessToken(this, core::mem::transmute_copy(&phtoken)).into()
             }
         }
-        unsafe extern "system" fn GetAuthType<Identity: IWSDHttpAuthParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauthtype: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAuthType<Identity: IWSDHttpAuthParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauthtype: PWSD_SECURITY_HTTP_AUTH_SCHEMES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDHttpAuthParameters_Impl::GetAuthType(this) {
@@ -1578,7 +1569,8 @@ impl core::ops::Deref for IWSDInboundAttachment {
 }
 windows_core::imp::interface_hierarchy!(IWSDInboundAttachment, windows_core::IUnknown, IWSDAttachment);
 impl IWSDInboundAttachment {
-    pub unsafe fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: super::LPDWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pbuffer as _, dwbytestoread, pdwnumberofbytesread as _) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
@@ -1589,16 +1581,21 @@ impl IWSDInboundAttachment {
 #[doc(hidden)]
 pub struct IWSDInboundAttachment_Vtbl {
     pub base__: IWSDAttachment_Vtbl,
-    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    Read: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IWSDInboundAttachment_Impl: IWSDAttachment_Impl {
-    fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> windows_core::Result<()>;
+    fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: super::LPDWORD) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IWSDInboundAttachment_Vtbl {
     pub const fn new<Identity: IWSDInboundAttachment_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Read<Identity: IWSDInboundAttachment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: IWSDInboundAttachment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWSDInboundAttachment_Impl::Read(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwbytestoread), core::mem::transmute_copy(&pdwnumberofbytesread)).into()
@@ -1616,6 +1613,7 @@ impl IWSDInboundAttachment_Vtbl {
         iid == &<IWSDInboundAttachment as windows_core::Interface>::IID || iid == &<IWSDAttachment as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IWSDInboundAttachment {}
 windows_core::imp::define_interface!(IWSDMessageParameters, IWSDMessageParameters_Vtbl, 0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
 windows_core::imp::interface_hierarchy!(IWSDMessageParameters, windows_core::IUnknown);
@@ -1781,6 +1779,7 @@ impl core::ops::Deref for IWSDOutboundAttachment {
 }
 windows_core::imp::interface_hierarchy!(IWSDOutboundAttachment, windows_core::IUnknown, IWSDAttachment);
 impl IWSDOutboundAttachment {
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Write(&self, pbuffer: &[u8]) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1798,18 +1797,23 @@ impl IWSDOutboundAttachment {
 #[doc(hidden)]
 pub struct IWSDOutboundAttachment_Vtbl {
     pub base__: IWSDAttachment_Vtbl,
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    Write: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IWSDOutboundAttachment_Impl: IWSDAttachment_Impl {
     fn Write(&self, pbuffer: *const u8, dwbytestowrite: u32) -> windows_core::Result<u32>;
     fn Close(&self) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IWSDOutboundAttachment_Vtbl {
     pub const fn new<Identity: IWSDOutboundAttachment_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Write<Identity: IWSDOutboundAttachment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *const u8, dwbytestowrite: u32, pdwnumberofbyteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: IWSDOutboundAttachment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *const u8, dwbytestowrite: u32, pdwnumberofbyteswritten: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDOutboundAttachment_Impl::Write(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwbytestowrite)) {
@@ -1844,6 +1848,7 @@ impl IWSDOutboundAttachment_Vtbl {
         iid == &<IWSDOutboundAttachment as windows_core::Interface>::IID || iid == &<IWSDAttachment as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IWSDOutboundAttachment {}
 windows_core::imp::define_interface!(IWSDSSLClientCertificate, IWSDSSLClientCertificate_Vtbl, 0xde105e87_a0da_418e_98ad_27b9eed87bdc);
 windows_core::imp::interface_hierarchy!(IWSDSSLClientCertificate, windows_core::IUnknown);
@@ -1853,11 +1858,8 @@ impl IWSDSSLClientCertificate {
         unsafe { (windows_core::Interface::vtable(self).GetClientCertificate)(windows_core::Interface::as_raw(self), ppcertcontext as _) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetMappedAccessToken(&self) -> windows_core::Result<super::HANDLE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMappedAccessToken)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMappedAccessToken(&self, phtoken: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMappedAccessToken)(windows_core::Interface::as_raw(self), phtoken as _) }
     }
 }
 #[repr(C)]
@@ -1876,7 +1878,7 @@ pub struct IWSDSSLClientCertificate_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 pub trait IWSDSSLClientCertificate_Impl: windows_core::IUnknownImpl {
     fn GetClientCertificate(&self, ppcertcontext: *mut super::PCCERT_CONTEXT) -> windows_core::Result<()>;
-    fn GetMappedAccessToken(&self) -> windows_core::Result<super::HANDLE>;
+    fn GetMappedAccessToken(&self, phtoken: *mut super::HANDLE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 impl IWSDSSLClientCertificate_Vtbl {
@@ -1890,13 +1892,7 @@ impl IWSDSSLClientCertificate_Vtbl {
         unsafe extern "system" fn GetMappedAccessToken<Identity: IWSDSSLClientCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phtoken: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWSDSSLClientCertificate_Impl::GetMappedAccessToken(this) {
-                    Ok(ok__) => {
-                        phtoken.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWSDSSLClientCertificate_Impl::GetMappedAccessToken(this, core::mem::transmute_copy(&phtoken)).into()
             }
         }
         Self {
@@ -3902,7 +3898,7 @@ pub type PWSD_SECURITY_CERT_VALIDATION = *mut WSD_SECURITY_CERT_VALIDATION;
 pub type PWSD_SECURITY_HTTP_AUTH_SCHEMES = *mut u32;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDATION;
-pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: windows_core::Ref<windows_core::IUnknown>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
+pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "C" fn(thisunknown: windows_core::Ref<windows_core::IUnknown>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REQUESTBODY_GetStatus {
@@ -4491,9 +4487,7 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
 }
 pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7;
 pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct WSD_SECURITY_HTTP_AUTH_SCHEMES(pub u32);
+pub type WSD_SECURITY_HTTP_AUTH_SCHEMES = u32;
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: i32 = 1;
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: i32 = 2;
 pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12;
@@ -4572,7 +4566,7 @@ pub struct WSD_SOAP_MESSAGE {
     pub Body: *mut core::ffi::c_void,
     pub BodyType: *mut WSDXML_TYPE,
 }
-pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: windows_core::Ref<windows_core::IUnknown>, session: windows_core::Ref<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
+pub type WSD_STUB_FUNCTION = Option<unsafe extern "C" fn(server: windows_core::Ref<windows_core::IUnknown>, session: windows_core::Ref<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]

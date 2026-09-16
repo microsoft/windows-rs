@@ -46,18 +46,20 @@ pub const NET_IF_CURRENT_SESSION: u32 = 4294967295;
 pub type NL_ADDRESS_TYPE = i32;
 pub type NL_BANDWIDTH_FLAG = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_BANDWIDTH_INFORMATION {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: bool,
+    pub BandwidthPeaked: super::BOOLEAN,
 }
 pub type NL_DAD_STATE = i32;
 pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
-    pub _bitfield: bool,
+    pub _bitfield: super::BOOLEAN,
 }
 pub type NL_LINK_LOCAL_ADDRESS_BEHAVIOR = i32;
 pub const NL_MAX_METRIC_COMPONENT: u32 = 2147483647;
@@ -65,21 +67,23 @@ pub type NL_NEIGHBOR_STATE = i32;
 pub type NL_NETWORK_CATEGORY = i32;
 pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
     pub ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
-    pub ApproachingDataLimit: bool,
-    pub OverDataLimit: bool,
-    pub Roaming: bool,
+    pub ApproachingDataLimit: super::BOOLEAN,
+    pub OverDataLimit: super::BOOLEAN,
+    pub Roaming: super::BOOLEAN,
 }
 pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_PATH_BANDWIDTH_ROD {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: bool,
+    pub BandwidthPeaked: super::BOOLEAN,
 }
 pub type NL_PREFIX_ORIGIN = i32;
 pub type NL_ROUTER_DISCOVERY_BEHAVIOR = i32;
@@ -128,11 +132,11 @@ pub const NlnsProbe: NL_NEIGHBOR_STATE = 2;
 pub const NlnsReachable: NL_NEIGHBOR_STATE = 5;
 pub const NlnsStale: NL_NEIGHBOR_STATE = 4;
 pub const NlnsUnreachable: NL_NEIGHBOR_STATE = 0;
-pub const NlpoDhcp: i32 = 3;
-pub const NlpoManual: i32 = 1;
-pub const NlpoOther: i32 = 0;
-pub const NlpoRouterAdvertisement: i32 = 4;
-pub const NlpoWellKnown: i32 = 2;
+pub const NlpoDhcp: NL_PREFIX_ORIGIN = 3;
+pub const NlpoManual: NL_PREFIX_ORIGIN = 1;
+pub const NlpoOther: NL_PREFIX_ORIGIN = 0;
+pub const NlpoRouterAdvertisement: NL_PREFIX_ORIGIN = 4;
+pub const NlpoWellKnown: NL_PREFIX_ORIGIN = 2;
 pub const Nlro6to4: NL_ROUTE_ORIGIN = 4;
 pub const NlroDHCP: NL_ROUTE_ORIGIN = 2;
 pub const NlroManual: NL_ROUTE_ORIGIN = 0;
@@ -146,11 +150,14 @@ pub const NlsoRandom: NL_SUFFIX_ORIGIN = 5;
 pub const NlsoWellKnown: NL_SUFFIX_ORIGIN = 2;
 pub type PNL_ADDRESS_TYPE = *mut NL_ADDRESS_TYPE;
 pub type PNL_BANDWIDTH_FLAG = *mut NL_BANDWIDTH_FLAG;
+#[cfg(feature = "winnt")]
 pub type PNL_BANDWIDTH_INFORMATION = *mut NL_BANDWIDTH_INFORMATION;
 pub type PNL_INTERFACE_NETWORK_CATEGORY_STATE = *mut NL_INTERFACE_NETWORK_CATEGORY_STATE;
+#[cfg(feature = "winnt")]
 pub type PNL_INTERFACE_OFFLOAD_ROD = *mut NL_INTERFACE_OFFLOAD_ROD;
 pub type PNL_NEIGHBOR_STATE = *mut NL_NEIGHBOR_STATE;
 pub type PNL_NETWORK_CATEGORY = *mut NL_NETWORK_CATEGORY;
+#[cfg(feature = "winnt")]
 pub type PNL_PATH_BANDWIDTH_ROD = *mut NL_PATH_BANDWIDTH_ROD;
 pub type PNL_ROUTE_ORIGIN = *mut NL_ROUTE_ORIGIN;
 pub type PNL_ROUTE_PROTOCOL = *mut NL_ROUTE_PROTOCOL;

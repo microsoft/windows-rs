@@ -10,43 +10,12 @@ pub const BMREQUEST_VENDOR: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BM_REQUEST_TYPE {
-    pub s: BM_REQUEST_TYPE_0,
+    pub s: _BM,
     pub B: u8,
 }
 impl Default for BM_REQUEST_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BM_REQUEST_TYPE_0 {
-    pub _bitfield: u8,
-}
-impl BM_REQUEST_TYPE_0 {
-    pub fn Recipient(&self) -> u8 {
-        (self._bitfield << 6) >> 6
-    }
-    pub fn set_Recipient(&mut self, value: u8) {
-        self._bitfield = (self._bitfield & !3) | (value & 3);
-    }
-    pub fn Reserved(&self) -> u8 {
-        (self._bitfield << 3) >> 5
-    }
-    pub fn set_Reserved(&mut self, value: u8) {
-        self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
-    }
-    pub fn Type(&self) -> u8 {
-        (self._bitfield << 1) >> 6
-    }
-    pub fn set_Type(&mut self, value: u8) {
-        self._bitfield = (self._bitfield & !(3 << 5)) | ((value & 3) << 5);
-    }
-    pub fn Dir(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
-    }
-    pub fn set_Dir(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
     }
 }
 #[repr(C, packed(1))]
@@ -497,48 +466,14 @@ pub const USB_DEBUG_DESCRIPTOR_TYPE: i32 = 10;
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub bmRequestType: BM_REQUEST_TYPE,
     pub bRequest: u8,
-    pub wValue: USB_DEFAULT_PIPE_SETUP_PACKET_0,
-    pub wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_1,
+    pub wValue: _wValue,
+    pub wIndex: _wIndex,
     pub wLength: u16,
 }
 impl Default for USB_DEFAULT_PIPE_SETUP_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
-    pub W: u16,
-}
-impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
-    pub LowByte: u8,
-    pub HiByte: u8,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0,
-    pub W: u16,
-}
-impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
-    pub LowByte: u8,
-    pub HiByte: u8,
 }
 pub const USB_DEVICE_CAPABILITY_BATTERY_INFO: i32 = 7;
 pub const USB_DEVICE_CAPABILITY_BILLBOARD: i32 = 13;
@@ -1409,31 +1344,6 @@ impl Default for USB_HIGH_SPEED_MAXPACKET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
-pub struct USB_HIGH_SPEED_MAXPACKET_0 {
-    pub _bitfield: u16,
-}
-impl USB_HIGH_SPEED_MAXPACKET_0 {
-    pub fn MaxPacket(&self) -> u16 {
-        (self._bitfield << 5) >> 5
-    }
-    pub fn set_MaxPacket(&mut self, value: u16) {
-        self._bitfield = (self._bitfield & !2047) | (value & 2047);
-    }
-    pub fn HSmux(&self) -> u16 {
-        (self._bitfield << 3) >> 14
-    }
-    pub fn set_HSmux(&mut self, value: u16) {
-        self._bitfield = (self._bitfield & !(3 << 11)) | ((value & 3) << 11);
-    }
-    pub fn Reserved(&self) -> u16 {
-        self._bitfield >> 13
-    }
-    pub fn set_Reserved(&mut self, value: u16) {
-        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
@@ -1926,3 +1836,68 @@ pub const UsbFullSpeed: USB_DEVICE_SPEED = 1;
 pub const UsbHighSpeed: USB_DEVICE_SPEED = 2;
 pub const UsbLowSpeed: USB_DEVICE_SPEED = 0;
 pub const UsbSuperSpeed: USB_DEVICE_SPEED = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _BM {
+    pub _bitfield: u8,
+}
+impl _BM {
+    pub fn Recipient(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_Recipient(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        (self._bitfield << 3) >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
+    }
+    pub fn Type(&self) -> u8 {
+        (self._bitfield << 1) >> 6
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 5)) | ((value & 3) << 5);
+    }
+    pub fn Dir(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Dir(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union _wIndex {
+    pub Anonymous: _wIndex_0,
+    pub W: u16,
+}
+impl Default for _wIndex {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _wIndex_0 {
+    pub LowByte: u8,
+    pub HiByte: u8,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union _wValue {
+    pub Anonymous: _wValue_0,
+    pub W: u16,
+}
+impl Default for _wValue {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _wValue_0 {
+    pub LowByte: u8,
+    pub HiByte: u8,
+}

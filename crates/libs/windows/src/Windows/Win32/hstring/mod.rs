@@ -1,6 +1,9 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSTRING_BUFFER(pub *mut core::ffi::c_void);
+pub type HSTRING_BUFFER = *mut HSTRING_BUFFER__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HSTRING_BUFFER__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -50,4 +53,9 @@ impl Default for HSTRING_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HSTRING__ {
+    pub unused: i32,
 }

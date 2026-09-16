@@ -12394,6 +12394,4 @@ pub type TreeTraversalOptions = i32;
 pub const TreeTraversalOptions_Default: TreeTraversalOptions = 0;
 pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = 2;
 pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct UIA_HWND(pub *mut core::ffi::c_void);
+pub type UIA_HWND = *mut core::ffi::c_void;

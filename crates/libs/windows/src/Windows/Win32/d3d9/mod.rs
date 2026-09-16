@@ -67,12 +67,13 @@ pub const D3D9b_SDK_VERSION: i32 = 31;
 pub const D3DADAPTER_DEFAULT: i32 = 0;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [i8; 512],
     pub Description: [i8; 512],
     pub DeviceName: [i8; 32],
-    pub DriverVersion: i64,
+    pub DriverVersion: super::LARGE_INTEGER,
     pub VendorId: u32,
     pub DeviceId: u32,
     pub SubSysId: u32,
@@ -81,6 +82,7 @@ pub struct D3DADAPTER_IDENTIFIER9 {
     pub WHQLLevel: u32,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
 impl Default for D3DADAPTER_IDENTIFIER9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -88,12 +90,13 @@ impl Default for D3DADAPTER_IDENTIFIER9 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [i8; 512],
     pub Description: [i8; 512],
     pub DeviceName: [i8; 32],
-    pub DriverVersion: i64,
+    pub DriverVersion: super::LARGE_INTEGER,
     pub VendorId: u32,
     pub DeviceId: u32,
     pub SubSysId: u32,
@@ -102,6 +105,7 @@ pub struct D3DADAPTER_IDENTIFIER9 {
     pub WHQLLevel: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 impl Default for D3DADAPTER_IDENTIFIER9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -915,35 +919,35 @@ pub struct D3DENCRYPTED_BLOCK_INFO {
 }
 pub const D3DENUM_NO_DRIVERVERSION: i32 = 4;
 pub const D3DENUM_WHQL_LEVEL: i32 = 2;
-pub const D3DERR_CANNOTPROTECTCONTENT: i32 = -2005530499;
-pub const D3DERR_CONFLICTINGRENDERSTATE: i32 = -2005530591;
-pub const D3DERR_CONFLICTINGTEXTUREFILTER: i32 = -2005530594;
-pub const D3DERR_CONFLICTINGTEXTUREPALETTE: i32 = -2005530586;
-pub const D3DERR_DEVICEHUNG: i32 = -2005530508;
-pub const D3DERR_DEVICELOST: i32 = -2005530520;
-pub const D3DERR_DEVICENOTRESET: i32 = -2005530519;
-pub const D3DERR_DEVICEREMOVED: i32 = -2005530512;
-pub const D3DERR_DRIVERINTERNALERROR: i32 = -2005530585;
-pub const D3DERR_DRIVERINVALIDCALL: i32 = -2005530515;
-pub const D3DERR_INVALIDCALL: i32 = -2005530516;
-pub const D3DERR_INVALIDDEVICE: i32 = -2005530517;
-pub const D3DERR_MOREDATA: i32 = -2005530521;
-pub const D3DERR_NOTAVAILABLE: i32 = -2005530518;
-pub const D3DERR_NOTFOUND: i32 = -2005530522;
-pub const D3DERR_OUTOFVIDEOMEMORY: i32 = -2005532292;
-pub const D3DERR_PRESENT_STATISTICS_DISJOINT: i32 = -2005530492;
-pub const D3DERR_TOOMANYOPERATIONS: i32 = -2005530595;
-pub const D3DERR_UNSUPPORTEDALPHAARG: i32 = -2005530596;
-pub const D3DERR_UNSUPPORTEDALPHAOPERATION: i32 = -2005530597;
-pub const D3DERR_UNSUPPORTEDCOLORARG: i32 = -2005530598;
-pub const D3DERR_UNSUPPORTEDCOLOROPERATION: i32 = -2005530599;
-pub const D3DERR_UNSUPPORTEDCRYPTO: i32 = -2005530498;
-pub const D3DERR_UNSUPPORTEDFACTORVALUE: i32 = -2005530593;
-pub const D3DERR_UNSUPPORTEDOVERLAY: i32 = -2005530501;
-pub const D3DERR_UNSUPPORTEDOVERLAYFORMAT: i32 = -2005530500;
-pub const D3DERR_UNSUPPORTEDTEXTUREFILTER: i32 = -2005530590;
-pub const D3DERR_WASSTILLDRAWING: i32 = -2005532132;
-pub const D3DERR_WRONGTEXTUREFORMAT: i32 = -2005530600;
+pub const D3DERR_CANNOTPROTECTCONTENT: windows_core::HRESULT = windows_core::HRESULT(0x8876087D_u32 as _);
+pub const D3DERR_CONFLICTINGRENDERSTATE: windows_core::HRESULT = windows_core::HRESULT(0x88760821_u32 as _);
+pub const D3DERR_CONFLICTINGTEXTUREFILTER: windows_core::HRESULT = windows_core::HRESULT(0x8876081E_u32 as _);
+pub const D3DERR_CONFLICTINGTEXTUREPALETTE: windows_core::HRESULT = windows_core::HRESULT(0x88760826_u32 as _);
+pub const D3DERR_DEVICEHUNG: windows_core::HRESULT = windows_core::HRESULT(0x88760874_u32 as _);
+pub const D3DERR_DEVICELOST: windows_core::HRESULT = windows_core::HRESULT(0x88760868_u32 as _);
+pub const D3DERR_DEVICENOTRESET: windows_core::HRESULT = windows_core::HRESULT(0x88760869_u32 as _);
+pub const D3DERR_DEVICEREMOVED: windows_core::HRESULT = windows_core::HRESULT(0x88760870_u32 as _);
+pub const D3DERR_DRIVERINTERNALERROR: windows_core::HRESULT = windows_core::HRESULT(0x88760827_u32 as _);
+pub const D3DERR_DRIVERINVALIDCALL: windows_core::HRESULT = windows_core::HRESULT(0x8876086D_u32 as _);
+pub const D3DERR_INVALIDCALL: windows_core::HRESULT = windows_core::HRESULT(0x8876086C_u32 as _);
+pub const D3DERR_INVALIDDEVICE: windows_core::HRESULT = windows_core::HRESULT(0x8876086B_u32 as _);
+pub const D3DERR_MOREDATA: windows_core::HRESULT = windows_core::HRESULT(0x88760867_u32 as _);
+pub const D3DERR_NOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8876086A_u32 as _);
+pub const D3DERR_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x88760866_u32 as _);
+pub const D3DERR_OUTOFVIDEOMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8876017C_u32 as _);
+pub const D3DERR_PRESENT_STATISTICS_DISJOINT: windows_core::HRESULT = windows_core::HRESULT(0x88760884_u32 as _);
+pub const D3DERR_TOOMANYOPERATIONS: windows_core::HRESULT = windows_core::HRESULT(0x8876081D_u32 as _);
+pub const D3DERR_UNSUPPORTEDALPHAARG: windows_core::HRESULT = windows_core::HRESULT(0x8876081C_u32 as _);
+pub const D3DERR_UNSUPPORTEDALPHAOPERATION: windows_core::HRESULT = windows_core::HRESULT(0x8876081B_u32 as _);
+pub const D3DERR_UNSUPPORTEDCOLORARG: windows_core::HRESULT = windows_core::HRESULT(0x8876081A_u32 as _);
+pub const D3DERR_UNSUPPORTEDCOLOROPERATION: windows_core::HRESULT = windows_core::HRESULT(0x88760819_u32 as _);
+pub const D3DERR_UNSUPPORTEDCRYPTO: windows_core::HRESULT = windows_core::HRESULT(0x8876087E_u32 as _);
+pub const D3DERR_UNSUPPORTEDFACTORVALUE: windows_core::HRESULT = windows_core::HRESULT(0x8876081F_u32 as _);
+pub const D3DERR_UNSUPPORTEDOVERLAY: windows_core::HRESULT = windows_core::HRESULT(0x8876087B_u32 as _);
+pub const D3DERR_UNSUPPORTEDOVERLAYFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8876087C_u32 as _);
+pub const D3DERR_UNSUPPORTEDTEXTUREFILTER: windows_core::HRESULT = windows_core::HRESULT(0x88760822_u32 as _);
+pub const D3DERR_WASSTILLDRAWING: windows_core::HRESULT = windows_core::HRESULT(0x8876021C_u32 as _);
+pub const D3DERR_WRONGTEXTUREFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x88760818_u32 as _);
 pub type D3DFILLMODE = i32;
 pub const D3DFILL_FORCE_DWORD: D3DFILLMODE = 2147483647;
 pub const D3DFILL_POINT: D3DFILLMODE = 1;
@@ -1189,7 +1193,7 @@ pub const D3DMULTISAMPLE_FORCE_DWORD: D3DMULTISAMPLE_TYPE = 2147483647;
 pub const D3DMULTISAMPLE_NONE: D3DMULTISAMPLE_TYPE = 0;
 pub const D3DMULTISAMPLE_NONMASKABLE: D3DMULTISAMPLE_TYPE = 1;
 pub type D3DMULTISAMPLE_TYPE = i32;
-pub const D3DOK_NOAUTOGEN: i32 = 141953135;
+pub const D3DOK_NOAUTOGEN: windows_core::HRESULT = windows_core::HRESULT(0x876086F_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DOVERLAYCAPS {
@@ -1286,23 +1290,39 @@ pub const D3DPRESENTFLAG_UNPRUNEDMODE: i32 = 64;
 pub const D3DPRESENTFLAG_VIDEO: i32 = 16;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
     pub SyncRefreshCount: u32,
-    pub SyncQPCTime: i64,
-    pub SyncGPUTime: i64,
+    pub SyncQPCTime: super::LARGE_INTEGER,
+    pub SyncGPUTime: super::LARGE_INTEGER,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for D3DPRESENTSTATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
     pub SyncRefreshCount: u32,
-    pub SyncQPCTime: i64,
-    pub SyncGPUTime: i64,
+    pub SyncQPCTime: super::LARGE_INTEGER,
+    pub SyncGPUTime: super::LARGE_INTEGER,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for D3DPRESENTSTATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const D3DPRESENT_BACK_BUFFERS_MAX: i32 = 3;
 pub const D3DPRESENT_BACK_BUFFERS_MAX_EX: i32 = 30;
@@ -1991,10 +2011,10 @@ pub const D3DTS_TEXTURE5: D3DTRANSFORMSTATETYPE = 21;
 pub const D3DTS_TEXTURE6: D3DTRANSFORMSTATETYPE = 22;
 pub const D3DTS_TEXTURE7: D3DTRANSFORMSTATETYPE = 23;
 pub const D3DTS_VIEW: D3DTRANSFORMSTATETYPE = 2;
-pub const D3DTS_WORLD: i32 = 256;
-pub const D3DTS_WORLD1: i32 = 257;
-pub const D3DTS_WORLD2: i32 = 258;
-pub const D3DTS_WORLD3: i32 = 259;
+pub const D3DTS_WORLD: D3DTRANSFORMSTATETYPE = 256;
+pub const D3DTS_WORLD1: D3DTRANSFORMSTATETYPE = 257;
+pub const D3DTS_WORLD2: D3DTRANSFORMSTATETYPE = 258;
+pub const D3DTS_WORLD3: D3DTRANSFORMSTATETYPE = 259;
 pub const D3DTTFF_COUNT1: D3DTEXTURETRANSFORMFLAGS = 1;
 pub const D3DTTFF_COUNT2: D3DTEXTURETRANSFORMFLAGS = 2;
 pub const D3DTTFF_COUNT3: D3DTEXTURETRANSFORMFLAGS = 3;
@@ -2140,7 +2160,7 @@ pub const D3DZB_FORCE_DWORD: D3DZBUFFERTYPE = 2147483647;
 pub const D3DZB_TRUE: D3DZBUFFERTYPE = 1;
 pub const D3DZB_USEW: D3DZBUFFERTYPE = 2;
 pub const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: i32 = 4;
-pub const D3D_OK: i32 = 0;
+pub const D3D_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D_OMAC {
@@ -2163,6 +2183,7 @@ impl IDirect3D9 {
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterCount)(windows_core::Interface::as_raw(self)) }
     }
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterIdentifier)(windows_core::Interface::as_raw(self), adapter, flags, pidentifier as _) }
     }
@@ -2217,7 +2238,10 @@ pub struct IDirect3D9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterSoftwareDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "winnt")]
     pub GetAdapterIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetAdapterIdentifier: usize,
     pub GetAdapterModeCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DFORMAT) -> u32,
     pub EnumAdapterModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DFORMAT, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
     pub GetAdapterDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
@@ -2236,7 +2260,7 @@ pub struct IDirect3D9_Vtbl {
     #[cfg(not(feature = "windef"))]
     CreateDevice: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub trait IDirect3D9_Impl: windows_core::IUnknownImpl {
     fn RegisterSoftwareDevice(&self, pinitializefunction: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAdapterCount(&self) -> u32;
@@ -2253,7 +2277,7 @@ pub trait IDirect3D9_Impl: windows_core::IUnknownImpl {
     fn GetAdapterMonitor(&self, adapter: u32) -> super::HMONITOR;
     fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: windows_core::OutRef<IDirect3DDevice9>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl IDirect3D9_Vtbl {
     pub const fn new<Identity: IDirect3D9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterSoftwareDevice<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinitializefunction: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2380,7 +2404,7 @@ impl IDirect3D9_Vtbl {
         iid == &<IDirect3D9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirect3D9 {}
 windows_core::imp::define_interface!(IDirect3D9Ex, IDirect3D9Ex_Vtbl, 0x02177241_69fc_400c_8ff1_93a44df6861d);
 impl core::ops::Deref for IDirect3D9Ex {
@@ -5600,12 +5624,8 @@ impl core::ops::Deref for IDirect3DSurface9 {
 }
 windows_core::imp::interface_hierarchy!(IDirect3DSurface9, windows_core::IUnknown, IDirect3DResource9);
 impl IDirect3DSurface9 {
-    pub unsafe fn GetContainer<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetContainer(&self, riid: *const windows_core::GUID, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), riid, ppcontainer as _) }
     }
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
@@ -5890,6 +5910,7 @@ impl IDirect3DSwapChain9Ex {
             (windows_core::Interface::vtable(self).GetLastPresentCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "winnt")]
     pub unsafe fn GetPresentStats(&self, ppresentationstatistics: *mut D3DPRESENTSTATS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPresentStats)(windows_core::Interface::as_raw(self), ppresentationstatistics as _) }
     }
@@ -5902,16 +5923,19 @@ impl IDirect3DSwapChain9Ex {
 pub struct IDirect3DSwapChain9Ex_Vtbl {
     pub base__: IDirect3DSwapChain9_Vtbl,
     pub GetLastPresentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
     pub GetPresentStats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENTSTATS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetPresentStats: usize,
     pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DDISPLAYMODEEX, *mut D3DDISPLAYROTATION) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirect3DSwapChain9Ex_Impl: IDirect3DSwapChain9_Impl {
     fn GetLastPresentCount(&self) -> windows_core::Result<u32>;
     fn GetPresentStats(&self, ppresentationstatistics: *mut D3DPRESENTSTATS) -> windows_core::Result<()>;
     fn GetDisplayModeEx(&self, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirect3DSwapChain9Ex_Vtbl {
     pub const fn new<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLastPresentCount<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plastpresentcount: *mut u32) -> windows_core::HRESULT {
@@ -5949,7 +5973,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
         iid == &<IDirect3DSwapChain9Ex as windows_core::Interface>::IID || iid == &<IDirect3DSwapChain9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirect3DSwapChain9Ex {}
 windows_core::imp::define_interface!(IDirect3DTexture9, IDirect3DTexture9_Vtbl, 0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
 impl core::ops::Deref for IDirect3DTexture9 {
@@ -6251,12 +6275,8 @@ impl IDirect3DVolume9 {
     pub unsafe fn FreePrivateData(&self, refguid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FreePrivateData)(windows_core::Interface::as_raw(self), refguid) }
     }
-    pub unsafe fn GetContainer<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetContainer(&self, riid: *const windows_core::GUID, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), riid, ppcontainer as _) }
     }
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DVOLUME_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
@@ -6467,15 +6487,16 @@ pub type LPD3DDEVINFO_RESOURCEMANAGER = *mut D3DDEVINFO_RESOURCEMANAGER;
 pub type LPD3DDEVINFO_VCACHE = *mut D3DDEVINFO_VCACHE;
 pub type LPD3DVERTEXELEMENT9 = *mut D3DVERTEXELEMENT9;
 pub const MAXD3DDECLLENGTH: i32 = 64;
-pub const MAXD3DDECLMETHOD: i32 = 6;
-pub const MAXD3DDECLTYPE: i32 = 17;
-pub const MAXD3DDECLUSAGE: i32 = 13;
+pub const MAXD3DDECLMETHOD: D3DDECLMETHOD = 6;
+pub const MAXD3DDECLTYPE: D3DDECLTYPE = 17;
+pub const MAXD3DDECLUSAGE: D3DDECLUSAGE = 13;
 pub const MAXD3DDECLUSAGEINDEX: i32 = 15;
 pub const MAX_DEVICE_IDENTIFIER_STRING: i32 = 512;
 pub const PROCESSIDTYPE_DWM: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = 1;
 pub const PROCESSIDTYPE_HANDLE: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = 2;
 pub const PROCESSIDTYPE_UNKNOWN: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = 0;
-pub const S_NOT_RESIDENT: i32 = 141953141;
-pub const S_PRESENT_MODE_CHANGED: i32 = 141953143;
-pub const S_PRESENT_OCCLUDED: i32 = 141953144;
-pub const S_RESIDENT_IN_SHARED_MEMORY: i32 = 141953142;
+pub const S_NOT_RESIDENT: windows_core::HRESULT = windows_core::HRESULT(0x8760875_u32 as _);
+pub const S_PRESENT_MODE_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x8760877_u32 as _);
+pub const S_PRESENT_OCCLUDED: windows_core::HRESULT = windows_core::HRESULT(0x8760878_u32 as _);
+pub const S_RESIDENT_IN_SHARED_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8760876_u32 as _);
+pub const _FACD3D: i32 = 2166;

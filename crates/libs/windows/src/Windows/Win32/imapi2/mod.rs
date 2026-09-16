@@ -3171,8 +3171,8 @@ impl IDiscRecorder2 {
         unsafe { (windows_core::Interface::vtable(self).CloseTray)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, param1: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AcquireExclusiveAccess)(windows_core::Interface::as_raw(self), force, core::mem::transmute_copy(param1)) }
+    pub unsafe fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AcquireExclusiveAccess)(windows_core::Interface::as_raw(self), force, core::mem::transmute_copy(__midl__idiscrecorder20000)) }
     }
     pub unsafe fn ReleaseExclusiveAccess(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseExclusiveAccess)(windows_core::Interface::as_raw(self)) }
@@ -3309,7 +3309,7 @@ pub struct IDiscRecorder2_Vtbl {
 pub trait IDiscRecorder2_Impl: super::IDispatch_Impl {
     fn EjectMedia(&self) -> windows_core::Result<()>;
     fn CloseTray(&self) -> windows_core::Result<()>;
-    fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, param1: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ReleaseExclusiveAccess(&self) -> windows_core::Result<()>;
     fn DisableMcn(&self) -> windows_core::Result<()>;
     fn EnableMcn(&self) -> windows_core::Result<()>;
@@ -3344,10 +3344,10 @@ impl IDiscRecorder2_Vtbl {
                 IDiscRecorder2_Impl::CloseTray(this).into()
             }
         }
-        unsafe extern "system" fn AcquireExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, force: super::VARIANT_BOOL, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AcquireExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, force: super::VARIANT_BOOL, __midl__idiscrecorder20000: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscRecorder2_Impl::AcquireExclusiveAccess(this, core::mem::transmute_copy(&force), core::mem::transmute(&param1)).into()
+                IDiscRecorder2_Impl::AcquireExclusiveAccess(this, core::mem::transmute_copy(&force), core::mem::transmute(&__midl__idiscrecorder20000)).into()
             }
         }
         unsafe extern "system" fn ReleaseExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3603,7 +3603,8 @@ impl IDiscRecorder2Ex {
     pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTrackInformation)(windows_core::Interface::as_raw(self), address, addresstype, trackinformation as _, bytesize as _) }
     }
-    pub unsafe fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFeaturePage)(windows_core::Interface::as_raw(self), requestedfeature, currentfeatureonly, featuredata as _, bytesize as _) }
     }
     pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT {
@@ -3612,10 +3613,12 @@ impl IDiscRecorder2Ex {
     pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetModePage)(windows_core::Interface::as_raw(self), requesttype, data, bytesize) }
     }
-    pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSupportedFeaturePages)(windows_core::Interface::as_raw(self), currentfeatureonly, featuredata as _, bytesize as _) }
     }
-    pub unsafe fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn GetSupportedProfiles(&self, currentonly: super::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSupportedProfiles)(windows_core::Interface::as_raw(self), currentonly, profiletypes as _, validprofiles as _) }
     }
     pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> windows_core::HRESULT {
@@ -3653,16 +3656,26 @@ pub struct IDiscRecorder2Ex_Vtbl {
     pub GetDeviceDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> windows_core::HRESULT,
     pub GetDiscInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut ULONG_IMAPI2_DISC_INFORMATION) -> windows_core::HRESULT,
     pub GetTrackInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, IMAPI_READ_TRACK_ADDRESS_TYPE, *mut *mut u8, *mut ULONG_IMAPI2_TRACK_INFORMATION) -> windows_core::HRESULT,
-    pub GetFeaturePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_FEATURE_PAGE_TYPE, bool, *mut *mut u8, *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub GetFeaturePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_FEATURE_PAGE_TYPE, super::BOOLEAN, *mut *mut u8, *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetFeaturePage: usize,
     pub GetModePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_TYPE, IMAPI_MODE_PAGE_REQUEST_TYPE, *mut *mut u8, *mut ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT,
     pub SetModePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_REQUEST_TYPE, *const u8, ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT,
-    pub GetSupportedFeaturePages: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut IMAPI_FEATURE_PAGE_TYPE, *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT,
-    pub GetSupportedProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut IMAPI_PROFILE_TYPE, *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub GetSupportedFeaturePages: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN, *mut *mut IMAPI_FEATURE_PAGE_TYPE, *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetSupportedFeaturePages: usize,
+    #[cfg(feature = "winnt")]
+    pub GetSupportedProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN, *mut *mut IMAPI_PROFILE_TYPE, *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetSupportedProfiles: usize,
     pub GetSupportedModePages: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_REQUEST_TYPE, *mut *mut IMAPI_MODE_PAGE_TYPE, *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> windows_core::HRESULT,
     pub GetByteAlignmentMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetMaximumNonPageAlignedTransferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetMaximumPageAlignedTransferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "winnt")]
 pub trait IDiscRecorder2Ex_Impl: windows_core::IUnknownImpl {
     fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::Result<()>;
     fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: ULONG_IMAPI2_NONZERO) -> windows_core::Result<()>;
@@ -3673,16 +3686,17 @@ pub trait IDiscRecorder2Ex_Impl: windows_core::IUnknownImpl {
     fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> windows_core::Result<()>;
     fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> windows_core::Result<()>;
     fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> windows_core::Result<()>;
-    fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::Result<()>;
+    fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::Result<()>;
     fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_MODE_PAGE) -> windows_core::Result<()>;
     fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: ULONG_IMAPI2_MODE_PAGE) -> windows_core::Result<()>;
-    fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::Result<()>;
-    fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::Result<()>;
+    fn GetSupportedFeaturePages(&self, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::Result<()>;
+    fn GetSupportedProfiles(&self, currentonly: super::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::Result<()>;
     fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> windows_core::Result<()>;
     fn GetByteAlignmentMask(&self) -> windows_core::Result<u32>;
     fn GetMaximumNonPageAlignedTransferSize(&self) -> windows_core::Result<u32>;
     fn GetMaximumPageAlignedTransferSize(&self) -> windows_core::Result<u32>;
 }
+#[cfg(feature = "winnt")]
 impl IDiscRecorder2Ex_Vtbl {
     pub const fn new<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendCommandNoData<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::HRESULT {
@@ -3739,7 +3753,7 @@ impl IDiscRecorder2Ex_Vtbl {
                 IDiscRecorder2Ex_Impl::GetTrackInformation(this, core::mem::transmute_copy(&address), core::mem::transmute_copy(&addresstype), core::mem::transmute_copy(&trackinformation), core::mem::transmute_copy(&bytesize)).into()
             }
         }
-        unsafe extern "system" fn GetFeaturePage<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFeaturePage<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::GetFeaturePage(this, core::mem::transmute_copy(&requestedfeature), core::mem::transmute_copy(&currentfeatureonly), core::mem::transmute_copy(&featuredata), core::mem::transmute_copy(&bytesize)).into()
@@ -3757,13 +3771,13 @@ impl IDiscRecorder2Ex_Vtbl {
                 IDiscRecorder2Ex_Impl::SetModePage(this, core::mem::transmute_copy(&requesttype), core::mem::transmute_copy(&data), core::mem::transmute_copy(&bytesize)).into()
             }
         }
-        unsafe extern "system" fn GetSupportedFeaturePages<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSupportedFeaturePages<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::GetSupportedFeaturePages(this, core::mem::transmute_copy(&currentfeatureonly), core::mem::transmute_copy(&featuredata), core::mem::transmute_copy(&bytesize)).into()
             }
         }
-        unsafe extern "system" fn GetSupportedProfiles<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSupportedProfiles<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentonly: super::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::GetSupportedProfiles(this, core::mem::transmute_copy(&currentonly), core::mem::transmute_copy(&profiletypes), core::mem::transmute_copy(&validprofiles)).into()
@@ -3837,6 +3851,7 @@ impl IDiscRecorder2Ex_Vtbl {
         iid == &<IDiscRecorder2Ex as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDiscRecorder2Ex {}
 pub const IMAPI2_DEFAULT_COMMAND_TIMEOUT: i32 = 10;
 pub const IMAPILib2_MajorVersion: i32 = 1;
@@ -5176,14 +5191,14 @@ pub struct IStreamConcatenate_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append2: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamConcatenate_Impl: super::IStream_Impl {
     fn Initialize(&self, stream1: windows_core::Ref<super::IStream>, stream2: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn Initialize2(&self, streams: *const Option<super::IStream>, streamcount: u32) -> windows_core::Result<()>;
     fn Append(&self, stream: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn Append2(&self, streams: *const Option<super::IStream>, streamcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IStreamConcatenate_Vtbl {
     pub const fn new<Identity: IStreamConcatenate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream1: *mut core::ffi::c_void, stream2: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5222,7 +5237,7 @@ impl IStreamConcatenate_Vtbl {
         iid == &<IStreamConcatenate as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStreamConcatenate {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IStreamInterleave, IStreamInterleave_Vtbl, 0x27354147_7f64_5b0f_8f00_5d77afbe261e);
@@ -5248,11 +5263,11 @@ pub struct IStreamInterleave_Vtbl {
     pub base__: super::IStream_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, *const u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamInterleave_Impl: super::IStream_Impl {
     fn Initialize(&self, streams: *const Option<super::IStream>, interleavesizes: *const u32, streamcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IStreamInterleave_Vtbl {
     pub const fn new<Identity: IStreamInterleave_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IStreamInterleave_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *const *mut core::ffi::c_void, interleavesizes: *const u32, streamcount: u32) -> windows_core::HRESULT {
@@ -5267,7 +5282,7 @@ impl IStreamInterleave_Vtbl {
         iid == &<IStreamInterleave as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStreamInterleave {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IStreamPseudoRandomBased, IStreamPseudoRandomBased_Vtbl, 0x27354145_7f64_5b0f_8f00_5d77afbe261e);
@@ -5308,14 +5323,14 @@ pub struct IStreamPseudoRandomBased_Vtbl {
     pub put_ExtendedSeed: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, u32) -> windows_core::HRESULT,
     pub get_ExtendedSeed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamPseudoRandomBased_Impl: super::IStream_Impl {
     fn put_Seed(&self, value: u32) -> windows_core::Result<()>;
     fn get_Seed(&self) -> windows_core::Result<u32>;
     fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> windows_core::Result<()>;
     fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IStreamPseudoRandomBased_Vtbl {
     pub const fn new<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_Seed<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
@@ -5360,7 +5375,7 @@ impl IStreamPseudoRandomBased_Vtbl {
         iid == &<IStreamPseudoRandomBased as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStreamPseudoRandomBased {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWriteEngine2, IWriteEngine2_Vtbl, 0x27354135_7f64_5b0f_8f00_5d77afbe261e);
@@ -5946,39 +5961,15 @@ pub type PIMAPI_MODE_PAGE_REQUEST_TYPE = *mut IMAPI_MODE_PAGE_REQUEST_TYPE;
 pub type PIMAPI_MODE_PAGE_TYPE = *mut IMAPI_MODE_PAGE_TYPE;
 pub type PIMAPI_PROFILE_TYPE = *mut IMAPI_PROFILE_TYPE;
 pub type PIMAPI_READ_TRACK_ADDRESS_TYPE = *mut IMAPI_READ_TRACK_ADDRESS_TYPE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ADAPTER_DESCRIPTOR(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ALL_FEATURE_PAGES(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ALL_MODE_PAGES(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ALL_PROFILES(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_DEVICE_DESCRIPTOR(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_DISC_INFORMATION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_DVD_STRUCTURE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_FEATURE_PAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_MODE_PAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_NONZERO(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_NOT_NEGATIVE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_TRACK_INFORMATION(pub u32);
+pub type ULONG_IMAPI2_ADAPTER_DESCRIPTOR = u32;
+pub type ULONG_IMAPI2_ALL_FEATURE_PAGES = u32;
+pub type ULONG_IMAPI2_ALL_MODE_PAGES = u32;
+pub type ULONG_IMAPI2_ALL_PROFILES = u32;
+pub type ULONG_IMAPI2_DEVICE_DESCRIPTOR = u32;
+pub type ULONG_IMAPI2_DISC_INFORMATION = u32;
+pub type ULONG_IMAPI2_DVD_STRUCTURE = u32;
+pub type ULONG_IMAPI2_FEATURE_PAGE = u32;
+pub type ULONG_IMAPI2_MODE_PAGE = u32;
+pub type ULONG_IMAPI2_NONZERO = u32;
+pub type ULONG_IMAPI2_NOT_NEGATIVE = u32;
+pub type ULONG_IMAPI2_TRACK_INFORMATION = u32;

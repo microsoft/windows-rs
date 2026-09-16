@@ -800,9 +800,7 @@ pub const MPEG_H_AUDIO_MS: MPEG2StreamType = 46;
 pub type MUX_PID_TYPE = i32;
 pub type ModulationType = i32;
 pub type PBDANODE_DESCRIPTOR = *mut BDANODE_DESCRIPTOR;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PBDARESULT(pub i32);
+pub type PBDARESULT = i32;
 pub type PBDA_BUFFER = *mut BDA_BUFFER;
 pub type PBDA_CAS_CHECK_ENTITLEMENTTOKEN = *mut BDA_CAS_CHECK_ENTITLEMENTTOKEN;
 pub type PBDA_CAS_CLOSEMMIDATA = *mut BDA_CAS_CLOSEMMIDATA;
@@ -888,3 +886,4 @@ pub const StatusInactive: ComponentStatus = 1;
 pub const StatusUnavailable: ComponentStatus = 2;
 pub type TransmissionMode = i32;
 pub const USER_PRIVATE: MPEG2StreamType = 16;
+pub const _BDATYPES_: i32 = 1;

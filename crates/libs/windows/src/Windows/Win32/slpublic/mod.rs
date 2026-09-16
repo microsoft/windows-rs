@@ -22,11 +22,11 @@ pub unsafe fn SLClose(hslc: HSLC) -> windows_core::HRESULT {
     unsafe { SLClose(hslc) }
 }
 #[inline]
-pub unsafe fn SLConsumeRight<P3>(hslc: HSLC, pappid: *const SLID, pproductskuid: Option<*const SLID>, pwszrightname: P3, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::HRESULT
+pub unsafe fn SLConsumeRight<P3>(hslc: HSLC, pappid: *const SLID, pproductskuid: Option<*const SLID>, pwszrightname: P3, pvreserved: Option<*mut core::ffi::c_void>) -> windows_core::HRESULT
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("slc.dll" "system" fn SLConsumeRight(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("slc.dll" "system" fn SLConsumeRight(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SLConsumeRight(hslc, pappid, pproductskuid.unwrap_or(core::mem::zeroed()) as _, pwszrightname.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -240,16 +240,17 @@ pub unsafe fn SLInstallLicense(hslc: HSLC, pblicenseblob: &[u8]) -> windows_core
         SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), pblicenseblob.as_ptr(), &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: HSLC, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<SLID>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut SLID) -> windows_core::HRESULT);
+    windows_core::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : super::PBYTE, ppkeyid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
+        SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -258,12 +259,9 @@ pub unsafe fn SLIsGenuineLocal(pappid: *const SLID, pgenuinestate: *mut SL_GENUI
     unsafe { SLIsGenuineLocal(pappid, pgenuinestate as _, puioptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SLOpen() -> windows_core::Result<HSLC> {
+pub unsafe fn SLOpen(phslc: *mut HSLC) -> windows_core::HRESULT {
     windows_core::link!("slc.dll" "system" fn SLOpen(phslc : *mut HSLC) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SLOpen(&mut result__).map(|| result__)
-    }
+    unsafe { SLOpen(phslc as _) }
 }
 #[inline]
 pub unsafe fn SLQueryLicenseValueFromApp<P0>(valuename: P0, valuetype: Option<*mut u32>, databuffer: Option<*mut core::ffi::c_void>, datasize: u32, resultdatasize: *mut u32) -> windows_core::HRESULT
@@ -314,12 +312,8 @@ where
     windows_core::link!("slc.dll" "system" fn SLUnregisterEvent(hslc : HSLC, pwszeventid : windows_core::PCWSTR, papplicationid : *const SLID, hevent : super::HANDLE) -> windows_core::HRESULT);
     unsafe { SLUnregisterEvent(hslc.unwrap_or(core::mem::zeroed()) as _, pwszeventid.param().abi(), papplicationid, hevent) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSLC(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSLP(pub *mut core::ffi::c_void);
+pub type HSLC = *mut core::ffi::c_void;
+pub type HSLP = *mut core::ffi::c_void;
 pub const ID_CAP_SLAPI: windows_core::PCWSTR = windows_core::w!("slapiQueryLicenseValue");
 pub type PSL_SYSTEM_POLICY_INFORMATION = *mut SL_SYSTEM_POLICY_INFORMATION;
 pub type SLDATATYPE = i32;

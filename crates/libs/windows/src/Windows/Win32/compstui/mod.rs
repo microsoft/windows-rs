@@ -1,13 +1,13 @@
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn CommonPropertySheetUIA(hwndowner: super::HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: super::LPARAM, presult: Option<*mut u32>) -> i32 {
-    windows_core::link!("compstui.dll" "system" fn CommonPropertySheetUIA(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : *mut u32) -> i32);
+pub unsafe fn CommonPropertySheetUIA(hwndowner: super::HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: super::LPARAM, presult: Option<super::LPDWORD>) -> i32 {
+    windows_core::link!("compstui.dll" "system" fn CommonPropertySheetUIA(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : super::LPDWORD) -> i32);
     unsafe { CommonPropertySheetUIA(hwndowner, pfnpropsheetui, lparam, presult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn CommonPropertySheetUIW(hwndowner: super::HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: super::LPARAM, presult: Option<*mut u32>) -> i32 {
-    windows_core::link!("compstui.dll" "system" fn CommonPropertySheetUIW(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : *mut u32) -> i32);
+pub unsafe fn CommonPropertySheetUIW(hwndowner: super::HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: super::LPARAM, presult: Option<super::LPDWORD>) -> i32 {
+    windows_core::link!("compstui.dll" "system" fn CommonPropertySheetUIW(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : super::LPDWORD) -> i32);
     unsafe { CommonPropertySheetUIW(hwndowner, pfnpropsheetui, lparam, presult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -162,6 +162,8 @@ pub const CPSUI_PDLGPAGE_DOCPROP: PDLGPAGE = 1 as _;
 pub const CPSUI_PDLGPAGE_PRINTERPROP: PDLGPAGE = 3 as _;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_TREEVIEWONLY: PDLGPAGE = 4 as _;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+pub const CPSUI_PDLGPAGE_TREEVIWONLY: PDLGPAGE = 4 as _;
 pub const CPSUI_REBOOTSYSTEM: i32 = 3;
 pub const CPSUI_RESTARTWINDOWS: i32 = 2;
 #[repr(C)]
@@ -354,10 +356,18 @@ impl Default for EXTPUSH_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-pub const HINSPSUIPAGE_FIRST: super::HANDLE = super::HANDLE(4294967294i64 as _);
+pub const HINSPSUIPAGE_FIRST: super::HANDLE = -2 as _;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-pub const HINSPSUIPAGE_LAST: super::HANDLE = super::HANDLE(4294967295i64 as _);
+pub const HINSPSUIPAGE_FIRST: super::HANDLE = 4294967294i64 as _;
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+pub const HINSPSUIPAGE_LAST: super::HANDLE = -1 as _;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+pub const HINSPSUIPAGE_LAST: super::HANDLE = 4294967295i64 as _;
 pub const IDI_CPSUI_ADVANCE: i32 = 64058;
 pub const IDI_CPSUI_AUTOSEL: i32 = 64025;
 pub const IDI_CPSUI_COLLATE: i32 = 64030;
@@ -864,7 +874,7 @@ pub type PEXTPUSH = *mut EXTPUSH;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::HANDLE, function: u32, lparam1: super::LPARAM, lparam2: super::LPARAM) -> isize>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::LPARAM) -> i32>;
+pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: PPROPSHEETUI_INFO, lparam: super::LPARAM) -> i32>;
 pub type PINSERTPSUIPAGE_INFO = *mut INSERTPSUIPAGE_INFO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type POIEXT = *mut OIEXT;
@@ -1002,4 +1012,4 @@ pub const TVOT_SCROLLBAR: i32 = 4;
 pub const TVOT_TRACKBAR: i32 = 3;
 pub const TVOT_UDARROW: i32 = 2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32>;
+pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: PCPSUICBPARAM) -> i32>;

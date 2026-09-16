@@ -6,14 +6,14 @@ pub unsafe fn PowerGetActiveScheme(userrootpowerkey: Option<super::HKEY>, active
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn PowerReadACValue(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<*mut u32>, buffer: Option<*mut u8>, buffersize: Option<*mut u32>) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadACValue(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> u32);
+pub unsafe fn PowerReadACValue(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<super::PULONG>, buffer: Option<super::LPBYTE>, buffersize: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadACValue(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : super::PULONG, buffer : super::LPBYTE, buffersize : super::LPDWORD) -> u32);
     unsafe { PowerReadACValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn PowerReadDCValue(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<*mut u32>, buffer: Option<*mut u8>, buffersize: *mut u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadDCValue(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> u32);
+pub unsafe fn PowerReadDCValue(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<super::PULONG>, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadDCValue(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : super::PULONG, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> u32);
     unsafe { PowerReadDCValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
@@ -27,10 +27,10 @@ pub unsafe fn PowerSetActiveScheme(userrootpowerkey: Option<super::HKEY>, scheme
     windows_core::link!("powrprof.dll" "system" fn PowerSetActiveScheme(userrootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID) -> u32);
     unsafe { PowerSetActiveScheme(userrootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "guiddef", feature = "winnt", feature = "winuser"))]
 #[inline]
-pub unsafe fn PowerSettingRegisterNotification(settingguid: *const windows_core::GUID, flags: u32, recipient: super::HANDLE, registrationhandle: *mut super::HPOWERNOTIFY) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerSettingRegisterNotification(settingguid : *const windows_core::GUID, flags : u32, recipient : super::HANDLE, registrationhandle : *mut super::HPOWERNOTIFY) -> u32);
+pub unsafe fn PowerSettingRegisterNotification(settingguid: super::LPCGUID, flags: u32, recipient: super::HANDLE, registrationhandle: super::PHPOWERNOTIFY) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerSettingRegisterNotification(settingguid : super::LPCGUID, flags : u32, recipient : super::HANDLE, registrationhandle : super::PHPOWERNOTIFY) -> u32);
     unsafe { PowerSettingRegisterNotification(settingguid, flags, recipient, registrationhandle as _) }
 }
 #[cfg(feature = "winuser")]

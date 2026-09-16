@@ -1,3 +1,51 @@
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserFree(param0: *mut u32, param1: *mut super::HWND) {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserFree(param0 : *mut u32, param1 : *mut super::HWND));
+    unsafe { HWND_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserFree64(param0: *mut u32, param1: *mut super::HWND) {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserFree64(param0 : *mut u32, param1 : *mut super::HWND));
+    unsafe { HWND_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HWND) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HWND) -> *mut u8);
+    unsafe { HWND_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HWND) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HWND) -> *mut u8);
+    unsafe { HWND_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HWND) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HWND) -> u32);
+    unsafe { HWND_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HWND) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HWND) -> u32);
+    unsafe { HWND_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HWND) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HWND) -> *mut u8);
+    unsafe { HWND_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HWND_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HWND) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HWND_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HWND) -> *mut u8);
+    unsafe { HWND_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
 windows_core::imp::define_interface!(IHolographicSpaceInterop, IHolographicSpaceInterop_Vtbl, 0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
 windows_core::imp::interface_hierarchy!(IHolographicSpaceInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IHolographicSpaceInterop {

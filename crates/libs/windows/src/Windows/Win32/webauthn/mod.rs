@@ -1,10 +1,10 @@
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorGetAssertion<P1>(hwnd: super::HWND, pwszrpid: P1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: Option<*const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> windows_core::Result<PWEBAUTHN_ASSERTION>
+pub unsafe fn WebAuthNAuthenticatorGetAssertion<P1>(hwnd: super::HWND, pwszrpid: P1, pwebauthnclientdata: PCWEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: Option<PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> windows_core::Result<PWEBAUTHN_ASSERTION>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::HWND, pwszrpid : windows_core::PCWSTR, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut PWEBAUTHN_ASSERTION) -> windows_core::HRESULT);
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::HWND, pwszrpid : windows_core::PCWSTR, pwebauthnclientdata : PCWEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut PWEBAUTHN_ASSERTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WebAuthNAuthenticatorGetAssertion(hwnd, pwszrpid.param().abi(), pwebauthnclientdata, pwebauthngetassertionoptions.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -12,8 +12,8 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorMakeCredential(hwnd: super::HWND, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> windows_core::Result<PWEBAUTHN_CREDENTIAL_ATTESTATION> {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::HRESULT);
+pub unsafe fn WebAuthNAuthenticatorMakeCredential(hwnd: super::HWND, prpinformation: PCWEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: PCWEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: PCWEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: Option<PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> windows_core::Result<PWEBAUTHN_CREDENTIAL_ATTESTATION> {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::HWND, prpinformation : PCWEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : PCWEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : PCWEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WebAuthNAuthenticatorMakeCredential(hwnd, prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, pwebauthnmakecredentialoptions.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -31,26 +31,26 @@ pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> windows
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : *const WEBAUTHN_ASSERTION));
+pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: PWEBAUTHN_ASSERTION) {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : PWEBAUTHN_ASSERTION));
     unsafe { WebAuthNFreeAssertion(pwebauthnassertion) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn WebAuthNFreeAuthenticatorList(pauthenticatordetailslist: *const WEBAUTHN_AUTHENTICATOR_DETAILS_LIST) {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeAuthenticatorList(pauthenticatordetailslist : *const WEBAUTHN_AUTHENTICATOR_DETAILS_LIST));
+pub unsafe fn WebAuthNFreeAuthenticatorList(pauthenticatordetailslist: PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeAuthenticatorList(pauthenticatordetailslist : PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST));
     unsafe { WebAuthNFreeAuthenticatorList(pauthenticatordetailslist) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Option<*const WEBAUTHN_CREDENTIAL_ATTESTATION>) {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : *const WEBAUTHN_CREDENTIAL_ATTESTATION));
+pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Option<PWEBAUTHN_CREDENTIAL_ATTESTATION>) {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : PWEBAUTHN_CREDENTIAL_ATTESTATION));
     unsafe { WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist: *const WEBAUTHN_CREDENTIAL_DETAILS_LIST) {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : *const WEBAUTHN_CREDENTIAL_DETAILS_LIST));
+pub unsafe fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist: PWEBAUTHN_CREDENTIAL_DETAILS_LIST) {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : PWEBAUTHN_CREDENTIAL_DETAILS_LIST));
     unsafe { WebAuthNFreePlatformCredentialList(pcredentialdetailslist) }
 }
 #[inline]
@@ -60,8 +60,8 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions: Option<*const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS>) -> windows_core::Result<PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST> {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions : *const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppauthenticatordetailslist : *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> windows_core::HRESULT);
+pub unsafe fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions: Option<PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS>) -> windows_core::Result<PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST> {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions : PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppauthenticatordetailslist : *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WebAuthNGetAuthenticatorList(pwebauthngetauthenticatorlistoptions.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -82,8 +82,8 @@ pub unsafe fn WebAuthNGetErrorName(hr: windows_core::HRESULT) -> windows_core::P
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: *const WEBAUTHN_GET_CREDENTIALS_OPTIONS) -> windows_core::Result<PWEBAUTHN_CREDENTIAL_DETAILS_LIST> {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : *const WEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> windows_core::HRESULT);
+pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: PCWEBAUTHN_GET_CREDENTIALS_OPTIONS) -> windows_core::Result<PWEBAUTHN_CREDENTIAL_DETAILS_LIST> {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : PCWEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, &mut result__).map(|| result__)

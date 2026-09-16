@@ -1,20 +1,20 @@
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn AddUsersToEncryptedFile<P0>(lpfilename: P0, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32
+pub unsafe fn AddUsersToEncryptedFile<P0>(lpfilename: P0, pencryptioncertificates: PENCRYPTION_CERTIFICATE_LIST) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : windows_core::PCWSTR, pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : windows_core::PCWSTR, pencryptioncertificates : PENCRYPTION_CERTIFICATE_LIST) -> u32);
     unsafe { AddUsersToEncryptedFile(lpfilename.param().abi(), pencryptioncertificates) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
-pub unsafe fn DuplicateEncryptionInfoFile<P0, P1>(srcfilename: P0, dstfilename: P1, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> u32
+pub unsafe fn DuplicateEncryptionInfoFile<P0, P1>(srcfilename: P0, dstfilename: P1, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn DuplicateEncryptionInfoFile(srcfilename : windows_core::PCWSTR, dstfilename : windows_core::PCWSTR, dwcreationdistribution : u32, dwattributes : u32, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn DuplicateEncryptionInfoFile(srcfilename : windows_core::PCWSTR, dstfilename : windows_core::PCWSTR, dwcreationdistribution : u32, dwattributes : u32, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> u32);
     unsafe { DuplicateEncryptionInfoFile(srcfilename.param().abi(), dstfilename.param().abi(), dwcreationdistribution, dwattributes, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -25,24 +25,25 @@ where
     windows_core::link!("advapi32.dll" "system" fn EncryptionDisable(dirpath : windows_core::PCWSTR, disable : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { EncryptionDisable(dirpath.param().abi(), disable.into()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
-    windows_core::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : *const u8));
+pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: super::PBYTE) {
+    windows_core::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : super::PBYTE));
     unsafe { FreeEncryptedFileMetadata(pbmetadata) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
-    windows_core::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST));
+pub unsafe fn FreeEncryptionCertificateHashList(pusers: PENCRYPTION_CERTIFICATE_HASH_LIST) {
+    windows_core::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : PENCRYPTION_CERTIFICATE_HASH_LIST));
     unsafe { FreeEncryptionCertificateHashList(pusers) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetEncryptedFileMetadata<P0>(lpfilename: P0, pcbmetadata: *mut u32, ppbmetadata: *mut super::PBYTE) -> u32
+pub unsafe fn GetEncryptedFileMetadata<P0>(lpfilename: P0, pcbmetadata: super::PDWORD, ppbmetadata: *mut super::PBYTE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pcbmetadata : *mut u32, ppbmetadata : *mut super::PBYTE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn GetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pcbmetadata : super::PDWORD, ppbmetadata : *mut super::PBYTE) -> u32);
     unsafe { GetEncryptedFileMetadata(lpfilename.param().abi(), pcbmetadata as _, ppbmetadata as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -65,32 +66,32 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RemoveUsersFromEncryptedFile<P0>(lpfilename: P0, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
+pub unsafe fn RemoveUsersFromEncryptedFile<P0>(lpfilename: P0, phashes: PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RemoveUsersFromEncryptedFile(lpfilename : windows_core::PCWSTR, phashes : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn RemoveUsersFromEncryptedFile(lpfilename : windows_core::PCWSTR, phashes : PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
     unsafe { RemoveUsersFromEncryptedFile(lpfilename.param().abi(), phashes) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetEncryptedFileMetadata<P0>(lpfilename: P0, pboldmetadata: Option<*const u8>, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: Option<*const ENCRYPTION_CERTIFICATE_HASH_LIST>) -> u32
+pub unsafe fn SetEncryptedFileMetadata<P0>(lpfilename: P0, pboldmetadata: Option<super::PBYTE>, pbnewmetadata: super::PBYTE, pownerhash: PENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: Option<PENCRYPTION_CERTIFICATE_HASH_LIST>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn SetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pboldmetadata : *const u8, pbnewmetadata : *const u8, pownerhash : *const ENCRYPTION_CERTIFICATE_HASH, dwoperation : u32, pcertificatesadded : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn SetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pboldmetadata : super::PBYTE, pbnewmetadata : super::PBYTE, pownerhash : PENCRYPTION_CERTIFICATE_HASH, dwoperation : u32, pcertificatesadded : PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
     unsafe { SetEncryptedFileMetadata(lpfilename.param().abi(), pboldmetadata.unwrap_or(core::mem::zeroed()) as _, pbnewmetadata, pownerhash, dwoperation, pcertificatesadded.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: Option<*const ENCRYPTION_CERTIFICATE>) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn SetUserFileEncryptionKey(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE) -> u32);
+pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: Option<PENCRYPTION_CERTIFICATE>) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn SetUserFileEncryptionKey(pencryptioncertificate : PENCRYPTION_CERTIFICATE) -> u32);
     unsafe { SetUserFileEncryptionKey(pencryptioncertificate.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: Option<*const ENCRYPTION_CERTIFICATE>, dwcapabilities: u32, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn SetUserFileEncryptionKeyEx(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE, dwcapabilities : u32, dwflags : u32, pvreserved : *const core::ffi::c_void) -> u32);
+pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: Option<PENCRYPTION_CERTIFICATE>, dwcapabilities: u32, dwflags: u32, pvreserved: Option<*mut core::ffi::c_void>) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn SetUserFileEncryptionKeyEx(pencryptioncertificate : PENCRYPTION_CERTIFICATE, dwcapabilities : u32, dwflags : u32, pvreserved : *mut core::ffi::c_void) -> u32);
     unsafe { SetUserFileEncryptionKeyEx(pencryptioncertificate.unwrap_or(core::mem::zeroed()) as _, dwcapabilities, dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]

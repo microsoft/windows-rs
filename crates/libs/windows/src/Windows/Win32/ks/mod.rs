@@ -1,66 +1,52 @@
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreateAllocator(connectionhandle: super::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::HANDLE) -> u32);
+pub unsafe fn KsCreateAllocator(connectionhandle: super::HANDLE, allocatorframing: PKSALLOCATOR_FRAMING, allocatorhandle: super::PHANDLE) -> u32 {
+    windows_core::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::HANDLE, allocatorframing : PKSALLOCATOR_FRAMING, allocatorhandle : super::PHANDLE) -> u32);
     unsafe { KsCreateAllocator(connectionhandle, allocatorframing, allocatorhandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreateAllocator2(connectionhandle: super::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING) -> windows_core::Result<super::HANDLE> {
-    windows_core::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        KsCreateAllocator2(connectionhandle, allocatorframing, &mut result__).map(|| result__)
-    }
+pub unsafe fn KsCreateAllocator2(connectionhandle: super::HANDLE, allocatorframing: PKSALLOCATOR_FRAMING, allocatorhandle: super::PHANDLE) -> windows_core::HRESULT {
+    windows_core::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::HANDLE, allocatorframing : PKSALLOCATOR_FRAMING, allocatorhandle : super::PHANDLE) -> windows_core::HRESULT);
+    unsafe { KsCreateAllocator2(connectionhandle, allocatorframing, allocatorhandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreateClock(connectionhandle: super::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::HANDLE) -> u32);
+pub unsafe fn KsCreateClock(connectionhandle: super::HANDLE, clockcreate: PKSCLOCK_CREATE, clockhandle: super::PHANDLE) -> u32 {
+    windows_core::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::HANDLE, clockcreate : PKSCLOCK_CREATE, clockhandle : super::PHANDLE) -> u32);
     unsafe { KsCreateClock(connectionhandle, clockcreate, clockhandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreateClock2(connectionhandle: super::HANDLE, clockcreate: *const KSCLOCK_CREATE) -> windows_core::Result<super::HANDLE> {
-    windows_core::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        KsCreateClock2(connectionhandle, clockcreate, &mut result__).map(|| result__)
-    }
+pub unsafe fn KsCreateClock2(connectionhandle: super::HANDLE, clockcreate: PKSCLOCK_CREATE, clockhandle: super::PHANDLE) -> windows_core::HRESULT {
+    windows_core::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::HANDLE, clockcreate : PKSCLOCK_CREATE, clockhandle : super::PHANDLE) -> windows_core::HRESULT);
+    unsafe { KsCreateClock2(connectionhandle, clockcreate, clockhandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreatePin(filterhandle: super::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: super::ACCESS_MASK, connectionhandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : super::ACCESS_MASK, connectionhandle : *mut super::HANDLE) -> u32);
+pub unsafe fn KsCreatePin(filterhandle: super::HANDLE, connect: PKSPIN_CONNECT, desiredaccess: super::ACCESS_MASK, connectionhandle: super::PHANDLE) -> u32 {
+    windows_core::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::HANDLE, connect : PKSPIN_CONNECT, desiredaccess : super::ACCESS_MASK, connectionhandle : super::PHANDLE) -> u32);
     unsafe { KsCreatePin(filterhandle, connect, desiredaccess, connectionhandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreatePin2(filterhandle: super::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: super::ACCESS_MASK) -> windows_core::Result<super::HANDLE> {
-    windows_core::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : super::ACCESS_MASK, connectionhandle : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        KsCreatePin2(filterhandle, connect, desiredaccess, &mut result__).map(|| result__)
-    }
+pub unsafe fn KsCreatePin2(filterhandle: super::HANDLE, connect: PKSPIN_CONNECT, desiredaccess: super::ACCESS_MASK, connectionhandle: super::PHANDLE) -> windows_core::HRESULT {
+    windows_core::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::HANDLE, connect : PKSPIN_CONNECT, desiredaccess : super::ACCESS_MASK, connectionhandle : super::PHANDLE) -> windows_core::HRESULT);
+    unsafe { KsCreatePin2(filterhandle, connect, desiredaccess, connectionhandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreateTopologyNode(parenthandle: super::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: super::ACCESS_MASK, nodehandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : super::ACCESS_MASK, nodehandle : *mut super::HANDLE) -> u32);
+pub unsafe fn KsCreateTopologyNode(parenthandle: super::HANDLE, nodecreate: PKSNODE_CREATE, desiredaccess: super::ACCESS_MASK, nodehandle: super::PHANDLE) -> u32 {
+    windows_core::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::HANDLE, nodecreate : PKSNODE_CREATE, desiredaccess : super::ACCESS_MASK, nodehandle : super::PHANDLE) -> u32);
     unsafe { KsCreateTopologyNode(parenthandle, nodecreate, desiredaccess, nodehandle as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn KsCreateTopologyNode2(parenthandle: super::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: super::ACCESS_MASK) -> windows_core::Result<super::HANDLE> {
-    windows_core::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : super::ACCESS_MASK, nodehandle : *mut super::HANDLE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        KsCreateTopologyNode2(parenthandle, nodecreate, desiredaccess, &mut result__).map(|| result__)
-    }
+pub unsafe fn KsCreateTopologyNode2(parenthandle: super::HANDLE, nodecreate: PKSNODE_CREATE, desiredaccess: super::ACCESS_MASK, nodehandle: super::PHANDLE) -> windows_core::HRESULT {
+    windows_core::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::HANDLE, nodecreate : PKSNODE_CREATE, desiredaccess : super::ACCESS_MASK, nodehandle : super::PHANDLE) -> windows_core::HRESULT);
+    unsafe { KsCreateTopologyNode2(parenthandle, nodecreate, desiredaccess, nodehandle as _) }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GUID_NULL(pub u8);
+pub const GUID_NULL: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub const IOCTL_KS_DISABLE_EVENT: i32 = 3080203;
 pub const IOCTL_KS_ENABLE_EVENT: i32 = 3080199;
 pub const IOCTL_KS_METHOD: i32 = 3080207;
@@ -149,63 +135,25 @@ pub struct KSATTRIBUTE {
     pub Attribute: windows_core::GUID,
 }
 pub const KSATTRIBUTE_REQUIRED: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_BRIDGE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_CAPTURE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_CLOCK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_COMMUNICATIONSTRANSFORM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_DATACOMPRESSOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_DATADECOMPRESSOR(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_DATATRANSFORM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_FILESYSTEM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_INTERFACETRANSFORM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_MEDIUMTRANSFORM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_MIXER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_NETWORK_CAMERA(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_PROXY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_QUALITY(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_RENDER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_SENSOR_CAMERA(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_SENSOR_GROUP(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_SPLITTER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSCATEGORY_VIDEO_CAMERA(pub u8);
+pub const KSCATEGORY_BRIDGE: windows_core::GUID = windows_core::GUID::from_u128(0x085aff00_62ce_11cf_a5d6_28db04c10000);
+pub const KSCATEGORY_CAPTURE: windows_core::GUID = windows_core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_CLOCK: windows_core::GUID = windows_core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_COMMUNICATIONSTRANSFORM: windows_core::GUID = windows_core::GUID::from_u128(0xcf1dda2c_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_DATACOMPRESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATADECOMPRESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATATRANSFORM: windows_core::GUID = windows_core::GUID::from_u128(0x2eb07ea0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_FILESYSTEM: windows_core::GUID = windows_core::GUID::from_u128(0x760fed5e_9357_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_INTERFACETRANSFORM: windows_core::GUID = windows_core::GUID::from_u128(0xcf1dda2d_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_MEDIUMTRANSFORM: windows_core::GUID = windows_core::GUID::from_u128(0xcf1dda2e_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_MIXER: windows_core::GUID = windows_core::GUID::from_u128(0xad809c00_7b88_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_NETWORK_CAMERA: windows_core::GUID = windows_core::GUID::from_u128(0xb8238652_b500_41eb_b4f3_4234f7f5ae99);
+pub const KSCATEGORY_PROXY: windows_core::GUID = windows_core::GUID::from_u128(0x97ebaaca_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_QUALITY: windows_core::GUID = windows_core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_RENDER: windows_core::GUID = windows_core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_SENSOR_CAMERA: windows_core::GUID = windows_core::GUID::from_u128(0x24e552d7_6523_47f7_a647_d3465bf1f5ca);
+pub const KSCATEGORY_SENSOR_GROUP: windows_core::GUID = windows_core::GUID::from_u128(0x669c7214_0a88_4311_a7f3_4e79820e33bd);
+pub const KSCATEGORY_SPLITTER: windows_core::GUID = windows_core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_VIDEO_CAMERA: windows_core::GUID = windows_core::GUID::from_u128(0xe5323777_f976_4f5b_9b55_b94699c46e44);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCLOCK_CREATE {
@@ -227,26 +175,15 @@ pub struct KSCORRELATED_TIME {
     pub Time: i64,
     pub SystemTime: i64,
 }
-pub type KSDATAFORMAT = KSDATARANGE;
 pub const KSDATAFORMAT_ATTRIBUTES: i32 = 2;
 pub const KSDATAFORMAT_BIT_ATTRIBUTES: i32 = 1;
 pub const KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION: i32 = 0;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_FILEHANDLE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_FILENAME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SPECIFIER_NONE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_NONE(pub u8);
+pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: windows_core::GUID = windows_core::GUID::from_u128(0x65e8773c_8f56_11d0_a3b9_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_FILENAME: windows_core::GUID = windows_core::GUID::from_u128(0xaa797b40_e974_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SPECIFIER_NONE: windows_core::GUID = windows_core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_NONE: windows_core::GUID = windows_core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
 pub const KSDATAFORMAT_TEMPORAL_COMPRESSION: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_TYPE_STREAM(pub u8);
+pub const KSDATAFORMAT_TYPE_STREAM: windows_core::GUID = windows_core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSDATARANGE {
@@ -274,9 +211,7 @@ pub const KSDATARANGE_BIT_ATTRIBUTES: i32 = 1;
 pub const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: i32 = 2;
 pub const KSDATARANGE_REQUIRED_ATTRIBUTES: i32 = 4;
 pub type KSDEGRADE = KSIDENTIFIER;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDEGRADESETID_Standard(pub u8);
+pub const KSDEGRADESETID_Standard: windows_core::GUID = windows_core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
 pub type KSDEGRADE_STANDARD = i32;
 pub const KSDEGRADE_STANDARD_COMPUTATION: KSDEGRADE_STANDARD = 2;
 pub const KSDEGRADE_STANDARD_QUALITY: KSDEGRADE_STANDARD = 1;
@@ -355,24 +290,12 @@ impl Default for KSEVENTDATA_0_2 {
 }
 pub const KSEVENTF_EVENT_HANDLE: i32 = 1;
 pub const KSEVENTF_SEMAPHORE_HANDLE: i32 = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_Clock(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_Connection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_Device(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_PinCapsChange(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_StreamAllocator(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENTSETID_VolumeLimit(pub u8);
+pub const KSEVENTSETID_Clock: windows_core::GUID = windows_core::GUID::from_u128(0x364d8e20_62c7_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Connection: windows_core::GUID = windows_core::GUID::from_u128(0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Device: windows_core::GUID = windows_core::GUID::from_u128(0x288296ec_9f94_41b4_a153_aa31aeecb33f);
+pub const KSEVENTSETID_PinCapsChange: windows_core::GUID = windows_core::GUID::from_u128(0xdd4f192e_3b78_49ad_a534_2c315b822000);
+pub const KSEVENTSETID_StreamAllocator: windows_core::GUID = windows_core::GUID::from_u128(0x75d95571_073c_11d0_a161_0020afd156e4);
+pub const KSEVENTSETID_VolumeLimit: windows_core::GUID = windows_core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
 pub const KSEVENT_CLOCK_INTERVAL_MARK: KSEVENT_CLOCK_POSITION = 0;
 pub type KSEVENT_CLOCK_POSITION = i32;
 pub const KSEVENT_CLOCK_POSITION_MARK: KSEVENT_CLOCK_POSITION = 1;
@@ -492,12 +415,8 @@ pub struct KSIDENTIFIER_0_0 {
     pub Flags: u32,
 }
 pub const KSINSTANCE_INDETERMINATE: u32 = 4294967295;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSINTERFACESETID_FileIo(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSINTERFACESETID_Standard(pub u8);
+pub const KSINTERFACESETID_FileIo: windows_core::GUID = windows_core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
+pub const KSINTERFACESETID_Standard: windows_core::GUID = windows_core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
 pub type KSINTERFACE_FILEIO = i32;
 pub const KSINTERFACE_FILEIO_STREAMING: KSINTERFACE_FILEIO = 0;
 pub type KSINTERFACE_STANDARD = i32;
@@ -510,33 +429,17 @@ pub struct KSINTERVAL {
     pub TimeBase: i64,
     pub Interval: i64,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEDIUMSETID_Standard(pub u8);
+pub const KSMEDIUMSETID_Standard: windows_core::GUID = windows_core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
 pub const KSMEDIUM_STANDARD_DEVIO: i32 = 0;
 pub const KSMEDIUM_TYPE_ANYINSTANCE: i32 = 0;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEMORY_TYPE_DEVICE_UNKNOWN(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEMORY_TYPE_KERNEL_NONPAGED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEMORY_TYPE_KERNEL_PAGED(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEMORY_TYPE_SYSTEM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMEMORY_TYPE_USER(pub u8);
+pub const KSMEMORY_TYPE_DEVICE_UNKNOWN: windows_core::GUID = windows_core::GUID::from_u128(0x091bb639_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_NONPAGED: windows_core::GUID = windows_core::GUID::from_u128(0x4a6d5fc4_7895_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_PAGED: windows_core::GUID = windows_core::GUID::from_u128(0xd833f8f8_7894_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_SYSTEM: windows_core::GUID = windows_core::GUID::from_u128(0x091bb638_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_USER: windows_core::GUID = windows_core::GUID::from_u128(0x8cb0fc28_7893_11d1_b069_00a0c9062802);
 pub type KSMETHOD = KSIDENTIFIER;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHODSETID_StreamAllocator(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHODSETID_StreamIo(pub u8);
+pub const KSMETHODSETID_StreamAllocator: windows_core::GUID = windows_core::GUID::from_u128(0xcf6e4341_ec87_11cf_a130_0020afd156e4);
+pub const KSMETHODSETID_StreamIo: windows_core::GUID = windows_core::GUID::from_u128(0x65d003ca_1523_11d2_b27a_00a0c9223196);
 pub type KSMETHOD_STREAMALLOCATOR = i32;
 pub const KSMETHOD_STREAMALLOCATOR_ALLOC: KSMETHOD_STREAMALLOCATOR = 0;
 pub const KSMETHOD_STREAMALLOCATOR_FREE: KSMETHOD_STREAMALLOCATOR = 1;
@@ -552,36 +455,16 @@ pub const KSMETHOD_TYPE_SETSUPPORT: i32 = 256;
 pub const KSMETHOD_TYPE_SOURCE: i32 = 4;
 pub const KSMETHOD_TYPE_TOPOLOGY: i32 = 268435456;
 pub const KSMETHOD_TYPE_WRITE: i32 = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_AUDIO_DECODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_AUDIO_EFFECT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_AUDIO_ENCODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_DEMULTIPLEXER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_MULTIPLEXER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_OTHER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_VIDEO_DECODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_VIDEO_EFFECT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_VIDEO_ENCODER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMFT_CATEGORY_VIDEO_PROCESSOR(pub u8);
+pub const KSMFT_CATEGORY_AUDIO_DECODER: windows_core::GUID = windows_core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
+pub const KSMFT_CATEGORY_AUDIO_EFFECT: windows_core::GUID = windows_core::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
+pub const KSMFT_CATEGORY_AUDIO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
+pub const KSMFT_CATEGORY_DEMULTIPLEXER: windows_core::GUID = windows_core::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
+pub const KSMFT_CATEGORY_MULTIPLEXER: windows_core::GUID = windows_core::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
+pub const KSMFT_CATEGORY_OTHER: windows_core::GUID = windows_core::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
+pub const KSMFT_CATEGORY_VIDEO_DECODER: windows_core::GUID = windows_core::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
+pub const KSMFT_CATEGORY_VIDEO_EFFECT: windows_core::GUID = windows_core::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
+pub const KSMFT_CATEGORY_VIDEO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
+pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMULTIPLE_ITEM {
@@ -600,21 +483,11 @@ impl Default for KSM_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNAME_Allocator(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNAME_Clock(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNAME_Filter(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNAME_Pin(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSNAME_TopologyNode(pub u8);
+pub const KSNAME_Allocator: windows_core::GUID = windows_core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Clock: windows_core::GUID = windows_core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Filter: windows_core::GUID = windows_core::GUID::from_u128(0x9b365890_165f_11d0_a195_0020afd156e4);
+pub const KSNAME_Pin: windows_core::GUID = windows_core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_TopologyNode: windows_core::GUID = windows_core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODE_CREATE {
@@ -919,45 +792,19 @@ pub const KSPROPERTY_TYPE_SETSUPPORT: i32 = 256;
 pub const KSPROPERTY_TYPE_TOPOLOGY: i32 = 268435456;
 pub const KSPROPERTY_TYPE_UNSERIALIZERAW: i32 = 16384;
 pub const KSPROPERTY_TYPE_UNSERIALIZESET: i32 = 4096;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Clock(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Connection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_General(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_MediaSeeking(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_MemoryTransport(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Pin(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_PinMDLCacheClearProp(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Quality(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Stream(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_StreamAllocator(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_StreamInterface(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPSETID_Topology(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPTYPESETID_General(pub u8);
+pub const KSPROPSETID_Clock: windows_core::GUID = windows_core::GUID::from_u128(0xdf12a4c0_ac17_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Connection: windows_core::GUID = windows_core::GUID::from_u128(0x1d58c920_ac9b_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_General: windows_core::GUID = windows_core::GUID::from_u128(0x1464eda5_6a8f_11d1_9aa7_00a0c9223196);
+pub const KSPROPSETID_MediaSeeking: windows_core::GUID = windows_core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
+pub const KSPROPSETID_MemoryTransport: windows_core::GUID = windows_core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
+pub const KSPROPSETID_Pin: windows_core::GUID = windows_core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
+pub const KSPROPSETID_PinMDLCacheClearProp: windows_core::GUID = windows_core::GUID::from_u128(0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16);
+pub const KSPROPSETID_Quality: windows_core::GUID = windows_core::GUID::from_u128(0xd16ad380_ac1a_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Stream: windows_core::GUID = windows_core::GUID::from_u128(0x65aaba60_98ae_11cf_a10d_0020afd156e4);
+pub const KSPROPSETID_StreamAllocator: windows_core::GUID = windows_core::GUID::from_u128(0xcf6e4342_ec87_11cf_a130_0020afd156e4);
+pub const KSPROPSETID_StreamInterface: windows_core::GUID = windows_core::GUID::from_u128(0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a);
+pub const KSPROPSETID_Topology: windows_core::GUID = windows_core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
+pub const KSPROPTYPESETID_General: windows_core::GUID = windows_core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSP_NODE {
@@ -1256,21 +1103,11 @@ pub struct KSTIME {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSTIME_FORMAT_BYTE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSTIME_FORMAT_FIELD(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSTIME_FORMAT_FRAME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSTIME_FORMAT_MEDIA_TIME(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSTIME_FORMAT_SAMPLE(pub u8);
+pub const KSTIME_FORMAT_BYTE: windows_core::GUID = windows_core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FIELD: windows_core::GUID = windows_core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FRAME: windows_core::GUID = windows_core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_MEDIA_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_SAMPLE: windows_core::GUID = windows_core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTOPOLOGY {
@@ -1448,9 +1285,7 @@ pub type PKSSTREAM_UVC_METADATATYPE_TIMESTAMP = *mut KSSTREAM_UVC_METADATATYPE_T
 pub type PKSTIME = *mut KSTIME;
 pub type PKSTOPOLOGY = *mut KSTOPOLOGY;
 pub type PKSTOPOLOGY_CONNECTION = *mut KSTOPOLOGY_CONNECTION;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PKSWORKER(pub *mut core::ffi::c_void);
+pub type PKSWORKER = *mut core::ffi::c_void;
 pub type PKS_COMPRESSION = *mut KS_COMPRESSION;
 pub type PKS_FRAMING_ITEM = *mut KS_FRAMING_ITEM;
 pub type PKS_FRAMING_RANGE = *mut KS_FRAMING_RANGE;

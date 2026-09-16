@@ -6,8 +6,8 @@ pub unsafe fn CallNtPowerInformation(informationlevel: super::POWER_INFORMATION_
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetPwrCapabilities(lpspc: *mut super::SYSTEM_POWER_CAPABILITIES) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn GetPwrCapabilities(lpspc : *mut super::SYSTEM_POWER_CAPABILITIES) -> bool);
+pub unsafe fn GetPwrCapabilities(lpspc: super::PSYSTEM_POWER_CAPABILITIES) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn GetPwrCapabilities(lpspc : super::PSYSTEM_POWER_CAPABILITIES) -> super::BOOLEAN);
     unsafe { GetPwrCapabilities(lpspc as _) }
 }
 #[cfg(feature = "winnt")]
@@ -18,8 +18,8 @@ pub unsafe fn PowerDeterminePlatformRoleEx(version: u32) -> super::POWER_PLATFOR
 }
 #[cfg(all(feature = "winnt", feature = "winuser"))]
 #[inline]
-pub unsafe fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::HANDLE, registrationhandle: *mut super::HPOWERNOTIFY) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerRegisterSuspendResumeNotification(flags : u32, recipient : super::HANDLE, registrationhandle : *mut super::HPOWERNOTIFY) -> u32);
+pub unsafe fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::HANDLE, registrationhandle: super::PHPOWERNOTIFY) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerRegisterSuspendResumeNotification(flags : u32, recipient : super::HANDLE, registrationhandle : super::PHPOWERNOTIFY) -> u32);
     unsafe { PowerRegisterSuspendResumeNotification(flags, recipient, registrationhandle as _) }
 }
 #[cfg(feature = "winuser")]

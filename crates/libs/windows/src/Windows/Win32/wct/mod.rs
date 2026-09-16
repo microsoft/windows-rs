@@ -3,64 +3,75 @@ pub unsafe fn CloseThreadWaitChainSession(wcthandle: HWCT) {
     windows_core::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : HWCT));
     unsafe { CloseThreadWaitChainSession(wcthandle) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThreadWaitChain(wcthandle: HWCT, context: Option<usize>, flags: u32, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut windows_core::BOOL) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : HWCT, context : usize, flags : u32, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn GetThreadWaitChain(wcthandle: HWCT, context: Option<usize>, flags: u32, threadid: u32, nodecount: super::LPDWORD, nodeinfoarray: PWAITCHAIN_NODE_INFO, iscycle: super::LPBOOL) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : HWCT, context : usize, flags : u32, threadid : u32, nodecount : super::LPDWORD, nodeinfoarray : PWAITCHAIN_NODE_INFO, iscycle : super::LPBOOL) -> windows_core::BOOL);
     unsafe { GetThreadWaitChain(wcthandle, context.unwrap_or(core::mem::zeroed()) as _, flags, threadid, nodecount as _, nodeinfoarray as _, iscycle as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn OpenThreadWaitChainSession(flags: u32, callback: PWAITCHAINCALLBACK) -> HWCT {
     windows_core::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : u32, callback : PWAITCHAINCALLBACK) -> HWCT);
     unsafe { OpenThreadWaitChainSession(flags, callback) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     windows_core::link!("advapi32.dll" "system" fn RegisterWaitChainCOMCallback(callstatecallback : PCOGETCALLSTATE, activationstatecallback : PCOGETACTIVATIONSTATE));
     unsafe { RegisterWaitChainCOMCallback(callstatecallback, activationstatecallback) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HWCT(pub *mut core::ffi::c_void);
-pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "system" fn(param0: windows_core::GUID, param1: u32, param2: *mut u32) -> windows_core::HRESULT>;
-pub type PCOGETCALLSTATE = Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> windows_core::HRESULT>;
-pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: HWCT, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut windows_core::BOOL)>;
+pub type HWCT = *mut core::ffi::c_void;
+pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "C" fn(param0: windows_core::GUID, param1: u32, param2: *mut u32) -> windows_core::HRESULT>;
+#[cfg(feature = "minwindef")]
+pub type PCOGETCALLSTATE = Option<unsafe extern "C" fn(param0: i32, param1: super::PULONG) -> windows_core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: HWCT, context: usize, callbackstatus: u32, nodecount: super::LPDWORD, nodeinfoarray: PWAITCHAIN_NODE_INFO, iscycle: super::LPBOOL)>;
+#[cfg(feature = "winnt")]
 pub type PWAITCHAIN_NODE_INFO = *mut WAITCHAIN_NODE_INFO;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WAITCHAIN_NODE_INFO {
     pub ObjectType: WCT_OBJECT_TYPE,
     pub ObjectStatus: WCT_OBJECT_STATUS,
     pub Anonymous: WAITCHAIN_NODE_INFO_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for WAITCHAIN_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
     pub ThreadObject: WAITCHAIN_NODE_INFO_0_1,
 }
+#[cfg(feature = "winnt")]
 impl Default for WAITCHAIN_NODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WAITCHAIN_NODE_INFO_0_0 {
     pub ObjectName: [u16; 128],
-    pub Timeout: i64,
+    pub Timeout: super::LARGE_INTEGER,
     pub Alertable: windows_core::BOOL,
 }
+#[cfg(feature = "winnt")]
 impl Default for WAITCHAIN_NODE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ProcessId: u32,

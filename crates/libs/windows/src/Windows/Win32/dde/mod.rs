@@ -1,8 +1,8 @@
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DdeSetQualityOfService(hwndclient: super::HWND, pqosnew: *const super::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::SECURITY_QUALITY_OF_SERVICE) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::HWND, pqosnew : *const super::SECURITY_QUALITY_OF_SERVICE, pqosprev : *mut super::SECURITY_QUALITY_OF_SERVICE) -> windows_core::BOOL);
-    unsafe { DdeSetQualityOfService(hwndclient, pqosnew, pqosprev as _) }
+pub unsafe fn DdeSetQualityOfService(hwndclient: super::HWND, pqosnew: *const super::SECURITY_QUALITY_OF_SERVICE, pqosprev: super::PSECURITY_QUALITY_OF_SERVICE) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::HWND, pqosnew : *const super::SECURITY_QUALITY_OF_SERVICE, pqosprev : super::PSECURITY_QUALITY_OF_SERVICE) -> windows_core::BOOL);
+    unsafe { DdeSetQualityOfService(hwndclient, pqosnew, pqosprev) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -28,18 +28,10 @@ pub unsafe fn ReuseDDElParam(lparam: super::LPARAM, msgin: u32, msgout: u32, uil
     windows_core::link!("user32.dll" "system" fn ReuseDDElParam(lparam : super::LPARAM, msgin : u32, msgout : u32, uilo : usize, uihi : usize) -> super::LPARAM);
     unsafe { ReuseDDElParam(lparam, msgin, msgout, uilo, uihi) }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
 #[inline]
-pub unsafe fn UnpackDDElParam(msg: u32, lparam: super::LPARAM, puilo: *mut u32, puihi: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::LPARAM, puilo : *mut u32, puihi : *mut u32) -> windows_core::BOOL);
-    unsafe { UnpackDDElParam(msg, lparam, puilo as _, puihi as _) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
-#[inline]
-pub unsafe fn UnpackDDElParam(msg: u32, lparam: super::LPARAM, puilo: *mut u64, puihi: *mut u64) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::LPARAM, puilo : *mut u64, puihi : *mut u64) -> windows_core::BOOL);
+pub unsafe fn UnpackDDElParam(msg: u32, lparam: super::LPARAM, puilo: super::PUINT_PTR, puihi: super::PUINT_PTR) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::LPARAM, puilo : super::PUINT_PTR, puihi : super::PUINT_PTR) -> windows_core::BOOL);
     unsafe { UnpackDDElParam(msg, lparam, puilo as _, puihi as _) }
 }
 #[repr(C)]

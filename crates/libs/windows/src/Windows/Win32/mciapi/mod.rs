@@ -67,9 +67,10 @@ pub unsafe fn mciGetErrorStringW(mcierr: MCIERROR, psztext: windows_core::PWSTR,
     windows_core::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : MCIERROR, psztext : windows_core::PWSTR, cchtext : u32) -> windows_core::BOOL);
     unsafe { mciGetErrorStringW(mcierr, psztext, cchtext) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn mciGetYieldProc(mciid: MCIDEVICEID, pdwyielddata: *const u32) -> YIELDPROC {
-    windows_core::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : MCIDEVICEID, pdwyielddata : *const u32) -> YIELDPROC);
+pub unsafe fn mciGetYieldProc(mciid: MCIDEVICEID, pdwyielddata: super::LPDWORD) -> YIELDPROC {
+    windows_core::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : MCIDEVICEID, pdwyielddata : super::LPDWORD) -> YIELDPROC);
     unsafe { mciGetYieldProc(mciid, pdwyielddata) }
 }
 #[cfg(feature = "winnt")]
@@ -198,12 +199,8 @@ pub type LPMCI_WAVE_OPEN_PARMS = LPMCI_WAVE_OPEN_PARMSA;
 pub type LPMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
 pub type LPMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
 pub type LPMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MCIDEVICEID(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MCIERROR(pub u32);
+pub type MCIDEVICEID = u32;
+pub type MCIERROR = u32;
 pub const MCIERR_BAD_CONSTANT: i32 = 290;
 pub const MCIERR_BAD_INTEGER: i32 = 270;
 pub const MCIERR_BAD_TIME_FORMAT: i32 = 293;
@@ -280,7 +277,7 @@ pub const MCIERR_WAVE_SETINPUTINUSE: i32 = 323;
 pub const MCIERR_WAVE_SETINPUTUNSUITABLE: i32 = 329;
 pub const MCIERR_WAVE_SETOUTPUTINUSE: i32 = 321;
 pub const MCIERR_WAVE_SETOUTPUTUNSUITABLE: i32 = 327;
-pub const MCI_ALL_DEVICE_ID: MCIDEVICEID = MCIDEVICEID(4294967295);
+pub const MCI_ALL_DEVICE_ID: MCIDEVICEID = 4294967295;
 pub const MCI_ANIM_GETDEVCAPS_CAN_REVERSE: i32 = 16385;
 pub const MCI_ANIM_GETDEVCAPS_CAN_STRETCH: i32 = 16391;
 pub const MCI_ANIM_GETDEVCAPS_FAST_RATE: i32 = 16386;

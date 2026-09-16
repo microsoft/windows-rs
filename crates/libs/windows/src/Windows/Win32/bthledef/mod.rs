@@ -17,11 +17,13 @@ pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     pub CharacteristicValue: PBTH_LE_GATT_CHARACTERISTIC_VALUE,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     pub NumCharacteristics: u16,
     pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -163,21 +165,23 @@ pub const BTH_LE_GATT_ATTRIBUTE_TYPE_INCLUDE: i32 = 10242;
 pub const BTH_LE_GATT_ATTRIBUTE_TYPE_PRIMARY_SERVICE: i32 = 10240;
 pub const BTH_LE_GATT_ATTRIBUTE_TYPE_SECONDARY_SERVICE: i32 = 10241;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub ServiceHandle: u16,
     pub CharacteristicUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
     pub CharacteristicValueHandle: u16,
-    pub IsBroadcastable: bool,
-    pub IsReadable: bool,
-    pub IsWritable: bool,
-    pub IsWritableWithoutResponse: bool,
-    pub IsSignedWritable: bool,
-    pub IsNotifiable: bool,
-    pub IsIndicatable: bool,
-    pub HasExtendedProperties: bool,
+    pub IsBroadcastable: super::BOOLEAN,
+    pub IsReadable: super::BOOLEAN,
+    pub IsWritable: super::BOOLEAN,
+    pub IsWritableWithoutResponse: super::BOOLEAN,
+    pub IsSignedWritable: super::BOOLEAN,
+    pub IsNotifiable: super::BOOLEAN,
+    pub IsIndicatable: super::BOOLEAN,
+    pub HasExtendedProperties: super::BOOLEAN,
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_GATT_CHARACTERISTIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -208,6 +212,7 @@ impl Default for BTH_LE_GATT_CHARACTERISTIC_VALUE {
 }
 pub const BTH_LE_GATT_DEFAULT_MAX_INCLUDED_SERVICES_DEPTH: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR {
     pub ServiceHandle: u16,
@@ -216,6 +221,7 @@ pub struct BTH_LE_GATT_DESCRIPTOR {
     pub DescriptorUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_GATT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -223,6 +229,7 @@ impl Default for BTH_LE_GATT_DESCRIPTOR {
 }
 pub type BTH_LE_GATT_DESCRIPTOR_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
     pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
@@ -231,12 +238,14 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
@@ -244,29 +253,34 @@ pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
     pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    pub IsReliableWriteEnabled: bool,
-    pub IsAuxiliariesWritable: bool,
+    pub IsReliableWriteEnabled: super::BOOLEAN,
+    pub IsAuxiliariesWritable: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    pub IsSubscribeToNotification: bool,
-    pub IsSubscribeToIndication: bool,
+    pub IsSubscribeToNotification: super::BOOLEAN,
+    pub IsSubscribeToIndication: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    pub IsBroadcast: bool,
+    pub IsBroadcast: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub Format: u8,
@@ -275,21 +289,22 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub NameSpace: u8,
     pub Description: BTH_LE_UUID,
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type BTH_LE_GATT_EVENT_TYPE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BTH_LE_GATT_RELIABLE_WRITE_CONTEXT(pub u64);
+pub type BTH_LE_GATT_RELIABLE_WRITE_CONTEXT = u64;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_SERVICE {
     pub ServiceUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_GATT_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -298,22 +313,26 @@ impl Default for BTH_LE_GATT_SERVICE {
 pub const BTH_LE_SERVICE_GAP: i32 = 6144;
 pub const BTH_LE_SERVICE_GATT: i32 = 6145;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_UUID {
-    pub IsShortUuid: bool,
+    pub IsShortUuid: super::BOOLEAN,
     pub Value: BTH_LE_UUID_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_UUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union BTH_LE_UUID_0 {
     pub ShortUuid: u16,
     pub LongUuid: windows_core::GUID,
 }
+#[cfg(feature = "winnt")]
 impl Default for BTH_LE_UUID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -329,14 +348,20 @@ pub const CustomDescriptor: BTH_LE_GATT_DESCRIPTOR_TYPE = 6;
 pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x781aee18_7733_4ce4_add0_91f41c67b592);
 pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x6e3bb679_4372_40c8_9eaa_4509df260cd8);
 pub type PBLUETOOTH_GATT_VALUE_CHANGED_EVENT = *mut BLUETOOTH_GATT_VALUE_CHANGED_EVENT;
+#[cfg(feature = "winnt")]
 pub type PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION = *mut BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION;
+#[cfg(feature = "winnt")]
 pub type PBTH_LE_GATT_CHARACTERISTIC = *mut BTH_LE_GATT_CHARACTERISTIC;
 pub type PBTH_LE_GATT_CHARACTERISTIC_VALUE = *mut BTH_LE_GATT_CHARACTERISTIC_VALUE;
+#[cfg(feature = "winnt")]
 pub type PBTH_LE_GATT_DESCRIPTOR = *mut BTH_LE_GATT_DESCRIPTOR;
 pub type PBTH_LE_GATT_DESCRIPTOR_TYPE = *mut BTH_LE_GATT_DESCRIPTOR_TYPE;
+#[cfg(feature = "winnt")]
 pub type PBTH_LE_GATT_DESCRIPTOR_VALUE = *mut BTH_LE_GATT_DESCRIPTOR_VALUE;
 pub type PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT = *mut u64;
+#[cfg(feature = "winnt")]
 pub type PBTH_LE_GATT_SERVICE = *mut BTH_LE_GATT_SERVICE;
+#[cfg(feature = "winnt")]
 pub type PBTH_LE_UUID = *mut BTH_LE_UUID;
 pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
 pub const ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 3;

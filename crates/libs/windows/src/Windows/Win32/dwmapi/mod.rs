@@ -110,7 +110,7 @@ pub unsafe fn DwmModifyPreviousDxFrameDuration(hwnd: super::HWND, crefreshes: i3
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: HTHUMBNAIL) -> windows_core::Result<super::SIZE> {
-    windows_core::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : *mut super::SIZE) -> windows_core::HRESULT);
+    windows_core::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : super::PSIZE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         DwmQueryThumbnailSourceSize(hthumbnail, &mut result__).map(|| result__)
@@ -118,12 +118,9 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: HTHUMBNAIL) -> windows_cor
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::HWND, hwndsource: super::HWND) -> windows_core::Result<HTHUMBNAIL> {
-    windows_core::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::HWND, hwndsource : super::HWND, phthumbnailid : *mut HTHUMBNAIL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DwmRegisterThumbnail(hwnddestination, hwndsource, &mut result__).map(|| result__)
-    }
+pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::HWND, hwndsource: super::HWND, phthumbnailid: PHTHUMBNAIL) -> windows_core::HRESULT {
+    windows_core::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::HWND, hwndsource : super::HWND, phthumbnailid : PHTHUMBNAIL) -> windows_core::HRESULT);
+    unsafe { DwmRegisterThumbnail(hwnddestination, hwndsource, phthumbnailid as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -155,10 +152,10 @@ pub unsafe fn DwmSetPresentParameters(hwnd: super::HWND, ppresentparams: *mut DW
     windows_core::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_core::HRESULT);
     unsafe { DwmSetPresentParameters(hwnd, ppresentparams as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn DwmSetWindowAttribute(hwnd: super::HWND, dwattribute: u32, pvattribute: *const core::ffi::c_void, cbattribute: u32) -> windows_core::HRESULT {
-    windows_core::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
+pub unsafe fn DwmSetWindowAttribute(hwnd: super::HWND, dwattribute: u32, pvattribute: super::LPCVOID, cbattribute: u32) -> windows_core::HRESULT {
+    windows_core::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : super::LPCVOID, cbattribute : u32) -> windows_core::HRESULT);
     unsafe { DwmSetWindowAttribute(hwnd, dwattribute, pvattribute, cbattribute) }
 }
 #[inline]
@@ -277,9 +274,7 @@ pub const DWM_CLOAKED_INHERITED: i32 = 4;
 pub const DWM_CLOAKED_SHELL: i32 = 2;
 pub const DWM_EC_DISABLECOMPOSITION: i32 = 0;
 pub const DWM_EC_ENABLECOMPOSITION: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DWM_FRAME_COUNT(pub u64);
+pub type DWM_FRAME_COUNT = u64;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -393,9 +388,7 @@ pub type PDWM_BLURBEHIND = *mut DWM_BLURBEHIND;
 pub type PDWM_THUMBNAIL_PROPERTIES = *mut DWM_THUMBNAIL_PROPERTIES;
 #[cfg(feature = "winnt")]
 pub type PHTHUMBNAIL = *mut HTHUMBNAIL;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct QPC_TIME(pub u64);
+pub type QPC_TIME = u64;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct UNSIGNED_RATIO {

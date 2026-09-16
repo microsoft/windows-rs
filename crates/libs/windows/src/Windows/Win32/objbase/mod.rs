@@ -28,8 +28,8 @@ pub unsafe fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: 
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CoFileTimeToDosDateTime(lpfiletime: *const super::FILETIME, lpdosdate: *mut u16, lpdostime: *mut u16) -> windows_core::BOOL {
-    windows_core::link!("ole32.dll" "system" fn CoFileTimeToDosDateTime(lpfiletime : *const super::FILETIME, lpdosdate : *mut u16, lpdostime : *mut u16) -> windows_core::BOOL);
+pub unsafe fn CoFileTimeToDosDateTime(lpfiletime: *const super::FILETIME, lpdosdate: super::LPWORD, lpdostime: super::LPWORD) -> windows_core::BOOL {
+    windows_core::link!("ole32.dll" "system" fn CoFileTimeToDosDateTime(lpfiletime : *const super::FILETIME, lpdosdate : super::LPWORD, lpdostime : super::LPWORD) -> windows_core::BOOL);
     unsafe { CoFileTimeToDosDateTime(lpfiletime, lpdosdate as _, lpdostime as _) }
 }
 #[inline]
@@ -64,30 +64,25 @@ where
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn CoGetObject<P0, T>(pszname: P0, pbindoptions: Option<*const super::BIND_OPTS>) -> windows_core::Result<T>
+pub unsafe fn CoGetObject<P0>(pszname: P0, pbindoptions: Option<*const super::BIND_OPTS>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetObject(pszname : windows_core::PCWSTR, pbindoptions : *const super::BIND_OPTS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CoGetObject(pszname.param().abi(), pbindoptions.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CoGetObject(pszname.param().abi(), pbindoptions.unwrap_or(core::mem::zeroed()) as _, riid, ppv as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD) -> windows_core::Result<super::PSECURITY_DESCRIPTOR> {
+pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super::PSECURITY_DESCRIPTOR) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoGetSystemSecurityPermissions(comsdtype : COMSD, ppsd : *mut super::PSECURITY_DESCRIPTOR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CoGetSystemSecurityPermissions(comsdtype, &mut result__).map(|| result__)
-    }
+    unsafe { CoGetSystemSecurityPermissions(comsdtype, ppsd as _) }
 }
 #[inline]
 pub unsafe fn CoInitialize(pvreserved: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoInitialize(pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "objidl", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn CoInstall<P0, P4>(pbc: P0, dwflags: u32, pclassspec: *const super::uCLSSPEC, pquery: *const super::QUERYCONTEXT, pszcodebase: P4) -> windows_core::HRESULT
 where
@@ -102,14 +97,11 @@ pub unsafe fn CoIsOle1Class(rclsid: *const windows_core::GUID) -> windows_core::
     windows_core::link!("ole32.dll" "system" fn CoIsOle1Class(rclsid : *const windows_core::GUID) -> windows_core::BOOL);
     unsafe { CoIsOle1Class(rclsid) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CoLoadLibrary<P0>(lpszlibname: P0, bautofree: bool) -> super::HINSTANCE
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn CoLoadLibrary(lpszlibname : windows_core::PCWSTR, bautofree : windows_core::BOOL) -> super::HINSTANCE);
-    unsafe { CoLoadLibrary(lpszlibname.param().abi(), bautofree.into()) }
+pub unsafe fn CoLoadLibrary(lpszlibname: super::LPOLESTR, bautofree: bool) -> super::HINSTANCE {
+    windows_core::link!("ole32.dll" "system" fn CoLoadLibrary(lpszlibname : super::LPOLESTR, bautofree : windows_core::BOOL) -> super::HINSTANCE);
+    unsafe { CoLoadLibrary(lpszlibname, bautofree.into()) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -120,13 +112,13 @@ where
     windows_core::link!("ole32.dll" "system" fn CoRegisterChannelHook(extensionuuid : *const windows_core::GUID, pchannelhook : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoRegisterChannelHook(extensionuuid, pchannelhook.param().abi()) }
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "winnt"))]
 #[inline]
-pub unsafe fn CoRegisterInitializeSpy<P0>(pspy: P0) -> windows_core::Result<u64>
+pub unsafe fn CoRegisterInitializeSpy<P0>(pspy: P0) -> windows_core::Result<super::ULARGE_INTEGER>
 where
     P0: windows_core::Param<super::IInitializeSpy>,
 {
-    windows_core::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : *mut core::ffi::c_void, pulicookie : *mut u64) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : *mut core::ffi::c_void, pulicookie : *mut super::ULARGE_INTEGER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoRegisterInitializeSpy(pspy.param().abi(), &mut result__).map(|| result__)
@@ -153,9 +145,10 @@ where
         CoRegisterMessageFilter(lpmessagefilter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> windows_core::HRESULT {
-    windows_core::link!("ole32.dll" "system" fn CoRevokeInitializeSpy(ulicookie : u64) -> windows_core::HRESULT);
+pub unsafe fn CoRevokeInitializeSpy(ulicookie: super::ULARGE_INTEGER) -> windows_core::HRESULT {
+    windows_core::link!("ole32.dll" "system" fn CoRevokeInitializeSpy(ulicookie : super::ULARGE_INTEGER) -> windows_core::HRESULT);
     unsafe { CoRevokeInitializeSpy(ulicookie) }
 }
 #[inline]
@@ -205,25 +198,20 @@ pub unsafe fn CreateDataAdviseHolder() -> windows_core::Result<super::IDataAdvis
     }
 }
 #[inline]
-pub unsafe fn CreateDataCache<P0, T>(punkouter: P0, rclsid: *const windows_core::GUID) -> windows_core::Result<T>
+pub unsafe fn CreateDataCache<P0>(punkouter: P0, rclsid: *const windows_core::GUID, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CreateDataCache(punkouter : *mut core::ffi::c_void, rclsid : *const windows_core::GUID, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateDataCache(punkouter.param().abi(), rclsid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateDataCache(punkouter.param().abi(), rclsid, iid, ppv as _) }
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CreateFileMoniker<P0>(lpszpathname: P0) -> windows_core::Result<super::IMoniker>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : windows_core::PCWSTR, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn CreateFileMoniker(lpszpathname: super::LPCOLESTR) -> windows_core::Result<super::IMoniker> {
+    windows_core::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : super::LPCOLESTR, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateFileMoniker(lpszpathname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CreateFileMoniker(lpszpathname, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -239,17 +227,13 @@ where
         CreateGenericComposite(pmkfirst.param().abi(), pmkrest.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CreateItemMoniker<P0, P1>(lpszdelim: P0, lpszitem: P1) -> windows_core::Result<super::IMoniker>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : windows_core::PCWSTR, lpszitem : windows_core::PCWSTR, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn CreateItemMoniker(lpszdelim: super::LPCOLESTR, lpszitem: super::LPCOLESTR) -> windows_core::Result<super::IMoniker> {
+    windows_core::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : super::LPCOLESTR, lpszitem : super::LPCOLESTR, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateItemMoniker(lpszdelim.param().abi(), lpszitem.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CreateItemMoniker(lpszdelim, lpszitem, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -276,17 +260,16 @@ where
         CreatePointerMoniker(punk.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "urlmon", feature = "windef"))]
+#[cfg(all(feature = "urlmon", feature = "windef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CreateStdProgressIndicator<P1, P2>(hwndparent: super::HWND, psztitle: P1, pibsccaller: P2) -> windows_core::Result<super::IBindStatusCallback>
+pub unsafe fn CreateStdProgressIndicator<P2>(hwndparent: super::HWND, psztitle: super::LPCOLESTR, pibsccaller: P2) -> windows_core::Result<super::IBindStatusCallback>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::IBindStatusCallback>,
 {
-    windows_core::link!("ole32.dll" "system" fn CreateStdProgressIndicator(hwndparent : super::HWND, psztitle : windows_core::PCWSTR, pibsccaller : *mut core::ffi::c_void, ppibsc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CreateStdProgressIndicator(hwndparent : super::HWND, psztitle : super::LPCOLESTR, pibsccaller : *mut core::ffi::c_void, ppibsc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateStdProgressIndicator(hwndparent, psztitle.param().abi(), pibsccaller.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        CreateStdProgressIndicator(hwndparent, psztitle, pibsccaller.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -294,15 +277,13 @@ pub unsafe fn DcomChannelSetHResult(pvreserved: Option<*const core::ffi::c_void>
     windows_core::link!("ole32.dll" "system" fn DcomChannelSetHResult(pvreserved : *const core::ffi::c_void, pulreserved : *const u32, appshr : windows_core::HRESULT) -> windows_core::HRESULT);
     unsafe { DcomChannelSetHResult(pvreserved.unwrap_or(core::mem::zeroed()) as _, pulreserved.unwrap_or(core::mem::zeroed()) as _, appshr) }
 }
+#[cfg(feature = "wtypesbase")]
 #[inline]
-pub unsafe fn GetClassFile<P0>(szfilename: P0) -> windows_core::Result<windows_core::GUID>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn GetClassFile(szfilename : windows_core::PCWSTR, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
+pub unsafe fn GetClassFile(szfilename: super::LPCOLESTR) -> windows_core::Result<windows_core::GUID> {
+    windows_core::link!("ole32.dll" "system" fn GetClassFile(szfilename : super::LPCOLESTR, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetClassFile(szfilename.param().abi(), &mut result__).map(|| result__)
+        GetClassFile(szfilename, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "objidl")]
@@ -314,15 +295,14 @@ pub unsafe fn GetRunningObjectTable(reserved: u32) -> windows_core::Result<super
         GetRunningObjectTable(reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn MkParseDisplayName<P0, P1>(pbc: P0, szusername: P1, pcheaten: *mut u32, ppmk: *mut Option<super::IMoniker>) -> windows_core::HRESULT
+pub unsafe fn MkParseDisplayName<P0>(pbc: P0, szusername: super::LPCOLESTR, pcheaten: *mut u32, ppmk: *mut Option<super::IMoniker>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IBindCtx>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : *mut core::ffi::c_void, szusername : windows_core::PCWSTR, pcheaten : *mut u32, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MkParseDisplayName(pbc.param().abi(), szusername.param().abi(), pcheaten as _, core::mem::transmute(ppmk)) }
+    windows_core::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : *mut core::ffi::c_void, szusername : super::LPCOLESTR, pcheaten : *mut u32, ppmk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { MkParseDisplayName(pbc.param().abi(), szusername, pcheaten as _, core::mem::transmute(ppmk)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]

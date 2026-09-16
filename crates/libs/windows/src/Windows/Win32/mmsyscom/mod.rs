@@ -5,9 +5,12 @@ pub const CALLBACK_THREAD: i32 = 131072;
 pub const CALLBACK_TYPEMASK: i32 = 458752;
 pub const CALLBACK_WINDOW: i32 = 65536;
 pub type DRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDRVR(pub *mut core::ffi::c_void);
+pub type HDRVR = *mut HDRVR__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HDRVR__ {
+    pub unused: i32,
+}
 pub const JOYERR_BASE: i32 = 160;
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type LPMMTIME = *mut MMTIME;
@@ -23,9 +26,7 @@ pub const MCI_VD_OFFSET: i32 = 1024;
 pub const MCI_WAVE_OFFSET: i32 = 1152;
 pub const MIDIERR_BASE: i32 = 64;
 pub const MIXERR_BASE: i32 = 1024;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MMRESULT(pub u32);
+pub type MMRESULT = u32;
 pub const MMSYSERR_ALLOCATED: i32 = 4;
 pub const MMSYSERR_BADDB: i32 = 14;
 pub const MMSYSERR_BADDEVICEID: i32 = 2;
@@ -97,9 +98,7 @@ impl Default for MMTIME_0_0 {
 pub struct MMTIME_0_1 {
     pub songptrpos: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MMVERSION(pub u32);
+pub type MMVERSION = u32;
 pub const MM_DRVM_CLOSE: i32 = 977;
 pub const MM_DRVM_DATA: i32 = 978;
 pub const MM_DRVM_ERROR: i32 = 979;

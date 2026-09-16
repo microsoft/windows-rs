@@ -26,21 +26,23 @@ impl IStiDevice {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst, pwszdevicename.param().abi(), dwversion, dwmode) }
     }
-    pub unsafe fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> windows_core::HRESULT {
+    pub unsafe fn GetCapabilities(&self, pdevcaps: PSTI_DEV_CAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), pdevcaps as _) }
     }
-    pub unsafe fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> windows_core::HRESULT {
+    pub unsafe fn GetStatus(&self, pdevstatus: PSTI_DEVICE_STATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pdevstatus as _) }
     }
     pub unsafe fn DeviceReset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeviceReset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Diagnostic(&self, pbuffer: *mut STI_DIAG) -> windows_core::HRESULT {
+    pub unsafe fn Diagnostic(&self, pbuffer: LPSTI_DIAG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Diagnostic)(windows_core::Interface::as_raw(self), pbuffer as _) }
     }
-    pub unsafe fn Escape(&self, escapefunction: STI_RAW_CONTROL_CODE, lpindata: *const core::ffi::c_void, cbindatasize: u32, poutdata: *mut core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn Escape(&self, escapefunction: STI_RAW_CONTROL_CODE, lpindata: *const core::ffi::c_void, cbindatasize: u32, poutdata: *mut core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: super::LPDWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), escapefunction, lpindata, cbindatasize, poutdata as _, dwoutdatasize, pdwactualdata as _) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetLastError(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -53,27 +55,27 @@ impl IStiDevice {
     pub unsafe fn UnLockDevice(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnLockDevice)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::OVERLAPPED>) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub unsafe fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: super::LPDWORD, lpoverlapped: Option<super::LPOVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawReadData)(windows_core::Interface::as_raw(self), lpbuffer as _, lpdwnumberofbytes as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn RawWriteData(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::OVERLAPPED>) -> windows_core::HRESULT {
+    pub unsafe fn RawWriteData(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<super::LPOVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawWriteData)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn RawReadCommand(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::OVERLAPPED>) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub unsafe fn RawReadCommand(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: super::LPDWORD, lpoverlapped: Option<super::LPOVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawReadCommand)(windows_core::Interface::as_raw(self), lpbuffer as _, lpdwnumberofbytes as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn RawWriteCommand(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::OVERLAPPED>) -> windows_core::HRESULT {
+    pub unsafe fn RawWriteCommand(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<super::LPOVERLAPPED>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RawWriteCommand)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "windef", feature = "winnt"))]
-    pub unsafe fn Subscribe(&self, lpsubsribe: *mut STISUBSCRIBE) -> windows_core::HRESULT {
+    pub unsafe fn Subscribe(&self, lpsubsribe: LPSTISUBSCRIBE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Subscribe)(windows_core::Interface::as_raw(self), lpsubsribe as _) }
     }
-    pub unsafe fn GetLastNotificationData(&self, lpnotify: *mut STINOTIFY) -> windows_core::HRESULT {
+    pub unsafe fn GetLastNotificationData(&self, lpnotify: LPSTINOTIFY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLastNotificationData)(windows_core::Interface::as_raw(self), lpnotify as _) }
     }
     pub unsafe fn UnSubscribe(&self) -> windows_core::HRESULT {
@@ -91,55 +93,61 @@ pub struct IStiDevice_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::HINSTANCE, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
     Initialize: usize,
-    pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STI_DEV_CAPS) -> windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STI_DEVICE_STATUS) -> windows_core::HRESULT,
+    pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, PSTI_DEV_CAPS) -> windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, PSTI_DEVICE_STATUS) -> windows_core::HRESULT,
     pub DeviceReset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Diagnostic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STI_DIAG) -> windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, STI_RAW_CONTROL_CODE, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetLastError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Diagnostic: unsafe extern "system" fn(*mut core::ffi::c_void, LPSTI_DIAG) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, STI_RAW_CONTROL_CODE, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    Escape: usize,
+    #[cfg(feature = "minwindef")]
+    pub GetLastError: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetLastError: usize,
     pub LockDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UnLockDevice: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub RawReadData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *const super::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub RawReadData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPDWORD, super::LPOVERLAPPED) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     RawReadData: usize,
     #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub RawWriteData: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *const super::OVERLAPPED) -> windows_core::HRESULT,
+    pub RawWriteData: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, super::LPOVERLAPPED) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
     RawWriteData: usize,
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub RawReadCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *const super::OVERLAPPED) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+    pub RawReadCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPDWORD, super::LPOVERLAPPED) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "winnt")))]
     RawReadCommand: usize,
     #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub RawWriteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *const super::OVERLAPPED) -> windows_core::HRESULT,
+    pub RawWriteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, super::LPOVERLAPPED) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
     RawWriteCommand: usize,
     #[cfg(all(feature = "windef", feature = "winnt"))]
-    pub Subscribe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STISUBSCRIBE) -> windows_core::HRESULT,
+    pub Subscribe: unsafe extern "system" fn(*mut core::ffi::c_void, LPSTISUBSCRIBE) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "windef", feature = "winnt")))]
     Subscribe: usize,
-    pub GetLastNotificationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STINOTIFY) -> windows_core::HRESULT,
+    pub GetLastNotificationData: unsafe extern "system" fn(*mut core::ffi::c_void, LPSTINOTIFY) -> windows_core::HRESULT,
     pub UnSubscribe: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLastErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STI_ERROR_INFO) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IStiDevice_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, hinst: super::HINSTANCE, pwszdevicename: &windows_core::PCWSTR, dwversion: u32, dwmode: u32) -> windows_core::Result<()>;
-    fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> windows_core::Result<()>;
-    fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> windows_core::Result<()>;
+    fn GetCapabilities(&self, pdevcaps: PSTI_DEV_CAPS) -> windows_core::Result<()>;
+    fn GetStatus(&self, pdevstatus: PSTI_DEVICE_STATUS) -> windows_core::Result<()>;
     fn DeviceReset(&self) -> windows_core::Result<()>;
-    fn Diagnostic(&self, pbuffer: *mut STI_DIAG) -> windows_core::Result<()>;
-    fn Escape(&self, escapefunction: STI_RAW_CONTROL_CODE, lpindata: *const core::ffi::c_void, cbindatasize: u32, poutdata: *mut core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> windows_core::Result<()>;
+    fn Diagnostic(&self, pbuffer: LPSTI_DIAG) -> windows_core::Result<()>;
+    fn Escape(&self, escapefunction: STI_RAW_CONTROL_CODE, lpindata: *const core::ffi::c_void, cbindatasize: u32, poutdata: *mut core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: super::LPDWORD) -> windows_core::Result<()>;
     fn GetLastError(&self) -> windows_core::Result<u32>;
     fn LockDevice(&self, dwtimeout: u32) -> windows_core::Result<()>;
     fn UnLockDevice(&self) -> windows_core::Result<()>;
-    fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::Result<()>;
-    fn RawWriteData(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::Result<()>;
-    fn RawReadCommand(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::Result<()>;
-    fn RawWriteCommand(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::Result<()>;
-    fn Subscribe(&self, lpsubsribe: *mut STISUBSCRIBE) -> windows_core::Result<()>;
-    fn GetLastNotificationData(&self, lpnotify: *mut STINOTIFY) -> windows_core::Result<()>;
+    fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::Result<()>;
+    fn RawWriteData(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: super::LPOVERLAPPED) -> windows_core::Result<()>;
+    fn RawReadCommand(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::Result<()>;
+    fn RawWriteCommand(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: super::LPOVERLAPPED) -> windows_core::Result<()>;
+    fn Subscribe(&self, lpsubsribe: LPSTISUBSCRIBE) -> windows_core::Result<()>;
+    fn GetLastNotificationData(&self, lpnotify: LPSTINOTIFY) -> windows_core::Result<()>;
     fn UnSubscribe(&self) -> windows_core::Result<()>;
     fn GetLastErrorInfo(&self, plasterrorinfo: *mut STI_ERROR_INFO) -> windows_core::Result<()>;
 }
@@ -152,13 +160,13 @@ impl IStiDevice_Vtbl {
                 IStiDevice_Impl::Initialize(this, core::mem::transmute_copy(&hinst), core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&dwversion), core::mem::transmute_copy(&dwmode)).into()
             }
         }
-        unsafe extern "system" fn GetCapabilities<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevcaps: *mut STI_DEV_CAPS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCapabilities<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevcaps: PSTI_DEV_CAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::GetCapabilities(this, core::mem::transmute_copy(&pdevcaps)).into()
             }
         }
-        unsafe extern "system" fn GetStatus<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevstatus: *mut STI_DEVICE_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStatus<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevstatus: PSTI_DEVICE_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::GetStatus(this, core::mem::transmute_copy(&pdevstatus)).into()
@@ -170,19 +178,19 @@ impl IStiDevice_Vtbl {
                 IStiDevice_Impl::DeviceReset(this).into()
             }
         }
-        unsafe extern "system" fn Diagnostic<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut STI_DIAG) -> windows_core::HRESULT {
+        unsafe extern "system" fn Diagnostic<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: LPSTI_DIAG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::Diagnostic(this, core::mem::transmute_copy(&pbuffer)).into()
             }
         }
-        unsafe extern "system" fn Escape<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, escapefunction: STI_RAW_CONTROL_CODE, lpindata: *const core::ffi::c_void, cbindatasize: u32, poutdata: *mut core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Escape<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, escapefunction: STI_RAW_CONTROL_CODE, lpindata: *const core::ffi::c_void, cbindatasize: u32, poutdata: *mut core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::Escape(this, core::mem::transmute_copy(&escapefunction), core::mem::transmute_copy(&lpindata), core::mem::transmute_copy(&cbindatasize), core::mem::transmute_copy(&poutdata), core::mem::transmute_copy(&dwoutdatasize), core::mem::transmute_copy(&pdwactualdata)).into()
             }
         }
-        unsafe extern "system" fn GetLastError<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlastdeviceerror: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLastError<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlastdeviceerror: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStiDevice_Impl::GetLastError(this) {
@@ -206,37 +214,37 @@ impl IStiDevice_Vtbl {
                 IStiDevice_Impl::UnLockDevice(this).into()
             }
         }
-        unsafe extern "system" fn RawReadData<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+        unsafe extern "system" fn RawReadData<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::RawReadData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
-        unsafe extern "system" fn RawWriteData<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+        unsafe extern "system" fn RawWriteData<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::RawWriteData(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
-        unsafe extern "system" fn RawReadCommand<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+        unsafe extern "system" fn RawReadCommand<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: super::LPDWORD, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::RawReadCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&lpdwnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
-        unsafe extern "system" fn RawWriteCommand<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::OVERLAPPED) -> windows_core::HRESULT {
+        unsafe extern "system" fn RawWriteCommand<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::RawWriteCommand(this, core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&nnumberofbytes), core::mem::transmute_copy(&lpoverlapped)).into()
             }
         }
-        unsafe extern "system" fn Subscribe<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpsubsribe: *mut STISUBSCRIBE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Subscribe<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpsubsribe: LPSTISUBSCRIBE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::Subscribe(this, core::mem::transmute_copy(&lpsubsribe)).into()
             }
         }
-        unsafe extern "system" fn GetLastNotificationData<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpnotify: *mut STINOTIFY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLastNotificationData<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpnotify: LPSTINOTIFY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStiDevice_Impl::GetLastNotificationData(this, core::mem::transmute_copy(&lpnotify)).into()
@@ -307,6 +315,22 @@ impl IStillImageW {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), dwmode, core::mem::transmute(pdevice), punkouter.param().abi()) }
     }
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, ptype: super::LPDWORD, pdata: super::LPBYTE, cbdata: super::LPDWORD) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), ptype as _, pdata as _, cbdata as _) }
+    }
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+    }
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: windows_core::PWSTR, pdweventcode: Option<*mut u32>, pwszeventname: windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSTILaunchInformation)(windows_core::Interface::as_raw(self), pwszdevicename, pdweventcode.unwrap_or(core::mem::zeroed()) as _, pwszeventname) }
     }
@@ -344,6 +368,16 @@ impl IStillImageW {
     {
         unsafe { (windows_core::Interface::vtable(self).RefreshDeviceBus)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi()) }
     }
+    pub unsafe fn LaunchApplicationForDevice<P0, P1>(&self, pwszdevicename: P0, pwszappname: P1, pstinotify: LPSTINOTIFY) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).LaunchApplicationForDevice)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pwszappname.param().abi(), pstinotify) }
+    }
+    pub unsafe fn SetupDeviceParameters(&self, param0: PSTI_DEVICE_INFORMATIONW) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetupDeviceParameters)(windows_core::Interface::as_raw(self), param0 as _) }
+    }
     pub unsafe fn WriteToErrorLog<P1>(&self, dwmessagetype: u32, pszmessage: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -362,12 +396,22 @@ pub struct IStillImageW_Vtbl {
     pub GetDeviceList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetDeviceValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::LPDWORD, super::LPBYTE, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetDeviceValue: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetDeviceValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, super::LPBYTE, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetDeviceValue: usize,
     pub GetSTILaunchInformation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
     pub RegisterLaunchApplication: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub UnregisterLaunchApplication: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub EnableHwNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetHwNotificationState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub RefreshDeviceBus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub LaunchApplicationForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, LPSTINOTIFY) -> windows_core::HRESULT,
+    pub SetupDeviceParameters: unsafe extern "system" fn(*mut core::ffi::c_void, PSTI_DEVICE_INFORMATIONW) -> windows_core::HRESULT,
     pub WriteToErrorLog: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(feature = "minwindef")]
@@ -376,12 +420,16 @@ pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
     fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetDeviceInfo(&self, pwszdevicename: &windows_core::PCWSTR, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateDevice(&self, pwszdevicename: &windows_core::PCWSTR, dwmode: u32, pdevice: windows_core::OutRef<IStiDevice>, punkouter: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetDeviceValue(&self, pwszdevicename: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, ptype: super::LPDWORD, pdata: super::LPBYTE, cbdata: super::LPDWORD) -> windows_core::Result<()>;
+    fn SetDeviceValue(&self, pwszdevicename: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, r#type: u32, pdata: super::LPBYTE, cbdata: u32) -> windows_core::Result<()>;
     fn GetSTILaunchInformation(&self, pwszdevicename: windows_core::PWSTR, pdweventcode: *mut u32, pwszeventname: windows_core::PWSTR) -> windows_core::Result<()>;
     fn RegisterLaunchApplication(&self, pwszappname: &windows_core::PCWSTR, pwszcommandline: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn UnregisterLaunchApplication(&self, pwszappname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn EnableHwNotifications(&self, pwszdevicename: &windows_core::PCWSTR, bnewstate: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetHwNotificationState(&self, pwszdevicename: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
     fn RefreshDeviceBus(&self, pwszdevicename: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn LaunchApplicationForDevice(&self, pwszdevicename: &windows_core::PCWSTR, pwszappname: &windows_core::PCWSTR, pstinotify: LPSTINOTIFY) -> windows_core::Result<()>;
+    fn SetupDeviceParameters(&self, param0: PSTI_DEVICE_INFORMATIONW) -> windows_core::Result<()>;
     fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "minwindef")]
@@ -409,6 +457,18 @@ impl IStillImageW_Vtbl {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStillImageW_Impl::CreateDevice(this, core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&punkouter)).into()
+            }
+        }
+        unsafe extern "system" fn GetDeviceValue<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PCWSTR, pvaluename: windows_core::PCWSTR, ptype: super::LPDWORD, pdata: super::LPBYTE, cbdata: super::LPDWORD) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStillImageW_Impl::GetDeviceValue(this, core::mem::transmute(&pwszdevicename), core::mem::transmute(&pvaluename), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&cbdata)).into()
+            }
+        }
+        unsafe extern "system" fn SetDeviceValue<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PCWSTR, pvaluename: windows_core::PCWSTR, r#type: u32, pdata: super::LPBYTE, cbdata: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStillImageW_Impl::SetDeviceValue(this, core::mem::transmute(&pwszdevicename), core::mem::transmute(&pvaluename), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&cbdata)).into()
             }
         }
         unsafe extern "system" fn GetSTILaunchInformation<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PWSTR, pdweventcode: *mut u32, pwszeventname: windows_core::PWSTR) -> windows_core::HRESULT {
@@ -453,6 +513,18 @@ impl IStillImageW_Vtbl {
                 IStillImageW_Impl::RefreshDeviceBus(this, core::mem::transmute(&pwszdevicename)).into()
             }
         }
+        unsafe extern "system" fn LaunchApplicationForDevice<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PCWSTR, pwszappname: windows_core::PCWSTR, pstinotify: LPSTINOTIFY) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStillImageW_Impl::LaunchApplicationForDevice(this, core::mem::transmute(&pwszdevicename), core::mem::transmute(&pwszappname), core::mem::transmute_copy(&pstinotify)).into()
+            }
+        }
+        unsafe extern "system" fn SetupDeviceParameters<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: PSTI_DEVICE_INFORMATIONW) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IStillImageW_Impl::SetupDeviceParameters(this, core::mem::transmute_copy(&param0)).into()
+            }
+        }
         unsafe extern "system" fn WriteToErrorLog<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmessagetype: u32, pszmessage: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -465,12 +537,16 @@ impl IStillImageW_Vtbl {
             GetDeviceList: GetDeviceList::<Identity, OFFSET>,
             GetDeviceInfo: GetDeviceInfo::<Identity, OFFSET>,
             CreateDevice: CreateDevice::<Identity, OFFSET>,
+            GetDeviceValue: GetDeviceValue::<Identity, OFFSET>,
+            SetDeviceValue: SetDeviceValue::<Identity, OFFSET>,
             GetSTILaunchInformation: GetSTILaunchInformation::<Identity, OFFSET>,
             RegisterLaunchApplication: RegisterLaunchApplication::<Identity, OFFSET>,
             UnregisterLaunchApplication: UnregisterLaunchApplication::<Identity, OFFSET>,
             EnableHwNotifications: EnableHwNotifications::<Identity, OFFSET>,
             GetHwNotificationState: GetHwNotificationState::<Identity, OFFSET>,
             RefreshDeviceBus: RefreshDeviceBus::<Identity, OFFSET>,
+            LaunchApplicationForDevice: LaunchApplicationForDevice::<Identity, OFFSET>,
+            SetupDeviceParameters: SetupDeviceParameters::<Identity, OFFSET>,
             WriteToErrorLog: WriteToErrorLog::<Identity, OFFSET>,
         }
     }
@@ -532,7 +608,7 @@ pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: STI_DEVICE_TYPE,
     pub szDeviceInternalName: [u16; 128],
-    pub DeviceCapabilities: STI_DEV_CAPS,
+    pub DeviceCapabilitiesA: STI_DEV_CAPS,
     pub dwHardwareConfiguration: u32,
     pub pszVendorDescription: windows_core::PWSTR,
     pub pszDeviceDescription: windows_core::PWSTR,
@@ -556,9 +632,7 @@ pub struct STI_DEVICE_STATUS {
     pub dwEventHandlingState: u32,
     pub dwPollingInterval: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct STI_DEVICE_TYPE(pub u32);
+pub type STI_DEVICE_TYPE = u32;
 pub const STI_DEVSTATUS_EVENTS_STATE: i32 = 2;
 pub const STI_DEVSTATUS_ONLINE_STATE: i32 = 1;
 #[repr(C)]
@@ -620,9 +694,7 @@ pub const STI_ONLINESTATE_POWER_SAVE: i32 = 8192;
 pub const STI_ONLINESTATE_TRANSFERRING: i32 = 512;
 pub const STI_ONLINESTATE_USER_INTERVENTION: i32 = 4096;
 pub const STI_ONLINESTATE_WARMING_UP: i32 = 2048;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct STI_RAW_CONTROL_CODE(pub u32);
+pub type STI_RAW_CONTROL_CODE = u32;
 pub const STI_RAW_RESERVED: i32 = 4096;
 pub const STI_REMOVE_DEVICE_BROADCAST_ACTION: windows_core::PCSTR = windows_core::s!("Removal");
 pub const STI_SUBSCRIBE_FLAG_EVENT: i32 = 2;
@@ -644,7 +716,7 @@ pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: STI_DEVICE_TYPE,
     pub szDeviceInternalName: [u16; 128],
-    pub DeviceCapabilities: STI_DEV_CAPS,
+    pub DeviceCapabilitiesA: STI_DEV_CAPS,
     pub dwHardwareConfiguration: u32,
     pub pszVendorDescription: windows_core::PWSTR,
     pub pszDeviceDescription: windows_core::PWSTR,
