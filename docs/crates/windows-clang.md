@@ -16,6 +16,31 @@ headers -> windows-clang -> RDL -> windows-rdl -> WinMD
 It extracts declarations and source annotations into immutable facts, then plans and emits RDL
 from the completed fact graph. It does not generate Rust bindings or provision libclang.
 
+## High-level generation
+
+`clang()` returns a `Clang` builder for the common case of extracting one set of headers and
+writing RDL directly:
+
+```rust,no_run
+windows_clang::clang()
+    .input("Example.h")
+    .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
+    .reference_default()
+    .namespace("Example")
+    .library("example.dll")
+    .output("Example.rdl")
+    .write()
+    .unwrap();
+```
+
+The builder is an adapter over the extraction and emission APIs described below. `input` and
+`input_text` construct `Input` values, `filter` selects included headers by path suffix,
+`reference_default` supplies the Windows metadata references, and `write` calls `extract` and
+emits with `EmitOptions`. It does not have a separate parser or projection path.
+
+Use the lower-level API when a generator must inspect facts, compare architectures, merge
+snapshots, assign libraries per function, or control output promotion.
+
 ## Extraction
 
 Each `Input` contains:
@@ -26,11 +51,13 @@ Each `Input` contains:
 | `source` | C or C++ source passed to libclang. |
 | `roots` | Header paths whose declarations may become output roots. |
 | `root_dirs` | Directory prefixes whose declarations may become output roots. |
+| `root_suffixes` | Header path suffixes whose declarations may become output roots. |
 | `excluded_roots` | Header paths excluded from output ownership. |
 
-`Input::new(name, source)` treats `name` as a root. `with_roots`, `with_root_dirs`, and
-`with_excluded_roots` extend that policy. The caller supplies all compiler arguments to `extract`,
-including the language, target, include paths, defines, forced includes, and extensions.
+`Input::new(name, source)` treats `name` as a root. `with_roots`, `with_root_dirs`,
+`with_root_suffixes`, and `with_excluded_roots` extend that policy. The caller supplies all
+compiler arguments to `extract`, including the language, target, include paths, defines, forced
+includes, and extensions.
 
 ```rust,no_run
 let input = windows_clang::Input::new(

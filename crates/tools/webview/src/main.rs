@@ -1,32 +1,6 @@
 use helpers::*;
 use windows_rdl::*;
 
-fn default_type_references() -> std::collections::BTreeMap<String, windows_clang::TypeReference> {
-    let files = [windows_default::WINRT, windows_default::WIN32]
-        .into_iter()
-        .map(|bytes| windows_metadata::reader::File::new(bytes.to_vec()).unwrap())
-        .collect();
-    let index = windows_metadata::reader::Index::new(files);
-    let mut references = std::collections::BTreeMap::new();
-    let mut ambiguous = std::collections::BTreeSet::new();
-    for (namespace, name, ty) in index.iter() {
-        let kind = if ty.category() == windows_metadata::reader::TypeCategory::Interface {
-            windows_clang::TypeReferenceKind::Interface
-        } else {
-            windows_clang::TypeReferenceKind::Type
-        };
-        let reference = windows_clang::TypeReference::new(namespace, name, kind);
-        if references
-            .insert(name.to_string(), reference.clone())
-            .is_some_and(|existing| existing != reference)
-        {
-            ambiguous.insert(name.to_string());
-        }
-    }
-    references.retain(|name, _| !ambiguous.contains(name));
-    references
-}
-
 // WebView2 owns its SDK pin here: the headers are downloaded from this exact NuGet package
 // (via `nuget_package`, like the other header scrapers) instead of being vendored, so a version
 // bump is a one-line edit that re-fetches byte-stable headers. `tool-reactor` reads the pin to
@@ -60,43 +34,31 @@ fn main() {
     // emitted, not its #includes), so both headers are listed: WebView2.h yields the core
     // COM API and WebView2Interop.h yields the ICoreWebView2Interop2::GetComICoreWebView2
     // bridge used to reuse these COM wrappers from the WinUI/WinRT WebView2 XAML control.
-    let inputs = [
-        include.join("WebView2.h"),
-        include_winrt.join("WebView2Interop.h"),
-    ];
-    let args = [
-        "-x",
-        "c++",
-        "--target=x86_64-pc-windows-msvc",
-        "-fms-extensions",
-        &include_arg,
-    ];
-    let inputs = inputs.map(|path| {
-        windows_clang::Input::new(
-            path.to_string_lossy(),
-            std::fs::read_to_string(&path).unwrap(),
-        )
-    });
-    let references = default_type_references();
-    let functions = [
-        "CompareBrowserVersions",
-        "CreateCoreWebView2Environment",
-        "CreateCoreWebView2EnvironmentWithOptions",
-        "GetAvailableCoreWebView2BrowserVersionString",
-        "GetAvailableCoreWebView2BrowserVersionStringWithOptions",
-    ]
-    .into_iter()
-    .map(str::to_string)
-    .collect();
-    let excluded_types = references.keys().cloned().collect();
-    let rdl = windows_clang::extract(inputs, &args).unwrap();
-    let mut options = windows_clang::EmitOptions::new("WebView2", &references);
-    options.library = Some("WebView2Loader.dll");
-    options.functions = Some(&functions);
-    options.excluded_types = Some(&excluded_types);
-    let rdl = rdl.emit_with_options(&options).unwrap();
-    std::fs::create_dir_all("target/webview").unwrap();
-    std::fs::write("target/webview/WebView2.rdl", rdl).unwrap();
+    windows_clang::clang()
+        .inputs([
+            include.join("WebView2.h"),
+            include_winrt.join("WebView2Interop.h"),
+        ])
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+            &include_arg,
+        ])
+        .reference_default()
+        .symbols([
+            "CompareBrowserVersions",
+            "CreateCoreWebView2Environment",
+            "CreateCoreWebView2EnvironmentWithOptions",
+            "GetAvailableCoreWebView2BrowserVersionString",
+            "GetAvailableCoreWebView2BrowserVersionStringWithOptions",
+        ])
+        .namespace("WebView2")
+        .library("WebView2Loader.dll")
+        .output("target/webview/WebView2.rdl")
+        .write()
+        .unwrap();
 
     reader()
         .input("target/webview/WebView2.rdl")

@@ -712,6 +712,7 @@ impl TranslationUnit {
             tu: &input.name,
             roots: &input.roots,
             root_dirs: &input.root_dirs,
+            root_suffixes: &input.root_suffixes,
             excluded_roots: &input.excluded_roots,
             next: 0,
             seen: HashMap::new(),
@@ -755,6 +756,7 @@ struct Traversal<'a> {
     tu: &'a str,
     roots: &'a BTreeSet<String>,
     root_dirs: &'a BTreeSet<String>,
+    root_suffixes: &'a BTreeSet<String>,
     excluded_roots: &'a BTreeSet<String>,
     next: u32,
     seen: HashMap<u32, Vec<(CXCursor, Origin)>>,
@@ -775,7 +777,13 @@ impl Traversal<'_> {
     fn is_root(&self, file: &str) -> bool {
         !self.excluded_roots.contains(file)
             && (self.roots.contains(file)
-                || self.root_dirs.iter().any(|root| file.starts_with(root)))
+                || self.root_dirs.iter().any(|root| file.starts_with(root))
+                || self.root_suffixes.iter().any(|root| {
+                    file == root
+                        || file
+                            .strip_suffix(root)
+                            .is_some_and(|prefix| prefix.ends_with('/'))
+                }))
     }
 }
 
@@ -945,7 +953,14 @@ fn extract_child(child: CXCursor, parent: Option<&Origin>, traversal: &mut Trave
                         || traversal
                             .root_dirs
                             .iter()
-                            .any(|root| spelling.file.starts_with(root)));
+                            .any(|root| spelling.file.starts_with(root))
+                        || traversal.root_suffixes.iter().any(|root| {
+                            spelling.file == *root
+                                || spelling
+                                    .file
+                                    .strip_suffix(root)
+                                    .is_some_and(|prefix| prefix.ends_with('/'))
+                        }));
                 let origin = Origin {
                     tu: traversal.tu.to_string(),
                     local,

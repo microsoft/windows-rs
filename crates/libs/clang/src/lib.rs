@@ -7,12 +7,16 @@ use std::fmt::{Display, Formatter};
 mod extract;
 pub use extract::extract;
 
+mod builder;
+pub use builder::{Clang, clang};
+
 #[derive(Clone, Debug)]
 pub struct Input {
     pub name: String,
     pub source: String,
     pub roots: BTreeSet<String>,
     pub root_dirs: BTreeSet<String>,
+    pub root_suffixes: BTreeSet<String>,
     pub excluded_roots: BTreeSet<String>,
 }
 
@@ -89,6 +93,7 @@ impl Input {
         Self {
             roots: BTreeSet::from([name.clone()]),
             root_dirs: BTreeSet::new(),
+            root_suffixes: BTreeSet::new(),
             excluded_roots: BTreeSet::new(),
             name,
             source: source.into(),
@@ -97,6 +102,15 @@ impl Input {
 
     pub fn with_roots(mut self, roots: impl IntoIterator<Item = impl Into<String>>) -> Self {
         self.roots
+            .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
+        self
+    }
+
+    pub fn with_root_suffixes(
+        mut self,
+        roots: impl IntoIterator<Item = impl Into<String>>,
+    ) -> Self {
+        self.root_suffixes
             .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
         self
     }
