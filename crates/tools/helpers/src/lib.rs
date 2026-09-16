@@ -2,6 +2,51 @@ use serde::Deserialize;
 use std::cmp::Ordering;
 use std::path::Path;
 
+mod provision;
+pub use provision::*;
+
+/// Target architecture settings shared by metadata generators.
+pub struct Arch {
+    pub name: String,
+    pub triple: String,
+    pub bits: i32,
+    pub defines: Vec<String>,
+}
+
+impl Arch {
+    pub fn known(name: &str) -> Option<Self> {
+        let (triple, bits) = match name {
+            "x64" => ("x86_64-pc-windows-msvc", 2),
+            "arm64" => ("aarch64-pc-windows-msvc", 4),
+            "x86" => ("i686-pc-windows-msvc", 1),
+            _ => return None,
+        };
+        Some(Self {
+            name: name.to_string(),
+            triple: triple.to_string(),
+            bits,
+            defines: Vec::new(),
+        })
+    }
+
+    pub fn canonical_plus(extra: &[String], build: impl Fn(&str) -> Self) -> Vec<Self> {
+        let mut archs = vec![build("x64")];
+        for name in extra {
+            if name != "x64" {
+                archs.push(build(name));
+            }
+        }
+        archs
+    }
+}
+
+pub fn find_in_dirs(name: &str, dirs: &[String]) -> Option<String> {
+    dirs.iter()
+        .map(|dir| Path::new(dir).join(name))
+        .find(|path| path.is_file())
+        .map(|path| path.to_string_lossy().replace('\\', "/"))
+}
+
 #[derive(Deserialize)]
 pub struct Crate {
     pub package: Package,
