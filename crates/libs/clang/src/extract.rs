@@ -16,56 +16,59 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
     let _library = Library::new()?;
     let index = Index::new()?;
     let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
-    let parse_time = std::time::Instant::now();
-    let mut translation_units = Vec::with_capacity(inputs.len());
-    for input in &inputs {
-        translation_units.push((
-            input.name.clone(),
-            TranslationUnit::parse(&index, input, args)?,
-        ));
-    }
-    if timing {
-        eprintln!("clang parse: {:.2}s", parse_time.elapsed().as_secs_f32());
-    }
-
-    let traversal_time = std::time::Instant::now();
+    let mut parse_time = std::time::Duration::ZERO;
+    let mut traversal_time = std::time::Duration::ZERO;
+    let mut constant_time = std::time::Duration::ZERO;
+    let mut deferred_time = std::time::Duration::ZERO;
     let mut facts = vec![];
     let mut constants = vec![];
-    let mut extracted = vec![];
-    for (name, translation_unit) in &translation_units {
-        let input = inputs.iter().find(|input| input.name == *name).unwrap();
-        extracted.push(translation_unit.extract(input, &mut facts, &mut constants));
-    }
-    decode_root_macro_definitions(&mut facts, &extracted);
-    if timing {
-        eprintln!(
-            "clang traversal: {:.2}s",
-            traversal_time.elapsed().as_secs_f32()
-        );
-    }
-    let constant_time = std::time::Instant::now();
-    let phase_time = std::time::Instant::now();
-    for (input, extracted) in inputs.iter().zip(&extracted) {
-        constants.extend(evaluate_constants(
+    for input in &inputs {
+        let phase_time = std::time::Instant::now();
+        let translation_unit = TranslationUnit::parse(&index, input, args)?;
+        parse_time += phase_time.elapsed();
+
+        let phase_time = std::time::Instant::now();
+        let mut input_facts = vec![];
+        let mut input_constants = vec![];
+        let extracted = translation_unit.extract(input, &mut input_facts, &mut input_constants);
+        decode_root_macro_definitions(&mut input_facts, std::slice::from_ref(&extracted));
+        traversal_time += phase_time.elapsed();
+
+        let phase_time = std::time::Instant::now();
+        input_constants.extend(evaluate_constants(
             &index,
             input,
             args,
-            &facts,
+            &input_facts,
             &extracted.macros,
         )?);
+        constant_time += phase_time.elapsed();
+
+        let phase_time = std::time::Instant::now();
+        decode_reachable_structs(
+            &mut input_facts,
+            &input_constants,
+            std::slice::from_ref(&extracted),
+        );
+        deferred_time += phase_time.elapsed();
+
+        facts.extend(input_facts);
+        constants.extend(input_constants);
     }
     if timing {
+        eprintln!(
+            "clang translation units: {} inputs, 1 primary input TU live at a time",
+            inputs.len()
+        );
+        eprintln!("clang parse: {:.2}s", parse_time.as_secs_f32());
+        eprintln!("clang traversal: {:.2}s", traversal_time.as_secs_f32());
         eprintln!(
             "clang constant evaluation: {:.2}s",
-            phase_time.elapsed().as_secs_f32()
+            constant_time.as_secs_f32()
         );
-    }
-    let phase_time = std::time::Instant::now();
-    decode_reachable_structs(&mut facts, &constants, &extracted);
-    if timing {
         eprintln!(
             "clang deferred records: {:.2}s",
-            phase_time.elapsed().as_secs_f32()
+            deferred_time.as_secs_f32()
         );
     }
     let phase_time = std::time::Instant::now();
@@ -82,12 +85,6 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
         eprintln!(
             "clang MIDL recovery: {:.2}s",
             phase_time.elapsed().as_secs_f32()
-        );
-    }
-    if timing {
-        eprintln!(
-            "clang constants: {:.2}s",
-            constant_time.elapsed().as_secs_f32()
         );
     }
     facts.sort();
@@ -584,7 +581,7 @@ impl Drop for Index {
     }
 }
 
-struct TranslationUnit(CXTranslationUnit);
+struct TranslationUnit(CXTranslationUnit, bool);
 
 struct Evaluated {
     name: String,
@@ -625,8 +622,9 @@ impl TranslationUnit {
             return Err(Error(format!("failed to parse `{}`", input.name)));
         }
 
-        let result = Self(value);
-        let errors = result.errors();
+        let mut result = Self(value, false);
+        let (errors, recoverable_negative_shift) = result.errors(input);
+        result.1 = recoverable_negative_shift;
         if errors.is_empty() {
             Ok(result)
         } else {
@@ -669,24 +667,40 @@ impl TranslationUnit {
                 input.name
             )))
         } else {
-            Ok(Self(value))
+            Ok(Self(value, false))
         }
     }
 
-    fn errors(&self) -> Vec<String> {
+    fn errors(&self, input: &Input) -> (Vec<String>, bool) {
         let mut result = vec![];
+        let mut recovered = false;
+        let macros = OnceCell::new();
         let count = unsafe { clang_getNumDiagnostics(self.0) };
         for index in 0..count {
             let diagnostic = unsafe { clang_getDiagnostic(self.0, index) };
             let severity = unsafe { clang_getDiagnosticSeverity(diagnostic) };
-            if severity >= CXDiagnostic_Error {
+            let recoverable = severity >= CXDiagnostic_Error && {
+                let spelling = cx_string(unsafe { clang_getDiagnosticSpelling(diagnostic) });
+                spelling == "expression is not an integral constant expression"
+                    && recoverable_negative_shift(
+                        diagnostic,
+                        input,
+                        macros.get_or_init(|| {
+                            macro_definitions(self, unsafe {
+                                clang_getTranslationUnitCursor(self.0)
+                            })
+                        }),
+                    )
+            };
+            recovered |= recoverable;
+            if severity >= CXDiagnostic_Error && !recoverable {
                 result.push(cx_string(unsafe {
                     clang_formatDiagnostic(diagnostic, clang_defaultDiagnosticDisplayOptions())
                 }));
             }
             unsafe { clang_disposeDiagnostic(diagnostic) };
         }
-        result
+        (result, recovered)
     }
 
     fn extract<'tu>(
@@ -750,6 +764,117 @@ impl Drop for TranslationUnit {
     fn drop(&mut self) {
         unsafe { clang_disposeTranslationUnit(self.0) };
     }
+}
+
+fn recoverable_negative_shift(
+    diagnostic: CXDiagnostic,
+    input: &Input,
+    macros: &MacroDefinitions,
+) -> bool {
+    unsafe {
+        let children = clang_getChildDiagnostics(diagnostic);
+        let count = clang_getNumDiagnosticsInSet(children);
+        let diagnostics = (0..count)
+            .map(|index| {
+                let child = clang_getDiagnosticInSet(children, index);
+                (
+                    cx_string(clang_getDiagnosticSpelling(child)),
+                    source_location(
+                        clang_getDiagnosticLocation(child),
+                        clang_getExpansionLocation,
+                    ),
+                )
+            })
+            .collect::<Vec<_>>();
+        let shift = diagnostics
+            .iter()
+            .find(|(spelling, _)| spelling.contains("left shift of negative value"))
+            .and_then(|(_, location)| location.as_ref());
+        shift.is_some_and(|shift| {
+            diagnostics.iter().any(|(spelling, _)| {
+                spelling
+                    .strip_prefix("expanded from macro '")
+                    .and_then(|spelling| spelling.strip_suffix('\''))
+                    .and_then(|name| {
+                        let (definition, function_like) = macros.unique_definition(name)?;
+                        let argument = diagnostic_bit_mask_argument(input, shift, name)?;
+                        recoverable_bit_mask_invocation(
+                            definition,
+                            function_like,
+                            &argument,
+                            macros,
+                        )
+                        .then_some(())
+                    })
+                    .is_some()
+            })
+        })
+    }
+}
+
+fn recoverable_bit_mask_invocation(
+    definition: &[String],
+    function_like: bool,
+    argument: &str,
+    macros: &MacroDefinitions,
+) -> bool {
+    if !function_like {
+        return false;
+    }
+    if bit_mask_parameter(definition).is_some() {
+        return parse_shift_literal(argument).is_some();
+    }
+    let Some((_, _, inner)) = shifted_bit_mask_parameters(definition) else {
+        return false;
+    };
+    let Some((inner_definition, true)) = macros.unique_definition(inner) else {
+        return false;
+    };
+    if bit_mask_parameter(inner_definition).is_none() {
+        return false;
+    }
+    let Some((shift, base)) = argument.split_once(',') else {
+        return false;
+    };
+    parse_shift_literal(shift.trim()).is_some()
+        && (parse_shift_literal(base.trim()).is_some() || identifier(base.trim()))
+}
+
+fn identifier(value: &str) -> bool {
+    let mut chars = value.chars();
+    chars
+        .next()
+        .is_some_and(|character| character.is_ascii_alphabetic() || character == '_')
+        && chars.all(|character| character.is_ascii_alphanumeric() || character == '_')
+}
+
+fn source_bit_mask_argument_in<'a>(source: &'a str, offset: u32, name: &str) -> Option<&'a str> {
+    let source = source.get(offset as usize..)?;
+    let source = source.strip_prefix(name)?.trim_start();
+    Some(source.strip_prefix('(')?.split_once(')')?.0.trim())
+}
+
+fn file_bit_mask_argument(location: &Location, name: &str) -> Option<String> {
+    let source = std::fs::read_to_string(&location.file).ok()?;
+    source_bit_mask_argument_in(&source, location.offset, name).map(str::to_string)
+}
+
+fn diagnostic_bit_mask_argument<'a>(
+    input: &'a Input,
+    location: &Location,
+    name: &str,
+) -> Option<std::borrow::Cow<'a, str>> {
+    if location.file == input.name {
+        source_bit_mask_argument_in(&input.source, location.offset, name).map(Into::into)
+    } else {
+        file_bit_mask_argument(location, name).map(Into::into)
+    }
+}
+
+fn parse_shift_literal(value: &str) -> Option<u32> {
+    let value = value.trim_end_matches(['u', 'U', 'l', 'L']);
+    let value = value.parse().ok()?;
+    (value < i32::BITS).then_some(value)
 }
 
 struct Traversal<'a> {
@@ -1184,6 +1309,7 @@ fn cursor_children(cursor: CXCursor) -> Vec<CXCursor> {
 struct MacroDefinitions<'tu> {
     definitions: HashMap<String, Vec<MacroDefinition>>,
     expansion_orders: HashMap<String, Vec<(u32, usize)>>,
+    recoverable_negative_shift: bool,
     translation_unit: PhantomData<&'tu TranslationUnit>,
 }
 
@@ -1250,13 +1376,23 @@ impl MacroDefinitions<'_> {
         let definition = self.definitions.get(name)?.last()?;
         Some((definition.tokens(), definition.function_like))
     }
+
+    fn unique_definition(&self, name: &str) -> Option<(&[String], bool)> {
+        let [definition] = self.definitions.get(name)?.as_slice() else {
+            return None;
+        };
+        Some((definition.tokens(), definition.function_like))
+    }
 }
 
 fn macro_definitions<'tu>(
-    _translation_unit: &'tu TranslationUnit,
+    translation_unit: &'tu TranslationUnit,
     cursor: CXCursor,
 ) -> MacroDefinitions<'tu> {
-    let mut result = MacroDefinitions::default();
+    let mut result = MacroDefinitions {
+        recoverable_negative_shift: translation_unit.1,
+        ..Default::default()
+    };
     for (order, child) in cursor_children(cursor).into_iter().enumerate() {
         let kind = unsafe { clang_getCursorKind(child) };
         if kind == CXCursor_MacroDefinition {
@@ -1939,14 +2075,19 @@ fn evaluate_float(cursor: CXCursor, scalar: Scalar) -> Option<Value> {
         if result.is_null() {
             return None;
         }
-        let value = (clang_EvalResult_getKind(result) == CXEval_Float).then(|| {
-            let value = clang_EvalResult_getAsDouble(result);
-            match scalar {
-                Scalar::F32 => Value::F32((value as f32).to_bits()),
-                Scalar::F64 => Value::F64(value.to_bits()),
-                _ => unreachable!(),
-            }
-        });
+        let value = (clang_EvalResult_getKind(result) == CXEval_Float)
+            .then(|| {
+                let value = clang_EvalResult_getAsDouble(result);
+                match scalar {
+                    Scalar::F32 => {
+                        let value = value as f32;
+                        value.is_finite().then(|| Value::F32(value.to_bits()))
+                    }
+                    Scalar::F64 => value.is_finite().then(|| Value::F64(value.to_bits())),
+                    _ => unreachable!(),
+                }
+            })
+            .flatten();
         clang_EvalResult_dispose(result);
         value
     }
@@ -2008,8 +2149,14 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
                 interface_fact(cursor, macros)
             } else {
                 cursor_uuid(cursor).map_or_else(
-                    || FactData::Unsupported {
-                        reason: "class has no UUID".to_string(),
+                    || {
+                        if representable_data_class(cursor) || class_has_data_definition(cursor) {
+                            record_fact(cursor, false)
+                        } else {
+                            FactData::Unsupported {
+                                reason: "class is not a public data-only record".to_string(),
+                            }
+                        }
                     },
                     |guid| FactData::Class { guid },
                 )
@@ -2020,15 +2167,24 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
             let Some(repr) = scalar(ty) else {
                 return FactData::None;
             };
-            let fixed = cursor_tokens(cursor).iter().any(|(_, token)| token == ":");
-            let variants = cursor_children(cursor)
+            let tokens = cursor_tokens(cursor)
                 .into_iter()
-                .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_EnumConstantDecl)
-                .map(|child| Variant {
-                    name: cx_string(unsafe { clang_getCursorSpelling(child) }),
-                    value: unsafe { clang_getEnumConstantDeclValue(child) },
-                })
-                .collect();
+                .map(|(_, token)| token)
+                .collect::<Vec<_>>();
+            let fixed = tokens.iter().any(|token| token == ":");
+            let mut variants = vec![];
+            for child in cursor_children(cursor)
+                .into_iter()
+                .filter(|child| unsafe { clang_getCursorKind(*child) == CXCursor_EnumConstantDecl })
+            {
+                let name = cx_string(unsafe { clang_getCursorSpelling(child) });
+                let value = macros
+                    .recoverable_negative_shift
+                    .then(|| msvc_bit_mask_value(&name, &tokens, macros, &variants))
+                    .flatten()
+                    .unwrap_or_else(|| unsafe { clang_getEnumConstantDeclValue(child) });
+                variants.push(Variant { name, value });
+            }
             FactData::Enum {
                 repr,
                 variants,
@@ -2150,37 +2306,7 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
             {
                 return FactData::Class { guid };
             }
-            let definition = unsafe { clang_isCursorDefinition(cursor) } != 0;
-            let mut record = if definition {
-                match inline_record(cursor, kind == FactKind::Union) {
-                    Ok(record) => record,
-                    Err(reason) => return FactData::Unsupported { reason },
-                }
-            } else {
-                InlineRecord {
-                    name: None,
-                    base: None,
-                    fields: vec![],
-                    size: unsafe { clang_Type_getSizeOf(clang_getCursorType(cursor)) },
-                    align: unsafe { clang_Type_getAlignOf(clang_getCursorType(cursor)) },
-                    packing: None,
-                    alignment: None,
-                    union: kind == FactKind::Union,
-                }
-            };
-            name_indirect_inline_records(
-                &mut record,
-                cx_string(unsafe { clang_getCursorSpelling(cursor) }).trim_start_matches('_'),
-            );
-            FactData::Record {
-                base: record.base,
-                fields: record.fields,
-                size: record.size,
-                align: record.align,
-                packing: record.packing,
-                alignment: record.alignment,
-                union: record.union,
-            }
+            record_fact(cursor, kind == FactKind::Union)
         }
         FactKind::Typedef => {
             let ty = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
@@ -2229,6 +2355,166 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
             )
         }
         _ => FactData::None,
+    }
+}
+
+fn msvc_bit_mask_value(
+    variant: &str,
+    tokens: &[String],
+    macros: &MacroDefinitions,
+    variants: &[Variant],
+) -> Option<i64> {
+    for index in 0..tokens.len().saturating_sub(5) {
+        if tokens[index] != variant || tokens[index + 1] != "=" || tokens[index + 3] != "(" {
+            continue;
+        }
+        let name = &tokens[index + 2];
+        let (definition, function_like) = macros.unique_definition(name)?;
+        if !function_like {
+            continue;
+        }
+        if bit_mask_parameter(definition).is_some() && tokens.get(index + 5)? == ")" {
+            let shift = parse_shift_literal(&tokens[index + 4])?;
+            return Some((1i64 << shift) - 1);
+        }
+        let (bits, base, inner) = shifted_bit_mask_parameters(definition)?;
+        let (inner_definition, true) = macros.unique_definition(inner)? else {
+            continue;
+        };
+        if bit_mask_parameter(inner_definition).is_none()
+            || tokens.get(index + 5)? != ","
+            || tokens.get(index + 7)? != ")"
+        {
+            continue;
+        }
+        let shift = parse_shift_literal(&tokens[index + 4])?;
+        let base_value = &tokens[index + 6];
+        let base_value = parse_shift_literal(base_value).map(i64::from).or_else(|| {
+            variants
+                .iter()
+                .find(|variant| variant.name == *base_value)
+                .map(|variant| variant.value)
+        })?;
+        if bits == base || !(0..i64::from(i32::BITS)).contains(&base_value) {
+            continue;
+        }
+        return ((1i64 << shift) - 1).checked_shl(base_value as u32);
+    }
+    None
+}
+
+fn bit_mask_parameter(definition: &[String]) -> Option<&str> {
+    let expression: Vec<_> = definition.iter().map(String::as_str).collect();
+    let [
+        "(",
+        parameter,
+        ")",
+        "(",
+        "~",
+        "(",
+        "(",
+        "~",
+        "0",
+        ")",
+        "<<",
+        shifted,
+        ")",
+        ")",
+    ] = expression.as_slice()
+    else {
+        return None;
+    };
+    (parameter == shifted).then_some(parameter)
+}
+
+fn shifted_bit_mask_parameters(definition: &[String]) -> Option<(&str, &str, &str)> {
+    let expression: Vec<_> = definition.iter().map(String::as_str).collect();
+    let [
+        "(",
+        bits,
+        ",",
+        base,
+        ")",
+        "(",
+        inner_name,
+        "(",
+        shifted,
+        ")",
+        "<<",
+        "(",
+        shifted_base,
+        ")",
+        ")",
+    ] = expression.as_slice()
+    else {
+        return None;
+    };
+    (bits == shifted && base == shifted_base).then_some((bits, base, inner_name))
+}
+
+fn class_has_data_definition(cursor: CXCursor) -> bool {
+    let definition = unsafe { clang_getCursorDefinition(cursor) };
+    (unsafe { clang_Cursor_isNull(definition) }) == 0 && representable_data_class(definition)
+}
+
+fn representable_data_class(cursor: CXCursor) -> bool {
+    if unsafe { clang_isCursorDefinition(cursor) } == 0 {
+        return false;
+    }
+    let children = cursor_children(cursor);
+    let fields: Vec<_> = children
+        .iter()
+        .copied()
+        .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_FieldDecl)
+        .collect();
+    !fields.is_empty()
+        && fields
+            .iter()
+            .all(|field| unsafe { clang_getCXXAccessSpecifier(*field) } == CX_CXXPublic)
+        && !children.iter().any(|child| {
+            matches!(
+                unsafe { clang_getCursorKind(*child) },
+                CXCursor_CXXBaseSpecifier
+                    | CXCursor_CXXMethod
+                    | CXCursor_Constructor
+                    | CXCursor_Destructor
+                    | CXCursor_ConversionFunction
+                    | CXCursor_FunctionTemplate
+            )
+        })
+}
+
+fn record_fact(cursor: CXCursor, union: bool) -> FactData {
+    let definition = unsafe { clang_isCursorDefinition(cursor) } != 0;
+    let mut record = if definition {
+        match inline_record(cursor, union) {
+            Ok(record) => record,
+            Err(reason) => return FactData::Unsupported { reason },
+        }
+    } else {
+        InlineRecord {
+            name: None,
+            base: None,
+            fields: vec![],
+            size: unsafe { clang_Type_getSizeOf(clang_getCursorType(cursor)) },
+            align: unsafe { clang_Type_getAlignOf(clang_getCursorType(cursor)) },
+            packing: None,
+            alignment: None,
+            union,
+        }
+    };
+    name_indirect_inline_records(
+        &mut record,
+        cx_string(unsafe { clang_getCursorSpelling(cursor) }).trim_start_matches('_'),
+    );
+    FactData::Record {
+        base: record.base,
+        fields: record.fields,
+        size: record.size,
+        align: record.align,
+        packing: record.packing,
+        alignment: record.alignment,
+        union: record.union,
     }
 }
 

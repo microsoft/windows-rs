@@ -479,6 +479,10 @@ pub use dxcore_interface::*;
 pub mod dxgi;
 #[cfg(feature = "dxgi")]
 pub use dxgi::*;
+#[cfg(feature = "dxva")]
+pub mod dxva;
+#[cfg(feature = "dxva")]
+pub use dxva::*;
 #[cfg(feature = "dxva2api")]
 pub mod dxva2api;
 #[cfg(feature = "dxva2api")]
@@ -915,6 +919,10 @@ pub use lzexpand::*;
 pub mod magnification;
 #[cfg(feature = "magnification")]
 pub use magnification::*;
+#[cfg(feature = "manipulations")]
+pub mod manipulations;
+#[cfg(feature = "manipulations")]
+pub use manipulations::*;
 #[cfg(feature = "mce")]
 pub mod mce;
 #[cfg(feature = "mce")]

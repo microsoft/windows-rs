@@ -1,0 +1,100 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad)]
+        interface IInertiaProcessor: IUnknown {
+            fn get_InitialOriginX(&self, x: *mut f32) -> HRESULT;
+            fn put_InitialOriginX(&self, x: f32) -> HRESULT;
+            fn get_InitialOriginY(&self, y: *mut f32) -> HRESULT;
+            fn put_InitialOriginY(&self, y: f32) -> HRESULT;
+            fn get_InitialVelocityX(&self, x: *mut f32) -> HRESULT;
+            fn put_InitialVelocityX(&self, x: f32) -> HRESULT;
+            fn get_InitialVelocityY(&self, y: *mut f32) -> HRESULT;
+            fn put_InitialVelocityY(&self, y: f32) -> HRESULT;
+            fn get_InitialAngularVelocity(&self, velocity: *mut f32) -> HRESULT;
+            fn put_InitialAngularVelocity(&self, velocity: f32) -> HRESULT;
+            fn get_InitialExpansionVelocity(&self, velocity: *mut f32) -> HRESULT;
+            fn put_InitialExpansionVelocity(&self, velocity: f32) -> HRESULT;
+            fn get_InitialRadius(&self, radius: *mut f32) -> HRESULT;
+            fn put_InitialRadius(&self, radius: f32) -> HRESULT;
+            fn get_BoundaryLeft(&self, left: *mut f32) -> HRESULT;
+            fn put_BoundaryLeft(&self, left: f32) -> HRESULT;
+            fn get_BoundaryTop(&self, top: *mut f32) -> HRESULT;
+            fn put_BoundaryTop(&self, top: f32) -> HRESULT;
+            fn get_BoundaryRight(&self, right: *mut f32) -> HRESULT;
+            fn put_BoundaryRight(&self, right: f32) -> HRESULT;
+            fn get_BoundaryBottom(&self, bottom: *mut f32) -> HRESULT;
+            fn put_BoundaryBottom(&self, bottom: f32) -> HRESULT;
+            fn get_ElasticMarginLeft(&self, left: *mut f32) -> HRESULT;
+            fn put_ElasticMarginLeft(&self, left: f32) -> HRESULT;
+            fn get_ElasticMarginTop(&self, top: *mut f32) -> HRESULT;
+            fn put_ElasticMarginTop(&self, top: f32) -> HRESULT;
+            fn get_ElasticMarginRight(&self, right: *mut f32) -> HRESULT;
+            fn put_ElasticMarginRight(&self, right: f32) -> HRESULT;
+            fn get_ElasticMarginBottom(&self, bottom: *mut f32) -> HRESULT;
+            fn put_ElasticMarginBottom(&self, bottom: f32) -> HRESULT;
+            fn get_DesiredDisplacement(&self, displacement: *mut f32) -> HRESULT;
+            fn put_DesiredDisplacement(&self, displacement: f32) -> HRESULT;
+            fn get_DesiredRotation(&self, rotation: *mut f32) -> HRESULT;
+            fn put_DesiredRotation(&self, rotation: f32) -> HRESULT;
+            fn get_DesiredExpansion(&self, expansion: *mut f32) -> HRESULT;
+            fn put_DesiredExpansion(&self, expansion: f32) -> HRESULT;
+            fn get_DesiredDeceleration(&self, deceleration: *mut f32) -> HRESULT;
+            fn put_DesiredDeceleration(&self, deceleration: f32) -> HRESULT;
+            fn get_DesiredAngularDeceleration(&self, deceleration: *mut f32) -> HRESULT;
+            fn put_DesiredAngularDeceleration(&self, deceleration: f32) -> HRESULT;
+            fn get_DesiredExpansionDeceleration(&self, deceleration: *mut f32) -> HRESULT;
+            fn put_DesiredExpansionDeceleration(&self, deceleration: f32) -> HRESULT;
+            fn get_InitialTimestamp(&self, timestamp: *mut u32) -> HRESULT;
+            fn put_InitialTimestamp(&self, timestamp: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Process(&self, completed: *mut BOOL) -> HRESULT;
+            fn ProcessTime(&self, timestamp: u32, completed: *mut BOOL) -> HRESULT;
+            fn Complete(&self) -> HRESULT;
+            fn CompleteTime(&self, timestamp: u32) -> HRESULT;
+        }
+        #[guid(0xa22ac519_8300_48a0_bef4_f1be8737dba4)]
+        interface IManipulationProcessor: IUnknown {
+            fn get_SupportedManipulations(&self, manipulations: *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> HRESULT;
+            fn put_SupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> HRESULT;
+            fn get_PivotPointX(&self, pivotPointX: *mut f32) -> HRESULT;
+            fn put_PivotPointX(&self, pivotPointX: f32) -> HRESULT;
+            fn get_PivotPointY(&self, pivotPointY: *mut f32) -> HRESULT;
+            fn put_PivotPointY(&self, pivotPointY: f32) -> HRESULT;
+            fn get_PivotRadius(&self, pivotRadius: *mut f32) -> HRESULT;
+            fn put_PivotRadius(&self, pivotRadius: f32) -> HRESULT;
+            fn CompleteManipulation(&self) -> HRESULT;
+            fn ProcessDown(&self, manipulatorId: MANIPULATOR_ID, x: f32, y: f32) -> HRESULT;
+            fn ProcessMove(&self, manipulatorId: MANIPULATOR_ID, x: f32, y: f32) -> HRESULT;
+            fn ProcessUp(&self, manipulatorId: MANIPULATOR_ID, x: f32, y: f32) -> HRESULT;
+            fn ProcessDownWithTime(&self, manipulatorId: MANIPULATOR_ID, x: f32, y: f32, timestamp: u32) -> HRESULT;
+            fn ProcessMoveWithTime(&self, manipulatorId: MANIPULATOR_ID, x: f32, y: f32, timestamp: u32) -> HRESULT;
+            fn ProcessUpWithTime(&self, manipulatorId: MANIPULATOR_ID, x: f32, y: f32, timestamp: u32) -> HRESULT;
+            fn GetVelocityX(&self, velocityX: *mut f32) -> HRESULT;
+            fn GetVelocityY(&self, velocityY: *mut f32) -> HRESULT;
+            fn GetExpansionVelocity(&self, expansionVelocity: *mut f32) -> HRESULT;
+            fn GetAngularVelocity(&self, angularVelocity: *mut f32) -> HRESULT;
+            fn get_MinimumScaleRotateRadius(&self, minRadius: *mut f32) -> HRESULT;
+            fn put_MinimumScaleRotateRadius(&self, minRadius: f32) -> HRESULT;
+        }
+        const InertiaProcessor: GUID = 0xabb27087_4ce0_4e58_a0cb_e24df96814be;
+        #[repr(u32)]
+        #[flags]
+        enum MANIPULATION_PROCESSOR_MANIPULATIONS {
+            MANIPULATION_NONE = 0,
+            MANIPULATION_TRANSLATE_X = 1,
+            MANIPULATION_TRANSLATE_Y = 2,
+            MANIPULATION_SCALE = 4,
+            MANIPULATION_ROTATE = 8,
+            MANIPULATION_ALL = 15,
+        }
+        type MANIPULATOR_ID = u32;
+        const ManipulationProcessor: GUID = 0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e;
+        #[guid(0x4f62c8da_9c53_4b22_93df_927a862bbb03)]
+        interface _IManipulationEvents: IUnknown {
+            fn ManipulationStarted(&self, x: f32, y: f32) -> HRESULT;
+            fn ManipulationDelta(&self, x: f32, y: f32, translationDeltaX: f32, translationDeltaY: f32, scaleDelta: f32, expansionDelta: f32, rotationDelta: f32, cumulativeTranslationX: f32, cumulativeTranslationY: f32, cumulativeScale: f32, cumulativeExpansion: f32, cumulativeRotation: f32) -> HRESULT;
+            fn ManipulationCompleted(&self, x: f32, y: f32, cumulativeTranslationX: f32, cumulativeTranslationY: f32, cumulativeScale: f32, cumulativeExpansion: f32, cumulativeRotation: f32) -> HRESULT;
+        }
+    }
+}

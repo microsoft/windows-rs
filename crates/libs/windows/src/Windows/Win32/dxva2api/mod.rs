@@ -1293,5 +1293,4 @@ impl IDirectXVideoProcessorService_Vtbl {
 }
 #[cfg(all(feature = "d3d9", feature = "winnt"))]
 impl windows_core::RuntimeName for IDirectXVideoProcessorService {}
-pub const MAX_DEINTERLACE_SURFACES: i32 = 32;
 pub const MAX_SUBSTREAMS: i32 = 15;

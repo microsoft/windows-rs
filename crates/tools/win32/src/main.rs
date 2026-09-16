@@ -282,6 +282,7 @@ const HEADERS: &[&str] = &[
     "magnification.h",
     "winusb.h",
     "directmanipulation.h",
+    "manipulations.h",
     "xinput.h",
     "restartmanager.h",
     "compressapi.h",
@@ -528,7 +529,10 @@ const SATELLITE_HEADERS: &[&str] = &[
     "winternl.h",
     "endpointvolume.h",
     "devicetopology.h",
+    "dxva.h",
 ];
+
+const SATELLITE_PREREQUISITES: &[(&str, &str)] = &[("dxva.h", "d3d9.h")];
 
 /// Import libraries (resolved against the pinned Windows SDK x64 lib tree) read to recover the
 /// function -> DLL mapping the headers do not carry. Ordered first-wins, so position is precedence:
@@ -1124,6 +1128,12 @@ fn clang_inputs(
         let mut source = String::from(PRELUDE);
         source.push_str(GUID_RESET);
         for header in &satellite_headers {
+            for (_, prerequisite) in SATELLITE_PREREQUISITES
+                .iter()
+                .filter(|(target, _)| target == header)
+            {
+                source.push_str(&format!("\n#include <{prerequisite}>"));
+            }
             // Its internal ks.h include requests only IKsControl and otherwise declares fallback
             // KS types. Load the full KS surface first so those duplicate fallbacks stay disabled.
             if *header == "devicetopology.h" {

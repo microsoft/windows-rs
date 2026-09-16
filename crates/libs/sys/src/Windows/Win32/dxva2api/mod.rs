@@ -446,5 +446,4 @@ pub const DXVA2_VideoTransferMatrix_BT601: DXVA2_VideoTransferMatrix = 2;
 pub const DXVA2_VideoTransferMatrix_BT709: DXVA2_VideoTransferMatrix = 1;
 pub const DXVA2_VideoTransferMatrix_SMPTE240M: DXVA2_VideoTransferMatrix = 3;
 pub const DXVA2_VideoTransferMatrix_Unknown: DXVA2_VideoTransferMatrix = 0;
-pub const MAX_DEINTERLACE_SURFACES: i32 = 32;
 pub const MAX_SUBSTREAMS: i32 = 15;

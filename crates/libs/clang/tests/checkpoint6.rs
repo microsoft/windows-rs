@@ -566,6 +566,403 @@ fn floating_point_macros_are_evaluated() {
 }
 
 #[test]
+fn non_finite_floating_point_constants_are_omitted() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [Input::new(
+            "non_finite_floats.hpp",
+            "const float FLOAT_INFINITY = __builtin_huge_valf();\n\
+             const double DOUBLE_INFINITY = __builtin_huge_val();\n\
+             const double NOT_A_NUMBER = __builtin_nan(\"\");\n\
+             #define MACRO_INFINITY (__builtin_huge_val())\n\
+             #define MACRO_NAN (__builtin_nan(\"\"))\n\
+             #define NARROWED_INFINITY 1.0e100f\n\
+             const float SDK_POSITIVE_INFINITY = ((float)(1e308 * 10));\n\
+             const float SDK_NEGATIVE_INFINITY = ((float)(-1e308 * 10));\n\
+             const float SDK_NAN = ((float)((1e308 * 10) * 0.));\n\
+             const float FINITE_FLOAT = 1.5f;\n\
+             #define FINITE_MACRO 2.5\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let rdl = snapshot.emit("NonFiniteFloats").unwrap();
+
+    assert!(!rdl.contains("FLOAT_INFINITY"), "{rdl}");
+    assert!(!rdl.contains("DOUBLE_INFINITY"), "{rdl}");
+    assert!(!rdl.contains("NOT_A_NUMBER"), "{rdl}");
+    assert!(!rdl.contains("MACRO_INFINITY"), "{rdl}");
+    assert!(!rdl.contains("MACRO_NAN"), "{rdl}");
+    assert!(!rdl.contains("NARROWED_INFINITY"), "{rdl}");
+    assert!(!rdl.contains("SDK_POSITIVE_INFINITY"), "{rdl}");
+    assert!(!rdl.contains("SDK_NEGATIVE_INFINITY"), "{rdl}");
+    assert!(!rdl.contains("SDK_NAN"), "{rdl}");
+    assert!(rdl.contains("const FINITE_FLOAT: f32 = 1.5"), "{rdl}");
+    assert!(rdl.contains("const FINITE_MACRO: f64 = 2.5"), "{rdl}");
+
+    let output =
+        std::env::temp_dir().join(format!("windows-clang-floats-{}.winmd", std::process::id()));
+    windows_rdl::reader()
+        .input_text(&rdl)
+        .output(&output)
+        .write()
+        .unwrap();
+    std::fs::remove_file(output).unwrap();
+}
+
+#[test]
+fn complete_interface_wins_over_cross_tu_opaque_record() {
+    helpers::ensure_libclang();
+
+    let opaque = Input::new(
+        "opaque-interface.hpp",
+        "struct IService;\n\
+         typedef struct IService IService;\n\
+         extern \"C\" void UseService(IService* value);\n",
+    );
+    let interface = Input::new(
+        "interface.hpp",
+        "struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IService {\n\
+             virtual int Invoke() = 0;\n\
+         };\n",
+    );
+
+    let forward = extract(
+        [opaque.clone(), interface.clone()],
+        &["-x", "c++", "-fms-extensions"],
+    )
+    .unwrap()
+    .emit_with_library("Interfaces", "api.dll")
+    .unwrap();
+    let reverse = extract([interface, opaque], &["-x", "c++", "-fms-extensions"])
+        .unwrap()
+        .emit_with_library("Interfaces", "api.dll")
+        .unwrap();
+
+    assert_eq!(forward, reverse);
+    assert!(forward.contains("interface IService"), "{forward}");
+    assert!(forward.contains("fn Invoke("), "{forward}");
+    assert!(
+        forward.contains("fn UseService(value: *mut IService)"),
+        "{forward}"
+    );
+    assert!(!forward.contains("struct IService"), "{forward}");
+}
+
+#[test]
+fn many_translation_units_preserve_hard_case_reconciliation() {
+    helpers::ensure_libclang();
+
+    let scratch =
+        std::env::temp_dir().join(format!("windows-clang-many-tus-{}", std::process::id()));
+    std::fs::create_dir_all(&scratch).unwrap();
+    let shared = scratch.join("shared.hpp");
+    let shared_source = "struct SharedDeferred { unsigned int value; };\n\
+                         #define SHARED_DEFERRED_VALUE 77\n";
+    std::fs::write(&shared, shared_source).unwrap();
+
+    let mut inputs = vec![
+        Input::new(shared.to_string_lossy(), shared_source),
+        Input::new(
+            scratch.join("shared-consumer.hpp").to_string_lossy(),
+            "#include \"shared.hpp\"\n\
+             extern \"C\" void UseShared(SharedDeferred* value);\n",
+        ),
+        Input::new(
+            scratch.join("shared-unreferenced.hpp").to_string_lossy(),
+            "#include \"shared.hpp\"\n\
+             typedef struct OWN_RECORD { unsigned int value; } OWN_RECORD;\n",
+        ),
+    ];
+    for index in 0..45 {
+        inputs.push(Input::new(
+            format!("partition-{index:02}.hpp"),
+            format!(
+                "typedef struct ITEM_{index:02} {{ unsigned int value; }} ITEM_{index:02};\n\
+                 #define ITEM_VALUE_{index:02} {index}\n"
+            ),
+        ));
+    }
+    inputs.extend([
+        Input::new(
+            "opaque-interface.hpp",
+            "struct IService;\n\
+             typedef struct IService IService;\n\
+             extern \"C\" void UseService(IService* value);\n",
+        ),
+        Input::new(
+            "interface.hpp",
+            "struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IService {\n\
+                 virtual int Invoke() = 0;\n\
+             };\n",
+        ),
+        Input::new(
+            "negative-shift.hpp",
+            "#define TEST_BIT_MASK(n) (~((~0) << n))\n\
+             #define TEST_COLOR_MASK(bits, base) (TEST_BIT_MASK(bits) << (base))\n\
+             typedef enum TEST_VALUES {\n\
+                 TEST_VALUE = TEST_BIT_MASK(5u),\n\
+                 TEST_SHIFT = 27,\n\
+                 TEST_SHIFTED_VALUE = TEST_COLOR_MASK(5, TEST_SHIFT),\n\
+             } TEST_VALUES;\n",
+        ),
+        Input::new(
+            "class-data.hpp",
+            "class Property {\n\
+             public:\n\
+                 unsigned long id;\n\
+                 union { void* value; unsigned long number; };\n\
+             };\n",
+        ),
+        Input::new(
+            "type-value-collision.hpp",
+            "typedef struct AE_ACLMOD { unsigned int value; } AE_ACLMOD;\n\
+             #define AE_ACLMOD 12\n",
+        ),
+    ]);
+
+    let include = format!("-I{}", scratch.display());
+    let args = [
+        "-x",
+        "c++",
+        "-std=c++17",
+        "-fms-extensions",
+        include.as_str(),
+    ];
+    let forward = extract(inputs.clone(), &args)
+        .unwrap()
+        .emit_with_library("ManyInputs", "api.dll")
+        .unwrap();
+    inputs.reverse();
+    let reverse = extract(inputs, &args)
+        .unwrap()
+        .emit_with_library("ManyInputs", "api.dll")
+        .unwrap();
+
+    assert_eq!(forward, reverse);
+    assert_eq!(forward.matches("struct ITEM_").count(), 45);
+    assert_eq!(forward.matches("const ITEM_VALUE_").count(), 45);
+    assert_eq!(forward.matches("struct SharedDeferred").count(), 1);
+    assert!(forward.contains("fn UseShared(value: *mut SharedDeferred)"));
+    assert!(forward.contains("interface IService"), "{forward}");
+    assert!(
+        forward.contains("fn UseService(value: *mut IService)"),
+        "{forward}"
+    );
+    assert!(
+        forward.contains("TEST_SHIFTED_VALUE = 4160749568"),
+        "{forward}"
+    );
+    assert!(forward.contains("struct Property"), "{forward}");
+    assert!(forward.contains("struct AE_ACLMOD"), "{forward}");
+    assert!(forward.contains("const AE_ACLMOD: i32 = 12"), "{forward}");
+
+    std::fs::remove_file(shared).unwrap();
+    std::fs::remove_dir(scratch).unwrap();
+}
+
+#[test]
+fn complete_interface_does_not_replace_cross_tu_opaque_union() {
+    helpers::ensure_libclang();
+
+    let error = extract(
+        [
+            Input::new(
+                "opaque-union.hpp",
+                "union IService;\n\
+                 typedef union IService IService;\n",
+            ),
+            Input::new(
+                "interface.hpp",
+                "struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IService {\n\
+                     virtual int Invoke() = 0;\n\
+                 };\n",
+            ),
+        ],
+        &["-x", "c++", "-fms-extensions"],
+    )
+    .unwrap()
+    .emit("Interfaces")
+    .unwrap_err();
+
+    assert!(
+        error.to_string().contains("ambiguous type root `IService`"),
+        "{error}"
+    );
+}
+
+#[test]
+fn recoverable_negative_shift_enum_preserves_evaluated_value() {
+    helpers::ensure_libclang();
+
+    let rdl = extract(
+        [Input::new(
+            "negative_shift.hpp",
+            "#define TEST_BIT_MASK(n) (~((~0) << n))\n\
+             #define TEST_COLOR_MASK(bits, base) (TEST_BIT_MASK(bits) << (base))\n\
+             typedef enum TEST_VALUES {\n\
+                 TEST_VALUE = TEST_BIT_MASK(5u),\n\
+                 TEST_SHIFT = 27,\n\
+                 TEST_SHIFTED_VALUE = TEST_COLOR_MASK(5, TEST_SHIFT),\n\
+             } TEST_VALUES;\n",
+        )],
+        &["-x", "c++", "-std=c++17"],
+    )
+    .unwrap()
+    .emit("NegativeShift")
+    .unwrap();
+
+    assert!(rdl.contains("TEST_VALUE = 31"), "{rdl}");
+    assert!(rdl.contains("TEST_SHIFTED_VALUE = 4160749568"), "{rdl}");
+
+    let error = extract(
+        [Input::new(
+            "invalid.hpp",
+            "typedef struct BROKEN { int value } BROKEN;",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap_err();
+    assert!(!error.to_string().is_empty());
+
+    let error = extract(
+        [Input::new(
+            "other_negative_shift.hpp",
+            "#define BAD_SHIFT(n) ((~0) << n)\n\
+             enum BAD_VALUES { BAD_VALUE = BAD_SHIFT(5) };\n",
+        )],
+        &["-x", "c++", "-std=c++17"],
+    )
+    .unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("expression is not an integral constant expression"),
+        "{error}"
+    );
+
+    let error = extract(
+        [Input::new(
+            "misparenthesized_shift.hpp",
+            "#define TEST_BIT_MASK(n) (~((~0) << n))\n\
+             #define BAD_COLOR_MASK(bits, base) TEST_BIT_MASK(bits << base)\n\
+             enum BAD_COLOR_VALUES { BAD_COLOR_VALUE = BAD_COLOR_MASK(5, 2) };\n",
+        )],
+        &["-x", "c++", "-std=c++17"],
+    )
+    .unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("expression is not an integral constant expression"),
+        "{error}"
+    );
+
+    let error = extract(
+        [Input::new(
+            "complex_shift.hpp",
+            "#define TEST_BIT_MASK(n) (~((~0) << n))\n\
+             enum COMPLEX_VALUES { COMPLEX_VALUE = TEST_BIT_MASK(1 + 4) };\n",
+        )],
+        &["-x", "c++", "-std=c++17"],
+    )
+    .unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("expression is not an integral constant expression"),
+        "{error}"
+    );
+
+    let error = extract(
+        [Input::new(
+            "redefined_shift.hpp",
+            "#define TEST_BIT_MASK(n) ((~0) << n)\n\
+             enum REDEFINED_VALUES { REDEFINED_VALUE = TEST_BIT_MASK(5) };\n\
+             #undef TEST_BIT_MASK\n\
+             #define TEST_BIT_MASK(n) (~((~0) << n))\n",
+        )],
+        &["-x", "c++", "-std=c++17"],
+    )
+    .unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("expression is not an integral constant expression"),
+        "{error}"
+    );
+}
+
+#[test]
+fn public_data_only_cpp_class_is_emitted_as_a_record() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [Input::new(
+            "class_data.hpp",
+            "class Property {\n\
+             public:\n\
+                 unsigned long id;\n\
+                 unsigned long size;\n\
+                 union {\n\
+                     void* value;\n\
+                     unsigned long number;\n\
+                 };\n\
+                 int persistent;\n\
+             };\n\
+             class Property;\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    assert!(
+        snapshot
+            .unsupported()
+            .all(|(fact, _)| fact.name != "Property"),
+        "{}",
+        snapshot.dump()
+    );
+    let rdl = snapshot.emit("ClassData").unwrap();
+
+    assert!(rdl.contains("struct Property"), "{rdl}");
+    assert!(rdl.contains("id: u32"), "{rdl}");
+    assert!(rdl.contains("size: u32"), "{rdl}");
+    assert!(rdl.contains("value: *mut void"), "{rdl}");
+    assert!(rdl.contains("number: u32"), "{rdl}");
+    assert!(rdl.contains("persistent: i32"), "{rdl}");
+}
+
+#[test]
+fn non_public_or_method_bearing_cpp_classes_remain_opaque() {
+    helpers::ensure_libclang();
+
+    let rdl = extract(
+        [Input::new(
+            "unsafe_classes.hpp",
+            "class PrivateData { int value; };\n\
+             class MethodData { public: int value; void Reset(); };\n\
+             class ProtectedData { protected: int value; };\n\
+             class BaseData { public: int value; };\n\
+             class DerivedData : public BaseData { public: int other; };\n\
+             extern \"C\" void UsePrivate(PrivateData* value);\n\
+             extern \"C\" void UseMethod(MethodData* value);\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap()
+    .emit_with_library("UnsafeClasses", "api.dll")
+    .unwrap();
+
+    assert!(rdl.contains("fn UsePrivate(value: *mut void)"), "{rdl}");
+    assert!(rdl.contains("fn UseMethod(value: *mut void)"), "{rdl}");
+    assert!(!rdl.contains("struct PrivateData"), "{rdl}");
+    assert!(!rdl.contains("struct MethodData"), "{rdl}");
+    assert!(!rdl.contains("struct ProtectedData"), "{rdl}");
+    assert!(!rdl.contains("struct DerivedData"), "{rdl}");
+}
+
+#[test]
 fn character_macros_are_evaluated() {
     helpers::ensure_libclang();
 

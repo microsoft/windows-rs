@@ -496,7 +496,7 @@ impl Snapshot {
     fn emit_items(
         &self,
         options: &EmitOptions<'_>,
-    ) -> Result<BTreeMap<String, (String, String)>, Error> {
+    ) -> Result<BTreeMap<(String, u8), (String, String)>, Error> {
         let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
         let plan_time = std::time::Instant::now();
         let plan = self.plan(
@@ -513,6 +513,7 @@ impl Snapshot {
         let mut items = BTreeMap::new();
         for planned in plan.types {
             let fact = planned.fact;
+            let namespace = if fact_emits_value(fact) { 2 } else { 0 };
             let item = match &fact.data {
                 FactData::Callback {
                     convention,
@@ -653,7 +654,10 @@ impl Snapshot {
                 }
             };
             if items
-                .insert(planned.name.clone(), (fact.spelling.file.clone(), item))
+                .insert(
+                    (planned.name.clone(), namespace),
+                    (fact.spelling.file.clone(), item),
+                )
                 .is_some()
             {
                 return Err(Error(format!("duplicate planned name `{}`", planned.name)));
@@ -717,7 +721,7 @@ impl Snapshot {
             );
             if items
                 .insert(
-                    function.name.clone(),
+                    (function.name.clone(), 1),
                     (function.spelling.file.clone(), item),
                 )
                 .is_some()
@@ -742,7 +746,7 @@ impl Snapshot {
             );
             if items
                 .insert(
-                    constant.name.clone(),
+                    (constant.name.clone(), 2),
                     (constant.spelling.file.clone(), item),
                 )
                 .is_some()
@@ -1005,7 +1009,26 @@ impl Snapshot {
                     choose_type_root_cached(name, &roots.types, &facts_index, &mut shape_cache)?;
                 root_names.insert(name.to_string());
                 type_roots.push(root);
+                if !roots.values.is_empty() {
+                    if fact_emits_value(root) {
+                        return Err(Error(format!("value roots collide on `{name}`")));
+                    }
+                    let scalar_values: Vec<_> = roots
+                        .values
+                        .iter()
+                        .copied()
+                        .filter(|constant| matches!(constant.ty, TypeRef::Scalar(_)))
+                        .collect();
+                    if !scalar_values.is_empty() {
+                        constants.push(choose_constant_root(name, &scalar_values)?);
+                    }
+                }
             } else if !roots.functions.is_empty() {
+                if !roots.values.is_empty() {
+                    return Err(Error(format!(
+                        "function and constant roots collide on `{name}`"
+                    )));
+                }
                 functions.push(choose_function_root(name, &roots.functions)?);
             } else {
                 let constant = choose_constant_root(name, &roots.values)?;
@@ -1140,15 +1163,22 @@ impl Snapshot {
             let collisions: Vec<_> = constants
                 .iter()
                 .filter_map(|constant| {
-                    grouped
-                        .get(constant.name.as_str())
-                        .map(|choices| (constant.name.as_str(), choices))
+                    (!root_names.contains(&constant.name))
+                        .then(|| {
+                            grouped
+                                .get(constant.name.as_str())
+                                .map(|choices| (constant.name.as_str(), choices))
+                        })
+                        .flatten()
                 })
                 .collect();
             if !collisions.is_empty() {
                 for (name, choices) in collisions {
                     let root =
                         choose_type_root_cached(name, choices, &facts_index, &mut shape_cache)?;
+                    if fact_emits_value(root) {
+                        return Err(Error(format!("value roots collide on `{name}`")));
+                    }
                     if root_names.insert(name.to_string()) {
                         type_roots.push(root);
                     }
@@ -1584,19 +1614,22 @@ impl Snapshot {
                 }
             })
             .collect();
-        let mut output_names = BTreeSet::new();
+        let mut type_output_names = BTreeSet::new();
         for planned in &types {
-            if !output_names.insert(planned.name.as_str()) {
+            if !type_output_names.insert(planned.name.as_str()) {
                 return Err(Error(format!("duplicate planned name `{}`", planned.name)));
             }
         }
+        let mut value_output_names = BTreeSet::new();
         for constant in &constants {
-            if !output_names.insert(constant.name.as_str()) {
+            if !value_output_names.insert(constant.name.as_str()) {
                 return Err(Error(format!("duplicate planned name `{}`", constant.name)));
             }
         }
         for function in &functions {
-            if !output_names.insert(function.name.as_str()) {
+            if type_output_names.contains(function.name.as_str())
+                || !value_output_names.insert(function.name.as_str())
+            {
                 return Err(Error(format!("duplicate planned name `{}`", function.name)));
             }
         }
@@ -1703,6 +1736,13 @@ fn is_type_fact(fact: &Fact) -> bool {
             | FactData::Interface { .. }
             | FactData::Record { .. }
             | FactData::Typedef { .. }
+    )
+}
+
+fn fact_emits_value(fact: &Fact) -> bool {
+    matches!(
+        fact.data,
+        FactData::Class { .. } | FactData::Guid { .. } | FactData::PropertyKey { .. }
     )
 }
 
@@ -2565,12 +2605,19 @@ fn choose_type_root_cached<'a>(
                 });
             fact.origin == root.origin
                 || (!fact.definition
-                    && matches!(
+                    && (matches!(
                         (&fact.data, &root.data),
                         (FactData::Enum { .. }, FactData::Enum { .. })
                             | (FactData::Record { .. }, FactData::Record { .. })
                             | (FactData::Interface { .. }, FactData::Interface { .. })
-                    )
+                    ) || (fact.kind == FactKind::Struct
+                        && matches!(
+                            (&fact.data, &root.data),
+                            (
+                                FactData::Record { union: false, .. },
+                                FactData::Interface { .. },
+                            )
+                        )))
                     && ((fact.parent.is_none() && root.parent.is_none())
                         || (fact.origin.tu == root.origin.tu
                             && (fact.parent == root.parent || linked_nested_declaration))))

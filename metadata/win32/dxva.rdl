@@ -1,0 +1,2081 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum COPP_ACP_Protection_Level {
+            COPP_ACP_Level0 = 0,
+            COPP_ACP_LevelMin = 0,
+            COPP_ACP_Level1 = 1,
+            COPP_ACP_Level2 = 2,
+            COPP_ACP_Level3 = 3,
+            COPP_ACP_LevelMax = 3,
+            COPP_ACP_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum COPP_BusType {
+            COPP_BusType_Unknown = 0,
+            COPP_BusType_PCI = 1,
+            COPP_BusType_PCIX = 2,
+            COPP_BusType_PCIExpress = 3,
+            COPP_BusType_AGP = 4,
+            COPP_BusType_Integrated = -2147483648,
+            COPP_BusType_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum COPP_CGMSA_Protection_Level {
+            COPP_CGMSA_Disabled = 0,
+            COPP_CGMSA_LevelMin = 0,
+            COPP_CGMSA_CopyFreely = 1,
+            COPP_CGMSA_CopyNoMore = 2,
+            COPP_CGMSA_CopyOneGeneration = 3,
+            COPP_CGMSA_CopyNever = 4,
+            COPP_CGMSA_RedistributionControlRequired = 8,
+            COPP_CGMSA_LevelMax = 12,
+            COPP_CGMSA_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum COPP_ConnectorType {
+            COPP_ConnectorType_Unknown = -1,
+            COPP_ConnectorType_VGA = 0,
+            COPP_ConnectorType_SVideo = 1,
+            COPP_ConnectorType_CompositeVideo = 2,
+            COPP_ConnectorType_ComponentVideo = 3,
+            COPP_ConnectorType_DVI = 4,
+            COPP_ConnectorType_HDMI = 5,
+            COPP_ConnectorType_LVDS = 6,
+            COPP_ConnectorType_TMDS = 7,
+            COPP_ConnectorType_D_JPN = 8,
+            COPP_ConnectorType_SDI = 9,
+            COPP_ConnectorType_DisplayPortExternal = 10,
+            COPP_ConnectorType_DisplayPortEmbedded = 11,
+            COPP_ConnectorType_UDIExternal = 12,
+            COPP_ConnectorType_UDIEmbedded = 13,
+            COPP_ConnectorType_Internal = -2147483648,
+            COPP_ConnectorType_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum COPP_DPCP_Protection_Level {
+            COPP_DPCP_Level0 = 0,
+            COPP_DPCP_LevelMin = 0,
+            COPP_DPCP_Level1 = 1,
+            COPP_DPCP_LevelMax = 1,
+            COPP_DPCP_ForceDWORD = 2147483647,
+        }
+        const COPP_DefaultProtectionLevel: i32 = 0;
+        #[repr(i32)]
+        enum COPP_HDCP_Protection_Level {
+            COPP_HDCP_Level0 = 0,
+            COPP_HDCP_LevelMin = 0,
+            COPP_HDCP_Level1 = 1,
+            COPP_HDCP_LevelMax = 1,
+            COPP_HDCP_ForceDWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum COPP_ImageAspectRatio_EN300294 {
+            COPP_AspectRatio_EN300294_FullFormat4by3 = 0,
+            COPP_AspectRatio_EN300294_Box14by9Center = 1,
+            COPP_AspectRatio_EN300294_Box14by9Top = 2,
+            COPP_AspectRatio_EN300294_Box16by9Center = 3,
+            COPP_AspectRatio_EN300294_Box16by9Top = 4,
+            COPP_AspectRatio_EN300294_BoxGT16by9Center = 5,
+            COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter = 6,
+            COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic = 7,
+            COPP_AspectRatio_ForceDWORD = 2147483647,
+        }
+        const COPP_ImageAspectRatio_EN300294_Mask: i32 = 7;
+        const COPP_NoProtectionLevelAvailable: i32 = -1;
+        const COPP_ProtectionType_ACP: i32 = 2;
+        const COPP_ProtectionType_CGMSA: i32 = 4;
+        const COPP_ProtectionType_DPCP: i32 = 16;
+        const COPP_ProtectionType_HDCP: i32 = 1;
+        const COPP_ProtectionType_Mask: i32 = -2147483625;
+        const COPP_ProtectionType_None: i32 = 0;
+        const COPP_ProtectionType_Reserved: i32 = 2147483640;
+        const COPP_ProtectionType_Unknown: i32 = -2147483648;
+        #[repr(i32)]
+        enum COPP_StatusFlags {
+            COPP_StatusNormal = 0,
+            COPP_LinkLost = 1,
+            COPP_RenegotiationRequired = 2,
+            COPP_StatusFlagsReserved = -4,
+        }
+        #[repr(i32)]
+        enum COPP_StatusHDCPFlags {
+            COPP_HDCPRepeater = 1,
+            COPP_HDCPFlagsReserved = -2,
+        }
+        #[repr(i32)]
+        enum COPP_TVProtectionStandard {
+            COPP_ProtectionStandard_Unknown = -2147483648,
+            COPP_ProtectionStandard_None = 0,
+            COPP_ProtectionStandard_IEC61880_525i = 1,
+            COPP_ProtectionStandard_IEC61880_2_525i = 2,
+            COPP_ProtectionStandard_IEC62375_625p = 4,
+            COPP_ProtectionStandard_EIA608B_525 = 8,
+            COPP_ProtectionStandard_EN300294_625i = 16,
+            COPP_ProtectionStandard_CEA805A_TypeA_525p = 32,
+            COPP_ProtectionStandard_CEA805A_TypeA_750p = 64,
+            COPP_ProtectionStandard_CEA805A_TypeA_1125i = 128,
+            COPP_ProtectionStandard_CEA805A_TypeB_525p = 256,
+            COPP_ProtectionStandard_CEA805A_TypeB_750p = 512,
+            COPP_ProtectionStandard_CEA805A_TypeB_1125i = 1024,
+            COPP_ProtectionStandard_ARIBTRB15_525i = 2048,
+            COPP_ProtectionStandard_ARIBTRB15_525p = 4096,
+            COPP_ProtectionStandard_ARIBTRB15_750p = 8192,
+            COPP_ProtectionStandard_ARIBTRB15_1125i = 16384,
+            COPP_ProtectionStandard_Mask = -2147450881,
+            COPP_ProtectionStandard_Reserved = 2147450880,
+        }
+        type DXVA_AI44sample = u8;
+        const DXVA_ALPHA_BLEND_COMBINATION_BUFFER: i32 = 13;
+        const DXVA_ALPHA_BLEND_COMBINATION_FUNCTION: i32 = 3;
+        const DXVA_ALPHA_BLEND_DATA_LOAD_FUNCTION: i32 = 2;
+        const DXVA_APV_MAX_COMPONENTS: i32 = 4;
+        const DXVA_APV_QM_DIMENSION: i32 = 8;
+        const DXVA_AYUV_BUFFER: i32 = 8;
+        struct DXVA_AYUVsample2 {
+            bCrValue: u8,
+            bCbValue: u8,
+            bY_Value: u8,
+            bSampleAlpha8: u8,
+        }
+        const DXVA_BIDIRECTIONAL_AVERAGING_H263_TRUNC: i32 = 1;
+        const DXVA_BIDIRECTIONAL_AVERAGING_MPEG2_ROUND: i32 = 0;
+        const DXVA_BITSTREAM_CONCEALMENT_METHOD_BACKWARD: i32 = 3;
+        const DXVA_BITSTREAM_CONCEALMENT_METHOD_FORWARD: i32 = 2;
+        const DXVA_BITSTREAM_CONCEALMENT_METHOD_INTRA: i32 = 1;
+        const DXVA_BITSTREAM_CONCEALMENT_METHOD_UNSPECIFIED: i32 = 0;
+        const DXVA_BITSTREAM_CONCEALMENT_NEED_LIKELY: i32 = 2;
+        const DXVA_BITSTREAM_CONCEALMENT_NEED_MILD: i32 = 1;
+        const DXVA_BITSTREAM_CONCEALMENT_NEED_SEVERE: i32 = 3;
+        const DXVA_BITSTREAM_CONCEALMENT_NEED_UNLIKELY: i32 = 0;
+        const DXVA_BITSTREAM_DATA_BUFFER: i32 = 7;
+        #[packed(1)]
+        struct DXVA_BlendCombination {
+            wPictureSourceIndex: u16,
+            wBlendedDestinationIndex: u16,
+            PictureSourceRect16thPel: RECT,
+            PictureDestinationRect: RECT,
+            GraphicSourceRect: RECT,
+            GraphicDestinationRect: RECT,
+            wBlendDelay: u16,
+            bBlendOn: u8,
+            bWholePlaneAlpha: u8,
+            OutsideYUVcolor: DXVA_AYUVsample2,
+        }
+        #[packed(1)]
+        struct DXVA_BufferDescription {
+            dwTypeIndex: u32,
+            dwBufferIndex: u32,
+            dwDataOffset: u32,
+            dwDataSize: u32,
+            dwFirstMBaddress: u32,
+            dwNumMBsInBuffer: u32,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwStride: u32,
+            dwReservedBits: u32,
+        }
+        const DXVA_CHROMA_FORMAT_420: i32 = 1;
+        const DXVA_CHROMA_FORMAT_422: i32 = 2;
+        const DXVA_CHROMA_FORMAT_444: i32 = 3;
+        const DXVA_COMPBUFFER_TYPE_THAT_IS_NOT_USED: i32 = 0;
+        const DXVA_CONFIG_BLEND_TYPE_BACK_HARDWARE: i32 = 1;
+        const DXVA_CONFIG_BLEND_TYPE_FRONT_BUFFER: i32 = 0;
+        const DXVA_CONFIG_DATA_TYPE_AI44: i32 = 1;
+        const DXVA_CONFIG_DATA_TYPE_AYUV: i32 = 3;
+        const DXVA_CONFIG_DATA_TYPE_DPXD: i32 = 2;
+        const DXVA_CONFIG_DATA_TYPE_IA44: i32 = 0;
+        struct DXVA_COPPCommand {
+            macKDI: GUID,
+            guidCommandID: GUID,
+            dwSequence: u32,
+            cbSizeData: u32,
+            CommandData: [u8; 4056],
+        }
+        const DXVA_COPPCommandFnCode: i32 = 4;
+        const DXVA_COPPDevice: GUID = 0xd2457add_8999_45ed_8a8a_d1aa047ba4d5;
+        const DXVA_COPPGetCertificateLengthFnCode: i32 = 1;
+        const DXVA_COPPKeyExchangeFnCode: i32 = 2;
+        const DXVA_COPPQueryBusData: GUID = 0xc6f4d673_6174_4184_8e35_f6db5200bcba;
+        const DXVA_COPPQueryConnectorType: GUID = 0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da;
+        const DXVA_COPPQueryDisplayData: GUID = 0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc;
+        const DXVA_COPPQueryGlobalProtectionLevel: GUID = 0x1957210a_7766_452a_b99a_d27aed54f03a;
+        const DXVA_COPPQueryHDCPKeyData: GUID = 0x0db59d74_a992_492e_a0bd_c23fda564e00;
+        const DXVA_COPPQueryLocalProtectionLevel: GUID = 0xb2075857_3eda_4d5d_88db_748f8c1a0549;
+        const DXVA_COPPQueryProtectionType: GUID = 0x38f2a801_9a6c_48bb_9107_b6696e6f1797;
+        const DXVA_COPPQuerySignaling: GUID = 0x6629a591_3b79_4cf3_924a_11e8e7811671;
+        const DXVA_COPPQueryStatusFnCode: i32 = 5;
+        const DXVA_COPPSequenceStartFnCode: i32 = 3;
+        const DXVA_COPPSetProtectionLevel: GUID = 0x9bb9327c_4eb5_4727_9f00_b42b0919c0da;
+        struct DXVA_COPPSetProtectionLevelCmdData {
+            ProtType: u32,
+            ProtLevel: u32,
+            ExtendedInfoChangeMask: u32,
+            ExtendedInfoData: u32,
+        }
+        const DXVA_COPPSetSignaling: GUID = 0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee;
+        struct DXVA_COPPSetSignalingCmdData {
+            ActiveTVProtectionStandard: u32,
+            AspectRatioChangeMask1: u32,
+            AspectRatioData1: u32,
+            AspectRatioChangeMask2: u32,
+            AspectRatioData2: u32,
+            AspectRatioChangeMask3: u32,
+            AspectRatioData3: u32,
+            ExtendedInfoChangeMask: [u32; 4],
+            ExtendedInfoData: [u32; 4],
+            Reserved: u32,
+        }
+        struct DXVA_COPPSignature {
+            Signature: [u8; 256],
+        }
+        struct DXVA_COPPStatusData {
+            rApp: GUID,
+            dwFlags: u32,
+            dwData: u32,
+            ExtendedInfoValidMask: u32,
+            ExtendedInfoData: u32,
+        }
+        struct DXVA_COPPStatusDisplayData {
+            rApp: GUID,
+            dwFlags: u32,
+            DisplayWidth: u32,
+            DisplayHeight: u32,
+            Format: u32,
+            d3dFormat: u32,
+            FreqNumerator: u32,
+            FreqDenominator: u32,
+        }
+        struct DXVA_COPPStatusHDCPKeyData {
+            rApp: GUID,
+            dwFlags: u32,
+            dwHDCPFlags: u32,
+            BKey: GUID,
+            Reserved1: GUID,
+            Reserved2: GUID,
+        }
+        struct DXVA_COPPStatusInput {
+            rApp: GUID,
+            guidStatusRequestID: GUID,
+            dwSequence: u32,
+            cbSizeData: u32,
+            StatusData: [u8; 4056],
+        }
+        struct DXVA_COPPStatusOutput {
+            macKDI: GUID,
+            cbSizeData: u32,
+            COPPStatus: [u8; 4076],
+        }
+        struct DXVA_COPPStatusSignalingCmdData {
+            rApp: GUID,
+            dwFlags: u32,
+            AvailableTVProtectionStandards: u32,
+            ActiveTVProtectionStandard: u32,
+            TVType: u32,
+            AspectRatioValidMask1: u32,
+            AspectRatioData1: u32,
+            AspectRatioValidMask2: u32,
+            AspectRatioData2: u32,
+            AspectRatioValidMask3: u32,
+            AspectRatioData3: u32,
+            ExtendedInfoValidMask: [u32; 4],
+            ExtendedInfoData: [u32; 4],
+        }
+        #[packed(1)]
+        struct DXVA_ConfigAlphaCombine {
+            dwFunction: DXVA_ConfigQueryOrReplyFunc,
+            dwReservedBits: [u32; 3],
+            bConfigBlendType: u8,
+            bConfigPictureResizing: u8,
+            bConfigOnlyUsePicDestRectArea: u8,
+            bConfigGraphicResizing: u8,
+            bConfigWholePlaneAlpha: u8,
+        }
+        #[packed(1)]
+        struct DXVA_ConfigAlphaLoad {
+            dwFunction: DXVA_ConfigQueryOrReplyFunc,
+            dwReservedBits: [u32; 3],
+            bConfigDataType: u8,
+        }
+        #[packed(1)]
+        struct DXVA_ConfigPictureDecode {
+            dwFunction: DXVA_ConfigQueryOrReplyFunc,
+            dwReservedBits: [u32; 3],
+            guidConfigBitstreamEncryption: GUID,
+            guidConfigMBcontrolEncryption: GUID,
+            guidConfigResidDiffEncryption: GUID,
+            bConfigBitstreamRaw: u8,
+            bConfigMBcontrolRasterOrder: u8,
+            bConfigResidDiffHost: u8,
+            bConfigSpatialResid8: u8,
+            bConfigResid8Subtraction: u8,
+            bConfigSpatialHost8or9Clipping: u8,
+            bConfigSpatialResidInterleaved: u8,
+            bConfigIntraResidUnsigned: u8,
+            bConfigResidDiffAccelerator: u8,
+            bConfigHostInverseScan: u8,
+            bConfigSpecificIDCT: u8,
+            bConfig4GroupedCoefs: u8,
+        }
+        type DXVA_ConfigQueryOrReplyFunc = u32;
+        #[packed(1)]
+        struct DXVA_ConnectMode {
+            guidMode: GUID,
+            wRestrictedMode: u16,
+        }
+        type DXVA_DCCMD = u16;
+        const DXVA_DCCMD_SURFACE_BUFFER: i32 = 12;
+        const DXVA_DEBLOCKING_CONTROL_BUFFER: i32 = 4;
+        const DXVA_DEBLOCKING_FILTER_FUNCTION: i32 = 5;
+        type DXVA_DPXD = u8;
+        const DXVA_DPXD_SURFACE_BUFFER: i32 = 10;
+        struct DXVA_DeblockIndexAB_H264 {
+            bIndexAinternal: u8,
+            bIndexBinternal: u8,
+            bIndexAleft0: u8,
+            bIndexBleft0: u8,
+            bIndexAleft1: u8,
+            bIndexBleft1: u8,
+            bIndexAtop0: u8,
+            bIndexBtop0: u8,
+            bIndexAtop1: u8,
+            bIndexBtop1: u8,
+        }
+        #[packed(1)]
+        struct DXVA_Deblock_H264 {
+            CurrMbAddr: u16,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        ReservedBit: 1,
+                        FieldModeCurrentMbFlag: 1,
+                        FieldModeLeftMbFlag: 1,
+                        FieldModeAboveMbFlag: 1,
+                        FilterInternal8x8EdgesFlag: 1,
+                        FilterInternal4x4EdgesFlag: 1,
+                        FilterLeftMbEdgeFlag: 1,
+                        FilterTopMbEdgeFlag: 1,
+                    },
+                },
+                FirstByte: u8,
+            },
+            Reserved8Bits: u8,
+            bbSinternalLeftVert: u8,
+            bbSinternalMidVert: u8,
+            bbSinternalRightVert: u8,
+            bbSinternalTopHorz: u8,
+            bbSinternalMidHorz: u8,
+            bbSinternalBotHorz: u8,
+            wbSLeft0: u16,
+            wbSLeft1: u16,
+            wbSTop0: u16,
+            wbSTop1: u16,
+            IndexAB: [DXVA_DeblockIndexAB_H264; 3],
+        }
+        type DXVA_DeblockingEdgeControl = u8;
+        struct DXVA_DeinterlaceBlt {
+            Size: u32,
+            Reserved: u32,
+            rtTarget: REFERENCE_TIME,
+            DstRect: RECT,
+            SrcRect: RECT,
+            NumSourceSurfaces: u32,
+            Alpha: f32,
+            Source: [DXVA_VideoSample; 32],
+        }
+        struct DXVA_DeinterlaceBltEx {
+            Size: u32,
+            BackgroundColor: DXVA_AYUVsample2,
+            rcTarget: RECT,
+            rtTarget: REFERENCE_TIME,
+            NumSourceSurfaces: u32,
+            Alpha: f32,
+            Source: [DXVA_VideoSample2; 32],
+            DestinationFormat: u32,
+            DestinationFlags: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct DXVA_DeinterlaceBltEx32 {
+            Size: u32,
+            BackgroundColor: DXVA_AYUVsample2,
+            rcTarget: RECT,
+            rtTarget: REFERENCE_TIME,
+            NumSourceSurfaces: u32,
+            Alpha: f32,
+            Source: [DXVA_VideoSample32; 32],
+            DestinationFormat: u32,
+            DestinationFlags: u32,
+        }
+        const DXVA_DeinterlaceBltExFnCode: i32 = 2;
+        const DXVA_DeinterlaceBltFnCode: i32 = 1;
+        const DXVA_DeinterlaceBobDevice: GUID = 0x335aa36e_7884_43a4_9c91_7f87faf3e37e;
+        struct DXVA_DeinterlaceCaps {
+            Size: u32,
+            NumPreviousOutputFrames: u32,
+            InputPool: u32,
+            NumForwardRefSamples: u32,
+            NumBackwardRefSamples: u32,
+            d3dOutputFormat: D3DFORMAT,
+            VideoProcessingCaps: DXVA_VideoProcessCaps,
+            DeinterlaceTechnology: DXVA_DeinterlaceTech,
+        }
+        const DXVA_DeinterlaceContainerDevice: GUID = 0x0e85cb93_3046_4ff0_aecc_d58cb5f035fd;
+        struct DXVA_DeinterlaceQueryAvailableModes {
+            Size: u32,
+            NumGuids: u32,
+            Guids: [GUID; 32],
+        }
+        const DXVA_DeinterlaceQueryAvailableModesFnCode: i32 = 1;
+        struct DXVA_DeinterlaceQueryModeCaps {
+            Size: u32,
+            Guid: GUID,
+            VideoDesc: DXVA_VideoDesc,
+        }
+        const DXVA_DeinterlaceQueryModeCapsFnCode: i32 = 2;
+        #[repr(i32)]
+        enum DXVA_DeinterlaceTech {
+            DXVA_DeinterlaceTech_Unknown = 0,
+            DXVA_DeinterlaceTech_BOBLineReplicate = 1,
+            DXVA_DeinterlaceTech_BOBVerticalStretch = 2,
+            DXVA_DeinterlaceTech_BOBVerticalStretch4Tap = 256,
+            DXVA_DeinterlaceTech_MedianFiltering = 4,
+            DXVA_DeinterlaceTech_EdgeFiltering = 16,
+            DXVA_DeinterlaceTech_FieldAdaptive = 32,
+            DXVA_DeinterlaceTech_PixelAdaptive = 64,
+            DXVA_DeinterlaceTech_MotionVectorSteered = 128,
+        }
+        #[repr(i32)]
+        enum DXVA_DestinationFlags {
+            DXVA_DestinationFlagMask = 15,
+            DXVA_DestinationFlag_Background_Changed = 1,
+            DXVA_DestinationFlag_TargetRect_Changed = 2,
+            DXVA_DestinationFlag_ColorData_Changed = 4,
+            DXVA_DestinationFlag_Alpha_Changed = 8,
+        }
+        const DXVA_ENCRYPTPROTOCOLFUNCFLAG_ACCEL: i32 = 16776968;
+        const DXVA_ENCRYPTPROTOCOLFUNCFLAG_HOST: i32 = 16776960;
+        const DXVA_EXECUTE_RETURN_DATA_ERROR_MINOR: i32 = 1;
+        const DXVA_EXECUTE_RETURN_DATA_ERROR_SEVERE: i32 = 3;
+        const DXVA_EXECUTE_RETURN_DATA_ERROR_SIGNIF: i32 = 2;
+        const DXVA_EXECUTE_RETURN_OK: i32 = 0;
+        const DXVA_EXECUTE_RETURN_OTHER_ERROR_SEVERE: i32 = 4;
+        type DXVA_EncryptProtocolFunc = u32;
+        #[packed(1)]
+        struct DXVA_EncryptProtocolHeader {
+            dwFunction: DXVA_EncryptProtocolFunc,
+            ReservedBits: [u32; 3],
+            guidEncryptProtocol: GUID,
+        }
+        const DXVA_ExtColorData_ShiftBase: i32 = 8;
+        struct DXVA_ExtendedFormat {
+            _bitfield: u32 {
+                SampleFormat: 8,
+                VideoChromaSubsampling: 4,
+                NominalRange: 3,
+                VideoTransferMatrix: 3,
+                VideoLighting: 4,
+                VideoPrimaries: 5,
+                VideoTransferFunction: 5,
+            },
+        }
+        const DXVA_FILM_GRAIN_BUFFER: i32 = 17;
+        const DXVA_FILM_GRAIN_SYNTHESIS_FUNCTION: i32 = 6;
+        #[packed(1)]
+        struct DXVA_FilmGrainChar_H264 {
+            wFrameWidthInMbsMinus1: u16,
+            wFrameHeightInMbsMinus1: u16,
+            InPic: DXVA_PicEntry_H264,
+            OutPic: DXVA_PicEntry_H264,
+            PicOrderCnt_offset: u16,
+            CurrPicOrderCnt: i32,
+            StatusReportFeedbackNumber: u32,
+            model_id: u8,
+            separate_colour_description_present_flag: u8,
+            film_grain_bit_depth_luma_minus8: u8,
+            film_grain_bit_depth_chroma_minus8: u8,
+            film_grain_full_range_flag: u8,
+            film_grain_colour_primaries: u8,
+            film_grain_transfer_characteristics: u8,
+            film_grain_matrix_coefficients: u8,
+            blending_mode_id: u8,
+            log2_scale_factor: u8,
+            comp_model_present_flag: [u8; 4],
+            num_intensity_intervals_minus1: [u8; 4],
+            num_model_values_minus1: [u8; 4],
+            intensity_interval_lower_bound: [[u8; 16]; 3],
+            intensity_interval_upper_bound: [[u8; 16]; 3],
+            comp_model_value: [[[i16; 8]; 16]; 3],
+        }
+        struct DXVA_Frequency {
+            Numerator: u32,
+            Denominator: u32,
+        }
+        const DXVA_HIGHLIGHT_BUFFER: i32 = 11;
+        #[packed(1)]
+        struct DXVA_Highlight {
+            wHighlightActive: u16,
+            wHighlightIndices: u16,
+            wHighlightAlphas: u16,
+            HighlightRect: RECT,
+        }
+        struct DXVA_HuffmanTable_MJPEG {
+            bits_ac: [[u8; 16]; 4],
+            table_ac: [[u8; 256]; 4],
+            bits_dc: [[u8; 16]; 4],
+            table_dc: [[u8; 256]; 4],
+        }
+        const DXVA_IA44_SURFACE_BUFFER: i32 = 9;
+        type DXVA_IA44sample = u8;
+        const DXVA_INVERSE_QUANTIZATION_MATRIX_BUFFER: i32 = 5;
+        const DXVA_MACROBLOCK_CONTROL_BUFFER: i32 = 2;
+        #[packed(1)]
+        struct DXVA_MBctrl_H264 {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32 {
+                        bSliceID: 8,
+                        MbType5Bits: 5,
+                        IntraMbFlag: 1,
+                        mb_field_decoding_flag: 1,
+                        transform_size_8x8_flag: 1,
+                        HostResidDiff: 1,
+                        DcBlockCodedCrFlag: 1,
+                        DcBlockCodedCbFlag: 1,
+                        DcBlockCodedYFlag: 1,
+                        FilterInternalEdgesFlag: 1,
+                        FilterLeftMbEdgeFlag: 1,
+                        FilterTopMbEdgeFlag: 1,
+                        ReservedBit: 1,
+                        bMvQuantity: 8,
+                    },
+                },
+                dwMBtype: u32,
+            },
+            CurrMbAddr: u16,
+            wPatternCode: [u16; 3],
+            bQpPrime: [u8; 3],
+            bMBresidDataQuantity: u8,
+            dwMBdataLocation: u32,
+            Anonymous2: union {
+                Anonymous: #[packed(1)] struct {
+                    LumaIntraPredModes: [u16; 4],
+                    Anonymous: union {
+                        Anonymous: struct {
+                            _bitfield: u8 {
+                                intra_chroma_pred_mode: 2,
+                                IntraPredAvailFlags: 5,
+                                ReservedIntraBit: 1,
+                            },
+                        },
+                        bMbIntraStruct: u8,
+                    },
+                    ReservedIntra24Bits: [u8; 3],
+                },
+                Anonymous2: #[packed(1)] struct {
+                    bSubMbShapes: u8,
+                    bSubMbPredModes: u8,
+                    wMvBuffOffset: u16,
+                    bRefPicSelect: [[u8; 4]; 2],
+                },
+            },
+        }
+        #[packed(1)]
+        struct DXVA_MBctrl_I_HostResidDiff_1 {
+            wMBaddress: u16,
+            wMBtype: u16,
+            dwMB_SNL: u32,
+            wPatternCode: u16,
+            wPC_Overflow: u16,
+            dwReservedBits2: u32,
+        }
+        #[packed(1)]
+        struct DXVA_MBctrl_I_OffHostIDCT_1 {
+            wMBaddress: u16,
+            wMBtype: u16,
+            dwMB_SNL: u32,
+            wPatternCode: u16,
+            bNumCoef: [u8; 6],
+        }
+        #[packed(1)]
+        struct DXVA_MBctrl_P_HostResidDiff_1 {
+            wMBaddress: u16,
+            wMBtype: u16,
+            dwMB_SNL: u32,
+            wPatternCode: u16,
+            wPC_Overflow: u16,
+            dwReservedBits2: u32,
+            MVector: [DXVA_MVvalue; 4],
+        }
+        #[packed(1)]
+        struct DXVA_MBctrl_P_OffHostIDCT_1 {
+            wMBaddress: u16,
+            wMBtype: u16,
+            dwMB_SNL: u32,
+            wPatternCode: u16,
+            bNumCoef: [u8; 6],
+            MVector: [DXVA_MVvalue; 4],
+        }
+        const DXVA_MOTION_VECTOR_BUFFER: i32 = 16;
+        const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H261: i32 = 2;
+        const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H263: i32 = 1;
+        const DXVA_MV_PRECISION_AND_CHROMA_RELATION_MPEG2: i32 = 0;
+        #[packed(1)]
+        struct DXVA_MVvalue {
+            horz: i16,
+            vert: i16,
+        }
+        const DXVA_ModeAPV_VLD_400_10: GUID = 0x37148862_6bd6_4618_8293_777b686b0824;
+        const DXVA_ModeAPV_VLD_422_10: GUID = 0x226a709d_ae12_44c5_ba21_164feeb7f9b6;
+        const DXVA_ModeAPV_VLD_422_12: GUID = 0xf6f152ad_94e5_4bfa_9227_676cddeff42b;
+        const DXVA_ModeAPV_VLD_4444_10: GUID = 0xc83799b9_9655_4b95_8008_56a322ce5d81;
+        const DXVA_ModeAPV_VLD_4444_12: GUID = 0x6a763ee3_4d05_47fe_a429_723474b69d7c;
+        const DXVA_ModeAPV_VLD_444_10: GUID = 0x6a4a8d7d_7610_469f_855f_39f13051c013;
+        const DXVA_ModeAPV_VLD_444_12: GUID = 0xf1039a1c_e208_45c1_952c_040841b67667;
+        const DXVA_ModeAV1_VLD_12bit_Profile2: GUID = 0x17127009_a00f_4ce1_994e_bf4081f6f3f0;
+        const DXVA_ModeAV1_VLD_12bit_Profile2_420: GUID = 0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8;
+        const DXVA_ModeAV1_VLD_Profile0: GUID = 0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a;
+        const DXVA_ModeAV1_VLD_Profile1: GUID = 0x6936ff0f_45b1_4163_9cc1_646ef6946108;
+        const DXVA_ModeAV1_VLD_Profile2: GUID = 0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8;
+        const DXVA_ModeH261_A: GUID = 0x1b81be01_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH261_B: GUID = 0x1b81be02_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH263_A: GUID = 0x1b81be03_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH263_B: GUID = 0x1b81be04_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH263_C: GUID = 0x1b81be05_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH263_D: GUID = 0x1b81be06_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH263_E: GUID = 0x1b81be07_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH263_F: GUID = 0x1b81be08_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH264_A: GUID = 0x1b81be64_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH264_B: GUID = 0x1b81be65_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH264_C: GUID = 0x1b81be66_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH264_D: GUID = 0x1b81be67_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH264_E: GUID = 0x1b81be68_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH264_F: GUID = 0x1b81be69_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeH264_VLD_Multiview_NoFGT: GUID = 0x705b9d82_76cf_49d6_b7e6_ac8872db013c;
+        const DXVA_ModeH264_VLD_Stereo_NoFGT: GUID = 0xf9aaccbb_c2b6_4cfc_8779_5707b1760552;
+        const DXVA_ModeH264_VLD_Stereo_Progressive_NoFGT: GUID = 0xd79be8da_0cf1_4c81_b82a_69a4e236f43d;
+        const DXVA_ModeH264_VLD_WithFMOASO_NoFGT: GUID = 0xd5f04ff9_3418_45d8_9561_32a76aae2ddd;
+        const DXVA_ModeHEVC_VLD_Main: GUID = 0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0;
+        const DXVA_ModeHEVC_VLD_Main10: GUID = 0x107af0e0_ef1a_4d19_aba8_67a163073d13;
+        const DXVA_ModeHEVC_VLD_Main10_422: GUID = 0x0bac4fe5_1532_4429_a854_f84de04953db;
+        const DXVA_ModeHEVC_VLD_Main10_444: GUID = 0x0dabeffa_4458_4602_bc03_0795659d617c;
+        const DXVA_ModeHEVC_VLD_Main10_Ext: GUID = 0x9cc55490_e37c_4932_8684_4920f9f6409c;
+        const DXVA_ModeHEVC_VLD_Main12: GUID = 0x1a72925f_0c2c_4f15_96fb_b17d1473603f;
+        const DXVA_ModeHEVC_VLD_Main12_422: GUID = 0x55bcac81_f311_4093_a7d0_1cbc0b849bee;
+        const DXVA_ModeHEVC_VLD_Main12_444: GUID = 0x9798634d_fe9d_48e5_b4da_dbec45b3df01;
+        const DXVA_ModeHEVC_VLD_Main16: GUID = 0xa4fbdbb0_a113_482b_a232_635cc0697f6d;
+        const DXVA_ModeHEVC_VLD_Main_444: GUID = 0x4008018f_f537_4b36_98cf_61af8a2c1a33;
+        const DXVA_ModeHEVC_VLD_Monochrome: GUID = 0x0685b993_3d8c_43a0_8b28_d74c2d6899a4;
+        const DXVA_ModeHEVC_VLD_Monochrome10: GUID = 0x142a1d0f_69dd_4ec9_8591_b12ffcb91a29;
+        const DXVA_ModeJPEG_VLD_420: GUID = 0xcf782c83_bef5_4a2c_87cb_6019e7b175ac;
+        const DXVA_ModeJPEG_VLD_422: GUID = 0xf04df417_eee2_4067_a778_f35c15ab9721;
+        const DXVA_ModeJPEG_VLD_444: GUID = 0x4cd00e17_89ba_48ef_b9f9_edcb82713f65;
+        const DXVA_ModeMJPEG_VLD_420: GUID = 0x725cb506_0c29_43c4_9440_8e9397903a04;
+        const DXVA_ModeMJPEG_VLD_422: GUID = 0x5b77b9cd_1a35_4c30_9fd8_ef4b60c035dd;
+        const DXVA_ModeMJPEG_VLD_444: GUID = 0xd95161f9_0d44_47e6_bcf5_1bfbfb268f97;
+        const DXVA_ModeMJPEG_VLD_4444: GUID = 0xc91748d5_fd18_4aca_9db3_3a6634ab547d;
+        const DXVA_ModeMPEG1_A: GUID = 0x1b81be09_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeMPEG1_VLD: GUID = 0x6f3ec719_3735_42cc_8063_65cc3cb36616;
+        const DXVA_ModeMPEG2_A: GUID = 0x1b81be0a_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeMPEG2_B: GUID = 0x1b81be0b_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeMPEG2_C: GUID = 0x1b81be0c_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeMPEG2_D: GUID = 0x1b81be0d_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeMPEG2and1_VLD: GUID = 0x86695f12_340e_4f04_9fd3_9253dd327460;
+        const DXVA_ModeMPEG4pt2_VLD_AdvSimple_GMC: GUID = 0xab998b5b_4258_44a9_9feb_94e597a6baae;
+        const DXVA_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: GUID = 0xed418a9f_010d_4eda_9ae3_9a65358d8d2e;
+        const DXVA_ModeMPEG4pt2_VLD_Simple: GUID = 0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319;
+        const DXVA_ModeNone: GUID = 0x1b81be00_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeVC1_A: GUID = 0x1b81bea0_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeVC1_B: GUID = 0x1b81bea1_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeVC1_C: GUID = 0x1b81bea2_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeVC1_D: GUID = 0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeVC1_D2010: GUID = 0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeVP8_VLD: GUID = 0x90b899ea_3a62_4705_88b3_8df04b2744e7;
+        const DXVA_ModeVP9_VLD_10bit_Profile2: GUID = 0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7;
+        const DXVA_ModeVP9_VLD_Profile0: GUID = 0x463707f8_a1d0_4585_876d_83aa6d60b89e;
+        const DXVA_ModeWMV8_A: GUID = 0x1b81be80_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeWMV8_B: GUID = 0x1b81be81_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeWMV9_A: GUID = 0x1b81be90_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeWMV9_B: GUID = 0x1b81be91_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_ModeWMV9_C: GUID = 0x1b81be94_a0c7_11d3_b984_00c04f2e73c5;
+        const DXVA_NUM_TYPES_COMP_BUFFERS: i32 = 18;
+        const DXVA_NoEncrypt: GUID = 0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5;
+        #[repr(i32)]
+        enum DXVA_NominalRange {
+            DXVA_NominalRangeShift = 12,
+            DXVA_NominalRangeMask = 28672,
+            DXVA_NominalRange_Unknown = 0,
+            DXVA_NominalRange_Normal = 1,
+            DXVA_NominalRange_Wide = 2,
+            DXVA_NominalRange_0_255 = 1,
+            DXVA_NominalRange_16_235 = 2,
+            DXVA_NominalRange_48_208 = 3,
+        }
+        const DXVA_NumBlocksPerMB_420: i32 = 6;
+        const DXVA_NumBlocksPerMB_422: i32 = 8;
+        const DXVA_NumBlocksPerMB_444: i32 = 12;
+        const DXVA_NumMV_OBMC_off_BinPBwith4MV_off: i32 = 4;
+        const DXVA_NumMV_OBMC_off_BinPBwith4MV_on: i32 = 5;
+        const DXVA_NumMV_OBMC_on__BinPB_off: i32 = 10;
+        const DXVA_NumMV_OBMC_on__BinPB_on: i32 = 11;
+        const DXVA_PICTURE_DECODE_BUFFER: i32 = 1;
+        const DXVA_PICTURE_DECODING_FUNCTION: i32 = 1;
+        const DXVA_PICTURE_RESAMPLE_BUFFER: i32 = 14;
+        const DXVA_PICTURE_RESAMPLE_FUNCTION: i32 = 4;
+        const DXVA_PICTURE_STRUCTURE_BOTTOM_FIELD: i32 = 2;
+        const DXVA_PICTURE_STRUCTURE_FRAME: i32 = 3;
+        const DXVA_PICTURE_STRUCTURE_TOP_FIELD: i32 = 1;
+        struct DXVA_PicEntry_APV {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        Index7Bits: 7,
+                        ReservedFlag: 1,
+                    },
+                },
+                bPicEntry: u8,
+            },
+        }
+        #[packed(1)]
+        struct DXVA_PicEntry_AV1 {
+            width: u32,
+            height: u32,
+            wmmat: [i32; 6],
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        wminvalid: 1,
+                        wmtype: 2,
+                        Reserved: 5,
+                    },
+                },
+                GlobalMotionFlags: u8,
+            },
+            Index: u8,
+            Reserved16Bits: u16,
+        }
+        struct DXVA_PicEntry_H264 {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        Index7Bits: 7,
+                        AssociatedFlag: 1,
+                    },
+                },
+                bPicEntry: u8,
+            },
+        }
+        struct DXVA_PicEntry_HEVC {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        Index7Bits: 7,
+                        AssociatedFlag: 1,
+                    },
+                },
+                bPicEntry: u8,
+            },
+        }
+        struct DXVA_PicEntry_VPx {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        Index7Bits: 7,
+                        AssociatedFlag: 1,
+                    },
+                },
+                bPicEntry: u8,
+            },
+        }
+        struct DXVA_PicParams_APV {
+            pbu_reserved_zero_8bits: u8,
+            reserved_zero_32bits: u32,
+            frame_width: u32,
+            frame_height: u32,
+            chroma_format_idc: u8,
+            bit_depth_minus8: u8,
+            frame_info_reserved_zero_32bits: u32,
+            frame_header_reserved_zero_8bits: u8,
+            use_q_matrix: u8,
+            q_reserved_zero_8bits: u8,
+            tile_width_in_mbs: u32,
+            tile_height_in_mbs: u32,
+            tile_size_present_in_fh_flag: u8,
+            tileinfo_reserved_zero_8bits: u8,
+            tile_reserved_16bits: u16,
+            statusReportFeedbackNumber: u32,
+            CurrPic: DXVA_PicEntry_APV,
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_AV1 {
+            width: u32,
+            height: u32,
+            max_width: u32,
+            max_height: u32,
+            CurrPicTextureIndex: u8,
+            superres_denom: u8,
+            bitdepth: u8,
+            seq_profile: u8,
+            tiles: #[packed(1)] struct {
+                cols: u8,
+                rows: u8,
+                context_update_id: u16,
+                widths: [u16; 64],
+                heights: [u16; 64],
+            },
+            coding: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32 {
+                        use_128x128_superblock: 1,
+                        intra_edge_filter: 1,
+                        interintra_compound: 1,
+                        masked_compound: 1,
+                        warped_motion: 1,
+                        dual_filter: 1,
+                        jnt_comp: 1,
+                        screen_content_tools: 1,
+                        integer_mv: 1,
+                        cdef: 1,
+                        restoration: 1,
+                        film_grain: 1,
+                        intrabc: 1,
+                        high_precision_mv: 1,
+                        switchable_motion_mode: 1,
+                        filter_intra: 1,
+                        disable_frame_end_update_cdf: 1,
+                        disable_cdf_update: 1,
+                        reference_mode: 1,
+                        skip_mode: 1,
+                        reduced_tx_set: 1,
+                        superres: 1,
+                        tx_mode: 2,
+                        use_ref_frame_mvs: 1,
+                        enable_ref_frame_mvs: 1,
+                        reference_frame_update: 1,
+                        Reserved: 5,
+                    },
+                },
+                CodingParamToolFlags: u32,
+            },
+            format: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        frame_type: 2,
+                        show_frame: 1,
+                        showable_frame: 1,
+                        subsampling_x: 1,
+                        subsampling_y: 1,
+                        mono_chrome: 1,
+                        Reserved: 1,
+                    },
+                },
+                FormatAndPictureInfoFlags: u8,
+            },
+            primary_ref_frame: u8,
+            order_hint: u8,
+            order_hint_bits: u8,
+            frame_refs: [DXVA_PicEntry_AV1; 7],
+            RefFrameMapTextureIndex: [u8; 8],
+            loop_filter: #[packed(1)] struct {
+                filter_level: [u8; 2],
+                filter_level_u: u8,
+                filter_level_v: u8,
+                sharpness_level: u8,
+                Anonymous: union {
+                    Anonymous: struct {
+                        _bitfield: u8 {
+                            mode_ref_delta_enabled: 1,
+                            mode_ref_delta_update: 1,
+                            delta_lf_multi: 1,
+                            delta_lf_present: 1,
+                            Reserved: 4,
+                        },
+                    },
+                    ControlFlags: u8,
+                },
+                ref_deltas: [i8; 8],
+                mode_deltas: [i8; 2],
+                delta_lf_res: u8,
+                frame_restoration_type: [u8; 3],
+                log2_restoration_unit_size: [u16; 3],
+                Reserved16Bits: u16,
+            },
+            quantization: #[packed(1)] struct {
+                Anonymous: union {
+                    Anonymous: struct {
+                        _bitfield: u8 {
+                            delta_q_present: 1,
+                            delta_q_res: 2,
+                            Reserved: 5,
+                        },
+                    },
+                    ControlFlags: u8,
+                },
+                base_qindex: u8,
+                y_dc_delta_q: i8,
+                u_dc_delta_q: i8,
+                v_dc_delta_q: i8,
+                u_ac_delta_q: i8,
+                v_ac_delta_q: i8,
+                qm_y: u8,
+                qm_u: u8,
+                qm_v: u8,
+                Reserved16Bits: u16,
+            },
+            cdef: struct {
+                Anonymous: union {
+                    Anonymous: struct {
+                        _bitfield: u8 {
+                            damping: 2,
+                            bits: 2,
+                            Reserved: 4,
+                        },
+                    },
+                    ControlFlags: u8,
+                },
+                y_strengths: [DXVA_PicParams_AV1_5_1; 8],
+                uv_strengths: [DXVA_PicParams_AV1_5_2; 8],
+            },
+            interp_filter: u8,
+            segmentation: #[packed(1)] struct {
+                Anonymous: union {
+                    Anonymous: struct {
+                        _bitfield: u8 {
+                            enabled: 1,
+                            update_map: 1,
+                            update_data: 1,
+                            temporal_update: 1,
+                            Reserved: 4,
+                        },
+                    },
+                    ControlFlags: u8,
+                },
+                Reserved24Bits: [u8; 3],
+                feature_mask: [DXVA_PicParams_AV1_6_1; 8],
+                feature_data: [[i16; 8]; 8],
+            },
+            film_grain: #[packed(1)] struct {
+                Anonymous: #[packed(1)] union {
+                    Anonymous: #[packed(1)] struct {
+                        _bitfield: u16 {
+                            apply_grain: 1,
+                            scaling_shift_minus8: 2,
+                            chroma_scaling_from_luma: 1,
+                            ar_coeff_lag: 2,
+                            ar_coeff_shift_minus6: 2,
+                            grain_scale_shift: 2,
+                            overlap_flag: 1,
+                            clip_to_restricted_range: 1,
+                            matrix_coeff_is_identity: 1,
+                            Reserved: 3,
+                        },
+                    },
+                    ControlFlags: u16,
+                },
+                grain_seed: u16,
+                scaling_points_y: [[u8; 2]; 14],
+                num_y_points: u8,
+                scaling_points_cb: [[u8; 2]; 10],
+                num_cb_points: u8,
+                scaling_points_cr: [[u8; 2]; 10],
+                num_cr_points: u8,
+                ar_coeffs_y: [u8; 24],
+                ar_coeffs_cb: [u8; 25],
+                ar_coeffs_cr: [u8; 25],
+                cb_mult: u8,
+                cb_luma_mult: u8,
+                cr_mult: u8,
+                cr_luma_mult: u8,
+                Reserved8Bits: u8,
+                cb_offset: i16,
+                cr_offset: i16,
+            },
+            Reserved32Bits: u32,
+            StatusReportFeedbackNumber: u32,
+        }
+        union DXVA_PicParams_AV1_5_1 {
+            Anonymous: struct {
+                _bitfield: u8 {
+                    primary: 6,
+                    secondary: 2,
+                },
+            },
+            combined: u8,
+        }
+        union DXVA_PicParams_AV1_5_2 {
+            Anonymous: struct {
+                _bitfield: u8 {
+                    primary: 6,
+                    secondary: 2,
+                },
+            },
+            combined: u8,
+        }
+        union DXVA_PicParams_AV1_6_1 {
+            Anonymous: struct {
+                _bitfield: u8 {
+                    alt_q: 1,
+                    alt_lf_y_v: 1,
+                    alt_lf_y_h: 1,
+                    alt_lf_u: 1,
+                    alt_lf_v: 1,
+                    ref_frame: 1,
+                    skip: 1,
+                    globalmv: 1,
+                },
+            },
+            mask: u8,
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_H264 {
+            wFrameWidthInMbsMinus1: u16,
+            wFrameHeightInMbsMinus1: u16,
+            CurrPic: DXVA_PicEntry_H264,
+            num_ref_frames: u8,
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16 {
+                        field_pic_flag: 1,
+                        MbaffFrameFlag: 1,
+                        residual_colour_transform_flag: 1,
+                        sp_for_switch_flag: 1,
+                        chroma_format_idc: 2,
+                        RefPicFlag: 1,
+                        constrained_intra_pred_flag: 1,
+                        weighted_pred_flag: 1,
+                        weighted_bipred_idc: 2,
+                        MbsConsecutiveFlag: 1,
+                        frame_mbs_only_flag: 1,
+                        transform_8x8_mode_flag: 1,
+                        MinLumaBipredSize8x8Flag: 1,
+                        IntraPicFlag: 1,
+                    },
+                },
+                wBitFields: u16,
+            },
+            bit_depth_luma_minus8: u8,
+            bit_depth_chroma_minus8: u8,
+            Reserved16Bits: u16,
+            StatusReportFeedbackNumber: u32,
+            RefFrameList: [DXVA_PicEntry_H264; 16],
+            CurrFieldOrderCnt: [i32; 2],
+            FieldOrderCntList: [[i32; 2]; 16],
+            pic_init_qs_minus26: i8,
+            chroma_qp_index_offset: i8,
+            second_chroma_qp_index_offset: i8,
+            ContinuationFlag: u8,
+            pic_init_qp_minus26: i8,
+            num_ref_idx_l0_active_minus1: u8,
+            num_ref_idx_l1_active_minus1: u8,
+            Reserved8BitsA: u8,
+            FrameNumList: [u16; 16],
+            UsedForReferenceFlags: u32,
+            NonExistingFrameFlags: u16,
+            frame_num: u16,
+            log2_max_frame_num_minus4: u8,
+            pic_order_cnt_type: u8,
+            log2_max_pic_order_cnt_lsb_minus4: u8,
+            delta_pic_order_always_zero_flag: u8,
+            direct_8x8_inference_flag: u8,
+            entropy_coding_mode_flag: u8,
+            pic_order_present_flag: u8,
+            num_slice_groups_minus1: u8,
+            slice_group_map_type: u8,
+            deblocking_filter_control_present_flag: u8,
+            redundant_pic_cnt_present_flag: u8,
+            Reserved8BitsB: u8,
+            slice_group_change_rate_minus1: u16,
+            SliceGroupMap: [u8; 810],
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_H264_MVC {
+            wFrameWidthInMbsMinus1: u16,
+            wFrameHeightInMbsMinus1: u16,
+            CurrPic: DXVA_PicEntry_H264,
+            num_ref_frames: u8,
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16 {
+                        field_pic_flag: 1,
+                        MbaffFrameFlag: 1,
+                        residual_colour_transform_flag: 1,
+                        sp_for_switch_flag: 1,
+                        chroma_format_idc: 2,
+                        RefPicFlag: 1,
+                        constrained_intra_pred_flag: 1,
+                        weighted_pred_flag: 1,
+                        weighted_bipred_idc: 2,
+                        MbsConsecutiveFlag: 1,
+                        frame_mbs_only_flag: 1,
+                        transform_8x8_mode_flag: 1,
+                        MinLumaBipredSize8x8Flag: 1,
+                        IntraPicFlag: 1,
+                    },
+                },
+                wBitFields: u16,
+            },
+            bit_depth_luma_minus8: u8,
+            bit_depth_chroma_minus8: u8,
+            Reserved16Bits: u16,
+            StatusReportFeedbackNumber: u32,
+            RefFrameList: [DXVA_PicEntry_H264; 16],
+            CurrFieldOrderCnt: [i32; 2],
+            FieldOrderCntList: [[i32; 2]; 16],
+            pic_init_qs_minus26: i8,
+            chroma_qp_index_offset: i8,
+            second_chroma_qp_index_offset: i8,
+            ContinuationFlag: u8,
+            pic_init_qp_minus26: i8,
+            num_ref_idx_l0_active_minus1: u8,
+            num_ref_idx_l1_active_minus1: u8,
+            Reserved8BitsA: u8,
+            FrameNumList: [u16; 16],
+            UsedForReferenceFlags: u32,
+            NonExistingFrameFlags: u16,
+            frame_num: u16,
+            log2_max_frame_num_minus4: u8,
+            pic_order_cnt_type: u8,
+            log2_max_pic_order_cnt_lsb_minus4: u8,
+            delta_pic_order_always_zero_flag: u8,
+            direct_8x8_inference_flag: u8,
+            entropy_coding_mode_flag: u8,
+            pic_order_present_flag: u8,
+            num_slice_groups_minus1: u8,
+            slice_group_map_type: u8,
+            deblocking_filter_control_present_flag: u8,
+            redundant_pic_cnt_present_flag: u8,
+            Reserved8BitsB: u8,
+            slice_group_change_rate_minus1: u16,
+            num_views_minus1: u8,
+            view_id: [u16; 16],
+            num_anchor_refs_l0: [u8; 16],
+            anchor_ref_l0: [[u16; 16]; 16],
+            num_anchor_refs_l1: [u8; 16],
+            anchor_ref_l1: [[u16; 16]; 16],
+            num_non_anchor_refs_l0: [u8; 16],
+            non_anchor_ref_l0: [[u16; 16]; 16],
+            num_non_anchor_refs_l1: [u8; 16],
+            non_anchor_ref_l1: [[u16; 16]; 16],
+            curr_view_id: u16,
+            anchor_pic_flag: u8,
+            inter_view_flag: u8,
+            ViewIDList: [u16; 16],
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_HEVC {
+            PicWidthInMinCbsY: u16,
+            PicHeightInMinCbsY: u16,
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16 {
+                        chroma_format_idc: 2,
+                        separate_colour_plane_flag: 1,
+                        bit_depth_luma_minus8: 3,
+                        bit_depth_chroma_minus8: 3,
+                        log2_max_pic_order_cnt_lsb_minus4: 4,
+                        NoPicReorderingFlag: 1,
+                        NoBiPredFlag: 1,
+                        ReservedBits1: 1,
+                    },
+                },
+                wFormatAndSequenceInfoFlags: u16,
+            },
+            CurrPic: DXVA_PicEntry_HEVC,
+            sps_max_dec_pic_buffering_minus1: u8,
+            log2_min_luma_coding_block_size_minus3: u8,
+            log2_diff_max_min_luma_coding_block_size: u8,
+            log2_min_transform_block_size_minus2: u8,
+            log2_diff_max_min_transform_block_size: u8,
+            max_transform_hierarchy_depth_inter: u8,
+            max_transform_hierarchy_depth_intra: u8,
+            num_short_term_ref_pic_sets: u8,
+            num_long_term_ref_pics_sps: u8,
+            num_ref_idx_l0_default_active_minus1: u8,
+            num_ref_idx_l1_default_active_minus1: u8,
+            init_qp_minus26: i8,
+            ucNumDeltaPocsOfRefRpsIdx: u8,
+            wNumBitsForShortTermRPSInSlice: u16,
+            ReservedBits2: u16,
+            Anonymous2: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32 {
+                        scaling_list_enabled_flag: 1,
+                        amp_enabled_flag: 1,
+                        sample_adaptive_offset_enabled_flag: 1,
+                        pcm_enabled_flag: 1,
+                        pcm_sample_bit_depth_luma_minus1: 4,
+                        pcm_sample_bit_depth_chroma_minus1: 4,
+                        log2_min_pcm_luma_coding_block_size_minus3: 2,
+                        log2_diff_max_min_pcm_luma_coding_block_size: 2,
+                        pcm_loop_filter_disabled_flag: 1,
+                        long_term_ref_pics_present_flag: 1,
+                        sps_temporal_mvp_enabled_flag: 1,
+                        strong_intra_smoothing_enabled_flag: 1,
+                        dependent_slice_segments_enabled_flag: 1,
+                        output_flag_present_flag: 1,
+                        num_extra_slice_header_bits: 3,
+                        sign_data_hiding_enabled_flag: 1,
+                        cabac_init_present_flag: 1,
+                        ReservedBits3: 5,
+                    },
+                },
+                dwCodingParamToolFlags: u32,
+            },
+            Anonymous3: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32 {
+                        constrained_intra_pred_flag: 1,
+                        transform_skip_enabled_flag: 1,
+                        cu_qp_delta_enabled_flag: 1,
+                        pps_slice_chroma_qp_offsets_present_flag: 1,
+                        weighted_pred_flag: 1,
+                        weighted_bipred_flag: 1,
+                        transquant_bypass_enabled_flag: 1,
+                        tiles_enabled_flag: 1,
+                        entropy_coding_sync_enabled_flag: 1,
+                        uniform_spacing_flag: 1,
+                        loop_filter_across_tiles_enabled_flag: 1,
+                        pps_loop_filter_across_slices_enabled_flag: 1,
+                        deblocking_filter_override_enabled_flag: 1,
+                        pps_deblocking_filter_disabled_flag: 1,
+                        lists_modification_present_flag: 1,
+                        slice_segment_header_extension_present_flag: 1,
+                        IrapPicFlag: 1,
+                        IdrPicFlag: 1,
+                        IntraPicFlag: 1,
+                        ReservedBits4: 13,
+                    },
+                },
+                dwCodingSettingPicturePropertyFlags: u32,
+            },
+            pps_cb_qp_offset: i8,
+            pps_cr_qp_offset: i8,
+            num_tile_columns_minus1: u8,
+            num_tile_rows_minus1: u8,
+            column_width_minus1: [u16; 19],
+            row_height_minus1: [u16; 21],
+            diff_cu_qp_delta_depth: u8,
+            pps_beta_offset_div2: i8,
+            pps_tc_offset_div2: i8,
+            log2_parallel_merge_level_minus2: u8,
+            CurrPicOrderCntVal: i32,
+            RefPicList: [DXVA_PicEntry_HEVC; 15],
+            ReservedBits5: u8,
+            PicOrderCntValList: [i32; 15],
+            RefPicSetStCurrBefore: [u8; 8],
+            RefPicSetStCurrAfter: [u8; 8],
+            RefPicSetLtCurr: [u8; 8],
+            ReservedBits6: u16,
+            ReservedBits7: u16,
+            StatusReportFeedbackNumber: u32,
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_HEVC_RangeExt {
+            params: DXVA_PicParams_HEVC,
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16 {
+                        transform_skip_rotation_enabled_flag: 1,
+                        transform_skip_context_enabled_flag: 1,
+                        implicit_rdpcm_enabled_flag: 1,
+                        explicit_rdpcm_enabled_flag: 1,
+                        extended_precision_processing_flag: 1,
+                        intra_smoothing_disabled_flag: 1,
+                        persistent_rice_adaptation_enabled_flag: 1,
+                        high_precision_offsets_enabled_flag: 1,
+                        cabac_bypass_alignment_enabled_flag: 1,
+                        cross_component_prediction_enabled_flag: 1,
+                        chroma_qp_offset_list_enabled_flag: 1,
+                        ReservedBits8: 5,
+                    },
+                },
+                dwRangeExtensionFlags: u16,
+            },
+            diff_cu_chroma_qp_offset_depth: u8,
+            log2_sao_offset_scale_luma: u8,
+            log2_sao_offset_scale_chroma: u8,
+            log2_max_transform_skip_block_size_minus2: u8,
+            cb_qp_offset_list: [i8; 6],
+            cr_qp_offset_list: [i8; 6],
+            chroma_qp_offset_list_len_minus1: u8,
+            ReservedBits9: u16,
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_MJPEG {
+            width: u32,
+            height: u32,
+            numComponents: u8,
+            bitDepth: u8,
+            reserved16Bits: u16,
+            quantizationTableSelector: [u8; 4],
+            scanOffset: [u32; 4],
+            scanSize: [u32; 4],
+            componentIdentifier: [u8; 4],
+            restartInterval: u16,
+            reserved16Bits2: u16,
+            reserved32Bits: u32,
+            statusReportFeedbackNumber: u32,
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_MPEG4_PART2 {
+            short_video_header: u8,
+            vop_coding_type: u8,
+            vop_quant: u8,
+            wDecodedPictureIndex: u16,
+            wDeblockedPictureIndex: u16,
+            wForwardRefPictureIndex: u16,
+            wBackwardRefPictureIndex: u16,
+            vop_time_increment_resolution: u16,
+            TRB: [u32; 2],
+            TRD: [u32; 2],
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16 {
+                        unPicPostProc: 2,
+                        interlaced: 1,
+                        quant_type: 1,
+                        quarter_sample: 1,
+                        resync_marker_disable: 1,
+                        data_partitioned: 1,
+                        reversible_vlc: 1,
+                        reduced_resolution_vop_enable: 1,
+                        vop_coded: 1,
+                        vop_rounding_type: 1,
+                        intra_dc_vlc_thr: 3,
+                        top_field_first: 1,
+                        alternate_vertical_scan_flag: 1,
+                    },
+                },
+                wPicFlagBitFields: u16,
+            },
+            profile_and_level_indication: u8,
+            video_object_layer_verid: u8,
+            vop_width: u16,
+            vop_height: u16,
+            Anonymous2: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16 {
+                        sprite_enable: 2,
+                        no_of_sprite_warping_points: 6,
+                        sprite_warping_accuracy: 2,
+                    },
+                },
+                wSpriteBitFields: u16,
+            },
+            warping_mv: [[i16; 2]; 4],
+            Anonymous3: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        vop_fcode_forward: 3,
+                        vop_fcode_backward: 3,
+                    },
+                },
+                wFcodeBitFields: u8,
+            },
+            StatusReportFeedbackNumber: u16,
+            Reserved16BitsA: u16,
+            Reserved16BitsB: u16,
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_VP8 {
+            first_part_size: u32,
+            width: u32,
+            height: u32,
+            CurrPic: DXVA_PicEntry_VPx,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        frame_type: 1,
+                        version: 3,
+                        show_frame: 1,
+                        clamp_type: 1,
+                        ReservedFrameTag3Bits: 2,
+                    },
+                },
+                wFrameTagFlags: u8,
+            },
+            stVP8Segments: DXVA_segmentation_VP8,
+            filter_type: u8,
+            filter_level: u8,
+            sharpness_level: u8,
+            mode_ref_lf_delta_enabled: u8,
+            mode_ref_lf_delta_update: u8,
+            ref_lf_deltas: [i8; 4],
+            mode_lf_deltas: [i8; 4],
+            log2_nbr_of_dct_partitions: u8,
+            base_qindex: u8,
+            y1dc_delta_q: i8,
+            y2dc_delta_q: i8,
+            y2ac_delta_q: i8,
+            uvdc_delta_q: i8,
+            uvac_delta_q: i8,
+            alt_fb_idx: DXVA_PicEntry_VPx,
+            gld_fb_idx: DXVA_PicEntry_VPx,
+            lst_fb_idx: DXVA_PicEntry_VPx,
+            ref_frame_sign_bias_golden: u8,
+            ref_frame_sign_bias_altref: u8,
+            refresh_entropy_probs: u8,
+            vp8_coef_update_probs: [[[[u8; 11]; 3]; 8]; 4],
+            mb_no_coeff_skip: u8,
+            prob_skip_false: u8,
+            prob_intra: u8,
+            prob_last: u8,
+            prob_golden: u8,
+            intra_16x16_prob: [u8; 4],
+            intra_chroma_prob: [u8; 3],
+            vp8_mv_update_probs: [[u8; 19]; 2],
+            ReservedBits1: u16,
+            ReservedBits2: u16,
+            ReservedBits3: u16,
+            StatusReportFeedbackNumber: u32,
+        }
+        #[packed(1)]
+        struct DXVA_PicParams_VP9 {
+            CurrPic: DXVA_PicEntry_VPx,
+            profile: u8,
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16 {
+                        frame_type: 1,
+                        show_frame: 1,
+                        error_resilient_mode: 1,
+                        subsampling_x: 1,
+                        subsampling_y: 1,
+                        extra_plane: 1,
+                        refresh_frame_context: 1,
+                        frame_parallel_decoding_mode: 1,
+                        intra_only: 1,
+                        frame_context_idx: 2,
+                        reset_frame_context: 2,
+                        allow_high_precision_mv: 1,
+                        ReservedFormatInfo2Bits: 2,
+                    },
+                },
+                wFormatAndPictureInfoFlags: u16,
+            },
+            width: u32,
+            height: u32,
+            BitDepthMinus8Luma: u8,
+            BitDepthMinus8Chroma: u8,
+            interp_filter: u8,
+            Reserved8Bits: u8,
+            ref_frame_map: [DXVA_PicEntry_VPx; 8],
+            ref_frame_coded_width: [u32; 8],
+            ref_frame_coded_height: [u32; 8],
+            frame_refs: [DXVA_PicEntry_VPx; 3],
+            ref_frame_sign_bias: [i8; 4],
+            filter_level: i8,
+            sharpness_level: i8,
+            Anonymous2: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        mode_ref_delta_enabled: 1,
+                        mode_ref_delta_update: 1,
+                        use_prev_in_find_mv_refs: 1,
+                        ReservedControlInfo5Bits: 5,
+                    },
+                },
+                wControlInfoFlags: u8,
+            },
+            ref_deltas: [i8; 4],
+            mode_deltas: [i8; 2],
+            base_qindex: i16,
+            y_dc_delta_q: i8,
+            uv_dc_delta_q: i8,
+            uv_ac_delta_q: i8,
+            stVP9Segments: DXVA_segmentation_VP9,
+            log2_tile_cols: u8,
+            log2_tile_rows: u8,
+            uncompressed_header_size_byte_aligned: u16,
+            first_partition_size: u16,
+            Reserved16Bits: u16,
+            Reserved32Bits: u32,
+            StatusReportFeedbackNumber: u32,
+        }
+        #[packed(1)]
+        struct DXVA_PicResample {
+            wPicResampleSourcePicIndex: u16,
+            wPicResampleDestPicIndex: u16,
+            wPicResampleRcontrol: u16,
+            bPicResampleExtrapWidth: u8,
+            bPicResampleExtrapHeight: u8,
+            dwPicResampleSourceWidth: u32,
+            dwPicResampleSourceHeight: u32,
+            dwPicResampleDestWidth: u32,
+            dwPicResampleDestHeight: u32,
+            dwPicResampleFullDestWidth: u32,
+            dwPicResampleFullDestHeight: u32,
+        }
+        #[packed(1)]
+        struct DXVA_PictureParameters {
+            wDecodedPictureIndex: u16,
+            wDeblockedPictureIndex: u16,
+            wForwardRefPictureIndex: u16,
+            wBackwardRefPictureIndex: u16,
+            wPicWidthInMBminus1: u16,
+            wPicHeightInMBminus1: u16,
+            bMacroblockWidthMinus1: u8,
+            bMacroblockHeightMinus1: u8,
+            bBlockWidthMinus1: u8,
+            bBlockHeightMinus1: u8,
+            bBPPminus1: u8,
+            bPicStructure: u8,
+            bSecondField: u8,
+            bPicIntra: u8,
+            bPicBackwardPrediction: u8,
+            bBidirectionalAveragingMode: u8,
+            bMVprecisionAndChromaRelation: u8,
+            bChromaFormat: u8,
+            bPicScanFixed: u8,
+            bPicScanMethod: u8,
+            bPicReadbackRequests: u8,
+            bRcontrol: u8,
+            bPicSpatialResid8: u8,
+            bPicOverflowBlocks: u8,
+            bPicExtrapolation: u8,
+            bPicDeblocked: u8,
+            bPicDeblockConfined: u8,
+            bPic4MVallowed: u8,
+            bPicOBMC: u8,
+            bPicBinPB: u8,
+            bMV_RPS: u8,
+            bReservedBits: u8,
+            wBitstreamFcodes: u16,
+            wBitstreamPCEelements: u16,
+            bBitstreamConcealmentNeed: u8,
+            bBitstreamConcealmentMethod: u8,
+        }
+        struct DXVA_ProcAmpControlBlt {
+            Size: u32,
+            DstRect: RECT,
+            SrcRect: RECT,
+            Alpha: f32,
+            Brightness: f32,
+            Contrast: f32,
+            Hue: f32,
+            Saturation: f32,
+        }
+        const DXVA_ProcAmpControlBltFnCode: i32 = 1;
+        struct DXVA_ProcAmpControlCaps {
+            Size: u32,
+            InputPool: u32,
+            d3dOutputFormat: D3DFORMAT,
+            ProcAmpControlProps: u32,
+            VideoProcessingCaps: u32,
+        }
+        const DXVA_ProcAmpControlDevice: GUID = 0x9f200913_2ffd_4056_9f1e_e1b508f22dcf;
+        #[repr(i32)]
+        enum DXVA_ProcAmpControlProp {
+            DXVA_ProcAmp_None = 0,
+            DXVA_ProcAmp_Brightness = 1,
+            DXVA_ProcAmp_Contrast = 2,
+            DXVA_ProcAmp_Hue = 4,
+            DXVA_ProcAmp_Saturation = 8,
+        }
+        const DXVA_ProcAmpControlQueryCapsFnCode: i32 = 3;
+        struct DXVA_ProcAmpControlQueryRange {
+            Size: u32,
+            ProcAmpControlProp: DXVA_ProcAmpControlProp,
+            VideoDesc: DXVA_VideoDesc,
+        }
+        const DXVA_ProcAmpControlQueryRangeFnCode: i32 = 4;
+        #[packed(1)]
+        struct DXVA_QMatrix_MJPEG {
+            quantvals: [[u16; 64]; 4],
+        }
+        const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_FALSE_PLUS: i32 = 16777215;
+        const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_OK_COPY: i32 = 16777212;
+        const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_FALSE_PLUS: i32 = 16777211;
+        const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_COPY: i32 = 16777208;
+        const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_PLUS: i32 = 16777209;
+        const DXVA_QUERYORREPLYFUNCFLAG_DECODER_LOCK_QUERY: i32 = 16777205;
+        const DXVA_QUERYORREPLYFUNCFLAG_DECODER_PROBE_QUERY: i32 = 16777201;
+        #[packed(1)]
+        struct DXVA_QmatrixData {
+            bNewQmatrix: [u8; 4],
+            Qmatrix: [[u16; 64]; 4],
+        }
+        struct DXVA_Qmatrix_APV {
+            NumComponents: u8,
+            qmatrix_reserved_zero_32bits: u32,
+            QMatrix: [[[u8; 8]; 8]; 4],
+            qmatrix_reserved_zero_64bits: u64,
+        }
+        struct DXVA_Qmatrix_H264 {
+            bScalingLists4x4: [[u8; 16]; 6],
+            bScalingLists8x8: [[u8; 64]; 2],
+        }
+        struct DXVA_Qmatrix_HEVC {
+            ucScalingLists0: [[u8; 16]; 6],
+            ucScalingLists1: [[u8; 64]; 6],
+            ucScalingLists2: [[u8; 64]; 6],
+            ucScalingLists3: [[u8; 64]; 2],
+            ucScalingListDCCoefSizeID2: [u8; 6],
+            ucScalingListDCCoefSizeID3: [u8; 2],
+        }
+        const DXVA_READ_BACK_BUFFER: i32 = 15;
+        const DXVA_RESIDUAL_DIFFERENCE_BUFFER: i32 = 3;
+        const DXVA_RESTRICTED_MODE_H261_A: i32 = 1;
+        const DXVA_RESTRICTED_MODE_H261_B: i32 = 2;
+        const DXVA_RESTRICTED_MODE_H263_A: i32 = 3;
+        const DXVA_RESTRICTED_MODE_H263_B: i32 = 4;
+        const DXVA_RESTRICTED_MODE_H263_C: i32 = 5;
+        const DXVA_RESTRICTED_MODE_H263_D: i32 = 6;
+        const DXVA_RESTRICTED_MODE_H263_E: i32 = 7;
+        const DXVA_RESTRICTED_MODE_H263_F: i32 = 8;
+        const DXVA_RESTRICTED_MODE_H264_A: i32 = 100;
+        const DXVA_RESTRICTED_MODE_H264_B: i32 = 101;
+        const DXVA_RESTRICTED_MODE_H264_C: i32 = 102;
+        const DXVA_RESTRICTED_MODE_H264_D: i32 = 103;
+        const DXVA_RESTRICTED_MODE_H264_E: i32 = 104;
+        const DXVA_RESTRICTED_MODE_H264_F: i32 = 105;
+        const DXVA_RESTRICTED_MODE_H264_IDCT_FGT: i32 = 103;
+        const DXVA_RESTRICTED_MODE_H264_IDCT_NOFGT: i32 = 102;
+        const DXVA_RESTRICTED_MODE_H264_MOCOMP_FGT: i32 = 101;
+        const DXVA_RESTRICTED_MODE_H264_MOCOMP_NOFGT: i32 = 100;
+        const DXVA_RESTRICTED_MODE_H264_VLD_FGT: i32 = 105;
+        const DXVA_RESTRICTED_MODE_H264_VLD_MULTIVIEW_NOFGT: i32 = 115;
+        const DXVA_RESTRICTED_MODE_H264_VLD_NOFGT: i32 = 104;
+        const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_NOFGT: i32 = 114;
+        const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: i32 = 113;
+        const DXVA_RESTRICTED_MODE_H264_VLD_WITHFMOASO_NOFGT: i32 = 112;
+        const DXVA_RESTRICTED_MODE_MPEG1_A: i32 = 9;
+        const DXVA_RESTRICTED_MODE_MPEG1_VLD: i32 = 16;
+        const DXVA_RESTRICTED_MODE_MPEG2_A: i32 = 10;
+        const DXVA_RESTRICTED_MODE_MPEG2_B: i32 = 11;
+        const DXVA_RESTRICTED_MODE_MPEG2_C: i32 = 12;
+        const DXVA_RESTRICTED_MODE_MPEG2_D: i32 = 13;
+        const DXVA_RESTRICTED_MODE_MPEG2and1_VLD: i32 = 17;
+        const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_GMC: i32 = 178;
+        const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_NOGMC: i32 = 177;
+        const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_SIMPLE: i32 = 176;
+        const DXVA_RESTRICTED_MODE_UNRESTRICTED: i32 = 65535;
+        const DXVA_RESTRICTED_MODE_VC1_A: i32 = 160;
+        const DXVA_RESTRICTED_MODE_VC1_B: i32 = 161;
+        const DXVA_RESTRICTED_MODE_VC1_C: i32 = 162;
+        const DXVA_RESTRICTED_MODE_VC1_D: i32 = 163;
+        const DXVA_RESTRICTED_MODE_VC1_D2010: i32 = 164;
+        const DXVA_RESTRICTED_MODE_VC1_IDCT: i32 = 162;
+        const DXVA_RESTRICTED_MODE_VC1_MOCOMP: i32 = 161;
+        const DXVA_RESTRICTED_MODE_VC1_POSTPROC: i32 = 160;
+        const DXVA_RESTRICTED_MODE_VC1_VLD: i32 = 163;
+        const DXVA_RESTRICTED_MODE_WMV8_A: i32 = 128;
+        const DXVA_RESTRICTED_MODE_WMV8_B: i32 = 129;
+        const DXVA_RESTRICTED_MODE_WMV8_MOCOMP: i32 = 129;
+        const DXVA_RESTRICTED_MODE_WMV8_POSTPROC: i32 = 128;
+        const DXVA_RESTRICTED_MODE_WMV9_A: i32 = 144;
+        const DXVA_RESTRICTED_MODE_WMV9_B: i32 = 145;
+        const DXVA_RESTRICTED_MODE_WMV9_C: i32 = 148;
+        const DXVA_RESTRICTED_MODE_WMV9_IDCT: i32 = 148;
+        const DXVA_RESTRICTED_MODE_WMV9_MOCOMP: i32 = 145;
+        const DXVA_RESTRICTED_MODE_WMV9_POSTPROC: i32 = 144;
+        const DXVA_SCAN_METHOD_ALTERNATE_HORIZONTAL: i32 = 2;
+        const DXVA_SCAN_METHOD_ALTERNATE_VERTICAL: i32 = 1;
+        const DXVA_SCAN_METHOD_ARBITRARY: i32 = 3;
+        const DXVA_SCAN_METHOD_ZIG_ZAG: i32 = 0;
+        const DXVA_SLICE_CONTROL_BUFFER: i32 = 6;
+        const DXVA_STATUS_REPORTING_FUNCTION: i32 = 7;
+        type DXVA_Sample16 = [i16; 64];
+        type DXVA_Sample8 = [i8; 64];
+        #[repr(i32)]
+        enum DXVA_SampleFlags {
+            DXVA_SampleFlagsMask = 15,
+            DXVA_SampleFlag_Palette_Changed = 1,
+            DXVA_SampleFlag_SrcRect_Changed = 2,
+            DXVA_SampleFlag_DstRect_Changed = 4,
+            DXVA_SampleFlag_ColorData_Changed = 8,
+        }
+        #[repr(i32)]
+        enum DXVA_SampleFormat {
+            DXVA_SampleFormatMask = 255,
+            DXVA_SampleUnknown = 0,
+            DXVA_SamplePreviousFrame = 1,
+            DXVA_SampleProgressiveFrame = 2,
+            DXVA_SampleFieldInterleavedEvenFirst = 3,
+            DXVA_SampleFieldInterleavedOddFirst = 4,
+            DXVA_SampleFieldSingleEven = 5,
+            DXVA_SampleFieldSingleOdd = 6,
+            DXVA_SampleSubStream = 7,
+        }
+        #[packed(1)]
+        struct DXVA_SliceInfo {
+            wHorizontalPosition: u16,
+            wVerticalPosition: u16,
+            dwSliceBitsInBuffer: u32,
+            dwSliceDataLocation: u32,
+            bStartCodeBitOffset: u8,
+            bReservedBits: u8,
+            wMBbitOffset: u16,
+            wNumberMBsInSlice: u16,
+            wQuantizerScaleCode: u16,
+            wBadSliceChopping: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Slice_H264_Long {
+            BSNALunitDataLocation: u32,
+            SliceBytesInBuffer: u32,
+            wBadSliceChopping: u16,
+            first_mb_in_slice: u16,
+            NumMbsForSlice: u16,
+            BitOffsetToSliceData: u16,
+            slice_type: u8,
+            luma_log2_weight_denom: u8,
+            chroma_log2_weight_denom: u8,
+            num_ref_idx_l0_active_minus1: u8,
+            num_ref_idx_l1_active_minus1: u8,
+            slice_alpha_c0_offset_div2: i8,
+            slice_beta_offset_div2: i8,
+            Reserved8Bits: u8,
+            RefPicList: [[DXVA_PicEntry_H264; 32]; 2],
+            Weights: [[[[i16; 2]; 3]; 32]; 2],
+            slice_qs_delta: i8,
+            slice_qp_delta: i8,
+            redundant_pic_cnt: u8,
+            direct_spatial_mv_pred_flag: u8,
+            cabac_init_idc: u8,
+            disable_deblocking_filter_idc: u8,
+            slice_id: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Slice_H264_Short {
+            BSNALunitDataLocation: u32,
+            SliceBytesInBuffer: u32,
+            wBadSliceChopping: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Slice_HEVC_Short {
+            BSNALunitDataLocation: u32,
+            SliceBytesInBuffer: u32,
+            wBadSliceChopping: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Slice_VPx_Short {
+            BSNALunitDataLocation: u32,
+            SliceBytesInBuffer: u32,
+            wBadSliceChopping: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Status_AV1 {
+            StatusReportFeedbackNumber: u32,
+            CurrPic: DXVA_PicEntry_AV1,
+            BufType: u8,
+            Status: u8,
+            Reserved8Bits: u8,
+            NumMbsAffected: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Status_H264 {
+            StatusReportFeedbackNumber: u32,
+            CurrPic: DXVA_PicEntry_H264,
+            field_pic_flag: u8,
+            bDXVA_Func: u8,
+            bBufType: u8,
+            bStatus: u8,
+            bReserved8Bits: u8,
+            wNumMbsAffected: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Status_HEVC {
+            StatusReportFeedbackNumber: u16,
+            CurrPic: DXVA_PicEntry_HEVC,
+            bBufType: u8,
+            bStatus: u8,
+            bReserved8Bits: u8,
+            wNumMbsAffected: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Status_VC1 {
+            StatusReportFeedbackNumber: u16,
+            wDecodedPictureIndex: u16,
+            wDeblockedPictureIndex: u16,
+            bPicStructure: u8,
+            bBufType: u8,
+            bStatus: u8,
+            bReserved8Bits: u8,
+            wNumMbsAffected: u16,
+        }
+        #[packed(1)]
+        struct DXVA_Status_VPx {
+            StatusReportFeedbackNumber: u32,
+            CurrPic: DXVA_PicEntry_VPx,
+            bBufType: u8,
+            bStatus: u8,
+            bReserved8Bits: u8,
+            wNumMbsAffected: u16,
+        }
+        #[packed(1)]
+        struct DXVA_TCoef4Group {
+            TCoefIDX: [u8; 4],
+            TCoefValue: [i16; 4],
+        }
+        #[packed(1)]
+        struct DXVA_TCoefSingle {
+            wIndexWithEOB: u16,
+            TCoefValue: i16,
+        }
+        struct DXVA_Tile_APV {
+            tile_data_offset: u32,
+            tile_total_size: u32,
+            tile_data_reserved_zero_32bits: u32,
+            tile_index: u16,
+            tile_header_reserved_zero_32bits: u32,
+            tile_header_size: u16,
+            tile_component_data_size: [u32; 4],
+            tile_component_qp: [u8; 4],
+            tile_component_qp_zero_32bits: u32,
+        }
+        #[packed(1)]
+        struct DXVA_Tile_AV1 {
+            DataOffset: u32,
+            DataSize: u32,
+            row: u16,
+            column: u16,
+            Reserved16Bits: u16,
+            anchor_frame: u8,
+            Reserved8Bits: u8,
+        }
+        const DXVA_USUAL_BLOCK_HEIGHT: i32 = 8;
+        const DXVA_USUAL_BLOCK_SIZE: i32 = 64;
+        const DXVA_USUAL_BLOCK_WIDTH: i32 = 8;
+        #[repr(i32)]
+        enum DXVA_VideoChromaSubsampling {
+            DXVA_VideoChromaSubsamplingShift = 8,
+            DXVA_VideoChromaSubsamplingMask = 3840,
+            DXVA_VideoChromaSubsampling_Unknown = 0,
+            DXVA_VideoChromaSubsampling_ProgressiveChroma = 8,
+            DXVA_VideoChromaSubsampling_Horizontally_Cosited = 4,
+            DXVA_VideoChromaSubsampling_Vertically_Cosited = 2,
+            DXVA_VideoChromaSubsampling_Vertically_AlignedChromaPlanes = 1,
+            DXVA_VideoChromaSubsampling_MPEG2 = 5,
+            DXVA_VideoChromaSubsampling_MPEG1 = 1,
+            DXVA_VideoChromaSubsampling_DV_PAL = 6,
+            DXVA_VideoChromaSubsampling_Cosited = 7,
+        }
+        struct DXVA_VideoDesc {
+            Size: u32,
+            SampleWidth: u32,
+            SampleHeight: u32,
+            SampleFormat: u32,
+            d3dFormat: D3DFORMAT,
+            InputSampleFreq: DXVA_Frequency,
+            OutputFrameFreq: DXVA_Frequency,
+        }
+        #[repr(i32)]
+        enum DXVA_VideoLighting {
+            DXVA_VideoLightingShift = 18,
+            DXVA_VideoLightingMask = 3932160,
+            DXVA_VideoLighting_Unknown = 0,
+            DXVA_VideoLighting_bright = 1,
+            DXVA_VideoLighting_office = 2,
+            DXVA_VideoLighting_dim = 3,
+            DXVA_VideoLighting_dark = 4,
+        }
+        #[repr(i32)]
+        enum DXVA_VideoPrimaries {
+            DXVA_VideoPrimariesShift = 22,
+            DXVA_VideoPrimariesMask = 130023424,
+            DXVA_VideoPrimaries_Unknown = 0,
+            DXVA_VideoPrimaries_reserved = 1,
+            DXVA_VideoPrimaries_BT709 = 2,
+            DXVA_VideoPrimaries_BT470_2_SysM = 3,
+            DXVA_VideoPrimaries_BT470_2_SysBG = 4,
+            DXVA_VideoPrimaries_SMPTE170M = 5,
+            DXVA_VideoPrimaries_SMPTE240M = 6,
+            DXVA_VideoPrimaries_EBU3213 = 7,
+            DXVA_VideoPrimaries_SMPTE_C = 8,
+        }
+        #[repr(i32)]
+        enum DXVA_VideoProcessCaps {
+            DXVA_VideoProcess_None = 0,
+            DXVA_VideoProcess_YUV2RGB = 1,
+            DXVA_VideoProcess_StretchX = 2,
+            DXVA_VideoProcess_StretchY = 4,
+            DXVA_VideoProcess_AlphaBlend = 8,
+            DXVA_VideoProcess_SubRects = 16,
+            DXVA_VideoProcess_SubStreams = 32,
+            DXVA_VideoProcess_SubStreamsExtended = 64,
+            DXVA_VideoProcess_YUV2RGBExtended = 128,
+            DXVA_VideoProcess_AlphaBlendExtended = 256,
+        }
+        struct DXVA_VideoPropertyRange {
+            MinValue: f32,
+            MaxValue: f32,
+            DefaultValue: f32,
+            StepSize: f32,
+        }
+        struct DXVA_VideoSample {
+            rtStart: REFERENCE_TIME,
+            rtEnd: REFERENCE_TIME,
+            SampleFormat: DXVA_SampleFormat,
+            lpDDSSrcSurface: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        struct DXVA_VideoSample2 {
+            Size: u32,
+            Reserved: u32,
+            rtStart: REFERENCE_TIME,
+            rtEnd: REFERENCE_TIME,
+            SampleFormat: u32,
+            SampleFlags: u32,
+            lpDDSSrcSurface: *mut void,
+            rcSrc: RECT,
+            rcDst: RECT,
+            Palette: [DXVA_AYUVsample2; 16],
+        }
+        #[arch(X86)]
+        struct DXVA_VideoSample2 {
+            rtStart: REFERENCE_TIME,
+            rtEnd: REFERENCE_TIME,
+            SampleFormat: u32,
+            SampleFlags: u32,
+            lpDDSSrcSurface: *mut void,
+            rcSrc: RECT,
+            rcDst: RECT,
+            Palette: [DXVA_AYUVsample2; 16],
+        }
+        #[arch(X64 | Arm64)]
+        struct DXVA_VideoSample32 {
+            rtStart: REFERENCE_TIME,
+            rtEnd: REFERENCE_TIME,
+            SampleFormat: u32,
+            SampleFlags: u32,
+            lpDDSSrcSurface: u32,
+            rcSrc: RECT,
+            rcDst: RECT,
+            Palette: [DXVA_AYUVsample2; 16],
+        }
+        #[repr(i32)]
+        enum DXVA_VideoTransferFunction {
+            DXVA_VideoTransFuncShift = 27,
+            DXVA_VideoTransFuncMask = -134217728,
+            DXVA_VideoTransFunc_Unknown = 0,
+            DXVA_VideoTransFunc_10 = 1,
+            DXVA_VideoTransFunc_18 = 2,
+            DXVA_VideoTransFunc_20 = 3,
+            DXVA_VideoTransFunc_22 = 4,
+            DXVA_VideoTransFunc_22_709 = 5,
+            DXVA_VideoTransFunc_22_240M = 6,
+            DXVA_VideoTransFunc_22_8bit_sRGB = 7,
+            DXVA_VideoTransFunc_28 = 8,
+        }
+        #[repr(i32)]
+        enum DXVA_VideoTransferMatrix {
+            DXVA_VideoTransferMatrixShift = 15,
+            DXVA_VideoTransferMatrixMask = 229376,
+            DXVA_VideoTransferMatrix_Unknown = 0,
+            DXVA_VideoTransferMatrix_BT709 = 1,
+            DXVA_VideoTransferMatrix_BT601 = 2,
+            DXVA_VideoTransferMatrix_SMPTE240M = 3,
+        }
+        struct DXVA_segmentation_VP8 {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        segmentation_enabled: 1,
+                        update_mb_segmentation_map: 1,
+                        update_mb_segmentation_data: 1,
+                        mb_segement_abs_delta: 1,
+                        ReservedSegmentFlags4Bits: 4,
+                    },
+                },
+                wSegmentFlags: u8,
+            },
+            segment_feature_data: [[i8; 4]; 2],
+            mb_segment_tree_probs: [u8; 3],
+        }
+        #[packed(1)]
+        struct DXVA_segmentation_VP9 {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8 {
+                        enabled: 1,
+                        update_map: 1,
+                        temporal_update: 1,
+                        abs_delta: 1,
+                        ReservedSegmentFlags4Bits: 4,
+                    },
+                },
+                wSegmentInfoFlags: u8,
+            },
+            tree_probs: [u8; 7],
+            pred_probs: [u8; 3],
+            feature_data: [[i16; 4]; 8],
+            feature_mask: [u8; 8],
+        }
+        type LPDXVA_AI44sample = *mut u8;
+        type LPDXVA_AYUVsample2 = *mut DXVA_AYUVsample2;
+        type LPDXVA_BlendCombination = *mut DXVA_BlendCombination;
+        type LPDXVA_BufferDescription = *mut DXVA_BufferDescription;
+        type LPDXVA_COPPCommand = *mut DXVA_COPPCommand;
+        type LPDXVA_COPPSignature = *mut DXVA_COPPSignature;
+        type LPDXVA_COPPStatusInput = *mut DXVA_COPPStatusInput;
+        type LPDXVA_COPPStatusOutput = *mut DXVA_COPPStatusOutput;
+        type LPDXVA_ConfigAlphaCombine = *mut DXVA_ConfigAlphaCombine;
+        type LPDXVA_ConfigAlphaLoad = *mut DXVA_ConfigAlphaLoad;
+        type LPDXVA_ConfigPictureDecode = *mut DXVA_ConfigPictureDecode;
+        type LPDXVA_ConfigQueryOrReplyFunc = *mut u32;
+        type LPDXVA_ConnectMode = *mut DXVA_ConnectMode;
+        type LPDXVA_DCCMD = *mut u16;
+        type LPDXVA_DPXD = *mut u8;
+        type LPDXVA_DeblockIndexAB_H264 = *mut DXVA_DeblockIndexAB_H264;
+        type LPDXVA_Deblock_H264 = *mut DXVA_Deblock_H264;
+        type LPDXVA_DeblockingEdgeControl = *mut DXVA_DeblockingEdgeControl;
+        type LPDXVA_DeinterlaceCaps = *mut DXVA_DeinterlaceCaps;
+        type LPDXVA_EncryptProtocolFunc = *mut u32;
+        type LPDXVA_EncryptProtocolHeader = *mut DXVA_EncryptProtocolHeader;
+        type LPDXVA_FilmGrainChar_H264 = *mut DXVA_FilmGrainChar_H264;
+        type LPDXVA_Highlight = *mut DXVA_Highlight;
+        type LPDXVA_HuffmanTable_MJPEG = *mut DXVA_HuffmanTable_MJPEG;
+        type LPDXVA_IA44sample = *mut u8;
+        type LPDXVA_MBctrl_H264 = *mut DXVA_MBctrl_H264;
+        type LPDXVA_MBctrl_I_HostResidDiff_1 = *mut DXVA_MBctrl_I_HostResidDiff_1;
+        type LPDXVA_MBctrl_I_OffHostIDCT_1 = *mut DXVA_MBctrl_I_OffHostIDCT_1;
+        type LPDXVA_MBctrl_P_HostResidDiff_1 = *mut DXVA_MBctrl_P_HostResidDiff_1;
+        type LPDXVA_MBctrl_P_OffHostIDCT_1 = *mut DXVA_MBctrl_P_OffHostIDCT_1;
+        type LPDXVA_MVvalue = *mut DXVA_MVvalue;
+        type LPDXVA_PicEntry_APV = *mut DXVA_PicEntry_APV;
+        type LPDXVA_PicEntry_AV1 = *mut DXVA_PicEntry_AV1;
+        type LPDXVA_PicEntry_H264 = *mut DXVA_PicEntry_H264;
+        type LPDXVA_PicEntry_HEVC = *mut DXVA_PicEntry_HEVC;
+        type LPDXVA_PicEntry_VPx = *mut DXVA_PicEntry_VPx;
+        type LPDXVA_PicParams_APV = *mut DXVA_PicParams_APV;
+        type LPDXVA_PicParams_AV1 = *mut DXVA_PicParams_AV1;
+        type LPDXVA_PicParams_H264 = *mut DXVA_PicParams_H264;
+        type LPDXVA_PicParams_H264_MVC = *mut DXVA_PicParams_H264_MVC;
+        type LPDXVA_PicParams_HEVC = *mut DXVA_PicParams_HEVC;
+        type LPDXVA_PicParams_HEVC_RangeExt = *mut DXVA_PicParams_HEVC_RangeExt;
+        type LPDXVA_PicParams_MJPEG = *mut DXVA_PicParams_MJPEG;
+        type LPDXVA_PicParams_MPEG4_PART2 = *mut DXVA_PicParams_MPEG4_PART2;
+        type LPDXVA_PicParams_VP8 = *mut DXVA_PicParams_VP8;
+        type LPDXVA_PicParams_VP9 = *mut DXVA_PicParams_VP9;
+        type LPDXVA_PicResample = *mut DXVA_PicResample;
+        type LPDXVA_PictureParameters = *mut DXVA_PictureParameters;
+        type LPDXVA_ProcAmpControlCaps = *mut DXVA_ProcAmpControlCaps;
+        type LPDXVA_ProcAmpControlQueryRange = *mut DXVA_ProcAmpControlQueryRange;
+        type LPDXVA_QMatrix_MJPEG = *mut DXVA_QMatrix_MJPEG;
+        type LPDXVA_QmatrixData = *mut DXVA_QmatrixData;
+        type LPDXVA_Qmatrix_APV = *mut DXVA_Qmatrix_APV;
+        type LPDXVA_Qmatrix_H264 = *mut DXVA_Qmatrix_H264;
+        type LPDXVA_Qmatrix_HEVC = *mut DXVA_Qmatrix_HEVC;
+        type LPDXVA_SliceInfo = *mut DXVA_SliceInfo;
+        type LPDXVA_Slice_H264_Long = *mut DXVA_Slice_H264_Long;
+        type LPDXVA_Slice_H264_Short = *mut DXVA_Slice_H264_Short;
+        type LPDXVA_Slice_HEVC_Short = *mut DXVA_Slice_HEVC_Short;
+        type LPDXVA_Slice_VPx_Short = *mut DXVA_Slice_VPx_Short;
+        type LPDXVA_Status_AV1 = *mut DXVA_Status_AV1;
+        type LPDXVA_Status_H264 = *mut DXVA_Status_H264;
+        type LPDXVA_Status_HEVC = *mut DXVA_Status_HEVC;
+        type LPDXVA_Status_VC1 = *mut DXVA_Status_VC1;
+        type LPDXVA_Status_VPx = *mut DXVA_Status_VPx;
+        type LPDXVA_TCoef4Group = *mut DXVA_TCoef4Group;
+        type LPDXVA_TCoefSingle = *mut DXVA_TCoefSingle;
+        type LPDXVA_Tile_APV = *mut DXVA_Tile_APV;
+        type LPDXVA_Tile_AV1 = *mut DXVA_Tile_AV1;
+        type LPDXVA_VideoDesc = *mut DXVA_VideoDesc;
+        type LPDXVA_VideoPropertyRange = *mut DXVA_VideoPropertyRange;
+        type LPDXVA_VideoSample = *mut DXVA_VideoSample;
+        type LPDXVA_VideoSample2 = *mut DXVA_VideoSample2;
+        const MAX_DEINTERLACE_DEVICE_GUIDS: i32 = 32;
+        const MAX_DEINTERLACE_SURFACES: i32 = 32;
+    }
+}

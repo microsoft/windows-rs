@@ -71,7 +71,9 @@ let snapshot = windows_clang::extract(
 .unwrap();
 ```
 
-The resulting `Snapshot` owns translation-unit-local facts and constants. `facts`, `constants`,
+The resulting `Snapshot` owns translation-unit-local facts and constants. Each libclang
+translation unit is released after its declarations, constants, and deferred records have been
+copied, so peak live ASTs do not grow with the number of inputs. `facts`, `constants`,
 `unsupported`, and `dump` expose the extraction result for diagnostics and validation.
 
 ## Emission
@@ -104,14 +106,18 @@ indexing path.
 
 The implementation has four stages:
 
-1. Parse each translation unit and record immutable facts, source locations, annotations, and
-   constants.
+1. Parse one translation unit, record immutable facts, source locations, annotations, and
+   constants, then release the libclang AST.
 2. Select roots and compute the dependency closure from the complete fact graph.
 3. Resolve equivalent declarations, external references, and unsupported constructs.
 4. Project the plan to RDL without mutating or discovering declarations during emission.
 
 This separation keeps extraction order out of ownership and dependency decisions. Facts retain
 translation-unit identity, while equivalent declarations are resolved during planning.
+
+The planner keeps C's type and value namespaces separate. A record and independently representable
+scalar constant may therefore retain the same spelling in RDL. Function and constant collisions
+remain errors because both declarations occupy the value namespace.
 
 Source declarations control type identity and pointer mutability. SAL supplies direction,
 optionality, size relationships, return-value markers, and interface-selection metadata; it does
@@ -165,6 +171,10 @@ Incomplete records are valid when used through pointers and rejected when a comp
 layout is required. Fixed-underlying forward enums can be represented by their declared integer
 type. Unfixed forward enums are rejected rather than assigned a guessed representation.
 
+Defined C++ classes with public data fields and no bases or methods use the same checked record
+layout path as C structs. Other concrete C++ classes remain opaque, while interface-shaped classes
+continue through COM interface extraction.
+
 Record layout inference keeps member packing and forced record alignment separate. When more than
 one representation matches Clang's size, alignment, and field offsets, it prefers one without
 forced alignment and then the least restrictive packing. This distinguishes `#pragma pack(N)` from
@@ -183,6 +193,10 @@ When an active object-like macro shadows an enum member declared by the same hea
 takes the macro's effective value. This preserves the identifier that C callers see without
 emitting two items into the header's shared RDL value namespace. Same-named declarations owned by
 different headers remain separate.
+
+Native NaN and infinity constants are omitted because RDL and ECMA metadata cannot represent them.
+The SDK's `~((~0) << n)` enum-mask macro is accepted only when Clang identifies that exact macro as
+the source of its negative-shift diagnostic; its MSVC-compatible value is then preserved.
 
 ### Bit-field member scraping
 

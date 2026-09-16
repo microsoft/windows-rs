@@ -427,7 +427,6 @@ mod Windows {
             fn GetFilterPropertyRange(&self, VideoProcDeviceGuid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, RenderTargetFormat: D3DFORMAT, FilterSetting: u32, pRange: *mut DXVA2_ValueRange) -> HRESULT;
             fn CreateVideoProcessor(&self, VideoProcDeviceGuid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, RenderTargetFormat: D3DFORMAT, MaxNumSubStreams: u32, ppVidProcess: *mut IDirectXVideoProcessor) -> HRESULT;
         }
-        const MAX_DEINTERLACE_SURFACES: i32 = 32;
         const MAX_SUBSTREAMS: i32 = 15;
     }
 }

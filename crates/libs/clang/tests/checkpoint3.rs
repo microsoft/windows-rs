@@ -226,3 +226,131 @@ typedef unsigned short Collision;
 
     std::fs::remove_dir_all(scratch).unwrap();
 }
+
+#[test]
+fn scalar_constant_and_type_can_share_a_name() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [Input::new(
+            "type-value-collision.hpp",
+            "typedef struct AE_ACLMOD {\n\
+                 unsigned long action;\n\
+             } AE_ACLMOD;\n\
+             #define AE_ACLMOD 12\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let rdl = snapshot.emit("TypeValueCollision").unwrap();
+
+    assert!(
+        rdl.contains("struct AE_ACLMOD"),
+        "{}\n{rdl}",
+        snapshot.dump()
+    );
+    assert!(rdl.contains("action: u32"), "{rdl}");
+    assert!(
+        rdl.contains("const AE_ACLMOD: i32 = 12"),
+        "{}\n{rdl}",
+        snapshot.dump()
+    );
+
+    let output = std::env::temp_dir().join(format!(
+        "windows-clang-type-value-{}.winmd",
+        std::process::id()
+    ));
+    windows_rdl::reader()
+        .input_text(&rdl)
+        .output(&output)
+        .write()
+        .unwrap();
+    std::fs::remove_file(output).unwrap();
+
+    let named_constants = extract(
+        [
+            Input::new(
+                "named-value-a.hpp",
+                "typedef unsigned short NativeValue;\n\
+                 typedef struct NamedCollision { int value; } NamedCollision;\n\
+                 #define NamedCollision ((NativeValue)1)\n",
+            ),
+            Input::new(
+                "named-value-b.hpp",
+                "typedef unsigned short NativeValue;\n\
+                 typedef struct NamedCollision { int value; } NamedCollision;\n\
+                 #define NamedCollision ((NativeValue)2)\n",
+            ),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap()
+    .emit("NamedTypeValueCollision")
+    .unwrap();
+    assert!(
+        named_constants.contains("struct NamedCollision"),
+        "{named_constants}"
+    );
+    assert!(
+        !named_constants.contains("const NamedCollision"),
+        "{named_constants}"
+    );
+
+    for (name, source, args) in [
+        (
+            "GUID_VALUE",
+            "#define DEFINE_GUID(name, ...)\n\
+             DEFINE_GUID(GUID_VALUE, 0x12345678, 0x1234, 0x5678, 0x90, 0xab, 0xcd, \
+                 0xef, 0x12, 0x34, 0x56, 0x78)\n\
+             #define GUID_VALUE 1\n",
+            &["-x", "c++"][..],
+        ),
+        (
+            "CLASS_VALUE",
+            "struct __declspec(uuid(\"12345678-1234-5678-90ab-cdef12345678\")) \
+                 CLASS_VALUE;\n\
+             #define CLASS_VALUE 1\n",
+            &["-x", "c++", "-fms-extensions"][..],
+        ),
+        (
+            "PROPERTY_VALUE",
+            "struct PROPERTYKEY { int value; };\n\
+             #define DEFINE_PROPERTYKEY(name, ...)\n\
+             DEFINE_PROPERTYKEY(PROPERTY_VALUE, 0x12345678, 0x1234, 0x5678, 0x90, \
+                 0xab, 0xcd, 0xef, 0x12, 0x34, 0x56, 0x78, 1)\n\
+             #define PROPERTY_VALUE 1\n",
+            &["-x", "c++"][..],
+        ),
+    ] {
+        let error = extract([Input::new("value-collision.hpp", source)], args)
+            .unwrap()
+            .emit("ValueCollision")
+            .unwrap_err();
+        assert!(
+            error.to_string().contains("value roots collide"),
+            "{name}: {error}"
+        );
+    }
+
+    let dependency_collision = extract(
+        [Input::new(
+            "root.hpp",
+            "#line 1 \"dependency.hpp\"\n\
+             struct __declspec(uuid(\"12345678-1234-5678-90ab-cdef12345678\")) \
+                 DEPENDENCY_VALUE;\n\
+             #line 1 \"root.hpp\"\n\
+             void UseDependency(DEPENDENCY_VALUE* value);\n\
+             #define DEPENDENCY_VALUE 1\n",
+        )],
+        &["-x", "c++", "-fms-extensions"],
+    )
+    .unwrap()
+    .emit_with_library("DependencyValueCollision", "api.dll")
+    .unwrap_err();
+    assert!(
+        dependency_collision
+            .to_string()
+            .contains("value roots collide"),
+        "{dependency_collision}"
+    );
+}
