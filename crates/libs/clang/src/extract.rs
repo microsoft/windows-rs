@@ -1942,13 +1942,16 @@ fn evaluate_float(cursor: CXCursor, scalar: Scalar) -> Option<Value> {
         let value = (clang_EvalResult_getKind(result) == CXEval_Float).then(|| {
             let value = clang_EvalResult_getAsDouble(result);
             match scalar {
-                Scalar::F32 => Value::F32((value as f32).to_bits()),
-                Scalar::F64 => Value::F64(value.to_bits()),
+                Scalar::F32 => {
+                    let value = value as f32;
+                    value.is_finite().then(|| Value::F32(value.to_bits()))
+                }
+                Scalar::F64 => value.is_finite().then(|| Value::F64(value.to_bits())),
                 _ => unreachable!(),
             }
         });
         clang_EvalResult_dispose(result);
-        value
+        value.flatten()
     }
 }
 

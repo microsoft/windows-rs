@@ -184,6 +184,9 @@ takes the macro's effective value. This preserves the identifier that C callers 
 emitting two items into the header's shared RDL value namespace. Same-named declarations owned by
 different headers remain separate.
 
+Native NaN and infinity constants are omitted because RDL and ECMA metadata cannot represent them.
+This includes `f64` values that become non-finite when narrowed to their declared `f32` type.
+
 ### Bit-field member scraping
 
 RDL and WinMD cannot encode C bit-field syntax directly. A consecutive run of bit fields is emitted
