@@ -2,7 +2,7 @@ windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPack
 windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
 windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut u32, packagefullname : windows_core::PWSTR) -> i32);
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
-windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : *mut u8) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : PBYTE) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn GetLastError() -> u32);
 windows_core::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 windows_core::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : i32) -> i32);
@@ -2652,8 +2652,13 @@ impl windows_core::RuntimeType for CornerRadius {
     );
 }
 pub type CreatePackageDependencyOptions = u32;
-pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
+pub type DPI_AWARENESS_CONTEXT = *mut DPI_AWARENESS_CONTEXT__;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DPI_AWARENESS_CONTEXT__ {
+    pub unused: i32,
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataPackageOperation(pub u32);
@@ -4664,8 +4669,18 @@ impl windows_core::RuntimeName for GridViewItem {
 unsafe impl Send for GridViewItem {}
 unsafe impl Sync for GridViewItem {}
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
-pub type HWND = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HorizontalAlignment(pub i32);
@@ -24489,7 +24504,12 @@ impl windows_core::RuntimeType for Orientation {
         b"enum(Microsoft.UI.Xaml.Controls.Orientation;i4)",
     );
 }
-pub type PACKAGEDEPENDENCY_CONTEXT = *mut core::ffi::c_void;
+pub type PACKAGEDEPENDENCY_CONTEXT = *mut PACKAGEDEPENDENCY_CONTEXT__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PACKAGEDEPENDENCY_CONTEXT__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION {
@@ -24519,6 +24539,7 @@ pub struct PACKAGE_VERSION_0_0 {
     pub Minor: u16,
     pub Major: u16,
 }
+pub type PBYTE = *mut u8;
 pub type PSID = *mut core::ffi::c_void;
 pub type PackageDependencyLifetimeKind = i32;
 pub type PackageDependencyProcessorArchitectures = u32;
