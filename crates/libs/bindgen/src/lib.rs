@@ -483,9 +483,14 @@ impl Bindgen {
         let phase = std::time::Instant::now();
         let reader_storage;
         let reader = if self.input.is_empty() {
-            default_reader()
+            default_reader(sys)
         } else {
-            reader_storage = Reader::new(expand_input(&self.input, self.input_default));
+            let input = expand_input(&self.input, self.input_default);
+            reader_storage = if sys {
+                Reader::new_sys(input)
+            } else {
+                Reader::new(input)
+            };
             &reader_storage
         };
         report_timing(&self.output, "metadata", phase.elapsed());
@@ -690,9 +695,20 @@ fn composition_target(reader: &Reader, target: &str) -> Class {
     class
 }
 
-fn default_reader() -> &'static Reader {
+fn default_reader(sys: bool) -> &'static Reader {
     static READER: std::sync::OnceLock<Reader> = std::sync::OnceLock::new();
-    READER.get_or_init(|| Reader::new(default_input()))
+    static SYS_READER: std::sync::OnceLock<Reader> = std::sync::OnceLock::new();
+    if sys {
+        SYS_READER.get_or_init(|| Reader::from_index(default_index(), false))
+    } else {
+        READER.get_or_init(|| Reader::from_index(default_index(), true))
+    }
+}
+
+fn default_index() -> &'static windows_metadata::reader::Index {
+    static INDEX: std::sync::OnceLock<&windows_metadata::reader::Index> =
+        std::sync::OnceLock::new();
+    INDEX.get_or_init(|| windows_metadata::reader::Index::new(default_input()).leak())
 }
 
 #[track_caller]
@@ -869,7 +885,9 @@ mod tests {
 
     #[test]
     fn default_metadata_reader_is_reused() {
-        assert!(std::ptr::eq(default_reader(), default_reader()));
+        assert!(std::ptr::eq(default_reader(false), default_reader(false)));
+        assert!(std::ptr::eq(default_reader(true), default_reader(true)));
+        assert!(!std::ptr::eq(default_reader(false), default_reader(true)));
     }
 
     #[test]

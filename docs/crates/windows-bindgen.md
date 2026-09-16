@@ -169,11 +169,39 @@ Named policy methods keep style decisions out of individual writers:
 - `Config::emit_runtime_name` controls WinRT runtime-name constants.
 - `Style::derive_std_traits` and `emit_core_traits` control generated trait blocks.
 - `Style::emit_bare_typedef` controls handle and unscoped-enum representation.
+- `NativeTypedefAttribute` preserves a C typedef as a Rust type alias in every output style.
 
 `Config::item_vis` applies `dead_code` visibility to callable items. Nameable items stay public
 because handwritten code and exported macros may re-export or reference them.
 
 ### Type selection
+
+`Type::projection_type` resolves native typedef chains when classifying parameters and return
+values. This lets full bindings retain slices, output returns, interface conversions, and other
+projection behavior without replacing the declared alias in public signatures or raw ABI
+declarations. `Type::projection_pointee` performs the corresponding one-level dereference while
+retaining an alias on the pointee.
+
+Default and minimal output map the known D2D and D3D numeric ABI types to `windows-numerics`.
+The mapping is name-based because layout alone cannot distinguish a point from a size:
+
+| Native metadata names | Rich/minimal Rust type |
+| --- | --- |
+| `D2D_MATRIX_3X2_F`, `D2D1_MATRIX_3X2_F` | `Matrix3x2` |
+| `D2D_MATRIX_4X4_F`, `D2D1_MATRIX_4X4_F`, `D3DMATRIX` | `Matrix4x4` |
+| `D2D_POINT_2F`, `D2D1_POINT_2F`, `D2D_VECTOR_2F`, `D2D1_VECTOR_2F` | `Vector2` |
+| `D2D_VECTOR_3F`, `D2D1_VECTOR_3F` | `Vector3` |
+| `D2D_VECTOR_4F`, `D2D1_VECTOR_4F` | `Vector4` |
+
+This is the exhaustive compatibility set historically projected by `windows-bindgen`, not a
+layout-based rule. Types such as `DWRITE_MATRIX`, `DXGI_MATRIX_3X2_F`, `D2D_SIZE_F`,
+`D2D_MATRIX_4X3_F`, and `D2D_MATRIX_5X4_F` remain native even when their layout overlaps part of
+the canonical family.
+
+Sys output keeps the native types and the APIs that use them because `windows-sys` does not depend
+on `windows-numerics`. Custom metadata without the complete canonical Numerics family keeps its
+native types. Rich and minimal output using these APIs requires a `windows-numerics` dependency
+and exposes the canonical names rather than the native metadata names.
 
 For precise filters, `TypeClosure::build` starts from selected types and follows signature
 dependencies. Selected entry points are full types; signature dependencies are shells unless
@@ -217,7 +245,7 @@ range and OR in the masked value. Identity shifts are omitted to keep generated 
 `-D warnings`.
 
 RDL spells the same shape as a block on the backing field. Coverage lives in
-`test_clang/input/bitfields.h` and `test_bindgen/input/struct_bitfield.rdl`.
+`windows-clang` checkpoint tests and `test_bindgen/input/struct_bitfield.rdl`.
 
 ### Counted buffers
 
@@ -263,5 +291,6 @@ output-neutral unless a projection change is intended. Run the owning `tool-*` g
 bindgen change and inspect all generated diffs.
 
 `test_bindgen` covers filter closure, styles, layouts, methods, buffers, returns, implementation
-support, and variadics. `test_rdl` and `test_clang` cover the input stages. CI regenerates committed
+support, and variadics. `test_rdl` and the `windows-clang` integration tests cover the input
+stages. CI regenerates committed
 bindings and package output and rejects drift.
