@@ -101,8 +101,7 @@ impl OpenFilePicker {
     /// The calling thread must be a COM single-threaded apartment (STA).
     pub fn show_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Option<PathBuf>> {
         validate_owner(owner)?;
-        let (dialog, _prepared, _filters) =
-            self.prepare(FOS_FORCEFILESYSTEM as FILEOPENDIALOGOPTIONS)?;
+        let (dialog, _prepared, _filters) = self.prepare(FOS_FORCEFILESYSTEM)?;
         show_dialog(&dialog, owner)
     }
 
@@ -121,7 +120,7 @@ impl OpenFilePicker {
     pub fn show_multiple_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Vec<PathBuf>> {
         validate_owner(owner)?;
         let (dialog, _prepared, _filters) =
-            self.prepare((FOS_FORCEFILESYSTEM | FOS_ALLOWMULTISELECT) as FILEOPENDIALOGOPTIONS)?;
+            self.prepare(FOS_FORCEFILESYSTEM | FOS_ALLOWMULTISELECT)?;
         show_dialog_multiple(&dialog, owner)
     }
 
