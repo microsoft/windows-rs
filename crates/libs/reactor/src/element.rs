@@ -1813,39 +1813,81 @@ mod visual_value_tests {
     }
 }
 
-/// A Grid row or column size.
-#[derive(Clone, Copy, Debug)]
-pub enum GridLength {
-    /// Sizes to the content.
+/// A Grid row or column size with optional constraints.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GridLength {
+    pub(crate) size: GridLengthSize,
+    pub(crate) min: Option<f64>,
+    pub(crate) max: Option<f64>,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub(crate) enum GridLengthSize {
     Auto,
-    /// Uses a fixed number of device-independent pixels (DIPs).
     Pixel(f64),
-    /// Uses a weighted share of the remaining space.
     Star(f64),
 }
 
+#[expect(non_snake_case, non_upper_case_globals)]
 impl GridLength {
-    /// One weighted share of the remaining space.
-    pub const STAR: Self = Self::Star(1.0);
+    /// Sizes to the content.
+    pub const Auto: Self = Self::new(GridLengthSize::Auto);
 
-    pub(crate) fn is_valid(self) -> bool {
-        match self {
-            Self::Auto => true,
-            Self::Pixel(value) | Self::Star(value) => value.is_finite() && value >= 0.0,
+    /// Uses one weighted share of the remaining space.
+    pub const STAR: Self = Self::new(GridLengthSize::Star(1.0));
+
+    const fn new(size: GridLengthSize) -> Self {
+        Self {
+            size,
+            min: None,
+            max: None,
         }
+    }
+
+    /// Uses a fixed number of device-independent pixels (DIPs).
+    pub const fn Pixel(value: f64) -> Self {
+        assert_grid_length_value(value);
+        Self::new(GridLengthSize::Pixel(value))
+    }
+
+    /// Uses a weighted share of the remaining space.
+    pub const fn Star(value: f64) -> Self {
+        assert_grid_length_value(value);
+        Self::new(GridLengthSize::Star(value))
+    }
+
+    /// Sets the minimum size in DIPs.
+    pub fn min(mut self, value: f64) -> Self {
+        assert_grid_length_value(value);
+        assert!(
+            self.max.is_none_or(|max| value <= max),
+            "Grid length minimum must not exceed its maximum",
+        );
+        self.min = Some(value);
+        self
+    }
+
+    /// Sets the maximum size in DIPs.
+    pub fn max(mut self, value: f64) -> Self {
+        assert_grid_length_value(value);
+        assert!(
+            self.min.is_none_or(|min| min <= value),
+            "Grid length maximum must not be less than its minimum",
+        );
+        self.max = Some(value);
+        self
     }
 }
 
-impl PartialEq for GridLength {
-    fn eq(&self, other: &Self) -> bool {
-        match (self, other) {
-            (Self::Auto, Self::Auto) => true,
-            (Self::Pixel(left), Self::Pixel(right)) | (Self::Star(left), Self::Star(right)) => {
-                f64_eq(*left, *right)
-            }
-            _ => false,
-        }
-    }
+const fn assert_grid_length_value(value: f64) {
+    assert!(
+        value.is_finite() && value >= 0.0,
+        "Grid length values must be finite and non-negative",
+    );
+}
+
+pub(crate) fn grid_lengths(values: impl IntoIterator<Item = GridLength>) -> Rc<Vec<GridLength>> {
+    Rc::new(values.into_iter().collect())
 }
 
 /// Horizontal placement within the space assigned by a parent.

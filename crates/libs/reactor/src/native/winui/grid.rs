@@ -1,5 +1,6 @@
 use super::*;
-use crate::GridLength as ReactorGridLength;
+use crate::{GridLength, GridLengthSize};
+use bindings::GridLength as NativeGridLength;
 
 pub(super) fn set_attached(
     element: &UIElement,
@@ -136,11 +137,17 @@ pub(super) fn set_definitions(
                 return Ok(());
             }
             definitions.Clear().map_err(native_error)?;
-            for value in values.iter().copied() {
+            for length in values.iter().copied() {
                 let definition = RowDefinition::new().map_err(native_error)?;
                 definition
-                    .SetHeight(grid_length(value))
+                    .SetHeight(native_grid_length(length))
                     .map_err(native_error)?;
+                if let Some(value) = length.min {
+                    definition.SetMinHeight(value).map_err(native_error)?;
+                }
+                if let Some(value) = length.max {
+                    definition.SetMaxHeight(value).map_err(native_error)?;
+                }
                 definitions.Append(&definition).map_err(native_error)?;
             }
             Ok(())
@@ -151,11 +158,17 @@ pub(super) fn set_definitions(
                 return Ok(());
             }
             definitions.Clear().map_err(native_error)?;
-            for value in values.iter().copied() {
+            for length in values.iter().copied() {
                 let definition = ColumnDefinition::new().map_err(native_error)?;
                 definition
-                    .SetWidth(grid_length(value))
+                    .SetWidth(native_grid_length(length))
                     .map_err(native_error)?;
+                if let Some(value) = length.min {
+                    definition.SetMinWidth(value).map_err(native_error)?;
+                }
+                if let Some(value) = length.max {
+                    definition.SetMaxWidth(value).map_err(native_error)?;
+                }
                 definitions.Append(&definition).map_err(native_error)?;
             }
             Ok(())
@@ -185,18 +198,15 @@ pub(super) fn clear_definitions(handle: &Handle, property: PropertyId) -> Result
 
 fn rows_match(
     definitions: &RowDefinitionCollection,
-    values: &[ReactorGridLength],
+    values: &[GridLength],
 ) -> Result<bool, RuntimeError> {
     if usize::try_from(definitions.Size().map_err(native_error)?).unwrap() != values.len() {
         return Ok(false);
     }
-    for (index, value) in values.iter().copied().enumerate() {
+    for (index, length) in values.iter().copied().enumerate() {
         let index = u32::try_from(index).map_err(|_| RuntimeError::IndexOutOfBounds)?;
-        let actual = definitions
-            .GetAt(index)
-            .and_then(|definition| definition.Height())
-            .map_err(native_error)?;
-        if !grid_lengths_match(actual, grid_length(value)) {
+        let definition = definitions.GetAt(index).map_err(native_error)?;
+        if !row_matches(&definition, length)? {
             return Ok(false);
         }
     }
@@ -205,35 +215,50 @@ fn rows_match(
 
 fn columns_match(
     definitions: &ColumnDefinitionCollection,
-    values: &[ReactorGridLength],
+    values: &[GridLength],
 ) -> Result<bool, RuntimeError> {
     if usize::try_from(definitions.Size().map_err(native_error)?).unwrap() != values.len() {
         return Ok(false);
     }
-    for (index, value) in values.iter().copied().enumerate() {
+    for (index, length) in values.iter().copied().enumerate() {
         let index = u32::try_from(index).map_err(|_| RuntimeError::IndexOutOfBounds)?;
-        let actual = definitions
-            .GetAt(index)
-            .and_then(|definition| definition.Width())
-            .map_err(native_error)?;
-        if !grid_lengths_match(actual, grid_length(value)) {
+        let definition = definitions.GetAt(index).map_err(native_error)?;
+        if !column_matches(&definition, length)? {
             return Ok(false);
         }
     }
     Ok(true)
 }
 
-fn grid_lengths_match(left: bindings::GridLength, right: bindings::GridLength) -> bool {
+fn grid_lengths_match(left: NativeGridLength, right: NativeGridLength) -> bool {
     left.grid_unit_type == right.grid_unit_type && f64_eq(left.value, right.value)
 }
 
-fn grid_length(value: ReactorGridLength) -> bindings::GridLength {
-    let (value, grid_unit_type) = match value {
-        ReactorGridLength::Auto => (0.0, GridUnitType::Auto),
-        ReactorGridLength::Pixel(value) => (value, GridUnitType::Pixel),
-        ReactorGridLength::Star(value) => (value, GridUnitType::Star),
+fn row_matches(definition: &RowDefinition, value: GridLength) -> Result<bool, RuntimeError> {
+    let actual = definition.Height().map_err(native_error)?;
+    let min = definition.MinHeight().map_err(native_error)?;
+    let max = definition.MaxHeight().map_err(native_error)?;
+    Ok(grid_lengths_match(actual, native_grid_length(value))
+        && f64_eq(min, value.min.unwrap_or(0.0))
+        && f64_eq(max, value.max.unwrap_or(f64::INFINITY)))
+}
+
+fn column_matches(definition: &ColumnDefinition, value: GridLength) -> Result<bool, RuntimeError> {
+    let actual = definition.Width().map_err(native_error)?;
+    let min = definition.MinWidth().map_err(native_error)?;
+    let max = definition.MaxWidth().map_err(native_error)?;
+    Ok(grid_lengths_match(actual, native_grid_length(value))
+        && f64_eq(min, value.min.unwrap_or(0.0))
+        && f64_eq(max, value.max.unwrap_or(f64::INFINITY)))
+}
+
+fn native_grid_length(length: GridLength) -> NativeGridLength {
+    let (value, grid_unit_type) = match length.size {
+        GridLengthSize::Auto => (0.0, GridUnitType::Auto),
+        GridLengthSize::Pixel(value) => (value, GridUnitType::Pixel),
+        GridLengthSize::Star(value) => (value, GridUnitType::Star),
     };
-    bindings::GridLength {
+    NativeGridLength {
         value,
         grid_unit_type,
     }

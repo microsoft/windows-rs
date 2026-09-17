@@ -118,14 +118,6 @@ pub windows_reactor::FlyoutPlacement::RightEdgeAlignedTop
 pub windows_reactor::FlyoutPlacement::Top
 pub windows_reactor::FlyoutPlacement::TopEdgeAlignedLeft
 pub windows_reactor::FlyoutPlacement::TopEdgeAlignedRight
-pub enum windows_reactor::GridLength
-pub windows_reactor::GridLength::Auto
-pub windows_reactor::GridLength::Pixel(f64)
-pub windows_reactor::GridLength::Star(f64)
-impl windows_reactor::GridLength
-pub const windows_reactor::GridLength::STAR: Self
-impl core::cmp::PartialEq for windows_reactor::GridLength
-pub fn windows_reactor::GridLength::eq(&self, &Self) -> bool
 pub enum windows_reactor::HorizontalAlignment
 pub windows_reactor::HorizontalAlignment::Center
 pub windows_reactor::HorizontalAlignment::Left
@@ -1242,6 +1234,14 @@ pub fn windows_reactor::Grid::opacity(self, impl core::convert::Into<core::optio
 pub fn windows_reactor::Grid::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Grid::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::Grid
+pub struct windows_reactor::GridLength
+impl windows_reactor::GridLength
+pub const windows_reactor::GridLength::Auto: Self
+pub const windows_reactor::GridLength::STAR: Self
+pub const fn windows_reactor::GridLength::Pixel(f64) -> Self
+pub const fn windows_reactor::GridLength::Star(f64) -> Self
+pub fn windows_reactor::GridLength::max(self, f64) -> Self
+pub fn windows_reactor::GridLength::min(self, f64) -> Self
 pub struct windows_reactor::GridView
 impl windows_reactor::GridView
 pub fn windows_reactor::GridView::allow_drop(self, impl core::convert::Into<core::option::Option<bool>>) -> Self

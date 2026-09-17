@@ -904,10 +904,13 @@ fn capability_property_cases() -> Vec<CapabilityPropertyCase> {
             "Rows",
             quote! { Grid::new().children((TextBlock::new(),)) },
             quote! {
-                Grid::new().rows([GridLength::Pixel(20.0)]).children((TextBlock::new(),))
+                Grid::new()
+                    .rows([GridLength::Pixel(20.0).min(10.0).max(30.0)])
+                    .children((TextBlock::new(),))
             },
             quote! {
-                Grid::new().rows([GridLength::Auto, GridLength::STAR])
+                Grid::new()
+                    .rows([GridLength::Pixel(20.0).min(15.0).max(40.0)])
                     .children((TextBlock::new(),))
             },
         ),
@@ -916,10 +919,13 @@ fn capability_property_cases() -> Vec<CapabilityPropertyCase> {
             "Columns",
             quote! { Grid::new().children((TextBlock::new(),)) },
             quote! {
-                Grid::new().columns([GridLength::Pixel(20.0)]).children((TextBlock::new(),))
+                Grid::new()
+                    .columns([GridLength::Pixel(20.0).min(10.0).max(30.0)])
+                    .children((TextBlock::new(),))
             },
             quote! {
-                Grid::new().columns([GridLength::Auto, GridLength::STAR])
+                Grid::new()
+                    .columns([GridLength::Pixel(20.0).min(15.0).max(40.0)])
                     .children((TextBlock::new(),))
             },
         ),

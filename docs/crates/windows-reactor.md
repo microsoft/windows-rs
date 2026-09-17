@@ -241,8 +241,11 @@ spacing, while children say where they belong:
 
 ```rust,ignore
 Grid::new()
-    .rows([GridLength::Auto, GridLength::Star(1.0)])
-    .columns([GridLength::Auto, GridLength::Star(1.0)])
+    .rows([GridLength::Auto, GridLength::STAR])
+    .columns([
+        GridLength::Auto,
+        GridLength::STAR.min(120.0).max(320.0),
+    ])
     .children((
         TextBlock::new().text("Name").grid_row(0).grid_column(0),
         TextBox::new().grid_row(0).grid_column(1),
@@ -252,6 +255,9 @@ Grid::new()
             .grid_column_span(2),
     ))
 ```
+
+Use `min` and `max` to constrain any auto, pixel, or star-sized row or column. Values are measured
+in device-independent pixels (DIPs).
 
 The builders expose native WinUI concepts with Rust types, so invalid property values and callback
 payloads are usually caught by the compiler.
