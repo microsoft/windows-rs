@@ -5,20 +5,21 @@ fn run(name: &str) {
     let input = root.join("input").join(format!("{name}.h"));
     let source = std::fs::read_to_string(&input).unwrap();
     let mut namespace = "Test".to_string();
-    let mut library = Some("test.dll".to_string());
+    let mut library = "test.dll".to_string();
     let mut args = vec!["-x", "c++"];
     let mut reference_default = false;
 
-    for line in source.lines().filter_map(|line| line.strip_prefix("//!")) {
-        let directive = line.trim();
+    for line in source.lines() {
+        let Some(directive) = line.strip_prefix("//!") else {
+            break;
+        };
+        let directive = directive.trim();
         if let Some(value) = directive.strip_prefix("namespace ") {
             namespace = value.trim().to_string();
         } else if let Some(value) = directive.strip_prefix("library ") {
-            library = Some(value.trim().to_string());
+            library = value.trim().to_string();
         } else if let Some(value) = directive.strip_prefix("args ") {
             args = value.split_whitespace().collect();
-        } else if directive == "no-library" {
-            library = None;
         } else if directive == "reference-default" {
             reference_default = true;
         } else {
@@ -32,10 +33,8 @@ fn run(name: &str) {
         .input(&input)
         .args(args)
         .namespace(&namespace)
+        .library(library)
         .output(&output);
-    if let Some(library) = library {
-        clang.library(library);
-    }
     if reference_default {
         clang.reference_default();
     }

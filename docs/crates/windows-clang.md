@@ -237,7 +237,6 @@ setup:
 | --- | --- |
 | `namespace <name>` | Sets the emitted namespace. |
 | `library <name>` | Sets the import library. |
-| `no-library` | Emits declarations without a library. |
 | `args <arguments>` | Replaces the libclang arguments. |
 | `reference-default` | Resolves extraction types against the default metadata. |
 

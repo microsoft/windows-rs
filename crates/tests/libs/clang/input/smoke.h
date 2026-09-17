@@ -1,7 +1,6 @@
-//! namespace Fixture
-//! library fixture.dll
-
 struct Point {
     int x;
     int y;
 };
+
+extern "C" void UsePoint(Point* value);
