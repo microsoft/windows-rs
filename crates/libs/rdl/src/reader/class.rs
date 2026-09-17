@@ -100,6 +100,12 @@ impl Encoder<'_> {
         default: bool,
     ) -> Result<(), Error> {
         let ty = self.encode_path(&interface.ty)?;
+        if !matches!(&ty, metadata::Type::ClassName(_)) {
+            return self.err(
+                &interface.ty,
+                "implemented interface must resolve to an interface type",
+            );
+        }
 
         // Classes are always WinRT - every implemented interface must also be WinRT.
         self.validate_type_is_winrt(&interface.ty, &ty)?;

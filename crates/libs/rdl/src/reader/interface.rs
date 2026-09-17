@@ -179,6 +179,9 @@ impl Encoder<'_> {
 
         for require in &item.requires {
             let ty = self.encode_path(require)?;
+            if !matches!(&ty, metadata::Type::ClassName(_)) {
+                return self.err(require, "interface base must resolve to an interface type");
+            }
             self.output.InterfaceImpl(interface, &ty);
         }
 

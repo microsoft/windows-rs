@@ -185,7 +185,8 @@ The `formatter` module pretty-prints generated RDL.
 
 Dedicated test crates cover the crate:
 
-- `test_rdl` covers RDL to winmd round trips with `input/*.rdl` fixtures.
+- `test_rdl` covers RDL to winmd round trips with `input/*.rdl` fixtures and invalid input with
+  `errors/input/*.rdl` and `errors/expected/*.txt` diagnostic fixtures.
 - The `windows-clang` integration tests cover header-to-RDL output.
 - `tool-roundtrip` re-derives committed RDL files from committed winmd files. The `gen` workflow
   enforces a clean `git diff`.

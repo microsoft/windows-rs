@@ -1,0 +1,2 @@
+error: interface base must resolve to an interface type
+ --> errors/input/interface_base.rdl:4:25
