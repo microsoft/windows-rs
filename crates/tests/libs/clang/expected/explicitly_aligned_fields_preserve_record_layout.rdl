@@ -1,0 +1,11 @@
+#[win32]
+mod Records {
+    #[align(8)]
+    struct ALIGNED_FIELDS {
+        first: u32,
+        pointer: *mut void,
+        count: u32,
+        mode: u8,
+        next: *mut void,
+    }
+}

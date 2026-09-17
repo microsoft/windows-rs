@@ -1,0 +1,8 @@
+#[win32]
+mod CallingUndefined {
+    type ABI = i32;
+    #[library("api.dll", import = "?First@@YGXXZ")]
+    extern fn First();
+    #[library("api.dll", import = "?Second@@YAHXZ")]
+    extern "C" fn Second() -> ABI;
+}

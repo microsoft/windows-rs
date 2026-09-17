@@ -1,0 +1,9 @@
+#[win32]
+mod Records {
+    struct HOLDER {
+        Parameters: union {
+            integer: i32,
+            unsigned_integer: u32,
+        },
+    }
+}

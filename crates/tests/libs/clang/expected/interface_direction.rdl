@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IThing {
+        fn Use(&self, #[out] sink: IThing) -> HRESULT;
+        fn Reuse(&self, #[in] #[out] value: IThing) -> HRESULT;
+        fn Observe(&self, #[out] value: IThing) -> HRESULT;
+        fn Return(&self, #[out] #[retval] value: IThing) -> HRESULT;
+        fn Create(&self, result: *mut IThing) -> HRESULT;
+    }
+}

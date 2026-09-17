@@ -1,0 +1,6 @@
+#[win32]
+mod ArrayParameter {
+    #[library("api.dll")]
+    extern "C" fn GetVersion(value: *mut u8);
+    type VERSION = [u8; 4];
+}

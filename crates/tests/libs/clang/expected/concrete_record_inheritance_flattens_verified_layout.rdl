@@ -1,0 +1,14 @@
+#[win32]
+mod Inheritance {
+    struct BASE {
+        first: i32,
+    }
+    struct DERIVED {
+        Base: BASE,
+        Base2: OTHER,
+        second: *mut void,
+    }
+    struct OTHER {
+        third: i16,
+    }
+}

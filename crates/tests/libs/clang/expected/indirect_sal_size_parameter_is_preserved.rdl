@@ -1,0 +1,5 @@
+#[win32]
+mod Sal {
+    #[library("api.dll", import = "?Read@@YAXPEAIPEAX@Z")]
+    extern "C" fn Read(size: *mut u32, #[size_param(0)] data: *mut void);
+}

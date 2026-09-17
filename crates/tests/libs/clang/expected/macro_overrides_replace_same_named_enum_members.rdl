@@ -1,0 +1,10 @@
+#[win32]
+mod Constants {
+    #[repr(i32)]
+    enum POOL_TYPE {
+        NonPagedPool = 512,
+        NonPagedPoolCacheAligned = 516,
+        NonPagedPoolNx = 512,
+        NonPagedPoolNxCacheAligned = 516,
+    }
+}

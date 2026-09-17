@@ -1,0 +1,5 @@
+#[win32]
+mod OutputPointerChain {
+    #[library("api.dll")]
+    extern "C" fn GetValue(#[out] value: *const *const i32);
+}

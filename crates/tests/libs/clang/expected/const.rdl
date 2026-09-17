@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    const BUFFER_SIZE: i32 = 4096;
+    const STATUS_ERROR: i32 = 1;
+    const STATUS_OK: i32 = 0;
+    const VERSION_MAJOR: i32 = 2;
+}

@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    struct Buffer {
+        data: *mut u8,
+        size: u32,
+        capacity: u32,
+    }
+    struct FixedArray {
+        values: [i32; 16],
+        name: [i8; 64],
+    }
+}

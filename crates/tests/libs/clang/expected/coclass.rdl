@@ -1,0 +1,4 @@
+#[win32]
+mod Test {
+    const UIAnimationManager2: GUID = 0xd25d8842_8884_4a4a_b321_091314379bdd;
+}

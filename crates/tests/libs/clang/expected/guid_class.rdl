@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    const AnotherCoClass: GUID = 0xa1b2c3d4_e5f6_7890_abcd_ef0123456789;
+    const MyCoClass: GUID = 0xe6756135_1e65_4d17_8576_610761398c3c;
+}

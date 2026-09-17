@@ -1,0 +1,6 @@
+#[win32]
+mod MidlEnum {
+    const FLAG_HIGH: PUBLIC_FLAGS = 256;
+    const FLAG_NONE: PUBLIC_FLAGS = 0;
+    type PUBLIC_FLAGS = u32;
+}

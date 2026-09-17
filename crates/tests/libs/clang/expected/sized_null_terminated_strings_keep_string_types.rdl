@@ -1,0 +1,6 @@
+#[win32]
+mod SizedString {
+    type PCWSTR = *const u16;
+    #[library("api.dll")]
+    extern "C" fn Read(count: u32, #[len_param(0)] value: PCWSTR);
+}

@@ -1,0 +1,18 @@
+#[win32]
+mod Test {
+    #[library("user32.dll", import = "?CreateThing@@YAPEAUHWND__@@PEAUHINSTANCE__@@@Z")]
+    extern "C" fn CreateThing(instance: HINSTANCE) -> HWND;
+    #[library("user32.dll", import = "?GetThingInfo@@YA?AUTHING_INFO0__@@XZ")]
+    extern "C" fn GetThingInfo() -> THING_INFO0;
+    type HINSTANCE = *mut HINSTANCE__;
+    struct HINSTANCE__ {
+        unused: i32,
+    }
+    type HWND = *mut HWND__;
+    struct HWND__ {
+        unused: i32,
+    }
+    struct THING_INFO0 {
+        owner: HWND,
+    }
+}

@@ -1,0 +1,5 @@
+#[win32]
+mod FloatMacros {
+    const DOUBLE_VALUE: f64 = 2.0;
+    const FLOAT_VALUE: f32 = 1.25;
+}

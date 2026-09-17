@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    struct Outer {
+        tag: i32,
+        inner: struct {
+            a: i32,
+            b: i32,
+        },
+        value: union {
+            f: f32,
+            i: i32,
+        },
+    }
+}

@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    #[library("kernel32.dll")]
+    extern "C" fn Alloc(count: u32, src: LPCVOID) -> *mut void;
+    struct BUFFER {
+        data: *mut void,
+        readonly: LPCVOID,
+        owner: HANDLE,
+    }
+    type HANDLE = *mut void;
+    type LPCVOID = *const void;
+    #[library("kernel32.dll")]
+    extern "C" fn OpenThing() -> HANDLE;
+    #[library("kernel32.dll")]
+    extern "C" fn Store(mem: *mut void, out: *mut *mut void);
+}

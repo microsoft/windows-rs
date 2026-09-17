@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+    struct Rect {
+        top_left: Point,
+        bottom_right: Point,
+    }
+}

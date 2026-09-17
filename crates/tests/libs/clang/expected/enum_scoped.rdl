@@ -1,0 +1,22 @@
+#[win32]
+mod Test {
+    #[repr(u32)]
+    #[flags]
+    #[scoped]
+    enum Access {
+        Read = 1,
+        Write = 2,
+    }
+    #[repr(i32)]
+    #[scoped]
+    enum Color {
+        Red = 1,
+        Green = 2,
+        Blue = 4,
+    }
+    #[repr(i32)]
+    enum Plain {
+        PlainA = 1,
+        PlainB = 2,
+    }
+}

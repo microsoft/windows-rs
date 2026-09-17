@@ -1,0 +1,7 @@
+#[win32]
+mod CallingRedefined {
+    #[library("api.dll", import = "?First@@YGXXZ")]
+    extern fn First();
+    #[library("api.dll", import = "?Second@@YAXXZ")]
+    extern "C" fn Second();
+}

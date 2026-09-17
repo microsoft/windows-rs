@@ -1,0 +1,13 @@
+#[win32]
+mod PropertyKeys {
+    #[guid(0x87654321_abcd_1234_0123_456789abcdef)]
+    const DEVPKEY_Test: DEVPROPKEY = 7;
+    struct DEVPROPKEY {
+        value: i32,
+    }
+    #[guid(0x12345678_1234_abcd_9876_0123456789ab)]
+    const PKEY_Test: PROPERTYKEY = 4;
+    struct PROPERTYKEY {
+        value: i32,
+    }
+}

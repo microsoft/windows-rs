@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    struct THING {
+        value: i32,
+    }
+    type __C_ASSERT__ = [i8; 1];
+}

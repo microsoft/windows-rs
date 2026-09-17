@@ -1,0 +1,11 @@
+#[win32]
+mod InterfaceBase {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IFACE {
+        fn Query(&self) -> i32;
+    }
+    struct RESULT {
+        Base: IFACE,
+        value: *mut void,
+    }
+}

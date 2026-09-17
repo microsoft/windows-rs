@@ -1,0 +1,8 @@
+#[win32]
+mod OpaqueTag {
+    type PTHING = *mut THING;
+    struct THING {
+    }
+    #[library("api.dll", import = "?UseThing@@YAXPEAU_THING@@@Z")]
+    extern "C" fn UseThing(value: PTHING);
+}

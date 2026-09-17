@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IThing {
+        fn QueryInterface(&self, riid: *const void, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn ReadInto(&self, #[len_param(1)] values: *const u32, count: u32) -> HRESULT;
+    }
+}

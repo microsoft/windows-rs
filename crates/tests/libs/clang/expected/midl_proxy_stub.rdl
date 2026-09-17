@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    struct IFoo {
+    }
+    #[library("test.dll", import = "?IFoo_GetValue_Proxy@@YAHPEAUIFoo@@PEAH@Z")]
+    extern "C" fn IFoo_GetValue_Proxy(This: *mut IFoo, value: *mut i32) -> i32;
+    #[library("test.dll", import = "?IFoo_GetValue_Stub@@YAXPEAUIFoo@@PEAH@Z")]
+    extern "C" fn IFoo_GetValue_Stub(This: *mut IFoo, value: *mut i32);
+    #[library("test.dll", import = "?Register_Stub@@YAHH@Z")]
+    extern "C" fn Register_Stub(id: i32) -> i32;
+}

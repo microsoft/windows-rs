@@ -1,0 +1,5 @@
+#[win32]
+mod CharacterMacros {
+    const MULTI_CHARACTER: i32 = 1685217608;
+    const QUOTE: i8 = 34;
+}

@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    const CLSID_Sample: GUID = 0x12345678_1234_5678_9abc_def011223344;
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    const GUID_NULL: GUID = 0x00000000_0000_0000_0000_000000000000;
+    const IID_ISample: GUID = 0x00020400_0000_0000_c000_000000000046;
+}

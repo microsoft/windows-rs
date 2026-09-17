@@ -1,0 +1,8 @@
+#[win32]
+mod MidlMismatchedPrivateEnum {
+    type PUBLIC_FLAGS = u32;
+    #[repr(i32)]
+    enum _PRIVATE_FLAGS {
+        FLAG_NONE = 0,
+    }
+}

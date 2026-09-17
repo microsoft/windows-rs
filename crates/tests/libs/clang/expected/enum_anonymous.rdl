@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    const MAX_NAME: i32 = 128;
+    const MAX_PATH: i32 = 260;
+}

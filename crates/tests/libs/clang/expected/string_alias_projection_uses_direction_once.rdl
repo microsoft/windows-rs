@@ -1,0 +1,9 @@
+#[win32]
+mod StringAliases {
+    type PCSTR = *const i8;
+    type PCWSTR = *const u16;
+    type PSTR = *mut i8;
+    type PWSTR = *mut u16;
+    #[library("api.dll")]
+    extern "C" fn Strings(legacy_input: PCSTR, #[out] legacy_output: PSTR, explicit_input: PSTR, wide_input: PCWSTR, #[out] wide_output: PWSTR);
+}

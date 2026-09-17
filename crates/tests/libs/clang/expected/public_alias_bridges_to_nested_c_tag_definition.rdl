@@ -1,0 +1,10 @@
+#[win32]
+mod NestedTag {
+    struct OWNER {
+        search: _SEARCH,
+    }
+    type SEARCH = _SEARCH;
+    union _SEARCH {
+        value: i32,
+    }
+}

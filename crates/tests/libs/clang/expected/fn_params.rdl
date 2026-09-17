@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[library("kernel32.dll")]
+    extern "C" fn CloseFile(file: Windows::Win32::HANDLE) -> Windows::Win32::BOOL;
+}

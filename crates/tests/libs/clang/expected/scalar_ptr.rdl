@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("kernel32.dll")]
+    extern "C" fn Alloc(count: usize) -> *mut void;
+    #[library("kernel32.dll")]
+    extern "C" fn Range(base: usize, offset: isize) -> isize;
+}

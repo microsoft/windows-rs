@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    struct Variant {
+        tag: u16,
+        Anonymous: union {
+            Anonymous: struct {
+                a: i32,
+                b: i32,
+            },
+            d: f64,
+        },
+        Anonymous2: union {
+            first: f32,
+            second: i32,
+        },
+    }
+}

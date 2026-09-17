@@ -1,0 +1,9 @@
+#[win32]
+mod InputPointerAliases {
+    type OLECHAR = u16;
+    type PTP_CALLBACK_ENVIRON = *mut TP_CALLBACK_ENVIRON_V3;
+    #[library("api.dll", import = "?Submit@@YAXPEAX0PEAUTP_CALLBACK_ENVIRON_V3@@PEAPEAG@Z")]
+    extern "C" fn Submit(#[in] context: *mut void, #[reserved] reserved: *mut void, environment: PTP_CALLBACK_ENVIRON, #[in] names: *mut *mut OLECHAR);
+    struct TP_CALLBACK_ENVIRON_V3 {
+    }
+}

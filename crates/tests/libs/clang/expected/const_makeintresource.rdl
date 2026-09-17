@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    const IDC_ARROW: *mut u16 = 32512;
+    const IDI_APPLICATION: *mut u16 = 32512;
+    const OCR_NEGATIVE: *mut i8 = 65533;
+    const OCR_NORMAL: *mut i8 = 32512;
+    const TD_ERROR_ICON: *mut u16 = 65534;
+}

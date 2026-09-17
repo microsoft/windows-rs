@@ -1,0 +1,6 @@
+#[win32]
+mod WinrtGeneric {
+    #[library("api.dll")]
+    extern "C" fn GetMap(value: MAP);
+    type MAP = Windows::Foundation::Collections::IMapView<String, Object>;
+}

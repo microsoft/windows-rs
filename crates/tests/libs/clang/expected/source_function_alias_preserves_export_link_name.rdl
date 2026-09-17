@@ -1,0 +1,5 @@
+#[win32]
+mod FunctionAlias {
+    #[library("test.dll", import = "ExportedFunction")]
+    extern "C" fn PublicFunction();
+}

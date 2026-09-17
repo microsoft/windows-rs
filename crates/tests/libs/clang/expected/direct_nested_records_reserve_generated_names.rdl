@@ -1,0 +1,12 @@
+#[win32]
+mod NestedNames {
+    struct ROOT {
+        choice: union {
+            value: i32,
+        },
+        entries: [ROOT_1; 1],
+    }
+    struct ROOT_1 {
+        value: i32,
+    }
+}

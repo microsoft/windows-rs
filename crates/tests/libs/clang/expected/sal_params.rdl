@@ -1,0 +1,45 @@
+#[win32]
+mod Test {
+    #[library("kernel32.dll")]
+    extern "C" fn AllocBuffer(buffer: *mut *mut void, count: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn CloseObject(object: Windows::Win32::HANDLE) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn DoWork(object: Windows::Win32::HANDLE, #[reserved] reserved: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn FillAll(#[len_param(1)] buffer: *mut u32, count: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn FillFixed(#[len_const(16)] buffer: *mut u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn GetName(#[len_param(1)] #[opt] buffer: *mut u16, size: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn GetValue(result: *mut u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn GrowBuffer(#[len_param(1)] #[in] #[out] buffer: *mut u32, count: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn OpenByName(#[opt] name: Windows::Win32::PCSTR, object: *mut Windows::Win32::HANDLE) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn ReadBuffer(#[len_param(1)] buffer: *const void, size: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn ReadBytes(#[size_param(1)] buffer: *const void, cb: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn ReadScaled(buffer: *const void, cb: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn ScanValue(#[in] value: *mut u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn TryGetValue(#[opt] result: *mut u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateBuffer(#[len_param(1)] #[in] #[out] buffer: *mut u32, count: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateOptional(#[in] #[out] #[opt] value: *mut u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateString(#[len_param(1)] #[in] #[out] buffer: Windows::Win32::PWSTR, count: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateValue(#[in] #[out] value: *mut u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteBuffer(#[len_param(1)] buffer: *mut void, size: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteBytes(#[size_param(1)] buffer: *mut void, cb: u32) -> Windows::Win32::BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteString(#[len_param(1)] #[out] buffer: Windows::Win32::PWSTR, size: u32) -> Windows::Win32::BOOL;
+}

@@ -1,0 +1,5 @@
+#[win32]
+mod OpaqueClass {
+    #[library("api.dll")]
+    extern "C" fn UseImplementation(value: *mut void);
+}
