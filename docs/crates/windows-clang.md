@@ -165,6 +165,10 @@ Incomplete records are valid when used through pointers and rejected when a comp
 layout is required. Fixed-underlying forward enums can be represented by their declared integer
 type. Unfixed forward enums are rejected rather than assigned a guessed representation.
 
+Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
+destructors, conversions, or function templates use the checked record-layout path. Other
+non-interface C++ classes remain opaque.
+
 Record layout inference keeps member packing and forced record alignment separate. When more than
 one representation matches Clang's size, alignment, and field offsets, it prefers one without
 forced alignment and then the least restrictive packing. This distinguishes `#pragma pack(N)` from

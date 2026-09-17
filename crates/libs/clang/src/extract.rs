@@ -2006,18 +2006,6 @@ fn fact_kind(kind: CXCursorKind) -> Option<FactKind> {
 
 fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> FactData {
     match kind {
-        FactKind::Class => {
-            if is_interface(cursor) {
-                interface_fact(cursor, macros)
-            } else {
-                cursor_uuid(cursor).map_or_else(
-                    || FactData::Unsupported {
-                        reason: "class has no UUID".to_string(),
-                    },
-                    |guid| FactData::Class { guid },
-                )
-            }
-        }
         FactKind::Enum => {
             let ty = unsafe { clang_getEnumDeclIntegerType(cursor) };
             let Some(repr) = scalar(ty) else {
@@ -2144,18 +2132,24 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
                 |(_, value)| FactData::Guid { value },
             )
         }
-        FactKind::Struct | FactKind::Union => {
-            if kind == FactKind::Struct && is_interface(cursor) {
+        FactKind::Class | FactKind::Struct | FactKind::Union => {
+            if matches!(kind, FactKind::Class | FactKind::Struct) && is_interface(cursor) {
                 return interface_fact(cursor, macros);
             }
-            if kind == FactKind::Struct
+            if matches!(kind, FactKind::Class | FactKind::Struct)
                 && let Some(guid) = cursor_uuid(cursor)
             {
                 return FactData::Class { guid };
             }
+            if kind == FactKind::Class && !is_data_class(cursor) {
+                return FactData::Unsupported {
+                    reason: "class is not a public data-only record".to_string(),
+                };
+            }
+            let union = kind == FactKind::Union;
             let definition = unsafe { clang_isCursorDefinition(cursor) } != 0;
             let mut record = if definition {
-                match inline_record(cursor, kind == FactKind::Union) {
+                match inline_record(cursor, union) {
                     Ok(record) => record,
                     Err(reason) => return FactData::Unsupported { reason },
                 }
@@ -2168,7 +2162,7 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
                     align: unsafe { clang_Type_getAlignOf(clang_getCursorType(cursor)) },
                     packing: None,
                     alignment: None,
-                    union: kind == FactKind::Union,
+                    union,
                 }
             };
             name_indirect_inline_records(
@@ -2233,6 +2227,37 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &MacroDefinitions) -> Fac
         }
         _ => FactData::None,
     }
+}
+
+fn is_data_class(cursor: CXCursor) -> bool {
+    let cursor = cursor_definition(cursor);
+    if unsafe { clang_isCursorDefinition(cursor) } == 0 {
+        return false;
+    }
+    if unsafe { clang_isPODType(clang_getCursorType(cursor)) } == 0 {
+        return false;
+    }
+    let children = cursor_children(cursor);
+    let fields: Vec<_> = children
+        .iter()
+        .copied()
+        .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_FieldDecl)
+        .collect();
+    !fields.is_empty()
+        && fields
+            .iter()
+            .all(|field| unsafe { clang_getCXXAccessSpecifier(*field) } == CX_CXXPublic)
+        && !children.iter().any(|child| {
+            matches!(
+                unsafe { clang_getCursorKind(*child) },
+                CXCursor_CXXBaseSpecifier
+                    | CXCursor_CXXMethod
+                    | CXCursor_Constructor
+                    | CXCursor_Destructor
+                    | CXCursor_ConversionFunction
+                    | CXCursor_FunctionTemplate
+            )
+        })
 }
 
 fn external_link_name(cursor: CXCursor) -> String {
@@ -3314,6 +3339,7 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
             && unsafe { clang_getCursorKind(declaration) } == CXCursor_ClassDecl
             && !is_interface(declaration)
             && cursor_uuid(declaration).is_none()
+            && !is_data_class(declaration)
         {
             return Some(TypeRef::OpaquePointer {
                 mutable: unsafe { clang_isConstQualifiedType(pointee) } == 0,
