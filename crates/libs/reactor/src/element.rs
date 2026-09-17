@@ -1845,13 +1845,13 @@ impl GridLength {
     }
 
     /// Uses a fixed number of device-independent pixels (DIPs).
-    pub fn Pixel(value: f64) -> Self {
+    pub const fn Pixel(value: f64) -> Self {
         assert_grid_length_value(value);
         Self::new(GridLengthSize::Pixel(value))
     }
 
     /// Uses a weighted share of the remaining space.
-    pub fn Star(value: f64) -> Self {
+    pub const fn Star(value: f64) -> Self {
         assert_grid_length_value(value);
         Self::new(GridLengthSize::Star(value))
     }
@@ -1879,7 +1879,7 @@ impl GridLength {
     }
 }
 
-fn assert_grid_length_value(value: f64) {
+const fn assert_grid_length_value(value: f64) {
     assert!(
         value.is_finite() && value >= 0.0,
         "Grid length values must be finite and non-negative",

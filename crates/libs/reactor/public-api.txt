@@ -1238,8 +1238,8 @@ pub struct windows_reactor::GridLength
 impl windows_reactor::GridLength
 pub const windows_reactor::GridLength::Auto: Self
 pub const windows_reactor::GridLength::STAR: Self
-pub fn windows_reactor::GridLength::Pixel(f64) -> Self
-pub fn windows_reactor::GridLength::Star(f64) -> Self
+pub const fn windows_reactor::GridLength::Pixel(f64) -> Self
+pub const fn windows_reactor::GridLength::Star(f64) -> Self
 pub fn windows_reactor::GridLength::max(self, f64) -> Self
 pub fn windows_reactor::GridLength::min(self, f64) -> Self
 pub struct windows_reactor::GridView
