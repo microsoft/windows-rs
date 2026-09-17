@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    struct ArgsValue {
+        values: [i32; 42],
+    }
+}

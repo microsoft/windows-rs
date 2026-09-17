@@ -1,0 +1,6 @@
+#[win32]
+mod CustomNamespace {
+    struct NamespaceValue {
+        value: i32,
+    }
+}

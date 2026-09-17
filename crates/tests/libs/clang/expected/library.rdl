@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[library("custom.dll")]
+    extern "C" fn CustomLibrary();
+}
