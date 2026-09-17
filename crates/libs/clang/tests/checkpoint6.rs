@@ -2958,6 +2958,44 @@ fn uuid_class_projects_to_coclass_guid() {
     assert!(!rdl.contains("Widget"));
 }
 
+#[test]
+fn matching_uuid_classes_collapse_across_translation_units() {
+    helpers::ensure_libclang();
+
+    let source = "typedef class Widget Widget;\n\
+                  class __declspec(uuid(\"12345678-1234-5678-90ab-cdef12345678\")) Widget;\n";
+    let first = Input::new("first.hpp", source);
+    let second = Input::new("second.hpp", source);
+    let forward = extract(
+        [first.clone(), second.clone()],
+        &[
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ],
+    )
+    .unwrap()
+    .emit("Coclass")
+    .unwrap();
+    let reverse = extract(
+        [second, first],
+        &[
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ],
+    )
+    .unwrap()
+    .emit("Coclass")
+    .unwrap();
+
+    assert_eq!(forward, reverse);
+    assert_eq!(forward.matches("const Widget").count(), 1);
+    assert!(!forward.contains("type Widget"));
+}
+
 fn rust_string_constant<'a>(source: &'a str, name: &str) -> &'a str {
     let prefix = format!("const {name}: &str = \"");
     source

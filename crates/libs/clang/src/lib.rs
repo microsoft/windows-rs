@@ -1968,12 +1968,12 @@ fn choose_value_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Err
 }
 
 fn types_alias_value_class(name: &str, types: &[&Fact], values: &[&Fact]) -> bool {
-    values
-        .iter()
-        .copied()
-        .find(|fact| matches!(fact.data, FactData::Class { .. }))
-        .is_some_and(|value| {
-            types.iter().all(|fact| {
+    types.iter().all(|fact| {
+        values
+            .iter()
+            .copied()
+            .filter(|value| matches!(value.data, FactData::Class { .. }))
+            .any(|value| {
                 fact.origin == value.origin
                     || (fact.origin.tu == value.origin.tu
                         && fact.parent == value.parent
@@ -1984,7 +1984,7 @@ fn types_alias_value_class(name: &str, types: &[&Fact], values: &[&Fact]) -> boo
                             } if target == name
                         ))
             })
-        })
+    })
 }
 
 fn choose_type_root<'a>(
