@@ -1,10 +1,6 @@
 include!(concat!(env!("OUT_DIR"), "/tests.rs"));
 
-static LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
-
 fn run(name: &str) {
-    // Libclang is process-global and cannot be loaded and unloaded concurrently.
-    let _lock = LOCK.lock().unwrap();
     let input = format!("input/{name}.h");
     let source = std::fs::read_to_string(&input).unwrap();
     let mut namespace = "Test".to_string();
