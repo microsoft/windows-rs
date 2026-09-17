@@ -38,7 +38,7 @@ Microsoft::UI::Xaml::Controls::Flyout::CreateInstance
 Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
 Microsoft::UI::Xaml::Controls::IButton::put_Flyout
 Microsoft::UI::Xaml::Controls::ICalendarDatePicker::put_Date
-Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_Width, put_Width}
+Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_MaxWidth, get_MinWidth, get_Width, put_MaxWidth, put_MinWidth, put_Width}
 Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::IContentDialog::{Hide, ShowAsync}
 Microsoft::UI::Xaml::Controls::IDatePicker::put_SelectedDate
@@ -52,7 +52,7 @@ Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
 Microsoft::UI::Xaml::Controls::INumberBox::get_Value
 Microsoft::UI::Xaml::Controls::IRichEditBox::{get_Document, get_IsReadOnly}
 Microsoft::UI::Xaml::Controls::IRichTextBlock::get_Blocks
-Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}
+Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, get_MaxHeight, get_MinHeight, put_Height, put_MaxHeight, put_MinHeight}
 Microsoft::UI::Xaml::Controls::ISplitButton::put_Flyout
 Microsoft::UI::Xaml::Controls::ISplitView::get_IsPaneOpen
 Microsoft::UI::Xaml::Controls::ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}

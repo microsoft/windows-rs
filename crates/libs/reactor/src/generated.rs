@@ -1202,49 +1202,25 @@ pub mod public {
             self
         }
         pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
-            let values = values.into_iter().collect::<Vec<_>>();
-            assert!(
-                values.iter().all(|value| value.is_valid()),
-                "Grid lengths must be finite and non-negative",
-            );
-            self.rows = Property::Set(std::rc::Rc::new(values));
+            self.rows = Property::Set(grid_lengths(values));
             self
         }
         pub fn rows_optional<T>(mut self, values: Option<T>) -> Self
         where
             T: IntoIterator<Item = GridLength>,
         {
-            self.rows = Property::from(values.map(|values| {
-                let values = values.into_iter().collect::<Vec<_>>();
-                assert!(
-                    values.iter().all(|value| value.is_valid()),
-                    "Grid lengths must be finite and non-negative",
-                );
-                std::rc::Rc::new(values)
-            }));
+            self.rows = Property::from(values.map(grid_lengths));
             self
         }
         pub fn columns(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
-            let values = values.into_iter().collect::<Vec<_>>();
-            assert!(
-                values.iter().all(|value| value.is_valid()),
-                "Grid lengths must be finite and non-negative",
-            );
-            self.columns = Property::Set(std::rc::Rc::new(values));
+            self.columns = Property::Set(grid_lengths(values));
             self
         }
         pub fn columns_optional<T>(mut self, values: Option<T>) -> Self
         where
             T: IntoIterator<Item = GridLength>,
         {
-            self.columns = Property::from(values.map(|values| {
-                let values = values.into_iter().collect::<Vec<_>>();
-                assert!(
-                    values.iter().all(|value| value.is_valid()),
-                    "Grid lengths must be finite and non-negative",
-                );
-                std::rc::Rc::new(values)
-            }));
+            self.columns = Property::from(values.map(grid_lengths));
             self
         }
     }
