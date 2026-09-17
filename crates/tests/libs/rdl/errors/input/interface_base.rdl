@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    struct IBase {}
+    interface IDerived: IBase {}
+}

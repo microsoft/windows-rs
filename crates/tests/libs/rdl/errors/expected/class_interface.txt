@@ -1,0 +1,2 @@
+error: implemented interface must resolve to an interface type
+ --> errors/input/class_interface.rdl:5:9
