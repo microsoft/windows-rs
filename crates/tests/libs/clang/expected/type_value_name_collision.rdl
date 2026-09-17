@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    const AE_ACLMOD: i32 = 12;
+    struct AE_ACLMOD {
+        action: u32,
+    }
+    type LPAE_ACLMOD = *mut AE_ACLMOD;
+    type PAE_ACLMOD = *mut AE_ACLMOD;
+}

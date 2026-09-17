@@ -1095,6 +1095,8 @@ mod Windows {
             HttpVerbSEARCH = 19,
             HttpVerbMaximum = 20,
         }
+        #[encoding("ansi")]
+        const HTTP_VERSION: String = "HTTP/1.0";
         struct HTTP_VERSION {
             MajorVersion: u16,
             MinorVersion: u16,

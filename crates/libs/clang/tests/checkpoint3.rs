@@ -1,4 +1,4 @@
-use windows_clang::{Input, extract};
+use windows_clang::{EmitOptions, Input, extract};
 
 #[test]
 fn planning_is_order_independent_and_dependencies_stay_tu_local() {
@@ -49,8 +49,8 @@ typedef unsigned short Collision;
     assert_eq!(forward.matches("enum SharedState").count(), 1);
     assert!(forward.contains("const SHARED_STATE_A: SharedState = 1"));
     assert!(forward.contains("const SHARED_STATE_B: SharedState = 1"));
-    assert!(!forward.contains("const Collision"));
-    assert!(!forward.contains("StaleAlias"));
+    assert!(forward.contains("const Collision: StaleAlias = 5"));
+    assert!(forward.contains("type StaleAlias = u16"));
 
     let output = scratch.join("out.winmd");
     windows_rdl::reader()
@@ -87,6 +87,39 @@ typedef unsigned short Collision;
     .unwrap();
     assert_eq!(duplicate_constant.matches("const SAME_VALUE").count(), 1);
 
+    let excluded_type = extract(
+        [Input::new(
+            "excluded-type.hpp",
+            "typedef unsigned short SharedName;\n#define SharedName 7",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let references = std::collections::BTreeMap::new();
+    let excluded = std::collections::BTreeSet::from(["SharedName".to_string()]);
+    let mut options = EmitOptions::new("ExcludedType", &references);
+    options.excluded_types = Some(&excluded);
+    let excluded_type = excluded_type.emit_with_options(&options).unwrap();
+    assert!(!excluded_type.contains("type SharedName"));
+    assert!(excluded_type.contains("const SharedName: i32 = 7"));
+
+    let function_constant = extract(
+        [
+            Input::new("function.hpp", "extern \"C\" void SharedName();"),
+            Input::new("constant.hpp", "#define SharedName 7"),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let mut options = EmitOptions::new("FunctionConstant", &references);
+    options.library = Some("test.dll");
+    let function_constant = function_constant.emit_with_options(&options).unwrap_err();
+    assert!(
+        function_constant
+            .to_string()
+            .contains("duplicate planned name `SharedName`")
+    );
+
     let dependency_collision = extract(
         [
             Input::new(
@@ -102,7 +135,7 @@ typedef unsigned short Collision;
     .unwrap();
     assert!(dependency_collision.contains("type StaleAlias = u16"));
     assert!(dependency_collision.contains("const STALE_USE: StaleAlias = 5"));
-    assert!(!dependency_collision.contains("const StaleAlias"));
+    assert!(dependency_collision.contains("const StaleAlias: i32 = 5"));
 
     std::fs::write(
         scratch.join("first-conflict.hpp"),
@@ -114,7 +147,7 @@ typedef unsigned short Collision;
         "typedef unsigned int Conflict;\n",
     )
     .unwrap();
-    let discarded_dependencies = extract(
+    let conflicting_dependencies = extract(
         [
             Input::new(
                 scratch.join("uses-first.hpp").to_string_lossy(),
@@ -123,19 +156,20 @@ typedef unsigned short Collision;
                  #define USES_CONFLICT ((Conflict)1)\n",
             ),
             Input::new(
-                scratch.join("discarded-value.hpp").to_string_lossy(),
+                scratch.join("conflicting-value.hpp").to_string_lossy(),
                 "#include \"second-conflict.hpp\"\n#define Widget ((Conflict)1)\n",
             ),
         ],
         &args,
     )
     .unwrap()
-    .emit("DiscardedDependencies")
-    .unwrap();
-    assert!(discarded_dependencies.contains("type Widget = u16"));
-    assert!(discarded_dependencies.contains("type Conflict = u16"));
-    assert!(!discarded_dependencies.contains("type Conflict = u32"));
-    assert!(!discarded_dependencies.contains("const Widget"));
+    .emit("ConflictingDependencies")
+    .unwrap_err();
+    assert!(
+        conflicting_dependencies
+            .to_string()
+            .contains("ambiguous type root `Conflict`")
+    );
 
     let incomplete = extract(
         [Input::new(

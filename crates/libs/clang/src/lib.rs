@@ -496,7 +496,7 @@ impl Snapshot {
     fn emit_items(
         &self,
         options: &EmitOptions<'_>,
-    ) -> Result<BTreeMap<String, (String, String)>, Error> {
+    ) -> Result<BTreeMap<(String, OutputKind), (String, String)>, Error> {
         let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
         let plan_time = std::time::Instant::now();
         let plan = self.plan(
@@ -513,6 +513,12 @@ impl Snapshot {
         let mut items = BTreeMap::new();
         for planned in plan.types {
             let fact = planned.fact;
+            let kind = match fact.data {
+                FactData::Class { .. } | FactData::Guid { .. } | FactData::PropertyKey { .. } => {
+                    OutputKind::Value
+                }
+                _ => OutputKind::Type,
+            };
             let item = match &fact.data {
                 FactData::Callback {
                     convention,
@@ -653,7 +659,10 @@ impl Snapshot {
                 }
             };
             if items
-                .insert(planned.name.clone(), (fact.spelling.file.clone(), item))
+                .insert(
+                    (planned.name.clone(), kind),
+                    (fact.spelling.file.clone(), item),
+                )
                 .is_some()
             {
                 return Err(Error(format!("duplicate planned name `{}`", planned.name)));
@@ -717,7 +726,7 @@ impl Snapshot {
             );
             if items
                 .insert(
-                    function.name.clone(),
+                    (function.name.clone(), OutputKind::Value),
                     (function.spelling.file.clone(), item),
                 )
                 .is_some()
@@ -742,7 +751,7 @@ impl Snapshot {
             );
             if items
                 .insert(
-                    constant.name.clone(),
+                    (constant.name.clone(), OutputKind::Value),
                     (constant.spelling.file.clone(), item),
                 )
                 .is_some()
@@ -980,35 +989,38 @@ impl Snapshot {
                     "type and function roots collide on `{name}`"
                 )));
             }
+            let constant = if roots.values.is_empty() {
+                None
+            } else {
+                Some(choose_constant_root(name, &roots.values)?)
+            };
             if !roots.types.is_empty() {
-                if roots.types.iter().any(|fact| {
+                let excluded = roots.types.iter().any(|fact| {
                     excluded_declarations.contains(&(fact.origin.tu.clone(), fact.spelling.clone()))
                         || excluded_local_names
                             .contains(&(fact.origin.tu.clone(), fact.name.clone()))
-                }) {
-                    continue;
+                }) || (excluded_types
+                    .is_some_and(|excluded| excluded.contains(name))
+                    && !extended_reference_enums.contains(name))
+                    || (references.contains_key(name)
+                        && !roots
+                            .types
+                            .iter()
+                            .any(|fact| defines_local_type(name, fact)));
+                if !excluded {
+                    let root = choose_type_root_cached(
+                        name,
+                        &roots.types,
+                        &facts_index,
+                        &mut shape_cache,
+                    )?;
+                    root_names.insert(name.to_string());
+                    type_roots.push(root);
                 }
-                if excluded_types.is_some_and(|excluded| excluded.contains(name))
-                    && !extended_reference_enums.contains(name)
-                {
-                    continue;
-                }
-                if references.contains_key(name)
-                    && !roots
-                        .types
-                        .iter()
-                        .any(|fact| defines_local_type(name, fact))
-                {
-                    continue;
-                }
-                let root =
-                    choose_type_root_cached(name, &roots.types, &facts_index, &mut shape_cache)?;
-                root_names.insert(name.to_string());
-                type_roots.push(root);
             } else if !roots.functions.is_empty() {
                 functions.push(choose_function_root(name, &roots.functions)?);
-            } else {
-                let constant = choose_constant_root(name, &roots.values)?;
+            }
+            if let Some(constant) = constant {
                 constants.push(constant);
             }
         }
@@ -1142,19 +1154,26 @@ impl Snapshot {
                 .filter_map(|constant| {
                     grouped
                         .get(constant.name.as_str())
-                        .map(|choices| (constant.name.as_str(), choices))
+                        .map(|choices| (constant, choices))
                 })
                 .collect();
             if !collisions.is_empty() {
-                for (name, choices) in collisions {
-                    let root =
-                        choose_type_root_cached(name, choices, &facts_index, &mut shape_cache)?;
-                    if root_names.insert(name.to_string()) {
+                let mut added = false;
+                for (constant, choices) in collisions {
+                    let root = choose_type_root_cached(
+                        &constant.name,
+                        choices,
+                        &facts_index,
+                        &mut shape_cache,
+                    )?;
+                    if root_names.insert(constant.name.clone()) {
                         type_roots.push(root);
+                        added = true;
                     }
                 }
-                constants.retain(|constant| !root_names.contains(constant.name.as_str()));
-                continue;
+                if added {
+                    continue;
+                }
             }
 
             let mut facts_by_name = BTreeMap::new();
@@ -1584,19 +1603,22 @@ impl Snapshot {
                 }
             })
             .collect();
-        let mut output_names = BTreeSet::new();
+        let mut type_output_names = BTreeSet::new();
         for planned in &types {
-            if !output_names.insert(planned.name.as_str()) {
+            if !type_output_names.insert(planned.name.as_str()) {
                 return Err(Error(format!("duplicate planned name `{}`", planned.name)));
             }
         }
+        let mut value_output_names = BTreeSet::new();
         for constant in &constants {
-            if !output_names.insert(constant.name.as_str()) {
+            if !value_output_names.insert(constant.name.as_str()) {
                 return Err(Error(format!("duplicate planned name `{}`", constant.name)));
             }
         }
         for function in &functions {
-            if !output_names.insert(function.name.as_str()) {
+            if type_output_names.contains(function.name.as_str())
+                || !value_output_names.insert(function.name.as_str())
+            {
                 return Err(Error(format!("duplicate planned name `{}`", function.name)));
             }
         }
@@ -1656,6 +1678,12 @@ fn write_rdl<'a>(
 struct PlannedType<'a> {
     fact: &'a Fact,
     name: String,
+}
+
+#[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
+enum OutputKind {
+    Value,
+    Type,
 }
 
 struct Plan<'a> {

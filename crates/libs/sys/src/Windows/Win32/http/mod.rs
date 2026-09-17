@@ -1202,6 +1202,7 @@ pub struct HTTP_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
+pub const HTTP_VERSION: windows_sys::core::PCSTR = windows_sys::core::s!("HTTP/1.0");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_WINHTTP_FAST_FORWARDING_DATA {
