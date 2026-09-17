@@ -188,6 +188,12 @@ takes the macro's effective value. This preserves the identifier that C callers 
 emitting two items into the header's shared RDL value namespace. Same-named declarations owned by
 different headers remain separate.
 
+RDL can encode a type definition and a member of the namespace's `Apis` class with the same
+projected name. The extractor therefore preserves a type and object-like macro with the same public
+name, whether they come from one header or are combined across translation units. This does not
+impose namespace and type-name uniqueness on WinMD; tagged architecture inputs may contain more
+than one matching `TypeDef`.
+
 Native NaN and infinity constants are omitted because RDL and ECMA metadata cannot represent them.
 This includes `f64` values that become non-finite when narrowed to their declared `f32` type.
 

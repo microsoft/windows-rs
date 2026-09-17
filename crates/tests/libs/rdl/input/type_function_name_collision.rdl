@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn Lookup(value: *mut Lookup);
+    struct Lookup {
+        value: u32,
+    }
+}

@@ -49,8 +49,8 @@ typedef unsigned short Collision;
     assert_eq!(forward.matches("enum SharedState").count(), 1);
     assert!(forward.contains("const SHARED_STATE_A: SharedState = 1"));
     assert!(forward.contains("const SHARED_STATE_B: SharedState = 1"));
-    assert!(!forward.contains("const Collision"));
-    assert!(!forward.contains("StaleAlias"));
+    assert!(forward.contains("const Collision: StaleAlias = 5"));
+    assert!(forward.contains("type StaleAlias = u16"));
 
     let output = scratch.join("out.winmd");
     windows_rdl::reader()
@@ -102,7 +102,7 @@ typedef unsigned short Collision;
     .unwrap();
     assert!(dependency_collision.contains("type StaleAlias = u16"));
     assert!(dependency_collision.contains("const STALE_USE: StaleAlias = 5"));
-    assert!(!dependency_collision.contains("const StaleAlias"));
+    assert!(dependency_collision.contains("const StaleAlias: i32 = 5"));
 
     std::fs::write(
         scratch.join("first-conflict.hpp"),
@@ -114,7 +114,7 @@ typedef unsigned short Collision;
         "typedef unsigned int Conflict;\n",
     )
     .unwrap();
-    let discarded_dependencies = extract(
+    let conflicting_dependencies = extract(
         [
             Input::new(
                 scratch.join("uses-first.hpp").to_string_lossy(),
@@ -123,19 +123,20 @@ typedef unsigned short Collision;
                  #define USES_CONFLICT ((Conflict)1)\n",
             ),
             Input::new(
-                scratch.join("discarded-value.hpp").to_string_lossy(),
+                scratch.join("conflicting-value.hpp").to_string_lossy(),
                 "#include \"second-conflict.hpp\"\n#define Widget ((Conflict)1)\n",
             ),
         ],
         &args,
     )
     .unwrap()
-    .emit("DiscardedDependencies")
-    .unwrap();
-    assert!(discarded_dependencies.contains("type Widget = u16"));
-    assert!(discarded_dependencies.contains("type Conflict = u16"));
-    assert!(!discarded_dependencies.contains("type Conflict = u32"));
-    assert!(!discarded_dependencies.contains("const Widget"));
+    .emit("ConflictingDependencies")
+    .unwrap_err();
+    assert!(
+        conflicting_dependencies
+            .to_string()
+            .contains("ambiguous type root `Conflict`")
+    );
 
     let incomplete = extract(
         [Input::new(
