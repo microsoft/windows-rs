@@ -30617,11 +30617,11 @@ impl windows_core::RuntimeName for Visual {
 }
 unsafe impl Send for Visual {}
 unsafe impl Sync for Visual {}
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 0;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 1;
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 4;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 5;
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562967133290496;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562971428323328;
 pub const WS_EX_LAYERED: i32 = 524288;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
