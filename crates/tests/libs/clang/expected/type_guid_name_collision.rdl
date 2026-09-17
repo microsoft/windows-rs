@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    const Shared: GUID = 0x12345678_1234_5678_90ab_cdef12345678;
+    struct Shared {
+        value: u32,
+    }
+}
