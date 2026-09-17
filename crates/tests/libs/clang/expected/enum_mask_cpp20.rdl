@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum TEST_VALUES {
+        TEST_VALUE = 31,
+    }
+}

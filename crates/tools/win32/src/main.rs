@@ -33,13 +33,14 @@ const SDK_VERSION: &str = "10.0.28000.2270";
 
 // Libclang and package provisioning lives in `helpers`, shared by the generator tools.
 
-/// Clang arguments: parse as C++ so the SDK headers' `extern "C"` blocks,
-/// `__declspec`, and SAL annotations are all understood. The target triple is set
-/// separately per architecture; the SDK include directories are added as `-isystem`.
-/// `-ferror-limit=0` disables clang's default ~20-error cap so a transitive-only
-/// projection header that fails to parse (tolerated by the scraper's scoped
-/// diagnostics) does not cause clang to drop the later declarations the scrape needs.
-const CLANG_ARGS: [&str; 3] = ["-x", "c++", "-ferror-limit=0"];
+/// Clang arguments: parse as C++20 so the SDK headers' `extern "C"` blocks, `__declspec`, SAL
+/// annotations, and constant expressions that rely on C++20 shift semantics are all understood.
+/// The target triple is set separately per architecture; the SDK include directories are added as
+/// `-isystem`.
+/// `-ferror-limit=0` disables clang's default ~20-error cap so a transitive-only projection header
+/// that fails to parse (tolerated by the scraper's scoped diagnostics) does not cause clang to drop
+/// the later declarations the scrape needs.
+const CLANG_ARGS: [&str; 4] = ["-x", "c++", "-std=c++20", "-ferror-limit=0"];
 
 /// SAL capture shim, force-included (`-include`) ahead of the translation unit.
 /// Under a clang `*-windows-msvc` target the SDK's `<sal.h>` expands SAL to forms
