@@ -81,12 +81,16 @@ impl Component for GridPage {
                             .rows([GridLength::Auto])
                             .columns([
                                 GridLength::Pixel(100.0),
-                                GridLength::Star(1.0),
+                                GridLength::STAR.min(120.0).max(200.0),
                                 GridLength::Star(2.0),
                             ])
                             .column_spacing(4.0)
-                            .children((cell("100px", 0, 0), cell("1*", 0, 1), cell("2*", 0, 2))),
-                        "Grid::new().columns([Pixel(100.0), Star(1.0), Star(2.0)])",
+                            .children((
+                                cell("100px", 0, 0),
+                                cell("1* (120-200px)", 0, 1),
+                                cell("2*", 0, 2),
+                            )),
+                        "GridLength::STAR.min(120.0).max(200.0)",
                     ),
                 ),
                 KeyedView::new(

@@ -5,6 +5,9 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::{Duration, Instant};
 
+const PIXEL_GRID_LENGTH: GridLength = GridLength::Pixel(120.0);
+static STAR_GRID_LENGTH: GridLength = GridLength::Star(2.0);
+
 #[test]
 fn generated_builders_convert_to_views() {
     let optional_text = Some("value");
@@ -25,7 +28,12 @@ fn generated_builders_convert_to_views() {
     let slider = Slider::new().value(Some(10.0));
     let toggle = ToggleSwitch::new().is_on(None);
     let grid = Grid::new()
-        .rows_optional(Some([GridLength::Auto, GridLength::STAR]))
+        .rows_optional(Some([
+            GridLength::Auto,
+            PIXEL_GRID_LENGTH,
+            STAR_GRID_LENGTH,
+            GridLength::STAR.min(80.0).max(240.0),
+        ]))
         .columns_optional(None::<[GridLength; 0]>);
     let border = Border::new()
         .padding(Thickness::uniform(24.0))

@@ -3307,10 +3307,10 @@ fn capability_grid_definitions_rows(stage: usize) -> View {
     match stage {
         0 | 3 => Grid::new().children((TextBlock::new(),)),
         1 => Grid::new()
-            .rows([GridLength::Pixel(20.0)])
+            .rows([GridLength::Pixel(20.0).min(10.0).max(30.0)])
             .children((TextBlock::new(),)),
         2 => Grid::new()
-            .rows([GridLength::Auto, GridLength::STAR])
+            .rows([GridLength::Pixel(20.0).min(15.0).max(40.0)])
             .children((TextBlock::new(),)),
         _ => unreachable!(),
     }
@@ -3319,10 +3319,10 @@ fn capability_grid_definitions_columns(stage: usize) -> View {
     match stage {
         0 | 3 => Grid::new().children((TextBlock::new(),)),
         1 => Grid::new()
-            .columns([GridLength::Pixel(20.0)])
+            .columns([GridLength::Pixel(20.0).min(10.0).max(30.0)])
             .children((TextBlock::new(),)),
         2 => Grid::new()
-            .columns([GridLength::Auto, GridLength::STAR])
+            .columns([GridLength::Pixel(20.0).min(15.0).max(40.0)])
             .children((TextBlock::new(),)),
         _ => unreachable!(),
     }
