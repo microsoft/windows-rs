@@ -1,0 +1,22 @@
+#[win32]
+mod Test {
+    struct BaseData {
+        value: i32,
+    }
+    #[library("test.dll")]
+    extern "C" fn UseConstructor(value: *mut void);
+    #[library("test.dll")]
+    extern "C" fn UseDerived(value: *mut void);
+    #[library("test.dll")]
+    extern "C" fn UseDestructor(value: *mut void);
+    #[library("test.dll")]
+    extern "C" fn UseMethod(value: *mut void);
+    #[library("test.dll")]
+    extern "C" fn UseNonPodWrapper(value: *mut void);
+    #[library("test.dll")]
+    extern "C" fn UsePoint(value: *mut void);
+    #[library("test.dll")]
+    extern "C" fn UsePrivate(value: *mut void);
+    #[library("test.dll")]
+    extern "C" fn UseProtected(value: *mut void);
+}

@@ -225,10 +225,13 @@ The repository's generator tools share these facilities through `crates/tools/he
 
 The crate's integration tests cover fact isolation, constants, layouts, interfaces, annotations,
 dependency closure, header ownership, external references, incomplete declarations, macros,
-callbacks, arrays, variadics, recursion, and cross-translation-unit resolution.
+callbacks, arrays, variadics, recursion, and cross-translation-unit resolution. Declarative
+input/output cases live in `test_clang`: each `input/<name>.h` fixture generates
+`expected/<name>.rdl`, and CI rejects any uncommitted output change.
 
 ```text
 cargo test -p windows-clang
+cargo test -p test_clang
 ```
 
 The tests need a loadable compatible libclang. Repository CI obtains the pinned runtime with

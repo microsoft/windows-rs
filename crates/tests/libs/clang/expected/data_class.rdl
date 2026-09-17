@@ -1,0 +1,26 @@
+#[win32]
+mod Test {
+    type BOOL = i32;
+    struct BitmapData {
+        width: u32,
+        stride: i32,
+        scan: *mut void,
+    }
+    struct CProperty {
+        id: u32,
+        Anonymous: union {
+            pointer: *mut void,
+            value: u32,
+        },
+        persistent: BOOL,
+    }
+    #[no_guid]
+    interface IPropertyList {
+        fn Add(&self, value: *mut CProperty) -> i32;
+    }
+    type LPPROP = *mut CProperty;
+    #[library("test.dll")]
+    extern "C" fn UseBitmapData(value: *mut BitmapData);
+    #[library("test.dll")]
+    extern "C" fn UseProperty(value: *mut CProperty, input: *const CProperty);
+}

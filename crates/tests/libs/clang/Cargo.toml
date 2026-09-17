@@ -1,0 +1,18 @@
+[package]
+name = "test_clang"
+version = "0.0.0"
+edition = "2024"
+publish = false
+build = "build.rs"
+
+[lib]
+doc = false
+doctest = false
+test = false
+
+[dev-dependencies]
+windows-clang = { workspace = true }
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

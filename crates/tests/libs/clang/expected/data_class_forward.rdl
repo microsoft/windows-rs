@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    struct Data {
+        value: u32,
+    }
+    type PData = *mut Data;
+    #[library("test.dll")]
+    extern "C" fn UseData(value: *mut Data);
+}
