@@ -203,7 +203,7 @@ The consuming tool owns concerns outside header extraction:
 
 - libclang provisioning and version checks;
 - SDK, WDK, or component package restoration;
-- compiler target and include arguments;
+- compiler language mode, target, and include arguments;
 - import-library parsing and function-to-DLL policy;
 - architecture-specific extraction and merge;
 - transactional promotion of generated RDL;
