@@ -2694,6 +2694,9 @@ impl Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
 }
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: i32 = 1;
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: i32 = 2;
+pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: windows_core::GUID = windows_core::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
+pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: windows_core::GUID = windows_core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
+pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: windows_core::GUID = windows_core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {

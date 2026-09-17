@@ -351,6 +351,15 @@ fn guid_macro_arguments_emit_constants() {
 
     assert!(rdl.contains("const GUID_SAMPLE: GUID = 0x12345678_1234_5678_90ab_cdef12345678"));
     assert!(rdl.contains("const GUID_OLE_SAMPLE: GUID = 0x87654321_4321_8765_c000_000000000046"));
+
+    let excluded = BTreeSet::from(["GUID_SAMPLE".to_string()]);
+    let references = BTreeMap::new();
+    let mut options = EmitOptions::new("Guids", &references);
+    options.excluded_constants = Some(&excluded);
+    let rdl = snapshot.emit_with_options(&options).unwrap();
+
+    assert!(!rdl.contains("const GUID_SAMPLE"));
+    assert!(rdl.contains("const GUID_OLE_SAMPLE"));
 }
 
 #[test]
@@ -527,6 +536,15 @@ fn property_key_macros_preserve_guid_and_identifier() {
     assert!(rdl.contains(
         "#[guid(0x87654321_abcd_1234_0123_456789abcdef)]\n    const DEVPKEY_Test: DEVPROPKEY = 7"
     ));
+
+    let excluded = BTreeSet::from(["PKEY_Test".to_string()]);
+    let references = BTreeMap::new();
+    let mut options = EmitOptions::new("PropertyKeys", &references);
+    options.excluded_constants = Some(&excluded);
+    let rdl = snapshot.emit_with_options(&options).unwrap();
+
+    assert!(!rdl.contains("const PKEY_Test"));
+    assert!(rdl.contains("const DEVPKEY_Test"));
 }
 
 #[test]
@@ -2930,6 +2948,52 @@ fn uuid_class_projects_to_coclass_guid() {
 
     assert!(rdl.contains("const Widget: GUID = 0x12345678_1234_5678_90ab_cdef12345678;"));
     assert!(!rdl.contains("type Widget"));
+
+    let excluded = BTreeSet::from(["Widget".to_string()]);
+    let references = BTreeMap::new();
+    let mut options = EmitOptions::new("Coclass", &references);
+    options.excluded_constants = Some(&excluded);
+    let rdl = snapshot.emit_with_options(&options).unwrap();
+
+    assert!(!rdl.contains("Widget"));
+}
+
+#[test]
+fn matching_uuid_classes_collapse_across_translation_units() {
+    helpers::ensure_libclang();
+
+    let source = "typedef class Widget Widget;\n\
+                  class __declspec(uuid(\"12345678-1234-5678-90ab-cdef12345678\")) Widget;\n";
+    let first = Input::new("first.hpp", source);
+    let second = Input::new("second.hpp", source);
+    let forward = extract(
+        [first.clone(), second.clone()],
+        &[
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ],
+    )
+    .unwrap()
+    .emit("Coclass")
+    .unwrap();
+    let reverse = extract(
+        [second, first],
+        &[
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ],
+    )
+    .unwrap()
+    .emit("Coclass")
+    .unwrap();
+
+    assert_eq!(forward, reverse);
+    assert_eq!(forward.matches("const Widget").count(), 1);
+    assert!(!forward.contains("type Widget"));
 }
 
 fn rust_string_constant<'a>(source: &'a str, name: &str) -> &'a str {

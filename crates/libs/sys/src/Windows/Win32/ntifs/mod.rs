@@ -1803,9 +1803,6 @@ impl Default for FILE_TRACKING_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
-pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
-pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
 pub const FILE_VC_CONTENT_INDEX_DISABLED: i32 = 8;
 pub const FILE_VC_LOG_QUOTA_LIMIT: i32 = 32;
 pub const FILE_VC_LOG_QUOTA_THRESHOLD: i32 = 16;

@@ -194,6 +194,9 @@ name, whether they come from one header or are combined across translation units
 impose namespace and type-name uniqueness on WinMD; tagged architecture inputs may contain more
 than one matching `TypeDef`.
 
+GUID, property-key, and coclass facts are also planned as values. They honor constant exclusions
+while their referenced types still participate in dependency closure.
+
 Native NaN and infinity constants are omitted because RDL and ECMA metadata cannot represent them.
 This includes `f64` values that become non-finite when narrowed to their declared `f32` type.
 

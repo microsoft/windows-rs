@@ -511,14 +511,17 @@ impl Snapshot {
         }
         let emission_time = std::time::Instant::now();
         let mut items = BTreeMap::new();
-        for planned in plan.types {
+        let planned = plan
+            .values
+            .into_iter()
+            .map(|planned| (planned, OutputKind::Value))
+            .chain(
+                plan.types
+                    .into_iter()
+                    .map(|planned| (planned, OutputKind::Type)),
+            );
+        for (planned, kind) in planned {
             let fact = planned.fact;
-            let kind = match fact.data {
-                FactData::Class { .. } | FactData::Guid { .. } | FactData::PropertyKey { .. } => {
-                    OutputKind::Value
-                }
-                _ => OutputKind::Type,
-            };
             let item = match &fact.data {
                 FactData::Callback {
                     convention,
@@ -781,8 +784,9 @@ impl Snapshot {
         #[derive(Default)]
         struct Roots<'a> {
             types: Vec<&'a Fact>,
+            values: Vec<&'a Fact>,
             functions: Vec<&'a Fact>,
-            values: Vec<&'a Constant>,
+            constants: Vec<&'a Constant>,
         }
 
         let facts_by_origin: HashMap<_, _> =
@@ -844,7 +848,7 @@ impl Snapshot {
         for fact in self
             .facts
             .iter()
-            .filter(|fact| fact.root && is_root_type_fact(fact) && is_flat_root(fact))
+            .filter(|fact| fact.root && is_root_fact(fact) && is_flat_root(fact))
             .filter(|fact| {
                 let Some(interface) = fact.name.strip_prefix("IID_") else {
                     return true;
@@ -866,7 +870,12 @@ impl Snapshot {
                     .is_some_and(|declared| *declared != value)
             })
         {
-            roots.entry(&fact.name).or_default().types.push(fact);
+            let roots = roots.entry(&fact.name).or_default();
+            if is_value_fact(fact) {
+                roots.values.push(fact);
+            } else {
+                roots.types.push(fact);
+            }
         }
         for fact in self
             .facts
@@ -893,7 +902,7 @@ impl Snapshot {
             roots
                 .entry(&constant.name)
                 .or_default()
-                .values
+                .constants
                 .push(constant);
         }
 
@@ -978,6 +987,7 @@ impl Snapshot {
             })
             .collect();
         let mut type_roots = vec![];
+        let mut value_roots = vec![];
         let mut functions = vec![];
         let mut constants = vec![];
         let mut root_names = BTreeSet::new();
@@ -989,12 +999,21 @@ impl Snapshot {
                     "type and function roots collide on `{name}`"
                 )));
             }
-            let constant = if roots.values.is_empty() {
+            let value = if roots.values.is_empty()
+                || excluded_constants.is_some_and(|excluded| excluded.contains(name))
+            {
                 None
             } else {
-                Some(choose_constant_root(name, &roots.values)?)
+                Some(choose_value_root(name, &roots.values)?)
             };
-            if !roots.types.is_empty() {
+            let constant = if roots.constants.is_empty() {
+                None
+            } else {
+                Some(choose_constant_root(name, &roots.constants)?)
+            };
+            let types_alias_value_class =
+                types_alias_value_class(name, &roots.types, &roots.values);
+            if !roots.types.is_empty() && !types_alias_value_class {
                 let excluded = roots.types.iter().any(|fact| {
                     excluded_declarations.contains(&(fact.origin.tu.clone(), fact.spelling.clone()))
                         || excluded_local_names
@@ -1019,6 +1038,9 @@ impl Snapshot {
                 }
             } else if !roots.functions.is_empty() {
                 functions.push(choose_function_root(name, &roots.functions)?);
+            }
+            if let Some(value) = value {
+                value_roots.push(value);
             }
             if let Some(constant) = constant {
                 constants.push(constant);
@@ -1053,6 +1075,9 @@ impl Snapshot {
                 if facts.insert(root.origin.clone()) {
                     queue_type_edges(root, &mut queue);
                 }
+            }
+            for root in &value_roots {
+                queue_type_edges(root, &mut queue);
             }
             for constant in &constants {
                 queue.push((constant.root.tu.as_str(), TypeEdge::Type(&constant.ty)));
@@ -1241,9 +1266,12 @@ impl Snapshot {
         for fact in facts_by_name.values() {
             validate_fact_layouts(fact, &layout, &mut safe_layouts, &mut validated_layouts)?;
         }
+        for fact in &value_roots {
+            validate_fact_layouts(fact, &layout, &mut safe_layouts, &mut validated_layouts)?;
+        }
         if timing {
             eprintln!(
-                "clang validate types: {:.2}s",
+                "clang validate types and values: {:.2}s",
                 validation_time.elapsed().as_secs_f32()
             );
         }
@@ -1486,11 +1514,18 @@ impl Snapshot {
             .into_iter()
             .filter(|(name, _)| required.contains(*name))
             .filter(|(name, _)| !alias_names.contains(*name))
-            .map(|(_, fact)| PlannedType {
+            .map(|(_, fact)| PlannedFact {
                 name: type_names
                     .get(fact.name.as_str())
                     .cloned()
                     .unwrap_or_else(|| fact.name.clone()),
+                fact,
+            })
+            .collect();
+        let values: Vec<_> = value_roots
+            .into_iter()
+            .map(|fact| PlannedFact {
+                name: fact.name.clone(),
                 fact,
             })
             .collect();
@@ -1610,6 +1645,11 @@ impl Snapshot {
             }
         }
         let mut value_output_names = BTreeSet::new();
+        for planned in &values {
+            if !value_output_names.insert(planned.name.as_str()) {
+                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
+            }
+        }
         for constant in &constants {
             if !value_output_names.insert(constant.name.as_str()) {
                 return Err(Error(format!("duplicate planned name `{}`", constant.name)));
@@ -1632,6 +1672,7 @@ impl Snapshot {
         }
         Ok(Plan {
             types,
+            values,
             functions,
             constants,
             type_names,
@@ -1675,7 +1716,7 @@ fn write_rdl<'a>(
     Ok(result)
 }
 
-struct PlannedType<'a> {
+struct PlannedFact<'a> {
     fact: &'a Fact,
     name: String,
 }
@@ -1687,7 +1728,8 @@ enum OutputKind {
 }
 
 struct Plan<'a> {
-    types: Vec<PlannedType<'a>>,
+    types: Vec<PlannedFact<'a>>,
+    values: Vec<PlannedFact<'a>>,
     functions: Vec<&'a Fact>,
     constants: Vec<&'a Constant>,
     type_names: BTreeMap<String, String>,
@@ -1724,13 +1766,17 @@ fn is_type_fact(fact: &Fact) -> bool {
     matches!(
         fact.data,
         FactData::Callback { .. }
-            | FactData::Class { .. }
             | FactData::Enum { .. }
-            | FactData::Guid { .. }
-            | FactData::PropertyKey { .. }
             | FactData::Interface { .. }
             | FactData::Record { .. }
             | FactData::Typedef { .. }
+    )
+}
+
+fn is_value_fact(fact: &Fact) -> bool {
+    matches!(
+        fact.data,
+        FactData::Class { .. } | FactData::Guid { .. } | FactData::PropertyKey { .. }
     )
 }
 
@@ -1776,10 +1822,7 @@ fn is_flat_declaration(
 
 fn defines_local_type(name: &str, fact: &Fact) -> bool {
     match &fact.data {
-        FactData::Class { .. }
-        | FactData::Callback { .. }
-        | FactData::Guid { .. }
-        | FactData::PropertyKey { .. } => true,
+        FactData::Callback { .. } => true,
         FactData::Enum { .. } | FactData::Interface { .. } | FactData::Record { .. } => {
             fact.definition
         }
@@ -1791,8 +1834,8 @@ fn defines_local_type(name: &str, fact: &Fact) -> bool {
     }
 }
 
-fn is_root_type_fact(fact: &Fact) -> bool {
-    is_type_fact(fact)
+fn is_root_fact(fact: &Fact) -> bool {
+    (is_type_fact(fact) || is_value_fact(fact))
         && !(canonical_named_type(&fact.name).is_some()
             && matches!(fact.data, FactData::Typedef { .. }))
         && (!matches!(
@@ -1904,6 +1947,46 @@ fn recursion_shape(seen: &BTreeSet<Location>) -> TypeShape {
     TypeShape(first.finish(), second.finish())
 }
 
+fn preferred_fact<'a>(facts: &[&'a Fact]) -> &'a Fact {
+    facts
+        .iter()
+        .copied()
+        .min_by_key(|fact| (!fact.root, &fact.origin))
+        .unwrap()
+}
+
+fn choose_value_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
+    let distinct = distinct_source_declarations(roots);
+    let Some(first) = distinct.first() else {
+        return Err(Error(format!("missing value root `{name}`")));
+    };
+    if distinct.iter().all(|fact| fact.data == first.data) {
+        Ok(preferred_fact(&distinct))
+    } else {
+        Err(Error(format!("ambiguous value root `{name}`")))
+    }
+}
+
+fn types_alias_value_class(name: &str, types: &[&Fact], values: &[&Fact]) -> bool {
+    types.iter().all(|fact| {
+        values
+            .iter()
+            .copied()
+            .filter(|value| matches!(value.data, FactData::Class { .. }))
+            .any(|value| {
+                fact.origin == value.origin
+                    || (fact.origin.tu == value.origin.tu
+                        && fact.parent == value.parent
+                        && matches!(
+                            &fact.data,
+                            FactData::Typedef {
+                                target: TypeRef::Named { name: target, .. }
+                            } if target == name
+                        ))
+            })
+    })
+}
+
 fn choose_type_root<'a>(
     name: &str,
     roots: &[&'a Fact],
@@ -1918,31 +2001,9 @@ fn choose_type_root_cached<'a>(
     facts_index: &HashMap<&str, Vec<&'a Fact>>,
     shape_cache: &mut ShapeCache,
 ) -> Result<&'a Fact, Error> {
-    fn preferred<'a>(facts: &[&'a Fact]) -> &'a Fact {
-        facts
-            .iter()
-            .copied()
-            .min_by_key(|fact| (!fact.root, &fact.origin))
-            .unwrap()
-    }
-
     let distinct = distinct_source_declarations(roots);
     if let [root] = distinct.as_slice() {
         return emittable_type(name, root);
-    }
-    if let Some(FactData::Guid { value }) = distinct.first().map(|fact| &fact.data)
-        && distinct
-            .iter()
-            .all(|fact| matches!(&fact.data, FactData::Guid { value: other } if other == value))
-    {
-        return emittable_type(name, preferred(&distinct));
-    }
-    if let Some(FactData::Class { guid }) = distinct.first().map(|fact| &fact.data)
-        && distinct
-            .iter()
-            .all(|fact| matches!(&fact.data, FactData::Class { guid: other } if other == guid))
-    {
-        return emittable_type(name, preferred(&distinct));
     }
     if let Some(first) = distinct.first()
         && distinct.iter().all(|fact| {
@@ -1952,25 +2013,7 @@ fn choose_type_root_cached<'a>(
                 && fact.data == first.data
         })
     {
-        return emittable_type(name, preferred(&distinct));
-    }
-    if let Some(class) = distinct
-        .iter()
-        .copied()
-        .find(|fact| matches!(fact.data, FactData::Class { .. }))
-        && distinct.iter().all(|fact| {
-            fact.origin == class.origin
-                || (fact.origin.tu == class.origin.tu
-                    && fact.parent == class.parent
-                    && matches!(
-                        &fact.data,
-                        FactData::Typedef {
-                            target: TypeRef::Named { name: target, .. }
-                        } if target == name
-                    ))
-        })
-    {
-        return emittable_type(name, class);
+        return emittable_type(name, preferred_fact(&distinct));
     }
     if let Some(target_name) = distinct.first().and_then(|first| match &first.data {
         FactData::Typedef {
@@ -2059,7 +2102,7 @@ fn choose_type_root_cached<'a>(
                 )
         })
     {
-        return emittable_type(name, preferred(&distinct));
+        return emittable_type(name, preferred_fact(&distinct));
     }
 
     fn resolved_type_shape(
@@ -2532,7 +2575,7 @@ fn choose_type_root_cached<'a>(
                 )
         })
     {
-        return emittable_type(name, preferred(&declarations));
+        return emittable_type(name, preferred_fact(&declarations));
     }
 
     let definitions: Vec<_> = distinct
@@ -2546,7 +2589,7 @@ fn choose_type_root_cached<'a>(
         })
         .collect();
     if definitions.len() > 1 {
-        let root = preferred(&definitions);
+        let root = preferred_fact(&definitions);
         let equivalent_definitions = definitions.iter().all(|fact| {
             fact.kind == root.kind
                 && ((fact.origin.tu == root.origin.tu && fact.data == root.data)
