@@ -870,9 +870,6 @@ mod Windows {
             ObjectInformationLength: u32,
             ObjectInformation: [i8; 1],
         }
-        const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: GUID = 0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9;
-        const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: GUID = 0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7;
-        const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: GUID = 0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c;
         const FILE_VC_CONTENT_INDEX_DISABLED: i32 = 8;
         const FILE_VC_LOG_QUOTA_LIMIT: i32 = 32;
         const FILE_VC_LOG_QUOTA_THRESHOLD: i32 = 16;
