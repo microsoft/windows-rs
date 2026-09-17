@@ -32,8 +32,8 @@ libclang library and is **not** a shared home for SDK/runtime versions.
 | Windows WDK | `10.0.28000.1839` | `WDK_VERSION` - `crates/tools/win32/src/km.rs` | download (NuGet) | `tool-win32` zero-diff regen |
 | SDK Contracts (WinRT) | `10.0.28000.2270` | `CONTRACTS_VERSION` - `crates/tools/winrt/src/main.rs` | download (NuGet) | `tool-winrt` zero-diff regen |
 | WebView2 SDK headers | `1.0.4078.44` | `WEBVIEW2_VERSION` - `crates/tools/webview/src/main.rs` | download (NuGet) | `tool-webview` zero-diff regen |
-| WinUI / Windows App SDK metadata (`.winmd` files) | `2.4.0` | `WINDOWS_APP_SDK_VERSION` - `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool-reactor` zero-diff regen of the committed metadata |
-| Windows App SDK runtime | `2.4.0` | `RUNTIME_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool-reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
+| WinUI / Windows App SDK metadata (`.winmd` files) | `2.5.1` | `WINDOWS_APP_SDK_VERSION` - `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool-reactor` zero-diff regen of the committed metadata |
+| Windows App SDK runtime | `2.5.1` | `RUNTIME_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool-reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
 | WebView2 runtime projection | `1.0.4078.44` | `WEBVIEW2_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool-reactor` guard: `== WEBVIEW2_VERSION` |
 | LLVM / libclang (CI) | `22.1.8` | `LIBCLANG_VERSION` - `crates/libs/clang/src/provision.rs` | download (NuGet) via `tool-clang path` | `tool-clang`: loads the pin and asserts its version |
 
@@ -131,7 +131,7 @@ the matching runtime so reactor apps run. Metadata and runtime are two faces of 
 a single number.
 
 **Metadata is regenerated, not hand-copied.** `tool-reactor` owns
-`WINDOWS_APP_SDK_VERSION = "2.4.0"`. On every run it downloads the umbrella
+`WINDOWS_APP_SDK_VERSION = "2.5.1"`. On every run it downloads the umbrella
 `Microsoft.WindowsAppSDK` metapackage at that version, reads the exact component versions
 (Foundation / InteractiveExperiences / WinUI) pinned in its nuspec, downloads each component, and
 copies their `.winmd` - plus `Microsoft.Web.WebView2.Core.winmd` at `WEBVIEW2_VERSION` - into the
