@@ -989,38 +989,38 @@ impl Snapshot {
                     "type and function roots collide on `{name}`"
                 )));
             }
+            let constant = if roots.values.is_empty() {
+                None
+            } else {
+                Some(choose_constant_root(name, &roots.values)?)
+            };
             if !roots.types.is_empty() {
-                if roots.types.iter().any(|fact| {
+                let excluded = roots.types.iter().any(|fact| {
                     excluded_declarations.contains(&(fact.origin.tu.clone(), fact.spelling.clone()))
                         || excluded_local_names
                             .contains(&(fact.origin.tu.clone(), fact.name.clone()))
-                }) {
-                    continue;
-                }
-                if excluded_types.is_some_and(|excluded| excluded.contains(name))
-                    && !extended_reference_enums.contains(name)
-                {
-                    continue;
-                }
-                if references.contains_key(name)
-                    && !roots
-                        .types
-                        .iter()
-                        .any(|fact| defines_local_type(name, fact))
-                {
-                    continue;
-                }
-                let root =
-                    choose_type_root_cached(name, &roots.types, &facts_index, &mut shape_cache)?;
-                root_names.insert(name.to_string());
-                type_roots.push(root);
-                if !roots.values.is_empty() {
-                    constants.push(choose_constant_root(name, &roots.values)?);
+                }) || (excluded_types
+                    .is_some_and(|excluded| excluded.contains(name))
+                    && !extended_reference_enums.contains(name))
+                    || (references.contains_key(name)
+                        && !roots
+                            .types
+                            .iter()
+                            .any(|fact| defines_local_type(name, fact)));
+                if !excluded {
+                    let root = choose_type_root_cached(
+                        name,
+                        &roots.types,
+                        &facts_index,
+                        &mut shape_cache,
+                    )?;
+                    root_names.insert(name.to_string());
+                    type_roots.push(root);
                 }
             } else if !roots.functions.is_empty() {
                 functions.push(choose_function_root(name, &roots.functions)?);
-            } else {
-                let constant = choose_constant_root(name, &roots.values)?;
+            }
+            if let Some(constant) = constant {
                 constants.push(constant);
             }
         }

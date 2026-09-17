@@ -1,4 +1,4 @@
-use windows_clang::{Input, extract};
+use windows_clang::{EmitOptions, Input, extract};
 
 #[test]
 fn planning_is_order_independent_and_dependencies_stay_tu_local() {
@@ -86,6 +86,39 @@ typedef unsigned short Collision;
     .emit("DuplicateConstant")
     .unwrap();
     assert_eq!(duplicate_constant.matches("const SAME_VALUE").count(), 1);
+
+    let excluded_type = extract(
+        [Input::new(
+            "excluded-type.hpp",
+            "typedef unsigned short SharedName;\n#define SharedName 7",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let references = std::collections::BTreeMap::new();
+    let excluded = std::collections::BTreeSet::from(["SharedName".to_string()]);
+    let mut options = EmitOptions::new("ExcludedType", &references);
+    options.excluded_types = Some(&excluded);
+    let excluded_type = excluded_type.emit_with_options(&options).unwrap();
+    assert!(!excluded_type.contains("type SharedName"));
+    assert!(excluded_type.contains("const SharedName: i32 = 7"));
+
+    let function_constant = extract(
+        [
+            Input::new("function.hpp", "extern \"C\" void SharedName();"),
+            Input::new("constant.hpp", "#define SharedName 7"),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let mut options = EmitOptions::new("FunctionConstant", &references);
+    options.library = Some("test.dll");
+    let function_constant = function_constant.emit_with_options(&options).unwrap_err();
+    assert!(
+        function_constant
+            .to_string()
+            .contains("duplicate planned name `SharedName`")
+    );
 
     let dependency_collision = extract(
         [
