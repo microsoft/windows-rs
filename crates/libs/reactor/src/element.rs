@@ -433,6 +433,22 @@ pub(crate) trait NativeChildrenTestExt: Sized {
 #[derive(Clone, Debug, PartialEq)]
 pub struct View(ViewKind);
 
+/// A symbol or icon control accepted by native icon properties.
+#[derive(Clone, Debug, PartialEq)]
+pub struct Icon(pub(crate) View);
+
+impl Icon {
+    pub(crate) fn into_view(self) -> View {
+        self.0
+    }
+}
+
+impl From<Symbol> for Icon {
+    fn from(value: Symbol) -> Self {
+        SymbolIcon::new().symbol(value).into()
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum ViewKind {
     Native(Element),

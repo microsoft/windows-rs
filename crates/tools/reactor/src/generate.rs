@@ -1382,6 +1382,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     } else {
         (TokenStream::new(), TokenStream::new(), TokenStream::new())
     };
+    let icon_conversion = control.icon_element.then(|| {
+        quote! {
+            impl From<#name> for Icon {
+                fn from(value: #name) -> Self {
+                    Self(value.into())
+                }
+            }
+        }
+    });
     let property_fields = control.properties.iter().map(|property| {
         let field = ident(&property.field);
         let value = property_storage_type(property);
@@ -1443,6 +1452,16 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         let method = ident(&crate::helpers::to_snake_case(&slot.name));
         let slot_id = ident(&format!("{}{}", control.name, slot.name));
         match &slot.shape {
+            crate::schema::SlotShape::Single(crate::schema::SlotTarget::IconElement) => quote! {
+                #visibility fn #method(mut self, icon: impl Into<Icon>) -> Self {
+                    set_control_slot(
+                        &mut self.slots,
+                        SlotId::#slot_id,
+                        SlotContent::Single(icon.into().into_view()),
+                    );
+                    self
+                }
+            },
             crate::schema::SlotShape::Single(_) => quote! {
                 #visibility fn #method(mut self, view: impl Into<View>) -> Self {
                     set_control_slot(
@@ -1923,6 +1942,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
 
         impl sealed::Sealed for #name {}
         #reference_impls
+        #icon_conversion
         #(#capability_impls)*
         #structural_test_impl
     }
