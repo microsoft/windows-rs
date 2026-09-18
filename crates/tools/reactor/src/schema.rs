@@ -1,5 +1,7 @@
 use crate::helpers::to_snake_case;
-use crate::metadata::{CollectionType, MetadataResolver, ParamClass, ReadValueConversion};
+use crate::metadata::{
+    CollectionType, EventHandlerType, MetadataResolver, ParamClass, ReadValueConversion,
+};
 use serde::Deserialize;
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
@@ -628,6 +630,7 @@ pub(crate) struct ResolvedEvent {
     pub(crate) source: EventPayloadSource,
     pub(crate) conversion: EventPayloadConversion,
     pub(crate) subscription: EventSubscription,
+    pub(crate) handler: Option<(EventHandlerType, EventHandlerType)>,
     pub(crate) active_properties: Vec<String>,
     pub(crate) routed: bool,
 }
@@ -674,7 +677,7 @@ impl SlotShape {
 
 #[derive(Debug, Eq, PartialEq)]
 pub(crate) enum EventPayloadSource {
-    Unit,
+    Unit(EventHandlerType, EventHandlerType),
     SenderProperty { interface: String, property: String },
     EventArgsProperty { interface: String, property: String },
     DragInfo { interface: String },
@@ -721,7 +724,7 @@ impl EventPayloadSource {
                 interface,
                 property,
             } => Some((interface, property)),
-            Self::Unit
+            Self::Unit(..)
             | Self::DragInfo { .. }
             | Self::DropData { .. }
             | Self::PointerEvent
@@ -1602,9 +1605,17 @@ impl Schema {
                             )
                         }
                     } else {
+                        let (sender, args) = metadata
+                            .resolve_event_handler_types(&name, &event.name)
+                            .ok_or_else(|| {
+                                format!(
+                                    "{}.{} has unsupported event handler types",
+                                    control.type_name, event.name
+                                )
+                            })?;
                         (
                             "Unit".to_string(),
-                            EventPayloadSource::Unit,
+                            EventPayloadSource::Unit(sender, args),
                             ReadValueConversion::Identity,
                         )
                     };
@@ -1661,6 +1672,9 @@ impl Schema {
                         control.type_name, event.name
                     ));
                 }
+                let handler = matches!(subscription, EventSubscription::Metadata)
+                    .then(|| metadata.resolve_event_handler_types(&name, &event.name))
+                    .flatten();
 
                 events.push(ResolvedEvent {
                     field: event
@@ -1672,6 +1686,7 @@ impl Schema {
                     source,
                     conversion,
                     subscription,
+                    handler,
                     active_properties: event.active_properties,
                     routed: event.routed,
                 });

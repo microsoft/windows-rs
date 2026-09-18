@@ -666,7 +666,6 @@ impl<R: NativeRuntime> Pump<R> {
             retained_nodes.extend(retained.iter().copied());
             retirements.push((node, retained, parent, slot, transition));
         }
-        plan.commits.retain(|commit| !nodes.contains(&commit.node));
         plan.reference_commits
             .retain(|commit| !nodes.contains(&commit.node));
         for node in nodes.iter().copied() {

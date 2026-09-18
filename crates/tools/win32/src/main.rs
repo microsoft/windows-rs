@@ -913,7 +913,7 @@ fn replace_rdl(source: &std::path::Path, destination: &std::path::Path) {
                     panic!("failed to enumerate `{}`: {error}", destination.display())
                 })
                 .path();
-            if path.is_file() && !path.extension().is_some_and(|extension| extension == "rdl") {
+            if path.is_file() && path.extension().is_none_or(|extension| extension != "rdl") {
                 std::fs::copy(&path, staging.join(path.file_name().unwrap())).unwrap_or_else(
                     |error| {
                         panic!(

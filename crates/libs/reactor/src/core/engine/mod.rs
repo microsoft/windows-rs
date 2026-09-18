@@ -3,7 +3,6 @@ use super::*;
 use crate::reference::NativeElementRef;
 use rustc_hash::FxHashMap as HashMap;
 use std::any::TypeId;
-use std::collections::BTreeMap;
 use std::rc::Rc;
 
 const PROVIDER_CHUNK_CAPACITY: usize = 256;
@@ -188,13 +187,68 @@ pub struct RealizedRow {
 pub struct NativeState {
     pub desired: MountedProps,
     pub reference: Option<NativeElementRef>,
-    pub properties: BTreeMap<PropertyId, Option<PropertyValue>>,
-    pub events: BTreeMap<EventId, EventState>,
+    pub properties: SortedVecMap<PropertyId, PropertyValue>,
+    pub events: SortedVecMap<EventId, EventState>,
+}
+
+#[derive(Clone)]
+pub struct SortedVecMap<K, V>(Vec<(K, V)>);
+
+impl<K, V> Default for SortedVecMap<K, V> {
+    fn default() -> Self {
+        Self(Vec::new())
+    }
+}
+
+impl<K: Copy + Ord, V> SortedVecMap<K, V> {
+    pub fn get(&self, key: &K) -> Option<&V> {
+        self.0
+            .binary_search_by_key(key, |(key, _)| *key)
+            .ok()
+            .map(|index| &self.0[index].1)
+    }
+
+    pub fn insert(&mut self, key: K, value: V) -> Option<V> {
+        match self.0.binary_search_by_key(&key, |(key, _)| *key) {
+            Ok(index) => Some(std::mem::replace(&mut self.0[index].1, value)),
+            Err(index) => {
+                self.0.insert(index, (key, value));
+                None
+            }
+        }
+    }
+
+    pub fn remove(&mut self, key: &K) -> Option<V> {
+        self.0
+            .binary_search_by_key(key, |(key, _)| *key)
+            .ok()
+            .map(|index| self.0.remove(index).1)
+    }
+
+    pub fn get_or_insert(&mut self, key: K, value: V) -> &mut V {
+        let index = match self.0.binary_search_by_key(&key, |(key, _)| *key) {
+            Ok(index) => index,
+            Err(index) => {
+                self.0.insert(index, (key, value));
+                index
+            }
+        };
+        &mut self.0[index].1
+    }
+}
+
+impl<'a, K, V> IntoIterator for &'a SortedVecMap<K, V> {
+    type Item = &'a (K, V);
+    type IntoIter = std::slice::Iter<'a, (K, V)>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter()
+    }
 }
 
 impl NativeState {
     fn new(desired: MountedProps) -> Self {
-        let mut events = BTreeMap::new();
+        let mut events = SortedVecMap::default();
         desired.visit_events(&mut |event, active| {
             if active {
                 events.insert(
@@ -209,7 +263,7 @@ impl NativeState {
         Self {
             desired,
             reference: None,
-            properties: BTreeMap::new(),
+            properties: SortedVecMap::default(),
             events,
         }
     }

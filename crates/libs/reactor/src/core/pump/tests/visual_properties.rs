@@ -222,7 +222,7 @@ fn failed_visual_update_does_not_publish_struct_values() {
             .native(border)
             .properties
             .get(&PropertyId::BorderPadding),
-        Some(&Some(PropertyValue::Thickness(Thickness::uniform(24.0))))
+        Some(&PropertyValue::Thickness(Thickness::uniform(24.0)))
     );
 }
 

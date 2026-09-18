@@ -6,6 +6,9 @@ Dedicated positional array and tuple rows include view construction so frontend 
 are not hidden by prebuilt planner inputs. The virtual construction row likewise measures source
 construction separately from reconciliation. Separate component rows measure idle and
 effect-bearing retained memory, effect mount cost, and isolated effect updates.
+Border rows measure construction and retained native-tree memory with zero, one, two, and four
+properties, plus one and four active events. These rows keep property and event storage changes
+visible.
 
 Run the benchmark in release mode:
 

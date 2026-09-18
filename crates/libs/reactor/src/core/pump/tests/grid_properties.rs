@@ -281,7 +281,7 @@ fn grid_update_and_clear_publish_only_after_native_success() {
     ));
     assert_eq!(
         pump.tree.native(child).properties.get(&PropertyId::GridRow),
-        Some(&Some(PropertyValue::I32(2)))
+        Some(&PropertyValue::I32(2))
     );
 }
 
@@ -521,7 +521,7 @@ fn failed_virtual_grid_placement_does_not_publish_candidate_state() {
             .native(collection)
             .properties
             .get(&PropertyId::GridRow),
-        Some(&Some(PropertyValue::I32(1)))
+        Some(&PropertyValue::I32(1))
     );
     assert!(pump.poisoned());
 }
