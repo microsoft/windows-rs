@@ -1879,9 +1879,9 @@ fn is_flat_declaration(
         None | Some("Windows") => true,
         Some("ABI") => {
             let namespace = namespaces[1..].join(".");
-            !references
+            references
                 .get(&fact.name)
-                .is_some_and(|reference| reference.namespace == namespace)
+                .is_none_or(|reference| reference.namespace != namespace)
         }
         Some(_) => false,
     }

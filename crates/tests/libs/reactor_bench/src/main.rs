@@ -1373,28 +1373,15 @@ fn measure_effect_component_memory(count: usize) -> MemoryRow {
     }
 }
 
-fn measure_native_memory(name: &'static str, count: usize, properties: usize) -> NativeMemoryRow {
+fn measure_native_memory(
+    name: &'static str,
+    count: usize,
+    view: impl FnOnce() -> View,
+) -> NativeMemoryRow {
     let mut pump = Pump::new(runtime());
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    pump.mount_view(border_stack(count, properties)).unwrap();
-    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
-    pump.shutdown();
-    NativeMemoryRow {
-        name,
-        allocations,
-        n: count,
-        bytes,
-        bytes_per_element: bytes as f64 / count as f64,
-    }
-}
-
-fn measure_native_event_memory(name: &'static str, count: usize, events: usize) -> NativeMemoryRow {
-    let mut pump = Pump::new(runtime());
-    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    pump.mount_view(border_event_stack(count, events)).unwrap();
+    pump.mount_view(view()).unwrap();
     let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
     pump.shutdown();
@@ -1788,12 +1775,12 @@ fn main() {
     );
     println!("{}", "-".repeat(80));
     for row in [
-        measure_native_memory("none", 4_096, 0),
-        measure_native_memory("one", 4_096, 1),
-        measure_native_memory("two", 4_096, 2),
-        measure_native_memory("four", 4_096, 4),
-        measure_native_event_memory("one event", 4_096, 1),
-        measure_native_event_memory("four events", 4_096, 4),
+        measure_native_memory("none", 4_096, || border_stack(4_096, 0)),
+        measure_native_memory("one", 4_096, || border_stack(4_096, 1)),
+        measure_native_memory("two", 4_096, || border_stack(4_096, 2)),
+        measure_native_memory("four", 4_096, || border_stack(4_096, 4)),
+        measure_native_memory("one event", 4_096, || border_event_stack(4_096, 1)),
+        measure_native_memory("four events", 4_096, || border_event_stack(4_096, 4)),
     ] {
         println!(
             "{:<16} {:>8} {:>16} {:>18.1} {:>16}",

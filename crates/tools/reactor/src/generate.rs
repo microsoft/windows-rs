@@ -474,10 +474,10 @@ fn generate_mounted_props_structure(control: &ResolvedControl) -> TokenStream {
                 .flatten(),
         )
         .collect::<Vec<_>>();
-    let comparisons = fields.iter().map(|(field, value)| {
+    let comparisons = conjunction(fields.iter().map(|(field, value)| {
         let field = ident(field);
         value_equality(*value, &quote! { self.#field }, &quote! { other.#field })
-    });
+    }));
     let other = if fields.is_empty() {
         ident("_other")
     } else {
@@ -520,7 +520,7 @@ fn generate_mounted_props_structure(control: &ResolvedControl) -> TokenStream {
 
         impl PartialEq for #name {
             fn eq(&self, #other: &Self) -> bool {
-                true #(&& #comparisons)*
+                #comparisons
             }
         }
     }
@@ -648,10 +648,10 @@ fn generate_element_props_match(control: &ResolvedControl) -> TokenStream {
                 .flatten(),
         )
         .collect::<Vec<_>>();
-    let comparisons = fields.iter().map(|(field, value)| {
+    let comparisons = conjunction(fields.iter().map(|(field, value)| {
         let field = ident(field);
         value_equality(*value, &quote! { value.#field }, &quote! { mounted.#field })
-    });
+    }));
     let mounted_pattern = if fields.is_empty() {
         quote! { _ }
     } else {
@@ -667,8 +667,15 @@ fn generate_element_props_match(control: &ResolvedControl) -> TokenStream {
         (
             Self::#name(#value_pattern),
             MountedProps::#name(#mounted_pattern),
-        ) => true #(&& #comparisons)*
+        ) => #comparisons
     }
+}
+
+fn conjunction(mut values: impl Iterator<Item = TokenStream>) -> TokenStream {
+    let Some(first) = values.next() else {
+        return quote! { true };
+    };
+    quote! { #first #(&& #values)* }
 }
 
 fn generate_element_structure(control: &ResolvedControl) -> TokenStream {

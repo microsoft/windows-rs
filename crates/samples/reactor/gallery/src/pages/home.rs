@@ -29,8 +29,7 @@ impl Component for HomePage {
                     subtitle: format!("{} controls", controls.len()),
                     image_file: controls
                         .first()
-                        .map(|c| c.image.to_string())
-                        .unwrap_or_default(),
+                        .map_or_else(String::new, |control| control.image.to_string()),
                     key: registry::category_tag(category),
                 }
             })

@@ -8048,7 +8048,7 @@ pub mod public {
         fn props_match(&self, props: &MountedProps) -> bool {
             match (self, props) {
                 (Self::TextBlock(value), MountedProps::TextBlock(mounted)) => {
-                    true && value.text == mounted.text
+                    value.text == mounted.text
                         && value.text_wrapping == mounted.text_wrapping
                         && f64_property_eq(&value.font_size, &mounted.font_size)
                         && value.font_weight == mounted.font_weight
@@ -8058,7 +8058,7 @@ pub mod public {
                         && value.foreground == mounted.foreground
                 }
                 (Self::Button(value), MountedProps::Button(mounted)) => {
-                    true && value.is_enabled == mounted.is_enabled
+                    value.is_enabled == mounted.is_enabled
                         && value.horizontal_content_alignment
                             == mounted.horizontal_content_alignment
                         && value.vertical_content_alignment == mounted.vertical_content_alignment
@@ -8068,18 +8068,18 @@ pub mod public {
                         && value.on_click == mounted.on_click
                 }
                 (Self::HyperlinkButton(value), MountedProps::HyperlinkButton(mounted)) => {
-                    true && value.navigate_uri == mounted.navigate_uri
+                    value.navigate_uri == mounted.navigate_uri
                         && value.is_enabled == mounted.is_enabled
                         && value.on_click == mounted.on_click
                 }
                 (Self::RepeatButton(value), MountedProps::RepeatButton(mounted)) => {
-                    true && value.delay == mounted.delay
+                    value.delay == mounted.delay
                         && value.interval == mounted.interval
                         && value.is_enabled == mounted.is_enabled
                         && value.on_click == mounted.on_click
                 }
                 (Self::Border(value), MountedProps::Border(mounted)) => {
-                    true && value.is_tab_stop == mounted.is_tab_stop
+                    value.is_tab_stop == mounted.is_tab_stop
                         && value.allow_focus_on_interaction == mounted.allow_focus_on_interaction
                         && value.padding == mounted.padding
                         && value.border_thickness == mounted.border_thickness
@@ -8095,23 +8095,23 @@ pub mod public {
                         && value.events == mounted.events
                 }
                 (Self::BreadcrumbBar(value), MountedProps::BreadcrumbBar(mounted)) => {
-                    true && value.items_source == mounted.items_source
+                    value.items_source == mounted.items_source
                         && value.on_item_clicked == mounted.on_item_clicked
                 }
                 (Self::StackPanel(value), MountedProps::StackPanel(mounted)) => {
-                    true && value.orientation == mounted.orientation
+                    value.orientation == mounted.orientation
                         && f64_property_eq(&value.spacing, &mounted.spacing)
                 }
                 (
                     Self::VariableSizedWrapGrid(value),
                     MountedProps::VariableSizedWrapGrid(mounted),
                 ) => {
-                    true && f64_property_eq(&value.item_width, &mounted.item_width)
+                    f64_property_eq(&value.item_width, &mounted.item_width)
                         && f64_property_eq(&value.item_height, &mounted.item_height)
                         && value.orientation == mounted.orientation
                 }
                 (Self::Grid(value), MountedProps::Grid(mounted)) => {
-                    true && f64_property_eq(&value.row_spacing, &mounted.row_spacing)
+                    f64_property_eq(&value.row_spacing, &mounted.row_spacing)
                         && f64_property_eq(&value.column_spacing, &mounted.column_spacing)
                         && value.key_accelerators == mounted.key_accelerators
                         && value.background == mounted.background
@@ -8119,7 +8119,7 @@ pub mod public {
                         && value.columns == mounted.columns
                 }
                 (Self::TextBox(value), MountedProps::TextBox(mounted)) => {
-                    true && value.text == mounted.text
+                    value.text == mounted.text
                         && value.placeholder_text == mounted.placeholder_text
                         && value.is_enabled == mounted.is_enabled
                         && value.accepts_return == mounted.accepts_return
@@ -8130,28 +8130,28 @@ pub mod public {
                         && value.on_text_changed == mounted.on_text_changed
                 }
                 (Self::AutoSuggestBox(value), MountedProps::AutoSuggestBox(mounted)) => {
-                    true && value.text == mounted.text
+                    value.text == mounted.text
                         && value.items_source == mounted.items_source
                         && value.placeholder_text == mounted.placeholder_text
                         && value.is_enabled == mounted.is_enabled
                         && value.events == mounted.events
                 }
                 (Self::PasswordBox(value), MountedProps::PasswordBox(mounted)) => {
-                    true && value.password == mounted.password
+                    value.password == mounted.password
                         && value.placeholder_text == mounted.placeholder_text
                         && value.password_reveal_mode == mounted.password_reveal_mode
                         && value.is_enabled == mounted.is_enabled
                         && value.on_password_changed == mounted.on_password_changed
                 }
                 (Self::NumberBox(value), MountedProps::NumberBox(mounted)) => {
-                    true && f64_property_eq(&value.minimum, &mounted.minimum)
+                    f64_property_eq(&value.minimum, &mounted.minimum)
                         && f64_property_eq(&value.maximum, &mounted.maximum)
                         && value.value == mounted.value
                         && value.is_enabled == mounted.is_enabled
                         && value.on_value_changed == mounted.on_value_changed
                 }
                 (Self::Slider(value), MountedProps::Slider(mounted)) => {
-                    true && f64_property_eq(&value.minimum, &mounted.minimum)
+                    f64_property_eq(&value.minimum, &mounted.minimum)
                         && f64_property_eq(&value.maximum, &mounted.maximum)
                         && f64_property_eq(&value.value, &mounted.value)
                         && value.is_enabled == mounted.is_enabled
@@ -8160,7 +8160,7 @@ pub mod public {
                         && value.on_value_changed == mounted.on_value_changed
                 }
                 (Self::TitleBar(value), MountedProps::TitleBar(mounted)) => {
-                    true && value.title == mounted.title
+                    value.title == mounted.title
                         && value.subtitle == mounted.subtitle
                         && value.is_back_button_visible == mounted.is_back_button_visible
                         && value.is_back_button_enabled == mounted.is_back_button_enabled
@@ -8169,7 +8169,7 @@ pub mod public {
                         && value.events == mounted.events
                 }
                 (Self::NavigationView(value), MountedProps::NavigationView(mounted)) => {
-                    true && value.is_enabled == mounted.is_enabled
+                    value.is_enabled == mounted.is_enabled
                         && value.pane_display_mode == mounted.pane_display_mode
                         && value.is_pane_toggle_button_visible
                             == mounted.is_pane_toggle_button_visible
@@ -8182,20 +8182,20 @@ pub mod public {
                         && value.events == mounted.events
                 }
                 (Self::NavigationViewItem(value), MountedProps::NavigationViewItem(mounted)) => {
-                    true && value.tag == mounted.tag
+                    value.tag == mounted.tag
                         && value.is_selected == mounted.is_selected
                         && value.selects_on_invoked == mounted.selects_on_invoked
                         && value.is_expanded == mounted.is_expanded
                 }
                 (Self::SplitView(value), MountedProps::SplitView(mounted)) => {
-                    true && f64_property_eq(&value.open_pane_length, &mounted.open_pane_length)
+                    f64_property_eq(&value.open_pane_length, &mounted.open_pane_length)
                         && f64_property_eq(&value.compact_pane_length, &mounted.compact_pane_length)
                         && value.display_mode == mounted.display_mode
                         && value.is_pane_open == mounted.is_pane_open
                         && value.on_pane_closed == mounted.on_pane_closed
                 }
                 (Self::ProgressBar(value), MountedProps::ProgressBar(mounted)) => {
-                    true && f64_property_eq(&value.minimum, &mounted.minimum)
+                    f64_property_eq(&value.minimum, &mounted.minimum)
                         && f64_property_eq(&value.maximum, &mounted.maximum)
                         && f64_property_eq(&value.value, &mounted.value)
                         && value.is_indeterminate == mounted.is_indeterminate
@@ -8204,38 +8204,38 @@ pub mod public {
                         && value.is_enabled == mounted.is_enabled
                 }
                 (Self::ToggleSwitch(value), MountedProps::ToggleSwitch(mounted)) => {
-                    true && value.is_on == mounted.is_on
+                    value.is_on == mounted.is_on
                         && value.is_enabled == mounted.is_enabled
                         && value.on_toggled == mounted.on_toggled
                 }
                 (Self::CheckBox(value), MountedProps::CheckBox(mounted)) => {
-                    true && value.is_checked == mounted.is_checked
+                    value.is_checked == mounted.is_checked
                         && value.is_enabled == mounted.is_enabled
                         && value.on_is_checked_changed == mounted.on_is_checked_changed
                 }
                 (Self::ToggleButton(value), MountedProps::ToggleButton(mounted)) => {
-                    true && value.is_checked == mounted.is_checked
+                    value.is_checked == mounted.is_checked
                         && value.is_enabled == mounted.is_enabled
                         && value.on_is_checked_changed == mounted.on_is_checked_changed
                 }
                 (Self::RadioButton(value), MountedProps::RadioButton(mounted)) => {
-                    true && value.group_name == mounted.group_name
+                    value.group_name == mounted.group_name
                         && value.is_checked == mounted.is_checked
                         && value.is_enabled == mounted.is_enabled
                         && value.on_checked == mounted.on_checked
                 }
                 (Self::RadioButtons(value), MountedProps::RadioButtons(mounted)) => {
-                    true && value.items_source == mounted.items_source
+                    value.items_source == mounted.items_source
                         && value.selected_index == mounted.selected_index
                         && value.max_columns == mounted.max_columns
                         && value.on_selection_changed == mounted.on_selection_changed
                 }
                 (Self::ItemsRepeater(_), MountedProps::ItemsRepeater(_)) => true,
                 (Self::InfoBadge(value), MountedProps::InfoBadge(mounted)) => {
-                    true && value.value == mounted.value
+                    value.value == mounted.value
                 }
                 (Self::InfoBar(value), MountedProps::InfoBar(mounted)) => {
-                    true && value.title == mounted.title
+                    value.title == mounted.title
                         && value.message == mounted.message
                         && value.severity == mounted.severity
                         && value.is_open == mounted.is_open
@@ -8243,28 +8243,27 @@ pub mod public {
                         && value.on_closed == mounted.on_closed
                 }
                 (Self::PersonPicture(value), MountedProps::PersonPicture(mounted)) => {
-                    true && value.display_name == mounted.display_name
-                        && value.initials == mounted.initials
+                    value.display_name == mounted.display_name && value.initials == mounted.initials
                 }
                 (Self::ScrollViewer(value), MountedProps::ScrollViewer(mounted)) => {
-                    true && value.horizontal_scroll_bar_visibility
+                    value.horizontal_scroll_bar_visibility
                         == mounted.horizontal_scroll_bar_visibility
                         && value.vertical_scroll_bar_visibility
                             == mounted.vertical_scroll_bar_visibility
                 }
                 (Self::ScrollView(value), MountedProps::ScrollView(mounted)) => {
-                    true && value.horizontal_scroll_bar_visibility
+                    value.horizontal_scroll_bar_visibility
                         == mounted.horizontal_scroll_bar_visibility
                         && value.vertical_scroll_bar_visibility
                             == mounted.vertical_scroll_bar_visibility
                 }
                 (Self::Image(value), MountedProps::Image(mounted)) => {
-                    true && value.source == mounted.source
+                    value.source == mounted.source
                         && value.stretch == mounted.stretch
                         && value.events == mounted.events
                 }
                 (Self::ProgressRing(value), MountedProps::ProgressRing(mounted)) => {
-                    true && f64_property_eq(&value.minimum, &mounted.minimum)
+                    f64_property_eq(&value.minimum, &mounted.minimum)
                         && f64_property_eq(&value.maximum, &mounted.maximum)
                         && f64_property_eq(&value.value, &mounted.value)
                         && value.is_indeterminate == mounted.is_indeterminate
@@ -8272,23 +8271,23 @@ pub mod public {
                         && value.is_enabled == mounted.is_enabled
                 }
                 (Self::ListBox(value), MountedProps::ListBox(mounted)) => {
-                    true && value.is_enabled == mounted.is_enabled
+                    value.is_enabled == mounted.is_enabled
                         && value.on_selected_tag_changed == mounted.on_selected_tag_changed
                 }
                 (Self::Rectangle(value), MountedProps::Rectangle(mounted)) => {
-                    true && value.fill == mounted.fill
+                    value.fill == mounted.fill
                         && value.stroke == mounted.stroke
                         && f64_property_eq(&value.stroke_thickness, &mounted.stroke_thickness)
                         && f64_property_eq(&value.radius_x, &mounted.radius_x)
                         && f64_property_eq(&value.radius_y, &mounted.radius_y)
                 }
                 (Self::Ellipse(value), MountedProps::Ellipse(mounted)) => {
-                    true && value.fill == mounted.fill
+                    value.fill == mounted.fill
                         && value.stroke == mounted.stroke
                         && f64_property_eq(&value.stroke_thickness, &mounted.stroke_thickness)
                 }
                 (Self::Line(value), MountedProps::Line(mounted)) => {
-                    true && value.stroke == mounted.stroke
+                    value.stroke == mounted.stroke
                         && f64_property_eq(&value.stroke_thickness, &mounted.stroke_thickness)
                         && f64_property_eq(&value.x1, &mounted.x1)
                         && f64_property_eq(&value.y1, &mounted.y1)
@@ -8296,37 +8295,37 @@ pub mod public {
                         && f64_property_eq(&value.y2, &mounted.y2)
                 }
                 (Self::SymbolIcon(value), MountedProps::SymbolIcon(mounted)) => {
-                    true && value.symbol == mounted.symbol
+                    value.symbol == mounted.symbol
                 }
                 (Self::ImageIcon(value), MountedProps::ImageIcon(mounted)) => {
-                    true && value.source == mounted.source
+                    value.source == mounted.source
                 }
                 (Self::FontIcon(value), MountedProps::FontIcon(mounted)) => {
-                    true && value.glyph == mounted.glyph
+                    value.glyph == mounted.glyph
                 }
                 (Self::BitmapIcon(value), MountedProps::BitmapIcon(mounted)) => {
-                    true && value.uri_source == mounted.uri_source
+                    value.uri_source == mounted.uri_source
                         && value.show_as_monochrome == mounted.show_as_monochrome
                 }
                 (Self::PathIcon(value), MountedProps::PathIcon(mounted)) => {
-                    true && value.data == mounted.data
+                    value.data == mounted.data
                 }
                 (Self::ListBoxItem(value), MountedProps::ListBoxItem(mounted)) => {
-                    true && value.tag == mounted.tag && value.is_selected == mounted.is_selected
+                    value.tag == mounted.tag && value.is_selected == mounted.is_selected
                 }
                 (Self::RatingControl(value), MountedProps::RatingControl(mounted)) => {
-                    true && value.max_rating == mounted.max_rating
+                    value.max_rating == mounted.max_rating
                         && value.value == mounted.value
                         && value.caption == mounted.caption
                         && value.is_read_only == mounted.is_read_only
                         && value.on_value_changed == mounted.on_value_changed
                 }
                 (Self::Expander(value), MountedProps::Expander(mounted)) => {
-                    true && value.is_expanded == mounted.is_expanded
+                    value.is_expanded == mounted.is_expanded
                         && value.on_is_expanded_changed == mounted.on_is_expanded_changed
                 }
                 (Self::ComboBox(value), MountedProps::ComboBox(mounted)) => {
-                    true && value.items_source == mounted.items_source
+                    value.items_source == mounted.items_source
                         && value.selected_index == mounted.selected_index
                         && value.placeholder_text == mounted.placeholder_text
                         && value.is_editable == mounted.is_editable
@@ -8334,36 +8333,36 @@ pub mod public {
                         && value.on_selection_changed == mounted.on_selection_changed
                 }
                 (Self::Pivot(value), MountedProps::Pivot(mounted)) => {
-                    true && value.selected_index == mounted.selected_index
+                    value.selected_index == mounted.selected_index
                         && value.title == mounted.title
                         && value.on_selection_changed == mounted.on_selection_changed
                 }
                 (Self::PivotItem(value), MountedProps::PivotItem(mounted)) => {
-                    true && value.header == mounted.header
+                    value.header == mounted.header
                 }
                 (Self::FlipView(value), MountedProps::FlipView(mounted)) => {
-                    true && value.selected_index == mounted.selected_index
+                    value.selected_index == mounted.selected_index
                         && value.on_selection_changed == mounted.on_selection_changed
                 }
                 (Self::SelectorBar(value), MountedProps::SelectorBar(mounted)) => {
-                    true && value.on_selected_text_changed == mounted.on_selected_text_changed
+                    value.on_selected_text_changed == mounted.on_selected_text_changed
                 }
                 (Self::SelectorBarItem(value), MountedProps::SelectorBarItem(mounted)) => {
-                    true && value.text == mounted.text && value.is_selected == mounted.is_selected
+                    value.text == mounted.text && value.is_selected == mounted.is_selected
                 }
                 (Self::TabView(value), MountedProps::TabView(mounted)) => {
-                    true && value.selected_index == mounted.selected_index
+                    value.selected_index == mounted.selected_index
                         && value.can_reorder_tabs == mounted.can_reorder_tabs
                         && value.is_add_tab_button_visible == mounted.is_add_tab_button_visible
                         && value.events == mounted.events
                 }
                 (Self::TabViewItem(value), MountedProps::TabViewItem(mounted)) => {
-                    true && value.header == mounted.header
+                    value.header == mounted.header
                         && value.is_closable == mounted.is_closable
                         && value.tag == mounted.tag
                 }
                 (Self::TeachingTip(value), MountedProps::TeachingTip(mounted)) => {
-                    true && value.title == mounted.title
+                    value.title == mounted.title
                         && value.subtitle == mounted.subtitle
                         && value.is_open == mounted.is_open
                         && value.is_light_dismiss_enabled == mounted.is_light_dismiss_enabled
@@ -8373,26 +8372,24 @@ pub mod public {
                         && value.events == mounted.events
                 }
                 (Self::DropDownButton(value), MountedProps::DropDownButton(mounted)) => {
-                    true && value.is_enabled == mounted.is_enabled
-                        && value.on_click == mounted.on_click
+                    value.is_enabled == mounted.is_enabled && value.on_click == mounted.on_click
                 }
                 (Self::CommandBar(_), MountedProps::CommandBar(_)) => true,
                 (Self::AppBarButton(value), MountedProps::AppBarButton(mounted)) => {
-                    true && value.label == mounted.label
+                    value.label == mounted.label
                         && value.is_enabled == mounted.is_enabled
                         && value.on_click == mounted.on_click
                 }
                 (Self::AppBarSeparator(_), MountedProps::AppBarSeparator(_)) => true,
                 (Self::MenuBar(_), MountedProps::MenuBar(_)) => true,
                 (Self::MenuBarItem(value), MountedProps::MenuBarItem(mounted)) => {
-                    true && value.title == mounted.title
+                    value.title == mounted.title
                 }
                 (Self::SplitButton(value), MountedProps::SplitButton(mounted)) => {
-                    true && value.is_enabled == mounted.is_enabled
-                        && value.on_click == mounted.on_click
+                    value.is_enabled == mounted.is_enabled && value.on_click == mounted.on_click
                 }
                 (Self::ColorPicker(value), MountedProps::ColorPicker(mounted)) => {
-                    true && value.color == mounted.color
+                    value.color == mounted.color
                         && value.is_alpha_enabled == mounted.is_alpha_enabled
                         && value.is_hex_input_visible == mounted.is_hex_input_visible
                         && value.is_color_slider_visible == mounted.is_color_slider_visible
@@ -8402,20 +8399,20 @@ pub mod public {
                         && value.on_color_changed == mounted.on_color_changed
                 }
                 (Self::DatePicker(value), MountedProps::DatePicker(mounted)) => {
-                    true && value.day_visible == mounted.day_visible
+                    value.day_visible == mounted.day_visible
                         && value.month_visible == mounted.month_visible
                         && value.year_visible == mounted.year_visible
                         && value.is_enabled == mounted.is_enabled
                         && value.on_selected_date_changed == mounted.on_selected_date_changed
                 }
                 (Self::TimePicker(value), MountedProps::TimePicker(mounted)) => {
-                    true && value.clock_identifier == mounted.clock_identifier
+                    value.clock_identifier == mounted.clock_identifier
                         && value.minute_increment == mounted.minute_increment
                         && value.is_enabled == mounted.is_enabled
                         && value.on_selected_time_changed == mounted.on_selected_time_changed
                 }
                 (Self::CalendarDatePicker(value), MountedProps::CalendarDatePicker(mounted)) => {
-                    true && value.placeholder_text == mounted.placeholder_text
+                    value.placeholder_text == mounted.placeholder_text
                         && value.is_today_highlighted == mounted.is_today_highlighted
                         && value.is_calendar_open == mounted.is_calendar_open
                         && value.is_enabled == mounted.is_enabled
@@ -8423,7 +8420,7 @@ pub mod public {
                 }
                 (Self::ToolTip(_), MountedProps::ToolTip(_)) => true,
                 (Self::ContentDialog(value), MountedProps::ContentDialog(mounted)) => {
-                    true && value.title == mounted.title
+                    value.title == mounted.title
                         && value.primary_button_text == mounted.primary_button_text
                         && value.secondary_button_text == mounted.secondary_button_text
                         && value.close_button_text == mounted.close_button_text
@@ -8432,13 +8429,13 @@ pub mod public {
                         && value.on_closed == mounted.on_closed
                 }
                 (Self::CalendarView(value), MountedProps::CalendarView(mounted)) => {
-                    true && value.is_today_highlighted == mounted.is_today_highlighted
+                    value.is_today_highlighted == mounted.is_today_highlighted
                         && value.is_group_label_visible == mounted.is_group_label_visible
                         && value.is_enabled == mounted.is_enabled
                         && value.on_selected_dates_changed == mounted.on_selected_dates_changed
                 }
                 (Self::ListView(value), MountedProps::ListView(mounted)) => {
-                    true && value.selected_index == mounted.selected_index
+                    value.selected_index == mounted.selected_index
                         && value.selection_mode == mounted.selection_mode
                         && value.can_drag_items == mounted.can_drag_items
                         && value.can_reorder_items == mounted.can_reorder_items
@@ -8446,39 +8443,39 @@ pub mod public {
                         && value.events == mounted.events
                 }
                 (Self::ListViewItem(value), MountedProps::ListViewItem(mounted)) => {
-                    true && value.tag == mounted.tag
+                    value.tag == mounted.tag
                 }
                 (Self::TreeView(value), MountedProps::TreeView(mounted)) => {
-                    true && value.selection_mode == mounted.selection_mode
+                    value.selection_mode == mounted.selection_mode
                         && value.on_item_invoked == mounted.on_item_invoked
                 }
                 (Self::GridView(value), MountedProps::GridView(mounted)) => {
-                    true && value.selected_index == mounted.selected_index
+                    value.selected_index == mounted.selected_index
                         && value.can_drag_items == mounted.can_drag_items
                         && value.can_reorder_items == mounted.can_reorder_items
                         && value.allow_drop == mounted.allow_drop
                         && value.events == mounted.events
                 }
                 (Self::GridViewItem(value), MountedProps::GridViewItem(mounted)) => {
-                    true && value.tag == mounted.tag
+                    value.tag == mounted.tag
                 }
                 (Self::RelativePanel(_), MountedProps::RelativePanel(_)) => true,
                 (Self::Canvas(_), MountedProps::Canvas(_)) => true,
                 (Self::RichEditBox(value), MountedProps::RichEditBox(mounted)) => {
-                    true && value.text == mounted.text
+                    value.text == mounted.text
                         && value.placeholder_text == mounted.placeholder_text
                         && value.is_read_only == mounted.is_read_only
                         && value.is_enabled == mounted.is_enabled
                         && value.on_text_changed == mounted.on_text_changed
                 }
                 (Self::RichTextBlock(value), MountedProps::RichTextBlock(mounted)) => {
-                    true && value.paragraphs == mounted.paragraphs
+                    value.paragraphs == mounted.paragraphs
                         && f64_property_eq(&value.font_size, &mounted.font_size)
                         && value.is_text_selection_enabled == mounted.is_text_selection_enabled
                         && value.text_wrapping == mounted.text_wrapping
                 }
                 (Self::Viewbox(value), MountedProps::Viewbox(mounted)) => {
-                    true && value.stretch == mounted.stretch
+                    value.stretch == mounted.stretch
                 }
                 (Self::WebView2(_), MountedProps::WebView2(_)) => true,
                 (Self::SwapChainPanel(_), MountedProps::SwapChainPanel(_)) => true,
@@ -12400,7 +12397,7 @@ pub(crate) struct TextBlockMountedProps {
 }
 impl PartialEq for TextBlockMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.text == other.text
+        self.text == other.text
             && self.text_wrapping == other.text_wrapping
             && f64_property_eq(&self.font_size, &other.font_size)
             && self.font_weight == other.font_weight
@@ -12422,7 +12419,7 @@ pub(crate) struct ButtonMountedProps {
 }
 impl PartialEq for ButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_enabled == other.is_enabled
+        self.is_enabled == other.is_enabled
             && self.horizontal_content_alignment == other.horizontal_content_alignment
             && self.vertical_content_alignment == other.vertical_content_alignment
             && self.resource_overrides == other.resource_overrides
@@ -12439,7 +12436,7 @@ pub(crate) struct HyperlinkButtonMountedProps {
 }
 impl PartialEq for HyperlinkButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.navigate_uri == other.navigate_uri
+        self.navigate_uri == other.navigate_uri
             && self.is_enabled == other.is_enabled
             && self.on_click == other.on_click
     }
@@ -12453,7 +12450,7 @@ pub(crate) struct RepeatButtonMountedProps {
 }
 impl PartialEq for RepeatButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.delay == other.delay
+        self.delay == other.delay
             && self.interval == other.interval
             && self.is_enabled == other.is_enabled
             && self.on_click == other.on_click
@@ -12478,7 +12475,7 @@ pub(crate) struct BorderMountedProps {
 }
 impl PartialEq for BorderMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_tab_stop == other.is_tab_stop
+        self.is_tab_stop == other.is_tab_stop
             && self.allow_focus_on_interaction == other.allow_focus_on_interaction
             && self.padding == other.padding
             && self.border_thickness == other.border_thickness
@@ -12501,8 +12498,7 @@ pub(crate) struct BreadcrumbBarMountedProps {
 }
 impl PartialEq for BreadcrumbBarMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.items_source == other.items_source
-            && self.on_item_clicked == other.on_item_clicked
+        self.items_source == other.items_source && self.on_item_clicked == other.on_item_clicked
     }
 }
 #[derive(Clone, Debug)]
@@ -12512,8 +12508,7 @@ pub(crate) struct StackPanelMountedProps {
 }
 impl PartialEq for StackPanelMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.orientation == other.orientation
-            && f64_property_eq(&self.spacing, &other.spacing)
+        self.orientation == other.orientation && f64_property_eq(&self.spacing, &other.spacing)
     }
 }
 #[derive(Clone, Debug)]
@@ -12524,7 +12519,7 @@ pub(crate) struct VariableSizedWrapGridMountedProps {
 }
 impl PartialEq for VariableSizedWrapGridMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && f64_property_eq(&self.item_width, &other.item_width)
+        f64_property_eq(&self.item_width, &other.item_width)
             && f64_property_eq(&self.item_height, &other.item_height)
             && self.orientation == other.orientation
     }
@@ -12540,7 +12535,7 @@ pub(crate) struct GridMountedProps {
 }
 impl PartialEq for GridMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && f64_property_eq(&self.row_spacing, &other.row_spacing)
+        f64_property_eq(&self.row_spacing, &other.row_spacing)
             && f64_property_eq(&self.column_spacing, &other.column_spacing)
             && self.key_accelerators == other.key_accelerators
             && self.background == other.background
@@ -12562,7 +12557,7 @@ pub(crate) struct TextBoxMountedProps {
 }
 impl PartialEq for TextBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.text == other.text
+        self.text == other.text
             && self.placeholder_text == other.placeholder_text
             && self.is_enabled == other.is_enabled
             && self.accepts_return == other.accepts_return
@@ -12583,7 +12578,7 @@ pub(crate) struct AutoSuggestBoxMountedProps {
 }
 impl PartialEq for AutoSuggestBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.text == other.text
+        self.text == other.text
             && self.items_source == other.items_source
             && self.placeholder_text == other.placeholder_text
             && self.is_enabled == other.is_enabled
@@ -12600,7 +12595,7 @@ pub(crate) struct PasswordBoxMountedProps {
 }
 impl PartialEq for PasswordBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.password == other.password
+        self.password == other.password
             && self.placeholder_text == other.placeholder_text
             && self.password_reveal_mode == other.password_reveal_mode
             && self.is_enabled == other.is_enabled
@@ -12617,7 +12612,7 @@ pub(crate) struct NumberBoxMountedProps {
 }
 impl PartialEq for NumberBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && f64_property_eq(&self.minimum, &other.minimum)
+        f64_property_eq(&self.minimum, &other.minimum)
             && f64_property_eq(&self.maximum, &other.maximum)
             && self.value == other.value
             && self.is_enabled == other.is_enabled
@@ -12636,7 +12631,7 @@ pub(crate) struct SliderMountedProps {
 }
 impl PartialEq for SliderMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && f64_property_eq(&self.minimum, &other.minimum)
+        f64_property_eq(&self.minimum, &other.minimum)
             && f64_property_eq(&self.maximum, &other.maximum)
             && f64_property_eq(&self.value, &other.value)
             && self.is_enabled == other.is_enabled
@@ -12656,7 +12651,7 @@ pub(crate) struct TitleBarMountedProps {
 }
 impl PartialEq for TitleBarMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.title == other.title
+        self.title == other.title
             && self.subtitle == other.subtitle
             && self.is_back_button_visible == other.is_back_button_visible
             && self.is_back_button_enabled == other.is_back_button_enabled
@@ -12679,7 +12674,7 @@ pub(crate) struct NavigationViewMountedProps {
 }
 impl PartialEq for NavigationViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_enabled == other.is_enabled
+        self.is_enabled == other.is_enabled
             && self.pane_display_mode == other.pane_display_mode
             && self.is_pane_toggle_button_visible == other.is_pane_toggle_button_visible
             && self.is_back_button_visible == other.is_back_button_visible
@@ -12700,7 +12695,7 @@ pub(crate) struct NavigationViewItemMountedProps {
 }
 impl PartialEq for NavigationViewItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.tag == other.tag
+        self.tag == other.tag
             && self.is_selected == other.is_selected
             && self.selects_on_invoked == other.selects_on_invoked
             && self.is_expanded == other.is_expanded
@@ -12716,7 +12711,7 @@ pub(crate) struct SplitViewMountedProps {
 }
 impl PartialEq for SplitViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && f64_property_eq(&self.open_pane_length, &other.open_pane_length)
+        f64_property_eq(&self.open_pane_length, &other.open_pane_length)
             && f64_property_eq(&self.compact_pane_length, &other.compact_pane_length)
             && self.display_mode == other.display_mode
             && self.is_pane_open == other.is_pane_open
@@ -12735,7 +12730,7 @@ pub(crate) struct ProgressBarMountedProps {
 }
 impl PartialEq for ProgressBarMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && f64_property_eq(&self.minimum, &other.minimum)
+        f64_property_eq(&self.minimum, &other.minimum)
             && f64_property_eq(&self.maximum, &other.maximum)
             && f64_property_eq(&self.value, &other.value)
             && self.is_indeterminate == other.is_indeterminate
@@ -12752,7 +12747,7 @@ pub(crate) struct ToggleSwitchMountedProps {
 }
 impl PartialEq for ToggleSwitchMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_on == other.is_on
+        self.is_on == other.is_on
             && self.is_enabled == other.is_enabled
             && self.on_toggled == other.on_toggled
     }
@@ -12765,7 +12760,7 @@ pub(crate) struct CheckBoxMountedProps {
 }
 impl PartialEq for CheckBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_checked == other.is_checked
+        self.is_checked == other.is_checked
             && self.is_enabled == other.is_enabled
             && self.on_is_checked_changed == other.on_is_checked_changed
     }
@@ -12778,7 +12773,7 @@ pub(crate) struct ToggleButtonMountedProps {
 }
 impl PartialEq for ToggleButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_checked == other.is_checked
+        self.is_checked == other.is_checked
             && self.is_enabled == other.is_enabled
             && self.on_is_checked_changed == other.on_is_checked_changed
     }
@@ -12792,7 +12787,7 @@ pub(crate) struct RadioButtonMountedProps {
 }
 impl PartialEq for RadioButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.group_name == other.group_name
+        self.group_name == other.group_name
             && self.is_checked == other.is_checked
             && self.is_enabled == other.is_enabled
             && self.on_checked == other.on_checked
@@ -12807,7 +12802,7 @@ pub(crate) struct RadioButtonsMountedProps {
 }
 impl PartialEq for RadioButtonsMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.items_source == other.items_source
+        self.items_source == other.items_source
             && self.selected_index == other.selected_index
             && self.max_columns == other.max_columns
             && self.on_selection_changed == other.on_selection_changed
@@ -12826,7 +12821,7 @@ pub(crate) struct InfoBadgeMountedProps {
 }
 impl PartialEq for InfoBadgeMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.value == other.value
+        self.value == other.value
     }
 }
 #[derive(Clone, Debug)]
@@ -12840,7 +12835,7 @@ pub(crate) struct InfoBarMountedProps {
 }
 impl PartialEq for InfoBarMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.title == other.title
+        self.title == other.title
             && self.message == other.message
             && self.severity == other.severity
             && self.is_open == other.is_open
@@ -12855,7 +12850,7 @@ pub(crate) struct PersonPictureMountedProps {
 }
 impl PartialEq for PersonPictureMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.display_name == other.display_name && self.initials == other.initials
+        self.display_name == other.display_name && self.initials == other.initials
     }
 }
 #[derive(Clone, Debug)]
@@ -12865,7 +12860,7 @@ pub(crate) struct ScrollViewerMountedProps {
 }
 impl PartialEq for ScrollViewerMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.horizontal_scroll_bar_visibility == other.horizontal_scroll_bar_visibility
+        self.horizontal_scroll_bar_visibility == other.horizontal_scroll_bar_visibility
             && self.vertical_scroll_bar_visibility == other.vertical_scroll_bar_visibility
     }
 }
@@ -12876,7 +12871,7 @@ pub(crate) struct ScrollViewMountedProps {
 }
 impl PartialEq for ScrollViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.horizontal_scroll_bar_visibility == other.horizontal_scroll_bar_visibility
+        self.horizontal_scroll_bar_visibility == other.horizontal_scroll_bar_visibility
             && self.vertical_scroll_bar_visibility == other.vertical_scroll_bar_visibility
     }
 }
@@ -12888,9 +12883,7 @@ pub(crate) struct ImageMountedProps {
 }
 impl PartialEq for ImageMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.source == other.source
-            && self.stretch == other.stretch
-            && self.events == other.events
+        self.source == other.source && self.stretch == other.stretch && self.events == other.events
     }
 }
 #[derive(Clone, Debug)]
@@ -12904,7 +12897,7 @@ pub(crate) struct ProgressRingMountedProps {
 }
 impl PartialEq for ProgressRingMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && f64_property_eq(&self.minimum, &other.minimum)
+        f64_property_eq(&self.minimum, &other.minimum)
             && f64_property_eq(&self.maximum, &other.maximum)
             && f64_property_eq(&self.value, &other.value)
             && self.is_indeterminate == other.is_indeterminate
@@ -12919,7 +12912,7 @@ pub(crate) struct ListBoxMountedProps {
 }
 impl PartialEq for ListBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_enabled == other.is_enabled
+        self.is_enabled == other.is_enabled
             && self.on_selected_tag_changed == other.on_selected_tag_changed
     }
 }
@@ -12933,7 +12926,7 @@ pub(crate) struct RectangleMountedProps {
 }
 impl PartialEq for RectangleMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.fill == other.fill
+        self.fill == other.fill
             && self.stroke == other.stroke
             && f64_property_eq(&self.stroke_thickness, &other.stroke_thickness)
             && f64_property_eq(&self.radius_x, &other.radius_x)
@@ -12948,7 +12941,7 @@ pub(crate) struct EllipseMountedProps {
 }
 impl PartialEq for EllipseMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.fill == other.fill
+        self.fill == other.fill
             && self.stroke == other.stroke
             && f64_property_eq(&self.stroke_thickness, &other.stroke_thickness)
     }
@@ -12964,7 +12957,7 @@ pub(crate) struct LineMountedProps {
 }
 impl PartialEq for LineMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.stroke == other.stroke
+        self.stroke == other.stroke
             && f64_property_eq(&self.stroke_thickness, &other.stroke_thickness)
             && f64_property_eq(&self.x1, &other.x1)
             && f64_property_eq(&self.y1, &other.y1)
@@ -12978,7 +12971,7 @@ pub(crate) struct SymbolIconMountedProps {
 }
 impl PartialEq for SymbolIconMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.symbol == other.symbol
+        self.symbol == other.symbol
     }
 }
 #[derive(Clone, Debug)]
@@ -12987,7 +12980,7 @@ pub(crate) struct ImageIconMountedProps {
 }
 impl PartialEq for ImageIconMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.source == other.source
+        self.source == other.source
     }
 }
 #[derive(Clone, Debug)]
@@ -12996,7 +12989,7 @@ pub(crate) struct FontIconMountedProps {
 }
 impl PartialEq for FontIconMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.glyph == other.glyph
+        self.glyph == other.glyph
     }
 }
 #[derive(Clone, Debug)]
@@ -13006,8 +12999,7 @@ pub(crate) struct BitmapIconMountedProps {
 }
 impl PartialEq for BitmapIconMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.uri_source == other.uri_source
-            && self.show_as_monochrome == other.show_as_monochrome
+        self.uri_source == other.uri_source && self.show_as_monochrome == other.show_as_monochrome
     }
 }
 #[derive(Clone, Debug)]
@@ -13016,7 +13008,7 @@ pub(crate) struct PathIconMountedProps {
 }
 impl PartialEq for PathIconMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.data == other.data
+        self.data == other.data
     }
 }
 #[derive(Clone, Debug)]
@@ -13026,7 +13018,7 @@ pub(crate) struct ListBoxItemMountedProps {
 }
 impl PartialEq for ListBoxItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.tag == other.tag && self.is_selected == other.is_selected
+        self.tag == other.tag && self.is_selected == other.is_selected
     }
 }
 #[derive(Clone, Debug)]
@@ -13039,7 +13031,7 @@ pub(crate) struct RatingControlMountedProps {
 }
 impl PartialEq for RatingControlMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.max_rating == other.max_rating
+        self.max_rating == other.max_rating
             && self.value == other.value
             && self.caption == other.caption
             && self.is_read_only == other.is_read_only
@@ -13053,7 +13045,7 @@ pub(crate) struct ExpanderMountedProps {
 }
 impl PartialEq for ExpanderMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_expanded == other.is_expanded
+        self.is_expanded == other.is_expanded
             && self.on_is_expanded_changed == other.on_is_expanded_changed
     }
 }
@@ -13068,7 +13060,7 @@ pub(crate) struct ComboBoxMountedProps {
 }
 impl PartialEq for ComboBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.items_source == other.items_source
+        self.items_source == other.items_source
             && self.selected_index == other.selected_index
             && self.placeholder_text == other.placeholder_text
             && self.is_editable == other.is_editable
@@ -13084,7 +13076,7 @@ pub(crate) struct PivotMountedProps {
 }
 impl PartialEq for PivotMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.selected_index == other.selected_index
+        self.selected_index == other.selected_index
             && self.title == other.title
             && self.on_selection_changed == other.on_selection_changed
     }
@@ -13095,7 +13087,7 @@ pub(crate) struct PivotItemMountedProps {
 }
 impl PartialEq for PivotItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.header == other.header
+        self.header == other.header
     }
 }
 #[derive(Clone, Debug)]
@@ -13105,7 +13097,7 @@ pub(crate) struct FlipViewMountedProps {
 }
 impl PartialEq for FlipViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.selected_index == other.selected_index
+        self.selected_index == other.selected_index
             && self.on_selection_changed == other.on_selection_changed
     }
 }
@@ -13115,7 +13107,7 @@ pub(crate) struct SelectorBarMountedProps {
 }
 impl PartialEq for SelectorBarMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.on_selected_text_changed == other.on_selected_text_changed
+        self.on_selected_text_changed == other.on_selected_text_changed
     }
 }
 #[derive(Clone, Debug)]
@@ -13125,7 +13117,7 @@ pub(crate) struct SelectorBarItemMountedProps {
 }
 impl PartialEq for SelectorBarItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.text == other.text && self.is_selected == other.is_selected
+        self.text == other.text && self.is_selected == other.is_selected
     }
 }
 #[derive(Clone, Debug)]
@@ -13137,7 +13129,7 @@ pub(crate) struct TabViewMountedProps {
 }
 impl PartialEq for TabViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.selected_index == other.selected_index
+        self.selected_index == other.selected_index
             && self.can_reorder_tabs == other.can_reorder_tabs
             && self.is_add_tab_button_visible == other.is_add_tab_button_visible
             && self.events == other.events
@@ -13151,7 +13143,7 @@ pub(crate) struct TabViewItemMountedProps {
 }
 impl PartialEq for TabViewItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.header == other.header
+        self.header == other.header
             && self.is_closable == other.is_closable
             && self.tag == other.tag
     }
@@ -13169,7 +13161,7 @@ pub(crate) struct TeachingTipMountedProps {
 }
 impl PartialEq for TeachingTipMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.title == other.title
+        self.title == other.title
             && self.subtitle == other.subtitle
             && self.is_open == other.is_open
             && self.is_light_dismiss_enabled == other.is_light_dismiss_enabled
@@ -13186,7 +13178,7 @@ pub(crate) struct DropDownButtonMountedProps {
 }
 impl PartialEq for DropDownButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_enabled == other.is_enabled && self.on_click == other.on_click
+        self.is_enabled == other.is_enabled && self.on_click == other.on_click
     }
 }
 #[derive(Clone, Debug)]
@@ -13204,7 +13196,7 @@ pub(crate) struct AppBarButtonMountedProps {
 }
 impl PartialEq for AppBarButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.label == other.label
+        self.label == other.label
             && self.is_enabled == other.is_enabled
             && self.on_click == other.on_click
     }
@@ -13229,7 +13221,7 @@ pub(crate) struct MenuBarItemMountedProps {
 }
 impl PartialEq for MenuBarItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.title == other.title
+        self.title == other.title
     }
 }
 #[derive(Clone, Debug)]
@@ -13239,7 +13231,7 @@ pub(crate) struct SplitButtonMountedProps {
 }
 impl PartialEq for SplitButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_enabled == other.is_enabled && self.on_click == other.on_click
+        self.is_enabled == other.is_enabled && self.on_click == other.on_click
     }
 }
 #[derive(Clone, Debug)]
@@ -13254,7 +13246,7 @@ pub(crate) struct ColorPickerMountedProps {
 }
 impl PartialEq for ColorPickerMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.color == other.color
+        self.color == other.color
             && self.is_alpha_enabled == other.is_alpha_enabled
             && self.is_hex_input_visible == other.is_hex_input_visible
             && self.is_color_slider_visible == other.is_color_slider_visible
@@ -13273,7 +13265,7 @@ pub(crate) struct DatePickerMountedProps {
 }
 impl PartialEq for DatePickerMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.day_visible == other.day_visible
+        self.day_visible == other.day_visible
             && self.month_visible == other.month_visible
             && self.year_visible == other.year_visible
             && self.is_enabled == other.is_enabled
@@ -13289,7 +13281,7 @@ pub(crate) struct TimePickerMountedProps {
 }
 impl PartialEq for TimePickerMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.clock_identifier == other.clock_identifier
+        self.clock_identifier == other.clock_identifier
             && self.minute_increment == other.minute_increment
             && self.is_enabled == other.is_enabled
             && self.on_selected_time_changed == other.on_selected_time_changed
@@ -13305,7 +13297,7 @@ pub(crate) struct CalendarDatePickerMountedProps {
 }
 impl PartialEq for CalendarDatePickerMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.placeholder_text == other.placeholder_text
+        self.placeholder_text == other.placeholder_text
             && self.is_today_highlighted == other.is_today_highlighted
             && self.is_calendar_open == other.is_calendar_open
             && self.is_enabled == other.is_enabled
@@ -13331,7 +13323,7 @@ pub(crate) struct ContentDialogMountedProps {
 }
 impl PartialEq for ContentDialogMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.title == other.title
+        self.title == other.title
             && self.primary_button_text == other.primary_button_text
             && self.secondary_button_text == other.secondary_button_text
             && self.close_button_text == other.close_button_text
@@ -13349,7 +13341,7 @@ pub(crate) struct CalendarViewMountedProps {
 }
 impl PartialEq for CalendarViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.is_today_highlighted == other.is_today_highlighted
+        self.is_today_highlighted == other.is_today_highlighted
             && self.is_group_label_visible == other.is_group_label_visible
             && self.is_enabled == other.is_enabled
             && self.on_selected_dates_changed == other.on_selected_dates_changed
@@ -13366,7 +13358,7 @@ pub(crate) struct ListViewMountedProps {
 }
 impl PartialEq for ListViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.selected_index == other.selected_index
+        self.selected_index == other.selected_index
             && self.selection_mode == other.selection_mode
             && self.can_drag_items == other.can_drag_items
             && self.can_reorder_items == other.can_reorder_items
@@ -13380,7 +13372,7 @@ pub(crate) struct ListViewItemMountedProps {
 }
 impl PartialEq for ListViewItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.tag == other.tag
+        self.tag == other.tag
     }
 }
 #[derive(Clone, Debug)]
@@ -13390,8 +13382,7 @@ pub(crate) struct TreeViewMountedProps {
 }
 impl PartialEq for TreeViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.selection_mode == other.selection_mode
-            && self.on_item_invoked == other.on_item_invoked
+        self.selection_mode == other.selection_mode && self.on_item_invoked == other.on_item_invoked
     }
 }
 #[derive(Clone, Debug)]
@@ -13404,7 +13395,7 @@ pub(crate) struct GridViewMountedProps {
 }
 impl PartialEq for GridViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.selected_index == other.selected_index
+        self.selected_index == other.selected_index
             && self.can_drag_items == other.can_drag_items
             && self.can_reorder_items == other.can_reorder_items
             && self.allow_drop == other.allow_drop
@@ -13417,7 +13408,7 @@ pub(crate) struct GridViewItemMountedProps {
 }
 impl PartialEq for GridViewItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.tag == other.tag
+        self.tag == other.tag
     }
 }
 #[derive(Clone, Debug)]
@@ -13444,7 +13435,7 @@ pub(crate) struct RichEditBoxMountedProps {
 }
 impl PartialEq for RichEditBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.text == other.text
+        self.text == other.text
             && self.placeholder_text == other.placeholder_text
             && self.is_read_only == other.is_read_only
             && self.is_enabled == other.is_enabled
@@ -13460,7 +13451,7 @@ pub(crate) struct RichTextBlockMountedProps {
 }
 impl PartialEq for RichTextBlockMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.paragraphs == other.paragraphs
+        self.paragraphs == other.paragraphs
             && f64_property_eq(&self.font_size, &other.font_size)
             && self.is_text_selection_enabled == other.is_text_selection_enabled
             && self.text_wrapping == other.text_wrapping
@@ -13472,7 +13463,7 @@ pub(crate) struct ViewboxMountedProps {
 }
 impl PartialEq for ViewboxMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.stretch == other.stretch
+        self.stretch == other.stretch
     }
 }
 #[derive(Clone, Debug)]
