@@ -688,6 +688,26 @@ fn observation_handle_controls_registration_lifetime() {
 }
 
 #[test]
+fn observation_revocation_is_forwarded_after_the_target_is_destroyed() {
+    let reference = ElementRef::<Image>::new();
+    let observation = reference.observe_rasterization_scale(|_| {});
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(Image::new().element_ref(&reference).into())
+        .unwrap();
+    assert_eq!(pump.process_imperatives(), Ok(1));
+
+    drop(observation);
+    pump.update_view(TextBlock::new().into()).unwrap();
+    let batches = pump.runtime().commands().len();
+
+    assert_eq!(pump.process_imperatives(), Ok(1));
+    assert!(matches!(
+        pump.runtime().commands()[batches].as_slice(),
+        [Command::RevokeObservation { .. }]
+    ));
+}
+
+#[test]
 fn multiple_observations_share_an_element_without_overwriting() {
     let first_count = Rc::new(Cell::new(0));
     let second_count = Rc::new(Cell::new(0));

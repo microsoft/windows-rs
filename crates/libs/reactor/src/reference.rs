@@ -6,7 +6,7 @@ use std::rc::{Rc, Weak};
 use std::sync::atomic::{AtomicU64, Ordering};
 
 use super::*;
-use crate::core::{ComponentToken, NativeWork, NodeId, RuntimeError, WindowToken};
+use crate::core::{Command, ComponentToken, NativeWork, NodeId, RuntimeError, WindowToken};
 
 const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 static NEXT_OBSERVATION_ID: AtomicU64 = AtomicU64::new(1);
@@ -1067,30 +1067,93 @@ pub(crate) enum ImperativeRequest {
 }
 
 impl ImperativeRequest {
-    pub(crate) fn complete_unavailable(self) {
+    pub(crate) fn into_command(self) -> (Option<NodeId>, Command) {
         match self {
-            Self::Focus { node, completion } => {
-                _ = completion.call(Err(RuntimeError::MissingNode(node)));
-            }
+            Self::Focus { node, completion } => (Some(node), Command::Focus { node, completion }),
             Self::InitializeWebView2 { node, completion } => {
-                _ = completion.call(Err(RuntimeError::MissingNode(node)));
+                (Some(node), Command::InitializeWebView2 { node, completion })
             }
+            Self::ObserveSwapChainPanel {
+                node,
+                observation,
+                binding,
+                callback,
+            } => (
+                Some(node),
+                Command::ObserveSwapChainPanel {
+                    node,
+                    observation,
+                    binding,
+                    callback,
+                },
+            ),
+            Self::RequestSwapChainPanelFrame { node, completion } => (
+                Some(node),
+                Command::RequestSwapChainPanelFrame { node, completion },
+            ),
             Self::SetSwapChain {
-                node, completion, ..
+                node,
+                swap_chain,
+                completion,
+            } => (
+                Some(node),
+                Command::SetSwapChain {
+                    node,
+                    swap_chain,
+                    completion,
+                },
+            ),
+            Self::SetNativeImageSource {
+                node,
+                source,
+                completion,
+            } => (
+                Some(node),
+                Command::SetNativeImageSource {
+                    node,
+                    source,
+                    completion,
+                },
+            ),
+            Self::ObserveImageScale {
+                node,
+                observation,
+                callback,
+            } => (
+                Some(node),
+                Command::ObserveImageScale {
+                    node,
+                    observation,
+                    callback,
+                },
+            ),
+            Self::ObserveCompositionHost {
+                node,
+                observation,
+                callback,
+            } => (
+                Some(node),
+                Command::ObserveCompositionHost {
+                    node,
+                    observation,
+                    callback,
+                },
+            ),
+            Self::RevokeObservation { node, observation } => {
+                (None, Command::RevokeObservation { node, observation })
             }
-            | Self::RequestSwapChainPanelFrame { node, completion }
-            | Self::SetNativeImageSource {
-                node, completion, ..
-            }
-            | Self::SetCompositionChildVisual {
-                node, completion, ..
-            } => {
-                _ = completion.call(Err(RuntimeError::MissingNode(node)));
-            }
-            Self::ObserveSwapChainPanel { .. }
-            | Self::ObserveImageScale { .. }
-            | Self::ObserveCompositionHost { .. }
-            | Self::RevokeObservation { .. } => {}
+            Self::SetCompositionChildVisual {
+                node,
+                visual,
+                completion,
+            } => (
+                Some(node),
+                Command::SetCompositionChildVisual {
+                    node,
+                    visual,
+                    completion,
+                },
+            ),
         }
     }
 }
@@ -1242,7 +1305,7 @@ impl ImperativeEndpoint {
             match request {
                 QueuedImperative::OneShot(request)
                 | QueuedImperative::Observation { request, .. } => {
-                    request.work.complete_unavailable();
+                    request.work.into_command().1.complete_unavailable();
                 }
             }
         }

@@ -36,125 +36,16 @@ impl<R: NativeRuntime> Pump<R> {
             let Some(queued) = self.imperative.pop_front() else {
                 break;
             };
+            let (target, command) = queued.work.into_command();
             if queued.identity != self.identity {
-                queued.work.complete_unavailable();
+                command.complete_unavailable();
                 continue;
             }
-            match queued.work {
-                ImperativeRequest::Focus { node, completion } => {
-                    if self.tree.try_native(node).is_none() {
-                        _ = completion.call(Err(RuntimeError::MissingNode(node)));
-                        continue;
-                    }
-                    commands.push(Command::Focus { node, completion });
-                }
-                ImperativeRequest::InitializeWebView2 { node, completion } => {
-                    if self.tree.try_native(node).is_none() {
-                        _ = completion.call(Err(RuntimeError::MissingNode(node)));
-                        continue;
-                    }
-                    commands.push(Command::InitializeWebView2 { node, completion });
-                }
-                ImperativeRequest::ObserveSwapChainPanel {
-                    node,
-                    observation,
-                    binding,
-                    callback,
-                } => {
-                    if self.tree.try_native(node).is_none() {
-                        continue;
-                    }
-                    commands.push(Command::ObserveSwapChainPanel {
-                        node,
-                        observation,
-                        binding,
-                        callback,
-                    });
-                }
-                ImperativeRequest::RequestSwapChainPanelFrame { node, completion } => {
-                    if self.tree.try_native(node).is_none() {
-                        _ = completion.call(Err(RuntimeError::MissingNode(node)));
-                        continue;
-                    }
-                    commands.push(Command::RequestSwapChainPanelFrame { node, completion });
-                }
-                ImperativeRequest::SetSwapChain {
-                    node,
-                    swap_chain,
-                    completion,
-                } => {
-                    if self.tree.try_native(node).is_none() {
-                        _ = completion.call(Err(RuntimeError::MissingNode(node)));
-                        continue;
-                    }
-                    commands.push(Command::SetSwapChain {
-                        node,
-                        swap_chain,
-                        completion,
-                    });
-                }
-                ImperativeRequest::SetNativeImageSource {
-                    node,
-                    source,
-                    completion,
-                } => {
-                    if self.tree.try_native(node).is_none() {
-                        _ = completion.call(Err(RuntimeError::MissingNode(node)));
-                        continue;
-                    }
-                    commands.push(Command::SetNativeImageSource {
-                        node,
-                        source,
-                        completion,
-                    });
-                }
-                ImperativeRequest::ObserveImageScale {
-                    node,
-                    observation,
-                    callback,
-                } => {
-                    if self.tree.try_native(node).is_none() {
-                        continue;
-                    }
-                    commands.push(Command::ObserveImageScale {
-                        node,
-                        observation,
-                        callback,
-                    });
-                }
-                ImperativeRequest::ObserveCompositionHost {
-                    node,
-                    observation,
-                    callback,
-                } => {
-                    if self.tree.try_native(node).is_none() {
-                        continue;
-                    }
-                    commands.push(Command::ObserveCompositionHost {
-                        node,
-                        observation,
-                        callback,
-                    });
-                }
-                ImperativeRequest::RevokeObservation { node, observation } => {
-                    commands.push(Command::RevokeObservation { node, observation });
-                }
-                ImperativeRequest::SetCompositionChildVisual {
-                    node,
-                    visual,
-                    completion,
-                } => {
-                    if self.tree.try_native(node).is_none() {
-                        _ = completion.call(Err(RuntimeError::MissingNode(node)));
-                        continue;
-                    }
-                    commands.push(Command::SetCompositionChildVisual {
-                        node,
-                        visual,
-                        completion,
-                    });
-                }
+            if target.is_some_and(|node| self.tree.try_native(node).is_none()) {
+                command.complete_unavailable();
+                continue;
             }
+            commands.push(command);
         }
         if let Err(error) = self.apply_native_commands(&commands) {
             let PumpError::NativeApplyFailed(native) = error else {
