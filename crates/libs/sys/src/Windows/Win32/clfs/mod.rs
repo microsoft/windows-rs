@@ -182,7 +182,7 @@ impl Default for CLS_SCAN_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]

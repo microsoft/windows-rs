@@ -1,4 +1,4 @@
-#[repr(C)]
+#[repr(C, align(8))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ArrayFieldAligned {
     pub First: u8,
@@ -11,7 +11,7 @@ impl Default for ArrayFieldAligned {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(8))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FieldAligned {
     pub First: u32,

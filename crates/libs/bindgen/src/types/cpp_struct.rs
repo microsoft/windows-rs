@@ -332,7 +332,7 @@ impl CppStruct {
             quote! { struct }
         };
 
-        let repr = if let Some(align) = self.forced_align() {
+        let repr = if let Some(align) = self.required_align() {
             // `__declspec(align(N))` raises alignment above the natural field
             // alignment; Rust expresses this as `repr(align(N))`. Forced
             // over-alignment and packing are mutually exclusive by construction.
@@ -482,36 +482,59 @@ impl CppStruct {
     }
 
     pub fn size(&self, reader: &Reader) -> usize {
-        if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
+        let packing = self
+            .def
+            .class_layout()
+            .map(|layout| layout.packing_size() as usize)
+            .filter(|packing| *packing > 0);
+        let size = if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
             self.def
                 .fields()
                 .map(|field| field.field_type(Some(self), reader).size(reader))
                 .max()
                 .unwrap_or(1)
         } else {
-            let mut sum = 0;
+            let mut cursor = 0;
             for field in self.def.fields() {
                 let ty = field.field_type(Some(self), reader);
-                let size = ty.size(reader);
-                let align = ty.align(reader);
-                sum = (sum + (align - 1)) & !(align - 1);
-                sum += size;
+                let natural_align =
+                    packing.map_or_else(|| ty.align(reader), |p| p.min(ty.align(reader)));
+                let natural_offset = align_up(cursor, natural_align);
+                let forced_offset =
+                    field_alignment(&field).map_or(natural_offset, |align| align_up(cursor, align));
+                cursor = forced_offset.max(natural_offset) + ty.size(reader);
             }
-            sum
-        }
+            cursor.max(1)
+        };
+        align_up(size, self.align(reader))
     }
 
     pub fn align(&self, reader: &Reader) -> usize {
+        let packing = self
+            .def
+            .class_layout()
+            .map(|layout| layout.packing_size() as usize)
+            .filter(|packing| *packing > 0);
         let derived = self
             .def
             .fields()
-            .map(|field| field.field_type(Some(self), reader).align(reader))
+            .map(|field| {
+                let align = field.field_type(Some(self), reader).align(reader);
+                packing.map_or(align, |packing| packing.min(align))
+            })
             .max()
             .unwrap_or(1);
 
-        // Forced over-alignment can exceed the field-derived alignment.
-        self.forced_align()
+        self.required_align()
             .map_or(derived, |forced| forced.max(derived))
+    }
+
+    fn required_align(&self) -> Option<usize> {
+        self.def
+            .fields()
+            .filter_map(|field| field_alignment(&field))
+            .chain(self.forced_align())
+            .max()
     }
 
     /// Forced over-alignment in bytes from `[AlignmentAttribute(N)]`, if present.
