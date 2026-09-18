@@ -629,7 +629,7 @@ struct BoardCard {
 fn board_cards(game: &Game) -> Vec<BoardCard> {
     let mut cards = Vec::with_capacity(DECK_SIZE);
 
-    if let Some(card) = game.stock.last().copied() {
+    for card in game.stock.iter().copied() {
         cards.push(BoardCard {
             card,
             x: pile_x(0),
@@ -641,20 +641,21 @@ fn board_cards(game: &Game) -> Vec<BoardCard> {
         });
     }
 
-    if let Some(card) = game.waste.last().copied() {
+    for card in game.waste.iter().copied() {
         cards.push(BoardCard {
             card,
             x: pile_x(1),
             y: TOP_ROW_Y,
             face_up: true,
             highlighted: false,
-            failed: matches!(game.failed_move, Some(FailedMove::Waste)),
+            failed: card == game.waste.last().copied().unwrap()
+                && matches!(game.failed_move, Some(FailedMove::Waste)),
             click: Click::Waste,
         });
     }
 
-    for f in 0..FOUNDATIONS {
-        if let Some(card) = game.foundations[f].last().copied() {
+    for (f, foundation) in game.foundations.iter().enumerate() {
+        for card in foundation.iter().copied() {
             cards.push(BoardCard {
                 card,
                 x: foundation_x(f),
@@ -663,7 +664,7 @@ fn board_cards(game: &Game) -> Vec<BoardCard> {
                 highlighted: matches!(
                     game.last_move,
                     Some(LastMove::ToFoundation(destination)) if destination == f
-                ),
+                ) && card == foundation.last().copied().unwrap(),
                 failed: false,
                 click: Click::Foundation(f),
             });
@@ -1075,7 +1076,7 @@ mod tests {
     }
 
     #[test]
-    fn visible_board_cards_have_unique_keys() {
+    fn board_projects_every_card_with_a_unique_key() {
         let game = Game::new(42);
         let cards = board_cards(&game);
         let keys = cards
@@ -1083,6 +1084,7 @@ mod tests {
             .map(|placement| card_key(placement.card))
             .collect::<std::collections::HashSet<_>>();
 
+        assert_eq!(cards.len(), DECK_SIZE);
         assert_eq!(keys.len(), cards.len());
     }
 
