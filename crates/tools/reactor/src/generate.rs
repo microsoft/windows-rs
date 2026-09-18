@@ -485,7 +485,7 @@ fn generate_mounted_props_structure(control: &ResolvedControl) -> TokenStream {
     };
     let property_fields = control.properties.iter().map(|property| {
         let field = ident(&property.field);
-        let value = value_type(&property.value);
+        let value = property_storage_type(property);
         quote! { #field: Property<#value> }
     });
     let event_fields = if has_grouped_events(control) {
@@ -798,13 +798,17 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
                 );
             };
         }
-        let value = match property.value.as_str() {
-            "Str" => quote! { value.as_str() },
-            "KeyAccelerators" | "ResourceOverrides" | "RichText" | "StrList" | "Thickness"
-            | "CornerRadius" | "DragDropPolicy" => {
-                quote! { value }
+        let value = if is_indirect_property(property) {
+            quote! { value.as_ref() }
+        } else {
+            match property.value.as_str() {
+                "Str" => quote! { value.as_str() },
+                "KeyAccelerators" | "ResourceOverrides" | "RichText" | "StrList" | "Thickness"
+                | "CornerRadius" | "DragDropPolicy" => {
+                    quote! { value }
+                }
+                _ => quote! { *value },
             }
-            _ => quote! { *value },
         };
         quote! {
             visit(
@@ -1366,7 +1370,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     };
     let property_fields = control.properties.iter().map(|property| {
         let field = ident(&property.field);
-        let value = value_type(&property.value);
+        let value = property_storage_type(property);
         quote! { #field: Property<#value> }
     });
     let event_fields = if has_grouped_events(control) {
@@ -1572,6 +1576,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     self.#field = Property::from(value.map(|value| {
                         std::rc::Rc::new(value.into_iter().map(Into::into).collect())
                     }));
+                    self
+                }
+            }
+        } else if is_indirect_property(property) {
+            quote! {
+                pub fn #field(mut self, value: impl Into<Option<#value>>) -> Self {
+                    let value = value.into();
+                    #validation
+                    self.#field = Property::from(value.map(std::rc::Rc::new));
                     self
                 }
             }
@@ -2232,6 +2245,19 @@ fn value_type(value: &str) -> TokenStream {
             quote! { #value }
         }
     }
+}
+
+fn property_storage_type(property: &crate::schema::ResolvedProperty) -> TokenStream {
+    let value = value_type(&property.value);
+    if is_indirect_property(property) {
+        quote! { std::rc::Rc<#value> }
+    } else {
+        value
+    }
+}
+
+fn is_indirect_property(property: &crate::schema::ResolvedProperty) -> bool {
+    property.adapter == Some(PropertyAdapter::DropPolicy)
 }
 
 fn event_callback_type(event: &crate::schema::ResolvedEvent) -> TokenStream {

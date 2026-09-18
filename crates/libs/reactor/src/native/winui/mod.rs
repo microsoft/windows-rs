@@ -49,6 +49,326 @@ pub(crate) mod test;
 #[cfg(feature = "test")]
 pub(crate) use test::native_window_handle;
 
+fn unit_event_handler<TSender, TArgs>(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+) -> impl Fn(windows_core::Ref<TSender>, windows_core::Ref<TArgs>)
+where
+    TSender: windows_core::RuntimeType + 'static,
+    TArgs: windows_core::RuntimeType + 'static,
+{
+    move |_, _| sink.enqueue(node, event, revision, EventPayload::Unit)
+}
+
+fn drag_info_event_handler(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+) -> impl Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>) {
+    move |_, args| {
+        let result = args
+            .as_ref()
+            .ok_or_else(windows_core::Error::empty)
+            .and_then(|args| {
+                let data = args.DataView()?;
+                let kind = if data.Contains("Shell IDList Array")? {
+                    DragKind::StorageItems
+                } else if data.Contains("Text")? {
+                    DragKind::Text
+                } else {
+                    DragKind::Unsupported
+                };
+                let action = sink.drag_action(node, kind);
+                args.SetAcceptedOperation(
+                    action
+                        .as_ref()
+                        .map_or(DataPackageOperation::None, |action| {
+                            native_drag_operation(action.operation)
+                        }),
+                )?;
+                let ui = args.DragUIOverride()?;
+                if let Some(caption) = action.as_ref().and_then(|action| action.caption.as_deref())
+                {
+                    ui.SetCaption(caption)?;
+                    ui.SetIsCaptionVisible(true)?;
+                } else {
+                    ui.SetIsCaptionVisible(false)?;
+                }
+                Ok(action.map_or(DragKind::Unsupported, |_| kind))
+            });
+        match result {
+            Ok(kind) => sink.enqueue(node, event, revision, EventPayload::DragKind(kind)),
+            Err(error) => sink.error(node, event, revision, native_error(error)),
+        }
+    }
+}
+
+#[derive(Clone, Copy, PartialEq)]
+enum PointerEventPhase {
+    Plain,
+    Press,
+    Release,
+}
+
+fn pointer_event_handler(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+    element: UIElement,
+    phase: PointerEventPhase,
+) -> impl Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerRoutedEventArgs>)
+{
+    move |_, args| {
+        let mut info = PointerEventInfo::default();
+        if let Some(args) = args.as_ref() {
+            if let Ok(point) = args.GetCurrentPoint(&element) {
+                if let Ok(position) = point.Position() {
+                    info.x = f64::from(position.x);
+                    info.y = f64::from(position.y);
+                }
+                if let Ok(properties) = point.Properties() {
+                    info.is_left_button_pressed = properties.IsLeftButtonPressed().unwrap_or(false);
+                    info.is_right_button_pressed =
+                        properties.IsRightButtonPressed().unwrap_or(false);
+                    info.is_middle_button_pressed =
+                        properties.IsMiddleButtonPressed().unwrap_or(false);
+                }
+            }
+            if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
+                && let Ok(position) = point.Position()
+            {
+                info.window_x = f64::from(position.x);
+                info.window_y = f64::from(position.y);
+            }
+        }
+        if phase == PointerEventPhase::Press {
+            info.capture_succeeded = match sink.apply_pointer_press_policy(node, &element, args) {
+                Ok(value) => value,
+                Err(error) => {
+                    sink.error(node, event, revision, error);
+                    return;
+                }
+            };
+        } else if phase == PointerEventPhase::Release
+            && let Err(error) =
+                sink.apply_pointer_release_policy(node, event, revision, &element, args)
+        {
+            sink.error(node, event, revision, error);
+            return;
+        }
+        sink.enqueue(node, event, revision, EventPayload::PointerEventInfo(info));
+    }
+}
+
+fn key_event_handler(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+) -> impl Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<KeyRoutedEventArgs>) {
+    move |_, args| {
+        let result = args
+            .as_ref()
+            .ok_or_else(windows_core::Error::empty)
+            .and_then(key_event_info);
+        match result {
+            Ok(info) => {
+                let handled = sink.route_key(node, event, revision, info);
+                if let Some(args) = args.as_ref()
+                    && let Err(error) = args.SetHandled(handled)
+                {
+                    sink.error(node, event, revision, native_error(error));
+                }
+            }
+            Err(error) => sink.error(node, event, revision, native_error(error)),
+        }
+    }
+}
+
+enum RoutedEventAction {
+    Unit,
+    Focus(UIElement, bool),
+    Password(IPasswordBox),
+    ToggleSwitch(IToggleSwitch),
+    RichEdit(IRichEditBox),
+}
+
+fn routed_event_handler(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+    action: RoutedEventAction,
+) -> impl Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>) {
+    move |_, args| match &action {
+        RoutedEventAction::Unit => {
+            sink.enqueue(node, event, revision, EventPayload::Unit);
+        }
+        RoutedEventAction::Focus(element, got_focus) => {
+            let result = args
+                .as_ref()
+                .ok_or_else(windows_core::Error::empty)
+                .and_then(|args| {
+                    focus_event_info(
+                        element,
+                        args,
+                        got_focus
+                            .then(|| sink.take_pending_focus_state(node))
+                            .flatten(),
+                        *got_focus,
+                    )
+                });
+            match result {
+                Ok(info) => sink.enqueue(node, event, revision, EventPayload::FocusEventInfo(info)),
+                Err(error) => sink.error(node, event, revision, native_error(error)),
+            }
+        }
+        RoutedEventAction::Password(source) => match source.Password() {
+            Ok(value) => sink.enqueue(node, event, revision, EventPayload::Str(value)),
+            Err(error) => sink.error(node, event, revision, native_error(error)),
+        },
+        RoutedEventAction::ToggleSwitch(source) => match source.IsOn() {
+            Ok(value) => sink.enqueue(node, event, revision, EventPayload::Bool(value)),
+            Err(error) => sink.error(node, event, revision, native_error(error)),
+        },
+        RoutedEventAction::RichEdit(source) => {
+            let value = source.Document().and_then(|document| {
+                let mut value = windows_core::HSTRING::new();
+                document
+                    .GetText(TextGetOptions::UseLf, &mut value)
+                    .map(|_| value)
+            });
+            match value {
+                Ok(value) => {
+                    sink.enqueue_rich_edit_text(node, event, revision, value.to_string_lossy());
+                }
+                Err(error) => sink.error(node, event, revision, native_error(error)),
+            }
+        }
+    }
+}
+
+enum SelectionChangedAction {
+    IndexSelector(ISelector),
+    IndexRadioButtons(IRadioButtons),
+    IndexPivot(IPivot),
+    IndexTabView(ITabView),
+    ListBox(ISelector),
+}
+
+fn selection_changed_handler(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+    action: SelectionChangedAction,
+) -> impl Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<SelectionChangedEventArgs>)
+{
+    move |_, _| {
+        if let SelectionChangedAction::ListBox(source) = &action {
+            match source.SelectedItem() {
+                Ok(item) => {
+                    let selected = sink.selection_item(&item);
+                    match selection_payload(selection_for_event(event).unwrap(), &item) {
+                        Ok(tag) => sink.enqueue(
+                            node,
+                            event,
+                            revision,
+                            EventPayload::SelectionChange(SelectionChange {
+                                item: selected,
+                                tag,
+                            }),
+                        ),
+                        Err(error) => sink.error(node, event, revision, error),
+                    }
+                }
+                Err(error) if error.code().is_ok() => sink.enqueue(
+                    node,
+                    event,
+                    revision,
+                    EventPayload::SelectionChange(SelectionChange {
+                        item: None,
+                        tag: None,
+                    }),
+                ),
+                Err(error) => sink.error(node, event, revision, native_error(error)),
+            }
+            return;
+        }
+        let value = match &action {
+            SelectionChangedAction::IndexSelector(source) => source.SelectedIndex(),
+            SelectionChangedAction::IndexRadioButtons(source) => source.SelectedIndex(),
+            SelectionChangedAction::IndexPivot(source) => source.SelectedIndex(),
+            SelectionChangedAction::IndexTabView(source) => source.SelectedIndex(),
+            SelectionChangedAction::ListBox(_) => unreachable!(),
+        };
+        match value {
+            Ok(value) => {
+                let value = match selection_index(value) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        sink.error(node, event, revision, error);
+                        return;
+                    }
+                };
+                sink.enqueue(node, event, revision, EventPayload::SelectionIndex(value));
+            }
+            Err(error) => sink.error(node, event, revision, native_error(error)),
+        }
+    }
+}
+
+fn list_view_items_changed_handler(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+) -> impl Fn(windows_core::Ref<ListViewBase>, windows_core::Ref<DragItemsCompletedEventArgs>) {
+    move |sender, _| {
+        if let Some(sender) = sender.as_ref() {
+            let result = sender
+                .cast::<IItemsControl>()
+                .and_then(|sender| sender.Items())
+                .and_then(|items| {
+                    let mut tags = Vec::with_capacity(items.Size()? as usize);
+                    for index in 0..items.Size()? {
+                        let tag = items
+                            .GetAt(index)?
+                            .cast::<IFrameworkElement>()?
+                            .Tag()?
+                            .cast::<windows_reference::IReference<windows_core::HSTRING>>()?
+                            .Value()?;
+                        tags.push(tag.to_string_lossy());
+                    }
+                    Ok(tags)
+                });
+            match result {
+                Ok(value) => {
+                    sink.enqueue(node, event, revision, EventPayload::StrList(Rc::new(value)));
+                }
+                Err(error) => sink.error(node, event, revision, native_error(error)),
+            }
+        }
+    }
+}
+
+fn toggle_button_checked_handler(
+    sink: EventSink,
+    node: NodeId,
+    event: EventId,
+    revision: u32,
+    source: IToggleButton,
+) -> impl Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>) {
+    move |_, _| match source.IsChecked() {
+        Ok(value) => sink.enqueue(node, event, revision, EventPayload::Bool(value)),
+        Err(error) => sink.error(node, event, revision, native_error(error)),
+    }
+}
+
 impl Handle {
     pub fn ui_element(&self) -> windows_core::Result<UIElement> {
         self.inspectable().cast()

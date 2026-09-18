@@ -407,7 +407,7 @@ impl<R: NativeRuntime> Pump<R> {
                 self.tree
                     .native_mut(event.node)
                     .properties
-                    .insert(property, Some(value));
+                    .insert(property, value);
             }
             if (selection_observation || property_observation) && event.invokes_callback() {
                 self.native_observation_pending = true;
@@ -486,13 +486,18 @@ impl<R: NativeRuntime> Pump<R> {
                 continue;
             }
             let selected = selected_item == Some(item);
-            let value = Some(PropertyValue::Bool(selected));
-            let item_changed = self
-                .tree
+            let value = PropertyValue::Bool(selected);
+            let item_changed = !matches!(
+                self.tree
+                    .native(item)
+                    .properties
+                    .get(&selection.selected_property),
+                Some(PropertyValue::Bool(current)) if *current == selected
+            );
+            self.tree
                 .native_mut(item)
                 .properties
-                .insert(selection.selected_property, value.clone())
-                != Some(value);
+                .insert(selection.selected_property, value);
             changed |= item_changed;
             if item_changed {
                 let mut current = item;

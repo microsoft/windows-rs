@@ -1,0 +1,582 @@
+# Reactor scaling investigation
+
+This is a temporary research and tracking document. It should be removed when the resulting
+architecture work is complete or transferred to permanent design documentation.
+
+## Goal
+
+Keep `windows-reactor` practical as its WinUI surface grows without allowing generated source,
+compile time, binary size, per-element memory, or maintenance cost to grow unchecked.
+
+Preserve:
+
+- Typed public builders and callbacks.
+- Declarative reconciliation.
+- Metadata-derived WinRT ABI signatures.
+- Existing error reporting and event lifetime behavior.
+- Generated bindings and surface tests as the source of truth.
+
+Do not optimize generated line count by weakening ABI safety or moving failures from compile time to
+runtime.
+
+## Working principles
+
+1. Measure before and after every experiment.
+2. Prototype one repeated pattern before redesigning the whole generator.
+3. Keep a change only when it improves its target metric without a meaningful behavioral regression.
+4. Prefer shared typed machinery over erased vtable calls.
+5. Keep common paths direct; isolate uncommon features only when measurements justify the boundary.
+6. Do not introduce public raw WinUI escape hatches as a substitute for a coherent Reactor API.
+
+## Baseline
+
+Recorded on 2026-09-17 from `master` at `10494de689`.
+
+| Artifact | Lines | Bytes |
+| --- | ---: | ---: |
+| `crates/libs/reactor/src/generated.rs` | 14,657 | 580,737 |
+| `crates/libs/reactor/src/native/winui/bindings.rs` | 31,101 | 1,131,122 |
+| `crates/libs/reactor/src/native/winui/generated.rs` | 6,240 | 280,234 |
+| `crates/tests/libs/reactor_surface/src/generated_surface.rs` | 10,489 | 340,392 |
+
+The baseline used isolated `CARGO_TARGET_DIR` directories with Rust 1.95 and incremental
+compilation disabled by using a fresh directory:
+
+| Measurement | Time |
+| --- | ---: |
+| Non-incremental `cargo check -p windows-reactor --quiet` | 5.677 s |
+| Release `cargo build -p test-reactor-surface --release --quiet` | 20.822 s |
+| Release `test-reactor-surface.exe` | 4,246,528 bytes |
+
+## Metrics
+
+Every prototype records the relevant subset of:
+
+- Generated lines and bytes by artifact.
+- Clean and warm `cargo check -p windows-reactor`.
+- Peak compiler working set where practical.
+- Release size of a fixed representative sample.
+- Symbol attribution for generated delegates and other repeated glue.
+- `size_of` for representative public, mounted, and runtime state.
+- Allocations per mounted element and per update where practical.
+- Unchanged and changed reconciliation time.
+- Event subscription count, dispatch latency, and callback allocation count.
+- Existing unit, surface, and live test results.
+
+Line count is diagnostic data, not a success criterion by itself.
+
+## Workstream 1: event plumbing
+
+### Hypothesis
+
+Many generated event subscriptions share the same WinRT delegate signature and ignore the sender,
+event args, or both. Each generated closure currently produces a distinct delegate implementation
+and invoke thunk.
+
+A named handler per native delegate signature can carry runtime event identity and shared capture
+state while preserving the typed WinRT delegate and existing `EventRevoker` lifetime.
+
+### First prototype
+
+Limit the experiment to events that:
+
+- Produce `EventPayload::Unit`.
+- Ignore both sender and event args.
+- Require no feedback observation, routed handling, pointer policy, selection lookup, or native
+  value conversion.
+
+Keep specialized events on their existing paths.
+
+Measure:
+
+- Number of event arms converted.
+- Number of distinct delegate signatures before and after.
+- Generated source reduction.
+- Release symbol and binary-size change.
+- Clean and warm check times.
+- Event test and live surface behavior.
+
+### First prototype results
+
+The generated native subscription function contains 68 metadata event arms. Eighteen events
+produce `EventPayload::Unit` and ignore both native callback parameters. They use 11 native
+delegate signatures:
+
+| Signature group | Event count |
+| --- | ---: |
+| `IInspectable`, `RoutedEventArgs` | 6 |
+| `IInspectable`, `PointerRoutedEventArgs` | 2 |
+| `TitleBar`, `IInspectable` | 2 |
+| Eight other signatures | 1 each |
+
+A generic named closure factory now shares a concrete closure type for every repeated native
+sender/args pair. Metadata supplies the exact handler types, so generated calls retain typed WinRT
+delegate construction and require no casts or runtime interface queries.
+
+| Measurement | Baseline | Six-event trial | All 18 unit events |
+| --- | ---: | ---: | ---: |
+| Non-incremental Reactor check | 5.677 s | 5.764 s | 6.628 s |
+| Paired clean-check median, three runs | 6.781 s | - | 6.651 s |
+| Release surface build | 20.822 s | 19.176 s | 19.080 s |
+| Release surface executable | 4,246,528 B | 4,230,144 B | 4,226,560 B |
+| Native generated source | 6,240 lines | 6,233 lines | 6,219 lines |
+| Native generated bytes | 280,234 B | 279,937 B | 280,241 B |
+
+The all-unit version removes 19,968 bytes from the fixed release executable. The last 12
+conversions account for only 3,584 bytes beyond the six-event trial. Only three current signature
+groups repeat, so consistency and future reuse rather than immediate deduplication justify the
+eight one-event groups. Generated native bytes increase by seven bytes despite the lower line
+count.
+
+The original clean-check samples varied enough to suggest a possible regression. Three later
+paired clean builds measured baseline/prototype times of 6.781/6.651, 7.150/6.532, and
+6.656/6.675 seconds. These do not show a regression, but the difference remains too small to claim
+a compile-time improvement. The generic form adds generator and metadata code, so the measured
+binary reduction and consistent unit-event handling are its justification rather than source line
+count.
+
+`test_reactor` and the live native event fixtures pass. The full headless self-test reaches the
+real-input pointer fixture and fails because injected pointer input does not advance the fixture.
+The same focused pointer failure reproduces on unmodified `10494de689`, so it is not caused by this
+prototype.
+
+### Expanded typed-handler results
+
+A boxed universal trampoline was tested and rejected. It added one allocation and virtual call per
+subscription, grew the executable to 4,256,768 bytes, and expanded native generated output to
+6,427 lines and 288,716 bytes.
+
+The retained design instead shares concrete closure types within compatible native signatures and
+behaviors. It adds no allocation, virtual call, or callback-time `QueryInterface`. Shared helpers
+now cover:
+
+- Unit, drag-info, pointer, key, and focus events.
+- `ISelector::SelectedIndex` and ListView/GridView item-tag events.
+- `IToggleButton::IsChecked` dependency-property callbacks.
+- The common `IInspectable`/`RoutedEventArgs` signature through a typed action enum.
+- The common `IInspectable`/`SelectionChangedEventArgs` signature through a typed action enum.
+
+The signature dispatchers capture typed interfaces in enums and branch once per callback. This
+allows different event transformations to share one WinRT delegate implementation without erasing
+the ABI or performing interface queries during delivery.
+
+| Measurement | Original baseline | Current retained prototypes | Change |
+| --- | ---: | ---: | ---: |
+| Release surface executable | 4,246,528 B | 4,210,176 B | -36,352 B |
+| Native generated source | 6,240 lines | 5,660 lines | -580 lines |
+| Native generated bytes | 280,234 B | 252,907 B | -27,327 B |
+
+The two dependency-property `IsChecked` callbacks saved 1,536 executable bytes. The routed-event
+signature dispatcher saved another 1,024 bytes. The eight-event selection dispatcher saved a
+further 4,608 bytes and removed 80 generated lines.
+
+Signature dispatch is not automatically beneficial. Merging unit pointer callbacks into the
+detailed pointer handler added 1,536 executable bytes and 12 generated lines. Merging drag-info,
+drop, and unit drag callbacks removed 91 generated lines but added 2,048 executable bytes. Both
+experiments were removed. Keep separate helpers when their captured state or behavior differs
+enough that the action enum costs more than another delegate implementation.
+
+### Stop criteria
+
+Stop or redesign if the shared handler:
+
+- Requires erased argument ABI or manual slot dispatch.
+- Changes revocation or revision behavior.
+- Adds a `QueryInterface` operation to each event dispatch.
+- Obscures the event name in diagnostics.
+- Does not measurably reduce delegate symbols, binary size, or compile work.
+
+## Workstream 2: native property dispatch
+
+### Hypothesis
+
+Large tuple matches over `(Handle, PropertyId, PropertyValue)` create compiler work and make each new
+property expand a central function.
+
+Split dispatch by stable property families while retaining typed binding calls:
+
+- Framework and UI element properties.
+- Control properties.
+- Attached properties.
+- Collections and structural properties.
+- Specialized adapters.
+
+Use measurements to determine whether family dispatch should be generated functions, descriptors,
+or both. Do not use a general erased ABI interpreter.
+
+### First prototype results
+
+The handwritten `PropertyTarget` routing already separates framework properties, attached
+properties, and grid definitions from generated control-specific setters. The remaining generated
+`set_property` function is 93,705 bytes and contains 227 property arms across 69 controls.
+
+A prototype generated one typed setter function per control and retained a single outer `Handle`
+match. Each helper accepted the concrete native control type, so it introduced no casts, erased
+calls, or metadata lookup at runtime.
+
+| Measurement | Event-sharing baseline | Per-control setters |
+| --- | ---: | ---: |
+| Non-incremental Reactor check | 7.513 s | 7.222 s |
+| Release surface build | 20.502 s | 23.127 s |
+| Release surface executable | 4,226,560 B | 4,232,192 B |
+| Native generated source | 6,219 lines | 6,367 lines |
+| Native generated bytes | 280,241 B | 289,729 B |
+
+Adding `#[inline]` to each helper did not recover the 5,632-byte executable increase. The single
+check-time sample improved by 0.291 seconds, but that is not enough evidence to offset 148
+generated lines, 9,488 generated bytes, a larger executable, and a slower release build. The
+prototype was removed.
+
+The current boundary is therefore retained: common property families remain handwritten and the
+generated control-specific path remains one direct tuple match. Revisit it only with rustc
+self-profile evidence that this function is a material compiler hotspot or with a representation
+that reduces rather than rearranges the generated work.
+
+### Stop criteria
+
+Do not keep a redesign that adds per-property `QueryInterface` calls, function-pointer tables that
+prevent dead stripping, or slower unchanged-tree reconciliation without a larger demonstrated gain.
+
+## Workstream 3: element and property storage
+
+### Hypothesis
+
+Dense generated property structs are efficient for narrow controls but wasteful for wide controls
+and shared uncommon capabilities.
+
+Investigate a hybrid representation:
+
+- Keep narrow and hot scalar properties dense.
+- Put uncommon shared capabilities in optional packs.
+- Test sparse sorted storage only on controls with many rarely set properties.
+- Avoid a hash map or unconditional extra allocation per element.
+
+Theme transitions are a useful capability-pack test because they are uncommon, collection-valued,
+and apply across several control families.
+
+### First prototype results
+
+Rust layout diagnostics show that shared layout state and grouped events are already optional
+`Rc`-backed allocations. `MountedProps` itself is a 16-byte tagged `Rc`, so mounted property data
+is allocated once per element rather than stored inline in the runtime enum.
+
+The widest generated control is `Border`:
+
+| Type | Baseline |
+| --- | ---: |
+| Public `Border` builder | 208 B |
+| `BorderMountedProps` | 184 B |
+| Shared `ElementState` allocation, when used | 272 B |
+
+`DragDropPolicy` accounts for 64 bytes in both Border structures even when inherited. The first
+prototype classifies that adapter as indirect storage in the generator. Generated storage uses
+`Property<Rc<DragDropPolicy>>`, whose inherited representation remains allocation-free and
+occupies eight bytes.
+
+| Measurement | Event-sharing baseline | Indirect drop policy |
+| --- | ---: | ---: |
+| Public `Border` builder | 208 B | 152 B |
+| `BorderMountedProps` | 184 B | 128 B |
+| Non-incremental Reactor check | 7.513 s | 7.263 s |
+| Release surface build | 20.502 s | 23.977 s |
+| Release surface executable | 4,226,560 B | 4,226,048 B |
+| Public generated source | 14,657 lines / 580,737 B | 14,659 lines / 580,849 B |
+
+This saves 56 bytes in each public and mounted Border value and 512 bytes in the representative
+release executable. It adds no allocation to the default Border path. When the property is set,
+the eight-byte inline pointer and roughly 80-byte allocation replace the previous 64-byte inline
+value, adding about 24 bytes and one allocation. `Rc` retains cheap cloning when an element is
+shared; a `Box` trial removed the reference counts but also lost the 512-byte executable reduction.
+
+The isolated build timings are too noisy to claim a compile-time change. The live
+`property.Border.AllowDrop` surface case passes through set, update, and clear stages.
+
+### Stop criteria
+
+Reject a storage change that reduces struct size but increases total allocation bytes, update time,
+or common-control memory.
+
+## Workstream 4: feature and crate boundaries
+
+Potentially expensive and less commonly used domains include:
+
+- WebView integration.
+- Swap-chain and graphics hosting.
+- Rich text.
+- Content dialogs and transient UI.
+- Virtualized collections.
+- Drag and drop.
+- Owned menus and command surfaces.
+
+Investigate boundaries only after compile and binary attribution identifies a meaningful cost.
+Separate source modules improve organization but not rustc parallelism. Separate crates or Cargo
+features can reduce compilation, but they also increase dependency combinations and test burden.
+
+`windows-webview`, `windows-canvas`, and similar focused crates are useful precedents, not automatic
+templates for splitting Reactor.
+
+### First attribution results
+
+Each candidate domain was removed from `winui.toml` in an isolated worktree, followed by complete
+Reactor regeneration. The source deltas are conservative because handwritten runtime binding
+entries were retained. A release linker map for `test-reactor-surface` attributes directly named
+code; inlining and identical-code folding mean these figures are estimates rather than exclusive
+domain totals.
+
+| Domain | Controls | Public generated | Native generated | Bindings | Linked named code | Coupled files |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| WebView/swap chain | 2 | 5,487 B | 598 B | 2,952 B | 1,760 B | 2 |
+| Rich text | 2 | 14,965 B | 8,894 B | 14,798 B | 11,536 B | 1 |
+| Transient UI | 3 | 26,437 B | 11,052 B | 34,710 B | 19,184 B | 3 |
+| Virtualized collections | 6 | 37,643 B | 18,016 B | 30,558 B | 21,552 B | 4 |
+| Menus and commands | 7 | 27,451 B | 8,444 B | 30,922 B | 17,168 B | 4 |
+
+Removing only the generated surface does not compile without runtime changes. Rich text is the
+least coupled candidate, with four missing references confined to the native WinUI module.
+Transient UI, virtualization, and menus cross core planning or topology code as well as native
+code.
+
+No domain currently justifies a Cargo feature or crate boundary. The largest directly attributed
+linked contribution is about 0.5% of the 4.23 MB representative executable, while every split
+would add conditional public APIs, binding partitions, and test combinations. WebView and
+swap-chain integration are especially poor split targets inside Reactor: their heavy functionality
+already lives in focused crates, while their Reactor control adapters contribute little linked
+code.
+
+Revisit rich text first if that surface grows substantially or compiler attribution shows its
+bindings and generated adapters becoming a material cost.
+
+## WinRT binding strategy
+
+Keep metadata-derived typed interfaces and vtables for now.
+
+Minimal `windows-bindgen` already:
+
+- Emits exact ABI signatures for selected methods.
+- Preserves opaque vtable slots for unselected methods.
+- Supports zero-cost default-interface access.
+- Computes parameterized interface identities such as `IVector<T>`.
+- Reuses `windows-core` parameter, ownership, and HRESULT conversion.
+
+Manual slot-index dispatch or runtime method lookup would weaken these guarantees. Future binding
+experiments should first improve dependency closure or generated wrapper sharing while retaining
+typed ABI signatures.
+
+### Event registration storage
+
+Minimal bindings currently combine each `add_*`/`remove_*` pair into one closure-taking method that
+returns `windows_core::EventRevoker`. The revoker is 24 bytes on x64:
+
+- One retained source-interface pointer.
+- One 64-bit registration token.
+- One remove-function pointer.
+
+That is close to minimal for a self-contained RAII value, but Reactor already owns the native
+handle and indexes every subscription by `(NodeId, EventId)`. A Reactor-specific bindgen mode could
+instead generate:
+
+- A typed add method returning only the 64-bit token.
+- A typed remove method accepting that token.
+- Generated Reactor unsubscribe dispatch using the existing handle and event ID.
+
+The prototype emitted token-based `Add*`/`Remove*` methods alongside the existing revoker API,
+used tokens for generated control events, split metadata and dependency-property subscriptions
+into separate maps, and explicitly revoked tokens before removing handles.
+
+| Measurement | Retained typed handlers | Raw-token prototype | Change |
+| --- | ---: | ---: | ---: |
+| Event subscription value | 32 B | 16 B | -16 B |
+| Release surface executable | 4,210,176 B | 4,222,976 B | +12,800 B |
+| Native generated source | 5,660 lines / 252,907 B | 5,694 lines / 263,029 B | +34 lines / +10,122 B |
+| WinUI bindings | 31,101 lines / 1,131,122 B | 33,325 lines / 1,217,758 B | +2,224 lines / +86,636 B |
+
+The smaller subscription value and avoided COM reference do not justify the removal dispatcher,
+second map, and binding expansion. The prototype was removed. Retain self-contained revokers unless
+a future representation can remove the source pointer without generating per-event removal code.
+
+## Compact property representation
+
+The current wrappers do not individually allocate. Measured x64 layouts are:
+
+| Type | Bytes |
+| --- | ---: |
+| `Property<bool>` | 1 |
+| `Property<f64>` | 16 |
+| `Property<String>` | 24 |
+| `Property<Thickness>` | 16 |
+| `Property<Rc<DragDropPolicy>>` | 8 |
+| `PropertyValue` | 64 |
+| `PropertyValueRef` | 24 |
+
+The cost comes from reserving space for every property in each generated builder and mounted
+structure, plus allocations owned by values such as strings and collections. A direct
+`Vec<(PropertyId, PropertyValue)>` is not a compact replacement because every entry would inherit
+the 64-byte `PropertyValue` size.
+
+The next storage prototype should use a shared sparse property bag with:
+
+- A compact property ID and a separate storage representation capped by indirect large values.
+- Inline capacity for the common zero-to-two-property case, spilling to one vector only when needed.
+- Typed generated setters and borrowed `PropertyValueRef` decoding.
+- A frozen `Rc<[Entry]>` mounted representation so mounted state still uses one allocation.
+
+A raw byte blob is a later option, not the starting point. Safely packing owned `String`, `Rc`, COM,
+and callback values requires generated alignment, clone, and drop machinery. The sparse typed bag
+can establish the attainable memory, allocation, source-size, and binary wins before taking on that
+unsafe implementation cost.
+
+### Committed property store prototype
+
+`NativeState` must retain committed native property values separately from `desired`. Native
+feedback can change a controlled WinUI property without changing the declared tree, and failed
+native commands must not publish the candidate desired state. The committed store is therefore
+state, not a disposable reconciliation cache.
+
+The first compact prototype replaces
+`BTreeMap<PropertyId, Option<PropertyValue>>` with a sorted
+`Vec<(PropertyId, PropertyValue)>`. Binary search handles reads, updates keep entries sorted, and
+clearing a property removes its entry rather than retaining a `None` tombstone.
+
+This representation fits the workload:
+
+- Most controls have few explicitly set properties.
+- The vector uses one contiguous allocation rather than a B-tree node with unused key/value slots.
+- Unset and cleared properties consume no entry storage.
+- Reconciliation remains type-safe and compares borrowed desired values with owned committed
+  values.
+- Native feedback and failed-command commit semantics remain unchanged.
+
+| Measurement | Retained event/property baseline | Sorted committed store | Change |
+| --- | ---: | ---: | ---: |
+| Release surface executable | 4,210,176 B | 4,193,280 B | -16,896 B |
+| `NativeState` inline store | 24 B | 24 B | 0 B |
+| Cleared-property rows | Retained as `None` | Removed | -1 entry each |
+
+The vector has `O(n)` insertion and removal, but these happen only for changed properties and `n`
+is the number of explicitly set properties on one control. Reads use binary search. The full
+Reactor library tests, `test_reactor`, warning-as-error check, and clippy pass.
+
+### Property transaction ownership
+
+Property planning previously cloned every changed `PropertyValue` into both
+`Command::SetProperty` and a parallel `PropertyCommit`. After the native command batch succeeded,
+the commit list cloned the value again into `NativeState.properties`.
+
+The retained transaction path now owns each changed value only in the command. The runtime borrows
+the command batch while applying it. After successful application, Reactor consumes the commands
+and moves property values into committed state. A failed native batch still poisons the pump and
+publishes neither the candidate tree nor committed values.
+
+| Benchmark | Previous bytes/op | Command-owned bytes/op | Change |
+| --- | ---: | ---: | ---: |
+| Mount and shut down 512 rows | 1,480,082 | 1,431,150 | -48,932 |
+| Update all 512 rows | 481,484 | 431,016 | -50,468 |
+| Isolated component leaf | 1,077.5 | 752.5 | -325 |
+| Mount 512 four-property Borders | 1,861,560 | 1,697,720 | -163,840 |
+
+Allocation counts fall from 5,241 to 4,209 for the 512-row mount, from 4,670 to 3,638 for the
+all-row update, and from 11 to 8 for an isolated component update. The release surface executable
+increased by 1,024 bytes before the event-store change below.
+
+### Event state storage
+
+`NativeState.events` had the same small-map shape as committed properties. A sorted vector now
+stores `(EventId, EventState)` entries while preserving inactive entries and revisions needed to
+reject stale queued events.
+
+| Measurement | B-tree | Sorted vector | Change |
+| --- | ---: | ---: | ---: |
+| One active event, retained bytes/Border | 1,437.5 | 1,373.5 | -64 B |
+| Four active events, retained bytes/Border | 1,563.5 | 1,499.5 | -64 B |
+| Event-bearing Border allocation count | unchanged | unchanged | 0 |
+| Release surface executable | 4,194,304 B | 4,190,720 B | -3,584 B |
+
+The generic `SortedVecMap` now backs both per-node committed properties and event state. Other maps
+in the engine and native runtime are generally global node, scope, subscription, or realization
+indices whose cardinality scales with the tree; those remain hash maps. `ProviderStore` already
+uses a dedicated small/many representation.
+
+### Live WinUI measurements
+
+The original baseline and retained property/transaction/event changes were each run for ten seconds
+against the seeded 70x70 live grid with 10% dirty rows.
+
+| Workload | Metric | Original | Current | Change |
+| --- | --- | ---: | ---: | ---: |
+| Direct cells | Rust allocations/update | 15,194.2 | 14,224.8 | -6.4% |
+| Direct cells | Rust allocated bytes/update | 3,062,604 | 2,855,946 | -6.7% |
+| Direct cells | Peak working set | 209,625,088 | 209,215,488 | -0.2% |
+| Component cells | Rust allocations/update | 16,213.8 | 15,272.8 | -5.8% |
+| Component cells | Rust allocated bytes/update | 5,456,005 | 5,252,519 | -3.7% |
+| Component cells | Peak working set | 220,786,688 | 214,171,648 | -3.0% |
+| Component cells | Peak private bytes | 261,685,248 | 253,468,672 | -3.1% |
+
+Process-memory and timing figures are single-run diagnostics and remain sensitive to WinUI and
+machine noise. The counting allocator reductions are deterministic across the headless benchmark
+rows and are the stronger signal.
+
+### Dense desired-property prototype
+
+A Border-only prototype replaced its 13 dense property fields with a typed small bag. The bag
+stored zero, one, or two `BorderProperty` values inline and used a sorted vector from the third
+property onward. Public setters, mounted visitation, theme extraction, and property-dependent
+event activation remained typed and generated.
+
+| Layout | Dense Border | Sparse Border | Change |
+| --- | ---: | ---: | ---: |
+| Public `Border` | 152 B | 80 B | -72 B |
+| `BorderMountedProps` | 128 B | 56 B | -72 B |
+| Release surface executable | 4,193,280 B | 4,197,888 B | +4,608 B |
+
+The targeted benchmark mounted 4,096 Borders and measured retained allocator bytes:
+
+| Set properties | Dense bytes/element | Sparse bytes/element | Change | Allocation change |
+| --- | ---: | ---: | ---: | ---: |
+| 0 | 755.5 | 683.5 | -72 B | 0 |
+| 1 | 1,787.5 | 1,715.5 | -72 B | 0 |
+| 2 | 1,787.5 | 1,715.5 | -72 B | 0 |
+| 4 | 1,787.5 | 1,859.5 | +72 B | +2/element |
+
+The spill path is a regression for a normal styled Border, which commonly sets padding, border
+thickness, corner radius, and a brush. The prototype also adds executable code and repeated lookup
+branches. Do not generalize this bag. Retain dense hot properties and investigate optional packs
+for coherent uncommon capabilities instead.
+
+## Experiment log
+
+| Experiment | Status | Result |
+| --- | --- | --- |
+| Establish generated-size baseline | Complete | Recorded above |
+| Classify event signatures and ignored arguments | Complete | 68 event arms; 18 unit events; 11 signatures |
+| Share simple unit event handlers | Prototype complete | 19,968-byte release reduction; no clear timing win |
+| Share repeated typed event transformations | Prototype complete | 36,352-byte total release reduction |
+| Use a boxed universal event trampoline | Rejected | Added 30,720 bytes, allocation, and dynamic dispatch |
+| Merge pointer callbacks by signature | Rejected | Added 1,536 bytes and 12 generated lines |
+| Merge drag callbacks by signature | Rejected | Removed 91 generated lines but added 2,048 bytes |
+| Return raw event tokens from Reactor bindings | Rejected | Saves 16 B/subscription but adds 12,800 executable bytes |
+| Compact committed property storage | Prototype complete | Removes tombstones and 16,896 executable bytes |
+| Move property commits out of a parallel transaction vector | Prototype complete | Removes 20-30% of allocations in property-heavy headless rows |
+| Compact per-node event state | Prototype complete | Saves 64 retained bytes per event-bearing node |
+| Replace dense Border properties with a compact sparse bag | Rejected | Saves 72 B at 0-2 properties but adds 72 B and two allocations at four |
+| Split native property dispatch by family | Rejected | Existing families are sound; per-control split added 5,632 bytes |
+| Prototype indirect uncommon property storage | Prototype complete | Border builder and mounted state each shrink by 56 bytes |
+| Prototype optional transition capability state | Pending | Build on indirect storage only if transitions justify a pack |
+| Attribute uncommon feature compile and binary cost | Complete | No current domain justifies a split |
+
+## Decision log
+
+| Date | Decision | Reason |
+| --- | --- | --- |
+| 2026-09-17 | Retain typed windows-bindgen vtables | Manual slots lose ABI checking and add runtime risk |
+| 2026-09-17 | Start with event sharing | Repeated closure/delegate implementations are a concrete target |
+| 2026-09-17 | Treat sparse storage as a hybrid experiment | It is likely worse for narrow controls |
+| 2026-09-17 | Gate crate splits on attribution | Boundaries have API and testing costs |
+| 2026-09-17 | Retain the all-unit event prototype for review | It saves 19,968 bytes without changing event behavior |
+| 2026-09-17 | Retain the current property dispatch boundary | Per-control helpers increased source and binary size |
+| 2026-09-17 | Retain indirect storage for `DragDropPolicy` | It saves 56 bytes per Border representation on the common path |
+| 2026-09-17 | Do not add feature or crate boundaries yet | Linked savings are small relative to coupling and test cost |
+| 2026-09-17 | Use typed action enums only for profitable common signatures | Routed and selection win; pointer and drag regress |
+| 2026-09-17 | Retain the sorted committed property store | It preserves feedback semantics and saves 16,896 bytes |
+| 2026-09-17 | Reject a universal sparse desired-property bag | Normal four-property Borders use more memory and allocations |
+| 2026-09-17 | Move committed values from successful commands | Removes duplicate ownership without weakening failure handling |
+| 2026-09-17 | Use sorted storage for per-node event state | Event sets are small and retain 64 fewer bytes per event-bearing node |

@@ -68,14 +68,14 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
             .native(menu_item)
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
-        Some(&Some(PropertyValue::Bool(false)))
+        Some(&PropertyValue::Bool(false))
     );
     assert_eq!(
         pump.tree
             .native(footer_item)
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
-        Some(&Some(PropertyValue::Bool(true)))
+        Some(&PropertyValue::Bool(true))
     );
 
     let batches = pump.runtime().commands().len();
@@ -108,7 +108,7 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
             .native(*item)
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected)
-            == Some(&Some(PropertyValue::Bool(false)))
+            == Some(&PropertyValue::Bool(false))
     }));
 
     let mut passive = Pump::new(RecordingRuntime::default());
@@ -147,7 +147,7 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
             .native(item)
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
-        Some(&Some(PropertyValue::Bool(true)))
+        Some(&PropertyValue::Bool(true))
     );
 
     let mut uncontrolled = Pump::new(RecordingRuntime::default());
@@ -181,11 +181,12 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
     ));
     assert_eq!(uncontrolled.dispatch_events(), Ok(0));
     assert!(
-        !uncontrolled
+        uncontrolled
             .tree
             .native(item)
             .properties
-            .contains_key(&PropertyId::NavigationViewItemIsSelected)
+            .get(&PropertyId::NavigationViewItemIsSelected)
+            .is_none()
     );
 
     struct Item;
@@ -247,7 +248,7 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
             .native(items[0])
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
-        Some(&Some(PropertyValue::Bool(true)))
+        Some(&PropertyValue::Bool(true))
     );
     assert_eq!(
         nested
@@ -255,7 +256,7 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
             .native(items[1])
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
-        Some(&Some(PropertyValue::Bool(false)))
+        Some(&PropertyValue::Bool(false))
     );
 }
 
@@ -375,7 +376,7 @@ fn observed_dependency_property_feedback_updates_known_state() {
             .native(root)
             .properties
             .get(&PropertyId::NavigationViewIsPaneOpen),
-        Some(&Some(PropertyValue::Bool(false)))
+        Some(&PropertyValue::Bool(false))
     );
 
     let setter_count = pump
@@ -763,7 +764,7 @@ fn rejected_controlled_edit_restores_the_desired_value() {
             .native(root)
             .properties
             .get(&PropertyId::TextBoxText),
-        Some(&Some(PropertyValue::Str("native".into())))
+        Some(&PropertyValue::Str("native".into()))
     );
 
     pump.update(
@@ -949,7 +950,7 @@ fn normalized_feedback_updates_known_state_without_invoking_the_callback() {
             .native(root)
             .properties
             .get(&PropertyId::NumberBoxValue),
-        Some(&Some(PropertyValue::OptionalF64(Some(40.0))))
+        Some(&PropertyValue::OptionalF64(Some(40.0)))
     );
 
     pump.update(
@@ -1507,7 +1508,7 @@ fn toggle_switch_routes_bool_feedback_and_restores_desired_state() {
             .native(root)
             .properties
             .get(&PropertyId::ToggleSwitchIsOn),
-        Some(&Some(PropertyValue::Bool(true)))
+        Some(&PropertyValue::Bool(true))
     );
 
     pump.update(
@@ -1778,7 +1779,7 @@ fn color_picker_routes_controlled_argb_feedback() {
             .native(root)
             .properties
             .get(&PropertyId::ColorPickerColor),
-        Some(&Some(PropertyValue::Color(changed)))
+        Some(&PropertyValue::Color(changed))
     );
 }
 

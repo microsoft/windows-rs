@@ -696,7 +696,7 @@ pub mod public {
         scale_transition: Property<std::time::Duration>,
         capture_pointer_on_press: Property<bool>,
         focus_on_pointer_release: Property<bool>,
-        drop_policy: Property<DragDropPolicy>,
+        drop_policy: Property<std::rc::Rc<DragDropPolicy>>,
         events: Option<std::rc::Rc<BorderEvents>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
@@ -844,7 +844,7 @@ pub mod public {
         }
         pub fn drop_policy(mut self, value: impl Into<Option<DragDropPolicy>>) -> Self {
             let value = value.into();
-            self.drop_policy = Property::from(value);
+            self.drop_policy = Property::from(value.map(std::rc::Rc::new));
             self
         }
         pub fn on_drag_enter(mut self, callback: impl IntoPayloadCallback<DragKind>) -> Self {
@@ -9483,7 +9483,9 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::BorderAllowDrop,
                     match &values.drop_policy {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::DragDropPolicy(value)),
+                        Property::Set(value) => {
+                            Some(PropertyValueRef::DragDropPolicy(value.as_ref()))
+                        }
                     },
                 );
             }
@@ -12471,7 +12473,7 @@ pub(crate) struct BorderMountedProps {
     scale_transition: Property<std::time::Duration>,
     capture_pointer_on_press: Property<bool>,
     focus_on_pointer_release: Property<bool>,
-    drop_policy: Property<DragDropPolicy>,
+    drop_policy: Property<std::rc::Rc<DragDropPolicy>>,
     events: Option<std::rc::Rc<BorderEvents>>,
 }
 impl PartialEq for BorderMountedProps {

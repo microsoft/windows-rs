@@ -1023,33 +1023,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
     let control_name = ident(&control.name);
     let event_id = ident(&format!("{}{}", control.name, event.name));
     let interface = path_ident(&event.interface);
-    let method = ident(&event.name);
     let payload = ident(&event.payload);
-    let pointer_press_policy = (event.name == "PointerPressed").then(|| {
-        quote! {
-            info.capture_succeeded = match sink.apply_pointer_press_policy(node, &element, args) {
-                Ok(value) => value,
-                Err(error) => {
-                    sink.error(node, EventId::#event_id, revision, error);
-                    return;
-                }
-            };
-        }
-    });
-    let pointer_release = (event.name == "PointerReleased").then(|| {
-        quote! {
-            if let Err(error) = sink.apply_pointer_release_policy(
-                node,
-                EventId::#event_id,
-                revision,
-                &element,
-                args,
-            ) {
-                sink.error(node, EventId::#event_id, revision, error);
-                return;
-            }
-        }
-    });
     let payload_value = if event.payload == "ContentDialogResult" {
         quote! {
             match value.0 {
@@ -1087,6 +1061,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
     };
     let content_dialog_closed = control.lifecycle == Some(crate::schema::Lifecycle::ContentDialog)
         && event.name == "Closed";
+    let method = ident(&event.name);
     let lifecycle_completion = content_dialog_closed.then(|| {
         quote! {
             let invoke_callback = match sink.content_dialog_closed(node, revision) {
@@ -1129,76 +1104,46 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
         }
     });
     let shared_event_source = matches!(&event.subscription, EventSubscription::Metadata)
+        && !inspectable_routed_event(event)
+        && !inspectable_selection_changed_event(event)
         && matches!(
             &event.source,
             EventPayloadSource::SenderProperty { interface, .. } if interface == &event.interface
         );
     let text_input_probe = control.name == "TextBox" && event.name == "TextChanged";
-    let got_focus = event.name == "GotFocus";
-    let pending_focus_state = if got_focus {
-        quote! { sink.take_pending_focus_state(node) }
-    } else {
-        quote! { None }
-    };
     let callback = match &event.source {
-        EventPayloadSource::Unit => quote! {
-            move |_, _| {
-                sink.enqueue(
+        EventPayloadSource::Unit(sender, args) => {
+            if inspectable_routed_event(event) {
+                quote! {
+                    routed_event_handler(
+                        sink,
+                        node,
+                        EventId::#event_id,
+                        revision,
+                        RoutedEventAction::Unit,
+                    )
+                }
+            } else {
+                let sender = event_handler_type(sender);
+                let args = event_handler_type(args);
+                quote! {
+                    unit_event_handler::<#sender, #args>(
+                        sink,
+                        node,
+                        EventId::#event_id,
+                        revision,
+                    )
+                }
+            }
+        }
+        EventPayloadSource::DragInfo { interface: _ } => {
+            quote! {
+                drag_info_event_handler(
+                    sink,
                     node,
                     EventId::#event_id,
                     revision,
-                    EventPayload::Unit,
-                );
-            }
-        },
-        EventPayloadSource::DragInfo { interface: _ } => {
-            quote! {
-                move |_, args| {
-                    let result = args
-                        .as_ref()
-                        .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| {
-                            let data = args.DataView()?;
-                            let kind = if data.Contains("Shell IDList Array")? {
-                                DragKind::StorageItems
-                            } else if data.Contains("Text")? {
-                                DragKind::Text
-                            } else {
-                                DragKind::Unsupported
-                            };
-                            let action = sink.drag_action(node, kind);
-                            args.SetAcceptedOperation(
-                                action
-                                    .as_ref()
-                                    .map_or(DataPackageOperation::None, |action| {
-                                        native_drag_operation(action.operation)
-                                    }),
-                            )?;
-                            let ui = args.DragUIOverride()?;
-                            if let Some(caption) =
-                                action.as_ref().and_then(|action| action.caption.as_deref())
-                            {
-                                ui.SetCaption(caption)?;
-                                ui.SetIsCaptionVisible(true)?;
-                            } else {
-                                ui.SetIsCaptionVisible(false)?;
-                            }
-                            Ok(action.map_or(DragKind::Unsupported, |_| kind))
-                        });
-                    match result {
-                        Ok(kind) => sink.enqueue(
-                            node,
-                            EventId::#event_id,
-                            revision,
-                            EventPayload::DragKind(kind),
-                        ),
-                        Err(error) => {
-                            sink.error(
-                                node, EventId::#event_id, revision, native_error(error),
-                            );
-                        }
-                    };
-                }
+                )
             }
         }
         EventPayloadSource::DropData { interface: _ } => {
@@ -1321,10 +1266,55 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             interface: property_interface,
             property,
         } => {
+            let routed_action = inspectable_routed_event(event)
+                .then(|| match property_interface.as_str() {
+                    "Microsoft.UI.Xaml.Controls.IPasswordBox" if property == "Password" => {
+                        Some(quote! { RoutedEventAction::Password(event_source) })
+                    }
+                    "Microsoft.UI.Xaml.Controls.IToggleSwitch" if property == "IsOn" => {
+                        Some(quote! { RoutedEventAction::ToggleSwitch(event_source) })
+                    }
+                    _ => None,
+                })
+                .flatten();
+            let selection_index_action = (event.conversion
+                == EventPayloadConversion::SelectionIndex
+                && inspectable_selection_changed_event(event))
+            .then(|| match property_interface.as_str() {
+                "Microsoft.UI.Xaml.Controls.Primitives.ISelector" => {
+                    Some(quote! { SelectionChangedAction::IndexSelector(event_source) })
+                }
+                "Microsoft.UI.Xaml.Controls.IRadioButtons" => {
+                    Some(quote! { SelectionChangedAction::IndexRadioButtons(event_source) })
+                }
+                "Microsoft.UI.Xaml.Controls.IPivot" => {
+                    Some(quote! { SelectionChangedAction::IndexPivot(event_source) })
+                }
+                "Microsoft.UI.Xaml.Controls.ITabView" => {
+                    Some(quote! { SelectionChangedAction::IndexTabView(event_source) })
+                }
+                _ => None,
+            })
+            .flatten();
+            let toggle_button_checked = matches!(
+                &event.subscription,
+                EventSubscription::PropertyChanged { .. }
+            ) && property_interface
+                == "Microsoft.UI.Xaml.Controls.Primitives.IToggleButton"
+                && property == "IsChecked";
             let property = ident(property);
             let default_property_interface = is_default_interface(control, property_interface);
             let property_interface = path_ident(property_interface);
-            let event_source = if shared_event_source {
+            let event_source = if routed_action.is_some()
+                || selection_index_action.is_some()
+                || toggle_button_checked
+            {
+                Some(quote! {
+                    let event_source = value
+                        .cast::<#property_interface>()
+                        .map_err(native_error)?;
+                })
+            } else if shared_event_source {
                 None
             } else if default_property_interface {
                 Some(quote! {
@@ -1337,14 +1327,68 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                         .map_err(native_error)?;
                 })
             };
-            if event.conversion == EventPayloadConversion::Selection {
-                let dispatch = generate_selection_dispatch(control, event);
+            if let Some(action) = routed_action {
                 quote! {
                     {
                         #event_source
-                        move |_, _| {
-                            let value = event_source.#property();
-                            #dispatch
+                        routed_event_handler(
+                            sink,
+                            node,
+                            EventId::#event_id,
+                            revision,
+                            #action,
+                        )
+                    }
+                }
+            } else if toggle_button_checked {
+                quote! {
+                    {
+                        #event_source
+                        toggle_button_checked_handler(
+                            sink,
+                            node,
+                            EventId::#event_id,
+                            revision,
+                            event_source,
+                        )
+                    }
+                }
+            } else if let Some(action) = selection_index_action {
+                quote! {
+                    {
+                        #event_source
+                        selection_changed_handler(
+                            sink,
+                            node,
+                            EventId::#event_id,
+                            revision,
+                            #action,
+                        )
+                    }
+                }
+            } else if event.conversion == EventPayloadConversion::Selection {
+                if inspectable_selection_changed_event(event) && control.name == "ListBox" {
+                    quote! {
+                        {
+                            #event_source
+                            selection_changed_handler(
+                                sink,
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                SelectionChangedAction::ListBox(event_source),
+                            )
+                        }
+                    }
+                } else {
+                    let dispatch = generate_selection_dispatch(control, event);
+                    quote! {
+                        {
+                            #event_source
+                            move |_, _| {
+                                let value = event_source.#property();
+                                #dispatch
+                            }
                         }
                     }
                 }
@@ -1463,116 +1507,49 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
         }
         EventPayloadSource::SenderRichEditText {
             interface: property_interface,
-            property,
+            property: _,
         } => {
-            let property = ident(property);
-            let event_source = if is_default_interface(control, property_interface) {
-                quote! { let event_source = (*value).clone(); }
-            } else {
-                let property_interface = path_ident(property_interface);
-                quote! {
+            assert!(inspectable_routed_event(event));
+            let property_interface = path_ident(property_interface);
+            quote! {
+                {
                     let event_source = value
                         .cast::<#property_interface>()
                         .map_err(native_error)?;
-                }
-            };
-            quote! {
-                {
-                    #event_source
-                    move |_, _| {
-                        let value = event_source.#property().and_then(|document| {
-                            let mut value = windows_core::HSTRING::new();
-                            document
-                                .GetText(bindings::TextGetOptions::UseLf, &mut value)
-                                .map(|_| value)
-                        });
-                        match value {
-                            Ok(value) => sink.enqueue_rich_edit_text(
-                                node,
-                                EventId::#event_id,
-                                revision,
-                                value.to_string_lossy(),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::#event_id,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                }
-            }
-        }
-        EventPayloadSource::PointerEvent => quote! {
-            {
-                let element = value.cast::<UIElement>().map_err(native_error)?;
-                move |_, args| {
-                    let mut info = crate::PointerEventInfo::default();
-                    if let Some(args) = args.as_ref() {
-                        if let Ok(point) = args.GetCurrentPoint(&element) {
-                            if let Ok(position) = point.Position() {
-                                info.x = f64::from(position.x);
-                                info.y = f64::from(position.y);
-                            }
-                            if let Ok(properties) = point.Properties() {
-                                info.is_left_button_pressed =
-                                    properties.IsLeftButtonPressed().unwrap_or(false);
-                                info.is_right_button_pressed =
-                                    properties.IsRightButtonPressed().unwrap_or(false);
-                                info.is_middle_button_pressed =
-                                    properties.IsMiddleButtonPressed().unwrap_or(false);
-                            }
-                        }
-                        if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
-                            && let Ok(position) = point.Position()
-                        {
-                            info.window_x = f64::from(position.x);
-                            info.window_y = f64::from(position.y);
-                        }
-                    }
-                    #pointer_press_policy
-                    #pointer_release
-                    sink.enqueue(
+                    routed_event_handler(
+                        sink,
                         node,
                         EventId::#event_id,
                         revision,
-                        EventPayload::PointerEventInfo(info),
-                    );
+                        RoutedEventAction::RichEdit(event_source),
+                    )
                 }
             }
-        },
+        }
+        EventPayloadSource::PointerEvent => {
+            let phase = match event.name.as_str() {
+                "PointerPressed" => quote! { PointerEventPhase::Press },
+                "PointerReleased" => quote! { PointerEventPhase::Release },
+                _ => quote! { PointerEventPhase::Plain },
+            };
+            quote! {
+                pointer_event_handler(
+                    sink,
+                    node,
+                    EventId::#event_id,
+                    revision,
+                    value.cast::<UIElement>().map_err(native_error)?,
+                    #phase,
+                )
+            }
+        }
         EventPayloadSource::KeyEvent => quote! {
-            move |_, args| {
-                let result = args
-                    .as_ref()
-                    .ok_or_else(windows_core::Error::empty)
-                    .and_then(key_event_info);
-                match result {
-                    Ok(info) => {
-                        let handled =
-                            sink.route_key(node, EventId::#event_id, revision, info);
-                        if let Some(args) = args.as_ref()
-                            && let Err(error) = args.SetHandled(handled)
-                        {
-                            sink.error(
-                                node,
-                                EventId::#event_id,
-                                revision,
-                                native_error(error),
-                            );
-                        }
-                    }
-                    Err(error) => {
-                        sink.error(
-                            node,
-                            EventId::#event_id,
-                            revision,
-                            native_error(error),
-                        );
-                    }
-                }
-            }
+            key_event_handler(
+                sink,
+                node,
+                EventId::#event_id,
+                revision,
+            )
         },
         EventPayloadSource::CharacterEvent => quote! {
             move |_, args| {
@@ -1606,40 +1583,21 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         },
-        EventPayloadSource::FocusEvent => quote! {
-            {
-                let element = value.cast::<UIElement>().map_err(native_error)?;
-                move |_, args| {
-                    let result = args
-                        .as_ref()
-                        .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| {
-                            focus_event_info(
-                                &element,
-                                args,
-                                #pending_focus_state,
-                                #got_focus,
-                            )
-                        });
-                    match result {
-                        Ok(info) => sink.enqueue(
-                            node,
-                            EventId::#event_id,
-                            revision,
-                            EventPayload::FocusEventInfo(info),
-                        ),
-                        Err(error) => {
-                            sink.error(
-                                node,
-                                EventId::#event_id,
-                                revision,
-                                native_error(error),
-                            );
-                        }
-                    }
-                }
+        EventPayloadSource::FocusEvent => {
+            let got_focus = event.name == "GotFocus";
+            quote! {
+                routed_event_handler(
+                    sink,
+                    node,
+                    EventId::#event_id,
+                    revision,
+                    RoutedEventAction::Focus(
+                        value.cast::<UIElement>().map_err(native_error)?,
+                        #got_focus,
+                    ),
+                )
             }
-        },
+        }
         EventPayloadSource::EventArgsItemTag {
             interface: _,
             property,
@@ -1718,40 +1676,55 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             interface: property_interface,
             property,
         } => {
-            let property = ident(property);
-            let property_interface = path_ident(property_interface);
-            quote! {
-                move |sender, _| {
-                    if let Some(sender) = sender.as_ref() {
-                        let result = sender
-                            .cast::<#property_interface>()
-                            .and_then(|sender| sender.#property())
-                            .and_then(|items| {
-                                let mut tags = Vec::with_capacity(items.Size()? as usize);
-                                for index in 0..items.Size()? {
-                                    let tag = items
-                                        .GetAt(index)?
-                                        .cast::<IFrameworkElement>()?
-                                        .Tag()?
-                                        .cast::<windows_reference::IReference<windows_core::HSTRING>>()?
-                                        .Value()?;
-                                    tags.push(tag.to_string_lossy());
-                                }
-                                Ok(tags)
-                            });
-                        match result {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::#event_id,
-                                revision,
-                                EventPayload::StrList(std::rc::Rc::new(value)),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::#event_id,
-                                revision,
-                                native_error(error),
-                            ),
+            if matches!(control.name.as_str(), "ListView" | "GridView")
+                && event.name == "DragItemsCompleted"
+                && property_interface == "Microsoft.UI.Xaml.Controls.IItemsControl"
+                && property == "Items"
+            {
+                quote! {
+                    list_view_items_changed_handler(
+                        sink,
+                        node,
+                        EventId::#event_id,
+                        revision,
+                    )
+                }
+            } else {
+                let property = ident(property);
+                let property_interface = path_ident(property_interface);
+                quote! {
+                    move |sender, _| {
+                        if let Some(sender) = sender.as_ref() {
+                            let result = sender
+                                .cast::<#property_interface>()
+                                .and_then(|sender| sender.#property())
+                                .and_then(|items| {
+                                    let mut tags = Vec::with_capacity(items.Size()? as usize);
+                                    for index in 0..items.Size()? {
+                                        let tag = items
+                                            .GetAt(index)?
+                                            .cast::<IFrameworkElement>()?
+                                            .Tag()?
+                                            .cast::<windows_reference::IReference<windows_core::HSTRING>>()?
+                                            .Value()?;
+                                        tags.push(tag.to_string_lossy());
+                                    }
+                                    Ok(tags)
+                                });
+                            match result {
+                                Ok(value) => sink.enqueue(
+                                    node,
+                                    EventId::#event_id,
+                                    revision,
+                                    EventPayload::StrList(std::rc::Rc::new(value)),
+                                ),
+                                Err(error) => sink.error(
+                                    node,
+                                    EventId::#event_id,
+                                    revision,
+                                    native_error(error),
+                                ),
+                            }
                         }
                     }
                 }
@@ -2338,4 +2311,37 @@ fn ident(value: &str) -> Ident {
 
 fn path_ident(value: &str) -> Ident {
     ident(value.rsplit_once('.').map_or(value, |(_, name)| name))
+}
+
+fn event_handler_type(value: &crate::metadata::EventHandlerType) -> TokenStream {
+    match value {
+        crate::metadata::EventHandlerType::Inspectable => {
+            quote! { windows_core::IInspectable }
+        }
+
+        crate::metadata::EventHandlerType::Binding(value) => {
+            let value = ident(value);
+            quote! { bindings::#value }
+        }
+    }
+}
+
+fn inspectable_routed_event(event: &ResolvedEvent) -> bool {
+    matches!(
+        &event.handler,
+        Some((
+            crate::metadata::EventHandlerType::Inspectable,
+            crate::metadata::EventHandlerType::Binding(args),
+        )) if args == "RoutedEventArgs"
+    )
+}
+
+fn inspectable_selection_changed_event(event: &ResolvedEvent) -> bool {
+    matches!(
+        &event.handler,
+        Some((
+            crate::metadata::EventHandlerType::Inspectable,
+            crate::metadata::EventHandlerType::Binding(args),
+        )) if args == "SelectionChangedEventArgs"
+    )
 }

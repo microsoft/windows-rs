@@ -124,7 +124,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Err(error);
         }
 
-        self.commit_candidate_properties(&mut candidate, &plan.commits);
+        self.commit_candidate_properties(&mut candidate, plan.commands);
         self.commit_candidate_references(&mut candidate, &plan.reference_commits);
         self.publish_frontend(candidate, &changes, &plan.reference_commits);
         self.diagnostics.extend(plan.diagnostics);

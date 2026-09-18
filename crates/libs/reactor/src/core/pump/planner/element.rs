@@ -20,14 +20,11 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> bool {
         let mut matches = true;
         Self::visit_element_properties(props, element_state, &mut |property, value| {
-            matches &= native.properties.get(&property).map_or_else(
-                || value.is_none(),
-                |current| match (current.as_ref(), value) {
-                    (Some(current), Some(value)) => value.equals_owned(current),
-                    (None, None) => true,
-                    _ => false,
-                },
-            );
+            matches &= match (native.properties.get(&property), value) {
+                (Some(current), Some(value)) => value.equals_owned(current),
+                (None, None) => true,
+                _ => false,
+            };
         });
         matches
     }
@@ -40,32 +37,24 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) {
         Self::visit_element_properties(props, element_state, &mut |property, value| {
-            let changed = native.properties.get(&property).map_or_else(
-                || value.is_some(),
-                |current| match (current.as_ref(), value) {
-                    (Some(current), Some(value)) => !value.equals_owned(current),
-                    (None, None) => false,
-                    _ => true,
-                },
-            );
+            let changed = match (native.properties.get(&property), value) {
+                (Some(current), Some(value)) => !value.equals_owned(current),
+                (None, None) => false,
+                _ => true,
+            };
             if !changed {
                 return;
             }
             let value = value.map(PropertyValueRef::into_owned);
-            let command = match &value {
+            let command = match value {
                 Some(value) => Command::SetProperty {
                     node,
                     property,
-                    value: value.clone(),
+                    value,
                 },
                 None => Command::ClearProperty { node, property },
             };
             plan.push(command);
-            plan.commits.push(PropertyCommit {
-                node,
-                property,
-                value,
-            });
         });
         Self::plan_theme_style(native, node, props, plan);
     }
@@ -463,10 +452,13 @@ impl<R: NativeRuntime> Pump<R> {
             let current_callback = native.desired.routed_callback(event);
             let desired_callback = desired.routed_callback(event);
             let callback_changed = current_callback != desired_callback;
-            let state = native.events.entry(event).or_insert(EventState {
-                revision: 0,
-                active: false,
-            });
+            let state = native.events.get_or_insert(
+                event,
+                EventState {
+                    revision: 0,
+                    active: false,
+                },
+            );
             let becoming_active = !state.active && active;
             if state.active != active {
                 state.revision = state.revision.checked_add(1).unwrap();
@@ -601,12 +593,7 @@ impl<R: NativeRuntime> Pump<R> {
                 plan.push(Command::SetProperty {
                     node,
                     property,
-                    value: value.clone(),
-                });
-                plan.commits.push(PropertyCommit {
-                    node,
-                    property,
-                    value: Some(value),
+                    value,
                 });
             }
         });

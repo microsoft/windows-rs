@@ -66,6 +66,12 @@ pub enum ReadValueConversion {
     Nullable,
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum EventHandlerType {
+    Inspectable,
+    Binding(String),
+}
+
 /// Pre-built lookup from `(class_short_name, method_name)` to `MethodRef`.
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
@@ -77,9 +83,8 @@ pub struct MetadataResolver {
     single_field_types: HashMap<(String, String), (String, Type)>,
     /// Maps enum `(namespace, name)` pairs to their variant names.
     enum_variants: HashMap<(String, String), Vec<String>>,
-    /// Maps non-generic delegates to argument class short names, resolved from the
-    /// delegate's `Invoke` method signature.
-    delegate_args: HashMap<String, String>,
+    /// Maps non-generic delegates to sender and argument types from `Invoke`.
+    delegate_params: HashMap<(String, String), (Type, Type)>,
     content_properties: HashMap<(String, String), String>,
 }
 
@@ -211,10 +216,8 @@ impl MetadataResolver {
             }
         }
 
-        // Build the delegate-to-args map for non-generic delegates used by `add_*`
-        // methods, resolve the Invoke method's second parameter to find the
-        // event args class.
-        let mut delegate_args = HashMap::new();
+        // Build the delegate parameter map for non-generic delegates used by `add_*` methods.
+        let mut delegate_params = HashMap::new();
         for ((_, method_name), mref) in &lookup {
             if !method_name.starts_with("add_") {
                 continue;
@@ -222,7 +225,8 @@ impl MetadataResolver {
             let Some(Type::ClassName(tn)) = mref.param_types.first() else {
                 continue;
             };
-            if !tn.generics.is_empty() || delegate_args.contains_key(&tn.name) {
+            let key = (tn.namespace.clone(), tn.name.clone());
+            if !tn.generics.is_empty() || delegate_params.contains_key(&key) {
                 continue;
             }
             let Some(delegate_def) = index.get(&tn.namespace, &tn.name).next() else {
@@ -231,15 +235,8 @@ impl MetadataResolver {
             for method in delegate_def.methods() {
                 if method.name() == "Invoke" {
                     let sig = method.signature(&[]);
-                    if let Some(args_type) = sig.types.get(1) {
-                        let args_name = match args_type {
-                            Type::ClassName(args_tn) => Some(args_tn.name.clone()),
-                            Type::ValueName(args_tn) => Some(args_tn.name.clone()),
-                            _ => None,
-                        };
-                        if let Some(name) = args_name {
-                            delegate_args.insert(tn.name.clone(), name);
-                        }
+                    if let (Some(sender), Some(args)) = (sig.types.first(), sig.types.get(1)) {
+                        delegate_params.insert(key, (sender.clone(), args.clone()));
                     }
                     break;
                 }
@@ -252,7 +249,7 @@ impl MetadataResolver {
             interface_owners,
             single_field_types,
             enum_variants,
-            delegate_args,
+            delegate_params,
             content_properties,
         }
     }
@@ -371,6 +368,54 @@ impl MetadataResolver {
         self.lookup
             .get(&(class_name.to_string(), method_name.to_string()))
             .map(|m| &m.interface)
+    }
+
+    /// Resolve the sender and argument types accepted by an event delegate.
+    pub fn resolve_event_handler_types(
+        &self,
+        class_name: &str,
+        event_name: &str,
+    ) -> Option<(EventHandlerType, EventHandlerType)> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), format!("add_{event_name}")))?;
+        let Type::ClassName(delegate) = method.param_types.first()? else {
+            return None;
+        };
+        match delegate.generics.as_slice() {
+            [sender, args] => Some((
+                Self::event_handler_type(sender)?,
+                Self::event_handler_type(args)?,
+            )),
+            [args] if delegate.name == "EventHandler" => Some((
+                EventHandlerType::Inspectable,
+                Self::event_handler_type(args)?,
+            )),
+            [] => {
+                let key = (delegate.namespace.clone(), delegate.name.clone());
+                let (sender, args) = self.delegate_params.get(&key)?;
+                Some((
+                    Self::event_handler_type(sender)?,
+                    Self::event_handler_type(args)?,
+                ))
+            }
+            _ => None,
+        }
+    }
+
+    fn event_handler_type(ty: &Type) -> Option<EventHandlerType> {
+        match ty {
+            Type::Object => Some(EventHandlerType::Inspectable),
+            Type::ClassName(name)
+                if name.namespace == "Windows.Foundation" && name.name == "IInspectable" =>
+            {
+                Some(EventHandlerType::Inspectable)
+            }
+            Type::ClassName(name) | Type::ValueName(name) => {
+                Some(EventHandlerType::Binding(name.name.clone()))
+            }
+            _ => None,
+        }
     }
 
     /// Resolve an exclusive interface to the runtime class that owns its static members.
@@ -513,7 +558,14 @@ impl MetadataResolver {
                 Type::ValueName(args_tn) => args_tn.name.clone(),
                 _ => return None,
             },
-            Type::ClassName(tn) => self.delegate_args.get(&tn.name)?.clone(),
+            Type::ClassName(tn) => {
+                let key = (tn.namespace.clone(), tn.name.clone());
+                let (_, args) = self.delegate_params.get(&key)?;
+                match args {
+                    Type::ClassName(args_tn) | Type::ValueName(args_tn) => args_tn.name.clone(),
+                    _ => return None,
+                }
+            }
             _ => return None,
         };
         let getter = format!("get_{property}");

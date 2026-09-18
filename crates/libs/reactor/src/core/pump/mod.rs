@@ -464,11 +464,25 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self.components
     }
 
-    fn commit_tree_properties(tree: &mut Tree, commits: &[PropertyCommit]) {
-        for commit in commits {
-            tree.native_mut(commit.node)
-                .properties
-                .insert(commit.property, commit.value.clone());
+    fn commit_tree_properties(tree: &mut Tree, commands: Vec<Command>) {
+        for command in commands {
+            match command {
+                Command::SetProperty {
+                    node,
+                    property,
+                    value,
+                } => {
+                    if let Some(native) = tree.try_native_mut(node) {
+                        native.properties.insert(property, value);
+                    }
+                }
+                Command::ClearProperty { node, property } => {
+                    if let Some(native) = tree.try_native_mut(node) {
+                        native.properties.remove(&property);
+                    }
+                }
+                _ => {}
+            }
         }
     }
 
@@ -483,17 +497,31 @@ impl<R: NativeRuntime> Pump<R> {
     fn commit_candidate_properties(
         &mut self,
         candidate: &mut CandidateState,
-        commits: &[PropertyCommit],
+        commands: Vec<Command>,
     ) {
         match candidate {
-            CandidateState::Tree { tree, .. } => Self::commit_tree_properties(tree, commits),
+            CandidateState::Tree { tree, .. } => Self::commit_tree_properties(tree, commands),
             CandidateState::Native { node, .. } => {
                 let native = self.tree.native_mut(*node);
-                for commit in commits {
-                    assert_eq!(commit.node, *node);
-                    native
-                        .properties
-                        .insert(commit.property, commit.value.clone());
+                for command in commands {
+                    match command {
+                        Command::SetProperty {
+                            node: command_node,
+                            property,
+                            value,
+                        } => {
+                            assert_eq!(command_node, *node);
+                            native.properties.insert(property, value);
+                        }
+                        Command::ClearProperty {
+                            node: command_node,
+                            property,
+                        } => {
+                            assert_eq!(command_node, *node);
+                            native.properties.remove(&property);
+                        }
+                        _ => {}
+                    }
                 }
             }
         }
