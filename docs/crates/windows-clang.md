@@ -205,6 +205,10 @@ while their referenced types still participate in dependency closure.
 
 Native NaN and infinity constants are omitted because RDL and ECMA metadata cannot represent them.
 This includes `f64` values that become non-finite when narrowed to their declared `f32` type.
+Integer-valued pointer constants remain supported. If a typedef chain resolves to an
+interface-pointer alias that is projected as the interface itself, constants declared with that
+typedef are omitted because ECMA metadata cannot encode an interface-valued constant. An explicit
+pointer to the same interface remains a pointer and is emitted.
 
 ### Bit-field member scraping
 
