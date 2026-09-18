@@ -1615,6 +1615,32 @@ impl Snapshot {
                 )));
             }
         }
+        let mut pointer_aliases: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
+        for fact in &self.facts {
+            let FactData::Typedef {
+                target: TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. },
+            } = &fact.data
+            else {
+                continue;
+            };
+            pointer_aliases.entry(target).or_default().push(&fact.name);
+        }
+        let mut pointer_alias_queue: Vec<_> = pointer_interface_aliases.keys().cloned().collect();
+        while let Some(target) = pointer_alias_queue.pop() {
+            let projected = pointer_interface_aliases[&target].clone();
+            for alias in pointer_aliases.get(target.as_str()).into_iter().flatten() {
+                if let Some(previous) = pointer_interface_aliases.get(*alias) {
+                    if previous != &projected {
+                        return Err(Error(format!(
+                            "interface pointer alias `{alias}` has conflicting targets"
+                        )));
+                    }
+                } else {
+                    pointer_interface_aliases.insert((*alias).to_string(), projected.clone());
+                    pointer_alias_queue.push((*alias).to_string());
+                }
+            }
+        }
         for (alias, target) in &pointer_interface_aliases {
             type_names.insert(alias.clone(), target.clone());
         }
