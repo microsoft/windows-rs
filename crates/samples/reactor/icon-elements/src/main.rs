@@ -29,7 +29,7 @@ impl Component for IconElementsSample {
             "file:///{}/image.png",
             env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
         );
-        let item = |tag, label, icon: View| {
+        let item = |tag, label, icon: Icon| {
             KeyedView::new(
                 tag,
                 NavigationViewItem::new()

@@ -582,6 +582,7 @@ impl ResolvedControl {
 pub(crate) struct ResolvedControl {
     pub(crate) name: String,
     pub(crate) type_name: String,
+    pub(crate) icon_element: bool,
     pub(crate) role: Role,
     pub(crate) placement: ResolvedPlacement,
     pub(crate) lifecycle: Option<Lifecycle>,
@@ -1876,9 +1877,12 @@ impl Schema {
                     })
                 })
                 .transpose()?;
+            let icon_element = metadata
+                .class_derives_from(&control.type_name, "Microsoft.UI.Xaml.Controls.IconElement");
             controls.push(ResolvedControl {
                 name,
                 type_name: control.type_name,
+                icon_element,
                 role,
                 placement,
                 lifecycle: control.lifecycle,

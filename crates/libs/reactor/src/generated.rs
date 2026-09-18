@@ -2015,11 +2015,11 @@ pub mod public {
             );
             self
         }
-        pub fn icon(mut self, view: impl Into<View>) -> Self {
+        pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
             set_control_slot(
                 &mut self.slots,
                 SlotId::NavigationViewItemIcon,
-                SlotContent::Single(view.into()),
+                SlotContent::Single(icon.into().into_view()),
             );
             self
         }
@@ -3107,6 +3107,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SymbolIcon {}
+    impl From<SymbolIcon> for Icon {
+        fn from(value: SymbolIcon) -> Self {
+            Self(value.into())
+        }
+    }
     impl sealed::LayoutControl for SymbolIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3151,6 +3156,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ImageIcon {}
+    impl From<ImageIcon> for Icon {
+        fn from(value: ImageIcon) -> Self {
+            Self(value.into())
+        }
+    }
     impl sealed::LayoutControl for ImageIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3179,6 +3189,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for FontIcon {}
+    impl From<FontIcon> for Icon {
+        fn from(value: FontIcon) -> Self {
+            Self(value.into())
+        }
+    }
     impl sealed::LayoutControl for FontIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3222,6 +3237,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for BitmapIcon {}
+    impl From<BitmapIcon> for Icon {
+        fn from(value: BitmapIcon) -> Self {
+            Self(value.into())
+        }
+    }
     impl sealed::LayoutControl for BitmapIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3250,6 +3270,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PathIcon {}
+    impl From<PathIcon> for Icon {
+        fn from(value: PathIcon) -> Self {
+            Self(value.into())
+        }
+    }
     impl sealed::LayoutControl for PathIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3698,11 +3723,11 @@ pub mod public {
             self.is_selected = Property::from(value);
             self
         }
-        pub fn icon(mut self, view: impl Into<View>) -> Self {
+        pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
             set_control_slot(
                 &mut self.slots,
                 SlotId::SelectorBarItemIcon,
-                SlotContent::Single(view.into()),
+                SlotContent::Single(icon.into().into_view()),
             );
             self
         }
@@ -4068,11 +4093,11 @@ pub mod public {
             self.on_click = Some(callback.into_unit_callback());
             self
         }
-        pub fn icon(mut self, view: impl Into<View>) -> Self {
+        pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
             set_control_slot(
                 &mut self.slots,
                 SlotId::AppBarButtonIcon,
-                SlotContent::Single(view.into()),
+                SlotContent::Single(icon.into().into_view()),
             );
             self
         }

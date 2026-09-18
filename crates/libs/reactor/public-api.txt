@@ -422,6 +422,8 @@ pub windows_reactor::Symbol::ZeroBars
 pub windows_reactor::Symbol::Zoom
 pub windows_reactor::Symbol::ZoomIn
 pub windows_reactor::Symbol::ZoomOut
+impl core::convert::From<windows_reactor::Symbol> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::Symbol) -> Self
 #[non_exhaustive] pub enum windows_reactor::TeachingTipPlacementMode
 pub windows_reactor::TeachingTipPlacementMode::Auto
 pub windows_reactor::TeachingTipPlacementMode::Bottom
@@ -492,7 +494,7 @@ pub fn windows_reactor::App::run_windows<I>(I) -> windows_result::Result<()> whe
 pub fn windows_reactor::App::run_with<T>(impl core::ops::function::FnOnce(&windows_reactor::AppContext) -> windows_result::Result<T> + 'static) -> windows_result::Result<()> where T: 'static
 pub struct windows_reactor::AppBarButton
 impl windows_reactor::AppBarButton
-pub fn windows_reactor::AppBarButton::icon(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::AppBarButton::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::AppBarButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::AppBarButton::label(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::AppBarButton::label_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
@@ -585,6 +587,8 @@ pub fn windows_reactor::BitmapIcon::new() -> Self
 pub fn windows_reactor::BitmapIcon::show_as_monochrome(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::BitmapIcon::uri_source(self, impl core::convert::Into<alloc::string::String>) -> windows_result::Result<Self>
 pub fn windows_reactor::BitmapIcon::uri_source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
+impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::BitmapIcon) -> Self
 impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::BitmapIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::BitmapIcon
@@ -1208,6 +1212,8 @@ impl windows_reactor::FontIcon
 pub fn windows_reactor::FontIcon::glyph(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::FontIcon::glyph_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::FontIcon::new() -> Self
+impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::FontIcon) -> Self
 impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::FontIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::FontIcon
@@ -1364,6 +1370,19 @@ pub fn windows_reactor::HyperlinkButton::transitions_optional<T>(self, core::opt
 pub fn windows_reactor::HyperlinkButton::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::HyperlinkButton::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::HyperlinkButton
+pub struct windows_reactor::Icon(_)
+impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::BitmapIcon) -> Self
+impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::FontIcon) -> Self
+impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::ImageIcon) -> Self
+impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::PathIcon) -> Self
+impl core::convert::From<windows_reactor::Symbol> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::Symbol) -> Self
+impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::SymbolIcon) -> Self
 pub struct windows_reactor::Image
 impl windows_reactor::Image
 pub fn windows_reactor::Image::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -1400,6 +1419,8 @@ pub fn windows_reactor::ImageIcon::source(self, impl core::convert::Into<alloc::
 pub fn windows_reactor::ImageIcon::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageIcon::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::ImageIcon::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
+impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::ImageIcon) -> Self
 impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ImageIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ImageIcon
@@ -1753,7 +1774,7 @@ pub fn windows_reactor::NavigationView::width(self, impl core::convert::Into<cor
 pub struct windows_reactor::NavigationViewItem
 impl windows_reactor::NavigationViewItem
 pub fn windows_reactor::NavigationViewItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::NavigationViewItem::icon(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::NavigationViewItem::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::NavigationViewItem::is_expanded(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationViewItem::is_selected(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationViewItem::menu_items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
@@ -1843,6 +1864,8 @@ impl windows_reactor::PathIcon
 pub fn windows_reactor::PathIcon::data(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::PathIcon::data_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::PathIcon::new() -> Self
+impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::PathIcon) -> Self
 impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::PathIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::PathIcon
@@ -2328,7 +2351,7 @@ pub fn windows_reactor::SelectorBar::vertical_alignment(self, impl core::convert
 pub fn windows_reactor::SelectorBar::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub struct windows_reactor::SelectorBarItem
 impl windows_reactor::SelectorBarItem
-pub fn windows_reactor::SelectorBarItem::icon(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::SelectorBarItem::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::SelectorBarItem::is_selected(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::SelectorBarItem::new() -> Self
 pub fn windows_reactor::SelectorBarItem::text(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -2483,6 +2506,8 @@ pub struct windows_reactor::SymbolIcon
 impl windows_reactor::SymbolIcon
 pub fn windows_reactor::SymbolIcon::new() -> Self
 pub fn windows_reactor::SymbolIcon::symbol(self, impl core::convert::Into<core::option::Option<windows_reactor::Symbol>>) -> Self
+impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::Icon
+pub fn windows_reactor::Icon::from(windows_reactor::SymbolIcon) -> Self
 impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SymbolIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SymbolIcon
