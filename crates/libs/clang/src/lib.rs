@@ -425,9 +425,10 @@ impl Snapshot {
                 .as_ref()
                 .map_or(String::new(), |parent| format!(" <- {}", origin(parent)));
             result.push_str(&format!(
-                "{} {:?} {} [{}:{} -> {}:{}]{}{}{}{}\n",
+                "{} {:?}/{} {} [{}:{} -> {}:{}]{}{}{}{}\n",
                 origin(&fact.origin),
                 fact.kind,
+                fact_data_kind(&fact.data),
                 fact.name,
                 fact.spelling.file,
                 fact.spelling.offset,
@@ -1773,6 +1774,24 @@ fn is_type_fact(fact: &Fact) -> bool {
     )
 }
 
+fn fact_data_kind(data: &FactData) -> &'static str {
+    match data {
+        FactData::Callback { .. } => "Callback",
+        FactData::Class { .. } => "Class",
+        FactData::Enum { .. } => "Enum",
+        FactData::EnumFlag { .. } => "EnumFlag",
+        FactData::Function { .. } => "Function",
+        FactData::Guid { .. } => "Guid",
+        FactData::Interface { .. } => "Interface",
+        FactData::Macro { .. } => "Macro",
+        FactData::None => "None",
+        FactData::PropertyKey { .. } => "PropertyKey",
+        FactData::Record { .. } => "Record",
+        FactData::Typedef { .. } => "Typedef",
+        FactData::Unsupported { .. } => "Unsupported",
+    }
+}
+
 fn is_value_fact(fact: &Fact) -> bool {
     matches!(
         fact.data,
@@ -1865,6 +1884,20 @@ fn declaration_kind(
     } else {
         Some(fact.kind)
     }
+}
+
+fn is_tag_declaration(fact: &Fact) -> bool {
+    matches!(
+        fact.data,
+        FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
+    )
+}
+
+fn incomplete_declaration_matches_definition(declaration: &Fact, definition: &Fact) -> bool {
+    !declaration.definition
+        && declaration.kind == definition.kind
+        && is_tag_declaration(declaration)
+        && is_tag_declaration(definition)
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -2621,7 +2654,7 @@ fn choose_type_root_cached<'a>(
         if aliases_target_root {
             return Ok(root);
         }
-        let same_tu_declarations = distinct.iter().all(|fact| {
+        let compatible_declarations_and_aliases = distinct.iter().all(|fact| {
             let linked_nested_declaration = root.parent.is_some()
                 && fact.parent.is_none()
                 && facts_index.values().flatten().any(|alias| {
@@ -2635,13 +2668,7 @@ fn choose_type_root_cached<'a>(
                         )
                 });
             fact.origin == root.origin
-                || (!fact.definition
-                    && matches!(
-                        (&fact.data, &root.data),
-                        (FactData::Enum { .. }, FactData::Enum { .. })
-                            | (FactData::Record { .. }, FactData::Record { .. })
-                            | (FactData::Interface { .. }, FactData::Interface { .. })
-                    )
+                || (incomplete_declaration_matches_definition(fact, root)
                     && ((fact.parent.is_none() && root.parent.is_none())
                         || (fact.origin.tu == root.origin.tu
                             && (fact.parent == root.parent || linked_nested_declaration))))
@@ -2663,11 +2690,29 @@ fn choose_type_root_cached<'a>(
                         })
                 )
         });
-        if same_tu_declarations {
+        if compatible_declarations_and_aliases {
             return Ok(root);
         }
     }
-    Err(Error(format!("ambiguous type root `{name}`")))
+    let choices = distinct
+        .iter()
+        .map(|fact| {
+            format!(
+                "{}:{} {:?}/{} {}",
+                fact.spelling.file,
+                fact.spelling.offset,
+                fact.kind,
+                fact_data_kind(&fact.data),
+                if fact.definition {
+                    "definition"
+                } else {
+                    "declaration"
+                }
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("; ");
+    Err(Error(format!("ambiguous type root `{name}`: {choices}")))
 }
 
 fn choose_constant_root<'a>(name: &str, roots: &[&'a Constant]) -> Result<&'a Constant, Error> {

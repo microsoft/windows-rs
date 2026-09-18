@@ -165,6 +165,12 @@ Incomplete records are valid when used through pointers and rejected when a comp
 layout is required. Fixed-underlying forward enums can be represented by their declared integer
 type. Unfixed forward enums are rejected rather than assigned a guessed representation.
 
+An incomplete declaration may resolve to a complete declaration from another translation unit when
+their public names and C/C++ declaration kinds match. The completed projection may differ from the
+placeholder representation: for example, an incomplete `struct` is initially a record but may
+resolve to a COM interface once another translation unit supplies its virtual definition.
+Incompatible declaration kinds remain ambiguous.
+
 Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
 destructors, conversions, or function templates use the checked record-layout path. Other
 non-interface C++ classes remain opaque.
