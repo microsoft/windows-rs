@@ -389,6 +389,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             RelativeAlignVerticalCenter,
             CanvasLeft,
             CanvasTop,
+            Transitions,
             AutomationName,
             AutomationId,
             AutomationHeadingLevel,
@@ -1073,6 +1074,10 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             quote! { std::rc::Rc<Vec<GridLength>> },
         ),
         (
+            "ThemeTransitions".to_string(),
+            quote! { std::rc::Rc<Vec<ThemeTransition>> },
+        ),
+        (
             "HorizontalAlignment".to_string(),
             quote! { HorizontalAlignment },
         ),
@@ -1104,6 +1109,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
         let variant = ident(name);
         let value = match name.as_str() {
             "GridLengths" => quote! { &'a std::rc::Rc<Vec<GridLength>> },
+            "ThemeTransitions" => quote! { &'a std::rc::Rc<Vec<ThemeTransition>> },
             "StrList" => quote! { &'a std::rc::Rc<Vec<String>> },
             "RichText" => quote! { &'a RichText },
             "ResourceOverrides" => quote! { &'a ResourceOverrides },
@@ -1168,6 +1174,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
                 | "KeyAccelerators"
                 | "RichText"
                 | "StrList"
+                | "ThemeTransitions"
                 | "Str"
                 | "Thickness"
                 | "CornerRadius"
@@ -1186,7 +1193,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
     let ref_to_owned = values.keys().map(|name| {
         let variant = ident(name);
         match name.as_str() {
-            "GridLengths" | "StrList" => quote! {
+            "GridLengths" | "StrList" | "ThemeTransitions" => quote! {
                 Self::#variant(value) => PropertyValue::#variant(value.clone())
             },
             "Str" => quote! {

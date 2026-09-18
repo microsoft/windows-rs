@@ -282,18 +282,11 @@ is suspended while Windows runs its modal interactive-sizing loop.
 
 | Sample | What it shows |
 | --- | --- |
-| [`drawing examples`](../../crates/samples/canvas) | One drawing operation at a time |
-| [`invalidate`](../../crates/samples/canvas/invalidate) | Input-driven repainting |
+| [`circles`](../../crates/samples/canvas/circles) | Drawing, animation, and resize handling |
 | [`clock`](../../crates/samples/canvas/clock) | Continuous animation |
-| [`chart`](../../crates/samples/canvas/chart) | A demand-driven chart |
-| [`hit_test`](../../crates/samples/canvas/hit_test) | Geometry hit testing |
-| [`image_source`](../../crates/samples/canvas/image_source) | An on-demand WinUI image |
-| [`readback`](../../crates/samples/canvas/readback) | Off-screen rendering and pixel readback |
-| [`composition`](../../crates/samples/composition/canvas) | Drawing into a Composition visual |
 
-Start with the small examples. `CanvasImageSource`, off-screen targets, shared devices, and
-Composition surfaces solve specific hosting problems and are easier to learn after the normal draw
-callback feels familiar.
+Browse [`crates/samples/canvas`](../../crates/samples/canvas) for focused drawing and hosting
+examples.
 
 ---
 

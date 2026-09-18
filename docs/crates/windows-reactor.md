@@ -548,9 +548,15 @@ problems:
 | `open_window` | Opening an independent secondary window |
 | `run_window` | Running a native modal operation with the owning HWND |
 | `ItemsRepeater` | Virtualizing a large collection |
+| `ThemeTransition::Reposition` | Animating an element between layout-driven positions |
 
 Prefer component input over context for normal parent-to-child data, and prefer properties and
 messages over `ElementRef`. The declarative path is usually shorter and easier to maintain.
+
+Apply `ThemeTransition::Reposition` with `LayoutControl::transitions` when an existing element
+moves because its parent performs a new layout. For example, changing a retained child's margin
+within a `Grid` animates between the old and new positions. Changes to `Canvas.Left` and
+`Canvas.Top` are absolute positioning updates and do not trigger this WinUI transition.
 
 ## Deployment
 
@@ -562,34 +568,13 @@ package the app.
 
 ## What to read next
 
-Use the [`gallery`](../../crates/samples/reactor/gallery) to explore individual WinUI controls. The
-standalone samples under [`crates/samples/reactor`](../../crates/samples/reactor) show Reactor
-concepts and behaviors:
-
 | Example | What it shows |
 | --- | --- |
-| [`function-component`](../../crates/samples/reactor/function-component) | Child components and input |
-| [`component-input`](../../crates/samples/reactor/component-input) | Controlled component input |
-| [`keyed-list-reorder`](../../crates/samples/reactor/keyed-list-reorder) | Stable identity in changing lists |
-| [`async-state`](../../crates/samples/reactor/async-state) | Background work |
-| [`message-box`](../../crates/samples/reactor/message-box) | Modal native window work |
-| [`use-effect`](../../crates/samples/reactor/use-effect) and [`context`](../../crates/samples/reactor/context) | Lifecycle work and shared data |
-| [`pointer-tracking`](../../crates/samples/reactor/pointer-tracking) | Pointer capture and movement |
-| [`exit-transition`](../../crates/samples/reactor/exit-transition) | Transition-driven removal |
-| [`secondary-window`](../../crates/samples/reactor/secondary-window) | Multiple Reactor windows |
-| [`calculator`](../../crates/samples/reactor/calculator) | A larger component with derived state |
+| [`gallery`](../../crates/samples/reactor/gallery) | The WinUI control catalog |
+| [`solitaire`](../../crates/samples/reactor/solitaire) | Components, state, input, keyed views, and transitions |
 
-The [`counter`](../../crates/samples/reactor/counter) demonstrates components, state, messages, and
-events. The [`gallery`](../../crates/samples/reactor/gallery) is a control catalog. The
-[`navigation`](../../crates/samples/reactor/navigation) and
-[`dotsweeper`](../../crates/samples/reactor/dotsweeper) samples show how these same ideas fit
-together in a larger application. See the [`composition`](../../crates/samples/composition),
-[`webview`](../../crates/samples/webview/reactor), and
-[Canvas](../../crates/samples/canvas) samples only when the app needs those integrations.
-The [`canvas-keyboard`](../../crates/samples/canvas/keyboard) sample is a focusable custom-rendered
-text surface with routed edit keys, UTF-16 character input, visible focus state, and a standard
-WinUI button that demonstrates focus transfer. It shows when custom input is useful without
-replacing `TextBox` for ordinary text editing.
+Browse [`crates/samples/reactor`](../../crates/samples/reactor) for focused examples of individual
+APIs.
 
 ---
 

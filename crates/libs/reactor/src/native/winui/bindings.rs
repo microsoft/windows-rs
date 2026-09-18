@@ -15471,6 +15471,19 @@ pub struct IRepeatButtonStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IRepositionThemeTransition,
+    IRepositionThemeTransition_Vtbl,
+    0x7728e3f0_24b1_5484_824a_c0b41c2745d5
+);
+impl windows_core::RuntimeType for IRepositionThemeTransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRepositionThemeTransition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     IResourceDictionary,
     IResourceDictionary_Vtbl,
     0x1b690975_a710_5783_a6e1_15836f6186c2
@@ -19671,6 +19684,19 @@ pub struct IToolTipServiceStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ITransition,
+    ITransition_Vtbl,
+    0xe5b71956_8e44_5a38_b41e_274d706102bf
+);
+impl windows_core::RuntimeType for ITransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITransition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     ITreeView,
     ITreeView_Vtbl,
     0x1bef9af4_712c_50ef_9bb4_881b975232ab
@@ -19949,6 +19975,18 @@ impl IUIElement {
             (windows_core::Interface::vtable(self).SetOpacity)(
                 windows_core::Interface::as_raw(self),
                 value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetTransitions<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<TransitionCollection>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTransitions)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
             )
             .ok()
         }
@@ -20629,7 +20667,10 @@ pub struct IUIElement_Vtbl {
     UseLayoutRounding: usize,
     SetUseLayoutRounding: usize,
     Transitions: usize,
-    SetTransitions: usize,
+    pub SetTransitions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CacheMode: usize,
     SetCacheMode: usize,
     IsTapEnabled: usize,
@@ -21032,7 +21073,10 @@ pub struct IUIElementStatics_Vtbl {
     IsHitTestVisibleProperty: usize,
     VisibilityProperty: usize,
     UseLayoutRoundingProperty: usize,
-    TransitionsProperty: usize,
+    pub TransitionsProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CacheModeProperty: usize,
     IsTapEnabledProperty: usize,
     IsDoubleTapEnabledProperty: usize,
@@ -26356,6 +26400,51 @@ unsafe impl Send for RepeatButton {}
 unsafe impl Sync for RepeatButton {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RepositionThemeTransition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    RepositionThemeTransition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(RepositionThemeTransition, Transition, DependencyObject);
+impl RepositionThemeTransition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            RepositionThemeTransition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for RepositionThemeTransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IRepositionThemeTransition>();
+}
+unsafe impl windows_core::Interface for RepositionThemeTransition {
+    type Vtable = <IRepositionThemeTransition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRepositionThemeTransition as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for RepositionThemeTransition {
+    type Target = IRepositionThemeTransition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for RepositionThemeTransition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition";
+}
+unsafe impl Send for RepositionThemeTransition {}
+unsafe impl Sync for RepositionThemeTransition {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceDictionary(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     ResourceDictionary,
@@ -29819,6 +29908,82 @@ unsafe impl Send for ToolTipService {}
 unsafe impl Sync for ToolTipService {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Transition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    Transition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(Transition, DependencyObject);
+impl windows_core::RuntimeType for Transition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ITransition>();
+}
+unsafe impl windows_core::Interface for Transition {
+    type Vtable = <ITransition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITransition as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for Transition {
+    type Target = ITransition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for Transition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Animation.Transition";
+}
+unsafe impl Send for Transition {}
+unsafe impl Sync for Transition {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TransitionCollection(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    TransitionCollection,
+    windows_core::IUnknown,
+    windows_core::IInspectable,
+    windows_collections::IVector<Transition>
+);
+impl TransitionCollection {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            TransitionCollection,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for TransitionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
+        Self,
+        windows_collections::IVector<Transition>,
+    >();
+}
+unsafe impl windows_core::Interface for TransitionCollection {
+    type Vtable = <windows_collections::IVector<Transition> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <windows_collections::IVector<Transition> as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for TransitionCollection {
+    type Target = windows_collections::IVector<Transition>;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for TransitionCollection {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Animation.TransitionCollection";
+}
+unsafe impl Send for TransitionCollection {}
+unsafe impl Sync for TransitionCollection {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TreeView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     TreeView,
@@ -30108,6 +30273,16 @@ impl UIElement {
         Self::IUIElementStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpacityProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn TransitionsProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IUIElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransitionsProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )

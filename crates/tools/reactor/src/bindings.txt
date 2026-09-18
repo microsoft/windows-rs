@@ -107,8 +107,13 @@ Microsoft::UI::Xaml::IFrameworkElementStatics::{get_WidthProperty, get_HeightPro
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
 Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, get_FocusState, put_Opacity, StartBringIntoView}
+Microsoft::UI::Xaml::IUIElement::put_Transitions
 Microsoft::UI::Xaml::IUIElement::{add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased}
 Microsoft::UI::Xaml::IUIElementStatics::get_OpacityProperty
+Microsoft::UI::Xaml::IUIElementStatics::get_TransitionsProperty
+Microsoft::UI::Xaml::Media::Animation::RepositionThemeTransition::CreateInstance
+Microsoft::UI::Xaml::Media::Animation::Transition::{}
+Microsoft::UI::Xaml::Media::Animation::TransitionCollection::CreateInstance
 Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}
 Microsoft::UI::Xaml::IWindow::{put_ExtendsContentIntoTitleBar, SetTitleBar}

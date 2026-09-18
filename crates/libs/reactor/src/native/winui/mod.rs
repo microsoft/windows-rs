@@ -428,7 +428,8 @@ impl<'a> PropertyTarget<'a> {
             | PropertyId::Opacity
             | PropertyId::HorizontalAlignment
             | PropertyId::VerticalAlignment
-            | PropertyId::Margin => Self::Framework(runtime.ui_element(node)?),
+            | PropertyId::Margin
+            | PropertyId::Transitions => Self::Framework(runtime.ui_element(node)?),
             PropertyId::GridRow
             | PropertyId::GridColumn
             | PropertyId::GridRowSpan

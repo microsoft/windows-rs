@@ -13611,6 +13611,7 @@ pub enum PropertyId {
     RelativeAlignVerticalCenter,
     CanvasLeft,
     CanvasTop,
+    Transitions,
     AutomationName,
     AutomationId,
     AutomationHeadingLevel,
@@ -13957,6 +13958,7 @@ pub enum PropertyValue {
     TeachingTipPlacementMode(TeachingTipPlacementMode),
     TextTrimming(TextTrimming),
     TextWrapping(TextWrapping),
+    ThemeTransitions(std::rc::Rc<Vec<ThemeTransition>>),
     Thickness(Thickness),
     TreeViewSelectionMode(TreeViewSelectionMode),
     VerticalAlignment(VerticalAlignment),
@@ -14015,6 +14017,7 @@ impl PartialEq for PropertyValue {
             }
             (Self::TextTrimming(left), Self::TextTrimming(right)) => left == right,
             (Self::TextWrapping(left), Self::TextWrapping(right)) => left == right,
+            (Self::ThemeTransitions(left), Self::ThemeTransitions(right)) => left == right,
             (Self::Thickness(left), Self::Thickness(right)) => left == right,
             (Self::TreeViewSelectionMode(left), Self::TreeViewSelectionMode(right)) => {
                 left == right
@@ -14060,6 +14063,7 @@ pub enum PropertyValueRef<'a> {
     TeachingTipPlacementMode(TeachingTipPlacementMode),
     TextTrimming(TextTrimming),
     TextWrapping(TextWrapping),
+    ThemeTransitions(&'a std::rc::Rc<Vec<ThemeTransition>>),
     Thickness(&'a Thickness),
     TreeViewSelectionMode(TreeViewSelectionMode),
     VerticalAlignment(VerticalAlignment),
@@ -14129,6 +14133,7 @@ impl PropertyValueRef<'_> {
             ) => left == *right,
             (Self::TextTrimming(left), PropertyValue::TextTrimming(right)) => left == *right,
             (Self::TextWrapping(left), PropertyValue::TextWrapping(right)) => left == *right,
+            (Self::ThemeTransitions(left), PropertyValue::ThemeTransitions(right)) => left == right,
             (Self::Thickness(left), PropertyValue::Thickness(right)) => left == right,
             (Self::TreeViewSelectionMode(left), PropertyValue::TreeViewSelectionMode(right)) => {
                 left == *right
@@ -14181,6 +14186,7 @@ impl PropertyValueRef<'_> {
             Self::TeachingTipPlacementMode(value) => PropertyValue::TeachingTipPlacementMode(value),
             Self::TextTrimming(value) => PropertyValue::TextTrimming(value),
             Self::TextWrapping(value) => PropertyValue::TextWrapping(value),
+            Self::ThemeTransitions(value) => PropertyValue::ThemeTransitions(value.clone()),
             Self::Thickness(value) => PropertyValue::Thickness(value.clone()),
             Self::TreeViewSelectionMode(value) => PropertyValue::TreeViewSelectionMode(value),
             Self::VerticalAlignment(value) => PropertyValue::VerticalAlignment(value),
@@ -14355,6 +14361,11 @@ impl From<TextTrimming> for PropertyValue {
 impl From<TextWrapping> for PropertyValue {
     fn from(value: TextWrapping) -> Self {
         Self::TextWrapping(value)
+    }
+}
+impl From<std::rc::Rc<Vec<ThemeTransition>>> for PropertyValue {
+    fn from(value: std::rc::Rc<Vec<ThemeTransition>>) -> Self {
+        Self::ThemeTransitions(value)
     }
 }
 impl From<Thickness> for PropertyValue {
