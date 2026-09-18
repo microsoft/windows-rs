@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies]
+[dev-dependencies]
 windows-services = { workspace = true }
 windows-sys = { workspace = true, features = ["winsvc"] }
 

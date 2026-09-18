@@ -15,7 +15,7 @@ windows-bindgen = { workspace = true }
 workspace = true
 features = ["proc-macros"]
 
-[target.'cfg(windows)'.dependencies.windows-reference]
+[target.'cfg(windows)'.dev-dependencies.windows-reference]
 workspace = true
 features = ["std"]
 

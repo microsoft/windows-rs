@@ -4,67 +4,67 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
-[dependencies.windows-animation]
+[dev-dependencies.windows-animation]
 workspace = true
 
-[dependencies.windows-bindgen]
+[dev-dependencies.windows-bindgen]
 workspace = true
 
-[dependencies.windows-canvas]
+[dev-dependencies.windows-canvas]
 workspace = true
 
-[dependencies.windows-collections]
+[dev-dependencies.windows-collections]
 workspace = true
 features = ["std"]
 
-[dependencies.windows-core]
+[dev-dependencies.windows-core]
 workspace = true
 features = ["std", "proc-macros"]
 
-[dependencies.windows-future]
+[dev-dependencies.windows-future]
 workspace = true
 features = ["std"]
 
-[dependencies.windows-link]
+[dev-dependencies.windows-link]
 workspace = true
 
-[dependencies.windows-metadata]
+[dev-dependencies.windows-metadata]
 workspace = true
 
-[dependencies.windows-numerics]
-workspace = true
-features = ["std"]
-
-[dependencies.windows-reactor]
-workspace = true
-
-[dependencies.windows-reference]
+[dev-dependencies.windows-numerics]
 workspace = true
 features = ["std"]
 
-[dependencies.windows-registry]
+[dev-dependencies.windows-reactor]
 workspace = true
 
-[dependencies.windows-result]
-workspace = true
-
-[dependencies.windows-services]
-workspace = true
-
-[dependencies.windows-strings]
-workspace = true
-
-[dependencies.windows-threading]
-workspace = true
-
-[dependencies.windows-time]
+[dev-dependencies.windows-reference]
 workspace = true
 features = ["std"]
 
-[dependencies.windows-version]
+[dev-dependencies.windows-registry]
 workspace = true
 
-[dependencies.windows-webview]
+[dev-dependencies.windows-result]
+workspace = true
+
+[dev-dependencies.windows-services]
+workspace = true
+
+[dev-dependencies.windows-strings]
+workspace = true
+
+[dev-dependencies.windows-threading]
+workspace = true
+
+[dev-dependencies.windows-time]
+workspace = true
+features = ["std"]
+
+[dev-dependencies.windows-version]
+workspace = true
+
+[dev-dependencies.windows-webview]
 workspace = true
 
 [lints]

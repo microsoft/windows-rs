@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-registry]
+[dev-dependencies.windows-registry]
 workspace = true
 features = ["std"]
 

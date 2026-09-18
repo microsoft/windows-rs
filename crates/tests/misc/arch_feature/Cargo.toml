@@ -8,14 +8,14 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = [
     "winnt",
     "ntenclv",
 ]
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = [
     "winnt",

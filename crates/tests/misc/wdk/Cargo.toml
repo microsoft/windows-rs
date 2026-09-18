@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = [
     "mce",
@@ -20,7 +20,7 @@ features = [
     "offreg",
 ]
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = [
     "mce",

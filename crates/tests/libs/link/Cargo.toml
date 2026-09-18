@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-link]
+[dev-dependencies.windows-link]
 workspace = true
 
 [lints]

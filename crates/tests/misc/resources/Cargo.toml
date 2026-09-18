@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = [
     "commctrl",
@@ -18,7 +18,7 @@ features = [
     "winuser",
 ]
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = [
     "commctrl",

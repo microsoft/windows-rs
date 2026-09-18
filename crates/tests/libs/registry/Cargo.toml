@@ -8,24 +8,24 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-registry]
+[dev-dependencies.windows-registry]
 workspace = true
 
 [dependencies.windows-result]
 workspace = true
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = ["minwinbase", "minwindef", "winerror", "winnt", "winreg"]
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = ["minwinbase", "minwindef", "winerror", "winnt", "winreg"]
 
 [dependencies.windows-strings]
 workspace = true
 
-[dependencies.regex]
+[dev-dependencies.regex]
 version = "1.7"
 
 [lints]
