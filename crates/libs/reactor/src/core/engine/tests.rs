@@ -6,6 +6,21 @@ use std::mem::size_of;
 fn identity() -> WindowToken {
     WindowToken::new(WindowId::allocate())
 }
+
+fn insert_virtual(
+    tree: &mut Tree,
+    parent: Option<NodeId>,
+    keys: impl IntoIterator<Item = Key>,
+) -> Result<NodeId, DuplicateKeyError<Key>> {
+    let parts = Element::from(ItemsRepeater::new()).into_parts();
+    let items = VirtualItems::Eager(Rc::new(
+        keys.into_iter()
+            .map(|key| KeyedView::new(key, TextBlock::new()))
+            .collect(),
+    ));
+    tree.insert_virtual_items(identity(), parent, None, parts.props, items)
+}
+
 use std::collections::{BTreeMap, HashMap, HashSet};
 
 #[test]
@@ -141,7 +156,7 @@ fn retires_children_before_parent() {
     let slot = tree.insert(Some(component), NodeKind::Slot);
     let parts = Element::from(TextBlock::new()).into_parts();
     let native = tree.insert_native(Some(slot), parts.kind, None, parts.props, None);
-    let collection = tree.insert_virtual(identity(), Some(window), []).unwrap();
+    let collection = insert_virtual(&mut tree, Some(window), []).unwrap();
 
     assert_eq!(tree.parent(native), Some(slot));
     assert_eq!(tree.children(root), &[window]);
@@ -291,9 +306,7 @@ fn set_kind_preserves_kind_specific_state() {
 fn virtual_model_uses_its_arena_identity_for_leases() {
     let mut tree = Tree::new();
     let application = tree.insert(None, NodeKind::Application);
-    let collection = tree
-        .insert_virtual(identity(), Some(application), [Key::from("a")])
-        .unwrap();
+    let collection = insert_virtual(&mut tree, Some(application), [Key::from("a")]).unwrap();
 
     let lease = tree
         .virtual_model_mut(collection)
@@ -314,9 +327,7 @@ fn virtual_model_uses_its_arena_identity_for_leases() {
 fn realized_container_mapping_cannot_be_overwritten() {
     let mut tree = Tree::new();
     let application = tree.insert(None, NodeKind::Application);
-    let collection = tree
-        .insert_virtual(identity(), Some(application), [Key::from("a")])
-        .unwrap();
+    let collection = insert_virtual(&mut tree, Some(application), [Key::from("a")]).unwrap();
     let first_parts = Element::from(TextBlock::new()).into_parts();
     let first = tree.insert_native(
         Some(collection),
@@ -348,9 +359,7 @@ fn realized_container_mapping_cannot_be_overwritten() {
 #[test]
 fn detached_realized_row_remains_addressable_by_logical_root() {
     let mut tree = Tree::new();
-    let collection = tree
-        .insert_virtual(identity(), None, [Key::from("row")])
-        .unwrap();
+    let collection = insert_virtual(&mut tree, None, [Key::from("row")]).unwrap();
     let logical = tree.insert(Some(collection), NodeKind::Fragment);
     let parts = Element::from(TextBlock::new()).into_parts();
     let native = tree.insert_native(Some(logical), parts.kind, None, parts.props, None);

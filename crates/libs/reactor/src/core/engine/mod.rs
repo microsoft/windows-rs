@@ -112,51 +112,28 @@ struct NativeData {
 }
 
 #[derive(Clone)]
-enum VirtualData {
-    #[cfg(test)]
-    Bare {
-        model: VirtualModel,
-        realized: HashMap<RealizedContainer, RealizedRow>,
-    },
-    Items {
-        model: VirtualModel,
-        realized: HashMap<RealizedContainer, RealizedRow>,
-        native: NativeState,
-        items: Rc<VirtualItems>,
-    },
+struct VirtualData {
+    model: VirtualModel,
+    realized: HashMap<RealizedContainer, RealizedRow>,
+    native: NativeState,
+    items: Rc<VirtualItems>,
 }
 
 impl VirtualData {
     fn model(&self) -> &VirtualModel {
-        match self {
-            #[cfg(test)]
-            Self::Bare { model, .. } => model,
-            Self::Items { model, .. } => model,
-        }
+        &self.model
     }
 
     fn model_mut(&mut self) -> &mut VirtualModel {
-        match self {
-            #[cfg(test)]
-            Self::Bare { model, .. } => model,
-            Self::Items { model, .. } => model,
-        }
+        &mut self.model
     }
 
     fn realized(&self) -> &HashMap<RealizedContainer, RealizedRow> {
-        match self {
-            #[cfg(test)]
-            Self::Bare { realized, .. } => realized,
-            Self::Items { realized, .. } => realized,
-        }
+        &self.realized
     }
 
     fn realized_mut(&mut self) -> &mut HashMap<RealizedContainer, RealizedRow> {
-        match self {
-            #[cfg(test)]
-            Self::Bare { realized, .. } => realized,
-            Self::Items { realized, .. } => realized,
-        }
+        &mut self.realized
     }
 }
 
@@ -773,7 +750,7 @@ impl Tree {
     pub(crate) fn try_native(&self, id: NodeId) -> Option<&NativeState> {
         match &self.arena.get(id)?.data {
             NodeData::Native(native) => Some(&native.state),
-            NodeData::Virtual(VirtualData::Items { native, .. }) => Some(native),
+            NodeData::Virtual(virtual_data) => Some(&virtual_data.native),
             _ => None,
         }
     }
@@ -781,7 +758,7 @@ impl Tree {
     pub(crate) fn try_native_mut(&mut self, id: NodeId) -> Option<&mut NativeState> {
         match &mut self.arena.get_mut(id)?.data {
             NodeData::Native(native) => Some(&mut native.state),
-            NodeData::Virtual(VirtualData::Items { native, .. }) => Some(native),
+            NodeData::Virtual(virtual_data) => Some(&mut virtual_data.native),
             _ => None,
         }
     }
@@ -789,7 +766,7 @@ impl Tree {
     pub fn native(&self, id: NodeId) -> &NativeState {
         match &self.node(id).data {
             NodeData::Native(native) => &native.state,
-            NodeData::Virtual(VirtualData::Items { native, .. }) => native,
+            NodeData::Virtual(virtual_data) => &virtual_data.native,
             _ => panic!("node is not native"),
         }
     }
@@ -797,7 +774,7 @@ impl Tree {
     pub fn native_mut(&mut self, id: NodeId) -> &mut NativeState {
         match &mut self.node_mut(id).data {
             NodeData::Native(native) => &mut native.state,
-            NodeData::Virtual(VirtualData::Items { native, .. }) => native,
+            NodeData::Virtual(virtual_data) => &mut virtual_data.native,
             _ => panic!("node is not native"),
         }
     }
@@ -819,27 +796,6 @@ impl Tree {
         }
     }
 
-    #[cfg(test)]
-    pub fn insert_virtual(
-        &mut self,
-        identity: WindowToken,
-        parent: Option<NodeId>,
-        keys: impl IntoIterator<Item = Key>,
-    ) -> Result<NodeId, DuplicateKeyError<Key>> {
-        let id = self.arena.next_id();
-        let model = VirtualModel::new(identity, id, keys)?;
-        let inserted = self.insert_data(
-            parent,
-            None,
-            NodeData::Virtual(VirtualData::Bare {
-                model,
-                realized: HashMap::default(),
-            }),
-        );
-        debug_assert_eq!(inserted, id);
-        Ok(inserted)
-    }
-
     pub fn insert_virtual_items(
         &mut self,
         identity: WindowToken,
@@ -854,7 +810,7 @@ impl Tree {
         let inserted = self.insert_data(
             parent,
             key,
-            NodeData::Virtual(VirtualData::Items {
+            NodeData::Virtual(VirtualData {
                 model,
                 realized: HashMap::default(),
                 native: NativeState::new(desired),
@@ -867,7 +823,7 @@ impl Tree {
 
     pub fn virtual_items(&self, id: NodeId) -> &VirtualItems {
         match &self.node(id).data {
-            NodeData::Virtual(VirtualData::Items { items, .. }) => items.as_ref(),
+            NodeData::Virtual(virtual_data) => virtual_data.items.as_ref(),
             _ => panic!("node is not a virtual collection"),
         }
     }
@@ -977,8 +933,8 @@ impl Tree {
 
     pub fn update_virtual_items(&mut self, id: NodeId, items: VirtualItems) {
         match &mut self.node_mut(id).data {
-            NodeData::Virtual(VirtualData::Items { items: current, .. }) => {
-                *current = Rc::new(items);
+            NodeData::Virtual(virtual_data) => {
+                virtual_data.items = Rc::new(items);
             }
             _ => panic!("node is not an item-backed virtual collection"),
         }
