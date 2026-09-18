@@ -447,13 +447,16 @@ impl Component for Solitaire {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Solitaire");
-        context.window_visuals(WindowVisuals::new().client_size(800.0, 600.0).constraints(
-            WindowConstraints {
-                min_width: Some(800.0),
-                min_height: Some(600.0),
-                ..Default::default()
-            },
-        ));
+        context.window_visuals(
+            WindowVisuals::new()
+                .theme(WindowTheme::Dark)
+                .client_size(800.0, 600.0)
+                .constraints(WindowConstraints {
+                    min_width: Some(800.0),
+                    min_height: Some(600.0),
+                    ..Default::default()
+                }),
+        );
 
         let header = StackPanel::new()
             .orientation(Orientation::Horizontal)
