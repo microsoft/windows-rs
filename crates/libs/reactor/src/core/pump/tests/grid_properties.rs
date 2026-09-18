@@ -49,7 +49,7 @@ fn theme_transitions_mount_remain_stable_and_clear() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
         Border::new()
-            .canvas_left(20.0)
+            .margin(Thickness::new(20.0, 0.0, 0.0, 0.0))
             .transitions(transitions())
             .into(),
     )
@@ -66,7 +66,7 @@ fn theme_transitions_mount_remain_stable_and_clear() {
     let batches = pump.runtime().commands().len();
     pump.update(
         Border::new()
-            .canvas_left(80.0)
+            .margin(Thickness::new(80.0, 0.0, 0.0, 0.0))
             .transitions(transitions())
             .into(),
     )
@@ -88,7 +88,7 @@ fn theme_transitions_mount_remain_stable_and_clear() {
 
     pump.update(
         Border::new()
-            .canvas_left(80.0)
+            .margin(Thickness::new(80.0, 0.0, 0.0, 0.0))
             .transitions_optional(None::<[ThemeTransition; 1]>)
             .into(),
     )

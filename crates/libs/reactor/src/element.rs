@@ -2742,7 +2742,7 @@ pub trait LayoutControl: sealed::LayoutControl {
         self
     }
 
-    /// Applies native WinUI animations or restores the inherited transition collection.
+    /// Applies native WinUI animations or clears the explicit transition collection.
     fn transitions_optional<T>(mut self, values: Option<T>) -> Self
     where
         Self: Sized,
