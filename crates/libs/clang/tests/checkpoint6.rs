@@ -1224,6 +1224,81 @@ fn complete_same_name_typedef_target_wins_over_cross_tu_forward_declaration() {
 }
 
 #[test]
+fn complete_interface_wins_over_cross_tu_forward_record() {
+    helpers::ensure_libclang();
+
+    let first = Input::new(
+        "first.hpp",
+        "struct IFoo;\n\
+         struct UsesFoo { IFoo* value; };\n",
+    );
+    let second = Input::new(
+        "second.hpp",
+        "struct __declspec(uuid(\"00000000-0000-0000-c000-000000000046\")) IFoo {\n\
+             virtual void Method() = 0;\n\
+         };\n\
+         struct __declspec(uuid(\"11111111-1111-1111-1111-111111111111\")) IBar : IFoo {\n\
+         };\n",
+    );
+    let args = [
+        "-x",
+        "c++",
+        "--target=x86_64-pc-windows-msvc",
+        "-fms-extensions",
+    ];
+    let forward = extract([first.clone(), second.clone()], &args)
+        .unwrap()
+        .emit("Interfaces")
+        .unwrap();
+    let reverse = extract([second, first], &args)
+        .unwrap()
+        .emit("Interfaces")
+        .unwrap();
+
+    assert_eq!(forward, reverse);
+    assert_eq!(forward.matches("interface IFoo").count(), 1);
+    assert!(forward.contains("interface IBar: IFoo"), "{forward}");
+    assert!(forward.contains("value: *mut IFoo"), "{forward}");
+}
+
+#[test]
+fn incompatible_forward_declaration_does_not_complete_an_interface() {
+    helpers::ensure_libclang();
+
+    let error = extract(
+        [
+            Input::new(
+                "first.hpp",
+                "union IFoo;\n\
+                 struct UsesFoo { IFoo* value; };\n",
+            ),
+            Input::new(
+                "second.hpp",
+                "struct __declspec(uuid(\"00000000-0000-0000-c000-000000000046\")) IFoo {\n\
+                     virtual void Method() = 0;\n\
+                 };\n",
+            ),
+        ],
+        &[
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ],
+    )
+    .unwrap()
+    .emit("Interfaces")
+    .unwrap_err();
+
+    assert!(
+        error.to_string().contains("ambiguous type root `IFoo`"),
+        "{error}"
+    );
+    assert!(error.to_string().contains("Union/Record declaration"));
+    assert!(error.to_string().contains("Struct/Interface definition"));
+}
+
+#[test]
 fn external_scalar_alias_does_not_rename_the_scalar() {
     helpers::ensure_libclang();
 

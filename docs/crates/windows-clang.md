@@ -165,6 +165,12 @@ Incomplete records are valid when used through pointers and rejected when a comp
 layout is required. Fixed-underlying forward enums can be represented by their declared integer
 type. Unfixed forward enums are rejected rather than assigned a guessed representation.
 
+An incomplete declaration may resolve to a complete declaration from another translation unit when
+their public names and C/C++ declaration kinds match. The completed projection may differ from the
+placeholder representation: for example, an incomplete `struct` is initially a record but may
+resolve to a COM interface once another translation unit supplies its virtual definition.
+Incompatible declaration kinds remain ambiguous.
+
 Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
 destructors, conversions, or function templates use the checked record-layout path. Other
 non-interface C++ classes remain opaque.
@@ -199,6 +205,10 @@ while their referenced types still participate in dependency closure.
 
 Native NaN and infinity constants are omitted because RDL and ECMA metadata cannot represent them.
 This includes `f64` values that become non-finite when narrowed to their declared `f32` type.
+Integer-valued pointer constants remain supported. If a typedef chain resolves to an
+interface-pointer alias that is projected as the interface itself, constants declared with that
+typedef are omitted because ECMA metadata cannot encode an interface-valued constant. An explicit
+pointer to the same interface remains a pointer and is emitted.
 
 ### Bit-field member scraping
 

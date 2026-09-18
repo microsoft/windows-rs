@@ -425,9 +425,10 @@ impl Snapshot {
                 .as_ref()
                 .map_or(String::new(), |parent| format!(" <- {}", origin(parent)));
             result.push_str(&format!(
-                "{} {:?} {} [{}:{} -> {}:{}]{}{}{}{}\n",
+                "{} {:?}/{} {} [{}:{} -> {}:{}]{}{}{}{}\n",
                 origin(&fact.origin),
                 fact.kind,
+                fact_data_kind(&fact.data),
                 fact.name,
                 fact.spelling.file,
                 fact.spelling.offset,
@@ -737,19 +738,17 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", function.name)));
             }
         }
-        for constant in plan.constants {
+        for planned in plan.constants {
+            let constant = planned.constant;
             let encoding = match &constant.value {
                 Value::Utf8(_) => "    #[encoding(\"ansi\")]\n",
                 Value::Utf16(_) => "    #[encoding(\"utf-16\")]\n",
                 _ => "",
             };
-            let ty = match &constant.value {
-                Value::Utf8(_) | Value::Utf16(_) => "String".to_string(),
-                _ => constant_type_name(&constant.ty, &plan.type_names),
-            };
             let item = format!(
-                "{encoding}    const {}: {ty} = {};\n",
+                "{encoding}    const {}: {} = {};\n",
                 rdl_ident(&constant.name),
+                planned.ty,
                 value_name(&constant.value)
             );
             if items
@@ -1616,10 +1615,52 @@ impl Snapshot {
                 )));
             }
         }
+        let mut pointer_aliases: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
+        for fact in &self.facts {
+            let FactData::Typedef {
+                target: TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. },
+            } = &fact.data
+            else {
+                continue;
+            };
+            pointer_aliases.entry(target).or_default().push(&fact.name);
+        }
+        let mut pointer_alias_queue: Vec<_> = pointer_interface_aliases.keys().cloned().collect();
+        while let Some(target) = pointer_alias_queue.pop() {
+            let projected = pointer_interface_aliases[&target].clone();
+            for alias in pointer_aliases.get(target.as_str()).into_iter().flatten() {
+                if let Some(previous) = pointer_interface_aliases.get(*alias) {
+                    if previous != &projected {
+                        return Err(Error(format!(
+                            "interface pointer alias `{alias}` has conflicting targets"
+                        )));
+                    }
+                } else {
+                    pointer_interface_aliases.insert((*alias).to_string(), projected.clone());
+                    pointer_alias_queue.push((*alias).to_string());
+                }
+            }
+        }
         for (alias, target) in &pointer_interface_aliases {
             type_names.insert(alias.clone(), target.clone());
         }
         types.retain(|planned| !pointer_interface_aliases.contains_key(&planned.fact.name));
+        let mut constants: Vec<_> = constants
+            .into_iter()
+            .filter_map(|constant| {
+                let ty = match &constant.value {
+                    Value::Utf8(_) | Value::Utf16(_) => Some("String".to_string()),
+                    _ => constant_type_name(
+                        &constant.ty,
+                        &type_names,
+                        &interface_names,
+                        &pointer_interface_aliases,
+                        &constant.root.tu,
+                    ),
+                }?;
+                Some(PlannedConstant { constant, ty })
+            })
+            .collect();
         if timing {
             eprintln!(
                 "clang plan interfaces: {:.2}s",
@@ -1650,9 +1691,12 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", planned.name)));
             }
         }
-        for constant in &constants {
-            if !value_output_names.insert(constant.name.as_str()) {
-                return Err(Error(format!("duplicate planned name `{}`", constant.name)));
+        for planned in &constants {
+            if !value_output_names.insert(planned.constant.name.as_str()) {
+                return Err(Error(format!(
+                    "duplicate planned name `{}`",
+                    planned.constant.name
+                )));
             }
         }
         for function in &functions {
@@ -1662,7 +1706,7 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", function.name)));
             }
         }
-        constants.sort_by(|left, right| left.name.cmp(&right.name));
+        constants.sort_by(|left, right| left.constant.name.cmp(&right.constant.name));
         functions.sort_by(|left, right| left.name.cmp(&right.name));
         if timing {
             eprintln!(
@@ -1721,6 +1765,11 @@ struct PlannedFact<'a> {
     name: String,
 }
 
+struct PlannedConstant<'a> {
+    constant: &'a Constant,
+    ty: String,
+}
+
 #[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
 enum OutputKind {
     Value,
@@ -1731,7 +1780,7 @@ struct Plan<'a> {
     types: Vec<PlannedFact<'a>>,
     values: Vec<PlannedFact<'a>>,
     functions: Vec<&'a Fact>,
-    constants: Vec<&'a Constant>,
+    constants: Vec<PlannedConstant<'a>>,
     type_names: BTreeMap<String, String>,
     interface_names: BTreeSet<(String, String)>,
     interface_guids: BTreeMap<String, String>,
@@ -1771,6 +1820,24 @@ fn is_type_fact(fact: &Fact) -> bool {
             | FactData::Record { .. }
             | FactData::Typedef { .. }
     )
+}
+
+fn fact_data_kind(data: &FactData) -> &'static str {
+    match data {
+        FactData::Callback { .. } => "Callback",
+        FactData::Class { .. } => "Class",
+        FactData::Enum { .. } => "Enum",
+        FactData::EnumFlag { .. } => "EnumFlag",
+        FactData::Function { .. } => "Function",
+        FactData::Guid { .. } => "Guid",
+        FactData::Interface { .. } => "Interface",
+        FactData::Macro { .. } => "Macro",
+        FactData::None => "None",
+        FactData::PropertyKey { .. } => "PropertyKey",
+        FactData::Record { .. } => "Record",
+        FactData::Typedef { .. } => "Typedef",
+        FactData::Unsupported { .. } => "Unsupported",
+    }
 }
 
 fn is_value_fact(fact: &Fact) -> bool {
@@ -1865,6 +1932,20 @@ fn declaration_kind(
     } else {
         Some(fact.kind)
     }
+}
+
+fn is_tag_declaration(fact: &Fact) -> bool {
+    matches!(
+        fact.data,
+        FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
+    )
+}
+
+fn incomplete_declaration_matches_definition(declaration: &Fact, definition: &Fact) -> bool {
+    !declaration.definition
+        && declaration.kind == definition.kind
+        && is_tag_declaration(declaration)
+        && is_tag_declaration(definition)
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -2621,7 +2702,7 @@ fn choose_type_root_cached<'a>(
         if aliases_target_root {
             return Ok(root);
         }
-        let same_tu_declarations = distinct.iter().all(|fact| {
+        let compatible_declarations_and_aliases = distinct.iter().all(|fact| {
             let linked_nested_declaration = root.parent.is_some()
                 && fact.parent.is_none()
                 && facts_index.values().flatten().any(|alias| {
@@ -2635,13 +2716,7 @@ fn choose_type_root_cached<'a>(
                         )
                 });
             fact.origin == root.origin
-                || (!fact.definition
-                    && matches!(
-                        (&fact.data, &root.data),
-                        (FactData::Enum { .. }, FactData::Enum { .. })
-                            | (FactData::Record { .. }, FactData::Record { .. })
-                            | (FactData::Interface { .. }, FactData::Interface { .. })
-                    )
+                || (incomplete_declaration_matches_definition(fact, root)
                     && ((fact.parent.is_none() && root.parent.is_none())
                         || (fact.origin.tu == root.origin.tu
                             && (fact.parent == root.parent || linked_nested_declaration))))
@@ -2663,11 +2738,29 @@ fn choose_type_root_cached<'a>(
                         })
                 )
         });
-        if same_tu_declarations {
+        if compatible_declarations_and_aliases {
             return Ok(root);
         }
     }
-    Err(Error(format!("ambiguous type root `{name}`")))
+    let choices = distinct
+        .iter()
+        .map(|fact| {
+            format!(
+                "{}:{} {:?}/{} {}",
+                fact.spelling.file,
+                fact.spelling.offset,
+                fact.kind,
+                fact_data_kind(&fact.data),
+                if fact.definition {
+                    "definition"
+                } else {
+                    "declaration"
+                }
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("; ");
+    Err(Error(format!("ambiguous type root `{name}`: {choices}")))
 }
 
 fn choose_constant_root<'a>(name: &str, roots: &[&'a Constant]) -> Result<&'a Constant, Error> {
@@ -3761,16 +3854,36 @@ fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
     (mutable, depth, ty)
 }
 
-fn constant_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
-    match ty {
+fn constant_type_name(
+    ty: &TypeRef,
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    pointer_interface_aliases: &BTreeMap<String, String>,
+    tu: &str,
+) -> Option<String> {
+    let name = match ty {
         TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
+        TypeRef::Named { name, .. } if pointer_interface_aliases.contains_key(name) => {
+            return None;
+        }
+        TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
+            if interface_names.contains(&(tu.to_string(), name.clone())) =>
+        {
+            return None;
+        }
         TypeRef::Named { name, .. } if type_names.contains_key(name) => {
             planned_type_name(ty, type_names)
         }
         TypeRef::Named { name, .. } => canonical_named_type(name)
             .map_or_else(|| planned_type_name(ty, type_names), str::to_string),
+        TypeRef::Void
+        | TypeRef::Object
+        | TypeRef::Generic { .. }
+        | TypeRef::Array { .. }
+        | TypeRef::InlineRecord(_) => return None,
         _ => planned_type_name(ty, type_names),
-    }
+    };
+    Some(name)
 }
 
 fn value_name(value: &Value) -> String {
