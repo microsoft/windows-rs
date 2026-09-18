@@ -2543,7 +2543,7 @@ impl KeyAccelerators {
     }
 }
 
-/// Applies layout, opacity, margin, and exit-transition properties to native controls.
+/// Applies layout, opacity, margin, and transition properties to native controls.
 ///
 /// Dimensions, margins, and Canvas positions use device-independent pixels (DIPs). Passing
 /// `None` to an optional property leaves it inherited or unset.
