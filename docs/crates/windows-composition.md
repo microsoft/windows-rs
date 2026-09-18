@@ -241,19 +241,13 @@ component lifecycle; start there rather than copying only the bridge calls.
 
 | Sample | What it shows |
 | --- | --- |
-| [`standalone`](../../crates/samples/composition/standalone) | Window hosting and sprite visuals |
-| [`host`](../../crates/samples/composition/host) | Reactor host lifecycle, size, and scale events |
-| [`animation`][composition-animation] | Key-frame animation |
 | [`circles`](../../crates/samples/composition/circles) | A larger shape scene |
 | [`minesweeper`][composition-minesweeper] | Input, layout, shapes, and animation |
-| [`canvas`](../../crates/samples/composition/canvas) | Canvas drawing in a composition surface |
 
-[composition-animation]: ../../crates/samples/composition/animation
 [composition-minesweeper]: ../../crates/samples/composition/minesweeper
 
-Start with `standalone` for the system stack or `host` for Reactor. The other APIs - implicit
-animations, scoped batches, nine-grid brushes, and Canvas surfaces - are useful once the basic
-visual tree feels familiar.
+Browse [`crates/samples/composition`](../../crates/samples/composition) for focused hosting and
+animation examples.
 
 `CompositionScopedBatch::on_completed` returns an event revoker that must remain alive until the
 tracked work finishes. In a Reactor component, have the callback send a message and update the
