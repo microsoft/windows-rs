@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    const DIRECT_POINTER: *mut Windows::Win32::IDataObject = 1;
+    const TEXT_CALLBACK: *mut i8 = -1;
+}

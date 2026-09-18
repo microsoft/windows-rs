@@ -738,19 +738,17 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", function.name)));
             }
         }
-        for constant in plan.constants {
+        for planned in plan.constants {
+            let constant = planned.constant;
             let encoding = match &constant.value {
                 Value::Utf8(_) => "    #[encoding(\"ansi\")]\n",
                 Value::Utf16(_) => "    #[encoding(\"utf-16\")]\n",
                 _ => "",
             };
-            let ty = match &constant.value {
-                Value::Utf8(_) | Value::Utf16(_) => "String".to_string(),
-                _ => constant_type_name(&constant.ty, &plan.type_names),
-            };
             let item = format!(
-                "{encoding}    const {}: {ty} = {};\n",
+                "{encoding}    const {}: {} = {};\n",
                 rdl_ident(&constant.name),
+                planned.ty,
                 value_name(&constant.value)
             );
             if items
@@ -1621,6 +1619,22 @@ impl Snapshot {
             type_names.insert(alias.clone(), target.clone());
         }
         types.retain(|planned| !pointer_interface_aliases.contains_key(&planned.fact.name));
+        let mut constants: Vec<_> = constants
+            .into_iter()
+            .filter_map(|constant| {
+                let ty = match &constant.value {
+                    Value::Utf8(_) | Value::Utf16(_) => Some("String".to_string()),
+                    _ => constant_type_name(
+                        &constant.ty,
+                        &type_names,
+                        &interface_names,
+                        &pointer_interface_aliases,
+                        &constant.root.tu,
+                    ),
+                }?;
+                Some(PlannedConstant { constant, ty })
+            })
+            .collect();
         if timing {
             eprintln!(
                 "clang plan interfaces: {:.2}s",
@@ -1651,9 +1665,12 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", planned.name)));
             }
         }
-        for constant in &constants {
-            if !value_output_names.insert(constant.name.as_str()) {
-                return Err(Error(format!("duplicate planned name `{}`", constant.name)));
+        for planned in &constants {
+            if !value_output_names.insert(planned.constant.name.as_str()) {
+                return Err(Error(format!(
+                    "duplicate planned name `{}`",
+                    planned.constant.name
+                )));
             }
         }
         for function in &functions {
@@ -1663,7 +1680,7 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", function.name)));
             }
         }
-        constants.sort_by(|left, right| left.name.cmp(&right.name));
+        constants.sort_by(|left, right| left.constant.name.cmp(&right.constant.name));
         functions.sort_by(|left, right| left.name.cmp(&right.name));
         if timing {
             eprintln!(
@@ -1722,6 +1739,11 @@ struct PlannedFact<'a> {
     name: String,
 }
 
+struct PlannedConstant<'a> {
+    constant: &'a Constant,
+    ty: String,
+}
+
 #[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
 enum OutputKind {
     Value,
@@ -1732,7 +1754,7 @@ struct Plan<'a> {
     types: Vec<PlannedFact<'a>>,
     values: Vec<PlannedFact<'a>>,
     functions: Vec<&'a Fact>,
-    constants: Vec<&'a Constant>,
+    constants: Vec<PlannedConstant<'a>>,
     type_names: BTreeMap<String, String>,
     interface_names: BTreeSet<(String, String)>,
     interface_guids: BTreeMap<String, String>,
@@ -3806,16 +3828,36 @@ fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
     (mutable, depth, ty)
 }
 
-fn constant_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
-    match ty {
+fn constant_type_name(
+    ty: &TypeRef,
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    pointer_interface_aliases: &BTreeMap<String, String>,
+    tu: &str,
+) -> Option<String> {
+    let name = match ty {
         TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
+        TypeRef::Named { name, .. } if pointer_interface_aliases.contains_key(name) => {
+            return None;
+        }
+        TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
+            if interface_names.contains(&(tu.to_string(), name.clone())) =>
+        {
+            return None;
+        }
         TypeRef::Named { name, .. } if type_names.contains_key(name) => {
             planned_type_name(ty, type_names)
         }
         TypeRef::Named { name, .. } => canonical_named_type(name)
             .map_or_else(|| planned_type_name(ty, type_names), str::to_string),
+        TypeRef::Void
+        | TypeRef::Object
+        | TypeRef::Generic { .. }
+        | TypeRef::Array { .. }
+        | TypeRef::InlineRecord(_) => return None,
         _ => planned_type_name(ty, type_names),
-    }
+    };
+    Some(name)
 }
 
 fn value_name(value: &Value) -> String {
