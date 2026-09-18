@@ -11,4 +11,9 @@ mod Test {
         SecurityInformation: u32,
         #[align(8)] Length: u32,
     }
+    #[align(32)]
+    struct WIDE_ALIGNMENT {
+        First: u8,
+        #[align(32)] Value: u32,
+    }
 }

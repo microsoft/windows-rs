@@ -236,9 +236,9 @@ signatures, dependencies, and remapping. Separate writers preserve the different
 ### Aligned fields
 
 `AlignmentAttribute` on a field lowers to a zero-sized alignment marker before that field. Marker
-types are primitive integers with the requested alignment, so derived comparisons cannot depend on
-the contents of C padding bytes. Rust calculates any required padding from the surrounding field
-types for each target.
+types through 16 bytes use primitive integers. Larger alignments use hidden zero-sized helper types
+with `repr(align(N))`. Derived comparisons cannot depend on the contents of C padding bytes. Rust
+calculates any required padding from the surrounding field types for each target.
 
 Rust rejects a type that combines `repr(packed)` and `repr(align)`. Bindgen does not add field
 markers to packed records; their existing projection remains unchanged.

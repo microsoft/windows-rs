@@ -3705,10 +3705,11 @@ fn record_layout(
                 align_up(cursor, effective_align)
             };
             if offset * 8 != field.offset {
-                let explicit_align = [2, 4, 8, 16]
-                    .into_iter()
-                    .filter(|candidate| *candidate > field_align && *candidate <= align)
-                    .find(|candidate| align_up(cursor, *candidate) * 8 == field.offset);
+                let explicit_align =
+                    std::iter::successors(Some(2i64), |candidate| (*candidate).checked_mul(2))
+                        .take_while(|candidate| *candidate <= align)
+                        .filter(|candidate| *candidate > field_align)
+                        .find(|candidate| align_up(cursor, *candidate) * 8 == field.offset);
                 let Some(explicit_align) = explicit_align else {
                     matches = false;
                     break;

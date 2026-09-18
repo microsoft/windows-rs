@@ -38,14 +38,14 @@ fn field_alignment(field: &Field) -> Option<usize> {
     }
 }
 
-fn alignment_marker(alignment: usize) -> TokenStream {
+fn primitive_alignment_marker(alignment: usize) -> Option<TokenStream> {
     match alignment {
-        1 => quote! { u8 },
-        2 => quote! { u16 },
-        4 => quote! { u32 },
-        8 => quote! { u64 },
-        16 => quote! { u128 },
-        _ => panic!("unsupported field alignment `{alignment}`"),
+        1 => Some(quote! { u8 }),
+        2 => Some(quote! { u16 }),
+        4 => Some(quote! { u32 }),
+        8 => Some(quote! { u64 }),
+        16 => Some(quote! { u128 }),
+        _ => None,
     }
 }
 
@@ -214,9 +214,10 @@ impl CppStruct {
 
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
-        let fields = {
+        let (fields, alignment_markers) = {
             let names: BTreeSet<_> = fields.iter().map(|(_, name, _)| *name).collect();
             let mut alignment_index = 0;
+            let mut alignment_markers = vec![];
             let mut output = vec![];
             for (field, name, ty) in &fields {
                 if supports_field_alignment && let Some(alignment) = field_alignment(field) {
@@ -231,7 +232,23 @@ impl CppStruct {
                     }
                     alignment_index += 1;
                     let alignment_name = to_ident(&alignment_name);
-                    let marker = alignment_marker(alignment);
+                    let marker = primitive_alignment_marker(alignment).unwrap_or_else(|| {
+                        assert!(
+                            alignment.is_power_of_two(),
+                            "unsupported field alignment `{alignment}`"
+                        );
+                        let marker_name =
+                            to_ident(&format!("__{}Alignment{alignment_index}", self.name));
+                        let alignment = Literal::usize_unsuffixed(alignment);
+                        alignment_markers.push(quote! {
+                            #[doc(hidden)]
+                            #[repr(align(#alignment))]
+                            #cfg
+                            #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+                            pub struct #marker_name;
+                        });
+                        quote! { #marker_name }
+                    });
                     output.push(quote! { pub #alignment_name: [#marker; 0], });
                 }
 
@@ -258,7 +275,7 @@ impl CppStruct {
                 output.push(quote! { pub #name: #ty, });
             }
 
-            if output.is_empty() {
+            let fields = if output.is_empty() {
                 if is_union {
                     quote! {
                         { pub value: u8 }
@@ -272,7 +289,9 @@ impl CppStruct {
                 quote! {
                     { #(#output)* }
                 }
-            }
+            };
+
+            (fields, quote! { #(#alignment_markers)* })
         };
 
         let mut derive = DeriveWriter::new(config, self.type_name());
@@ -371,6 +390,7 @@ impl CppStruct {
         let bitfields = self.write_bitfield_accessors(config, cfg);
 
         let mut tokens = quote! {
+            #alignment_markers
             #repr
             #cfg
             #derive

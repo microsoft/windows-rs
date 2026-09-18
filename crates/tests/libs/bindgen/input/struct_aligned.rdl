@@ -42,6 +42,11 @@ mod Test {
         #[align(16)]
         Value: u32,
     }
+    struct ExtendedFieldAligned {
+        First: u8,
+        #[align(32)]
+        Value: u32,
+    }
     extern fn Callback();
     #[align(32)]
     struct OverAligned {

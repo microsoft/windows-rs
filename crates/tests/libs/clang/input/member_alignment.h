@@ -11,3 +11,8 @@ typedef struct QUERY_SECURITY {
     unsigned long SecurityInformation;
     __declspec(align(8)) unsigned long Length;
 } QUERY_SECURITY;
+
+typedef struct WIDE_ALIGNMENT {
+    unsigned char First;
+    __declspec(align(32)) unsigned long Value;
+} WIDE_ALIGNMENT;

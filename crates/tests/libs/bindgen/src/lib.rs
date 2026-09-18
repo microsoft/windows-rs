@@ -94,7 +94,13 @@ mod tests {
         assert_eq!(offset_of!(WideFieldAligned, First), 4);
         assert_eq!(offset_of!(WideFieldAligned, Value), 16);
 
+        assert_eq!(align_of::<ExtendedFieldAligned>(), 32);
+        assert_eq!(size_of::<ExtendedFieldAligned>(), 64);
+        assert_eq!(offset_of!(ExtendedFieldAligned, First), 0);
+        assert_eq!(offset_of!(ExtendedFieldAligned, Value), 32);
+
         fn assert_value_traits<T: core::fmt::Debug + Default + Eq>() {}
+        assert_value_traits::<ExtendedFieldAligned>();
         assert_value_traits::<FieldAligned>();
         assert_value_traits::<WideFieldAligned>();
         assert_eq!(FieldAligned::default(), FieldAligned::default());

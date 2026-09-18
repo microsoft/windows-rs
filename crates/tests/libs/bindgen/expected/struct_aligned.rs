@@ -20,6 +20,17 @@ pub struct CallbackFieldAligned {
     pub _alignment: [u64; 0],
     pub Value: u32,
 }
+#[doc(hidden)]
+#[repr(align(32))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct __ExtendedFieldAlignedAlignment1;
+#[repr(C, align(32))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExtendedFieldAligned {
+    pub First: u8,
+    pub _alignment: [__ExtendedFieldAlignedAlignment1; 0],
+    pub Value: u32,
+}
 #[repr(C, align(8))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FieldAligned {
