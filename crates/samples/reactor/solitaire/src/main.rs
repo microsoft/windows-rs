@@ -604,11 +604,11 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
         };
         children.push(KeyedView::new(
             card_key(placement.card),
-            positioned(view, placement.x, placement.y),
+            positioned_card(view, placement.x, placement.y),
         ));
     }
 
-    Canvas::new()
+    Grid::new()
         .width(BOARD_W)
         .height(BOARD_H)
         .horizontal_alignment(HorizontalAlignment::Center)
@@ -801,7 +801,20 @@ fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
 }
 
 fn positioned(content: View, x: f64, y: f64) -> View {
-    Border::new().canvas_left(x).canvas_top(y).content(content)
+    Border::new()
+        .horizontal_alignment(HorizontalAlignment::Left)
+        .vertical_alignment(VerticalAlignment::Top)
+        .margin(Thickness::new(x, y, 0.0, 0.0))
+        .content(content)
+}
+
+fn positioned_card(content: View, x: f64, y: f64) -> View {
+    Border::new()
+        .horizontal_alignment(HorizontalAlignment::Left)
+        .vertical_alignment(VerticalAlignment::Top)
+        .margin(Thickness::new(x, y, 0.0, 0.0))
+        .transitions([ThemeTransition::Reposition])
+        .content(content)
 }
 
 fn main() {
