@@ -102,9 +102,9 @@ enum FailedMove {
 
 #[derive(Clone, PartialEq, Eq, Debug)]
 struct Game {
-    tableau: Vec<Vec<Card>>,
-    face_up: Vec<usize>,
-    foundations: Vec<Vec<Card>>,
+    tableau: [Vec<Card>; PILES],
+    face_up: [usize; PILES],
+    foundations: [Vec<Card>; FOUNDATIONS],
     stock: Vec<Card>,
     waste: Vec<Card>,
     last_move: Option<LastMove>,
@@ -117,21 +117,20 @@ impl Game {
         let mut deck = full_deck();
         shuffle(&mut deck, seed);
 
-        let mut tableau: Vec<Vec<Card>> = (0..PILES).map(|_| Vec::new()).collect();
+        let mut tableau: [Vec<Card>; PILES] = std::array::from_fn(|_| Vec::new());
         for p in 0..PILES {
             for pile in tableau.iter_mut().skip(p) {
-                pile.push(deck.pop().expect("52-card deck"));
+                pile.push(deck.pop().unwrap());
             }
         }
-        let face_up: Vec<usize> = tableau.iter().map(|p| p.len() - 1).collect();
+        let face_up = std::array::from_fn(|p| tableau[p].len() - 1);
 
-        #[allow(clippy::needless_range_loop)]
-        for p in 0..PILES {
-            for i in 0..face_up[p] {
-                if tableau[p][i].rank == 1
+        for (pile, &face_up) in tableau.iter_mut().zip(&face_up) {
+            for card in pile.iter_mut().take(face_up) {
+                if card.rank == 1
                     && let Some(swap_idx) = deck.iter().position(|c| c.rank != 1)
                 {
-                    std::mem::swap(&mut tableau[p][i], &mut deck[swap_idx]);
+                    std::mem::swap(card, &mut deck[swap_idx]);
                 }
             }
         }
@@ -139,7 +138,7 @@ impl Game {
         Self {
             tableau,
             face_up,
-            foundations: (0..FOUNDATIONS).map(|_| Vec::new()).collect(),
+            foundations: std::array::from_fn(|_| Vec::new()),
             stock: deck,
             waste: Vec::new(),
             last_move: None,
@@ -207,9 +206,6 @@ fn moving_cards(game: &Game, src: Source) -> Option<Vec<Card>> {
 
 fn try_apply(game: &Game, src: Source, dst: Dest) -> Option<Game> {
     let cards = moving_cards(game, src)?;
-    if cards.is_empty() {
-        return None;
-    }
     match (src, dst) {
         (Source::Tableau(p1, _), Dest::Tableau(p2)) if p1 == p2 => return None,
         (Source::Foundation(f1), Dest::Foundation(f2)) if f1 == f2 => return None,
@@ -246,9 +242,7 @@ fn try_apply(game: &Game, src: Source, dst: Dest) -> Option<Game> {
     match dst {
         Dest::Tableau(p) => {
             let was_empty = next.tableau[p].is_empty();
-            for c in &cards {
-                next.tableau[p].push(*c);
-            }
+            next.tableau[p].extend_from_slice(&cards);
             if was_empty {
                 next.face_up[p] = 0;
             }
@@ -271,9 +265,7 @@ fn draw_stock(game: &Game) -> Game {
         next.waste.push(c);
         next.moves = next.moves.saturating_add(1);
     } else if !next.waste.is_empty() {
-        while let Some(c) = next.waste.pop() {
-            next.stock.push(c);
-        }
+        next.stock.extend(next.waste.drain(..).rev());
         next.moves = next.moves.saturating_add(1);
     }
     next.last_move = None;
@@ -282,9 +274,6 @@ fn draw_stock(game: &Game) -> Game {
 
 fn auto_move(game: &Game, src: Source) -> Option<Game> {
     let cards = moving_cards(game, src)?;
-    if cards.is_empty() {
-        return None;
-    }
     let first = cards[0];
 
     if cards.len() == 1 {
@@ -299,28 +288,28 @@ fn auto_move(game: &Game, src: Source) -> Option<Game> {
         _ => None,
     };
 
-    let mut best: Option<(usize, usize, Game)> = None;
-    for p in 0..PILES {
-        if Some(p) == src_pile || game.tableau[p].is_empty() {
+    let mut best: Option<(usize, Game)> = None;
+    for (p, pile) in game.tableau.iter().enumerate() {
+        if Some(p) == src_pile || pile.is_empty() {
             continue;
         }
         if let Some(g) = try_apply(game, src, Dest::Tableau(p)) {
             let face_down = game.face_up[p];
             match &best {
-                Some((best_fd, _, _)) if *best_fd >= face_down => {}
-                _ => best = Some((face_down, p, g)),
+                Some((best_face_down, _)) if *best_face_down >= face_down => {}
+                _ => best = Some((face_down, g)),
             }
         }
     }
-    if let Some((_, _, g)) = best {
+    if let Some((_, g)) = best {
         return Some(g);
     }
 
     if first.rank == 13 {
         let dominated = matches!(src, Source::Tableau(p, 0) if game.face_up[p] == 0);
         if !dominated {
-            for p in 0..PILES {
-                if Some(p) == src_pile || !game.tableau[p].is_empty() {
+            for (p, pile) in game.tableau.iter().enumerate() {
+                if Some(p) == src_pile || !pile.is_empty() {
                     continue;
                 }
                 if let Some(g) = try_apply(game, src, Dest::Tableau(p)) {
@@ -615,7 +604,6 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
         .keyed_children(children)
 }
 
-#[derive(Clone, Copy, Debug, PartialEq)]
 struct BoardCard {
     card: Card,
     x: f64,
@@ -641,21 +629,21 @@ fn board_cards(game: &Game) -> Vec<BoardCard> {
         });
     }
 
-    for card in game.waste.iter().copied() {
+    for (index, card) in game.waste.iter().copied().enumerate() {
         cards.push(BoardCard {
             card,
             x: pile_x(1),
             y: TOP_ROW_Y,
             face_up: true,
             highlighted: false,
-            failed: card == game.waste.last().copied().unwrap()
+            failed: index + 1 == game.waste.len()
                 && matches!(game.failed_move, Some(FailedMove::Waste)),
             click: Click::Waste,
         });
     }
 
     for (f, foundation) in game.foundations.iter().enumerate() {
-        for card in foundation.iter().copied() {
+        for (index, card) in foundation.iter().copied().enumerate() {
             cards.push(BoardCard {
                 card,
                 x: foundation_x(f),
@@ -664,7 +652,7 @@ fn board_cards(game: &Game) -> Vec<BoardCard> {
                 highlighted: matches!(
                     game.last_move,
                     Some(LastMove::ToFoundation(destination)) if destination == f
-                ) && card == foundation.last().copied().unwrap(),
+                ) && index + 1 == foundation.len(),
                 failed: false,
                 click: Click::Foundation(f),
             });
@@ -802,20 +790,20 @@ fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
 }
 
 fn positioned(content: View, x: f64, y: f64) -> View {
-    Border::new()
-        .horizontal_alignment(HorizontalAlignment::Left)
-        .vertical_alignment(VerticalAlignment::Top)
-        .margin(Thickness::new(x, y, 0.0, 0.0))
-        .content(content)
+    position(x, y).content(content)
 }
 
 fn positioned_card(content: View, x: f64, y: f64) -> View {
+    position(x, y)
+        .transitions([ThemeTransition::Reposition])
+        .content(content)
+}
+
+fn position(x: f64, y: f64) -> Border {
     Border::new()
         .horizontal_alignment(HorizontalAlignment::Left)
         .vertical_alignment(VerticalAlignment::Top)
         .margin(Thickness::new(x, y, 0.0, 0.0))
-        .transitions([ThemeTransition::Reposition])
-        .content(content)
 }
 
 fn main() {
@@ -947,9 +935,9 @@ mod tests {
 
     fn empty_game() -> Game {
         Game {
-            tableau: (0..PILES).map(|_| Vec::new()).collect(),
-            face_up: vec![0; PILES],
-            foundations: (0..FOUNDATIONS).map(|_| Vec::new()).collect(),
+            tableau: std::array::from_fn(|_| Vec::new()),
+            face_up: [0; PILES],
+            foundations: std::array::from_fn(|_| Vec::new()),
             stock: Vec::new(),
             waste: Vec::new(),
             last_move: None,
@@ -962,8 +950,7 @@ mod tests {
     fn moving_ace_from_waste_to_foundation_is_legal() {
         let mut g = empty_game();
         g.waste.push(c(1, Suit::Hearts));
-        let next =
-            try_apply(&g, Source::Waste, Dest::Foundation(Suit::Hearts as usize)).expect("legal");
+        let next = try_apply(&g, Source::Waste, Dest::Foundation(Suit::Hearts as usize)).unwrap();
         assert!(next.waste.is_empty());
         assert_eq!(
             next.foundations[Suit::Hearts as usize],
