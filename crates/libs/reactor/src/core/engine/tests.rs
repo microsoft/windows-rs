@@ -6,7 +6,70 @@ use std::mem::size_of;
 fn identity() -> WindowToken {
     WindowToken::new(WindowId::allocate())
 }
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
+
+#[test]
+fn sorted_vec_map_handles_order_sensitive_mutations() {
+    let mut map = SortedVecMap::default();
+
+    assert_eq!(map.insert(30, "thirty"), None);
+    assert_eq!(map.insert(10, "ten"), None);
+    assert_eq!(map.insert(20, "twenty"), None);
+    assert_eq!(
+        map.into_iter().copied().collect::<Vec<_>>(),
+        [(10, "ten"), (20, "twenty"), (30, "thirty")]
+    );
+
+    assert_eq!(map.insert(20, "TWENTY"), Some("twenty"));
+    assert_eq!(map.get(&20), Some(&"TWENTY"));
+    assert_eq!(map.remove(&10), Some("ten"));
+    assert_eq!(map.remove(&10), None);
+    assert_eq!(map.insert(10, "TEN"), None);
+
+    assert_eq!(map.get_or_insert(20, "ignored"), &"TWENTY");
+    assert_eq!(map.get_or_insert(25, "twenty-five"), &"twenty-five");
+    assert_eq!(
+        map.into_iter().copied().collect::<Vec<_>>(),
+        [
+            (10, "TEN"),
+            (20, "TWENTY"),
+            (25, "twenty-five"),
+            (30, "thirty"),
+        ]
+    );
+}
+
+#[test]
+fn sorted_vec_map_matches_btree_map() {
+    let mut rng = Rng(0);
+    let mut actual = SortedVecMap::default();
+    let mut expected = BTreeMap::new();
+
+    for _ in 0..10_000 {
+        let key = rng.next() % 64;
+        let value = rng.next();
+
+        match rng.next() % 3 {
+            0 => assert_eq!(actual.insert(key, value), expected.insert(key, value)),
+            1 => assert_eq!(actual.remove(&key), expected.remove(&key)),
+            _ => {
+                *actual.get_or_insert(key, value) += 1;
+                *expected.entry(key).or_insert(value) += 1;
+            }
+        }
+
+        assert_eq!(
+            actual.into_iter().copied().collect::<Vec<_>>(),
+            expected
+                .iter()
+                .map(|(&key, &value)| (key, value))
+                .collect::<Vec<_>>()
+        );
+        for key in 0..64 {
+            assert_eq!(actual.get(&key), expected.get(&key));
+        }
+    }
+}
 
 #[test]
 fn observation_slot_preserves_and_advances_revisions() {
