@@ -190,10 +190,11 @@ pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::HANDLE,
     pub cIndex: u32,
-    pub cContainers: u32,
     pub _padding: [u8; 4],
-    pub cContainersReturned: u32,
+    pub cContainers: u32,
     pub _padding2: [u8; 4],
+    pub cContainersReturned: u32,
+    pub _padding3: [u8; 4],
     pub eScanMode: CLFS_SCAN_MODE,
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
 }

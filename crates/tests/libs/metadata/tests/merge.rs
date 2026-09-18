@@ -300,6 +300,51 @@ fn arch_merge_divergent_struct() {
 }
 
 #[test]
+fn arch_merge_divergent_field_alignment() {
+    let dir = std::env::temp_dir().join("win_merge_field_alignment");
+    std::fs::create_dir_all(&dir).unwrap();
+
+    let x86 = winmd(
+        &dir,
+        "x86",
+        "#[win32] mod Test { struct VALUE { First: u32, Second: u32 } }",
+    );
+    let x64 = winmd(
+        &dir,
+        "x64",
+        "#[win32] mod Test { struct VALUE { First: u32, #[align(8)] Second: u32 } }",
+    );
+
+    let merged = dir.join("merged.winmd");
+    merge()
+        .arch_input(&x86, 1)
+        .arch_input(&x64, 2)
+        .output(&merged)
+        .merge()
+        .unwrap();
+
+    let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
+    let mut values: Vec<_> = index.types().filter(|ty| ty.name() == "VALUE").collect();
+    values.sort_by_key(|ty| ty.arches());
+
+    assert_eq!(values.len(), 2);
+    assert_eq!(values[0].arches(), 1);
+    assert!(
+        values[0]
+            .fields()
+            .all(|field| !field.has_attribute("AlignmentAttribute"))
+    );
+    assert_eq!(values[1].arches(), 2);
+    assert!(
+        values[1]
+            .fields()
+            .find(|field| field.name() == "Second")
+            .unwrap()
+            .has_attribute("AlignmentAttribute")
+    );
+}
+
+#[test]
 fn arch_merge_normalizes_native_sized_callback_signature() {
     let dir = std::env::temp_dir().join("win_merge_native_callback");
     std::fs::create_dir_all(&dir).unwrap();

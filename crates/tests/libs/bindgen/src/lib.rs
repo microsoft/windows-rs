@@ -53,6 +53,23 @@ mod tests {
         assert_eq!(offset_of!(ArrayFieldAligned, Reserved), 1);
         assert_eq!(offset_of!(ArrayFieldAligned, Value), 8);
 
+        #[cfg(target_arch = "x86")]
+        {
+            assert_eq!(align_of::<PointerFieldAligned>(), 4);
+            assert_eq!(size_of::<PointerFieldAligned>(), 12);
+            assert_eq!(offset_of!(PointerFieldAligned, Pointer), 0);
+            assert_eq!(offset_of!(PointerFieldAligned, First), 4);
+            assert_eq!(offset_of!(PointerFieldAligned, Value), 8);
+        }
+        #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+        {
+            assert_eq!(align_of::<PointerFieldAligned>(), 8);
+            assert_eq!(size_of::<PointerFieldAligned>(), 24);
+            assert_eq!(offset_of!(PointerFieldAligned, Pointer), 0);
+            assert_eq!(offset_of!(PointerFieldAligned, First), 8);
+            assert_eq!(offset_of!(PointerFieldAligned, Value), 16);
+        }
+
         assert_eq!(align_of::<OverAligned>(), 32);
         assert_eq!(size_of::<OverAligned>(), 32);
         assert_eq!(offset_of!(OverAligned, value), 0);

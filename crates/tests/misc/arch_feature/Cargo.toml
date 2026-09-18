@@ -11,6 +11,7 @@ doctest = false
 [dev-dependencies.windows]
 workspace = true
 features = [
+    "clfs",
     "winnt",
     "ntenclv",
     "wdm",
@@ -19,6 +20,7 @@ features = [
 [dev-dependencies.windows-sys]
 workspace = true
 features = [
+    "clfs",
     "winnt",
     "ntenclv",
     "wdm",

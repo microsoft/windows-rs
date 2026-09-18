@@ -38,6 +38,37 @@ pub struct OverAligned {
     pub value: i32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PointerFieldAligned {
+    pub Pointer: *mut core::ffi::c_void,
+    pub First: u32,
+    pub Value: u32,
+}
+#[repr(C, align(8))]
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PointerFieldAligned {
+    pub Pointer: *mut core::ffi::c_void,
+    pub First: u32,
+    pub _padding: [u8; 4],
+    pub Value: u32,
+}
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+impl Default for PointerFieldAligned {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XmmFrame {
     pub Xmm0: M128A,

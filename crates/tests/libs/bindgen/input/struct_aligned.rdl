@@ -24,6 +24,19 @@ mod Test {
         #[align(8)]
         Value: u32,
     }
+    #[arch(X86)]
+    struct PointerFieldAligned {
+        Pointer: *mut void,
+        First: u32,
+        Value: u32,
+    }
+    #[arch(X64 | Arm64)]
+    struct PointerFieldAligned {
+        Pointer: *mut void,
+        First: u32,
+        #[align(8)]
+        Value: u32,
+    }
     #[align(32)]
     struct OverAligned {
         value: i32,

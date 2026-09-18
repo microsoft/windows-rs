@@ -920,7 +920,10 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
                 .constant()
                 .map(|c| format!("{:?}", c.value()))
                 .unwrap_or_default();
-            format!("{}:{:?}={val}", f.name(), f.ty())
+            let align = f
+                .find_attribute("AlignmentAttribute")
+                .map(|a| format!("{:?}", a.value()));
+            format!("{}:{:?}={val}@{align:?}", f.name(), f.ty())
         })
         .collect();
     let methods: Vec<String> = def

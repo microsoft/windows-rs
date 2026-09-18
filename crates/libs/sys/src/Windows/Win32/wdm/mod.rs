@@ -6384,9 +6384,10 @@ impl Default for IO_STACK_LOCATION_0 {
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
+    pub _padding: [u8; 4],
     pub FileAttributes: u16,
     pub ShareAccess: u16,
-    pub _padding: [u8; 4],
+    pub _padding2: [u8; 4],
     pub EaLength: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6399,13 +6400,21 @@ impl Default for IO_STACK_LOCATION_0_0 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
+    pub _padding: [u8; 4],
     pub Reserved: u16,
     pub ShareAccess: u16,
     pub Parameters: PNAMED_PIPE_CREATE_PARAMETERS,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6554,13 +6563,21 @@ pub struct IO_STACK_LOCATION_0_19 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
+    pub _padding: [u8; 4],
     pub Reserved: u16,
     pub ShareAccess: u16,
     pub Parameters: PMAILSLOT_CREATE_PARAMETERS,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

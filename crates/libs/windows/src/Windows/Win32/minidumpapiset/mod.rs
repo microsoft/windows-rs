@@ -1139,6 +1139,7 @@ impl Default for MINIDUMP_THREAD_CALLBACK {
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::HANDLE,
+    pub _padding: [u8; 4],
     pub Context: super::CONTEXT,
     pub SizeOfContext: u32,
     pub StackBase: u64,
@@ -1211,6 +1212,7 @@ impl Default for MINIDUMP_THREAD_EX_CALLBACK {
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::HANDLE,
+    pub _padding: [u8; 4],
     pub Context: super::CONTEXT,
     pub SizeOfContext: u32,
     pub StackBase: u64,

@@ -1,5 +1,10 @@
 #[win32]
 mod Test {
+    struct FieldAligned {
+        First: u32,
+        #[align(8)]
+        Second: u32,
+    }
     #[align(16)]
     struct M128A {
         Low: u64,

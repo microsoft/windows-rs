@@ -1,6 +1,24 @@
 #![cfg(windows)]
 
 #[test]
+fn clfs_aligned_layout() {
+    use windows::Win32::CLS_SCAN_CONTEXT;
+
+    assert_eq!(8, align_of::<CLS_SCAN_CONTEXT>());
+    assert_eq!(56, size_of::<CLS_SCAN_CONTEXT>());
+    assert_eq!(0, core::mem::offset_of!(CLS_SCAN_CONTEXT, cidNode));
+    assert_eq!(8, core::mem::offset_of!(CLS_SCAN_CONTEXT, hLog));
+    assert_eq!(16, core::mem::offset_of!(CLS_SCAN_CONTEXT, cIndex));
+    assert_eq!(24, core::mem::offset_of!(CLS_SCAN_CONTEXT, cContainers));
+    assert_eq!(
+        32,
+        core::mem::offset_of!(CLS_SCAN_CONTEXT, cContainersReturned)
+    );
+    assert_eq!(40, core::mem::offset_of!(CLS_SCAN_CONTEXT, eScanMode));
+    assert_eq!(48, core::mem::offset_of!(CLS_SCAN_CONTEXT, pinfoContainer));
+}
+
+#[test]
 #[cfg(target_arch = "x86_64")]
 #[expect(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested
 fn test() {

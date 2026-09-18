@@ -938,13 +938,27 @@ impl Type {
     }
 
     pub fn size(&self, reader: &Reader) -> usize {
+        self.size_with_pointer_size(reader, 4)
+    }
+
+    pub(crate) fn size_with_pointer_size(&self, reader: &Reader, pointer_size: usize) -> usize {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
             Self::I64 | Self::U64 | Self::F64 => 8,
             Self::GUID => 16,
-            Self::ArrayFixed(ty, len) => ty.size(reader) * len,
-            Self::CppStruct(ty) => ty.size(reader),
+            Self::ISize
+            | Self::USize
+            | Self::PSTR
+            | Self::PCSTR
+            | Self::PWSTR
+            | Self::PCWSTR
+            | Self::IUnknown
+            | Self::BSTR
+            | Self::PtrConst(_, _)
+            | Self::PtrMut(_, _) => pointer_size,
+            Self::ArrayFixed(ty, len) => ty.size_with_pointer_size(reader, pointer_size) * len,
+            Self::CppStruct(ty) => ty.size_with_pointer_size(reader, pointer_size),
             Self::Struct(ty) => ty.size(reader),
             Self::CppEnum(ty) => ty.size(reader),
             _ => 4,
@@ -952,12 +966,26 @@ impl Type {
     }
 
     pub fn align(&self, reader: &Reader) -> usize {
+        self.align_with_pointer_size(reader, 4)
+    }
+
+    pub(crate) fn align_with_pointer_size(&self, reader: &Reader, pointer_size: usize) -> usize {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
             Self::I64 | Self::U64 | Self::F64 => 8,
-            Self::ArrayFixed(ty, _) => ty.align(reader),
-            Self::CppStruct(ty) => ty.align(reader),
+            Self::ISize
+            | Self::USize
+            | Self::PSTR
+            | Self::PCSTR
+            | Self::PWSTR
+            | Self::PCWSTR
+            | Self::IUnknown
+            | Self::BSTR
+            | Self::PtrConst(_, _)
+            | Self::PtrMut(_, _) => pointer_size,
+            Self::ArrayFixed(ty, _) => ty.align_with_pointer_size(reader, pointer_size),
+            Self::CppStruct(ty) => ty.align_with_pointer_size(reader, pointer_size),
             Self::Struct(ty) => ty.align(reader),
             Self::CppEnum(ty) => ty.align(reader),
             _ => 4,

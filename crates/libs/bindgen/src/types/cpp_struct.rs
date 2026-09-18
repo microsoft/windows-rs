@@ -183,6 +183,7 @@ impl CppStruct {
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
         let has_explicit_layout = self.has_explicit_layout(config.reader);
         let has_packing = self.has_packing(config.reader);
+        let pointer_size = self.pointer_size();
         let packing = self
             .def
             .class_layout()
@@ -216,8 +217,8 @@ impl CppStruct {
             for (field, name, ty) in &fields {
                 if !is_union {
                     let natural_align = packing.map_or_else(
-                        || ty.align(config.reader),
-                        |p| p.min(ty.align(config.reader)),
+                        || ty.align_with_pointer_size(config.reader, pointer_size),
+                        |p| p.min(ty.align_with_pointer_size(config.reader, pointer_size)),
                     );
                     let natural_offset = align_up(cursor, natural_align);
                     let forced_offset = field_alignment(field)
@@ -238,7 +239,8 @@ impl CppStruct {
                         let len = Literal::usize_unsuffixed(forced_offset - cursor);
                         output.push(quote! { pub #padding_name: [u8; #len], });
                     }
-                    cursor = forced_offset.max(natural_offset) + ty.size(config.reader);
+                    cursor = forced_offset.max(natural_offset)
+                        + ty.size_with_pointer_size(config.reader, pointer_size);
                 }
 
                 let name = to_ident(name);
@@ -481,7 +483,7 @@ impl CppStruct {
             .chain(self.nested.values().cloned())
     }
 
-    pub fn size(&self, reader: &Reader) -> usize {
+    pub(crate) fn size_with_pointer_size(&self, reader: &Reader, pointer_size: usize) -> usize {
         let packing = self
             .def
             .class_layout()
@@ -490,26 +492,33 @@ impl CppStruct {
         let size = if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
             self.def
                 .fields()
-                .map(|field| field.field_type(Some(self), reader).size(reader))
+                .map(|field| {
+                    field
+                        .field_type(Some(self), reader)
+                        .size_with_pointer_size(reader, pointer_size)
+                })
                 .max()
                 .unwrap_or(1)
         } else {
             let mut cursor = 0;
             for field in self.def.fields() {
                 let ty = field.field_type(Some(self), reader);
-                let natural_align =
-                    packing.map_or_else(|| ty.align(reader), |p| p.min(ty.align(reader)));
+                let natural_align = packing.map_or_else(
+                    || ty.align_with_pointer_size(reader, pointer_size),
+                    |p| p.min(ty.align_with_pointer_size(reader, pointer_size)),
+                );
                 let natural_offset = align_up(cursor, natural_align);
                 let forced_offset =
                     field_alignment(&field).map_or(natural_offset, |align| align_up(cursor, align));
-                cursor = forced_offset.max(natural_offset) + ty.size(reader);
+                cursor = forced_offset.max(natural_offset)
+                    + ty.size_with_pointer_size(reader, pointer_size);
             }
             cursor.max(1)
         };
-        align_up(size, self.align(reader))
+        align_up(size, self.align_with_pointer_size(reader, pointer_size))
     }
 
-    pub fn align(&self, reader: &Reader) -> usize {
+    pub(crate) fn align_with_pointer_size(&self, reader: &Reader, pointer_size: usize) -> usize {
         let packing = self
             .def
             .class_layout()
@@ -519,7 +528,9 @@ impl CppStruct {
             .def
             .fields()
             .map(|field| {
-                let align = field.field_type(Some(self), reader).align(reader);
+                let align = field
+                    .field_type(Some(self), reader)
+                    .align_with_pointer_size(reader, pointer_size);
                 packing.map_or(align, |packing| packing.min(align))
             })
             .max()
@@ -527,6 +538,11 @@ impl CppStruct {
 
         self.required_align()
             .map_or(derived, |forced| forced.max(derived))
+    }
+
+    fn pointer_size(&self) -> usize {
+        let arches = self.def.arches();
+        if arches != 0 && arches & 1 == 0 { 8 } else { 4 }
     }
 
     fn required_align(&self) -> Option<usize> {
