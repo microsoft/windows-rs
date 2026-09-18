@@ -1497,8 +1497,8 @@ fn explicitly_aligned_fields_preserve_record_layout() {
     .unwrap();
 
     assert!(rdl.contains("#[align(8)]\n    struct ALIGNED_FIELDS"));
-    assert!(rdl.contains("count: u32"));
-    assert!(rdl.contains("mode: u8"));
+    assert!(rdl.contains("#[align(8)] mode: u8"));
+    assert!(rdl.contains("#[align(8)] next: *mut void"));
 }
 
 #[test]

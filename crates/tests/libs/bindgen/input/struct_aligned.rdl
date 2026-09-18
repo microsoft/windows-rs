@@ -10,6 +10,20 @@ mod Test {
         Xmm0: M128A,
         Flags: u32,
     }
+    struct FieldAligned {
+        First: u32,
+        #[align(8)]
+        Second: u32,
+        #[align(8)]
+        Third: u32,
+        Pointer: *mut void,
+    }
+    struct ArrayFieldAligned {
+        First: u8,
+        Reserved: [u8; 3],
+        #[align(8)]
+        Value: u32,
+    }
     #[align(32)]
     struct OverAligned {
         value: i32,

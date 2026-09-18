@@ -8245,13 +8245,21 @@ impl Default for IO_STACK_LOCATION_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
     pub FileAttributes: u16,
     pub ShareAccess: u16,
+    pub _padding: [u8; 4],
     pub EaLength: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8267,12 +8275,20 @@ pub struct IO_STACK_LOCATION_0_1 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: u32,
     pub EaList: *mut core::ffi::c_void,
     pub EaListLength: u32,
+    pub _padding: [u8; 4],
     pub EaIndex: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8284,28 +8300,53 @@ pub struct IO_STACK_LOCATION_0_11 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_12 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub FsInformationClass: FS_INFORMATION_CLASS,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_12 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_13 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub FsInformationClass: FS_INFORMATION_CLASS,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_13 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: u32,
+    pub _padding: [u8; 4],
     pub InputBufferLength: u32,
+    pub _padding2: [u8; 4],
     pub FsControlCode: u32,
     pub Type3InputBuffer: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_14 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8326,20 +8367,37 @@ impl Default for IO_STACK_LOCATION_0_15 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: u32,
+    pub _padding: [u8; 4],
     pub InputBufferLength: u32,
+    pub _padding2: [u8; 4],
     pub IoControlCode: u32,
     pub Type3InputBuffer: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_17 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
+    pub _padding: [u8; 4],
     pub Length: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_17 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8436,12 +8494,20 @@ pub struct IO_STACK_LOCATION_0_27 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_28 {
     pub WhichSpace: u32,
     pub Buffer: *mut core::ffi::c_void,
     pub Offset: u32,
+    pub _padding: [u8; 4],
     pub Length: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_28 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8456,6 +8522,7 @@ pub struct IO_STACK_LOCATION_0_29 {
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_3 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub Key: u32,
     pub Flags: u32,
     pub ByteOffset: super::LARGE_INTEGER,
@@ -8477,10 +8544,18 @@ pub struct IO_STACK_LOCATION_0_30 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_31 {
     pub DeviceTextType: DEVICE_TEXT_TYPE,
+    pub _padding: [u8; 4],
     pub LocaleId: super::LCID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_31 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8489,6 +8564,7 @@ pub struct IO_STACK_LOCATION_0_31 {
 pub struct IO_STACK_LOCATION_0_32 {
     pub InPath: super::BOOLEAN,
     pub Reserved: [super::BOOLEAN; 3],
+    pub _padding: [u8; 4],
     pub Type: DEVICE_USAGE_NOTIFICATION_TYPE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8518,8 +8594,11 @@ pub struct IO_STACK_LOCATION_0_34 {
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_35 {
     pub Anonymous: IO_STACK_LOCATION_0_35_0,
+    pub _padding: [u8; 4],
     pub Type: POWER_STATE_TYPE,
+    pub _padding2: [u8; 4],
     pub State: POWER_STATE,
+    pub _padding3: [u8; 4],
     pub ShutdownType: super::POWER_ACTION,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8578,6 +8657,7 @@ pub struct IO_STACK_LOCATION_0_38 {
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_4 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub Key: u32,
     pub Flags: u32,
     pub ByteOffset: super::LARGE_INTEGER,
@@ -8592,37 +8672,70 @@ impl Default for IO_STACK_LOCATION_0_4 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: u32,
     pub FileName: super::PUNICODE_STRING,
     pub FileInformationClass: FILE_INFORMATION_CLASS,
+    pub _padding: [u8; 4],
     pub FileIndex: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_6 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub CompletionFilter: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_7 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub CompletionFilter: u32,
+    pub _padding2: [u8; 4],
     pub DirectoryNotifyInformationClass: DIRECTORY_NOTIFY_INFORMATION_CLASS,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub FileInformationClass: FILE_INFORMATION_CLASS,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8630,6 +8743,7 @@ pub struct IO_STACK_LOCATION_0_8 {
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_9 {
     pub Length: u32,
+    pub _padding: [u8; 4],
     pub FileInformationClass: FILE_INFORMATION_CLASS,
     pub FileObject: PFILE_OBJECT,
     pub Anonymous: IO_STACK_LOCATION_0_9_0,

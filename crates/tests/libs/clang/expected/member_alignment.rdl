@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    struct DEVICE_CONTROL {
+        OutputBufferLength: u32,
+        #[align(8)] InputBufferLength: u32,
+        #[align(8)] IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+    #[align(8)]
+    struct QUERY_SECURITY {
+        SecurityInformation: u32,
+        #[align(8)] Length: u32,
+    }
+}

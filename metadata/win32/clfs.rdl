@@ -154,10 +154,15 @@ mod Windows {
         struct CLS_SCAN_CONTEXT {
             cidNode: CLFS_NODE_ID,
             hLog: HANDLE,
+            #[align(8)]
             cIndex: u32,
+            #[align(8)]
             cContainers: u32,
+            #[align(8)]
             cContainersReturned: u32,
+            #[align(8)]
             eScanMode: CLFS_SCAN_MODE,
+            #[align(8)]
             pinfoContainer: PCLS_CONTAINER_INFORMATION,
         }
         #[arch(X64 | Arm64)]
@@ -165,8 +170,11 @@ mod Windows {
             cidNode: CLFS_NODE_ID,
             hLog: HANDLE,
             cIndex: u32,
+            #[align(8)]
             cContainers: u32,
+            #[align(8)]
             cContainersReturned: u32,
+            #[align(8)]
             eScanMode: CLFS_SCAN_MODE,
             pinfoContainer: PCLS_CONTAINER_INFORMATION,
         }

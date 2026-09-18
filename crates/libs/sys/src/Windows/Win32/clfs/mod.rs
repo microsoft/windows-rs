@@ -160,28 +160,49 @@ pub type CLS_RECORD_TYPE = u8;
 #[repr(C, align(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::HANDLE,
+    pub _padding: [u8; 4],
     pub cIndex: u32,
+    pub _padding2: [u8; 4],
     pub cContainers: u32,
+    pub _padding3: [u8; 4],
     pub cContainersReturned: u32,
+    pub _padding4: [u8; 4],
     pub eScanMode: CLFS_SCAN_MODE,
+    pub _padding5: [u8; 7],
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for CLS_SCAN_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::HANDLE,
     pub cIndex: u32,
     pub cContainers: u32,
+    pub _padding: [u8; 4],
     pub cContainersReturned: u32,
+    pub _padding2: [u8; 4],
     pub eScanMode: CLFS_SCAN_MODE,
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for CLS_SCAN_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

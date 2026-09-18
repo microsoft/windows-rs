@@ -90,9 +90,14 @@ fn write_record(
                     hoisted,
                 )?;
                 let name = write_ident(field.name());
-                let field_attrs =
-                    write_custom_attributes(field.attributes(), namespace, field.index())?;
-                return Ok(quote! { #(#field_attrs)* #name: #inner, });
+                let align_attr = write_field_align_attr(&field);
+                let field_attrs = write_custom_attributes_except(
+                    field.attributes(),
+                    namespace,
+                    field.index(),
+                    &["AlignmentAttribute"],
+                )?;
+                return Ok(quote! { #align_attr #(#field_attrs)* #name: #inner, });
             }
             write_field_flat(namespace, &field, &flat_names)
         })
@@ -197,6 +202,7 @@ fn write_field_flat(
     let name = write_ident(item.name());
     let resolved_ty = resolve_nested(&item.ty(), namespace, flat_names);
     let ty = write_type(namespace, &resolved_ty);
+    let align_attr = write_field_align_attr(item);
 
     // Bit-field backing units render as C-like blocks instead of raw attributes.
     let members = collect_bitfield_members(item);
@@ -206,13 +212,18 @@ fn write_field_flat(
             item.attributes(),
             namespace,
             item.index(),
-            &["NativeBitfieldAttribute"],
+            &["AlignmentAttribute", "NativeBitfieldAttribute"],
         )?;
-        return Ok(quote! { #(#field_attrs)* #name: #ty { #(#block)* }, });
+        return Ok(quote! { #align_attr #(#field_attrs)* #name: #ty { #(#block)* }, });
     }
 
-    let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
-    Ok(quote! { #(#field_attrs)* #name: #ty, })
+    let field_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["AlignmentAttribute"],
+    )?;
+    Ok(quote! { #align_attr #(#field_attrs)* #name: #ty, })
 }
 
 fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
@@ -307,6 +318,17 @@ fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
 }
 
 fn write_align_attr(item: &metadata::reader::TypeDef) -> TokenStream {
+    let Some(attribute) = item.find_attribute("AlignmentAttribute") else {
+        return quote! {};
+    };
+    let Some((_, metadata::Value::I32(alignment))) = attribute.value().into_iter().next() else {
+        return quote! {};
+    };
+    let size_literal = Literal::i32_unsuffixed(alignment);
+    quote! { #[align(#size_literal)] }
+}
+
+fn write_field_align_attr(item: &metadata::reader::Field) -> TokenStream {
     let Some(attribute) = item.find_attribute("AlignmentAttribute") else {
         return quote! {};
     };

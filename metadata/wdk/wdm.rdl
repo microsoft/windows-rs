@@ -3376,13 +3376,16 @@ mod Windows {
                 Create: struct {
                     SecurityContext: PIO_SECURITY_CONTEXT,
                     Options: u32,
+                    #[align(8)]
                     FileAttributes: u16,
                     ShareAccess: u16,
+                    #[align(8)]
                     EaLength: u32,
                 },
                 CreatePipe: struct {
                     SecurityContext: PIO_SECURITY_CONTEXT,
                     Options: u32,
+                    #[align(8)]
                     Reserved: u16,
                     ShareAccess: u16,
                     Parameters: PNAMED_PIPE_CREATE_PARAMETERS,
@@ -3390,18 +3393,21 @@ mod Windows {
                 CreateMailslot: struct {
                     SecurityContext: PIO_SECURITY_CONTEXT,
                     Options: u32,
+                    #[align(8)]
                     Reserved: u16,
                     ShareAccess: u16,
                     Parameters: PMAILSLOT_CREATE_PARAMETERS,
                 },
                 Read: struct {
                     Length: u32,
+                    #[align(8)]
                     Key: u32,
                     Flags: u32,
                     ByteOffset: LARGE_INTEGER,
                 },
                 Write: struct {
                     Length: u32,
+                    #[align(8)]
                     Key: u32,
                     Flags: u32,
                     ByteOffset: LARGE_INTEGER,
@@ -3410,23 +3416,29 @@ mod Windows {
                     Length: u32,
                     FileName: PUNICODE_STRING,
                     FileInformationClass: FILE_INFORMATION_CLASS,
+                    #[align(8)]
                     FileIndex: u32,
                 },
                 NotifyDirectory: #[align(8)] struct {
                     Length: u32,
+                    #[align(8)]
                     CompletionFilter: u32,
                 },
                 NotifyDirectoryEx: #[align(8)] struct {
                     Length: u32,
+                    #[align(8)]
                     CompletionFilter: u32,
+                    #[align(8)]
                     DirectoryNotifyInformationClass: DIRECTORY_NOTIFY_INFORMATION_CLASS,
                 },
                 QueryFile: #[align(8)] struct {
                     Length: u32,
+                    #[align(8)]
                     FileInformationClass: FILE_INFORMATION_CLASS,
                 },
                 SetFile: struct {
                     Length: u32,
+                    #[align(8)]
                     FileInformationClass: FILE_INFORMATION_CLASS,
                     FileObject: PFILE_OBJECT,
                     Anonymous: union {
@@ -3442,6 +3454,7 @@ mod Windows {
                     Length: u32,
                     EaList: *mut void,
                     EaListLength: u32,
+                    #[align(8)]
                     EaIndex: u32,
                 },
                 SetEa: struct {
@@ -3449,15 +3462,19 @@ mod Windows {
                 },
                 QueryVolume: #[align(8)] struct {
                     Length: u32,
+                    #[align(8)]
                     FsInformationClass: FS_INFORMATION_CLASS,
                 },
                 SetVolume: #[align(8)] struct {
                     Length: u32,
+                    #[align(8)]
                     FsInformationClass: FS_INFORMATION_CLASS,
                 },
                 FileSystemControl: struct {
                     OutputBufferLength: u32,
+                    #[align(8)]
                     InputBufferLength: u32,
+                    #[align(8)]
                     FsControlCode: u32,
                     Type3InputBuffer: *mut void,
                 },
@@ -3468,12 +3485,15 @@ mod Windows {
                 },
                 DeviceIoControl: struct {
                     OutputBufferLength: u32,
+                    #[align(8)]
                     InputBufferLength: u32,
+                    #[align(8)]
                     IoControlCode: u32,
                     Type3InputBuffer: *mut void,
                 },
                 QuerySecurity: #[align(8)] struct {
                     SecurityInformation: SECURITY_INFORMATION,
+                    #[align(8)]
                     Length: u32,
                 },
                 SetSecurity: struct {
@@ -3521,6 +3541,7 @@ mod Windows {
                     WhichSpace: u32,
                     Buffer: *mut void,
                     Offset: u32,
+                    #[align(8)]
                     Length: u32,
                 },
                 SetLock: struct {
@@ -3531,11 +3552,13 @@ mod Windows {
                 },
                 QueryDeviceText: #[align(8)] struct {
                     DeviceTextType: DEVICE_TEXT_TYPE,
+                    #[align(8)]
                     LocaleId: LCID,
                 },
                 UsageNotification: #[align(8)] struct {
                     InPath: BOOLEAN,
                     Reserved: [BOOLEAN; 3],
+                    #[align(8)]
                     Type: DEVICE_USAGE_NOTIFICATION_TYPE,
                 },
                 WaitWake: struct {
@@ -3549,8 +3572,11 @@ mod Windows {
                         SystemContext: u32,
                         SystemPowerStateContext: SYSTEM_POWER_STATE_CONTEXT,
                     },
+                    #[align(8)]
                     Type: POWER_STATE_TYPE,
+                    #[align(8)]
                     State: POWER_STATE,
+                    #[align(8)]
                     ShutdownType: POWER_ACTION,
                 },
                 StartDevice: struct {

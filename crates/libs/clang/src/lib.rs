@@ -223,6 +223,7 @@ pub struct Field {
     pub ty: TypeRef,
     pub offset: i64,
     pub align: i64,
+    pub alignment: Option<i64>,
     pub size: i64,
     pub bit_width: Option<u32>,
 }
@@ -2251,10 +2252,11 @@ fn choose_type_root_cached<'a>(
                                     .iter()
                                     .map(|field| {
                                         format!(
-                                            "{}:{}:{}:{}:{:?}:{:?}",
+                                            "{}:{}:{}:{:?}:{}:{:?}:{:?}",
                                             field.name,
                                             field.offset,
                                             field.align,
+                                            field.alignment,
                                             field.size,
                                             field.bit_width,
                                             write(
@@ -3597,9 +3599,14 @@ fn write_record_fields(
             index += 1;
             continue;
         }
+        if let Some(alignment) = field.alignment {
+            result.push_str(&format!("{spaces}#[align({alignment})] "));
+        } else {
+            result.push_str(&spaces);
+        }
         if let TypeRef::InlineRecord(record) = &field.ty {
             let keyword = if record.union { "union" } else { "struct" };
-            result.push_str(&format!("{spaces}{}: ", rdl_ident(&field.name)));
+            result.push_str(&format!("{}: ", rdl_ident(&field.name)));
             if let Some(packing) = record.packing {
                 result.push_str(&format!("#[packed({packing})] "));
             }
@@ -3618,7 +3625,7 @@ fn write_record_fields(
         }
         if field.bit_width.is_none() {
             result.push_str(&format!(
-                "{spaces}{}: {},\n",
+                "{}: {},\n",
                 rdl_ident(&field.name),
                 projection.name(&field.ty)
             ));
@@ -3632,17 +3639,14 @@ fn write_record_fields(
         } else {
             format!("_bitfield{group_index}")
         };
-        result.push_str(&format!(
-            "{spaces}{backing}: {} {{\n",
-            projection.name(&field.ty)
-        ));
-        let mut cursor = group.offset;
+        result.push_str(&format!("{backing}: {} {{\n", projection.name(&field.ty)));
+        let mut bit_cursor = group.offset;
         for member in &fields[group.start..group.end] {
-            if member.offset > cursor {
+            if member.offset > bit_cursor {
                 result.push_str(&format!(
                     "{}_: {},\n",
                     " ".repeat(indent + 4),
-                    member.offset - cursor
+                    member.offset - bit_cursor
                 ));
             }
             let width = member.bit_width.unwrap();
@@ -3652,7 +3656,7 @@ fn write_record_fields(
                 rdl_ident(&member.name)
             };
             result.push_str(&format!("{}{name}: {width},\n", " ".repeat(indent + 4)));
-            cursor = member.offset + i64::from(width);
+            bit_cursor = member.offset + i64::from(width);
         }
         result.push_str(&format!("{spaces}}},\n"));
         index = group.end;
@@ -3665,7 +3669,7 @@ fn record_layout(
     size: i64,
     align: i64,
     union: bool,
-) -> Result<(Option<i64>, Option<i64>), String> {
+) -> Result<(Option<i64>, Option<i64>, Vec<Option<i64>>), String> {
     if size < 0 || align <= 0 {
         return Err(format!(
             "invalid record layout: size {size}, alignment {align}"
@@ -3687,16 +3691,18 @@ fn record_layout(
         let mut cursor = 0;
         let mut natural_align = 1;
         let mut matches = true;
+        let mut field_alignments: Vec<_> = fields.iter().map(|field| field.alignment).collect();
         let mut group_index = 0;
         let mut index = 0;
         while index < fields.len() {
             let field = &fields[index];
             let field_align = packing.map_or(field.align, |packing| packing.min(field.align));
             natural_align = natural_align.max(field_align);
+            let effective_align = field.alignment.unwrap_or(field_align);
             let mut offset = if union {
                 0
             } else {
-                align_up(cursor, field_align)
+                align_up(cursor, effective_align)
             };
             if offset * 8 != field.offset {
                 let explicit_align = [2, 4, 8, 16]
@@ -3707,6 +3713,7 @@ fn record_layout(
                     matches = false;
                     break;
                 };
+                field_alignments[index] = Some(explicit_align);
                 offset = align_up(cursor, explicit_align);
             }
             let expected = offset * 8;
@@ -3748,12 +3755,15 @@ fn record_layout(
         };
         if (cursor == 0 && size == 1) || align_up(content_size, align) == size {
             let score = (alignment.is_none(), natural_align);
-            if best.is_none_or(|(_, _, best_score)| score > best_score) {
-                best = Some((packing, alignment, score));
+            if best
+                .as_ref()
+                .is_none_or(|(_, _, _, best_score)| score > *best_score)
+            {
+                best = Some((packing, alignment, field_alignments, score));
             }
         }
     }
-    best.map(|(packing, alignment, _)| (packing, alignment))
+    best.map(|(packing, alignment, field_alignments, _)| (packing, alignment, field_alignments))
         .ok_or_else(|| "record fields cannot reproduce Clang's layout".to_string())
 }
 

@@ -31,8 +31,8 @@ mod Windows {
             attribute SupportedArchitectureAttribute {
                 fn(architecture: i32);
             }
-            // Carries a raised structure alignment that packing alone cannot express.
-            // RDL: `#[align(N)]`.
+            // Carries raised record or field alignment that packing alone cannot express.
+            // RDL: `#[align(N)]` on a record or field.
             attribute AlignmentAttribute {
                 fn(alignment: i32);
             }

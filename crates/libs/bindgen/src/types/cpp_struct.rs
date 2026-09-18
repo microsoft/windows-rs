@@ -27,6 +27,17 @@ impl PartialEq for CppStruct {
 
 impl Eq for CppStruct {}
 
+fn align_up(value: usize, align: usize) -> usize {
+    value.div_ceil(align) * align
+}
+
+fn field_alignment(field: &Field) -> Option<usize> {
+    match field.find_attribute("AlignmentAttribute")?.value().first() {
+        Some((_, Value::I32(alignment))) if *alignment > 0 => Some(*alignment as usize),
+        _ => None,
+    }
+}
+
 impl std::hash::Hash for CppStruct {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.def.hash(state);
@@ -172,21 +183,64 @@ impl CppStruct {
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
         let has_explicit_layout = self.has_explicit_layout(config.reader);
         let has_packing = self.has_packing(config.reader);
+        let packing = self
+            .def
+            .class_layout()
+            .map(|layout| layout.packing_size() as usize)
+            .filter(|packing| *packing > 0);
 
         let fields: Vec<_> = self
             .def
             .fields()
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
-            .map(|field| (field.name(), field.field_type(Some(self), config.reader)))
+            .map(|field| {
+                (
+                    field,
+                    field.name(),
+                    field.field_type(Some(self), config.reader),
+                )
+            })
             .collect();
 
         let is_copyable = self.is_copyable(config.reader);
-        let is_eq = fields.iter().all(|(_, ty)| ty.is_eq(config.reader));
+        let is_eq = fields.iter().all(|(_, _, ty)| ty.is_eq(config.reader));
 
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
-        let fields = {
-            let fields = fields.iter().map(|(name, ty)| {
+        let (fields, has_padding) = {
+            let names: BTreeSet<_> = fields.iter().map(|(_, name, _)| *name).collect();
+            let mut cursor = 0;
+            let mut padding_index = 0;
+            let mut has_padding = false;
+            let mut output = vec![];
+            for (field, name, ty) in &fields {
+                if !is_union {
+                    let natural_align = packing.map_or_else(
+                        || ty.align(config.reader),
+                        |p| p.min(ty.align(config.reader)),
+                    );
+                    let natural_offset = align_up(cursor, natural_align);
+                    let forced_offset = field_alignment(field)
+                        .map_or(natural_offset, |align| align_up(cursor, align));
+                    if forced_offset > natural_offset {
+                        has_padding = true;
+                        let mut padding_name = if padding_index == 0 {
+                            "_padding".to_string()
+                        } else {
+                            format!("_padding{}", padding_index + 1)
+                        };
+                        while names.contains(padding_name.as_str()) {
+                            padding_index += 1;
+                            padding_name = format!("_padding{}", padding_index + 1);
+                        }
+                        padding_index += 1;
+                        let padding_name = to_ident(&padding_name);
+                        let len = Literal::usize_unsuffixed(forced_offset - cursor);
+                        output.push(quote! { pub #padding_name: [u8; #len], });
+                    }
+                    cursor = forced_offset.max(natural_offset) + ty.size(config.reader);
+                }
+
                 let name = to_ident(name);
 
                 let ty =
@@ -207,12 +261,10 @@ impl CppStruct {
                         ty.write_default(field_config)
                     };
 
-                quote! { pub #name: #ty, }
-            });
+                output.push(quote! { pub #name: #ty, });
+            }
 
-            let fields = quote! { #(#fields)* };
-
-            if fields.is_empty() {
+            let fields = if output.is_empty() {
                 if is_union {
                     quote! {
                         { pub value: u8 }
@@ -224,9 +276,10 @@ impl CppStruct {
                 }
             } else {
                 quote! {
-                    { #fields }
+                    { #(#output)* }
                 }
-            }
+            };
+            (fields, has_padding)
         };
 
         let mut derive = DeriveWriter::new(config, self.type_name());
@@ -259,7 +312,7 @@ impl CppStruct {
             }
         }
 
-        let default = if self.can_derive_default(config) {
+        let default = if !has_padding && self.can_derive_default(config) {
             derive.extend(["Default"]);
             quote! {}
         } else {

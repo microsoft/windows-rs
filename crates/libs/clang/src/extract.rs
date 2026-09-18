@@ -3141,6 +3141,7 @@ fn inline_record(cursor: CXCursor, union: bool) -> Result<InlineRecord, String> 
                 ty: base_ref.clone(),
                 offset,
                 align,
+                alignment: None,
                 size,
                 bit_width: None,
             });
@@ -3177,6 +3178,7 @@ fn inline_record(cursor: CXCursor, union: bool) -> Result<InlineRecord, String> 
                 } else {
                     unsafe { clang_Type_getAlignOf(field_ty) }
                 },
+                alignment: None,
                 size: if field_ty.kind == CXType_IncompleteArray {
                     0
                 } else {
@@ -3207,6 +3209,7 @@ fn inline_record(cursor: CXCursor, union: bool) -> Result<InlineRecord, String> 
                 },
                 offset: promoted - relative,
                 align: nested.align,
+                alignment: None,
                 size: nested.size,
                 bit_width: None,
                 ty: TypeRef::InlineRecord(Box::new(nested)),
@@ -3226,8 +3229,11 @@ fn inline_record(cursor: CXCursor, union: bool) -> Result<InlineRecord, String> 
     let ty = unsafe { clang_getCursorType(cursor) };
     let size = unsafe { clang_Type_getSizeOf(ty) };
     let align = unsafe { clang_Type_getAlignOf(ty) };
-    let (packing, alignment) = record_layout(&fields, size, align, union)
+    let (packing, alignment, field_alignments) = record_layout(&fields, size, align, union)
         .map_err(|reason| format!("{reason}: fields {fields:?}, size {size}, alignment {align}"))?;
+    for (field, alignment) in fields.iter_mut().zip(field_alignments) {
+        field.alignment = alignment;
+    }
     Ok(InlineRecord {
         name: None,
         base,

@@ -956,7 +956,7 @@ impl Type {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
             Self::I64 | Self::U64 | Self::F64 => 8,
-            Self::ArrayFixed(ty, len) => ty.align(reader) * len,
+            Self::ArrayFixed(ty, _) => ty.align(reader),
             Self::CppStruct(ty) => ty.align(reader),
             Self::Struct(ty) => ty.align(reader),
             Self::CppEnum(ty) => ty.align(reader),

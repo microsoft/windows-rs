@@ -13,6 +13,7 @@ workspace = true
 features = [
     "winnt",
     "ntenclv",
+    "wdm",
 ]
 
 [dev-dependencies.windows-sys]
@@ -20,6 +21,7 @@ workspace = true
 features = [
     "winnt",
     "ntenclv",
+    "wdm",
 ]
 
 [lints]

@@ -860,6 +860,7 @@ mod Windows {
         struct MINIDUMP_THREAD_CALLBACK {
             ThreadId: u32,
             ThreadHandle: HANDLE,
+            #[align(8)]
             Context: CONTEXT,
             SizeOfContext: u32,
             StackBase: u64,
@@ -906,6 +907,7 @@ mod Windows {
         struct MINIDUMP_THREAD_EX_CALLBACK {
             ThreadId: u32,
             ThreadHandle: HANDLE,
+            #[align(8)]
             Context: CONTEXT,
             SizeOfContext: u32,
             StackBase: u64,

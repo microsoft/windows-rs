@@ -120,10 +120,16 @@ impl Encoder<'_> {
             if is_union {
                 self.output.FieldLayout(field_id, 0);
             }
+            if let Some(alignment) = self.read_align(&field.attrs)? {
+                self.emit_align_attribute(
+                    metadata::writer::HasAttribute::Field(field_id),
+                    alignment,
+                );
+            }
             self.encode_attrs(
                 metadata::writer::HasAttribute::Field(field_id),
                 &field.attrs,
-                &[],
+                &["align"],
             )?;
 
             // Anonymous padding advances the bit offset but emits no attribute.
