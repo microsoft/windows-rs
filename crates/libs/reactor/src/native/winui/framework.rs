@@ -12,6 +12,9 @@ pub(super) fn set(
     if let (PropertyId::Opacity, PropertyValue::F64(value)) = (property, value) {
         return element.SetOpacity(*value).map_err(native_error);
     }
+    if let (PropertyId::Transitions, PropertyValue::ThemeTransitions(value)) = (property, value) {
+        return set_theme_transitions(element, value);
+    }
 
     let element = element.cast::<FrameworkElement>().map_err(native_error)?;
     match (property, value) {
@@ -70,6 +73,7 @@ pub(super) fn clear(element: &UIElement, property: PropertyId) -> Result<(), Run
         PropertyId::MinHeight => FrameworkElement::MinHeightProperty(),
         PropertyId::MaxHeight => FrameworkElement::MaxHeightProperty(),
         PropertyId::Opacity => UIElement::OpacityProperty(),
+        PropertyId::Transitions => UIElement::TransitionsProperty(),
         PropertyId::HorizontalAlignment => FrameworkElement::HorizontalAlignmentProperty(),
         PropertyId::VerticalAlignment => FrameworkElement::VerticalAlignmentProperty(),
         PropertyId::Margin => FrameworkElement::MarginProperty(),
@@ -81,4 +85,20 @@ pub(super) fn clear(element: &UIElement, property: PropertyId) -> Result<(), Run
         .map_err(native_error)?
         .ClearValue(&dependency_property)
         .map_err(native_error)
+}
+
+fn set_theme_transitions(
+    element: &UIElement,
+    values: &[ThemeTransition],
+) -> Result<(), RuntimeError> {
+    let collection = TransitionCollection::new().map_err(native_error)?;
+    for value in values {
+        let transition = match value.kind {
+            ThemeTransitionKind::Reposition => RepositionThemeTransition::new()
+                .and_then(|value| value.cast::<Transition>())
+                .map_err(native_error)?,
+        };
+        collection.Append(&transition).map_err(native_error)?;
+    }
+    element.SetTransitions(&collection).map_err(native_error)
 }

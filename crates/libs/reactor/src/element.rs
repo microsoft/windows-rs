@@ -1908,6 +1908,30 @@ pub enum VerticalAlignment {
     Stretch,
 }
 
+/// A native WinUI animation applied when an element changes layout.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ThemeTransition {
+    pub(crate) kind: ThemeTransitionKind,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ThemeTransitionKind {
+    Reposition,
+}
+
+#[expect(non_upper_case_globals)]
+impl ThemeTransition {
+    /// Animates an element from its previous layout position to its new position.
+    pub const Reposition: Self = Self {
+        kind: ThemeTransitionKind::Reposition,
+    };
+}
+
+#[derive(Clone, Debug, Default, PartialEq)]
+struct TransitionState {
+    transitions: Property<Rc<Vec<ThemeTransition>>>,
+}
+
 #[derive(Clone, Debug, Default, PartialEq)]
 pub(crate) struct ElementState {
     width: Property<f64>,
@@ -1932,6 +1956,7 @@ pub(crate) struct ElementState {
     relative_align_vertical_center: bool,
     canvas_left: Option<f64>,
     canvas_top: Option<f64>,
+    transitions: Option<Rc<TransitionState>>,
     automation_name: Option<String>,
     automation_id: Option<String>,
     automation_heading_level: Option<AutomationHeadingLevel>,
@@ -2699,6 +2724,48 @@ pub trait LayoutControl: sealed::LayoutControl {
         self
     }
 
+    /// Applies native WinUI animations when this element changes layout.
+    fn transitions<T>(mut self, values: T) -> Self
+    where
+        Self: Sized,
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        Rc::make_mut(
+            Rc::make_mut(
+                sealed::LayoutControl::element_state_mut(&mut self)
+                    .get_or_insert_with(|| Rc::new(ElementState::default())),
+            )
+            .transitions
+            .get_or_insert_with(|| Rc::new(TransitionState::default())),
+        )
+        .transitions = Property::Set(Rc::new(values.into_iter().collect()));
+        self
+    }
+
+    /// Applies native WinUI animations or restores the inherited transition collection.
+    fn transitions_optional<T>(mut self, values: Option<T>) -> Self
+    where
+        Self: Sized,
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        let state = Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        );
+        match values {
+            Some(values) => {
+                Rc::make_mut(
+                    state
+                        .transitions
+                        .get_or_insert_with(|| Rc::new(TransitionState::default())),
+                )
+                .transitions = Property::Set(Rc::new(values.into_iter().collect()));
+            }
+            None => state.transitions = None,
+        }
+        self
+    }
+
     fn exit_transition(mut self, transition: ExitTransition) -> Self
     where
         Self: Sized,
@@ -3060,6 +3127,13 @@ pub(crate) fn visit_element_state(
         placement
             .and_then(|value| value.canvas_top)
             .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::Transitions,
+        placement
+            .and_then(|value| value.transitions.as_deref())
+            .and_then(|value| value.transitions.as_set())
+            .map(PropertyValueRef::ThemeTransitions),
     );
     visit(
         PropertyId::AutomationName,

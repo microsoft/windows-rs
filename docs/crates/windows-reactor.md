@@ -548,9 +548,15 @@ problems:
 | `open_window` | Opening an independent secondary window |
 | `run_window` | Running a native modal operation with the owning HWND |
 | `ItemsRepeater` | Virtualizing a large collection |
+| `ThemeTransition::Reposition` | Animating an element between layout-driven positions |
 
 Prefer component input over context for normal parent-to-child data, and prefer properties and
 messages over `ElementRef`. The declarative path is usually shorter and easier to maintain.
+
+Apply `ThemeTransition::Reposition` with `LayoutControl::transitions` when an existing element
+moves because its parent performs a new layout. For example, changing a retained child's margin
+within a `Grid` animates between the old and new positions. Changes to `Canvas.Left` and
+`Canvas.Top` are absolute positioning updates and do not trigger this WinUI transition.
 
 ## Deployment
 
@@ -576,6 +582,7 @@ concepts and behaviors:
 | [`use-effect`](../../crates/samples/reactor/use-effect) and [`context`](../../crates/samples/reactor/context) | Lifecycle work and shared data |
 | [`pointer-tracking`](../../crates/samples/reactor/pointer-tracking) | Pointer capture and movement |
 | [`exit-transition`](../../crates/samples/reactor/exit-transition) | Transition-driven removal |
+| [`theme-transition`](../../crates/samples/reactor/theme-transition) | Layout-driven reposition animation |
 | [`secondary-window`](../../crates/samples/reactor/secondary-window) | Multiple Reactor windows |
 | [`calculator`](../../crates/samples/reactor/calculator) | A larger component with derived state |
 

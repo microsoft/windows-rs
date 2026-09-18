@@ -44,6 +44,64 @@ fn common_element_state_is_available_on_every_layout_control() {
 }
 
 #[test]
+fn theme_transitions_mount_remain_stable_and_clear() {
+    let transitions = || [ThemeTransition::Reposition];
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(
+        Border::new()
+            .canvas_left(20.0)
+            .transitions(transitions())
+            .into(),
+    )
+    .unwrap();
+    let node = pump.root().unwrap();
+    assert!(matches!(
+        pump.runtime()
+            .node(node)
+            .and_then(|node| node.property(PropertyId::Transitions)),
+        Some(PropertyValue::ThemeTransitions(value))
+            if value.as_slice() == transitions().as_slice()
+    ));
+
+    let batches = pump.runtime().commands().len();
+    pump.update(
+        Border::new()
+            .canvas_left(80.0)
+            .transitions(transitions())
+            .into(),
+    )
+    .unwrap();
+    assert!(
+        pump.runtime().commands()[batches..]
+            .iter()
+            .flatten()
+            .all(|command| {
+                !matches!(
+                    command,
+                    Command::SetProperty {
+                        property: PropertyId::Transitions,
+                        ..
+                    }
+                )
+            })
+    );
+
+    pump.update(
+        Border::new()
+            .canvas_left(80.0)
+            .transitions_optional(None::<[ThemeTransition; 1]>)
+            .into(),
+    )
+    .unwrap();
+    assert_eq!(
+        pump.runtime()
+            .node(node)
+            .and_then(|node| node.property(PropertyId::Transitions)),
+        None
+    );
+}
+
+#[test]
 fn accelerators_and_automation_mount_update_and_clear() {
     let accelerators = || {
         KeyAccelerators::new([KeyAccelerator::new(
