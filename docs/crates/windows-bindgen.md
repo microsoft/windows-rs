@@ -233,6 +233,16 @@ signatures, dependencies, and remapping. Separate writers preserve the different
 - Win32 also has free exports, constants, handles, unions, nested types, and architecture-specific
   layout.
 
+### Aligned fields
+
+`AlignmentAttribute` on a field lowers to a zero-sized alignment marker before that field. Marker
+types are primitive integers with the requested alignment, so derived comparisons cannot depend on
+the contents of C padding bytes. Rust calculates any required padding from the surrounding field
+types for each target.
+
+Rust rejects a type that combines `repr(packed)` and `repr(align)`. Bindgen does not add field
+markers to packed records; their existing projection remains unchanged.
+
 ### Bit-field accessors
 
 Winmd has no bit-field syntax. The header pipeline stores each run in an integer field named

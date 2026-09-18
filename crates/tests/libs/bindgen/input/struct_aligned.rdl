@@ -24,19 +24,25 @@ mod Test {
         #[align(8)]
         Value: u32,
     }
-    #[arch(X86)]
-    struct PointerFieldAligned {
-        Pointer: *mut void,
-        First: u32,
-        Value: u32,
-    }
-    #[arch(X64 | Arm64)]
     struct PointerFieldAligned {
         Pointer: *mut void,
         First: u32,
         #[align(8)]
         Value: u32,
     }
+    struct CallbackFieldAligned {
+        Callback: Callback,
+        First: u32,
+        #[align(8)]
+        Value: u32,
+    }
+    struct WideFieldAligned {
+        _alignment: u8,
+        First: u32,
+        #[align(16)]
+        Value: u32,
+    }
+    extern fn Callback();
     #[align(32)]
     struct OverAligned {
         value: i32,

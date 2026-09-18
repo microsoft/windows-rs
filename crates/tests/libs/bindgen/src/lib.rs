@@ -55,8 +55,8 @@ mod tests {
 
         #[cfg(target_arch = "x86")]
         {
-            assert_eq!(align_of::<PointerFieldAligned>(), 4);
-            assert_eq!(size_of::<PointerFieldAligned>(), 12);
+            assert_eq!(align_of::<PointerFieldAligned>(), 8);
+            assert_eq!(size_of::<PointerFieldAligned>(), 16);
             assert_eq!(offset_of!(PointerFieldAligned, Pointer), 0);
             assert_eq!(offset_of!(PointerFieldAligned, First), 4);
             assert_eq!(offset_of!(PointerFieldAligned, Value), 8);
@@ -69,6 +69,36 @@ mod tests {
             assert_eq!(offset_of!(PointerFieldAligned, First), 8);
             assert_eq!(offset_of!(PointerFieldAligned, Value), 16);
         }
+
+        assert_eq!(
+            align_of::<CallbackFieldAligned>(),
+            align_of::<PointerFieldAligned>()
+        );
+        assert_eq!(
+            size_of::<CallbackFieldAligned>(),
+            size_of::<PointerFieldAligned>()
+        );
+        assert_eq!(offset_of!(CallbackFieldAligned, Callback), 0);
+        assert_eq!(
+            offset_of!(CallbackFieldAligned, First),
+            offset_of!(PointerFieldAligned, First)
+        );
+        assert_eq!(
+            offset_of!(CallbackFieldAligned, Value),
+            offset_of!(PointerFieldAligned, Value)
+        );
+
+        assert_eq!(align_of::<WideFieldAligned>(), 16);
+        assert_eq!(size_of::<WideFieldAligned>(), 32);
+        assert_eq!(offset_of!(WideFieldAligned, _alignment), 0);
+        assert_eq!(offset_of!(WideFieldAligned, First), 4);
+        assert_eq!(offset_of!(WideFieldAligned, Value), 16);
+
+        fn assert_value_traits<T: core::fmt::Debug + Default + Eq>() {}
+        assert_value_traits::<FieldAligned>();
+        assert_value_traits::<WideFieldAligned>();
+        assert_eq!(FieldAligned::default(), FieldAligned::default());
+        assert_eq!(WideFieldAligned::default(), WideFieldAligned::default());
 
         assert_eq!(align_of::<OverAligned>(), 32);
         assert_eq!(size_of::<OverAligned>(), 32);

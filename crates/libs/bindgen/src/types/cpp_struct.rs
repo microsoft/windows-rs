@@ -38,6 +38,17 @@ fn field_alignment(field: &Field) -> Option<usize> {
     }
 }
 
+fn alignment_marker(alignment: usize) -> TokenStream {
+    match alignment {
+        1 => quote! { u8 },
+        2 => quote! { u16 },
+        4 => quote! { u32 },
+        8 => quote! { u64 },
+        16 => quote! { u128 },
+        _ => panic!("unsupported field alignment `{alignment}`"),
+    }
+}
+
 impl std::hash::Hash for CppStruct {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.def.hash(state);
@@ -183,12 +194,7 @@ impl CppStruct {
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
         let has_explicit_layout = self.has_explicit_layout(config.reader);
         let has_packing = self.has_packing(config.reader);
-        let pointer_size = self.pointer_size();
-        let packing = self
-            .def
-            .class_layout()
-            .map(|layout| layout.packing_size() as usize)
-            .filter(|packing| *packing > 0);
+        let supports_field_alignment = !is_union && self.def.class_layout().is_none();
 
         let fields: Vec<_> = self
             .def
@@ -208,39 +214,25 @@ impl CppStruct {
 
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
-        let (fields, has_padding) = {
+        let fields = {
             let names: BTreeSet<_> = fields.iter().map(|(_, name, _)| *name).collect();
-            let mut cursor = 0;
-            let mut padding_index = 0;
-            let mut has_padding = false;
+            let mut alignment_index = 0;
             let mut output = vec![];
             for (field, name, ty) in &fields {
-                if !is_union {
-                    let natural_align = packing.map_or_else(
-                        || ty.align_with_pointer_size(config.reader, pointer_size),
-                        |p| p.min(ty.align_with_pointer_size(config.reader, pointer_size)),
-                    );
-                    let natural_offset = align_up(cursor, natural_align);
-                    let forced_offset = field_alignment(field)
-                        .map_or(natural_offset, |align| align_up(cursor, align));
-                    if forced_offset > natural_offset {
-                        has_padding = true;
-                        let mut padding_name = if padding_index == 0 {
-                            "_padding".to_string()
-                        } else {
-                            format!("_padding{}", padding_index + 1)
-                        };
-                        while names.contains(padding_name.as_str()) {
-                            padding_index += 1;
-                            padding_name = format!("_padding{}", padding_index + 1);
-                        }
-                        padding_index += 1;
-                        let padding_name = to_ident(&padding_name);
-                        let len = Literal::usize_unsuffixed(forced_offset - cursor);
-                        output.push(quote! { pub #padding_name: [u8; #len], });
+                if supports_field_alignment && let Some(alignment) = field_alignment(field) {
+                    let mut alignment_name = if alignment_index == 0 {
+                        "_alignment".to_string()
+                    } else {
+                        format!("_alignment{}", alignment_index + 1)
+                    };
+                    while names.contains(alignment_name.as_str()) {
+                        alignment_index += 1;
+                        alignment_name = format!("_alignment{}", alignment_index + 1);
                     }
-                    cursor = forced_offset.max(natural_offset)
-                        + ty.size_with_pointer_size(config.reader, pointer_size);
+                    alignment_index += 1;
+                    let alignment_name = to_ident(&alignment_name);
+                    let marker = alignment_marker(alignment);
+                    output.push(quote! { pub #alignment_name: [#marker; 0], });
                 }
 
                 let name = to_ident(name);
@@ -266,7 +258,7 @@ impl CppStruct {
                 output.push(quote! { pub #name: #ty, });
             }
 
-            let fields = if output.is_empty() {
+            if output.is_empty() {
                 if is_union {
                     quote! {
                         { pub value: u8 }
@@ -280,8 +272,7 @@ impl CppStruct {
                 quote! {
                     { #(#output)* }
                 }
-            };
-            (fields, has_padding)
+            }
         };
 
         let mut derive = DeriveWriter::new(config, self.type_name());
@@ -314,7 +305,7 @@ impl CppStruct {
             }
         }
 
-        let default = if !has_padding && self.can_derive_default(config) {
+        let default = if self.can_derive_default(config) {
             derive.extend(["Default"]);
             quote! {}
         } else {
@@ -334,10 +325,9 @@ impl CppStruct {
             quote! { struct }
         };
 
-        let repr = if let Some(align) = self.required_align() {
-            // `__declspec(align(N))` raises alignment above the natural field
-            // alignment; Rust expresses this as `repr(align(N))`. Forced
-            // over-alignment and packing are mutually exclusive by construction.
+        let repr = if let Some(align) = self.projected_align() {
+            // Rust cannot combine `repr(align)` and `repr(packed)`, so alignment
+            // takes precedence when metadata contains both.
             let align = Literal::usize_unsuffixed(align);
             quote! { #[repr(C, align(#align))] }
         } else if let Some(layout) = self.def.class_layout() {
@@ -484,11 +474,7 @@ impl CppStruct {
     }
 
     pub(crate) fn size_with_pointer_size(&self, reader: &Reader, pointer_size: usize) -> usize {
-        let packing = self
-            .def
-            .class_layout()
-            .map(|layout| layout.packing_size() as usize)
-            .filter(|packing| *packing > 0);
+        let packing = self.packing();
         let size = if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
             self.def
                 .fields()
@@ -519,11 +505,7 @@ impl CppStruct {
     }
 
     pub(crate) fn align_with_pointer_size(&self, reader: &Reader, pointer_size: usize) -> usize {
-        let packing = self
-            .def
-            .class_layout()
-            .map(|layout| layout.packing_size() as usize)
-            .filter(|packing| *packing > 0);
+        let packing = self.packing();
         let derived = self
             .def
             .fields()
@@ -540,9 +522,11 @@ impl CppStruct {
             .map_or(derived, |forced| forced.max(derived))
     }
 
-    fn pointer_size(&self) -> usize {
-        let arches = self.def.arches();
-        if arches != 0 && arches & 1 == 0 { 8 } else { 4 }
+    fn packing(&self) -> Option<usize> {
+        self.def
+            .class_layout()
+            .map(|layout| layout.packing_size() as usize)
+            .filter(|packing| *packing > 0)
     }
 
     fn required_align(&self) -> Option<usize> {
@@ -551,6 +535,19 @@ impl CppStruct {
             .filter_map(|field| field_alignment(&field))
             .chain(self.forced_align())
             .max()
+    }
+
+    fn projected_align(&self) -> Option<usize> {
+        let field_align = if self.def.class_layout().is_none() {
+            self.def
+                .fields()
+                .filter_map(|field| field_alignment(&field))
+                .max()
+        } else {
+            None
+        };
+
+        field_align.into_iter().chain(self.forced_align()).max()
     }
 
     /// Forced over-alignment in bytes from `[AlignmentAttribute(N)]`, if present.

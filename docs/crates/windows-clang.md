@@ -180,7 +180,11 @@ one representation matches Clang's size, alignment, and field offsets, it prefer
 forced alignment and then the least restrictive packing. This distinguishes `#pragma pack(N)` from
 an explicitly over-aligned record and permits records that require both. When a member has stronger
 alignment than its projected type, the RDL records `#[align(N)]` on the field. Rust projections can
-then insert explicit byte padding to preserve Clang's field offsets.
+then insert a zero-sized alignment marker before the field. The marker preserves the field type and
+lets Rust calculate target-dependent padding without exposing padding bytes as values.
+
+Rust cannot combine `repr(packed)` and `repr(align)`. RDL still records both properties when Clang
+reports them, but field-marker lowering does not change those packed records.
 
 MIDL-generated headers assign `__MIDL...` tags to anonymous IDL declarations and `_NAME` backing
 enum tags to some public scalar typedefs named `NAME`. An unreferenced generated enum is emitted as

@@ -949,6 +949,15 @@ impl Type {
             Self::GUID => 16,
             Self::ISize
             | Self::USize
+            | Self::CppFn(_)
+            | Self::Class(_)
+            | Self::Interface(_)
+            | Self::CppInterface(_)
+            | Self::Delegate(_)
+            | Self::CppDelegate(_)
+            | Self::String
+            | Self::Object
+            | Self::Type
             | Self::PSTR
             | Self::PCSTR
             | Self::PWSTR
@@ -976,6 +985,15 @@ impl Type {
             Self::I64 | Self::U64 | Self::F64 => 8,
             Self::ISize
             | Self::USize
+            | Self::CppFn(_)
+            | Self::Class(_)
+            | Self::Interface(_)
+            | Self::CppInterface(_)
+            | Self::Delegate(_)
+            | Self::CppDelegate(_)
+            | Self::String
+            | Self::Object
+            | Self::Type
             | Self::PSTR
             | Self::PCSTR
             | Self::PWSTR
