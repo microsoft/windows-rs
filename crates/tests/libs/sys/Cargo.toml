@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = [
     "bcrypt",

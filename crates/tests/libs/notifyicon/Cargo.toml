@@ -10,8 +10,10 @@ doctest = false
 
 [dependencies]
 windows-core = { workspace = true }
-windows-notifyicon = { workspace = true }
 windows-window = { workspace = true }
+
+[dev-dependencies]
+windows-notifyicon = { workspace = true }
 
 [lints]
 workspace = true

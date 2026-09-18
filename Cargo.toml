@@ -24,6 +24,9 @@ unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_slim_errors, windo
 missing_unsafe_on_extern = "warn"
 unused_qualifications = "warn"
 
+[workspace.lints.cargo]
+unused_dependencies = "deny"
+
 [workspace.lints.clippy]
 type_complexity = "allow"
 manual_c_str_literals = "allow" # windows-bindgen needs to switch to signed char for this to work

@@ -8,14 +8,14 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-numerics]
+[dev-dependencies.windows-numerics]
 workspace = true
 features = ["std"]
 
 [dependencies.windows-link]
 workspace = true
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = ["d3d9", "dcommon"]
 

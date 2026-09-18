@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = [
     "basetsd",
@@ -18,7 +18,7 @@ features = [
     "winnt",
 ]
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = [
     "basetsd",

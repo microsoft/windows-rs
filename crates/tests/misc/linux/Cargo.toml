@@ -11,7 +11,7 @@ doctest = false
 [dependencies.windows-result]
 workspace = true
 
-[dependencies.windows-core]
+[dev-dependencies.windows-core]
 workspace = true
 features = ["proc-macros"]
 

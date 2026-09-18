@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [features]
-self-contained = []
+self-contained = ["dep:windows-webview"]
 
 [dependencies]
 windows-canvas = { workspace = true, features = ["composition", "reactor"] }
@@ -13,7 +13,7 @@ windows-composition = { workspace = true, features = ["reactor"] }
 windows-collections = { workspace = true }
 windows-core = { workspace = true }
 windows-reactor = { workspace = true, features = ["test"] }
-windows-webview = { workspace = true, features = ["reactor"] }
+windows-webview = { workspace = true, features = ["reactor"], optional = true }
 windows = { workspace = true, features = ["UI_Input_Preview_Injection", "winuser"] }
 
 [build-dependencies]

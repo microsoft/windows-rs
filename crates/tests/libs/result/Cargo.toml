@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = [
     "bcrypt",
@@ -22,7 +22,7 @@ workspace = true
 [dependencies.windows-link]
 workspace = true
 
-[dependencies]
+[dev-dependencies]
 helpers = { workspace = true }
 static_assertions = "1.0"
 

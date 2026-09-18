@@ -9,11 +9,13 @@ doc = false
 doctest = false
 
 [dependencies]
-windows = { workspace = true, features = ["std"] }
 windows-collections = { workspace = true }
 windows-core = { workspace = true }
 windows-future = { workspace = true }
 windows-numerics = { workspace = true }
+
+[dev-dependencies]
+windows = { workspace = true, features = ["std"] }
 
 [lints]
 workspace = true

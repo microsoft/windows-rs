@@ -79,7 +79,7 @@ workspace = true
 [dev-dependencies.windows-strings]
 workspace = true
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = [
     "Data_Xml_Dom",
@@ -110,7 +110,7 @@ features = ["system"]
 [dev-dependencies.windows-window]
 workspace = true
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = [
     "handleapi",

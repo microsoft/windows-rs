@@ -11,7 +11,7 @@ doctest = false
 [lints]
 workspace = true
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 features = [
     "sysinfoapi",
@@ -20,7 +20,7 @@ features = [
     "winuser",
 ]
 
-[dependencies.windows-sys]
+[dev-dependencies.windows-sys]
 workspace = true
 features = [
     "sysinfoapi",

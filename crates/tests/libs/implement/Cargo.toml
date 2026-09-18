@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
+[dev-dependencies.windows]
 workspace = true
 default-features = true
 features = [
@@ -46,9 +46,6 @@ workspace = true
 
 [dependencies.windows-future]
 workspace = true
-
-[dependencies]
-static_assertions = "1.1"
 
 [lints]
 workspace = true

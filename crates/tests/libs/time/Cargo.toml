@@ -8,7 +8,7 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-time]
+[dev-dependencies.windows-time]
 workspace = true
 features = ["std"]
 
