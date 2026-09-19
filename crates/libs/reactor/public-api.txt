@@ -500,6 +500,8 @@ pub fn windows_reactor::AppBarButton::label(self, impl core::convert::Into<alloc
 pub fn windows_reactor::AppBarButton::label_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::AppBarButton::new() -> Self
 pub fn windows_reactor::AppBarButton::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
+impl core::convert::From<windows_reactor::AppBarButton> for windows_reactor::CommandBarElement
+pub fn windows_reactor::CommandBarElement::from(windows_reactor::AppBarButton) -> Self
 impl core::convert::From<windows_reactor::AppBarButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::AppBarButton) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::AppBarButton
@@ -520,6 +522,8 @@ pub fn windows_reactor::AppBarButton::width(self, impl core::convert::Into<core:
 pub struct windows_reactor::AppBarSeparator
 impl windows_reactor::AppBarSeparator
 pub fn windows_reactor::AppBarSeparator::new() -> Self
+impl core::convert::From<windows_reactor::AppBarSeparator> for windows_reactor::CommandBarElement
+pub fn windows_reactor::CommandBarElement::from(windows_reactor::AppBarSeparator) -> Self
 impl core::convert::From<windows_reactor::AppBarSeparator> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::AppBarSeparator) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::AppBarSeparator
@@ -548,6 +552,17 @@ pub struct windows_reactor::AppProxy
 impl windows_reactor::AppProxy
 pub fn windows_reactor::AppProxy::dispatch(&self, impl core::ops::function::FnOnce(&windows_reactor::AppContext) + core::marker::Send + 'static) -> windows_result::Result<()>
 pub fn windows_reactor::AppProxy::exit(&self) -> windows_result::Result<()>
+pub struct windows_reactor::AttachedView<T>
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::CommandBarElement where T: core::convert::Into<Self>
+pub fn windows_reactor::CommandBarElement::from(windows_reactor::AttachedView<T>) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::Icon where T: core::convert::Into<Self>
+pub fn windows_reactor::Icon::from(windows_reactor::AttachedView<T>) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::MenuBarItemValue where T: core::convert::Into<Self>
+pub fn windows_reactor::MenuBarItemValue::from(windows_reactor::AttachedView<T>) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::SelectorBarItemValue where T: core::convert::Into<Self>
+pub fn windows_reactor::SelectorBarItemValue::from(windows_reactor::AttachedView<T>) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::AttachedView<T>) -> Self
 pub struct windows_reactor::AutoSuggestBox
 impl windows_reactor::AutoSuggestBox
 pub fn windows_reactor::AutoSuggestBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -918,8 +933,8 @@ impl windows_reactor::ReferenceControl for windows_reactor::ComboBox
 pub struct windows_reactor::CommandBar
 impl windows_reactor::CommandBar
 pub fn windows_reactor::CommandBar::new() -> Self
-pub fn windows_reactor::CommandBar::primary_commands<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::CommandBar::secondary_commands<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
+pub fn windows_reactor::CommandBar::primary_commands(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::Keyed<windows_reactor::CommandBarElement>>) -> Self
+pub fn windows_reactor::CommandBar::secondary_commands(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::Keyed<windows_reactor::CommandBarElement>>) -> Self
 impl windows_reactor::CommandBar
 pub fn windows_reactor::CommandBar::owned_commands(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> windows_reactor::View
 impl core::convert::From<windows_reactor::CommandBar> for windows_reactor::View
@@ -939,6 +954,15 @@ pub fn windows_reactor::CommandBar::transitions<T>(self, T) -> Self where Self: 
 pub fn windows_reactor::CommandBar::transitions_optional<T>(self, core::option::Option<T>) -> Self where Self: core::marker::Sized, T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::CommandBar::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::CommandBar::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::CommandBarElement(_)
+impl core::convert::From<windows_reactor::AppBarButton> for windows_reactor::CommandBarElement
+pub fn windows_reactor::CommandBarElement::from(windows_reactor::AppBarButton) -> Self
+impl core::convert::From<windows_reactor::AppBarSeparator> for windows_reactor::CommandBarElement
+pub fn windows_reactor::CommandBarElement::from(windows_reactor::AppBarSeparator) -> Self
+impl core::convert::From<windows_reactor::CommandBarElement> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::CommandBarElement) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::CommandBarElement where T: core::convert::Into<Self>
+pub fn windows_reactor::CommandBarElement::from(windows_reactor::AttachedView<T>) -> Self
 pub struct windows_reactor::CommandBarFlyout
 impl windows_reactor::CommandBarFlyout
 pub fn windows_reactor::CommandBarFlyout::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
@@ -1383,6 +1407,8 @@ impl core::convert::From<windows_reactor::Symbol> for windows_reactor::Icon
 pub fn windows_reactor::Icon::from(windows_reactor::Symbol) -> Self
 impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::Icon
 pub fn windows_reactor::Icon::from(windows_reactor::SymbolIcon) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::Icon where T: core::convert::Into<Self>
+pub fn windows_reactor::Icon::from(windows_reactor::AttachedView<T>) -> Self
 pub struct windows_reactor::Image
 impl windows_reactor::Image
 pub fn windows_reactor::Image::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -1545,13 +1571,14 @@ pub windows_reactor::KeyEventInfo::key: windows_reactor::VirtualKey
 pub windows_reactor::KeyEventInfo::modifiers: windows_reactor::InputModifiers
 pub windows_reactor::KeyEventInfo::original_key: windows_reactor::VirtualKey
 pub windows_reactor::KeyEventInfo::status: windows_reactor::PhysicalKeyStatus
-pub struct windows_reactor::KeyedView
-impl windows_reactor::KeyedView
-pub fn windows_reactor::KeyedView::key(&self) -> &windows_reactor::Key
-pub fn windows_reactor::KeyedView::new(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<windows_reactor::View>) -> Self
-pub fn windows_reactor::KeyedView::view(&self) -> &windows_reactor::View
-impl<K, V> core::convert::From<(K, V)> for windows_reactor::KeyedView where K: core::convert::Into<windows_reactor::Key>, V: core::convert::Into<windows_reactor::View>
-pub fn windows_reactor::KeyedView::from((K, V)) -> Self
+pub struct windows_reactor::Keyed<T>
+impl windows_reactor::Keyed<windows_reactor::View>
+pub fn windows_reactor::Keyed<windows_reactor::View>::view(&self) -> &windows_reactor::View
+impl<T> windows_reactor::Keyed<T>
+pub fn windows_reactor::Keyed<T>::key(&self) -> &windows_reactor::Key
+pub fn windows_reactor::Keyed<T>::new(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<T>) -> Self
+impl<K, V, T> core::convert::From<(K, V)> for windows_reactor::Keyed<T> where K: core::convert::Into<windows_reactor::Key>, V: core::convert::Into<T>
+pub fn windows_reactor::Keyed<T>::from((K, V)) -> Self
 pub struct windows_reactor::Line
 impl windows_reactor::Line
 pub fn windows_reactor::Line::new() -> Self
@@ -1691,7 +1718,7 @@ impl windows_reactor::Menu
 pub fn windows_reactor::Menu::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::MenuItem>, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
 pub struct windows_reactor::MenuBar
 impl windows_reactor::MenuBar
-pub fn windows_reactor::MenuBar::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
+pub fn windows_reactor::MenuBar::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::Keyed<windows_reactor::MenuBarItemValue>>) -> Self
 pub fn windows_reactor::MenuBar::new() -> Self
 impl core::convert::From<windows_reactor::MenuBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::MenuBar) -> Self
@@ -1715,6 +1742,8 @@ impl windows_reactor::MenuBarItem
 pub fn windows_reactor::MenuBarItem::new() -> Self
 pub fn windows_reactor::MenuBarItem::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::MenuBarItem::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
+impl core::convert::From<windows_reactor::MenuBarItem> for windows_reactor::MenuBarItemValue
+pub fn windows_reactor::MenuBarItemValue::from(windows_reactor::MenuBarItem) -> Self
 impl core::convert::From<windows_reactor::MenuBarItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::MenuBarItem) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::MenuBarItem
@@ -1732,6 +1761,13 @@ pub fn windows_reactor::MenuBarItem::transitions<T>(self, T) -> Self where Self:
 pub fn windows_reactor::MenuBarItem::transitions_optional<T>(self, core::option::Option<T>) -> Self where Self: core::marker::Sized, T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::MenuBarItem::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::MenuBarItem::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::MenuBarItemValue(_)
+impl core::convert::From<windows_reactor::MenuBarItem> for windows_reactor::MenuBarItemValue
+pub fn windows_reactor::MenuBarItemValue::from(windows_reactor::MenuBarItem) -> Self
+impl core::convert::From<windows_reactor::MenuBarItemValue> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::MenuBarItemValue) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::MenuBarItemValue where T: core::convert::Into<Self>
+pub fn windows_reactor::MenuBarItemValue::from(windows_reactor::AttachedView<T>) -> Self
 pub struct windows_reactor::NavigationView
 impl windows_reactor::NavigationView
 pub fn windows_reactor::NavigationView::always_show_header(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -2329,7 +2365,7 @@ pub fn windows_reactor::ScrollViewer::vertical_alignment(self, impl core::conver
 pub fn windows_reactor::ScrollViewer::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub struct windows_reactor::SelectorBar
 impl windows_reactor::SelectorBar
-pub fn windows_reactor::SelectorBar::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
+pub fn windows_reactor::SelectorBar::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::Keyed<windows_reactor::SelectorBarItemValue>>) -> Self
 pub fn windows_reactor::SelectorBar::new() -> Self
 pub fn windows_reactor::SelectorBar::on_selected_text_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<alloc::string::String>>) -> Self
 impl core::convert::From<windows_reactor::SelectorBar> for windows_reactor::View
@@ -2356,6 +2392,8 @@ pub fn windows_reactor::SelectorBarItem::is_selected(self, impl core::convert::I
 pub fn windows_reactor::SelectorBarItem::new() -> Self
 pub fn windows_reactor::SelectorBarItem::text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::SelectorBarItem::text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
+impl core::convert::From<windows_reactor::SelectorBarItem> for windows_reactor::SelectorBarItemValue
+pub fn windows_reactor::SelectorBarItemValue::from(windows_reactor::SelectorBarItem) -> Self
 impl core::convert::From<windows_reactor::SelectorBarItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SelectorBarItem) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SelectorBarItem
@@ -2373,6 +2411,13 @@ pub fn windows_reactor::SelectorBarItem::transitions<T>(self, T) -> Self where S
 pub fn windows_reactor::SelectorBarItem::transitions_optional<T>(self, core::option::Option<T>) -> Self where Self: core::marker::Sized, T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::SelectorBarItem::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SelectorBarItem::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::SelectorBarItemValue(_)
+impl core::convert::From<windows_reactor::SelectorBarItem> for windows_reactor::SelectorBarItemValue
+pub fn windows_reactor::SelectorBarItemValue::from(windows_reactor::SelectorBarItem) -> Self
+impl core::convert::From<windows_reactor::SelectorBarItemValue> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::SelectorBarItemValue) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::SelectorBarItemValue where T: core::convert::Into<Self>
+pub fn windows_reactor::SelectorBarItemValue::from(windows_reactor::AttachedView<T>) -> Self
 pub struct windows_reactor::Slider
 impl windows_reactor::Slider
 pub fn windows_reactor::Slider::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -2914,6 +2959,8 @@ impl core::convert::From<windows_reactor::ComboBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ComboBox) -> Self
 impl core::convert::From<windows_reactor::CommandBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::CommandBar) -> Self
+impl core::convert::From<windows_reactor::CommandBarElement> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::CommandBarElement) -> Self
 impl core::convert::From<windows_reactor::ContentDialog> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ContentDialog) -> Self
 impl core::convert::From<windows_reactor::DatePicker> for windows_reactor::View
@@ -2960,6 +3007,8 @@ impl core::convert::From<windows_reactor::MenuBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::MenuBar) -> Self
 impl core::convert::From<windows_reactor::MenuBarItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::MenuBarItem) -> Self
+impl core::convert::From<windows_reactor::MenuBarItemValue> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::MenuBarItemValue) -> Self
 impl core::convert::From<windows_reactor::NavigationView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::NavigationView) -> Self
 impl core::convert::From<windows_reactor::NavigationViewItem> for windows_reactor::View
@@ -3004,6 +3053,8 @@ impl core::convert::From<windows_reactor::SelectorBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SelectorBar) -> Self
 impl core::convert::From<windows_reactor::SelectorBarItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SelectorBarItem) -> Self
+impl core::convert::From<windows_reactor::SelectorBarItemValue> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::SelectorBarItemValue) -> Self
 impl core::convert::From<windows_reactor::Slider> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Slider) -> Self
 impl core::convert::From<windows_reactor::SplitButton> for windows_reactor::View
@@ -3042,6 +3093,8 @@ impl core::convert::From<windows_reactor::Viewbox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Viewbox) -> Self
 impl core::convert::From<windows_reactor::WebView2> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::WebView2) -> Self
+impl<T> core::convert::From<windows_reactor::AttachedView<T>> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::AttachedView<T>) -> Self
 pub struct windows_reactor::ViewContext<C: windows_reactor::Component>
 impl<C: windows_reactor::Component> windows_reactor::ViewContext<C>
 pub fn windows_reactor::ViewContext<C>::callback<T>(&self, impl core::ops::function::Fn(T) -> <C as windows_reactor::Component>::Message + 'static) -> windows_reactor::Callback<T>
@@ -3215,9 +3268,9 @@ impl windows_reactor::ChildrenControl for windows_reactor::VariableSizedWrapGrid
 pub fn windows_reactor::VariableSizedWrapGrid::children(self, impl windows_reactor::IntoViews) -> windows_reactor::View
 pub fn windows_reactor::VariableSizedWrapGrid::keyed_children<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
 pub trait windows_reactor::CommandBarFlyoutExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
-pub fn windows_reactor::CommandBarFlyoutExt::command_bar_flyout(self, windows_reactor::CommandBarFlyout) -> windows_reactor::View
+pub fn windows_reactor::CommandBarFlyoutExt::command_bar_flyout(self, windows_reactor::CommandBarFlyout) -> windows_reactor::AttachedView<Self>
 impl<T> windows_reactor::CommandBarFlyoutExt for T where T: core::convert::Into<windows_reactor::View>
-pub fn T::command_bar_flyout(self, windows_reactor::CommandBarFlyout) -> windows_reactor::View
+pub fn T::command_bar_flyout(self, windows_reactor::CommandBarFlyout) -> windows_reactor::AttachedView<Self>
 pub trait windows_reactor::Component: core::marker::Sized + 'static
 pub type windows_reactor::Component::Input: core::clone::Clone + core::cmp::PartialEq + 'static
 pub type windows_reactor::Component::Message: 'static
@@ -3262,11 +3315,11 @@ pub fn windows_reactor::TabViewItem::content(self, impl core::convert::Into<wind
 impl windows_reactor::ContentControl for windows_reactor::ToggleButton
 pub fn windows_reactor::ToggleButton::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 pub trait windows_reactor::FlyoutExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
-pub fn windows_reactor::FlyoutExt::flyout(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::View
-pub fn windows_reactor::FlyoutExt::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::View
+pub fn windows_reactor::FlyoutExt::flyout(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::AttachedView<Self>
+pub fn windows_reactor::FlyoutExt::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::AttachedView<Self>
 impl<T> windows_reactor::FlyoutExt for T where T: core::convert::Into<windows_reactor::View>
-pub fn T::flyout(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::View
-pub fn T::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::View
+pub fn T::flyout(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::AttachedView<Self>
+pub fn T::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::AttachedView<Self>
 pub trait windows_reactor::FocusControl: windows_reactor::ReferenceControl
 impl windows_reactor::FocusControl for windows_reactor::AutoSuggestBox
 impl windows_reactor::FocusControl for windows_reactor::Border
@@ -4495,9 +4548,9 @@ pub fn windows_reactor::WebView2::transitions_optional<T>(self, core::option::Op
 pub fn windows_reactor::WebView2::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::WebView2::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub trait windows_reactor::MenuExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
-pub fn windows_reactor::MenuExt::menu(self, windows_reactor::Menu) -> windows_reactor::View
+pub fn windows_reactor::MenuExt::menu(self, windows_reactor::Menu) -> windows_reactor::AttachedView<Self>
 impl<T> windows_reactor::MenuExt for T where T: core::convert::Into<windows_reactor::View>
-pub fn T::menu(self, windows_reactor::Menu) -> windows_reactor::View
+pub fn T::menu(self, windows_reactor::Menu) -> windows_reactor::AttachedView<Self>
 pub trait windows_reactor::ReferenceControl: windows_reactor::reference::sealed::Sealed + 'static
 impl windows_reactor::ReferenceControl for windows_reactor::AutoSuggestBox
 impl windows_reactor::ReferenceControl for windows_reactor::Border
@@ -4533,11 +4586,11 @@ pub fn T::relative_align_right(self) -> Self
 pub fn T::relative_align_top(self) -> Self
 pub fn T::relative_align_vertical_center(self) -> Self
 pub trait windows_reactor::TooltipExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
-pub fn windows_reactor::TooltipExt::tooltip(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::View
-pub fn windows_reactor::TooltipExt::tooltip_with(self, windows_reactor::Tooltip) -> windows_reactor::View
+pub fn windows_reactor::TooltipExt::tooltip(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::AttachedView<Self>
+pub fn windows_reactor::TooltipExt::tooltip_with(self, windows_reactor::Tooltip) -> windows_reactor::AttachedView<Self>
 impl<T> windows_reactor::TooltipExt for T where T: core::convert::Into<windows_reactor::View>
-pub fn T::tooltip(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::View
-pub fn T::tooltip_with(self, windows_reactor::Tooltip) -> windows_reactor::View
+pub fn T::tooltip(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::AttachedView<Self>
+pub fn T::tooltip_with(self, windows_reactor::Tooltip) -> windows_reactor::AttachedView<Self>
 pub trait windows_reactor::TreeViewExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
 pub fn windows_reactor::TreeViewExt::nodes(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::TreeNode>) -> windows_reactor::View
 impl<T> windows_reactor::TreeViewExt for T where T: core::convert::Into<windows_reactor::View>
@@ -4545,5 +4598,6 @@ pub fn T::nodes(self, impl core::iter::traits::collect::IntoIterator<Item = wind
 pub type windows_reactor::CompositionHostError = windows_reactor::IntegrationError
 pub type windows_reactor::FocusError = windows_reactor::IntegrationError
 pub type windows_reactor::ImageSourceError = windows_reactor::IntegrationError
+pub type windows_reactor::KeyedView = windows_reactor::Keyed<windows_reactor::View>
 pub type windows_reactor::SwapChainPanelError = windows_reactor::IntegrationError
 pub type windows_reactor::WebView2Error = windows_reactor::IntegrationError

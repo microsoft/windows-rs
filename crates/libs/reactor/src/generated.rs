@@ -400,6 +400,71 @@ pub mod public {
         Single,
         Multiple,
     }
+    #[derive(Clone, Debug, PartialEq)]
+    pub struct CommandBarElement(View);
+    impl From<AppBarButton> for CommandBarElement {
+        fn from(value: AppBarButton) -> Self {
+            Self(value.into())
+        }
+    }
+    impl From<AppBarSeparator> for CommandBarElement {
+        fn from(value: AppBarSeparator) -> Self {
+            Self(value.into())
+        }
+    }
+    impl<T> From<AttachedView<T>> for CommandBarElement
+    where
+        T: Into<Self>,
+    {
+        fn from(value: AttachedView<T>) -> Self {
+            Self(value.into_view())
+        }
+    }
+    impl From<CommandBarElement> for View {
+        fn from(value: CommandBarElement) -> Self {
+            value.0
+        }
+    }
+    #[derive(Clone, Debug, PartialEq)]
+    pub struct MenuBarItemValue(View);
+    impl From<MenuBarItem> for MenuBarItemValue {
+        fn from(value: MenuBarItem) -> Self {
+            Self(value.into())
+        }
+    }
+    impl<T> From<AttachedView<T>> for MenuBarItemValue
+    where
+        T: Into<Self>,
+    {
+        fn from(value: AttachedView<T>) -> Self {
+            Self(value.into_view())
+        }
+    }
+    impl From<MenuBarItemValue> for View {
+        fn from(value: MenuBarItemValue) -> Self {
+            value.0
+        }
+    }
+    #[derive(Clone, Debug, PartialEq)]
+    pub struct SelectorBarItemValue(View);
+    impl From<SelectorBarItem> for SelectorBarItemValue {
+        fn from(value: SelectorBarItem) -> Self {
+            Self(value.into())
+        }
+    }
+    impl<T> From<AttachedView<T>> for SelectorBarItemValue
+    where
+        T: Into<Self>,
+    {
+        fn from(value: AttachedView<T>) -> Self {
+            Self(value.into_view())
+        }
+    }
+    impl From<SelectorBarItemValue> for View {
+        fn from(value: SelectorBarItemValue) -> Self {
+            value.0
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TextBlock {
         text: Property<String>,
@@ -3675,15 +3740,15 @@ pub mod public {
             self.on_selected_text_changed = Some(callback.into_payload_callback());
             self
         }
-        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
-        where
-            T: Into<KeyedView>,
-        {
+        pub fn items(
+            mut self,
+            children: impl IntoIterator<Item = Keyed<SelectorBarItemValue>>,
+        ) -> Self {
             set_control_slot(
                 &mut self.slots,
                 SlotId::SelectorBarItems,
                 SlotContent::Collection(std::rc::Rc::new(
-                    children.into_iter().map(Into::into).collect(),
+                    children.into_iter().map(Keyed::into_keyed_view).collect(),
                 )),
             );
             self
@@ -4027,28 +4092,28 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn primary_commands<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
-        where
-            T: Into<KeyedView>,
-        {
+        pub fn primary_commands(
+            mut self,
+            children: impl IntoIterator<Item = Keyed<CommandBarElement>>,
+        ) -> Self {
             set_control_slot(
                 &mut self.slots,
                 SlotId::CommandBarPrimaryCommands,
                 SlotContent::Collection(std::rc::Rc::new(
-                    children.into_iter().map(Into::into).collect(),
+                    children.into_iter().map(Keyed::into_keyed_view).collect(),
                 )),
             );
             self
         }
-        pub fn secondary_commands<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
-        where
-            T: Into<KeyedView>,
-        {
+        pub fn secondary_commands(
+            mut self,
+            children: impl IntoIterator<Item = Keyed<CommandBarElement>>,
+        ) -> Self {
             set_control_slot(
                 &mut self.slots,
                 SlotId::CommandBarSecondaryCommands,
                 SlotContent::Collection(std::rc::Rc::new(
-                    children.into_iter().map(Into::into).collect(),
+                    children.into_iter().map(Keyed::into_keyed_view).collect(),
                 )),
             );
             self
@@ -4134,15 +4199,15 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
-        where
-            T: Into<KeyedView>,
-        {
+        pub fn items(
+            mut self,
+            children: impl IntoIterator<Item = Keyed<MenuBarItemValue>>,
+        ) -> Self {
             set_control_slot(
                 &mut self.slots,
                 SlotId::MenuBarItems,
                 SlotContent::Collection(std::rc::Rc::new(
-                    children.into_iter().map(Into::into).collect(),
+                    children.into_iter().map(Keyed::into_keyed_view).collect(),
                 )),
             );
             self

@@ -9,6 +9,7 @@ use crate::schema::{
 
 pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let value_enums = generate_value_enums(schema);
+    let collection_item_types = generate_collection_item_types(schema);
     let event_groups = schema
         .controls
         .iter()
@@ -165,6 +166,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             use super::*;
 
             #value_enums
+            #(#collection_item_types)*
 
             #(#elements)*
 
@@ -1472,6 +1474,27 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     self
                 }
             },
+            crate::schema::SlotShape::Collection(_) if collection_item_type(slot).is_some() => {
+                let item = collection_item_type(slot).unwrap();
+                quote! {
+                    #visibility fn #method(
+                        mut self,
+                        children: impl IntoIterator<Item = Keyed<#item>>,
+                    ) -> Self {
+                        set_control_slot(
+                            &mut self.slots,
+                            SlotId::#slot_id,
+                            SlotContent::Collection(std::rc::Rc::new(
+                                children
+                                    .into_iter()
+                                    .map(Keyed::into_keyed_view)
+                                    .collect(),
+                            )),
+                        );
+                        self
+                    }
+                }
+            }
             crate::schema::SlotShape::Collection(_) => quote! {
                 #visibility fn #method<T>(
                     mut self,
@@ -1945,6 +1968,76 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         #icon_conversion
         #(#capability_impls)*
         #structural_test_impl
+    }
+}
+
+fn generate_collection_item_types(schema: &ResolvedSchema) -> Vec<TokenStream> {
+    let mut types = BTreeMap::<String, Vec<String>>::new();
+    for slot in schema.controls.iter().flat_map(|control| &control.slots) {
+        let Some(item) = slot.shape.collection_item() else {
+            continue;
+        };
+        let name = collection_value_name(item, &slot.item_controls);
+        match types.entry(name) {
+            std::collections::btree_map::Entry::Vacant(entry) => {
+                entry.insert(slot.item_controls.clone());
+            }
+            std::collections::btree_map::Entry::Occupied(entry) => {
+                assert_eq!(entry.get(), &slot.item_controls);
+            }
+        }
+    }
+    types
+        .into_iter()
+        .map(|(name, controls)| {
+            let name = ident(&name);
+            let conversions = controls.into_iter().map(|control| {
+                let control = ident(&control);
+                quote! {
+                    impl From<#control> for #name {
+                        fn from(value: #control) -> Self {
+                            Self(value.into())
+                        }
+                    }
+                }
+            });
+            quote! {
+                #[derive(Clone, Debug, PartialEq)]
+                pub struct #name(View);
+
+                #(#conversions)*
+
+                impl<T> From<AttachedView<T>> for #name
+                where
+                    T: Into<Self>,
+                {
+                    fn from(value: AttachedView<T>) -> Self {
+                        Self(value.into_view())
+                    }
+                }
+
+                impl From<#name> for View {
+                    fn from(value: #name) -> Self {
+                        value.0
+                    }
+                }
+            }
+        })
+        .collect()
+}
+
+fn collection_item_type(slot: &crate::schema::ResolvedSlot) -> Option<Ident> {
+    let item = slot.shape.collection_item()?;
+    Some(ident(&collection_value_name(item, &slot.item_controls)))
+}
+
+fn collection_value_name(item: &str, controls: &[String]) -> String {
+    let item = item.rsplit('.').next().unwrap();
+    let name = item.strip_prefix('I').unwrap_or(item);
+    if controls.iter().any(|control| control == name) {
+        format!("{name}Value")
+    } else {
+        name.to_string()
     }
 }
 

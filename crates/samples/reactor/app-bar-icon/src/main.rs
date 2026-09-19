@@ -4,11 +4,12 @@ fn main() {
     App::run(
         CommandBar::new()
             .primary_commands([
-                KeyedView::new(
+                Keyed::new(
                     "symbol",
                     AppBarButton::new().label("Symbol").icon(Symbol::Like),
                 ),
-                KeyedView::new(
+                Keyed::new("separator", AppBarSeparator::new()),
+                Keyed::new(
                     "search",
                     AppBarButton::new()
                         .label("Search")

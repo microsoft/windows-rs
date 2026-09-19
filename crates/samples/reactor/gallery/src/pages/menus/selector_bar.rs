@@ -29,7 +29,7 @@ impl Component for SelectorBarPage {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         let item = |text: &'static str| {
-            KeyedView::new(
+            Keyed::new(
                 text,
                 SelectorBarItem::new()
                     .text(text)

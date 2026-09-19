@@ -433,6 +433,32 @@ pub(crate) trait NativeChildrenTestExt: Sized {
 #[derive(Clone, Debug, PartialEq)]
 pub struct View(ViewKind);
 
+/// A view attachment that retains the target's concrete type.
+#[derive(Clone, Debug, PartialEq)]
+pub struct AttachedView<T> {
+    view: View,
+    target: std::marker::PhantomData<T>,
+}
+
+impl<T> AttachedView<T> {
+    fn new(view: View) -> Self {
+        Self {
+            view,
+            target: std::marker::PhantomData,
+        }
+    }
+
+    pub(crate) fn into_view(self) -> View {
+        self.view
+    }
+}
+
+impl<T> From<AttachedView<T>> for View {
+    fn from(value: AttachedView<T>) -> Self {
+        value.view
+    }
+}
+
 /// A symbol or icon control accepted by native icon properties.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Icon(pub(crate) View);
@@ -446,6 +472,15 @@ impl Icon {
 impl From<Symbol> for Icon {
     fn from(value: Symbol) -> Self {
         SymbolIcon::new().symbol(value).into()
+    }
+}
+
+impl<T> From<AttachedView<T>> for Icon
+where
+    T: Into<Self>,
+{
+    fn from(value: AttachedView<T>) -> Self {
+        Self(value.into_view())
     }
 }
 
@@ -562,15 +597,15 @@ impl Tooltip {
 
 /// Adds a tooltip to a view.
 pub trait TooltipExt: Into<View> + Sized {
-    fn tooltip(self, value: impl Into<String>) -> View {
+    fn tooltip(self, value: impl Into<String>) -> AttachedView<Self> {
         self.tooltip_with(Tooltip::text(value))
     }
 
-    fn tooltip_with(self, tooltip: Tooltip) -> View {
-        View(ViewKind::Tooltip {
+    fn tooltip_with(self, tooltip: Tooltip) -> AttachedView<Self> {
+        AttachedView::new(View(ViewKind::Tooltip {
             target: Box::new(self.into().into_kind()),
             tooltip,
-        })
+        }))
     }
 }
 
@@ -626,15 +661,15 @@ impl Flyout {
 
 /// Adds a flyout to a view.
 pub trait FlyoutExt: Into<View> + Sized {
-    fn flyout(self, value: impl Into<String>) -> View {
+    fn flyout(self, value: impl Into<String>) -> AttachedView<Self> {
         self.flyout_with(Flyout::text(value))
     }
 
-    fn flyout_with(self, flyout: Flyout) -> View {
-        View(ViewKind::Flyout {
+    fn flyout_with(self, flyout: Flyout) -> AttachedView<Self> {
+        AttachedView::new(View(ViewKind::Flyout {
             target: Box::new(self.into().into_kind()),
             flyout,
-        })
+        }))
     }
 }
 
@@ -728,11 +763,11 @@ impl Menu {
 
 /// Adds a context menu to a view.
 pub trait MenuExt: Into<View> + Sized {
-    fn menu(self, menu: Menu) -> View {
-        View(ViewKind::Menu {
+    fn menu(self, menu: Menu) -> AttachedView<Self> {
+        AttachedView::new(View(ViewKind::Menu {
             target: Box::new(self.into().into_kind()),
             menu,
-        })
+        }))
     }
 }
 
@@ -781,7 +816,7 @@ impl CommandBarCommand {
         }
     }
 
-    fn into_keyed_view(self, on_click: &Callback<String>) -> KeyedView {
+    fn into_keyed_element(self, on_click: &Callback<String>) -> Keyed<CommandBarElement> {
         match self {
             Self::Button {
                 key,
@@ -797,16 +832,15 @@ impl CommandBarCommand {
                     .on_click(move || {
                         let _ = callback.call(clicked.clone());
                     });
-                let view = match icon {
+                let element: CommandBarElement = match icon {
                     Some(icon) => button.icon(SymbolIcon::new().symbol(icon)).into(),
                     None => button.into(),
                 };
-                KeyedView { key, view }
+                Keyed::new(key, element)
             }
-            Self::Separator { key } => KeyedView {
-                key,
-                view: AppBarSeparator::new().into(),
-            },
+            Self::Separator { key } => {
+                Keyed::new(key, CommandBarElement::from(AppBarSeparator::new()))
+            }
         }
     }
 }
@@ -822,12 +856,12 @@ impl CommandBar {
         self.primary_commands(
             primary
                 .into_iter()
-                .map(|command| command.into_keyed_view(&on_click)),
+                .map(|command| command.into_keyed_element(&on_click)),
         )
         .secondary_commands(
             secondary
                 .into_iter()
-                .map(|command| command.into_keyed_view(&on_click)),
+                .map(|command| command.into_keyed_element(&on_click)),
         )
         .into()
     }
@@ -857,11 +891,11 @@ impl CommandBarFlyout {
 
 /// Adds a command-bar flyout to a view.
 pub trait CommandBarFlyoutExt: Into<View> + Sized {
-    fn command_bar_flyout(self, flyout: CommandBarFlyout) -> View {
-        View(ViewKind::CommandBarFlyout {
+    fn command_bar_flyout(self, flyout: CommandBarFlyout) -> AttachedView<Self> {
+        AttachedView::new(View(ViewKind::CommandBarFlyout {
             target: Box::new(self.into().into_kind()),
             flyout,
-        })
+        }))
     }
 }
 
@@ -1101,19 +1135,25 @@ impl From<&str> for View {
     }
 }
 
-/// A view paired with stable reconciliation identity.
+/// A value paired with stable reconciliation identity.
+///
+/// ```compile_fail
+/// use windows_reactor::*;
+///
+/// let _ = SelectorBar::new().items([Keyed::new("invalid", TextBlock::new())]);
+/// ```
 #[derive(Clone, Debug, PartialEq)]
-pub struct KeyedView {
+pub struct Keyed<T> {
     key: Key,
-    view: View,
+    value: T,
 }
 
-impl KeyedView {
-    /// Associates `view` with `key`.
-    pub fn new(key: impl Into<Key>, view: impl Into<View>) -> Self {
+impl<T> Keyed<T> {
+    /// Associates `value` with `key`.
+    pub fn new(key: impl Into<Key>, value: impl Into<T>) -> Self {
         Self {
             key: key.into(),
-            view: view.into(),
+            value: value.into(),
         }
     }
 
@@ -1121,26 +1161,41 @@ impl KeyedView {
         &self.key
     }
 
+    pub(crate) fn into_keyed_view(self) -> KeyedView
+    where
+        T: Into<View>,
+    {
+        KeyedView {
+            key: self.key,
+            value: self.value.into(),
+        }
+    }
+}
+
+/// A view paired with stable reconciliation identity.
+pub type KeyedView = Keyed<View>;
+
+impl KeyedView {
     pub fn view(&self) -> &View {
-        &self.view
+        &self.value
     }
 
     pub(crate) fn into_parts(self) -> (Key, View) {
-        (self.key, self.view)
+        (self.key, self.value)
     }
 
     fn position(position: usize, view: View) -> Self {
         Self {
             key: Key::position(position),
-            view,
+            value: view,
         }
     }
 }
 
-impl<K, V> From<(K, V)> for KeyedView
+impl<K, V, T> From<(K, V)> for Keyed<T>
 where
     K: Into<Key>,
-    V: Into<View>,
+    V: Into<T>,
 {
     fn from((key, view): (K, V)) -> Self {
         Self::new(key, view)

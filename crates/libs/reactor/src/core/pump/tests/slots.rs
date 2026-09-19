@@ -223,7 +223,7 @@ fn selector_bar_uses_keyed_typed_items_and_icon_slots() {
         let item = SelectorBarItem::new()
             .text(text)
             .is_selected(text == "Recent");
-        KeyedView::new(
+        Keyed::new(
             text,
             if icon {
                 item.icon(SymbolIcon::new().symbol(Symbol::Favorite))

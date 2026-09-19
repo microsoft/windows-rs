@@ -37,7 +37,7 @@ impl Component for MenuBarPage {
                     "Basic MenuBar",
                     StackPanel::new().spacing(8.0).children((
                         MenuBar::new().items([
-                            KeyedView::new(
+                            Keyed::new(
                                 "file",
                                 MenuBarItem::new().title("File").menu(Menu::new(
                                     [
@@ -48,7 +48,7 @@ impl Component for MenuBarPage {
                                     callback.clone(),
                                 )),
                             ),
-                            KeyedView::new(
+                            Keyed::new(
                                 "edit",
                                 MenuBarItem::new().title("Edit").menu(Menu::new(
                                     [

@@ -76,6 +76,7 @@ pub enum EventHandlerType {
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
     base_classes: HashMap<(String, String), (String, String)>,
+    implemented_interfaces: HashMap<(String, String), Vec<(String, String)>>,
     /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
     interface_owners: HashMap<(String, String), Option<(String, String)>>,
     /// Value-type structs that wrap a single primitive field.
@@ -122,6 +123,7 @@ impl MetadataResolver {
         let mut lookup = HashMap::new();
         let mut interface_owners = HashMap::new();
         let mut base_classes = HashMap::new();
+        let mut implemented_interfaces = HashMap::new();
         let mut content_properties = HashMap::new();
 
         // Walk all types in the index, collecting method-to-interface mappings for classes
@@ -130,6 +132,19 @@ impl MetadataResolver {
             if namespace.starts_with("Microsoft.UI.Xaml")
                 && typedef.category() == TypeCategory::Class
             {
+                let interfaces = typedef
+                    .interface_impls()
+                    .filter_map(|implementation| match implementation.interface(&[]) {
+                        Type::ClassName(type_name) | Type::ValueName(type_name) => {
+                            Some((type_name.namespace, type_name.name))
+                        }
+                        _ => None,
+                    })
+                    .collect::<Vec<_>>();
+                if !interfaces.is_empty() {
+                    implemented_interfaces
+                        .insert((namespace.to_string(), name.to_string()), interfaces);
+                }
                 if let Some(extends) = typedef.extends() {
                     let base = match extends {
                         TypeDefOrRef::TypeDef(base) => {
@@ -246,6 +261,7 @@ impl MetadataResolver {
         Self {
             lookup,
             base_classes,
+            implemented_interfaces,
             interface_owners,
             single_field_types,
             enum_variants,
@@ -267,6 +283,33 @@ impl MetadataResolver {
                 return true;
             }
             current.clone_from(parent);
+        }
+        false
+    }
+
+    pub fn class_is_assignable_to(&self, class: &str, target: &str) -> bool {
+        let Some((class_namespace, class_name)) = class.rsplit_once('.') else {
+            return false;
+        };
+        let Some((target_namespace, target_name)) = target.rsplit_once('.') else {
+            return false;
+        };
+        let target = (target_namespace.to_string(), target_name.to_string());
+        let mut pending = vec![(class_namespace.to_string(), class_name.to_string())];
+        let mut visited = std::collections::HashSet::new();
+        while let Some(current) = pending.pop() {
+            if current == target {
+                return true;
+            }
+            if !visited.insert(current.clone()) {
+                continue;
+            }
+            if let Some(base) = self.base_classes.get(&current) {
+                pending.push(base.clone());
+            }
+            if let Some(interfaces) = self.implemented_interfaces.get(&current) {
+                pending.extend(interfaces.iter().cloned());
+            }
         }
         false
     }

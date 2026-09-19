@@ -1895,8 +1895,8 @@ impl Schema {
             });
         }
 
+        resolve_slot_item_controls(&mut controls, metadata)?;
         validate_selections(&controls)?;
-        validate_slot_item_controls(&controls)?;
         Ok(ResolvedSchema { controls })
     }
 }
@@ -1934,15 +1934,42 @@ fn validate_required_property_adapters(
     Ok(())
 }
 
-fn validate_slot_item_controls(controls: &[ResolvedControl]) -> Result<(), String> {
+fn resolve_slot_item_controls(
+    controls: &mut [ResolvedControl],
+    metadata: &MetadataResolver,
+) -> Result<(), String> {
+    let projected = controls
+        .iter()
+        .map(|control| (control.name.clone(), control.type_name.clone()))
+        .collect::<Vec<_>>();
     for control in controls {
-        for slot in &control.slots {
-            for item in &slot.item_controls {
-                if !controls.iter().any(|candidate| candidate.name == *item) {
+        for slot in &mut control.slots {
+            if let Some(item) = slot.shape.collection_item() {
+                if !slot.item_controls.is_empty() {
                     return Err(format!(
-                        "{}.{} names missing item control {}",
+                        "{}.{} typed collection item_controls are inferred from metadata",
+                        control.type_name, slot.name
+                    ));
+                }
+                slot.item_controls = projected
+                    .iter()
+                    .filter(|(_, type_name)| metadata.class_is_assignable_to(type_name, item))
+                    .map(|(name, _)| name.clone())
+                    .collect();
+                if slot.item_controls.is_empty() {
+                    return Err(format!(
+                        "{}.{} collection item {} has no projected controls",
                         control.type_name, slot.name, item
                     ));
+                }
+            } else {
+                for item in &slot.item_controls {
+                    if !projected.iter().any(|(name, _)| name == item) {
+                        return Err(format!(
+                            "{}.{} names missing item control {}",
+                            control.type_name, slot.name, item
+                        ));
+                    }
                 }
             }
         }
