@@ -24,7 +24,8 @@ fn mounts_and_updates_text_without_target_or_attachment_churn() {
     pump.mount_view(
         Button::new()
             .content(TextBlock::new().text("Owner"))
-            .flyout("First"),
+            .flyout("First")
+            .into(),
     )
     .unwrap();
 
@@ -36,7 +37,8 @@ fn mounts_and_updates_text_without_target_or_attachment_churn() {
     pump.update_view(
         Button::new()
             .content(TextBlock::new().text("Owner"))
-            .flyout("Second"),
+            .flyout("Second")
+            .into(),
     )
     .unwrap();
 
@@ -63,7 +65,8 @@ fn applies_bottom_placement_and_replaces_or_removes_attachment() {
     pump.mount_view(
         Button::new()
             .content(TextBlock::new().text("Owner"))
-            .flyout_with(Flyout::text("First").placement(FlyoutPlacement::Bottom)),
+            .flyout_with(Flyout::text("First").placement(FlyoutPlacement::Bottom))
+            .into(),
     )
     .unwrap();
     let first_owner = target(&pump);
@@ -78,7 +81,8 @@ fn applies_bottom_placement_and_replaces_or_removes_attachment() {
             .content(TextBlock::new().text("Replacement"))
             .flyout_with(Flyout::rich(
                 Border::new().content(TextBlock::new().text("Rich")),
-            )),
+            ))
+            .into(),
     )
     .unwrap();
     assert_eq!(target(&pump), first_owner);
@@ -157,7 +161,9 @@ fn component_target_replacement_detaches_before_destroy_and_reattaches() {
     let sender = Rc::new(RefCell::new(None));
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(
-        View::component::<SwitchingButton>(Input(Rc::clone(&sender))).flyout("Content"),
+        View::component::<SwitchingButton>(Input(Rc::clone(&sender)))
+            .flyout("Content")
+            .into(),
     )
     .unwrap();
     let old_target = target(&pump);
@@ -242,7 +248,7 @@ fn keyed_parent_reconciliation_preserves_attachment() {
 fn rejects_non_button_and_nested_owned_attachments() {
     let mut non_button = Pump::new(RecordingRuntime::default());
     assert_eq!(
-        non_button.mount_view(TextBlock::new().text("Owner").flyout("Content")),
+        non_button.mount_view(TextBlock::new().text("Owner").flyout("Content").into()),
         Err(PumpError::StructureUnsupported)
     );
 
@@ -252,7 +258,8 @@ fn rejects_non_button_and_nested_owned_attachments() {
             Button::new()
                 .content(TextBlock::new().text("Owner"))
                 .flyout("Inner")
-                .tooltip("Outer"),
+                .tooltip("Outer")
+                .into(),
         ),
         Err(PumpError::StructureUnsupported)
     );
@@ -266,7 +273,8 @@ fn split_button_supports_rich_flyout_content() {
             .content(TextBlock::new().text("Paste"))
             .flyout_with(Flyout::rich(
                 Button::new().content(TextBlock::new().text("Keep text only")),
-            )),
+            ))
+            .into(),
     )
     .unwrap();
 

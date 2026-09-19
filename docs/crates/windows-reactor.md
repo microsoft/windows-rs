@@ -439,6 +439,10 @@ The key should identify the logical item, such as a record ID. Do not use the cu
 when items can move. Stable keys let Reactor keep the right child component state attached as items
 are inserted, removed, or reordered.
 
+Native collections that require a specific item type use the same `Keyed::new` constructor. For
+example, `SelectorBar::items` accepts `SelectorBarItem`, while command-bar collections accept
+`AppBarButton` and `AppBarSeparator`. Reactor checks these item types at compile time.
+
 For very large collections, `ItemsRepeater` and `VirtualSource` add virtualization. Start with
 `keyed_children`; move to virtualization only when the list is large enough to need it.
 

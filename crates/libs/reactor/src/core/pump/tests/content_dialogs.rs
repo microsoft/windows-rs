@@ -555,6 +555,7 @@ fn rejects_direct_native_and_nested_overlay_ownership() {
             Button::new()
                 .content(TextBlock::new().text("Owner"))
                 .flyout_with(Flyout::rich(dialog(false)))
+                .into()
         ),
         Err(PumpError::StructureUnsupported)
     );

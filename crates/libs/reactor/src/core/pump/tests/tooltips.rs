@@ -25,7 +25,8 @@ fn mounts_and_replaces_text_tooltips_without_replacing_the_owner() {
     pump.mount_view(
         Button::new()
             .content(TextBlock::new().text("Owner"))
-            .tooltip("First"),
+            .tooltip("First")
+            .into(),
     )
     .unwrap();
 
@@ -37,7 +38,8 @@ fn mounts_and_replaces_text_tooltips_without_replacing_the_owner() {
     pump.update_view(
         Button::new()
             .content(TextBlock::new().text("Owner"))
-            .tooltip("Second"),
+            .tooltip("Second")
+            .into(),
     )
     .unwrap();
 
@@ -55,7 +57,8 @@ fn updates_all_supported_placements_on_the_stable_attachment() {
     pump.mount_view(
         TextBlock::new()
             .text("Owner")
-            .tooltip_with(Tooltip::text("Tip").placement(TooltipPlacement::Bottom)),
+            .tooltip_with(Tooltip::text("Tip").placement(TooltipPlacement::Bottom))
+            .into(),
     )
     .unwrap();
 
@@ -70,7 +73,8 @@ fn updates_all_supported_placements_on_the_stable_attachment() {
         pump.update_view(
             TextBlock::new()
                 .text("Owner")
-                .tooltip_with(Tooltip::text("Tip").placement(placement)),
+                .tooltip_with(Tooltip::text("Tip").placement(placement))
+                .into(),
         )
         .unwrap();
         assert_eq!(pump.runtime().tooltip(owner), Some((tooltip, placement)));
@@ -89,7 +93,8 @@ fn owns_and_reconciles_rich_tooltip_children() {
     pump.mount_view(
         Button::new()
             .content(TextBlock::new().text("Save"))
-            .tooltip_with(rich("Writes the document.")),
+            .tooltip_with(rich("Writes the document."))
+            .into(),
     )
     .unwrap();
 
@@ -102,7 +107,8 @@ fn owns_and_reconciles_rich_tooltip_children() {
     pump.update_view(
         Button::new()
             .content(TextBlock::new().text("Save"))
-            .tooltip_with(rich("Writes the current document to disk.")),
+            .tooltip_with(rich("Writes the current document to disk."))
+            .into(),
     )
     .unwrap();
 
@@ -125,13 +131,14 @@ fn clears_on_removal_and_moves_ownership_on_target_replacement() {
     pump.mount_view(
         Button::new()
             .content(TextBlock::new().text("Owner"))
-            .tooltip("Tip"),
+            .tooltip("Tip")
+            .into(),
     )
     .unwrap();
     let first_owner = target(&pump);
     let first_tooltip = pump.runtime().tooltip(first_owner).unwrap().0;
 
-    pump.update_view(TextBlock::new().text("Replacement").tooltip("Tip"))
+    pump.update_view(TextBlock::new().text("Replacement").tooltip("Tip").into())
         .unwrap();
     let second_owner = target(&pump);
     assert_ne!(second_owner, first_owner);
@@ -205,8 +212,12 @@ fn component_local_target_replacement_refreshes_before_destroy() {
 
     let sender = Rc::new(RefCell::new(None));
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(View::component::<SwitchingTarget>(Input(Rc::clone(&sender))).tooltip("Help"))
-        .unwrap();
+    pump.mount_view(
+        View::component::<SwitchingTarget>(Input(Rc::clone(&sender)))
+            .tooltip("Help")
+            .into(),
+    )
+    .unwrap();
     let old_target = target(&pump);
     let tooltip = pump.runtime().tooltip(old_target).unwrap().0;
 
@@ -258,12 +269,12 @@ fn component_local_target_replacement_refreshes_before_destroy() {
 #[test]
 fn stable_target_and_tooltip_updates_do_not_churn_attachment() {
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(TextBlock::new().text("Owner").tooltip("First"))
+    pump.mount_view(TextBlock::new().text("Owner").tooltip("First").into())
         .unwrap();
     let owner = target(&pump);
     let tooltip = pump.runtime().tooltip(owner).unwrap().0;
 
-    pump.update_view(TextBlock::new().text("Changed").tooltip("Second"))
+    pump.update_view(TextBlock::new().text("Changed").tooltip("Second").into())
         .unwrap();
 
     assert_eq!(target(&pump), owner);
@@ -322,8 +333,12 @@ fn component_content_replacement_does_not_churn_stable_target_attachment() {
 
     let sender = Rc::new(RefCell::new(None));
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(View::component::<StableTarget>(Input(Rc::clone(&sender))).tooltip("Help"))
-        .unwrap();
+    pump.mount_view(
+        View::component::<StableTarget>(Input(Rc::clone(&sender)))
+            .tooltip("Help")
+            .into(),
+    )
+    .unwrap();
     let owner = target(&pump);
     let tooltip = pump.runtime().tooltip(owner).unwrap().0;
 
@@ -353,7 +368,7 @@ fn wrapping_and_unwrapping_preserves_the_native_target() {
         .unwrap();
     let owner = target(&pump);
 
-    pump.update_view(TextBlock::new().text("Wrapped").tooltip("Help"))
+    pump.update_view(TextBlock::new().text("Wrapped").tooltip("Help").into())
         .unwrap();
     assert_eq!(target(&pump), owner);
     assert!(pump.runtime().tooltip(owner).is_some());
@@ -368,7 +383,7 @@ fn wrapping_and_unwrapping_preserves_the_native_target() {
 fn nested_and_direct_native_tooltips_are_rejected() {
     let mut nested = Pump::new(RecordingRuntime::default());
     assert_eq!(
-        nested.mount_view(TextBlock::new().tooltip("Inner").tooltip("Outer")),
+        nested.mount_view(TextBlock::new().tooltip("Inner").tooltip("Outer").into()),
         Err(PumpError::StructureUnsupported)
     );
 

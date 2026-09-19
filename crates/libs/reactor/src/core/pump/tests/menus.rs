@@ -21,7 +21,8 @@ fn button_menu_mounts_nested_items_and_routes_labels() {
                     MenuItem::submenu("share", "Share", [MenuItem::item("email", "Email")]),
                 ],
                 move |label| capture.borrow_mut().push(label),
-            )),
+            ))
+            .into(),
     )
     .unwrap();
 
@@ -42,7 +43,8 @@ fn menu_bar_item_uses_owned_menu_attachment() {
     pump.mount_view(
         MenuBarItem::new()
             .title("File")
-            .menu(Menu::new([MenuItem::item("exit", "Exit")], |_| {})),
+            .menu(Menu::new([MenuItem::item("exit", "Exit")], |_| {}))
+            .into(),
     )
     .unwrap();
 
@@ -68,7 +70,8 @@ fn command_bar_flyout_mounts_commands_and_routes_labels() {
                     CommandBarCommand::button("copy", "Copy"),
                 ],
                 move |label| capture.borrow_mut().push(label),
-            )),
+            ))
+            .into(),
     )
     .unwrap();
 
@@ -90,7 +93,8 @@ fn menu_target_type_change_detaches_destroys_and_reattaches_with_current_kind() 
     pump.mount_view(
         Button::new()
             .content(TextBlock::new().text("Button"))
-            .menu(menu()),
+            .menu(menu())
+            .into(),
     )
     .unwrap();
     let owner = pump.root().unwrap();
@@ -99,7 +103,8 @@ fn menu_target_type_change_detaches_destroys_and_reattaches_with_current_kind() 
     pump.update_view(
         DropDownButton::new()
             .content(TextBlock::new().text("Drop down"))
-            .menu(menu()),
+            .menu(menu())
+            .into(),
     )
     .unwrap();
 
@@ -172,13 +177,21 @@ fn command_bar_flyout_component_target_change_uses_replacement_id() {
 
     let flyout = || CommandBarFlyout::new([CommandBarCommand::button("copy", "Copy")], [], |_| {});
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(View::component::<First>(()).command_bar_flyout(flyout()))
-        .unwrap();
+    pump.mount_view(
+        View::component::<First>(())
+            .command_bar_flyout(flyout())
+            .into(),
+    )
+    .unwrap();
     let owner = pump.root().unwrap();
     let old_target = target(&pump);
 
-    pump.update_view(View::component::<Second>(()).command_bar_flyout(flyout()))
-        .unwrap();
+    pump.update_view(
+        View::component::<Second>(())
+            .command_bar_flyout(flyout())
+            .into(),
+    )
+    .unwrap();
 
     let new_target = target(&pump);
     assert_ne!(new_target, old_target);
