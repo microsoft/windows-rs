@@ -1,0 +1,14 @@
+[package]
+name = "tool-reactor2"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+
+[dependencies]
+serde = { workspace = true, features = ["derive"] }
+toml = "0.8"
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

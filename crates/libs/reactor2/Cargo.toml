@@ -1,0 +1,18 @@
+[package]
+name = "windows-reactor2"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Structural declarative UI prototype"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[dependencies]
+windows-collections = { workspace = true, features = ["std"] }
+windows-core = { workspace = true }
+windows-reference = { workspace = true, features = ["std"] }
+
+[lints]
+workspace = true

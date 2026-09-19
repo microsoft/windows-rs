@@ -1,0 +1,96 @@
+[[objects]]
+name = "TextBlock"
+category = "Visual"
+
+[[objects.properties]]
+name = "Text"
+value = "String"
+
+[[objects]]
+name = "Border"
+category = "Visual"
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "Grid"
+category = "Visual"
+
+[[objects.relations]]
+name = "Children"
+child = "Visual"
+cardinality = "Many"
+identity = "Keyed"
+realization = "Owned"
+
+[[objects]]
+name = "StackPanel"
+category = "Visual"
+
+[[objects.relations]]
+name = "Children"
+child = "Visual"
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "TreeView"
+category = "Visual"
+
+[[objects.relations]]
+name = "Roots"
+child = "Structural"
+cardinality = "Many"
+identity = "Keyed"
+realization = "Structural"
+
+[[objects]]
+name = "TreeNode"
+category = "Structural"
+
+[[objects.properties]]
+name = "Text"
+value = "String"
+
+[[objects.properties]]
+name = "Expanded"
+value = "Bool"
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "Children"
+child = "Structural"
+cardinality = "Many"
+identity = "Keyed"
+realization = "Structural"
+
+[[objects]]
+name = "ListView"
+category = "Visual"
+
+[[objects.relations]]
+name = "Items"
+child = "Data"
+cardinality = "Many"
+identity = "Keyed"
+realization = "Container"
+
+[[objects]]
+name = "DataItem"
+category = "Data"
+
+[[objects.properties]]
+name = "Text"
+value = "String"

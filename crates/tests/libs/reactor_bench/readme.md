@@ -166,3 +166,33 @@ The Reactor workflow runs both grid workloads plus the virtual editor's recordin
 workloads on scheduled and manually dispatched runs. It publishes the results in the job summary
 and the `reactor-performance` artifact. These live timing and memory results are advisory; pull
 requests use the merge-base `RecordingRuntime` allocation and retained-memory gate above.
+
+## Reactor2 live comparison
+
+`reactor-live-compare` runs the current Reactor and experimental Reactor2 frontends in separate
+processes against the same native `Grid` containing keyed `TextBlock` children. Both runs use the
+same declaration data, deterministic update sequence, render-paced update count, allocator, and
+process CPU and memory measurements.
+
+Run both frontends with identical arguments:
+
+```powershell
+.\crates\tests\libs\reactor_bench\compare-live.ps1 `
+    -Workload text -Count 512 -Updates 120
+```
+
+The supported workloads are `text`, `rotate`, `reverse`, and `churn`. `text` changes one child
+property, `rotate` moves one keyed child from the front to the back, `reverse` exercises a dense
+reorder, and `churn` alternately removes and restores `--churn-count` trailing children.
+
+Each run prints one JSON object containing throughput, Rust allocations, live Rust-byte growth,
+process CPU, working-set and private-memory samples, and end-to-end update latency. Reactor also
+reports its separately instrumented native-apply latency. Reactor2 update latency includes
+declaration construction, direct retained-arena reconciliation, and native mutation application.
+
+This is an acceptance gate rather than a demonstration benchmark. Do not expand Reactor2 based on
+recording-backend results when this native comparison regresses. The benchmark exposed and then
+verified fixes for two early regressions: allocating empty property and relation vectors for every
+declaration object, and replacing a complete native collection for a one-item move. The
+`reactor2-live-phases` JSON object separates declaration construction, runtime, and native-adapter
+time and allocation so later optimizations remain attributable.
