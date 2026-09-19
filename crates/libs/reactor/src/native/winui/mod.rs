@@ -548,6 +548,7 @@ pub struct WinUiRuntime {
     observation_subscriptions: HashMap<(NodeId, u64), ObservationSubscription>,
     subscriptions: HashMap<(NodeId, EventId), NativeSubscription>,
     theme_styles: HashMap<(MountedKind, ThemeStyle), Style>,
+    tree_view_item_template: Option<DataTemplate>,
     tree_node_labels: Rc<RefCell<HashMap<usize, String>>>,
     tree_nodes: HashMap<NodeId, NativeTreeNode>,
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
@@ -1803,6 +1804,24 @@ impl WinUiRuntime {
                         .borrow_mut()
                         .create(*node, dialog.clone());
                 }
+                if let Handle::TreeView(tree) = &handle {
+                    let template = if let Some(template) = &self.tree_view_item_template {
+                        template.clone()
+                    } else {
+                        let xaml = "<DataTemplate \
+                            xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
+                            <ContentPresenter Content='{Binding Content}'/>\
+                            </DataTemplate>";
+                        let template = XamlReader::Load(xaml)
+                            .and_then(|value| value.cast::<DataTemplate>())
+                            .map_err(native_error)?;
+                        self.tree_view_item_template = Some(template.clone());
+                        template
+                    };
+                    tree.cast::<ITreeView2>()
+                        .and_then(|tree| tree.SetItemTemplate(&template))
+                        .map_err(native_error)?;
+                }
                 self.handles.insert(*node, handle);
             }
             Command::CreateVirtualCollection {
@@ -2890,23 +2909,31 @@ impl WinUiRuntime {
                 }
             }
             Command::SetTreeNodeContent { node, content } => {
-                let value = if let Some(content) = content {
-                    let value: windows_core::IInspectable = self.ui_element(*content)?.into();
-                    value
+                if let Some(content) = content {
+                    let content = self.ui_element(*content)?;
+                    self.tree_nodes
+                        .get(node)
+                        .ok_or(RuntimeError::MissingNode(*node))?
+                        .value
+                        .SetContent(&content)
+                        .map_err(native_error)?;
                 } else {
                     let text = &self
                         .tree_nodes
                         .get(node)
                         .ok_or(RuntimeError::MissingNode(*node))?
                         .text;
-                    windows_reference::IReference::from(windows_core::HSTRING::from(text)).into()
-                };
-                let tree_node = self
-                    .tree_nodes
-                    .get_mut(node)
-                    .ok_or(RuntimeError::MissingNode(*node))?;
-                tree_node.value.SetContent(&value).map_err(native_error)?;
-                tree_node.content = *content;
+                    let content: windows_core::IInspectable =
+                        windows_reference::IReference::from(windows_core::HSTRING::from(text))
+                            .into();
+                    self.tree_nodes
+                        .get(node)
+                        .ok_or(RuntimeError::MissingNode(*node))?
+                        .value
+                        .SetContent(&content)
+                        .map_err(native_error)?;
+                }
+                self.tree_nodes.get_mut(node).unwrap().content = *content;
             }
             Command::SetTreeNodeExpanded { node, expanded } => {
                 self.tree_nodes
@@ -4521,6 +4548,7 @@ impl NativeRuntime for WinUiRuntime {
         self.window_title_revisions.borrow_mut().clear();
         self.window_visuals.clear();
         self.theme_styles.clear();
+        self.tree_view_item_template = None;
         self.tree_node_labels.borrow_mut().clear();
         self.tree_nodes.clear();
         self.handles.clear();

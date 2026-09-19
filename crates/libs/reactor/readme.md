@@ -70,3 +70,6 @@ TreeView::new().nodes([TreeNode::new("folder", "Folder").content(
         )),
 )])
 ```
+
+The [`tree-view-content`](../../samples/reactor/tree-view-content) sample updates status labels and
+reorders custom folder rows while preserving keyed node state.

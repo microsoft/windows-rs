@@ -698,7 +698,11 @@ TreeView nodes are keyed logical nodes with retained native `TreeViewNode` objec
 `TreeNode::content` views use the normal component and view lifecycle. Updating content or
 reordering siblings preserves the native node and mounted content identities; inserting and
 removing nodes mutates only the affected native collections. User expansion is preserved across
-renders unless the declared expanded value changes.
+renders unless the declared expanded value changes. WinUI's default item presentation displays a
+`TreeViewNode` as text instead of hosting its `Content` when that content is a `UIElement`, so the
+native backend installs a cached `ContentPresenter` item template through `ITreeView2`. The
+[`tree-view-content`](../../crates/samples/reactor/tree-view-content) sample demonstrates dynamic
+status labels, item invocation, and keyed reordering.
 
 The live Notepad benchmark uses the same controlled `TextBox` shape as the `reactor-notepad`
 sample. It injects Unicode keyboard input and measures raw `WM_CHAR`, WinUI `TextChanged`,
