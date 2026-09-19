@@ -1,5 +1,7 @@
 #![windows_subsystem = "console"]
 
+use std::cell::{Cell, RefCell};
+use std::rc::Rc;
 use std::time::Duration;
 use windows_reactor::{
     App, AppContext, AppProxy, Component, ComponentContext, TextBlock, View, ViewContext,
@@ -22,10 +24,18 @@ struct Fixture {
     runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     window: reactor2::native::NativeWindow,
     iteration: usize,
+    input_phase: u8,
+    text: Rc<RefCell<Rc<str>>>,
+    text_changed: reactor2::Callback<Rc<str>>,
+    text_changed_count: Rc<Cell<usize>>,
 }
 
 impl Fixture {
-    fn declaration(iteration: usize) -> reactor2::Visual {
+    fn declaration(
+        iteration: usize,
+        text: Rc<str>,
+        text_changed: reactor2::Callback<Rc<str>>,
+    ) -> reactor2::Visual {
         let children = [
             reactor2::TreeNode::new("first-child", format!("First child {iteration}"))
                 .content(reactor2::TextBlock::new("Nested content")),
@@ -65,6 +75,9 @@ impl Fixture {
         };
         reactor2::StackPanel::new()
             .children(vec![
+                reactor2::TextBox::new(text)
+                    .on_text_changed_callback(text_changed)
+                    .into(),
                 reactor2::Border::new()
                     .content(reactor2::TextBlock::new(format!("Iteration {iteration}")))
                     .into(),
@@ -86,8 +99,22 @@ impl Component for Fixture {
     type Message = ();
 
     fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        let text = Rc::new(RefCell::new(Rc::<str>::from("Initial text")));
+        let text_changed_count = Rc::new(Cell::new(0));
+        let text_for_callback = Rc::clone(&text);
+        let count_for_callback = Rc::clone(&text_changed_count);
+        let text_changed = reactor2::Callback::new(move |value| {
+            *text_for_callback.borrow_mut() = value;
+            count_for_callback.set(count_for_callback.get() + 1);
+        });
         let mut runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
-        runtime.update(Self::declaration(0)).unwrap();
+        runtime
+            .update(Self::declaration(
+                0,
+                Rc::clone(&text.borrow()),
+                text_changed.clone(),
+            ))
+            .unwrap();
         let root = runtime.graph().root().unwrap();
         let window = runtime.adapter().open_window(root).unwrap();
         Self::schedule(context);
@@ -96,6 +123,10 @@ impl Component for Fixture {
             runtime,
             window,
             iteration: 0,
+            input_phase: 0,
+            text,
+            text_changed,
+            text_changed_count,
         }
     }
 
@@ -105,9 +136,62 @@ impl Component for Fixture {
 
     fn update(&mut self, _message: Self::Message, context: &ComponentContext<Self>) {
         self.iteration += 1;
+        let root = self.runtime.graph().root().unwrap();
+        let text_box = self
+            .runtime
+            .graph()
+            .children(root, reactor2::RelationId::Children)
+            .unwrap()[0];
+        match self.input_phase {
+            0 => {
+                self.runtime
+                    .adapter()
+                    .simulate_text_input(text_box, "Native input", 3, 2)
+                    .unwrap();
+                self.input_phase = 1;
+                Self::schedule(context);
+                return;
+            }
+            1 if self.text_changed_count.get() == 0 => {
+                Self::schedule(context);
+                return;
+            }
+            1 => {
+                assert_eq!(self.text_changed_count.get(), 1);
+                assert_eq!(self.text.borrow().as_ref(), "Native input");
+                self.input_phase = 2;
+            }
+            2 => {
+                *self.text.borrow_mut() = Rc::from("X");
+                self.input_phase = 3;
+            }
+            3 => {
+                assert_eq!(self.text_changed_count.get(), 1);
+                assert_eq!(self.text.borrow().as_ref(), "X");
+                self.input_phase = 4;
+            }
+            _ => {}
+        }
         self.runtime
-            .update(Self::declaration(self.iteration))
+            .update(Self::declaration(
+                self.iteration,
+                Rc::clone(&self.text.borrow()),
+                self.text_changed.clone(),
+            ))
             .unwrap();
+        if self.input_phase == 2 {
+            assert_eq!(
+                self.runtime.adapter().text_box_state(text_box).unwrap(),
+                ("Native input".to_string(), 3, 2)
+            );
+            assert_eq!(self.text_changed_count.get(), 1);
+        } else if self.input_phase == 3 {
+            assert_eq!(
+                self.runtime.adapter().text_box_state(text_box).unwrap(),
+                ("X".to_string(), 1, 0)
+            );
+            assert_eq!(self.text_changed_count.get(), 1);
+        }
         self.runtime
             .adapter()
             .validate_graph(self.runtime.graph())

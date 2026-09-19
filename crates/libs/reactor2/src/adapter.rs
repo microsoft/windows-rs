@@ -15,6 +15,7 @@ pub struct RecordingAdapter {
 struct RecordedObject {
     kind: ObjectType,
     properties: Rc<[Property]>,
+    events: Rc<[Event]>,
     relations: Rc<HashMap<RelationId, RecordedRelation>>,
 }
 
@@ -82,6 +83,7 @@ impl RecordingAdapter {
                         RecordedObject {
                             kind: *kind,
                             properties: Rc::from([]),
+                            events: Rc::from([]),
                             relations: Rc::new(
                                 relation_contracts(*kind)
                                     .iter()
@@ -116,6 +118,21 @@ impl RecordingAdapter {
                         }
                     }
                     object.properties = properties.into();
+                }
+                Mutation::SetEvents { object, set, clear } => {
+                    let object = self.object_mut(*object)?;
+                    let mut events = object.events.to_vec();
+                    events.retain(|event| !clear.contains(&event.id));
+                    for event in set.iter() {
+                        if let Some(current) =
+                            events.iter_mut().find(|current| current.id == event.id)
+                        {
+                            current.clone_from(event);
+                        } else {
+                            events.push(event.clone());
+                        }
+                    }
+                    object.events = events.into();
                 }
                 Mutation::Attach {
                     parent,

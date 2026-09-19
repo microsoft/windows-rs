@@ -2,6 +2,7 @@
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum ObjectType {
     TextBlock,
+    TextBox,
     Border,
     Grid,
     StackPanel,
@@ -21,6 +22,10 @@ pub enum RelationId {
     Content,
     Items,
     Roots,
+}
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum EventId {
+    TextChanged,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ObjectCategory {
@@ -50,6 +55,11 @@ pub struct PropertyContract {
     pub value: ValueType,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct EventContract {
+    pub id: EventId,
+    pub value: ValueType,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ValueType {
     String,
     Bool,
@@ -65,6 +75,7 @@ pub struct RelationContract {
 pub fn object_category(kind: ObjectType) -> ObjectCategory {
     match kind {
         ObjectType::TextBlock => ObjectCategory::Visual,
+        ObjectType::TextBox => ObjectCategory::Visual,
         ObjectType::Border => ObjectCategory::Visual,
         ObjectType::Grid => ObjectCategory::Visual,
         ObjectType::StackPanel => ObjectCategory::Visual,
@@ -74,9 +85,29 @@ pub fn object_category(kind: ObjectType) -> ObjectCategory {
         ObjectType::DataItem => ObjectCategory::Data,
     }
 }
+pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
+    match kind {
+        ObjectType::TextBlock => &[],
+        ObjectType::TextBox => &[EventContract {
+            id: EventId::TextChanged,
+            value: ValueType::String,
+        }],
+        ObjectType::Border => &[],
+        ObjectType::Grid => &[],
+        ObjectType::StackPanel => &[],
+        ObjectType::TreeView => &[],
+        ObjectType::TreeNode => &[],
+        ObjectType::ListView => &[],
+        ObjectType::DataItem => &[],
+    }
+}
 pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     match kind {
         ObjectType::TextBlock => &[PropertyContract {
+            id: PropertyId::Text,
+            value: ValueType::String,
+        }],
+        ObjectType::TextBox => &[PropertyContract {
             id: PropertyId::Text,
             value: ValueType::String,
         }],
@@ -104,6 +135,7 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
 pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
     match kind {
         ObjectType::TextBlock => &[],
+        ObjectType::TextBox => &[],
         ObjectType::Border => &[RelationContract {
             id: RelationId::Content,
             child: ObjectCategory::Visual,

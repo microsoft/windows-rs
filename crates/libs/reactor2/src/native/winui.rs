@@ -1,14 +1,16 @@
 use super::bindings as native;
 use crate::{
-    Adapter, Mutation, ObjectId, ObjectType, Property, PropertyId, PropertyValue, Realization,
-    RelationContract, RelationId, relation_contracts,
+    Adapter, Event, EventId, EventValue, Mutation, ObjectId, ObjectType, Property, PropertyId,
+    PropertyValue, Realization, RelationContract, RelationId, relation_contracts,
 };
+use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
+use std::rc::Rc;
 use windows_core::{HSTRING, IInspectable, Interface};
 
-#[derive(Clone)]
 enum Handle {
     TextBlock(native::TextBlock),
+    TextBox(NativeTextBox),
     Border(native::Border),
     Grid(native::Grid),
     StackPanel(native::StackPanel),
@@ -18,11 +20,17 @@ enum Handle {
     Data(windows_collections::IObservableMap<HSTRING, IInspectable>),
 }
 
-#[derive(Clone)]
 struct NativeTreeNode {
     value: native::TreeViewNode,
     text: HSTRING,
     content: Option<ObjectId>,
+}
+
+struct NativeTextBox {
+    value: native::TextBox,
+    callback: Rc<RefCell<Option<crate::Callback<Rc<str>>>>>,
+    observed_text: Rc<RefCell<Rc<str>>>,
+    _text_changed: windows_core::EventRevoker,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -77,8 +85,10 @@ impl NativeWindow {
 impl WinUiAdapter {
     pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
         let window = native::Window::new()?;
-        window.SetContent(&self.ui_element(root)?)?;
+        let root = self.ui_element(root)?;
+        window.SetContent(&root)?;
         window.Activate()?;
+        root.cast::<native::IUIElement>()?.UpdateLayout()?;
         Ok(NativeWindow(window))
     }
 
@@ -113,6 +123,24 @@ impl WinUiAdapter {
                     })
                     .unwrap_or_default();
                 if value.Text()? != expected {
+                    return Err(WinUiError::StateMismatch(object));
+                }
+            }
+            if let Handle::TextBox(value) = self
+                .handles
+                .get(&object)
+                .ok_or(WinUiError::MissingObject(object))?
+            {
+                let expected = graph
+                    .properties(object)
+                    .unwrap_or_default()
+                    .iter()
+                    .find_map(|property| match (&property.id, &property.value) {
+                        (PropertyId::Text, PropertyValue::String(value)) => Some(value.as_ref()),
+                        _ => None,
+                    })
+                    .unwrap_or_default();
+                if value.value.Text()? != expected {
                     return Err(WinUiError::StateMismatch(object));
                 }
             }
@@ -169,6 +197,38 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    pub fn simulate_text_input(
+        &self,
+        object: ObjectId,
+        text: &str,
+        selection_start: i32,
+        selection_length: i32,
+    ) -> Result<(), WinUiError> {
+        let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        value.value.SetText(text)?;
+        value.value.SetSelectionStart(selection_start)?;
+        value.value.SetSelectionLength(selection_length)?;
+        Self::dispatch_text_changed(
+            &value.callback,
+            &value.observed_text,
+            Rc::from(value.value.Text()?),
+        );
+        Ok(())
+    }
+
+    pub fn text_box_state(&self, object: ObjectId) -> Result<(String, i32, i32), WinUiError> {
+        let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Ok((
+            value.value.Text()?,
+            value.value.SelectionStart()?,
+            value.value.SelectionLength()?,
+        ))
+    }
+
     fn validate_native_order(
         &self,
         parent: ObjectId,
@@ -223,6 +283,30 @@ impl WinUiAdapter {
         }
         let handle = match kind {
             ObjectType::TextBlock => Handle::TextBlock(native::TextBlock::new()?),
+            ObjectType::TextBox => {
+                let value = native::TextBox::new()?;
+                let callback = Rc::new(RefCell::new(None::<crate::Callback<Rc<str>>>));
+                let callback_for_event = Rc::clone(&callback);
+                let observed_text = Rc::new(RefCell::new(Rc::<str>::from("")));
+                let observed_text_for_event = Rc::clone(&observed_text);
+                let source = value.clone();
+                let text_changed = value.TextChanged(move |_, _| {
+                    let Ok(text) = source.Text() else {
+                        std::process::abort();
+                    };
+                    Self::dispatch_text_changed(
+                        &callback_for_event,
+                        &observed_text_for_event,
+                        Rc::from(text),
+                    );
+                })?;
+                Handle::TextBox(NativeTextBox {
+                    value,
+                    callback,
+                    observed_text,
+                    _text_changed: text_changed,
+                })
+            }
             ObjectType::Border => Handle::Border(native::Border::new()?),
             ObjectType::Grid => Handle::Grid(native::Grid::new()?),
             ObjectType::StackPanel => Handle::StackPanel(native::StackPanel::new()?),
@@ -269,6 +353,9 @@ impl WinUiAdapter {
             }
             match (self.handle(object)?, property) {
                 (Handle::TextBlock(value), PropertyId::Text) => value.SetText("")?,
+                (Handle::TextBox(value), PropertyId::Text) => {
+                    Self::set_text_box_text(value, "")?;
+                }
                 (Handle::TreeNode(value), PropertyId::Text) => {
                     value.text = HSTRING::new();
                     if value.content.is_none() {
@@ -295,6 +382,9 @@ impl WinUiAdapter {
                 (Handle::TextBlock(value), PropertyId::Text, PropertyValue::String(text)) => {
                     value.SetText(text)?;
                 }
+                (Handle::TextBox(value), PropertyId::Text, PropertyValue::String(text)) => {
+                    Self::set_text_box_text(value, text)?;
+                }
                 (Handle::TreeNode(value), PropertyId::Text, PropertyValue::String(text)) => {
                     value.text = HSTRING::from(text.as_ref());
                     if value.content.is_none() {
@@ -309,6 +399,67 @@ impl WinUiAdapter {
                 _ => return Err(WinUiError::InvalidObject(object)),
             }
         }
+        Ok(())
+    }
+
+    fn dispatch_text_changed(
+        callback: &Rc<RefCell<Option<crate::Callback<Rc<str>>>>>,
+        observed_text: &Rc<RefCell<Rc<str>>>,
+        text: Rc<str>,
+    ) {
+        {
+            let mut observed = observed_text.borrow_mut();
+            if *observed == text {
+                return;
+            }
+            *observed = Rc::clone(&text);
+        }
+        let callback = callback.borrow().clone();
+        if let Some(callback) = callback
+            && std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                callback.call(text);
+            }))
+            .is_err()
+        {
+            std::process::abort();
+        }
+    }
+
+    fn set_events(
+        &mut self,
+        object: ObjectId,
+        set: &[Event],
+        clear: &[EventId],
+    ) -> Result<(), WinUiError> {
+        let Handle::TextBox(value) = self.handle(object)? else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        if clear.contains(&EventId::TextChanged) {
+            *value.callback.borrow_mut() = None;
+        }
+        for event in set {
+            match (event.id, &event.value) {
+                (EventId::TextChanged, EventValue::String(callback)) => {
+                    *value.callback.borrow_mut() = Some(callback.clone());
+                }
+            }
+        }
+        Ok(())
+    }
+
+    fn set_text_box_text(value: &NativeTextBox, text: &str) -> Result<(), WinUiError> {
+        if value.value.Text()? == text {
+            return Ok(());
+        }
+        let selection_start = value.value.SelectionStart()?;
+        let selection_length = value.value.SelectionLength()?;
+        *value.observed_text.borrow_mut() = Rc::from(text);
+        value.value.SetText(text)?;
+        let text_length = i32::try_from(text.encode_utf16().count()).unwrap_or(i32::MAX);
+        let selection_start = selection_start.clamp(0, text_length);
+        let selection_length = selection_length.clamp(0, text_length - selection_start);
+        value.value.SetSelectionStart(selection_start)?;
+        value.value.SetSelectionLength(selection_length)?;
         Ok(())
     }
 
@@ -537,6 +688,7 @@ impl WinUiAdapter {
                 .ok_or(WinUiError::MissingObject(object))?
             {
                 Handle::TextBlock(_) => ObjectType::TextBlock,
+                Handle::TextBox(_) => ObjectType::TextBox,
                 Handle::Border(_) => ObjectType::Border,
                 Handle::Grid(_) => ObjectType::Grid,
                 Handle::StackPanel(_) => ObjectType::StackPanel,
@@ -555,6 +707,7 @@ impl WinUiAdapter {
             .ok_or(WinUiError::MissingObject(object))?
         {
             Handle::TextBlock(value) => Ok(value.cast()?),
+            Handle::TextBox(value) => Ok(value.value.cast()?),
             Handle::Border(value) => Ok(value.cast()?),
             Handle::Grid(value) => Ok(value.cast()?),
             Handle::StackPanel(value) => Ok(value.cast()?),
@@ -698,6 +851,9 @@ impl Adapter for WinUiAdapter {
                 Mutation::Create { object, kind } => self.create(*object, *kind)?,
                 Mutation::SetProperties { object, set, clear } => {
                     self.set_properties(*object, set, clear)?;
+                }
+                Mutation::SetEvents { object, set, clear } => {
+                    self.set_events(*object, set, clear)?;
                 }
                 Mutation::Attach {
                     parent,

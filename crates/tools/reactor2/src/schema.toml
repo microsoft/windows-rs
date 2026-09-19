@@ -7,6 +7,18 @@ name = "Text"
 value = "String"
 
 [[objects]]
+name = "TextBox"
+category = "Visual"
+
+[[objects.properties]]
+name = "Text"
+value = "String"
+
+[[objects.events]]
+name = "TextChanged"
+value = "String"
+
+[[objects]]
 name = "Border"
 category = "Visual"
 

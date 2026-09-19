@@ -7,6 +7,7 @@ Microsoft::UI::Xaml::Controls::Border::CreateInstance
 Microsoft::UI::Xaml::Controls::Grid::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::TextBlock::CreateInstance
+Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeView::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
 Microsoft::UI::Xaml::Controls::ListView::CreateInstance
@@ -15,6 +16,7 @@ Microsoft::UI::Xaml::Controls::IItemsControl::get_Items
 Microsoft::UI::Xaml::Controls::IItemsControl::put_ItemTemplate
 Microsoft::UI::Xaml::Controls::IPanel::get_Children
 Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_Text}
+Microsoft::UI::Xaml::Controls::ITextBox::{get_Text, put_Text, get_SelectionStart, put_SelectionStart, get_SelectionLength, put_SelectionLength, add_TextChanged, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::IUIElementCollection::Move
 Microsoft::UI::Xaml::Controls::ITreeView::get_RootNodes
 Microsoft::UI::Xaml::Controls::ITreeView2::put_ItemTemplate

@@ -1,4 +1,5 @@
 use super::*;
+use std::fmt;
 use std::rc::Rc;
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -52,6 +53,42 @@ pub struct Property {
     pub value: PropertyValue,
 }
 
+#[derive(Clone)]
+pub struct Callback<T>(Rc<dyn Fn(T)>);
+
+impl<T> Callback<T> {
+    pub fn new(callback: impl Fn(T) + 'static) -> Self {
+        Self(Rc::new(callback))
+    }
+
+    pub fn call(&self, value: T) {
+        (self.0)(value);
+    }
+}
+
+impl<T> fmt::Debug for Callback<T> {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter.debug_tuple("Callback").finish()
+    }
+}
+
+impl<T> PartialEq for Callback<T> {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.0, &other.0)
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub enum EventValue {
+    String(Callback<Rc<str>>),
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct Event {
+    pub id: EventId,
+    pub value: EventValue,
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum RelationValue {
     One(Option<Rc<Declaration>>),
@@ -69,6 +106,7 @@ pub(crate) struct Declaration {
     pub kind: ObjectType,
     pub key: Option<Key>,
     pub properties: SharedList<Property>,
+    pub events: SharedList<Event>,
     pub relations: SharedList<DeclaredRelation>,
 }
 
@@ -171,6 +209,7 @@ impl Declaration {
             kind,
             key: None,
             properties: SharedList::Empty,
+            events: SharedList::Empty,
             relations: SharedList::Empty,
         }
     }
@@ -189,6 +228,12 @@ impl Declaration {
     fn relation(mut self, id: RelationId, value: RelationValue) -> Self {
         self.relations
             .upsert(|relation| relation.id == id, DeclaredRelation { id, value });
+        self
+    }
+
+    fn event(mut self, id: EventId, value: EventValue) -> Self {
+        self.events
+            .upsert(|event| event.id == id, Event { id, value });
         self
     }
 
@@ -247,6 +292,36 @@ impl TextBlock {
 
 impl From<TextBlock> for Visual {
     fn from(value: TextBlock) -> Self {
+        Self(value.0)
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct TextBox(Declaration);
+
+impl TextBox {
+    pub fn new(text: impl Into<Rc<str>>) -> Self {
+        Self(
+            Declaration::new(ObjectType::TextBox)
+                .property(PropertyId::Text, PropertyValue::String(text.into())),
+        )
+    }
+
+    pub fn on_text_changed(mut self, callback: impl Fn(Rc<str>) + 'static) -> Self {
+        self = self.on_text_changed_callback(Callback::new(callback));
+        self
+    }
+
+    pub fn on_text_changed_callback(mut self, callback: Callback<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::TextChanged, EventValue::String(callback));
+        self
+    }
+}
+
+impl From<TextBox> for Visual {
+    fn from(value: TextBox) -> Self {
         Self(value.0)
     }
 }

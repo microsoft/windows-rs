@@ -13,6 +13,8 @@ pub enum GraphError {
     },
     InvalidProperty(ObjectType, PropertyId),
     InvalidPropertyValue(PropertyId),
+    InvalidEvent(ObjectType, EventId),
+    InvalidEventValue(EventId),
     InvalidRelation(ObjectType, RelationId),
     InvalidChildCategory(RelationId),
     InvalidCardinality(RelationId),
@@ -51,6 +53,20 @@ fn validate_object(
         );
         if !valid {
             return Err(GraphError::InvalidPropertyValue(property.id));
+        }
+    }
+
+    for event in declaration.events.iter() {
+        let contract = event_contracts(declaration.kind)
+            .iter()
+            .find(|contract| contract.id == event.id)
+            .ok_or(GraphError::InvalidEvent(declaration.kind, event.id))?;
+        let valid = matches!(
+            (contract.value, &event.value),
+            (ValueType::String, EventValue::String(_))
+        );
+        if !valid {
+            return Err(GraphError::InvalidEventValue(event.id));
         }
     }
 

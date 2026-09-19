@@ -23,6 +23,8 @@ struct Object {
     properties: Vec<Property>,
     #[serde(default)]
     relations: Vec<Relation>,
+    #[serde(default)]
+    events: Vec<Event>,
 }
 
 #[derive(Deserialize)]
@@ -38,6 +40,12 @@ struct Relation {
     cardinality: String,
     identity: String,
     realization: String,
+}
+
+#[derive(Deserialize)]
+struct Event {
+    name: String,
+    value: String,
 }
 
 fn main() {
@@ -117,6 +125,12 @@ fn validate(schema: &Schema) {
                 _ => unreachable!(),
             }
         }
+        let mut events = BTreeSet::new();
+        for event in &object.events {
+            assert_identifier(&event.name);
+            assert!(events.insert(event.name.as_str()), "duplicate event");
+            assert_eq!(event.value, "String");
+        }
     }
 }
 
@@ -174,6 +188,7 @@ fn assert_identifier(value: &str) {
 fn generate(schema: &Schema) -> String {
     let mut properties = BTreeMap::new();
     let mut relations = BTreeMap::new();
+    let mut events = BTreeMap::new();
     for object in &schema.objects {
         for property in &object.properties {
             properties
@@ -182,6 +197,11 @@ fn generate(schema: &Schema) -> String {
         }
         for relation in &object.relations {
             relations.insert(relation.name.as_str(), ());
+        }
+        for event in &object.events {
+            events
+                .entry(event.name.as_str())
+                .or_insert(event.value.as_str());
         }
     }
 
@@ -193,6 +213,7 @@ fn generate(schema: &Schema) -> String {
     );
     emit_enum(&mut output, "PropertyId", properties.keys().copied());
     emit_enum(&mut output, "RelationId", relations.keys().copied());
+    emit_enum(&mut output, "EventId", events.keys().copied());
     output.push_str(
         "#[derive(Clone, Copy, Debug, Eq, PartialEq)]\n\
          pub enum ObjectCategory { Visual, Structural, Data }\n\
@@ -204,6 +225,8 @@ fn generate(schema: &Schema) -> String {
          pub enum Realization { Owned, Structural, Container }\n\
          #[derive(Clone, Copy, Debug, Eq, PartialEq)]\n\
          pub struct PropertyContract { pub id: PropertyId, pub value: ValueType }\n\
+         #[derive(Clone, Copy, Debug, Eq, PartialEq)]\n\
+         pub struct EventContract { pub id: EventId, pub value: ValueType }\n\
          #[derive(Clone, Copy, Debug, Eq, PartialEq)]\n\
          pub enum ValueType { String, Bool }\n\
          #[derive(Clone, Copy, Debug, Eq, PartialEq)]\n\
@@ -222,6 +245,21 @@ fn generate(schema: &Schema) -> String {
             "ObjectType::{} => ObjectCategory::{},\n",
             object.name, object.category
         ));
+    }
+    output.push_str("} }\n");
+
+    output.push_str(
+        "pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] { match kind {\n",
+    );
+    for object in &schema.objects {
+        output.push_str(&format!("ObjectType::{} => &[", object.name));
+        for event in &object.events {
+            output.push_str(&format!(
+                "EventContract {{ id: EventId::{}, value: ValueType::{} }},",
+                event.name, event.value
+            ));
+        }
+        output.push_str("],\n");
     }
     output.push_str("} }\n");
 

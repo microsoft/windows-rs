@@ -1,4 +1,5 @@
 use super::*;
+use std::rc::Rc;
 
 fn text(value: &str) -> Visual {
     TextBlock::new(value).into()
@@ -293,6 +294,44 @@ fn property_updates_only_emit_changed_values() {
     assert_eq!(set.len(), 1);
     assert_eq!(set[0].id, PropertyId::Text);
     assert!(clear.is_empty());
+}
+
+#[test]
+fn event_callbacks_update_without_recreating_the_object() {
+    let first = Callback::new(|_: Rc<str>| {});
+    let second = Callback::new(|_: Rc<str>| {});
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TextBox::new("Before").on_text_changed_callback(first))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+
+    let mutations = runtime
+        .update(TextBox::new("Before").on_text_changed_callback(second))
+        .unwrap();
+
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetEvents { object, .. }] if *object == root
+    ));
+}
+
+#[test]
+fn event_callbacks_can_be_removed_without_recreating_the_object() {
+    let callback = Callback::new(|_: Rc<str>| {});
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TextBox::new("Text").on_text_changed_callback(callback))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+
+    let mutations = runtime.update(TextBox::new("Text")).unwrap();
+
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetEvents { object, set, clear }]
+            if *object == root && set.is_empty() && clear.as_ref() == [EventId::TextChanged]
+    ));
 }
 
 #[test]

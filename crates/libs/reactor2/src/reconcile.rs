@@ -35,6 +35,11 @@ pub enum Mutation {
         set: Rc<[Property]>,
         clear: Rc<[PropertyId]>,
     },
+    SetEvents {
+        object: ObjectId,
+        set: Rc<[Event]>,
+        clear: Rc<[EventId]>,
+    },
     Attach {
         parent: ObjectId,
         relation: RelationId,
@@ -85,6 +90,7 @@ struct RetainedObject {
     kind: ObjectType,
     key: Option<Key>,
     properties: SharedList<Property>,
+    events: SharedList<Event>,
     relations: Vec<RetainedRelation>,
 }
 
@@ -208,6 +214,7 @@ impl RetainedGraph {
         if current.kind != declaration.kind
             || current.key != declaration.key
             || current.properties.as_slice() != declaration.properties.as_slice()
+            || current.events.as_slice() != declaration.events.as_slice()
         {
             return Ok(false);
         }
@@ -362,6 +369,7 @@ impl Planner<'_> {
             kind: declaration.kind,
             key: declaration.key.clone(),
             properties: declaration.properties.clone(),
+            events: declaration.events.clone(),
             relations: relation_contracts(declaration.kind)
                 .iter()
                 .map(|contract| RetainedRelation {
@@ -388,6 +396,20 @@ impl Planner<'_> {
             self.mutations.push(Mutation::SetProperties {
                 object,
                 set: Rc::from(self.retained.get(object).unwrap().properties.as_slice()),
+                clear: Rc::from([]),
+            });
+        }
+        if !self
+            .retained
+            .get(object)
+            .unwrap()
+            .events
+            .as_slice()
+            .is_empty()
+        {
+            self.mutations.push(Mutation::SetEvents {
+                object,
+                set: Rc::from(self.retained.get(object).unwrap().events.as_slice()),
                 clear: Rc::from([]),
             });
         }
@@ -475,6 +497,25 @@ impl Planner<'_> {
             self.retained.get_mut(object).properties = declaration.properties.clone();
             self.mutations
                 .push(Mutation::SetProperties { object, set, clear });
+        }
+        let events = declaration.events.as_slice();
+        if self.retained.get(object).unwrap().events.as_slice() != events {
+            let previous = self.retained.get(object).unwrap().events.clone();
+            let set = events
+                .iter()
+                .filter(|event| {
+                    previous.iter().find(|current| current.id == event.id) != Some(*event)
+                })
+                .cloned()
+                .collect::<Rc<[_]>>();
+            let clear = previous
+                .iter()
+                .filter(|event| !events.iter().any(|current| current.id == event.id))
+                .map(|event| event.id)
+                .collect::<Rc<[_]>>();
+            self.retained.get_mut(object).events = declaration.events.clone();
+            self.mutations
+                .push(Mutation::SetEvents { object, set, clear });
         }
         for contract in relation_contracts(declaration.kind) {
             self.reconcile_relation(object, declaration, contract)?;

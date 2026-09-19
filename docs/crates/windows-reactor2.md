@@ -16,8 +16,8 @@ a `Grid` accepts keyed visual children, and a `TreeView` accepts keyed `TreeNode
 `TreeNode` can own visual content and nested `TreeNode` values, but it cannot be inserted directly
 into a visual-child relation.
 
-`tool-reactor2` reads `crates/tools/reactor2/src/schema.toml` and generates object, property, and
-relation identifiers plus their contracts. The schema records:
+`tool-reactor2` reads `crates/tools/reactor2/src/schema.toml` and generates object, property,
+event, and relation identifiers plus their contracts. The schema records:
 
 | Contract field | Meaning |
 | --- | --- |
@@ -42,14 +42,15 @@ third representation.
 The recording adapter validates ownership and relation categories. The WinUI adapter maps the same
 mutations to `Border.Child`, panel children, `TreeViewNode` collections, and `ListView.Items`.
 TreeView's item template and safe collection synchronization remain private to that adapter. The
-`test-reactor2-selftest` executable opens a real Reactor2 window and repeatedly reorders realized
-TreeView nodes with custom visual content.
+`test-reactor2-selftest` executable opens a real Reactor2 window, repeatedly reorders realized
+TreeView nodes with custom visual content, and exercises controlled TextBox input.
 
 ## Current thin slice
 
 | Object | Purpose |
 | --- | --- |
 | `TextBlock` | Scalar property updates |
+| `TextBox` | Controlled text, replaceable callbacks, and native feedback suppression |
 | `Border` | One owned visual |
 | `Grid` | Ordered keyed visual children |
 | `StackPanel` | Ordered positional visual children |
@@ -142,11 +143,28 @@ the final order, allowing the ListView backend to select `ReplaceAll` for a comp
 reduced the update to 8.47 ms, compared with 10.29 ms for Reactor. Reversing all 10,000 items still
 takes about 37 ms and remains outside the 60 Hz gate.
 
+TextBox events use the same generated schema and generic mutation stream as properties and
+relations. A native TextBox subscribes once and keeps the current callback in a replaceable slot,
+so changing or removing the callback does not recreate the control or subscription. The backend
+tracks the last observed native text. It updates that value before a programmatic setter and drops
+matching native notifications, including repeated or delayed notifications. A different native
+value becomes authoritative input and invokes the current callback. Controlled rerenders that
+return the same text skip the native setter; authoritative replacements preserve and clamp UTF-16
+selection indices.
+
+The native self-test routes a simulated native text change through the same observed-text and
+callback path as the WinUI event handler, rerenders the controlled value, and then applies a
+different authoritative value. It verifies callback count, native text, selection preservation,
+and delayed programmatic feedback suppression across message-loop turns. Raw keyboard injection
+remains a benchmark concern because foreground-window activation is not deterministic enough for
+the correctness fixture.
+
 ## Prototype limits
 
-- Component scopes, events, resources, transitions, and asynchronous work are not represented.
-- The native stress fixture covers TreeView custom-content updates and reorder, but not input or
-  accessibility behavior.
+- Component scopes, resources, transitions, and asynchronous work are not represented. Event
+  contracts are proven only for TextBox `TextChanged`.
+- The native stress fixture covers TreeView custom-content updates and reorder plus controlled
+  TextBox input, but not accessibility behavior.
 - Validation rejects declaration depth above 128 before reconciliation so recursive planner paths
   cannot overflow the stack.
 - Validation and no-change matching reject graphs above 65,536 objects.
