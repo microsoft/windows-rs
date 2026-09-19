@@ -19,6 +19,16 @@ struct RecordedRetainedSubtree {
     slot: Option<SlotId>,
 }
 
+#[derive(Debug)]
+pub struct RecordedTreeNode {
+    text: String,
+    expanded: bool,
+    content: Option<NodeId>,
+    tree: Option<NodeId>,
+    parent: Option<NodeId>,
+    children: Vec<NodeId>,
+}
+
 pub struct RecordingRuntime {
     application: Option<NodeId>,
     attachments: HashMap<(NodeId, RealizedContainer), NodeId>,
@@ -46,7 +56,8 @@ pub struct RecordingRuntime {
     owned_menus: HashMap<NodeId, (NodeId, OwnedMenuKind, Vec<MenuItem>, u32)>,
     command_bar_flyouts:
         HashMap<NodeId, (NodeId, Vec<CommandBarCommand>, Vec<CommandBarCommand>, u32)>,
-    tree_nodes: HashMap<NodeId, Vec<TreeNode>>,
+    tree_nodes: HashMap<NodeId, RecordedTreeNode>,
+    tree_roots: HashMap<NodeId, Vec<NodeId>>,
     window_titles: HashMap<NodeId, String>,
     window_title_bars: HashMap<NodeId, (NodeId, WindowTitleBarHeight)>,
     window_observations: HashMap<NodeId, WindowObservationFlags>,
@@ -83,6 +94,7 @@ impl Default for RecordingRuntime {
             owned_menus: HashMap::new(),
             command_bar_flyouts: HashMap::new(),
             tree_nodes: HashMap::new(),
+            tree_roots: HashMap::new(),
             window_titles: HashMap::new(),
             window_title_bars: HashMap::new(),
             window_observations: HashMap::new(),
@@ -179,6 +191,7 @@ impl RecordingRuntime {
         for node in retained.nodes {
             self.nodes.remove(&node);
             self.tree_nodes.remove(&node);
+            self.tree_roots.remove(&node);
             self.source_revisions.remove(&node);
             self.subscriptions
                 .retain(|(subscription_node, _)| *subscription_node != node);
@@ -259,6 +272,14 @@ impl RecordingRuntime {
         &self.commands
     }
 
+    pub fn node_count(&self) -> usize {
+        self.nodes.len()
+    }
+
+    pub fn tree_node_count(&self) -> usize {
+        self.tree_nodes.len()
+    }
+
     #[cfg(any(test, feature = "test"))]
     pub fn close_requests(&self) -> &[NodeId] {
         &self.close_requests
@@ -310,8 +331,32 @@ impl RecordingRuntime {
         self.command_bar_flyouts.get(&owner)
     }
 
-    pub fn tree_nodes(&self, target: NodeId) -> Option<&[TreeNode]> {
-        self.tree_nodes.get(&target).map(Vec::as_slice)
+    pub fn tree_roots(&self, target: NodeId) -> Option<&[NodeId]> {
+        self.tree_roots.get(&target).map(Vec::as_slice)
+    }
+
+    pub fn tree_node(&self, node: NodeId) -> Option<&RecordedTreeNode> {
+        self.tree_nodes.get(&node)
+    }
+
+    pub fn tree_node_text(&self, node: NodeId) -> Option<&str> {
+        self.tree_node(node).map(|node| node.text.as_str())
+    }
+
+    pub fn tree_node_content(&self, node: NodeId) -> Option<NodeId> {
+        self.tree_node(node).and_then(|node| node.content)
+    }
+
+    pub fn tree_node_expanded(&self, node: NodeId) -> Option<bool> {
+        self.tree_node(node).map(|node| node.expanded)
+    }
+
+    pub fn set_tree_node_expanded(&mut self, node: NodeId, expanded: bool) {
+        self.tree_nodes.get_mut(&node).unwrap().expanded = expanded;
+    }
+
+    pub fn tree_node_children(&self, node: NodeId) -> Option<&[NodeId]> {
+        self.tree_node(node).map(|node| node.children.as_slice())
     }
 
     pub fn queue_owned_click(&mut self, owner: NodeId, label: impl Into<String>) {
@@ -703,8 +748,22 @@ impl RecordingRuntime {
                         .command_bar_flyouts
                         .values()
                         .any(|(target, _, _, _)| target == node)
+                    || self
+                        .tree_nodes
+                        .values()
+                        .any(|tree_node| tree_node.content == Some(*node))
                 {
                     return Err(RuntimeError::StillParented(*node));
+                }
+                if let Some(tree_node) = self.tree_nodes.get(node) {
+                    if tree_node.tree.is_some() || tree_node.parent.is_some() {
+                        return Err(RuntimeError::StillParented(*node));
+                    }
+                    if tree_node.content.is_some() || !tree_node.children.is_empty() {
+                        return Err(RuntimeError::HasChildren(*node));
+                    }
+                    self.tree_nodes.remove(node);
+                    return Ok(());
                 }
                 let recorded = self
                     .nodes
@@ -722,8 +781,15 @@ impl RecordingRuntime {
                 {
                     return Err(RuntimeError::HasChildren(*node));
                 }
+                if self
+                    .tree_roots
+                    .get(node)
+                    .is_some_and(|children| !children.is_empty())
+                {
+                    return Err(RuntimeError::HasChildren(*node));
+                }
                 self.nodes.remove(node);
-                self.tree_nodes.remove(node);
+                self.tree_roots.remove(node);
                 if let Some(dialog) = self.content_dialogs.get_mut(node) {
                     if dialog.pending {
                         dialog.retired = true;
@@ -1102,17 +1168,136 @@ impl RecordingRuntime {
                     self.command_bar_flyouts.remove(owner);
                 }
             }
-            Command::SetTreeViewNodes { target, nodes } => {
+            Command::CreateTreeNode {
+                node,
+                text,
+                expanded,
+            } => {
+                if self.tree_nodes.contains_key(node) || self.nodes.contains_key(node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                self.tree_nodes.insert(
+                    *node,
+                    RecordedTreeNode {
+                        text: text.clone(),
+                        expanded: *expanded,
+                        content: None,
+                        tree: None,
+                        parent: None,
+                        children: Vec::new(),
+                    },
+                );
+            }
+            Command::SetTreeNodeText { node, text } => {
+                self.tree_nodes
+                    .get_mut(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .text
+                    .clone_from(text);
+            }
+            Command::SetTreeNodeContent { node, content } => {
+                if let Some(content) = content {
+                    self.nodes
+                        .get(content)
+                        .ok_or(RuntimeError::MissingNode(*content))?;
+                }
+                self.tree_nodes
+                    .get_mut(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .content = *content;
+            }
+            Command::SetTreeNodeExpanded { node, expanded } => {
+                self.tree_nodes
+                    .get_mut(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .expanded = *expanded;
+            }
+            Command::InsertTreeNode {
+                tree,
+                parent,
+                node,
+                index,
+            } => {
                 if self
                     .nodes
-                    .get(target)
-                    .ok_or(RuntimeError::MissingNode(*target))?
+                    .get(tree)
+                    .ok_or(RuntimeError::MissingNode(*tree))?
                     .kind
                     != Some(MountedKind::TreeView)
                 {
                     return Err(RuntimeError::UnsupportedKind);
                 }
-                self.tree_nodes.insert(*target, nodes.clone());
+                let child = self
+                    .tree_nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+                if child.tree.is_some() || child.parent.is_some() {
+                    return Err(RuntimeError::AlreadyParented(*node));
+                }
+                let children = if let Some(parent) = parent {
+                    &mut self
+                        .tree_nodes
+                        .get_mut(parent)
+                        .ok_or(RuntimeError::MissingNode(*parent))?
+                        .children
+                } else {
+                    self.tree_roots.entry(*tree).or_default()
+                };
+                if *index > children.len() {
+                    return Err(RuntimeError::IndexOutOfBounds);
+                }
+                children.insert(*index, *node);
+                let child = self.tree_nodes.get_mut(node).unwrap();
+                child.tree = Some(*tree);
+                child.parent = *parent;
+            }
+            Command::MoveTreeNode {
+                tree,
+                parent,
+                node,
+                index,
+            } => {
+                let children = if let Some(parent) = parent {
+                    &mut self
+                        .tree_nodes
+                        .get_mut(parent)
+                        .ok_or(RuntimeError::MissingNode(*parent))?
+                        .children
+                } else {
+                    self.tree_roots
+                        .get_mut(tree)
+                        .ok_or(RuntimeError::MissingNode(*tree))?
+                };
+                let current = children
+                    .iter()
+                    .position(|current| current == node)
+                    .ok_or(RuntimeError::ChildNotFound(*node))?;
+                let node = children.remove(current);
+                if *index > children.len() {
+                    return Err(RuntimeError::IndexOutOfBounds);
+                }
+                children.insert(*index, node);
+            }
+            Command::RemoveTreeNode { tree, parent, node } => {
+                let children = if let Some(parent) = parent {
+                    &mut self
+                        .tree_nodes
+                        .get_mut(parent)
+                        .ok_or(RuntimeError::MissingNode(*parent))?
+                        .children
+                } else {
+                    self.tree_roots
+                        .get_mut(tree)
+                        .ok_or(RuntimeError::MissingNode(*tree))?
+                };
+                let index = children
+                    .iter()
+                    .position(|current| current == node)
+                    .ok_or(RuntimeError::ChildNotFound(*node))?;
+                children.remove(index);
+                let child = self.tree_nodes.get_mut(node).unwrap();
+                child.tree = None;
+                child.parent = None;
             }
             Command::SetContentDialogOpen { node, owner, open } => {
                 if self.nodes.get(node).and_then(|node| node.kind)

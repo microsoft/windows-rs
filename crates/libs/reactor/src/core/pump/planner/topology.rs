@@ -23,6 +23,9 @@ pub(super) enum NativeAttachment {
         owner: NodeId,
         placement: FlyoutPlacement,
     },
+    TreeNodeContent {
+        owner: NodeId,
+    },
     ContentDialog,
 }
 
@@ -70,12 +73,22 @@ impl<R: NativeRuntime> Pump<R> {
                 };
                 Self::visit_native_roots(tree, *target, visit)?;
             }
-            NodeKind::Menu(_) | NodeKind::CommandBarFlyout | NodeKind::TreeNodes => {
+            NodeKind::Menu(_) | NodeKind::CommandBarFlyout => {
                 let [target] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 Self::visit_native_roots(tree, *target, visit)?;
             }
+            NodeKind::TreeNodes => {
+                let target = tree
+                    .children(node)
+                    .iter()
+                    .copied()
+                    .find(|child| tree.kind(*child) != NodeKind::TreeNode)
+                    .ok_or(PumpError::StructureUnsupported)?;
+                Self::visit_native_roots(tree, target, visit)?;
+            }
+            NodeKind::TreeNode => {}
             NodeKind::ContentDialog(_) => {}
             NodeKind::Component
             | NodeKind::Fragment
@@ -130,6 +143,7 @@ impl<R: NativeRuntime> Pump<R> {
                 | NodeKind::Menu(_)
                 | NodeKind::CommandBarFlyout
                 | NodeKind::TreeNodes
+                | NodeKind::TreeNode
                 | NodeKind::ContentDialog(_) => {
                     current = tree
                         .parent(current)
@@ -216,7 +230,7 @@ impl<R: NativeRuntime> Pump<R> {
                     }
                     current = parent;
                 }
-                NodeKind::Menu(_) | NodeKind::CommandBarFlyout | NodeKind::TreeNodes => {
+                NodeKind::Menu(_) | NodeKind::CommandBarFlyout => {
                     let [target] = tree.children(parent) else {
                         return Err(PumpError::StructureUnsupported);
                     };
@@ -224,6 +238,24 @@ impl<R: NativeRuntime> Pump<R> {
                         return Err(PumpError::StructureUnsupported);
                     }
                     current = parent;
+                }
+                NodeKind::TreeNodes => {
+                    let target = tree
+                        .children(parent)
+                        .iter()
+                        .copied()
+                        .find(|child| tree.kind(*child) != NodeKind::TreeNode)
+                        .ok_or(PumpError::StructureUnsupported)?;
+                    if current != target {
+                        return Err(PumpError::StructureUnsupported);
+                    }
+                    current = parent;
+                }
+                NodeKind::TreeNode => {
+                    if tree.tree_node(parent).content != Some(current) {
+                        return Err(PumpError::StructureUnsupported);
+                    }
+                    return Ok(NativeAttachment::TreeNodeContent { owner: parent });
                 }
                 NodeKind::ContentDialog(_) => return Ok(NativeAttachment::ContentDialog),
                 NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
@@ -400,6 +432,42 @@ impl<R: NativeRuntime> Pump<R> {
             current = parent;
         }
         Ok(None)
+    }
+
+    pub(super) fn tree_view_target(tree: &Tree, node: NodeId) -> Result<NodeId, PumpError> {
+        let mut current = node;
+        loop {
+            let parent = tree
+                .parent(current)
+                .ok_or(PumpError::StructureUnsupported)?;
+            if tree.kind(parent) == NodeKind::TreeNodes {
+                return tree
+                    .children(parent)
+                    .iter()
+                    .copied()
+                    .find(|child| tree.kind(*child) != NodeKind::TreeNode)
+                    .ok_or(PumpError::StructureUnsupported)
+                    .and_then(|target| Self::native_root(tree, target));
+            }
+            current = parent;
+        }
+    }
+
+    pub(super) fn refresh_tree_node_content(
+        tree: &Tree,
+        owner: NodeId,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let content = tree
+            .tree_node(owner)
+            .content
+            .map(|content| Self::native_root(tree, content))
+            .transpose()?;
+        plan.push(Command::SetTreeNodeContent {
+            node: owner,
+            content,
+        });
+        Ok(())
     }
 
     pub(super) fn clear_tooltip_attachment(
@@ -622,6 +690,15 @@ impl<R: NativeRuntime> Pump<R> {
         root: NodeId,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
+        Self::retire_planned_subtree_from_tree(tree, root, None, plan)
+    }
+
+    pub(in super::super) fn retire_planned_subtree_from_tree(
+        tree: &mut Tree,
+        root: NodeId,
+        tree_target: Option<NodeId>,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
         let nodes = tree.subtree_postorder(root);
         let node_set = nodes.iter().copied().collect::<HashSet<_>>();
         let mut retained_nodes = HashSet::new();
@@ -746,6 +823,12 @@ impl<R: NativeRuntime> Pump<R> {
                             NativeAttachment::Flyout { owner, .. } => {
                                 Self::clear_flyout_attachment(tree, owner, plan)?;
                             }
+                            NativeAttachment::TreeNodeContent { owner } => {
+                                plan.push(Command::SetTreeNodeContent {
+                                    node: owner,
+                                    content: None,
+                                });
+                            }
                             NativeAttachment::ContentDialog => {}
                         }
                     }
@@ -784,12 +867,32 @@ impl<R: NativeRuntime> Pump<R> {
                             NativeAttachment::Flyout { owner, .. } => {
                                 Self::clear_flyout_attachment(tree, owner, plan)?;
                             }
+                            NativeAttachment::TreeNodeContent { owner } => {
+                                plan.push(Command::SetTreeNodeContent {
+                                    node: owner,
+                                    content: None,
+                                });
+                            }
                             NativeAttachment::ContentDialog => {}
                         }
                     }
                     if !retained_nodes.contains(&node) {
                         plan.push(Command::Destroy { node });
                     }
+                }
+                NodeKind::TreeNode => {
+                    let parent = tree.parent(node).ok_or(PumpError::StructureUnsupported)?;
+                    let native_parent = match tree.kind(parent) {
+                        NodeKind::TreeNodes => None,
+                        NodeKind::TreeNode => Some(parent),
+                        _ => return Err(PumpError::StructureUnsupported),
+                    };
+                    plan.push(Command::RemoveTreeNode {
+                        tree: tree_target.map_or_else(|| Self::tree_view_target(tree, node), Ok)?,
+                        parent: native_parent,
+                        node,
+                    });
+                    plan.push(Command::Destroy { node });
                 }
                 NodeKind::Component
                 | NodeKind::Fragment

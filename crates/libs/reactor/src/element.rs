@@ -970,10 +970,11 @@ pub struct RichTextHyperlink {
 }
 
 /// A keyed node in a tree view.
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TreeNode {
     pub(crate) key: Key,
     pub(crate) text: String,
+    pub(crate) content: Option<View>,
     pub(crate) expanded: bool,
     pub(crate) children: Vec<Self>,
 }
@@ -984,12 +985,19 @@ impl TreeNode {
         Self {
             key: key.into(),
             text: text.into(),
+            content: None,
             expanded: false,
             children: Vec::new(),
         }
     }
 
-    /// Sets whether the node is expanded.
+    /// Replaces the node's displayed content.
+    pub fn content(mut self, content: impl Into<View>) -> Self {
+        self.content = Some(content.into());
+        self
+    }
+
+    /// Sets the initial expanded state and requests an update when this value changes.
     pub fn expanded(mut self, value: bool) -> Self {
         self.expanded = value;
         self

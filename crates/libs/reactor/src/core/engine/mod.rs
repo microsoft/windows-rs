@@ -22,6 +22,7 @@ pub enum NodeKind {
     Menu(OwnedMenuKind),
     CommandBarFlyout,
     TreeNodes,
+    TreeNode,
     ContentDialog(bool),
     Native(MountedKind),
     VirtualCollection,
@@ -51,7 +52,8 @@ enum NodeData {
         state: OwnedState<Vec<MenuItem>>,
     },
     CommandBarFlyout(OwnedState<(Vec<CommandBarCommand>, Vec<CommandBarCommand>)>),
-    TreeNodes(Rc<Vec<TreeNode>>),
+    TreeNodes,
+    TreeNode(TreeNodeState),
     ContentDialog(bool),
     Native(NativeData),
     Virtual(VirtualData),
@@ -73,6 +75,7 @@ impl NodeData {
             | NodeKind::Menu(_)
             | NodeKind::CommandBarFlyout
             | NodeKind::TreeNodes
+            | NodeKind::TreeNode
             | NodeKind::Native(_)
             | NodeKind::VirtualCollection => panic!("node kind requires associated data: {kind:?}"),
         }
@@ -91,7 +94,8 @@ impl NodeData {
             Self::Flyout(placement) => NodeKind::Flyout(*placement),
             Self::Menu { kind, .. } => NodeKind::Menu(*kind),
             Self::CommandBarFlyout(_) => NodeKind::CommandBarFlyout,
-            Self::TreeNodes(_) => NodeKind::TreeNodes,
+            Self::TreeNodes => NodeKind::TreeNodes,
+            Self::TreeNode(_) => NodeKind::TreeNode,
             Self::ContentDialog(open) => NodeKind::ContentDialog(*open),
             Self::Native(native) => NodeKind::Native(native.kind),
             Self::Virtual(_) => NodeKind::VirtualCollection,
@@ -142,6 +146,13 @@ struct OwnedState<T> {
     callback: Callback<String>,
     revision: u32,
     content: T,
+}
+
+#[derive(Clone)]
+pub struct TreeNodeState {
+    pub text: Rc<str>,
+    pub expanded: bool,
+    pub content: Option<NodeId>,
 }
 
 impl<T> OwnedState<T> {
@@ -529,28 +540,49 @@ impl Tree {
         )
     }
 
-    pub fn insert_tree_nodes(
-        &mut self,
-        parent: Option<NodeId>,
-        key: Option<Key>,
-        nodes: Rc<Vec<TreeNode>>,
-    ) -> NodeId {
-        self.insert_data(parent, key, NodeData::TreeNodes(nodes))
+    pub fn insert_tree_nodes(&mut self, parent: Option<NodeId>, key: Option<Key>) -> NodeId {
+        self.insert_data(parent, key, NodeData::TreeNodes)
     }
 
-    pub fn tree_nodes(&self, id: NodeId) -> &Rc<Vec<TreeNode>> {
+    pub fn insert_tree_node(
+        &mut self,
+        parent: NodeId,
+        key: Key,
+        text: String,
+        expanded: bool,
+    ) -> NodeId {
+        self.insert_data(
+            Some(parent),
+            Some(key),
+            NodeData::TreeNode(TreeNodeState {
+                text: text.into(),
+                expanded,
+                content: None,
+            }),
+        )
+    }
+
+    pub fn tree_node(&self, id: NodeId) -> &TreeNodeState {
         match &self.node(id).data {
-            NodeData::TreeNodes(nodes) => nodes,
-            _ => panic!("node is not a tree view"),
+            NodeData::TreeNode(state) => state,
+            _ => panic!("node is not a tree node"),
         }
     }
 
-    pub fn update_tree_nodes(&mut self, id: NodeId, nodes: Rc<Vec<TreeNode>>) {
+    pub fn update_tree_node(&mut self, id: NodeId, text: String, expanded: bool) {
         match &mut self.node_mut(id).data {
-            NodeData::TreeNodes(current) => {
-                *current = nodes;
+            NodeData::TreeNode(state) => {
+                state.text = text.into();
+                state.expanded = expanded;
             }
-            _ => panic!("node is not a tree view"),
+            _ => panic!("node is not a tree node"),
+        }
+    }
+
+    pub fn set_tree_node_content(&mut self, id: NodeId, content: Option<NodeId>) {
+        match &mut self.node_mut(id).data {
+            NodeData::TreeNode(state) => state.content = content,
+            _ => panic!("node is not a tree node"),
         }
     }
 

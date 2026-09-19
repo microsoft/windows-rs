@@ -548,6 +548,8 @@ pub struct WinUiRuntime {
     observation_subscriptions: HashMap<(NodeId, u64), ObservationSubscription>,
     subscriptions: HashMap<(NodeId, EventId), NativeSubscription>,
     theme_styles: HashMap<(MountedKind, ThemeStyle), Style>,
+    tree_node_labels: Rc<RefCell<HashMap<usize, String>>>,
+    tree_nodes: HashMap<NodeId, NativeTreeNode>,
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
     window_closed: Rc<Cell<bool>>,
     window_observations: HashMap<NodeId, WindowObservationFlags>,
@@ -688,6 +690,14 @@ struct NativeCommandBarFlyout {
     target: NodeId,
     _flyout: bindings::CommandBarFlyout,
     _revokers: Vec<windows_core::EventRevoker>,
+}
+
+struct NativeTreeNode {
+    value: TreeViewNode,
+    text: String,
+    content: Option<NodeId>,
+    tree: Option<NodeId>,
+    parent: Option<NodeId>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -843,21 +853,6 @@ fn set_rich_edit_text(control: &bindings::RichEditBox, value: &str) -> Result<bo
         Ok(())
     };
     write.and(restore).map(|_| true)
-}
-
-fn build_tree_node(definition: &TreeNode) -> Result<TreeViewNode, RuntimeError> {
-    let node = TreeViewNode::new().map_err(native_error)?;
-    let content: windows_core::IInspectable =
-        windows_reference::IReference::from(windows_core::HSTRING::from(&definition.text)).into();
-    node.SetContent(&content).map_err(native_error)?;
-    node.SetIsExpanded(definition.expanded)
-        .map_err(native_error)?;
-    let children = node.Children().map_err(native_error)?;
-    for child in &definition.children {
-        let child = build_tree_node(child)?;
-        children.Append(&child).map_err(native_error)?;
-    }
-    Ok(node)
 }
 
 fn window_visual_changes(
@@ -1885,6 +1880,10 @@ impl WinUiRuntime {
                         .command_bar_flyouts
                         .values()
                         .any(|flyout| flyout.target == *node)
+                    || self
+                        .tree_nodes
+                        .values()
+                        .any(|tree_node| tree_node.content == Some(*node))
                 {
                     return Err(RuntimeError::StillParented(*node));
                 }
@@ -1894,6 +1893,27 @@ impl WinUiRuntime {
                     .any(|(title_bar, _)| title_bar == node)
                 {
                     return Err(RuntimeError::StillParented(*node));
+                }
+                if let Some(tree_node) = self.tree_nodes.get(node) {
+                    if tree_node.tree.is_some() || tree_node.parent.is_some() {
+                        return Err(RuntimeError::StillParented(*node));
+                    }
+                    if tree_node.content.is_some() {
+                        return Err(RuntimeError::HasChildren(*node));
+                    }
+                    if tree_node
+                        .value
+                        .Children()
+                        .and_then(|children| children.Size())
+                        .map_err(native_error)?
+                        != 0
+                    {
+                        return Err(RuntimeError::HasChildren(*node));
+                    }
+                    let identity = com_identity(&tree_node.value)?;
+                    self.tree_node_labels.borrow_mut().remove(&identity);
+                    self.tree_nodes.remove(node);
+                    return Ok(());
                 }
                 return self.remove_node_state(*node);
             }
@@ -2826,16 +2846,140 @@ impl WinUiRuntime {
                     },
                 );
             }
-            Command::SetTreeViewNodes { target, nodes } => {
-                let Some(Handle::TreeView(tree)) = self.handles.get(target) else {
-                    return Err(RuntimeError::UnsupportedKind);
-                };
-                let roots = tree.RootNodes().map_err(native_error)?;
-                roots.Clear().map_err(native_error)?;
-                for node in nodes {
-                    let node = build_tree_node(node)?;
-                    roots.Append(&node).map_err(native_error)?;
+            Command::CreateTreeNode {
+                node,
+                text,
+                expanded,
+            } => {
+                if self.contains(*node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
                 }
+                let value = TreeViewNode::new().map_err(native_error)?;
+                let content: windows_core::IInspectable =
+                    windows_reference::IReference::from(windows_core::HSTRING::from(text)).into();
+                value.SetContent(&content).map_err(native_error)?;
+                value.SetIsExpanded(*expanded).map_err(native_error)?;
+                self.tree_node_labels
+                    .borrow_mut()
+                    .insert(com_identity(&value)?, text.clone());
+                self.tree_nodes.insert(
+                    *node,
+                    NativeTreeNode {
+                        value,
+                        text: text.clone(),
+                        content: None,
+                        tree: None,
+                        parent: None,
+                    },
+                );
+            }
+            Command::SetTreeNodeText { node, text } => {
+                let tree_node = self
+                    .tree_nodes
+                    .get_mut(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+                tree_node.text.clone_from(text);
+                self.tree_node_labels
+                    .borrow_mut()
+                    .insert(com_identity(&tree_node.value)?, text.clone());
+                if tree_node.content.is_none() {
+                    let content: windows_core::IInspectable =
+                        windows_reference::IReference::from(windows_core::HSTRING::from(text))
+                            .into();
+                    tree_node.value.SetContent(&content).map_err(native_error)?;
+                }
+            }
+            Command::SetTreeNodeContent { node, content } => {
+                let value = if let Some(content) = content {
+                    let value: windows_core::IInspectable = self.ui_element(*content)?.into();
+                    value
+                } else {
+                    let text = &self
+                        .tree_nodes
+                        .get(node)
+                        .ok_or(RuntimeError::MissingNode(*node))?
+                        .text;
+                    windows_reference::IReference::from(windows_core::HSTRING::from(text)).into()
+                };
+                let tree_node = self
+                    .tree_nodes
+                    .get_mut(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+                tree_node.value.SetContent(&value).map_err(native_error)?;
+                tree_node.content = *content;
+            }
+            Command::SetTreeNodeExpanded { node, expanded } => {
+                self.tree_nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .value
+                    .SetIsExpanded(*expanded)
+                    .map_err(native_error)?;
+            }
+            Command::InsertTreeNode {
+                tree,
+                parent,
+                node,
+                index,
+            } => {
+                let value = self
+                    .tree_nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .value
+                    .clone();
+                let collection = self.tree_node_collection(*tree, *parent)?;
+                collection
+                    .InsertAt(index32(*index)?, &value)
+                    .map_err(native_error)?;
+                let state = self.tree_nodes.get_mut(node).unwrap();
+                state.tree = Some(*tree);
+                state.parent = *parent;
+            }
+            Command::MoveTreeNode {
+                tree,
+                parent,
+                node,
+                index,
+            } => {
+                let value = self
+                    .tree_nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .value
+                    .clone();
+                let collection = self.tree_node_collection(*tree, *parent)?;
+                let mut current = 0;
+                if !collection
+                    .IndexOf(&value, &mut current)
+                    .map_err(native_error)?
+                {
+                    return Err(RuntimeError::ChildNotFound(*node));
+                }
+                collection.RemoveAt(current).map_err(native_error)?;
+                collection
+                    .InsertAt(index32(*index)?, &value)
+                    .map_err(native_error)?;
+            }
+            Command::RemoveTreeNode { tree, parent, node } => {
+                let value = self
+                    .tree_nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .value
+                    .clone();
+                let collection = self.tree_node_collection(*tree, *parent)?;
+                let mut index = 0;
+                if !collection
+                    .IndexOf(&value, &mut index)
+                    .map_err(native_error)?
+                {
+                    return Err(RuntimeError::ChildNotFound(*node));
+                }
+                collection.RemoveAt(index).map_err(native_error)?;
+                let state = self.tree_nodes.get_mut(node).unwrap();
+                state.tree = None;
+                state.parent = None;
             }
             Command::SetContentDialogOpen { node, owner, open } => {
                 let owner = if *open {
@@ -2941,11 +3085,32 @@ impl WinUiRuntime {
     fn contains(&self, node: NodeId) -> bool {
         self.handles.contains_key(&node)
             || self.virtuals.contains_key(&node)
+            || self.tree_nodes.contains_key(&node)
             || self.windows.contains_key(&node)
             || self
                 .application
                 .as_ref()
                 .is_some_and(|(application, _)| *application == node)
+    }
+
+    fn tree_node_collection(
+        &self,
+        tree: NodeId,
+        parent: Option<NodeId>,
+    ) -> Result<windows_collections::IVector<TreeViewNode>, RuntimeError> {
+        if let Some(parent) = parent {
+            self.tree_nodes
+                .get(&parent)
+                .ok_or(RuntimeError::MissingNode(parent))?
+                .value
+                .Children()
+                .map_err(native_error)
+        } else {
+            let Some(Handle::TreeView(tree)) = self.handles.get(&tree) else {
+                return Err(RuntimeError::UnsupportedKind);
+            };
+            tree.RootNodes().map_err(native_error)
+        }
     }
 
     fn window_children(
@@ -3493,6 +3658,7 @@ impl WinUiRuntime {
             pointer_policies: Rc::clone(&self.pointer_policies),
             routed_callbacks: Rc::clone(&self.routed_callbacks),
             selection_items: Rc::clone(&self.selection_items),
+            tree_node_labels: Rc::clone(&self.tree_node_labels),
             dispatcher,
             identity,
             current_identity: Rc::clone(&self.identity),
@@ -3593,6 +3759,7 @@ pub struct EventSink {
     pointer_policies: Rc<RefCell<HashMap<NodeId, PointerInteractionPolicy>>>,
     routed_callbacks: Rc<RefCell<HashMap<(NodeId, EventId), RoutedEventCallback>>>,
     selection_items: Rc<RefCell<Vec<(NodeId, windows_core::IInspectable)>>>,
+    tree_node_labels: Rc<RefCell<HashMap<usize, String>>>,
     dispatcher: DispatcherQueue,
     identity: WindowToken,
     current_identity: Rc<Cell<Option<WindowToken>>>,
@@ -3600,6 +3767,14 @@ pub struct EventSink {
 }
 
 impl EventSink {
+    pub fn tree_node_label(&self, node: &ITreeViewNode) -> Result<String, RuntimeError> {
+        self.tree_node_labels
+            .borrow()
+            .get(&com_identity(node)?)
+            .cloned()
+            .ok_or(RuntimeError::UnsupportedKind)
+    }
+
     fn enqueue_host(&self, event: HostEvent) {
         self.host_events.borrow_mut().push(NativeWork {
             identity: self.identity,
@@ -4346,6 +4521,8 @@ impl NativeRuntime for WinUiRuntime {
         self.window_title_revisions.borrow_mut().clear();
         self.window_visuals.clear();
         self.theme_styles.clear();
+        self.tree_node_labels.borrow_mut().clear();
+        self.tree_nodes.clear();
         self.handles.clear();
         self.virtuals.clear();
         self.application = None;

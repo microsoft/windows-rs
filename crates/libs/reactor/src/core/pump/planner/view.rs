@@ -32,9 +32,14 @@ fn validate_tree_nodes(nodes: &[TreeNode]) -> Result<(), PumpError> {
         if !keys.insert(&node.key) {
             return Err(PumpError::DuplicateKey(node.key.clone()));
         }
+
         validate_tree_nodes(&node.children)?;
     }
     Ok(())
+}
+
+fn tree_node_keys(nodes: &[TreeNode]) -> Vec<Key> {
+    nodes.iter().map(|node| node.key.clone()).collect()
 }
 
 #[derive(Clone, Copy)]
@@ -522,12 +527,17 @@ impl<R: NativeRuntime> Pump<R> {
                     );
                 }
                 validate_tree_nodes(&nodes)?;
-                let [current] = tree.children(node) else {
-                    return Err(PumpError::StructureUnsupported);
-                };
+                let current = tree
+                    .children(node)
+                    .iter()
+                    .copied()
+                    .find(|child| tree.kind(*child) != NodeKind::TreeNode)
+                    .ok_or(PumpError::StructureUnsupported)?;
+                let previous_target = Self::native_root(tree, current)?;
+                let replacement_start = plan.commands.len();
                 let current = Self::reconcile_planned_view(
                     tree,
-                    *current,
+                    current,
                     View::from_kind(*desired),
                     components,
                     changes,
@@ -537,12 +547,35 @@ impl<R: NativeRuntime> Pump<R> {
                 if tree.kind(target) != NodeKind::Native(MountedKind::TreeView) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                if tree.tree_nodes(node) != &nodes {
-                    tree.update_tree_nodes(node, Rc::clone(&nodes));
-                    plan.push(Command::SetTreeViewNodes {
-                        target,
-                        nodes: nodes.as_ref().clone(),
-                    });
+                if target == previous_target {
+                    Self::reconcile_tree_node_list(
+                        tree, node, target, None, &nodes, components, changes, plan,
+                    )?;
+                } else {
+                    let replacement = plan.commands.split_off(replacement_start);
+                    for root in Self::tree_node_children(tree, node) {
+                        Self::collect_retired_components(tree, root, components, changes);
+                        Self::retire_planned_subtree_from_tree(
+                            tree,
+                            root,
+                            Some(previous_target),
+                            plan,
+                        )?;
+                    }
+                    plan.commands.extend(replacement);
+                    for (index, definition) in nodes.iter().enumerate() {
+                        let child = Self::mount_tree_node(
+                            tree, node, target, definition, components, changes, plan,
+                        )?;
+                        plan.push(Command::InsertTreeNode {
+                            tree: target,
+                            parent: None,
+                            node: child,
+                            index,
+                        });
+                    }
+                    let roots = Self::tree_node_children(tree, node);
+                    Self::set_tree_node_children(tree, node, roots);
                 }
                 Ok(node)
             }
@@ -811,6 +844,296 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
+    fn tree_node_children(tree: &Tree, owner: NodeId) -> Vec<NodeId> {
+        tree.children(owner)
+            .iter()
+            .copied()
+            .filter(|child| tree.kind(*child) == NodeKind::TreeNode)
+            .collect()
+    }
+
+    fn set_tree_node_children(tree: &mut Tree, owner: NodeId, children: Vec<NodeId>) {
+        let mut all: Vec<NodeId> = match tree.kind(owner) {
+            NodeKind::TreeNodes => Vec::new(),
+            NodeKind::TreeNode => tree.tree_node(owner).content.into_iter().collect(),
+            _ => panic!("node cannot own tree nodes"),
+        };
+        all.extend(children);
+        if tree.kind(owner) == NodeKind::TreeNodes {
+            let target = tree
+                .children(owner)
+                .iter()
+                .copied()
+                .find(|child| tree.kind(*child) != NodeKind::TreeNode)
+                .unwrap();
+            all.push(target);
+        }
+        tree.set_children(owner, all);
+    }
+
+    fn tree_node_list_matches(tree: &Tree, owner: NodeId, desired: &[TreeNode]) -> bool {
+        let current = Self::tree_node_children(tree, owner);
+        current.len() == desired.len()
+            && current
+                .iter()
+                .zip(desired)
+                .all(|(node, desired)| Self::tree_node_matches(tree, *node, desired))
+    }
+
+    fn tree_node_matches(tree: &Tree, node: NodeId, desired: &TreeNode) -> bool {
+        let state = tree.tree_node(node);
+        if tree.key(node) != Some(&desired.key)
+            || state.text.as_ref() != desired.text
+            || state.expanded != desired.expanded
+        {
+            return false;
+        }
+        match (state.content, desired.content.as_ref()) {
+            (Some(content), Some(desired)) => {
+                if Self::node_matches_view_kind(tree, content, desired.as_kind()) != Ok(true) {
+                    return false;
+                }
+            }
+            (None, None) => {}
+            _ => return false,
+        }
+        Self::tree_node_list_matches(tree, node, &desired.children)
+    }
+
+    fn mount_tree_node(
+        tree: &mut Tree,
+        owner: NodeId,
+        target: NodeId,
+        definition: &TreeNode,
+        components: &mut ComponentStore,
+        changes: &mut ComponentChanges,
+        plan: &mut UpdatePlan,
+    ) -> Result<NodeId, PumpError> {
+        let node = tree.insert_tree_node(
+            owner,
+            definition.key.clone(),
+            definition.text.clone(),
+            definition.expanded,
+        );
+        plan.push(Command::CreateTreeNode {
+            node,
+            text: definition.text.clone(),
+            expanded: definition.expanded,
+        });
+        if let Some(content) = &definition.content {
+            let (content, native) = Self::mount_planned_view(
+                tree,
+                Some(node),
+                None,
+                content.clone(),
+                components,
+                changes,
+                plan,
+            )?;
+            let [native] = native.as_slice() else {
+                return Err(PumpError::StructureUnsupported);
+            };
+            tree.set_tree_node_content(node, Some(content));
+            let children = Self::tree_node_children(tree, node);
+            Self::set_tree_node_children(tree, node, children);
+            plan.push(Command::SetTreeNodeContent {
+                node,
+                content: Some(*native),
+            });
+        }
+        for (index, child) in definition.children.iter().enumerate() {
+            let child =
+                Self::mount_tree_node(tree, node, target, child, components, changes, plan)?;
+            plan.push(Command::InsertTreeNode {
+                tree: target,
+                parent: Some(node),
+                node: child,
+                index,
+            });
+        }
+        Ok(node)
+    }
+
+    fn reconcile_tree_node(
+        tree: &mut Tree,
+        node: NodeId,
+        target: NodeId,
+        desired: &TreeNode,
+        components: &mut ComponentStore,
+        changes: &mut ComponentChanges,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let previous = tree.tree_node(node);
+        let text_changed = previous.text.as_ref() != desired.text;
+        let expanded_changed = previous.expanded != desired.expanded;
+        let previous_content = previous.content;
+        if text_changed {
+            plan.push(Command::SetTreeNodeText {
+                node,
+                text: desired.text.clone(),
+            });
+        }
+        if expanded_changed {
+            plan.push(Command::SetTreeNodeExpanded {
+                node,
+                expanded: desired.expanded,
+            });
+        }
+        if text_changed || expanded_changed {
+            tree.update_tree_node(node, desired.text.clone(), desired.expanded);
+        }
+
+        match (previous_content, desired.content.as_ref()) {
+            (Some(current), Some(content)) => {
+                let content = Self::reconcile_planned_view(
+                    tree,
+                    current,
+                    content.clone(),
+                    components,
+                    changes,
+                    plan,
+                )?;
+                tree.set_tree_node_content(node, Some(content));
+            }
+            (Some(current), None) => {
+                Self::collect_retired_components(tree, current, components, changes);
+                Self::retire_planned_subtree(tree, current, plan)?;
+                tree.set_tree_node_content(node, None);
+            }
+            (None, Some(content)) => {
+                let (content, native) = Self::mount_planned_view(
+                    tree,
+                    Some(node),
+                    None,
+                    content.clone(),
+                    components,
+                    changes,
+                    plan,
+                )?;
+                let [native] = native.as_slice() else {
+                    return Err(PumpError::StructureUnsupported);
+                };
+                tree.set_tree_node_content(node, Some(content));
+                let children = Self::tree_node_children(tree, node);
+                Self::set_tree_node_children(tree, node, children);
+                plan.push(Command::SetTreeNodeContent {
+                    node,
+                    content: Some(*native),
+                });
+            }
+            (None, None) => {}
+        }
+        Self::reconcile_tree_node_list(
+            tree,
+            node,
+            target,
+            Some(node),
+            &desired.children,
+            components,
+            changes,
+            plan,
+        )
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn reconcile_tree_node_list(
+        tree: &mut Tree,
+        owner: NodeId,
+        target: NodeId,
+        native_parent: Option<NodeId>,
+        desired: &[TreeNode],
+        components: &mut ComponentStore,
+        changes: &mut ComponentChanges,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let current = Self::tree_node_children(tree, owner);
+        let old_keys = current
+            .iter()
+            .map(|node| {
+                tree.key(*node)
+                    .cloned()
+                    .ok_or(PumpError::StructureUnsupported)
+            })
+            .collect::<Result<Vec<_>, PumpError>>()?;
+        let new_keys = tree_node_keys(desired);
+        let operations = diff(&old_keys, &new_keys)
+            .map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
+        let mut nodes = old_keys
+            .iter()
+            .cloned()
+            .zip(current)
+            .collect::<HashMap<_, _>>();
+        let desired_keys = new_keys.iter().cloned().collect::<HashSet<_>>();
+
+        for key in &old_keys {
+            if !desired_keys.contains(key) {
+                let node = nodes[key];
+                Self::collect_retired_components(tree, node, components, changes);
+                Self::retire_planned_subtree(tree, node, plan)?;
+            }
+        }
+        for definition in desired {
+            if let Some(node) = nodes.get(&definition.key).copied() {
+                Self::reconcile_tree_node(
+                    tree, node, target, definition, components, changes, plan,
+                )?;
+            } else {
+                let node = Self::mount_tree_node(
+                    tree, owner, target, definition, components, changes, plan,
+                )?;
+                nodes.insert(definition.key.clone(), node);
+            }
+        }
+
+        let ordered = new_keys.iter().map(|key| nodes[key]).collect::<Vec<_>>();
+        Self::set_tree_node_children(tree, owner, ordered);
+
+        let mut key_order = old_keys;
+        for operation in operations {
+            let (key, before, inserted) = match operation {
+                KeyedOperation::Remove { key } => {
+                    if let Some(index) = key_order.iter().position(|current| current == &key) {
+                        key_order.remove(index);
+                    }
+                    continue;
+                }
+                KeyedOperation::Insert { key, before } => (key, before, true),
+                KeyedOperation::Move { key, before } => {
+                    let index = key_order
+                        .iter()
+                        .position(|current| current == &key)
+                        .ok_or(PumpError::StructureUnsupported)?;
+                    key_order.remove(index);
+                    (key, before, false)
+                }
+            };
+            let index = before.as_ref().map_or(key_order.len(), |before| {
+                key_order
+                    .iter()
+                    .position(|current| current == before)
+                    .unwrap_or(key_order.len())
+            });
+            key_order.insert(index, key.clone());
+            let node = nodes[&key];
+            plan.push(if inserted {
+                Command::InsertTreeNode {
+                    tree: target,
+                    parent: native_parent,
+                    node,
+                    index,
+                }
+            } else {
+                Command::MoveTreeNode {
+                    tree: target,
+                    parent: native_parent,
+                    node,
+                    index,
+                }
+            });
+        }
+        Ok(())
+    }
+
     fn node_matches_view_kind(
         tree: &Tree,
         node: NodeId,
@@ -900,13 +1223,18 @@ impl<R: NativeRuntime> Pump<R> {
                 tree: desired,
                 nodes,
             } => {
-                if tree.kind(node) != NodeKind::TreeNodes || tree.tree_nodes(node) != nodes {
+                if tree.kind(node) != NodeKind::TreeNodes {
                     return Ok(false);
                 }
-                let [current] = tree.children(node) else {
+                let Some(current) = tree
+                    .children(node)
+                    .iter()
+                    .find(|child| tree.kind(**child) != NodeKind::TreeNode)
+                else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *current, desired)
+                    .map(|matches| matches && Self::tree_node_list_matches(tree, node, nodes))
             }
             ViewKind::ContentDialog { dialog, open } => {
                 if tree.kind(node) != NodeKind::ContentDialog(*open) {
@@ -1243,6 +1571,9 @@ impl<R: NativeRuntime> Pump<R> {
                 NativeAttachment::Flyout { owner, placement } => {
                     Self::refresh_flyout_attachment(tree, owner, placement, plan)?;
                 }
+                NativeAttachment::TreeNodeContent { owner } => {
+                    Self::refresh_tree_node_content(tree, owner, plan)?;
+                }
                 NativeAttachment::ContentDialog => {}
             }
         }
@@ -1313,6 +1644,7 @@ impl<R: NativeRuntime> Pump<R> {
                 | NodeKind::Menu(_)
                 | NodeKind::CommandBarFlyout
                 | NodeKind::TreeNodes
+                | NodeKind::TreeNode
                 | NodeKind::ContentDialog(_) => return false,
             }
         }
@@ -1656,6 +1988,15 @@ impl<R: NativeRuntime> Pump<R> {
             (NativeAttachment::Flyout { owner, placement }, None) => {
                 Self::refresh_flyout_attachment(tree, owner, placement, plan)?;
             }
+            (NativeAttachment::TreeNodeContent { owner }, None) => {
+                let [child] = native.as_slice() else {
+                    return Err(PumpError::StructureUnsupported);
+                };
+                plan.push(Command::SetTreeNodeContent {
+                    node: owner,
+                    content: Some(*child),
+                });
+            }
             (
                 NativeAttachment::ChildList {
                     parent,
@@ -1684,6 +2025,9 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
             (NativeAttachment::Flyout { .. }, Some(_)) => {
+                return Err(PumpError::StructureUnsupported);
+            }
+            (NativeAttachment::TreeNodeContent { .. }, Some(_)) => {
                 return Err(PumpError::StructureUnsupported);
             }
             (NativeAttachment::ContentDialog, None) => {}
@@ -2076,7 +2420,7 @@ impl<R: NativeRuntime> Pump<R> {
                 nodes,
             } => {
                 validate_tree_nodes(&nodes)?;
-                let node = tree.insert_tree_nodes(logical_parent, key, Rc::clone(&nodes));
+                let node = tree.insert_tree_nodes(logical_parent, key);
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2092,10 +2436,19 @@ impl<R: NativeRuntime> Pump<R> {
                 if tree.kind(*target) != NodeKind::Native(MountedKind::TreeView) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                plan.push(Command::SetTreeViewNodes {
-                    target: *target,
-                    nodes: nodes.as_ref().clone(),
-                });
+                for (index, definition) in nodes.iter().enumerate() {
+                    let child = Self::mount_tree_node(
+                        tree, node, *target, definition, components, changes, plan,
+                    )?;
+                    plan.push(Command::InsertTreeNode {
+                        tree: *target,
+                        parent: None,
+                        node: child,
+                        index,
+                    });
+                }
+                let roots = Self::tree_node_children(tree, node);
+                Self::set_tree_node_children(tree, node, roots);
                 Ok((node, vec![*target]))
             }
             ViewKind::ContentDialog { dialog, open } => {

@@ -217,8 +217,8 @@ fn candidate_tree_clones_owned_node_payloads_on_write() {
     let flyout = CommandBarFlyout::new([CommandBarCommand::button("old", "Old")], [], |_| {});
     let flyout_callback = flyout.on_click.clone();
     let flyout_node = tree.insert_command_bar_flyout(Some(root), None, flyout);
-    let tree_node =
-        tree.insert_tree_nodes(Some(root), None, Rc::new(vec![TreeNode::new("old", "Old")]));
+    let tree_nodes = tree.insert_tree_nodes(Some(root), None);
+    let tree_node = tree.insert_tree_node(tree_nodes, Key::from("old"), "Old".to_string(), false);
 
     let mut candidate = tree.clone();
     candidate.update_menu(menu_node, Menu::new([MenuItem::item("new", "New")], |_| {}));
@@ -226,7 +226,7 @@ fn candidate_tree_clones_owned_node_payloads_on_write() {
         flyout_node,
         CommandBarFlyout::new([CommandBarCommand::button("new", "New")], [], |_| {}),
     );
-    candidate.update_tree_nodes(tree_node, Rc::new(vec![TreeNode::new("new", "New")]));
+    candidate.update_tree_node(tree_node, "New".to_string(), true);
 
     assert_eq!(tree.owned_revision(menu_node), 1);
     assert_eq!(tree.owned_revision(flyout_node), 1);
@@ -237,7 +237,8 @@ fn candidate_tree_clones_owned_node_payloads_on_write() {
         tree.owned_commands(flyout_node).0[0].key(),
         &Key::from("old")
     );
-    assert_eq!(tree.tree_nodes(tree_node)[0].key, Key::from("old"));
+    assert_eq!(tree.tree_node(tree_node).text.as_ref(), "Old");
+    assert!(!tree.tree_node(tree_node).expanded);
 
     assert_eq!(candidate.owned_revision(menu_node), 2);
     assert_eq!(candidate.owned_revision(flyout_node), 2);
@@ -246,7 +247,8 @@ fn candidate_tree_clones_owned_node_payloads_on_write() {
         candidate.owned_commands(flyout_node).0[0].key(),
         &Key::from("new")
     );
-    assert_eq!(candidate.tree_nodes(tree_node)[0].key, Key::from("new"));
+    assert_eq!(candidate.tree_node(tree_node).text.as_ref(), "New");
+    assert!(candidate.tree_node(tree_node).expanded);
 }
 
 #[test]

@@ -767,6 +767,22 @@ fn keyed_stack(keys: &[String]) -> View {
     )
 }
 
+fn tree_view(order: &[usize], changed: Option<usize>, custom_content: bool) -> View {
+    TreeView::new().nodes(order.iter().map(|index| {
+        let label = if changed == Some(*index) {
+            format!("Changed {index}")
+        } else {
+            format!("Node {index}")
+        };
+        let node = TreeNode::new(index.to_string(), label.clone());
+        if custom_content {
+            node.content(TextBlock::new().text(label))
+        } else {
+            node
+        }
+    }))
+}
+
 fn border_stack(count: usize, properties: usize) -> View {
     StackPanel::new().keyed_children((0..count).map(|index| {
         let border = Border::new();
@@ -1413,7 +1429,17 @@ fn main() {
     let mut rotated = labels.clone();
     rotated.rotate_left(1);
     let all_changed: Vec<_> = (0..512).map(|index| format!("changed-{index}")).collect();
+    let tree_order = (0..512).collect::<Vec<_>>();
+    let mut tree_rotated = tree_order.clone();
+    tree_rotated.rotate_left(1);
+    let mut tree_inserted = tree_order.clone();
+    tree_inserted.push(512);
+    let mut tree_removed = tree_order.clone();
+    tree_removed.pop();
     let labels_4k: Vec<_> = (0..4_096).map(|index| format!("cell-{index}")).collect();
+    let tree_order_4k = (0..4_096).collect::<Vec<_>>();
+    let mut tree_rotated_4k = tree_order_4k.clone();
+    tree_rotated_4k.rotate_left(1);
     let mut reversed_4k = labels_4k.clone();
     reversed_4k.reverse();
     let component_keys = (0..512_u64).collect::<Vec<_>>();
@@ -1534,6 +1560,70 @@ fn main() {
             keyed_stack(&labels),
             keyed_stack(&rotated),
             iters,
+            reps,
+        ),
+        bench_update(
+            "tree_no_change",
+            512,
+            tree_view(&tree_order, None, false),
+            tree_view(&tree_order, None, false),
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "tree_text_1",
+            512,
+            tree_view(&tree_order, None, false),
+            tree_view(&tree_order, Some(0), false),
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "tree_rotate1",
+            512,
+            tree_view(&tree_order, None, false),
+            tree_view(&tree_rotated, None, false),
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "tree_insert",
+            512,
+            tree_view(&tree_order, None, false),
+            tree_view(&tree_inserted, None, false),
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "tree_remove",
+            512,
+            tree_view(&tree_order, None, false),
+            tree_view(&tree_removed, None, false),
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "tree_content_1",
+            512,
+            tree_view(&tree_order, None, true),
+            tree_view(&tree_order, Some(0), true),
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "tree_no_change",
+            4_096,
+            tree_view(&tree_order_4k, None, false),
+            tree_view(&tree_order_4k, None, false),
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_update(
+            "tree_rotate1",
+            4_096,
+            tree_view(&tree_order_4k, None, false),
+            tree_view(&tree_rotated_4k, None, false),
+            (iters / 32).max(1),
             reps,
         ),
         bench_update(
@@ -1768,7 +1858,7 @@ fn main() {
         );
     }
 
-    println!("\nretained native Border memory");
+    println!("\nretained native and logical memory");
     println!(
         "{:<16} {:>8} {:>16} {:>18} {:>16}",
         "properties", "elements", "retained bytes", "bytes/element", "allocations"
@@ -1781,6 +1871,12 @@ fn main() {
         measure_native_memory("four", 4_096, || border_stack(4_096, 4)),
         measure_native_memory("one event", 4_096, || border_event_stack(4_096, 1)),
         measure_native_memory("four events", 4_096, || border_event_stack(4_096, 4)),
+        measure_native_memory("tree text", 4_096, || {
+            tree_view(&tree_order_4k, None, false)
+        }),
+        measure_native_memory("tree content", 4_096, || {
+            tree_view(&tree_order_4k, None, true)
+        }),
     ] {
         println!(
             "{:<16} {:>8} {:>16} {:>18.1} {:>16}",

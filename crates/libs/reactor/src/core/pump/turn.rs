@@ -24,7 +24,9 @@ impl<R: NativeRuntime> Pump<R> {
         let mut topology = 0;
         for command in &plan.commands {
             match command {
-                Command::Create { .. } | Command::CreateVirtualCollection { .. } => creates += 1,
+                Command::Create { .. }
+                | Command::CreateVirtualCollection { .. }
+                | Command::CreateTreeNode { .. } => creates += 1,
                 Command::Destroy { .. } | Command::RetireSubtree { .. } => destroys += 1,
                 Command::SetProperty { .. } => property_sets += 1,
                 Command::ClearProperty { .. } => property_clears += 1,
@@ -35,7 +37,10 @@ impl<R: NativeRuntime> Pump<R> {
                 | Command::InsertChild { .. }
                 | Command::RemoveChild { .. }
                 | Command::SynchronizeChildren { .. }
-                | Command::MoveChild { .. } => topology += 1,
+                | Command::MoveChild { .. }
+                | Command::InsertTreeNode { .. }
+                | Command::MoveTreeNode { .. }
+                | Command::RemoveTreeNode { .. } => topology += 1,
                 _ => {}
             }
         }

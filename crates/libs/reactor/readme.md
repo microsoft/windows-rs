@@ -56,3 +56,17 @@ Applications whose resources outlive any one window can use `App::run_with`.
 Use `ThemeTransition::Reposition` with `LayoutControl::transitions` to animate retained elements
 between layout-driven positions. The
 [`theme-transition`](../../samples/reactor/theme-transition) sample demonstrates the effect.
+
+Tree nodes accept Reactor views for custom rows while retaining their keyed identity:
+
+```rust,ignore
+TreeView::new().nodes([TreeNode::new("folder", "Folder").content(
+    StackPanel::new()
+        .orientation(Orientation::Horizontal)
+        .spacing(8.0)
+        .children((
+            SymbolIcon::new().symbol(Symbol::Folder),
+            TextBlock::new().text("Folder"),
+        )),
+)])
+```

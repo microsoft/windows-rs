@@ -8,7 +8,8 @@ construction separately from reconciliation. Separate component rows measure idl
 effect-bearing retained memory, effect mount cost, and isolated effect updates.
 Border rows measure construction and retained native-tree memory with zero, one, two, and four
 properties, plus one and four active events. These rows keep property and event storage changes
-visible.
+visible. TreeView rows measure unchanged updates, text changes, keyed moves, insertion, removal,
+custom-content updates, and retained text/custom-content node memory.
 
 Run the benchmark in release mode:
 

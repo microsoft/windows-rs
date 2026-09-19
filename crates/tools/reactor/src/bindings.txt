@@ -59,7 +59,7 @@ Microsoft::UI::Xaml::Controls::ISwapChainPanel::{get_CompositionScaleX, get_Comp
 Microsoft::UI::Xaml::Controls::ITeachingTip::put_IsOpen
 Microsoft::UI::Xaml::Controls::ITimePicker::put_SelectedTime
 Microsoft::UI::Xaml::Controls::ITreeView::get_RootNodes
-Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, get_Content, put_Content, put_IsExpanded}
+Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, put_Content, put_IsExpanded}
 Microsoft::UI::Xaml::Controls::IWebView2::{EnsureCoreWebView2Async, get_CoreWebView2, add_CoreWebView2Initialized, remove_CoreWebView2Initialized}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::MenuFlyout::CreateInstance

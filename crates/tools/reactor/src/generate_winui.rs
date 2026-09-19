@@ -992,12 +992,9 @@ fn generate_selection_dispatch(control: &ResolvedControl, event: &ResolvedEvent)
                             tag,
                         }),
                     ),
-                    Err(error) => sink.error(
-                        node,
-                        EventId::#event_id,
-                        revision,
-                        error,
-                    ),
+                    Err(error) => {
+                        sink.error(node, EventId::#event_id, revision, error);
+                    }
                 }
             }
             Err(error) if error.code().is_ok() => sink.enqueue(
@@ -1649,24 +1646,18 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                         match args
                             .#property()
                             .and_then(|node| node.cast::<ITreeViewNode>())
-                            .and_then(|node| node.Content())
-                            .and_then(|value| {
-                                value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                            })
-                            .and_then(|value| value.Value())
+                            .map_err(native_error)
+                            .and_then(|node| sink.tree_node_label(&node))
                         {
                             Ok(value) => sink.enqueue(
                                 node,
                                 EventId::#event_id,
                                 revision,
-                                EventPayload::Str(value.to_string_lossy()),
+                                EventPayload::Str(value),
                             ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::#event_id,
-                                revision,
-                                native_error(error),
-                            ),
+                            Err(error) => {
+                                sink.error(node, EventId::#event_id, revision, error);
+                            }
                         }
                     }
                 }

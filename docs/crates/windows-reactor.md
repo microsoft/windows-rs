@@ -685,7 +685,7 @@ feature removes that allowance so the live surface build checks all generated te
 | Generator tests | `cargo test -p tool-reactor` |
 | Live handwritten fixtures | `cargo run -p test-reactor-selftest -- --headless` |
 | Generated WinUI surface | `cargo run -p test-reactor-surface -- --headless` |
-| Planner benchmarks | `cargo run -p test-reactor-bench --release` |
+| Planner benchmarks | `cargo run -p test-reactor-bench --release` (includes TreeView updates and memory) |
 | Live grid benchmark | `cargo run -p test-reactor-bench --bin reactor-live-grid --release` |
 | Live input benchmark | `cargo run -p test-reactor-bench --bin reactor-live-input --release` |
 | Live Notepad benchmark | `cargo run -p test-reactor-bench --bin reactor-live-notepad --release` |
@@ -693,6 +693,12 @@ feature removes that allowance so the live surface build checks all generated te
 The generated surface test covers projected controls, properties, events, content, collections,
 slots, attachments, virtual items, and TreeView nodes. Handwritten self-tests own imperative
 references, retirement, and other OS interactions.
+
+TreeView nodes are keyed logical nodes with retained native `TreeViewNode` objects. Custom
+`TreeNode::content` views use the normal component and view lifecycle. Updating content or
+reordering siblings preserves the native node and mounted content identities; inserting and
+removing nodes mutates only the affected native collections. User expansion is preserved across
+renders unless the declared expanded value changes.
 
 The live Notepad benchmark uses the same controlled `TextBox` shape as the `reactor-notepad`
 sample. It injects Unicode keyboard input and measures raw `WM_CHAR`, WinUI `TextChanged`,

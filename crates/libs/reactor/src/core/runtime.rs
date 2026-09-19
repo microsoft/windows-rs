@@ -439,9 +439,39 @@ pub enum Command {
         secondary: Vec<CommandBarCommand>,
         revision: u32,
     },
-    SetTreeViewNodes {
-        target: NodeId,
-        nodes: Vec<TreeNode>,
+    CreateTreeNode {
+        node: NodeId,
+        text: String,
+        expanded: bool,
+    },
+    SetTreeNodeText {
+        node: NodeId,
+        text: String,
+    },
+    SetTreeNodeContent {
+        node: NodeId,
+        content: Option<NodeId>,
+    },
+    SetTreeNodeExpanded {
+        node: NodeId,
+        expanded: bool,
+    },
+    InsertTreeNode {
+        tree: NodeId,
+        parent: Option<NodeId>,
+        node: NodeId,
+        index: usize,
+    },
+    MoveTreeNode {
+        tree: NodeId,
+        parent: Option<NodeId>,
+        node: NodeId,
+        index: usize,
+    },
+    RemoveTreeNode {
+        tree: NodeId,
+        parent: Option<NodeId>,
+        node: NodeId,
     },
     SetContentDialogOpen {
         node: NodeId,

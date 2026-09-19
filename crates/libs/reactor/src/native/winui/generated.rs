@@ -4807,12 +4807,14 @@ pub fn subscribe_event(
                                         tag,
                                     }),
                                 ),
-                                Err(error) => sink.error(
-                                    node,
-                                    EventId::NavigationViewSelectionChanged,
-                                    revision,
-                                    error,
-                                ),
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::NavigationViewSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                }
                             }
                         }
                         Err(error) if error.code().is_ok() => sink.enqueue(
@@ -5152,12 +5154,14 @@ pub fn subscribe_event(
                                         tag,
                                     }),
                                 ),
-                                Err(error) => sink.error(
-                                    node,
-                                    EventId::SelectorBarSelectionChanged,
-                                    revision,
-                                    error,
-                                ),
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::SelectorBarSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                }
                             }
                         }
                         Err(error) if error.code().is_ok() => sink.enqueue(
@@ -5580,24 +5584,18 @@ pub fn subscribe_event(
                     match args
                         .InvokedItem()
                         .and_then(|node| node.cast::<ITreeViewNode>())
-                        .and_then(|node| node.Content())
-                        .and_then(|value| {
-                            value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                        })
-                        .and_then(|value| value.Value())
+                        .map_err(native_error)
+                        .and_then(|node| sink.tree_node_label(&node))
                     {
                         Ok(value) => sink.enqueue(
                             node,
                             EventId::TreeViewItemInvoked,
                             revision,
-                            EventPayload::Str(value.to_string_lossy()),
+                            EventPayload::Str(value),
                         ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::TreeViewItemInvoked,
-                            revision,
-                            native_error(error),
-                        ),
+                        Err(error) => {
+                            sink.error(node, EventId::TreeViewItemInvoked, revision, error);
+                        }
                     }
                 }
             })

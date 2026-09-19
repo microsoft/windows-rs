@@ -10,6 +10,18 @@ pub enum Message {
     Invoked(String),
 }
 
+fn folder(key: &'static str, label: &'static str) -> TreeNode {
+    TreeNode::new(key, label).content(
+        StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .spacing(8.0)
+            .children((
+                SymbolIcon::new().symbol(Symbol::Folder),
+                TextBlock::new().text(label),
+            )),
+    )
+}
+
 impl Component for TreeViewPage {
     type Message = Message;
     type Input = ();
@@ -28,21 +40,18 @@ impl Component for TreeViewPage {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         let file_system = [
-            TreeNode::new("documents", "Documents")
-                .expanded(true)
-                .children([
-                    TreeNode::new("work", "Work").children([
-                        TreeNode::new("report", "Report.docx"),
-                        TreeNode::new("budget", "Budget.xlsx"),
-                    ]),
-                    TreeNode::new("personal", "Personal")
-                        .child(TreeNode::new("resume", "Resume.pdf")),
+            folder("documents", "Documents").expanded(true).children([
+                TreeNode::new("work", "Work").children([
+                    TreeNode::new("report", "Report.docx"),
+                    TreeNode::new("budget", "Budget.xlsx"),
                 ]),
-            TreeNode::new("pictures", "Pictures").children([
+                TreeNode::new("personal", "Personal").child(TreeNode::new("resume", "Resume.pdf")),
+            ]),
+            folder("pictures", "Pictures").children([
                 TreeNode::new("vacation", "Vacation.jpg"),
                 TreeNode::new("family", "Family.png"),
             ]),
-            TreeNode::new("music", "Music").children([
+            folder("music", "Music").children([
                 TreeNode::new("song1", "Song1.mp3"),
                 TreeNode::new("song2", "Song2.mp3"),
             ]),
@@ -69,7 +78,12 @@ impl Component for TreeViewPage {
                                 .text(format!("Last invoked: {}", self.last_invoked))
                                 .opacity(0.6),
                         )),
-                        r#"TreeView::new().on_item_invoked(...).nodes(nodes)"#,
+                        r#"TreeNode::new("folder", "Folder").content(
+    StackPanel::new().children((
+        SymbolIcon::new().symbol(Symbol::Folder),
+        TextBlock::new().text("Folder"),
+    )),
+)"#,
                     ),
                 ),
                 KeyedView::new(
