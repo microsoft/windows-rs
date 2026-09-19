@@ -1,5 +1,10 @@
+Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
+Microsoft::UI::Dispatching::IDispatcherQueue::CreateTimer
+Microsoft::UI::Dispatching::IDispatcherQueueTimer::{put_Interval, put_IsRepeating, add_Tick, remove_Tick, Start, Stop}
 Microsoft::UI::Xaml::DataTemplate::{}
+Microsoft::UI::Xaml::FocusState::Programmatic
 Microsoft::UI::Xaml::IUIElement::UpdateLayout
+Microsoft::UI::Xaml::IUIElement::Focus
 Microsoft::UI::Xaml::UIElement::{}
 Microsoft::UI::Xaml::Window::CreateInstance
 Microsoft::UI::Xaml::IWindow::{put_Content, Activate, Close}

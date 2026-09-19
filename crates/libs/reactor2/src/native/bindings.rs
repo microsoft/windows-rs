@@ -122,6 +122,95 @@ unsafe impl Send for DependencyObject {}
 unsafe impl Sync for DependencyObject {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DispatcherQueue(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DispatcherQueue,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl DispatcherQueue {
+    pub(crate) fn GetForCurrentThread() -> windows_core::Result<Self> {
+        Self::IDispatcherQueueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetForCurrentThread)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IDispatcherQueueStatics<
+        R,
+        F: FnOnce(&IDispatcherQueueStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<DispatcherQueue, IDispatcherQueueStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for DispatcherQueue {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueue>();
+}
+unsafe impl windows_core::Interface for DispatcherQueue {
+    type Vtable = <IDispatcherQueue as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDispatcherQueue as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DispatcherQueue {
+    type Target = IDispatcherQueue;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DispatcherQueue {
+    const NAME: &'static str = "Microsoft.UI.Dispatching.DispatcherQueue";
+}
+unsafe impl Send for DispatcherQueue {}
+unsafe impl Sync for DispatcherQueue {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DispatcherQueueTimer(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DispatcherQueueTimer,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for DispatcherQueueTimer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueTimer>();
+}
+unsafe impl windows_core::Interface for DispatcherQueueTimer {
+    type Vtable = <IDispatcherQueueTimer as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDispatcherQueueTimer as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DispatcherQueueTimer {
+    type Target = IDispatcherQueueTimer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DispatcherQueueTimer {
+    const NAME: &'static str = "Microsoft.UI.Dispatching.DispatcherQueueTimer";
+}
+unsafe impl Send for DispatcherQueueTimer {}
+unsafe impl Sync for DispatcherQueueTimer {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FocusState(pub i32);
+impl FocusState {
+    pub const Programmatic: Self = Self(3);
+}
+impl windows_core::imp::TypeKind for FocusState {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for FocusState {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Xaml.FocusState;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FrameworkElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     FrameworkElement,
@@ -303,6 +392,139 @@ impl windows_core::RuntimeType for IDependencyObject {
 #[repr(C)]
 pub struct IDependencyObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IDispatcherQueue,
+    IDispatcherQueue_Vtbl,
+    0xf6ebf8fa_be1c_5bf6_a467_73da28738ae8
+);
+impl windows_core::RuntimeType for IDispatcherQueue {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IDispatcherQueue {
+    pub(crate) fn CreateTimer(&self) -> windows_core::Result<DispatcherQueueTimer> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateTimer)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IDispatcherQueue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateTimer: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDispatcherQueueStatics,
+    IDispatcherQueueStatics_Vtbl,
+    0xcd3382ea_a455_5124_b63a_ca40d34ca23c
+);
+impl windows_core::RuntimeType for IDispatcherQueueStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDispatcherQueueStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetForCurrentThread: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDispatcherQueueTimer,
+    IDispatcherQueueTimer_Vtbl,
+    0xad4d63fd_88fe_541f_ac11_bf2dc1ed2ce5
+);
+impl windows_core::RuntimeType for IDispatcherQueueTimer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IDispatcherQueueTimer {
+    pub(crate) fn SetInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetInterval)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetIsRepeating(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsRepeating)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn Start(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+    pub(crate) fn Stop(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
+    pub(crate) fn Tick<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(
+                windows_core::Ref<DispatcherQueueTimer>,
+                windows_core::Ref<windows_core::IInspectable>,
+            ) + 'static,
+    {
+        let handler: TypedEventHandler<DispatcherQueueTimer, windows_core::IInspectable> = {
+            let com = windows_core::imp::DelegateBox::< TypedEventHandler < DispatcherQueueTimer , windows_core::IInspectable > , F >::new (& TypedEventHandlerBox::< DispatcherQueueTimer , windows_core::IInspectable , F >::VTABLE , handler) ;
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Tick)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveTick,
+            ))
+        }
+    }
+}
+#[repr(C)]
+pub struct IDispatcherQueueTimer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Interval: usize,
+    pub SetInterval: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
+    IsRunning: usize,
+    IsRepeating: usize,
+    pub SetIsRepeating:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Tick: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveTick: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IFrameworkElement,
@@ -999,6 +1221,17 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn Focus(&self, value: FocusState) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Focus)(
+                windows_core::Interface::as_raw(self),
+                value,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
 }
 #[repr(C)]
 pub struct IUIElement_Vtbl {
@@ -1218,6 +1451,16 @@ pub struct IUIElement_Vtbl {
     InvalidateMeasure: usize,
     InvalidateArrange: usize,
     pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    CancelDirectManipulations: usize,
+    StartDragAsync: usize,
+    StartBringIntoView: usize,
+    StartBringIntoViewWithOptions: usize,
+    TryInvokeKeyboardAccelerator: usize,
+    pub Focus: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        FocusState,
+        *mut bool,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IUIElementCollection,
@@ -1944,6 +2187,82 @@ impl windows_core::RuntimeName for TreeViewNode {
 }
 unsafe impl Send for TreeViewNode {}
 unsafe impl Sync for TreeViewNode {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TypedEventHandler<TSender, TResult>(
+    windows_core::IUnknown,
+    core::marker::PhantomData<TSender>,
+    core::marker::PhantomData<TResult>,
+)
+where
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static;
+unsafe impl<
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static,
+> windows_core::Interface for TypedEventHandler<TSender, TResult>
+{
+    type Vtable = TypedEventHandler_Vtbl<TSender, TResult>;
+    const IID: windows_core::GUID =
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static>
+    windows_core::RuntimeType for TypedEventHandler<TSender, TResult>
+{
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({9de1c534-6ae1-11e0-84e1-18a905bcc53f}")
+        .push_slice(b";")
+        .push_other(TSender::SIGNATURE)
+        .push_slice(b";")
+        .push_other(TResult::SIGNATURE)
+        .push_slice(b")");
+}
+#[repr(C)]
+pub struct TypedEventHandler_Vtbl<TSender, TResult>
+where
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        sender: windows_core::imp::AbiType<TSender>,
+        args: windows_core::imp::AbiType<TResult>,
+    ) -> windows_core::HRESULT,
+    TSender: core::marker::PhantomData<TSender>,
+    TResult: core::marker::PhantomData<TResult>,
+}
+struct TypedEventHandlerBox<
+    TSender,
+    TResult,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+>(core::marker::PhantomData<(TSender, TResult, fn() -> F)>)
+where
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static;
+impl<
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+> TypedEventHandlerBox<TSender, TResult, F>
+{
+    const VTABLE : TypedEventHandler_Vtbl < TSender , TResult , > = TypedEventHandler_Vtbl::< TSender , TResult , > { base__ : windows_core::IUnknown_Vtbl { QueryInterface : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::QueryInterface , AddRef : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::AddRef , Release : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::Release , } , Invoke : Self::Invoke , TSender : core::marker::PhantomData::< TSender > , TResult : core::marker::PhantomData::< TResult > } ;
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: windows_core::imp::AbiType<TSender>,
+        args: windows_core::imp::AbiType<TResult>,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<TypedEventHandler<TSender, TResult>, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UIElement(windows_core::IUnknown);

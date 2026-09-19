@@ -28,6 +28,10 @@ name = "reactor-live-notepad"
 path = "src/live_notepad.rs"
 
 [[bin]]
+name = "reactor2-live-notepad"
+path = "src/reactor2_live_notepad.rs"
+
+[[bin]]
 name = "reactor-live-compare"
 path = "src/live_compare.rs"
 

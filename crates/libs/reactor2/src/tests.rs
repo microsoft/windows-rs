@@ -335,6 +335,53 @@ fn event_callbacks_can_be_removed_without_recreating_the_object() {
 }
 
 #[test]
+fn native_property_observation_updates_retained_state_before_reconciliation() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(TextBox::new("Before")).unwrap();
+    let root = runtime.graph().root().unwrap();
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: root,
+        property: Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("After")),
+        },
+    });
+
+    let mutations = runtime.update(TextBox::new("After")).unwrap();
+
+    assert!(mutations.is_empty());
+    assert_eq!(
+        runtime.graph().properties(root).unwrap(),
+        [Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("After")),
+        }]
+    );
+}
+
+#[test]
+fn invalid_native_property_observation_is_rejected() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(TextBox::new("Text")).unwrap();
+    let root = runtime.graph().root().unwrap();
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: root,
+        property: Property {
+            id: PropertyId::Expanded,
+            value: PropertyValue::Bool(true),
+        },
+    });
+
+    assert!(matches!(
+        runtime.update(TextBox::new("Text")),
+        Err(UpdateError::Graph(GraphError::InvalidProperty(
+            ObjectType::TextBox,
+            PropertyId::Expanded
+        )))
+    ));
+}
+
+#[test]
 fn no_change_produces_no_mutations() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime

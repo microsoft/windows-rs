@@ -1,9 +1,9 @@
 use super::bindings as native;
 use crate::{
-    Adapter, Event, EventId, EventValue, Mutation, ObjectId, ObjectType, Property, PropertyId,
-    PropertyValue, Realization, RelationContract, RelationId, relation_contracts,
+    Adapter, Event, EventId, EventValue, Mutation, ObjectId, ObjectType, Observation, Property,
+    PropertyId, PropertyValue, Realization, RelationContract, RelationId, relation_contracts,
 };
-use std::cell::RefCell;
+use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
 use windows_core::{HSTRING, IInspectable, Interface};
@@ -30,6 +30,7 @@ struct NativeTextBox {
     value: native::TextBox,
     callback: Rc<RefCell<Option<crate::Callback<Rc<str>>>>>,
     observed_text: Rc<RefCell<Rc<str>>>,
+    set_count: Cell<usize>,
     _text_changed: windows_core::EventRevoker,
 }
 
@@ -60,6 +61,7 @@ pub struct WinUiAdapter {
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
     data_text_key: HSTRING,
+    observations: Rc<RefCell<Vec<Observation>>>,
 }
 
 impl Default for WinUiAdapter {
@@ -70,26 +72,37 @@ impl Default for WinUiAdapter {
             tree_template: None,
             list_template: None,
             data_text_key: HSTRING::from("Text"),
+            observations: Rc::new(RefCell::new(Vec::new())),
         }
     }
 }
 
+#[derive(Clone)]
 pub struct NativeWindow(native::Window);
 
 impl NativeWindow {
+    pub fn activate(&self) -> Result<(), WinUiError> {
+        self.0.Activate().map_err(Into::into)
+    }
+
     pub fn close(&self) -> Result<(), WinUiError> {
         self.0.Close().map_err(Into::into)
     }
 }
 
 impl WinUiAdapter {
-    pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
+    pub fn create_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
         let window = native::Window::new()?;
         let root = self.ui_element(root)?;
         window.SetContent(&root)?;
-        window.Activate()?;
         root.cast::<native::IUIElement>()?.UpdateLayout()?;
         Ok(NativeWindow(window))
+    }
+
+    pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
+        let window = self.create_window(root)?;
+        window.activate()?;
+        Ok(window)
     }
 
     pub fn validate_graph(&self, graph: &crate::RetainedGraph) -> Result<(), WinUiError> {
@@ -213,9 +226,58 @@ impl WinUiAdapter {
         Self::dispatch_text_changed(
             &value.callback,
             &value.observed_text,
+            &self.observations,
+            object,
             Rc::from(value.value.Text()?),
         );
         Ok(())
+    }
+
+    pub fn focus_text_box_deferred(
+        &self,
+        object: ObjectId,
+        completion: impl Fn(bool) + 'static,
+    ) -> Result<(), WinUiError> {
+        let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let value = value.value.clone();
+        let timer = native::DispatcherQueue::GetForCurrentThread()?.CreateTimer()?;
+        timer.SetInterval(windows_time::TimeSpan::from_millis(10))?;
+        timer.SetIsRepeating(true)?;
+        let state = Rc::new(RefCell::new(
+            None::<(
+                native::DispatcherQueueTimer,
+                windows_core::EventRevoker,
+                usize,
+            )>,
+        ));
+        let event_state = Rc::clone(&state);
+        let event_timer = timer.clone();
+        let revoker = timer.Tick(move |_, _| {
+            let focused = value
+                .cast::<native::IUIElement>()
+                .and_then(|value| value.Focus(native::FocusState::Programmatic))
+                .unwrap_or(false);
+            let mut state = event_state.borrow_mut();
+            let (_, _, attempts) = state.as_mut().unwrap();
+            *attempts += 1;
+            if focused || *attempts == 100 {
+                _ = event_timer.Stop();
+                state.take();
+                completion(focused);
+            }
+        });
+        *state.borrow_mut() = Some((timer.clone(), revoker?, 0));
+        timer.Start()?;
+        Ok(())
+    }
+
+    pub fn text_box_set_count(&self, object: ObjectId) -> Result<usize, WinUiError> {
+        let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Ok(value.set_count.get())
     }
 
     pub fn text_box_state(&self, object: ObjectId) -> Result<(String, i32, i32), WinUiError> {
@@ -289,6 +351,7 @@ impl WinUiAdapter {
                 let callback_for_event = Rc::clone(&callback);
                 let observed_text = Rc::new(RefCell::new(Rc::<str>::from("")));
                 let observed_text_for_event = Rc::clone(&observed_text);
+                let observations_for_event = Rc::clone(&self.observations);
                 let source = value.clone();
                 let text_changed = value.TextChanged(move |_, _| {
                     let Ok(text) = source.Text() else {
@@ -297,6 +360,8 @@ impl WinUiAdapter {
                     Self::dispatch_text_changed(
                         &callback_for_event,
                         &observed_text_for_event,
+                        &observations_for_event,
+                        object,
                         Rc::from(text),
                     );
                 })?;
@@ -304,6 +369,7 @@ impl WinUiAdapter {
                     value,
                     callback,
                     observed_text,
+                    set_count: Cell::new(0),
                     _text_changed: text_changed,
                 })
             }
@@ -405,6 +471,8 @@ impl WinUiAdapter {
     fn dispatch_text_changed(
         callback: &Rc<RefCell<Option<crate::Callback<Rc<str>>>>>,
         observed_text: &Rc<RefCell<Rc<str>>>,
+        observations: &Rc<RefCell<Vec<Observation>>>,
+        object: ObjectId,
         text: Rc<str>,
     ) {
         {
@@ -414,6 +482,13 @@ impl WinUiAdapter {
             }
             *observed = Rc::clone(&text);
         }
+        observations.borrow_mut().push(Observation::SetProperty {
+            object,
+            property: Property {
+                id: PropertyId::Text,
+                value: PropertyValue::String(Rc::clone(&text)),
+            },
+        });
         let callback = callback.borrow().clone();
         if let Some(callback) = callback
             && std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
@@ -455,6 +530,7 @@ impl WinUiAdapter {
         let selection_length = value.value.SelectionLength()?;
         *value.observed_text.borrow_mut() = Rc::from(text);
         value.value.SetText(text)?;
+        value.set_count.set(value.set_count.get() + 1);
         let text_length = i32::try_from(text.encode_utf16().count()).unwrap_or(i32::MAX);
         let selection_start = selection_start.clamp(0, text_length);
         let selection_length = selection_length.clamp(0, text_length - selection_start);
@@ -840,6 +916,10 @@ impl WinUiAdapter {
 
 impl Adapter for WinUiAdapter {
     type Error = WinUiError;
+
+    fn drain_observations(&mut self, observations: &mut Vec<Observation>) {
+        observations.append(&mut self.observations.borrow_mut());
+    }
 
     fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {
         Ok(())

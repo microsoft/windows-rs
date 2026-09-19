@@ -42,18 +42,7 @@ fn validate_object(
     *objects += 1;
 
     for property in declaration.properties.iter() {
-        let contract = property_contracts(declaration.kind)
-            .iter()
-            .find(|contract| contract.id == property.id)
-            .ok_or(GraphError::InvalidProperty(declaration.kind, property.id))?;
-        let valid = matches!(
-            (contract.value, &property.value),
-            (ValueType::String, PropertyValue::String(_))
-                | (ValueType::Bool, PropertyValue::Bool(_))
-        );
-        if !valid {
-            return Err(GraphError::InvalidPropertyValue(property.id));
-        }
+        validate_property(declaration.kind, property)?;
     }
 
     for event in declaration.events.iter() {
@@ -109,6 +98,21 @@ fn validate_object(
         }
     }
     Ok(())
+}
+
+pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result<(), GraphError> {
+    let contract = property_contracts(kind)
+        .iter()
+        .find(|contract| contract.id == property.id)
+        .ok_or(GraphError::InvalidProperty(kind, property.id))?;
+    if matches!(
+        (contract.value, &property.value),
+        (ValueType::String, PropertyValue::String(_)) | (ValueType::Bool, PropertyValue::Bool(_))
+    ) {
+        Ok(())
+    } else {
+        Err(GraphError::InvalidPropertyValue(property.id))
+    }
 }
 
 fn validate_child(contract: &RelationContract, child: &Declaration) -> Result<(), GraphError> {

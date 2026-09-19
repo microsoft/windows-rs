@@ -148,9 +148,10 @@ relations. A native TextBox subscribes once and keeps the current callback in a 
 so changing or removing the callback does not recreate the control or subscription. The backend
 tracks the last observed native text. It updates that value before a programmatic setter and drops
 matching native notifications, including repeated or delayed notifications. A different native
-value becomes authoritative input and invokes the current callback. Controlled rerenders that
-return the same text skip the native setter; authoritative replacements preserve and clamp UTF-16
-selection indices.
+value is queued as a generic property observation before invoking the current callback. The runtime
+applies queued observations to the retained graph before reconciliation. A controlled rerender of
+the observed value therefore produces no mutation and no native setter call. Authoritative
+replacements preserve and clamp UTF-16 selection indices.
 
 The native self-test routes a simulated native text change through the same observed-text and
 callback path as the WinUI event handler, rerenders the controlled value, and then applies a
@@ -158,6 +159,19 @@ different authoritative value. It verifies callback count, native text, selectio
 and delayed programmatic feedback suppression across message-loop turns. Raw keyboard injection
 remains a benchmark concern because foreground-window activation is not deterministic enough for
 the correctness fixture.
+
+The matched `reactor-live-notepad --single-line` and `reactor2-live-notepad` benchmarks inject real
+keyboard input into the same native TextBox configuration. With 1,000 measured characters,
+Reactor2 used 3 allocations and 1,221 allocated bytes per input versus Reactor's 16 allocations and
+3,433 bytes. Reactor2 emitted no mutation and made no native `SetText` call for controlled
+feedback. Callback-to-reconcile latency was about 1.1 us median. End-to-end latency remained
+dominated by WinUI and was within the run-to-run range of Reactor.
+
+At an initial text size of 100,000 bytes, Reactor2 used about 200,261 allocated bytes per input
+versus Reactor's 401,500 bytes. Reactor2 callback-to-reconcile remained about 2.1 us median, while
+both end-to-end medians were about 41 ms. The remaining Reactor2 allocation is about twice the text
+length because the minimal binding reads a `String` and the declaration retains an `Rc<str>`.
+An `HSTRING`-preserving internal representation requires an isolated measurement before adoption.
 
 ## Prototype limits
 

@@ -1,4 +1,5 @@
 use super::*;
+use crate::ir::validate_property;
 use std::collections::HashMap;
 use std::rc::Rc;
 
@@ -74,6 +75,14 @@ pub enum Mutation {
 }
 
 #[derive(Clone, Debug, PartialEq)]
+pub enum Observation {
+    SetProperty {
+        object: ObjectId,
+        property: Property,
+    },
+}
+
+#[derive(Clone, Debug, PartialEq)]
 enum RetainedRelationValue {
     One(Option<ObjectId>),
     Many(Vec<ObjectId>),
@@ -141,6 +150,22 @@ impl RetainedGraph {
         self.get(object).map(|object| object.properties.as_slice())
     }
 
+    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
+        match observation {
+            Observation::SetProperty { object, property } => {
+                let Some(object) = self.try_get_mut(object) else {
+                    return Ok(());
+                };
+                validate_property(object.kind, &property)?;
+                let property_id = property.id;
+                object
+                    .properties
+                    .upsert(|current| current.id == property_id, property);
+            }
+        }
+        Ok(())
+    }
+
     fn get(&self, object: ObjectId) -> Option<&RetainedObject> {
         let slot = self.objects.get(object.index as usize)?;
         (slot.generation == object.generation)
@@ -152,6 +177,13 @@ impl RetainedGraph {
         let slot = &mut self.objects[object.index as usize];
         assert_eq!(slot.generation, object.generation);
         slot.object.as_mut().unwrap()
+    }
+
+    fn try_get_mut(&mut self, object: ObjectId) -> Option<&mut RetainedObject> {
+        let slot = self.objects.get_mut(object.index as usize)?;
+        (slot.generation == object.generation)
+            .then_some(slot.object.as_mut())
+            .flatten()
     }
 
     fn relation(&self, object: ObjectId, relation: RelationId) -> Option<&RetainedRelation> {
@@ -259,6 +291,7 @@ impl RetainedGraph {
 pub trait Adapter {
     type Error;
 
+    fn drain_observations(&mut self, _observations: &mut Vec<Observation>) {}
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error>;
     fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error>;
 }
@@ -267,6 +300,7 @@ pub struct Runtime<A> {
     graph: RetainedGraph,
     adapter: A,
     mutations: Vec<Mutation>,
+    observations: Vec<Observation>,
     poisoned: bool,
 }
 
@@ -276,6 +310,7 @@ impl<A: Adapter> Runtime<A> {
             graph: RetainedGraph::default(),
             adapter,
             mutations: Vec::new(),
+            observations: Vec::new(),
             poisoned: false,
         }
     }
@@ -288,6 +323,10 @@ impl<A: Adapter> Runtime<A> {
         &self.adapter
     }
 
+    pub fn adapter_mut(&mut self) -> &mut A {
+        &mut self.adapter
+    }
+
     pub fn update(
         &mut self,
         root: impl Into<Visual>,
@@ -297,6 +336,14 @@ impl<A: Adapter> Runtime<A> {
         }
         self.mutations.clear();
         let declaration = root.into();
+        validate_declaration(&declaration.0).map_err(UpdateError::Graph)?;
+        self.observations.clear();
+        self.adapter.drain_observations(&mut self.observations);
+        for observation in self.observations.drain(..) {
+            self.graph
+                .apply_observation(observation)
+                .map_err(UpdateError::Graph)?;
+        }
         if let Some(root) = self.graph.root {
             let mut remaining = MAX_OBJECTS;
             if self
@@ -307,7 +354,6 @@ impl<A: Adapter> Runtime<A> {
                 return Ok(Vec::new());
             }
         }
-        validate_declaration(&declaration.0).map_err(UpdateError::Graph)?;
         if let Some(current) = self.graph.root {
             let previous = self.graph.get(current).unwrap().kind;
             let next = declaration.0.kind;

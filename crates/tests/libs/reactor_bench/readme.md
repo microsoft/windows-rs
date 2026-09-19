@@ -212,3 +212,35 @@ verified fixes for two early regressions: allocating empty property and relation
 declaration object, and replacing a complete native collection for a one-item move. The
 `reactor2-live-phases` JSON object separates declaration construction, runtime, and native-adapter
 time and allocation so later optimizations remain attributable.
+
+## Controlled TextBox input
+
+`reactor-live-notepad` and `reactor2-live-notepad` inject real Unicode keyboard input into a
+controlled TextBox and wait for each update to finish. Use `--single-line` for the Reactor run so
+both frontends use the same plain TextBox configuration:
+
+```powershell
+cargo run -p test-reactor-bench --bin reactor-live-notepad --release --quiet -- `
+    --warmup 100 --samples 1000 --text-size 0 --single-line
+cargo run -p test-reactor-bench --bin reactor2-live-notepad --release --quiet -- `
+    --warmup 100 --samples 1000 --text-size 0
+```
+
+Reactor2 reports callback-to-reconcile latency, emitted mutations, and native `SetText` calls.
+Native observations enter the retained graph before reconciliation, so a controlled rerender of
+the value received from `TextChanged` produces no mutation and no native setter call.
+
+Representative matched runs produced:
+
+| Initial text | Frontend | End-to-end median | End-to-end p95 | Allocations/input | Bytes/input |
+| ---: | --- | ---: | ---: | ---: | ---: |
+| 0 | Reactor | 4.70 ms | 6.99 ms | 16 | 3,433 |
+| 0 | Reactor2 | 4.84 ms | 8.83 ms | 3 | 1,221 |
+| 100,000 | Reactor | 40.90 ms | 43.56 ms | 16 | 401,500 |
+| 100,000 | Reactor2 | 40.97 ms | 45.33 ms | 3 | 200,261 |
+
+Most end-to-end time is inside WinUI input processing. Reactor2 callback-to-reconcile measured
+about 1.1 us median for short text and 2.1 us for 100,000-byte text. The large-text allocation
+result still scales at about twice the text length because minimal bindings convert native
+`HSTRING` to `String` before Reactor2 copies it into `Rc<str>`. Measure an `HSTRING`-preserving
+internal path before changing the public string API.

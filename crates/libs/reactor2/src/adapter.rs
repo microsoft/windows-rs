@@ -7,6 +7,7 @@ pub struct RecordingAdapter {
     objects: HashMap<ObjectId, RecordedObject>,
     owners: Rc<HashMap<ObjectId, (ObjectId, RelationId)>>,
     batches: Vec<Vec<Mutation>>,
+    observations: Vec<Observation>,
     record_batches: bool,
     validate_batches: bool,
 }
@@ -43,6 +44,7 @@ impl RecordingAdapter {
             objects: HashMap::new(),
             owners: Rc::new(HashMap::new()),
             batches: Vec::new(),
+            observations: Vec::new(),
             record_batches: false,
             validate_batches: true,
         }
@@ -62,6 +64,10 @@ impl RecordingAdapter {
 
     pub fn object_count(&self) -> usize {
         self.objects.len()
+    }
+
+    pub fn observe(&mut self, observation: Observation) {
+        self.observations.push(observation);
     }
 
     pub fn children(&self, object: ObjectId, relation: RelationId) -> Option<&[ObjectId]> {
@@ -290,6 +296,10 @@ impl Default for RecordingAdapter {
 
 impl Adapter for RecordingAdapter {
     type Error = AdapterError;
+
+    fn drain_observations(&mut self, observations: &mut Vec<Observation>) {
+        observations.append(&mut self.observations);
+    }
 
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
         if !self.validate_batches {

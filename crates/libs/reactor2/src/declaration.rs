@@ -133,7 +133,7 @@ impl<T> SharedList<T> {
 }
 
 impl<T: Clone> SharedList<T> {
-    fn upsert(&mut self, matches: impl Fn(&T) -> bool, value: T) {
+    pub(crate) fn upsert(&mut self, matches: impl Fn(&T) -> bool, value: T) {
         let current = std::mem::take(self);
         *self = match current {
             Self::Empty => Self::One(value),

@@ -26,6 +26,7 @@ struct Options {
     warmup: usize,
     samples: usize,
     text_size: usize,
+    single_line: bool,
 }
 
 impl Default for Options {
@@ -34,6 +35,7 @@ impl Default for Options {
             warmup: 100,
             samples: 1_000,
             text_size: 0,
+            single_line: false,
         }
     }
 }
@@ -43,6 +45,10 @@ impl Options {
         let mut options = Self::default();
         let mut arguments = std::env::args().skip(1);
         while let Some(argument) = arguments.next() {
+            if argument == "--single-line" {
+                options.single_line = true;
+                continue;
+            }
             let target = match argument.as_str() {
                 "--warmup" => &mut options.warmup,
                 "--samples" => &mut options.samples,
@@ -57,6 +63,7 @@ impl Options {
                            --warmup N     Warmup characters (default: 100)\n\
                            --samples N    Measured characters (default: 1000)\n\
                            --text-size N  Initial UTF-8/UTF-16 ASCII text length (default: 0)\n\
+                           --single-line  Use the plain single-line TextBox configuration\n\
                            -h, --help     Print this help"
                     );
                     return Ok(None);
@@ -351,16 +358,21 @@ impl Component for LiveNotepad {
         });
 
         let measurements = Arc::clone(&self.measurements);
-        TextBox::new()
+        let text_box = TextBox::new()
             .text(self.text.clone())
-            .accepts_return(true)
-            .text_wrapping(TextWrapping::Wrap)
             .element_ref(&self.target)
             .on_text_changed(context.callback(move |text| {
                 measurements.mark_event_callback();
                 Message::Text(text)
-            }))
-            .into()
+            }));
+        if self.options.single_line {
+            text_box.into()
+        } else {
+            text_box
+                .accepts_return(true)
+                .text_wrapping(TextWrapping::Wrap)
+                .into()
+        }
     }
 }
 
