@@ -420,6 +420,90 @@ fn stale_queued_event_does_not_reach_replacement_callback() {
 }
 
 #[test]
+fn subtree_update_reconciles_only_the_target_object() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([
+            keyed("first", TextBlock::new("First")),
+            keyed("second", TextBlock::new("Second")),
+        ]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    let first = children[0];
+    let second = children[1];
+
+    let mutations = runtime
+        .update_subtree(first, TextBlock::new("Changed"))
+        .unwrap();
+
+    assert_eq!(
+        mutations,
+        vec![Mutation::SetProperties {
+            object: first,
+            set: Rc::from([Property {
+                id: PropertyId::Text,
+                value: PropertyValue::String(Rc::from("Changed")),
+            }]),
+            clear: Rc::from([]),
+        }]
+    );
+    assert_eq!(
+        runtime
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap(),
+        [first, second]
+    );
+}
+
+#[test]
+fn targeted_child_removal_preserves_sibling_identity() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([
+            keyed("first", TextBlock::new("First")),
+            keyed("second", TextBlock::new("Second")),
+        ]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    let first = children[0];
+    let second = children[1];
+
+    let mutations = runtime
+        .remove_child(root, RelationId::Children, first)
+        .unwrap();
+
+    assert_eq!(
+        mutations,
+        vec![
+            Mutation::Remove {
+                parent: root,
+                relation: RelationId::Children,
+                child: first,
+                index: 0,
+            },
+            Mutation::Destroy { object: first },
+        ]
+    );
+    assert_eq!(
+        runtime
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap(),
+        [second]
+    );
+    assert_eq!(runtime.graph().kind(first), None);
+}
+
+#[test]
 fn no_change_produces_no_mutations() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime

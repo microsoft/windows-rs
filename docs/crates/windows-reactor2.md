@@ -69,6 +69,69 @@ generic mutations and report native observations and events. The runtime validat
 against the generated object contracts before changing retained state or exposing a callback.
 Events for stale objects or replaced callbacks are discarded.
 
+## Component lifecycle slice
+
+Component scopes are lifecycle records, not another UI representation. A scope owns application
+state, a bounded message destination, effect slots, and the `ObjectId` of its retained subtree
+root. Its view still produces an ordinary typed `Visual`. `Runtime::update_subtree` reconciles that
+declaration directly against the existing retained object, so an isolated component update does
+not rebuild or walk the parent declaration. The scope does not retain its last `Visual`; removal
+uses the same generic `Remove` and `Destroy` mutations as declarative reconciliation.
+
+The current `ComponentSet` fixture hosts homogeneous keyed component roots under one `Grid`. It
+proves the architecture rather than defining the final application API:
+
+- messages are queued and never run inline with native callbacks;
+- a state change reconciles only the owning retained subtree;
+- the retained root identity and `ElementRef` remain stable across updates;
+- effects compare typed dependencies, clean up before replacement, and clean up on retirement;
+- completion handles can cross threads, while generation checks discard delivery after retirement;
+- removing a component invalidates its reference without adding lifecycle mutations to the
+  backend protocol.
+
+At 16,384 component scopes, an isolated update measured about 0.5 us median and p95 with
+seven allocations and 312 bytes. The matching current Reactor benchmark measured about 172 us
+median and 202 us p95 with eight allocations and 752.5 bytes. A Reactor2 effect-bearing update
+measured about 0.7 us median and p95 with 11 allocations and 785 bytes, compared with about 163 us
+median and 180 us p95 with 11 allocations and 969.5 bytes.
+
+Retained memory at the same scale was about 637 bytes per Reactor2 idle component and 886 bytes per
+effect-bearing component, including the retained object and recording adapter. Current Reactor
+measured about 3,138 and 3,595 bytes per scope respectively. These numbers establish that lifecycle
+state can remain separate from the UI representation without requiring a second retained UI tree.
+
+## Architecture verdict
+
+The direction resolves the architectural problem exposed by issue #4972. Custom TreeView content
+does not require a TreeView-specific public update model, a parallel flattened tree, or a special
+component representation. It is an owned visual relation on a structural object and flows through
+the same generated contract, retained arena, mutation planner, and backend policy as other
+relations.
+
+| Original goal | Result |
+| --- | --- |
+| Clean type-safe declarations | Proven for visual, structural, data, keyed, positional, and controlled-input contracts |
+| One compact internal object model | Proven; declarations reconcile directly into one generational retained arena |
+| Backend-specific optimization | Proven with sparse moves, dense `ReplaceAll`, stable ListView data, and native observations |
+| Component lifecycle without another UI graph | Proven for keyed roots, isolated messages, effects, references, retirement, and stale completion |
+| Compile-time success implies valid relation shape | Proven with typed builders and compile-fail tests |
+| Avoid generated-code growth | Proven; components add no generated control variants or backend cases |
+| Material end-to-end improvement | Proven on live Grid, ListView, and TextBox workloads |
+
+The architecture should proceed. The current `ComponentSet` API should not migrate as-is; it is a
+homogeneous fixture used to prove ownership and scheduling. The next implementation stage should
+generalize type-erased heterogeneous scopes, parent input reconciliation, contexts, timers, and
+task cancellation while preserving these constraints:
+
+1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
+   mirrored UI declaration tree.
+2. Every visual, structural, and data object remains in the same retained arena.
+3. Component updates use targeted subtree reconciliation; removal uses generic relation mutations.
+4. Native observations are applied before queued component messages and are never consumed by an
+   unrelated subtree update.
+5. New lifecycle features must not add control-specific planner paths or generated component
+   variants.
+
 ## Current thin slice
 
 | Object | Purpose |
@@ -220,7 +283,9 @@ be reconsidered only if it can remain native across the complete application rou
 - Validation and no-change matching reject graphs above 65,536 objects.
 - Adapter validation or application failures poison the runtime and clear retained state. Dynamic
   declaration errors are rejected before retained or native mutation.
-- Component identity, scheduling, effects, references, virtualization, and full native lifecycle
-  behavior remain outside the thin slice and must be proven without adding parallel object models.
+- The component fixture currently supports homogeneous keyed roots under one retained container.
+  Heterogeneous nesting, parent input reconciliation, contexts, timers, and production background
+  task cancellation remain to be designed before it can replace the current component API.
+- Virtualization and full native lifecycle behavior remain outside the thin slice.
 - Ten-thousand-item churn remains below the frame budget at p95, but its 250-operation native batch
   is the largest remaining backend cost in the current scale fixture.

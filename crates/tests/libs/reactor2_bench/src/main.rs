@@ -30,6 +30,31 @@ struct MemoryRow {
     allocations: u64,
 }
 
+struct BenchComponent {
+    active: bool,
+    effect: bool,
+}
+
+impl reactor2::Component for BenchComponent {
+    type Message = bool;
+
+    fn update(&mut self, toggle: bool, _context: &reactor2::ComponentContext<Self::Message>) {
+        if toggle {
+            self.active = !self.active;
+        }
+    }
+
+    fn view(
+        &self,
+        context: &mut reactor2::ComponentViewContext<Self::Message>,
+    ) -> reactor2::Visual {
+        if self.effect {
+            context.use_effect("bench", self.active, || None);
+        }
+        reactor2::TextBlock::new(if self.active { "on" } else { "off" }).into()
+    }
+}
+
 #[derive(Default)]
 struct NullAdapter;
 
@@ -311,6 +336,73 @@ fn reactor2_tree_graph_memory(count: usize, custom_content: bool) -> MemoryRow {
     }
 }
 
+fn reactor2_component(count: usize, effect: bool, samples: usize, batch: usize) -> Row {
+    let mut adapter = reactor2::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let mut components = reactor2::ComponentSet::mount(
+        adapter,
+        (0..count).map(|index| {
+            (
+                reactor2::Key::from(index),
+                BenchComponent {
+                    active: false,
+                    effect,
+                },
+            )
+        }),
+    )
+    .unwrap();
+    let sender = components.sender(&reactor2::Key::from(count / 2)).unwrap();
+    let perf = measure(samples, batch, || {
+        assert!(sender.send(true));
+        black_box(components.drain(1).unwrap());
+    });
+    Row {
+        frontend: "reactor2",
+        workload: if effect {
+            "component_effect"
+        } else {
+            "component_isolated"
+        },
+        objects: count,
+        perf,
+    }
+}
+
+fn reactor2_component_memory(count: usize, effect: bool) -> MemoryRow {
+    let mut adapter = reactor2::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let components = reactor2::ComponentSet::mount(
+        adapter,
+        (0..count).map(|index| {
+            (
+                reactor2::Key::from(index),
+                BenchComponent {
+                    active: false,
+                    effect,
+                },
+            )
+        }),
+    )
+    .unwrap();
+    black_box(&components);
+    MemoryRow {
+        frontend: "reactor2",
+        workload: if effect {
+            "component_effect"
+        } else {
+            "component_idle"
+        },
+        objects: count,
+        bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
+        allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
+}
+
 fn argument(name: &str, default: usize) -> usize {
     let arguments = std::env::args().collect::<Vec<_>>();
     arguments
@@ -411,6 +503,8 @@ fn main() {
             samples,
             batch,
         ),
+        reactor2_component(count, false, samples, batch),
+        reactor2_component(count, true, samples, batch),
     ];
 
     println!(
@@ -444,6 +538,8 @@ fn main() {
         reactor2_tree_memory(count, false),
         reactor2_tree_graph_memory(count, true),
         reactor2_tree_memory(count, true),
+        reactor2_component_memory(count, false),
+        reactor2_component_memory(count, true),
     ] {
         println!(
             "{:<9} {:<22} {:>7} {:>16} {:>14.1} {:>16}",

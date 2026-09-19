@@ -9,8 +9,9 @@ cargo run -p test-reactor2-bench --release --quiet -- --count 4096 --samples 40 
 ```
 
 The output includes median and p95 update time, allocated bytes and allocation count per update,
-and retained bytes per object. Results compare the recording backends and do not include WinUI
-layout, rendering, or COM allocation costs.
+retained bytes per object, isolated Reactor2 component updates, and retained component-scope
+memory. Results compare the recording backends and do not include WinUI layout, rendering, or COM
+allocation costs.
 
 The benchmark intentionally reports regressions as well as improvements. Reactor2 must not be
 accepted based only on lower source complexity or faster reorder cases; no-op allocation, changed

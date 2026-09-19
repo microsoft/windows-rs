@@ -301,6 +301,25 @@ impl RetainedGraph {
         declaration: &Declaration,
         remaining: &mut usize,
     ) -> Result<bool, GraphError> {
+        self.matches_declaration_inner(object, declaration, remaining, true)
+    }
+
+    fn matches_subtree_declaration(
+        &self,
+        object: ObjectId,
+        declaration: &Declaration,
+        remaining: &mut usize,
+    ) -> Result<bool, GraphError> {
+        self.matches_declaration_inner(object, declaration, remaining, false)
+    }
+
+    fn matches_declaration_inner(
+        &self,
+        object: ObjectId,
+        declaration: &Declaration,
+        remaining: &mut usize,
+        compare_key: bool,
+    ) -> Result<bool, GraphError> {
         let Some(next) = remaining.checked_sub(1) else {
             return Err(GraphError::SizeExceeded);
         };
@@ -309,7 +328,7 @@ impl RetainedGraph {
             return Ok(false);
         };
         if current.kind != declaration.kind
-            || current.key != declaration.key
+            || (compare_key && current.key != declaration.key)
             || current.properties.as_slice() != declaration.properties.as_slice()
             || retained_events(&current.events) != declaration.events.as_slice()
         {
@@ -332,7 +351,8 @@ impl RetainedGraph {
                     match (previous, next) {
                         (None, None) => {}
                         (Some(previous), Some(next))
-                            if self.matches_declaration(*previous, next, remaining)? => {}
+                            if self
+                                .matches_declaration_inner(*previous, next, remaining, true)? => {}
                         _ => return Ok(false),
                     }
                 }
@@ -341,7 +361,7 @@ impl RetainedGraph {
                         return Ok(false);
                     }
                     for (previous, next) in previous.iter().zip(next.iter()) {
-                        if !self.matches_declaration(*previous, next, remaining)? {
+                        if !self.matches_declaration_inner(*previous, next, remaining, true)? {
                             return Ok(false);
                         }
                     }
@@ -473,6 +493,124 @@ impl<A: Adapter> Runtime<A> {
             };
             planner.retained.root = Some(root);
         }
+        if let Err(error) = self.adapter.validate(&self.mutations) {
+            self.poisoned = true;
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        if let Err(error) = self.adapter.apply(&self.mutations) {
+            self.poisoned = true;
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        let mutations = self.mutations.clone();
+        if self.mutations.capacity() > 256 {
+            self.mutations = Vec::with_capacity(256);
+        }
+        Ok(mutations)
+    }
+
+    pub fn update_subtree(
+        &mut self,
+        object: ObjectId,
+        root: impl Into<Visual>,
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        if self.poisoned {
+            return Err(UpdateError::Poisoned);
+        }
+        self.mutations.clear();
+        let declaration = root.into();
+        validate_declaration(&declaration.0).map_err(UpdateError::Graph)?;
+        let previous = self
+            .graph
+            .get(object)
+            .ok_or(UpdateError::Graph(GraphError::StaleObject(object)))?
+            .kind;
+        if previous != declaration.0.kind {
+            return Err(UpdateError::Graph(GraphError::RootTypeChanged {
+                previous,
+                next: declaration.0.kind,
+            }));
+        }
+        let mut remaining = MAX_OBJECTS;
+        if self
+            .graph
+            .matches_subtree_declaration(object, &declaration.0, &mut remaining)
+            .map_err(UpdateError::Graph)?
+        {
+            return Ok(Vec::new());
+        }
+        {
+            let mut planner = Planner {
+                retained: &mut self.graph,
+                mutations: &mut self.mutations,
+            };
+            planner
+                .reconcile_object(object, &declaration.0)
+                .map_err(UpdateError::Graph)?;
+        }
+        if let Err(error) = self.adapter.validate(&self.mutations) {
+            self.poisoned = true;
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        if let Err(error) = self.adapter.apply(&self.mutations) {
+            self.poisoned = true;
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        let mutations = self.mutations.clone();
+        if self.mutations.capacity() > 256 {
+            self.mutations = Vec::with_capacity(256);
+        }
+        Ok(mutations)
+    }
+
+    pub fn remove_child(
+        &mut self,
+        parent: ObjectId,
+        relation: RelationId,
+        child: ObjectId,
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        if self.poisoned {
+            return Err(UpdateError::Poisoned);
+        }
+        self.mutations.clear();
+        let index = self
+            .graph
+            .relation(parent, relation)
+            .and_then(|relation| match &relation.value {
+                RetainedRelationValue::Many(children) => {
+                    children.iter().position(|current| *current == child)
+                }
+                RetainedRelationValue::One(_) => None,
+            })
+            .ok_or(UpdateError::Graph(GraphError::MissingChild(
+                relation, child,
+            )))?;
+        self.mutations.push(Mutation::Remove {
+            parent,
+            relation,
+            child,
+            index,
+        });
+        {
+            let mut planner = Planner {
+                retained: &mut self.graph,
+                mutations: &mut self.mutations,
+            };
+            planner.retire(child);
+        }
+        let RetainedRelationValue::Many(children) =
+            &mut self.graph.relation_mut(parent, relation).value
+        else {
+            unreachable!()
+        };
+        children.remove(index);
         if let Err(error) = self.adapter.validate(&self.mutations) {
             self.poisoned = true;
             self.graph = RetainedGraph::default();

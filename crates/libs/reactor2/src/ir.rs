@@ -7,6 +7,7 @@ pub(crate) const MAX_OBJECTS: usize = 65_536;
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum GraphError {
     DuplicateKey(Key),
+    StaleObject(ObjectId),
     RootTypeChanged {
         previous: ObjectType,
         next: ObjectType,
@@ -16,6 +17,7 @@ pub enum GraphError {
     InvalidEvent(ObjectType, EventId),
     InvalidEventValue(EventId),
     InvalidRelation(ObjectType, RelationId),
+    MissingChild(RelationId, ObjectId),
     InvalidChildCategory(RelationId),
     InvalidCardinality(RelationId),
     MissingKey(RelationId),

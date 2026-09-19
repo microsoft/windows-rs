@@ -8,6 +8,7 @@
 4. adapters translate those mutations to a concrete UI runtime.
 
 The prototype covers single visual content, positional and keyed visual children, hierarchical
-keyed structural objects with optional visual content, and container-generated data items.
+keyed structural objects with optional visual content, container-generated data items, and queued
+component state updates that reconcile one retained subtree directly.
 
 This crate is not a supported replacement for `windows-reactor`.
