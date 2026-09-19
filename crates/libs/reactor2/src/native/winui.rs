@@ -1,7 +1,8 @@
 use super::bindings as native;
 use crate::{
-    Adapter, Event, EventId, EventValue, Mutation, ObjectId, ObjectType, Observation, Property,
-    PropertyId, PropertyValue, Realization, RelationContract, RelationId, relation_contracts,
+    Adapter, Event, EventDispatch, EventId, EventPayload, EventValue, Mutation, ObjectId,
+    ObjectType, Observation, Property, PropertyId, PropertyValue, Realization, RelationContract,
+    RelationId, relation_contracts,
 };
 use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet};
@@ -28,10 +29,31 @@ struct NativeTreeNode {
 
 struct NativeTextBox {
     value: native::TextBox,
-    callback: Rc<RefCell<Option<crate::Callback<Rc<str>>>>>,
+    event: Rc<RefCell<NativeTextEvent>>,
     observed_text: Rc<RefCell<Rc<str>>>,
     set_count: Cell<usize>,
     _text_changed: windows_core::EventRevoker,
+}
+
+#[derive(Default)]
+struct NativeTextEvent {
+    revision: u64,
+    callback: Option<crate::Callback<Rc<str>>>,
+}
+
+struct QueuedEvent {
+    object: ObjectId,
+    event: EventId,
+    revision: u64,
+    payload: EventPayload,
+}
+
+#[derive(Default)]
+struct NativeEventQueue {
+    observations: RefCell<Vec<Observation>>,
+    events: RefCell<Vec<QueuedEvent>>,
+    waker: RefCell<Option<Rc<dyn Fn()>>>,
+    wake_pending: Cell<bool>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -61,7 +83,7 @@ pub struct WinUiAdapter {
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
     data_text_key: HSTRING,
-    observations: Rc<RefCell<Vec<Observation>>>,
+    event_queue: Rc<NativeEventQueue>,
 }
 
 impl Default for WinUiAdapter {
@@ -72,7 +94,7 @@ impl Default for WinUiAdapter {
             tree_template: None,
             list_template: None,
             data_text_key: HSTRING::from("Text"),
-            observations: Rc::new(RefCell::new(Vec::new())),
+            event_queue: Rc::new(NativeEventQueue::default()),
         }
     }
 }
@@ -91,6 +113,10 @@ impl NativeWindow {
 }
 
 impl WinUiAdapter {
+    pub fn set_event_waker(&mut self, waker: impl Fn() + 'static) {
+        *self.event_queue.waker.borrow_mut() = Some(Rc::new(waker));
+    }
+
     pub fn create_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
         let window = native::Window::new()?;
         let root = self.ui_element(root)?;
@@ -224,9 +250,9 @@ impl WinUiAdapter {
         value.value.SetSelectionStart(selection_start)?;
         value.value.SetSelectionLength(selection_length)?;
         Self::dispatch_text_changed(
-            &value.callback,
+            &value.event,
             &value.observed_text,
-            &self.observations,
+            &self.event_queue,
             object,
             Rc::from(value.value.Text()?),
         );
@@ -347,27 +373,27 @@ impl WinUiAdapter {
             ObjectType::TextBlock => Handle::TextBlock(native::TextBlock::new()?),
             ObjectType::TextBox => {
                 let value = native::TextBox::new()?;
-                let callback = Rc::new(RefCell::new(None::<crate::Callback<Rc<str>>>));
-                let callback_for_event = Rc::clone(&callback);
+                let event = Rc::new(RefCell::new(NativeTextEvent::default()));
+                let event_for_callback = Rc::clone(&event);
                 let observed_text = Rc::new(RefCell::new(Rc::<str>::from("")));
                 let observed_text_for_event = Rc::clone(&observed_text);
-                let observations_for_event = Rc::clone(&self.observations);
+                let event_queue = Rc::clone(&self.event_queue);
                 let source = value.clone();
                 let text_changed = value.TextChanged(move |_, _| {
                     let Ok(text) = source.Text() else {
                         std::process::abort();
                     };
                     Self::dispatch_text_changed(
-                        &callback_for_event,
+                        &event_for_callback,
                         &observed_text_for_event,
-                        &observations_for_event,
+                        &event_queue,
                         object,
                         Rc::from(text),
                     );
                 })?;
                 Handle::TextBox(NativeTextBox {
                     value,
-                    callback,
+                    event,
                     observed_text,
                     set_count: Cell::new(0),
                     _text_changed: text_changed,
@@ -469,9 +495,9 @@ impl WinUiAdapter {
     }
 
     fn dispatch_text_changed(
-        callback: &Rc<RefCell<Option<crate::Callback<Rc<str>>>>>,
+        event: &Rc<RefCell<NativeTextEvent>>,
         observed_text: &Rc<RefCell<Rc<str>>>,
-        observations: &Rc<RefCell<Vec<Observation>>>,
+        event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         text: Rc<str>,
     ) {
@@ -482,19 +508,46 @@ impl WinUiAdapter {
             }
             *observed = Rc::clone(&text);
         }
-        observations.borrow_mut().push(Observation::SetProperty {
-            object,
-            property: Property {
-                id: PropertyId::Text,
-                value: PropertyValue::String(Rc::clone(&text)),
-            },
+        event_queue
+            .observations
+            .borrow_mut()
+            .push(Observation::SetProperty {
+                object,
+                property: Property {
+                    id: PropertyId::Text,
+                    value: PropertyValue::String(Rc::clone(&text)),
+                },
+            });
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: EventId::TextChanged,
+                revision: event.revision,
+                payload: EventPayload::String(text),
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn schedule_event_wake(event_queue: &Rc<NativeEventQueue>) {
+        if event_queue.wake_pending.replace(true) {
+            return;
+        }
+        let event_queue = Rc::clone(event_queue);
+        let Ok(queue) = native::DispatcherQueue::GetForCurrentThread() else {
+            std::process::abort();
+        };
+        let handler = native::DispatcherQueueHandler::new(move || {
+            event_queue.wake_pending.set(false);
+            let waker = event_queue.waker.borrow().clone();
+            if let Some(waker) = waker {
+                waker();
+            }
         });
-        let callback = callback.borrow().clone();
-        if let Some(callback) = callback
-            && std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                callback.call(text);
-            }))
-            .is_err()
+        if !queue
+            .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)
+            .unwrap_or(false)
         {
             std::process::abort();
         }
@@ -509,13 +562,16 @@ impl WinUiAdapter {
         let Handle::TextBox(value) = self.handle(object)? else {
             return Err(WinUiError::InvalidObject(object));
         };
+        let mut native_event = value.event.borrow_mut();
         if clear.contains(&EventId::TextChanged) {
-            *value.callback.borrow_mut() = None;
+            native_event.revision = native_event.revision.wrapping_add(1);
+            native_event.callback = None;
         }
         for event in set {
             match (event.id, &event.value) {
                 (EventId::TextChanged, EventValue::String(callback)) => {
-                    *value.callback.borrow_mut() = Some(callback.clone());
+                    native_event.revision = native_event.revision.wrapping_add(1);
+                    native_event.callback = Some(callback.clone());
                 }
             }
         }
@@ -918,7 +974,28 @@ impl Adapter for WinUiAdapter {
     type Error = WinUiError;
 
     fn drain_observations(&mut self, observations: &mut Vec<Observation>) {
-        observations.append(&mut self.observations.borrow_mut());
+        observations.append(&mut self.event_queue.observations.borrow_mut());
+    }
+
+    fn drain_events(&mut self, events: &mut Vec<EventDispatch>) {
+        for queued in self.event_queue.events.borrow_mut().drain(..) {
+            let Some(Handle::TextBox(text_box)) = self.handles.get(&queued.object) else {
+                continue;
+            };
+            let event = text_box.event.borrow();
+            if event.revision != queued.revision {
+                continue;
+            }
+            let Some(callback) = event.callback.clone() else {
+                continue;
+            };
+            events.push(EventDispatch::new(
+                queued.object,
+                queued.event,
+                EventValue::String(callback),
+                queued.payload,
+            ));
+        }
     }
 
     fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {

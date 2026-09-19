@@ -84,6 +84,11 @@ pub enum EventValue {
 }
 
 #[derive(Clone, Debug, PartialEq)]
+pub enum EventPayload {
+    String(Rc<str>),
+}
+
+#[derive(Clone, Debug, PartialEq)]
 pub struct Event {
     pub id: EventId,
     pub value: EventValue,
@@ -334,6 +339,15 @@ impl Border {
         Self(Declaration::new(ObjectType::Border))
     }
 
+    /// Sets the owned visual content.
+    ///
+    /// Structural and data objects cannot be used as visual content.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    ///
+    /// let _ = Border::new().content(TreeNode::new("node", "Node"));
+    /// ```
     pub fn content(mut self, content: impl Into<Visual>) -> Self {
         self.0 = self.0.relation(
             RelationId::Content,
@@ -403,6 +417,15 @@ impl StackPanel {
         Self(Declaration::new(ObjectType::StackPanel))
     }
 
+    /// Adds positional visual children.
+    ///
+    /// Keyed children are reserved for relations whose generated contract requires identity.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    ///
+    /// let _ = StackPanel::new().children([keyed("text", TextBlock::new("Text"))]);
+    /// ```
     pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
             RelationId::Children,
@@ -468,6 +491,15 @@ impl TreeView {
         Self(Declaration::new(ObjectType::TreeView))
     }
 
+    /// Adds keyed structural roots.
+    ///
+    /// Visual objects cannot be inserted into the structural node relation.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    ///
+    /// let _ = TreeView::new().nodes([TextBlock::new("Text")]);
+    /// ```
     pub fn nodes(mut self, nodes: impl IntoIterator<Item = TreeNode>) -> Self {
         self.0 = self.0.relation(
             RelationId::Roots,
@@ -510,6 +542,15 @@ impl ListView {
         Self(Declaration::new(ObjectType::ListView))
     }
 
+    /// Adds keyed data items.
+    ///
+    /// Visual objects cannot be inserted into the container-generated item relation.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    ///
+    /// let _ = ListView::new().items([TextBlock::new("Text")]);
+    /// ```
     pub fn items(mut self, items: impl IntoIterator<Item = DataItem>) -> Self {
         self.0 = self.0.relation(
             RelationId::Items,

@@ -235,12 +235,44 @@ Representative matched runs produced:
 | Initial text | Frontend | End-to-end median | End-to-end p95 | Allocations/input | Bytes/input |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 0 | Reactor | 4.70 ms | 6.99 ms | 16 | 3,433 |
-| 0 | Reactor2 | 4.84 ms | 8.83 ms | 3 | 1,221 |
+| 0 | Reactor2 | 4.80 ms | 6.68 ms | 4 | 1,245 |
 | 100,000 | Reactor | 40.90 ms | 43.56 ms | 16 | 401,500 |
-| 100,000 | Reactor2 | 40.97 ms | 45.33 ms | 3 | 200,261 |
+| 100,000 | Reactor2 | 40.75 ms | 43.60 ms | 4 | 200,285 |
 
 Most end-to-end time is inside WinUI input processing. Reactor2 callback-to-reconcile measured
-about 1.1 us median for short text and 2.1 us for 100,000-byte text. The large-text allocation
-result still scales at about twice the text length because minimal bindings convert native
-`HSTRING` to `String` before Reactor2 copies it into `Rc<str>`. Measure an `HSTRING`-preserving
-internal path before changing the public string API.
+about 1.0 us median for short text and 1.7 us for 100,000-byte text. Native events first enter a
+revision-checked queue and wake one later UI-dispatch turn, so application callbacks never run
+inside the native event handler. The large-text allocation result still scales at about twice the
+text length because minimal bindings convert native `HSTRING` to `String` before Reactor2 copies it
+into `Rc<str>`. The representation benchmark below measures whether avoiding that copy justifies
+changing the internal or public string model.
+
+`reactor2-string-bench` isolates that representation choice:
+
+```powershell
+cargo run -p test-reactor-bench --bin reactor2-string-bench --release --quiet -- `
+    --iterations 1000 --text-size 100000
+```
+
+At 100,000 bytes, representative results were:
+
+| Operation | Time | Rust allocations | Rust bytes |
+| --- | ---: | ---: | ---: |
+| `str -> Rc<str>` | 1.67 us | 1 | 100,016 |
+| `str -> HSTRING` | 48.47 us | 0 | 0 |
+| `Rc<str>` clone | 0.7 ns | 0 | 0 |
+| `HSTRING` clone | 9.9 ns | 0 | 0 |
+| `HSTRING -> String -> Rc<str>` | 139.15 us | 3 | 200,016 |
+| `HSTRING -> Rc<String>` | 91.01 us | 3 | 100,040 |
+
+The allocator cannot see storage allocated by the Windows string implementation, so zero Rust
+bytes for `HSTRING` construction does not mean zero allocation. `HSTRING` is compact and cheap to
+clone, but constructing it from UTF-8 and converting it back are much slower for large strings.
+`Rc<String>` removes one content copy on native input but requires two allocations for ordinary
+declaration construction and would introduce a second retained string representation.
+
+Keep `Rc<str>` as the declaration, retained, and public callback representation. The avoidable
+native-input copy is about 48 us at 100,000 bytes, less than 0.2% of the roughly 41 ms end-to-end
+input path, and does not justify a dual UTF-8/UTF-16 model. Revisit this only if a future API can
+retain an opaque native string end to end without forcing ordinary application state to use
+`HSTRING`.

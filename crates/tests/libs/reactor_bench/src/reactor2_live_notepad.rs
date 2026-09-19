@@ -188,6 +188,9 @@ struct Report {
 struct Harness {
     runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     callback: reactor2::Callback<Rc<str>>,
+    pending_text: Rc<RefCell<Option<Rc<str>>>>,
+    events: Vec<reactor2::EventDispatch>,
+    measurements: Arc<Measurements>,
     root: reactor2::ObjectId,
     window: reactor2::native::NativeWindow,
 }
@@ -198,33 +201,14 @@ fn create_harness(
     measurements: Arc<Measurements>,
 ) -> windows_core::Result<Rc<RefCell<Option<Harness>>>> {
     let holder = Rc::new(RefCell::new(None::<Harness>));
-    let weak = Rc::downgrade(&holder);
+    let pending_text = Rc::new(RefCell::new(None));
+    let callback_pending_text = Rc::clone(&pending_text);
     let callback_measurements = Arc::clone(&measurements);
     let callback = reactor2::Callback::new(move |text: Rc<str>| {
         callback_measurements
             .callback
             .mark(callback_measurements.now());
-        let holder = weak.upgrade().unwrap();
-        let mut holder = holder.borrow_mut();
-        let harness = holder.as_mut().unwrap();
-        let callback = harness.callback.clone();
-        let text_size = text.len();
-        let mutations = harness
-            .runtime
-            .update(reactor2::TextBox::new(text).on_text_changed_callback(callback))
-            .unwrap();
-        callback_measurements
-            .final_text_size
-            .store(text_size, Ordering::Relaxed);
-        callback_measurements.native_sets.store(
-            harness
-                .runtime
-                .adapter()
-                .text_box_set_count(harness.root)
-                .unwrap(),
-            Ordering::Relaxed,
-        );
-        callback_measurements.complete(mutations.len());
+        *callback_pending_text.borrow_mut() = Some(text);
     });
 
     let mut runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
@@ -241,9 +225,21 @@ fn create_harness(
     *holder.borrow_mut() = Some(Harness {
         runtime,
         callback,
+        pending_text,
+        events: Vec::new(),
+        measurements: Arc::clone(&measurements),
         root,
         window,
     });
+
+    let event_holder = Rc::downgrade(&holder);
+    holder
+        .borrow_mut()
+        .as_mut()
+        .unwrap()
+        .runtime
+        .adapter_mut()
+        .set_event_waker(move || process_events(&event_holder));
 
     let window = holder.borrow().as_ref().unwrap().window.clone();
     window.activate().unwrap();
@@ -256,6 +252,45 @@ fn create_harness(
     );
 
     Ok(holder)
+}
+
+fn process_events(holder: &Weak<RefCell<Option<Harness>>>) {
+    let holder = holder.upgrade().unwrap();
+    let mut events = {
+        let mut holder = holder.borrow_mut();
+        let harness = holder.as_mut().unwrap();
+        let mut events = std::mem::take(&mut harness.events);
+        harness.runtime.drain_events(&mut events).unwrap();
+        events
+    };
+    for event in events.drain(..) {
+        event.invoke();
+    }
+    let mut holder = holder.borrow_mut();
+    let harness = holder.as_mut().unwrap();
+    harness.events = events;
+    let Some(text) = harness.pending_text.borrow_mut().take() else {
+        return;
+    };
+    let text_size = text.len();
+    let callback = harness.callback.clone();
+    let mutations = harness
+        .runtime
+        .update(reactor2::TextBox::new(text).on_text_changed_callback(callback))
+        .unwrap();
+    harness
+        .measurements
+        .final_text_size
+        .store(text_size, Ordering::Relaxed);
+    harness.measurements.native_sets.store(
+        harness
+            .runtime
+            .adapter()
+            .text_box_set_count(harness.root)
+            .unwrap(),
+        Ordering::Relaxed,
+    );
+    harness.measurements.complete(mutations.len());
 }
 
 fn schedule_focus(

@@ -8,6 +8,7 @@ pub struct RecordingAdapter {
     owners: Rc<HashMap<ObjectId, (ObjectId, RelationId)>>,
     batches: Vec<Vec<Mutation>>,
     observations: Vec<Observation>,
+    events: Vec<EventDispatch>,
     record_batches: bool,
     validate_batches: bool,
 }
@@ -45,6 +46,7 @@ impl RecordingAdapter {
             owners: Rc::new(HashMap::new()),
             batches: Vec::new(),
             observations: Vec::new(),
+            events: Vec::new(),
             record_batches: false,
             validate_batches: true,
         }
@@ -68,6 +70,10 @@ impl RecordingAdapter {
 
     pub fn observe(&mut self, observation: Observation) {
         self.observations.push(observation);
+    }
+
+    pub fn queue_event(&mut self, event: EventDispatch) {
+        self.events.push(event);
     }
 
     pub fn children(&self, object: ObjectId, relation: RelationId) -> Option<&[ObjectId]> {
@@ -299,6 +305,10 @@ impl Adapter for RecordingAdapter {
 
     fn drain_observations(&mut self, observations: &mut Vec<Observation>) {
         observations.append(&mut self.observations);
+    }
+
+    fn drain_events(&mut self, events: &mut Vec<EventDispatch>) {
+        events.append(&mut self.events);
     }
 
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {

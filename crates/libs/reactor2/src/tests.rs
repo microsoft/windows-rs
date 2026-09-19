@@ -1,4 +1,5 @@
 use super::*;
+use std::cell::Cell;
 use std::rc::Rc;
 
 fn text(value: &str) -> Visual {
@@ -379,6 +380,43 @@ fn invalid_native_property_observation_is_rejected() {
             PropertyId::Expanded
         )))
     ));
+}
+
+#[test]
+fn stale_queued_event_does_not_reach_replacement_callback() {
+    let first_count = Rc::new(Cell::new(0));
+    let first_count_for_callback = Rc::clone(&first_count);
+    let first = Callback::new(move |_: Rc<str>| {
+        first_count_for_callback.set(first_count_for_callback.get() + 1);
+    });
+    let second_count = Rc::new(Cell::new(0));
+    let second_count_for_callback = Rc::clone(&second_count);
+    let second = Callback::new(move |_: Rc<str>| {
+        second_count_for_callback.set(second_count_for_callback.get() + 1);
+    });
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TextBox::new("Text").on_text_changed_callback(first.clone()))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        root,
+        EventId::TextChanged,
+        EventValue::String(first),
+        EventPayload::String(Rc::from("Stale")),
+    ));
+    runtime
+        .update(TextBox::new("Text").on_text_changed_callback(second))
+        .unwrap();
+
+    let mut events = Vec::new();
+    runtime.drain_events(&mut events).unwrap();
+    for event in events {
+        event.invoke();
+    }
+
+    assert_eq!(first_count.get(), 0);
+    assert_eq!(second_count.get(), 0);
 }
 
 #[test]

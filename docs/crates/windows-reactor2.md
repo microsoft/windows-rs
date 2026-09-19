@@ -45,6 +45,30 @@ TreeView's item template and safe collection synchronization remain private to t
 `test-reactor2-selftest` executable opens a real Reactor2 window, repeatedly reorders realized
 TreeView nodes with custom visual content, and exercises controlled TextBox input.
 
+## Public API shape
+
+The declaration API exposes one typed path for each generated contract:
+
+| Contract | Public shape |
+| --- | --- |
+| Authoritative scalar value | Required constructor input |
+| Optional scalar or event | Builder method; omission removes it |
+| Optional owned child | Builder method; omission represents no child |
+| Positional visual relation | Iterator of `Visual` |
+| Keyed visual relation | Iterator of `KeyedVisual` created by `keyed` |
+| Structural or data relation | Iterator of its specific keyed declaration type |
+
+This keeps invalid category and identity combinations from compiling. Compile-fail doctests cover
+visual, keyed visual, structural, and data relation boundaries. Controlled `TextBox` text remains a
+required constructor input because an unset value would create a second authority model. There is
+no separate common and advanced control path.
+
+`Property`, `Event`, `Observation`, `EventDispatch`, and their payload enums form the public
+adapter protocol rather than the application declaration API. External adapters need to consume
+generic mutations and report native observations and events. The runtime validates those messages
+against the generated object contracts before changing retained state or exposing a callback.
+Events for stale objects or replaced callbacks are discarded.
+
 ## Current thin slice
 
 | Object | Purpose |
@@ -93,12 +117,14 @@ the object and ownership graph for validation:
 
 | Shape | Reactor | Reactor2 graph | Reactor2 with recording adapter |
 | --- | ---: | ---: | ---: |
-| Keyed visual children | 1,750.5 bytes/object | 218.0 bytes/object | 454.0 bytes/object |
-| Plain TreeView nodes | 204.2 bytes/object | 282.0 bytes/object | 666.0 bytes/object |
-| TreeView nodes with visual content | - | 245.0 bytes/object | 551.0 bytes/object |
+| Keyed visual children | 1,754.7 bytes/object | 255.6 bytes/object | 539.5 bytes/object |
+| Plain TreeView nodes | 213.9 bytes/object | 319.4 bytes/object | 751.1 bytes/object |
+| TreeView nodes with visual content | - | 271.8 bytes/object | 625.7 bytes/object |
 
 The graph-only rows are the internal representation gate. Recording-adapter totals are useful for
-test-process sizing but are not retained arena cost.
+test-process sizing but are not retained arena cost. Retained events use a nullable shared pointer
+because most controls have no event handlers; declarations retain the inline single-event form so
+building a common one-handler control does not allocate.
 
 The recording results are not sufficient for an architecture decision. `reactor-live-compare`
 runs each frontend in a separate process with the same native `Grid`, 512 keyed `TextBlock`
@@ -149,9 +175,11 @@ so changing or removing the callback does not recreate the control or subscripti
 tracks the last observed native text. It updates that value before a programmatic setter and drops
 matching native notifications, including repeated or delayed notifications. A different native
 value is queued as a generic property observation before invoking the current callback. The runtime
-applies queued observations to the retained graph before reconciliation. A controlled rerender of
-the observed value therefore produces no mutation and no native setter call. Authoritative
-replacements preserve and clamp UTF-16 selection indices.
+applies queued observations to the retained graph before dispatching revision-checked events on a
+later UI turn. Application callbacks therefore cannot reenter reconciliation from the native event
+handler, and stale events do not reach replacement callbacks. A controlled rerender of the observed
+value produces no mutation and no native setter call. Authoritative replacements preserve and
+clamp UTF-16 selection indices.
 
 The native self-test routes a simulated native text change through the same observed-text and
 callback path as the WinUI event handler, rerenders the controlled value, and then applies a
@@ -162,16 +190,24 @@ the correctness fixture.
 
 The matched `reactor-live-notepad --single-line` and `reactor2-live-notepad` benchmarks inject real
 keyboard input into the same native TextBox configuration. With 1,000 measured characters,
-Reactor2 used 3 allocations and 1,221 allocated bytes per input versus Reactor's 16 allocations and
+Reactor2 used 4 allocations and 1,245 allocated bytes per input versus Reactor's 16 allocations and
 3,433 bytes. Reactor2 emitted no mutation and made no native `SetText` call for controlled
-feedback. Callback-to-reconcile latency was about 1.1 us median. End-to-end latency remained
+feedback. Callback-to-reconcile latency was about 1.0 us median. End-to-end latency remained
 dominated by WinUI and was within the run-to-run range of Reactor.
 
-At an initial text size of 100,000 bytes, Reactor2 used about 200,261 allocated bytes per input
-versus Reactor's 401,500 bytes. Reactor2 callback-to-reconcile remained about 2.1 us median, while
+At an initial text size of 100,000 bytes, Reactor2 used about 200,285 allocated bytes per input
+versus Reactor's 401,500 bytes. Reactor2 callback-to-reconcile remained about 1.7 us median, while
 both end-to-end medians were about 41 ms. The remaining Reactor2 allocation is about twice the text
 length because the minimal binding reads a `String` and the declaration retains an `Rc<str>`.
-An `HSTRING`-preserving internal representation requires an isolated measurement before adoption.
+
+An isolated representation benchmark rejected a general switch to `HSTRING`. At 100,000 bytes,
+constructing `Rc<str>` from UTF-8 took about 1.67 us and cloning it took 0.7 ns. Constructing
+`HSTRING` took about 48.47 us and cloning it took 9.9 ns. The current
+`HSTRING -> String -> Rc<str>` input path took about 139.15 us, while retaining the intermediate
+`String` in `Rc<String>` took about 91.01 us. Saving that copy would add a second retained string
+representation for less than 0.2% of measured end-to-end input time. Reactor2 therefore keeps
+`Rc<str>` across declarations, retained state, and callbacks. An opaque native string type should
+be reconsidered only if it can remain native across the complete application round trip.
 
 ## Prototype limits
 

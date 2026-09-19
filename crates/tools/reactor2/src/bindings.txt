@@ -1,5 +1,8 @@
 Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
+Microsoft::UI::Dispatching::DispatcherQueueHandler
+Microsoft::UI::Dispatching::DispatcherQueuePriority::Normal
 Microsoft::UI::Dispatching::IDispatcherQueue::CreateTimer
+Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
 Microsoft::UI::Dispatching::IDispatcherQueueTimer::{put_Interval, put_IsRepeating, add_Tick, remove_Tick, Start, Stop}
 Microsoft::UI::Xaml::DataTemplate::{}
 Microsoft::UI::Xaml::FocusState::Programmatic

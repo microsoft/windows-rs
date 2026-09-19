@@ -83,6 +83,36 @@ pub enum Observation {
 }
 
 #[derive(Clone, Debug, PartialEq)]
+pub struct EventDispatch {
+    pub object: ObjectId,
+    pub event: EventId,
+    callback: EventValue,
+    payload: EventPayload,
+}
+
+impl EventDispatch {
+    pub fn new(
+        object: ObjectId,
+        event: EventId,
+        callback: EventValue,
+        payload: EventPayload,
+    ) -> Self {
+        Self {
+            object,
+            event,
+            callback,
+            payload,
+        }
+    }
+
+    pub fn invoke(self) {
+        match (self.callback, self.payload) {
+            (EventValue::String(callback), EventPayload::String(value)) => callback.call(value),
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
 enum RetainedRelationValue {
     One(Option<ObjectId>),
     Many(Vec<ObjectId>),
@@ -99,8 +129,16 @@ struct RetainedObject {
     kind: ObjectType,
     key: Option<Key>,
     properties: SharedList<Property>,
-    events: SharedList<Event>,
+    events: Option<Rc<Vec<Event>>>,
     relations: Vec<RetainedRelation>,
+}
+
+fn retained_events(events: &Option<Rc<Vec<Event>>>) -> &[Event] {
+    events.as_deref().map_or(&[], Vec::as_slice)
+}
+
+fn retain_events(events: &SharedList<Event>) -> Option<Rc<Vec<Event>>> {
+    (!events.as_slice().is_empty()).then(|| Rc::new(events.as_slice().to_vec()))
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -164,6 +202,33 @@ impl RetainedGraph {
             }
         }
         Ok(())
+    }
+
+    fn validate_event_dispatch(&self, dispatch: &EventDispatch) -> Result<bool, GraphError> {
+        let Some(object) = self.get(dispatch.object) else {
+            return Ok(false);
+        };
+        let contract = event_contracts(object.kind)
+            .iter()
+            .find(|contract| contract.id == dispatch.event)
+            .ok_or(GraphError::InvalidEvent(object.kind, dispatch.event))?;
+        if !matches!(
+            (contract.value, &dispatch.callback, &dispatch.payload),
+            (
+                ValueType::String,
+                EventValue::String(_),
+                EventPayload::String(_)
+            )
+        ) {
+            return Err(GraphError::InvalidEventValue(dispatch.event));
+        }
+        Ok(object
+            .events
+            .as_deref()
+            .into_iter()
+            .flatten()
+            .find(|event| event.id == dispatch.event)
+            .is_some_and(|event| event.value == dispatch.callback))
     }
 
     fn get(&self, object: ObjectId) -> Option<&RetainedObject> {
@@ -246,7 +311,7 @@ impl RetainedGraph {
         if current.kind != declaration.kind
             || current.key != declaration.key
             || current.properties.as_slice() != declaration.properties.as_slice()
-            || current.events.as_slice() != declaration.events.as_slice()
+            || retained_events(&current.events) != declaration.events.as_slice()
         {
             return Ok(false);
         }
@@ -292,6 +357,7 @@ pub trait Adapter {
     type Error;
 
     fn drain_observations(&mut self, _observations: &mut Vec<Observation>) {}
+    fn drain_events(&mut self, _events: &mut Vec<EventDispatch>) {}
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error>;
     fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error>;
 }
@@ -301,6 +367,7 @@ pub struct Runtime<A> {
     adapter: A,
     mutations: Vec<Mutation>,
     observations: Vec<Observation>,
+    events: Vec<EventDispatch>,
     poisoned: bool,
 }
 
@@ -311,6 +378,7 @@ impl<A: Adapter> Runtime<A> {
             adapter,
             mutations: Vec::new(),
             observations: Vec::new(),
+            events: Vec::new(),
             poisoned: false,
         }
     }
@@ -325,6 +393,34 @@ impl<A: Adapter> Runtime<A> {
 
     pub fn adapter_mut(&mut self) -> &mut A {
         &mut self.adapter
+    }
+
+    pub fn drain_events(
+        &mut self,
+        events: &mut Vec<EventDispatch>,
+    ) -> Result<(), UpdateError<A::Error>> {
+        if self.poisoned {
+            return Err(UpdateError::Poisoned);
+        }
+        self.observations.clear();
+        self.adapter.drain_observations(&mut self.observations);
+        for observation in self.observations.drain(..) {
+            self.graph
+                .apply_observation(observation)
+                .map_err(UpdateError::Graph)?;
+        }
+        self.events.clear();
+        self.adapter.drain_events(&mut self.events);
+        for event in self.events.drain(..) {
+            if self
+                .graph
+                .validate_event_dispatch(&event)
+                .map_err(UpdateError::Graph)?
+            {
+                events.push(event);
+            }
+        }
+        Ok(())
     }
 
     pub fn update(
@@ -415,7 +511,7 @@ impl Planner<'_> {
             kind: declaration.kind,
             key: declaration.key.clone(),
             properties: declaration.properties.clone(),
-            events: declaration.events.clone(),
+            events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
                 .iter()
                 .map(|contract| RetainedRelation {
@@ -445,17 +541,10 @@ impl Planner<'_> {
                 clear: Rc::from([]),
             });
         }
-        if !self
-            .retained
-            .get(object)
-            .unwrap()
-            .events
-            .as_slice()
-            .is_empty()
-        {
+        if self.retained.get(object).unwrap().events.is_some() {
             self.mutations.push(Mutation::SetEvents {
                 object,
-                set: Rc::from(self.retained.get(object).unwrap().events.as_slice()),
+                set: Rc::from(retained_events(&self.retained.get(object).unwrap().events)),
                 clear: Rc::from([]),
             });
         }
@@ -545,21 +634,24 @@ impl Planner<'_> {
                 .push(Mutation::SetProperties { object, set, clear });
         }
         let events = declaration.events.as_slice();
-        if self.retained.get(object).unwrap().events.as_slice() != events {
+        if retained_events(&self.retained.get(object).unwrap().events) != events {
             let previous = self.retained.get(object).unwrap().events.clone();
             let set = events
                 .iter()
                 .filter(|event| {
-                    previous.iter().find(|current| current.id == event.id) != Some(*event)
+                    retained_events(&previous)
+                        .iter()
+                        .find(|current| current.id == event.id)
+                        != Some(*event)
                 })
                 .cloned()
                 .collect::<Rc<[_]>>();
-            let clear = previous
+            let clear = retained_events(&previous)
                 .iter()
                 .filter(|event| !events.iter().any(|current| current.id == event.id))
                 .map(|event| event.id)
                 .collect::<Rc<[_]>>();
-            self.retained.get_mut(object).events = declaration.events.clone();
+            self.retained.get_mut(object).events = retain_events(&declaration.events);
             self.mutations
                 .push(Mutation::SetEvents { object, set, clear });
         }

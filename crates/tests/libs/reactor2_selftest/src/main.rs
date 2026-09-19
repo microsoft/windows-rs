@@ -28,13 +28,15 @@ struct Fixture {
     text: Rc<RefCell<Rc<str>>>,
     text_changed: reactor2::Callback<Rc<str>>,
     text_changed_count: Rc<Cell<usize>>,
+    replacement_text_changed: reactor2::Callback<Rc<str>>,
+    replacement_text_changed_count: Rc<Cell<usize>>,
 }
 
 impl Fixture {
     fn declaration(
         iteration: usize,
         text: Rc<str>,
-        text_changed: reactor2::Callback<Rc<str>>,
+        text_changed: Option<reactor2::Callback<Rc<str>>>,
     ) -> reactor2::Visual {
         let children = [
             reactor2::TreeNode::new("first-child", format!("First child {iteration}"))
@@ -73,11 +75,15 @@ impl Fixture {
                 reactor2::DataItem::new("first", format!("First item {iteration}")),
             ]
         };
+        let text_box = reactor2::TextBox::new(text);
+        let text_box = if let Some(text_changed) = text_changed {
+            text_box.on_text_changed_callback(text_changed)
+        } else {
+            text_box
+        };
         reactor2::StackPanel::new()
             .children(vec![
-                reactor2::TextBox::new(text)
-                    .on_text_changed_callback(text_changed)
-                    .into(),
+                text_box.into(),
                 reactor2::Border::new()
                     .content(reactor2::TextBlock::new(format!("Iteration {iteration}")))
                     .into(),
@@ -107,12 +113,23 @@ impl Component for Fixture {
             *text_for_callback.borrow_mut() = value;
             count_for_callback.set(count_for_callback.get() + 1);
         });
+        let replacement_text_changed_count = Rc::new(Cell::new(0));
+        let replacement_text_for_callback = Rc::clone(&text);
+        let replacement_count_for_callback = Rc::clone(&replacement_text_changed_count);
+        let replacement_text_changed = reactor2::Callback::new(move |value| {
+            *replacement_text_for_callback.borrow_mut() = value;
+            replacement_count_for_callback.set(replacement_count_for_callback.get() + 1);
+        });
         let mut runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        let sender = context.sender();
+        runtime.adapter_mut().set_event_waker(move || {
+            sender.send(());
+        });
         runtime
             .update(Self::declaration(
                 0,
                 Rc::clone(&text.borrow()),
-                text_changed.clone(),
+                Some(text_changed.clone()),
             ))
             .unwrap();
         let root = runtime.graph().root().unwrap();
@@ -127,6 +144,8 @@ impl Component for Fixture {
             text,
             text_changed,
             text_changed_count,
+            replacement_text_changed,
+            replacement_text_changed_count,
         }
     }
 
@@ -135,6 +154,11 @@ impl Component for Fixture {
     }
 
     fn update(&mut self, _message: Self::Message, context: &ComponentContext<Self>) {
+        let mut events = Vec::new();
+        self.runtime.drain_events(&mut events).unwrap();
+        for event in events {
+            event.invoke();
+        }
         self.iteration += 1;
         let root = self.runtime.graph().root().unwrap();
         let text_box = self
@@ -168,15 +192,30 @@ impl Component for Fixture {
             3 => {
                 assert_eq!(self.text_changed_count.get(), 1);
                 assert_eq!(self.text.borrow().as_ref(), "X");
+                self.runtime
+                    .adapter()
+                    .simulate_text_input(text_box, "Stale input", 2, 0)
+                    .unwrap();
                 self.input_phase = 4;
+            }
+            5 => {
+                assert_eq!(self.text_changed_count.get(), 1);
+                assert_eq!(self.replacement_text_changed_count.get(), 1);
+                assert_eq!(self.text.borrow().as_ref(), "Replacement input");
+                self.input_phase = 6;
             }
             _ => {}
         }
+        let text_changed = if self.input_phase >= 4 {
+            self.replacement_text_changed.clone()
+        } else {
+            self.text_changed.clone()
+        };
         self.runtime
             .update(Self::declaration(
                 self.iteration,
                 Rc::clone(&self.text.borrow()),
-                self.text_changed.clone(),
+                Some(text_changed),
             ))
             .unwrap();
         if self.input_phase == 2 {
@@ -191,6 +230,14 @@ impl Component for Fixture {
                 ("X".to_string(), 1, 0)
             );
             assert_eq!(self.text_changed_count.get(), 1);
+        } else if self.input_phase == 4 {
+            self.runtime
+                .adapter()
+                .simulate_text_input(text_box, "Replacement input", 5, 0)
+                .unwrap();
+            self.input_phase = 5;
+            Self::schedule(context);
+            return;
         }
         self.runtime
             .adapter()

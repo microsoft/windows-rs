@@ -169,6 +169,63 @@ impl windows_core::RuntimeName for DispatcherQueue {
 }
 unsafe impl Send for DispatcherQueue {}
 unsafe impl Sync for DispatcherQueue {}
+windows_core::imp::define_interface!(
+    DispatcherQueueHandler,
+    DispatcherQueueHandler_Vtbl,
+    0x2e0872a9_4e29_5f14_b688_fb96d5f9d5f8
+);
+impl windows_core::RuntimeType for DispatcherQueueHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl DispatcherQueueHandler {
+    pub(crate) fn new<F: Fn() + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &DispatcherQueueHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+#[repr(C)]
+pub struct DispatcherQueueHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+struct DispatcherQueueHandlerBox<F: Fn() + 'static>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn() + 'static> DispatcherQueueHandlerBox<F> {
+    const VTABLE: DispatcherQueueHandler_Vtbl = DispatcherQueueHandler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface:
+                windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<DispatcherQueueHandler, F>);
+            (this.invoke)();
+            windows_core::HRESULT(0)
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DispatcherQueuePriority(pub i32);
+impl DispatcherQueuePriority {
+    pub const Normal: Self = Self(0);
+}
+impl windows_core::imp::TypeKind for DispatcherQueuePriority {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for DispatcherQueuePriority {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Dispatching.DispatcherQueuePriority;i4)",
+    );
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DispatcherQueueTimer(windows_core::IUnknown);
@@ -413,6 +470,25 @@ impl IDispatcherQueue {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) fn TryEnqueueWithPriority<P1>(
+        &self,
+        priority: DispatcherQueuePriority,
+        callback: P1,
+    ) -> windows_core::Result<bool>
+    where
+        P1: windows_core::Param<DispatcherQueueHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TryEnqueueWithPriority)(
+                windows_core::Interface::as_raw(self),
+                priority,
+                callback.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
 }
 #[repr(C)]
 pub struct IDispatcherQueue_Vtbl {
@@ -420,6 +496,13 @@ pub struct IDispatcherQueue_Vtbl {
     pub CreateTimer: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    TryEnqueue: usize,
+    pub TryEnqueueWithPriority: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DispatcherQueuePriority,
+        *mut core::ffi::c_void,
+        *mut bool,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
