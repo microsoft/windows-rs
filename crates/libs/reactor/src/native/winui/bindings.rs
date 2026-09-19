@@ -20734,6 +20734,14 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn UpdateLayout(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).UpdateLayout)(windows_core::Interface::as_raw(
+                self,
+            ))
+            .ok()
+        }
+    }
     pub(crate) fn StartBringIntoView(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).StartBringIntoView)(
@@ -21089,7 +21097,7 @@ pub struct IUIElement_Vtbl {
     TransformToVisual: usize,
     InvalidateMeasure: usize,
     InvalidateArrange: usize,
-    UpdateLayout: usize,
+    pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     CancelDirectManipulations: usize,
     StartDragAsync: usize,
     pub StartBringIntoView:

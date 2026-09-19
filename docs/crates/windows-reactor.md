@@ -700,7 +700,9 @@ reordering siblings preserves the native node and mounted content identities; in
 removing nodes mutates only the affected native collections. User expansion is preserved across
 renders unless the declared expanded value changes. WinUI's default item presentation displays a
 `TreeViewNode` as text instead of hosting its `Content` when that content is a `UIElement`, so the
-native backend installs a cached `ContentPresenter` item template through `ITreeView2`. The
+native backend installs a cached `ContentPresenter` item template through `ITreeView2`. Before
+moving nodes, the backend detaches and completes layout for the item template so WinUI releases
+the old presenters before it creates them in the new order. The
 [`tree-view-content`](../../crates/samples/reactor/tree-view-content) sample demonstrates dynamic
 status labels, item invocation, and keyed reordering.
 

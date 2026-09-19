@@ -1161,6 +1161,85 @@ impl Component for KeyedNativeMutations {
     }
 }
 
+pub(crate) enum TreeViewReorderMessage {
+    Reorder,
+    Settled,
+}
+
+pub(crate) struct TreeViewReorder {
+    complete: Callback<FixtureResult>,
+    iteration: usize,
+}
+
+impl TreeViewReorder {
+    fn schedule(message: TreeViewReorderMessage, context: &ComponentContext<Self>) {
+        context.spawn_background(move |_| {
+            std::thread::sleep(Duration::from_millis(50));
+            message
+        });
+    }
+}
+
+impl Component for TreeViewReorder {
+    type Input = FixtureInput;
+    type Message = TreeViewReorderMessage;
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        Self::schedule(TreeViewReorderMessage::Reorder, context);
+        Self {
+            complete: input.complete.clone(),
+            iteration: 0,
+        }
+    }
+
+    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
+        self.complete = input.complete.clone();
+    }
+
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        match message {
+            TreeViewReorderMessage::Reorder => {
+                self.iteration += 1;
+                if self.iteration == 32 {
+                    Self::schedule(TreeViewReorderMessage::Settled, context);
+                } else {
+                    Self::schedule(TreeViewReorderMessage::Reorder, context);
+                }
+            }
+            TreeViewReorderMessage::Settled => {
+                if !self.complete.call(Ok(())) {
+                    eprintln!("TreeView reorder fixture completion was rejected");
+                    std::process::exit(1);
+                }
+            }
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        let rows = [
+            TreeNode::new("first", "First")
+                .expanded(true)
+                .content(
+                    StackPanel::new()
+                        .orientation(Orientation::Horizontal)
+                        .children((
+                            SymbolIcon::new().symbol(Symbol::Folder),
+                            TextBlock::new().text(format!("First {}", self.iteration)),
+                        )),
+                )
+                .child(TreeNode::new("first-child", "First child")),
+            TreeNode::new("second", "Second")
+                .content(TextBlock::new().text(format!("Second {}", self.iteration))),
+        ];
+        let rows = if self.iteration.is_multiple_of(2) {
+            rows
+        } else {
+            [rows[1].clone(), rows[0].clone()]
+        };
+        TreeView::new().nodes(rows)
+    }
+}
+
 #[derive(Clone, Copy, PartialEq)]
 pub(crate) enum PointerStage {
     Move,

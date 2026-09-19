@@ -2963,29 +2963,40 @@ impl WinUiRuntime {
                 state.tree = Some(*tree);
                 state.parent = *parent;
             }
-            Command::MoveTreeNode {
+            Command::SynchronizeTreeNodes {
                 tree,
                 parent,
-                node,
-                index,
+                nodes,
             } => {
-                let value = self
-                    .tree_nodes
-                    .get(node)
-                    .ok_or(RuntimeError::MissingNode(*node))?
-                    .value
-                    .clone();
+                let Some(Handle::TreeView(tree_view)) = self.handles.get(tree) else {
+                    return Err(RuntimeError::UnsupportedKind);
+                };
+                let tree_view = tree_view.clone();
+                let tree_view2 = tree_view.cast::<ITreeView2>().map_err(native_error)?;
+                let template = self
+                    .tree_view_item_template
+                    .clone()
+                    .ok_or(RuntimeError::UnsupportedKind)?;
+                tree_view2
+                    .SetItemTemplate(None::<&DataTemplate>)
+                    .map_err(native_error)?;
+                tree_view
+                    .cast::<IUIElement>()
+                    .and_then(|tree| tree.UpdateLayout())
+                    .map_err(native_error)?;
                 let collection = self.tree_node_collection(*tree, *parent)?;
-                let mut current = 0;
-                if !collection
-                    .IndexOf(&value, &mut current)
-                    .map_err(native_error)?
-                {
-                    return Err(RuntimeError::ChildNotFound(*node));
-                }
-                collection.RemoveAt(current).map_err(native_error)?;
-                collection
-                    .InsertAt(index32(*index)?, &value)
+                let nodes = nodes
+                    .iter()
+                    .map(|node| {
+                        self.tree_nodes
+                            .get(node)
+                            .map(|node| Some(node.value.clone()))
+                            .ok_or(RuntimeError::MissingNode(*node))
+                    })
+                    .collect::<Result<Vec<_>, _>>()?;
+                collection.ReplaceAll(&nodes).map_err(native_error)?;
+                tree_view2
+                    .SetItemTemplate(&template)
                     .map_err(native_error)?;
             }
             Command::RemoveTreeNode { tree, parent, node } => {

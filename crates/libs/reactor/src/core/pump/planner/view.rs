@@ -1086,9 +1086,10 @@ impl<R: NativeRuntime> Pump<R> {
         }
 
         let ordered = new_keys.iter().map(|key| nodes[key]).collect::<Vec<_>>();
-        Self::set_tree_node_children(tree, owner, ordered);
+        Self::set_tree_node_children(tree, owner, ordered.clone());
 
         let mut key_order = old_keys;
+        let mut synchronize = false;
         for operation in operations {
             let (key, before, inserted) = match operation {
                 KeyedOperation::Remove { key } => {
@@ -1104,6 +1105,7 @@ impl<R: NativeRuntime> Pump<R> {
                         .position(|current| current == &key)
                         .ok_or(PumpError::StructureUnsupported)?;
                     key_order.remove(index);
+                    synchronize = true;
                     (key, before, false)
                 }
             };
@@ -1114,21 +1116,20 @@ impl<R: NativeRuntime> Pump<R> {
                     .unwrap_or(key_order.len())
             });
             key_order.insert(index, key.clone());
-            let node = nodes[&key];
-            plan.push(if inserted {
-                Command::InsertTreeNode {
+            if inserted {
+                plan.push(Command::InsertTreeNode {
                     tree: target,
                     parent: native_parent,
-                    node,
+                    node: nodes[&key],
                     index,
-                }
-            } else {
-                Command::MoveTreeNode {
-                    tree: target,
-                    parent: native_parent,
-                    node,
-                    index,
-                }
+                });
+            }
+        }
+        if synchronize {
+            plan.push(Command::SynchronizeTreeNodes {
+                tree: target,
+                parent: native_parent,
+                nodes: ordered,
             });
         }
         Ok(())

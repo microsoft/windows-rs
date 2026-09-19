@@ -1251,11 +1251,10 @@ impl RecordingRuntime {
                 child.tree = Some(*tree);
                 child.parent = *parent;
             }
-            Command::MoveTreeNode {
+            Command::SynchronizeTreeNodes {
                 tree,
                 parent,
-                node,
-                index,
+                nodes,
             } => {
                 let children = if let Some(parent) = parent {
                     &mut self
@@ -1268,15 +1267,15 @@ impl RecordingRuntime {
                         .get_mut(tree)
                         .ok_or(RuntimeError::MissingNode(*tree))?
                 };
-                let current = children
-                    .iter()
-                    .position(|current| current == node)
-                    .ok_or(RuntimeError::ChildNotFound(*node))?;
-                let node = children.remove(current);
-                if *index > children.len() {
-                    return Err(RuntimeError::IndexOutOfBounds);
+                if nodes.iter().collect::<HashSet<_>>().len() != nodes.len() {
+                    return Err(RuntimeError::DuplicateNode(*tree));
                 }
-                children.insert(*index, node);
+                let current = children.iter().copied().collect::<HashSet<_>>();
+                let desired = nodes.iter().copied().collect::<HashSet<_>>();
+                if let Some(node) = current.symmetric_difference(&desired).next() {
+                    return Err(RuntimeError::ChildNotFound(*node));
+                }
+                children.clone_from(nodes);
             }
             Command::RemoveTreeNode { tree, parent, node } => {
                 let children = if let Some(parent) = parent {

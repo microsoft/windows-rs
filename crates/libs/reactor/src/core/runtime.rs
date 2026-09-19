@@ -462,11 +462,10 @@ pub enum Command {
         node: NodeId,
         index: usize,
     },
-    MoveTreeNode {
+    SynchronizeTreeNodes {
         tree: NodeId,
         parent: Option<NodeId>,
-        node: NodeId,
-        index: usize,
+        nodes: Vec<NodeId>,
     },
     RemoveTreeNode {
         tree: NodeId,

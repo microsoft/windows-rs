@@ -9,7 +9,7 @@ use crate::fixtures::{
     CompositionLifecycle, EncodedImageLifecycle, FixtureInput, FixtureResult, FocusPublication,
     ImageSourceLifecycle, KeyboardInput, KeyedNativeMutations, NestedWindowOperation,
     PointerInjection, ProbeFixture, ProbeInput, SwapChainLifecycle, ThemeResources, TimerLifecycle,
-    WindowLifecycle,
+    TreeViewReorder, WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
@@ -44,6 +44,7 @@ enum FixtureKind {
     ThemeResources,
     PointerInjection,
     KeyedNativeMutations,
+    TreeViewReorder,
 }
 
 struct Fixture {
@@ -130,6 +131,10 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "Reconcile_KeyedNativeMutations",
         kind: FixtureKind::KeyedNativeMutations,
+    },
+    Fixture {
+        name: "TreeView_CustomContentReorder",
+        kind: FixtureKind::TreeViewReorder,
     },
 ];
 
@@ -338,6 +343,7 @@ impl Component for FixtureRunner {
             Some(FixtureKind::KeyedNativeMutations) => {
                 View::component::<KeyedNativeMutations>(input)
             }
+            Some(FixtureKind::TreeViewReorder) => View::component::<TreeViewReorder>(input),
             None => TextBlock::new().text("fixtures complete").into(),
         }
     }

@@ -100,7 +100,7 @@ fn reconciles_content_and_reorders_nodes_without_recreating_them() {
     let commands = pump.runtime().commands().last().unwrap();
     assert!(commands.iter().any(|command| matches!(
         command,
-        Command::MoveTreeNode { node, .. } if *node == roots[1]
+        Command::SynchronizeTreeNodes { nodes, .. } if nodes.as_slice() == [roots[1], roots[0]]
     )));
     assert!(!commands.iter().any(|command| matches!(
         command,
@@ -109,7 +109,7 @@ fn reconciles_content_and_reorders_nodes_without_recreating_them() {
 }
 
 #[test]
-fn large_reorder_emits_one_native_move_without_recreating_nodes() {
+fn large_reorder_emits_one_native_synchronization_without_recreating_nodes() {
     let mut pump = Pump::new(RecordingRuntime::default());
     let mut definitions = flat_nodes(256);
     pump.mount_view(TreeView::new().nodes(definitions.clone()))
@@ -123,7 +123,7 @@ fn large_reorder_emits_one_native_move_without_recreating_nodes() {
     assert_eq!(
         commands
             .iter()
-            .filter(|command| matches!(command, Command::MoveTreeNode { .. }))
+            .filter(|command| matches!(command, Command::SynchronizeTreeNodes { .. }))
             .count(),
         1
     );

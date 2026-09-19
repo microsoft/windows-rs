@@ -107,7 +107,7 @@ Microsoft::UI::Xaml::IFrameworkElement::put_Style
 Microsoft::UI::Xaml::IFrameworkElementStatics::{get_WidthProperty, get_HeightProperty, get_MinWidthProperty, get_MaxWidthProperty, get_MinHeightProperty, get_MaxHeightProperty, get_HorizontalAlignmentProperty, get_VerticalAlignmentProperty, get_MarginProperty}
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
-Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, get_FocusState, put_Opacity, StartBringIntoView}
+Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, get_FocusState, put_Opacity, StartBringIntoView, UpdateLayout}
 Microsoft::UI::Xaml::IUIElement::put_Transitions
 Microsoft::UI::Xaml::IUIElement::{add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased}
 Microsoft::UI::Xaml::IUIElementStatics::get_OpacityProperty

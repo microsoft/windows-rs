@@ -39,7 +39,7 @@ impl<R: NativeRuntime> Pump<R> {
                 | Command::SynchronizeChildren { .. }
                 | Command::MoveChild { .. }
                 | Command::InsertTreeNode { .. }
-                | Command::MoveTreeNode { .. }
+                | Command::SynchronizeTreeNodes { .. }
                 | Command::RemoveTreeNode { .. } => topology += 1,
                 _ => {}
             }
