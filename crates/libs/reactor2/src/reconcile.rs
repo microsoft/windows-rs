@@ -558,6 +558,25 @@ impl Planner<'_> {
                 RelationValue::One(_) => unreachable!(),
             })
             .unwrap_or_default();
+        let same_order = match &self.retained.relation(object, relation_id).unwrap().value {
+            RetainedRelationValue::Many(previous) if previous.len() == desired.len() => {
+                previous.iter().zip(desired).all(|(previous, desired)| {
+                    let previous = self.retained.get(*previous).unwrap();
+                    previous.kind == desired.kind && previous.key == desired.key
+                })
+            }
+            _ => false,
+        };
+        if same_order {
+            for (index, desired) in desired.iter().enumerate() {
+                let previous = match &self.retained.relation(object, relation_id).unwrap().value {
+                    RetainedRelationValue::Many(previous) => previous[index],
+                    _ => unreachable!(),
+                };
+                self.reconcile_object(previous, desired)?;
+            }
+            return Ok(());
+        }
         let previous = match &self.retained.relation(object, relation_id).unwrap().value {
             RetainedRelationValue::Many(children) => children.clone(),
             _ => unreachable!(),

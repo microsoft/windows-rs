@@ -13,8 +13,8 @@ use windows_reactor::test::{
     clear_live_performance_times, subscribe_live_rendering, take_live_performance_times,
 };
 use windows_reactor::{
-    App, AppProxy, ChildrenControl as _, Component, ComponentContext, Grid, KeyedView, TextBlock,
-    View, ViewContext,
+    App, AppProxy, ChildrenControl as _, Component, ComponentContext, Grid, KeyedView, ListView,
+    TextBlock, View, ViewContext,
 };
 use windows_reactor2 as reactor2;
 
@@ -54,9 +54,25 @@ impl Workload {
     }
 }
 
+#[derive(Clone, Copy, Debug, PartialEq)]
+enum Surface {
+    Grid,
+    List,
+}
+
+impl Surface {
+    fn name(self) -> &'static str {
+        match self {
+            Self::Grid => "grid",
+            Self::List => "list",
+        }
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 struct Options {
     frontend: Frontend,
+    surface: Surface,
     workload: Workload,
     count: usize,
     updates: usize,
@@ -66,6 +82,7 @@ struct Options {
 impl Options {
     fn parse() -> Result<Option<Self>, String> {
         let mut frontend = None;
+        let mut surface = Surface::Grid;
         let mut workload = Workload::Text;
         let mut count = 512;
         let mut updates = 120;
@@ -96,6 +113,16 @@ impl Options {
                         _ => return Err(format!("invalid --workload value: {value}")),
                     };
                 }
+                "--surface" => {
+                    let value = args
+                        .next()
+                        .ok_or_else(|| "--surface requires a value".to_string())?;
+                    surface = match value.as_str() {
+                        "grid" => Surface::Grid,
+                        "list" => Surface::List,
+                        _ => return Err(format!("invalid --surface value: {value}")),
+                    };
+                }
                 "--count" => count = parse_value(&mut args, "--count")?,
                 "--updates" => updates = parse_value(&mut args, "--updates")?,
                 "--churn-count" => churn_count = parse_value(&mut args, "--churn-count")?,
@@ -119,6 +146,7 @@ impl Options {
 
         Ok(Some(Self {
             frontend: frontend.ok_or_else(|| "--frontend is required".to_string())?,
+            surface,
             workload,
             count,
             updates,
@@ -142,9 +170,10 @@ fn print_help() {
          \n\
          Options:\n\
            --frontend reactor|reactor2  Frontend to measure (required)\n\
+           --surface grid|list          Native surface (default: grid)\n\
            --workload text|rotate|reverse|churn\n\
                                         Update shape (default: text)\n\
-           --count N                    Native TextBlock count (default: 512)\n\
+           --count N                    Logical item count (default: 512)\n\
            --updates N                  Render-paced updates (default: 120)\n\
            --churn-count N              Trailing children toggled by churn (default: 64)\n\
            -h, --help                   Print this help"
@@ -153,7 +182,7 @@ fn print_help() {
 
 #[derive(Clone)]
 struct Model {
-    values: Vec<String>,
+    values: Vec<Rc<str>>,
     order: Vec<usize>,
     visible: usize,
     revision: usize,
@@ -162,7 +191,9 @@ struct Model {
 impl Model {
     fn new(count: usize) -> Self {
         Self {
-            values: (0..count).map(|index| format!("Cell {index}")).collect(),
+            values: (0..count)
+                .map(|index| Rc::from(format!("Cell {index}")))
+                .collect(),
             order: (0..count).collect(),
             visible: count,
             revision: 0,
@@ -174,7 +205,7 @@ impl Model {
         match options.workload {
             Workload::Text => {
                 let index = self.revision.wrapping_mul(2_654_435_761) % self.values.len();
-                self.values[index] = format!("Cell {index} revision {}", self.revision);
+                self.values[index] = Rc::from(format!("Cell {index} revision {}", self.revision));
             }
             Workload::Rotate => self.order.rotate_left(1),
             Workload::Reverse => self.order.reverse(),
@@ -188,21 +219,34 @@ impl Model {
         }
     }
 
-    fn reactor_view(&self) -> View {
-        Grid::new().keyed_children(self.order[..self.visible].iter().map(|index| {
-            KeyedView::new(*index, TextBlock::new().text(self.values[*index].clone()))
-        }))
+    fn reactor_view(&self, surface: Surface) -> View {
+        let children = self.order[..self.visible].iter().map(|index| {
+            KeyedView::new(*index, TextBlock::new().text(self.values[*index].as_ref()))
+        });
+        match surface {
+            Surface::Grid => Grid::new().keyed_children(children),
+            Surface::List => ListView::new().items(children).into(),
+        }
     }
 
-    fn reactor2_view(&self) -> reactor2::Visual {
-        reactor2::Grid::new()
-            .children(self.order[..self.visible].iter().map(|index| {
-                reactor2::keyed(
-                    *index,
-                    reactor2::TextBlock::new(self.values[*index].clone()),
-                )
-            }))
-            .into()
+    fn reactor2_view(&self, surface: Surface) -> reactor2::Visual {
+        match surface {
+            Surface::Grid => reactor2::Grid::new()
+                .children(self.order[..self.visible].iter().map(|index| {
+                    reactor2::keyed(
+                        *index,
+                        reactor2::TextBlock::new(Rc::clone(&self.values[*index])),
+                    )
+                }))
+                .into(),
+            Surface::List => {
+                reactor2::ListView::new()
+                    .items(self.order[..self.visible].iter().map(|index| {
+                        reactor2::DataItem::new(*index, Rc::clone(&self.values[*index]))
+                    }))
+                    .into()
+            }
+        }
     }
 }
 
@@ -282,7 +326,8 @@ impl Measurement {
 
         println!(
             "{{\"benchmark\":\"reactor-live-compare\",\"frontend\":\"{}\",\
-             \"workload\":\"{}\",\"objects\":{},\"updates\":{},\"churn_count\":{},\
+             \"surface\":\"{}\",\"workload\":\"{}\",\"objects\":{},\"updates\":{},\
+             \"churn_count\":{},\
              \"elapsed_ms\":{:.3},\"updates_per_second\":{:.3},\
              \"rust_allocations\":{},\"rust_allocations_per_update\":{:.3},\
              \"rust_alloc_bytes\":{},\"rust_alloc_bytes_per_update\":{:.3},\
@@ -294,6 +339,7 @@ impl Measurement {
              \"native_apply_samples\":{},\"native_apply_avg_us\":{:.3},\
              \"native_apply_p95_us\":{:.3}}}",
             options.frontend.name(),
+            options.surface.name(),
             options.workload.name(),
             options.count,
             updates,
@@ -476,7 +522,7 @@ impl Component for ReactorFixture {
     }
 
     fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        self.model.reactor_view()
+        self.model.reactor_view(self.options.surface)
     }
 }
 
@@ -514,7 +560,7 @@ impl Reactor2State {
             let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
             let bytes = allocator::allocated_bytes();
             let build_started = Instant::now();
-            let declaration = self.model.reactor2_view();
+            let declaration = self.model.reactor2_view(self.options.surface);
             self.build_times
                 .push(build_started.elapsed().as_secs_f64() * 1_000_000.0);
             self.build_allocations += allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
@@ -570,7 +616,7 @@ impl Reactor2State {
         let apply = distribution(&mut apply_times);
         let divisor = self.updates.max(1) as f64;
         println!(
-            "{{\"benchmark\":\"reactor2-live-phases\",\"workload\":\"{}\",\
+            "{{\"benchmark\":\"reactor2-live-phases\",\"surface\":\"{}\",\"workload\":\"{}\",\
              \"objects\":{},\"updates\":{},\"declaration_avg_us\":{:.3},\
              \"declaration_p95_us\":{:.3},\"declaration_allocations_per_update\":{:.3},\
              \"declaration_bytes_per_update\":{:.3},\"runtime_avg_us\":{:.3},\
@@ -578,6 +624,7 @@ impl Reactor2State {
              \"runtime_bytes_per_update\":{:.3},\"native_apply_avg_us\":{:.3},\
              \"native_apply_p95_us\":{:.3},\"native_allocations_per_update\":{:.3},\
              \"native_bytes_per_update\":{:.3},\"mutations_per_update\":{:.3}}}",
+            self.options.surface.name(),
             self.options.workload.name(),
             self.options.count,
             self.updates,
@@ -665,7 +712,9 @@ fn run_reactor2(options: Options) -> windows_core::Result<()> {
         let model = Model::new(options.count);
         let metrics = Rc::new(RefCell::new(AdapterMetrics::default()));
         let mut runtime = reactor2::Runtime::new(MeasuredWinUiAdapter::new(metrics));
-        runtime.update(model.reactor2_view()).unwrap();
+        runtime
+            .update(model.reactor2_view(options.surface))
+            .unwrap();
         let root = runtime.graph().root().unwrap();
         let window = runtime.adapter().open_window(root).unwrap();
         let state = Rc::new(RefCell::new(Reactor2State {

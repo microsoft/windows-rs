@@ -106,10 +106,10 @@ Stabilized native runs with 512 objects and 300 render-paced updates produced:
 
 | Workload | Reactor avg | Reactor2 avg | Reactor bytes/update | Reactor2 bytes/update |
 | --- | ---: | ---: | ---: | ---: |
-| Change one text value | 627.4 us | 296.9 us | 216,904 | 178,615 |
-| Rotate one child | 725.6 us | 472.4 us | 316,449 | 229,589 |
-| Reverse all children | 3,835.6 us | 1,500.0 us | 411,641 | 236,705 |
-| Remove/restore 64 children | 1,083.1 us | 891.3 us | 352,023 | 167,953 |
+| Change one text value | 627.4 us | 97.0 us | 216,904 | 59,085 |
+| Rotate one child | 725.6 us | 220.7 us | 316,449 | 172,675 |
+| Reverse all children | 3,835.6 us | 1,417.8 us | 411,641 | 179,791 |
+| Remove/restore 64 children | 1,083.1 us | 864.6 us | 352,023 | 114,623 |
 
 The initial native run failed badly because every reorder used
 `UIElementCollection::ReplaceAll` and each declaration object allocated empty property and relation
@@ -119,12 +119,28 @@ removed the transient object graph and full retained-graph clone. Reactor2 is fa
 average-latency workloads while allocating fewer objects and bytes. Churn p95 remains slightly
 worse and is still a tail-latency optimization gate.
 
-Phase measurements attribute a text update to about 128 us of declaration construction and 153 us
-of runtime work, including about 33 us in the native adapter. The public declaration layer accounts
-for about 1,026 allocations per update, while the runtime accounts for about 11. This makes
-generated declaration construction the clearest remaining allocation target. Churn is dominated by
-the 160-operation native batch; future work should preserve the generic relation contract while
-letting each backend select an efficient batch operation.
+Shared immutable strings allow unchanged property values to flow from application state into
+declarations without allocation. The keyed reconciler also detects unchanged key order before
+allocating lookup and move-planning storage. Together these changes reduce a 512-object text update
+to about 10 allocations and 59 KiB.
+
+The same harness has a visible ListView surface for larger end-to-end runs. At 10,000 items,
+Reactor2 sustained the render cadence for one changed item at 1.07 ms average and 2.54 ms p95, and
+for alternately removing and restoring 100 items at 4.33 ms average and 9.18 ms p95. The matching
+Reactor runs measured 5.57 ms and 137.86 ms average respectively, although the two frontends use
+different native list item representations.
+
+Reactor2 ListView data items keep stable native identity through an observable map bound by the
+item template. Updating text mutates the item directly instead of performing a linear native
+`IndexOf` and replacing the collection entry. At 10,000 items, native text-update p95 fell from
+about 2.75 ms to about 8 us. Declaration construction uses two allocations per update when the
+application model preserves unchanged strings as `Rc<str>`.
+
+A dense 2,000-item reversal initially took 391 ms because the container adapter replayed every
+move through native `IndexOf`, remove, and insert calls. The generic `Reorder` mutation also carries
+the final order, allowing the ListView backend to select `ReplaceAll` for a complete reorder. That
+reduced the update to 8.47 ms, compared with 10.29 ms for Reactor. Reversing all 10,000 items still
+takes about 37 ms and remains outside the 60 Hz gate.
 
 ## Prototype limits
 
@@ -138,5 +154,5 @@ letting each backend select an efficient batch operation.
   declaration errors are rejected before retained or native mutation.
 - Component identity, scheduling, effects, references, virtualization, and full native lifecycle
   behavior remain outside the thin slice and must be proven without adding parallel object models.
-- Native child churn still has worse p95 latency than Reactor even though its average time, CPU,
-  allocations, and allocated bytes are lower.
+- Ten-thousand-item churn remains below the frame budget at p95, but its 250-operation native batch
+  is the largest remaining backend cost in the current scale fixture.

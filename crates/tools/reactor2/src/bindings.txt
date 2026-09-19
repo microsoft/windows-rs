@@ -12,6 +12,7 @@ Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
 Microsoft::UI::Xaml::Controls::ListView::CreateInstance
 Microsoft::UI::Xaml::Controls::IBorder::put_Child
 Microsoft::UI::Xaml::Controls::IItemsControl::get_Items
+Microsoft::UI::Xaml::Controls::IItemsControl::put_ItemTemplate
 Microsoft::UI::Xaml::Controls::IPanel::get_Children
 Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_Text}
 Microsoft::UI::Xaml::Controls::IUIElementCollection::Move

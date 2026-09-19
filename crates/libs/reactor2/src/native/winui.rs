@@ -15,7 +15,7 @@ enum Handle {
     TreeView(native::TreeView),
     TreeNode(NativeTreeNode),
     ListView(native::ListView),
-    Data(IInspectable),
+    Data(windows_collections::IObservableMap<HSTRING, IInspectable>),
 }
 
 #[derive(Clone)]
@@ -46,11 +46,24 @@ impl From<windows_core::Error> for WinUiError {
     }
 }
 
-#[derive(Default)]
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
     tree_template: Option<native::DataTemplate>,
+    list_template: Option<native::DataTemplate>,
+    data_text_key: HSTRING,
+}
+
+impl Default for WinUiAdapter {
+    fn default() -> Self {
+        Self {
+            handles: HashMap::new(),
+            owners: HashMap::new(),
+            tree_template: None,
+            list_template: None,
+            data_text_key: HSTRING::from("Text"),
+        }
+    }
 }
 
 pub struct NativeWindow(native::Window);
@@ -100,6 +113,30 @@ impl WinUiAdapter {
                     })
                     .unwrap_or_default();
                 if value.Text()? != expected {
+                    return Err(WinUiError::StateMismatch(object));
+                }
+            }
+            if let Handle::Data(value) = self
+                .handles
+                .get(&object)
+                .ok_or(WinUiError::MissingObject(object))?
+            {
+                let expected = graph
+                    .properties(object)
+                    .unwrap_or_default()
+                    .iter()
+                    .find_map(|property| match (&property.id, &property.value) {
+                        (PropertyId::Text, PropertyValue::String(value)) => Some(value.as_ref()),
+                        _ => None,
+                    })
+                    .unwrap_or_default();
+                let properties =
+                    value.cast::<windows_collections::IMap<HSTRING, IInspectable>>()?;
+                let actual = properties.Lookup(&self.data_text_key)?;
+                let actual = actual
+                    .cast::<windows_reference::IReference<HSTRING>>()?
+                    .Value()?;
+                if actual != expected {
                     return Err(WinUiError::StateMismatch(object));
                 }
             }
@@ -201,11 +238,16 @@ impl WinUiAdapter {
                 text: HSTRING::new(),
                 content: None,
             }),
-            ObjectType::ListView => Handle::ListView(native::ListView::new()?),
+            ObjectType::ListView => {
+                let value = native::ListView::new()?;
+                value
+                    .cast::<native::IItemsControl>()?
+                    .SetItemTemplate(&self.list_template()?)?;
+                Handle::ListView(value)
+            }
             ObjectType::DataItem => {
-                let value: IInspectable =
-                    windows_reference::IReference::from(HSTRING::new()).into();
-                Handle::Data(value)
+                let values = std::collections::BTreeMap::<HSTRING, Option<IInspectable>>::new();
+                Handle::Data(values.into())
             }
         };
         self.handles.insert(object, handle);
@@ -442,24 +484,32 @@ impl WinUiAdapter {
             }
             Realization::Container => {
                 let values = self.items(parent)?;
-                for movement in moves {
-                    let child = self.inspectable(movement.child)?;
-                    let mut previous = 0;
-                    if !values.IndexOf(&child, &mut previous)? {
-                        return Err(WinUiError::ChildNotFound(movement.child));
-                    }
-                    values.RemoveAt(previous)?;
-                    let index = if let Some(before) = movement.before {
-                        let before = self.inspectable(before)?;
-                        let mut index = 0;
-                        if !values.IndexOf(&before, &mut index)? {
+                if moves.len().saturating_add(1) >= children.len() {
+                    let children = children
+                        .iter()
+                        .map(|child| self.inspectable(*child).map(Some))
+                        .collect::<Result<Vec<_>, _>>()?;
+                    values.ReplaceAll(&children)?;
+                } else {
+                    for movement in moves {
+                        let child = self.inspectable(movement.child)?;
+                        let mut previous = 0;
+                        if !values.IndexOf(&child, &mut previous)? {
                             return Err(WinUiError::ChildNotFound(movement.child));
                         }
-                        index
-                    } else {
-                        values.Size()?
-                    };
-                    values.InsertAt(index, &child)?;
+                        values.RemoveAt(previous)?;
+                        let index = if let Some(before) = movement.before {
+                            let before = self.inspectable(before)?;
+                            let mut index = 0;
+                            if !values.IndexOf(&before, &mut index)? {
+                                return Err(WinUiError::ChildNotFound(movement.child));
+                            }
+                            index
+                        } else {
+                            values.Size()?
+                        };
+                        values.InsertAt(index, &child)?;
+                    }
                 }
             }
         }
@@ -520,7 +570,7 @@ impl WinUiAdapter {
             .get(&object)
             .ok_or(WinUiError::MissingObject(object))?
         {
-            Handle::Data(value) => Ok(value.clone()),
+            Handle::Data(value) => Ok(value.cast()?),
             _ => Err(WinUiError::InvalidObject(object)),
         }
     }
@@ -596,23 +646,13 @@ impl WinUiAdapter {
     }
 
     fn set_data_text(&mut self, object: ObjectId, text: &str) -> Result<(), WinUiError> {
-        let previous = self.inspectable(object)?;
-        let next: IInspectable = windows_reference::IReference::from(HSTRING::from(text)).into();
-        if let Some((parent, relation)) = self.owners.get(&object).copied() {
-            if relation != RelationId::Items {
-                return Err(WinUiError::InvalidRelation(parent, relation));
-            }
-            let items = self.items(parent)?;
-            let mut index = 0;
-            if !items.IndexOf(&previous, &mut index)? {
-                return Err(WinUiError::ChildNotFound(object));
-            }
-            items.SetAt(index, &next)?;
-        }
-        let Handle::Data(current) = self.handle(object)? else {
+        let key = self.data_text_key.clone();
+        let Handle::Data(value) = self.handle(object)? else {
             return Err(WinUiError::InvalidObject(object));
         };
-        *current = next;
+        let properties = value.cast::<windows_collections::IMap<HSTRING, IInspectable>>()?;
+        let text: IInspectable = windows_reference::IReference::from(HSTRING::from(text)).into();
+        properties.Insert(&key, &text)?;
         Ok(())
     }
 
@@ -627,6 +667,20 @@ impl WinUiAdapter {
         )?
         .cast::<native::DataTemplate>()?;
         self.tree_template = Some(template.clone());
+        Ok(template)
+    }
+
+    fn list_template(&mut self) -> Result<native::DataTemplate, WinUiError> {
+        if let Some(template) = &self.list_template {
+            return Ok(template.clone());
+        }
+        let template = native::XamlReader::Load(
+            "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
+             <TextBlock Text='{Binding [Text]}'/>\
+             </DataTemplate>",
+        )?
+        .cast::<native::DataTemplate>()?;
+        self.list_template = Some(template.clone());
         Ok(template)
     }
 }

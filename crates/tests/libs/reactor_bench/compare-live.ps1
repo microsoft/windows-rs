@@ -1,4 +1,6 @@
 param(
+    [ValidateSet("grid", "list")]
+    [string]$Surface = "grid",
     [ValidateSet("text", "rotate", "reverse", "churn")]
     [string]$Workload = "text",
     [int]$Count = 512,
@@ -14,6 +16,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $arguments = @(
+    "--surface", $Surface,
     "--workload", $Workload,
     "--count", $Count,
     "--updates", $Updates,

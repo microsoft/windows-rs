@@ -170,9 +170,10 @@ requests use the merge-base `RecordingRuntime` allocation and retained-memory ga
 ## Reactor2 live comparison
 
 `reactor-live-compare` runs the current Reactor and experimental Reactor2 frontends in separate
-processes against the same native `Grid` containing keyed `TextBlock` children. Both runs use the
-same declaration data, deterministic update sequence, render-paced update count, allocator, and
-process CPU and memory measurements.
+processes. The default `grid` surface uses the same native `Grid` containing keyed `TextBlock`
+children. The `list` surface renders a real `ListView` for larger container and virtualization
+workloads. Both runs use the same logical data, deterministic update sequence, render-paced update
+count, allocator, and process CPU and memory measurements.
 
 Run both frontends with identical arguments:
 
@@ -181,9 +182,24 @@ Run both frontends with identical arguments:
     -Workload text -Count 512 -Updates 120
 ```
 
+Open a visible 10,000-item ListView and run it for about ten seconds:
+
+```powershell
+cargo run -p test-reactor-bench --bin reactor-live-compare --release --quiet -- `
+    --frontend reactor2 --surface list --workload text --count 10000 --updates 600
+```
+
 The supported workloads are `text`, `rotate`, `reverse`, and `churn`. `text` changes one child
 property, `rotate` moves one keyed child from the front to the back, `reverse` exercises a dense
 reorder, and `churn` alternately removes and restores `--churn-count` trailing children.
+
+The Grid surface is the strict identical-native-tree comparison. Reactor uses visual list items
+while Reactor2 uses keyed data items, so the ListView surface is an end-to-end scale and backend
+policy comparison rather than an identical native representation.
+
+The shared model stores text as `Rc<str>`. Reactor2 declarations can retain those values without
+allocating a new string for every unchanged item, while ordinary `String` and `&str` builder inputs
+remain supported.
 
 Each run prints one JSON object containing throughput, Rust allocations, live Rust-byte growth,
 process CPU, working-set and private-memory samples, and end-to-end update latency. Reactor also

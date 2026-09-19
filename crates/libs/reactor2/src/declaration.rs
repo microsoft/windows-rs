@@ -135,11 +135,34 @@ impl<T> FromIterator<T> for SharedList<T> {
 impl Drop for Declaration {
     fn drop(&mut self) {
         let mut pending = Vec::new();
-        Self::take_owned_children(self, &mut pending);
-        while let Some(mut child) = pending.pop() {
-            Self::take_owned_children(&mut child, &mut pending);
+        Self::queue_relations(std::mem::take(&mut self.relations), &mut pending);
+        while let Some(frame) = pending.pop() {
+            match frame {
+                DropFrame::One(Some(mut child)) => {
+                    Self::queue_relations(std::mem::take(&mut child.relations), &mut pending);
+                }
+                DropFrame::One(None) => {}
+                DropFrame::Declarations(mut children) => {
+                    if let Some(mut child) = children.next() {
+                        pending.push(DropFrame::Declarations(children));
+                        Self::queue_relations(std::mem::take(&mut child.relations), &mut pending);
+                    }
+                }
+                DropFrame::Relations(mut relations) => {
+                    if let Some(relation) = relations.next() {
+                        pending.push(DropFrame::Relations(relations));
+                        Self::queue_relation(relation, &mut pending);
+                    }
+                }
+            }
         }
     }
+}
+
+enum DropFrame {
+    One(Option<Declaration>),
+    Declarations(std::vec::IntoIter<Declaration>),
+    Relations(std::vec::IntoIter<DeclaredRelation>),
 }
 
 impl Declaration {
@@ -169,31 +192,28 @@ impl Declaration {
         self
     }
 
-    fn take_owned_children(declaration: &mut Self, pending: &mut Vec<Self>) {
-        let relations = std::mem::take(&mut declaration.relations);
+    fn queue_relations(relations: SharedList<DeclaredRelation>, pending: &mut Vec<DropFrame>) {
         match relations {
             SharedList::Empty => {}
-            SharedList::One(relation) => Self::take_relation(relation, pending),
+            SharedList::One(relation) => Self::queue_relation(relation, pending),
             SharedList::Many(relations) => {
                 if let Ok(relations) = Rc::try_unwrap(relations) {
-                    for relation in relations {
-                        Self::take_relation(relation, pending);
-                    }
+                    pending.push(DropFrame::Relations(relations.into_iter()));
                 }
             }
         }
     }
 
-    fn take_relation(relation: DeclaredRelation, pending: &mut Vec<Self>) {
+    fn queue_relation(relation: DeclaredRelation, pending: &mut Vec<DropFrame>) {
         match relation.value {
             RelationValue::One(Some(child)) => {
                 if let Ok(child) = Rc::try_unwrap(child) {
-                    pending.push(child);
+                    pending.push(DropFrame::One(Some(child)));
                 }
             }
             RelationValue::Many(children) => {
                 if let Ok(children) = Rc::try_unwrap(children) {
-                    pending.extend(children);
+                    pending.push(DropFrame::Declarations(children.into_iter()));
                 }
             }
             RelationValue::One(None) => {}
