@@ -30,9 +30,65 @@ struct MemoryRow {
     allocations: u64,
 }
 
+struct RecursiveRow {
+    allocations: f64,
+    bytes: f64,
+    bytes_per_scope: f64,
+    depth: usize,
+    fanout: usize,
+    median_ns: f64,
+    mutations: f64,
+    p95_ns: f64,
+    retained_bytes: u64,
+    scopes: usize,
+}
+
 struct BenchComponent {
     active: bool,
     effect: bool,
+}
+
+#[derive(Clone, PartialEq)]
+struct BranchInput {
+    depth: usize,
+    fanout: usize,
+}
+
+struct Branch(usize);
+
+impl reactor2::Component for Branch {
+    type Input = BranchInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self(0)
+    }
+
+    fn update(&mut self, (): Self::Message, _context: &reactor2::ComponentContext<Self::Message>) {
+        self.0 += 1;
+    }
+
+    fn view(
+        &self,
+        input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<Self::Message>,
+    ) -> reactor2::Visual {
+        if input.depth == 0 {
+            return reactor2::TextBlock::new(self.0.to_string()).into();
+        }
+        reactor2::StackPanel::new()
+            .children((0..input.fanout).map(|index| {
+                reactor2::component::<Self>(
+                    index.to_string(),
+                    BranchInput {
+                        depth: input.depth - 1,
+                        fanout: input.fanout,
+                    },
+                )
+                .into()
+            }))
+            .into()
+    }
 }
 
 #[derive(Clone)]
@@ -148,9 +204,9 @@ fn measure(samples: usize, batch: usize, mut operation: impl FnMut()) -> Perf {
             operation();
         }
     }
+    let mut timings = Vec::with_capacity(samples);
     let bytes = allocator::allocated_bytes();
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    let mut timings = Vec::with_capacity(samples);
     for _ in 0..samples {
         let start = Instant::now();
         for _ in 0..batch {
@@ -520,6 +576,47 @@ fn reactor2_context(count: usize, broad: bool, samples: usize) -> Row {
     }
 }
 
+fn reactor2_recursive(depth: usize, fanout: usize, samples: usize) -> RecursiveRow {
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let mut components = reactor2::ComponentHost::mount(
+        reactor2::RecordingAdapter::default(),
+        [reactor2::component::<Branch>(
+            "root",
+            BranchInput { depth, fanout },
+        )],
+    )
+    .unwrap();
+    let retained_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    components
+        .runtime_mut()
+        .adapter_mut()
+        .validate_batches(false);
+    let mut path = Vec::with_capacity(depth + 1);
+    path.push(reactor2::Key::from("root"));
+    path.extend((0..depth).map(|_| reactor2::Key::from("0")));
+    let sender = components.sender_at::<Branch>(&path).unwrap();
+    let mut mutations = 0;
+    let perf = measure(samples, 1, || {
+        assert!(sender.send(()));
+        mutations += components.drain(usize::MAX).unwrap().mutations;
+    });
+    let scopes = (0..=depth)
+        .map(|level| fanout.pow(level as u32))
+        .sum::<usize>();
+    RecursiveRow {
+        allocations: perf.allocations,
+        bytes: perf.bytes,
+        bytes_per_scope: retained_bytes as f64 / scopes as f64,
+        depth,
+        fanout,
+        median_ns: perf.median_ns,
+        mutations: mutations as f64 / (samples + 8) as f64,
+        p95_ns: perf.p95_ns,
+        retained_bytes,
+        scopes,
+    }
+}
+
 fn argument(name: &str, default: usize) -> usize {
     let arguments = std::env::args().collect::<Vec<_>>();
     arguments
@@ -669,6 +766,40 @@ fn main() {
             row.bytes,
             row.bytes as f64 / row.objects as f64,
             row.allocations
+        );
+    }
+
+    println!("\nrecursive component scaling");
+    println!(
+        "{:>5} {:>6} {:>8} {:>15} {:>13} {:>12} {:>12} {:>11} {:>12} {:>12}",
+        "depth",
+        "fanout",
+        "scopes",
+        "retained bytes",
+        "bytes/scope",
+        "median ns",
+        "p95 ns",
+        "allocs/op",
+        "bytes/op",
+        "mutations/op"
+    );
+    for row in [
+        reactor2_recursive(3, 8, samples),
+        reactor2_recursive(4, 8, samples),
+        reactor2_recursive(7, 4, samples),
+    ] {
+        println!(
+            "{:>5} {:>6} {:>8} {:>15} {:>13.1} {:>12.1} {:>12.1} {:>11.2} {:>12.1} {:>12.2}",
+            row.depth,
+            row.fanout,
+            row.scopes,
+            row.retained_bytes,
+            row.bytes_per_scope,
+            row.median_ns,
+            row.p95_ns,
+            row.allocations,
+            row.bytes,
+            row.mutations
         );
     }
 }

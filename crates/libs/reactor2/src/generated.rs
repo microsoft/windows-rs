@@ -10,6 +10,8 @@ pub enum ObjectType {
     StackPanel,
     Canvas,
     ScrollViewer,
+    Viewbox,
+    TitleBar,
     Slider,
     TreeView,
     TreeNode,
@@ -18,16 +20,31 @@ pub enum ObjectType {
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum PropertyId {
+    Background,
+    BorderBrush,
+    BorderThickness,
     CanvasLeft,
     CanvasTop,
+    CornerRadius,
     Expanded,
+    FontSize,
+    Foreground,
+    Height,
+    HorizontalAlignment,
     IsChecked,
+    Margin,
     Maximum,
     Minimum,
+    Opacity,
     Orientation,
+    Padding,
     Spacing,
+    Subtitle,
     Text,
+    Title,
     Value,
+    VerticalAlignment,
+    Width,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RelationId {
@@ -39,6 +56,7 @@ pub enum RelationId {
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum EventId {
     Click,
+    PointerReleased,
     TextChanged,
     ValueChanged,
 }
@@ -78,8 +96,11 @@ pub struct EventContract {
 pub enum ValueType {
     String,
     Bool,
+    Color,
+    CornerRadius,
     F64,
     OptionalBool,
+    Thickness,
     Enum {
         kind: &'static str,
         variants: &'static [&'static str],
@@ -105,6 +126,8 @@ pub fn object_category(kind: ObjectType) -> ObjectCategory {
         ObjectType::StackPanel => ObjectCategory::Visual,
         ObjectType::Canvas => ObjectCategory::Visual,
         ObjectType::ScrollViewer => ObjectCategory::Visual,
+        ObjectType::Viewbox => ObjectCategory::Visual,
+        ObjectType::TitleBar => ObjectCategory::Visual,
         ObjectType::Slider => ObjectCategory::Visual,
         ObjectType::TreeView => ObjectCategory::Visual,
         ObjectType::TreeNode => ObjectCategory::Structural,
@@ -127,11 +150,16 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             id: EventId::Click,
             value: ValueType::Unit,
         }],
-        ObjectType::Border => &[],
+        ObjectType::Border => &[EventContract {
+            id: EventId::PointerReleased,
+            value: ValueType::Unit,
+        }],
         ObjectType::Grid => &[],
         ObjectType::StackPanel => &[],
         ObjectType::Canvas => &[],
         ObjectType::ScrollViewer => &[],
+        ObjectType::Viewbox => &[],
+        ObjectType::TitleBar => &[],
         ObjectType::Slider => &[EventContract {
             id: EventId::ValueChanged,
             value: ValueType::F64,
@@ -157,6 +185,28 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 id: PropertyId::Text,
                 value: ValueType::String,
             },
+            PropertyContract {
+                id: PropertyId::FontSize,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Foreground,
+                value: ValueType::Color,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
         ],
         ObjectType::TextBox => &[
             PropertyContract {
@@ -180,6 +230,36 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Background,
+                value: ValueType::Color,
             },
         ],
         ObjectType::CheckBox => &[
@@ -205,6 +285,56 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
             },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Background,
+                value: ValueType::Color,
+            },
+            PropertyContract {
+                id: PropertyId::BorderBrush,
+                value: ValueType::Color,
+            },
+            PropertyContract {
+                id: PropertyId::BorderThickness,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::CornerRadius,
+                value: ValueType::CornerRadius,
+            },
+            PropertyContract {
+                id: PropertyId::Padding,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
         ],
         ObjectType::Grid => &[
             PropertyContract {
@@ -214,6 +344,21 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
             },
         ],
         ObjectType::StackPanel => &[
@@ -236,6 +381,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                     variants: &["Vertical", "Horizontal"],
                 },
             },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
         ],
         ObjectType::Canvas => &[
             PropertyContract {
@@ -255,6 +404,38 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+        ],
+        ObjectType::Viewbox => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+        ],
+        ObjectType::TitleBar => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Title,
+                value: ValueType::String,
+            },
+            PropertyContract {
+                id: PropertyId::Subtitle,
+                value: ValueType::String,
             },
         ],
         ObjectType::Slider => &[
@@ -368,6 +549,14 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
             identity: Identity::Positional,
             realization: Realization::Owned,
         }],
+        ObjectType::Viewbox => &[RelationContract {
+            id: RelationId::Content,
+            child: ObjectCategory::Visual,
+            cardinality: Cardinality::One,
+            identity: Identity::Positional,
+            realization: Realization::Owned,
+        }],
+        ObjectType::TitleBar => &[],
         ObjectType::Slider => &[],
         ObjectType::TreeView => &[RelationContract {
             id: RelationId::Roots,

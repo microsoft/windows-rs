@@ -2,6 +2,70 @@ use super::*;
 use std::fmt;
 use std::rc::Rc;
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct Color {
+    pub a: u8,
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
+}
+
+impl Color {
+    pub const fn argb(a: u8, r: u8, g: u8, b: u8) -> Self {
+        Self { a, r, g, b }
+    }
+
+    pub const fn rgb(r: u8, g: u8, b: u8) -> Self {
+        Self::argb(255, r, g, b)
+    }
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CornerRadius {
+    pub top_left: f64,
+    pub top_right: f64,
+    pub bottom_right: f64,
+    pub bottom_left: f64,
+}
+
+impl CornerRadius {
+    pub const fn new(top_left: f64, top_right: f64, bottom_right: f64, bottom_left: f64) -> Self {
+        Self {
+            top_left,
+            top_right,
+            bottom_right,
+            bottom_left,
+        }
+    }
+
+    pub const fn uniform(value: f64) -> Self {
+        Self::new(value, value, value, value)
+    }
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Thickness {
+    pub left: f64,
+    pub top: f64,
+    pub right: f64,
+    pub bottom: f64,
+}
+
+impl Thickness {
+    pub const fn new(left: f64, top: f64, right: f64, bottom: f64) -> Self {
+        Self {
+            left,
+            top,
+            right,
+            bottom,
+        }
+    }
+
+    pub const fn uniform(value: f64) -> Self {
+        Self::new(value, value, value, value)
+    }
+}
+
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Key(KeyKind);
 
@@ -45,8 +109,11 @@ impl From<usize> for Key {
 pub enum PropertyValue {
     String(Rc<str>),
     Bool(bool),
+    Color(Color),
+    CornerRadius(CornerRadius),
     F64(f64),
     OptionalBool(Option<bool>),
+    Thickness(Thickness),
     Enum {
         kind: &'static str,
         variant: &'static str,

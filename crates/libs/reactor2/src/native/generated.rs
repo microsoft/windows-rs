@@ -9,6 +9,11 @@ struct GeneratedCheckBox {
     click: Rc<RefCell<NativeUnitEvent>>,
     _click: windows_core::EventRevoker,
 }
+struct GeneratedBorder {
+    value: native::Border,
+    pointer_released: Rc<RefCell<NativeUnitEvent>>,
+    _pointer_released: windows_core::EventRevoker,
+}
 struct GeneratedSlider {
     value: native::Slider,
     value_changed: Rc<RefCell<NativeF64Event>>,
@@ -18,11 +23,13 @@ enum GeneratedHandle {
     TextBlock(native::TextBlock),
     Button(GeneratedButton),
     CheckBox(GeneratedCheckBox),
-    Border(native::Border),
+    Border(GeneratedBorder),
     Grid(native::Grid),
     StackPanel(native::StackPanel),
     Canvas(native::Canvas),
     ScrollViewer(native::ScrollViewer),
+    Viewbox(native::Viewbox),
+    TitleBar(native::TitleBar),
     Slider(GeneratedSlider),
 }
 impl GeneratedHandle {
@@ -94,11 +101,35 @@ impl GeneratedHandle {
                     _click,
                 })
             }
-            ObjectType::Border => Self::Border(native::Border::new()?),
+            ObjectType::Border => {
+                let value = native::Border::new()?;
+                let pointer_released = Rc::new(RefCell::new(NativeUnitEvent::default()));
+                let event_for_callback = Rc::clone(&pointer_released);
+                let event_queue = Rc::clone(event_queue);
+                let revoker =
+                    value
+                        .cast::<native::IUIElement>()?
+                        .PointerReleased(move |_, _| {
+                            WinUiAdapter::dispatch_unit(
+                                &event_for_callback,
+                                &event_queue,
+                                object,
+                                EventId::PointerReleased,
+                            );
+                        })?;
+                let _pointer_released = revoker;
+                Self::Border(GeneratedBorder {
+                    value,
+                    pointer_released,
+                    _pointer_released,
+                })
+            }
             ObjectType::Grid => Self::Grid(native::Grid::new()?),
             ObjectType::StackPanel => Self::StackPanel(native::StackPanel::new()?),
             ObjectType::Canvas => Self::Canvas(native::Canvas::new()?),
             ObjectType::ScrollViewer => Self::ScrollViewer(native::ScrollViewer::new()?),
+            ObjectType::Viewbox => Self::Viewbox(native::Viewbox::new()?),
+            ObjectType::TitleBar => Self::TitleBar(native::TitleBar::new()?),
             ObjectType::Slider => {
                 let value = native::Slider::new()?;
                 let source_value_changed = value.clone();
@@ -155,6 +186,8 @@ impl GeneratedHandle {
             Self::StackPanel(_) => ObjectType::StackPanel,
             Self::Canvas(_) => ObjectType::Canvas,
             Self::ScrollViewer(_) => ObjectType::ScrollViewer,
+            Self::Viewbox(_) => ObjectType::Viewbox,
+            Self::TitleBar(_) => ObjectType::TitleBar,
             Self::Slider(_) => ObjectType::Slider,
         }
     }
@@ -163,11 +196,13 @@ impl GeneratedHandle {
             Self::TextBlock(value) => Ok(value.cast()?),
             Self::Button(value) => Ok(value.value.cast()?),
             Self::CheckBox(value) => Ok(value.value.cast()?),
-            Self::Border(value) => Ok(value.cast()?),
+            Self::Border(value) => Ok(value.value.cast()?),
             Self::Grid(value) => Ok(value.cast()?),
             Self::StackPanel(value) => Ok(value.cast()?),
             Self::Canvas(value) => Ok(value.cast()?),
             Self::ScrollViewer(value) => Ok(value.cast()?),
+            Self::Viewbox(value) => Ok(value.cast()?),
+            Self::TitleBar(value) => Ok(value.cast()?),
             Self::Slider(value) => Ok(value.value.cast()?),
         }
     }
@@ -259,6 +294,259 @@ impl GeneratedHandle {
                         .and_then(|object| object.SetText(value.as_ref()).map_err(Into::into)),
                 )
             }
+            (Self::TextBlock(object), PropertyId::FontSize, None) => Some(
+                object
+                    .cast::<native::ITextBlock>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetFontSize(14.0).map_err(Into::into)),
+            ),
+            (Self::TextBlock(object), PropertyId::FontSize, Some(PropertyValue::F64(value))) => {
+                Some(
+                    object
+                        .cast::<native::ITextBlock>()
+                        .map_err(Into::into)
+                        .and_then(|object| object.SetFontSize(*value).map_err(Into::into)),
+                )
+            }
+            (Self::TextBlock(object), PropertyId::Foreground, None) => Some(
+                object
+                    .cast::<native::ITextBlock>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetForeground(None::<&native::Brush>)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::Foreground,
+                Some(PropertyValue::Color(value)),
+            ) => Some(
+                object
+                    .cast::<native::ITextBlock>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        solid_color_brush(*value)
+                            .and_then(|brush| object.SetForeground(&brush).map_err(Into::into))
+                    }),
+            ),
+            (Self::TextBlock(object), PropertyId::HorizontalAlignment, None) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::HorizontalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "HorizontalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(match *variant {
+                                "Left" => native::HorizontalAlignment::Left,
+                                "Center" => native::HorizontalAlignment::Center,
+                                "Right" => native::HorizontalAlignment::Right,
+                                "Stretch" => native::HorizontalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::TextBlock(object), PropertyId::VerticalAlignment, None) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::VerticalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "VerticalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(match *variant {
+                                "Top" => native::VerticalAlignment::Top,
+                                "Center" => native::VerticalAlignment::Center,
+                                "Bottom" => native::VerticalAlignment::Bottom,
+                                "Stretch" => native::VerticalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Button(object), PropertyId::Width, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
+            ),
+            (Self::Button(object), PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(*value).map_err(Into::into)),
+            ),
+            (Self::Button(object), PropertyId::Height, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
+            ),
+            (Self::Button(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
+            ),
+            (Self::Button(object), PropertyId::Margin, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetMargin(native::Thickness::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Button(object), PropertyId::Margin, Some(PropertyValue::Thickness(value))) => {
+                Some(
+                    object
+                        .value
+                        .cast::<native::IFrameworkElement>()
+                        .map_err(Into::into)
+                        .and_then(|object| {
+                            object
+                                .SetMargin(native::Thickness {
+                                    left: value.left,
+                                    top: value.top,
+                                    right: value.right,
+                                    bottom: value.bottom,
+                                })
+                                .map_err(Into::into)
+                        }),
+                )
+            }
+            (Self::Button(object), PropertyId::HorizontalAlignment, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Button(object),
+                PropertyId::HorizontalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "HorizontalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(match *variant {
+                                "Left" => native::HorizontalAlignment::Left,
+                                "Center" => native::HorizontalAlignment::Center,
+                                "Right" => native::HorizontalAlignment::Right,
+                                "Stretch" => native::HorizontalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Button(object), PropertyId::VerticalAlignment, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Button(object),
+                PropertyId::VerticalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "VerticalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(match *variant {
+                                "Top" => native::VerticalAlignment::Top,
+                                "Center" => native::VerticalAlignment::Center,
+                                "Bottom" => native::VerticalAlignment::Bottom,
+                                "Stretch" => native::VerticalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Button(object), PropertyId::Background, None) => Some(
+                object
+                    .value
+                    .cast::<native::IControl>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetBackground(None::<&native::Brush>)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Button(object), PropertyId::Background, Some(PropertyValue::Color(value))) => {
+                Some(
+                    object
+                        .value
+                        .cast::<native::IControl>()
+                        .map_err(Into::into)
+                        .and_then(|object| {
+                            solid_color_brush(*value)
+                                .and_then(|brush| object.SetBackground(&brush).map_err(Into::into))
+                        }),
+                )
+            }
             (Self::CheckBox(object), PropertyId::IsChecked, None) => Some(
                 object
                     .value
@@ -276,6 +564,341 @@ impl GeneratedHandle {
                     .cast::<native::IToggleButton>()
                     .map_err(Into::into)
                     .and_then(|object| object.SetIsChecked(*value).map_err(Into::into)),
+            ),
+            (Self::Border(object), PropertyId::Width, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
+            ),
+            (Self::Border(object), PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(*value).map_err(Into::into)),
+            ),
+            (Self::Border(object), PropertyId::Height, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
+            ),
+            (Self::Border(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
+            ),
+            (Self::Border(object), PropertyId::Background, None) => Some(
+                object
+                    .value
+                    .cast::<native::IBorder>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetBackground(None::<&native::Brush>)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::Background, Some(PropertyValue::Color(value))) => {
+                Some(
+                    object
+                        .value
+                        .cast::<native::IBorder>()
+                        .map_err(Into::into)
+                        .and_then(|object| {
+                            solid_color_brush(*value)
+                                .and_then(|brush| object.SetBackground(&brush).map_err(Into::into))
+                        }),
+                )
+            }
+            (Self::Border(object), PropertyId::BorderBrush, None) => Some(
+                object
+                    .value
+                    .cast::<native::IBorder>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetBorderBrush(None::<&native::Brush>)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::BorderBrush, Some(PropertyValue::Color(value))) => {
+                Some(
+                    object
+                        .value
+                        .cast::<native::IBorder>()
+                        .map_err(Into::into)
+                        .and_then(|object| {
+                            solid_color_brush(*value)
+                                .and_then(|brush| object.SetBorderBrush(&brush).map_err(Into::into))
+                        }),
+                )
+            }
+            (Self::Border(object), PropertyId::BorderThickness, None) => Some(
+                object
+                    .value
+                    .cast::<native::IBorder>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetBorderThickness(native::Thickness::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::BorderThickness,
+                Some(PropertyValue::Thickness(value)),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IBorder>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetBorderThickness(native::Thickness {
+                                left: value.left,
+                                top: value.top,
+                                right: value.right,
+                                bottom: value.bottom,
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::CornerRadius, None) => Some(
+                object
+                    .value
+                    .cast::<native::IBorder>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetCornerRadius(native::CornerRadius::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::CornerRadius,
+                Some(PropertyValue::CornerRadius(value)),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IBorder>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetCornerRadius(native::CornerRadius {
+                                top_left: value.top_left,
+                                top_right: value.top_right,
+                                bottom_right: value.bottom_right,
+                                bottom_left: value.bottom_left,
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::Padding, None) => Some(
+                object
+                    .value
+                    .cast::<native::IBorder>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetPadding(native::Thickness::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::Padding, Some(PropertyValue::Thickness(value))) => {
+                Some(
+                    object
+                        .value
+                        .cast::<native::IBorder>()
+                        .map_err(Into::into)
+                        .and_then(|object| {
+                            object
+                                .SetPadding(native::Thickness {
+                                    left: value.left,
+                                    top: value.top,
+                                    right: value.right,
+                                    bottom: value.bottom,
+                                })
+                                .map_err(Into::into)
+                        }),
+                )
+            }
+            (Self::Border(object), PropertyId::Margin, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetMargin(native::Thickness::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::Margin, Some(PropertyValue::Thickness(value))) => {
+                Some(
+                    object
+                        .value
+                        .cast::<native::IFrameworkElement>()
+                        .map_err(Into::into)
+                        .and_then(|object| {
+                            object
+                                .SetMargin(native::Thickness {
+                                    left: value.left,
+                                    top: value.top,
+                                    right: value.right,
+                                    bottom: value.bottom,
+                                })
+                                .map_err(Into::into)
+                        }),
+                )
+            }
+            (Self::Border(object), PropertyId::HorizontalAlignment, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::HorizontalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "HorizontalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(match *variant {
+                                "Left" => native::HorizontalAlignment::Left,
+                                "Center" => native::HorizontalAlignment::Center,
+                                "Right" => native::HorizontalAlignment::Right,
+                                "Stretch" => native::HorizontalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::VerticalAlignment, None) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Border(object),
+                PropertyId::VerticalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "VerticalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(match *variant {
+                                "Top" => native::VerticalAlignment::Top,
+                                "Center" => native::VerticalAlignment::Center,
+                                "Bottom" => native::VerticalAlignment::Bottom,
+                                "Stretch" => native::VerticalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Border(object), PropertyId::Opacity, None) => Some(
+                object
+                    .value
+                    .cast::<native::IUIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetOpacity(1.0).map_err(Into::into)),
+            ),
+            (Self::Border(object), PropertyId::Opacity, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .value
+                    .cast::<native::IUIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetOpacity(*value).map_err(Into::into)),
+            ),
+            (Self::Grid(object), PropertyId::Width, None) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
+            ),
+            (Self::Grid(object), PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(*value).map_err(Into::into)),
+            ),
+            (Self::Grid(object), PropertyId::Height, None) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
+            ),
+            (Self::Grid(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
+            ),
+            (Self::Grid(object), PropertyId::HorizontalAlignment, None) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::Grid(object),
+                PropertyId::HorizontalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "HorizontalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(match *variant {
+                                "Left" => native::HorizontalAlignment::Left,
+                                "Center" => native::HorizontalAlignment::Center,
+                                "Right" => native::HorizontalAlignment::Right,
+                                "Stretch" => native::HorizontalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
             ),
             (Self::StackPanel(object), PropertyId::Spacing, None) => Some(
                 object
@@ -322,6 +945,75 @@ impl GeneratedHandle {
                             .map_err(Into::into)
                     }),
             ),
+            (Self::StackPanel(object), PropertyId::Margin, None) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetMargin(native::Thickness::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::StackPanel(object),
+                PropertyId::Margin,
+                Some(PropertyValue::Thickness(value)),
+            ) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetMargin(native::Thickness {
+                                left: value.left,
+                                top: value.top,
+                                right: value.right,
+                                bottom: value.bottom,
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (Self::Viewbox(object), PropertyId::Height, None) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
+            ),
+            (Self::Viewbox(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
+                object
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
+            ),
+            (Self::TitleBar(object), PropertyId::Title, None) => Some(
+                object
+                    .cast::<native::ITitleBar>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetTitle("").map_err(Into::into)),
+            ),
+            (Self::TitleBar(object), PropertyId::Title, Some(PropertyValue::String(value))) => {
+                Some(
+                    object
+                        .cast::<native::ITitleBar>()
+                        .map_err(Into::into)
+                        .and_then(|object| object.SetTitle(value.as_ref()).map_err(Into::into)),
+                )
+            }
+            (Self::TitleBar(object), PropertyId::Subtitle, None) => Some(
+                object
+                    .cast::<native::ITitleBar>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetSubtitle("").map_err(Into::into)),
+            ),
+            (Self::TitleBar(object), PropertyId::Subtitle, Some(PropertyValue::String(value))) => {
+                Some(
+                    object
+                        .cast::<native::ITitleBar>()
+                        .map_err(Into::into)
+                        .and_then(|object| object.SetSubtitle(value.as_ref()).map_err(Into::into)),
+                )
+            }
             (Self::Slider(object), PropertyId::Minimum, None) => Some(
                 object
                     .value
@@ -410,6 +1102,24 @@ impl GeneratedHandle {
                 }
                 Ok(())
             })()),
+            Self::Border(object) => Some((|| {
+                if clear.contains(&EventId::PointerReleased) {
+                    let mut native_event = object.pointer_released.borrow_mut();
+                    native_event.revision = native_event.revision.wrapping_add(1);
+                    native_event.callback = None;
+                }
+                for event in set {
+                    match (event.id, &event.value) {
+                        (EventId::PointerReleased, EventValue::Unit(callback)) => {
+                            let mut native_event = object.pointer_released.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
+                        }
+                        _ => return Err(WinUiError::InvalidObject(object_id)),
+                    }
+                }
+                Ok(())
+            })()),
             Self::Slider(object) => Some((|| {
                 if clear.contains(&EventId::ValueChanged) {
                     let mut native_event = object.value_changed.borrow_mut();
@@ -459,6 +1169,7 @@ impl GeneratedHandle {
             ),
             (Self::Border(object), RelationId::Content) => Some(
                 object
+                    .value
                     .cast::<native::IBorder>()
                     .map_err(Into::into)
                     .and_then(|object| match child {
@@ -475,6 +1186,17 @@ impl GeneratedHandle {
                     .and_then(|object| match child {
                         Some(child) => object.SetContent(child).map_err(Into::into),
                         None => object.SetContent(None::<&IInspectable>).map_err(Into::into),
+                    }),
+            ),
+            (Self::Viewbox(object), RelationId::Content) => Some(
+                object
+                    .cast::<native::IViewbox>()
+                    .map_err(Into::into)
+                    .and_then(|object| match child {
+                        Some(child) => object.SetChild(child).map_err(Into::into),
+                        None => object
+                            .SetChild(None::<&native::UIElement>)
+                            .map_err(Into::into),
                     }),
             ),
             _ => None,
@@ -496,6 +1218,13 @@ impl GeneratedHandle {
                     .flatten()
                     .map(EventValue::Unit)
             }
+            (Self::Border(object), EventId::PointerReleased) => {
+                let event = object.pointer_released.borrow();
+                (event.revision == revision)
+                    .then(|| event.callback.clone())
+                    .flatten()
+                    .map(EventValue::Unit)
+            }
             (Self::Slider(object), EventId::ValueChanged) => {
                 let event = object.value_changed.borrow();
                 (event.revision == revision)
@@ -510,6 +1239,7 @@ impl GeneratedHandle {
         match (self, event) {
             (Self::Button(object), EventId::Click) => Some(&object.click),
             (Self::CheckBox(object), EventId::Click) => Some(&object.click),
+            (Self::Border(object), EventId::PointerReleased) => Some(&object.pointer_released),
             _ => None,
         }
     }

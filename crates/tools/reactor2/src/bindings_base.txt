@@ -10,7 +10,7 @@ Microsoft::UI::Xaml::IUIElement::UpdateLayout
 Microsoft::UI::Xaml::IUIElement::Focus
 Microsoft::UI::Xaml::UIElement::{}
 Microsoft::UI::Xaml::Window::CreateInstance
-Microsoft::UI::Xaml::IWindow::{put_Content, Activate, Close, add_Closed, remove_Closed}
+Microsoft::UI::Xaml::IWindow::{put_Content, put_Title, Activate, Close, add_Closed, remove_Closed}
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeView::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
@@ -26,3 +26,5 @@ Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, put_Content, put_Is
 Microsoft::UI::Xaml::Controls::ItemCollection::{}
 Microsoft::UI::Xaml::Controls::UIElementCollection::{}
 Microsoft::UI::Xaml::Markup::XamlReader::Load
+Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
+Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color

@@ -14,6 +14,11 @@ memory. Component rows also cover isolated and all-consumer typed-context invali
 include isolated same-type updates and retained-root type replacement. They compare the recording
 backends and do not include WinUI layout, rendering, or COM allocation costs.
 
+The recursive component rows build balanced trees, target the deepest leaf, and report retained
+bytes per scope, update latency, allocations, allocated bytes, and mutation count. The timed
+updates disable recording-adapter batch validation because that diagnostic intentionally clones
+the complete adapter state.
+
 The benchmark intentionally reports regressions as well as improvements. Reactor2 must not be
 accepted based only on lower source complexity or faster reorder cases; no-op allocation, changed
 update allocation, retained memory, and large-tree scaling are separate gates.

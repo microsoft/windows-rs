@@ -36,10 +36,6 @@ name = "reactor2-string-bench"
 path = "src/reactor2_string_bench.rs"
 
 [[bin]]
-name = "reactor2-component-bench"
-path = "src/reactor2_component_bench.rs"
-
-[[bin]]
 name = "reactor-live-compare"
 path = "src/live_compare.rs"
 

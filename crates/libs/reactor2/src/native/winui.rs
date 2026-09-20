@@ -89,6 +89,17 @@ impl From<windows_core::Error> for WinUiError {
     }
 }
 
+fn solid_color_brush(value: crate::Color) -> Result<native::SolidColorBrush, WinUiError> {
+    let brush = native::SolidColorBrush::new()?;
+    brush.SetColor(native::Color {
+        a: value.a,
+        r: value.r,
+        g: value.g,
+        b: value.b,
+    })?;
+    Ok(brush)
+}
+
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
@@ -126,6 +137,10 @@ impl Clone for NativeWindow {
 }
 
 impl NativeWindow {
+    pub fn set_title(&self, title: &str) -> Result<(), WinUiError> {
+        self.window.SetTitle(title).map_err(Into::into)
+    }
+
     pub fn activate(&self) -> Result<(), WinUiError> {
         self.window.Activate().map_err(Into::into)
     }

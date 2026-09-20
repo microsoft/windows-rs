@@ -45,6 +45,7 @@ struct Object {
 #[derive(Deserialize)]
 struct Property {
     name: String,
+    native: Option<String>,
     value: String,
     #[serde(default)]
     required: bool,
@@ -145,6 +146,9 @@ fn validate(schema: &Schema) {
         let mut properties = BTreeSet::new();
         for property in &object.properties {
             assert_identifier(&property.name);
+            if let Some(native) = &property.native {
+                assert_identifier(native);
+            }
             assert!(
                 properties.insert(property.name.as_str()),
                 "duplicate property"
@@ -179,22 +183,24 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
 
     for object in &objects {
         for property in &object.properties {
-            let method = format!("put_{}", property.name);
+            let native = native_property(property);
+            let method = format!("put_{native}");
             metadata
-                .resolve(&native_name(object), &format!("put_{}", property.name))
-                .unwrap_or_else(|| {
-                    panic!(
-                        "cannot resolve {}.put_{}",
-                        native_name(object),
-                        property.name
-                    )
-                });
+                .resolve(&native_name(object), &method)
+                .unwrap_or_else(|| panic!("cannot resolve {}.put_{}", native_name(object), native));
             let class = metadata
                 .classify_param(&native_name(object), &method)
                 .unwrap();
-            let value = metadata
-                .parameter_value(&native_name(object), &method)
-                .unwrap();
+            let value = if property.value == "Color" {
+                metadata
+                    .parameter_type_name(&native_name(object), &method)
+                    .unwrap()
+                    .to_string()
+            } else {
+                metadata
+                    .parameter_value(&native_name(object), &method)
+                    .unwrap()
+            };
             match property.value.as_str() {
                 "String" => {
                     assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
@@ -204,6 +210,14 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                     assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
                     assert_eq!(value, "Bool");
                 }
+                "Color" => {
+                    assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+                    assert_eq!(value, "Brush");
+                }
+                "CornerRadius" => {
+                    assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+                    assert_eq!(value, "CornerRadius");
+                }
                 "F64" => {
                     assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
                     assert_eq!(value, "F64");
@@ -211,6 +225,10 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 "OptionalBool" => {
                     assert_eq!(class, tool_reactor::metadata::ParamClass::NullableBool);
                     assert_eq!(value, "Bool");
+                }
+                "Thickness" => {
+                    assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+                    assert_eq!(value, "Thickness");
                 }
                 value => {
                     assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
@@ -488,8 +506,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
     );
     for object in &objects {
         for property in &object.properties {
+            let native = native_property(property);
             let interface = metadata
-                .resolve(&native_name(object), &format!("put_{}", property.name))
+                .resolve(&native_name(object), &format!("put_{native}"))
                 .unwrap()
                 .short_name();
             let target = if object.events.is_empty() {
@@ -498,14 +517,41 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 "object.value"
             };
             let clear = property_default(property);
+            if property.value == "Color" {
+                output.push_str(&format!(
+                    "(Self::{}(object), PropertyId::{}, None) => \
+                     Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+                     .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n",
+                    object.name, property.name
+                ));
+                output.push_str(&format!(
+                    "(Self::{}(object), PropertyId::{}, \
+                     Some(PropertyValue::Color(value))) => \
+                     Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+                     .and_then(|object| solid_color_brush(*value)\
+                     .and_then(|brush| object.Set{native}(&brush).map_err(Into::into)))),\n",
+                    object.name, property.name
+                ));
+                continue;
+            }
             let (variant, expression) = match property.value.as_str() {
                 "String" => ("String", "value.as_ref()"),
                 "Bool" => ("Bool", "*value"),
                 "F64" => ("F64", "*value"),
                 "OptionalBool" => ("OptionalBool", "*value"),
+                "CornerRadius" => (
+                    "CornerRadius",
+                    "native::CornerRadius { top_left: value.top_left, top_right: value.top_right, \
+                     bottom_right: value.bottom_right, bottom_left: value.bottom_left }",
+                ),
+                "Thickness" => (
+                    "Thickness",
+                    "native::Thickness { left: value.left, top: value.top, right: value.right, \
+                     bottom: value.bottom }",
+                ),
                 value => {
                     let (_, variants) = metadata
-                        .enum_info(&native_name(object), &format!("put_{}", property.name))
+                        .enum_info(&native_name(object), &format!("put_{native}"))
                         .unwrap();
                     let arms = variants
                         .iter()
@@ -514,17 +560,17 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                     output.push_str(&format!(
                         "(Self::{}(object), PropertyId::{}, None) => \
                          Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                         .and_then(|object| object.Set{}(native::{value}::{clear})\
+                         .and_then(|object| object.Set{native}(native::{value}::{clear})\
                          .map_err(Into::into))),\n",
-                        object.name, property.name, property.name
+                        object.name, property.name
                     ));
                     output.push_str(&format!(
                         "(Self::{}(object), PropertyId::{}, \
                          Some(PropertyValue::Enum {{ kind: \"{value}\", variant }})) => \
                          Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                         .and_then(|object| object.Set{}(match *variant {{ {arms} \
+                         .and_then(|object| object.Set{native}(match *variant {{ {arms} \
                          _ => unreachable!(\"validated enum variant\") }}).map_err(Into::into))),\n",
-                        object.name, property.name, property.name
+                        object.name, property.name
                     ));
                     continue;
                 }
@@ -532,14 +578,14 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
             output.push_str(&format!(
                 "(Self::{}(object), PropertyId::{}, None) => \
                              Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                             .and_then(|object| object.Set{}({clear}).map_err(Into::into))),\n",
-                object.name, property.name, property.name
+                             .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n",
+                object.name, property.name
             ));
             output.push_str(&format!(
                             "(Self::{}(object), PropertyId::{}, Some(PropertyValue::{variant}(value))) => \
                              Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                             .and_then(|object| object.Set{}({expression}).map_err(Into::into))),\n",
-                            object.name, property.name, property.name
+                             .and_then(|object| object.Set{native}({expression}).map_err(Into::into))),\n",
+                            object.name, property.name
                         ));
         }
     }
@@ -690,19 +736,20 @@ fn generate_bindings(
     {
         generated.insert(format!("{}::CreateInstance", binding_path(&object.native)));
         for property in &object.properties {
-            let setter = format!("put_{}", property.name);
+            let native = native_property(property);
+            let setter = format!("put_{native}");
             let interface = metadata
                 .resolve(&native_name(object), &setter)
                 .unwrap()
                 .full_path();
             generated.insert(format!("{}::{setter}", binding_path(&interface)));
             if let Some(interface) =
-                metadata.resolve(&native_name(object), &format!("get_{}", property.name))
+                metadata.resolve(&native_name(object), &format!("get_{native}"))
             {
                 generated.insert(format!(
                     "{}::get_{}",
                     binding_path(&interface.full_path()),
-                    property.name
+                    native
                 ));
             }
             if !is_builtin_value(&property.value) {
@@ -888,8 +935,11 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
          pub enum ValueType {\n\
              String,\n\
              Bool,\n\
-             F64,\n\
-             OptionalBool,\n\
+              Color,\n\
+              CornerRadius,\n\
+              F64,\n\
+              OptionalBool,\n\
+              Thickness,\n\
              Enum { kind: &'static str, variants: &'static [&'static str] },\n\
              Unit,\n\
          }\n\
@@ -945,8 +995,13 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
                 format!("ValueType::{}", property.value)
             } else {
                 let (_, variants) = metadata
-                    .enum_info(&native_name(object), &format!("put_{}", property.name))
-                    .unwrap();
+                    .enum_info(
+                        &native_name(object),
+                        &format!("put_{}", native_property(property)),
+                    )
+                    .unwrap_or_else(|| {
+                        panic!("{}.{} is not an enum property", object.name, property.name)
+                    });
                 format!(
                     "ValueType::Enum {{ kind: \"{}\", variants: &[{}] }}",
                     property.value,
@@ -1003,7 +1058,10 @@ fn generate_declarations(
                 continue;
             }
             let (_, variants) = metadata
-                .enum_info(&native_name(object), &format!("put_{}", property.name))
+                .enum_info(
+                    &native_name(object),
+                    &format!("put_{}", native_property(property)),
+                )
                 .unwrap();
             if let Some(previous) = enums.insert(property.value.as_str(), variants.to_vec()) {
                 assert_eq!(previous, variants, "conflicting enum definitions");
@@ -1233,8 +1291,11 @@ fn property_argument(property: &Property) -> String {
     match property.value.as_str() {
         "String" => format!("{name}: impl Into<Rc<str>>"),
         "Bool" => format!("{name}: bool"),
+        "Color" => format!("{name}: Color"),
+        "CornerRadius" => format!("{name}: CornerRadius"),
         "F64" => format!("{name}: f64"),
         "OptionalBool" => format!("{name}: Option<bool>"),
+        "Thickness" => format!("{name}: Thickness"),
         value => format!("{name}: {value}"),
     }
 }
@@ -1243,8 +1304,11 @@ fn property_value(property: &Property, name: &str) -> String {
     match property.value.as_str() {
         "String" => format!("PropertyValue::String({name}.into())"),
         "Bool" => format!("PropertyValue::Bool({name})"),
+        "Color" => format!("PropertyValue::Color({name})"),
+        "CornerRadius" => format!("PropertyValue::CornerRadius({name})"),
         "F64" => format!("PropertyValue::F64({name})"),
         "OptionalBool" => format!("PropertyValue::OptionalBool({name})"),
+        "Thickness" => format!("PropertyValue::Thickness({name})"),
         _ => format!("{name}.property_value()"),
     }
 }
@@ -1254,9 +1318,12 @@ fn property_default(property: &Property) -> String {
     match property.value.as_str() {
         "String" => format!("{value:?}"),
         "Bool" => value.to_string(),
+        "Color" => "None::<&native::Brush>".to_string(),
+        "CornerRadius" => "native::CornerRadius::default()".to_string(),
         "F64" => value.to_string(),
         "OptionalBool" if value == "none" => "None".to_string(),
         "OptionalBool" => format!("Some({value})"),
+        "Thickness" => "native::Thickness::default()".to_string(),
         _ => value.to_string(),
     }
 }
@@ -1274,8 +1341,11 @@ fn example_constructor(object: &Object) -> String {
         arguments.push(match property.value.as_str() {
             "String" => "\"Text\"".to_string(),
             "Bool" => "false".to_string(),
+            "Color" => "Color::rgb(0, 0, 0)".to_string(),
+            "CornerRadius" => "CornerRadius::uniform(0.0)".to_string(),
             "F64" => "0.0".to_string(),
             "OptionalBool" => "None".to_string(),
+            "Thickness" => "Thickness::uniform(0.0)".to_string(),
             value => format!("{value}::{}", property.default.as_deref().unwrap()),
         });
     }
@@ -1283,7 +1353,14 @@ fn example_constructor(object: &Object) -> String {
 }
 
 fn is_builtin_value(value: &str) -> bool {
-    matches!(value, "String" | "Bool" | "F64" | "OptionalBool")
+    matches!(
+        value,
+        "String" | "Bool" | "Color" | "CornerRadius" | "F64" | "OptionalBool" | "Thickness"
+    )
+}
+
+fn native_property(property: &Property) -> &str {
+    property.native.as_deref().unwrap_or(&property.name)
 }
 
 fn snake_case(value: &str) -> String {

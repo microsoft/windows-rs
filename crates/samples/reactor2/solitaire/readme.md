@@ -1,9 +1,9 @@
 # Reactor2 Solitaire
 
-This is an application-shaped Reactor2 sample rather than a visual port of the current Solitaire
-sample. It uses the same component/update pattern and a real WinUI window, but presents the game as
-text because Reactor2 does not yet project the button, pointer, styling, sizing, alignment,
-TitleBar, Viewbox, or attached-positioning APIs used by `reactor-solitaire`.
+This is the Reactor2 port of the current Solitaire sample. It uses the same deal, stacking,
+foundation, automatic-move, failure-highlight, and win rules. The visual board uses positioned
+keyed card components, suit colors, face-down cards, foundation and tableau slots, a stock recycle
+button, and a scaled green play surface.
 
 Run both samples:
 
@@ -12,15 +12,16 @@ cargo run -p reactor-solitaire
 cargo run -p reactor2-solitaire
 ```
 
-The Reactor2 sample has buttons for drawing, moving the waste card, and starting a new game. It
-also accepts commands in its text box:
+Click the stock to draw or recycle, and click a face-up card to move it automatically to a legal
+foundation or tableau destination. Click `New Game` to deal again.
 
-| Command | Action |
-| --- | --- |
-| `draw` | Draw from the stock or recycle the waste |
-| `waste` | Move the waste card to a foundation or tableau pile |
-| `t1` ... `t7` | Move the top card from a tableau pile |
-| `new` | Deal a new game |
+The component hierarchy is `Solitaire -> Board -> keyed CardView`. Moving a card between piles
+preserves its component and retained object identity.
+
+The current Reactor application host still owns AppWindow policy. Reactor2 therefore does not yet
+match the original sample's fixed 800x600 client size, minimum-size constraints, dark window
+theme, tall AppWindow title bar, or reposition transition. Those are framework gaps rather than
+sample-side fallbacks.
 
 `windows-reactor` currently provides the application bootstrap while the game window, component
 state, declarations, reconciliation, events, and native controls use `windows-reactor2`. A

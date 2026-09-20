@@ -19,6 +19,26 @@ value = "String"
 required = true
 default = ""
 
+[[objects.properties]]
+name = "FontSize"
+value = "F64"
+default = "14.0"
+
+[[objects.properties]]
+name = "Foreground"
+value = "Color"
+default = "none"
+
+[[objects.properties]]
+name = "HorizontalAlignment"
+value = "HorizontalAlignment"
+default = "Stretch"
+
+[[objects.properties]]
+name = "VerticalAlignment"
+value = "VerticalAlignment"
+default = "Stretch"
+
 [[objects]]
 name = "TextBox"
 category = "Visual"
@@ -37,6 +57,36 @@ value = "String"
 name = "Button"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Button"
+
+[[objects.properties]]
+name = "Width"
+value = "F64"
+default = "f64::NAN"
+
+[[objects.properties]]
+name = "Height"
+value = "F64"
+default = "f64::NAN"
+
+[[objects.properties]]
+name = "Margin"
+value = "Thickness"
+default = "default"
+
+[[objects.properties]]
+name = "HorizontalAlignment"
+value = "HorizontalAlignment"
+default = "Stretch"
+
+[[objects.properties]]
+name = "VerticalAlignment"
+value = "VerticalAlignment"
+default = "Stretch"
+
+[[objects.properties]]
+name = "Background"
+value = "Color"
+default = "none"
 
 [[objects.relations]]
 name = "Content"
@@ -76,6 +126,61 @@ name = "Border"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Border"
 
+[[objects.properties]]
+name = "Width"
+value = "F64"
+default = "f64::NAN"
+
+[[objects.properties]]
+name = "Height"
+value = "F64"
+default = "f64::NAN"
+
+[[objects.properties]]
+name = "Background"
+value = "Color"
+default = "none"
+
+[[objects.properties]]
+name = "BorderBrush"
+value = "Color"
+default = "none"
+
+[[objects.properties]]
+name = "BorderThickness"
+value = "Thickness"
+default = "default"
+
+[[objects.properties]]
+name = "CornerRadius"
+value = "CornerRadius"
+default = "default"
+
+[[objects.properties]]
+name = "Padding"
+value = "Thickness"
+default = "default"
+
+[[objects.properties]]
+name = "Margin"
+value = "Thickness"
+default = "default"
+
+[[objects.properties]]
+name = "HorizontalAlignment"
+value = "HorizontalAlignment"
+default = "Stretch"
+
+[[objects.properties]]
+name = "VerticalAlignment"
+value = "VerticalAlignment"
+default = "Stretch"
+
+[[objects.properties]]
+name = "Opacity"
+value = "F64"
+default = "1.0"
+
 [[objects.relations]]
 name = "Content"
 native = "Child"
@@ -84,10 +189,29 @@ cardinality = "One"
 identity = "Positional"
 realization = "Owned"
 
+[[objects.events]]
+name = "PointerReleased"
+value = "Unit"
+
 [[objects]]
 name = "Grid"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Grid"
+
+[[objects.properties]]
+name = "Width"
+value = "F64"
+default = "f64::NAN"
+
+[[objects.properties]]
+name = "Height"
+value = "F64"
+default = "f64::NAN"
+
+[[objects.properties]]
+name = "HorizontalAlignment"
+value = "HorizontalAlignment"
+default = "Stretch"
 
 [[objects.relations]]
 name = "Children"
@@ -110,6 +234,11 @@ default = "0.0"
 name = "Orientation"
 value = "Orientation"
 default = "Vertical"
+
+[[objects.properties]]
+name = "Margin"
+value = "Thickness"
+default = "default"
 
 [[objects.relations]]
 name = "Children"
@@ -141,6 +270,39 @@ child = "Visual"
 cardinality = "One"
 identity = "Positional"
 realization = "Owned"
+
+[[objects]]
+name = "Viewbox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Viewbox"
+
+[[objects.properties]]
+name = "Height"
+value = "F64"
+default = "f64::NAN"
+
+[[objects.relations]]
+name = "Content"
+native = "Child"
+child = "Visual"
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "TitleBar"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.TitleBar"
+
+[[objects.properties]]
+name = "Title"
+value = "String"
+default = ""
+
+[[objects.properties]]
+name = "Subtitle"
+value = "String"
+default = ""
 
 [[objects]]
 name = "Slider"

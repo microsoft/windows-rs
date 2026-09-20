@@ -50,18 +50,33 @@ while a nested `Count` component receives the value through `Border.Content`. Th
 small while proving that event delivery, parent state, child input, and targeted retained updates
 work together.
 
-`reactor2-solitaire` is the first application-shaped sample. Its game state, component messages,
-declarations, reconciliation, TextBox events, and game window use Reactor2. The board is a nested
-component whose keyed `Line` components form a third component level. It uses the current Reactor
-application host only to initialize and keep the WinUI dispatcher alive because Reactor2 does not
-yet provide a standalone application bootstrap. No Reactor window is created. The sample uses a
-text board until the pointer, layout, and styling slices needed by the visual Solitaire sample are
-projected.
+`reactor2-solitaire` is the first application-shaped sample. It shares the original Solitaire
+rules and presents a scaled green board with positioned cards, suit colors, face-down cards,
+foundation and tableau slots, direct card actions, move highlights, and failure feedback. Its
+`Solitaire -> Board -> keyed CardView` hierarchy preserves card component identity across pile
+moves. It uses the current Reactor application host only to initialize and keep the WinUI
+dispatcher alive because Reactor2 does not yet provide a standalone application bootstrap. No
+Reactor window is created.
+
+The port added solid-color, thickness, and corner-radius property values to the generic adapter
+protocol. Border styling, inherited layout properties, pointer release, Viewbox, and TitleBar then
+entered through `schema.toml` and generated realization without planner or control-specific
+adapter branches. This exposed two boundaries that do not belong in the control schema:
+AppWindow title-bar height and client-size policy are application-host state, while reposition
+transitions need a reusable transition contract. The sample leaves those differences visible
+instead of simulating them in application code. Pointer release currently uses the generated unit
+event path because Solitaire does not inspect pointer data; applications that need coordinates or
+buttons still require a typed pointer payload.
 
 `reactor2-explorer` is the recursive structural sample. Component-rendered TreeView rows support
 filtering, root reorder, explicit selection, expansion, asynchronous child loading, cancellation
 through scope retirement, and an independently updated details component. Native TreeView
 selection is not projected yet, so row buttons currently send selection messages.
+
+`reactor2-workbench` is the composition sample. It combines navigation, controlled form input,
+keyed project rows, shared theme context, selection details, and row-owned background work.
+Acceptance tests verify keyed identity across reorder, isolated row updates, form-driven insertion,
+targeted context invalidation, page retirement, and stale background-message rejection.
 
 ## Complexity ladder
 
@@ -91,9 +106,9 @@ with 5,000 samples produced:
 
 | Scopes | Depth | Retained bytes/scope | Median | P95 | Allocations/update | Bytes/update | Mutations/update |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 585 | 3 | 1,113.1 | 0.8 us | 1.0 us | 11 | 1,455.8 | 1 |
-| 4,681 | 4 | 1,087.6 | 0.8 us | 0.9 us | 11 | 1,455.8 | 1 |
-| 21,845 | 7 | 1,002.8 | 0.8 us | 0.9 us | 11 | 1,455.8 | 1 |
+| 585 | 3 | 1,113.1 | 0.8 us | 0.9 us | 11 | 1,463.8 | 1 |
+| 4,681 | 4 | 1,087.6 | 0.8 us | 0.9 us | 11 | 1,463.8 | 1 |
+| 21,845 | 7 | 1,002.8 | 0.9 us | 0.9 us | 11 | 1,463.8 | 1 |
 
 The retained measurement includes component state, the retained object graph, and the recording
 adapter. Timed updates disable recording-adapter batch validation because that diagnostic clones
@@ -102,6 +117,7 @@ sizes show that a nested message does not reconcile unrelated component scopes.
 
 Counter, recursive Solitaire, and Explorer required no changes to `component.rs`, `reconcile.rs`,
 the declaration schema, or generated control realization after the recursive component baseline.
+The Workbench combines those features without changing the framework.
 The single-window sample bootstrap added Window closed-event projection and lifecycle plumbing, not
 a planner branch or retained component representation. The handwritten WinUI exceptions remain
 the same three focused families: controlled TextBox feedback, TreeView structural content, and
@@ -114,9 +130,10 @@ and event delivery reuse the existing retained relation and queued-event protoco
 to the planner or component lifecycle.
 
 The same schema now generates native realization for ordinary controls. The current set is
-TextBlock, Button, CheckBox, Border, Grid, StackPanel, Canvas, ScrollViewer, and Slider. It covers
-string, `f64`, nullable boxed `bool`, and metadata-derived enum properties; keyed and positional
-panel children; content ownership; Canvas attached positioning; and unit events. Attached
+TextBlock, Button, CheckBox, Border, Grid, StackPanel, Canvas, ScrollViewer, Viewbox, and Slider. It
+covers string, `f64`, nullable boxed `bool`, solid color, thickness, and metadata-derived enum
+properties; keyed and positional panel children; content ownership; Canvas attached positioning;
+and unit events. Attached
 properties are ordinary retained properties on the child visual. The adapter applies them through
 the owning WinUI class and clears the dependency property when omitted. The generated
 `GeneratedHandle` owns native construction, object-kind and UIElement conversion, direct
@@ -235,9 +252,10 @@ realized TreeView nodes whose custom content is produced and updated by nested c
 
 The recursive memory, latency, allocation, and mutation-radius gates pass through 21,845 scopes.
 Nearest-ancestor context providers, structural or data-rooted component scopes, and a standalone
-Reactor2 application bootstrap remain before migration. Production integration should reuse the
-existing DispatcherQueue timer and Windows thread-pool services rather than the prototype's host
-threads.
+Reactor2 application bootstrap remain before migration. The bootstrap must own AppWindow title-bar
+policy, client-size constraints, and window theme. Typed pointer payloads and transition
+declarations remain projection gaps. Production integration should reuse the existing
+DispatcherQueue timer and Windows thread-pool services rather than the prototype's host threads.
 
 1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
    mirrored UI declaration tree.

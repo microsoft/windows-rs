@@ -8,6 +8,17 @@ use windows_reactor2 as reactor2;
 
 const PILES: usize = 7;
 const FOUNDATIONS: usize = 4;
+const DECK_SIZE: usize = 52;
+const CARD_W: f64 = 56.0;
+const CARD_H: f64 = 80.0;
+const CARD_GAP_X: f64 = 14.0;
+const FACE_UP_OFFSET: f64 = 22.0;
+const FACE_DOWN_OFFSET: f64 = 8.0;
+const TOP_ROW_Y: f64 = 20.0;
+const TABLEAU_Y: f64 = 130.0;
+const BOARD_LEFT: f64 = 20.0;
+const BOARD_W: f64 = BOARD_LEFT + (CARD_W + CARD_GAP_X) * PILES as f64 + 20.0;
+const BOARD_H: f64 = 620.0;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
@@ -46,230 +57,679 @@ struct Card {
 impl Card {
     fn label(self) -> String {
         let rank = match self.rank {
-            1 => "A",
-            11 => "J",
-            12 => "Q",
-            13 => "K",
-            rank => return format!("{rank}{}", self.suit.symbol()),
+            1 => "A".into(),
+            11 => "J".into(),
+            12 => "Q".into(),
+            13 => "K".into(),
+            rank => rank.to_string(),
         };
         format!("{rank}{}", self.suit.symbol())
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum Click {
+    Stock,
+    Waste,
+    Foundation(usize),
+    Tableau(usize, usize),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum Source {
+    Waste,
+    Foundation(usize),
+    Tableau(usize, usize),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum Destination {
+    Tableau(usize),
+    Foundation(usize),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum LastMove {
+    ToFoundation(usize),
+    ToTableau(usize),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum FailedMove {
+    Tableau(usize, usize),
+    Waste,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 struct Game {
     tableau: [Vec<Card>; PILES],
     face_up: [usize; PILES],
     foundations: [Vec<Card>; FOUNDATIONS],
     stock: Vec<Card>,
     waste: Vec<Card>,
+    last_move: Option<LastMove>,
+    failed_move: Option<FailedMove>,
     moves: u32,
 }
 
 impl Game {
     fn new(seed: u64) -> Self {
-        let mut deck = Vec::with_capacity(52);
-        for suit in Suit::all() {
-            for rank in 1..=13 {
-                deck.push(Card { rank, suit });
-            }
-        }
+        let mut deck = full_deck();
         shuffle(&mut deck, seed);
-
         let mut tableau: [Vec<Card>; PILES] = std::array::from_fn(|_| Vec::new());
         for pile in 0..PILES {
             for destination in tableau.iter_mut().skip(pile) {
                 destination.push(deck.pop().unwrap());
             }
         }
-
+        let face_up = std::array::from_fn(|pile| tableau[pile].len() - 1);
+        for (pile, &face_up) in tableau.iter_mut().zip(&face_up) {
+            for card in pile.iter_mut().take(face_up) {
+                if card.rank == 1
+                    && let Some(index) = deck.iter().position(|card| card.rank != 1)
+                {
+                    std::mem::swap(card, &mut deck[index]);
+                }
+            }
+        }
         Self {
-            face_up: std::array::from_fn(|pile| tableau[pile].len() - 1),
+            tableau,
+            face_up,
             foundations: std::array::from_fn(|_| Vec::new()),
             stock: deck,
-            tableau,
             waste: Vec::new(),
+            last_move: None,
+            failed_move: None,
             moves: 0,
         }
     }
 
-    fn draw(&mut self) {
-        if let Some(card) = self.stock.pop() {
-            self.waste.push(card);
-            self.moves += 1;
-        } else if !self.waste.is_empty() {
-            self.stock.extend(self.waste.drain(..).rev());
-            self.moves += 1;
-        }
-    }
-
-    fn move_waste(&mut self) {
-        let Some(card) = self.waste.last().copied() else {
-            return;
-        };
-        if self.move_to_foundation(card) || self.move_to_tableau(card, None) {
-            self.waste.pop();
-            self.moves += 1;
-        }
-    }
-
-    fn move_tableau(&mut self, source: usize) {
-        let Some(card) = self.tableau[source].last().copied() else {
-            return;
-        };
-        if self.tableau[source].len() <= self.face_up[source] {
-            return;
-        }
-        if self.move_to_foundation(card) || self.move_to_tableau(card, Some(source)) {
-            self.tableau[source].pop();
-            if !self.tableau[source].is_empty()
-                && self.face_up[source] >= self.tableau[source].len()
-            {
-                self.face_up[source] = self.tableau[source].len() - 1;
-            }
-            self.moves += 1;
-        }
-    }
-
-    fn move_to_foundation(&mut self, card: Card) -> bool {
-        let foundation = &mut self.foundations[card.suit as usize];
-        let valid = foundation
-            .last()
-            .is_none_or(|top| top.rank + 1 == card.rank)
-            && foundation.last().is_some()
-            || foundation.is_empty() && card.rank == 1;
-        if valid {
-            foundation.push(card);
-        }
-        valid
-    }
-
-    fn move_to_tableau(&mut self, card: Card, source: Option<usize>) -> bool {
-        let destination = self.tableau.iter().enumerate().position(|(index, pile)| {
-            Some(index) != source
-                && pile.last().is_none_or(|top| {
-                    top.rank == card.rank + 1 && top.suit.is_red() != card.suit.is_red()
-                })
-                && (!pile.is_empty() || card.rank == 13)
-        });
-        if let Some(destination) = destination {
-            self.tableau[destination].push(card);
-            true
-        } else {
-            false
-        }
-    }
-
-    fn lines(&self) -> Vec<String> {
-        let mut lines = Vec::with_capacity(11);
-        lines.push(format!(
-            "Moves: {}    Stock: {}    Waste: {}",
-            self.moves,
-            self.stock.len(),
-            self.waste
-                .last()
-                .map_or_else(|| "-".into(), |card| card.label())
-        ));
-        lines.push(format!(
-            "Foundations: {}",
-            self.foundations
-                .iter()
-                .map(|foundation| foundation
-                    .last()
-                    .map_or_else(|| "-".into(), |card| card.label()))
-                .collect::<Vec<_>>()
-                .join("  ")
-        ));
-        lines.push(String::new());
-        for (index, pile) in self.tableau.iter().enumerate() {
-            let cards = pile
-                .iter()
-                .enumerate()
-                .map(|(card_index, card)| {
-                    if card_index < self.face_up[index] {
-                        "[]".to_string()
-                    } else {
-                        card.label()
-                    }
-                })
-                .collect::<Vec<_>>()
-                .join(" ");
-            lines.push(format!("T{}: {cards}", index + 1));
-        }
-        lines
+    fn is_won(&self) -> bool {
+        self.foundations
+            .iter()
+            .all(|foundation| foundation.len() == 13)
     }
 }
 
-fn shuffle(cards: &mut [Card], seed: u64) {
+fn full_deck() -> Vec<Card> {
+    Suit::all()
+        .into_iter()
+        .flat_map(|suit| (1..=13).map(move |rank| Card { rank, suit }))
+        .collect()
+}
+
+fn shuffle(deck: &mut [Card], seed: u64) {
     let mut state = seed.max(1);
-    for index in (1..cards.len()).rev() {
+    for index in (1..deck.len()).rev() {
         state = state
             .wrapping_mul(6364136223846793005)
             .wrapping_add(1442695040888963407);
-        cards.swap(index, state as usize % (index + 1));
+        deck.swap(index, state as usize % (index + 1));
     }
 }
 
-fn seed() -> u64 {
+fn can_stack_on_tableau(moving: Card, top: Option<Card>) -> bool {
+    top.map_or(moving.rank == 13, |top| {
+        top.rank == moving.rank + 1 && top.suit.is_red() != moving.suit.is_red()
+    })
+}
+
+fn can_place_on_foundation(moving: Card, foundation: &[Card], index: usize) -> bool {
+    moving.suit as usize == index
+        && foundation
+            .last()
+            .map_or(moving.rank == 1, |top| top.rank + 1 == moving.rank)
+}
+
+fn moving_cards(game: &Game, source: Source) -> Option<Vec<Card>> {
+    match source {
+        Source::Waste => game.waste.last().copied().map(|card| vec![card]),
+        Source::Foundation(index) => game.foundations[index]
+            .last()
+            .copied()
+            .map(|card| vec![card]),
+        Source::Tableau(pile, index) => (index >= game.face_up[pile]
+            && index < game.tableau[pile].len())
+        .then(|| game.tableau[pile][index..].to_vec()),
+    }
+}
+
+fn try_apply(game: &Game, source: Source, destination: Destination) -> Option<Game> {
+    let cards = moving_cards(game, source)?;
+    if matches!((source, destination), (Source::Tableau(a, _), Destination::Tableau(b)) if a == b)
+        || matches!((source, destination), (Source::Foundation(a), Destination::Foundation(b)) if a == b)
+    {
+        return None;
+    }
+    let first = cards[0];
+    let valid = match destination {
+        Destination::Foundation(index) => {
+            cards.len() == 1 && can_place_on_foundation(first, &game.foundations[index], index)
+        }
+        Destination::Tableau(pile) => {
+            can_stack_on_tableau(first, game.tableau[pile].last().copied())
+        }
+    };
+    if !valid {
+        return None;
+    }
+
+    let mut next = game.clone();
+    match source {
+        Source::Waste => {
+            next.waste.pop();
+        }
+        Source::Foundation(index) => {
+            next.foundations[index].pop();
+        }
+        Source::Tableau(pile, index) => {
+            next.tableau[pile].truncate(index);
+            next.face_up[pile] = next.tableau[pile]
+                .len()
+                .checked_sub(1)
+                .map_or(0, |last| next.face_up[pile].min(last));
+        }
+    }
+    match destination {
+        Destination::Tableau(pile) => {
+            next.tableau[pile].extend(cards);
+            next.last_move = Some(LastMove::ToTableau(pile));
+        }
+        Destination::Foundation(index) => {
+            next.foundations[index].push(first);
+            next.last_move = Some(LastMove::ToFoundation(index));
+        }
+    }
+    next.moves = next.moves.saturating_add(1);
+    Some(next)
+}
+
+fn draw_stock(game: &Game) -> Game {
+    let mut next = game.clone();
+    if let Some(card) = next.stock.pop() {
+        next.waste.push(card);
+        next.moves = next.moves.saturating_add(1);
+    } else if !next.waste.is_empty() {
+        next.stock.extend(next.waste.drain(..).rev());
+        next.moves = next.moves.saturating_add(1);
+    }
+    next.last_move = None;
+    next.failed_move = None;
+    next
+}
+
+fn auto_move(game: &Game, source: Source) -> Option<Game> {
+    let cards = moving_cards(game, source)?;
+    let first = cards[0];
+    if cards.len() == 1
+        && let Some(next) = try_apply(game, source, Destination::Foundation(first.suit as usize))
+    {
+        return Some(next);
+    }
+    let source_pile = match source {
+        Source::Tableau(pile, _) => Some(pile),
+        _ => None,
+    };
+    let mut best = None;
+    for (pile, cards) in game.tableau.iter().enumerate() {
+        if Some(pile) == source_pile || cards.is_empty() {
+            continue;
+        }
+        if let Some(next) = try_apply(game, source, Destination::Tableau(pile))
+            && best
+                .as_ref()
+                .is_none_or(|(face_down, _)| *face_down < game.face_up[pile])
+        {
+            best = Some((game.face_up[pile], next));
+        }
+    }
+    if let Some((_, next)) = best {
+        return Some(next);
+    }
+    if first.rank == 13 && !matches!(source, Source::Tableau(pile, 0) if game.face_up[pile] == 0) {
+        for (pile, cards) in game.tableau.iter().enumerate() {
+            if Some(pile) != source_pile
+                && cards.is_empty()
+                && let Some(next) = try_apply(game, source, Destination::Tableau(pile))
+            {
+                return Some(next);
+            }
+        }
+    }
+    None
+}
+
+fn handle_click(game: &Game, click: Click) -> Game {
+    let source = match click {
+        Click::Stock => return draw_stock(game),
+        Click::Waste if !game.waste.is_empty() => Source::Waste,
+        Click::Foundation(index) if !game.foundations[index].is_empty() => {
+            Source::Foundation(index)
+        }
+        Click::Tableau(pile, index)
+            if index >= game.face_up[pile] && index < game.tableau[pile].len() =>
+        {
+            Source::Tableau(pile, index)
+        }
+        _ => return game.clone(),
+    };
+    if let Some(mut next) = auto_move(game, source) {
+        next.failed_move = None;
+        next
+    } else {
+        let mut next = game.clone();
+        next.last_move = None;
+        next.failed_move = match source {
+            Source::Waste => Some(FailedMove::Waste),
+            Source::Tableau(pile, index) => Some(FailedMove::Tableau(pile, index)),
+            Source::Foundation(_) => None,
+        };
+        next
+    }
+}
+
+fn current_seed() -> u64 {
     SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .map_or(0xDEAD_BEEF, |duration| duration.as_nanos() as u64)
 }
 
+fn pile_x(pile: usize) -> f64 {
+    BOARD_LEFT + pile as f64 * (CARD_W + CARD_GAP_X)
+}
+
+fn foundation_x(index: usize) -> f64 {
+    pile_x(PILES - FOUNDATIONS + index)
+}
+
+#[derive(Clone, PartialEq)]
+struct BoardCard {
+    card: Card,
+    x: f64,
+    y: f64,
+    face_up: bool,
+    highlighted: bool,
+    failed: bool,
+    click: Click,
+}
+
+fn board_cards(game: &Game) -> Vec<BoardCard> {
+    let mut cards = Vec::with_capacity(DECK_SIZE);
+    cards.extend(game.stock.iter().copied().map(|card| BoardCard {
+        card,
+        x: pile_x(0),
+        y: TOP_ROW_Y,
+        face_up: false,
+        highlighted: false,
+        failed: false,
+        click: Click::Stock,
+    }));
+    cards.extend(
+        game.waste
+            .iter()
+            .copied()
+            .enumerate()
+            .map(|(index, card)| BoardCard {
+                card,
+                x: pile_x(1),
+                y: TOP_ROW_Y,
+                face_up: true,
+                highlighted: false,
+                failed: index + 1 == game.waste.len()
+                    && matches!(game.failed_move, Some(FailedMove::Waste)),
+                click: Click::Waste,
+            }),
+    );
+    for (foundation, pile) in game.foundations.iter().enumerate() {
+        cards.extend(
+            pile.iter()
+                .copied()
+                .enumerate()
+                .map(|(index, card)| BoardCard {
+                    card,
+                    x: foundation_x(foundation),
+                    y: TOP_ROW_Y,
+                    face_up: true,
+                    highlighted: index + 1 == pile.len()
+                        && matches!(
+                            game.last_move,
+                            Some(LastMove::ToFoundation(value)) if value == foundation
+                        ),
+                    failed: false,
+                    click: Click::Foundation(foundation),
+                }),
+        );
+    }
+    for pile in 0..PILES {
+        let mut y = TABLEAU_Y;
+        for (index, card) in game.tableau[pile].iter().copied().enumerate() {
+            let face_up = index >= game.face_up[pile];
+            cards.push(BoardCard {
+                card,
+                x: pile_x(pile),
+                y,
+                face_up,
+                highlighted: face_up
+                    && index + 1 == game.tableau[pile].len()
+                    && matches!(
+                        game.last_move,
+                        Some(LastMove::ToTableau(value)) if value == pile
+                    ),
+                failed: face_up
+                    && matches!(
+                        game.failed_move,
+                        Some(FailedMove::Tableau(value, card)) if value == pile && card == index
+                    ),
+                click: Click::Tableau(pile, index),
+            });
+            y += if face_up {
+                FACE_UP_OFFSET
+            } else {
+                FACE_DOWN_OFFSET
+            };
+        }
+    }
+    cards
+}
+
+fn card_key(card: Card) -> u64 {
+    u64::from(card.suit as u8) * 13 + u64::from(card.rank)
+}
+
+struct CardStyle {
+    background: reactor2::Color,
+    border: reactor2::Color,
+    border_thickness: f64,
+    padding: reactor2::Thickness,
+    opacity: f64,
+}
+
+fn positioned_border(
+    content: impl Into<reactor2::Visual>,
+    style: CardStyle,
+    x: f64,
+    y: f64,
+    click: Click,
+    on_click: reactor2::Callback<Click>,
+) -> reactor2::Border {
+    reactor2::Border::new()
+        .width(CARD_W)
+        .height(CARD_H)
+        .margin(reactor2::Thickness::new(x, y, 0.0, 0.0))
+        .horizontal_alignment(reactor2::HorizontalAlignment::Left)
+        .vertical_alignment(reactor2::VerticalAlignment::Top)
+        .background(style.background)
+        .border_brush(style.border)
+        .border_thickness(reactor2::Thickness::uniform(style.border_thickness))
+        .corner_radius(reactor2::CornerRadius::uniform(4.0))
+        .padding(style.padding)
+        .opacity(style.opacity)
+        .content(content)
+        .on_pointer_released(move || {
+            on_click.call(click);
+        })
+}
+
+fn positioned_slot(
+    label: impl Into<Rc<str>>,
+    foreground: reactor2::Color,
+    x: f64,
+    y: f64,
+    click: Click,
+    on_click: reactor2::Callback<Click>,
+) -> reactor2::Border {
+    positioned_border(
+        reactor2::TextBlock::new(label)
+            .font_size(18.0)
+            .foreground(foreground)
+            .horizontal_alignment(reactor2::HorizontalAlignment::Center)
+            .vertical_alignment(reactor2::VerticalAlignment::Center),
+        CardStyle {
+            background: reactor2::Color::rgb(40, 90, 55),
+            border: reactor2::Color::rgb(50, 110, 70),
+            border_thickness: 1.5,
+            padding: reactor2::Thickness::uniform(0.0),
+            opacity: 0.7,
+        },
+        x,
+        y,
+        click,
+        on_click,
+    )
+}
+
+#[derive(Clone)]
+struct CardInput {
+    on_click: reactor2::Callback<Click>,
+    placement: BoardCard,
+}
+
+impl PartialEq for CardInput {
+    fn eq(&self, other: &Self) -> bool {
+        self.placement == other.placement
+    }
+}
+
+struct CardView(CardInput);
+
+impl reactor2::Component for CardView {
+    type Input = CardInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self(input.clone())
+    }
+
+    fn input_changed(
+        &mut self,
+        input: &Self::Input,
+        _context: &reactor2::ComponentContext<Self::Message>,
+    ) {
+        self.0 = input.clone();
+    }
+
+    fn view(
+        &self,
+        _input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        let card = &self.0.placement;
+        let (content, background, border, padding): (reactor2::Visual, _, _, _) = if card.face_up {
+            let foreground = if card.card.suit.is_red() {
+                reactor2::Color::rgb(192, 0, 32)
+            } else {
+                reactor2::Color::rgb(20, 20, 20)
+            };
+            (
+                reactor2::StackPanel::new()
+                    .children([
+                        reactor2::TextBlock::new(card.card.label())
+                            .font_size(13.0)
+                            .foreground(foreground)
+                            .horizontal_alignment(reactor2::HorizontalAlignment::Left)
+                            .into(),
+                        reactor2::TextBlock::new(card.card.suit.symbol())
+                            .font_size(22.0)
+                            .foreground(foreground)
+                            .horizontal_alignment(reactor2::HorizontalAlignment::Center)
+                            .vertical_alignment(reactor2::VerticalAlignment::Center)
+                            .into(),
+                    ])
+                    .into(),
+                if card.failed {
+                    reactor2::Color::rgb(255, 220, 220)
+                } else if card.highlighted {
+                    reactor2::Color::rgb(220, 245, 220)
+                } else {
+                    reactor2::Color::rgb(255, 255, 255)
+                },
+                if card.failed {
+                    reactor2::Color::rgb(220, 80, 80)
+                } else {
+                    reactor2::Color::rgb(180, 180, 180)
+                },
+                reactor2::Thickness::new(4.0, 3.0, 2.0, 2.0),
+            )
+        } else {
+            (
+                reactor2::TextBlock::new("🂠")
+                    .font_size(18.0)
+                    .foreground(reactor2::Color::rgb(240, 240, 255))
+                    .horizontal_alignment(reactor2::HorizontalAlignment::Center)
+                    .vertical_alignment(reactor2::VerticalAlignment::Center)
+                    .into(),
+                reactor2::Color::rgb(40, 80, 160),
+                reactor2::Color::rgb(30, 60, 130),
+                reactor2::Thickness::uniform(0.0),
+            )
+        };
+        positioned_border(
+            content,
+            CardStyle {
+                background,
+                border,
+                border_thickness: 1.0,
+                padding,
+                opacity: 1.0,
+            },
+            card.x,
+            card.y,
+            card.click,
+            self.0.on_click.clone(),
+        )
+        .into()
+    }
+}
+
+#[derive(Clone)]
+struct BoardInput {
+    game: Game,
+    on_click: reactor2::Callback<Click>,
+}
+
+impl PartialEq for BoardInput {
+    fn eq(&self, other: &Self) -> bool {
+        self.game == other.game
+    }
+}
+
+struct Board(BoardInput);
+
+impl reactor2::Component for Board {
+    type Input = BoardInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self(input.clone())
+    }
+
+    fn input_changed(
+        &mut self,
+        input: &Self::Input,
+        _context: &reactor2::ComponentContext<Self::Message>,
+    ) {
+        self.0 = input.clone();
+    }
+
+    fn view(
+        &self,
+        _input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        build_board(&self.0.game, &self.0.on_click).into()
+    }
+}
+
+fn build_board(game: &Game, on_click: &reactor2::Callback<Click>) -> reactor2::Grid {
+    let mut children = Vec::new();
+    if game.stock.is_empty() {
+        children.push(reactor2::keyed(
+            "stock-slot",
+            positioned_slot(
+                if game.waste.is_empty() { "·" } else { "↻" },
+                reactor2::Color::rgb(220, 230, 220),
+                pile_x(0),
+                TOP_ROW_Y,
+                Click::Stock,
+                on_click.clone(),
+            ),
+        ));
+    }
+    if game.waste.is_empty() {
+        children.push(reactor2::keyed(
+            "waste-slot",
+            positioned_slot(
+                "·",
+                reactor2::Color::rgb(220, 230, 220),
+                pile_x(1),
+                TOP_ROW_Y,
+                Click::Waste,
+                on_click.clone(),
+            ),
+        ));
+    }
+    for (index, foundation) in game.foundations.iter().enumerate() {
+        if foundation.is_empty() {
+            let suit = Suit::all()[index];
+            children.push(reactor2::keyed(
+                format!("foundation-slot-{index}"),
+                positioned_slot(
+                    suit.symbol(),
+                    if suit.is_red() {
+                        reactor2::Color::rgb(180, 120, 120)
+                    } else {
+                        reactor2::Color::rgb(180, 180, 180)
+                    },
+                    foundation_x(index),
+                    TOP_ROW_Y,
+                    Click::Foundation(index),
+                    on_click.clone(),
+                ),
+            ));
+        }
+    }
+    for (pile, cards) in game.tableau.iter().enumerate() {
+        if cards.is_empty() {
+            children.push(reactor2::keyed(
+                format!("tableau-slot-{pile}"),
+                positioned_slot(
+                    "K",
+                    reactor2::Color::rgb(180, 200, 180),
+                    pile_x(pile),
+                    TABLEAU_Y,
+                    Click::Tableau(pile, 0),
+                    on_click.clone(),
+                ),
+            ));
+        }
+    }
+    for card in board_cards(game) {
+        children.push(
+            reactor2::component::<CardView>(
+                card_key(card.card),
+                CardInput {
+                    on_click: on_click.clone(),
+                    placement: card,
+                },
+            )
+            .keyed(),
+        );
+    }
+    reactor2::Grid::new()
+        .width(BOARD_W)
+        .height(BOARD_H)
+        .horizontal_alignment(reactor2::HorizontalAlignment::Center)
+        .children(children)
+}
+
+#[derive(Clone)]
 enum Message {
-    Draw,
-    Input(String),
+    Click(Click),
     NewGame,
-    Waste,
 }
 
 struct Solitaire {
-    command: Rc<str>,
     game: Game,
-}
-
-struct Line;
-
-impl reactor2::Component for Line {
-    type Input = Rc<str>;
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
-        Self
-    }
-
-    fn view(
-        &self,
-        input: &Self::Input,
-        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
-    ) -> reactor2::Visual {
-        reactor2::TextBlock::new(input.clone()).into()
-    }
-}
-
-struct Board;
-
-impl reactor2::Component for Board {
-    type Input = Vec<Rc<str>>;
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
-        Self
-    }
-
-    fn view(
-        &self,
-        input: &Self::Input,
-        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
-    ) -> reactor2::Visual {
-        reactor2::Grid::new()
-            .children(
-                input.iter().enumerate().map(|(index, line)| {
-                    reactor2::component::<Line>(index, Rc::clone(line)).keyed()
-                }),
-            )
-            .into()
-    }
 }
 
 impl reactor2::Component for Solitaire {
@@ -278,8 +738,7 @@ impl reactor2::Component for Solitaire {
 
     fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
         Self {
-            command: Rc::from(""),
-            game: Game::new(seed()),
+            game: Game::new(current_seed()),
         }
     }
 
@@ -288,41 +747,9 @@ impl reactor2::Component for Solitaire {
         message: Self::Message,
         _context: &reactor2::ComponentContext<Self::Message>,
     ) {
-        let Message::Input(value) = message else {
-            match message {
-                Message::Draw => self.game.draw(),
-                Message::NewGame => self.game = Game::new(seed()),
-                Message::Waste => self.game.move_waste(),
-                Message::Input(_) => unreachable!(),
-            }
-            return;
-        };
-        self.command = Rc::from(value.as_str());
-        let command = value.trim().to_ascii_lowercase();
-        let handled = match command.as_str() {
-            "draw" => {
-                self.game.draw();
-                true
-            }
-            "waste" => {
-                self.game.move_waste();
-                true
-            }
-            "new" => {
-                self.game = Game::new(seed());
-                true
-            }
-            _ => command
-                .strip_prefix('t')
-                .and_then(|value| value.parse::<usize>().ok())
-                .filter(|pile| (1..=PILES).contains(pile))
-                .is_some_and(|pile| {
-                    self.game.move_tableau(pile - 1);
-                    true
-                }),
-        };
-        if handled {
-            self.command = Rc::from("");
+        match message {
+            Message::Click(click) => self.game = handle_click(&self.game, click),
+            Message::NewGame => self.game = Game::new(current_seed()),
         }
     }
 
@@ -331,44 +758,58 @@ impl reactor2::Component for Solitaire {
         _input: &Self::Input,
         context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
     ) -> reactor2::Visual {
-        let sender = context.sender();
-        let draw = context.sender();
-        let waste = context.sender();
         let new_game = context.sender();
-        let mut children = vec![
-            reactor2::TextBlock::new("Reactor2 Solitaire").into(),
-            reactor2::TextBlock::new("Commands: draw, waste, t1 ... t7, new").into(),
-            reactor2::Button::new()
-                .content(reactor2::TextBlock::new("Draw"))
-                .on_click(move || {
-                    _ = draw.send(Message::Draw);
-                })
-                .into(),
-            reactor2::Button::new()
-                .content(reactor2::TextBlock::new("Move waste"))
-                .on_click(move || {
-                    _ = waste.send(Message::Waste);
-                })
-                .into(),
-            reactor2::Button::new()
-                .content(reactor2::TextBlock::new("New game"))
-                .on_click(move || {
-                    _ = new_game.send(Message::NewGame);
-                })
-                .into(),
-            reactor2::TextBox::new(Rc::clone(&self.command))
-                .on_text_changed(move |value| {
-                    _ = sender.send(Message::Input(value.to_string()));
-                })
-                .into(),
-        ];
-        let lines = self.game.lines().into_iter().map(Rc::<str>::from).collect();
-        children.push(
-            reactor2::Border::new()
-                .content(reactor2::component::<Board>("board", lines))
-                .into(),
-        );
-        reactor2::StackPanel::new().children(children).into()
+        let click = context.sender();
+        let status = if self.game.is_won() {
+            "You won! Press New Game to deal again.".into()
+        } else {
+            format!(
+                "Moves: {}    Stock: {}    Waste: {}",
+                self.game.moves,
+                self.game.stock.len(),
+                self.game.waste.len()
+            )
+        };
+        reactor2::Border::new()
+            .background(reactor2::Color::rgb(20, 100, 60))
+            .content(
+                reactor2::StackPanel::new().children([
+                    reactor2::TitleBar::new()
+                        .title("Solitaire")
+                        .subtitle(if self.game.is_won() { "You win!" } else { "" })
+                        .into(),
+                    reactor2::StackPanel::new()
+                        .orientation(reactor2::Orientation::Horizontal)
+                        .spacing(12.0)
+                        .margin(reactor2::Thickness::new(12.0, 8.0, 12.0, 4.0))
+                        .children([
+                            reactor2::Button::new()
+                                .content(reactor2::TextBlock::new("New Game"))
+                                .on_click(move || {
+                                    _ = new_game.send(Message::NewGame);
+                                })
+                                .into(),
+                            reactor2::TextBlock::new(status)
+                                .foreground(reactor2::Color::rgb(255, 255, 255))
+                                .vertical_alignment(reactor2::VerticalAlignment::Center)
+                                .into(),
+                        ])
+                        .into(),
+                    reactor2::Viewbox::new()
+                        .height(520.0)
+                        .content(reactor2::component::<Board>(
+                            "board",
+                            BoardInput {
+                                game: self.game.clone(),
+                                on_click: reactor2::Callback::new(move |value| {
+                                    _ = click.send(Message::Click(value));
+                                }),
+                            },
+                        ))
+                        .into(),
+                ]),
+            )
+            .into()
     }
 }
 
@@ -405,6 +846,7 @@ impl Host {
         });
         let root = host.runtime().graph().root().unwrap();
         let mut window = host.runtime().adapter().open_window(root).unwrap();
+        window.set_title("Solitaire").unwrap();
         let application = context.proxy();
         window
             .set_closed(move || {
@@ -421,4 +863,112 @@ impl Host {
 
 fn main() -> windows_core::Result<()> {
     App::run_with(Host::new)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn card(rank: u8, suit: Suit) -> Card {
+        Card { rank, suit }
+    }
+
+    #[test]
+    fn deal_uses_every_card_once_and_keeps_aces_face_up() {
+        let game = Game::new(0xABCDEF);
+        let mut seen = std::collections::HashSet::new();
+        for pile in 0..PILES {
+            assert_eq!(game.tableau[pile].len(), pile + 1);
+            for (index, card) in game.tableau[pile].iter().enumerate() {
+                assert!(seen.insert((card.rank, card.suit as u8)));
+                if index < game.face_up[pile] {
+                    assert_ne!(card.rank, 1);
+                }
+            }
+        }
+        for card in &game.stock {
+            assert!(seen.insert((card.rank, card.suit as u8)));
+        }
+        assert_eq!(seen.len(), DECK_SIZE);
+        assert_eq!(game.stock.len(), 24);
+    }
+
+    #[test]
+    fn tableau_and_foundation_rules_match_the_original() {
+        assert!(can_stack_on_tableau(card(13, Suit::Spades), None));
+        assert!(can_stack_on_tableau(
+            card(6, Suit::Hearts),
+            Some(card(7, Suit::Clubs))
+        ));
+        assert!(!can_stack_on_tableau(
+            card(6, Suit::Hearts),
+            Some(card(7, Suit::Diamonds))
+        ));
+        assert!(can_place_on_foundation(
+            card(1, Suit::Spades),
+            &[],
+            Suit::Spades as usize
+        ));
+        assert!(can_place_on_foundation(
+            card(2, Suit::Spades),
+            &[card(1, Suit::Spades)],
+            Suit::Spades as usize
+        ));
+    }
+
+    #[test]
+    fn board_contains_all_cards_with_stable_keys() {
+        let game = Game::new(42);
+        let cards = board_cards(&game);
+        assert_eq!(cards.len(), DECK_SIZE);
+        let keys = cards
+            .iter()
+            .map(|placement| card_key(placement.card))
+            .collect::<std::collections::HashSet<_>>();
+        assert_eq!(keys.len(), DECK_SIZE);
+    }
+
+    #[test]
+    fn stock_click_changes_only_the_game_turn() {
+        let game = Game::new(42);
+        let next = handle_click(&game, Click::Stock);
+        assert_eq!(next.stock.len(), game.stock.len() - 1);
+        assert_eq!(next.waste.len(), 1);
+        assert_eq!(next.moves, 1);
+        assert_eq!(next.tableau, game.tableau);
+    }
+
+    #[test]
+    fn drawing_preserves_the_moved_card_component_identity() {
+        let game = Game::new(42);
+        let moved = *game.stock.last().unwrap();
+        let callback = reactor2::Callback::new(|_| {});
+        let mut host = reactor2::ComponentHost::mount(
+            reactor2::RecordingAdapter::default(),
+            [reactor2::component::<Board>(
+                "board",
+                BoardInput {
+                    game: game.clone(),
+                    on_click: callback.clone(),
+                },
+            )],
+        )
+        .unwrap();
+        let path = [
+            reactor2::Key::from("board"),
+            reactor2::Key::from(card_key(moved)),
+        ];
+        let object = host.reference_at(&path).unwrap().get();
+
+        host.update_input::<Board>(
+            &reactor2::Key::from("board"),
+            BoardInput {
+                game: draw_stock(&game),
+                on_click: callback,
+            },
+        )
+        .unwrap();
+
+        assert_eq!(host.reference_at(&path).unwrap().get(), object);
+    }
 }

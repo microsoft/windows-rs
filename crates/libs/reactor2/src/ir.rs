@@ -122,8 +122,11 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
     let valid = match (contract.value, &property.value) {
         (ValueType::String, PropertyValue::String(_))
         | (ValueType::Bool, PropertyValue::Bool(_))
+        | (ValueType::Color, PropertyValue::Color(_))
+        | (ValueType::CornerRadius, PropertyValue::CornerRadius(_))
         | (ValueType::F64, PropertyValue::F64(_))
-        | (ValueType::OptionalBool, PropertyValue::OptionalBool(_)) => true,
+        | (ValueType::OptionalBool, PropertyValue::OptionalBool(_))
+        | (ValueType::Thickness, PropertyValue::Thickness(_)) => true,
         (
             ValueType::Enum {
                 kind: expected,
