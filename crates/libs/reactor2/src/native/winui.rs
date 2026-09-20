@@ -68,6 +68,7 @@ pub enum WinUiError {
     IndexOverflow(usize),
     ChildNotFound(ObjectId),
     StillOwned(ObjectId),
+    InvalidReplacement(ObjectId),
     Native(windows_core::Error),
 }
 
@@ -491,6 +492,81 @@ impl WinUiAdapter {
                 _ => return Err(WinUiError::InvalidObject(object)),
             }
         }
+        Ok(())
+    }
+
+    fn replace(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
+        let (parent, relation) = self
+            .owners
+            .get(&object)
+            .copied()
+            .ok_or(WinUiError::InvalidReplacement(object))?;
+        let contract = relation_contract(self.kind(parent)?, relation)?;
+        if contract.realization != Realization::Owned
+            || contract.child != crate::object_category(kind)
+        {
+            return Err(WinUiError::InvalidReplacement(object));
+        }
+        let previous = self.ui_element(object)?;
+        let index = match contract.cardinality {
+            crate::Cardinality::One => {
+                match (self.handle(parent)?, relation) {
+                    (Handle::Border(parent), RelationId::Content) => {
+                        parent.SetChild(None::<&native::UIElement>)?;
+                    }
+                    (Handle::TreeNode(parent), RelationId::Content) => {
+                        let content: IInspectable =
+                            windows_reference::IReference::from(parent.text.clone()).into();
+                        parent.value.SetContent(&content)?;
+                        parent.content = None;
+                    }
+                    _ => return Err(WinUiError::InvalidRelation(parent, relation)),
+                }
+                None
+            }
+            crate::Cardinality::Many => {
+                let values = self.panel_children(parent)?;
+                let mut index = 0;
+                if !values.IndexOf(&previous, &mut index)? {
+                    return Err(WinUiError::ChildNotFound(object));
+                }
+                values.RemoveAt(index)?;
+                Some(index)
+            }
+        };
+        self.handles
+            .remove(&object)
+            .ok_or(WinUiError::MissingObject(object))?;
+        self.create(object, kind)?;
+        let replacement = self.ui_element(object)?;
+        if let Some(index) = index {
+            self.panel_children(parent)?.InsertAt(index, &replacement)?;
+        } else {
+            match (self.handle(parent)?, relation) {
+                (Handle::Border(parent), RelationId::Content) => parent.SetChild(&replacement)?,
+                (Handle::TreeNode(parent), RelationId::Content) => {
+                    parent.value.SetContent(&replacement)?;
+                    parent.content = Some(object);
+                }
+                _ => return Err(WinUiError::InvalidRelation(parent, relation)),
+            }
+        }
+        self.event_queue
+            .observations
+            .borrow_mut()
+            .retain(|observation| {
+                !matches!(
+                    observation,
+                    Observation::SetProperty {
+                        object: observed,
+                        ..
+                    } if *observed == object
+                )
+            });
+        self.event_queue
+            .events
+            .borrow_mut()
+            .retain(|event| event.object != object);
         Ok(())
     }
 
@@ -1006,6 +1082,7 @@ impl Adapter for WinUiAdapter {
         for mutation in mutations {
             match mutation {
                 Mutation::Create { object, kind } => self.create(*object, *kind)?,
+                Mutation::Replace { object, kind } => self.replace(*object, *kind)?,
                 Mutation::SetProperties { object, set, clear } => {
                     self.set_properties(*object, set, clear)?;
                 }

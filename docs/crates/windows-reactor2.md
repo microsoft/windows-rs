@@ -78,6 +78,13 @@ declaration directly against the existing retained object, so an isolated compon
 not rebuild or walk the parent declaration. The scope does not retain its last `Visual`; removal
 uses the same generic `Remove` and `Destroy` mutations as declarative reconciliation.
 
+An owned component root can change visual type without adding a permanent wrapper object.
+`Mutation::Replace` preserves the retained `ObjectId` while the backend replaces the native child
+at its current parent position. The runtime rejects replacement through structural or data
+relations, and adapters discard observations and events queued by the old native object. Changed
+effect cleanup runs after mutation validation but before native replacement; new setup runs after
+the replacement is applied.
+
 `ComponentHost` type-erases component state while preserving typed inputs, messages, callbacks, and
 factories. Different component types coexist as keyed roots under one retained `Grid`:
 
@@ -98,6 +105,10 @@ allocations and 313 bytes. The matching current Reactor benchmark measured about
 median and 202 us p95 with eight allocations and 752.5 bytes. A Reactor2 effect-bearing update
 measured about 0.8 us median and p95 with 12 allocations and 786 bytes, compared with about 163 us
 median and 180 us p95 with 11 allocations and 969.5 bytes.
+
+Changing the retained root type for one component among 16,384 scopes measured about 2.3 us median
+and p95, seven to eight allocations, and 392 bytes. The component host passes the known parent
+relation to the runtime, so this path does not scan the retained arena.
 
 Retained memory at the same scale was about 799 bytes per Reactor2 idle component and 1,048 bytes
 per effect-bearing component, including the retained object and recording adapter. Current Reactor
@@ -123,19 +134,22 @@ relations.
 | Backend-specific optimization | Proven with sparse moves, dense `ReplaceAll`, stable ListView data, and native observations |
 | Component lifecycle without another UI graph | Proven for heterogeneous keyed roots, inputs, messages, contexts, effects, references, tasks, timers, and retirement |
 | Compile-time success implies valid relation shape | Proven with typed builders and compile-fail tests |
-| Avoid generated-code growth | Proven; components add no generated control variants or backend cases |
+| Avoid generated-code growth | Proven; components add no generated control variants |
 | Material end-to-end improvement | Proven on live Grid, ListView, and TextBox workloads |
 
-The architecture should proceed. `ComponentHost` proves the required ownership and scheduling
-model, but its flat root collection is not the final application API. Heterogeneous component
-declarations still need to compose recursively inside ordinary control relations. Production
-integration should reuse the existing DispatcherQueue timer and Windows thread-pool services
-rather than the prototype's host threads.
+The retained/control architecture should continue in the prototype, but production migration is
+blocked on recursive component composition. `ComponentHost` proves the required ownership and
+scheduling model, but its flat root collection is not the final application API. Heterogeneous
+component declarations still need to compose recursively inside ordinary control relations
+without adding a retained wrapper or cached expanded view. Production integration should reuse the
+existing DispatcherQueue timer and Windows thread-pool services rather than the prototype's host
+threads.
 
 1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
    mirrored UI declaration tree.
 2. Every visual, structural, and data object remains in the same retained arena.
-3. Component updates use targeted subtree reconciliation; removal uses generic relation mutations.
+3. Component updates use targeted subtree reconciliation, including in-place owned-root
+   replacement; removal uses generic relation mutations.
 4. Native observations are applied before queued component messages and are never consumed by an
    unrelated subtree update.
 5. New lifecycle features must not add control-specific planner paths or generated component
@@ -309,6 +323,8 @@ be reconsidered only if it can remain native across the complete application rou
   declaration errors are rejected before retained or native mutation.
 - `ComponentHost` currently places heterogeneous keyed roots under one retained container.
   Recursive component declarations and nearest-ancestor context providers remain to be designed.
+- Component views currently return only `Visual`, so structural or data-rooted component scopes
+  are not represented.
 - Prototype timers and background work use cancellable host threads. Production integration must
   retain the current DispatcherQueue and Windows thread-pool implementations.
 - Virtualization and full native lifecycle behavior remain outside the thin slice.

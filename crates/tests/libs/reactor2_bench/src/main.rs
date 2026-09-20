@@ -100,6 +100,33 @@ impl reactor2::Component for BenchComponent {
     }
 }
 
+struct RootSwitch(bool);
+
+impl reactor2::Component for RootSwitch {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self(false)
+    }
+
+    fn update(&mut self, (): (), _context: &reactor2::ComponentContext<Self::Message>) {
+        self.0 = !self.0;
+    }
+
+    fn view(
+        &self,
+        _input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<Self::Message>,
+    ) -> reactor2::Visual {
+        if self.0 {
+            reactor2::Border::new().into()
+        } else {
+            reactor2::TextBlock::new("root").into()
+        }
+    }
+}
+
 #[derive(Default)]
 struct NullAdapter;
 
@@ -409,6 +436,30 @@ fn reactor2_component(count: usize, effect: bool, samples: usize, batch: usize) 
     }
 }
 
+fn reactor2_component_root_replace(count: usize, samples: usize, batch: usize) -> Row {
+    let mut adapter = reactor2::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let mut components = reactor2::ComponentHost::mount(
+        adapter,
+        (0..count).map(|index| reactor2::component::<RootSwitch>(index, ())),
+    )
+    .unwrap();
+    let sender = components
+        .sender::<RootSwitch>(&reactor2::Key::from(count / 2))
+        .unwrap();
+    let perf = measure(samples, batch, || {
+        assert!(sender.send(()));
+        black_box(components.drain(1).unwrap());
+    });
+    Row {
+        frontend: "reactor2",
+        workload: "component_replace",
+        objects: count,
+        perf,
+    }
+}
+
 fn reactor2_component_memory(count: usize, effect: bool) -> MemoryRow {
     let mut adapter = reactor2::RecordingAdapter::default();
     adapter.record_batches(false);
@@ -571,6 +622,7 @@ fn main() {
         ),
         reactor2_component(count, false, samples, batch),
         reactor2_component(count, true, samples, batch),
+        reactor2_component_root_replace(count, samples, batch),
         reactor2_context(count, false, samples),
         reactor2_context(count, true, samples),
     ];

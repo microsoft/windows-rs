@@ -31,6 +31,10 @@ pub enum Mutation {
         object: ObjectId,
         kind: ObjectType,
     },
+    Replace {
+        object: ObjectId,
+        kind: ObjectType,
+    },
     SetProperties {
         object: ObjectId,
         set: Rc<[Property]>,
@@ -110,6 +114,10 @@ impl EventDispatch {
             (EventValue::String(callback), EventPayload::String(value)) => callback.call(value),
         }
     }
+
+    pub(crate) fn object(&self) -> ObjectId {
+        self.object
+    }
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -182,6 +190,25 @@ impl RetainedGraph {
             RetainedRelationValue::One(child) => *child,
             _ => None,
         }
+    }
+
+    fn owner(&self, child: ObjectId) -> Option<(ObjectId, RelationId)> {
+        self.objects.iter().enumerate().find_map(|(index, slot)| {
+            let object = slot.object.as_ref()?;
+            object.relations.iter().find_map(|relation| {
+                let contains = match &relation.value {
+                    RetainedRelationValue::One(current) => *current == Some(child),
+                    RetainedRelationValue::Many(children) => children.contains(&child),
+                };
+                contains.then_some((
+                    ObjectId {
+                        index: index.try_into().unwrap(),
+                        generation: slot.generation,
+                    },
+                    relation.id,
+                ))
+            })
+        })
     }
 
     pub fn properties(&self, object: ObjectId) -> Option<&[Property]> {
@@ -517,11 +544,40 @@ impl<A: Adapter> Runtime<A> {
         object: ObjectId,
         root: impl Into<Visual>,
     ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        self.update_subtree_before_apply(object, root, || {})
+    }
+
+    pub(crate) fn update_subtree_before_apply(
+        &mut self,
+        object: ObjectId,
+        root: impl Into<Visual>,
+        before_apply: impl FnOnce(),
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        self.update_subtree_inner(object, root.into(), None, before_apply)
+    }
+
+    pub(crate) fn update_owned_subtree_before_apply(
+        &mut self,
+        parent: ObjectId,
+        relation: RelationId,
+        object: ObjectId,
+        root: impl Into<Visual>,
+        before_apply: impl FnOnce(),
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        self.update_subtree_inner(object, root.into(), Some((parent, relation)), before_apply)
+    }
+
+    fn update_subtree_inner(
+        &mut self,
+        object: ObjectId,
+        declaration: Visual,
+        owner: Option<(ObjectId, RelationId)>,
+        before_apply: impl FnOnce(),
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
         if self.poisoned {
             return Err(UpdateError::Poisoned);
         }
         self.mutations.clear();
-        let declaration = root.into();
         validate_declaration(&declaration.0).map_err(UpdateError::Graph)?;
         let previous = self
             .graph
@@ -529,10 +585,36 @@ impl<A: Adapter> Runtime<A> {
             .ok_or(UpdateError::Graph(GraphError::StaleObject(object)))?
             .kind;
         if previous != declaration.0.kind {
-            return Err(UpdateError::Graph(GraphError::RootTypeChanged {
-                previous,
-                next: declaration.0.kind,
-            }));
+            let owner = owner.or_else(|| self.graph.owner(object));
+            let Some((parent, relation)) = owner else {
+                return Err(UpdateError::Graph(GraphError::RootTypeChanged {
+                    previous,
+                    next: declaration.0.kind,
+                }));
+            };
+            let owns_object =
+                self.graph
+                    .relation(parent, relation)
+                    .is_some_and(|owned| match &owned.value {
+                        RetainedRelationValue::One(child) => *child == Some(object),
+                        RetainedRelationValue::Many(children) => children.contains(&object),
+                    });
+            if !owns_object {
+                return Err(UpdateError::Graph(GraphError::MissingChild(
+                    relation, object,
+                )));
+            }
+            let contract = relation_contracts(self.graph.kind(parent).unwrap())
+                .iter()
+                .find(|contract| contract.id == relation)
+                .unwrap();
+            if contract.realization != Realization::Owned
+                || contract.child != object_category(declaration.0.kind)
+            {
+                return Err(UpdateError::Graph(GraphError::InvalidChildCategory(
+                    relation,
+                )));
+            }
         }
         let mut remaining = MAX_OBJECTS;
         if self
@@ -540,6 +622,7 @@ impl<A: Adapter> Runtime<A> {
             .matches_subtree_declaration(object, &declaration.0, &mut remaining)
             .map_err(UpdateError::Graph)?
         {
+            before_apply();
             return Ok(Vec::new());
         }
         {
@@ -547,9 +630,15 @@ impl<A: Adapter> Runtime<A> {
                 retained: &mut self.graph,
                 mutations: &mut self.mutations,
             };
-            planner
-                .reconcile_object(object, &declaration.0)
-                .map_err(UpdateError::Graph)?;
+            if previous == declaration.0.kind {
+                planner
+                    .reconcile_object(object, &declaration.0)
+                    .map_err(UpdateError::Graph)?;
+            } else {
+                planner
+                    .replace_object(object, &declaration.0)
+                    .map_err(UpdateError::Graph)?;
+            }
         }
         if let Err(error) = self.adapter.validate(&self.mutations) {
             self.poisoned = true;
@@ -557,6 +646,7 @@ impl<A: Adapter> Runtime<A> {
             self.mutations.clear();
             return Err(UpdateError::Adapter(error));
         }
+        before_apply();
         if let Err(error) = self.adapter.apply(&self.mutations) {
             self.poisoned = true;
             self.graph = RetainedGraph::default();
@@ -644,6 +734,77 @@ struct Planner<'a> {
 }
 
 impl Planner<'_> {
+    fn replace_object(
+        &mut self,
+        object: ObjectId,
+        declaration: &Declaration,
+    ) -> Result<(), GraphError> {
+        let previous = std::mem::take(&mut self.retained.get_mut(object).relations);
+        for relation in previous {
+            match relation.value {
+                RetainedRelationValue::One(Some(child)) => {
+                    self.mutations.push(Mutation::Detach {
+                        parent: object,
+                        relation: relation.id,
+                        child,
+                    });
+                    self.retire(child);
+                }
+                RetainedRelationValue::Many(children) => {
+                    for (index, child) in children.into_iter().enumerate().rev() {
+                        self.mutations.push(Mutation::Remove {
+                            parent: object,
+                            relation: relation.id,
+                            child,
+                            index,
+                        });
+                        self.retire(child);
+                    }
+                }
+                RetainedRelationValue::One(None) => {}
+            }
+        }
+        let key = self.retained.get_mut(object).key.take();
+        *self.retained.get_mut(object) = RetainedObject {
+            kind: declaration.kind,
+            key,
+            properties: declaration.properties.clone(),
+            events: retain_events(&declaration.events),
+            relations: relation_contracts(declaration.kind)
+                .iter()
+                .map(|contract| RetainedRelation {
+                    id: contract.id,
+                    value: match contract.cardinality {
+                        Cardinality::One => RetainedRelationValue::One(None),
+                        Cardinality::Many => RetainedRelationValue::Many(Vec::new()),
+                    },
+                })
+                .collect(),
+        };
+        self.mutations.push(Mutation::Replace {
+            object,
+            kind: declaration.kind,
+        });
+        if !declaration.properties.as_slice().is_empty() {
+            self.mutations.push(Mutation::SetProperties {
+                object,
+                set: Rc::from(declaration.properties.as_slice()),
+                clear: Rc::from([]),
+            });
+        }
+        if !declaration.events.as_slice().is_empty() {
+            self.mutations.push(Mutation::SetEvents {
+                object,
+                set: Rc::from(declaration.events.as_slice()),
+                clear: Rc::from([]),
+            });
+        }
+        for contract in relation_contracts(declaration.kind) {
+            self.mount_relation(object, declaration, contract)?;
+        }
+        Ok(())
+    }
+
     fn mount(&mut self, declaration: &Declaration) -> Result<ObjectId, GraphError> {
         let object = self.retained.allocate(RetainedObject {
             kind: declaration.kind,

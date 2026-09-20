@@ -359,6 +359,13 @@ struct EffectDraft {
     registrations: Vec<EffectRegistration>,
 }
 
+struct PreparedEffects(Vec<PreparedEffect>);
+
+enum PreparedEffect {
+    Retained(EffectSlot),
+    Setup(EffectRegistration),
+}
+
 impl EffectDraft {
     fn register<D>(
         &mut self,
@@ -388,8 +395,9 @@ impl EffectDraft {
         });
     }
 
-    fn commit(self, slots: &mut Vec<EffectSlot>) {
+    fn prepare(self, slots: &mut Vec<EffectSlot>) -> PreparedEffects {
         let mut previous = std::mem::take(slots);
+        let mut prepared = Vec::with_capacity(self.registrations.len());
         for registration in self.registrations {
             let retained = previous
                 .iter()
@@ -402,7 +410,7 @@ impl EffectDraft {
                     .then(|| previous.remove(index))
                 });
             if let Some(slot) = retained {
-                slots.push(slot);
+                prepared.push(PreparedEffect::Retained(slot));
             } else {
                 if let Some(index) = previous
                     .iter()
@@ -411,16 +419,42 @@ impl EffectDraft {
                 {
                     cleanup();
                 }
-                slots.push(EffectSlot {
-                    cleanup: (registration.setup)(),
-                    dependency: registration.dependency,
-                    equals: registration.equals,
-                    key: registration.key,
-                });
+                prepared.push(PreparedEffect::Setup(registration));
             }
         }
         for slot in previous.iter_mut().rev() {
             if let Some(cleanup) = slot.cleanup.take() {
+                cleanup();
+            }
+        }
+        PreparedEffects(prepared)
+    }
+
+    fn commit(self, slots: &mut Vec<EffectSlot>) {
+        self.prepare(slots).commit(slots);
+    }
+}
+
+impl PreparedEffects {
+    fn commit(self, slots: &mut Vec<EffectSlot>) {
+        for effect in self.0 {
+            match effect {
+                PreparedEffect::Retained(slot) => slots.push(slot),
+                PreparedEffect::Setup(registration) => slots.push(EffectSlot {
+                    cleanup: (registration.setup)(),
+                    dependency: registration.dependency,
+                    equals: registration.equals,
+                    key: registration.key,
+                }),
+            }
+        }
+    }
+
+    fn cancel(self) {
+        for effect in self.0 {
+            if let PreparedEffect::Retained(mut slot) = effect
+                && let Some(cleanup) = slot.cleanup.take()
+            {
                 cleanup();
             }
         }
@@ -872,12 +906,32 @@ impl<A: Adapter> ComponentHost<A> {
             return Ok(Vec::new());
         };
         let root = scope.root.unwrap();
-        let mutations = match self.runtime.update_subtree(root, view) {
+        let parent = self.runtime.graph().root().unwrap();
+        let mut effects = Some(effects);
+        let mut prepared = None;
+        let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
+        let slots = &mut scopes[id.index as usize].scope.as_mut().unwrap().effects;
+        let mutations = match runtime.update_owned_subtree_before_apply(
+            parent,
+            RelationId::Children,
+            root,
+            view,
+            || {
+                prepared = Some(effects.take().unwrap().prepare(slots));
+            },
+        ) {
             Ok(mutations) => mutations,
-            Err(error) => return Err(self.runtime_error(error)),
+            Err(error) => {
+                if let Some(prepared) = prepared {
+                    prepared.cancel();
+                }
+                return Err(self.runtime_error(error));
+            }
         };
-        let scope = self.scope_mut(id).unwrap();
-        effects.commit(&mut scope.effects);
+        self.refresh_reference(id);
+        prepared
+            .unwrap()
+            .commit(&mut self.scope_mut(id).unwrap().effects);
         self.replace_dependencies(id, dependencies);
         Ok(mutations)
     }
@@ -923,26 +977,37 @@ impl<A: Adapter> ComponentHost<A> {
                 .map_err(UpdateError::Graph)
                 .map_err(ComponentError::Runtime)?;
             let root = scope.root.unwrap();
-            let previous = self.runtime.graph().kind(root).unwrap();
-            if previous != view.0.kind {
-                return Err(ComponentError::Runtime(UpdateError::Graph(
-                    GraphError::RootTypeChanged {
-                        previous,
-                        next: view.0.kind,
-                    },
-                )));
-            }
             pending.push((id, root, view, effects, dependencies));
         }
         self.contexts = contexts;
         let mut report = ComponentDrain::default();
         for (id, root, view, effects, dependencies) in pending {
-            let mutations = match self.runtime.update_subtree(root, view) {
+            let parent = self.runtime.graph().root().unwrap();
+            let mut effects = Some(effects);
+            let mut prepared = None;
+            let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
+            let slots = &mut scopes[id.index as usize].scope.as_mut().unwrap().effects;
+            let mutations = match runtime.update_owned_subtree_before_apply(
+                parent,
+                RelationId::Children,
+                root,
+                view,
+                || {
+                    prepared = Some(effects.take().unwrap().prepare(slots));
+                },
+            ) {
                 Ok(mutations) => mutations,
-                Err(error) => return Err(self.runtime_error(error)),
+                Err(error) => {
+                    if let Some(prepared) = prepared {
+                        prepared.cancel();
+                    }
+                    return Err(self.runtime_error(error));
+                }
             };
-            let scope = self.scope_mut(id).unwrap();
-            effects.commit(&mut scope.effects);
+            self.refresh_reference(id);
+            prepared
+                .unwrap()
+                .commit(&mut self.scope_mut(id).unwrap().effects);
             self.replace_dependencies(id, dependencies);
             report.dispatched += 1;
             report.mutations += mutations.len();
@@ -987,12 +1052,36 @@ impl<A: Adapter> ComponentHost<A> {
                 .dispatch(message.value, reference, &contexts)
                 .map_err(ComponentError::DuplicateEffect)?;
             let root = scope.root.unwrap();
-            let mutations = match self.runtime.update_subtree(root, view) {
+            let parent = self.runtime.graph().root().unwrap();
+            let mut effects = Some(effects);
+            let mut prepared = None;
+            let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
+            let slots = &mut scopes[message.component.index as usize]
+                .scope
+                .as_mut()
+                .unwrap()
+                .effects;
+            let mutations = match runtime.update_owned_subtree_before_apply(
+                parent,
+                RelationId::Children,
+                root,
+                view,
+                || {
+                    prepared = Some(effects.take().unwrap().prepare(slots));
+                },
+            ) {
                 Ok(mutations) => mutations,
-                Err(error) => return Err(self.runtime_error(error)),
+                Err(error) => {
+                    if let Some(prepared) = prepared {
+                        prepared.cancel();
+                    }
+                    return Err(self.runtime_error(error));
+                }
             };
-            let scope = self.scope_mut(message.component).unwrap();
-            effects.commit(&mut scope.effects);
+            self.refresh_reference(message.component);
+            prepared
+                .unwrap()
+                .commit(&mut self.scope_mut(message.component).unwrap().effects);
             self.replace_dependencies(message.component, dependencies);
             report.dispatched += 1;
             report.mutations += mutations.len();
@@ -1124,6 +1213,11 @@ impl<A: Adapter> ComponentHost<A> {
                 .insert(id);
         }
     }
+
+    fn refresh_reference(&mut self, id: ComponentId) {
+        let root = self.scope(id).unwrap().root.unwrap();
+        self.scope_mut(id).unwrap().reference.set(Some(root));
+    }
 }
 
 fn cleanup_effects(effects: &mut [EffectSlot]) {
@@ -1137,6 +1231,7 @@ fn cleanup_effects(effects: &mut [EffectSlot]) {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::cell::RefCell;
     use std::sync::atomic::{AtomicUsize, Ordering};
 
     #[derive(Clone)]
@@ -1338,6 +1433,89 @@ mod tests {
         }
     }
 
+    #[derive(Clone)]
+    struct RootSwitchEffects(Rc<RefCell<Vec<(&'static str, Option<ObjectId>)>>>);
+
+    impl PartialEq for RootSwitchEffects {
+        fn eq(&self, other: &Self) -> bool {
+            Rc::ptr_eq(&self.0, &other.0)
+        }
+    }
+
+    struct EffectRootSwitch(bool);
+
+    impl Component for EffectRootSwitch {
+        type Input = RootSwitchEffects;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self(false)
+        }
+
+        fn update(&mut self, (): (), _context: &ComponentContext<Self::Message>) {
+            self.0 = true;
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            let events = Rc::clone(&input.0);
+            let reference = context.root();
+            context.use_effect("root", self.0, move || {
+                events.borrow_mut().push(("setup", reference.get()));
+                Some(Box::new(move || {
+                    events.borrow_mut().push(("cleanup", reference.get()));
+                }))
+            });
+            if self.0 {
+                Border::new().into()
+            } else {
+                TextBlock::new("Stable").into()
+            }
+        }
+    }
+
+    struct InvalidEffectUpdate(bool);
+
+    impl Component for InvalidEffectUpdate {
+        type Input = RootSwitchEffects;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self(false)
+        }
+
+        fn update(&mut self, (): (), _context: &ComponentContext<Self::Message>) {
+            self.0 = true;
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            let events = Rc::clone(&input.0);
+            context.use_effect("root", self.0, move || {
+                events.borrow_mut().push(("setup", None));
+                Some(Box::new(move || {
+                    events.borrow_mut().push(("cleanup", None));
+                }))
+            });
+            if self.0 {
+                Grid::new()
+                    .children([
+                        keyed("duplicate", TextBlock::new("First")),
+                        keyed("duplicate", TextBlock::new("Second")),
+                    ])
+                    .into()
+            } else {
+                TextBlock::new("Valid").into()
+            }
+        }
+    }
+
     #[test]
     fn heterogeneous_components_update_isolated_subtrees() {
         let cleanup = Arc::new(AtomicUsize::new(0));
@@ -1512,7 +1690,7 @@ mod tests {
     }
 
     #[test]
-    fn recoverable_component_error_does_not_invalidate_other_scopes() {
+    fn component_boundary_preserves_scope_across_root_type_changes() {
         let mut host = ComponentHost::mount(
             RecordingAdapter::default(),
             [
@@ -1523,20 +1701,93 @@ mod tests {
         .unwrap();
         let switch = host.sender::<RootSwitch>(&Key::from("switch")).unwrap();
         let label = host.sender::<Label>(&Key::from("label")).unwrap();
+        let switch_reference = host.reference(&Key::from("switch")).unwrap();
         let label_reference = host.reference(&Key::from("label")).unwrap();
+        let switch_root = switch_reference.get();
         let label_root = label_reference.get();
+        host.runtime_mut().adapter_mut().record_batches(true);
 
         assert!(switch.send(()));
-        assert!(matches!(
-            host.drain(1),
-            Err(ComponentError::Runtime(UpdateError::Graph(
-                GraphError::RootTypeChanged { .. }
-            )))
-        ));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(switch_reference.get(), switch_root);
         assert_eq!(label_reference.get(), label_root);
+        assert!(
+            host.runtime()
+                .adapter()
+                .batches()
+                .last()
+                .unwrap()
+                .iter()
+                .any(|mutation| matches!(
+                    mutation,
+                    Mutation::Replace {
+                        object,
+                        kind: ObjectType::Border
+                    } if Some(*object) == switch_root
+                ))
+        );
 
         assert!(label.send(()));
         assert_eq!(host.drain(1).unwrap().dispatched, 1);
         assert_eq!(label_reference.get(), label_root);
+    }
+
+    #[test]
+    fn root_effect_cleanup_precedes_replacement_and_setup_follows_it() {
+        let events = Rc::new(RefCell::new(Vec::new()));
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<EffectRootSwitch>(
+                "switch",
+                RootSwitchEffects(Rc::clone(&events)),
+            )],
+        )
+        .unwrap();
+        let sender = host
+            .sender::<EffectRootSwitch>(&Key::from("switch"))
+            .unwrap();
+        let reference = host.reference(&Key::from("switch")).unwrap();
+        let previous = reference.get();
+
+        assert!(sender.send(()));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        let next = reference.get();
+
+        assert_eq!(previous, next);
+        assert_eq!(
+            events.borrow().as_slice(),
+            [("setup", previous), ("cleanup", previous), ("setup", next)]
+        );
+    }
+
+    #[test]
+    fn invalid_update_preserves_active_effects() {
+        let events = Rc::new(RefCell::new(Vec::new()));
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<InvalidEffectUpdate>(
+                "invalid",
+                RootSwitchEffects(Rc::clone(&events)),
+            )],
+        )
+        .unwrap();
+        let sender = host
+            .sender::<InvalidEffectUpdate>(&Key::from("invalid"))
+            .unwrap();
+
+        assert!(sender.send(()));
+        assert!(matches!(
+            host.drain(1),
+            Err(ComponentError::Runtime(UpdateError::Graph(
+                GraphError::DuplicateKey(_)
+            )))
+        ));
+        assert_eq!(events.borrow().as_slice(), [("setup", None)]);
+
+        drop(host);
+        assert_eq!(
+            events.borrow().as_slice(),
+            [("setup", None), ("cleanup", None)]
+        );
     }
 }

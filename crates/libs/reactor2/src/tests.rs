@@ -461,6 +461,124 @@ fn subtree_update_reconciles_only_the_target_object() {
 }
 
 #[test]
+fn subtree_root_type_replacement_preserves_identity() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([keyed("child", TextBlock::new("Text"))]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let child = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+
+    let mutations = runtime.update_subtree(child, Border::new()).unwrap();
+
+    assert_eq!(
+        mutations,
+        vec![Mutation::Replace {
+            object: child,
+            kind: ObjectType::Border,
+        }]
+    );
+    assert_eq!(runtime.graph().kind(child), Some(ObjectType::Border));
+    assert_eq!(
+        runtime
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap(),
+        [child]
+    );
+}
+
+#[test]
+fn subtree_root_type_replacement_rejects_incompatible_relations() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TreeView::new().nodes([TreeNode::new("node", "Node")]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let node = runtime.graph().children(root, RelationId::Roots).unwrap()[0];
+
+    assert_eq!(
+        runtime.update_subtree(node, TextBlock::new("Invalid")),
+        Err(UpdateError::Graph(GraphError::InvalidChildCategory(
+            RelationId::Roots
+        )))
+    );
+    assert_eq!(runtime.graph().kind(node), Some(ObjectType::TreeNode));
+}
+
+#[test]
+fn recording_adapter_rejects_invalid_replacement_batches() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(TextBlock::new("Root")).unwrap();
+    let root = runtime.graph().root().unwrap();
+    assert_eq!(
+        runtime.adapter_mut().apply(&[Mutation::Replace {
+            object: root,
+            kind: ObjectType::Border,
+        }]),
+        Err(AdapterError::InvalidReplacement(root))
+    );
+
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TreeView::new().nodes([TreeNode::new("node", "Node")]))
+        .unwrap();
+    let tree = runtime.graph().root().unwrap();
+    let node = runtime.graph().children(tree, RelationId::Roots).unwrap()[0];
+    assert_eq!(
+        runtime.adapter_mut().apply(&[Mutation::Replace {
+            object: node,
+            kind: ObjectType::TextBlock,
+        }]),
+        Err(AdapterError::InvalidReplacement(node))
+    );
+}
+
+#[test]
+fn replacement_discards_observations_and_events_from_the_old_native_object() {
+    let calls = Rc::new(Cell::new(0));
+    let callback_calls = Rc::clone(&calls);
+    let callback = Callback::new(move |_| callback_calls.set(callback_calls.get() + 1));
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([keyed(
+            "child",
+            TextBox::new("Old").on_text_changed_callback(callback.clone()),
+        )]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let child = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: child,
+        property: Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Stale")),
+        },
+    });
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        child,
+        EventId::TextChanged,
+        EventValue::String(callback),
+        EventPayload::String(Rc::from("Stale")),
+    ));
+
+    runtime.update_subtree(child, Border::new()).unwrap();
+    let mut events = Vec::new();
+    runtime.drain_events(&mut events).unwrap();
+
+    assert!(events.is_empty());
+    assert_eq!(calls.get(), 0);
+    assert_eq!(runtime.graph().kind(child), Some(ObjectType::Border));
+    assert!(runtime.graph().properties(child).unwrap().is_empty());
+}
+
+#[test]
 fn targeted_child_removal_preserves_sibling_identity() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime

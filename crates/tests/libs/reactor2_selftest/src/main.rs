@@ -21,6 +21,9 @@ impl PartialEq for Input {
 
 struct Fixture {
     app: AppProxy,
+    boundary_host: reactor2::ComponentHost<reactor2::native::WinUiAdapter>,
+    boundary_sender: reactor2::ComponentSender<()>,
+    boundary_window: reactor2::native::NativeWindow,
     runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     window: reactor2::native::NativeWindow,
     iteration: usize,
@@ -30,6 +33,39 @@ struct Fixture {
     text_changed_count: Rc<Cell<usize>>,
     replacement_text_changed: reactor2::Callback<Rc<str>>,
     replacement_text_changed_count: Rc<Cell<usize>>,
+}
+
+struct RootSwitch(bool);
+
+impl reactor2::Component for RootSwitch {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self(false)
+    }
+
+    fn update(
+        &mut self,
+        _message: Self::Message,
+        _context: &reactor2::ComponentContext<Self::Message>,
+    ) {
+        self.0 = !self.0;
+    }
+
+    fn view(
+        &self,
+        _input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        if self.0 {
+            reactor2::Border::new()
+                .content(reactor2::TextBlock::new("Border root"))
+                .into()
+        } else {
+            reactor2::TextBlock::new("Text root").into()
+        }
+    }
 }
 
 impl Fixture {
@@ -134,9 +170,64 @@ impl Component for Fixture {
             .unwrap();
         let root = runtime.graph().root().unwrap();
         let window = runtime.adapter().open_window(root).unwrap();
+        let boundary_host = reactor2::ComponentHost::mount(
+            reactor2::native::WinUiAdapter::default(),
+            [reactor2::component::<RootSwitch>("switch", ())],
+        )
+        .unwrap();
+        let boundary_sender = boundary_host
+            .sender::<RootSwitch>(&reactor2::Key::from("switch"))
+            .unwrap();
+        let boundary_root = boundary_host.runtime().graph().root().unwrap();
+        let boundary_window = boundary_host
+            .runtime()
+            .adapter()
+            .open_window(boundary_root)
+            .unwrap();
+        assert!(boundary_sender.send(()));
+        let stale_calls = Rc::new(Cell::new(0));
+        let stale_callback_calls = Rc::clone(&stale_calls);
+        let mut replacement_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        replacement_runtime
+            .update(reactor2::Grid::new().children([reactor2::keyed(
+                "replace",
+                reactor2::TextBox::new("Old").on_text_changed(move |_| {
+                    stale_callback_calls.set(stale_callback_calls.get() + 1);
+                }),
+            )]))
+            .unwrap();
+        let replacement_root = replacement_runtime.graph().root().unwrap();
+        let replacement_child = replacement_runtime
+            .graph()
+            .children(replacement_root, reactor2::RelationId::Children)
+            .unwrap()[0];
+        let replacement_window = replacement_runtime
+            .adapter()
+            .open_window(replacement_root)
+            .unwrap();
+        replacement_runtime
+            .adapter()
+            .simulate_text_input(replacement_child, "Stale", 0, 0)
+            .unwrap();
+        replacement_runtime
+            .update_subtree(replacement_child, reactor2::Border::new())
+            .unwrap();
+        let mut stale_events = Vec::new();
+        replacement_runtime.drain_events(&mut stale_events).unwrap();
+        assert!(stale_events.is_empty());
+        assert_eq!(stale_calls.get(), 0);
+        replacement_runtime
+            .adapter()
+            .validate_graph(replacement_runtime.graph())
+            .unwrap();
+        replacement_window.close().unwrap();
         Self::schedule(context);
         Self {
             app: input.app.clone(),
+            boundary_host,
+            boundary_sender,
+            boundary_window,
             runtime,
             window,
             iteration: 0,
@@ -154,6 +245,12 @@ impl Component for Fixture {
     }
 
     fn update(&mut self, _message: Self::Message, context: &ComponentContext<Self>) {
+        self.boundary_host.drain(usize::MAX).unwrap();
+        self.boundary_host
+            .runtime()
+            .adapter()
+            .validate_graph(self.boundary_host.runtime().graph())
+            .unwrap();
         let mut events = Vec::new();
         self.runtime.drain_events(&mut events).unwrap();
         for event in events {
@@ -244,9 +341,11 @@ impl Component for Fixture {
             .validate_graph(self.runtime.graph())
             .unwrap();
         if self.iteration == 100 {
+            self.boundary_window.close().unwrap();
             self.window.close().unwrap();
             self.app.exit().unwrap();
         } else {
+            assert!(self.boundary_sender.send(()));
             Self::schedule(context);
         }
     }

@@ -34,6 +34,7 @@ pub enum AdapterError {
     InvalidRelation(ObjectId, RelationId),
     InvalidMutation(RelationId),
     InvalidChildCategory(RelationId),
+    InvalidReplacement(ObjectId),
     ChildNotFound(ObjectId),
     AlreadyOwned(ObjectId),
     StillOwned(ObjectId),
@@ -90,30 +91,48 @@ impl RecordingAdapter {
                     if self.objects.contains_key(object) {
                         return Err(AdapterError::DuplicateObject(*object));
                     }
-                    self.objects.insert(
-                        *object,
-                        RecordedObject {
-                            kind: *kind,
-                            properties: Rc::from([]),
-                            events: Rc::from([]),
-                            relations: Rc::new(
-                                relation_contracts(*kind)
-                                    .iter()
-                                    .map(|contract| {
-                                        (
-                                            contract.id,
-                                            match contract.cardinality {
-                                                Cardinality::One => RecordedRelation::One(None),
-                                                Cardinality::Many => {
-                                                    RecordedRelation::Many(Vec::new())
-                                                }
-                                            },
-                                        )
-                                    })
-                                    .collect(),
-                            ),
-                        },
-                    );
+                    self.objects.insert(*object, Self::recorded_object(*kind));
+                }
+                Mutation::Replace { object, kind } => {
+                    let previous = self
+                        .objects
+                        .get(object)
+                        .ok_or(AdapterError::MissingObject(*object))?;
+                    if previous.relations.values().any(|relation| match relation {
+                        RecordedRelation::One(child) => child.is_some(),
+                        RecordedRelation::Many(children) => !children.is_empty(),
+                    }) {
+                        return Err(AdapterError::StillOwned(*object));
+                    }
+                    let (parent, relation) = self
+                        .owners
+                        .get(object)
+                        .copied()
+                        .ok_or(AdapterError::InvalidReplacement(*object))?;
+                    let parent_object = self
+                        .objects
+                        .get(&parent)
+                        .ok_or(AdapterError::MissingObject(parent))?;
+                    let contract = relation_contracts(parent_object.kind)
+                        .iter()
+                        .find(|contract| contract.id == relation)
+                        .ok_or(AdapterError::InvalidRelation(parent, relation))?;
+                    if contract.realization != Realization::Owned
+                        || contract.child != object_category(*kind)
+                    {
+                        return Err(AdapterError::InvalidReplacement(*object));
+                    }
+                    self.objects.insert(*object, Self::recorded_object(*kind));
+                    self.observations.retain(|observation| {
+                        !matches!(
+                            observation,
+                            Observation::SetProperty {
+                                object: observed,
+                                ..
+                            } if observed == object
+                        )
+                    });
+                    self.events.retain(|event| event.object() != *object);
                 }
                 Mutation::SetProperties { object, set, clear } => {
                     let object = self.object_mut(*object)?;
@@ -286,6 +305,28 @@ impl RecordingAdapter {
             Ok(())
         } else {
             Err(AdapterError::InvalidChildCategory(relation))
+        }
+    }
+
+    fn recorded_object(kind: ObjectType) -> RecordedObject {
+        RecordedObject {
+            kind,
+            properties: Rc::from([]),
+            events: Rc::from([]),
+            relations: Rc::new(
+                relation_contracts(kind)
+                    .iter()
+                    .map(|contract| {
+                        (
+                            contract.id,
+                            match contract.cardinality {
+                                Cardinality::One => RecordedRelation::One(None),
+                                Cardinality::Many => RecordedRelation::Many(Vec::new()),
+                            },
+                        )
+                    })
+                    .collect(),
+            ),
         }
     }
 
