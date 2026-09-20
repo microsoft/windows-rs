@@ -194,6 +194,51 @@ impl GeneratedHandle {
             _ => None,
         }
     }
+    fn set_attached_property(
+        element: &native::UIElement,
+        property: PropertyId,
+        value: Option<&PropertyValue>,
+    ) -> Option<Result<(), WinUiError>> {
+        match (property, value) {
+            (PropertyId::CanvasLeft, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Canvas::SetLeft(&element, *value).map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::CanvasLeft, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Canvas::LeftProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::CanvasTop, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Canvas::SetTop(&element, *value).map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::CanvasTop, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Canvas::TopProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            _ => None,
+        }
+    }
     fn set_property(
         &self,
         property: PropertyId,

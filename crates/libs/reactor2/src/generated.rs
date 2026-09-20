@@ -18,6 +18,8 @@ pub enum ObjectType {
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum PropertyId {
+    CanvasLeft,
+    CanvasTop,
     Expanded,
     IsChecked,
     Maximum,
@@ -142,22 +144,87 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
 }
 pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     match kind {
-        ObjectType::TextBlock => &[PropertyContract {
-            id: PropertyId::Text,
-            value: ValueType::String,
-        }],
-        ObjectType::TextBox => &[PropertyContract {
-            id: PropertyId::Text,
-            value: ValueType::String,
-        }],
-        ObjectType::Button => &[],
-        ObjectType::CheckBox => &[PropertyContract {
-            id: PropertyId::IsChecked,
-            value: ValueType::OptionalBool,
-        }],
-        ObjectType::Border => &[],
-        ObjectType::Grid => &[],
+        ObjectType::TextBlock => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Text,
+                value: ValueType::String,
+            },
+        ],
+        ObjectType::TextBox => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Text,
+                value: ValueType::String,
+            },
+        ],
+        ObjectType::Button => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+        ],
+        ObjectType::CheckBox => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::IsChecked,
+                value: ValueType::OptionalBool,
+            },
+        ],
+        ObjectType::Border => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+        ],
+        ObjectType::Grid => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+        ],
         ObjectType::StackPanel => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
             PropertyContract {
                 id: PropertyId::Spacing,
                 value: ValueType::F64,
@@ -170,9 +237,35 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 },
             },
         ],
-        ObjectType::Canvas => &[],
-        ObjectType::ScrollViewer => &[],
+        ObjectType::Canvas => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+        ],
+        ObjectType::ScrollViewer => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+        ],
         ObjectType::Slider => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
             PropertyContract {
                 id: PropertyId::Minimum,
                 value: ValueType::F64,
@@ -186,7 +279,16 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
         ],
-        ObjectType::TreeView => &[],
+        ObjectType::TreeView => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+        ],
         ObjectType::TreeNode => &[
             PropertyContract {
                 id: PropertyId::Text,
@@ -197,7 +299,16 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::Bool,
             },
         ],
-        ObjectType::ListView => &[],
+        ObjectType::ListView => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+        ],
         ObjectType::DataItem => &[PropertyContract {
             id: PropertyId::Text,
             value: ValueType::String,

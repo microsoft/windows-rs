@@ -28,6 +28,18 @@ impl TextBlock {
             declaration.property(PropertyId::Text, PropertyValue::String(text.into()));
         Self(declaration)
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
 }
 impl From<TextBlock> for Visual {
     fn from(value: TextBlock) -> Self {
@@ -42,6 +54,18 @@ impl TextBox {
         let declaration =
             declaration.property(PropertyId::Text, PropertyValue::String(text.into()));
         Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
     }
     pub fn on_text_changed(self, callback: impl Fn(Rc<str>) + 'static) -> Self {
         self.on_text_changed_callback(Callback::new(callback))
@@ -64,6 +88,18 @@ impl Button {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::Button);
         Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
     }
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -110,6 +146,18 @@ impl CheckBox {
         );
         self
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -148,6 +196,18 @@ impl Border {
         let declaration = Declaration::new(ObjectType::Border);
         Self(declaration)
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -178,6 +238,18 @@ impl Grid {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::Grid);
         Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
     }
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -224,6 +296,18 @@ impl StackPanel {
             .property(PropertyId::Orientation, orientation.property_value());
         self
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -255,6 +339,18 @@ impl Canvas {
         let declaration = Declaration::new(ObjectType::Canvas);
         Self(declaration)
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -285,6 +381,18 @@ impl ScrollViewer {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::ScrollViewer);
         Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
     }
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -335,6 +443,18 @@ impl Slider {
             .property(PropertyId::Value, PropertyValue::F64(value));
         self
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
     pub fn on_value_changed(self, callback: impl Fn(f64) + 'static) -> Self {
         self.on_value_changed_callback(Callback::new(callback))
     }
@@ -361,6 +481,18 @@ impl TreeView {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::TreeView);
         Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
     }
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -435,6 +567,18 @@ impl ListView {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::ListView);
         Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
     }
     /// Rejects values outside this relation's generated type contract.
     ///

@@ -270,10 +270,12 @@ impl Component for Fixture {
                             .into(),
                         reactor2::ScrollViewer::new()
                             .content(
-                                reactor2::Canvas::new()
-                                    .children([
-                                        reactor2::TextBlock::new("Scrollable canvas").into()
-                                    ]),
+                                reactor2::Canvas::new().children([reactor2::TextBlock::new(
+                                    "Scrollable canvas",
+                                )
+                                .canvas_left(12.0)
+                                .canvas_top(24.0)
+                                .into()]),
                             )
                             .into(),
                     ]),
@@ -290,6 +292,15 @@ impl Component for Fixture {
             .unwrap();
         let slider = generated_children[0];
         let check_box = generated_children[1];
+        let scroll_viewer = generated_children[2];
+        let canvas = generated_runtime
+            .graph()
+            .child(scroll_viewer, reactor2::RelationId::Content)
+            .unwrap();
+        let canvas_child = generated_runtime
+            .graph()
+            .children(canvas, reactor2::RelationId::Children)
+            .unwrap()[0];
         assert_eq!(
             generated_runtime
                 .adapter()
@@ -306,6 +317,13 @@ impl Component for Fixture {
                 .adapter()
                 .check_box_state(check_box)
                 .unwrap()
+        );
+        assert_eq!(
+            generated_runtime
+                .adapter()
+                .canvas_position(canvas_child)
+                .unwrap(),
+            (12.0, 24.0)
         );
         generated_runtime
             .adapter()
@@ -370,6 +388,11 @@ impl Component for Fixture {
                 .check_box_state(check_box)
                 .unwrap()
         );
+        let cleared_position = generated_runtime
+            .adapter()
+            .canvas_position(canvas_child)
+            .unwrap();
+        assert_eq!(cleared_position, (0.0, 0.0));
         generated_window.close().unwrap();
         Self::schedule(context);
         Self {

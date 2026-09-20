@@ -493,7 +493,10 @@ fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
                         .into(),
                     ScrollViewer::new()
                         .content(
-                            Canvas::new().children([TextBlock::new("Scrollable canvas").into()]),
+                            Canvas::new().children([TextBlock::new("Scrollable canvas")
+                                .canvas_left(12.0)
+                                .canvas_top(24.0)
+                                .into()]),
                         )
                         .into(),
                 ]),
@@ -575,6 +578,27 @@ fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
             .len(),
         1
     );
+    let canvas_child = runtime
+        .graph()
+        .children(canvas, RelationId::Children)
+        .unwrap()[0];
+    assert_eq!(
+        runtime.graph().properties(canvas_child).unwrap(),
+        [
+            Property {
+                id: PropertyId::CanvasLeft,
+                value: PropertyValue::F64(12.0),
+            },
+            Property {
+                id: PropertyId::CanvasTop,
+                value: PropertyValue::F64(24.0),
+            },
+            Property {
+                id: PropertyId::Text,
+                value: PropertyValue::String(Rc::from("Scrollable canvas")),
+            },
+        ]
+    );
 
     let mutations = runtime
         .update(
@@ -589,7 +613,10 @@ fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
                         .into(),
                     ScrollViewer::new()
                         .content(
-                            Canvas::new().children([TextBlock::new("Scrollable canvas").into()]),
+                            Canvas::new().children([TextBlock::new("Scrollable canvas")
+                                .canvas_top(24.0)
+                                .canvas_left(12.0)
+                                .into()]),
                         )
                         .into(),
                 ]),
@@ -625,6 +652,21 @@ fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
     assert!(runtime.graph().properties(root).unwrap().is_empty());
     assert!(runtime.graph().properties(children[0]).unwrap().is_empty());
     assert!(runtime.graph().properties(children[1]).unwrap().is_empty());
+    let canvas = runtime
+        .graph()
+        .child(children[2], RelationId::Content)
+        .unwrap();
+    let canvas_child = runtime
+        .graph()
+        .children(canvas, RelationId::Children)
+        .unwrap()[0];
+    assert_eq!(
+        runtime.graph().properties(canvas_child).unwrap(),
+        [Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Scrollable canvas")),
+        }]
+    );
 }
 
 #[test]

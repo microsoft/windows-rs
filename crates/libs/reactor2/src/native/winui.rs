@@ -371,6 +371,16 @@ impl WinUiAdapter {
         ))
     }
 
+    pub fn canvas_position(&self, object: ObjectId) -> Result<(f64, f64), WinUiError> {
+        let element = self
+            .ui_element(object)?
+            .cast::<native::FrameworkElement>()?;
+        Ok((
+            native::Canvas::GetLeft(&element)?,
+            native::Canvas::GetTop(&element)?,
+        ))
+    }
+
     pub fn text_box_state(&self, object: ObjectId) -> Result<(String, i32, i32), WinUiError> {
         let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
@@ -504,6 +514,13 @@ impl WinUiAdapter {
         clear: &[PropertyId],
     ) -> Result<(), WinUiError> {
         for property in clear {
+            if let Ok(element) = self.ui_element(object)
+                && let Some(result) =
+                    GeneratedHandle::set_attached_property(&element, *property, None)
+            {
+                result?;
+                continue;
+            }
             if let Some(Handle::Generated(handle)) = self.handles.get(&object)
                 && let Some(result) = handle.set_property(*property, None)
             {
@@ -535,6 +552,16 @@ impl WinUiAdapter {
             }
         }
         for property in set {
+            if let Ok(element) = self.ui_element(object)
+                && let Some(result) = GeneratedHandle::set_attached_property(
+                    &element,
+                    property.id,
+                    Some(&property.value),
+                )
+            {
+                result?;
+                continue;
+            }
             if let Some(Handle::Generated(handle)) = self.handles.get(&object)
                 && let Some(result) = handle.set_property(property.id, Some(&property.value))
             {

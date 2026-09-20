@@ -15,7 +15,16 @@ const BINDINGS_OUTPUT: &str = "crates/libs/reactor2/src/native/bindings.rs";
 
 #[derive(Deserialize)]
 struct Schema {
+    #[serde(default)]
+    attached_properties: Vec<AttachedProperty>,
     objects: Vec<Object>,
+}
+
+#[derive(Deserialize)]
+struct AttachedProperty {
+    name: String,
+    owner: String,
+    value: String,
 }
 
 #[derive(Deserialize)]
@@ -109,6 +118,21 @@ fn validate(schema: &Schema) {
     let mut objects = BTreeSet::new();
     let mut property_types = BTreeMap::new();
     let categories = ["Visual", "Structural", "Data"];
+
+    for property in &schema.attached_properties {
+        assert_identifier(&property.name);
+        assert_identifier(&property.value);
+        assert!(
+            property.owner.rsplit_once('.').is_some(),
+            "invalid attached property owner"
+        );
+        assert!(
+            property_types
+                .insert(&property.name, &property.value)
+                .is_none(),
+            "duplicate attached property"
+        );
+    }
 
     for object in &schema.objects {
         assert_identifier(&object.name);
@@ -428,6 +452,37 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
     output.push_str("_ => None,\n} }\n");
 
     output.push_str(
+        "fn set_attached_property(element: &native::UIElement, property: PropertyId, \
+         value: Option<&PropertyValue>) -> Option<Result<(), WinUiError>> { match (property, value) {\n",
+    );
+    for property in &schema.attached_properties {
+        let owner = property.owner.rsplit('.').next().unwrap();
+        let name = property
+            .name
+            .strip_prefix(owner)
+            .unwrap_or_else(|| panic!("{} must start with {owner}", property.name));
+        let (variant, expression) = match property.value.as_str() {
+            "F64" => ("F64", "*value"),
+            _ => panic!("unsupported attached property value"),
+        };
+        output.push_str(&format!(
+            "(PropertyId::{}, Some(PropertyValue::{variant}(value))) => \
+             Some(element.cast::<native::FrameworkElement>().map_err(Into::into)\
+             .and_then(|element| native::{owner}::Set{name}(&element, {expression})\
+             .map_err(Into::into))),\n",
+            property.name
+        ));
+        output.push_str(&format!(
+            "(PropertyId::{}, None) => \
+             Some(element.cast::<native::IDependencyObject>().map_err(Into::into)\
+             .and_then(|element| native::{owner}::{name}Property().map_err(Into::into)\
+             .and_then(|property| element.ClearValue(&property).map_err(Into::into)))),\n",
+            property.name
+        ));
+    }
+    output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
         "fn set_property(&self, property: PropertyId, value: Option<&PropertyValue>) -> \
                      Option<Result<(), WinUiError>> { match (self, property, value) {\n",
     );
@@ -614,6 +669,20 @@ fn generate_bindings(
         output.push('\n');
     }
     let mut generated = BTreeSet::new();
+    if !schema.attached_properties.is_empty() {
+        generated.insert("Microsoft::UI::Xaml::IDependencyObject::ClearValue".to_string());
+    }
+    for property in &schema.attached_properties {
+        let owner = property.owner.rsplit('.').next().unwrap();
+        let name = property
+            .name
+            .strip_prefix(owner)
+            .unwrap_or_else(|| panic!("{} must start with {owner}", property.name));
+        let owner = binding_path(&property.owner);
+        generated.insert(format!("{owner}::Get{name}"));
+        generated.insert(format!("{owner}::Set{name}"));
+        generated.insert(format!("{owner}::{name}Property"));
+    }
     for object in schema
         .objects
         .iter()
@@ -774,6 +843,9 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
     let mut properties = BTreeMap::new();
     let mut relations = BTreeMap::new();
     let mut events = BTreeMap::new();
+    for property in &schema.attached_properties {
+        properties.insert(property.name.as_str(), property.value.as_str());
+    }
     for object in &schema.objects {
         for property in &object.properties {
             properties
@@ -860,6 +932,14 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
     );
     for object in &schema.objects {
         output.push_str(&format!("ObjectType::{} => &[", object.name));
+        if object.category == "Visual" {
+            for property in &schema.attached_properties {
+                output.push_str(&format!(
+                    "PropertyContract {{ id: PropertyId::{}, value: ValueType::{} }},",
+                    property.name, property.value
+                ));
+            }
+        }
         for property in &object.properties {
             let value = if is_builtin_value(&property.value) {
                 format!("ValueType::{}", property.value)
@@ -1004,6 +1084,20 @@ fn generate_declarations(
                 property.name,
                 property_value(property, &name)
             ));
+        }
+
+        if object.category == "Visual" {
+            for property in &schema.attached_properties {
+                let name = snake_case(&property.name);
+                output.push_str(&format!(
+                    "pub fn {name}(mut self, {name}: f64) -> Self {{\n"
+                ));
+                output.push_str(&format!(
+                    "self.0 = self.0.property(PropertyId::{}, \
+                     PropertyValue::F64({name}));\nself\n}}\n",
+                    property.name
+                ));
+            }
         }
 
         for relation in &object.relations {

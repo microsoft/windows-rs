@@ -1,3 +1,13 @@
+[[attached_properties]]
+name = "CanvasLeft"
+owner = "Microsoft.UI.Xaml.Controls.Canvas"
+value = "F64"
+
+[[attached_properties]]
+name = "CanvasTop"
+owner = "Microsoft.UI.Xaml.Controls.Canvas"
+value = "F64"
+
 [[objects]]
 name = "TextBlock"
 category = "Visual"

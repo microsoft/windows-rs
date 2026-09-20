@@ -60,14 +60,16 @@ to the planner or component lifecycle.
 The same schema now generates native realization for ordinary controls. The current set is
 TextBlock, Button, CheckBox, Border, Grid, StackPanel, Canvas, ScrollViewer, and Slider. It covers
 string, `f64`, nullable boxed `bool`, and metadata-derived enum properties; keyed and positional
-panel children; content ownership; and unit events. The generated `GeneratedHandle` owns native
-construction, object-kind and UIElement conversion, direct properties, panel children, content
-attachment, event subscription, and callback lookup. `tool-reactor2` verifies setter ABI shapes and
-resolves property, content, event, and enum information through the metadata resolver shared with
-`tool-reactor`; it also derives the binding filter needed by those generated paths. Generated
-mutable controls report native feedback into the retained graph even when no callback is installed.
-TextBox feedback, TreeView structural nodes, ListView container data, and templates remain focused
-handwritten adapter cases.
+panel children; content ownership; Canvas attached positioning; and unit events. Attached
+properties are ordinary retained properties on the child visual. The adapter applies them through
+the owning WinUI class and clears the dependency property when omitted. The generated
+`GeneratedHandle` owns native construction, object-kind and UIElement conversion, direct
+properties, panel children, content attachment, event subscription, and callback lookup.
+`tool-reactor2` verifies setter ABI shapes and resolves property, content, event, and enum
+information through the metadata resolver shared with `tool-reactor`; it also derives the binding
+filter needed by those generated paths. Generated mutable controls report native feedback into the
+retained graph even when no callback is installed. TextBox feedback, TreeView structural nodes,
+ListView container data, and templates remain focused handwritten adapter cases.
 
 ## Public API shape
 
@@ -77,6 +79,7 @@ The declaration API exposes one typed path for each generated contract:
 | --- | --- |
 | Authoritative scalar value | Required constructor input |
 | Optional scalar or event | Builder method; omission removes it |
+| Attached visual property | Builder method on every visual; omission clears the dependency value |
 | Optional owned child | Builder method; omission represents no child |
 | Positional visual relation | Iterator of `Visual` |
 | Keyed visual relation | Iterator of `KeyedVisual` created by `keyed` |

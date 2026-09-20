@@ -149,10 +149,91 @@ impl Canvas {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn LeftProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ICanvasStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LeftProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetLeft<P0>(element: P0) -> windows_core::Result<f64>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::ICanvasStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetLeft)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetLeft<P0>(element: P0, length: f64) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::ICanvasStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetLeft)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                length,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn TopProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ICanvasStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TopProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetTop<P0>(element: P0) -> windows_core::Result<f64>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::ICanvasStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetTop)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetTop<P0>(element: P0, length: f64) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::ICanvasStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetTop)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                length,
+            )
+            .ok()
+        })
+    }
     fn ICanvasFactory<R, F: FnOnce(&ICanvasFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Canvas, ICanvasFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ICanvasStatics<R, F: FnOnce(&ICanvasStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Canvas, ICanvasStatics> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -351,6 +432,33 @@ impl windows_core::RuntimeName for DependencyObject {
 }
 unsafe impl Send for DependencyObject {}
 unsafe impl Sync for DependencyObject {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DependencyProperty(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DependencyProperty,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for DependencyProperty {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDependencyProperty>();
+}
+unsafe impl windows_core::Interface for DependencyProperty {
+    type Vtable = <IDependencyProperty as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDependencyProperty as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DependencyProperty {
+    type Target = IDependencyProperty;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DependencyProperty {
+    const NAME: &'static str = "Microsoft.UI.Xaml.DependencyProperty";
+}
+unsafe impl Send for DependencyProperty {}
+unsafe impl Sync for DependencyProperty {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DispatcherQueue(windows_core::IUnknown);
@@ -764,6 +872,47 @@ pub struct ICanvasFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ICanvasStatics,
+    ICanvasStatics_Vtbl,
+    0xc00d5e0f_77e3_5c59_8fcd_86761f0c6607
+);
+impl windows_core::RuntimeType for ICanvasStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICanvasStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LeftProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetLeft: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut f64,
+    ) -> windows_core::HRESULT,
+    pub SetLeft: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        f64,
+    ) -> windows_core::HRESULT,
+    pub TopProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetTop: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut f64,
+    ) -> windows_core::HRESULT,
+    pub SetTop: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        f64,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ICheckBox,
     ICheckBox_Vtbl,
     0xc5830000_4c9d_5fdd_9346_674c71cd80c5
@@ -862,8 +1011,41 @@ impl windows_core::RuntimeType for IDependencyObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IDependencyObject {
+    pub(crate) fn ClearValue<P0>(&self, dp: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyProperty>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearValue)(
+                windows_core::Interface::as_raw(self),
+                dp.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
 #[repr(C)]
 pub struct IDependencyObject_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    GetValue: usize,
+    SetValue: usize,
+    pub ClearValue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDependencyProperty,
+    IDependencyProperty_Vtbl,
+    0x960eab49_9672_58a0_995b_3a42e5ea6278
+);
+impl windows_core::RuntimeType for IDependencyProperty {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDependencyProperty_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(

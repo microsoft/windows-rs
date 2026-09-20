@@ -29,6 +29,12 @@ Microsoft::UI::Xaml::Markup::XamlReader::Load
 Microsoft::UI::Xaml::Controls::Border::CreateInstance
 Microsoft::UI::Xaml::Controls::Button::CreateInstance
 Microsoft::UI::Xaml::Controls::Canvas::CreateInstance
+Microsoft::UI::Xaml::Controls::Canvas::GetLeft
+Microsoft::UI::Xaml::Controls::Canvas::GetTop
+Microsoft::UI::Xaml::Controls::Canvas::LeftProperty
+Microsoft::UI::Xaml::Controls::Canvas::SetLeft
+Microsoft::UI::Xaml::Controls::Canvas::SetTop
+Microsoft::UI::Xaml::Controls::Canvas::TopProperty
 Microsoft::UI::Xaml::Controls::CheckBox::CreateInstance
 Microsoft::UI::Xaml::Controls::Grid::CreateInstance
 Microsoft::UI::Xaml::Controls::IBorder::put_Child
@@ -57,3 +63,4 @@ Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
 Microsoft::UI::Xaml::Controls::Slider::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::TextBlock::CreateInstance
+Microsoft::UI::Xaml::IDependencyObject::ClearValue
