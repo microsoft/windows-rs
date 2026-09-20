@@ -45,6 +45,12 @@ TreeView's item template and safe collection synchronization remain private to t
 `test-reactor2-selftest` executable opens a real Reactor2 window, repeatedly reorders realized
 TreeView nodes with custom visual content, and exercises controlled TextBox input.
 
+`reactor2-solitaire` is the first application-shaped sample. Its game state, component messages,
+declarations, reconciliation, TextBox events, and game window use Reactor2. It uses the current
+Reactor application host only to initialize and keep the WinUI dispatcher alive because Reactor2
+does not yet provide a standalone application bootstrap. The sample uses a text board until the
+button, pointer, layout, and styling slices needed by the visual Solitaire sample are projected.
+
 ## Public API shape
 
 The declaration API exposes one typed path for each generated contract:
@@ -196,6 +202,7 @@ cargo clippy -p windows-reactor2 -p tool-reactor2 -p test-reactor2-bench \
     --all-targets -- -D warnings
 cargo run -p test-reactor2-bench --release --quiet
 cargo run -p test-reactor2-selftest --quiet
+cargo run -p reactor2-solitaire
 cargo run -p test-reactor-bench --bin reactor-live-compare --release --quiet -- \
     --frontend reactor2 --workload text --count 512 --updates 120
 ```

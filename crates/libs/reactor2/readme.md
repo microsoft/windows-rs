@@ -13,4 +13,7 @@ heterogeneous component state updates that reconcile one retained subtree direct
 contexts, effects, references, generation-checked asynchronous delivery, and component root-type
 replacement without a retained wrapper object.
 
+The `reactor2-solitaire` sample provides a runnable application-shaped slice using a real Reactor2
+window and controlled TextBox commands.
+
 This crate is not a supported replacement for `windows-reactor`.
