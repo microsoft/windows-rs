@@ -126,6 +126,24 @@ impl TextBlock {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
 }
 impl From<TextBlock> for Visual {
     fn from(value: TextBlock) -> Self {
@@ -151,6 +169,24 @@ impl TextBox {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
         self
     }
     pub fn on_text_changed(self, callback: impl Fn(Rc<str>) + 'static) -> Self {
@@ -225,6 +261,24 @@ impl Button {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -280,6 +334,24 @@ impl CheckBox {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
         self
     }
     /// Rejects values outside this relation's generated type contract.
@@ -402,6 +474,24 @@ impl Border {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -415,13 +505,14 @@ impl Border {
         );
         self
     }
-    pub fn on_pointer_released(self, callback: impl Fn() + 'static) -> Self {
-        self.on_pointer_released_callback(Callback::new(move |()| callback()))
+    pub fn on_pointer_released(self, callback: impl Fn(PointerEventInfo) + 'static) -> Self {
+        self.on_pointer_released_callback(Callback::new(callback))
     }
-    pub fn on_pointer_released_callback(mut self, callback: Callback<()>) -> Self {
-        self.0 = self
-            .0
-            .event(EventId::PointerReleased, EventValue::Unit(callback));
+    pub fn on_pointer_released_callback(mut self, callback: Callback<PointerEventInfo>) -> Self {
+        self.0 = self.0.event(
+            EventId::PointerReleased,
+            EventValue::PointerEventInfo(callback),
+        );
         self
     }
 }
@@ -471,6 +562,24 @@ impl Grid {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
         self
     }
     /// Rejects values outside this relation's generated type contract.
@@ -536,6 +645,24 @@ impl StackPanel {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -579,6 +706,24 @@ impl Canvas {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
     /// Rejects values outside this relation's generated type contract.
     ///
     /// ```compile_fail
@@ -620,6 +765,24 @@ impl ScrollViewer {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
         self
     }
     /// Rejects values outside this relation's generated type contract.
@@ -669,6 +832,24 @@ impl Viewbox {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
         self
     }
     /// Rejects values outside this relation's generated type contract.
@@ -726,6 +907,24 @@ impl TitleBar {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
 }
 impl Default for TitleBar {
     fn default() -> Self {
@@ -774,6 +973,24 @@ impl Slider {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
     pub fn on_value_changed(self, callback: impl Fn(f64) + 'static) -> Self {
         self.on_value_changed_callback(Callback::new(callback))
     }
@@ -811,6 +1028,24 @@ impl TreeView {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
         self
     }
     /// Rejects values outside this relation's generated type contract.
@@ -907,6 +1142,24 @@ impl ListView {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
         self
     }
     /// Rejects values outside this relation's generated type contract.

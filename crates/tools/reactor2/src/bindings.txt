@@ -90,6 +90,12 @@ extras::WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR
 extras::WINDOWSAPPSDK_RUNTIME_VERSION_MINOR
 extras::WINDOWSAPPSDK_RUNTIME_VERSION_BUILD
 extras::WINDOWSAPPSDK_RUNTIME_VERSION_REVISION
+Microsoft::UI::Input::IPointerPoint::get_PointerId
+Microsoft::UI::Input::IPointerPoint::get_Position
+Microsoft::UI::Input::IPointerPoint::get_Properties
+Microsoft::UI::Input::IPointerPointProperties::get_IsLeftButtonPressed
+Microsoft::UI::Input::IPointerPointProperties::get_IsMiddleButtonPressed
+Microsoft::UI::Input::IPointerPointProperties::get_IsRightButtonPressed
 Microsoft::UI::Xaml::Controls::Border::CreateInstance
 Microsoft::UI::Xaml::Controls::Button::CreateInstance
 Microsoft::UI::Xaml::Controls::Canvas::CreateInstance
@@ -164,6 +170,14 @@ Microsoft::UI::Xaml::IFrameworkElement::put_VerticalAlignment
 Microsoft::UI::Xaml::IFrameworkElement::put_Width
 Microsoft::UI::Xaml::IUIElement::add_PointerReleased
 Microsoft::UI::Xaml::IUIElement::get_Opacity
+Microsoft::UI::Xaml::IUIElement::get_PointerCaptures
 Microsoft::UI::Xaml::IUIElement::put_Opacity
+Microsoft::UI::Xaml::IUIElement::put_Transitions
 Microsoft::UI::Xaml::IUIElement::remove_PointerReleased
+Microsoft::UI::Xaml::IUIElementStatics::get_TransitionsProperty
+Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::GetCurrentPoint
+Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_Pointer
+Microsoft::UI::Xaml::Media::Animation::RepositionThemeTransition::CreateInstance
+Microsoft::UI::Xaml::Media::Animation::Transition::{}
+Microsoft::UI::Xaml::Media::Animation::TransitionCollection::CreateInstance
 Microsoft::UI::Xaml::VerticalAlignment

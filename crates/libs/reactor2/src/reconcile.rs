@@ -113,6 +113,9 @@ impl EventDispatch {
         match (self.callback, self.payload) {
             (EventValue::String(callback), EventPayload::String(value)) => callback.call(value),
             (EventValue::F64(callback), EventPayload::F64(value)) => callback.call(value),
+            (EventValue::PointerEventInfo(callback), EventPayload::PointerEventInfo(value)) => {
+                callback.call(value);
+            }
             (EventValue::Unit(callback), EventPayload::Unit) => callback.call(()),
             _ => unreachable!(),
         }
@@ -218,6 +221,11 @@ impl RetainedGraph {
         self.get(object).map(|object| object.properties.as_slice())
     }
 
+    pub fn events(&self, object: ObjectId) -> Option<&[Event]> {
+        self.get(object)
+            .map(|object| retained_events(&object.events))
+    }
+
     fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
         match observation {
             Observation::SetProperty { object, property } => {
@@ -249,6 +257,11 @@ impl RetainedGraph {
                 EventValue::String(_),
                 EventPayload::String(_)
             ) | (ValueType::F64, EventValue::F64(_), EventPayload::F64(_))
+                | (
+                    ValueType::PointerEventInfo,
+                    EventValue::PointerEventInfo(_),
+                    EventPayload::PointerEventInfo(_)
+                )
                 | (ValueType::Unit, EventValue::Unit(_), EventPayload::Unit)
         ) {
             return Err(GraphError::InvalidEventValue(dispatch.event));

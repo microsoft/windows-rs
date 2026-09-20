@@ -57,6 +57,7 @@ fn validate_object(
             (contract.value, &event.value),
             (ValueType::String, EventValue::String(_))
                 | (ValueType::F64, EventValue::F64(_))
+                | (ValueType::PointerEventInfo, EventValue::PointerEventInfo(_))
                 | (ValueType::Unit, EventValue::Unit(_))
         );
         if !valid {
@@ -126,6 +127,7 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         | (ValueType::CornerRadius, PropertyValue::CornerRadius(_))
         | (ValueType::F64, PropertyValue::F64(_))
         | (ValueType::OptionalBool, PropertyValue::OptionalBool(_))
+        | (ValueType::ThemeTransitions, PropertyValue::ThemeTransitions(_))
         | (ValueType::Thickness, PropertyValue::Thickness(_)) => true,
         (
             ValueType::Enum {

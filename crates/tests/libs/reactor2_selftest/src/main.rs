@@ -198,6 +198,11 @@ impl Fixture {
             .children(vec![
                 text_box.into(),
                 reactor2::Border::new()
+                    .transitions_optional(
+                        iteration
+                            .is_multiple_of(2)
+                            .then_some([reactor2::ThemeTransition::Reposition]),
+                    )
                     .content(reactor2::TextBlock::new(format!("Iteration {iteration}")))
                     .into(),
                 roots.into(),
@@ -339,6 +344,58 @@ impl Component for Fixture {
             .validate_graph(button_runtime.graph())
             .unwrap();
         button_window.close().unwrap();
+        let pointer_value = reactor2::PointerEventInfo {
+            x: 12.5,
+            y: 24.5,
+            window_x: 112.5,
+            window_y: 224.5,
+            pointer_id: 42,
+            is_captured: true,
+            is_right_button_pressed: true,
+            ..Default::default()
+        };
+        let received_pointer = Rc::new(RefCell::new(None));
+        let received_pointer_callback = Rc::clone(&received_pointer);
+        let stale_pointer_calls = Rc::new(Cell::new(0));
+        let stale_pointer_callback = Rc::clone(&stale_pointer_calls);
+        let mut pointer_runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        pointer_runtime
+            .update(reactor2::Border::new().on_pointer_released(move |_| {
+                stale_pointer_callback.set(stale_pointer_callback.get() + 1);
+            }))
+            .unwrap();
+        let pointer_border = pointer_runtime.graph().root().unwrap();
+        let pointer_window = pointer_runtime
+            .adapter()
+            .open_window(pointer_border)
+            .unwrap();
+        pointer_runtime
+            .adapter()
+            .simulate_pointer_released(pointer_border, pointer_value)
+            .unwrap();
+        pointer_runtime
+            .update(reactor2::Border::new().on_pointer_released(move |value| {
+                *received_pointer_callback.borrow_mut() = Some(value);
+            }))
+            .unwrap();
+        let mut pointer_events = Vec::new();
+        pointer_runtime.drain_events(&mut pointer_events).unwrap();
+        assert!(pointer_events.is_empty());
+        assert_eq!(stale_pointer_calls.get(), 0);
+        pointer_runtime
+            .adapter()
+            .simulate_pointer_released(pointer_border, pointer_value)
+            .unwrap();
+        pointer_runtime.drain_events(&mut pointer_events).unwrap();
+        for event in pointer_events {
+            event.invoke();
+        }
+        assert_eq!(*received_pointer.borrow(), Some(pointer_value));
+        pointer_runtime
+            .adapter()
+            .validate_graph(pointer_runtime.graph())
+            .unwrap();
+        pointer_window.close().unwrap();
         let mut generated_runtime =
             reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
         let slider_changed = Rc::new(Cell::new(0.0));

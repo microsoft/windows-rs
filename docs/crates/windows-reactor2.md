@@ -75,12 +75,10 @@ theme, 800x600 client and minimum sizes, and tall AppWindow title bar.
 The port added solid-color, thickness, and corner-radius property values to the generic adapter
 protocol. Border styling, inherited layout properties, pointer release, Viewbox, and TitleBar then
 entered through `schema.toml` and generated realization without planner or control-specific
-adapter branches. This exposed two boundaries that do not belong in the control schema:
-AppWindow title-bar height and client-size policy are application-host state, while reposition
-transitions need a reusable transition contract. The sample leaves those differences visible
-instead of simulating them in application code. Pointer release currently uses the generated unit
-event path because Solitaire does not inspect pointer data; applications that need coordinates or
-buttons still require a typed pointer payload.
+adapter branches. AppWindow title-bar height and client-size policy remain application-host state.
+Reposition transitions use the generated visual-property contract and apply
+`ThemeTransition::Reposition` to each keyed `CardView` root. Pointer release uses the generated
+typed event path even though Solitaire's click logic does not inspect its payload.
 
 `reactor2-explorer` is the recursive structural sample. Component-rendered TreeView rows support
 filtering, root reorder, explicit selection, expansion, asynchronous child loading, cancellation
@@ -147,9 +145,14 @@ The same schema now generates native realization for ordinary controls. The curr
 TextBlock, Button, CheckBox, Border, Grid, StackPanel, Canvas, ScrollViewer, Viewbox, and Slider. It
 covers string, `f64`, nullable boxed `bool`, solid color, thickness, and metadata-derived enum
 properties; keyed and positional panel children; content ownership; Canvas attached positioning;
-and unit events. Attached
+unit events; typed pointer events; and visual theme-transition collections. `PointerEventInfo`
+carries element-local and window-relative coordinates, pointer identity, left/right/middle button
+state, current capture state, and an optional capture-attempt result. `PointerReleased` leaves the
+capture-attempt result unset because release does not initiate capture. Attached and visual
 properties are ordinary retained properties on the child visual. The adapter applies them through
-the owning WinUI class and clears the dependency property when omitted. The generated
+the owning WinUI class and clears the dependency property when omitted. Theme transitions create a
+WinUI `TransitionCollection` owned by `UIElement.Transitions`; each
+`ThemeTransition::Reposition` entry creates a `RepositionThemeTransition`. The generated
 `GeneratedHandle` owns native construction, object-kind and UIElement conversion, direct
 properties, panel children, content attachment, event subscription, and callback lookup.
 `tool-reactor2` verifies setter ABI shapes and resolves property, content, event, and enum
@@ -167,6 +170,7 @@ The declaration API exposes one typed path for each generated contract:
 | Authoritative scalar value | Required constructor input |
 | Optional scalar or event | Builder method; omission removes it |
 | Attached visual property | Builder method on every visual; omission clears the dependency value |
+| Visual collection property | Typed iterator builder on every visual; omission clears the dependency value |
 | Optional owned child | Builder method; omission represents no child |
 | Positional visual relation | Iterator of `Visual` |
 | Keyed visual relation | Iterator of `KeyedVisual` created by `keyed` |

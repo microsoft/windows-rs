@@ -449,8 +449,7 @@ fn positioned_border(
     style: CardStyle,
     x: f64,
     y: f64,
-    click: Click,
-    on_click: reactor2::Callback<Click>,
+    pointer_released: reactor2::Callback<reactor2::PointerEventInfo>,
 ) -> reactor2::Border {
     reactor2::Border::new()
         .width(CARD_W)
@@ -464,10 +463,9 @@ fn positioned_border(
         .corner_radius(reactor2::CornerRadius::uniform(4.0))
         .padding(style.padding)
         .opacity(style.opacity)
+        .transitions([reactor2::ThemeTransition::Reposition])
         .content(content)
-        .on_pointer_released(move || {
-            on_click.call(click);
-        })
+        .on_pointer_released_callback(pointer_released)
 }
 
 fn positioned_slot(
@@ -475,8 +473,7 @@ fn positioned_slot(
     foreground: reactor2::Color,
     x: f64,
     y: f64,
-    click: Click,
-    on_click: reactor2::Callback<Click>,
+    pointer_released: reactor2::Callback<reactor2::PointerEventInfo>,
 ) -> reactor2::Border {
     positioned_border(
         reactor2::TextBlock::new(label)
@@ -493,9 +490,75 @@ fn positioned_slot(
         },
         x,
         y,
-        click,
-        on_click,
+        pointer_released,
     )
+}
+
+#[derive(Clone, PartialEq)]
+struct SlotPlacement {
+    label: Rc<str>,
+    foreground: reactor2::Color,
+    x: f64,
+    y: f64,
+    click: Click,
+}
+
+#[derive(Clone)]
+struct SlotInput {
+    on_click: reactor2::Callback<Click>,
+    placement: SlotPlacement,
+}
+
+impl PartialEq for SlotInput {
+    fn eq(&self, other: &Self) -> bool {
+        self.placement == other.placement
+    }
+}
+
+struct SlotView {
+    input: SlotInput,
+    pointer_released: reactor2::Callback<reactor2::PointerEventInfo>,
+}
+
+impl reactor2::Component for SlotView {
+    type Input = SlotInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        let click = input.placement.click;
+        let on_click = input.on_click.clone();
+        Self {
+            input: input.clone(),
+            pointer_released: reactor2::Callback::new(move |_| on_click.call(click)),
+        }
+    }
+
+    fn input_changed(
+        &mut self,
+        input: &Self::Input,
+        _context: &reactor2::ComponentContext<Self::Message>,
+    ) {
+        let click = input.placement.click;
+        let on_click = input.on_click.clone();
+        self.input = input.clone();
+        self.pointer_released = reactor2::Callback::new(move |_| on_click.call(click));
+    }
+
+    fn view(
+        &self,
+        _input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        let placement = &self.input.placement;
+        positioned_slot(
+            placement.label.clone(),
+            placement.foreground,
+            placement.x,
+            placement.y,
+            self.pointer_released.clone(),
+        )
+        .into()
+    }
 }
 
 #[derive(Clone)]
@@ -510,14 +573,22 @@ impl PartialEq for CardInput {
     }
 }
 
-struct CardView(CardInput);
+struct CardView {
+    input: CardInput,
+    pointer_released: reactor2::Callback<reactor2::PointerEventInfo>,
+}
 
 impl reactor2::Component for CardView {
     type Input = CardInput;
     type Message = ();
 
     fn create(input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
-        Self(input.clone())
+        let click = input.placement.click;
+        let on_click = input.on_click.clone();
+        Self {
+            input: input.clone(),
+            pointer_released: reactor2::Callback::new(move |_| on_click.call(click)),
+        }
     }
 
     fn input_changed(
@@ -525,7 +596,10 @@ impl reactor2::Component for CardView {
         input: &Self::Input,
         _context: &reactor2::ComponentContext<Self::Message>,
     ) {
-        self.0 = input.clone();
+        let click = input.placement.click;
+        let on_click = input.on_click.clone();
+        self.input = input.clone();
+        self.pointer_released = reactor2::Callback::new(move |_| on_click.call(click));
     }
 
     fn view(
@@ -533,7 +607,7 @@ impl reactor2::Component for CardView {
         _input: &Self::Input,
         _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
     ) -> reactor2::Visual {
-        let card = &self.0.placement;
+        let card = &self.input.placement;
         let (content, background, border, padding): (reactor2::Visual, _, _, _) = if card.face_up {
             let foreground = if card.card.suit.is_red() {
                 reactor2::Color::rgb(192, 0, 32)
@@ -594,8 +668,7 @@ impl reactor2::Component for CardView {
             },
             card.x,
             card.y,
-            card.click,
-            self.0.on_click.clone(),
+            self.pointer_released.clone(),
         )
         .into()
     }
@@ -643,64 +716,84 @@ impl reactor2::Component for Board {
 fn build_board(game: &Game, on_click: &reactor2::Callback<Click>) -> reactor2::Grid {
     let mut children = Vec::new();
     if game.stock.is_empty() {
-        children.push(reactor2::keyed(
-            "stock-slot",
-            positioned_slot(
-                if game.waste.is_empty() { "·" } else { "↻" },
-                reactor2::Color::rgb(220, 230, 220),
-                pile_x(0),
-                TOP_ROW_Y,
-                Click::Stock,
-                on_click.clone(),
-            ),
-        ));
+        children.push(
+            reactor2::component::<SlotView>(
+                "stock-slot",
+                SlotInput {
+                    on_click: on_click.clone(),
+                    placement: SlotPlacement {
+                        label: if game.waste.is_empty() { "·" } else { "↻" }.into(),
+                        foreground: reactor2::Color::rgb(220, 230, 220),
+                        x: pile_x(0),
+                        y: TOP_ROW_Y,
+                        click: Click::Stock,
+                    },
+                },
+            )
+            .keyed(),
+        );
     }
     if game.waste.is_empty() {
-        children.push(reactor2::keyed(
-            "waste-slot",
-            positioned_slot(
-                "·",
-                reactor2::Color::rgb(220, 230, 220),
-                pile_x(1),
-                TOP_ROW_Y,
-                Click::Waste,
-                on_click.clone(),
-            ),
-        ));
+        children.push(
+            reactor2::component::<SlotView>(
+                "waste-slot",
+                SlotInput {
+                    on_click: on_click.clone(),
+                    placement: SlotPlacement {
+                        label: "·".into(),
+                        foreground: reactor2::Color::rgb(220, 230, 220),
+                        x: pile_x(1),
+                        y: TOP_ROW_Y,
+                        click: Click::Waste,
+                    },
+                },
+            )
+            .keyed(),
+        );
     }
     for (index, foundation) in game.foundations.iter().enumerate() {
         if foundation.is_empty() {
             let suit = Suit::all()[index];
-            children.push(reactor2::keyed(
-                format!("foundation-slot-{index}"),
-                positioned_slot(
-                    suit.symbol(),
-                    if suit.is_red() {
-                        reactor2::Color::rgb(180, 120, 120)
-                    } else {
-                        reactor2::Color::rgb(180, 180, 180)
+            children.push(
+                reactor2::component::<SlotView>(
+                    format!("foundation-slot-{index}"),
+                    SlotInput {
+                        on_click: on_click.clone(),
+                        placement: SlotPlacement {
+                            label: suit.symbol().into(),
+                            foreground: if suit.is_red() {
+                                reactor2::Color::rgb(180, 120, 120)
+                            } else {
+                                reactor2::Color::rgb(180, 180, 180)
+                            },
+                            x: foundation_x(index),
+                            y: TOP_ROW_Y,
+                            click: Click::Foundation(index),
+                        },
                     },
-                    foundation_x(index),
-                    TOP_ROW_Y,
-                    Click::Foundation(index),
-                    on_click.clone(),
-                ),
-            ));
+                )
+                .keyed(),
+            );
         }
     }
     for (pile, cards) in game.tableau.iter().enumerate() {
         if cards.is_empty() {
-            children.push(reactor2::keyed(
-                format!("tableau-slot-{pile}"),
-                positioned_slot(
-                    "K",
-                    reactor2::Color::rgb(180, 200, 180),
-                    pile_x(pile),
-                    TABLEAU_Y,
-                    Click::Tableau(pile, 0),
-                    on_click.clone(),
-                ),
-            ));
+            children.push(
+                reactor2::component::<SlotView>(
+                    format!("tableau-slot-{pile}"),
+                    SlotInput {
+                        on_click: on_click.clone(),
+                        placement: SlotPlacement {
+                            label: "K".into(),
+                            foreground: reactor2::Color::rgb(180, 200, 180),
+                            x: pile_x(pile),
+                            y: TABLEAU_Y,
+                            click: Click::Tableau(pile, 0),
+                        },
+                    },
+                )
+                .keyed(),
+            );
         }
     }
     for card in board_cards(game) {
@@ -904,9 +997,41 @@ fn main() -> windows_core::Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use reactor2::{EventPayload, EventValue, Mutation, ObjectId, PropertyId, RelationId};
 
     fn card(rank: u8, suit: Suit) -> Card {
         Card { rank, suit }
+    }
+
+    fn empty_game() -> Game {
+        Game {
+            tableau: std::array::from_fn(|_| Vec::new()),
+            face_up: [0; PILES],
+            foundations: std::array::from_fn(|_| Vec::new()),
+            stock: Vec::new(),
+            waste: Vec::new(),
+            last_move: None,
+            failed_move: None,
+            moves: 0,
+        }
+    }
+
+    fn pointer_callback(
+        host: &reactor2::ComponentHost<reactor2::RecordingAdapter>,
+        object: ObjectId,
+    ) -> reactor2::Callback<reactor2::PointerEventInfo> {
+        host.runtime()
+            .graph()
+            .events(object)
+            .unwrap()
+            .iter()
+            .find_map(|event| match (&event.id, &event.value) {
+                (reactor2::EventId::PointerReleased, EventValue::PointerEventInfo(callback)) => {
+                    Some(callback.clone())
+                }
+                _ => None,
+            })
+            .unwrap()
     }
 
     #[test]
@@ -1006,5 +1131,296 @@ mod tests {
         .unwrap();
 
         assert_eq!(host.reference_at(&path).unwrap().get(), object);
+    }
+
+    #[test]
+    fn overlapping_face_up_release_targets_the_top_card_message() {
+        let mut game = empty_game();
+        let lower = card(9, Suit::Clubs);
+        let upper = card(8, Suit::Hearts);
+        game.tableau[0] = vec![lower, upper];
+        let clicked = Rc::new(RefCell::new(None));
+        let clicked_for_callback = Rc::clone(&clicked);
+        let mut host = reactor2::ComponentHost::mount(
+            reactor2::RecordingAdapter::default(),
+            [reactor2::component::<Board>(
+                "board",
+                BoardInput {
+                    game,
+                    on_click: reactor2::Callback::new(move |click| {
+                        *clicked_for_callback.borrow_mut() = Some(click);
+                    }),
+                },
+            )],
+        )
+        .unwrap();
+        let board = host
+            .reference(&reactor2::Key::from("board"))
+            .unwrap()
+            .get()
+            .unwrap();
+        let lower_object = host
+            .reference_at(&[
+                reactor2::Key::from("board"),
+                reactor2::Key::from(card_key(lower)),
+            ])
+            .unwrap()
+            .get()
+            .unwrap();
+        let upper_object = host
+            .reference_at(&[
+                reactor2::Key::from("board"),
+                reactor2::Key::from(card_key(upper)),
+            ])
+            .unwrap()
+            .get()
+            .unwrap();
+        let children = host
+            .runtime()
+            .graph()
+            .children(board, RelationId::Children)
+            .unwrap();
+        assert!(
+            children.iter().position(|object| *object == lower_object)
+                < children.iter().position(|object| *object == upper_object)
+        );
+
+        let callback = pointer_callback(&host, upper_object);
+        host.runtime_mut()
+            .adapter_mut()
+            .queue_event(reactor2::EventDispatch::new(
+                upper_object,
+                reactor2::EventId::PointerReleased,
+                EventValue::PointerEventInfo(callback),
+                EventPayload::PointerEventInfo(reactor2::PointerEventInfo {
+                    x: 10.0,
+                    y: 8.0,
+                    window_x: pile_x(0) + 10.0,
+                    window_y: TABLEAU_Y + FACE_UP_OFFSET + 8.0,
+                    pointer_id: 17,
+                    ..Default::default()
+                }),
+            ));
+        host.drain(usize::MAX).unwrap();
+
+        assert_eq!(*clicked.borrow(), Some(Click::Tableau(0, 1)));
+    }
+
+    #[test]
+    fn tableau_move_preserves_card_scope_and_limits_recorded_mutations() {
+        let mut game = empty_game();
+        let destination = card(7, Suit::Clubs);
+        let unrelated = card(13, Suit::Spades);
+        let moved = card(6, Suit::Hearts);
+        game.tableau[0].push(destination);
+        game.tableau[1].push(unrelated);
+        game.tableau[2].push(moved);
+        let callback = reactor2::Callback::new(|_| {});
+        let mut host = reactor2::ComponentHost::mount(
+            reactor2::RecordingAdapter::default(),
+            [reactor2::component::<Board>(
+                "board",
+                BoardInput {
+                    game: game.clone(),
+                    on_click: callback.clone(),
+                },
+            )],
+        )
+        .unwrap();
+        let board = host
+            .reference(&reactor2::Key::from("board"))
+            .unwrap()
+            .get()
+            .unwrap();
+        let moved_path = [
+            reactor2::Key::from("board"),
+            reactor2::Key::from(card_key(moved)),
+        ];
+        let moved_reference = host.reference_at(&moved_path).unwrap();
+        let moved_object = moved_reference.get().unwrap();
+        let moved_sender = host.sender_at::<CardView>(&moved_path).unwrap();
+        let unrelated_object = host
+            .reference_at(&[
+                reactor2::Key::from("board"),
+                reactor2::Key::from(card_key(unrelated)),
+            ])
+            .unwrap()
+            .get()
+            .unwrap();
+        host.runtime_mut().adapter_mut().record_batches(true);
+
+        let next = handle_click(&game, Click::Tableau(2, 0));
+        let mutations = host
+            .update_input::<Board>(
+                &reactor2::Key::from("board"),
+                BoardInput {
+                    game: next,
+                    on_click: callback,
+                },
+            )
+            .unwrap();
+        let slot_object = host
+            .reference_at(&[
+                reactor2::Key::from("board"),
+                reactor2::Key::from("tableau-slot-2"),
+            ])
+            .unwrap()
+            .get()
+            .unwrap();
+        let slot_content = host
+            .runtime()
+            .graph()
+            .child(slot_object, RelationId::Content)
+            .unwrap();
+
+        assert_eq!(moved_reference.get(), Some(moved_object));
+        assert_eq!(
+            host.reference_at(&moved_path).unwrap().get(),
+            Some(moved_object)
+        );
+        assert!(moved_sender.send(()));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert!(!mutations.iter().any(|mutation| match mutation {
+            Mutation::Create { object, .. }
+            | Mutation::Replace { object, .. }
+            | Mutation::SetProperties { object, .. }
+            | Mutation::SetEvents { object, .. }
+            | Mutation::Destroy { object } => *object == unrelated_object,
+            Mutation::Attach { parent, child, .. }
+            | Mutation::Detach { parent, child, .. }
+            | Mutation::Insert { parent, child, .. }
+            | Mutation::Remove { parent, child, .. } => {
+                *parent == unrelated_object || *child == unrelated_object
+            }
+            Mutation::Reorder { parent, .. } => *parent == unrelated_object,
+        }));
+        assert_eq!(
+            mutations
+                .iter()
+                .filter(|mutation| matches!(
+                    mutation,
+                    Mutation::SetProperties { object, set, clear }
+                        if *object == moved_object
+                            && clear.is_empty()
+                            && set.iter().map(|property| property.id).eq([
+                                PropertyId::Background,
+                                PropertyId::Margin,
+                            ])
+                ))
+                .count(),
+            1
+        );
+        assert_eq!(
+            mutations
+                .iter()
+                .filter(|mutation| matches!(
+                    mutation,
+                    Mutation::SetEvents { object, set, clear }
+                        if *object == moved_object
+                            && clear.is_empty()
+                            && set.len() == 1
+                            && set[0].id == reactor2::EventId::PointerReleased
+                ))
+                .count(),
+            1
+        );
+        assert!(matches!(
+                mutations.as_slice(),
+                [
+                    Mutation::Create {
+                        object: created_slot,
+                        kind: reactor2::ObjectType::Border,
+                    },
+                    Mutation::SetProperties {
+                        object: slot_properties,
+                        clear: slot_property_clear,
+                        ..
+                    },
+                    Mutation::SetEvents {
+                        object: slot_events,
+                        set: slot_event_set,
+                        clear: slot_event_clear,
+                    },
+                    Mutation::Create {
+                        object: created_content,
+                        kind: reactor2::ObjectType::TextBlock,
+                    },
+                    Mutation::SetProperties {
+                        object: content_properties,
+                        clear: content_property_clear,
+                        ..
+                    },
+                    Mutation::Attach {
+                        parent: attached_slot,
+                        relation: RelationId::Content,
+                        child: attached_content,
+                    },
+                    Mutation::Insert {
+                        parent: inserted_parent,
+                        relation: RelationId::Children,
+                        child: inserted_slot,
+                        index: 6,
+                    },
+                    Mutation::SetProperties {
+                        object: updated_card,
+                        set: updated_properties,
+                        clear: updated_property_clear,
+                    },
+                    Mutation::SetEvents {
+                        object: updated_event_card,
+                        set: updated_events,
+                        clear: updated_event_clear,
+                    },
+                    Mutation::Reorder {
+                        parent: reordered_parent,
+                        relation: RelationId::Children,
+                        ..
+                    },
+                ] if *created_slot == slot_object
+                    && *slot_properties == slot_object
+                    && slot_property_clear.is_empty()
+                    && *slot_events == slot_object
+                    && slot_event_set.len() == 1
+                    && slot_event_set[0].id == reactor2::EventId::PointerReleased
+                    && slot_event_clear.is_empty()
+                    && *created_content == slot_content
+                    && *content_properties == slot_content
+                    && content_property_clear.is_empty()
+                    && *attached_slot == slot_object
+                    && *attached_content == slot_content
+                    && *inserted_parent == board
+                    && *inserted_slot == slot_object
+                    && *updated_card == moved_object
+                    && updated_properties.iter().map(|property| property.id).eq([
+                        PropertyId::Background,
+                        PropertyId::Margin,
+                    ])
+                    && updated_property_clear.is_empty()
+                    && *updated_event_card == moved_object
+                    && updated_events.len() == 1
+                    && updated_events[0].id == reactor2::EventId::PointerReleased
+                    && updated_event_clear.is_empty()
+                    && *reordered_parent == board
+        ));
+        assert_eq!(
+            mutations
+                .iter()
+                .filter(|mutation| matches!(
+                    mutation,
+                    Mutation::Reorder {
+                        parent,
+                        relation: RelationId::Children,
+                        ..
+                    } if *parent == board
+                ))
+                .count(),
+            1
+        );
+        assert!(!mutations.iter().any(|mutation| matches!(
+            mutation,
+            Mutation::SetProperties { object, set, .. }
+                if *object == moved_object
+                    && set.iter().any(|property| property.id == PropertyId::Transitions)
+        )));
     }
 }

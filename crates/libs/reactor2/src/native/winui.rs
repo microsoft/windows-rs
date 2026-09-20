@@ -45,6 +45,12 @@ struct NativeF64Event {
 }
 
 #[derive(Default)]
+struct NativePointerEventInfoEvent {
+    revision: u64,
+    callback: Option<crate::Callback<crate::PointerEventInfo>>,
+}
+
+#[derive(Default)]
 struct NativeUnitEvent {
     revision: u64,
     callback: Option<crate::Callback<()>>,
@@ -80,6 +86,7 @@ pub enum WinUiError {
     ChildNotFound(ObjectId),
     StillOwned(ObjectId),
     InvalidReplacement(ObjectId),
+    InvalidEventArgs,
     Native(windows_core::Error),
 }
 
@@ -547,6 +554,25 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    pub fn simulate_pointer_released(
+        &self,
+        object: ObjectId,
+        value: crate::PointerEventInfo,
+    ) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::Border(border))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Self::dispatch_pointer_event_info(
+            &border.pointer_released,
+            &self.event_queue,
+            object,
+            EventId::PointerReleased,
+            value,
+        );
+        Ok(())
+    }
+
     pub fn set_slider_value(&self, object: ObjectId, value: f64) -> Result<(), WinUiError> {
         let Some(Handle::Generated(GeneratedHandle::Slider(slider))) = self.handles.get(&object)
         else {
@@ -739,6 +765,13 @@ impl WinUiAdapter {
                 result?;
                 continue;
             }
+            if let Ok(element) = self.ui_element(object)
+                && let Some(result) =
+                    GeneratedHandle::set_visual_property(&element, *property, None)
+            {
+                result?;
+                continue;
+            }
             if let Some(Handle::Generated(handle)) = self.handles.get(&object)
                 && let Some(result) = handle.set_property(*property, None)
             {
@@ -772,6 +805,16 @@ impl WinUiAdapter {
         for property in set {
             if let Ok(element) = self.ui_element(object)
                 && let Some(result) = GeneratedHandle::set_attached_property(
+                    &element,
+                    property.id,
+                    Some(&property.value),
+                )
+            {
+                result?;
+                continue;
+            }
+            if let Ok(element) = self.ui_element(object)
+                && let Some(result) = GeneratedHandle::set_visual_property(
                     &element,
                     property.id,
                     Some(&property.value),
@@ -966,6 +1009,71 @@ impl WinUiAdapter {
             });
             Self::schedule_event_wake(event_queue);
         }
+    }
+
+    fn dispatch_pointer_event_info(
+        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: crate::PointerEventInfo,
+    ) {
+        if Self::queue_pointer_event_info(event, event_queue, object, event_id, value) {
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn queue_pointer_event_info(
+        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: crate::PointerEventInfo,
+    ) -> bool {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::PointerEventInfo(value),
+            });
+            true
+        } else {
+            false
+        }
+    }
+
+    fn pointer_event_info(
+        element: &native::UIElement,
+        args: windows_core::Ref<native::PointerRoutedEventArgs>,
+    ) -> Result<crate::PointerEventInfo, WinUiError> {
+        let Some(args) = args.as_ref() else {
+            return Err(WinUiError::InvalidEventArgs);
+        };
+        let local = args.GetCurrentPoint(element)?;
+        let local_position = local.Position()?;
+        let window = args.GetCurrentPoint(None::<&native::UIElement>)?;
+        let window_position = window.Position()?;
+        let properties = local.Properties()?;
+        let pointer = args.Pointer()?;
+        let mut capture_index = 0;
+        let is_captured = element
+            .cast::<native::IUIElement>()?
+            .PointerCaptures()?
+            .IndexOf(&pointer, &mut capture_index)?;
+        Ok(crate::PointerEventInfo {
+            x: f64::from(local_position.x),
+            y: f64::from(local_position.y),
+            window_x: f64::from(window_position.x),
+            window_y: f64::from(window_position.y),
+            pointer_id: local.PointerId()?,
+            capture_succeeded: None,
+            is_captured,
+            is_left_button_pressed: properties.IsLeftButtonPressed()?,
+            is_right_button_pressed: properties.IsRightButtonPressed()?,
+            is_middle_button_pressed: properties.IsMiddleButtonPressed()?,
+        })
     }
 
     fn schedule_event_wake(event_queue: &Rc<NativeEventQueue>) {
@@ -1525,7 +1633,7 @@ fn index32(index: usize) -> Result<u32, WinUiError> {
 }
 
 #[cfg(test)]
-mod window_policy_tests {
+mod tests {
     use super::*;
 
     #[test]
@@ -1561,5 +1669,37 @@ mod window_policy_tests {
                 .is_err()
             );
         }
+    }
+
+    #[test]
+    fn pointer_event_queue_preserves_payload_and_revision() {
+        let mut runtime = crate::Runtime::new(crate::RecordingAdapter::default());
+        runtime.update(crate::Border::new()).unwrap();
+        let object = runtime.graph().root().unwrap();
+        let event = Rc::new(RefCell::new(NativePointerEventInfoEvent {
+            revision: 7,
+            callback: Some(crate::Callback::new(|_| {})),
+        }));
+        let event_queue = Rc::new(NativeEventQueue::default());
+        let payload = crate::PointerEventInfo {
+            pointer_id: 42,
+            is_captured: true,
+            is_right_button_pressed: true,
+            ..Default::default()
+        };
+
+        assert!(WinUiAdapter::queue_pointer_event_info(
+            &event,
+            &event_queue,
+            object,
+            EventId::PointerReleased,
+            payload,
+        ));
+        let queued = event_queue.events.borrow();
+        assert_eq!(queued.len(), 1);
+        assert_eq!(queued[0].object, object);
+        assert_eq!(queued[0].event, EventId::PointerReleased);
+        assert_eq!(queued[0].revision, 7);
+        assert_eq!(queued[0].payload, EventPayload::PointerEventInfo(payload));
     }
 }

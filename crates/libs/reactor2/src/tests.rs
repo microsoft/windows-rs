@@ -1,5 +1,5 @@
 use super::*;
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 fn text(value: &str) -> Visual {
@@ -298,6 +298,145 @@ fn property_updates_only_emit_changed_values() {
 }
 
 #[test]
+fn visual_transitions_are_retained_stable_and_removed_when_omitted() {
+    let transitions = || [ThemeTransition::Reposition];
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            Border::new()
+                .margin(Thickness::new(10.0, 20.0, 0.0, 0.0))
+                .transitions(transitions()),
+        )
+        .unwrap();
+    let border = runtime.graph().root().unwrap();
+    assert!(matches!(
+        runtime
+            .graph()
+            .properties(border)
+            .unwrap()
+            .iter()
+            .find(|property| property.id == PropertyId::Transitions),
+        Some(Property {
+            value: PropertyValue::ThemeTransitions(value),
+            ..
+        }) if value.as_ref() == transitions().as_slice()
+    ));
+
+    assert!(
+        runtime
+            .update(
+                Border::new()
+                    .margin(Thickness::new(10.0, 20.0, 0.0, 0.0))
+                    .transitions(transitions()),
+            )
+            .unwrap()
+            .is_empty()
+    );
+
+    let mutations = runtime
+        .update(Border::new().margin(Thickness::new(30.0, 40.0, 0.0, 0.0)))
+        .unwrap();
+    assert_eq!(
+        mutations,
+        [Mutation::SetProperties {
+            object: border,
+            set: Rc::from([Property {
+                id: PropertyId::Margin,
+                value: PropertyValue::Thickness(Thickness::new(30.0, 40.0, 0.0, 0.0)),
+            }]),
+            clear: Rc::from([PropertyId::Transitions]),
+        }]
+    );
+}
+
+#[test]
+fn keyed_visual_moves_preserve_identity_and_only_update_changed_state() {
+    let first_callback = Callback::new(|_: PointerEventInfo| {});
+    let second_callback = Callback::new(|_: PointerEventInfo| {});
+    let card = |key: &str, left: f64, background: Color, callback: Callback<PointerEventInfo>| {
+        keyed(
+            key,
+            Border::new()
+                .margin(Thickness::new(left, 0.0, 0.0, 0.0))
+                .background(background)
+                .transitions([ThemeTransition::Reposition])
+                .on_pointer_released_callback(callback),
+        )
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([
+            card("first", 0.0, Color::rgb(255, 255, 255), first_callback),
+            card(
+                "second",
+                100.0,
+                Color::rgb(255, 255, 255),
+                second_callback.clone(),
+            ),
+        ]))
+        .unwrap();
+    let grid = runtime.graph().root().unwrap();
+    let before = runtime
+        .graph()
+        .children(grid, RelationId::Children)
+        .unwrap()
+        .to_vec();
+    let replacement_callback = Callback::new(|_: PointerEventInfo| {});
+
+    let mutations = runtime
+        .update(Grid::new().children([
+            card("second", 100.0, Color::rgb(255, 255, 255), second_callback),
+            card(
+                "first",
+                200.0,
+                Color::rgb(255, 220, 220),
+                replacement_callback,
+            ),
+        ]))
+        .unwrap();
+    let after = runtime
+        .graph()
+        .children(grid, RelationId::Children)
+        .unwrap();
+
+    assert_eq!(after, [before[1], before[0]]);
+    assert_eq!(
+        mutations
+            .iter()
+            .filter(|mutation| matches!(mutation, Mutation::Reorder { .. }))
+            .count(),
+        1
+    );
+    assert!(
+        !mutations
+            .iter()
+            .any(|mutation| matches!(mutation, Mutation::Create { .. } | Mutation::Destroy { .. }))
+    );
+    assert!(mutations.iter().any(|mutation| matches!(
+        mutation,
+        Mutation::SetProperties { object, set, clear }
+            if *object == before[0]
+                && clear.is_empty()
+                && set.len() == 2
+                && set.iter().any(|property| property.id == PropertyId::Margin)
+                && set.iter().any(|property| property.id == PropertyId::Background)
+    )));
+    assert!(mutations.iter().any(|mutation| matches!(
+        mutation,
+        Mutation::SetEvents { object, set, clear }
+            if *object == before[0]
+                && clear.is_empty()
+                && set.len() == 1
+                && set[0].id == EventId::PointerReleased
+    )));
+    assert!(!mutations.iter().any(|mutation| matches!(
+        mutation,
+        Mutation::SetProperties { set, .. }
+            if set.iter().any(|property| property.id == PropertyId::Transitions)
+    )));
+}
+
+#[test]
 fn event_callbacks_update_without_recreating_the_object() {
     let first = Callback::new(|_: Rc<str>| {});
     let second = Callback::new(|_: Rc<str>| {});
@@ -475,6 +614,87 @@ fn button_content_and_click_use_generated_contracts() {
         event.invoke();
     }
     assert_eq!(calls.get(), 1);
+}
+
+#[test]
+fn pointer_event_payload_round_trips_through_recording_protocol() {
+    let received = Rc::new(RefCell::new(None));
+    let received_for_callback = Rc::clone(&received);
+    let callback = Callback::new(move |value| {
+        *received_for_callback.borrow_mut() = Some(value);
+    });
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Border::new().on_pointer_released_callback(callback.clone()))
+        .unwrap();
+    let border = runtime.graph().root().unwrap();
+    let payload = PointerEventInfo {
+        x: 12.5,
+        y: 24.5,
+        window_x: 112.5,
+        window_y: 224.5,
+        pointer_id: 42,
+        capture_succeeded: None,
+        is_captured: true,
+        is_left_button_pressed: false,
+        is_right_button_pressed: true,
+        is_middle_button_pressed: false,
+    };
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        border,
+        EventId::PointerReleased,
+        EventValue::PointerEventInfo(callback),
+        EventPayload::PointerEventInfo(payload),
+    ));
+
+    let mut events = Vec::new();
+    runtime.drain_events(&mut events).unwrap();
+    assert_eq!(events.len(), 1);
+    events.pop().unwrap().invoke();
+
+    assert_eq!(*received.borrow(), Some(payload));
+    assert_eq!(
+        event_contracts(ObjectType::Border),
+        [EventContract {
+            id: EventId::PointerReleased,
+            value: ValueType::PointerEventInfo,
+        }]
+    );
+}
+
+#[test]
+fn stale_pointer_event_does_not_reach_replacement_callback() {
+    let first_count = Rc::new(Cell::new(0));
+    let first_count_for_callback = Rc::clone(&first_count);
+    let first = Callback::new(move |_: PointerEventInfo| {
+        first_count_for_callback.set(first_count_for_callback.get() + 1);
+    });
+    let second_count = Rc::new(Cell::new(0));
+    let second_count_for_callback = Rc::clone(&second_count);
+    let second = Callback::new(move |_: PointerEventInfo| {
+        second_count_for_callback.set(second_count_for_callback.get() + 1);
+    });
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Border::new().on_pointer_released_callback(first.clone()))
+        .unwrap();
+    let border = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        border,
+        EventId::PointerReleased,
+        EventValue::PointerEventInfo(first),
+        EventPayload::PointerEventInfo(PointerEventInfo::default()),
+    ));
+    runtime
+        .update(Border::new().on_pointer_released_callback(second))
+        .unwrap();
+
+    let mut events = Vec::new();
+    runtime.drain_events(&mut events).unwrap();
+
+    assert!(events.is_empty());
+    assert_eq!(first_count.get(), 0);
+    assert_eq!(second_count.get(), 0);
 }
 
 #[test]

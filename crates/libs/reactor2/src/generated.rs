@@ -42,6 +42,7 @@ pub enum PropertyId {
     Subtitle,
     Text,
     Title,
+    Transitions,
     Value,
     VerticalAlignment,
     Width,
@@ -100,6 +101,8 @@ pub enum ValueType {
     CornerRadius,
     F64,
     OptionalBool,
+    PointerEventInfo,
+    ThemeTransitions,
     Thickness,
     Enum {
         kind: &'static str,
@@ -152,7 +155,7 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
         }],
         ObjectType::Border => &[EventContract {
             id: EventId::PointerReleased,
-            value: ValueType::Unit,
+            value: ValueType::PointerEventInfo,
         }],
         ObjectType::Grid => &[],
         ObjectType::StackPanel => &[],
@@ -180,6 +183,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
             PropertyContract {
                 id: PropertyId::Text,
@@ -218,6 +225,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
                 id: PropertyId::Text,
                 value: ValueType::String,
             },
@@ -230,6 +241,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
             PropertyContract {
                 id: PropertyId::Width,
@@ -272,6 +287,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
                 id: PropertyId::IsChecked,
                 value: ValueType::OptionalBool,
             },
@@ -284,6 +303,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
             PropertyContract {
                 id: PropertyId::Width,
@@ -346,6 +369,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
                 id: PropertyId::Width,
                 value: ValueType::F64,
             },
@@ -369,6 +396,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
             PropertyContract {
                 id: PropertyId::Spacing,
@@ -395,6 +426,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
             },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
         ],
         ObjectType::ScrollViewer => &[
             PropertyContract {
@@ -405,6 +440,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
             },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
         ],
         ObjectType::Viewbox => &[
             PropertyContract {
@@ -414,6 +453,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
             PropertyContract {
                 id: PropertyId::Height,
@@ -428,6 +471,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
             PropertyContract {
                 id: PropertyId::Title,
@@ -446,6 +493,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
             PropertyContract {
                 id: PropertyId::Minimum,
@@ -469,6 +520,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
             },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
         ],
         ObjectType::TreeNode => &[
             PropertyContract {
@@ -488,6 +543,10 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             PropertyContract {
                 id: PropertyId::CanvasTop,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
         ],
         ObjectType::DataItem => &[PropertyContract {

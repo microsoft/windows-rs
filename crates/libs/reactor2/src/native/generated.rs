@@ -11,7 +11,7 @@ struct GeneratedCheckBox {
 }
 struct GeneratedBorder {
     value: native::Border,
-    pointer_released: Rc<RefCell<NativeUnitEvent>>,
+    pointer_released: Rc<RefCell<NativePointerEventInfoEvent>>,
     _pointer_released: windows_core::EventRevoker,
 }
 struct GeneratedSlider {
@@ -103,18 +103,26 @@ impl GeneratedHandle {
             }
             ObjectType::Border => {
                 let value = native::Border::new()?;
-                let pointer_released = Rc::new(RefCell::new(NativeUnitEvent::default()));
+                let pointer_released =
+                    Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
                 let event_for_callback = Rc::clone(&pointer_released);
                 let event_queue = Rc::clone(event_queue);
+                let source_pointer_released = value.cast::<native::UIElement>()?;
                 let revoker =
                     value
                         .cast::<native::IUIElement>()?
-                        .PointerReleased(move |_, _| {
-                            WinUiAdapter::dispatch_unit(
+                        .PointerReleased(move |_, args| {
+                            let Ok(value) =
+                                WinUiAdapter::pointer_event_info(&source_pointer_released, args)
+                            else {
+                                std::process::abort();
+                            };
+                            WinUiAdapter::dispatch_pointer_event_info(
                                 &event_for_callback,
                                 &event_queue,
                                 object,
                                 EventId::PointerReleased,
+                                value,
                             );
                         })?;
                 let _pointer_released = revoker;
@@ -267,6 +275,43 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|element| {
                         native::Canvas::TopProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            _ => None,
+        }
+    }
+    fn set_visual_property(
+        element: &native::UIElement,
+        property: PropertyId,
+        value: Option<&PropertyValue>,
+    ) -> Option<Result<(), WinUiError>> {
+        match (property, value) {
+            (PropertyId::Transitions, Some(PropertyValue::ThemeTransitions(values))) => {
+                Some((|| {
+                    let collection = native::TransitionCollection::new()?;
+                    for value in values.iter() {
+                        let transition = match value {
+                            crate::ThemeTransition::Reposition => {
+                                native::RepositionThemeTransition::new()?
+                                    .cast::<native::Transition>()?
+                            }
+                        };
+                        collection.Append(&transition)?;
+                    }
+                    element
+                        .cast::<native::IUIElement>()?
+                        .SetTransitions(&collection)?;
+                    Ok(())
+                })())
+            }
+            (PropertyId::Transitions, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::UIElement::TransitionsProperty()
                             .map_err(Into::into)
                             .and_then(|property| element.ClearValue(&property).map_err(Into::into))
                     }),
@@ -1110,7 +1155,7 @@ impl GeneratedHandle {
                 }
                 for event in set {
                     match (event.id, &event.value) {
-                        (EventId::PointerReleased, EventValue::Unit(callback)) => {
+                        (EventId::PointerReleased, EventValue::PointerEventInfo(callback)) => {
                             let mut native_event = object.pointer_released.borrow_mut();
                             native_event.revision = native_event.revision.wrapping_add(1);
                             native_event.callback = Some(callback.clone());
@@ -1223,7 +1268,7 @@ impl GeneratedHandle {
                 (event.revision == revision)
                     .then(|| event.callback.clone())
                     .flatten()
-                    .map(EventValue::Unit)
+                    .map(EventValue::PointerEventInfo)
             }
             (Self::Slider(object), EventId::ValueChanged) => {
                 let event = object.value_changed.borrow();
@@ -1239,7 +1284,6 @@ impl GeneratedHandle {
         match (self, event) {
             (Self::Button(object), EventId::Click) => Some(&object.click),
             (Self::CheckBox(object), EventId::Click) => Some(&object.click),
-            (Self::Border(object), EventId::PointerReleased) => Some(&object.pointer_released),
             _ => None,
         }
     }

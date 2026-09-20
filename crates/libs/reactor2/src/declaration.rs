@@ -66,6 +66,12 @@ impl Thickness {
     }
 }
 
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ThemeTransition {
+    Reposition,
+}
+
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Key(KeyKind);
 
@@ -113,6 +119,7 @@ pub enum PropertyValue {
     CornerRadius(CornerRadius),
     F64(f64),
     OptionalBool(Option<bool>),
+    ThemeTransitions(Rc<[ThemeTransition]>),
     Thickness(Thickness),
     Enum {
         kind: &'static str,
@@ -151,10 +158,26 @@ impl<T> PartialEq for Callback<T> {
     }
 }
 
+/// Pointer state in element-local and window-relative device-independent pixels.
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PointerEventInfo {
+    pub x: f64,
+    pub y: f64,
+    pub window_x: f64,
+    pub window_y: f64,
+    pub pointer_id: u32,
+    pub capture_succeeded: Option<bool>,
+    pub is_captured: bool,
+    pub is_left_button_pressed: bool,
+    pub is_right_button_pressed: bool,
+    pub is_middle_button_pressed: bool,
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventValue {
     String(Callback<Rc<str>>),
     F64(Callback<f64>),
+    PointerEventInfo(Callback<PointerEventInfo>),
     Unit(Callback<()>),
 }
 
@@ -162,6 +185,7 @@ pub enum EventValue {
 pub enum EventPayload {
     String(Rc<str>),
     F64(f64),
+    PointerEventInfo(PointerEventInfo),
     Unit,
 }
 

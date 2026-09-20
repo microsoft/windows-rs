@@ -8,6 +8,11 @@ name = "CanvasTop"
 owner = "Microsoft.UI.Xaml.Controls.Canvas"
 value = "F64"
 
+[[visual_properties]]
+name = "Transitions"
+owner = "Microsoft.UI.Xaml.UIElement"
+value = "ThemeTransitions"
+
 [[objects]]
 name = "TextBlock"
 category = "Visual"
@@ -191,7 +196,7 @@ realization = "Owned"
 
 [[objects.events]]
 name = "PointerReleased"
-value = "Unit"
+value = "PointerEventInfo"
 
 [[objects]]
 name = "Grid"
