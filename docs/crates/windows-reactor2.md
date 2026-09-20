@@ -78,27 +78,35 @@ declaration directly against the existing retained object, so an isolated compon
 not rebuild or walk the parent declaration. The scope does not retain its last `Visual`; removal
 uses the same generic `Remove` and `Destroy` mutations as declarative reconciliation.
 
-The current `ComponentSet` fixture hosts homogeneous keyed component roots under one `Grid`. It
-proves the architecture rather than defining the final application API:
+`ComponentHost` type-erases component state while preserving typed inputs, messages, callbacks, and
+factories. Different component types coexist as keyed roots under one retained `Grid`:
 
 - messages are queued and never run inline with native callbacks;
+- equal parent inputs do no work, while changed inputs reconcile only the owning subtree;
 - a state change reconciles only the owning retained subtree;
 - the retained root identity and `ElementRef` remain stable across updates;
 - effects compare typed dependencies, clean up before replacement, and clean up on retirement;
+- typed contexts maintain a reverse dependency index and rerender only subscribed scopes;
+- background work and timers are scope-owned, bounded, cancellable, and wake the host once per
+  pending batch;
 - completion handles can cross threads, while generation checks discard delivery after retirement;
 - removing a component invalidates its reference without adding lifecycle mutations to the
   backend protocol.
 
-At 16,384 component scopes, an isolated update measured about 0.5 us median and p95 with
-seven allocations and 312 bytes. The matching current Reactor benchmark measured about 172 us
+At 16,384 component scopes, an isolated update measured about 0.6 us median and p95 with eight
+allocations and 313 bytes. The matching current Reactor benchmark measured about 172 us
 median and 202 us p95 with eight allocations and 752.5 bytes. A Reactor2 effect-bearing update
-measured about 0.7 us median and p95 with 11 allocations and 785 bytes, compared with about 163 us
+measured about 0.8 us median and p95 with 12 allocations and 786 bytes, compared with about 163 us
 median and 180 us p95 with 11 allocations and 969.5 bytes.
 
-Retained memory at the same scale was about 637 bytes per Reactor2 idle component and 886 bytes per
-effect-bearing component, including the retained object and recording adapter. Current Reactor
+Retained memory at the same scale was about 799 bytes per Reactor2 idle component and 1,048 bytes
+per effect-bearing component, including the retained object and recording adapter. Current Reactor
 measured about 3,138 and 3,595 bytes per scope respectively. These numbers establish that lifecycle
 state can remain separate from the UI representation without requiring a second retained UI tree.
+
+Changing a context with one subscriber among 16,384 scopes measured about 0.8 us median and 0.9 us
+p95. Changing a context consumed by all 16,384 scopes measured about 11.9 ms median and allocated
+about 10.4 MB, compared with current Reactor's roughly 37.6 ms and 31.6 MB all-consumer path.
 
 ## Architecture verdict
 
@@ -113,15 +121,16 @@ relations.
 | Clean type-safe declarations | Proven for visual, structural, data, keyed, positional, and controlled-input contracts |
 | One compact internal object model | Proven; declarations reconcile directly into one generational retained arena |
 | Backend-specific optimization | Proven with sparse moves, dense `ReplaceAll`, stable ListView data, and native observations |
-| Component lifecycle without another UI graph | Proven for keyed roots, isolated messages, effects, references, retirement, and stale completion |
+| Component lifecycle without another UI graph | Proven for heterogeneous keyed roots, inputs, messages, contexts, effects, references, tasks, timers, and retirement |
 | Compile-time success implies valid relation shape | Proven with typed builders and compile-fail tests |
 | Avoid generated-code growth | Proven; components add no generated control variants or backend cases |
 | Material end-to-end improvement | Proven on live Grid, ListView, and TextBox workloads |
 
-The architecture should proceed. The current `ComponentSet` API should not migrate as-is; it is a
-homogeneous fixture used to prove ownership and scheduling. The next implementation stage should
-generalize type-erased heterogeneous scopes, parent input reconciliation, contexts, timers, and
-task cancellation while preserving these constraints:
+The architecture should proceed. `ComponentHost` proves the required ownership and scheduling
+model, but its flat root collection is not the final application API. Heterogeneous component
+declarations still need to compose recursively inside ordinary control relations. Production
+integration should reuse the existing DispatcherQueue timer and Windows thread-pool services
+rather than the prototype's host threads.
 
 1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
    mirrored UI declaration tree.
@@ -131,6 +140,21 @@ task cancellation while preserving these constraints:
    unrelated subtree update.
 5. New lifecycle features must not add control-specific planner paths or generated component
    variants.
+
+## Migration stages
+
+1. Move the generated contracts, retained arena, generic mutations, and adapter policy into
+   `windows-reactor` behind its existing public control builders.
+2. Migrate controls by relation category rather than one control at a time: scalar, owned visual,
+   positional visual, keyed visual, structural, and container-generated data.
+3. Route current component publications to targeted retained subtree updates while keeping the
+   current public component traits and dispatcher/thread-pool implementations.
+4. Replace the current component store internals with type-erased scopes, dependency-indexed
+   contexts, effects, references, and generation-checked delivery.
+5. Add recursive component declarations and then implement TreeView custom content as an ordinary
+   structural-to-visual relation.
+6. Remove the old planner and duplicated representations only after live Grid, ListView, TextBox,
+   TreeView, component, memory, and allocation gates pass on the migrated implementation.
 
 ## Current thin slice
 
@@ -283,9 +307,10 @@ be reconsidered only if it can remain native across the complete application rou
 - Validation and no-change matching reject graphs above 65,536 objects.
 - Adapter validation or application failures poison the runtime and clear retained state. Dynamic
   declaration errors are rejected before retained or native mutation.
-- The component fixture currently supports homogeneous keyed roots under one retained container.
-  Heterogeneous nesting, parent input reconciliation, contexts, timers, and production background
-  task cancellation remain to be designed before it can replace the current component API.
+- `ComponentHost` currently places heterogeneous keyed roots under one retained container.
+  Recursive component declarations and nearest-ancestor context providers remain to be designed.
+- Prototype timers and background work use cancellable host threads. Production integration must
+  retain the current DispatcherQueue and Windows thread-pool implementations.
 - Virtualization and full native lifecycle behavior remain outside the thin slice.
 - Ten-thousand-item churn remains below the frame budget at p95, but its 250-operation native batch
   is the largest remaining backend cost in the current scale fixture.

@@ -35,8 +35,52 @@ struct BenchComponent {
     effect: bool,
 }
 
+#[derive(Clone)]
+struct ContextInput {
+    context: std::rc::Rc<reactor2::Context<bool>>,
+    subscribe: bool,
+}
+
+impl PartialEq for ContextInput {
+    fn eq(&self, other: &Self) -> bool {
+        std::rc::Rc::ptr_eq(&self.context, &other.context) && self.subscribe == other.subscribe
+    }
+}
+
+struct ContextComponent;
+
+impl reactor2::Component for ContextComponent {
+    type Input = ContextInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self
+    }
+
+    fn view(
+        &self,
+        input: &Self::Input,
+        context: &mut reactor2::ComponentViewContext<Self::Message>,
+    ) -> reactor2::Visual {
+        let value = if input.subscribe {
+            context.use_context(&input.context)
+        } else {
+            false
+        };
+        reactor2::TextBlock::new(if value { "on" } else { "off" }).into()
+    }
+}
+
 impl reactor2::Component for BenchComponent {
+    type Input = bool;
     type Message = bool;
+
+    fn create(effect: &bool, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self {
+            active: false,
+            effect: *effect,
+        }
+    }
 
     fn update(&mut self, toggle: bool, _context: &reactor2::ComponentContext<Self::Message>) {
         if toggle {
@@ -46,6 +90,7 @@ impl reactor2::Component for BenchComponent {
 
     fn view(
         &self,
+        _input: &bool,
         context: &mut reactor2::ComponentViewContext<Self::Message>,
     ) -> reactor2::Visual {
         if self.effect {
@@ -340,20 +385,14 @@ fn reactor2_component(count: usize, effect: bool, samples: usize, batch: usize) 
     let mut adapter = reactor2::RecordingAdapter::default();
     adapter.record_batches(false);
     adapter.validate_batches(false);
-    let mut components = reactor2::ComponentSet::mount(
+    let mut components = reactor2::ComponentHost::mount(
         adapter,
-        (0..count).map(|index| {
-            (
-                reactor2::Key::from(index),
-                BenchComponent {
-                    active: false,
-                    effect,
-                },
-            )
-        }),
+        (0..count).map(|index| reactor2::component::<BenchComponent>(index, effect)),
     )
     .unwrap();
-    let sender = components.sender(&reactor2::Key::from(count / 2)).unwrap();
+    let sender = components
+        .sender::<BenchComponent>(&reactor2::Key::from(count / 2))
+        .unwrap();
     let perf = measure(samples, batch, || {
         assert!(sender.send(true));
         black_box(components.drain(1).unwrap());
@@ -376,17 +415,9 @@ fn reactor2_component_memory(count: usize, effect: bool) -> MemoryRow {
     adapter.validate_batches(false);
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    let components = reactor2::ComponentSet::mount(
+    let components = reactor2::ComponentHost::mount(
         adapter,
-        (0..count).map(|index| {
-            (
-                reactor2::Key::from(index),
-                BenchComponent {
-                    active: false,
-                    effect,
-                },
-            )
-        }),
+        (0..count).map(|index| reactor2::component::<BenchComponent>(index, effect)),
     )
     .unwrap();
     black_box(&components);
@@ -400,6 +431,41 @@ fn reactor2_component_memory(count: usize, effect: bool) -> MemoryRow {
         objects: count,
         bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
         allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
+}
+
+fn reactor2_context(count: usize, broad: bool, samples: usize) -> Row {
+    let mut adapter = reactor2::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let context = std::rc::Rc::new(reactor2::Context::new(false));
+    let mut components = reactor2::ComponentHost::mount(
+        adapter,
+        (0..count).map(|index| {
+            reactor2::component::<ContextComponent>(
+                index,
+                ContextInput {
+                    context: std::rc::Rc::clone(&context),
+                    subscribe: broad || index == count / 2,
+                },
+            )
+        }),
+    )
+    .unwrap();
+    let mut value = false;
+    let perf = measure(samples, 1, || {
+        value = !value;
+        black_box(components.set_context(&context, value).unwrap());
+    });
+    Row {
+        frontend: "reactor2",
+        workload: if broad {
+            "context_broad"
+        } else {
+            "context_isolated"
+        },
+        objects: count,
+        perf,
     }
 }
 
@@ -505,6 +571,8 @@ fn main() {
         ),
         reactor2_component(count, false, samples, batch),
         reactor2_component(count, true, samples, batch),
+        reactor2_context(count, false, samples),
+        reactor2_context(count, true, samples),
     ];
 
     println!(

@@ -9,6 +9,7 @@
 
 The prototype covers single visual content, positional and keyed visual children, hierarchical
 keyed structural objects with optional visual content, container-generated data items, and queued
-component state updates that reconcile one retained subtree directly.
+heterogeneous component state updates that reconcile one retained subtree directly, indexed typed
+contexts, effects, references, and generation-checked asynchronous delivery.
 
 This crate is not a supported replacement for `windows-reactor`.
