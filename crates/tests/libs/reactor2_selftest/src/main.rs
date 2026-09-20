@@ -23,6 +23,8 @@ struct Fixture {
     app: AppProxy,
     boundary_host: reactor2::ComponentHost<reactor2::native::WinUiAdapter>,
     boundary_sender: reactor2::ComponentSender<()>,
+    tree_content_sender: reactor2::ComponentSender<()>,
+    tree_sender: reactor2::ComponentSender<()>,
     boundary_window: reactor2::native::NativeWindow,
     runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     window: reactor2::native::NativeWindow,
@@ -64,6 +66,81 @@ impl reactor2::Component for RootSwitch {
                 .into()
         } else {
             reactor2::TextBlock::new("Text root").into()
+        }
+    }
+}
+
+struct TreeContent(usize);
+
+impl reactor2::Component for TreeContent {
+    type Input = Rc<str>;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self(0)
+    }
+
+    fn update(
+        &mut self,
+        _message: Self::Message,
+        _context: &reactor2::ComponentContext<Self::Message>,
+    ) {
+        self.0 += 1;
+    }
+
+    fn view(
+        &self,
+        input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        reactor2::StackPanel::new()
+            .children([
+                reactor2::TextBlock::new(input.clone()).into(),
+                reactor2::TextBlock::new(self.0.to_string()).into(),
+            ])
+            .into()
+    }
+}
+
+struct TreeComponents(bool);
+
+impl reactor2::Component for TreeComponents {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self(false)
+    }
+
+    fn update(
+        &mut self,
+        _message: Self::Message,
+        _context: &reactor2::ComponentContext<Self::Message>,
+    ) {
+        self.0 = !self.0;
+    }
+
+    fn view(
+        &self,
+        _input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        let first = reactor2::TreeNode::new("first", "First")
+            .expanded(true)
+            .content(reactor2::component::<TreeContent>(
+                "first-content",
+                Rc::from("First"),
+            ));
+        let second = reactor2::TreeNode::new("second", "Second")
+            .expanded(true)
+            .content(reactor2::component::<TreeContent>(
+                "second-content",
+                Rc::from("Second"),
+            ));
+        if self.0 {
+            reactor2::TreeView::new().nodes([second, first]).into()
+        } else {
+            reactor2::TreeView::new().nodes([first, second]).into()
         }
     }
 }
@@ -172,11 +249,23 @@ impl Component for Fixture {
         let window = runtime.adapter().open_window(root).unwrap();
         let boundary_host = reactor2::ComponentHost::mount(
             reactor2::native::WinUiAdapter::default(),
-            [reactor2::component::<RootSwitch>("switch", ())],
+            [
+                reactor2::component::<RootSwitch>("switch", ()),
+                reactor2::component::<TreeComponents>("tree", ()),
+            ],
         )
         .unwrap();
         let boundary_sender = boundary_host
             .sender::<RootSwitch>(&reactor2::Key::from("switch"))
+            .unwrap();
+        let tree_sender = boundary_host
+            .sender::<TreeComponents>(&reactor2::Key::from("tree"))
+            .unwrap();
+        let tree_content_sender = boundary_host
+            .sender_at::<TreeContent>(&[
+                reactor2::Key::from("tree"),
+                reactor2::Key::from("first-content"),
+            ])
             .unwrap();
         let boundary_root = boundary_host.runtime().graph().root().unwrap();
         let boundary_window = boundary_host
@@ -185,6 +274,8 @@ impl Component for Fixture {
             .open_window(boundary_root)
             .unwrap();
         assert!(boundary_sender.send(()));
+        assert!(tree_sender.send(()));
+        assert!(tree_content_sender.send(()));
         let stale_calls = Rc::new(Cell::new(0));
         let stale_callback_calls = Rc::clone(&stale_calls);
         let mut replacement_runtime =
@@ -399,6 +490,8 @@ impl Component for Fixture {
             app: input.app.clone(),
             boundary_host,
             boundary_sender,
+            tree_content_sender,
+            tree_sender,
             boundary_window,
             runtime,
             window,
@@ -518,6 +611,8 @@ impl Component for Fixture {
             self.app.exit().unwrap();
         } else {
             assert!(self.boundary_sender.send(()));
+            assert!(self.tree_sender.send(()));
+            assert!(self.tree_content_sender.send(()));
             Self::schedule(context);
         }
     }

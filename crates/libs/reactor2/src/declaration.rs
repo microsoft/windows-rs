@@ -106,8 +106,8 @@ pub struct Event {
 
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum RelationValue {
-    One(Option<Rc<Declaration>>),
-    Many(Rc<Vec<Declaration>>),
+    One(Option<Rc<DeclaredNode>>),
+    Many(Rc<Vec<DeclaredNode>>),
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -120,6 +120,7 @@ pub(crate) struct DeclaredRelation {
 pub(crate) struct Declaration {
     pub kind: ObjectType,
     pub key: Option<Key>,
+    pub component: Option<ComponentId>,
     pub properties: SharedList<Property>,
     pub events: SharedList<Event>,
     pub relations: SharedList<DeclaredRelation>,
@@ -198,13 +199,20 @@ impl Drop for Declaration {
         while let Some(frame) = pending.pop() {
             match frame {
                 DropFrame::One(Some(mut child)) => {
-                    Self::queue_relations(std::mem::take(&mut child.relations), &mut pending);
+                    if let DeclaredNode::Object(ref mut child) = child {
+                        Self::queue_relations(std::mem::take(&mut child.relations), &mut pending);
+                    }
                 }
                 DropFrame::One(None) => {}
                 DropFrame::Declarations(mut children) => {
                     if let Some(mut child) = children.next() {
                         pending.push(DropFrame::Declarations(children));
-                        Self::queue_relations(std::mem::take(&mut child.relations), &mut pending);
+                        if let DeclaredNode::Object(ref mut child) = child {
+                            Self::queue_relations(
+                                std::mem::take(&mut child.relations),
+                                &mut pending,
+                            );
+                        }
                     }
                 }
                 DropFrame::Relations(mut relations) => {
@@ -219,9 +227,77 @@ impl Drop for Declaration {
 }
 
 enum DropFrame {
-    One(Option<Declaration>),
-    Declarations(std::vec::IntoIter<Declaration>),
+    One(Option<DeclaredNode>),
+    Declarations(std::vec::IntoIter<DeclaredNode>),
     Relations(std::vec::IntoIter<DeclaredRelation>),
+}
+
+#[derive(Clone)]
+pub(crate) enum DeclaredNode {
+    Object(Declaration),
+    Component {
+        node: ComponentNode,
+        relation_key: Option<Key>,
+    },
+}
+
+impl fmt::Debug for DeclaredNode {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Object(value) => value.fmt(formatter),
+            Self::Component { node, relation_key } => formatter
+                .debug_struct("Component")
+                .field("key", &node.key)
+                .field("relation_key", relation_key)
+                .finish(),
+        }
+    }
+}
+
+impl PartialEq for DeclaredNode {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Object(left), Self::Object(right)) => left == right,
+            (
+                Self::Component {
+                    node: left,
+                    relation_key: left_key,
+                },
+                Self::Component {
+                    node: right,
+                    relation_key: right_key,
+                },
+            ) => left == right && left_key == right_key,
+            _ => false,
+        }
+    }
+}
+
+impl DeclaredNode {
+    fn key(self, key: impl Into<Key>) -> Self {
+        let key = key.into();
+        match self {
+            Self::Object(value) => Self::Object(value.key(key)),
+            Self::Component { node, .. } => Self::Component {
+                node,
+                relation_key: Some(key),
+            },
+        }
+    }
+
+    pub(crate) fn object(self) -> Result<Declaration, GraphError> {
+        match self {
+            Self::Object(value) => Ok(value),
+            Self::Component { .. } => Err(GraphError::UnresolvedComponent),
+        }
+    }
+
+    pub(crate) fn as_object(&self) -> Result<&Declaration, GraphError> {
+        match self {
+            Self::Object(value) => Ok(value),
+            Self::Component { .. } => Err(GraphError::UnresolvedComponent),
+        }
+    }
 }
 
 impl Declaration {
@@ -229,6 +305,7 @@ impl Declaration {
         Self {
             kind,
             key: None,
+            component: None,
             properties: SharedList::Empty,
             events: SharedList::Empty,
             relations: SharedList::Empty,
@@ -253,7 +330,7 @@ impl Declaration {
         self
     }
 
-    fn relation(mut self, id: RelationId, value: RelationValue) -> Self {
+    pub(crate) fn relation(mut self, id: RelationId, value: RelationValue) -> Self {
         self.relations
             .upsert(|relation| relation.id == id, DeclaredRelation { id, value });
         self
@@ -295,7 +372,7 @@ impl Declaration {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct Visual(pub(crate) Declaration);
+pub struct Visual(pub(crate) DeclaredNode);
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct KeyedVisual(Visual);

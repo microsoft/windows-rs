@@ -1153,7 +1153,7 @@ fn generate_declarations(
                     let extract = match item {
                         "KeyedVisual" => "child.0.0",
                         "Visual" => "child.0",
-                        _ => "child.0",
+                        _ => "DeclaredNode::Object(child.0)",
                     };
                     output.push_str(&format!(
                         "pub fn {method}(mut self, children: impl IntoIterator<Item = {item}>) -> \
@@ -1219,7 +1219,8 @@ fn generate_declarations(
         }
         if object.category == "Visual" {
             output.push_str(&format!(
-                "impl From<{}> for Visual {{ fn from(value: {}) -> Self {{ Self(value.0) }} }}\n",
+                "impl From<{}> for Visual {{ fn from(value: {}) -> Self {{ \
+                 Self(DeclaredNode::Object(value.0)) }} }}\n",
                 object.name, object.name
             ));
         }

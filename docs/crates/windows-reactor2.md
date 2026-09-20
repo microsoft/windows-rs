@@ -113,12 +113,16 @@ effect cleanup runs after mutation validation but before native replacement; new
 the replacement is applied.
 
 `ComponentHost` type-erases component state while preserving typed inputs, messages, callbacks, and
-factories. Different component types coexist as keyed roots under one retained `Grid`:
+factories. Components compose recursively inside ordinary visual relations. Their keys are local
+to the parent component, while paths provide typed access to nested senders, inputs, and
+references:
 
 - messages are queued and never run inline with native callbacks;
 - equal parent inputs do no work, while changed inputs reconcile only the owning subtree;
 - a state change reconciles only the owning retained subtree;
 - the retained root identity and `ElementRef` remain stable across updates;
+- keyed child reorder preserves both component state and retained root identity;
+- transient expansion marks component roots only long enough to recover their `ObjectId`;
 - effects compare typed dependencies, clean up before replacement, and clean up on retirement;
 - typed contexts maintain a reverse dependency index and rerender only subscribed scopes;
 - background work and timers are scope-owned, bounded, cancellable, and wake the host once per
@@ -134,8 +138,9 @@ measured about 0.8 us median and p95 with 12 allocations and 786 bytes, compared
 median and 180 us p95 with 11 allocations and 969.5 bytes.
 
 Changing the retained root type for one component among 16,384 scopes measured about 2.3 us median
-and p95, seven to eight allocations, and 392 bytes. The component host passes the known parent
-relation to the runtime, so this path does not scan the retained arena.
+and p95, seven to eight allocations, and 392 bytes. Nested root replacement asks the retained graph
+for the component root's actual owning relation, so the same path works in content, panel, and
+TreeNode relations.
 
 Retained memory at the same scale was about 799 bytes per Reactor2 idle component and 1,048 bytes
 per effect-bearing component, including the retained object and recording adapter. Current Reactor
@@ -159,18 +164,22 @@ relations.
 | Clean type-safe declarations | Proven for visual, structural, data, keyed, positional, and controlled-input contracts |
 | One compact internal object model | Proven; declarations reconcile directly into one generational retained arena |
 | Backend-specific optimization | Proven with sparse moves, dense `ReplaceAll`, stable ListView data, and native observations |
-| Component lifecycle without another UI graph | Proven for heterogeneous keyed roots, inputs, messages, contexts, effects, references, tasks, timers, and retirement |
+| Component lifecycle without another UI graph | Proven for recursive keyed scopes, inputs, messages, contexts, effects, references, tasks, timers, reorder, and retirement |
 | Compile-time success implies valid relation shape | Proven with typed builders and compile-fail tests |
 | Avoid generated-code growth | Proven; components add no generated control variants |
 | Material end-to-end improvement | Proven on live Grid, ListView, and TextBox workloads |
 
-The retained/control architecture should continue in the prototype, but production migration is
-blocked on recursive component composition. `ComponentHost` proves the required ownership and
-scheduling model, but its flat root collection is not the final application API. Heterogeneous
-component declarations still need to compose recursively inside ordinary control relations
-without adding a retained wrapper or cached expanded view. Production integration should reuse the
-existing DispatcherQueue timer and Windows thread-pool services rather than the prototype's host
-threads.
+The retained/control architecture should continue toward production migration. Recursive
+components now compose in ordinary owned relations without adding a retained wrapper, cached
+expanded view, component mutation, or planner branch. Recording tests cover nested input and
+message updates, root replacement, keyed reorder, removal, effects, stale delivery, and
+parent-local keys. The live fixture repeatedly reorders realized TreeView nodes whose custom
+content is produced and updated by nested components.
+
+Nearest-ancestor context providers, structural or data-rooted component scopes, and fresh scale
+measurements for the recursive scope representation remain before migration. Production
+integration should reuse the existing DispatcherQueue timer and Windows thread-pool services
+rather than the prototype's host threads.
 
 1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
    mirrored UI declaration tree.
@@ -349,8 +358,9 @@ be reconsidered only if it can remain native across the complete application rou
 - Validation and no-change matching reject graphs above 65,536 objects.
 - Adapter validation or application failures poison the runtime and clear retained state. Dynamic
   declaration errors are rejected before retained or native mutation.
-- `ComponentHost` currently places heterogeneous keyed roots under one retained container.
-  Recursive component declarations and nearest-ancestor context providers remain to be designed.
+- Component roots must be visual declarations. A component cannot directly delegate its root to
+  another component, and structural or data-rooted component scopes are not represented.
+- Contexts remain host-global; nearest-ancestor context providers remain to be designed.
 - Component views currently return only `Visual`, so structural or data-rooted component scopes
   are not represented.
 - Prototype timers and background work use cancellable host threads. Production integration must

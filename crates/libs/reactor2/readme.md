@@ -11,7 +11,9 @@ The prototype covers single visual content, positional and keyed visual children
 keyed structural objects with optional visual content, container-generated data items, and queued
 heterogeneous component state updates that reconcile one retained subtree directly, indexed typed
 contexts, effects, references, generation-checked asynchronous delivery, and component root-type
-replacement without a retained wrapper object.
+replacement without a retained wrapper object. Components may be nested in ordinary visual
+relations with parent-local keys; transient expansion does not add component objects to the
+retained tree or cache rendered declarations.
 
 The `reactor2-solitaire` sample provides a runnable application-shaped slice using a real Reactor2
 window and controlled TextBox commands.

@@ -195,7 +195,7 @@ impl RetainedGraph {
         }
     }
 
-    fn owner(&self, child: ObjectId) -> Option<(ObjectId, RelationId)> {
+    pub(crate) fn owner(&self, child: ObjectId) -> Option<(ObjectId, RelationId)> {
         self.objects.iter().enumerate().find_map(|(index, slot)| {
             let object = slot.object.as_ref()?;
             object.relations.iter().find_map(|relation| {
@@ -382,8 +382,12 @@ impl RetainedGraph {
                     match (previous, next) {
                         (None, None) => {}
                         (Some(previous), Some(next))
-                            if self
-                                .matches_declaration_inner(*previous, next, remaining, true)? => {}
+                            if self.matches_declaration_inner(
+                                *previous,
+                                next.as_object()?,
+                                remaining,
+                                true,
+                            )? => {}
                         _ => return Ok(false),
                     }
                 }
@@ -392,7 +396,12 @@ impl RetainedGraph {
                         return Ok(false);
                     }
                     for (previous, next) in previous.iter().zip(next.iter()) {
-                        if !self.matches_declaration_inner(*previous, next, remaining, true)? {
+                        if !self.matches_declaration_inner(
+                            *previous,
+                            next.as_object()?,
+                            remaining,
+                            true,
+                        )? {
                             return Ok(false);
                         }
                     }
@@ -482,8 +491,8 @@ impl<A: Adapter> Runtime<A> {
             return Err(UpdateError::Poisoned);
         }
         self.mutations.clear();
-        let declaration = root.into();
-        validate_declaration(&declaration.0).map_err(UpdateError::Graph)?;
+        let declaration = root.into().0.object().map_err(UpdateError::Graph)?;
+        validate_declaration(&declaration).map_err(UpdateError::Graph)?;
         self.observations.clear();
         self.adapter.drain_observations(&mut self.observations);
         for observation in self.observations.drain(..) {
@@ -495,7 +504,7 @@ impl<A: Adapter> Runtime<A> {
             let mut remaining = MAX_OBJECTS;
             if self
                 .graph
-                .matches_declaration(root, &declaration.0, &mut remaining)
+                .matches_declaration(root, &declaration, &mut remaining)
                 .map_err(UpdateError::Graph)?
             {
                 return Ok(Vec::new());
@@ -503,7 +512,7 @@ impl<A: Adapter> Runtime<A> {
         }
         if let Some(current) = self.graph.root {
             let previous = self.graph.get(current).unwrap().kind;
-            let next = declaration.0.kind;
+            let next = declaration.kind;
             if previous != next {
                 return Err(UpdateError::Graph(GraphError::RootTypeChanged {
                     previous,
@@ -518,9 +527,9 @@ impl<A: Adapter> Runtime<A> {
             };
             let root = match planner.retained.root {
                 Some(current) => planner
-                    .reconcile_object(current, &declaration.0)
+                    .reconcile_object(current, &declaration)
                     .map_err(UpdateError::Graph)?,
-                None => planner.mount(&declaration.0).map_err(UpdateError::Graph)?,
+                None => planner.mount(&declaration).map_err(UpdateError::Graph)?,
             };
             planner.retained.root = Some(root);
         }
@@ -560,17 +569,6 @@ impl<A: Adapter> Runtime<A> {
         self.update_subtree_inner(object, root.into(), None, before_apply)
     }
 
-    pub(crate) fn update_owned_subtree_before_apply(
-        &mut self,
-        parent: ObjectId,
-        relation: RelationId,
-        object: ObjectId,
-        root: impl Into<Visual>,
-        before_apply: impl FnOnce(),
-    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
-        self.update_subtree_inner(object, root.into(), Some((parent, relation)), before_apply)
-    }
-
     fn update_subtree_inner(
         &mut self,
         object: ObjectId,
@@ -582,18 +580,19 @@ impl<A: Adapter> Runtime<A> {
             return Err(UpdateError::Poisoned);
         }
         self.mutations.clear();
-        validate_declaration(&declaration.0).map_err(UpdateError::Graph)?;
+        let declaration = declaration.0.object().map_err(UpdateError::Graph)?;
+        validate_declaration(&declaration).map_err(UpdateError::Graph)?;
         let previous = self
             .graph
             .get(object)
             .ok_or(UpdateError::Graph(GraphError::StaleObject(object)))?
             .kind;
-        if previous != declaration.0.kind {
+        if previous != declaration.kind {
             let owner = owner.or_else(|| self.graph.owner(object));
             let Some((parent, relation)) = owner else {
                 return Err(UpdateError::Graph(GraphError::RootTypeChanged {
                     previous,
-                    next: declaration.0.kind,
+                    next: declaration.kind,
                 }));
             };
             let owns_object =
@@ -613,7 +612,7 @@ impl<A: Adapter> Runtime<A> {
                 .find(|contract| contract.id == relation)
                 .unwrap();
             if contract.realization != Realization::Owned
-                || contract.child != object_category(declaration.0.kind)
+                || contract.child != object_category(declaration.kind)
             {
                 return Err(UpdateError::Graph(GraphError::InvalidChildCategory(
                     relation,
@@ -623,7 +622,7 @@ impl<A: Adapter> Runtime<A> {
         let mut remaining = MAX_OBJECTS;
         if self
             .graph
-            .matches_subtree_declaration(object, &declaration.0, &mut remaining)
+            .matches_subtree_declaration(object, &declaration, &mut remaining)
             .map_err(UpdateError::Graph)?
         {
             before_apply();
@@ -634,13 +633,13 @@ impl<A: Adapter> Runtime<A> {
                 retained: &mut self.graph,
                 mutations: &mut self.mutations,
             };
-            if previous == declaration.0.kind {
+            if previous == declaration.kind {
                 planner
-                    .reconcile_object(object, &declaration.0)
+                    .reconcile_object(object, &declaration)
                     .map_err(UpdateError::Graph)?;
             } else {
                 planner
-                    .replace_object(object, &declaration.0)
+                    .replace_object(object, &declaration)
                     .map_err(UpdateError::Graph)?;
             }
         }
@@ -874,7 +873,7 @@ impl Planner<'_> {
                         RelationValue::One(child) => child.as_deref(),
                         RelationValue::Many(_) => unreachable!(),
                     })
-                    .map(|child| self.mount(child))
+                    .map(|child| child.as_object().and_then(|child| self.mount(child)))
                     .transpose()?;
                 if let Some(child) = child {
                     self.mutations.push(Mutation::Attach {
@@ -895,7 +894,7 @@ impl Planner<'_> {
                     .unwrap_or_default();
                 let mut retained = Vec::with_capacity(children.len());
                 for (index, child) in children.iter().enumerate() {
-                    let child = self.mount(child)?;
+                    let child = self.mount(child.as_object()?)?;
                     self.mutations.push(Mutation::Insert {
                         parent: object,
                         relation: contract.id,
@@ -985,6 +984,7 @@ impl Planner<'_> {
                     RelationValue::One(child) => child.as_deref(),
                     RelationValue::Many(_) => unreachable!(),
                 });
+                let desired = desired.map(DeclaredNode::as_object).transpose()?;
                 let next = match (previous, desired) {
                     (Some(previous), Some(desired))
                         if self.retained.get(previous).unwrap().kind == desired.kind =>
@@ -1040,17 +1040,22 @@ impl Planner<'_> {
                 RelationValue::One(_) => unreachable!(),
             })
             .unwrap_or_default();
+        let desired = desired
+            .iter()
+            .map(DeclaredNode::as_object)
+            .collect::<Result<Vec<_>, _>>()?;
         let same_order = match &self.retained.relation(object, relation_id).unwrap().value {
-            RetainedRelationValue::Many(previous) if previous.len() == desired.len() => {
-                previous.iter().zip(desired).all(|(previous, desired)| {
+            RetainedRelationValue::Many(previous) if previous.len() == desired.len() => previous
+                .iter()
+                .zip(desired.iter().copied())
+                .all(|(previous, desired)| {
                     let previous = self.retained.get(*previous).unwrap();
                     previous.kind == desired.kind && previous.key == desired.key
-                })
-            }
+                }),
             _ => false,
         };
         if same_order {
-            for (index, desired) in desired.iter().enumerate() {
+            for (index, desired) in desired.iter().copied().enumerate() {
                 let previous = match &self.retained.relation(object, relation_id).unwrap().value {
                     RetainedRelationValue::Many(previous) => previous[index],
                     _ => unreachable!(),
@@ -1073,7 +1078,7 @@ impl Planner<'_> {
 
         let mut matched = Vec::with_capacity(desired.len());
         let mut removed = Vec::new();
-        for desired in desired {
+        for desired in desired.iter().copied() {
             let key = desired.key.clone().unwrap();
             let previous = match by_key.remove(&key) {
                 Some((previous, _))
@@ -1210,12 +1215,16 @@ impl Planner<'_> {
                 RelationValue::One(_) => unreachable!(),
             })
             .unwrap_or_default();
+        let desired = desired
+            .iter()
+            .map(DeclaredNode::as_object)
+            .collect::<Result<Vec<_>, _>>()?;
         let previous = match &self.retained.relation(object, relation_id).unwrap().value {
             RetainedRelationValue::Many(children) => children.clone(),
             _ => unreachable!(),
         };
         let mut next = Vec::with_capacity(desired.len());
-        for (index, desired) in desired.iter().enumerate() {
+        for (index, desired) in desired.iter().copied().enumerate() {
             let child = if let Some(previous) = previous.get(index).copied() {
                 if self.retained.get(previous).unwrap().kind == desired.kind {
                     self.reconcile_object(previous, desired)?

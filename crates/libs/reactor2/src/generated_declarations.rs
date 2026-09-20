@@ -43,7 +43,7 @@ impl TextBlock {
 }
 impl From<TextBlock> for Visual {
     fn from(value: TextBlock) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -79,7 +79,7 @@ impl TextBox {
 }
 impl From<TextBox> for Visual {
     fn from(value: TextBox) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -129,7 +129,7 @@ impl Default for Button {
 }
 impl From<Button> for Visual {
     fn from(value: Button) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -186,7 +186,7 @@ impl Default for CheckBox {
 }
 impl From<CheckBox> for Visual {
     fn from(value: CheckBox) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -229,7 +229,7 @@ impl Default for Border {
 }
 impl From<Border> for Visual {
     fn from(value: Border) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -274,7 +274,7 @@ impl Default for Grid {
 }
 impl From<Grid> for Visual {
     fn from(value: Grid) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -329,7 +329,7 @@ impl Default for StackPanel {
 }
 impl From<StackPanel> for Visual {
     fn from(value: StackPanel) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -372,7 +372,7 @@ impl Default for Canvas {
 }
 impl From<Canvas> for Visual {
     fn from(value: Canvas) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -415,7 +415,7 @@ impl Default for ScrollViewer {
 }
 impl From<ScrollViewer> for Visual {
     fn from(value: ScrollViewer) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -472,7 +472,7 @@ impl Default for Slider {
 }
 impl From<Slider> for Visual {
     fn from(value: Slider) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -503,7 +503,12 @@ impl TreeView {
     pub fn nodes(mut self, children: impl IntoIterator<Item = TreeNode>) -> Self {
         self.0 = self.0.relation(
             RelationId::Roots,
-            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+            RelationValue::Many(Rc::new(
+                children
+                    .into_iter()
+                    .map(|child| DeclaredNode::Object(child.0))
+                    .collect(),
+            )),
         );
         self
     }
@@ -515,7 +520,7 @@ impl Default for TreeView {
 }
 impl From<TreeView> for Visual {
     fn from(value: TreeView) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]
@@ -556,7 +561,12 @@ impl TreeNode {
     pub fn children(mut self, children: impl IntoIterator<Item = Self>) -> Self {
         self.0 = self.0.relation(
             RelationId::Children,
-            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+            RelationValue::Many(Rc::new(
+                children
+                    .into_iter()
+                    .map(|child| DeclaredNode::Object(child.0))
+                    .collect(),
+            )),
         );
         self
     }
@@ -589,7 +599,12 @@ impl ListView {
     pub fn items(mut self, children: impl IntoIterator<Item = DataItem>) -> Self {
         self.0 = self.0.relation(
             RelationId::Items,
-            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+            RelationValue::Many(Rc::new(
+                children
+                    .into_iter()
+                    .map(|child| DeclaredNode::Object(child.0))
+                    .collect(),
+            )),
         );
         self
     }
@@ -601,7 +616,7 @@ impl Default for ListView {
 }
 impl From<ListView> for Visual {
     fn from(value: ListView) -> Self {
-        Self(value.0)
+        Self(DeclaredNode::Object(value.0))
     }
 }
 #[derive(Clone, Debug, PartialEq)]

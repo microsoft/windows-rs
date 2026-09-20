@@ -531,20 +531,28 @@ pub trait Component: Sized + 'static {
 }
 
 pub struct ComponentNode {
-    key: Key,
-    factory: Box<dyn ErasedFactory>,
+    pub(crate) key: Key,
+    factory: Rc<dyn ErasedFactory>,
 }
 
 pub fn component<C: Component>(key: impl Into<Key>, input: C::Input) -> ComponentNode {
     ComponentNode {
         key: key.into(),
-        factory: Box::new(TypedFactory::<C> { input }),
+        factory: Rc::new(TypedFactory::<C> { input }),
+    }
+}
+
+impl ComponentNode {
+    pub fn keyed(self) -> KeyedVisual {
+        let key = self.key.clone();
+        keyed(key, self)
     }
 }
 
 trait ErasedFactory {
+    fn component_type(&self) -> TypeId;
     fn create(
-        self: Box<Self>,
+        &self,
         id: ComponentId,
         queue: SharedQueue,
         reference: ElementRef,
@@ -558,6 +566,7 @@ trait ErasedFactory {
         ),
         EffectKey,
     >;
+    fn input(&self) -> &dyn Any;
 }
 
 struct TypedFactory<C: Component> {
@@ -565,8 +574,12 @@ struct TypedFactory<C: Component> {
 }
 
 impl<C: Component> ErasedFactory for TypedFactory<C> {
+    fn component_type(&self) -> TypeId {
+        TypeId::of::<C>()
+    }
+
     fn create(
-        self: Box<Self>,
+        &self,
         id: ComponentId,
         queue: SharedQueue,
         reference: ElementRef,
@@ -594,12 +607,40 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         let component = C::create(&self.input, &context);
         let scope = TypedScope {
             component,
-            input: self.input,
+            input: self.input.clone(),
             sender,
             tasks,
         };
         let (view, effects, dependencies) = scope.render_view(reference, contexts)?;
         Ok((Box::new(scope), view, effects, dependencies))
+    }
+
+    fn input(&self) -> &dyn Any {
+        &self.input
+    }
+}
+
+impl Clone for ComponentNode {
+    fn clone(&self) -> Self {
+        Self {
+            key: self.key.clone(),
+            factory: Rc::clone(&self.factory),
+        }
+    }
+}
+
+impl PartialEq for ComponentNode {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key && Rc::ptr_eq(&self.factory, &other.factory)
+    }
+}
+
+impl From<ComponentNode> for Visual {
+    fn from(node: ComponentNode) -> Self {
+        Self(DeclaredNode::Component {
+            node,
+            relation_key: None,
+        })
     }
 }
 
@@ -720,9 +761,12 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
 }
 
 struct Scope {
+    children: HashMap<Key, ComponentId>,
     component: Box<dyn ErasedComponent>,
     dependencies: HashSet<ContextId>,
     effects: Vec<EffectSlot>,
+    key: Key,
+    parent: Option<ComponentId>,
     reference: ElementRef,
     root: Option<ObjectId>,
 }
@@ -730,6 +774,20 @@ struct Scope {
 struct ScopeSlot {
     generation: u32,
     scope: Option<Scope>,
+}
+
+struct PendingScopeRender {
+    dependencies: HashSet<ContextId>,
+    effects: EffectDraft,
+    id: ComponentId,
+}
+
+#[derive(Default)]
+struct ExpansionState {
+    created: Vec<ComponentId>,
+    objects: usize,
+    pending: Vec<PendingScopeRender>,
+    seen: HashMap<ComponentId, HashSet<Key>>,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -741,6 +799,8 @@ pub struct ComponentDrain {
 
 #[derive(Debug)]
 pub enum ComponentError<E> {
+    ComponentKey { component: Key, relation: Key },
+    ComponentRoot,
     ComponentType(Key),
     DuplicateEffect(EffectKey),
     DuplicateKey(Key),
@@ -762,6 +822,7 @@ pub struct ComponentHost<A: Adapter> {
     poisoned: bool,
     queue: SharedQueue,
     runtime: Runtime<A>,
+    free_scopes: Vec<u32>,
     scopes: Vec<ScopeSlot>,
 }
 
@@ -792,57 +853,36 @@ impl<A: Adapter> ComponentHost<A> {
             poisoned: false,
             queue,
             runtime: Runtime::new(adapter),
+            free_scopes: Vec::new(),
             scopes: Vec::new(),
         };
         let mut declarations = Vec::new();
-        let mut pending_effects = Vec::new();
         let mut keys = HashSet::new();
+        let mut expansion = ExpansionState::default();
         for node in components {
             if !keys.insert(node.key.clone()) {
                 return Err(ComponentError::DuplicateKey(node.key));
             }
-            let id = ComponentId {
-                index: u32::try_from(host.scopes.len()).unwrap(),
-                generation: 0,
-            };
-            let reference = ElementRef::default();
-            let key = node.key;
-            let (component, view, effects, dependencies) = node
-                .factory
-                .create(
-                    id,
-                    Arc::clone(&host.queue),
-                    reference.clone(),
-                    &host.contexts,
-                )
-                .map_err(ComponentError::DuplicateEffect)?;
-            declarations.push(keyed(key.clone(), view));
-            host.scopes.push(ScopeSlot {
-                generation: 0,
-                scope: Some(Scope {
-                    component,
-                    dependencies,
-                    effects: Vec::new(),
-                    reference,
-                    root: None,
-                }),
-            });
+            let key = node.key.clone();
+            let (id, view, effects, dependencies) = host.create_scope(None, node)?;
             host.order.push(id);
             host.keys.insert(key, id);
-            pending_effects.push((id, effects));
+            expansion.pending.push(PendingScopeRender {
+                dependencies,
+                effects,
+                id,
+            });
+            let view = host.expand_view(id, view, 0, &mut expansion)?;
+            declarations.push(keyed(host.scope(id).unwrap().key.clone(), view));
         }
-        host.runtime.update(Grid::new().children(declarations))?;
-        host.refresh_roots();
-        for (id, effects) in pending_effects {
-            effects.commit(&mut host.scope_mut(id).unwrap().effects);
-        }
-        for id in host.order.clone() {
-            for context in host.scope(id).unwrap().dependencies.clone() {
-                host.context_consumers
-                    .entry(context)
-                    .or_default()
-                    .insert(id);
-            }
+        let root: Visual = Grid::new().children(declarations).into();
+        host.runtime.update(root.clone())?;
+        host.refresh_roots(&root);
+        for pending in expansion.pending {
+            pending
+                .effects
+                .commit(&mut host.scope_mut(pending.id).unwrap().effects);
+            host.replace_dependencies(pending.id, pending.dependencies);
         }
         Ok(host)
     }
@@ -861,10 +901,14 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub fn sender<C: Component>(&self, key: &Key) -> Option<ComponentSender<C::Message>> {
+        self.sender_at::<C>(std::slice::from_ref(key))
+    }
+
+    pub fn sender_at<C: Component>(&self, path: &[Key]) -> Option<ComponentSender<C::Message>> {
         if self.poisoned {
             return None;
         }
-        let scope = self.scope(self.find(key)?)?;
+        let scope = self.scope(self.find_path(path)?)?;
         (scope.component.component_type() == TypeId::of::<C>()).then(|| {
             scope
                 .component
@@ -876,10 +920,14 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub fn reference(&self, key: &Key) -> Option<ElementRef> {
+        self.reference_at(std::slice::from_ref(key))
+    }
+
+    pub fn reference_at(&self, path: &[Key]) -> Option<ElementRef> {
         if self.poisoned {
             return None;
         }
-        self.scope(self.find(key)?)
+        self.scope(self.find_path(path)?)
             .map(|scope| scope.reference.clone())
     }
 
@@ -888,12 +936,21 @@ impl<A: Adapter> ComponentHost<A> {
         key: &Key,
         input: C::Input,
     ) -> Result<Vec<Mutation>, ComponentError<A::Error>> {
+        self.update_input_at::<C>(std::slice::from_ref(key), input)
+    }
+
+    pub fn update_input_at<C: Component>(
+        &mut self,
+        path: &[Key],
+        input: C::Input,
+    ) -> Result<Vec<Mutation>, ComponentError<A::Error>> {
         self.ensure_active()?;
+        let key = path.last().cloned().unwrap_or_else(|| Key::from(""));
         let id = self
-            .find(key)
+            .find_path(path)
             .ok_or_else(|| ComponentError::MissingComponent(key.clone()))?;
         if self.scope(id).unwrap().component.component_type() != TypeId::of::<C>() {
-            return Err(ComponentError::ComponentType(key.clone()));
+            return Err(ComponentError::ComponentType(key));
         }
         let contexts = self.contexts.clone();
         let scope = self.scope_mut(id).unwrap();
@@ -905,35 +962,7 @@ impl<A: Adapter> ComponentHost<A> {
         else {
             return Ok(Vec::new());
         };
-        let root = scope.root.unwrap();
-        let parent = self.runtime.graph().root().unwrap();
-        let mut effects = Some(effects);
-        let mut prepared = None;
-        let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
-        let slots = &mut scopes[id.index as usize].scope.as_mut().unwrap().effects;
-        let mutations = match runtime.update_owned_subtree_before_apply(
-            parent,
-            RelationId::Children,
-            root,
-            view,
-            || {
-                prepared = Some(effects.take().unwrap().prepare(slots));
-            },
-        ) {
-            Ok(mutations) => mutations,
-            Err(error) => {
-                if let Some(prepared) = prepared {
-                    prepared.cancel();
-                }
-                return Err(self.runtime_error(error));
-            }
-        };
-        self.refresh_reference(id);
-        prepared
-            .unwrap()
-            .commit(&mut self.scope_mut(id).unwrap().effects);
-        self.replace_dependencies(id, dependencies);
-        Ok(mutations)
+        self.apply_render(id, view, effects, dependencies)
     }
 
     pub fn set_context<T: Clone + PartialEq + 'static>(
@@ -966,6 +995,20 @@ impl<A: Adapter> ComponentHost<A> {
             .get(&context.id)
             .map(|consumers| consumers.iter().copied().collect::<Vec<_>>())
             .unwrap_or_default();
+        let affected_set = affected.iter().copied().collect::<HashSet<_>>();
+        let affected = affected
+            .into_iter()
+            .filter(|id| {
+                let mut parent = self.scope(*id).and_then(|scope| scope.parent);
+                while let Some(current) = parent {
+                    if affected_set.contains(&current) {
+                        return false;
+                    }
+                    parent = self.scope(current).and_then(|scope| scope.parent);
+                }
+                true
+            })
+            .collect::<Vec<_>>();
         let mut pending = Vec::with_capacity(affected.len());
         for id in affected {
             let scope = self.scope(id).unwrap();
@@ -973,42 +1016,12 @@ impl<A: Adapter> ComponentHost<A> {
                 .component
                 .render_view(scope.reference.clone(), &contexts)
                 .map_err(ComponentError::DuplicateEffect)?;
-            validate_declaration(&view.0)
-                .map_err(UpdateError::Graph)
-                .map_err(ComponentError::Runtime)?;
-            let root = scope.root.unwrap();
-            pending.push((id, root, view, effects, dependencies));
+            pending.push((id, view, effects, dependencies));
         }
         self.contexts = contexts;
         let mut report = ComponentDrain::default();
-        for (id, root, view, effects, dependencies) in pending {
-            let parent = self.runtime.graph().root().unwrap();
-            let mut effects = Some(effects);
-            let mut prepared = None;
-            let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
-            let slots = &mut scopes[id.index as usize].scope.as_mut().unwrap().effects;
-            let mutations = match runtime.update_owned_subtree_before_apply(
-                parent,
-                RelationId::Children,
-                root,
-                view,
-                || {
-                    prepared = Some(effects.take().unwrap().prepare(slots));
-                },
-            ) {
-                Ok(mutations) => mutations,
-                Err(error) => {
-                    if let Some(prepared) = prepared {
-                        prepared.cancel();
-                    }
-                    return Err(self.runtime_error(error));
-                }
-            };
-            self.refresh_reference(id);
-            prepared
-                .unwrap()
-                .commit(&mut self.scope_mut(id).unwrap().effects);
-            self.replace_dependencies(id, dependencies);
+        for (id, view, effects, dependencies) in pending {
+            let mutations = self.apply_render(id, view, effects, dependencies)?;
             report.dispatched += 1;
             report.mutations += mutations.len();
         }
@@ -1022,6 +1035,7 @@ impl<A: Adapter> ComponentHost<A> {
         let contexts = self.contexts.clone();
         let mut events = Vec::new();
         if let Err(error) = self.runtime.drain_events(&mut events) {
+            self.rearm_wake();
             return Err(self.runtime_error(error));
         }
         for event in events {
@@ -1047,42 +1061,25 @@ impl<A: Adapter> ComponentHost<A> {
                 continue;
             }
             let reference = scope.reference.clone();
-            let (view, effects, dependencies) = scope
-                .component
-                .dispatch(message.value, reference, &contexts)
-                .map_err(ComponentError::DuplicateEffect)?;
-            let root = scope.root.unwrap();
-            let parent = self.runtime.graph().root().unwrap();
-            let mut effects = Some(effects);
-            let mut prepared = None;
-            let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
-            let slots = &mut scopes[message.component.index as usize]
-                .scope
-                .as_mut()
-                .unwrap()
-                .effects;
-            let mutations = match runtime.update_owned_subtree_before_apply(
-                parent,
-                RelationId::Children,
-                root,
-                view,
-                || {
-                    prepared = Some(effects.take().unwrap().prepare(slots));
-                },
-            ) {
+            let (view, effects, dependencies) =
+                match scope
+                    .component
+                    .dispatch(message.value, reference, &contexts)
+                {
+                    Ok(rendered) => rendered,
+                    Err(error) => {
+                        self.rearm_wake();
+                        return Err(ComponentError::DuplicateEffect(error));
+                    }
+                };
+            let mutations = match self.apply_render(message.component, view, effects, dependencies)
+            {
                 Ok(mutations) => mutations,
                 Err(error) => {
-                    if let Some(prepared) = prepared {
-                        prepared.cancel();
-                    }
-                    return Err(self.runtime_error(error));
+                    self.rearm_wake();
+                    return Err(error);
                 }
             };
-            self.refresh_reference(message.component);
-            prepared
-                .unwrap()
-                .commit(&mut self.scope_mut(message.component).unwrap().effects);
-            self.replace_dependencies(message.component, dependencies);
             report.dispatched += 1;
             report.mutations += mutations.len();
         }
@@ -1105,37 +1102,379 @@ impl<A: Adapter> ComponentHost<A> {
         }
         self.order.retain(|current| *current != id);
         self.keys.remove(key);
-        for consumers in self.context_consumers.values_mut() {
-            consumers.remove(&id);
-        }
+        self.retire_scope(id);
         self.context_consumers
             .retain(|_, consumers| !consumers.is_empty());
-        let slot = &mut self.scopes[id.index as usize];
-        let mut scope = slot.scope.take().unwrap();
-        scope.reference.set(None);
-        scope.component.cancel_tasks();
-        cleanup_effects(&mut scope.effects);
-        slot.generation = slot.generation.wrapping_add(1);
         Ok(())
     }
 
-    fn refresh_roots(&mut self) {
-        let root = self.runtime.graph().root().unwrap();
-        let children = self
-            .runtime
-            .graph()
-            .children(root, RelationId::Children)
-            .unwrap()
-            .to_vec();
-        for (id, object) in self.order.clone().into_iter().zip(children) {
+    fn create_scope(
+        &mut self,
+        parent: Option<ComponentId>,
+        node: ComponentNode,
+    ) -> Result<(ComponentId, Visual, EffectDraft, HashSet<ContextId>), ComponentError<A::Error>>
+    {
+        let reused = self.free_scopes.pop();
+        let id = if let Some(index) = reused {
+            ComponentId {
+                index,
+                generation: self.scopes[index as usize].generation,
+            }
+        } else {
+            ComponentId {
+                index: u32::try_from(self.scopes.len()).unwrap(),
+                generation: 0,
+            }
+        };
+        let reference = ElementRef::default();
+        let key = node.key.clone();
+        let (component, view, effects, dependencies) = match node.factory.create(
+            id,
+            Arc::clone(&self.queue),
+            reference.clone(),
+            &self.contexts,
+        ) {
+            Ok(created) => created,
+            Err(error) => {
+                if let Some(index) = reused {
+                    self.free_scopes.push(index);
+                }
+                return Err(ComponentError::DuplicateEffect(error));
+            }
+        };
+        let scope = Scope {
+            children: HashMap::new(),
+            component,
+            dependencies: HashSet::new(),
+            effects: Vec::new(),
+            key,
+            parent,
+            reference,
+            root: None,
+        };
+        if id.index as usize == self.scopes.len() {
+            self.scopes.push(ScopeSlot {
+                generation: id.generation,
+                scope: Some(scope),
+            });
+        } else {
+            self.scopes[id.index as usize].scope = Some(scope);
+        }
+        Ok((id, view, effects, dependencies))
+    }
+
+    fn expand_view(
+        &mut self,
+        owner: ComponentId,
+        view: Visual,
+        depth: usize,
+        expansion: &mut ExpansionState,
+    ) -> Result<Visual, ComponentError<A::Error>> {
+        expansion.seen.entry(owner).or_default();
+        let declaration = match view.0 {
+            DeclaredNode::Object(declaration) => declaration,
+            DeclaredNode::Component { .. } => return Err(ComponentError::ComponentRoot),
+        };
+        Ok(Visual(DeclaredNode::Object(self.expand_declaration(
+            owner,
+            declaration,
+            true,
+            depth,
+            expansion,
+        )?)))
+    }
+
+    fn expand_declaration(
+        &mut self,
+        owner: ComponentId,
+        mut declaration: Declaration,
+        scope_root: bool,
+        depth: usize,
+        expansion: &mut ExpansionState,
+    ) -> Result<Declaration, ComponentError<A::Error>> {
+        if depth > MAX_DEPTH {
+            return Err(ComponentError::Runtime(UpdateError::Graph(
+                GraphError::DepthExceeded,
+            )));
+        }
+        if expansion.objects >= MAX_OBJECTS {
+            return Err(ComponentError::Runtime(UpdateError::Graph(
+                GraphError::SizeExceeded,
+            )));
+        }
+        expansion.objects += 1;
+        if scope_root {
+            declaration.component = Some(owner);
+        }
+        for relation in declaration.relations.as_slice().to_vec() {
+            let mut value = relation.value;
+            match &mut value {
+                RelationValue::One(Some(child)) => {
+                    let expanded =
+                        self.expand_node(owner, child.as_ref().clone(), depth + 1, expansion)?;
+                    *child = Rc::new(DeclaredNode::Object(expanded));
+                }
+                RelationValue::Many(children) => {
+                    for child in Rc::make_mut(children) {
+                        let expanded =
+                            self.expand_node(owner, child.clone(), depth + 1, expansion)?;
+                        *child = DeclaredNode::Object(expanded);
+                    }
+                }
+                RelationValue::One(None) => {}
+            }
+            declaration = declaration.relation(relation.id, value);
+        }
+        Ok(declaration)
+    }
+
+    fn expand_node(
+        &mut self,
+        owner: ComponentId,
+        node: DeclaredNode,
+        depth: usize,
+        expansion: &mut ExpansionState,
+    ) -> Result<Declaration, ComponentError<A::Error>> {
+        match node {
+            DeclaredNode::Object(declaration) => {
+                self.expand_declaration(owner, declaration, false, depth, expansion)
+            }
+            DeclaredNode::Component { node, relation_key } => {
+                if let Some(relation_key) = &relation_key
+                    && relation_key != &node.key
+                {
+                    return Err(ComponentError::ComponentKey {
+                        component: node.key,
+                        relation: relation_key.clone(),
+                    });
+                }
+                let component_key = node.key.clone();
+                let seen = expansion.seen.entry(owner).or_default();
+                if !seen.insert(node.key.clone()) {
+                    return Err(ComponentError::DuplicateKey(node.key));
+                }
+                let existing = self
+                    .scope(owner)
+                    .and_then(|scope| scope.children.get(&node.key).copied());
+                let (id, view, effects, dependencies) = if let Some(id) = existing {
+                    if self.scope(id).unwrap().component.component_type()
+                        != node.factory.component_type()
+                    {
+                        return Err(ComponentError::ComponentType(node.key));
+                    }
+                    let contexts = self.contexts.clone();
+                    let scope = self.scope_mut(id).unwrap();
+                    let reference = scope.reference.clone();
+                    let rendered = scope
+                        .component
+                        .apply_input(node.factory.input(), reference.clone(), &contexts)
+                        .map_err(ComponentError::DuplicateEffect)?;
+                    let (view, effects, dependencies) = match rendered {
+                        Some(rendered) => rendered,
+                        None => scope
+                            .component
+                            .render_view(reference, &contexts)
+                            .map_err(ComponentError::DuplicateEffect)?,
+                    };
+                    (id, view, effects, dependencies)
+                } else {
+                    let key = node.key.clone();
+                    let created = self.create_scope(Some(owner), node)?;
+                    expansion.created.push(created.0);
+                    self.scope_mut(owner)
+                        .unwrap()
+                        .children
+                        .insert(key, created.0);
+                    created
+                };
+                expansion.pending.push(PendingScopeRender {
+                    dependencies,
+                    effects,
+                    id,
+                });
+                let expanded = self.expand_view(id, view, depth, expansion)?;
+                let mut declaration = expanded.0.object().unwrap();
+                declaration.key = Some(component_key);
+                Ok(declaration)
+            }
+        }
+    }
+
+    fn refresh_roots(&mut self, root: &Visual) {
+        let object = self.runtime.graph().root().unwrap();
+        let declaration = root.0.as_object().unwrap();
+        self.refresh_roots_from(declaration, object);
+    }
+
+    fn refresh_roots_from(&mut self, declaration: &Declaration, object: ObjectId) {
+        if let Some(id) = declaration.component {
             let scope = self.scope_mut(id).unwrap();
             scope.root = Some(object);
             scope.reference.set(Some(object));
         }
+        let mut pending = Vec::new();
+        for relation in declaration.relations.iter() {
+            match &relation.value {
+                RelationValue::One(Some(child)) => {
+                    let child = child.as_object().unwrap().clone();
+                    let object = self.runtime.graph().child(object, relation.id).unwrap();
+                    pending.push((child, object));
+                }
+                RelationValue::Many(children) => {
+                    let objects = self.runtime.graph().children(object, relation.id).unwrap();
+                    pending.extend(
+                        children
+                            .iter()
+                            .zip(objects)
+                            .map(|(child, object)| (child.as_object().unwrap().clone(), *object)),
+                    );
+                }
+                RelationValue::One(None) => {}
+            }
+        }
+        for (declaration, object) in pending {
+            self.refresh_roots_from(&declaration, object);
+        }
+    }
+
+    fn apply_render(
+        &mut self,
+        id: ComponentId,
+        view: Visual,
+        effects: EffectDraft,
+        dependencies: HashSet<ContextId>,
+    ) -> Result<Vec<Mutation>, ComponentError<A::Error>> {
+        let root = self.scope(id).unwrap().root.unwrap();
+        let mut expansion = ExpansionState::default();
+        expansion.pending.push(PendingScopeRender {
+            dependencies,
+            effects,
+            id,
+        });
+        let view = match self.expand_view(id, view, 0, &mut expansion) {
+            Ok(view) => view,
+            Err(error) => {
+                self.discard_created(&expansion.created);
+                return Err(error);
+            }
+        };
+        let retired = self.unseen_scopes(&expansion.seen);
+        let mut pending = Some(expansion.pending);
+        let mut prepared = Vec::new();
+        let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
+        let mutations = match runtime.update_subtree_before_apply(root, view.clone(), || {
+            for pending in pending.take().unwrap() {
+                let slots = &mut scopes[pending.id.index as usize]
+                    .scope
+                    .as_mut()
+                    .unwrap()
+                    .effects;
+                prepared.push((
+                    pending.id,
+                    pending.effects.prepare(slots),
+                    pending.dependencies,
+                ));
+            }
+            prepare_scope_retirement(scopes, &retired);
+        }) {
+            Ok(mutations) => mutations,
+            Err(error) => {
+                for (_, prepared, _) in prepared {
+                    prepared.cancel();
+                }
+                self.discard_created(&expansion.created);
+                return Err(self.runtime_error(error));
+            }
+        };
+        self.refresh_roots_from(view.0.as_object().unwrap(), root);
+        self.retire_unseen(&expansion.seen);
+        for (id, prepared, dependencies) in prepared {
+            prepared.commit(&mut self.scope_mut(id).unwrap().effects);
+            self.replace_dependencies(id, dependencies);
+        }
+        Ok(mutations)
+    }
+
+    fn retire_unseen(&mut self, seen: &HashMap<ComponentId, HashSet<Key>>) {
+        let mut retired = Vec::new();
+        for (parent, keys) in seen {
+            let scope = self.scope_mut(*parent).unwrap();
+            let removed = scope
+                .children
+                .iter()
+                .filter(|(key, _)| !keys.contains(*key))
+                .map(|(key, id)| (key.clone(), *id))
+                .collect::<Vec<_>>();
+            for (key, id) in removed {
+                scope.children.remove(&key);
+                retired.push(id);
+            }
+        }
+        for id in retired {
+            self.retire_scope(id);
+        }
+    }
+
+    fn retire_scope(&mut self, id: ComponentId) {
+        let children = self
+            .scope(id)
+            .map(|scope| scope.children.values().copied().collect::<Vec<_>>())
+            .unwrap_or_default();
+        for child in children {
+            self.retire_scope(child);
+        }
+        for consumers in self.context_consumers.values_mut() {
+            consumers.remove(&id);
+        }
+        let slot = &mut self.scopes[id.index as usize];
+        let Some(mut scope) = slot.scope.take() else {
+            return;
+        };
+        scope.reference.set(None);
+        scope.component.cancel_tasks();
+        cleanup_effects(&mut scope.effects);
+        slot.generation = slot.generation.wrapping_add(1);
+        self.free_scopes.push(id.index);
+    }
+
+    fn discard_created(&mut self, created: &[ComponentId]) {
+        for id in created.iter().rev().copied() {
+            let parent = self.scope(id).and_then(|scope| scope.parent);
+            if let Some(parent) = parent
+                && let Some(scope) = self.scope_mut(parent)
+            {
+                scope.children.retain(|_, child| *child != id);
+            }
+
+            self.retire_scope(id);
+        }
+    }
+
+    fn unseen_scopes(&self, seen: &HashMap<ComponentId, HashSet<Key>>) -> Vec<ComponentId> {
+        seen.iter()
+            .flat_map(|(parent, keys)| {
+                self.scope(*parent)
+                    .into_iter()
+                    .flat_map(|scope| scope.children.iter())
+                    .filter(|(key, _)| !keys.contains(*key))
+                    .map(|(_, id)| *id)
+            })
+            .collect()
     }
 
     fn find(&self, key: &Key) -> Option<ComponentId> {
         self.keys.get(key).copied()
+    }
+
+    fn find_path(&self, path: &[Key]) -> Option<ComponentId> {
+        let (first, rest) = path.split_first()?;
+        let mut id = self.find(first)?;
+        for key in rest {
+            let parent = id;
+            id = *self.scope(parent)?.children.get(key)?;
+            debug_assert_eq!(self.scope(id)?.parent, Some(parent));
+        }
+        Some(id)
     }
 
     fn scope(&self, id: ComponentId) -> Option<&Scope> {
@@ -1213,11 +1552,6 @@ impl<A: Adapter> ComponentHost<A> {
                 .insert(id);
         }
     }
-
-    fn refresh_reference(&mut self, id: ComponentId) {
-        let root = self.scope(id).unwrap().root.unwrap();
-        self.scope_mut(id).unwrap().reference.set(Some(root));
-    }
 }
 
 fn cleanup_effects(effects: &mut [EffectSlot]) {
@@ -1225,6 +1559,24 @@ fn cleanup_effects(effects: &mut [EffectSlot]) {
         if let Some(cleanup) = effect.cleanup.take() {
             cleanup();
         }
+    }
+}
+
+fn prepare_scope_retirement(scopes: &mut [ScopeSlot], roots: &[ComponentId]) {
+    let mut pending = roots.to_vec();
+    while let Some(id) = pending.pop() {
+        let Some(slot) = scopes.get_mut(id.index as usize) else {
+            continue;
+        };
+        if slot.generation != id.generation {
+            continue;
+        }
+        let Some(scope) = slot.scope.as_mut() else {
+            continue;
+        };
+        pending.extend(scope.children.values().copied());
+        scope.component.cancel_tasks();
+        cleanup_effects(&mut scope.effects);
     }
 }
 
@@ -1348,6 +1700,29 @@ mod tests {
         }
     }
 
+    struct ContextParent;
+
+    impl Component for ContextParent {
+        type Input = ContextInput;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            input.renders.fetch_add(1, Ordering::Relaxed);
+            let _ = context.use_context(&input.context);
+            Border::new()
+                .content(component::<ContextReader>("reader", input.clone()))
+                .into()
+        }
+    }
+
     #[derive(Clone)]
     struct WorkerInput {
         cancelled: Arc<AtomicUsize>,
@@ -1433,12 +1808,245 @@ mod tests {
         }
     }
 
+    struct NestedRoot;
+
+    impl Component for NestedRoot {
+        type Input = (f64, bool);
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            let root = Border::new().canvas_left(input.0);
+            if input.1 {
+                root.content(component::<RootSwitch>("child", ())).into()
+            } else {
+                root.into()
+            }
+        }
+    }
+
+    struct CounterParent;
+
+    impl Component for CounterParent {
+        type Input = CounterInput;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            Border::new()
+                .content(component::<Counter>("counter", input.clone()))
+                .into()
+        }
+    }
+
+    struct ReorderParent(bool);
+
+    impl Component for ReorderParent {
+        type Input = ();
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self(false)
+        }
+
+        fn update(&mut self, (): (), _context: &ComponentContext<Self::Message>) {
+            self.0 = !self.0;
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            let first = component::<RootSwitch>("first", ()).keyed();
+            let second = component::<RootSwitch>("second", ()).keyed();
+            if self.0 {
+                Grid::new().children([second, first]).into()
+            } else {
+                Grid::new().children([first, second]).into()
+            }
+        }
+    }
+
+    struct DuplicateNested;
+
+    impl Component for DuplicateNested {
+        type Input = ();
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            StackPanel::new()
+                .children([
+                    component::<RootSwitch>("child", ()).into(),
+                    component::<RootSwitch>("child", ()).into(),
+                ])
+                .into()
+        }
+    }
+
+    struct TreeContent(usize);
+
+    impl Component for TreeContent {
+        type Input = Rc<str>;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self(0)
+        }
+
+        fn update(&mut self, (): (), _context: &ComponentContext<Self::Message>) {
+            self.0 += 1;
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            StackPanel::new()
+                .children([
+                    TextBlock::new(input.clone()).into(),
+                    TextBlock::new(self.0.to_string()).into(),
+                ])
+                .into()
+        }
+    }
+
+    struct TreeComponents(bool);
+
+    impl Component for TreeComponents {
+        type Input = ();
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self(false)
+        }
+
+        fn update(&mut self, (): (), _context: &ComponentContext<Self::Message>) {
+            self.0 = !self.0;
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            let first = TreeNode::new("first", "First")
+                .expanded(true)
+                .content(component::<TreeContent>("first-content", Rc::from("First")));
+            let second = TreeNode::new("second", "Second")
+                .expanded(true)
+                .content(component::<TreeContent>(
+                    "second-content",
+                    Rc::from("Second"),
+                ));
+            if self.0 {
+                TreeView::new().nodes([second, first]).into()
+            } else {
+                TreeView::new().nodes([first, second]).into()
+            }
+        }
+    }
+
+    struct RecursiveComponent;
+
+    impl Component for RecursiveComponent {
+        type Input = usize;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            if *input == 0 {
+                TextBlock::new("leaf").into()
+            } else {
+                Border::new()
+                    .content(component::<Self>("child", *input - 1))
+                    .into()
+            }
+        }
+    }
+
+    struct MismatchedKey;
+
+    impl Component for MismatchedKey {
+        type Input = ();
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            Grid::new()
+                .children([keyed("relation", component::<RootSwitch>("component", ()))])
+                .into()
+        }
+    }
+
     #[derive(Clone)]
     struct RootSwitchEffects(Rc<RefCell<Vec<(&'static str, Option<ObjectId>)>>>);
 
     impl PartialEq for RootSwitchEffects {
         fn eq(&self, other: &Self) -> bool {
             Rc::ptr_eq(&self.0, &other.0)
+        }
+    }
+
+    struct NestedEffects;
+
+    impl Component for NestedEffects {
+        type Input = (RootSwitchEffects, bool);
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            let root = Border::new();
+            if input.1 {
+                root.content(component::<EffectRootSwitch>("effect", input.0.clone()))
+                    .into()
+            } else {
+                root.into()
+            }
         }
     }
 
@@ -1630,6 +2238,27 @@ mod tests {
     }
 
     #[test]
+    fn context_change_renders_nested_subscribers_once() {
+        let context = Rc::new(Context::new(0usize));
+        let renders = Arc::new(AtomicUsize::new(0));
+        let input = ContextInput {
+            context: Rc::clone(&context),
+            renders: Arc::clone(&renders),
+            subscribe: true,
+        };
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<ContextParent>("parent", input)],
+        )
+        .unwrap();
+        assert_eq!(renders.load(Ordering::Relaxed), 2);
+
+        let report = host.set_context(&context, 1).unwrap();
+        assert_eq!(report.dispatched, 1);
+        assert_eq!(renders.load(Ordering::Relaxed), 4);
+    }
+
+    #[test]
     fn retirement_cancels_background_delivery() {
         let input = WorkerInput {
             cancelled: Arc::new(AtomicUsize::new(0)),
@@ -1733,6 +2362,223 @@ mod tests {
     }
 
     #[test]
+    fn nested_component_updates_through_its_retained_owner() {
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<NestedRoot>("parent", (0.0, true))],
+        )
+        .unwrap();
+        let path = [Key::from("parent"), Key::from("child")];
+        let sender = host.sender_at::<RootSwitch>(&path).unwrap();
+        let reference = host.reference_at(&path).unwrap();
+        let root = reference.get().unwrap();
+        let parent = host.runtime().graph().owner(root).unwrap();
+        assert_eq!(parent.1, RelationId::Content);
+        assert_eq!(
+            host.runtime().graph().kind(root),
+            Some(ObjectType::TextBlock)
+        );
+
+        assert!(sender.send(()));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(reference.get(), Some(root));
+        assert_eq!(host.runtime().graph().kind(root), Some(ObjectType::Border));
+        assert_eq!(host.runtime().graph().owner(root), Some(parent));
+    }
+
+    #[test]
+    fn parent_rerender_preserves_and_retires_nested_scope() {
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<NestedRoot>("parent", (0.0, true))],
+        )
+        .unwrap();
+        let path = [Key::from("parent"), Key::from("child")];
+        let sender = host.sender_at::<RootSwitch>(&path).unwrap();
+        let reference = host.reference_at(&path).unwrap();
+        let child = reference.get();
+
+        host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, true))
+            .unwrap();
+        assert_eq!(reference.get(), child);
+        assert!(host.sender_at::<RootSwitch>(&path).is_some());
+
+        assert!(sender.send(()));
+        host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, false))
+            .unwrap();
+        assert_eq!(reference.get(), None);
+        assert!(host.sender_at::<RootSwitch>(&path).is_none());
+        assert_eq!(host.drain(1).unwrap().dropped, 1);
+
+        host.update_input::<NestedRoot>(&Key::from("parent"), (24.0, true))
+            .unwrap();
+        assert_eq!(host.scopes.len(), 2);
+        let replacement = host.sender_at::<RootSwitch>(&path).unwrap();
+        assert!(sender.send(()));
+        assert_eq!(host.drain(1).unwrap().dropped, 1);
+        assert!(replacement.send(()));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    }
+
+    #[test]
+    fn nested_input_update_isolated_to_child_subtree() {
+        let cleanup = Arc::new(AtomicUsize::new(0));
+        let input = CounterInput {
+            cleanup: Arc::clone(&cleanup),
+            value: 1,
+        };
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<CounterParent>("parent", input)],
+        )
+        .unwrap();
+        let path = [Key::from("parent"), Key::from("counter")];
+        let parent = host.reference(&Key::from("parent")).unwrap().get();
+        let child = host.reference_at(&path).unwrap().get();
+        host.runtime_mut().adapter_mut().record_batches(true);
+
+        host.update_input_at::<Counter>(
+            &path,
+            CounterInput {
+                cleanup: Arc::clone(&cleanup),
+                value: 2,
+            },
+        )
+        .unwrap();
+        assert_eq!(host.reference(&Key::from("parent")).unwrap().get(), parent);
+        assert_eq!(host.reference_at(&path).unwrap().get(), child);
+        assert_eq!(cleanup.load(Ordering::Relaxed), 1);
+        assert!(
+            host.runtime()
+                .adapter()
+                .batches()
+                .last()
+                .is_some_and(|batch| batch.iter().all(|mutation| match mutation {
+                    Mutation::SetProperties { object, .. } => Some(*object) == child,
+                    _ => false,
+                }))
+        );
+    }
+
+    #[test]
+    fn nested_keys_are_parent_local_and_stable_through_reorder() {
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [
+                component::<ReorderParent>("left", ()),
+                component::<NestedRoot>("right", (0.0, true)),
+            ],
+        )
+        .unwrap();
+        let first_path = [Key::from("left"), Key::from("first")];
+        let second_path = [Key::from("left"), Key::from("second")];
+        let right_path = [Key::from("right"), Key::from("child")];
+        let first = host.reference_at(&first_path).unwrap().get().unwrap();
+        let second = host.reference_at(&second_path).unwrap().get().unwrap();
+        assert!(host.reference_at(&right_path).unwrap().get().is_some());
+        let parent = host.reference(&Key::from("left")).unwrap().get().unwrap();
+        assert_eq!(
+            host.runtime()
+                .graph()
+                .children(parent, RelationId::Children)
+                .unwrap(),
+            [first, second]
+        );
+
+        assert!(
+            host.sender::<ReorderParent>(&Key::from("left"))
+                .unwrap()
+                .send(())
+        );
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(
+            host.runtime()
+                .graph()
+                .children(parent, RelationId::Children)
+                .unwrap(),
+            [second, first]
+        );
+        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
+        assert_eq!(host.reference_at(&second_path).unwrap().get(), Some(second));
+    }
+
+    #[test]
+    fn duplicate_nested_keys_are_rejected_per_parent() {
+        assert!(matches!(
+            ComponentHost::mount(
+                RecordingAdapter::default(),
+                [component::<DuplicateNested>("parent", ())]
+            ),
+            Err(ComponentError::DuplicateKey(key)) if key == Key::from("child")
+        ));
+    }
+
+    #[test]
+    fn component_and_relation_keys_cannot_diverge() {
+        assert!(matches!(
+            ComponentHost::mount(
+                RecordingAdapter::default(),
+                [component::<MismatchedKey>("parent", ())]
+            ),
+            Err(ComponentError::ComponentKey {
+                component,
+                relation
+            }) if component == Key::from("component") && relation == Key::from("relation")
+        ));
+    }
+
+    #[test]
+    fn recursive_component_expansion_enforces_depth_limit() {
+        assert!(matches!(
+            ComponentHost::mount(
+                RecordingAdapter::default(),
+                [component::<RecursiveComponent>("root", MAX_DEPTH + 2)]
+            ),
+            Err(ComponentError::Runtime(UpdateError::Graph(
+                GraphError::DepthExceeded
+            )))
+        ));
+    }
+
+    #[test]
+    fn tree_node_component_content_survives_structural_reorder() {
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<TreeComponents>("tree", ())],
+        )
+        .unwrap();
+        let first_path = [Key::from("tree"), Key::from("first-content")];
+        let second_path = [Key::from("tree"), Key::from("second-content")];
+        let first = host.reference_at(&first_path).unwrap().get().unwrap();
+        let second = host.reference_at(&second_path).unwrap().get().unwrap();
+        assert_eq!(
+            host.runtime().graph().kind(first),
+            Some(ObjectType::StackPanel)
+        );
+        assert_eq!(
+            host.runtime().graph().owner(first).unwrap().1,
+            RelationId::Content
+        );
+
+        assert!(host.sender_at::<TreeContent>(&first_path).unwrap().send(()));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
+
+        assert!(
+            host.sender::<TreeComponents>(&Key::from("tree"))
+                .unwrap()
+                .send(())
+        );
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
+        assert_eq!(host.reference_at(&second_path).unwrap().get(), Some(second));
+
+        assert!(host.sender_at::<TreeContent>(&first_path).unwrap().send(()));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
+    }
+
+    #[test]
     fn root_effect_cleanup_precedes_replacement_and_setup_follows_it() {
         let events = Rc::new(RefCell::new(Vec::new()));
         let mut host = ComponentHost::mount(
@@ -1761,6 +2607,29 @@ mod tests {
     }
 
     #[test]
+    fn nested_effect_cleanup_sees_root_before_removal() {
+        let events = Rc::new(RefCell::new(Vec::new()));
+        let input = RootSwitchEffects(Rc::clone(&events));
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<NestedEffects>("parent", (input.clone(), true))],
+        )
+        .unwrap();
+        let path = [Key::from("parent"), Key::from("effect")];
+        let reference = host.reference_at(&path).unwrap();
+        let root = reference.get();
+        assert_eq!(events.borrow().as_slice(), [("setup", root)]);
+
+        host.update_input::<NestedEffects>(&Key::from("parent"), (input, false))
+            .unwrap();
+        assert_eq!(
+            events.borrow().as_slice(),
+            [("setup", root), ("cleanup", root)]
+        );
+        assert_eq!(reference.get(), None);
+    }
+
+    #[test]
     fn invalid_update_preserves_active_effects() {
         let events = Rc::new(RefCell::new(Vec::new()));
         let mut host = ComponentHost::mount(
@@ -1774,14 +2643,22 @@ mod tests {
         let sender = host
             .sender::<InvalidEffectUpdate>(&Key::from("invalid"))
             .unwrap();
+        let wakes = Arc::new(AtomicUsize::new(0));
+        let callback_wakes = Arc::clone(&wakes);
+        host.set_waker(move || {
+            callback_wakes.fetch_add(1, Ordering::Relaxed);
+        });
 
         assert!(sender.send(()));
+        assert!(sender.send(()));
+        assert_eq!(wakes.load(Ordering::Relaxed), 1);
         assert!(matches!(
             host.drain(1),
             Err(ComponentError::Runtime(UpdateError::Graph(
                 GraphError::DuplicateKey(_)
             )))
         ));
+        assert_eq!(wakes.load(Ordering::Relaxed), 2);
         assert_eq!(events.borrow().as_slice(), [("setup", None)]);
 
         drop(host);

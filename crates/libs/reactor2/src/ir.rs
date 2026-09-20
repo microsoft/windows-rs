@@ -1,7 +1,7 @@
 use super::*;
 use std::collections::HashSet;
 
-const MAX_DEPTH: usize = 128;
+pub(crate) const MAX_DEPTH: usize = 128;
 pub(crate) const MAX_OBJECTS: usize = 65_536;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -21,6 +21,7 @@ pub enum GraphError {
     InvalidChildCategory(RelationId),
     InvalidCardinality(RelationId),
     MissingKey(RelationId),
+    UnresolvedComponent,
     DepthExceeded,
     SizeExceeded,
 }
@@ -74,6 +75,7 @@ fn validate_object(
                     return Err(GraphError::InvalidCardinality(relation.id));
                 }
                 if let Some(child) = child {
+                    let child = child_object(child)?;
                     validate_child(contract, child)?;
                     validate_object(child, depth + 1, objects)?;
                 }
@@ -85,7 +87,7 @@ fn validate_object(
                 if contract.identity == Identity::Keyed {
                     let mut keys = HashSet::with_capacity(children.len());
                     for child in children.iter() {
-                        let key = child
+                        let key = child_object(child)?
                             .key
                             .as_ref()
                             .ok_or(GraphError::MissingKey(relation.id))?;
@@ -95,6 +97,7 @@ fn validate_object(
                     }
                 }
                 for child in children.iter() {
+                    let child = child_object(child)?;
                     validate_child(contract, child)?;
                     validate_object(child, depth + 1, objects)?;
                 }
@@ -102,6 +105,13 @@ fn validate_object(
         }
     }
     Ok(())
+}
+
+fn child_object(child: &DeclaredNode) -> Result<&Declaration, GraphError> {
+    match child {
+        DeclaredNode::Object(child) => Ok(child),
+        DeclaredNode::Component { .. } => Err(GraphError::UnresolvedComponent),
+    }
 }
 
 pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result<(), GraphError> {
