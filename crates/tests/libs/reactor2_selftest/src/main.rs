@@ -222,6 +222,155 @@ impl Component for Fixture {
             .validate_graph(replacement_runtime.graph())
             .unwrap();
         replacement_window.close().unwrap();
+        let button_calls = Rc::new(Cell::new(0));
+        let button_callback_calls = Rc::clone(&button_calls);
+        let mut button_runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        button_runtime
+            .update(
+                reactor2::Button::new()
+                    .content(reactor2::TextBlock::new("Click"))
+                    .on_click(move || {
+                        button_callback_calls.set(button_callback_calls.get() + 1);
+                    }),
+            )
+            .unwrap();
+        let button = button_runtime.graph().root().unwrap();
+        let button_window = button_runtime.adapter().open_window(button).unwrap();
+        button_runtime.adapter().simulate_click(button).unwrap();
+        let mut button_events = Vec::new();
+        button_runtime.drain_events(&mut button_events).unwrap();
+        for event in button_events {
+            event.invoke();
+        }
+        assert_eq!(button_calls.get(), 1);
+        button_runtime
+            .adapter()
+            .validate_graph(button_runtime.graph())
+            .unwrap();
+        button_window.close().unwrap();
+        let mut generated_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        let slider_changed = Rc::new(Cell::new(0.0));
+        let slider_changed_callback = Rc::clone(&slider_changed);
+        generated_runtime
+            .update(
+                reactor2::StackPanel::new()
+                    .spacing(8.0)
+                    .orientation(reactor2::Orientation::Horizontal)
+                    .children([
+                        reactor2::Slider::new()
+                            .minimum(-10.0)
+                            .maximum(10.0)
+                            .value(2.5)
+                            .on_value_changed(move |value| slider_changed_callback.set(value))
+                            .into(),
+                        reactor2::CheckBox::new()
+                            .is_checked(Some(true))
+                            .content(reactor2::TextBlock::new("Enabled"))
+                            .into(),
+                        reactor2::ScrollViewer::new()
+                            .content(
+                                reactor2::Canvas::new()
+                                    .children([
+                                        reactor2::TextBlock::new("Scrollable canvas").into()
+                                    ]),
+                            )
+                            .into(),
+                    ]),
+            )
+            .unwrap();
+        let generated_root = generated_runtime.graph().root().unwrap();
+        let generated_window = generated_runtime
+            .adapter()
+            .open_window(generated_root)
+            .unwrap();
+        let generated_children = generated_runtime
+            .graph()
+            .children(generated_root, reactor2::RelationId::Children)
+            .unwrap();
+        let slider = generated_children[0];
+        let check_box = generated_children[1];
+        assert_eq!(
+            generated_runtime
+                .adapter()
+                .stack_panel_state(generated_root)
+                .unwrap(),
+            (8.0, true)
+        );
+        assert_eq!(
+            generated_runtime.adapter().slider_state(slider).unwrap(),
+            (-10.0, 10.0, 2.5)
+        );
+        assert!(
+            generated_runtime
+                .adapter()
+                .check_box_state(check_box)
+                .unwrap()
+        );
+        generated_runtime
+            .adapter()
+            .set_slider_value(slider, 7.5)
+            .unwrap();
+        let mut generated_events = Vec::new();
+        generated_runtime
+            .drain_events(&mut generated_events)
+            .unwrap();
+        for event in generated_events {
+            event.invoke();
+        }
+        assert_eq!(slider_changed.get(), 7.5);
+        assert!(
+            generated_runtime
+                .graph()
+                .properties(slider)
+                .unwrap()
+                .contains(&reactor2::Property {
+                    id: reactor2::PropertyId::Value,
+                    value: reactor2::PropertyValue::F64(7.5),
+                })
+        );
+        generated_runtime
+            .adapter()
+            .validate_graph(generated_runtime.graph())
+            .unwrap();
+        generated_runtime
+            .update(
+                reactor2::StackPanel::new().children([
+                    reactor2::Slider::new().into(),
+                    reactor2::CheckBox::new()
+                        .content(reactor2::TextBlock::new("Enabled"))
+                        .into(),
+                    reactor2::ScrollViewer::new()
+                        .content(
+                            reactor2::Canvas::new()
+                                .children([reactor2::TextBlock::new("Scrollable canvas").into()]),
+                        )
+                        .into(),
+                ]),
+            )
+            .unwrap();
+        generated_runtime
+            .adapter()
+            .validate_graph(generated_runtime.graph())
+            .unwrap();
+        assert_eq!(
+            generated_runtime
+                .adapter()
+                .stack_panel_state(generated_root)
+                .unwrap(),
+            (0.0, false)
+        );
+        assert_eq!(
+            generated_runtime.adapter().slider_state(slider).unwrap(),
+            (0.0, 100.0, 0.0)
+        );
+        assert!(
+            !generated_runtime
+                .adapter()
+                .check_box_state(check_box)
+                .unwrap()
+        );
+        generated_window.close().unwrap();
         Self::schedule(context);
         Self {
             app: input.app.clone(),

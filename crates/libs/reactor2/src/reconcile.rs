@@ -112,6 +112,9 @@ impl EventDispatch {
     pub fn invoke(self) {
         match (self.callback, self.payload) {
             (EventValue::String(callback), EventPayload::String(value)) => callback.call(value),
+            (EventValue::F64(callback), EventPayload::F64(value)) => callback.call(value),
+            (EventValue::Unit(callback), EventPayload::Unit) => callback.call(()),
+            _ => unreachable!(),
         }
     }
 
@@ -245,7 +248,8 @@ impl RetainedGraph {
                 ValueType::String,
                 EventValue::String(_),
                 EventPayload::String(_)
-            )
+            ) | (ValueType::F64, EventValue::F64(_), EventPayload::F64(_))
+                | (ValueType::Unit, EventValue::Unit(_), EventPayload::Unit)
         ) {
             return Err(GraphError::InvalidEventValue(dispatch.event));
         }

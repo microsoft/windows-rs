@@ -413,6 +413,26 @@ impl MetadataResolver {
             .map(|m| &m.interface)
     }
 
+    pub fn parameter_type_name(&self, class_name: &str, method_name: &str) -> Option<&str> {
+        match self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?
+            .param_types
+            .first()?
+        {
+            Type::Object => Some("IInspectable"),
+            Type::ClassName(name) | Type::ValueName(name) => Some(&name.name),
+            _ => None,
+        }
+    }
+
+    pub fn parameter_value(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        self.value_for_type(method.param_types.first()?)
+    }
+
     /// Resolve the sender and argument types accepted by an event delegate.
     pub fn resolve_event_handler_types(
         &self,

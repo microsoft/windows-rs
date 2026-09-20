@@ -49,7 +49,25 @@ TreeView nodes with custom visual content, and exercises controlled TextBox inpu
 declarations, reconciliation, TextBox events, and game window use Reactor2. It uses the current
 Reactor application host only to initialize and keep the WinUI dispatcher alive because Reactor2
 does not yet provide a standalone application bootstrap. The sample uses a text board until the
-button, pointer, layout, and styling slices needed by the visual Solitaire sample are projected.
+pointer, layout, and styling slices needed by the visual Solitaire sample are projected.
+
+`tool-reactor2` now generates typed declaration builders from `schema.toml`. The generated surface
+covers all current prototype objects, and the public `Button` slice uses the generated builder with
+an owned visual `Content` relation and unit-valued `Click` event. Button creation, native content,
+and event delivery reuse the existing retained relation and queued-event protocols without changes
+to the planner or component lifecycle.
+
+The same schema now generates native realization for ordinary controls. The current set is
+TextBlock, Button, CheckBox, Border, Grid, StackPanel, Canvas, ScrollViewer, and Slider. It covers
+string, `f64`, nullable boxed `bool`, and metadata-derived enum properties; keyed and positional
+panel children; content ownership; and unit events. The generated `GeneratedHandle` owns native
+construction, object-kind and UIElement conversion, direct properties, panel children, content
+attachment, event subscription, and callback lookup. `tool-reactor2` verifies setter ABI shapes and
+resolves property, content, event, and enum information through the metadata resolver shared with
+`tool-reactor`; it also derives the binding filter needed by those generated paths. Generated
+mutable controls report native feedback into the retained graph even when no callback is installed.
+TextBox feedback, TreeView structural nodes, ListView container data, and templates remain focused
+handwritten adapter cases.
 
 ## Public API shape
 

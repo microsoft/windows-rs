@@ -3,9 +3,14 @@
 pub enum ObjectType {
     TextBlock,
     TextBox,
+    Button,
+    CheckBox,
     Border,
     Grid,
     StackPanel,
+    Canvas,
+    ScrollViewer,
+    Slider,
     TreeView,
     TreeNode,
     ListView,
@@ -14,7 +19,13 @@ pub enum ObjectType {
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum PropertyId {
     Expanded,
+    IsChecked,
+    Maximum,
+    Minimum,
+    Orientation,
+    Spacing,
     Text,
+    Value,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RelationId {
@@ -25,7 +36,9 @@ pub enum RelationId {
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum EventId {
+    Click,
     TextChanged,
+    ValueChanged,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ObjectCategory {
@@ -63,6 +76,13 @@ pub struct EventContract {
 pub enum ValueType {
     String,
     Bool,
+    F64,
+    OptionalBool,
+    Enum {
+        kind: &'static str,
+        variants: &'static [&'static str],
+    },
+    Unit,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RelationContract {
@@ -76,9 +96,14 @@ pub fn object_category(kind: ObjectType) -> ObjectCategory {
     match kind {
         ObjectType::TextBlock => ObjectCategory::Visual,
         ObjectType::TextBox => ObjectCategory::Visual,
+        ObjectType::Button => ObjectCategory::Visual,
+        ObjectType::CheckBox => ObjectCategory::Visual,
         ObjectType::Border => ObjectCategory::Visual,
         ObjectType::Grid => ObjectCategory::Visual,
         ObjectType::StackPanel => ObjectCategory::Visual,
+        ObjectType::Canvas => ObjectCategory::Visual,
+        ObjectType::ScrollViewer => ObjectCategory::Visual,
+        ObjectType::Slider => ObjectCategory::Visual,
         ObjectType::TreeView => ObjectCategory::Visual,
         ObjectType::TreeNode => ObjectCategory::Structural,
         ObjectType::ListView => ObjectCategory::Visual,
@@ -92,9 +117,23 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             id: EventId::TextChanged,
             value: ValueType::String,
         }],
+        ObjectType::Button => &[EventContract {
+            id: EventId::Click,
+            value: ValueType::Unit,
+        }],
+        ObjectType::CheckBox => &[EventContract {
+            id: EventId::Click,
+            value: ValueType::Unit,
+        }],
         ObjectType::Border => &[],
         ObjectType::Grid => &[],
         ObjectType::StackPanel => &[],
+        ObjectType::Canvas => &[],
+        ObjectType::ScrollViewer => &[],
+        ObjectType::Slider => &[EventContract {
+            id: EventId::ValueChanged,
+            value: ValueType::F64,
+        }],
         ObjectType::TreeView => &[],
         ObjectType::TreeNode => &[],
         ObjectType::ListView => &[],
@@ -111,9 +150,42 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             id: PropertyId::Text,
             value: ValueType::String,
         }],
+        ObjectType::Button => &[],
+        ObjectType::CheckBox => &[PropertyContract {
+            id: PropertyId::IsChecked,
+            value: ValueType::OptionalBool,
+        }],
         ObjectType::Border => &[],
         ObjectType::Grid => &[],
-        ObjectType::StackPanel => &[],
+        ObjectType::StackPanel => &[
+            PropertyContract {
+                id: PropertyId::Spacing,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Orientation,
+                value: ValueType::Enum {
+                    kind: "Orientation",
+                    variants: &["Vertical", "Horizontal"],
+                },
+            },
+        ],
+        ObjectType::Canvas => &[],
+        ObjectType::ScrollViewer => &[],
+        ObjectType::Slider => &[
+            PropertyContract {
+                id: PropertyId::Minimum,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Maximum,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Value,
+                value: ValueType::F64,
+            },
+        ],
         ObjectType::TreeView => &[],
         ObjectType::TreeNode => &[
             PropertyContract {
@@ -136,6 +208,20 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
     match kind {
         ObjectType::TextBlock => &[],
         ObjectType::TextBox => &[],
+        ObjectType::Button => &[RelationContract {
+            id: RelationId::Content,
+            child: ObjectCategory::Visual,
+            cardinality: Cardinality::One,
+            identity: Identity::Positional,
+            realization: Realization::Owned,
+        }],
+        ObjectType::CheckBox => &[RelationContract {
+            id: RelationId::Content,
+            child: ObjectCategory::Visual,
+            cardinality: Cardinality::One,
+            identity: Identity::Positional,
+            realization: Realization::Owned,
+        }],
         ObjectType::Border => &[RelationContract {
             id: RelationId::Content,
             child: ObjectCategory::Visual,
@@ -157,6 +243,21 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
             identity: Identity::Positional,
             realization: Realization::Owned,
         }],
+        ObjectType::Canvas => &[RelationContract {
+            id: RelationId::Children,
+            child: ObjectCategory::Visual,
+            cardinality: Cardinality::Many,
+            identity: Identity::Positional,
+            realization: Realization::Owned,
+        }],
+        ObjectType::ScrollViewer => &[RelationContract {
+            id: RelationId::Content,
+            child: ObjectCategory::Visual,
+            cardinality: Cardinality::One,
+            identity: Identity::Positional,
+            realization: Realization::Owned,
+        }],
+        ObjectType::Slider => &[],
         ObjectType::TreeView => &[RelationContract {
             id: RelationId::Roots,
             child: ObjectCategory::Structural,

@@ -10,11 +10,8 @@ use std::rc::Rc;
 use windows_core::{HSTRING, IInspectable, Interface};
 
 enum Handle {
-    TextBlock(native::TextBlock),
+    Generated(GeneratedHandle),
     TextBox(NativeTextBox),
-    Border(native::Border),
-    Grid(native::Grid),
-    StackPanel(native::StackPanel),
     TreeView(native::TreeView),
     TreeNode(NativeTreeNode),
     ListView(native::ListView),
@@ -40,6 +37,20 @@ struct NativeTextEvent {
     revision: u64,
     callback: Option<crate::Callback<Rc<str>>>,
 }
+
+#[derive(Default)]
+struct NativeF64Event {
+    revision: u64,
+    callback: Option<crate::Callback<f64>>,
+}
+
+#[derive(Default)]
+struct NativeUnitEvent {
+    revision: u64,
+    callback: Option<crate::Callback<()>>,
+}
+
+include!("generated.rs");
 
 struct QueuedEvent {
     object: ObjectId,
@@ -148,7 +159,7 @@ impl WinUiAdapter {
             if self.kind(object)? != kind {
                 return Err(WinUiError::StateMismatch(object));
             }
-            if let Handle::TextBlock(value) = self
+            if let Handle::Generated(GeneratedHandle::TextBlock(value)) = self
                 .handles
                 .get(&object)
                 .ok_or(WinUiError::MissingObject(object))?
@@ -307,6 +318,59 @@ impl WinUiAdapter {
         Ok(value.set_count.get())
     }
 
+    pub fn simulate_click(&self, object: ObjectId) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let Some(event) = handle.unit_event(EventId::Click) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Self::dispatch_unit(event, &self.event_queue, object, EventId::Click);
+        Ok(())
+    }
+
+    pub fn set_slider_value(&self, object: ObjectId, value: f64) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::Slider(slider))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        slider.value.cast::<native::IRangeBase>()?.SetValue(value)?;
+        Ok(())
+    }
+
+    pub fn slider_state(&self, object: ObjectId) -> Result<(f64, f64, f64), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::Slider(slider))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let slider = slider.value.cast::<native::IRangeBase>()?;
+        Ok((slider.Minimum()?, slider.Maximum()?, slider.Value()?))
+    }
+
+    pub fn check_box_state(&self, object: ObjectId) -> Result<bool, WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::CheckBox(check_box))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Ok(check_box
+            .value
+            .cast::<native::IToggleButton>()?
+            .IsChecked()?)
+    }
+
+    pub fn stack_panel_state(&self, object: ObjectId) -> Result<(f64, bool), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::StackPanel(panel))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let panel = panel.cast::<native::IStackPanel>()?;
+        Ok((
+            panel.Spacing()?,
+            panel.Orientation()? == native::Orientation::Horizontal,
+        ))
+    }
+
     pub fn text_box_state(&self, object: ObjectId) -> Result<(String, i32, i32), WinUiError> {
         let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
@@ -370,61 +434,63 @@ impl WinUiAdapter {
         if self.handles.contains_key(&object) {
             return Err(WinUiError::DuplicateObject(object));
         }
-        let handle = match kind {
-            ObjectType::TextBlock => Handle::TextBlock(native::TextBlock::new()?),
-            ObjectType::TextBox => {
-                let value = native::TextBox::new()?;
-                let event = Rc::new(RefCell::new(NativeTextEvent::default()));
-                let event_for_callback = Rc::clone(&event);
-                let observed_text = Rc::new(RefCell::new(Rc::<str>::from("")));
-                let observed_text_for_event = Rc::clone(&observed_text);
-                let event_queue = Rc::clone(&self.event_queue);
-                let source = value.clone();
-                let text_changed = value.TextChanged(move |_, _| {
-                    let Ok(text) = source.Text() else {
-                        std::process::abort();
-                    };
-                    Self::dispatch_text_changed(
-                        &event_for_callback,
-                        &observed_text_for_event,
-                        &event_queue,
-                        object,
-                        Rc::from(text),
-                    );
-                })?;
-                Handle::TextBox(NativeTextBox {
-                    value,
-                    event,
-                    observed_text,
-                    set_count: Cell::new(0),
-                    _text_changed: text_changed,
-                })
-            }
-            ObjectType::Border => Handle::Border(native::Border::new()?),
-            ObjectType::Grid => Handle::Grid(native::Grid::new()?),
-            ObjectType::StackPanel => Handle::StackPanel(native::StackPanel::new()?),
-            ObjectType::TreeView => {
-                let tree = native::TreeView::new()?;
-                let template = self.tree_template()?;
-                tree.cast::<native::ITreeView2>()?
-                    .SetItemTemplate(&template)?;
-                Handle::TreeView(tree)
-            }
-            ObjectType::TreeNode => Handle::TreeNode(NativeTreeNode {
-                value: native::TreeViewNode::new()?,
-                text: HSTRING::new(),
-                content: None,
-            }),
-            ObjectType::ListView => {
-                let value = native::ListView::new()?;
-                value
-                    .cast::<native::IItemsControl>()?
-                    .SetItemTemplate(&self.list_template()?)?;
-                Handle::ListView(value)
-            }
-            ObjectType::DataItem => {
-                let values = std::collections::BTreeMap::<HSTRING, Option<IInspectable>>::new();
-                Handle::Data(values.into())
+        let handle = if let Some(handle) = GeneratedHandle::create(kind, object, &self.event_queue)?
+        {
+            Handle::Generated(handle)
+        } else {
+            match kind {
+                ObjectType::TextBox => {
+                    let value = native::TextBox::new()?;
+                    let event = Rc::new(RefCell::new(NativeTextEvent::default()));
+                    let event_for_callback = Rc::clone(&event);
+                    let observed_text = Rc::new(RefCell::new(Rc::<str>::from("")));
+                    let observed_text_for_event = Rc::clone(&observed_text);
+                    let event_queue = Rc::clone(&self.event_queue);
+                    let source = value.clone();
+                    let text_changed = value.TextChanged(move |_, _| {
+                        let Ok(text) = source.Text() else {
+                            std::process::abort();
+                        };
+                        Self::dispatch_text_changed(
+                            &event_for_callback,
+                            &observed_text_for_event,
+                            &event_queue,
+                            object,
+                            Rc::from(text),
+                        );
+                    })?;
+                    Handle::TextBox(NativeTextBox {
+                        value,
+                        event,
+                        observed_text,
+                        set_count: Cell::new(0),
+                        _text_changed: text_changed,
+                    })
+                }
+                ObjectType::TreeView => {
+                    let tree = native::TreeView::new()?;
+                    let template = self.tree_template()?;
+                    tree.cast::<native::ITreeView2>()?
+                        .SetItemTemplate(&template)?;
+                    Handle::TreeView(tree)
+                }
+                ObjectType::TreeNode => Handle::TreeNode(NativeTreeNode {
+                    value: native::TreeViewNode::new()?,
+                    text: HSTRING::new(),
+                    content: None,
+                }),
+                ObjectType::ListView => {
+                    let value = native::ListView::new()?;
+                    value
+                        .cast::<native::IItemsControl>()?
+                        .SetItemTemplate(&self.list_template()?)?;
+                    Handle::ListView(value)
+                }
+                ObjectType::DataItem => {
+                    let values = std::collections::BTreeMap::<HSTRING, Option<IInspectable>>::new();
+                    Handle::Data(values.into())
+                }
+                _ => unreachable!("generated object was not created"),
             }
         };
         self.handles.insert(object, handle);
@@ -438,6 +504,12 @@ impl WinUiAdapter {
         clear: &[PropertyId],
     ) -> Result<(), WinUiError> {
         for property in clear {
+            if let Some(Handle::Generated(handle)) = self.handles.get(&object)
+                && let Some(result) = handle.set_property(*property, None)
+            {
+                result?;
+                continue;
+            }
             if *property == PropertyId::Text
                 && matches!(self.handles.get(&object), Some(Handle::Data(_)))
             {
@@ -445,7 +517,6 @@ impl WinUiAdapter {
                 continue;
             }
             match (self.handle(object)?, property) {
-                (Handle::TextBlock(value), PropertyId::Text) => value.SetText("")?,
                 (Handle::TextBox(value), PropertyId::Text) => {
                     Self::set_text_box_text(value, "")?;
                 }
@@ -464,6 +535,12 @@ impl WinUiAdapter {
             }
         }
         for property in set {
+            if let Some(Handle::Generated(handle)) = self.handles.get(&object)
+                && let Some(result) = handle.set_property(property.id, Some(&property.value))
+            {
+                result?;
+                continue;
+            }
             if property.id == PropertyId::Text
                 && matches!(self.handles.get(&object), Some(Handle::Data(_)))
                 && let PropertyValue::String(text) = &property.value
@@ -472,9 +549,6 @@ impl WinUiAdapter {
                 continue;
             }
             match (self.handle(object)?, property.id, &property.value) {
-                (Handle::TextBlock(value), PropertyId::Text, PropertyValue::String(text)) => {
-                    value.SetText(text)?;
-                }
                 (Handle::TextBox(value), PropertyId::Text, PropertyValue::String(text)) => {
                     Self::set_text_box_text(value, text)?;
                 }
@@ -511,8 +585,10 @@ impl WinUiAdapter {
         let index = match contract.cardinality {
             crate::Cardinality::One => {
                 match (self.handle(parent)?, relation) {
-                    (Handle::Border(parent), RelationId::Content) => {
-                        parent.SetChild(None::<&native::UIElement>)?;
+                    (Handle::Generated(parent_handle), relation) => {
+                        parent_handle
+                            .set_content(relation, None)
+                            .ok_or(WinUiError::InvalidRelation(parent, relation))??;
                     }
                     (Handle::TreeNode(parent), RelationId::Content) => {
                         let content: IInspectable =
@@ -543,7 +619,11 @@ impl WinUiAdapter {
             self.panel_children(parent)?.InsertAt(index, &replacement)?;
         } else {
             match (self.handle(parent)?, relation) {
-                (Handle::Border(parent), RelationId::Content) => parent.SetChild(&replacement)?,
+                (Handle::Generated(parent_handle), relation) => {
+                    parent_handle
+                        .set_content(relation, Some(&replacement))
+                        .ok_or(WinUiError::InvalidRelation(parent, relation))??;
+                }
                 (Handle::TreeNode(parent), RelationId::Content) => {
                     parent.value.SetContent(&replacement)?;
                     parent.content = Some(object);
@@ -602,6 +682,43 @@ impl WinUiAdapter {
                 revision: event.revision,
                 payload: EventPayload::String(text),
             });
+        }
+        Self::schedule_event_wake(event_queue);
+    }
+
+    fn dispatch_unit(
+        event: &Rc<RefCell<NativeUnitEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::Unit,
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn dispatch_f64(
+        event: &Rc<RefCell<NativeF64Event>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: f64,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::F64(value),
+            });
             Self::schedule_event_wake(event_queue);
         }
     }
@@ -635,21 +752,29 @@ impl WinUiAdapter {
         set: &[Event],
         clear: &[EventId],
     ) -> Result<(), WinUiError> {
-        let Handle::TextBox(value) = self.handle(object)? else {
-            return Err(WinUiError::InvalidObject(object));
-        };
-        let mut native_event = value.event.borrow_mut();
-        if clear.contains(&EventId::TextChanged) {
-            native_event.revision = native_event.revision.wrapping_add(1);
-            native_event.callback = None;
-        }
-        for event in set {
-            match (event.id, &event.value) {
-                (EventId::TextChanged, EventValue::String(callback)) => {
+        match self.handle(object)? {
+            Handle::Generated(value) => {
+                return value
+                    .set_events(object, set, clear)
+                    .unwrap_or(Err(WinUiError::InvalidObject(object)));
+            }
+            Handle::TextBox(value) => {
+                let mut native_event = value.event.borrow_mut();
+                if clear.contains(&EventId::TextChanged) {
                     native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = Some(callback.clone());
+                    native_event.callback = None;
+                }
+                for event in set {
+                    match (event.id, &event.value) {
+                        (EventId::TextChanged, EventValue::String(callback)) => {
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
+                        }
+                        _ => return Err(WinUiError::InvalidObject(object)),
+                    }
                 }
             }
+            _ => return Err(WinUiError::InvalidObject(object)),
         }
         Ok(())
     }
@@ -682,7 +807,11 @@ impl WinUiAdapter {
         }
         let child_element = self.ui_element(child)?;
         match (self.handle(parent)?, relation) {
-            (Handle::Border(parent), RelationId::Content) => parent.SetChild(&child_element)?,
+            (Handle::Generated(value), relation) => {
+                value
+                    .set_content(relation, Some(&child_element))
+                    .ok_or(WinUiError::InvalidRelation(parent, relation))??;
+            }
             (Handle::TreeNode(parent), RelationId::Content) => {
                 parent.value.SetContent(&child_element)?;
                 parent.content = Some(child);
@@ -703,8 +832,10 @@ impl WinUiAdapter {
             return Err(WinUiError::ChildNotFound(child));
         }
         match (self.handle(parent)?, relation) {
-            (Handle::Border(parent), RelationId::Content) => {
-                parent.SetChild(None::<&native::UIElement>)?;
+            (Handle::Generated(value), relation) => {
+                value
+                    .set_content(relation, None)
+                    .ok_or(WinUiError::InvalidRelation(parent, relation))??;
             }
             (Handle::TreeNode(parent), RelationId::Content) => {
                 let content: IInspectable =
@@ -895,11 +1026,8 @@ impl WinUiAdapter {
                 .get(&object)
                 .ok_or(WinUiError::MissingObject(object))?
             {
-                Handle::TextBlock(_) => ObjectType::TextBlock,
+                Handle::Generated(value) => value.kind(),
                 Handle::TextBox(_) => ObjectType::TextBox,
-                Handle::Border(_) => ObjectType::Border,
-                Handle::Grid(_) => ObjectType::Grid,
-                Handle::StackPanel(_) => ObjectType::StackPanel,
                 Handle::TreeView(_) => ObjectType::TreeView,
                 Handle::TreeNode(_) => ObjectType::TreeNode,
                 Handle::ListView(_) => ObjectType::ListView,
@@ -914,11 +1042,8 @@ impl WinUiAdapter {
             .get(&object)
             .ok_or(WinUiError::MissingObject(object))?
         {
-            Handle::TextBlock(value) => Ok(value.cast()?),
+            Handle::Generated(value) => value.ui_element(),
             Handle::TextBox(value) => Ok(value.value.cast()?),
-            Handle::Border(value) => Ok(value.cast()?),
-            Handle::Grid(value) => Ok(value.cast()?),
-            Handle::StackPanel(value) => Ok(value.cast()?),
             Handle::TreeView(value) => Ok(value.cast()?),
             Handle::ListView(value) => Ok(value.cast()?),
             Handle::TreeNode(_) | Handle::Data(_) => Err(WinUiError::InvalidObject(object)),
@@ -953,8 +1078,9 @@ impl WinUiAdapter {
             .get(&object)
             .ok_or(WinUiError::MissingObject(object))?
         {
-            Handle::Grid(value) => Ok(value.cast::<native::IPanel>()?.Children()?),
-            Handle::StackPanel(value) => Ok(value.cast::<native::IPanel>()?.Children()?),
+            Handle::Generated(value) => value
+                .panel_children()
+                .unwrap_or(Err(WinUiError::InvalidObject(object))),
             _ => Err(WinUiError::InvalidObject(object)),
         }
     }
@@ -1055,20 +1181,26 @@ impl Adapter for WinUiAdapter {
 
     fn drain_events(&mut self, events: &mut Vec<EventDispatch>) {
         for queued in self.event_queue.events.borrow_mut().drain(..) {
-            let Some(Handle::TextBox(text_box)) = self.handles.get(&queued.object) else {
-                continue;
+            let callback = match (self.handles.get(&queued.object), queued.event) {
+                (Some(Handle::TextBox(text_box)), EventId::TextChanged) => {
+                    let event = text_box.event.borrow();
+                    if event.revision != queued.revision {
+                        continue;
+                    }
+                    event.callback.clone().map(EventValue::String)
+                }
+                (Some(Handle::Generated(handle)), event) => {
+                    handle.event_callback(event, queued.revision)
+                }
+                _ => None,
             };
-            let event = text_box.event.borrow();
-            if event.revision != queued.revision {
-                continue;
-            }
-            let Some(callback) = event.callback.clone() else {
+            let Some(callback) = callback else {
                 continue;
             };
             events.push(EventDispatch::new(
                 queued.object,
                 queued.event,
-                EventValue::String(callback),
+                callback,
                 queued.payload,
             ));
         }

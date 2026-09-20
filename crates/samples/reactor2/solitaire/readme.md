@@ -12,7 +12,8 @@ cargo run -p reactor-solitaire
 cargo run -p reactor2-solitaire
 ```
 
-The Reactor2 sample accepts commands in its text box:
+The Reactor2 sample has buttons for drawing, moving the waste card, and starting a new game. It
+also accepts commands in its text box:
 
 | Command | Action |
 | --- | --- |

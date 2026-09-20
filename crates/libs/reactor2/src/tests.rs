@@ -383,6 +383,32 @@ fn invalid_native_property_observation_is_rejected() {
 }
 
 #[test]
+fn invalid_generated_enum_observation_is_rejected() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(StackPanel::new().orientation(Orientation::Vertical))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: root,
+        property: Property {
+            id: PropertyId::Orientation,
+            value: PropertyValue::Enum {
+                kind: "Orientation",
+                variant: "Diagonal",
+            },
+        },
+    });
+
+    assert!(matches!(
+        runtime.update(StackPanel::new()),
+        Err(UpdateError::Graph(GraphError::InvalidPropertyValue(
+            PropertyId::Orientation
+        )))
+    ));
+}
+
+#[test]
 fn stale_queued_event_does_not_reach_replacement_callback() {
     let first_count = Rc::new(Cell::new(0));
     let first_count_for_callback = Rc::clone(&first_count);
@@ -417,6 +443,188 @@ fn stale_queued_event_does_not_reach_replacement_callback() {
 
     assert_eq!(first_count.get(), 0);
     assert_eq!(second_count.get(), 0);
+}
+
+#[test]
+fn button_content_and_click_use_generated_contracts() {
+    let calls = Rc::new(Cell::new(0));
+    let callback_calls = Rc::clone(&calls);
+    let callback = Callback::new(move |()| callback_calls.set(callback_calls.get() + 1));
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            Button::new()
+                .content(TextBlock::new("Deal"))
+                .on_click_callback(callback.clone()),
+        )
+        .unwrap();
+    let button = runtime.graph().root().unwrap();
+    let content = runtime.graph().child(button, RelationId::Content).unwrap();
+    assert_eq!(runtime.graph().kind(button), Some(ObjectType::Button));
+    assert_eq!(runtime.graph().kind(content), Some(ObjectType::TextBlock));
+
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        button,
+        EventId::Click,
+        EventValue::Unit(callback),
+        EventPayload::Unit,
+    ));
+    let mut events = Vec::new();
+    runtime.drain_events(&mut events).unwrap();
+    for event in events {
+        event.invoke();
+    }
+    assert_eq!(calls.get(), 1);
+}
+
+#[test]
+fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            StackPanel::new()
+                .spacing(8.0)
+                .orientation(Orientation::Horizontal)
+                .children([
+                    Slider::new().minimum(-10.0).maximum(10.0).value(2.5).into(),
+                    CheckBox::new()
+                        .is_checked(Some(true))
+                        .content(TextBlock::new("Enabled"))
+                        .into(),
+                    ScrollViewer::new()
+                        .content(
+                            Canvas::new().children([TextBlock::new("Scrollable canvas").into()]),
+                        )
+                        .into(),
+                ]),
+        )
+        .unwrap();
+
+    let root = runtime.graph().root().unwrap();
+    assert_eq!(
+        runtime.graph().properties(root).unwrap(),
+        [
+            Property {
+                id: PropertyId::Spacing,
+                value: PropertyValue::F64(8.0),
+            },
+            Property {
+                id: PropertyId::Orientation,
+                value: PropertyValue::Enum {
+                    kind: "Orientation",
+                    variant: "Horizontal",
+                },
+            },
+        ]
+    );
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    assert_eq!(runtime.graph().kind(children[0]), Some(ObjectType::Slider));
+    assert_eq!(
+        runtime.graph().properties(children[0]).unwrap(),
+        [
+            Property {
+                id: PropertyId::Minimum,
+                value: PropertyValue::F64(-10.0),
+            },
+            Property {
+                id: PropertyId::Maximum,
+                value: PropertyValue::F64(10.0),
+            },
+            Property {
+                id: PropertyId::Value,
+                value: PropertyValue::F64(2.5),
+            },
+        ]
+    );
+    assert_eq!(
+        runtime.graph().kind(children[1]),
+        Some(ObjectType::CheckBox)
+    );
+    assert_eq!(
+        runtime.graph().properties(children[1]).unwrap(),
+        [Property {
+            id: PropertyId::IsChecked,
+            value: PropertyValue::OptionalBool(Some(true)),
+        }]
+    );
+    let check_box_content = runtime
+        .graph()
+        .child(children[1], RelationId::Content)
+        .unwrap();
+    assert_eq!(
+        runtime.graph().kind(check_box_content),
+        Some(ObjectType::TextBlock)
+    );
+    assert_eq!(
+        runtime.graph().kind(children[2]),
+        Some(ObjectType::ScrollViewer)
+    );
+    let canvas = runtime
+        .graph()
+        .child(children[2], RelationId::Content)
+        .unwrap();
+    assert_eq!(runtime.graph().kind(canvas), Some(ObjectType::Canvas));
+    assert_eq!(
+        runtime
+            .graph()
+            .children(canvas, RelationId::Children)
+            .unwrap()
+            .len(),
+        1
+    );
+
+    let mutations = runtime
+        .update(
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(8.0)
+                .children([
+                    Slider::new().value(2.5).maximum(10.0).minimum(-10.0).into(),
+                    CheckBox::new()
+                        .content(TextBlock::new("Enabled"))
+                        .is_checked(Some(true))
+                        .into(),
+                    ScrollViewer::new()
+                        .content(
+                            Canvas::new().children([TextBlock::new("Scrollable canvas").into()]),
+                        )
+                        .into(),
+                ]),
+        )
+        .unwrap();
+    assert!(mutations.is_empty());
+
+    let mutations = runtime
+        .update(
+            StackPanel::new().children([
+                Slider::new().into(),
+                CheckBox::new().content(TextBlock::new("Enabled")).into(),
+                ScrollViewer::new()
+                    .content(Canvas::new().children([TextBlock::new("Scrollable canvas").into()]))
+                    .into(),
+            ]),
+        )
+        .unwrap();
+    assert!(mutations.iter().any(|mutation| {
+        matches!(
+            mutation,
+            Mutation::SetProperties { object, clear, .. }
+                if *object == root
+                    && clear.len() == 2
+                    && clear.contains(&PropertyId::Spacing)
+                    && clear.contains(&PropertyId::Orientation)
+        )
+    }));
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    assert!(runtime.graph().properties(root).unwrap().is_empty());
+    assert!(runtime.graph().properties(children[0]).unwrap().is_empty());
+    assert!(runtime.graph().properties(children[1]).unwrap().is_empty());
 }
 
 #[test]

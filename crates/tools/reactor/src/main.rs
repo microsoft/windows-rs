@@ -1,8 +1,6 @@
 mod generate;
 mod generate_surface;
 mod generate_winui;
-mod helpers;
-mod metadata;
 mod schema;
 
 use ::helpers::nuget_package;
@@ -11,6 +9,7 @@ use schema::workspace_path;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
+pub use tool_reactor::{helpers, metadata};
 
 const OUTPUT: &str = "crates/libs/reactor/src/generated.rs";
 const BINDINGS: &str = "crates/libs/reactor/src/native/winui/bindings.rs";

@@ -11,19 +11,13 @@ Microsoft::UI::Xaml::IUIElement::Focus
 Microsoft::UI::Xaml::UIElement::{}
 Microsoft::UI::Xaml::Window::CreateInstance
 Microsoft::UI::Xaml::IWindow::{put_Content, Activate, Close}
-Microsoft::UI::Xaml::Controls::Border::CreateInstance
-Microsoft::UI::Xaml::Controls::Grid::CreateInstance
-Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
-Microsoft::UI::Xaml::Controls::TextBlock::CreateInstance
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeView::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
 Microsoft::UI::Xaml::Controls::ListView::CreateInstance
-Microsoft::UI::Xaml::Controls::IBorder::put_Child
 Microsoft::UI::Xaml::Controls::IItemsControl::get_Items
 Microsoft::UI::Xaml::Controls::IItemsControl::put_ItemTemplate
-Microsoft::UI::Xaml::Controls::IPanel::get_Children
-Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_Text}
+Microsoft::UI::Xaml::Controls::ITextBlock::get_Text
 Microsoft::UI::Xaml::Controls::ITextBox::{get_Text, put_Text, get_SelectionStart, put_SelectionStart, get_SelectionLength, put_SelectionLength, add_TextChanged, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::IUIElementCollection::Move
 Microsoft::UI::Xaml::Controls::ITreeView::get_RootNodes
@@ -32,3 +26,34 @@ Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, put_Content, put_Is
 Microsoft::UI::Xaml::Controls::ItemCollection::{}
 Microsoft::UI::Xaml::Controls::UIElementCollection::{}
 Microsoft::UI::Xaml::Markup::XamlReader::Load
+Microsoft::UI::Xaml::Controls::Border::CreateInstance
+Microsoft::UI::Xaml::Controls::Button::CreateInstance
+Microsoft::UI::Xaml::Controls::Canvas::CreateInstance
+Microsoft::UI::Xaml::Controls::CheckBox::CreateInstance
+Microsoft::UI::Xaml::Controls::Grid::CreateInstance
+Microsoft::UI::Xaml::Controls::IBorder::put_Child
+Microsoft::UI::Xaml::Controls::IContentControl::put_Content
+Microsoft::UI::Xaml::Controls::IPanel::get_Children
+Microsoft::UI::Xaml::Controls::IStackPanel::get_Orientation
+Microsoft::UI::Xaml::Controls::IStackPanel::get_Spacing
+Microsoft::UI::Xaml::Controls::IStackPanel::put_Orientation
+Microsoft::UI::Xaml::Controls::IStackPanel::put_Spacing
+Microsoft::UI::Xaml::Controls::ITextBlock::get_Text
+Microsoft::UI::Xaml::Controls::ITextBlock::put_Text
+Microsoft::UI::Xaml::Controls::Orientation
+Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::add_Click
+Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::remove_Click
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::add_ValueChanged
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::get_Maximum
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::get_Minimum
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::get_Value
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::put_Maximum
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::put_Minimum
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::put_Value
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::remove_ValueChanged
+Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::get_IsChecked
+Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::put_IsChecked
+Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
+Microsoft::UI::Xaml::Controls::Slider::CreateInstance
+Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
+Microsoft::UI::Xaml::Controls::TextBlock::CreateInstance

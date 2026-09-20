@@ -8,6 +8,7 @@ publish = false
 [dependencies]
 serde = { workspace = true, features = ["derive"] }
 toml = "0.8"
+tool-reactor = { path = "../reactor" }
 windows-bindgen = { workspace = true }
 
 [lints]

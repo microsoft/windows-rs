@@ -1,26 +1,32 @@
 [[objects]]
 name = "TextBlock"
 category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.TextBlock"
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+required = true
+default = ""
 
 [[objects]]
 name = "TextBox"
 category = "Visual"
+native = "handwritten"
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+required = true
 
 [[objects.events]]
 name = "TextChanged"
 value = "String"
 
 [[objects]]
-name = "Border"
+name = "Button"
 category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Button"
 
 [[objects.relations]]
 name = "Content"
@@ -29,9 +35,49 @@ cardinality = "One"
 identity = "Positional"
 realization = "Owned"
 
+[[objects.events]]
+name = "Click"
+value = "Unit"
+
+[[objects]]
+name = "CheckBox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.CheckBox"
+
+[[objects.properties]]
+name = "IsChecked"
+value = "OptionalBool"
+default = "false"
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "Click"
+value = "Unit"
+observes = "IsChecked"
+
+[[objects]]
+name = "Border"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Border"
+
+[[objects.relations]]
+name = "Content"
+native = "Child"
+child = "Visual"
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
 [[objects]]
 name = "Grid"
 category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Grid"
 
 [[objects.relations]]
 name = "Children"
@@ -43,6 +89,17 @@ realization = "Owned"
 [[objects]]
 name = "StackPanel"
 category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.StackPanel"
+
+[[objects.properties]]
+name = "Spacing"
+value = "F64"
+default = "0.0"
+
+[[objects.properties]]
+name = "Orientation"
+value = "Orientation"
+default = "Vertical"
 
 [[objects.relations]]
 name = "Children"
@@ -52,8 +109,58 @@ identity = "Positional"
 realization = "Owned"
 
 [[objects]]
+name = "Canvas"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Canvas"
+
+[[objects.relations]]
+name = "Children"
+child = "Visual"
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "ScrollViewer"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ScrollViewer"
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "Slider"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Slider"
+
+[[objects.properties]]
+name = "Minimum"
+value = "F64"
+default = "0.0"
+
+[[objects.properties]]
+name = "Maximum"
+value = "F64"
+default = "100.0"
+
+[[objects.properties]]
+name = "Value"
+value = "F64"
+default = "0.0"
+
+[[objects.events]]
+name = "ValueChanged"
+value = "F64"
+observes = "Value"
+
+[[objects]]
 name = "TreeView"
 category = "Visual"
+native = "handwritten"
 
 [[objects.relations]]
 name = "Roots"
@@ -61,14 +168,19 @@ child = "Structural"
 cardinality = "Many"
 identity = "Keyed"
 realization = "Structural"
+item = "TreeNode"
+method = "nodes"
 
 [[objects]]
 name = "TreeNode"
 category = "Structural"
+native = "handwritten"
+key = true
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+required = true
 
 [[objects.properties]]
 name = "Expanded"
@@ -87,10 +199,12 @@ child = "Structural"
 cardinality = "Many"
 identity = "Keyed"
 realization = "Structural"
+item = "TreeNode"
 
 [[objects]]
 name = "ListView"
 category = "Visual"
+native = "handwritten"
 
 [[objects.relations]]
 name = "Items"
@@ -98,11 +212,15 @@ child = "Data"
 cardinality = "Many"
 identity = "Keyed"
 realization = "Container"
+item = "DataItem"
 
 [[objects]]
 name = "DataItem"
 category = "Data"
+native = "handwritten"
+key = true
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+required = true

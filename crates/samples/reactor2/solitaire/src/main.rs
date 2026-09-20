@@ -219,7 +219,10 @@ fn seed() -> u64 {
 }
 
 enum Message {
+    Draw,
     Input(String),
+    NewGame,
+    Waste,
 }
 
 struct Solitaire {
@@ -240,9 +243,18 @@ impl reactor2::Component for Solitaire {
 
     fn update(
         &mut self,
-        Message::Input(value): Self::Message,
+        message: Self::Message,
         _context: &reactor2::ComponentContext<Self::Message>,
     ) {
+        let Message::Input(value) = message else {
+            match message {
+                Message::Draw => self.game.draw(),
+                Message::NewGame => self.game = Game::new(seed()),
+                Message::Waste => self.game.move_waste(),
+                Message::Input(_) => unreachable!(),
+            }
+            return;
+        };
         self.command = Rc::from(value.as_str());
         let command = value.trim().to_ascii_lowercase();
         let handled = match command.as_str() {
@@ -278,9 +290,30 @@ impl reactor2::Component for Solitaire {
         context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
     ) -> reactor2::Visual {
         let sender = context.sender();
+        let draw = context.sender();
+        let waste = context.sender();
+        let new_game = context.sender();
         let mut children = vec![
             reactor2::TextBlock::new("Reactor2 Solitaire").into(),
             reactor2::TextBlock::new("Commands: draw, waste, t1 ... t7, new").into(),
+            reactor2::Button::new()
+                .content(reactor2::TextBlock::new("Draw"))
+                .on_click(move || {
+                    _ = draw.send(Message::Draw);
+                })
+                .into(),
+            reactor2::Button::new()
+                .content(reactor2::TextBlock::new("Move waste"))
+                .on_click(move || {
+                    _ = waste.send(Message::Waste);
+                })
+                .into(),
+            reactor2::Button::new()
+                .content(reactor2::TextBlock::new("New game"))
+                .on_click(move || {
+                    _ = new_game.send(Message::NewGame);
+                })
+                .into(),
             reactor2::TextBox::new(Rc::clone(&self.command))
                 .on_text_changed(move |value| {
                     _ = sender.send(Message::Input(value.to_string()));

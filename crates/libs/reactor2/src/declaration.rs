@@ -45,6 +45,12 @@ impl From<usize> for Key {
 pub enum PropertyValue {
     String(Rc<str>),
     Bool(bool),
+    F64(f64),
+    OptionalBool(Option<bool>),
+    Enum {
+        kind: &'static str,
+        variant: &'static str,
+    },
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -81,11 +87,15 @@ impl<T> PartialEq for Callback<T> {
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventValue {
     String(Callback<Rc<str>>),
+    F64(Callback<f64>),
+    Unit(Callback<()>),
 }
 
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventPayload {
     String(Rc<str>),
+    F64(f64),
+    Unit,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -154,6 +164,12 @@ impl<T: Clone> SharedList<T> {
                 Self::Many(values)
             }
         };
+    }
+
+    fn sort_by_key<K: Ord>(&mut self, key: impl FnMut(&T) -> K) {
+        if let Self::Many(values) = self {
+            Rc::make_mut(values).sort_by_key(key);
+        }
     }
 }
 
@@ -227,6 +243,13 @@ impl Declaration {
     fn property(mut self, id: PropertyId, value: PropertyValue) -> Self {
         self.properties
             .upsert(|property| property.id == id, Property { id, value });
+        let contracts = property_contracts(self.kind);
+        self.properties.sort_by_key(|property| {
+            contracts
+                .iter()
+                .position(|contract| contract.id == property.id)
+                .unwrap()
+        });
         self
     }
 
@@ -283,291 +306,9 @@ pub fn keyed(key: impl Into<Key>, visual: impl Into<Visual>) -> KeyedVisual {
     KeyedVisual(visual)
 }
 
-#[derive(Clone, Debug, PartialEq)]
-pub struct TextBlock(Declaration);
-
-impl TextBlock {
-    pub fn new(text: impl Into<Rc<str>>) -> Self {
-        Self(
-            Declaration::new(ObjectType::TextBlock)
-                .property(PropertyId::Text, PropertyValue::String(text.into())),
-        )
-    }
+mod generated_declarations {
+    use super::*;
+    include!("generated_declarations.rs");
 }
 
-impl From<TextBlock> for Visual {
-    fn from(value: TextBlock) -> Self {
-        Self(value.0)
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct TextBox(Declaration);
-
-impl TextBox {
-    pub fn new(text: impl Into<Rc<str>>) -> Self {
-        Self(
-            Declaration::new(ObjectType::TextBox)
-                .property(PropertyId::Text, PropertyValue::String(text.into())),
-        )
-    }
-
-    pub fn on_text_changed(mut self, callback: impl Fn(Rc<str>) + 'static) -> Self {
-        self = self.on_text_changed_callback(Callback::new(callback));
-        self
-    }
-
-    pub fn on_text_changed_callback(mut self, callback: Callback<Rc<str>>) -> Self {
-        self.0 = self
-            .0
-            .event(EventId::TextChanged, EventValue::String(callback));
-        self
-    }
-}
-
-impl From<TextBox> for Visual {
-    fn from(value: TextBox) -> Self {
-        Self(value.0)
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct Border(Declaration);
-
-impl Border {
-    pub fn new() -> Self {
-        Self(Declaration::new(ObjectType::Border))
-    }
-
-    /// Sets the owned visual content.
-    ///
-    /// Structural and data objects cannot be used as visual content.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor2::*;
-    ///
-    /// let _ = Border::new().content(TreeNode::new("node", "Node"));
-    /// ```
-    pub fn content(mut self, content: impl Into<Visual>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Content,
-            RelationValue::One(Some(Rc::new(content.into().0))),
-        );
-        self
-    }
-}
-
-impl Default for Border {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl From<Border> for Visual {
-    fn from(value: Border) -> Self {
-        Self(value.0)
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct Grid(Declaration);
-
-impl Grid {
-    pub fn new() -> Self {
-        Self(Declaration::new(ObjectType::Grid))
-    }
-
-    /// Adds keyed visual children.
-    ///
-    /// Structural objects cannot be attached to a visual-child relation.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor2::*;
-    ///
-    /// let _ = Grid::new().children([TreeNode::new("node", "Node")]);
-    /// ```
-    pub fn children(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Children,
-            RelationValue::Many(Rc::new(
-                children.into_iter().map(|child| child.0.0).collect(),
-            )),
-        );
-        self
-    }
-}
-
-impl Default for Grid {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl From<Grid> for Visual {
-    fn from(value: Grid) -> Self {
-        Self(value.0)
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct StackPanel(Declaration);
-
-impl StackPanel {
-    pub fn new() -> Self {
-        Self(Declaration::new(ObjectType::StackPanel))
-    }
-
-    /// Adds positional visual children.
-    ///
-    /// Keyed children are reserved for relations whose generated contract requires identity.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor2::*;
-    ///
-    /// let _ = StackPanel::new().children([keyed("text", TextBlock::new("Text"))]);
-    /// ```
-    pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Children,
-            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
-        );
-        self
-    }
-}
-
-impl Default for StackPanel {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl From<StackPanel> for Visual {
-    fn from(value: StackPanel) -> Self {
-        Self(value.0)
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct TreeNode(Declaration);
-
-impl TreeNode {
-    pub fn new(key: impl Into<Key>, text: impl Into<Rc<str>>) -> Self {
-        Self(
-            Declaration::new(ObjectType::TreeNode)
-                .key(key)
-                .property(PropertyId::Text, PropertyValue::String(text.into())),
-        )
-    }
-
-    pub fn expanded(mut self, expanded: bool) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::Expanded, PropertyValue::Bool(expanded));
-        self
-    }
-
-    pub fn content(mut self, content: impl Into<Visual>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Content,
-            RelationValue::One(Some(Rc::new(content.into().0))),
-        );
-        self
-    }
-
-    pub fn children(mut self, children: impl IntoIterator<Item = Self>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Children,
-            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
-        );
-        self
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct TreeView(Declaration);
-
-impl TreeView {
-    pub fn new() -> Self {
-        Self(Declaration::new(ObjectType::TreeView))
-    }
-
-    /// Adds keyed structural roots.
-    ///
-    /// Visual objects cannot be inserted into the structural node relation.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor2::*;
-    ///
-    /// let _ = TreeView::new().nodes([TextBlock::new("Text")]);
-    /// ```
-    pub fn nodes(mut self, nodes: impl IntoIterator<Item = TreeNode>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Roots,
-            RelationValue::Many(Rc::new(nodes.into_iter().map(|node| node.0).collect())),
-        );
-        self
-    }
-}
-
-impl Default for TreeView {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl From<TreeView> for Visual {
-    fn from(value: TreeView) -> Self {
-        Self(value.0)
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct DataItem(Declaration);
-
-impl DataItem {
-    pub fn new(key: impl Into<Key>, text: impl Into<Rc<str>>) -> Self {
-        Self(
-            Declaration::new(ObjectType::DataItem)
-                .key(key)
-                .property(PropertyId::Text, PropertyValue::String(text.into())),
-        )
-    }
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct ListView(Declaration);
-
-impl ListView {
-    pub fn new() -> Self {
-        Self(Declaration::new(ObjectType::ListView))
-    }
-
-    /// Adds keyed data items.
-    ///
-    /// Visual objects cannot be inserted into the container-generated item relation.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor2::*;
-    ///
-    /// let _ = ListView::new().items([TextBlock::new("Text")]);
-    /// ```
-    pub fn items(mut self, items: impl IntoIterator<Item = DataItem>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Items,
-            RelationValue::Many(Rc::new(items.into_iter().map(|item| item.0).collect())),
-        );
-        self
-    }
-}
-
-impl Default for ListView {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl From<ListView> for Visual {
-    fn from(value: ListView) -> Self {
-        Self(value.0)
-    }
-}
+pub use generated_declarations::*;

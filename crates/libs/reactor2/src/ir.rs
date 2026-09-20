@@ -55,6 +55,8 @@ fn validate_object(
         let valid = matches!(
             (contract.value, &event.value),
             (ValueType::String, EventValue::String(_))
+                | (ValueType::F64, EventValue::F64(_))
+                | (ValueType::Unit, EventValue::Unit(_))
         );
         if !valid {
             return Err(GraphError::InvalidEventValue(event.id));
@@ -107,10 +109,21 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         .iter()
         .find(|contract| contract.id == property.id)
         .ok_or(GraphError::InvalidProperty(kind, property.id))?;
-    if matches!(
-        (contract.value, &property.value),
-        (ValueType::String, PropertyValue::String(_)) | (ValueType::Bool, PropertyValue::Bool(_))
-    ) {
+    let valid = match (contract.value, &property.value) {
+        (ValueType::String, PropertyValue::String(_))
+        | (ValueType::Bool, PropertyValue::Bool(_))
+        | (ValueType::F64, PropertyValue::F64(_))
+        | (ValueType::OptionalBool, PropertyValue::OptionalBool(_)) => true,
+        (
+            ValueType::Enum {
+                kind: expected,
+                variants,
+            },
+            PropertyValue::Enum { kind, variant },
+        ) => expected == *kind && variants.contains(variant),
+        _ => false,
+    };
+    if valid {
         Ok(())
     } else {
         Err(GraphError::InvalidPropertyValue(property.id))

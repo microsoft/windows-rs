@@ -1,0 +1,28 @@
+Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
+Microsoft::UI::Dispatching::DispatcherQueueHandler
+Microsoft::UI::Dispatching::DispatcherQueuePriority::Normal
+Microsoft::UI::Dispatching::IDispatcherQueue::CreateTimer
+Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
+Microsoft::UI::Dispatching::IDispatcherQueueTimer::{put_Interval, put_IsRepeating, add_Tick, remove_Tick, Start, Stop}
+Microsoft::UI::Xaml::DataTemplate::{}
+Microsoft::UI::Xaml::FocusState::Programmatic
+Microsoft::UI::Xaml::IUIElement::UpdateLayout
+Microsoft::UI::Xaml::IUIElement::Focus
+Microsoft::UI::Xaml::UIElement::{}
+Microsoft::UI::Xaml::Window::CreateInstance
+Microsoft::UI::Xaml::IWindow::{put_Content, Activate, Close}
+Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
+Microsoft::UI::Xaml::Controls::TreeView::CreateInstance
+Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
+Microsoft::UI::Xaml::Controls::ListView::CreateInstance
+Microsoft::UI::Xaml::Controls::IItemsControl::get_Items
+Microsoft::UI::Xaml::Controls::IItemsControl::put_ItemTemplate
+Microsoft::UI::Xaml::Controls::ITextBlock::get_Text
+Microsoft::UI::Xaml::Controls::ITextBox::{get_Text, put_Text, get_SelectionStart, put_SelectionStart, get_SelectionLength, put_SelectionLength, add_TextChanged, remove_TextChanged}
+Microsoft::UI::Xaml::Controls::IUIElementCollection::Move
+Microsoft::UI::Xaml::Controls::ITreeView::get_RootNodes
+Microsoft::UI::Xaml::Controls::ITreeView2::put_ItemTemplate
+Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, put_Content, put_IsExpanded}
+Microsoft::UI::Xaml::Controls::ItemCollection::{}
+Microsoft::UI::Xaml::Controls::UIElementCollection::{}
+Microsoft::UI::Xaml::Markup::XamlReader::Load
