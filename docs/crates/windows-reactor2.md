@@ -45,6 +45,20 @@ TreeView's item template and safe collection synchronization remain private to t
 `test-reactor2-selftest` executable opens a real Reactor2 window, repeatedly reorders realized
 TreeView nodes with custom visual content, and exercises controlled TextBox input.
 
+The standalone application host is exposed as `App`, `AppContext`, `AppProxy`, and `AppCallback`.
+For unpackaged processes it adds the installed Windows App Runtime framework package to the process
+graph, initializes per-monitor DPI awareness and the UI thread's STA, composes the WinUI
+`Application` with the controls metadata provider, installs `XamlControlsResources`, and selects
+explicit dispatcher shutdown. `App::run_with` retains its startup result until the message loop
+ends. UI callback failures are returned from `run_with` after requesting application exit.
+`AppContext::component_services` supplies Windows thread-pool execution and one-shot
+`DispatcherQueueTimer` scheduling to `ComponentHost::mount_with_services`. The host owns that
+service boundary and passes it to every component scope. `ComponentHost::mount` remains available
+for recording tests and generic adapters through a default Windows thread-pool implementation
+whose timers use cancellable waits rather than WinUI.
+`WindowPolicy` keeps window title, root theme, client size, minimum client constraints, and custom
+AppWindow title-bar configuration outside the generated control property schema.
+
 `reactor2-counter` is the minimal recursive sample. The parent owns the count and event handler,
 while a nested `Count` component receives the value through `Border.Content`. This keeps the sample
 small while proving that event delivery, parent state, child input, and targeted retained updates
@@ -54,9 +68,9 @@ work together.
 rules and presents a scaled green board with positioned cards, suit colors, face-down cards,
 foundation and tableau slots, direct card actions, move highlights, and failure feedback. Its
 `Solitaire -> Board -> keyed CardView` hierarchy preserves card component identity across pile
-moves. It uses the current Reactor application host only to initialize and keep the WinUI
-dispatcher alive because Reactor2 does not yet provide a standalone application bootstrap. No
-Reactor window is created.
+moves. Reactor2 supplies the Windows App Runtime bootstrap and WinUI application host without
+creating a separate framework window. Its window policy matches the original sample's title, dark
+theme, 800x600 client and minimum sizes, and tall AppWindow title bar.
 
 The port added solid-color, thickness, and corner-radius property values to the generic adapter
 protocol. Border styling, inherited layout properties, pointer release, Viewbox, and TitleBar then
@@ -200,6 +214,8 @@ references:
 - typed contexts maintain a reverse dependency index and rerender only subscribed scopes;
 - background work and timers are scope-owned, bounded, cancellable, and wake the host once per
   pending batch;
+- executor and timer implementations are host services, so component lifecycle code does not
+  depend on WinUI;
 - completion handles can cross threads, while generation checks discard delivery after retirement;
 - removing a component invalidates its reference without adding lifecycle mutations to the
   backend protocol.
@@ -251,11 +267,10 @@ generation-safe row replacement, and stale row senders. The live fixture repeate
 realized TreeView nodes whose custom content is produced and updated by nested components.
 
 The recursive memory, latency, allocation, and mutation-radius gates pass through 21,845 scopes.
-Nearest-ancestor context providers, structural or data-rooted component scopes, and a standalone
-Reactor2 application bootstrap remain before migration. The bootstrap must own AppWindow title-bar
-policy, client-size constraints, and window theme. Typed pointer payloads and transition
-declarations remain projection gaps. Production integration should reuse the existing
-DispatcherQueue timer and Windows thread-pool services rather than the prototype's host threads.
+Nearest-ancestor context providers and structural or data-rooted component scopes remain before
+migration. Typed pointer payloads and transition declarations remain projection gaps. The
+standalone host now owns AppWindow policy, Windows thread-pool background execution, and
+DispatcherQueue timers without coupling generic component lifecycle code to native bindings.
 
 1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
    mirrored UI declaration tree.

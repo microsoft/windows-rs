@@ -18,7 +18,10 @@ retained tree or cache rendered declarations.
 `reactor2-counter` provides the minimal nested-component example. `reactor2-solitaire` provides a
 runnable application-shaped slice with a three-level keyed component board and controlled TextBox
 commands. `reactor2-explorer` exercises recursive TreeView content, filtering, reorder, selection,
-and asynchronous child loading. Each sample opens only its Reactor2 window; the current Reactor
-application host supplies the WinUI message loop without creating a Reactor window.
+and asynchronous child loading. Reactor2 owns the Windows App Runtime bootstrap, WinUI application,
+dispatcher callbacks and timers, Windows thread-pool background execution, explicit shutdown, and
+reusable AppWindow policy used by each sample. `ComponentHost::mount` uses a headless service
+implementation for recording tests and non-WinUI adapters, while native hosts pass the services
+provided by `AppContext` to `ComponentHost::mount_with_services`.
 
 This crate is not a supported replacement for `windows-reactor`.

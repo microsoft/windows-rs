@@ -18,11 +18,10 @@ foundation or tableau destination. Click `New Game` to deal again.
 The component hierarchy is `Solitaire -> Board -> keyed CardView`. Moving a card between piles
 preserves its component and retained object identity.
 
-The current Reactor application host still owns AppWindow policy. Reactor2 therefore does not yet
-match the original sample's fixed 800x600 client size, minimum-size constraints, dark window
-theme, tall AppWindow title bar, or reposition transition. Those are framework gaps rather than
-sample-side fallbacks.
+The Reactor2 window policy sets the title, dark theme, 800x600 client size, 800x600 minimum client
+size, and tall AppWindow title bar. The original sample's reposition transition remains a framework
+gap rather than a sample-side fallback.
 
-`windows-reactor` currently provides the application bootstrap while the game window, component
-state, declarations, reconciliation, events, and native controls use `windows-reactor2`. A
-standalone Reactor2 application host remains part of the migration work.
+`windows-reactor2` owns the Windows App Runtime bootstrap, WinUI application, dispatcher callbacks,
+explicit shutdown, game window, component state, declarations, reconciliation, events, and native
+controls.

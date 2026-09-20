@@ -1,4 +1,6 @@
 #[allow(
+    clippy::missing_transmute_annotations,
+    clippy::upper_case_acronyms,
     dead_code,
     non_camel_case_types,
     non_snake_case,
@@ -6,6 +8,10 @@
 )]
 mod bindings;
 
+mod app;
+mod app_shim;
+mod bootstrap;
 mod winui;
 
+pub use app::*;
 pub use winui::*;

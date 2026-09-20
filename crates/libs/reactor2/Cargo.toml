@@ -13,6 +13,7 @@ readme = "readme.md"
 windows-collections = { workspace = true, features = ["std"] }
 windows-core = { workspace = true }
 windows-reference = { workspace = true, features = ["std"] }
+windows-threading = { workspace = true }
 windows-time = { workspace = true }
 
 [lints]

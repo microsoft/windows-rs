@@ -1,3 +1,272 @@
+windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
+windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut u32, packagefullname : windows_core::PWSTR) -> i32);
+windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
+windows_core::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
+windows_core::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn MessageBoxW(hwnd : HWND, lptext : windows_core::PCWSTR, lpcaption : windows_core::PCWSTR, utype : u32) -> i32);
+windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
+windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
+windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : HWND, lpoperation : windows_core::PCWSTR, lpfile : windows_core::PCWSTR, lpparameters : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, nshowcmd : i32) -> HINSTANCE);
+windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub const APPMODEL_ERROR_NO_PACKAGE: i32 = 15700;
+pub type AddPackageDependencyOptions = u32;
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AppWindow(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    AppWindow,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for AppWindow {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IAppWindow>();
+}
+unsafe impl windows_core::Interface for AppWindow {
+    type Vtable = <IAppWindow as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IAppWindow as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for AppWindow {
+    type Target = IAppWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for AppWindow {
+    const NAME: &'static str = "Microsoft.UI.Windowing.AppWindow";
+}
+unsafe impl Send for AppWindow {}
+unsafe impl Sync for AppWindow {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AppWindowPresenter(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    AppWindowPresenter,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for AppWindowPresenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPresenter>();
+}
+unsafe impl windows_core::Interface for AppWindowPresenter {
+    type Vtable = <IAppWindowPresenter as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IAppWindowPresenter as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for AppWindowPresenter {
+    type Target = IAppWindowPresenter;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for AppWindowPresenter {
+    const NAME: &'static str = "Microsoft.UI.Windowing.AppWindowPresenter";
+}
+unsafe impl Send for AppWindowPresenter {}
+unsafe impl Sync for AppWindowPresenter {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AppWindowTitleBar(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    AppWindowTitleBar,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for AppWindowTitleBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowTitleBar>();
+}
+unsafe impl windows_core::Interface for AppWindowTitleBar {
+    type Vtable = <IAppWindowTitleBar as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IAppWindowTitleBar as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for AppWindowTitleBar {
+    type Target = IAppWindowTitleBar;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for AppWindowTitleBar {
+    const NAME: &'static str = "Microsoft.UI.Windowing.AppWindowTitleBar";
+}
+unsafe impl Send for AppWindowTitleBar {}
+unsafe impl Sync for AppWindowTitleBar {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Application(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    Application,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl Application {
+    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Self>
+    where
+        T: windows_core::Compose,
+    {
+        Self::IApplicationFactory(|this| unsafe {
+            let (derived__, base__) = windows_core::Compose::compose(compose);
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(&derived__),
+                base__ as *mut _ as _,
+                &mut result__,
+            )
+            .ok()?;
+            let _ = &derived__;
+            windows_core::imp::Type::from_abi(result__)
+        })
+    }
+    pub(crate) fn Current() -> windows_core::Result<Self> {
+        Self::IApplicationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Current)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn Start<P0>(callback: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ApplicationInitializationCallback>,
+    {
+        Self::IApplicationStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).Start)(
+                windows_core::Interface::as_raw(this),
+                callback.param().abi(),
+            )
+            .ok()
+        })
+    }
+    fn IApplicationFactory<R, F: FnOnce(&IApplicationFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Application, IApplicationFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IApplicationStatics<R, F: FnOnce(&IApplicationStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Application, IApplicationStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for Application {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IApplication>();
+}
+unsafe impl windows_core::Interface for Application {
+    type Vtable = <IApplication as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IApplication as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for Application {
+    type Target = IApplication;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for Application {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Application";
+}
+unsafe impl Send for Application {}
+unsafe impl Sync for Application {}
+windows_core::imp::define_interface!(
+    ApplicationInitializationCallback,
+    ApplicationInitializationCallback_Vtbl,
+    0xd8eef1c9_1234_56f1_9963_45dd9c80a661
+);
+impl windows_core::RuntimeType for ApplicationInitializationCallback {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ApplicationInitializationCallback {
+    pub(crate) fn new<
+        F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ApplicationInitializationCallbackBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+#[repr(C)]
+pub struct ApplicationInitializationCallback_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        p: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+struct ApplicationInitializationCallbackBox<
+    F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + 'static,
+>(core::marker::PhantomData<(fn() -> F,)>);
+impl<F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) + 'static>
+    ApplicationInitializationCallbackBox<F>
+{
+    const VTABLE: ApplicationInitializationCallback_Vtbl = ApplicationInitializationCallback_Vtbl {
+        base__:
+            windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ApplicationInitializationCallback,
+                    F,
+                >::QueryInterface,
+                AddRef:
+                    windows_core::imp::DelegateBox::<ApplicationInitializationCallback, F>::AddRef,
+                Release:
+                    windows_core::imp::DelegateBox::<ApplicationInitializationCallback, F>::Release,
+            },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        p: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<ApplicationInitializationCallback, F>);
+            (this.invoke)(core::mem::transmute_copy(&p));
+            windows_core::HRESULT(0)
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ApplicationInitializationCallbackParams(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ApplicationInitializationCallbackParams,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for ApplicationInitializationCallbackParams {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
+        Self,
+        IApplicationInitializationCallbackParams,
+    >();
+}
+unsafe impl windows_core::Interface for ApplicationInitializationCallbackParams {
+    type Vtable = <IApplicationInitializationCallbackParams as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <IApplicationInitializationCallbackParams as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ApplicationInitializationCallbackParams {
+    type Target = IApplicationInitializationCallbackParams;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ApplicationInitializationCallbackParams {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ApplicationInitializationCallbackParams";
+}
+unsafe impl Send for ApplicationInitializationCallbackParams {}
+unsafe impl Sync for ApplicationInitializationCallbackParams {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Border(windows_core::IUnknown);
@@ -149,6 +418,8 @@ impl windows_core::RuntimeName for ButtonBase {
 }
 unsafe impl Send for ButtonBase {}
 unsafe impl Sync for ButtonBase {}
+pub type COINIT = i32;
+pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Canvas(windows_core::IUnknown);
@@ -432,6 +703,14 @@ impl windows_core::RuntimeType for CornerRadius {
         b"struct(Microsoft.UI.Xaml.CornerRadius;f8;f8;f8;f8)",
     );
 }
+pub type CreatePackageDependencyOptions = u32;
+pub type DPI_AWARENESS_CONTEXT = *mut DPI_AWARENESS_CONTEXT__;
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DPI_AWARENESS_CONTEXT__ {
+    pub unused: i32,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataTemplate(windows_core::IUnknown);
@@ -611,6 +890,7 @@ impl<F: Fn() + 'static> DispatcherQueueHandlerBox<F> {
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
     pub const Normal: Self = Self(0);
+    pub const High: Self = Self(10);
 }
 impl windows_core::imp::TypeKind for DispatcherQueuePriority {
     type TypeKind = windows_core::imp::CopyType;
@@ -647,6 +927,37 @@ impl windows_core::RuntimeName for DispatcherQueueTimer {
 }
 unsafe impl Send for DispatcherQueueTimer {}
 unsafe impl Sync for DispatcherQueueTimer {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DispatcherShutdownMode(pub i32);
+impl DispatcherShutdownMode {
+    pub const OnExplicitShutdown: Self = Self(1);
+}
+impl windows_core::imp::TypeKind for DispatcherShutdownMode {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for DispatcherShutdownMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.DispatcherShutdownMode;i4)",
+    );
+}
+pub const ERROR_INSUFFICIENT_BUFFER: i32 = 122;
+pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ElementTheme(pub i32);
+impl ElementTheme {
+    pub const Default: Self = Self(0);
+    pub const Light: Self = Self(1);
+    pub const Dark: Self = Self(2);
+}
+impl windows_core::imp::TypeKind for ElementTheme {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for ElementTheme {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Xaml.ElementTheme;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FocusState(pub i32);
@@ -761,6 +1072,19 @@ impl windows_core::RuntimeName for Grid {
 }
 unsafe impl Send for Grid {}
 unsafe impl Sync for Grid {}
+pub type HANDLE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HorizontalAlignment(pub i32);
@@ -777,6 +1101,379 @@ impl windows_core::RuntimeType for HorizontalAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Xaml.HorizontalAlignment;i4)",
     );
+}
+windows_core::imp::define_interface!(
+    IAppWindow,
+    IAppWindow_Vtbl,
+    0xcfa788b3_643b_5c5e_ad4e_321d48a82acd
+);
+impl windows_core::RuntimeType for IAppWindow {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IAppWindow {
+    pub(crate) fn Presenter(&self) -> windows_core::Result<AppWindowPresenter> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Presenter)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn Size(&self) -> windows_core::Result<SizeInt32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Size)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn TitleBar(&self) -> windows_core::Result<AppWindowTitleBar> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TitleBar)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IAppWindow_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Id: usize,
+    IsShownInSwitchers: usize,
+    SetIsShownInSwitchers: usize,
+    IsVisible: usize,
+    OwnerWindowId: usize,
+    Position: usize,
+    pub Presenter: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Size:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut SizeInt32) -> windows_core::HRESULT,
+    Title: usize,
+    SetTitle: usize,
+    pub TitleBar: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IAppWindow2,
+    IAppWindow2_Vtbl,
+    0x6cd41292_794c_5cac_8961_210d012c6ebc
+);
+impl windows_core::RuntimeType for IAppWindow2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IAppWindow2 {
+    pub(crate) fn ClientSize(&self) -> windows_core::Result<SizeInt32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ClientSize)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn ResizeClient(&self, size: SizeInt32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResizeClient)(
+                windows_core::Interface::as_raw(self),
+                size,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IAppWindow2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ClientSize:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut SizeInt32) -> windows_core::HRESULT,
+    MoveInZOrderAtBottom: usize,
+    MoveInZOrderAtTop: usize,
+    MoveInZOrderBelow: usize,
+    pub ResizeClient:
+        unsafe extern "system" fn(*mut core::ffi::c_void, SizeInt32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IAppWindowPresenter,
+    IAppWindowPresenter_Vtbl,
+    0xbc3042c2_c6c6_5632_8989_ff0ec6d3b40d
+);
+impl windows_core::RuntimeType for IAppWindowPresenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAppWindowPresenter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IAppWindowTitleBar,
+    IAppWindowTitleBar_Vtbl,
+    0x5574efa2_c91c_5700_a363_539c71a7aaf4
+);
+impl windows_core::RuntimeType for IAppWindowTitleBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAppWindowTitleBar_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IAppWindowTitleBar2,
+    IAppWindowTitleBar2_Vtbl,
+    0x86faed38_748a_5b4b_9ccf_3ba0496c9041
+);
+impl windows_core::RuntimeType for IAppWindowTitleBar2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IAppWindowTitleBar2 {
+    pub(crate) fn SetPreferredHeightOption(
+        &self,
+        value: TitleBarHeightOption,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPreferredHeightOption)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IAppWindowTitleBar2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    PreferredHeightOption: usize,
+    pub SetPreferredHeightOption: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        TitleBarHeightOption,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IAppWindowTitleBar3,
+    IAppWindowTitleBar3_Vtbl,
+    0x07146e74_0410_5597_aba7_1af276d2ae07
+);
+impl windows_core::RuntimeType for IAppWindowTitleBar3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IAppWindowTitleBar3 {
+    pub(crate) fn SetPreferredTheme(&self, value: TitleBarTheme) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPreferredTheme)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IAppWindowTitleBar3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    PreferredTheme: usize,
+    pub SetPreferredTheme:
+        unsafe extern "system" fn(*mut core::ffi::c_void, TitleBarTheme) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IApplication,
+    IApplication_Vtbl,
+    0x06a8f4e7_1146_55af_820d_ebd55643b021
+);
+impl windows_core::RuntimeType for IApplication {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IApplication {
+    pub(crate) fn Resources(&self) -> windows_core::Result<ResourceDictionary> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Resources)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn Exit(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Exit)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IApplication_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Resources: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    SetResources: usize,
+    DebugSettings: usize,
+    RequestedTheme: usize,
+    SetRequestedTheme: usize,
+    FocusVisualKind: usize,
+    SetFocusVisualKind: usize,
+    HighContrastAdjustment: usize,
+    SetHighContrastAdjustment: usize,
+    UnhandledException: usize,
+    RemoveUnhandledException: usize,
+    pub Exit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IApplication3,
+    IApplication3_Vtbl,
+    0xbe941595_61fe_5b36_a3d3_962a647d7c6f
+);
+impl windows_core::RuntimeType for IApplication3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IApplication3 {
+    pub(crate) fn SetDispatcherShutdownMode(
+        &self,
+        value: DispatcherShutdownMode,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDispatcherShutdownMode)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IApplication3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    DispatcherShutdownMode: usize,
+    pub SetDispatcherShutdownMode: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DispatcherShutdownMode,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IApplicationFactory,
+    IApplicationFactory_Vtbl,
+    0x9fd96657_5294_5a65_a1db_4fea143597da
+);
+impl windows_core::RuntimeType for IApplicationFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApplicationFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IApplicationInitializationCallbackParams,
+    IApplicationInitializationCallbackParams_Vtbl,
+    0x1b1906ea_5b7b_5876_81ab_7c2281ac3d20
+);
+impl windows_core::RuntimeType for IApplicationInitializationCallbackParams {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApplicationInitializationCallbackParams_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IApplicationOverrides,
+    IApplicationOverrides_Vtbl,
+    0xa33e81ef_c665_503b_8827_d27ef1720a06
+);
+impl windows_core::RuntimeType for IApplicationOverrides {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.IApplicationOverrides");
+}
+impl windows_core::RuntimeName for IApplicationOverrides {
+    const NAME: &'static str = "Microsoft.UI.Xaml.IApplicationOverrides";
+}
+pub trait IApplicationOverrides_Impl: windows_core::IUnknownImpl {
+    fn OnLaunched(
+        &self,
+        args: windows_core::Ref<LaunchActivatedEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl IApplicationOverrides_Vtbl {
+    pub const fn new<Identity: IApplicationOverrides_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn OnLaunched<
+            Identity: IApplicationOverrides_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IApplicationOverrides_Impl::OnLaunched(this, core::mem::transmute_copy(&args))
+                    .into()
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IApplicationOverrides, OFFSET>(
+            ),
+            OnLaunched: OnLaunched::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IApplicationOverrides as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IApplicationOverrides_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OnLaunched: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IApplicationStatics,
+    IApplicationStatics_Vtbl,
+    0x4e0d09f5_4358_512c_a987_503b52848e95
+);
+impl windows_core::RuntimeType for IApplicationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApplicationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Current: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IBorder,
@@ -1257,6 +1954,7 @@ pub struct IControl_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+pub const IDYES: i32 = 6;
 windows_core::imp::define_interface!(
     IDataTemplate,
     IDataTemplate_Vtbl,
@@ -1586,6 +2284,15 @@ impl IFrameworkElement {
             .ok()
         }
     }
+    pub(crate) fn SetRequestedTheme(&self, value: ElementTheme) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetRequestedTheme)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IFrameworkElement_Vtbl {
@@ -1632,6 +2339,33 @@ pub struct IFrameworkElement_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Thickness) -> windows_core::HRESULT,
     pub SetMargin:
         unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
+    Name: usize,
+    SetName: usize,
+    BaseUri: usize,
+    DataContext: usize,
+    SetDataContext: usize,
+    AllowFocusOnInteraction: usize,
+    SetAllowFocusOnInteraction: usize,
+    FocusVisualMargin: usize,
+    SetFocusVisualMargin: usize,
+    FocusVisualSecondaryThickness: usize,
+    SetFocusVisualSecondaryThickness: usize,
+    FocusVisualPrimaryThickness: usize,
+    SetFocusVisualPrimaryThickness: usize,
+    FocusVisualSecondaryBrush: usize,
+    SetFocusVisualSecondaryBrush: usize,
+    FocusVisualPrimaryBrush: usize,
+    SetFocusVisualPrimaryBrush: usize,
+    AllowFocusWhenDisabled: usize,
+    SetAllowFocusWhenDisabled: usize,
+    Style: usize,
+    SetStyle: usize,
+    Parent: usize,
+    FlowDirection: usize,
+    SetFlowDirection: usize,
+    RequestedTheme: usize,
+    pub SetRequestedTheme:
+        unsafe extern "system" fn(*mut core::ffi::c_void, ElementTheme) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IFrameworkTemplate,
@@ -1723,6 +2457,19 @@ pub struct IItemsControl_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ILaunchActivatedEventArgs,
+    ILaunchActivatedEventArgs_Vtbl,
+    0xd505cea9_1bcb_5b29_a8be_944e00f06f78
+);
+impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILaunchActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     IListView,
     IListView_Vtbl,
     0xf6015db1_df63_52fd_a164_0df44715ee0a
@@ -1765,6 +2512,51 @@ pub struct IListViewFactory_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IOverlappedPresenter3,
+    IOverlappedPresenter3_Vtbl,
+    0x55d26138_4c38_57e7_a0c1_d467b774db8c
+);
+impl windows_core::RuntimeType for IOverlappedPresenter3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IOverlappedPresenter3 {
+    pub(crate) fn SetPreferredMinimumHeight(&self, value: Option<i32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPreferredMinimumHeight)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Param::param(value__.as_ref()).abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetPreferredMinimumWidth(&self, value: Option<i32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPreferredMinimumWidth)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Param::param(value__.as_ref()).abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IOverlappedPresenter3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    PreferredMinimumHeight: usize,
+    pub SetPreferredMinimumHeight: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    PreferredMinimumWidth: usize,
+    pub SetPreferredMinimumWidth: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPanel, IPanel_Vtbl, 0x27a1b418_56f3_525e_b883_cefed905eed3);
@@ -1940,6 +2732,39 @@ impl windows_core::RuntimeType for IRangeBaseValueChangedEventArgs {
 #[repr(C)]
 pub struct IRangeBaseValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IResourceDictionary,
+    IResourceDictionary_Vtbl,
+    0x1b690975_a710_5783_a6e1_15836f6186c2
+);
+impl windows_core::RuntimeType for IResourceDictionary {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IResourceDictionary {
+    pub(crate) fn MergedDictionaries(
+        &self,
+    ) -> windows_core::Result<windows_collections::IVector<ResourceDictionary>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MergedDictionaries)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IResourceDictionary_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Source: usize,
+    SetSource: usize,
+    pub MergedDictionaries: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IRoutedEventArgs,
@@ -2794,6 +3619,15 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn SetIsTabStop(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsTabStop)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn PointerReleased<F>(
         &self,
         handler: F,
@@ -2971,7 +3805,8 @@ pub struct IUIElement_Vtbl {
     XYFocusDown: usize,
     SetXYFocusDown: usize,
     IsTabStop: usize,
-    SetIsTabStop: usize,
+    pub SetIsTabStop:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     TabIndex: usize,
     SetTabIndex: usize,
     KeyUp: usize,
@@ -3170,6 +4005,15 @@ impl IWindow {
             .ok()
         }
     }
+    pub(crate) fn SetExtendsContentIntoTitleBar(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetExtendsContentIntoTitleBar)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<WindowEventArgs>)
@@ -3212,6 +4056,18 @@ impl IWindow {
                 .ok()
         }
     }
+    pub(crate) fn SetTitleBar<P0>(&self, titlebar: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTitleBar)(
+                windows_core::Interface::as_raw(self),
+                titlebar.param().abi(),
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IWindow_Vtbl {
@@ -3233,7 +4089,8 @@ pub struct IWindow_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     ExtendsContentIntoTitleBar: usize,
-    SetExtendsContentIntoTitleBar: usize,
+    pub SetExtendsContentIntoTitleBar:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     Activated: usize,
     RemoveActivated: usize,
     pub Closed: unsafe extern "system" fn(
@@ -3249,6 +4106,41 @@ pub struct IWindow_Vtbl {
     RemoveVisibilityChanged: usize,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTitleBar: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IWindow2,
+    IWindow2_Vtbl,
+    0x42febaa5_1c32_522a_a591_57618c6f665d
+);
+impl windows_core::RuntimeType for IWindow2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IWindow2 {
+    pub(crate) fn AppWindow(&self) -> windows_core::Result<AppWindow> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AppWindow)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IWindow2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    SystemBackdrop: usize,
+    SetSystemBackdrop: usize,
+    pub AppWindow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IWindowEventArgs,
@@ -3283,6 +4175,213 @@ pub struct IWindowFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IWindowNative,
+    IWindowNative_Vtbl,
+    0xeecdbf0e_bae9_4cb6_a68e_9598e1cb57bb
+);
+windows_core::imp::interface_hierarchy!(IWindowNative, windows_core::IUnknown);
+impl IWindowNative {
+    pub(crate) unsafe fn WindowHandle(
+        &self,
+        hwnd: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).WindowHandle)(
+                windows_core::Interface::as_raw(self),
+                hwnd as _,
+            )
+        }
+    }
+}
+#[repr(C)]
+pub struct IWindowNative_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub WindowHandle: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IXamlControlsResources,
+    IXamlControlsResources_Vtbl,
+    0x918ca043_f42c_5805_861b_62d6d1d0c162
+);
+impl windows_core::RuntimeType for IXamlControlsResources {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXamlControlsResources_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IXamlMetadataProvider,
+    IXamlMetadataProvider_Vtbl,
+    0xa96251f0_2214_5d53_8746_ce99a2593cd7
+);
+impl windows_core::RuntimeType for IXamlMetadataProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
+    );
+}
+windows_core::imp::interface_hierarchy!(
+    IXamlMetadataProvider,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl IXamlMetadataProvider {
+    pub(crate) fn GetXamlType(&self, r#type: &TypeName) -> windows_core::Result<IXamlType> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetXamlType)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(r#type),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn GetXamlTypeByFullName(&self, fullname: &str) -> windows_core::Result<IXamlType> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetXamlTypeByFullName)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(fullname)),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn GetXmlnsDefinitions(
+        &self,
+    ) -> windows_core::Result<windows_core::Array<XmlnsDefinition>> {
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(self).GetXmlnsDefinitions)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Array::<XmlnsDefinition>::set_abi_len(core::mem::transmute(
+                    &mut result__,
+                )),
+                result__.as_mut_ptr() as *mut _ as _,
+            )
+            .map(|| result__.assume_init())
+        }
+    }
+}
+impl windows_core::RuntimeName for IXamlMetadataProvider {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider";
+}
+pub trait IXamlMetadataProvider_Impl: windows_core::IUnknownImpl {
+    fn GetXamlType(&self, r#type: &TypeName) -> windows_core::Result<IXamlType>;
+    fn GetXamlTypeByFullName(
+        &self,
+        fullName: &windows_core::HSTRING,
+    ) -> windows_core::Result<IXamlType>;
+    fn GetXmlnsDefinitions(&self) -> windows_core::Result<windows_core::Array<XmlnsDefinition>>;
+}
+impl IXamlMetadataProvider_Vtbl {
+    pub const fn new<Identity: IXamlMetadataProvider_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetXamlType<
+            Identity: IXamlMetadataProvider_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            r#type: core::mem::MaybeUninit<TypeName>,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IXamlMetadataProvider_Impl::GetXamlType(this, core::mem::transmute(&r#type)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetXamlTypeByFullName<
+            Identity: IXamlMetadataProvider_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            fullname: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IXamlMetadataProvider_Impl::GetXamlTypeByFullName(
+                    this,
+                    core::mem::transmute(&fullname),
+                ) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetXmlnsDefinitions<
+            Identity: IXamlMetadataProvider_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result_size__: *mut u32,
+            result__: *mut *mut core::mem::MaybeUninit<XmlnsDefinition>,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IXamlMetadataProvider_Impl::GetXmlnsDefinitions(this) {
+                    Ok(ok__) => {
+                        let (ok_data__, ok_data_len__) = ok__.into_abi();
+                        result__.write(ok_data__);
+                        result_size__.write(ok_data_len__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IXamlMetadataProvider, OFFSET>(
+            ),
+            GetXamlType: GetXamlType::<Identity, OFFSET>,
+            GetXamlTypeByFullName: GetXamlTypeByFullName::<Identity, OFFSET>,
+            GetXmlnsDefinitions: GetXmlnsDefinitions::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IXamlMetadataProvider as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IXamlMetadataProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetXamlType: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        core::mem::MaybeUninit<TypeName>,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetXamlTypeByFullName: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetXmlnsDefinitions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut core::mem::MaybeUninit<XmlnsDefinition>,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IXamlReader,
     IXamlReader_Vtbl,
     0x54ce54c8_38c6_50d9_ac98_4b03eddbde9f
@@ -3312,6 +4411,24 @@ pub struct IXamlReaderStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IXamlType,
+    IXamlType_Vtbl,
+    0xd24219df_7ec9_57f1_a27b_6af251d9c5bc
+);
+impl windows_core::RuntimeType for IXamlType {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(
+    IXamlType,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct IXamlType_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3379,6 +4496,33 @@ impl windows_core::RuntimeName for ItemsControl {
 }
 unsafe impl Send for ItemsControl {}
 unsafe impl Sync for ItemsControl {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LaunchActivatedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    LaunchActivatedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for LaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ILaunchActivatedEventArgs>();
+}
+unsafe impl windows_core::Interface for LaunchActivatedEventArgs {
+    type Vtable = <ILaunchActivatedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILaunchActivatedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for LaunchActivatedEventArgs {
+    type Target = ILaunchActivatedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for LaunchActivatedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.LaunchActivatedEventArgs";
+}
+unsafe impl Send for LaunchActivatedEventArgs {}
+unsafe impl Sync for LaunchActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ListView(windows_core::IUnknown);
@@ -3473,6 +4617,8 @@ impl windows_core::RuntimeName for ListViewBase {
 }
 unsafe impl Send for ListViewBase {}
 unsafe impl Sync for ListViewBase {}
+pub const MB_ICONERROR: i32 = 16;
+pub const MB_YESNO: i32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Orientation(pub i32);
@@ -3488,6 +4634,52 @@ impl windows_core::RuntimeType for Orientation {
         b"enum(Microsoft.UI.Xaml.Controls.Orientation;i4)",
     );
 }
+pub type PACKAGEDEPENDENCY_CONTEXT = *mut PACKAGEDEPENDENCY_CONTEXT__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PACKAGEDEPENDENCY_CONTEXT__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_VERSION {
+    pub Anonymous: PACKAGE_VERSION_0,
+}
+impl Default for PACKAGE_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub union PACKAGE_VERSION_0 {
+    pub Version: u64,
+    pub Anonymous: PACKAGE_VERSION_0_0,
+}
+impl Default for PACKAGE_VERSION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PACKAGE_VERSION_0_0 {
+    pub Revision: u16,
+    pub Build: u16,
+    pub Minor: u16,
+    pub Major: u16,
+}
+pub type PSID = *mut core::ffi::c_void;
+pub type PackageDependencyLifetimeKind = i32;
+pub type PackageDependencyProcessorArchitectures = u32;
+pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = 8;
+pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures =
+    16;
+pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures =
+    1;
+pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = 0;
+pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = 4;
+pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Panel(windows_core::IUnknown);
@@ -3592,6 +4784,7 @@ impl windows_core::RuntimeName for PointerRoutedEventArgs {
 }
 unsafe impl Send for PointerRoutedEventArgs {}
 unsafe impl Sync for PointerRoutedEventArgs {}
+pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RangeBase(windows_core::IUnknown);
@@ -3719,6 +4912,34 @@ impl<
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ResourceDictionary(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ResourceDictionary,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(ResourceDictionary, DependencyObject);
+impl windows_core::RuntimeType for ResourceDictionary {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IResourceDictionary>();
+}
+unsafe impl windows_core::Interface for ResourceDictionary {
+    type Vtable = <IResourceDictionary as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IResourceDictionary as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ResourceDictionary {
+    type Target = IResourceDictionary;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ResourceDictionary {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ResourceDictionary";
+}
+unsafe impl Send for ResourceDictionary {}
+unsafe impl Sync for ResourceDictionary {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RoutedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     RoutedEventArgs,
@@ -3793,6 +5014,9 @@ impl<
         }
     }
 }
+pub const STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED: windows_core::HRESULT =
+    windows_core::HRESULT(0x80670016_u32 as _);
+pub const SW_SHOWNORMAL: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScrollViewer(windows_core::IUnknown);
@@ -3880,6 +5104,19 @@ impl windows_core::RuntimeName for Selector {
 }
 unsafe impl Send for Selector {}
 unsafe impl Sync for Selector {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SizeInt32 {
+    pub width: i32,
+    pub height: i32,
+}
+impl windows_core::imp::TypeKind for SizeInt32 {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for SizeInt32 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Slider(windows_core::IUnknown);
@@ -4284,6 +5521,37 @@ impl windows_core::RuntimeName for TitleBar {
 unsafe impl Send for TitleBar {}
 unsafe impl Sync for TitleBar {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TitleBarHeightOption(pub i32);
+impl TitleBarHeightOption {
+    pub const Standard: Self = Self(0);
+    pub const Tall: Self = Self(1);
+}
+impl windows_core::imp::TypeKind for TitleBarHeightOption {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for TitleBarHeightOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Windowing.TitleBarHeightOption;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TitleBarTheme(pub i32);
+impl TitleBarTheme {
+    pub const UseDefaultAppMode: Self = Self(1);
+    pub const Light: Self = Self(2);
+    pub const Dark: Self = Self(3);
+}
+impl windows_core::imp::TypeKind for TitleBarTheme {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for TitleBarTheme {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Windowing.TitleBarTheme;i4)",
+    );
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ToggleButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -4423,6 +5691,33 @@ impl windows_core::RuntimeName for TreeViewNode {
 }
 unsafe impl Send for TreeViewNode {}
 unsafe impl Sync for TreeViewNode {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TypeKind(pub i32);
+impl TypeKind {
+    pub const Primitive: Self = Self(0);
+    pub const Metadata: Self = Self(1);
+    pub const Custom: Self = Self(2);
+}
+impl windows_core::imp::TypeKind for TypeKind {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for TypeKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Interop.TypeKind;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct TypeName {
+    pub name: windows_core::HSTRING,
+    pub kind: TypeKind,
+}
+impl windows_core::imp::TypeKind for TypeName {
+    type TypeKind = windows_core::imp::CloneType;
+}
+impl windows_core::RuntimeType for TypeName {
+    const SIGNATURE : windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice (b"struct(Windows.UI.Xaml.Interop.TypeName;string;enum(Windows.UI.Xaml.Interop.TypeKind;i4))") ;
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TypedEventHandler<TSender, TResult>(
@@ -4618,6 +5913,11 @@ impl windows_core::RuntimeName for Viewbox {
 }
 unsafe impl Send for Viewbox {}
 unsafe impl Sync for Viewbox {}
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 1;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 5;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562971428323328;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Window(windows_core::IUnknown);
@@ -4691,6 +5991,96 @@ unsafe impl Send for WindowEventArgs {}
 unsafe impl Sync for WindowEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct XamlControlsResources(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    XamlControlsResources,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(XamlControlsResources, ResourceDictionary, DependencyObject);
+impl XamlControlsResources {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            XamlControlsResources,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for XamlControlsResources {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IXamlControlsResources>();
+}
+unsafe impl windows_core::Interface for XamlControlsResources {
+    type Vtable = <IXamlControlsResources as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IXamlControlsResources as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for XamlControlsResources {
+    type Target = IXamlControlsResources;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for XamlControlsResources {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
+}
+unsafe impl Send for XamlControlsResources {}
+unsafe impl Sync for XamlControlsResources {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct XamlControlsXamlMetaDataProvider(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    XamlControlsXamlMetaDataProvider,
+    windows_core::IUnknown,
+    windows_core::IInspectable,
+    IXamlMetadataProvider
+);
+impl XamlControlsXamlMetaDataProvider {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            XamlControlsXamlMetaDataProvider,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for XamlControlsXamlMetaDataProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IXamlMetadataProvider>();
+}
+unsafe impl windows_core::Interface for XamlControlsXamlMetaDataProvider {
+    type Vtable = <IXamlMetadataProvider as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IXamlMetadataProvider as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for XamlControlsXamlMetaDataProvider {
+    type Target = IXamlMetadataProvider;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for XamlControlsXamlMetaDataProvider {
+    const NAME: &'static str = "Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider";
+}
+unsafe impl Send for XamlControlsXamlMetaDataProvider {}
+unsafe impl Sync for XamlControlsXamlMetaDataProvider {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XamlReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     XamlReader,
@@ -4736,3 +6126,17 @@ impl windows_core::RuntimeName for XamlReader {
 }
 unsafe impl Send for XamlReader {}
 unsafe impl Sync for XamlReader {}
+#[repr(C)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct XmlnsDefinition {
+    pub xml_namespace: windows_core::HSTRING,
+    pub namespace: windows_core::HSTRING,
+}
+impl windows_core::imp::TypeKind for XmlnsDefinition {
+    type TypeKind = windows_core::imp::CloneType;
+}
+impl windows_core::RuntimeType for XmlnsDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"struct(Microsoft.UI.Xaml.Markup.XmlnsDefinition;string;string)",
+    );
+}

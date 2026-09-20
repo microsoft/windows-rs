@@ -100,6 +100,11 @@ fn main() {
         .input(workspace_path(WINMD))
         .input_default()
         .output(workspace_path(BINDINGS_OUTPUT))
+        .implements([
+            "Microsoft.UI.Xaml.IApplicationOverrides",
+            "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
+        ])
+        .compose("Microsoft.UI.Xaml.Application")
         .minimal()
         .dead_code()
         .flat()

@@ -6,7 +6,6 @@ publish = false
 
 [dependencies]
 windows-core = { workspace = true }
-windows-reactor = { workspace = true }
 windows-reactor2 = { workspace = true }
 
 [lints]

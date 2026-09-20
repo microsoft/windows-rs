@@ -139,6 +139,7 @@ impl<M: Send + 'static> ComponentCompletion<M> {
 pub struct ComponentContext<M> {
     reference: ElementRef,
     sender: ComponentSender<M>,
+    services: Arc<dyn ComponentServices>,
     tasks: Arc<Mutex<Vec<Weak<TaskControl>>>>,
 }
 
@@ -166,14 +167,14 @@ impl<M: Send + 'static> ComponentContext<M> {
         drop(tasks);
         let sender = self.sender.clone();
         let thread_control = Arc::clone(&control);
-        std::thread::spawn(move || {
+        self.services.spawn_background(Box::new(move || {
             let message = work(CancellationToken {
                 control: Arc::clone(&thread_control),
             });
             if thread_control.queue() {
                 sender.send_controlled(message, Arc::clone(&thread_control));
             }
-        });
+        }));
         ComponentTask { control }
     }
 
@@ -185,15 +186,79 @@ impl<M: Send + 'static> ComponentContext<M> {
         tasks.push(Arc::downgrade(&control));
         drop(tasks);
         let sender = self.sender.clone();
-        let thread_control = Arc::clone(&control);
-        std::thread::spawn(move || {
-            if thread_control.wait(delay) && thread_control.queue() {
-                sender.send_controlled(message, Arc::clone(&thread_control));
-            }
-        });
+        let timer_control = Arc::clone(&control);
+        let registration = self.services.set_timeout(
+            delay,
+            Box::new(move || {
+                timer_control.timer_fired();
+                if timer_control.queue() {
+                    sender.send_controlled(message, Arc::clone(&timer_control));
+                }
+            }),
+        );
+        control.set_timer(registration);
         ComponentTimer {
             task: ComponentTask { control },
         }
+    }
+}
+
+pub trait ComponentTimerRegistration: Send + Sync {
+    fn cancel(&self);
+}
+
+pub trait ComponentServices: Send + Sync {
+    fn spawn_background(&self, work: Box<dyn FnOnce() + Send>);
+
+    fn set_timeout(
+        &self,
+        delay: Duration,
+        callback: Box<dyn FnOnce() + Send>,
+    ) -> Arc<dyn ComponentTimerRegistration>;
+}
+
+#[derive(Default)]
+pub struct DefaultComponentServices;
+
+impl ComponentServices for DefaultComponentServices {
+    fn spawn_background(&self, work: Box<dyn FnOnce() + Send>) {
+        windows_threading::submit(work);
+    }
+
+    fn set_timeout(
+        &self,
+        delay: Duration,
+        callback: Box<dyn FnOnce() + Send>,
+    ) -> Arc<dyn ComponentTimerRegistration> {
+        let timer = Arc::new(ThreadPoolTimer::default());
+        let thread_timer = Arc::clone(&timer);
+        windows_threading::submit(move || {
+            let wait = thread_timer.wait.lock().unwrap();
+            let _ = thread_timer
+                .changed
+                .wait_timeout_while(wait, delay, |_| {
+                    !thread_timer.cancelled.load(Ordering::Acquire)
+                })
+                .unwrap();
+            if !thread_timer.cancelled.load(Ordering::Acquire) {
+                callback();
+            }
+        });
+        timer
+    }
+}
+
+#[derive(Default)]
+struct ThreadPoolTimer {
+    cancelled: std::sync::atomic::AtomicBool,
+    changed: Condvar,
+    wait: Mutex<()>,
+}
+
+impl ComponentTimerRegistration for ThreadPoolTimer {
+    fn cancel(&self) {
+        self.cancelled.store(true, Ordering::Release);
+        self.changed.notify_all();
     }
 }
 
@@ -207,22 +272,34 @@ pub enum ComponentTaskStatus {
 }
 
 struct TaskControl {
-    changed: Condvar,
     status: AtomicU8,
-    wait: Mutex<()>,
+    timer: Mutex<Option<Arc<dyn ComponentTimerRegistration>>>,
 }
 
 impl Default for TaskControl {
     fn default() -> Self {
         Self {
-            changed: Condvar::new(),
             status: AtomicU8::new(0),
-            wait: Mutex::new(()),
+            timer: Mutex::new(None),
         }
     }
 }
 
 impl TaskControl {
+    fn set_timer(&self, timer: Arc<dyn ComponentTimerRegistration>) {
+        let mut current = self.timer.lock().unwrap();
+        if self.status() == ComponentTaskStatus::Running {
+            *current = Some(timer);
+        } else {
+            drop(current);
+            timer.cancel();
+        }
+    }
+
+    fn timer_fired(&self) {
+        self.timer.lock().unwrap().take();
+    }
+
     fn queue(&self) -> bool {
         self.status
             .compare_exchange(0, 1, Ordering::AcqRel, Ordering::Acquire)
@@ -243,7 +320,9 @@ impl TaskControl {
                 .compare_exchange(current, 3, Ordering::AcqRel, Ordering::Acquire)
             {
                 Ok(_) => {
-                    self.changed.notify_all();
+                    if let Some(timer) = self.timer.lock().unwrap().take() {
+                        timer.cancel();
+                    }
                     return;
                 }
                 Err(actual) => current = actual,
@@ -266,17 +345,6 @@ impl TaskControl {
             4 => ComponentTaskStatus::Rejected,
             _ => unreachable!(),
         }
-    }
-
-    fn wait(&self, delay: Duration) -> bool {
-        let wait = self.wait.lock().unwrap();
-        let _ = self
-            .changed
-            .wait_timeout_while(wait, delay, |_| {
-                self.status() == ComponentTaskStatus::Running
-            })
-            .unwrap();
-        self.status() == ComponentTaskStatus::Running
     }
 }
 
@@ -556,6 +624,7 @@ trait ErasedFactory {
         id: ComponentId,
         queue: SharedQueue,
         reference: ElementRef,
+        services: Arc<dyn ComponentServices>,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<
         (
@@ -583,6 +652,7 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         id: ComponentId,
         queue: SharedQueue,
         reference: ElementRef,
+        services: Arc<dyn ComponentServices>,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<
         (
@@ -602,6 +672,7 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         let context = ComponentContext {
             reference: reference.clone(),
             sender: sender.clone(),
+            services: Arc::clone(&services),
             tasks: Arc::clone(&tasks),
         };
         let component = C::create(&self.input, &context);
@@ -609,6 +680,7 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
             component,
             input: self.input.clone(),
             sender,
+            services,
             tasks,
         };
         let (view, effects, dependencies) = scope.render_view(reference, contexts)?;
@@ -671,6 +743,7 @@ struct TypedScope<C: Component> {
     component: C,
     input: C::Input,
     sender: ComponentSender<C::Message>,
+    services: Arc<dyn ComponentServices>,
     tasks: Arc<Mutex<Vec<Weak<TaskControl>>>>,
 }
 
@@ -679,6 +752,7 @@ impl<C: Component> TypedScope<C> {
         ComponentContext {
             reference,
             sender: self.sender.clone(),
+            services: Arc::clone(&self.services),
             tasks: Arc::clone(&self.tasks),
         }
     }
@@ -814,6 +888,15 @@ impl<E> From<UpdateError<E>> for ComponentError<E> {
     }
 }
 
+impl<E: std::fmt::Debug> From<ComponentError<E>> for windows_core::Error {
+    fn from(value: ComponentError<E>) -> Self {
+        Self::new(
+            windows_core::HRESULT(0x80004005_u32 as i32),
+            format!("{value:?}"),
+        )
+    }
+}
+
 pub struct ComponentHost<A: Adapter> {
     context_consumers: HashMap<ContextId, HashSet<ComponentId>>,
     contexts: HashMap<ContextId, ContextValue>,
@@ -822,6 +905,7 @@ pub struct ComponentHost<A: Adapter> {
     poisoned: bool,
     queue: SharedQueue,
     runtime: Runtime<A>,
+    services: Arc<dyn ComponentServices>,
     free_scopes: Vec<u32>,
     scopes: Vec<ScopeSlot>,
 }
@@ -844,6 +928,14 @@ impl<A: Adapter> ComponentHost<A> {
         adapter: A,
         components: impl IntoIterator<Item = ComponentNode>,
     ) -> Result<Self, ComponentError<A::Error>> {
+        Self::mount_with_services(adapter, Arc::new(DefaultComponentServices), components)
+    }
+
+    pub fn mount_with_services(
+        adapter: A,
+        services: Arc<dyn ComponentServices>,
+        components: impl IntoIterator<Item = ComponentNode>,
+    ) -> Result<Self, ComponentError<A::Error>> {
         let queue = Arc::new(Mutex::new(MessageQueue::default()));
         let mut host = Self {
             context_consumers: HashMap::new(),
@@ -853,6 +945,7 @@ impl<A: Adapter> ComponentHost<A> {
             poisoned: false,
             queue,
             runtime: Runtime::new(adapter),
+            services,
             free_scopes: Vec::new(),
             scopes: Vec::new(),
         };
@@ -1132,6 +1225,7 @@ impl<A: Adapter> ComponentHost<A> {
             id,
             Arc::clone(&self.queue),
             reference.clone(),
+            Arc::clone(&self.services),
             &self.contexts,
         ) {
             Ok(created) => created,
@@ -1584,7 +1678,58 @@ fn prepare_scope_retirement(scopes: &mut [ScopeSlot], roots: &[ComponentId]) {
 mod tests {
     use super::*;
     use std::cell::RefCell;
-    use std::sync::atomic::{AtomicUsize, Ordering};
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+
+    type PendingTimer = (Arc<TestTimerRegistration>, Box<dyn FnOnce() + Send>);
+
+    #[derive(Default)]
+    struct TestServices {
+        background: Mutex<VecDeque<Box<dyn FnOnce() + Send>>>,
+        timers: Mutex<VecDeque<PendingTimer>>,
+    }
+
+    impl TestServices {
+        fn run_background(&self) {
+            self.background.lock().unwrap().pop_front().unwrap()();
+        }
+
+        fn fire_timer(&self) {
+            let (timer, callback) = self.timers.lock().unwrap().pop_front().unwrap();
+            if !timer.cancelled.load(Ordering::Acquire) {
+                callback();
+            }
+        }
+    }
+
+    impl ComponentServices for TestServices {
+        fn spawn_background(&self, work: Box<dyn FnOnce() + Send>) {
+            self.background.lock().unwrap().push_back(work);
+        }
+
+        fn set_timeout(
+            &self,
+            _delay: Duration,
+            callback: Box<dyn FnOnce() + Send>,
+        ) -> Arc<dyn ComponentTimerRegistration> {
+            let timer = Arc::new(TestTimerRegistration::default());
+            self.timers
+                .lock()
+                .unwrap()
+                .push_back((Arc::clone(&timer), callback));
+            timer
+        }
+    }
+
+    #[derive(Default)]
+    struct TestTimerRegistration {
+        cancelled: AtomicBool,
+    }
+
+    impl ComponentTimerRegistration for TestTimerRegistration {
+        fn cancel(&self) {
+            self.cancelled.store(true, Ordering::Release);
+        }
+    }
 
     #[derive(Clone)]
     struct CounterInput {
@@ -1778,6 +1923,69 @@ mod tests {
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
             TextBlock::new("Worker").into()
+        }
+    }
+
+    #[derive(Clone, Default)]
+    struct ServiceProbeInput {
+        task: Arc<Mutex<Option<ComponentTask>>>,
+        timer: Arc<Mutex<Option<ComponentTimer>>>,
+    }
+
+    impl PartialEq for ServiceProbeInput {
+        fn eq(&self, other: &Self) -> bool {
+            Arc::ptr_eq(&self.task, &other.task) && Arc::ptr_eq(&self.timer, &other.timer)
+        }
+    }
+
+    enum ServiceProbeMessage {
+        Background,
+        BackgroundComplete,
+        Timer,
+        TimerComplete,
+    }
+
+    struct ServiceProbe {
+        input: ServiceProbeInput,
+        value: usize,
+    }
+
+    impl Component for ServiceProbe {
+        type Input = ServiceProbeInput;
+        type Message = ServiceProbeMessage;
+
+        fn create(input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self {
+                input: input.clone(),
+                value: 0,
+            }
+        }
+
+        fn update(&mut self, message: Self::Message, context: &ComponentContext<Self::Message>) {
+            match message {
+                ServiceProbeMessage::Background => {
+                    let task =
+                        context.spawn_background(|_| ServiceProbeMessage::BackgroundComplete);
+                    *self.input.task.lock().unwrap() = Some(task);
+                    self.value += 1;
+                }
+                ServiceProbeMessage::BackgroundComplete => self.value += 1,
+                ServiceProbeMessage::Timer => {
+                    let timer =
+                        context.set_timeout(Duration::ZERO, ServiceProbeMessage::TimerComplete);
+                    *self.input.timer.lock().unwrap() = Some(timer);
+                    self.value += 1;
+                }
+                ServiceProbeMessage::TimerComplete => self.value += 1,
+            }
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            TextBlock::new(self.value.to_string()).into()
         }
     }
 
@@ -2289,6 +2497,79 @@ mod tests {
             input.task.lock().unwrap().as_ref().unwrap().status(),
             ComponentTaskStatus::Cancelled
         );
+        assert_eq!(host.drain(1).unwrap(), ComponentDrain::default());
+    }
+
+    #[test]
+    fn injected_services_preserve_task_and_timer_statuses() {
+        let services = Arc::new(TestServices::default());
+        let input = ServiceProbeInput::default();
+        let mut host = ComponentHost::mount_with_services(
+            RecordingAdapter::default(),
+            services.clone(),
+            [component::<ServiceProbe>("probe", input.clone())],
+        )
+        .unwrap();
+        let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
+
+        assert!(sender.send(ServiceProbeMessage::Background));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(
+            input.task.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Running
+        );
+        services.run_background();
+        assert_eq!(
+            input.task.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Queued
+        );
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(
+            input.task.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Delivered
+        );
+
+        assert!(sender.send(ServiceProbeMessage::Timer));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(
+            input.timer.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Running
+        );
+        services.fire_timer();
+        assert_eq!(
+            input.timer.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Queued
+        );
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(
+            input.timer.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Delivered
+        );
+    }
+
+    #[test]
+    fn retirement_cancels_injected_timer() {
+        let services = Arc::new(TestServices::default());
+        let input = ServiceProbeInput::default();
+        let mut host = ComponentHost::mount_with_services(
+            RecordingAdapter::default(),
+            services.clone(),
+            [component::<ServiceProbe>("probe", input.clone())],
+        )
+        .unwrap();
+        assert!(
+            host.sender::<ServiceProbe>(&Key::from("probe"))
+                .unwrap()
+                .send(ServiceProbeMessage::Timer)
+        );
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+
+        host.remove(&Key::from("probe")).unwrap();
+        assert_eq!(
+            input.timer.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Cancelled
+        );
+        services.fire_timer();
         assert_eq!(host.drain(1).unwrap(), ComponentDrain::default());
     }
 

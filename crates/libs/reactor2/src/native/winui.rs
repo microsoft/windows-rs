@@ -89,6 +89,18 @@ impl From<windows_core::Error> for WinUiError {
     }
 }
 
+impl From<WinUiError> for windows_core::Error {
+    fn from(value: WinUiError) -> Self {
+        match value {
+            WinUiError::Native(error) => error,
+            error => Self::new(
+                windows_core::HRESULT(0x80004005_u32 as i32),
+                format!("{error:?}"),
+            ),
+        }
+    }
+}
+
 fn solid_color_brush(value: crate::Color) -> Result<native::SolidColorBrush, WinUiError> {
     let brush = native::SolidColorBrush::new()?;
     brush.SetColor(native::Color {
@@ -127,6 +139,70 @@ pub struct NativeWindow {
     closed: Option<windows_core::EventRevoker>,
 }
 
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum WindowTheme {
+    #[default]
+    System,
+    Light,
+    Dark,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum WindowTitleBarHeight {
+    #[default]
+    Standard,
+    Tall,
+}
+
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct WindowPolicy {
+    title: Option<String>,
+    theme: WindowTheme,
+    client_size: Option<(f64, f64)>,
+    minimum_client_size: Option<(f64, f64)>,
+    title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
+}
+
+impl WindowPolicy {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    pub fn title(mut self, title: impl Into<String>) -> Self {
+        self.title = Some(title.into());
+        self
+    }
+
+    pub fn theme(mut self, theme: WindowTheme) -> Self {
+        self.theme = theme;
+        self
+    }
+
+    pub fn client_size(mut self, width: f64, height: f64) -> Self {
+        validate_window_size(width, height);
+        self.client_size = Some((width, height));
+        self
+    }
+
+    pub fn minimum_client_size(mut self, width: f64, height: f64) -> Self {
+        validate_window_size(width, height);
+        self.minimum_client_size = Some((width, height));
+        self
+    }
+
+    pub fn title_bar(mut self, title_bar: ObjectId, height: WindowTitleBarHeight) -> Self {
+        self.title_bar = Some((title_bar, height));
+        self
+    }
+}
+
+fn validate_window_size(width: f64, height: f64) {
+    assert!(
+        width.is_finite() && width > 0.0 && height.is_finite() && height > 0.0,
+        "window size must be finite and positive"
+    );
+}
+
 impl Clone for NativeWindow {
     fn clone(&self) -> Self {
         Self {
@@ -149,8 +225,15 @@ impl NativeWindow {
         self.window.Close().map_err(Into::into)
     }
 
-    pub fn set_closed(&mut self, callback: impl Fn() + 'static) -> Result<(), WinUiError> {
-        self.closed = Some(self.window.Closed(move |_, _| callback())?);
+    pub fn set_closed(
+        &mut self,
+        callback: impl Fn() -> windows_core::Result<()> + 'static,
+    ) -> Result<(), WinUiError> {
+        self.closed = Some(self.window.Closed(move |_, _| {
+            if let Err(error) = callback() {
+                super::app::report_error(error);
+            }
+        })?);
         Ok(())
     }
 }
@@ -161,10 +244,19 @@ impl WinUiAdapter {
     }
 
     pub fn create_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
+        self.create_window_with_policy(root, &WindowPolicy::new())
+    }
+
+    pub fn create_window_with_policy(
+        &self,
+        root: ObjectId,
+        policy: &WindowPolicy,
+    ) -> Result<NativeWindow, WinUiError> {
         let window = native::Window::new()?;
         let root = self.ui_element(root)?;
         window.SetContent(&root)?;
         root.cast::<native::IUIElement>()?.UpdateLayout()?;
+        self.apply_window_policy(&window, &root, policy)?;
         Ok(NativeWindow {
             window,
             closed: None,
@@ -175,6 +267,98 @@ impl WinUiAdapter {
         let window = self.create_window(root)?;
         window.activate()?;
         Ok(window)
+    }
+
+    pub fn open_window_with_policy(
+        &self,
+        root: ObjectId,
+        policy: &WindowPolicy,
+    ) -> Result<NativeWindow, WinUiError> {
+        let window = self.create_window_with_policy(root, policy)?;
+        window.activate()?;
+        Ok(window)
+    }
+
+    fn apply_window_policy(
+        &self,
+        window: &native::Window,
+        root: &native::UIElement,
+        policy: &WindowPolicy,
+    ) -> Result<(), WinUiError> {
+        if let Some(title) = &policy.title {
+            window.SetTitle(title)?;
+        }
+
+        let window_2 = window.cast::<native::IWindow2>()?;
+        let app_window = window_2.AppWindow()?;
+        let title_bar = app_window.TitleBar()?;
+        title_bar
+            .cast::<native::IAppWindowTitleBar3>()?
+            .SetPreferredTheme(match policy.theme {
+                WindowTheme::System => native::TitleBarTheme::UseDefaultAppMode,
+                WindowTheme::Light => native::TitleBarTheme::Light,
+                WindowTheme::Dark => native::TitleBarTheme::Dark,
+            })?;
+        root.cast::<native::FrameworkElement>()?
+            .SetRequestedTheme(match policy.theme {
+                WindowTheme::System => native::ElementTheme::Default,
+                WindowTheme::Light => native::ElementTheme::Light,
+                WindowTheme::Dark => native::ElementTheme::Dark,
+            })?;
+
+        if let Some((object, height)) = policy.title_bar {
+            if self.kind(object)? != ObjectType::TitleBar {
+                return Err(WinUiError::InvalidObject(object));
+            }
+            let element = self.ui_element(object)?;
+            element.cast::<native::IUIElement>()?.SetIsTabStop(false)?;
+            window.SetExtendsContentIntoTitleBar(true)?;
+            window.SetTitleBar(&element)?;
+            title_bar
+                .cast::<native::IAppWindowTitleBar2>()?
+                .SetPreferredHeightOption(match height {
+                    WindowTitleBarHeight::Standard => native::TitleBarHeightOption::Standard,
+                    WindowTitleBarHeight::Tall => native::TitleBarHeightOption::Tall,
+                })?;
+        }
+
+        let needs_metrics = policy.client_size.is_some() || policy.minimum_client_size.is_some();
+        if needs_metrics {
+            let mut hwnd = std::ptr::null_mut();
+            unsafe {
+                window
+                    .cast::<native::IWindowNative>()?
+                    .WindowHandle(&mut hwnd)
+                    .ok()?;
+            }
+            let dpi = unsafe { native::GetDpiForWindow(hwnd.cast()) }.max(96);
+            let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
+            let client_window = app_window.cast::<native::IAppWindow2>()?;
+
+            if let Some((width, height)) = policy.minimum_client_size {
+                let outer = app_window.Size()?;
+                let inner = client_window.ClientSize()?;
+                let non_client_width = outer.width.saturating_sub(inner.width);
+                let non_client_height = outer.height.saturating_sub(inner.height);
+                let presenter = app_window
+                    .Presenter()?
+                    .cast::<native::IOverlappedPresenter3>()?;
+                presenter.SetPreferredMinimumWidth(Some(
+                    pixels(width).saturating_add(non_client_width),
+                ))?;
+                presenter.SetPreferredMinimumHeight(Some(
+                    pixels(height).saturating_add(non_client_height),
+                ))?;
+            }
+
+            if let Some((width, height)) = policy.client_size {
+                client_window.ResizeClient(native::SizeInt32 {
+                    width: pixels(width),
+                    height: pixels(height),
+                })?;
+            }
+        }
+        Ok(())
     }
 
     pub fn validate_graph(&self, graph: &crate::RetainedGraph) -> Result<(), WinUiError> {
@@ -1338,4 +1522,44 @@ fn index32(index: usize) -> Result<u32, WinUiError> {
     index
         .try_into()
         .map_err(|_| WinUiError::IndexOverflow(index))
+}
+
+#[cfg(test)]
+mod window_policy_tests {
+    use super::*;
+
+    #[test]
+    fn policy_preserves_requested_window_state() {
+        let policy = WindowPolicy::new()
+            .title("Solitaire")
+            .theme(WindowTheme::Dark)
+            .client_size(800.0, 600.0)
+            .minimum_client_size(800.0, 600.0);
+
+        assert_eq!(policy.title.as_deref(), Some("Solitaire"));
+        assert_eq!(policy.theme, WindowTheme::Dark);
+        assert_eq!(policy.client_size, Some((800.0, 600.0)));
+        assert_eq!(policy.minimum_client_size, Some((800.0, 600.0)));
+    }
+
+    #[test]
+    fn policy_rejects_invalid_window_sizes() {
+        for (width, height) in [
+            (0.0, 1.0),
+            (1.0, -1.0),
+            (f64::NAN, 1.0),
+            (1.0, f64::INFINITY),
+        ] {
+            assert!(
+                std::panic::catch_unwind(|| WindowPolicy::new().client_size(width, height))
+                    .is_err()
+            );
+            assert!(
+                std::panic::catch_unwind(|| {
+                    WindowPolicy::new().minimum_client_size(width, height)
+                })
+                .is_err()
+            );
+        }
+    }
 }

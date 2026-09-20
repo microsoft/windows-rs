@@ -11,6 +11,9 @@ pub use component::*;
 pub use declaration::*;
 pub use generated::*;
 pub use ir::*;
+pub use native::{
+    App, AppCallback, AppContext, AppProxy, WindowPolicy, WindowTheme, WindowTitleBarHeight,
+};
 pub use reconcile::*;
 
 #[cfg(test)]

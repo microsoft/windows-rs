@@ -2,8 +2,8 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use windows_reactor::{App, AppContext};
 use windows_reactor2 as reactor2;
+use windows_reactor2::{App, AppContext};
 
 struct Count;
 
@@ -84,13 +84,14 @@ impl Host {
                 .unwrap()
                 .host
                 .drain(usize::MAX)
-                .unwrap();
+                .map(|_| ())
+                .map_err(Into::into)
         });
-        let mut host = reactor2::ComponentHost::mount(
+        let mut host = reactor2::ComponentHost::mount_with_services(
             reactor2::native::WinUiAdapter::default(),
+            context.component_services(),
             [reactor2::component::<Counter>("counter", ())],
-        )
-        .unwrap();
+        )?;
         let wake = drain.clone();
         host.set_waker(move || {
             _ = wake.invoke();
@@ -100,13 +101,9 @@ impl Host {
             _ = wake.invoke();
         });
         let root = host.runtime().graph().root().unwrap();
-        let mut window = host.runtime().adapter().open_window(root).unwrap();
+        let mut window = host.runtime().adapter().open_window(root)?;
         let application = context.proxy();
-        window
-            .set_closed(move || {
-                _ = application.exit();
-            })
-            .unwrap();
+        window.set_closed(move || application.exit())?;
         *state.borrow_mut() = Some(Self {
             host,
             _window: window,
