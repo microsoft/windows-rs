@@ -15,7 +15,10 @@ replacement without a retained wrapper object. Components may be nested in ordin
 relations with parent-local keys; transient expansion does not add component objects to the
 retained tree or cache rendered declarations.
 
-The `reactor2-solitaire` sample provides a runnable application-shaped slice using a real Reactor2
-window and controlled TextBox commands.
+`reactor2-counter` provides the minimal nested-component example. `reactor2-solitaire` provides a
+runnable application-shaped slice with a three-level keyed component board and controlled TextBox
+commands. `reactor2-explorer` exercises recursive TreeView content, filtering, reorder, selection,
+and asynchronous child loading. Each sample opens only its Reactor2 window; the current Reactor
+application host supplies the WinUI message loop without creating a Reactor window.
 
 This crate is not a supported replacement for `windows-reactor`.

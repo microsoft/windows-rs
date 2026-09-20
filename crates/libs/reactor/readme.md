@@ -52,6 +52,8 @@ fn main() {
 ```
 
 Applications whose resources outlive any one window can use `App::run_with`.
+`AppContext::callback` creates fixed work that can be invoked from any thread and runs on the
+application UI thread.
 
 Use `ThemeTransition::Reposition` with `LayoutControl::transitions` to animate retained elements
 between layout-driven positions. The

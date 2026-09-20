@@ -3,6 +3,7 @@ use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
 use std::marker::PhantomData;
 use std::rc::Rc;
+use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::{Arc, Mutex};
 use windows_core::Interface;
 
@@ -21,7 +22,10 @@ pub(crate) mod test;
 thread_local! {
     static HOST: RefCell<Option<LiveHost>> = const { RefCell::new(None) };
     static SCHEDULER_FAULT: RefCell<Option<windows_core::Error>> = const { RefCell::new(None) };
+    static APP_CALLBACKS: RefCell<HashMap<u64, Rc<dyn Fn()>>> = RefCell::new(HashMap::new());
 }
+
+static NEXT_APP_CALLBACK: AtomicU64 = AtomicU64::new(1);
 
 #[cfg(feature = "test")]
 thread_local! {
@@ -876,6 +880,24 @@ impl AppContext {
         }
     }
 
+    /// Creates a callback that can be invoked from any thread and runs on the application UI
+    /// thread.
+    pub fn callback(&self, callback: impl Fn() + 'static) -> AppCallback {
+        let id = NEXT_APP_CALLBACK.fetch_add(1, Ordering::Relaxed);
+        APP_CALLBACKS.with(|callbacks| {
+            assert!(
+                callbacks
+                    .borrow_mut()
+                    .insert(id, Rc::new(callback))
+                    .is_none()
+            );
+        });
+        AppCallback {
+            proxy: self.proxy(),
+            id,
+        }
+    }
+
     /// Exits the application message loop.
     pub fn exit(&self) -> windows_core::Result<()> {
         let result = exit_application();
@@ -895,6 +917,23 @@ impl AppContext {
 #[derive(Clone)]
 pub struct AppProxy {
     dispatcher: DispatcherQueue,
+}
+
+/// A cloneable callback that posts fixed work to the application UI thread.
+#[derive(Clone)]
+pub struct AppCallback {
+    proxy: AppProxy,
+    id: u64,
+}
+
+impl AppCallback {
+    /// Queues the callback for execution on the application UI thread.
+    pub fn invoke(&self) -> windows_core::Result<()> {
+        let id = self.id;
+        self.proxy.dispatch(move |_| {
+            APP_CALLBACKS.with(|callbacks| callbacks.borrow()[&id]());
+        })
+    }
 }
 
 impl AppProxy {
@@ -1157,6 +1196,7 @@ impl App {
                 host.fault
             })
             .map_or(Ok(()), Err);
+        APP_CALLBACKS.with(|callbacks| callbacks.borrow_mut().clear());
         let scheduler_result = SCHEDULER_FAULT
             .with(|fault| fault.borrow_mut().take())
             .map_or(Ok(()), Err);

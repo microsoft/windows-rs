@@ -111,16 +111,23 @@ impl Default for WinUiAdapter {
     }
 }
 
-#[derive(Clone)]
-pub struct NativeWindow(native::Window);
+pub struct NativeWindow {
+    window: native::Window,
+    closed: Option<windows_core::EventRevoker>,
+}
 
 impl NativeWindow {
     pub fn activate(&self) -> Result<(), WinUiError> {
-        self.0.Activate().map_err(Into::into)
+        self.window.Activate().map_err(Into::into)
     }
 
     pub fn close(&self) -> Result<(), WinUiError> {
-        self.0.Close().map_err(Into::into)
+        self.window.Close().map_err(Into::into)
+    }
+
+    pub fn set_closed(&mut self, callback: impl Fn() + 'static) -> Result<(), WinUiError> {
+        self.closed = Some(self.window.Closed(move |_, _| callback())?);
+        Ok(())
     }
 }
 
@@ -134,7 +141,10 @@ impl WinUiAdapter {
         let root = self.ui_element(root)?;
         window.SetContent(&root)?;
         root.cast::<native::IUIElement>()?.UpdateLayout()?;
-        Ok(NativeWindow(window))
+        Ok(NativeWindow {
+            window,
+            closed: None,
+        })
     }
 
     pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {

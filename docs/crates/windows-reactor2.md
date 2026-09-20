@@ -45,11 +45,46 @@ TreeView's item template and safe collection synchronization remain private to t
 `test-reactor2-selftest` executable opens a real Reactor2 window, repeatedly reorders realized
 TreeView nodes with custom visual content, and exercises controlled TextBox input.
 
+`reactor2-counter` is the minimal recursive sample. The parent owns the count and event handler,
+while a nested `Count` component receives the value through `Border.Content`. This keeps the sample
+small while proving that event delivery, parent state, child input, and targeted retained updates
+work together.
+
 `reactor2-solitaire` is the first application-shaped sample. Its game state, component messages,
-declarations, reconciliation, TextBox events, and game window use Reactor2. It uses the current
-Reactor application host only to initialize and keep the WinUI dispatcher alive because Reactor2
-does not yet provide a standalone application bootstrap. The sample uses a text board until the
-pointer, layout, and styling slices needed by the visual Solitaire sample are projected.
+declarations, reconciliation, TextBox events, and game window use Reactor2. The board is a nested
+component whose keyed `Line` components form a third component level. It uses the current Reactor
+application host only to initialize and keep the WinUI dispatcher alive because Reactor2 does not
+yet provide a standalone application bootstrap. No Reactor window is created. The sample uses a
+text board until the pointer, layout, and styling slices needed by the visual Solitaire sample are
+projected.
+
+`reactor2-explorer` is the recursive structural sample. Component-rendered TreeView rows support
+filtering, root reorder, explicit selection, expansion, asynchronous child loading, cancellation
+through scope retirement, and an independently updated details component. Native TreeView
+selection is not projected yet, so row buttons currently send selection messages.
+
+## Complexity ladder
+
+Samples advance only when each rung defeats a distinct source of framework complexity:
+
+| Rung | Workload | Required proof |
+| --- | --- | --- |
+| Counter | Parent state, click event, nested display component | One child subtree changes; no wrapper or parent rebuild |
+| Solitaire | Controlled input, commands, game state, three component levels, keyed board lines | Stable child identities and bounded mutations during application-shaped churn |
+| TreeView explorer | Structural nodes, arbitrary component content, expansion, selection, async loading, reorder | No duplicated hierarchy ownership; live reorder and cancellation remain safe |
+| Complex application | Multiple views, navigation, shared context, forms, lists, background work, secondary state | Features compose without new planner branches, component objects, or parallel UI trees |
+
+Each rung must preserve the architectural invariants rather than only render correctly:
+
+1. New ordinary controls enter through schema and metadata generation.
+2. Backend exceptions remain native policy and do not change declaration or planner semantics.
+3. Components retain lifecycle state and a root `ObjectId`, never rendered declarations.
+4. A child update produces mutations only inside that child's retained subtree.
+5. Keyed reorder preserves component state and retained root identity.
+6. Removal cancels tasks, cleans effects, invalidates references, and rejects stale messages.
+7. Recording tests prove mutation shape; live WinUI tests prove behavior that recording cannot see.
+8. Retained bytes, allocations, update latency, mutation count, and handwritten framework code are
+   measured at every application rung.
 
 `tool-reactor2` now generates typed declaration builders from `schema.toml`. The generated surface
 covers all current prototype objects, and the public `Button` slice uses the generated builder with

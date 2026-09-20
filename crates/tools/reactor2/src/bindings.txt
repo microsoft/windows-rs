@@ -10,7 +10,7 @@ Microsoft::UI::Xaml::IUIElement::UpdateLayout
 Microsoft::UI::Xaml::IUIElement::Focus
 Microsoft::UI::Xaml::UIElement::{}
 Microsoft::UI::Xaml::Window::CreateInstance
-Microsoft::UI::Xaml::IWindow::{put_Content, Activate, Close}
+Microsoft::UI::Xaml::IWindow::{put_Content, Activate, Close, add_Closed, remove_Closed}
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeView::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance

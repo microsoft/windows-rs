@@ -1,11 +1,9 @@
 #![windows_subsystem = "windows"]
 
+use std::cell::RefCell;
 use std::rc::Rc;
 use std::time::{SystemTime, UNIX_EPOCH};
-use windows_reactor::{
-    App, Component as AppComponent, ComponentContext as AppComponentContext, TextBlock, View,
-    ViewContext,
-};
+use windows_reactor::{App, AppContext};
 use windows_reactor2 as reactor2;
 
 const PILES: usize = 7;
@@ -230,6 +228,50 @@ struct Solitaire {
     game: Game,
 }
 
+struct Line;
+
+impl reactor2::Component for Line {
+    type Input = Rc<str>;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self
+    }
+
+    fn view(
+        &self,
+        input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        reactor2::TextBlock::new(input.clone()).into()
+    }
+}
+
+struct Board;
+
+impl reactor2::Component for Board {
+    type Input = Vec<Rc<str>>;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
+        Self
+    }
+
+    fn view(
+        &self,
+        input: &Self::Input,
+        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
+    ) -> reactor2::Visual {
+        reactor2::Grid::new()
+            .children(
+                input.iter().enumerate().map(|(index, line)| {
+                    reactor2::component::<Line>(index, Rc::clone(line)).keyed()
+                }),
+            )
+            .into()
+    }
+}
+
 impl reactor2::Component for Solitaire {
     type Input = ();
     type Message = Message;
@@ -320,11 +362,11 @@ impl reactor2::Component for Solitaire {
                 })
                 .into(),
         ];
-        children.extend(
-            self.game
-                .lines()
-                .into_iter()
-                .map(|line| reactor2::TextBlock::new(line).into()),
+        let lines = self.game.lines().into_iter().map(Rc::<str>::from).collect();
+        children.push(
+            reactor2::Border::new()
+                .content(reactor2::component::<Board>("board", lines))
+                .into(),
         );
         reactor2::StackPanel::new().children(children).into()
     }
@@ -335,45 +377,48 @@ struct Host {
     _window: reactor2::native::NativeWindow,
 }
 
-impl AppComponent for Host {
-    type Input = ();
-    type Message = ();
-
-    fn create(_input: &Self::Input, context: &AppComponentContext<Self>) -> Self {
+impl Host {
+    fn new(context: &AppContext) -> windows_core::Result<Rc<RefCell<Option<Self>>>> {
+        let state = Rc::new(RefCell::new(None::<Self>));
+        let drain_state = Rc::clone(&state);
+        let drain = context.callback(move || {
+            let mut state = drain_state.borrow_mut();
+            let host = &mut state.as_mut().unwrap().host;
+            host.drain(usize::MAX).unwrap();
+            host.runtime()
+                .adapter()
+                .validate_graph(host.runtime().graph())
+                .unwrap();
+        });
         let mut host = reactor2::ComponentHost::mount(
             reactor2::native::WinUiAdapter::default(),
             [reactor2::component::<Solitaire>("solitaire", ())],
         )
         .unwrap();
-        let wake = context.sender();
+        let wake = drain.clone();
+        host.set_waker(move || {
+            _ = wake.invoke();
+        });
+        let wake = drain;
         host.runtime_mut().adapter_mut().set_event_waker(move || {
-            _ = wake.send(());
+            _ = wake.invoke();
         });
         let root = host.runtime().graph().root().unwrap();
-        let window = host.runtime().adapter().open_window(root).unwrap();
-        Self {
+        let mut window = host.runtime().adapter().open_window(root).unwrap();
+        let application = context.proxy();
+        window
+            .set_closed(move || {
+                _ = application.exit();
+            })
+            .unwrap();
+        *state.borrow_mut() = Some(Self {
             host,
             _window: window,
-        }
-    }
-
-    fn update(&mut self, (): (), _context: &AppComponentContext<Self>) {
-        self.host.drain(usize::MAX).unwrap();
-        self.host
-            .runtime()
-            .adapter()
-            .validate_graph(self.host.runtime().graph())
-            .unwrap();
-    }
-
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        context.window_title("Reactor2 bootstrap");
-        TextBlock::new()
-            .text("This window hosts the Reactor2 Solitaire window.")
-            .into()
+        });
+        Ok(state)
     }
 }
 
 fn main() -> windows_core::Result<()> {
-    App::run_component::<Host>(())
+    App::run_with(Host::new)
 }
