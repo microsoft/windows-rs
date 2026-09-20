@@ -171,6 +171,7 @@ jobs:
           }
           cargo run -p test-reactor-selftest --quiet -- --headless
           cargo run -p test-reactor-surface --quiet -- --headless
+          cargo run -p test-reactor2-selftest --quiet
 
   reconciler-quality:
     name: reconciler coverage and performance

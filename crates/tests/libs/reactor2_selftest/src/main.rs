@@ -3,6 +3,15 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use std::time::Duration;
+use windows::UI::Input::Preview::Injection::{
+    InjectedInputMouseInfo, InjectedInputMouseOptions, InputInjector,
+};
+use windows::Win32::RECT;
+use windows::Win32::winuser::{
+    GetForegroundWindow, GetSystemMetrics, GetWindowRect, SM_CXVIRTUALSCREEN, SM_CYVIRTUALSCREEN,
+    SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN,
+};
+use windows_collections::IIterable;
 use windows_reactor::{
     App, AppContext, AppProxy, Component, ComponentContext, TextBlock, View, ViewContext,
 };
@@ -26,6 +35,10 @@ struct Fixture {
     tree_content_sender: reactor2::ComponentSender<()>,
     tree_sender: reactor2::ComponentSender<()>,
     boundary_window: reactor2::native::NativeWindow,
+    pointer_runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
+    pointer_window: reactor2::native::NativeWindow,
+    received_pointer: Rc<RefCell<Option<reactor2::PointerEventInfo>>>,
+    pointer_waits: usize,
     runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     window: reactor2::native::NativeWindow,
     iteration: usize,
@@ -146,6 +159,46 @@ impl reactor2::Component for TreeComponents {
 }
 
 impl Fixture {
+    fn inject_pointer_click() -> Result<(), String> {
+        let hwnd = unsafe { GetForegroundWindow() };
+        if hwnd.is_null() {
+            return Err("the Reactor2 pointer self-test window is not foreground".to_string());
+        }
+        let mut rect = RECT::default();
+        if !unsafe { GetWindowRect(hwnd, &mut rect) }.as_bool() {
+            return Err("could not read the Reactor2 pointer self-test window".to_string());
+        }
+        let injector = InputInjector::TryCreate().map_err(|error| error.to_string())?;
+        let (origin_x, origin_y, width, height) = unsafe {
+            (
+                GetSystemMetrics(SM_XVIRTUALSCREEN),
+                GetSystemMetrics(SM_YVIRTUALSCREEN),
+                GetSystemMetrics(SM_CXVIRTUALSCREEN).max(2),
+                GetSystemMetrics(SM_CYVIRTUALSCREEN).max(2),
+            )
+        };
+        let x = ((f64::from(rect.left + 100 - origin_x) * 65535.0) / f64::from(width - 1)).round()
+            as i32;
+        let y = ((f64::from(rect.top + 100 - origin_y) * 65535.0) / f64::from(height - 1)).round()
+            as i32;
+        let inject = |options| -> windows_core::Result<()> {
+            let info = InjectedInputMouseInfo::new()?;
+            info.SetDeltaX(x)?;
+            info.SetDeltaY(y)?;
+            info.SetMouseOptions(
+                InjectedInputMouseOptions::Absolute
+                    | InjectedInputMouseOptions::VirtualDesk
+                    | options,
+            )?;
+            let inputs: IIterable<InjectedInputMouseInfo> = vec![Some(info)].into();
+            injector.InjectMouseInput(&inputs)
+        };
+        inject(InjectedInputMouseOptions::Move).map_err(|error| error.to_string())?;
+        inject(InjectedInputMouseOptions::LeftDown).map_err(|error| error.to_string())?;
+        inject(InjectedInputMouseOptions::LeftUp).map_err(|error| error.to_string())?;
+        Ok(())
+    }
+
     fn declaration(
         iteration: usize,
         text: Rc<str>,
@@ -360,23 +413,40 @@ impl Component for Fixture {
         let stale_pointer_callback = Rc::clone(&stale_pointer_calls);
         let mut pointer_runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
         pointer_runtime
-            .update(reactor2::Border::new().on_pointer_released(move |_| {
-                stale_pointer_callback.set(stale_pointer_callback.get() + 1);
-            }))
+            .update(
+                reactor2::Border::new()
+                    .width(200.0)
+                    .height(200.0)
+                    .background(reactor2::Color::rgb(255, 255, 255))
+                    .on_pointer_released(move |_| {
+                        stale_pointer_callback.set(stale_pointer_callback.get() + 1);
+                    }),
+            )
             .unwrap();
         let pointer_border = pointer_runtime.graph().root().unwrap();
         let pointer_window = pointer_runtime
             .adapter()
-            .open_window(pointer_border)
+            .open_window_with_policy(
+                pointer_border,
+                &reactor2::native::WindowPolicy::new()
+                    .title("Reactor2 pointer self-test")
+                    .client_size(200.0, 200.0),
+            )
             .unwrap();
         pointer_runtime
             .adapter()
             .simulate_pointer_released(pointer_border, pointer_value)
             .unwrap();
         pointer_runtime
-            .update(reactor2::Border::new().on_pointer_released(move |value| {
-                *received_pointer_callback.borrow_mut() = Some(value);
-            }))
+            .update(
+                reactor2::Border::new()
+                    .width(200.0)
+                    .height(200.0)
+                    .background(reactor2::Color::rgb(255, 255, 255))
+                    .on_pointer_released(move |value| {
+                        *received_pointer_callback.borrow_mut() = Some(value);
+                    }),
+            )
             .unwrap();
         let mut pointer_events = Vec::new();
         pointer_runtime.drain_events(&mut pointer_events).unwrap();
@@ -391,11 +461,12 @@ impl Component for Fixture {
             event.invoke();
         }
         assert_eq!(*received_pointer.borrow(), Some(pointer_value));
+        *received_pointer.borrow_mut() = None;
         pointer_runtime
             .adapter()
             .validate_graph(pointer_runtime.graph())
             .unwrap();
-        pointer_window.close().unwrap();
+        Self::inject_pointer_click().unwrap();
         let mut generated_runtime =
             reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
         let slider_changed = Rc::new(Cell::new(0.0));
@@ -550,6 +621,10 @@ impl Component for Fixture {
             tree_content_sender,
             tree_sender,
             boundary_window,
+            pointer_runtime,
+            pointer_window,
+            received_pointer,
+            pointer_waits: 0,
             runtime,
             window,
             iteration: 0,
@@ -567,6 +642,26 @@ impl Component for Fixture {
     }
 
     fn update(&mut self, _message: Self::Message, context: &ComponentContext<Self>) {
+        let mut pointer_events = Vec::new();
+        self.pointer_runtime
+            .drain_events(&mut pointer_events)
+            .unwrap();
+        for event in pointer_events {
+            event.invoke();
+        }
+        if let Some(pointer) = *self.received_pointer.borrow() {
+            assert!(pointer.pointer_id > 0);
+            assert!(!pointer.is_captured);
+            assert_eq!(pointer.capture_succeeded, None);
+        } else {
+            self.pointer_waits += 1;
+            assert!(
+                self.pointer_waits < 50,
+                "real WinUI PointerReleased event was not delivered"
+            );
+            Self::schedule(context);
+            return;
+        }
         self.boundary_host.drain(usize::MAX).unwrap();
         self.boundary_host
             .runtime()
@@ -663,6 +758,7 @@ impl Component for Fixture {
             .validate_graph(self.runtime.graph())
             .unwrap();
         if self.iteration == 100 {
+            self.pointer_window.close().unwrap();
             self.boundary_window.close().unwrap();
             self.window.close().unwrap();
             self.app.exit().unwrap();

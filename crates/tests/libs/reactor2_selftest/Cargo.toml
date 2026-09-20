@@ -6,8 +6,10 @@ publish = false
 
 [dependencies]
 windows-core = { workspace = true }
+windows-collections = { workspace = true }
 windows-reactor = { workspace = true }
 windows-reactor2 = { workspace = true }
+windows = { workspace = true, features = ["UI_Input_Preview_Injection", "winuser"] }
 
 [lints]
 workspace = true

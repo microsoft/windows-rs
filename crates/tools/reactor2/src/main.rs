@@ -456,8 +456,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                         event.name
                     )),
                     "PointerEventInfo" => output.push_str(&format!(
-                        "let Ok(value) = WinUiAdapter::pointer_event_info(&source_{field}, args) \
-                         else {{ std::process::abort(); }};\n\
+                        "let value = match WinUiAdapter::pointer_event_info(&source_{field}, args) \
+                         {{ Ok(value) => value, Err(error) => {{ \
+                         super::app::report_error(error.into()); return; }} }};\n\
                          WinUiAdapter::dispatch_pointer_event_info(&event_for_callback, \
                          &event_queue, object, EventId::{}, value);\n",
                         event.name

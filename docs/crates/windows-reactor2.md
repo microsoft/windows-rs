@@ -43,7 +43,8 @@ The recording adapter validates ownership and relation categories. The WinUI ada
 mutations to `Border.Child`, panel children, `TreeViewNode` collections, and `ListView.Items`.
 TreeView's item template and safe collection synchronization remain private to that adapter. The
 `test-reactor2-selftest` executable opens a real Reactor2 window, repeatedly reorders realized
-TreeView nodes with custom visual content, and exercises controlled TextBox input.
+TreeView nodes with custom visual content, exercises controlled TextBox input, and injects a real
+mouse click through the WinUI pointer event path.
 
 The standalone application host is exposed as `App`, `AppContext`, `AppProxy`, and `AppCallback`.
 For unpackaged processes it adds the installed Windows App Runtime framework package to the process
@@ -272,9 +273,10 @@ realized TreeView nodes whose custom content is produced and updated by nested c
 
 The recursive memory, latency, allocation, and mutation-radius gates pass through 21,845 scopes.
 Nearest-ancestor context providers and structural or data-rooted component scopes remain before
-migration. Typed pointer payloads and transition declarations remain projection gaps. The
-standalone host now owns AppWindow policy, Windows thread-pool background execution, and
-DispatcherQueue timers without coupling generic component lifecycle code to native bindings.
+migration. Typed pointer payloads and transition declarations now use generated protocol and
+native adapter paths. The standalone host owns AppWindow policy, Windows thread-pool background
+execution, and DispatcherQueue timers without coupling generic component lifecycle code to native
+bindings.
 
 1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
    mirrored UI declaration tree.
@@ -417,9 +419,11 @@ clamp UTF-16 selection indices.
 The native self-test routes a simulated native text change through the same observed-text and
 callback path as the WinUI event handler, rerenders the controlled value, and then applies a
 different authoritative value. It verifies callback count, native text, selection preservation,
-and delayed programmatic feedback suppression across message-loop turns. Raw keyboard injection
-remains a benchmark concern because foreground-window activation is not deterministic enough for
-the correctness fixture.
+and delayed programmatic feedback suppression across message-loop turns. It also injects a real
+mouse press and release into a Reactor2 Border. This exercises `PointerRoutedEventArgs`, validates
+the typed payload, and verifies that a missing pointer-capture collection means "not captured."
+Raw keyboard injection remains a benchmark concern because foreground-window activation is not
+deterministic enough for the correctness fixture.
 
 The matched `reactor-live-notepad --single-line` and `reactor2-live-notepad` benchmarks inject real
 keyboard input into the same native TextBox configuration. With 1,000 measured characters,

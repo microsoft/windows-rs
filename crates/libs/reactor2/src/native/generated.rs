@@ -112,10 +112,15 @@ impl GeneratedHandle {
                     value
                         .cast::<native::IUIElement>()?
                         .PointerReleased(move |_, args| {
-                            let Ok(value) =
-                                WinUiAdapter::pointer_event_info(&source_pointer_released, args)
-                            else {
-                                std::process::abort();
+                            let value = match WinUiAdapter::pointer_event_info(
+                                &source_pointer_released,
+                                args,
+                            ) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    super::app::report_error(error.into());
+                                    return;
+                                }
                             };
                             WinUiAdapter::dispatch_pointer_event_info(
                                 &event_for_callback,

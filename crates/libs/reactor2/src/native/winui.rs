@@ -1060,8 +1060,10 @@ impl WinUiAdapter {
         let mut capture_index = 0;
         let is_captured = element
             .cast::<native::IUIElement>()?
-            .PointerCaptures()?
-            .IndexOf(&pointer, &mut capture_index)?;
+            .PointerCaptures()
+            .ok()
+            .and_then(|captures| captures.IndexOf(&pointer, &mut capture_index).ok())
+            .unwrap_or(false);
         Ok(crate::PointerEventInfo {
             x: f64::from(local_position.x),
             y: f64::from(local_position.y),
