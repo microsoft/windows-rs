@@ -1280,6 +1280,13 @@ mod tests {
         );
         assert!(moved_sender.send(()));
         assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        let is_card_property_update = |set: &[reactor2::Property]| {
+            set.len() == 2
+                && set
+                    .iter()
+                    .any(|property| property.id == PropertyId::Background)
+                && set.iter().any(|property| property.id == PropertyId::Margin)
+        };
         assert!(!mutations.iter().any(|mutation| match mutation {
             Mutation::Create { object, .. }
             | Mutation::Replace { object, .. }
@@ -1302,10 +1309,7 @@ mod tests {
                     Mutation::SetProperties { object, set, clear }
                         if *object == moved_object
                             && clear.is_empty()
-                            && set.iter().map(|property| property.id).eq([
-                                PropertyId::Background,
-                                PropertyId::Margin,
-                            ])
+                            && is_card_property_update(set)
                 ))
                 .count(),
             1
@@ -1391,10 +1395,7 @@ mod tests {
                     && *inserted_parent == board
                     && *inserted_slot == slot_object
                     && *updated_card == moved_object
-                    && updated_properties.iter().map(|property| property.id).eq([
-                        PropertyId::Background,
-                        PropertyId::Margin,
-                    ])
+                    && is_card_property_update(updated_properties)
                     && updated_property_clear.is_empty()
                     && *updated_event_card == moved_object
                     && updated_events.len() == 1

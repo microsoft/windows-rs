@@ -9,6 +9,42 @@ owner = "Microsoft.UI.Xaml.Controls.Canvas"
 value = "F64"
 
 [[visual_properties]]
+name = "Width"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "F64"
+default = "f64::NAN"
+
+[[visual_properties]]
+name = "Height"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "F64"
+default = "f64::NAN"
+
+[[visual_properties]]
+name = "Margin"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "Thickness"
+default = "default"
+
+[[visual_properties]]
+name = "HorizontalAlignment"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "HorizontalAlignment"
+default = "Stretch"
+
+[[visual_properties]]
+name = "VerticalAlignment"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "VerticalAlignment"
+default = "Stretch"
+
+[[visual_properties]]
+name = "Opacity"
+owner = "Microsoft.UI.Xaml.UIElement"
+value = "F64"
+default = "1.0"
+
+[[visual_properties]]
 name = "Transitions"
 owner = "Microsoft.UI.Xaml.UIElement"
 value = "ThemeTransitions"
@@ -34,20 +70,11 @@ name = "Foreground"
 value = "Color"
 default = "none"
 
-[[objects.properties]]
-name = "HorizontalAlignment"
-value = "HorizontalAlignment"
-default = "Stretch"
-
-[[objects.properties]]
-name = "VerticalAlignment"
-value = "VerticalAlignment"
-default = "Stretch"
-
 [[objects]]
 name = "TextBox"
 category = "Visual"
 native = "handwritten"
+native_type = "Microsoft.UI.Xaml.Controls.TextBox"
 
 [[objects.properties]]
 name = "Text"
@@ -62,31 +89,6 @@ value = "String"
 name = "Button"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Button"
-
-[[objects.properties]]
-name = "Width"
-value = "F64"
-default = "f64::NAN"
-
-[[objects.properties]]
-name = "Height"
-value = "F64"
-default = "f64::NAN"
-
-[[objects.properties]]
-name = "Margin"
-value = "Thickness"
-default = "default"
-
-[[objects.properties]]
-name = "HorizontalAlignment"
-value = "HorizontalAlignment"
-default = "Stretch"
-
-[[objects.properties]]
-name = "VerticalAlignment"
-value = "VerticalAlignment"
-default = "Stretch"
 
 [[objects.properties]]
 name = "Background"
@@ -132,16 +134,6 @@ category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Border"
 
 [[objects.properties]]
-name = "Width"
-value = "F64"
-default = "f64::NAN"
-
-[[objects.properties]]
-name = "Height"
-value = "F64"
-default = "f64::NAN"
-
-[[objects.properties]]
 name = "Background"
 value = "Color"
 default = "none"
@@ -166,26 +158,6 @@ name = "Padding"
 value = "Thickness"
 default = "default"
 
-[[objects.properties]]
-name = "Margin"
-value = "Thickness"
-default = "default"
-
-[[objects.properties]]
-name = "HorizontalAlignment"
-value = "HorizontalAlignment"
-default = "Stretch"
-
-[[objects.properties]]
-name = "VerticalAlignment"
-value = "VerticalAlignment"
-default = "Stretch"
-
-[[objects.properties]]
-name = "Opacity"
-value = "F64"
-default = "1.0"
-
 [[objects.relations]]
 name = "Content"
 native = "Child"
@@ -202,21 +174,6 @@ value = "PointerEventInfo"
 name = "Grid"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Grid"
-
-[[objects.properties]]
-name = "Width"
-value = "F64"
-default = "f64::NAN"
-
-[[objects.properties]]
-name = "Height"
-value = "F64"
-default = "f64::NAN"
-
-[[objects.properties]]
-name = "HorizontalAlignment"
-value = "HorizontalAlignment"
-default = "Stretch"
 
 [[objects.relations]]
 name = "Children"
@@ -239,11 +196,6 @@ default = "0.0"
 name = "Orientation"
 value = "Orientation"
 default = "Vertical"
-
-[[objects.properties]]
-name = "Margin"
-value = "Thickness"
-default = "default"
 
 [[objects.relations]]
 name = "Children"
@@ -280,11 +232,6 @@ realization = "Owned"
 name = "Viewbox"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Viewbox"
-
-[[objects.properties]]
-name = "Height"
-value = "F64"
-default = "f64::NAN"
 
 [[objects.relations]]
 name = "Content"
@@ -338,6 +285,7 @@ observes = "Value"
 name = "TreeView"
 category = "Visual"
 native = "handwritten"
+native_type = "Microsoft.UI.Xaml.Controls.TreeView"
 
 [[objects.relations]]
 name = "Roots"
@@ -382,6 +330,7 @@ item = "TreeNode"
 name = "ListView"
 category = "Visual"
 native = "handwritten"
+native_type = "Microsoft.UI.Xaml.Controls.ListView"
 
 [[objects.relations]]
 name = "Items"

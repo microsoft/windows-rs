@@ -350,6 +350,38 @@ fn visual_transitions_are_retained_stable_and_removed_when_omitted() {
 }
 
 #[test]
+fn shared_visual_properties_apply_to_handwritten_objects() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            TextBox::new("Text")
+                .width(240.0)
+                .margin(Thickness::uniform(12.0)),
+        )
+        .unwrap();
+    let text_box = runtime.graph().root().unwrap();
+    assert!(
+        runtime
+            .graph()
+            .properties(text_box)
+            .unwrap()
+            .contains(&Property {
+                id: PropertyId::Width,
+                value: PropertyValue::F64(240.0),
+            })
+    );
+
+    assert_eq!(
+        runtime.update(TextBox::new("Text")).unwrap(),
+        [Mutation::SetProperties {
+            object: text_box,
+            set: Rc::from([]),
+            clear: Rc::from([PropertyId::Width, PropertyId::Margin]),
+        }]
+    );
+}
+
+#[test]
 fn keyed_visual_moves_preserve_identity_and_only_update_changed_state() {
     let first_callback = Callback::new(|_: PointerEventInfo| {});
     let second_callback = Callback::new(|_: PointerEventInfo| {});

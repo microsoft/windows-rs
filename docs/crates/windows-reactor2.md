@@ -162,6 +162,13 @@ filter needed by those generated paths. Generated mutable controls report native
 retained graph even when no callback is installed. TextBox feedback, TreeView structural nodes,
 ListView container data, and templates remain focused handwritten adapter cases.
 
+Width, height, margin, horizontal and vertical alignment, and opacity are owner-aware shared visual
+contracts. Their builders, metadata checks, native setters, enum conversion, defaults, and binding
+filters are generated once for every visual object. Local properties cannot collide with a shared
+property. The old Reactor `layout` capability also includes min/max sizing, Grid and RelativePanel
+placement, automation metadata, and exit transitions, so the parity checker reports layout as
+partial until those contracts are represented.
+
 ## Public API shape
 
 The declaration API exposes one typed path for each generated contract:
@@ -324,6 +331,7 @@ Run:
 
 ```text
 cargo run -p tool-reactor2 --quiet
+cargo run -p tool-reactor2 --quiet -- --parity-report
 cargo test -p windows-reactor2 -p tool-reactor2 --quiet
 cargo clippy -p windows-reactor2 -p tool-reactor2 -p test-reactor2-bench \
     --all-targets -- -D warnings
@@ -333,6 +341,12 @@ cargo run -p reactor2-solitaire
 cargo run -p test-reactor-bench --bin reactor-live-compare --release --quiet -- \
     --frontend reactor2 --workload text --count 512 --updates 120
 ```
+
+`--parity-report` compares the complete Reactor `winui.toml` surface with Reactor2's schema. It
+counts controls, properties, events, slots, selections, capabilities, and lifecycle contracts,
+then groups every unresolved contract by the missing model or behavior. `--check-parity` emits the
+same report and exits unsuccessfully while anything remains unresolved. The initial baseline is 79
+controls against 16 Reactor2 objects; 14 controls currently correspond to old Reactor controls.
 
 `test-reactor2-bench` compares Reactor and Reactor2 using the same node counts and update patterns.
 It reports median and p95 time, allocated bytes, allocation count, and retained bytes per object.

@@ -100,6 +100,36 @@ impl TextBlock {
             .property(PropertyId::Foreground, PropertyValue::Color(foreground));
         self
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
     pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
         self.0 = self.0.property(
             PropertyId::HorizontalAlignment,
@@ -114,16 +144,10 @@ impl TextBlock {
         );
         self
     }
-    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+    pub fn opacity(mut self, opacity: f64) -> Self {
         self.0 = self
             .0
-            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
-        self
-    }
-    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self
@@ -171,6 +195,44 @@ impl TextBox {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
     pub fn transitions<T>(self, transitions: T) -> Self
     where
         T: IntoIterator<Item = ThemeTransition>,
@@ -211,6 +273,24 @@ impl Button {
         let declaration = Declaration::new(ObjectType::Button);
         Self(declaration)
     }
+    pub fn background(mut self, background: Color) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Background, PropertyValue::Color(background));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
     pub fn width(mut self, width: f64) -> Self {
         self.0 = self
             .0
@@ -243,22 +323,10 @@ impl Button {
         );
         self
     }
-    pub fn background(mut self, background: Color) -> Self {
+    pub fn opacity(mut self, opacity: f64) -> Self {
         self.0 = self
             .0
-            .property(PropertyId::Background, PropertyValue::Color(background));
-        self
-    }
-    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
-        self
-    }
-    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self
@@ -336,6 +404,44 @@ impl CheckBox {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
     pub fn transitions<T>(self, transitions: T) -> Self
     where
         T: IntoIterator<Item = ThemeTransition>,
@@ -392,18 +498,6 @@ impl Border {
         let declaration = Declaration::new(ObjectType::Border);
         Self(declaration)
     }
-    pub fn width(mut self, width: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::Width, PropertyValue::F64(width));
-        self
-    }
-    pub fn height(mut self, height: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::Height, PropertyValue::F64(height));
-        self
-    }
     pub fn background(mut self, background: Color) -> Self {
         self.0 = self
             .0
@@ -436,6 +530,30 @@ impl Border {
             .property(PropertyId::Padding, PropertyValue::Thickness(padding));
         self
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
     pub fn margin(mut self, margin: Thickness) -> Self {
         self.0 = self
             .0
@@ -460,18 +578,6 @@ impl Border {
         self.0 = self
             .0
             .property(PropertyId::Opacity, PropertyValue::F64(opacity));
-        self
-    }
-    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
-        self
-    }
-    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self
@@ -533,6 +639,18 @@ impl Grid {
         let declaration = Declaration::new(ObjectType::Grid);
         Self(declaration)
     }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
     pub fn width(mut self, width: f64) -> Self {
         self.0 = self
             .0
@@ -545,6 +663,12 @@ impl Grid {
             .property(PropertyId::Height, PropertyValue::F64(height));
         self
     }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
     pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
         self.0 = self.0.property(
             PropertyId::HorizontalAlignment,
@@ -552,16 +676,17 @@ impl Grid {
         );
         self
     }
-    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
         self
     }
-    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+    pub fn opacity(mut self, opacity: f64) -> Self {
         self.0 = self
             .0
-            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self
@@ -627,12 +752,6 @@ impl StackPanel {
             .property(PropertyId::Orientation, orientation.property_value());
         self
     }
-    pub fn margin(mut self, margin: Thickness) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
-        self
-    }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
         self.0 = self
             .0
@@ -643,6 +762,44 @@ impl StackPanel {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self
@@ -706,6 +863,44 @@ impl Canvas {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
     pub fn transitions<T>(self, transitions: T) -> Self
     where
         T: IntoIterator<Item = ThemeTransition>,
@@ -767,6 +962,44 @@ impl ScrollViewer {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
     pub fn transitions<T>(self, transitions: T) -> Self
     where
         T: IntoIterator<Item = ThemeTransition>,
@@ -816,12 +1049,6 @@ impl Viewbox {
         let declaration = Declaration::new(ObjectType::Viewbox);
         Self(declaration)
     }
-    pub fn height(mut self, height: f64) -> Self {
-        self.0 = self
-            .0
-            .property(PropertyId::Height, PropertyValue::F64(height));
-        self
-    }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
         self.0 = self
             .0
@@ -832,6 +1059,44 @@ impl Viewbox {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self
@@ -907,6 +1172,44 @@ impl TitleBar {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
     pub fn transitions<T>(self, transitions: T) -> Self
     where
         T: IntoIterator<Item = ThemeTransition>,
@@ -973,6 +1276,44 @@ impl Slider {
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
         self
     }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
     pub fn transitions<T>(self, transitions: T) -> Self
     where
         T: IntoIterator<Item = ThemeTransition>,
@@ -1028,6 +1369,44 @@ impl TreeView {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self
@@ -1142,6 +1521,44 @@ impl ListView {
         self.0 = self
             .0
             .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
         self
     }
     pub fn transitions<T>(self, transitions: T) -> Self

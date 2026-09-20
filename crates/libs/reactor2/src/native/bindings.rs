@@ -2183,16 +2183,6 @@ impl windows_core::RuntimeType for IFrameworkElement {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IFrameworkElement {
-    pub(crate) fn Width(&self) -> windows_core::Result<f64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Width)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub(crate) fn SetWidth(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetWidth)(
@@ -2202,16 +2192,6 @@ impl IFrameworkElement {
             .ok()
         }
     }
-    pub(crate) fn Height(&self) -> windows_core::Result<f64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Height)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub(crate) fn SetHeight(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetHeight)(
@@ -2219,16 +2199,6 @@ impl IFrameworkElement {
                 value,
             )
             .ok()
-        }
-    }
-    pub(crate) fn HorizontalAlignment(&self) -> windows_core::Result<HorizontalAlignment> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HorizontalAlignment)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
         }
     }
     pub(crate) fn SetHorizontalAlignment(
@@ -2243,16 +2213,6 @@ impl IFrameworkElement {
             .ok()
         }
     }
-    pub(crate) fn VerticalAlignment(&self) -> windows_core::Result<VerticalAlignment> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VerticalAlignment)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub(crate) fn SetVerticalAlignment(
         &self,
         value: VerticalAlignment,
@@ -2263,16 +2223,6 @@ impl IFrameworkElement {
                 value,
             )
             .ok()
-        }
-    }
-    pub(crate) fn Margin(&self) -> windows_core::Result<Thickness> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Margin)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
         }
     }
     pub(crate) fn SetMargin(&self, value: Thickness) -> windows_core::Result<()> {
@@ -2306,10 +2256,9 @@ pub struct IFrameworkElement_Vtbl {
     SetLanguage: usize,
     ActualWidth: usize,
     ActualHeight: usize,
-    pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    Width: usize,
     pub SetWidth: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub Height:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    Height: usize,
     pub SetHeight: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     MinWidth: usize,
     SetMinWidth: usize,
@@ -2319,24 +2268,17 @@ pub struct IFrameworkElement_Vtbl {
     SetMinHeight: usize,
     MaxHeight: usize,
     SetMaxHeight: usize,
-    pub HorizontalAlignment: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut HorizontalAlignment,
-    ) -> windows_core::HRESULT,
+    HorizontalAlignment: usize,
     pub SetHorizontalAlignment: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         HorizontalAlignment,
     ) -> windows_core::HRESULT,
-    pub VerticalAlignment: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut VerticalAlignment,
-    ) -> windows_core::HRESULT,
+    VerticalAlignment: usize,
     pub SetVerticalAlignment: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         VerticalAlignment,
     ) -> windows_core::HRESULT,
-    pub Margin:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut Thickness) -> windows_core::HRESULT,
+    Margin: usize,
     pub SetMargin:
         unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
     Name: usize,
@@ -3793,16 +3735,6 @@ impl windows_core::RuntimeType for IUIElement {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IUIElement {
-    pub(crate) fn Opacity(&self) -> windows_core::Result<f64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Opacity)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub(crate) fn SetOpacity(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetOpacity)(
@@ -3903,8 +3835,7 @@ pub struct IUIElement_Vtbl {
     DesiredSize: usize,
     AllowDrop: usize,
     SetAllowDrop: usize,
-    pub Opacity:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    Opacity: usize,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     Clip: usize,
     SetClip: usize,

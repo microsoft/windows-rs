@@ -185,156 +185,12 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Text,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::FontSize,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Foreground,
-                value: ValueType::Color,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-        ],
-        ObjectType::TextBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Text,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::Button => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
                 id: PropertyId::Width,
                 value: ValueType::F64,
             },
             PropertyContract {
                 id: PropertyId::Height,
                 value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Background,
-                value: ValueType::Color,
-            },
-        ],
-        ObjectType::CheckBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsChecked,
-                value: ValueType::OptionalBool,
-            },
-        ],
-        ObjectType::Border => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Background,
-                value: ValueType::Color,
-            },
-            PropertyContract {
-                id: PropertyId::BorderBrush,
-                value: ValueType::Color,
-            },
-            PropertyContract {
-                id: PropertyId::BorderThickness,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::CornerRadius,
-                value: ValueType::CornerRadius,
-            },
-            PropertyContract {
-                id: PropertyId::Padding,
-                value: ValueType::Thickness,
             },
             PropertyContract {
                 id: PropertyId::Margin,
@@ -358,6 +214,230 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 id: PropertyId::Opacity,
                 value: ValueType::F64,
             },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
+                id: PropertyId::Text,
+                value: ValueType::String,
+            },
+            PropertyContract {
+                id: PropertyId::FontSize,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Foreground,
+                value: ValueType::Color,
+            },
+        ],
+        ObjectType::TextBox => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
+                id: PropertyId::Text,
+                value: ValueType::String,
+            },
+        ],
+        ObjectType::Button => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
+                id: PropertyId::Background,
+                value: ValueType::Color,
+            },
+        ],
+        ObjectType::CheckBox => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
+                id: PropertyId::IsChecked,
+                value: ValueType::OptionalBool,
+            },
+        ],
+        ObjectType::Border => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
+            },
+            PropertyContract {
+                id: PropertyId::Background,
+                value: ValueType::Color,
+            },
+            PropertyContract {
+                id: PropertyId::BorderBrush,
+                value: ValueType::Color,
+            },
+            PropertyContract {
+                id: PropertyId::BorderThickness,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::CornerRadius,
+                value: ValueType::CornerRadius,
+            },
+            PropertyContract {
+                id: PropertyId::Padding,
+                value: ValueType::Thickness,
+            },
         ],
         ObjectType::Grid => &[
             PropertyContract {
@@ -369,8 +449,48 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
                 id: PropertyId::Transitions,
                 value: ValueType::ThemeTransitions,
+            },
+        ],
+        ObjectType::StackPanel => &[
+            PropertyContract {
+                id: PropertyId::CanvasLeft,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::CanvasTop,
+                value: ValueType::F64,
             },
             PropertyContract {
                 id: PropertyId::Width,
@@ -381,20 +501,25 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
                 id: PropertyId::HorizontalAlignment,
                 value: ValueType::Enum {
                     kind: "HorizontalAlignment",
                     variants: &["Left", "Center", "Right", "Stretch"],
                 },
             },
-        ],
-        ObjectType::StackPanel => &[
             PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
             },
             PropertyContract {
-                id: PropertyId::CanvasTop,
+                id: PropertyId::Opacity,
                 value: ValueType::F64,
             },
             PropertyContract {
@@ -412,10 +537,6 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                     variants: &["Vertical", "Horizontal"],
                 },
             },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
         ],
         ObjectType::Canvas => &[
             PropertyContract {
@@ -424,6 +545,36 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             },
             PropertyContract {
                 id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
                 value: ValueType::F64,
             },
             PropertyContract {
@@ -441,6 +592,36 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
                 id: PropertyId::Transitions,
                 value: ValueType::ThemeTransitions,
             },
@@ -455,12 +636,38 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
+                id: PropertyId::Width,
+                value: ValueType::F64,
             },
             PropertyContract {
                 id: PropertyId::Height,
                 value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Transitions,
+                value: ValueType::ThemeTransitions,
             },
         ],
         ObjectType::TitleBar => &[
@@ -470,6 +677,36 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             },
             PropertyContract {
                 id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
                 value: ValueType::F64,
             },
             PropertyContract {
@@ -492,6 +729,36 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             },
             PropertyContract {
                 id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
                 value: ValueType::F64,
             },
             PropertyContract {
@@ -521,6 +788,36 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
                 value: ValueType::F64,
             },
             PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
+                value: ValueType::F64,
+            },
+            PropertyContract {
                 id: PropertyId::Transitions,
                 value: ValueType::ThemeTransitions,
             },
@@ -542,6 +839,36 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
             },
             PropertyContract {
                 id: PropertyId::CanvasTop,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Width,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Height,
+                value: ValueType::F64,
+            },
+            PropertyContract {
+                id: PropertyId::Margin,
+                value: ValueType::Thickness,
+            },
+            PropertyContract {
+                id: PropertyId::HorizontalAlignment,
+                value: ValueType::Enum {
+                    kind: "HorizontalAlignment",
+                    variants: &["Left", "Center", "Right", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::VerticalAlignment,
+                value: ValueType::Enum {
+                    kind: "VerticalAlignment",
+                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                },
+            },
+            PropertyContract {
+                id: PropertyId::Opacity,
                 value: ValueType::F64,
             },
             PropertyContract {

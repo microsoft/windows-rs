@@ -293,6 +293,131 @@ impl GeneratedHandle {
         value: Option<&PropertyValue>,
     ) -> Option<Result<(), WinUiError>> {
         match (property, value) {
+            (PropertyId::Width, None) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
+            ),
+            (PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetWidth(*value).map_err(Into::into)),
+            ),
+            (PropertyId::Height, None) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
+            ),
+            (PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
+            ),
+            (PropertyId::Margin, None) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetMargin(native::Thickness::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::Margin, Some(PropertyValue::Thickness(value))) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetMargin(native::Thickness {
+                                left: value.left,
+                                top: value.top,
+                                right: value.right,
+                                bottom: value.bottom,
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::HorizontalAlignment, None) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                PropertyId::HorizontalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "HorizontalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalAlignment(match *variant {
+                                "Left" => native::HorizontalAlignment::Left,
+                                "Center" => native::HorizontalAlignment::Center,
+                                "Right" => native::HorizontalAlignment::Right,
+                                "Stretch" => native::HorizontalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::VerticalAlignment, None) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                PropertyId::VerticalAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "VerticalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetVerticalAlignment(match *variant {
+                                "Top" => native::VerticalAlignment::Top,
+                                "Center" => native::VerticalAlignment::Center,
+                                "Bottom" => native::VerticalAlignment::Bottom,
+                                "Stretch" => native::VerticalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::Opacity, None) => Some(
+                element
+                    .cast::<native::IUIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetOpacity(1.0).map_err(Into::into)),
+            ),
+            (PropertyId::Opacity, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::IUIElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetOpacity(*value).map_err(Into::into)),
+            ),
             (PropertyId::Transitions, Some(PropertyValue::ThemeTransitions(values))) => {
                 Some((|| {
                     let collection = native::TransitionCollection::new()?;
@@ -381,199 +506,6 @@ impl GeneratedHandle {
                             .and_then(|brush| object.SetForeground(&brush).map_err(Into::into))
                     }),
             ),
-            (Self::TextBlock(object), PropertyId::HorizontalAlignment, None) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::TextBlock(object),
-                PropertyId::HorizontalAlignment,
-                Some(PropertyValue::Enum {
-                    kind: "HorizontalAlignment",
-                    variant,
-                }),
-            ) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(match *variant {
-                                "Left" => native::HorizontalAlignment::Left,
-                                "Center" => native::HorizontalAlignment::Center,
-                                "Right" => native::HorizontalAlignment::Right,
-                                "Stretch" => native::HorizontalAlignment::Stretch,
-                                _ => unreachable!("validated enum variant"),
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::TextBlock(object), PropertyId::VerticalAlignment, None) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::TextBlock(object),
-                PropertyId::VerticalAlignment,
-                Some(PropertyValue::Enum {
-                    kind: "VerticalAlignment",
-                    variant,
-                }),
-            ) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetVerticalAlignment(match *variant {
-                                "Top" => native::VerticalAlignment::Top,
-                                "Center" => native::VerticalAlignment::Center,
-                                "Bottom" => native::VerticalAlignment::Bottom,
-                                "Stretch" => native::VerticalAlignment::Stretch,
-                                _ => unreachable!("validated enum variant"),
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::Button(object), PropertyId::Width, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
-            ),
-            (Self::Button(object), PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetWidth(*value).map_err(Into::into)),
-            ),
-            (Self::Button(object), PropertyId::Height, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
-            ),
-            (Self::Button(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
-            ),
-            (Self::Button(object), PropertyId::Margin, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetMargin(native::Thickness::default())
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::Button(object), PropertyId::Margin, Some(PropertyValue::Thickness(value))) => {
-                Some(
-                    object
-                        .value
-                        .cast::<native::IFrameworkElement>()
-                        .map_err(Into::into)
-                        .and_then(|object| {
-                            object
-                                .SetMargin(native::Thickness {
-                                    left: value.left,
-                                    top: value.top,
-                                    right: value.right,
-                                    bottom: value.bottom,
-                                })
-                                .map_err(Into::into)
-                        }),
-                )
-            }
-            (Self::Button(object), PropertyId::HorizontalAlignment, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::Button(object),
-                PropertyId::HorizontalAlignment,
-                Some(PropertyValue::Enum {
-                    kind: "HorizontalAlignment",
-                    variant,
-                }),
-            ) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(match *variant {
-                                "Left" => native::HorizontalAlignment::Left,
-                                "Center" => native::HorizontalAlignment::Center,
-                                "Right" => native::HorizontalAlignment::Right,
-                                "Stretch" => native::HorizontalAlignment::Stretch,
-                                _ => unreachable!("validated enum variant"),
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::Button(object), PropertyId::VerticalAlignment, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::Button(object),
-                PropertyId::VerticalAlignment,
-                Some(PropertyValue::Enum {
-                    kind: "VerticalAlignment",
-                    variant,
-                }),
-            ) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetVerticalAlignment(match *variant {
-                                "Top" => native::VerticalAlignment::Top,
-                                "Center" => native::VerticalAlignment::Center,
-                                "Bottom" => native::VerticalAlignment::Bottom,
-                                "Stretch" => native::VerticalAlignment::Stretch,
-                                _ => unreachable!("validated enum variant"),
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
             (Self::Button(object), PropertyId::Background, None) => Some(
                 object
                     .value
@@ -614,34 +546,6 @@ impl GeneratedHandle {
                     .cast::<native::IToggleButton>()
                     .map_err(Into::into)
                     .and_then(|object| object.SetIsChecked(*value).map_err(Into::into)),
-            ),
-            (Self::Border(object), PropertyId::Width, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
-            ),
-            (Self::Border(object), PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetWidth(*value).map_err(Into::into)),
-            ),
-            (Self::Border(object), PropertyId::Height, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
-            ),
-            (Self::Border(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
             ),
             (Self::Border(object), PropertyId::Background, None) => Some(
                 object
@@ -780,176 +684,6 @@ impl GeneratedHandle {
                         }),
                 )
             }
-            (Self::Border(object), PropertyId::Margin, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetMargin(native::Thickness::default())
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::Border(object), PropertyId::Margin, Some(PropertyValue::Thickness(value))) => {
-                Some(
-                    object
-                        .value
-                        .cast::<native::IFrameworkElement>()
-                        .map_err(Into::into)
-                        .and_then(|object| {
-                            object
-                                .SetMargin(native::Thickness {
-                                    left: value.left,
-                                    top: value.top,
-                                    right: value.right,
-                                    bottom: value.bottom,
-                                })
-                                .map_err(Into::into)
-                        }),
-                )
-            }
-            (Self::Border(object), PropertyId::HorizontalAlignment, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::Border(object),
-                PropertyId::HorizontalAlignment,
-                Some(PropertyValue::Enum {
-                    kind: "HorizontalAlignment",
-                    variant,
-                }),
-            ) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(match *variant {
-                                "Left" => native::HorizontalAlignment::Left,
-                                "Center" => native::HorizontalAlignment::Center,
-                                "Right" => native::HorizontalAlignment::Right,
-                                "Stretch" => native::HorizontalAlignment::Stretch,
-                                _ => unreachable!("validated enum variant"),
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::Border(object), PropertyId::VerticalAlignment, None) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::Border(object),
-                PropertyId::VerticalAlignment,
-                Some(PropertyValue::Enum {
-                    kind: "VerticalAlignment",
-                    variant,
-                }),
-            ) => Some(
-                object
-                    .value
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetVerticalAlignment(match *variant {
-                                "Top" => native::VerticalAlignment::Top,
-                                "Center" => native::VerticalAlignment::Center,
-                                "Bottom" => native::VerticalAlignment::Bottom,
-                                "Stretch" => native::VerticalAlignment::Stretch,
-                                _ => unreachable!("validated enum variant"),
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::Border(object), PropertyId::Opacity, None) => Some(
-                object
-                    .value
-                    .cast::<native::IUIElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetOpacity(1.0).map_err(Into::into)),
-            ),
-            (Self::Border(object), PropertyId::Opacity, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .value
-                    .cast::<native::IUIElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetOpacity(*value).map_err(Into::into)),
-            ),
-            (Self::Grid(object), PropertyId::Width, None) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
-            ),
-            (Self::Grid(object), PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetWidth(*value).map_err(Into::into)),
-            ),
-            (Self::Grid(object), PropertyId::Height, None) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
-            ),
-            (Self::Grid(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
-            ),
-            (Self::Grid(object), PropertyId::HorizontalAlignment, None) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::Grid(object),
-                PropertyId::HorizontalAlignment,
-                Some(PropertyValue::Enum {
-                    kind: "HorizontalAlignment",
-                    variant,
-                }),
-            ) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(match *variant {
-                                "Left" => native::HorizontalAlignment::Left,
-                                "Center" => native::HorizontalAlignment::Center,
-                                "Right" => native::HorizontalAlignment::Right,
-                                "Stretch" => native::HorizontalAlignment::Stretch,
-                                _ => unreachable!("validated enum variant"),
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
             (Self::StackPanel(object), PropertyId::Spacing, None) => Some(
                 object
                     .cast::<native::IStackPanel>()
@@ -994,47 +728,6 @@ impl GeneratedHandle {
                             })
                             .map_err(Into::into)
                     }),
-            ),
-            (Self::StackPanel(object), PropertyId::Margin, None) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetMargin(native::Thickness::default())
-                            .map_err(Into::into)
-                    }),
-            ),
-            (
-                Self::StackPanel(object),
-                PropertyId::Margin,
-                Some(PropertyValue::Thickness(value)),
-            ) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| {
-                        object
-                            .SetMargin(native::Thickness {
-                                left: value.left,
-                                top: value.top,
-                                right: value.right,
-                                bottom: value.bottom,
-                            })
-                            .map_err(Into::into)
-                    }),
-            ),
-            (Self::Viewbox(object), PropertyId::Height, None) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
-            ),
-            (Self::Viewbox(object), PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
-                object
-                    .cast::<native::IFrameworkElement>()
-                    .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
             ),
             (Self::TitleBar(object), PropertyId::Title, None) => Some(
                 object

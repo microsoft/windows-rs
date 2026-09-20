@@ -4,6 +4,8 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
+mod parity;
+
 const SCHEMA: &str = "crates/tools/reactor2/src/schema.toml";
 const OUTPUT: &str = "crates/libs/reactor2/src/generated.rs";
 const DECLARATIONS_OUTPUT: &str = "crates/libs/reactor2/src/generated_declarations.rs";
@@ -34,6 +36,7 @@ struct VisualProperty {
     name: String,
     owner: String,
     value: String,
+    default: Option<String>,
 }
 
 #[derive(Deserialize)]
@@ -41,6 +44,7 @@ struct Object {
     name: String,
     category: String,
     native: String,
+    native_type: Option<String>,
     #[serde(default)]
     key: bool,
     #[serde(default)]
@@ -84,6 +88,22 @@ fn main() {
     let source = fs::read_to_string(workspace_path(SCHEMA)).unwrap();
     let schema: Schema = toml::from_str(&source).unwrap();
     validate(&schema);
+    let mut args = std::env::args().skip(1);
+    if let Some(argument) = args.next() {
+        assert!(args.next().is_none(), "unexpected additional argument");
+        assert!(
+            argument == "--parity-report" || argument == "--check-parity",
+            "unknown argument `{argument}`"
+        );
+        let old =
+            fs::read_to_string(workspace_path("crates/tools/reactor/src/winui.toml")).unwrap();
+        let report = parity::compare(&old, &schema).unwrap();
+        print!("{}", report.render());
+        if argument == "--check-parity" && !report.is_complete() {
+            std::process::exit(1);
+        }
+        return;
+    }
     let metadata = tool_reactor::metadata::MetadataResolver::load(&workspace_path(WINMD));
     let generated = rustfmt(&generate(&schema, &metadata));
     let declarations = rustfmt(&generate_declarations(&schema, &metadata));
@@ -161,7 +181,6 @@ fn validate(schema: &Schema) {
                 .is_none(),
             "duplicate visual property"
         );
-        assert_eq!(property.value, "ThemeTransitions");
     }
 
     for object in &schema.objects {
@@ -170,6 +189,22 @@ fn validate(schema: &Schema) {
             object.native == "handwritten" || object.native.rsplit_once('.').is_some(),
             "invalid native type"
         );
+        if object.native == "handwritten" && object.category == "Visual" {
+            assert!(
+                object
+                    .native_type
+                    .as_ref()
+                    .is_some_and(|native| native.rsplit_once('.').is_some()),
+                "{} requires a native_type",
+                object.name
+            );
+        } else {
+            assert!(
+                object.native_type.is_none(),
+                "{} has an unused native_type",
+                object.name
+            );
+        }
         assert!(objects.insert(object.name.as_str()), "duplicate object");
         assert!(categories.contains(&object.category.as_str()));
         let mut properties = BTreeSet::new();
@@ -181,6 +216,15 @@ fn validate(schema: &Schema) {
             assert!(
                 properties.insert(property.name.as_str()),
                 "duplicate property"
+            );
+            assert!(
+                !schema
+                    .visual_properties
+                    .iter()
+                    .any(|visual| visual.name == property.name),
+                "{}.{} duplicates a visual property",
+                object.name,
+                property.name
             );
             assert_identifier(&property.value);
             if object.native != "handwritten" {
@@ -212,79 +256,53 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
 
     for property in &schema.visual_properties {
         let owner = property.owner.rsplit('.').next().unwrap();
-        metadata
-            .resolve(owner, &format!("put_{}", property.name))
-            .unwrap_or_else(|| panic!("cannot resolve {owner}.put_{}", property.name));
+        if property.value != "ThemeTransitions" {
+            validate_native_property(
+                metadata,
+                owner,
+                &property.name,
+                &property.value,
+                property.default.as_deref(),
+            );
+        }
+        for object in schema
+            .objects
+            .iter()
+            .filter(|object| object.category == "Visual")
+        {
+            let native = if object.native == "handwritten" {
+                object
+                    .native_type
+                    .as_ref()
+                    .unwrap()
+                    .rsplit('.')
+                    .next()
+                    .unwrap()
+                    .to_string()
+            } else {
+                native_name(object)
+            };
+            assert!(
+                metadata
+                    .resolve(&native, &format!("put_{}", property.name))
+                    .is_some(),
+                "{} does not support visual property {}",
+                object.name,
+                property.name
+            );
+        }
     }
 
     for object in &objects {
         for property in &object.properties {
             let native = native_property(property);
-            let method = format!("put_{native}");
-            metadata
-                .resolve(&native_name(object), &method)
-                .unwrap_or_else(|| panic!("cannot resolve {}.put_{}", native_name(object), native));
-            let class = metadata
-                .classify_param(&native_name(object), &method)
-                .unwrap();
-            let value = if property.value == "Color" {
-                metadata
-                    .parameter_type_name(&native_name(object), &method)
-                    .unwrap()
-                    .to_string()
-            } else {
-                metadata
-                    .parameter_value(&native_name(object), &method)
-                    .unwrap()
-            };
-            match property.value.as_str() {
-                "String" => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
-                    assert_eq!(value, "Str");
-                }
-                "Bool" => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
-                    assert_eq!(value, "Bool");
-                }
-                "Color" => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
-                    assert_eq!(value, "Brush");
-                }
-                "CornerRadius" => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
-                    assert_eq!(value, "CornerRadius");
-                }
-                "F64" => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
-                    assert_eq!(value, "F64");
-                }
-                "OptionalBool" => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::NullableBool);
-                    assert_eq!(value, "Bool");
-                }
-                "Thickness" => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
-                    assert_eq!(value, "Thickness");
-                }
-                value => {
-                    assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
-                    let (name, variants) = metadata
-                        .enum_info(&native_name(object), &method)
-                        .unwrap_or_else(|| {
-                            panic!("{}.{} is not an enum property", object.name, property.name)
-                        });
-                    assert_eq!(name, value);
-                    assert!(!variants.is_empty());
-                    if let Some(default) = &property.default {
-                        assert!(
-                            variants.contains(default),
-                            "{}.{} has invalid default",
-                            object.name,
-                            property.name
-                        );
-                    }
-                }
-            }
+            validate_native_property(
+                metadata,
+                &native_name(object),
+                native,
+                &property.value,
+                property.default.as_deref(),
+            );
         }
         for event in &object.events {
             assert!(matches!(
@@ -566,32 +584,45 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
     );
     for property in &schema.visual_properties {
         let owner = property.owner.rsplit('.').next().unwrap();
-        match property.value.as_str() {
-            "ThemeTransitions" => {
-                output.push_str(&format!(
-                    "(PropertyId::{}, Some(PropertyValue::ThemeTransitions(values))) => Some((|| {{\n\
-                     let collection = native::TransitionCollection::new()?;\n\
-                     for value in values.iter() {{\n\
-                     let transition = match value {{\n\
-                     crate::ThemeTransition::Reposition => native::RepositionThemeTransition::new()?\
-                     .cast::<native::Transition>()?,\n\
-                     }};\n\
-                     collection.Append(&transition)?;\n\
-                     }}\n\
-                     element.cast::<native::I{owner}>()?.Set{}(&collection)?;\n\
-                     Ok(())\n\
-                     }})()),\n",
-                    property.name, property.name
-                ));
-                output.push_str(&format!(
-                    "(PropertyId::{}, None) => \
-                     Some(element.cast::<native::IDependencyObject>().map_err(Into::into)\
-                     .and_then(|element| native::{owner}::{}Property().map_err(Into::into)\
-                     .and_then(|property| element.ClearValue(&property).map_err(Into::into)))),\n",
-                    property.name, property.name
-                ));
-            }
-            _ => unreachable!("unsupported visual property value"),
+        if property.value == "ThemeTransitions" {
+            output.push_str(&format!(
+                "(PropertyId::{}, Some(PropertyValue::ThemeTransitions(values))) => Some((|| {{\n\
+                 let collection = native::TransitionCollection::new()?;\n\
+                 for value in values.iter() {{\n\
+                 let transition = match value {{\n\
+                 crate::ThemeTransition::Reposition => native::RepositionThemeTransition::new()?\
+                 .cast::<native::Transition>()?,\n\
+                 }};\n\
+                 collection.Append(&transition)?;\n\
+                 }}\n\
+                 element.cast::<native::I{owner}>()?.Set{}(&collection)?;\n\
+                 Ok(())\n\
+                 }})()),\n",
+                property.name, property.name
+            ));
+            output.push_str(&format!(
+                "(PropertyId::{}, None) => \
+                 Some(element.cast::<native::IDependencyObject>().map_err(Into::into)\
+                 .and_then(|element| native::{owner}::{}Property().map_err(Into::into)\
+                 .and_then(|property| element.ClearValue(&property).map_err(Into::into)))),\n",
+                property.name, property.name
+            ));
+        } else {
+            let default = property
+                .default
+                .as_deref()
+                .unwrap_or_else(|| panic!("visual property {} requires a default", property.name));
+            emit_native_property_arms(
+                &mut output,
+                &format!("(PropertyId::{}, ", property.name),
+                "element",
+                &format!("I{owner}"),
+                owner,
+                &property.name,
+                &property.value,
+                default,
+                metadata,
+            );
         }
     }
     output.push_str("_ => None,\n} }\n");
@@ -612,77 +643,20 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
             } else {
                 "object.value"
             };
-            let clear = property_default(property);
-            if property.value == "Color" {
-                output.push_str(&format!(
-                    "(Self::{}(object), PropertyId::{}, None) => \
-                     Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                     .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n",
+            emit_native_property_arms(
+                &mut output,
+                &format!(
+                    "(Self::{}(object), PropertyId::{}, ",
                     object.name, property.name
-                ));
-                output.push_str(&format!(
-                    "(Self::{}(object), PropertyId::{}, \
-                     Some(PropertyValue::Color(value))) => \
-                     Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                     .and_then(|object| solid_color_brush(*value)\
-                     .and_then(|brush| object.Set{native}(&brush).map_err(Into::into)))),\n",
-                    object.name, property.name
-                ));
-                continue;
-            }
-            let (variant, expression) = match property.value.as_str() {
-                "String" => ("String", "value.as_ref()"),
-                "Bool" => ("Bool", "*value"),
-                "F64" => ("F64", "*value"),
-                "OptionalBool" => ("OptionalBool", "*value"),
-                "CornerRadius" => (
-                    "CornerRadius",
-                    "native::CornerRadius { top_left: value.top_left, top_right: value.top_right, \
-                     bottom_right: value.bottom_right, bottom_left: value.bottom_left }",
                 ),
-                "Thickness" => (
-                    "Thickness",
-                    "native::Thickness { left: value.left, top: value.top, right: value.right, \
-                     bottom: value.bottom }",
-                ),
-                value => {
-                    let (_, variants) = metadata
-                        .enum_info(&native_name(object), &format!("put_{native}"))
-                        .unwrap();
-                    let arms = variants
-                        .iter()
-                        .map(|variant| format!("\"{variant}\" => native::{value}::{variant},"))
-                        .collect::<String>();
-                    output.push_str(&format!(
-                        "(Self::{}(object), PropertyId::{}, None) => \
-                         Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                         .and_then(|object| object.Set{native}(native::{value}::{clear})\
-                         .map_err(Into::into))),\n",
-                        object.name, property.name
-                    ));
-                    output.push_str(&format!(
-                        "(Self::{}(object), PropertyId::{}, \
-                         Some(PropertyValue::Enum {{ kind: \"{value}\", variant }})) => \
-                         Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                         .and_then(|object| object.Set{native}(match *variant {{ {arms} \
-                         _ => unreachable!(\"validated enum variant\") }}).map_err(Into::into))),\n",
-                        object.name, property.name
-                    ));
-                    continue;
-                }
-            };
-            output.push_str(&format!(
-                "(Self::{}(object), PropertyId::{}, None) => \
-                             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                             .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n",
-                object.name, property.name
-            ));
-            output.push_str(&format!(
-                            "(Self::{}(object), PropertyId::{}, Some(PropertyValue::{variant}(value))) => \
-                             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                             .and_then(|object| object.Set{native}({expression}).map_err(Into::into))),\n",
-                            object.name, property.name
-                        ));
+                target,
+                interface,
+                &native_name(object),
+                native,
+                &property.value,
+                property.default.as_deref().unwrap(),
+                metadata,
+            );
         }
     }
     output.push_str("_ => None,\n} }\n");
@@ -802,6 +776,149 @@ fn native_name(object: &Object) -> String {
     object.native.rsplit('.').next().unwrap().to_string()
 }
 
+fn validate_native_property(
+    metadata: &tool_reactor::metadata::MetadataResolver,
+    owner: &str,
+    native: &str,
+    value: &str,
+    default: Option<&str>,
+) {
+    let method = format!("put_{native}");
+    metadata
+        .resolve(owner, &method)
+        .unwrap_or_else(|| panic!("cannot resolve {owner}.{method}"));
+    let class = metadata.classify_param(owner, &method).unwrap();
+    let metadata_value = if value == "Color" {
+        metadata
+            .parameter_type_name(owner, &method)
+            .unwrap()
+            .to_string()
+    } else {
+        metadata.parameter_value(owner, &method).unwrap()
+    };
+    match value {
+        "String" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
+            assert_eq!(metadata_value, "Str");
+        }
+        "Bool" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
+            assert_eq!(metadata_value, "Bool");
+        }
+        "Color" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+            assert_eq!(metadata_value, "Brush");
+        }
+        "CornerRadius" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+            assert_eq!(metadata_value, "CornerRadius");
+        }
+        "F64" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
+            assert_eq!(metadata_value, "F64");
+        }
+        "OptionalBool" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::NullableBool);
+            assert_eq!(metadata_value, "Bool");
+        }
+        "Thickness" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+            assert_eq!(metadata_value, "Thickness");
+        }
+        value => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+            let (name, variants) = metadata
+                .enum_info(owner, &method)
+                .unwrap_or_else(|| panic!("{owner}.{native} is not an enum property"));
+            assert_eq!(name, value);
+            assert!(!variants.is_empty());
+            if let Some(default) = default {
+                assert!(
+                    variants.contains(&default.to_string()),
+                    "{owner}.{native} has invalid default"
+                );
+            }
+        }
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+fn emit_native_property_arms(
+    output: &mut String,
+    pattern: &str,
+    target: &str,
+    interface: &str,
+    metadata_owner: &str,
+    native: &str,
+    value: &str,
+    default: &str,
+    metadata: &tool_reactor::metadata::MetadataResolver,
+) {
+    let clear = property_default_parts(value, default);
+    if value == "Color" {
+        output.push_str(&format!(
+            "{pattern}None) => \
+             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n"
+        ));
+        output.push_str(&format!(
+            "{pattern}Some(PropertyValue::Color(value))) => \
+             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| solid_color_brush(*value)\
+             .and_then(|brush| object.Set{native}(&brush).map_err(Into::into)))),\n"
+        ));
+        return;
+    }
+    let (variant, expression) = match value {
+        "String" => ("String", "value.as_ref()"),
+        "Bool" => ("Bool", "*value"),
+        "F64" => ("F64", "*value"),
+        "OptionalBool" => ("OptionalBool", "*value"),
+        "CornerRadius" => (
+            "CornerRadius",
+            "native::CornerRadius { top_left: value.top_left, top_right: value.top_right, \
+             bottom_right: value.bottom_right, bottom_left: value.bottom_left }",
+        ),
+        "Thickness" => (
+            "Thickness",
+            "native::Thickness { left: value.left, top: value.top, right: value.right, \
+             bottom: value.bottom }",
+        ),
+        value => {
+            let (_, variants) = metadata
+                .enum_info(metadata_owner, &format!("put_{native}"))
+                .unwrap();
+            let arms = variants
+                .iter()
+                .map(|variant| format!("\"{variant}\" => native::{value}::{variant},"))
+                .collect::<String>();
+            output.push_str(&format!(
+                "{pattern}None) => \
+                 Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+                 .and_then(|object| object.Set{native}(native::{value}::{clear})\
+                 .map_err(Into::into))),\n"
+            ));
+            output.push_str(&format!(
+                "{pattern}Some(PropertyValue::Enum {{ kind: \"{value}\", variant }})) => \
+                 Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+                 .and_then(|object| object.Set{native}(match *variant {{ {arms} \
+                 _ => unreachable!(\"validated enum variant\") }}).map_err(Into::into))),\n"
+            ));
+            return;
+        }
+    };
+    output.push_str(&format!(
+        "{pattern}None) => \
+         Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+         .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n"
+    ));
+    output.push_str(&format!(
+        "{pattern}Some(PropertyValue::{variant}(value))) => \
+         Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+         .and_then(|object| object.Set{native}({expression}).map_err(Into::into))),\n"
+    ));
+}
+
 fn generate_bindings(
     schema: &Schema,
     metadata: &tool_reactor::metadata::MetadataResolver,
@@ -829,10 +946,12 @@ fn generate_bindings(
         let (namespace, owner) = property.owner.rsplit_once('.').unwrap();
         let namespace = binding_path(namespace);
         generated.insert(format!("{namespace}::I{owner}::put_{}", property.name));
-        generated.insert(format!(
-            "{namespace}::I{owner}Statics::get_{}Property",
-            property.name
-        ));
+        if property.default.is_none() {
+            generated.insert(format!(
+                "{namespace}::I{owner}Statics::get_{}Property",
+                property.name
+            ));
+        }
         match property.value.as_str() {
             "ThemeTransitions" => {
                 generated.insert(
@@ -846,7 +965,14 @@ fn generate_bindings(
                         .to_string(),
                 );
             }
-            _ => unreachable!("unsupported visual property value"),
+            _ if !is_builtin_value(&property.value) => {
+                let owner = property.owner.rsplit('.').next().unwrap();
+                let enum_path = metadata
+                    .enum_path(owner, &format!("put_{}", property.name))
+                    .unwrap();
+                generated.insert(binding_path(&enum_path));
+            }
+            _ => {}
         }
     }
     for object in schema
@@ -1135,9 +1261,25 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
                 ));
             }
             for property in &schema.visual_properties {
+                let value = if is_builtin_value(&property.value) {
+                    format!("ValueType::{}", property.value)
+                } else {
+                    let owner = property.owner.rsplit('.').next().unwrap();
+                    let (_, variants) = metadata
+                        .enum_info(owner, &format!("put_{}", property.name))
+                        .unwrap();
+                    format!(
+                        "ValueType::Enum {{ kind: \"{}\", variants: &[{}] }}",
+                        property.value,
+                        variants
+                            .iter()
+                            .map(|variant| format!("\"{variant}\","))
+                            .collect::<String>()
+                    )
+                };
                 output.push_str(&format!(
-                    "PropertyContract {{ id: PropertyId::{}, value: ValueType::{} }},",
-                    property.name, property.value
+                    "PropertyContract {{ id: PropertyId::{}, value: {value} }},",
+                    property.name
                 ));
             }
         }
@@ -1200,6 +1342,18 @@ fn generate_declarations(
 ) -> String {
     let mut output = String::from("// This file is generated by tool-reactor2.\n");
     let mut enums = BTreeMap::new();
+    for property in &schema.visual_properties {
+        if is_builtin_value(&property.value) {
+            continue;
+        }
+        let owner = property.owner.rsplit('.').next().unwrap();
+        let (_, variants) = metadata
+            .enum_info(owner, &format!("put_{}", property.name))
+            .unwrap();
+        if let Some(previous) = enums.insert(property.value.as_str(), variants.to_vec()) {
+            assert_eq!(previous, variants, "conflicting enum definitions");
+        }
+    }
     for object in &schema.objects {
         if object.native == "handwritten" {
             continue;
@@ -1309,24 +1463,31 @@ fn generate_declarations(
             }
             for property in &schema.visual_properties {
                 let name = snake_case(&property.name);
-                match property.value.as_str() {
-                    "ThemeTransitions" => {
-                        output.push_str(&format!(
-                            "pub fn {name}<T>(self, {name}: T) -> Self where T: \
-                             IntoIterator<Item = ThemeTransition> {{ \
-                             self.{name}_optional(Some({name})) }}\n\
-                             pub fn {name}_optional<T>(mut self, {name}: Option<T>) -> Self where T: \
-                             IntoIterator<Item = ThemeTransition> {{\n\
-                             if let Some({name}) = {name} {{\n\
-                             self.0 = self.0.property(PropertyId::{}, \
-                             PropertyValue::ThemeTransitions({name}.into_iter().collect()));\n\
-                             }}\n\
-                             self\n\
-                             }}\n",
-                            property.name
-                        ));
-                    }
-                    _ => unreachable!("unsupported visual property value"),
+                if property.value == "ThemeTransitions" {
+                    output.push_str(&format!(
+                        "pub fn {name}<T>(self, {name}: T) -> Self where T: \
+                         IntoIterator<Item = ThemeTransition> {{ \
+                         self.{name}_optional(Some({name})) }}\n\
+                         pub fn {name}_optional<T>(mut self, {name}: Option<T>) -> Self where T: \
+                         IntoIterator<Item = ThemeTransition> {{\n\
+                         if let Some({name}) = {name} {{\n\
+                         self.0 = self.0.property(PropertyId::{}, \
+                         PropertyValue::ThemeTransitions({name}.into_iter().collect()));\n\
+                         }}\n\
+                         self\n\
+                         }}\n",
+                        property.name
+                    ));
+                } else {
+                    output.push_str(&format!(
+                        "pub fn {name}(mut self, {}) -> Self {{\n",
+                        property_argument_parts(&property.name, &property.value)
+                    ));
+                    output.push_str(&format!(
+                        "self.0 = self.0.property(PropertyId::{}, {});\nself\n}}\n",
+                        property.name,
+                        property_value_parts(&property.value, &name)
+                    ));
                 }
             }
         }
@@ -1473,8 +1634,12 @@ fn generate_declarations(
 }
 
 fn property_argument(property: &Property) -> String {
-    let name = snake_case(&property.name);
-    match property.value.as_str() {
+    property_argument_parts(&property.name, &property.value)
+}
+
+fn property_argument_parts(name: &str, value: &str) -> String {
+    let name = snake_case(name);
+    match value {
         "String" => format!("{name}: impl Into<Rc<str>>"),
         "Bool" => format!("{name}: bool"),
         "Color" => format!("{name}: Color"),
@@ -1487,7 +1652,11 @@ fn property_argument(property: &Property) -> String {
 }
 
 fn property_value(property: &Property, name: &str) -> String {
-    match property.value.as_str() {
+    property_value_parts(&property.value, name)
+}
+
+fn property_value_parts(value: &str, name: &str) -> String {
+    match value {
         "String" => format!("PropertyValue::String({name}.into())"),
         "Bool" => format!("PropertyValue::Bool({name})"),
         "Color" => format!("PropertyValue::Color({name})"),
@@ -1499,9 +1668,8 @@ fn property_value(property: &Property, name: &str) -> String {
     }
 }
 
-fn property_default(property: &Property) -> String {
-    let value = property.default.as_deref().unwrap();
-    match property.value.as_str() {
+fn property_default_parts(value_type: &str, value: &str) -> String {
+    match value_type {
         "String" => format!("{value:?}"),
         "Bool" => value.to_string(),
         "Color" => "None::<&native::Brush>".to_string(),
@@ -1618,4 +1786,30 @@ fn checked_output_is_current() {
         fs::read_to_string(workspace_path(BINDINGS_FILTER)).unwrap(),
         generate_bindings(&schema, &metadata)
     );
+}
+
+#[test]
+#[should_panic(expected = "TextBlock.Width duplicates a visual property")]
+fn rejects_local_visual_property_collision() {
+    let schema: Schema = toml::from_str(
+        r#"
+        [[visual_properties]]
+        name = "Width"
+        owner = "Microsoft.UI.Xaml.FrameworkElement"
+        value = "F64"
+        default = "f64::NAN"
+
+        [[objects]]
+        name = "TextBlock"
+        category = "Visual"
+        native = "Microsoft.UI.Xaml.Controls.TextBlock"
+
+        [[objects.properties]]
+        name = "Width"
+        value = "F64"
+        default = "f64::NAN"
+        "#,
+    )
+    .unwrap();
+    validate(&schema);
 }
