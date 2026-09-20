@@ -17,6 +17,18 @@ cargo run -p test-reactor-bench --bin test-reactor-bench `
     --release --quiet -- --iters 500 --reps 12
 ```
 
+Measure targeted updates through recursive Reactor2 component scopes:
+
+```powershell
+cargo run -p test-reactor-bench --bin reactor2-component-bench `
+    --release --quiet -- --samples 5000
+```
+
+This benchmark builds balanced recursive component trees, targets the deepest leaf, and reports
+retained bytes per scope, update latency, allocations, allocated bytes, and mutation count.
+Recording-adapter batch validation is disabled during timed updates because it intentionally clones
+the complete adapter state before applying a batch.
+
 On a branch with full Git history, compare blocking allocation and retained-memory metrics with its
 merge base:
 

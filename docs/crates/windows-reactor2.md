@@ -86,6 +86,27 @@ Each rung must preserve the architectural invariants rather than only render cor
 8. Retained bytes, allocations, update latency, mutation count, and handwritten framework code are
    measured at every application rung.
 
+The recursive component benchmark builds balanced trees and updates the deepest leaf. A release run
+with 5,000 samples produced:
+
+| Scopes | Depth | Retained bytes/scope | Median | P95 | Allocations/update | Bytes/update | Mutations/update |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 585 | 3 | 1,113.1 | 0.8 us | 1.0 us | 11 | 1,455.8 | 1 |
+| 4,681 | 4 | 1,087.6 | 0.8 us | 0.9 us | 11 | 1,455.8 | 1 |
+| 21,845 | 7 | 1,002.8 | 0.8 us | 0.9 us | 11 | 1,455.8 | 1 |
+
+The retained measurement includes component state, the retained object graph, and the recording
+adapter. Timed updates disable recording-adapter batch validation because that diagnostic clones
+the complete adapter state. Constant latency, allocation cost, and one mutation across the three
+sizes show that a nested message does not reconcile unrelated component scopes.
+
+Counter, recursive Solitaire, and Explorer required no changes to `component.rs`, `reconcile.rs`,
+the declaration schema, or generated control realization after the recursive component baseline.
+The single-window sample bootstrap added Window closed-event projection and lifecycle plumbing, not
+a planner branch or retained component representation. The handwritten WinUI exceptions remain
+the same three focused families: controlled TextBox feedback, TreeView structural content, and
+ListView container data/templates.
+
 `tool-reactor2` now generates typed declaration builders from `schema.toml`. The generated surface
 covers all current prototype objects, and the public `Button` slice uses the generated builder with
 an owned visual `Content` relation and unit-valued `Click` event. Button creation, native content,
@@ -208,13 +229,15 @@ The retained/control architecture should continue toward production migration. R
 components now compose in ordinary owned relations without adding a retained wrapper, cached
 expanded view, component mutation, or planner branch. Recording tests cover nested input and
 message updates, root replacement, keyed reorder, removal, effects, stale delivery, and
-parent-local keys. The live fixture repeatedly reorders realized TreeView nodes whose custom
-content is produced and updated by nested components.
+parent-local keys. Explorer acceptance tests also cover application-level selection, filtering,
+generation-safe row replacement, and stale row senders. The live fixture repeatedly reorders
+realized TreeView nodes whose custom content is produced and updated by nested components.
 
-Nearest-ancestor context providers, structural or data-rooted component scopes, and fresh scale
-measurements for the recursive scope representation remain before migration. Production
-integration should reuse the existing DispatcherQueue timer and Windows thread-pool services
-rather than the prototype's host threads.
+The recursive memory, latency, allocation, and mutation-radius gates pass through 21,845 scopes.
+Nearest-ancestor context providers, structural or data-rooted component scopes, and a standalone
+Reactor2 application bootstrap remain before migration. Production integration should reuse the
+existing DispatcherQueue timer and Windows thread-pool services rather than the prototype's host
+threads.
 
 1. Component scopes may retain lifecycle state and one subtree `ObjectId`, but never a cached or
    mirrored UI declaration tree.

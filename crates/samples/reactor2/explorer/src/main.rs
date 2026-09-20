@@ -411,3 +411,97 @@ impl Host {
 fn main() -> windows_core::Result<()> {
     App::run_with(Host::new)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn path(parent: &str, child: &str) -> [reactor2::Key; 2] {
+        [reactor2::Key::from(parent), reactor2::Key::from(child)]
+    }
+
+    #[test]
+    fn reorder_preserves_row_identity_and_selection_updates_details() {
+        let mut host = reactor2::ComponentHost::mount(
+            reactor2::RecordingAdapter::default(),
+            [reactor2::component::<Explorer>("explorer", ())],
+        )
+        .unwrap();
+        let projects_path = path("explorer", "row:projects");
+        let references_path = path("explorer", "row:references");
+        let details_path = path("explorer", "details");
+        let projects = host.reference_at(&projects_path).unwrap().get();
+        let references = host.reference_at(&references_path).unwrap().get();
+        let details = host.reference_at(&details_path).unwrap().get().unwrap();
+
+        assert!(
+            host.sender::<Explorer>(&reactor2::Key::from("explorer"))
+                .unwrap()
+                .send(ExplorerMessage::Reverse)
+        );
+        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(host.reference_at(&projects_path).unwrap().get(), projects);
+        assert_eq!(
+            host.reference_at(&references_path).unwrap().get(),
+            references
+        );
+
+        assert!(
+            host.sender_at::<Row>(&projects_path)
+                .unwrap()
+                .send(RowMessage::Select)
+        );
+        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 2);
+        assert_eq!(
+            host.runtime()
+                .graph()
+                .properties(details)
+                .unwrap()
+                .iter()
+                .find(|property| property.id == reactor2::PropertyId::Text)
+                .map(|property| &property.value),
+            Some(&reactor2::PropertyValue::String(Rc::from(
+                "Selected node: projects"
+            )))
+        );
+    }
+
+    #[test]
+    fn filtering_retires_rows_and_rejects_stale_messages() {
+        let mut host = reactor2::ComponentHost::mount(
+            reactor2::RecordingAdapter::default(),
+            [reactor2::component::<Explorer>("explorer", ())],
+        )
+        .unwrap();
+        let projects_path = path("explorer", "row:projects");
+        let reference = host.reference_at(&projects_path).unwrap();
+        let original = reference.get();
+        let stale = host.sender_at::<Row>(&projects_path).unwrap();
+        let explorer = host
+            .sender::<Explorer>(&reactor2::Key::from("explorer"))
+            .unwrap();
+
+        assert!(explorer.send(ExplorerMessage::Filter("README".into())));
+        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(reference.get(), None);
+        assert!(host.sender_at::<Row>(&projects_path).is_none());
+
+        assert!(stale.send(RowMessage::Toggle));
+        assert_eq!(host.drain(usize::MAX).unwrap().dropped, 1);
+
+        assert!(explorer.send(ExplorerMessage::Filter(String::new())));
+        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        let replacement = host.reference_at(&projects_path).unwrap().get();
+        assert!(replacement.is_some());
+        assert_ne!(replacement, original);
+
+        assert!(stale.send(RowMessage::Toggle));
+        assert_eq!(host.drain(usize::MAX).unwrap().dropped, 1);
+        assert!(
+            host.sender_at::<Row>(&projects_path)
+                .unwrap()
+                .send(RowMessage::Toggle)
+        );
+        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 3);
+    }
+}

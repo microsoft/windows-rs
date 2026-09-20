@@ -116,6 +116,15 @@ pub struct NativeWindow {
     closed: Option<windows_core::EventRevoker>,
 }
 
+impl Clone for NativeWindow {
+    fn clone(&self) -> Self {
+        Self {
+            window: self.window.clone(),
+            closed: None,
+        }
+    }
+}
+
 impl NativeWindow {
     pub fn activate(&self) -> Result<(), WinUiError> {
         self.window.Activate().map_err(Into::into)
