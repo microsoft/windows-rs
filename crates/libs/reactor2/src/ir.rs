@@ -17,6 +17,11 @@ pub enum GraphError {
     InvalidEvent(ObjectType, EventId),
     InvalidEventValue(EventId),
     InvalidSelection(ObjectType),
+    InvalidRealization(ObjectId, usize),
+    InvalidFocus(ObjectType),
+    ReferenceUnavailable,
+    DuplicateReference,
+    ExitTransitionUnsupported,
     InvalidRelation(ObjectType, RelationId),
     MissingChild(RelationId, ObjectId),
     InvalidChildCategory(RelationId),
@@ -27,15 +32,27 @@ pub enum GraphError {
     SizeExceeded,
 }
 
-pub(crate) fn validate_declaration(root: &Declaration) -> Result<(), GraphError> {
-    let mut objects = 0;
-    validate_object(root, 0, &mut objects)
+#[derive(Default)]
+pub(crate) struct DeclarationValidator {
+    references: HashSet<usize>,
+    keys: HashSet<Key>,
+}
+
+impl DeclarationValidator {
+    pub(crate) fn validate(&mut self, root: &Declaration) -> Result<(), GraphError> {
+        self.references.clear();
+        self.keys.clear();
+        let mut objects = 0;
+        validate_object(root, 0, &mut objects, &mut self.references, &mut self.keys)
+    }
 }
 
 fn validate_object(
     declaration: &Declaration,
     depth: usize,
     objects: &mut usize,
+    references: &mut HashSet<usize>,
+    keys: &mut HashSet<Key>,
 ) -> Result<(), GraphError> {
     if depth > MAX_DEPTH {
         return Err(GraphError::DepthExceeded);
@@ -44,6 +61,13 @@ fn validate_object(
         return Err(GraphError::SizeExceeded);
     }
     *objects += 1;
+    if declaration
+        .reference
+        .as_ref()
+        .is_some_and(|reference| !references.insert(reference.identity()))
+    {
+        return Err(GraphError::DuplicateReference);
+    }
 
     for property in declaration.properties.iter() {
         validate_property(declaration.kind, property)?;
@@ -71,6 +95,28 @@ fn validate_object(
         }
     }
 
+    if let Some(virtual_items) = &declaration.virtual_items {
+        let Some(contract) = relation_contracts(declaration.kind)
+            .iter()
+            .find(|contract| contract.id == virtual_items.relation)
+        else {
+            return Err(GraphError::InvalidRelation(
+                declaration.kind,
+                virtual_items.relation,
+            ));
+        };
+        if contract.cardinality != Cardinality::Many
+            || contract.identity != Identity::Keyed
+            || contract.realization != Realization::Container
+            || contract.child != ObjectCategory::Visual
+        {
+            return Err(GraphError::InvalidRelation(
+                declaration.kind,
+                virtual_items.relation,
+            ));
+        }
+    }
+
     for relation in declaration.relations.iter() {
         let contract = relation_contracts(declaration.kind)
             .iter()
@@ -84,7 +130,7 @@ fn validate_object(
                 if let Some(child) = child {
                     let child = child_object(child)?;
                     validate_child(contract, child)?;
-                    validate_object(child, depth + 1, objects)?;
+                    validate_object(child, depth + 1, objects, references, keys)?;
                 }
             }
             RelationValue::Many(children) => {
@@ -92,7 +138,8 @@ fn validate_object(
                     return Err(GraphError::InvalidCardinality(relation.id));
                 }
                 if contract.identity == Identity::Keyed {
-                    let mut keys = HashSet::with_capacity(children.len());
+                    keys.clear();
+                    keys.reserve(children.len());
                     for child in children.iter() {
                         let key = child_object(child)?
                             .key
@@ -106,7 +153,7 @@ fn validate_object(
                 for child in children.iter() {
                     let child = child_object(child)?;
                     validate_child(contract, child)?;
-                    validate_object(child, depth + 1, objects)?;
+                    validate_object(child, depth + 1, objects, references, keys)?;
                 }
             }
         }
@@ -122,9 +169,7 @@ fn child_object(child: &DeclaredNode) -> Result<&Declaration, GraphError> {
 }
 
 pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result<(), GraphError> {
-    let contract = property_contracts(kind)
-        .iter()
-        .find(|contract| contract.id == property.id)
+    let contract = property_contract(kind, property.id)
         .ok_or(GraphError::InvalidProperty(kind, property.id))?;
     let valid = match (contract.value, &property.value) {
         (ValueType::String, PropertyValue::String(_))
@@ -132,6 +177,8 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         | (ValueType::Color, PropertyValue::Color(_))
         | (ValueType::CornerRadius, PropertyValue::CornerRadius(_))
         | (ValueType::F64, PropertyValue::F64(_))
+        | (ValueType::FontWeight, PropertyValue::FontWeight(_))
+        | (ValueType::GridLengths, PropertyValue::GridLengths(_))
         | (ValueType::I32, PropertyValue::I32(_))
         | (ValueType::OptionalF64, PropertyValue::OptionalF64(_))
         | (ValueType::OptionalBool, PropertyValue::OptionalBool(_))

@@ -154,7 +154,7 @@ events, typed pointer events, and visual theme-transition collections.
 reads the old schema only for that explicit command, merges metadata-backed direct contracts into
 the current Reactor2 schema, and writes ordinary Reactor2 TOML to standard output. Normal
 generation reads only `schema.toml`. The strict parity report currently accounts for 79/79
-controls, 188/233 properties, 36/68 events, 42/42 slots, 3/3 selection contracts, 49/158
+controls, 191/233 properties, 37/68 events, 42/42 slots, 3/3 selection contracts, 153/158
 capabilities, and 0/2 lifecycle contracts. It includes inspectable strings and string lists,
 distinct NumberBox and RatingControl optional numeric values, checked selection indices,
 controlled and coercing property feedback backed by native events, and renamed event-builder
@@ -193,12 +193,39 @@ resolver shared with `tool-reactor`; it also derives the binding filter needed b
 paths. Generated mutable controls report native feedback into the retained graph even when no
 callback is installed.
 
-Width, height, margin, horizontal and vertical alignment, and opacity are owner-aware shared visual
-contracts. Their builders, metadata checks, native setters, enum conversion, defaults, and binding
-filters are generated once for every visual object. Local properties cannot collide with a shared
-property. The old Reactor `layout` capability also includes min/max sizing, Grid and RelativePanel
-placement, automation metadata, and exit transitions, so the parity checker reports layout as
-partial until those contracts are represented.
+Width, height, min/max sizing, margin, horizontal and vertical alignment, opacity, and transition
+collections are owner-aware shared visual contracts. Grid, RelativePanel, Canvas, and automation
+attached properties use the same metadata-checked declaration and native paths. Missing values
+clear the dependency property unless the old contract specifies an explicit clear value, such as
+the empty automation name and ID. Local properties cannot collide with a shared property.
+
+The `layout` capability includes generic retained exit retirement. Removing a transitioned visual
+from an owned child collection removes it from active keys and order immediately, clears references
+and event callbacks, and reserves its generational object slots while the native subtree remains
+attached. WinUI applies a `ScalarTransition` to opacity and queues completion in the same
+chronological native-occurrence stream as observations and callbacks. Completion removes the native
+subtree and frees the retained slots only after earlier occurrences have been processed. Recording
+adapters use the same command and completion path. Reusing the same key creates a new object
+generation, stale events cannot target retiring nodes, concurrent retirements complete
+independently, and removing a parent forces its pending child retirements to finish before parent
+destruction. Component scopes, effects, tasks, and contexts retire with logical ownership rather
+than waiting for the fade.
+Reconciliation journals each touched retained slot and structural operation, so an unsupported
+transition rolls back without cloning the full graph or partially changing earlier retirements,
+references, and events. Native observations are applied before declaration planning and remain
+visible if planning fails. Duplicate or stale completion notifications are ignored. Zero-duration
+fades are disabled, single-child attachments reject exit retirement, and dropping the WinUI adapter
+stops outstanding timers. `NativeWindow` does not own the runtime, so closing a window does not
+cancel retirement work while the runtime remains alive.
+
+`enabled` uses one shared `Control.IsEnabled` contract, including handwritten TextBox realization.
+`focus` uses generated capability membership, typed `ElementRef` attachment, and
+`Runtime::focus`; recording and WinUI adapters implement the same command. `text_style` is an old
+schema marker rather than a generator mixin. Its three members count only after their explicit
+properties are represented; TextBlock font weight uses a checked `FontWeight` value.
+An `ElementRef` may occur once in a declaration tree. Validation rejects duplicates before native
+mutation, while conditional cleanup makes transfers, replacement, detachment, and destruction
+independent of reconciliation order.
 
 Hand-authored properties with a schema default restore that explicit value when removed. Imported
 properties without a known default clear the declaring dependency property instead, allowing the
@@ -225,11 +252,25 @@ visual, keyed visual, structural, and data relation boundaries. Controlled `Text
 required constructor input because an unset value would create a second authority model. There is
 no separate common and advanced control path.
 
-`Property`, `Event`, `Observation`, `EventDispatch`, and their payload enums form the public
-adapter protocol rather than the application declaration API. External adapters need to consume
-generic mutations and report native observations and events. The runtime validates those messages
-against the generated object contracts before changing retained state or exposing a callback.
-Events for stale objects or replaced callbacks are discarded.
+`Property`, `Event`, `Observation`, `NativeEvent`, `EventDispatch`, and their payload enums form the
+public adapter protocol rather than the application declaration API. External adapters consume
+generic mutations and expose one ordered native-occurrence stream. Each occurrence carries an
+observation and callback, a retirement completion, a virtual realization or recycle request, or
+either half of an observed callback. The runtime validates pending state changes transactionally,
+then applies each occurrence in native order. A stale callback revision suppresses only callback
+dispatch; its paired observation still updates retained state. Occurrences for replaced or retired
+native objects are discarded by the adapter or ignored by the generational graph.
+
+This protocol intentionally replaces the earlier split observation, callback, and retirement
+drains. `windows-reactor2` is version `0.0.0`, so no deprecated compatibility methods preserve the
+semantically incorrect batching model. `Adapter::focus` remains required because the adapter error
+type has no generic way to construct a clear unsupported-operation error.
+
+`Runtime::next_native_event` returns an RAII dispatch boundary. It remains active while the callback
+and its component reconciliation run, and dropping it permits the next occurrence. Unwinding a user
+callback drops the boundary automatically. Callback panics do not poison the runtime; after the
+caller catches the panic, queued occurrences may continue. Invalid adapter input or adapter
+validation/application failure still poisons the runtime explicitly.
 
 ## Component lifecycle slice
 
@@ -253,6 +294,7 @@ to the parent component, while paths provide typed access to nested senders, inp
 references:
 
 - messages are queued and never run inline with native callbacks;
+- each native callback's component messages reconcile before the next native occurrence is applied;
 - equal parent inputs do no work, while changed inputs reconcile only the owning subtree;
 - a state change reconciles only the owning retained subtree;
 - the retained root identity and `ElementRef` remain stable across updates;
@@ -326,8 +368,9 @@ bindings.
 2. Every visual, structural, and data object remains in the same retained arena.
 3. Component updates use targeted subtree reconciliation, including in-place owned-root
    replacement; removal uses generic relation mutations.
-4. Native observations are applied before queued component messages and are never consumed by an
-   unrelated subtree update.
+4. Native observations and callbacks retain native order. One occurrence's observation is applied
+   before its callback, and callback-driven component reconciliation completes before the next
+   occurrence.
 5. New lifecycle features must not add control-specific planner paths or generated component
    variants.
 
@@ -357,9 +400,15 @@ bindings.
 | `StackPanel` | Ordered positional visual children |
 | `TreeView` and `TreeNode` | Recursive keyed structural objects with owned visual content |
 | `ListView` and `DataItem` | Keyed data with native container generation |
+| `ItemsRepeater` | Lazy keyed visual realization with recyclable native containers |
 
-Virtualized realization is intentionally excluded until the eager and container-generated paths
-are proven. A count and revision without a realization protocol would not validate virtualization.
+`VirtualSource` stores a key revision, logical length, key projection, and lazy view projection.
+Key projections define stable identity without creating visual declarations. WinUI element-factory
+requests enter the ordered native stream; the component host expands only requested rows and owns
+their nested component scopes until recycle. Source updates remap active containers by logical
+index while retaining matching keyed subtrees, reject stale source and lease revisions, and remove
+rows whose keys leave the realized window. Recording tests and the native self-test use a
+10,000-item source while retaining only realized visual objects.
 
 ## Validation
 
@@ -459,12 +508,13 @@ relations. A native TextBox subscribes once and keeps the current callback in a 
 so changing or removing the callback does not recreate the control or subscription. The backend
 tracks the last observed native text. It updates that value before a programmatic setter and drops
 matching native notifications, including repeated or delayed notifications. A different native
-value is queued as a generic property observation before invoking the current callback. The runtime
-applies queued observations to the retained graph before dispatching revision-checked events on a
-later UI turn. Application callbacks therefore cannot reenter reconciliation from the native event
-handler, and stale events do not reach replacement callbacks. A controlled rerender of the observed
-value produces no mutation and no native setter call. Authoritative replacements preserve and
-clamp UTF-16 selection indices.
+value and its callback form one ordered occurrence. The runtime applies that observation, invokes
+the revision-checked callback, reconciles resulting component messages, and only then advances to
+the next occurrence. If the callback revision changed while the occurrence was queued, the observed
+value still updates retained state but the old callback is not invoked. Application callbacks
+therefore cannot reenter from the native handler, and an earlier callback cannot observe a later
+native value. A controlled rerender of the observed value produces no mutation and no native setter
+call. Authoritative replacements preserve and clamp UTF-16 selection indices.
 
 The native self-test routes simulated native text, password, rating, toggle, slider, and selected
 index changes through the same observations and typed callbacks as the WinUI event handlers. It

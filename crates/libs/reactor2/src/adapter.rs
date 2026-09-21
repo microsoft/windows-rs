@@ -1,5 +1,5 @@
 use super::*;
-use std::collections::HashMap;
+use std::collections::{HashMap, VecDeque};
 use std::rc::Rc;
 
 #[derive(Clone, Debug, PartialEq)]
@@ -7,8 +7,10 @@ pub struct RecordingAdapter {
     objects: HashMap<ObjectId, RecordedObject>,
     owners: Rc<HashMap<ObjectId, (ObjectId, RelationId)>>,
     batches: Vec<Vec<Mutation>>,
-    observations: Vec<Observation>,
-    events: Vec<EventDispatch>,
+    native_events: VecDeque<NativeEvent>,
+    retirements: HashMap<ObjectId, RecordedRetirement>,
+    realizations: HashMap<(ObjectId, RealizedContainer), (RelationId, usize, ObjectId)>,
+    focuses: Vec<ObjectId>,
     record_batches: bool,
     validate_batches: bool,
 }
@@ -19,6 +21,13 @@ struct RecordedObject {
     properties: Rc<[Property]>,
     events: Rc<[Event]>,
     relations: Rc<HashMap<RelationId, RecordedRelation>>,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+struct RecordedRetirement {
+    nodes: Vec<ObjectId>,
+    parent: ObjectId,
+    relation: RelationId,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -46,8 +55,10 @@ impl RecordingAdapter {
             objects: HashMap::new(),
             owners: Rc::new(HashMap::new()),
             batches: Vec::new(),
-            observations: Vec::new(),
-            events: Vec::new(),
+            native_events: VecDeque::new(),
+            retirements: HashMap::new(),
+            realizations: HashMap::new(),
+            focuses: Vec::new(),
             record_batches: false,
             validate_batches: true,
         }
@@ -69,12 +80,90 @@ impl RecordingAdapter {
         self.objects.len()
     }
 
+    pub fn focuses(&self) -> &[ObjectId] {
+        &self.focuses
+    }
+
+    pub fn retirement_count(&self) -> usize {
+        self.retirements.len()
+    }
+
+    pub fn complete_retirement(&mut self, root: ObjectId) -> bool {
+        if !self.retirements.contains_key(&root) {
+            return false;
+        }
+        self.queue_retirement_completion(root);
+        true
+    }
+
+    pub fn queue_retirement_completion(&mut self, root: ObjectId) {
+        self.native_events
+            .push_back(NativeEvent::retirement(RetirementCompletion { root }));
+    }
+
     pub fn observe(&mut self, observation: Observation) {
-        self.observations.push(observation);
+        self.native_events
+            .push_back(NativeEvent::observation(observation));
     }
 
     pub fn queue_event(&mut self, event: EventDispatch) {
-        self.events.push(event);
+        self.native_events.push_back(NativeEvent::event(event));
+    }
+
+    pub fn queue_native_event(
+        &mut self,
+        observation: Option<Observation>,
+        event: Option<EventDispatch>,
+    ) {
+        self.native_events
+            .push_back(NativeEvent::new(observation, event));
+    }
+
+    pub fn queue_realization(&mut self, request: RealizationRequest) {
+        let request = Self::coalesce_realization(&mut self.native_events, request);
+        self.native_events
+            .push_back(NativeEvent::realization(request));
+    }
+
+    pub fn realized_count(&self, object: ObjectId) -> usize {
+        self.realizations
+            .keys()
+            .filter(|(parent, _)| *parent == object)
+            .count()
+    }
+
+    fn coalesce_realization(
+        events: &mut VecDeque<NativeEvent>,
+        request: RealizationRequest,
+    ) -> RealizationRequest {
+        let RealizationRequest::Recycle {
+            collection,
+            container,
+            source_revision,
+        } = request
+        else {
+            return request;
+        };
+        let pending = events.iter().rposition(|event| {
+            matches!(
+                event.realization_request(),
+                Some(RealizationRequest::Realize {
+                    collection: pending_collection,
+                    container: pending_container,
+                    ..
+                }) if pending_collection == collection && pending_container == container
+            )
+        });
+        if let Some(pending) = pending {
+            events.remove(pending);
+            RealizationRequest::Cancel {
+                collection,
+                container,
+                source_revision,
+            }
+        } else {
+            request
+        }
     }
 
     pub fn children(&self, object: ObjectId, relation: RelationId) -> Option<&[ObjectId]> {
@@ -123,16 +212,8 @@ impl RecordingAdapter {
                         return Err(AdapterError::InvalidReplacement(*object));
                     }
                     self.objects.insert(*object, Self::recorded_object(*kind));
-                    self.observations.retain(|observation| {
-                        !matches!(
-                            observation,
-                            Observation::SetProperty {
-                                object: observed,
-                                ..
-                            } if observed == object
-                        )
-                    });
-                    self.events.retain(|event| event.object() != *object);
+                    self.native_events
+                        .retain(|event| event.object() != Some(*object));
                 }
                 Mutation::SetProperties { object, set, clear } => {
                     let object = self.object_mut(*object)?;
@@ -164,6 +245,49 @@ impl RecordingAdapter {
                         }
                     }
                     object.events = events.into();
+                }
+                Mutation::SetVirtualSource { object, .. } => {
+                    self.require_object(*object)?;
+                }
+                Mutation::Realize {
+                    parent,
+                    relation,
+                    container,
+                    index,
+                    child,
+                } => {
+                    self.require_object(*child)?;
+                    self.validate_child(*parent, *relation, *child)?;
+                    if self.is_owned(*child)
+                        && self.owners.get(child) != Some(&(*parent, *relation))
+                    {
+                        return Err(AdapterError::AlreadyOwned(*child));
+                    }
+                    self.realizations.retain(|(owner, _), (_, _, current)| {
+                        !(*owner == *parent && *current == *child)
+                    });
+                    self.realizations
+                        .insert((*parent, *container), (*relation, *index, *child));
+                    Rc::make_mut(&mut self.owners).insert(*child, (*parent, *relation));
+                    self.rebuild_realized_relation(*parent, *relation)?;
+                }
+                Mutation::Recycle {
+                    parent,
+                    relation,
+                    container,
+                    child,
+                } => {
+                    if let Some((current_relation, _, current_child)) =
+                        self.realizations.remove(&(*parent, *container))
+                    {
+                        if current_relation != *relation
+                            || child.is_some_and(|child| child != current_child)
+                        {
+                            return Err(AdapterError::InvalidMutation(*relation));
+                        }
+                        Rc::make_mut(&mut self.owners).remove(&current_child);
+                        self.rebuild_realized_relation(*parent, *relation)?;
+                    }
                 }
                 Mutation::Attach {
                     parent,
@@ -203,9 +327,10 @@ impl RecordingAdapter {
                     if self.is_owned(*child) {
                         return Err(AdapterError::AlreadyOwned(*child));
                     }
+                    let index = self.active_index(*parent, *relation, *index)?;
                     match self.relation_mut(*parent, *relation)? {
-                        RecordedRelation::Many(children) if *index <= children.len() => {
-                            children.insert(*index, *child);
+                        RecordedRelation::Many(children) if index <= children.len() => {
+                            children.insert(index, *child);
                         }
                         _ => return Err(AdapterError::InvalidMutation(*relation)),
                     }
@@ -216,36 +341,112 @@ impl RecordingAdapter {
                     relation,
                     child,
                     index,
-                } => match self.relation_mut(*parent, *relation)? {
-                    RecordedRelation::Many(children) => {
-                        if children.get(*index) != Some(child) {
-                            return Err(AdapterError::ChildNotFound(*child));
+                } => {
+                    let index = self.active_index(*parent, *relation, *index)?;
+                    match self.relation_mut(*parent, *relation)? {
+                        RecordedRelation::Many(children) => {
+                            if children.get(index) != Some(child) {
+                                return Err(AdapterError::ChildNotFound(*child));
+                            }
+                            children.remove(index);
+                            Rc::make_mut(&mut self.owners).remove(child);
                         }
-                        children.remove(*index);
-                        Rc::make_mut(&mut self.owners).remove(child);
+                        _ => return Err(AdapterError::InvalidMutation(*relation)),
                     }
-                    _ => return Err(AdapterError::InvalidMutation(*relation)),
-                },
+                }
                 Mutation::Reorder {
                     parent,
                     relation,
                     moves: _,
                     children,
-                } => match self.relation_mut(*parent, *relation)? {
-                    RecordedRelation::Many(current) => {
-                        let mut expected = current.clone();
-                        let mut requested = children.clone();
-                        expected
-                            .sort_unstable_by_key(|object| (object.index(), object.generation()));
-                        requested
-                            .sort_unstable_by_key(|object| (object.index(), object.generation()));
-                        if expected != requested {
-                            return Err(AdapterError::InvalidMutation(*relation));
+                } => {
+                    let retired = self
+                        .retirements
+                        .iter()
+                        .filter_map(|(root, retirement)| {
+                            (retirement.parent == *parent && retirement.relation == *relation)
+                                .then_some(*root)
+                        })
+                        .collect::<Vec<_>>();
+                    match self.relation_mut(*parent, *relation)? {
+                        RecordedRelation::Many(current) => {
+                            let mut expected = current
+                                .iter()
+                                .copied()
+                                .filter(|child| !retired.contains(child))
+                                .collect::<Vec<_>>();
+                            let mut requested = children.clone();
+                            expected.sort_unstable_by_key(|object| {
+                                (object.index(), object.generation())
+                            });
+                            requested.sort_unstable_by_key(|object| {
+                                (object.index(), object.generation())
+                            });
+                            if expected != requested {
+                                return Err(AdapterError::InvalidMutation(*relation));
+                            }
+                            let mut requested = children.iter().copied();
+                            for child in current.iter_mut() {
+                                if !retired.contains(child) {
+                                    let Some(next) = requested.next() else {
+                                        return Err(AdapterError::InvalidMutation(*relation));
+                                    };
+                                    *child = next;
+                                }
+                            }
+                            current.extend(requested);
                         }
-                        current.clone_from(children);
+                        _ => return Err(AdapterError::InvalidMutation(*relation)),
                     }
-                    _ => return Err(AdapterError::InvalidMutation(*relation)),
-                },
+                }
+                Mutation::Retire {
+                    root,
+                    nodes,
+                    parent,
+                    relation,
+                    ..
+                } => {
+                    if self.owners.get(root) != Some(&(*parent, *relation))
+                        || nodes.iter().any(|node| !self.objects.contains_key(node))
+                        || self.retirements.contains_key(root)
+                    {
+                        return Err(AdapterError::MissingObject(*root));
+                    }
+                    self.retirements.insert(
+                        *root,
+                        RecordedRetirement {
+                            nodes: nodes.clone(),
+                            parent: *parent,
+                            relation: *relation,
+                        },
+                    );
+                }
+                Mutation::CompleteRetirement { root, nodes } => {
+                    let retirement = self
+                        .retirements
+                        .remove(root)
+                        .ok_or(AdapterError::MissingObject(*root))?;
+                    if retirement.nodes != *nodes {
+                        return Err(AdapterError::InvalidReplacement(*root));
+                    }
+                    let relation = self.relation_mut(retirement.parent, retirement.relation)?;
+                    let RecordedRelation::Many(children) = relation else {
+                        return Err(AdapterError::InvalidMutation(retirement.relation));
+                    };
+                    let Some(index) = children.iter().position(|child| child == root) else {
+                        return Err(AdapterError::ChildNotFound(*root));
+                    };
+                    children.remove(index);
+                    let owners = Rc::make_mut(&mut self.owners);
+                    for object in nodes {
+                        owners.remove(object);
+                        self.objects
+                            .remove(object)
+                            .ok_or(AdapterError::MissingObject(*object))?;
+                        self.native_events
+                            .retain(|event| event.object() != Some(*object));
+                    }
+                }
                 Mutation::Destroy { object } => {
                     if self.is_owned(*object) {
                         return Err(AdapterError::StillOwned(*object));
@@ -253,9 +454,31 @@ impl RecordingAdapter {
                     self.objects
                         .remove(object)
                         .ok_or(AdapterError::MissingObject(*object))?;
+                    self.realizations
+                        .retain(|(parent, _), (_, _, child)| parent != object && child != object);
                 }
             }
         }
+        Ok(())
+    }
+
+    fn rebuild_realized_relation(
+        &mut self,
+        parent: ObjectId,
+        relation: RelationId,
+    ) -> Result<(), AdapterError> {
+        let mut children = self
+            .realizations
+            .iter()
+            .filter_map(|((owner, _), (current_relation, index, child))| {
+                (*owner == parent && *current_relation == relation).then_some((*index, *child))
+            })
+            .collect::<Vec<_>>();
+        children.sort_unstable_by_key(|(index, _)| *index);
+        let RecordedRelation::Many(current) = self.relation_mut(parent, relation)? else {
+            return Err(AdapterError::InvalidMutation(relation));
+        };
+        *current = children.into_iter().map(|(_, child)| child).collect();
         Ok(())
     }
 
@@ -264,6 +487,42 @@ impl RecordingAdapter {
             .contains_key(&object)
             .then_some(())
             .ok_or(AdapterError::MissingObject(object))
+    }
+
+    fn active_index(
+        &self,
+        parent: ObjectId,
+        relation: RelationId,
+        active_index: usize,
+    ) -> Result<usize, AdapterError> {
+        let RecordedRelation::Many(children) = self
+            .objects
+            .get(&parent)
+            .and_then(|object| object.relations.get(&relation))
+            .ok_or(AdapterError::InvalidRelation(parent, relation))?
+        else {
+            return Err(AdapterError::InvalidMutation(relation));
+        };
+        let retired = self
+            .retirements
+            .iter()
+            .filter_map(|(root, retirement)| {
+                (retirement.parent == parent && retirement.relation == relation).then_some(*root)
+            })
+            .collect::<Vec<_>>();
+        let mut active = 0;
+        for (index, child) in children.iter().enumerate() {
+            if retired.contains(child) {
+                continue;
+            }
+            if active == active_index {
+                return Ok(index);
+            }
+            active += 1;
+        }
+        (active == active_index)
+            .then_some(children.len())
+            .ok_or(AdapterError::InvalidMutation(relation))
     }
 
     fn object_mut(&mut self, object: ObjectId) -> Result<&mut RecordedObject, AdapterError> {
@@ -344,12 +603,12 @@ impl Default for RecordingAdapter {
 impl Adapter for RecordingAdapter {
     type Error = AdapterError;
 
-    fn drain_observations(&mut self, observations: &mut Vec<Observation>) {
-        observations.append(&mut self.observations);
+    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
+        events.extend(self.native_events.iter().cloned());
     }
 
-    fn drain_events(&mut self, events: &mut Vec<EventDispatch>) {
-        events.append(&mut self.events);
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        self.native_events.pop_front()
     }
 
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
@@ -366,5 +625,13 @@ impl Adapter for RecordingAdapter {
             self.batches.push(mutations.to_vec());
         }
         Ok(())
+    }
+
+    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
+        if !self.objects.contains_key(&object) {
+            return Err(AdapterError::MissingObject(object));
+        }
+        self.focuses.push(object);
+        Ok(true)
     }
 }

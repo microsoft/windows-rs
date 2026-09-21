@@ -1,15 +1,17 @@
 use super::bindings as native;
 use crate::reconcile::{FeedbackExpectation, FeedbackState};
 use crate::{
-    Adapter, Event, EventDispatch, EventId, EventPayload, EventValue, Mutation, ObjectId,
-    ObjectType, Observation, Property, PropertyId, PropertyValue, Realization, RelationContract,
-    RelationId, SelectionContract, relation_contracts, selection_for_item_property,
+    Adapter, Event, EventDispatch, EventId, EventPayload, EventValue, GridLength, GridLengthSize,
+    Mutation, NativeEvent, ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue,
+    Realization, RealizationRequest, RealizedContainer, RelationContract, RelationId,
+    RetirementCompletion, SelectionContract, relation_contracts, selection_for_item_property,
     selection_for_relation,
 };
+use native::IElementFactory;
 use std::cell::{Cell, RefCell};
-use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::Rc;
-use windows_core::{HSTRING, IInspectable, Interface};
+use windows_core::{ComObject, HSTRING, IInspectable, Interface, Ref, implement_decl};
 
 enum Handle {
     Generated(GeneratedHandle),
@@ -68,6 +70,13 @@ struct QueuedEvent {
     payload: EventPayload,
 }
 
+struct QueuedNativeEvent {
+    observation: Option<Observation>,
+    event: Option<QueuedEvent>,
+    retirement: Option<RetirementCompletion>,
+    realization: Option<RealizationRequest>,
+}
+
 struct NativeSelectionItem {
     owner: ObjectId,
     object: ObjectId,
@@ -76,8 +85,7 @@ struct NativeSelectionItem {
 
 #[derive(Default)]
 struct NativeEventQueue {
-    observations: RefCell<Vec<Observation>>,
-    events: RefCell<Vec<QueuedEvent>>,
+    events: RefCell<VecDeque<QueuedNativeEvent>>,
     feedback: RefCell<FeedbackState>,
     selection_items: RefCell<Vec<NativeSelectionItem>>,
     waker: RefCell<Option<Rc<dyn Fn()>>>,
@@ -90,6 +98,282 @@ impl NativeEventQueue {
             .borrow_mut()
             .observe(object, event, observation)
     }
+
+    fn queue(&self, observation: Option<Observation>, event: Option<QueuedEvent>) {
+        self.events.borrow_mut().push_back(QueuedNativeEvent {
+            observation,
+            event,
+            retirement: None,
+            realization: None,
+        });
+    }
+
+    fn queue_realization(self: &Rc<Self>, request: RealizationRequest) {
+        let mut events = self.events.borrow_mut();
+        let request = coalesce_queued_realization(&mut events, request);
+        events.push_back(QueuedNativeEvent {
+            observation: None,
+            event: None,
+            retirement: None,
+            realization: Some(request),
+        });
+        drop(events);
+        WinUiAdapter::schedule_event_wake(self);
+    }
+}
+
+fn coalesce_queued_realization(
+    events: &mut VecDeque<QueuedNativeEvent>,
+    request: RealizationRequest,
+) -> RealizationRequest {
+    let RealizationRequest::Recycle {
+        collection,
+        container,
+        source_revision,
+    } = request
+    else {
+        return request;
+    };
+    let pending = events.iter().rposition(|event| {
+        matches!(
+            event.realization,
+            Some(RealizationRequest::Realize {
+                collection: pending_collection,
+                container: pending_container,
+                ..
+            }) if pending_collection == collection && pending_container == container
+        )
+    });
+    if let Some(pending) = pending {
+        events.remove(pending);
+        RealizationRequest::Cancel {
+            collection,
+            container,
+            source_revision,
+        }
+    } else {
+        request
+    }
+}
+
+implement_decl! {
+    impl NativeElementFactory as NativeElementFactory_Impl: [IElementFactory]
+}
+
+struct NativeElementFactory {
+    collection: ObjectId,
+    queue: Rc<NativeEventQueue>,
+    source_revision: Rc<Cell<u64>>,
+    shells: Rc<RealizedShells>,
+}
+
+struct NativeVirtualItems {
+    _factory: IElementFactory,
+    source: windows_collections::IObservableVector<IInspectable>,
+    source_revision: Rc<Cell<u64>>,
+    shells: Rc<RealizedShells>,
+}
+
+impl NativeVirtualItems {
+    fn new(
+        repeater: &native::ItemsRepeater,
+        collection: ObjectId,
+        item_count: usize,
+        source_revision: u64,
+        queue: Rc<NativeEventQueue>,
+    ) -> Result<Self, windows_core::Error> {
+        let shells = Rc::new(RealizedShells::default());
+        let source_revision = Rc::new(Cell::new(source_revision));
+        let factory: IElementFactory = ComObject::new(NativeElementFactory {
+            collection,
+            queue,
+            source_revision: Rc::clone(&source_revision),
+            shells: Rc::clone(&shells),
+        })
+        .into_interface();
+        let source: windows_collections::IObservableVector<IInspectable> =
+            virtual_item_values(item_count)?.into();
+        repeater.SetItemTemplate(&factory)?;
+        repeater.SetItemsSource(&source)?;
+        Ok(Self {
+            _factory: factory,
+            source,
+            source_revision,
+            shells,
+        })
+    }
+
+    fn reset(&self, item_count: usize, source_revision: u64) -> windows_core::Result<()> {
+        self.source_revision.set(source_revision);
+        self.source.ReplaceAll(&virtual_item_values(item_count)?)
+    }
+}
+
+#[derive(Default)]
+struct RealizedShells {
+    pool: RefCell<ShellPool<native::ContentControl>>,
+}
+
+struct ShellPool<T> {
+    available: Vec<T>,
+    next: u64,
+    retired: HashSet<RealizedContainer>,
+    shells: HashMap<RealizedContainer, T>,
+}
+
+impl<T> Default for ShellPool<T> {
+    fn default() -> Self {
+        Self {
+            available: Vec::new(),
+            next: 0,
+            retired: HashSet::new(),
+            shells: HashMap::new(),
+        }
+    }
+}
+
+impl<T: Clone> ShellPool<T> {
+    fn take(
+        &mut self,
+        create: impl FnOnce() -> Result<T, windows_core::Error>,
+    ) -> Result<(RealizedContainer, T), windows_core::Error> {
+        let container = RealizedContainer(self.next);
+        self.next = self.next.checked_add(1).ok_or_else(|| {
+            windows_core::Error::new(native::E_FAIL, "container identity exhausted")
+        })?;
+        let shell = if let Some(shell) = self.available.pop() {
+            shell
+        } else {
+            create()?
+        };
+        self.shells.insert(container, shell.clone());
+        Ok((container, shell))
+    }
+
+    fn retire(&mut self, container: RealizedContainer) -> bool {
+        let Some(shell) = self.shells.remove(&container) else {
+            return false;
+        };
+        self.available.push(shell);
+        self.retired.insert(container);
+        true
+    }
+
+    fn acknowledge_recycle(&mut self, container: RealizedContainer) {
+        self.retired.remove(&container);
+    }
+}
+
+impl ShellPool<native::ContentControl> {
+    fn recycle(
+        &mut self,
+        element: &native::UIElement,
+    ) -> Result<Option<RealizedContainer>, windows_core::Error> {
+        let Some((container, shell)) = self.shells.iter().find_map(|(container, shell)| {
+            (shell.cast::<native::UIElement>().as_ref() == Ok(element))
+                .then(|| (*container, shell.clone()))
+        }) else {
+            return Ok(None);
+        };
+        shell.SetContent(None::<&IInspectable>)?;
+        if !self.retire(container) {
+            return Err(windows_core::Error::new(
+                native::E_FAIL,
+                "realized container retired twice",
+            ));
+        }
+        Ok(Some(container))
+    }
+}
+
+impl RealizedShells {
+    fn take(&self) -> Result<(RealizedContainer, native::UIElement), windows_core::Error> {
+        let (container, shell) = self.pool.borrow_mut().take(native::ContentControl::new)?;
+        Ok((container, shell.cast()?))
+    }
+
+    fn recycle(
+        &self,
+        element: &native::UIElement,
+    ) -> Result<Option<RealizedContainer>, windows_core::Error> {
+        self.pool.borrow_mut().recycle(element)
+    }
+
+    fn set_content(
+        &self,
+        container: RealizedContainer,
+        content: Option<&native::UIElement>,
+    ) -> Result<(), windows_core::Error> {
+        let pool = self.pool.borrow();
+        let Some(shell) = pool.shells.get(&container) else {
+            return if content.is_none() && pool.retired.contains(&container) {
+                Ok(())
+            } else {
+                Err(windows_core::Error::new(
+                    native::E_FAIL,
+                    "missing realized container",
+                ))
+            };
+        };
+        if let Some(content) = content {
+            shell.SetContent(content)
+        } else {
+            shell.SetContent(None::<&IInspectable>)
+        }
+    }
+
+    fn acknowledge_recycle(&self, container: RealizedContainer) -> Result<(), windows_core::Error> {
+        self.pool.borrow_mut().acknowledge_recycle(container);
+        Ok(())
+    }
+}
+
+impl native::IElementFactory_Impl for NativeElementFactory_Impl {
+    fn GetElement(
+        &self,
+        args: Ref<native::ElementFactoryGetArgs>,
+    ) -> windows_core::Result<native::UIElement> {
+        let data = args.ok()?.Data()?;
+        let value = data.cast::<windows_reference::IReference<i32>>()?.Value()?;
+        let index = usize::try_from(value)
+            .map_err(|_| windows_core::Error::new(native::E_FAIL, "negative item index"))?;
+        let (container, element) = self.shells.take()?;
+        self.queue.queue_realization(RealizationRequest::Realize {
+            collection: self.collection,
+            container,
+            index,
+            source_revision: self.source_revision.get(),
+        });
+        Ok(element)
+    }
+
+    fn RecycleElement(
+        &self,
+        args: Ref<native::ElementFactoryRecycleArgs>,
+    ) -> windows_core::Result<()> {
+        let element = args.ok()?.Element()?;
+        let container = self.shells.recycle(&element)?.ok_or_else(|| {
+            windows_core::Error::new(native::E_FAIL, "element factory received an unknown shell")
+        })?;
+        self.queue.queue_realization(RealizationRequest::Recycle {
+            collection: self.collection,
+            container,
+            source_revision: self.source_revision.get(),
+        });
+        Ok(())
+    }
+}
+
+fn virtual_item_values(
+    item_count: usize,
+) -> Result<Vec<Option<IInspectable>>, windows_core::Error> {
+    (0..item_count)
+        .map(|index| {
+            i32::try_from(index)
+                .map(|index| Some(windows_reference::IReference::<i32>::from(index).into()))
+                .map_err(|_| windows_core::Error::new(native::E_FAIL, "item count exceeds i32"))
+        })
+        .collect()
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -106,6 +390,7 @@ pub enum WinUiError {
     StillOwned(ObjectId),
     InvalidReplacement(ObjectId),
     InvalidEventArgs,
+    InvalidDuration,
     Native(windows_core::Error),
 }
 
@@ -145,6 +430,16 @@ pub struct WinUiAdapter {
     list_template: Option<native::DataTemplate>,
     data_text_key: HSTRING,
     event_queue: Rc<NativeEventQueue>,
+    retirements: HashMap<ObjectId, NativeRetirement>,
+    virtual_items: HashMap<ObjectId, NativeVirtualItems>,
+}
+
+struct NativeRetirement {
+    nodes: Vec<ObjectId>,
+    parent: ObjectId,
+    relation: RelationId,
+    timer: native::DispatcherQueueTimer,
+    _tick: windows_core::EventRevoker,
 }
 
 impl Default for WinUiAdapter {
@@ -156,7 +451,19 @@ impl Default for WinUiAdapter {
             list_template: None,
             data_text_key: HSTRING::from("Text"),
             event_queue: Rc::new(NativeEventQueue::default()),
+            retirements: HashMap::new(),
+            virtual_items: HashMap::new(),
         }
+    }
+}
+
+impl Drop for WinUiAdapter {
+    fn drop(&mut self) {
+        for retirement in self.retirements.values() {
+            _ = retirement.timer.Stop();
+        }
+        self.retirements.clear();
+        self.event_queue.events.borrow_mut().clear();
     }
 }
 
@@ -521,12 +828,19 @@ impl WinUiAdapter {
                             }
                             pending.push(*child);
                         }
-                        self.validate_native_order(object, contract, children)?;
+                        if contract.realization != Realization::Container {
+                            self.validate_native_order(object, contract, children)?;
+                        }
                     }
                 }
             }
         }
-        if visited.len() != self.handles.len() {
+        let retired = self
+            .retirements
+            .values()
+            .flat_map(|retirement| retirement.nodes.iter().copied())
+            .collect::<HashSet<_>>();
+        if visited.len() + retired.len() != self.handles.len() {
             return Err(WinUiError::StateMismatch(root));
         }
         Ok(())
@@ -553,6 +867,79 @@ impl WinUiAdapter {
             Rc::from(value.value.Text()?),
         );
         Ok(())
+    }
+
+    pub fn simulate_rich_edit_input(&self, object: ObjectId, text: &str) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::RichEditBox(value))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        value
+            .value
+            .Document()?
+            .SetText(native::TextSetOptions::None, text)?;
+        let text = read_rich_edit_text(&value.value).map_err(WinUiError::from)?;
+        Self::dispatch_string(
+            &value.text_changed,
+            &self.event_queue,
+            object,
+            EventId::TextChanged,
+            Some(Observation::SetProperty {
+                object,
+                property: Property {
+                    id: PropertyId::Document,
+                    value: PropertyValue::String(Rc::clone(&text)),
+                },
+            }),
+            text,
+        );
+        Ok(())
+    }
+
+    pub fn rich_edit_state(&self, object: ObjectId) -> Result<(String, bool), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::RichEditBox(value))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Ok((
+            read_rich_edit_text(&value.value)
+                .map_err(WinUiError::from)?
+                .to_string(),
+            value.value.IsReadOnly()?,
+        ))
+    }
+
+    pub fn grid_definition_counts(&self, object: ObjectId) -> Result<(u32, u32), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::Grid(value))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Ok((
+            value.RowDefinitions()?.Size()?,
+            value.ColumnDefinitions()?.Size()?,
+        ))
+    }
+
+    pub fn realize_virtual_item(&self, object: ObjectId, index: usize) -> Result<(), WinUiError> {
+        let index = i32::try_from(index).map_err(|_| WinUiError::IndexOverflow(index))?;
+        match self.handles.get(&object) {
+            Some(Handle::Generated(GeneratedHandle::ItemsRepeater(repeater))) => {
+                repeater.GetOrCreateElement(index)?;
+                Ok(())
+            }
+            Some(_) => Err(WinUiError::InvalidObject(object)),
+            None => Err(WinUiError::MissingObject(object)),
+        }
+    }
+
+    pub fn virtual_shell_count(&self, object: ObjectId) -> Result<usize, WinUiError> {
+        let items = self
+            .virtual_items
+            .get(&object)
+            .ok_or(WinUiError::InvalidObject(object))?;
+        Ok(items.shells.pool.borrow().shells.len())
     }
 
     pub fn focus_text_box_deferred(
@@ -602,6 +989,18 @@ impl WinUiAdapter {
         Ok(value.set_count.get())
     }
 
+    pub fn retirement_count(&self) -> usize {
+        self.retirements.len()
+    }
+
+    pub fn contains_object(&self, object: ObjectId) -> bool {
+        self.handles.contains_key(&object)
+    }
+
+    pub fn opacity(&self, object: ObjectId) -> Result<f64, WinUiError> {
+        self.ui_element(object)?.Opacity().map_err(Into::into)
+    }
+
     pub fn simulate_click(&self, object: ObjectId) -> Result<(), WinUiError> {
         let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
@@ -609,7 +1008,7 @@ impl WinUiAdapter {
         let Some(event) = handle.unit_event(EventId::Click) else {
             return Err(WinUiError::InvalidObject(object));
         };
-        Self::dispatch_unit(event, &self.event_queue, object, EventId::Click);
+        Self::dispatch_unit(event, &self.event_queue, object, EventId::Click, None);
         Ok(())
     }
 
@@ -627,6 +1026,7 @@ impl WinUiAdapter {
             &self.event_queue,
             object,
             EventId::PointerReleased,
+            None,
             value,
         );
         Ok(())
@@ -691,23 +1091,24 @@ impl WinUiAdapter {
             .cast::<native::IPasswordBox>()?
             .Password()
             .map(Rc::<str>::from)?;
-        self.event_queue
-            .observations
-            .borrow_mut()
-            .push(Observation::SetProperty {
-                object,
-                property: Property {
-                    id: PropertyId::Password,
-                    value: PropertyValue::String(Rc::clone(&value)),
-                },
-            });
-        Self::dispatch_string(
-            &password_box.password_changed,
-            &self.event_queue,
+        let observation = Observation::SetProperty {
             object,
-            EventId::PasswordChanged,
-            value,
+            property: Property {
+                id: PropertyId::Password,
+                value: PropertyValue::String(Rc::clone(&value)),
+            },
+        };
+        let event = password_box.password_changed.borrow();
+        self.event_queue.queue(
+            Some(observation),
+            event.callback.is_some().then(|| QueuedEvent {
+                object,
+                event: EventId::PasswordChanged,
+                revision: event.revision,
+                payload: EventPayload::String(value),
+            }),
         );
+        Self::schedule_event_wake(&self.event_queue);
         Ok(())
     }
 
@@ -733,23 +1134,24 @@ impl WinUiAdapter {
             .cast::<native::IRatingControl>()?
             .Value()
             .map(rating_value)?;
-        self.event_queue
-            .observations
-            .borrow_mut()
-            .push(Observation::SetProperty {
-                object,
-                property: Property {
-                    id: PropertyId::RatingControlValue,
-                    value: PropertyValue::OptionalF64(value),
-                },
-            });
-        Self::dispatch_optional_f64(
-            &rating.value_changed,
-            &self.event_queue,
+        let observation = Observation::SetProperty {
             object,
-            EventId::ValueChanged,
-            value,
+            property: Property {
+                id: PropertyId::RatingControlValue,
+                value: PropertyValue::OptionalF64(value),
+            },
+        };
+        let event = rating.value_changed.borrow();
+        self.event_queue.queue(
+            Some(observation),
+            event.callback.is_some().then(|| QueuedEvent {
+                object,
+                event: EventId::ValueChanged,
+                revision: event.revision,
+                payload: EventPayload::OptionalF64(value),
+            }),
         );
+        Self::schedule_event_wake(&self.event_queue);
         Ok(())
     }
 
@@ -842,6 +1244,31 @@ impl WinUiAdapter {
         ))
     }
 
+    pub fn capability_state(
+        &self,
+        object: ObjectId,
+    ) -> Result<(f64, f64, i32, bool, String, bool), WinUiError> {
+        let element = self
+            .ui_element(object)?
+            .cast::<native::FrameworkElement>()?;
+        Ok((
+            element.MinWidth()?,
+            element.MaxHeight()?,
+            native::Grid::GetRow(&element)?,
+            native::RelativePanel::GetAlignLeftWithPanel(&element)?,
+            native::AutomationProperties::GetName(&element)?,
+            element.cast::<native::IControl>()?.IsEnabled()?,
+        ))
+    }
+
+    pub fn text_block_font_weight(&self, object: ObjectId) -> Result<u16, WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::TextBlock(value))) = self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Ok(value.cast::<native::ITextBlock>()?.FontWeight()?.weight)
+    }
+
     pub fn text_box_state(&self, object: ObjectId) -> Result<(String, i32, i32), WinUiError> {
         let Some(Handle::TextBox(value)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
@@ -862,11 +1289,30 @@ impl WinUiAdapter {
         let matches = match contract.realization {
             Realization::Owned => {
                 let values = self.owned_collection(parent, contract.id)?;
-                if values.size()? as usize != children.len() {
+                let retired = self
+                    .retirements
+                    .iter()
+                    .filter_map(|(root, retirement)| {
+                        (retirement.parent == parent && retirement.relation == contract.id)
+                            .then_some(*root)
+                    })
+                    .map(|root| {
+                        self.ui_element(root)
+                            .and_then(|value| value.cast().map_err(Into::into))
+                    })
+                    .collect::<Result<Vec<IInspectable>, _>>()?;
+                let mut active = Vec::new();
+                for index in 0..values.size()? {
+                    let value = values.get_at(index)?;
+                    if !retired.contains(&value) {
+                        active.push(value);
+                    }
+                }
+                if active.len() != children.len() {
                     false
                 } else {
                     children.iter().enumerate().all(|(index, child)| {
-                        values.get_at(index as u32).ok().as_ref()
+                        active.get(index)
                             == self
                                 .ui_element(*child)
                                 .and_then(|value| value.cast().map_err(Into::into))
@@ -1049,7 +1495,7 @@ impl WinUiAdapter {
             }
             result?;
             if let Some(observation) = observation {
-                self.event_queue.observations.borrow_mut().push(observation);
+                self.event_queue.queue(Some(observation), None);
                 Self::schedule_event_wake(&self.event_queue);
             }
         }
@@ -1129,7 +1575,7 @@ impl WinUiAdapter {
             }
             result?;
             if let Some(observation) = observation {
-                self.event_queue.observations.borrow_mut().push(observation);
+                self.event_queue.queue(Some(observation), None);
                 Self::schedule_event_wake(&self.event_queue);
             }
         }
@@ -1203,22 +1649,25 @@ impl WinUiAdapter {
                 _ => return Err(WinUiError::InvalidRelation(parent, relation)),
             }
         }
-        self.event_queue
-            .observations
-            .borrow_mut()
-            .retain(|observation| {
-                !matches!(
-                    observation,
-                    Observation::SetProperty {
-                        object: observed,
-                        ..
-                    } if *observed == object
-                )
-            });
-        self.event_queue
-            .events
-            .borrow_mut()
-            .retain(|event| event.object != object);
+        self.event_queue.events.borrow_mut().retain(|event| {
+            event
+                .event
+                .as_ref()
+                .is_none_or(|event| event.object != object)
+                && event.observation.as_ref().is_none_or(|observation| {
+                    !matches!(
+                        observation,
+                        Observation::SetProperty {
+                            object: observed,
+                            ..
+                        } | Observation::SetSelection {
+                            object: observed,
+                            ..
+                        } if *observed == object
+                    )
+                })
+        });
+        self.event_queue.feedback.borrow_mut().remove_object(object);
         Ok(())
     }
 
@@ -1246,16 +1695,16 @@ impl WinUiAdapter {
         if !event_queue.observe(object, EventId::TextChanged, observation.clone()) {
             return;
         }
-        event_queue.observations.borrow_mut().push(observation);
         let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
+        event_queue.queue(
+            Some(observation),
+            event.callback.is_some().then(|| QueuedEvent {
                 object,
                 event: EventId::TextChanged,
                 revision: event.revision,
                 payload: EventPayload::String(text),
-            });
-        }
+            }),
+        );
         Self::schedule_event_wake(event_queue);
     }
 
@@ -1264,15 +1713,17 @@ impl WinUiAdapter {
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
+        observation: Option<Observation>,
     ) {
         let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::Unit,
-            });
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::Unit,
+        });
+        if observation.is_some() || queued.is_some() {
+            event_queue.queue(observation, queued);
             Self::schedule_event_wake(event_queue);
         }
     }
@@ -1282,16 +1733,18 @@ impl WinUiAdapter {
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
+        observation: Option<Observation>,
         value: bool,
     ) {
         let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::Bool(value),
-            });
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::Bool(value),
+        });
+        if observation.is_some() || queued.is_some() {
+            event_queue.queue(observation, queued);
             Self::schedule_event_wake(event_queue);
         }
     }
@@ -1301,16 +1754,18 @@ impl WinUiAdapter {
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
+        observation: Option<Observation>,
         value: f64,
     ) {
         let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::F64(value),
-            });
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::F64(value),
+        });
+        if observation.is_some() || queued.is_some() {
+            event_queue.queue(observation, queued);
             Self::schedule_event_wake(event_queue);
         }
     }
@@ -1320,16 +1775,18 @@ impl WinUiAdapter {
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
+        observation: Option<Observation>,
         value: Option<bool>,
     ) {
         let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::OptionalBool(value),
-            });
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::OptionalBool(value),
+        });
+        if observation.is_some() || queued.is_some() {
+            event_queue.queue(observation, queued);
             Self::schedule_event_wake(event_queue);
         }
     }
@@ -1339,38 +1796,98 @@ impl WinUiAdapter {
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
+        observation: Option<Observation>,
         value: Option<f64>,
     ) {
         let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::OptionalF64(value),
-            });
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::OptionalF64(value),
+        });
+        if observation.is_some() || queued.is_some() {
+            event_queue.queue(observation, queued);
             Self::schedule_event_wake(event_queue);
         }
     }
 
-    fn dispatch_selection(
-        event: &Rc<RefCell<NativeSelectionEvent>>,
+    fn dispatch_selection_index(
+        event: &Rc<RefCell<NativeSelectionIndexEvent>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
-        item: Option<ObjectId>,
-        value: Option<Rc<str>>,
+        observation: Option<Observation>,
+        value: Option<usize>,
     ) {
         let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::Selection(crate::SelectionChange { item, value }),
-            });
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::SelectionIndex(value),
+        });
+        if observation.is_some() || queued.is_some() {
+            event_queue.queue(observation, queued);
             Self::schedule_event_wake(event_queue);
         }
+    }
+
+    fn dispatch_string(
+        event: &Rc<RefCell<NativeTextEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        observation: Option<Observation>,
+        value: Rc<str>,
+    ) {
+        let event = event.borrow();
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::String(value),
+        });
+        if observation.is_some() || queued.is_some() {
+            event_queue.queue(observation, queued);
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn dispatch_pointer_event_info(
+        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        observation: Option<Observation>,
+        value: crate::PointerEventInfo,
+    ) {
+        if Self::queue_pointer_event_info(event, event_queue, object, event_id, observation, value)
+        {
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn queue_pointer_event_info(
+        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        observation: Option<Observation>,
+        value: crate::PointerEventInfo,
+    ) -> bool {
+        let event = event.borrow();
+        let queued = event.callback.is_some().then(|| QueuedEvent {
+            object,
+            event: event_id,
+            revision: event.revision,
+            payload: EventPayload::PointerEventInfo(value),
+        });
+        let dispatch = observation.is_some() || queued.is_some();
+        if dispatch {
+            event_queue.queue(observation, queued);
+        }
+        dispatch
     }
 
     fn handle_selection_changed(
@@ -1405,7 +1922,6 @@ impl WinUiAdapter {
         if !event_queue.observe(object, event_id, observation.clone()) {
             return;
         }
-        event_queue.observations.borrow_mut().push(observation);
         let value = match selected.as_ref() {
             Some(selected) => {
                 match GeneratedHandle::selection_payload(payload_property, selected) {
@@ -1418,84 +1934,25 @@ impl WinUiAdapter {
             }
             None => None,
         };
-        Self::dispatch_selection(event, event_queue, object, event_id, selected_object, value);
+        let event = event.borrow();
+        event_queue.queue(
+            Some(observation),
+            event.callback.is_some().then(|| QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::Selection(crate::SelectionChange {
+                    item: selected_object,
+                    value,
+                }),
+            }),
+        );
         Self::schedule_event_wake(event_queue);
-    }
-
-    fn dispatch_selection_index(
-        event: &Rc<RefCell<NativeSelectionIndexEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        value: Option<usize>,
-    ) {
-        let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::SelectionIndex(value),
-            });
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_string(
-        event: &Rc<RefCell<NativeTextEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        value: Rc<str>,
-    ) {
-        let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::String(value),
-            });
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn dispatch_pointer_event_info(
-        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        value: crate::PointerEventInfo,
-    ) {
-        if Self::queue_pointer_event_info(event, event_queue, object, event_id, value) {
-            Self::schedule_event_wake(event_queue);
-        }
-    }
-
-    fn queue_pointer_event_info(
-        event: &Rc<RefCell<NativePointerEventInfoEvent>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        event_id: EventId,
-        value: crate::PointerEventInfo,
-    ) -> bool {
-        let event = event.borrow();
-        if event.callback.is_some() {
-            event_queue.events.borrow_mut().push(QueuedEvent {
-                object,
-                event: event_id,
-                revision: event.revision,
-                payload: EventPayload::PointerEventInfo(value),
-            });
-            true
-        } else {
-            false
-        }
     }
 
     fn pointer_event_info(
         element: &native::UIElement,
-        args: windows_core::Ref<native::PointerRoutedEventArgs>,
+        args: Ref<native::PointerRoutedEventArgs>,
     ) -> Result<crate::PointerEventInfo, WinUiError> {
         let Some(args) = args.as_ref() else {
             return Err(WinUiError::InvalidEventArgs);
@@ -1667,6 +2124,47 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    fn active_native_index(
+        &self,
+        parent: ObjectId,
+        relation: RelationId,
+        active_index: usize,
+    ) -> Result<usize, WinUiError> {
+        let retired = self
+            .retirements
+            .iter()
+            .filter_map(|(root, retirement)| {
+                (retirement.parent == parent && retirement.relation == relation).then_some(*root)
+            })
+            .collect::<Vec<_>>();
+        if retired.is_empty() {
+            return Ok(active_index);
+        }
+        let values = self.owned_collection(parent, relation)?;
+        let retired = retired
+            .into_iter()
+            .map(|root| {
+                self.ui_element(root)
+                    .and_then(|value| value.cast().map_err(Into::into))
+            })
+            .collect::<Result<Vec<IInspectable>, _>>()?;
+        let mut active = 0;
+        for index in 0..values.size()? {
+            if retired.contains(&values.get_at(index)?) {
+                continue;
+            }
+            if active == active_index {
+                return Ok(index as usize);
+            }
+            active += 1;
+        }
+        if active == active_index {
+            Ok(values.size()? as usize)
+        } else {
+            Err(WinUiError::InvalidMutation(relation))
+        }
+    }
+
     fn insert(
         &mut self,
         parent: ObjectId,
@@ -1677,6 +2175,7 @@ impl WinUiAdapter {
         if self.owners.contains_key(&child) {
             return Err(WinUiError::StillOwned(child));
         }
+        let index = self.active_native_index(parent, relation, index)?;
         let selection = selection_for_relation(self.kind(parent)?, relation);
         let selected = selection
             .map(|selection| self.read_selected_item(parent, selection))
@@ -1742,6 +2241,7 @@ impl WinUiAdapter {
         if self.owners.get(&child) != Some(&(parent, relation)) {
             return Err(WinUiError::ChildNotFound(child));
         }
+        let index = self.active_native_index(parent, relation, index)?;
         let selection = selection_for_relation(self.kind(parent)?, relation);
         let selected = selection
             .map(|selection| self.read_selected_item(parent, selection))
@@ -2151,39 +2651,157 @@ impl WinUiAdapter {
         self.list_template = Some(template.clone());
         Ok(template)
     }
-}
 
-impl Adapter for WinUiAdapter {
-    type Error = WinUiError;
-
-    fn drain_observations(&mut self, observations: &mut Vec<Observation>) {
-        observations.append(&mut self.event_queue.observations.borrow_mut());
+    fn start_retirement(
+        &mut self,
+        root: ObjectId,
+        nodes: Vec<ObjectId>,
+        parent: ObjectId,
+        relation: RelationId,
+        duration: std::time::Duration,
+    ) -> Result<(), WinUiError> {
+        if self.retirements.contains_key(&root)
+            || self.owners.get(&root) != Some(&(parent, relation))
+            || nodes.iter().any(|node| !self.handles.contains_key(node))
+        {
+            return Err(WinUiError::MissingObject(root));
+        }
+        let duration =
+            windows_time::TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
+        let root_element = self.ui_element(root)?;
+        let transition = native::ScalarTransition::new()?;
+        transition.SetDuration(duration)?;
+        root_element.SetOpacityTransition(&transition)?;
+        let timer = native::DispatcherQueue::GetForCurrentThread()?.CreateTimer()?;
+        timer.SetInterval(duration)?;
+        timer.SetIsRepeating(false)?;
+        let event_queue = Rc::clone(&self.event_queue);
+        let tick = timer.Tick(move |_, _| {
+            event_queue
+                .events
+                .borrow_mut()
+                .push_back(QueuedNativeEvent {
+                    observation: None,
+                    event: None,
+                    retirement: Some(RetirementCompletion { root }),
+                    realization: None,
+                });
+            Self::schedule_event_wake(&event_queue);
+        })?;
+        self.retirements.insert(
+            root,
+            NativeRetirement {
+                nodes,
+                parent,
+                relation,
+                timer: timer.clone(),
+                _tick: tick,
+            },
+        );
+        if let Err(error) = root_element.SetOpacity(0.0) {
+            self.retirements.remove(&root);
+            return Err(error.into());
+        }
+        if let Err(error) = timer.Start() {
+            self.retirements.remove(&root);
+            return Err(error.into());
+        }
+        Ok(())
     }
 
-    fn drain_events(&mut self, events: &mut Vec<EventDispatch>) {
-        for queued in self.event_queue.events.borrow_mut().drain(..) {
+    fn complete_retirement(
+        &mut self,
+        root: ObjectId,
+        nodes: &[ObjectId],
+    ) -> Result<(), WinUiError> {
+        let retirement = self
+            .retirements
+            .get(&root)
+            .ok_or(WinUiError::MissingObject(root))?;
+        if retirement.nodes != nodes {
+            return Err(WinUiError::InvalidObject(root));
+        }
+        retirement.timer.Stop()?;
+        let parent = retirement.parent;
+        let relation = retirement.relation;
+        let values = self.owned_collection(parent, relation)?;
+        let root_value: IInspectable = self.ui_element(root)?.cast()?;
+        let mut index = 0;
+        while index < values.size()? && values.get_at(index)? != root_value {
+            index += 1;
+        }
+        if index == values.size()? {
+            return Err(WinUiError::ChildNotFound(root));
+        }
+        values.remove_at(index)?;
+        self.retirements.remove(&root);
+        for object in nodes {
+            self.owners.remove(object);
+            self.handles
+                .remove(object)
+                .ok_or(WinUiError::MissingObject(*object))?;
+            self.event_queue
+                .feedback
+                .borrow_mut()
+                .remove_object(*object);
+            self.event_queue
+                .selection_items
+                .borrow_mut()
+                .retain(|item| item.object != *object && item.owner != *object);
+        }
+        Ok(())
+    }
+
+    fn native_event(&self, queued: &QueuedNativeEvent) -> Option<NativeEvent> {
+        if let Some(completion) = queued.retirement {
+            return Some(NativeEvent::retirement(completion));
+        }
+        if let Some(request) = queued.realization {
+            return Some(NativeEvent::realization(request));
+        }
+        let event = queued.event.as_ref().and_then(|queued| {
             let callback = match (self.handles.get(&queued.object), queued.event) {
                 (Some(Handle::TextBox(text_box)), EventId::TextChanged) => {
                     let event = text_box.event.borrow();
-                    if event.revision != queued.revision {
-                        continue;
-                    }
-                    event.callback.clone().map(EventValue::String)
+                    (event.revision == queued.revision)
+                        .then(|| event.callback.clone().map(EventValue::String))
+                        .flatten()
                 }
                 (Some(Handle::Generated(handle)), event) => {
                     handle.event_callback(event, queued.revision)
                 }
                 _ => None,
-            };
-            let Some(callback) = callback else {
-                continue;
-            };
-            events.push(EventDispatch::new(
+            }?;
+            Some(EventDispatch::new(
                 queued.object,
                 queued.event,
                 callback,
-                queued.payload,
-            ));
+                queued.payload.clone(),
+            ))
+        });
+        Some(NativeEvent::new(queued.observation.clone(), event))
+    }
+}
+
+impl Adapter for WinUiAdapter {
+    type Error = WinUiError;
+
+    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
+        events.extend(
+            self.event_queue
+                .events
+                .borrow()
+                .iter()
+                .filter_map(|event| self.native_event(event)),
+        );
+    }
+
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        loop {
+            let queued = self.event_queue.events.borrow_mut().pop_front()?;
+            if let Some(event) = self.native_event(&queued) {
+                return Some(event);
+            }
         }
     }
 
@@ -2201,6 +2819,67 @@ impl Adapter for WinUiAdapter {
                 }
                 Mutation::SetEvents { object, set, clear } => {
                     self.set_events(*object, set, clear)?;
+                }
+                Mutation::SetVirtualSource {
+                    object,
+                    item_count,
+                    source_revision,
+                } => {
+                    if let Some(items) = self.virtual_items.get(object) {
+                        items.reset(*item_count, *source_revision)?;
+                    } else {
+                        let repeater = match self.handles.get(object) {
+                            Some(Handle::Generated(GeneratedHandle::ItemsRepeater(repeater))) => {
+                                repeater.clone()
+                            }
+                            Some(_) => return Err(WinUiError::InvalidObject(*object)),
+                            None => return Err(WinUiError::MissingObject(*object)),
+                        };
+                        let items = NativeVirtualItems::new(
+                            &repeater,
+                            *object,
+                            *item_count,
+                            *source_revision,
+                            Rc::clone(&self.event_queue),
+                        )?;
+                        self.virtual_items.insert(*object, items);
+                    }
+                }
+                Mutation::Realize {
+                    parent,
+                    relation,
+                    container,
+                    child,
+                    ..
+                } => {
+                    let content = self.ui_element(*child)?;
+                    let items = self
+                        .virtual_items
+                        .get(parent)
+                        .ok_or(WinUiError::InvalidObject(*parent))?;
+                    items.shells.set_content(*container, Some(&content))?;
+                    self.owners.insert(*child, (*parent, *relation));
+                }
+                Mutation::Recycle {
+                    parent,
+                    container,
+                    child,
+                    ..
+                } => {
+                    let items = self
+                        .virtual_items
+                        .get(parent)
+                        .ok_or(WinUiError::InvalidObject(*parent))?;
+                    items.shells.set_content(*container, None)?;
+                    items.shells.acknowledge_recycle(*container)?;
+                    if let Some(child) = child
+                        && self
+                            .owners
+                            .get(child)
+                            .is_some_and(|(owner, _)| owner == parent)
+                    {
+                        self.owners.remove(child);
+                    }
                 }
                 Mutation::Attach {
                     parent,
@@ -2230,6 +2909,18 @@ impl Adapter for WinUiAdapter {
                     moves,
                     children,
                 } => self.reorder(*parent, *relation, moves, children)?,
+                Mutation::Retire {
+                    root,
+                    nodes,
+                    parent,
+                    relation,
+                    duration,
+                } => {
+                    self.start_retirement(*root, nodes.clone(), *parent, *relation, *duration)?;
+                }
+                Mutation::CompleteRetirement { root, nodes } => {
+                    self.complete_retirement(*root, nodes)?;
+                }
                 Mutation::Destroy { object } => {
                     if self.owners.contains_key(object) {
                         return Err(WinUiError::StillOwned(*object));
@@ -2237,6 +2928,7 @@ impl Adapter for WinUiAdapter {
                     self.handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
+                    self.virtual_items.remove(object);
                     self.event_queue
                         .feedback
                         .borrow_mut()
@@ -2249,6 +2941,13 @@ impl Adapter for WinUiAdapter {
             }
         }
         Ok(())
+    }
+
+    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
+        self.ui_element(object)?
+            .cast::<native::IUIElement>()?
+            .Focus(native::FocusState::Programmatic)
+            .map_err(Into::into)
     }
 }
 
@@ -2291,9 +2990,143 @@ fn rating_value(value: f64) -> Option<f64> {
     (value != -1.0).then_some(value)
 }
 
+fn read_rich_edit_text(value: &native::RichEditBox) -> windows_core::Result<Rc<str>> {
+    let document = value.Document()?;
+    let mut text = HSTRING::new();
+    document.GetText(native::TextGetOptions::UseLf, &mut text)?;
+    Ok(Rc::from(text.to_string_lossy()))
+}
+
+fn set_rich_edit_text(value: &native::RichEditBox, text: &str) -> Result<(), WinUiError> {
+    if read_rich_edit_text(value)
+        .map_err(WinUiError::from)?
+        .as_ref()
+        == text
+    {
+        return Ok(());
+    }
+    let document = value.Document()?;
+    let read_only = value.IsReadOnly()?;
+    if read_only {
+        value.SetIsReadOnly(false)?;
+    }
+    let write = document
+        .SetText(native::TextSetOptions::None, text)
+        .map_err(WinUiError::from);
+    let restore = if read_only {
+        value.SetIsReadOnly(true).map_err(WinUiError::from)
+    } else {
+        Ok(())
+    };
+    write.and(restore)
+}
+
+fn native_grid_length(length: GridLength) -> native::GridLength {
+    let (value, grid_unit_type) = match length.size {
+        GridLengthSize::Auto => (0.0, native::GridUnitType::Auto),
+        GridLengthSize::Pixel(value) => (value, native::GridUnitType::Pixel),
+        GridLengthSize::Star(value) => (value, native::GridUnitType::Star),
+    };
+    native::GridLength {
+        value,
+        grid_unit_type,
+    }
+}
+
+fn set_grid_definitions(
+    grid: &native::Grid,
+    values: &[GridLength],
+    rows: bool,
+) -> Result<(), WinUiError> {
+    if rows {
+        let definitions = grid.RowDefinitions()?;
+        definitions.Clear()?;
+        for length in values {
+            let definition = native::RowDefinition::new()?;
+            definition.SetHeight(native_grid_length(*length))?;
+            if let Some(value) = length.min {
+                definition.SetMinHeight(value)?;
+            }
+            if let Some(value) = length.max {
+                definition.SetMaxHeight(value)?;
+            }
+            definitions.Append(&definition)?;
+        }
+    } else {
+        let definitions = grid.ColumnDefinitions()?;
+        definitions.Clear()?;
+        for length in values {
+            let definition = native::ColumnDefinition::new()?;
+            definition.SetWidth(native_grid_length(*length))?;
+            if let Some(value) = length.min {
+                definition.SetMinWidth(value)?;
+            }
+            if let Some(value) = length.max {
+                definition.SetMaxWidth(value)?;
+            }
+            definitions.Append(&definition)?;
+        }
+    }
+    Ok(())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    #[test]
+    fn recycled_physical_shell_keeps_old_token_until_acknowledged() {
+        let mut shells = ShellPool::<usize>::default();
+        let (old, physical) = shells.take(|| Ok::<_, windows_core::Error>(42)).unwrap();
+
+        assert!(shells.retire(old));
+        assert!(shells.retired.contains(&old));
+        let (new, reused) = shells
+            .take(|| panic!("retired physical shell was not reused"))
+            .unwrap();
+
+        assert_ne!(new, old);
+        assert_eq!(reused, physical);
+        assert!(shells.retired.contains(&old));
+        assert!(shells.shells.contains_key(&new));
+
+        shells.acknowledge_recycle(old);
+        assert!(!shells.retired.contains(&old));
+        assert!(shells.shells.contains_key(&new));
+    }
+
+    #[test]
+    fn virtual_source_replacement_raises_one_reset_notification() {
+        let source: windows_collections::IObservableVector<IInspectable> =
+            virtual_item_values(0).unwrap().into();
+        let notifications = Arc::new(AtomicUsize::new(0));
+        let observed = Arc::clone(&notifications);
+        let _changed = source
+            .VectorChanged(move |_, _| {
+                observed.fetch_add(1, Ordering::Relaxed);
+            })
+            .unwrap();
+
+        source
+            .ReplaceAll(&virtual_item_values(10_000).unwrap())
+            .unwrap();
+        assert_eq!(notifications.load(Ordering::Relaxed), 1);
+
+        source.ReplaceAll(&virtual_item_values(0).unwrap()).unwrap();
+        assert_eq!(notifications.load(Ordering::Relaxed), 2);
+
+        source
+            .ReplaceAll(&virtual_item_values(10_000).unwrap())
+            .unwrap();
+        assert_eq!(notifications.load(Ordering::Relaxed), 3);
+
+        source
+            .ReplaceAll(&virtual_item_values(10_000).unwrap())
+            .unwrap();
+        assert_eq!(notifications.load(Ordering::Relaxed), 4);
+    }
 
     #[test]
     fn policy_preserves_requested_window_state() {
@@ -2352,14 +3185,17 @@ mod tests {
             &event_queue,
             object,
             EventId::PointerReleased,
+            None,
             payload,
         ));
         let queued = event_queue.events.borrow();
         assert_eq!(queued.len(), 1);
-        assert_eq!(queued[0].object, object);
-        assert_eq!(queued[0].event, EventId::PointerReleased);
-        assert_eq!(queued[0].revision, 7);
-        assert_eq!(queued[0].payload, EventPayload::PointerEventInfo(payload));
+        assert!(queued[0].observation.is_none());
+        let event = queued[0].event.as_ref().unwrap();
+        assert_eq!(event.object, object);
+        assert_eq!(event.event, EventId::PointerReleased);
+        assert_eq!(event.revision, 7);
+        assert_eq!(event.payload, EventPayload::PointerEventInfo(payload));
     }
 
     #[test]
@@ -2432,6 +3268,20 @@ mod tests {
                 Some(&PropertyValue::F64(0.5)),
             ),
             None
+        );
+        assert_eq!(
+            GeneratedHandle::feedback_expectation(
+                ObjectType::RichEditBox,
+                PropertyId::Document,
+                None,
+            ),
+            Some((
+                EventId::TextChanged,
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::Document,
+                    value: PropertyValue::String(Rc::from("")),
+                })
+            ))
         );
     }
 }

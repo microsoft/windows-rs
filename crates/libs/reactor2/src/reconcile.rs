@@ -1,7 +1,9 @@
 use super::*;
-use crate::ir::validate_property;
-use std::collections::HashMap;
+use crate::ir::{DeclarationValidator, validate_property};
+use std::cell::Cell;
+use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::Rc;
+use std::time::Duration;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct ObjectId {
@@ -45,6 +47,24 @@ pub enum Mutation {
         set: Rc<[Event]>,
         clear: Rc<[EventId]>,
     },
+    SetVirtualSource {
+        object: ObjectId,
+        item_count: usize,
+        source_revision: u64,
+    },
+    Realize {
+        parent: ObjectId,
+        relation: RelationId,
+        container: RealizedContainer,
+        index: usize,
+        child: ObjectId,
+    },
+    Recycle {
+        parent: ObjectId,
+        relation: RelationId,
+        container: RealizedContainer,
+        child: Option<ObjectId>,
+    },
     Attach {
         parent: ObjectId,
         relation: RelationId,
@@ -73,9 +93,79 @@ pub enum Mutation {
         moves: Vec<Move>,
         children: Vec<ObjectId>,
     },
+    Retire {
+        root: ObjectId,
+        nodes: Vec<ObjectId>,
+        parent: ObjectId,
+        relation: RelationId,
+        duration: Duration,
+    },
+    CompleteRetirement {
+        root: ObjectId,
+        nodes: Vec<ObjectId>,
+    },
     Destroy {
         object: ObjectId,
     },
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RetirementCompletion {
+    pub root: ObjectId,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct RealizedContainer(pub u64);
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RealizationLease {
+    pub collection: ObjectId,
+    pub container: RealizedContainer,
+    pub key: Key,
+    pub revision: u64,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum RealizationRequest {
+    Realize {
+        collection: ObjectId,
+        container: RealizedContainer,
+        index: usize,
+        source_revision: u64,
+    },
+    Recycle {
+        collection: ObjectId,
+        container: RealizedContainer,
+        source_revision: u64,
+    },
+    Cancel {
+        collection: ObjectId,
+        container: RealizedContainer,
+        source_revision: u64,
+    },
+}
+
+#[derive(Clone)]
+pub(crate) enum VirtualWork {
+    Realize {
+        lease: RealizationLease,
+        index: usize,
+        view: Visual,
+        owner: Option<ComponentId>,
+    },
+    Recycle {
+        lease: RealizationLease,
+    },
+    Cancel {
+        collection: ObjectId,
+        relation: RelationId,
+        container: RealizedContainer,
+    },
+}
+
+pub(crate) enum NativeWork {
+    Event(NativeEventDispatch),
+    Virtual(VirtualWork),
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -93,6 +183,7 @@ pub enum Observation {
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum FeedbackExpectation {
     Exact(Property),
+    DeferredExact(Property),
     Normalized { observation: Option<Observation> },
     Suppressed,
 }
@@ -118,7 +209,18 @@ impl FeedbackState {
         event: EventId,
         observation: Observation,
     ) -> bool {
-        let Some(expectation) = self.expectations.get_mut(&(object, event)) else {
+        let key = (object, event);
+        if let Some(FeedbackExpectation::DeferredExact(expected)) = self.expectations.get(&key) {
+            let suppress = matches!(
+                &observation,
+                Observation::SetProperty { property, .. } if property == expected
+            );
+            if !suppress {
+                self.expectations.remove(&key);
+            }
+            return !suppress;
+        }
+        let Some(expectation) = self.expectations.get_mut(&key) else {
             return true;
         };
         match expectation {
@@ -137,6 +239,7 @@ impl FeedbackState {
                 false
             }
             FeedbackExpectation::Suppressed => false,
+            FeedbackExpectation::DeferredExact(_) => unreachable!(),
             FeedbackExpectation::Exact(_) => true,
         }
     }
@@ -144,6 +247,13 @@ impl FeedbackState {
     pub(crate) fn finish(&mut self, object: ObjectId, event: EventId) -> Option<Observation> {
         match self.expectations.remove(&(object, event)) {
             Some(FeedbackExpectation::Normalized { observation }) => observation,
+            Some(FeedbackExpectation::DeferredExact(property)) => {
+                self.expectations.insert(
+                    (object, event),
+                    FeedbackExpectation::DeferredExact(property),
+                );
+                None
+            }
             Some(FeedbackExpectation::Exact(_) | FeedbackExpectation::Suppressed) | None => None,
         }
     }
@@ -208,6 +318,118 @@ impl EventDispatch {
 }
 
 #[derive(Clone, Debug, PartialEq)]
+pub struct NativeEvent {
+    observation: Option<Observation>,
+    event: Option<EventDispatch>,
+    retirement: Option<RetirementCompletion>,
+    realization: Option<RealizationRequest>,
+}
+
+impl NativeEvent {
+    pub fn new(observation: Option<Observation>, event: Option<EventDispatch>) -> Self {
+        Self {
+            observation,
+            event,
+            retirement: None,
+            realization: None,
+        }
+    }
+
+    pub fn observation(observation: Observation) -> Self {
+        Self::new(Some(observation), None)
+    }
+
+    pub fn event(event: EventDispatch) -> Self {
+        Self::new(None, Some(event))
+    }
+
+    pub fn retirement(completion: RetirementCompletion) -> Self {
+        Self {
+            observation: None,
+            event: None,
+            retirement: Some(completion),
+            realization: None,
+        }
+    }
+
+    pub fn realization(request: RealizationRequest) -> Self {
+        Self {
+            observation: None,
+            event: None,
+            retirement: None,
+            realization: Some(request),
+        }
+    }
+
+    pub(crate) fn realization_request(&self) -> Option<RealizationRequest> {
+        self.realization
+    }
+
+    pub(crate) fn object(&self) -> Option<ObjectId> {
+        self.event.as_ref().map(EventDispatch::object).or_else(|| {
+            self.observation
+                .as_ref()
+                .map(|observation| match observation {
+                    Observation::SetProperty { object, .. }
+                    | Observation::SetSelection { object, .. } => *object,
+                })
+                .or_else(|| self.retirement.map(|completion| completion.root))
+                .or_else(|| {
+                    self.realization.map(|request| match request {
+                        RealizationRequest::Realize { collection, .. }
+                        | RealizationRequest::Recycle { collection, .. }
+                        | RealizationRequest::Cancel { collection, .. } => collection,
+                    })
+                })
+        })
+    }
+}
+
+pub struct NativeEventDispatch {
+    event: Option<EventDispatch>,
+    active: Rc<Cell<bool>>,
+}
+
+struct CallbackUnwindGuard {
+    active: Rc<Cell<bool>>,
+    completed: bool,
+}
+
+impl Drop for CallbackUnwindGuard {
+    fn drop(&mut self) {
+        if !self.completed {
+            self.active.set(false);
+        }
+    }
+}
+
+impl NativeEventDispatch {
+    fn new(event: EventDispatch, active: Rc<Cell<bool>>) -> Self {
+        Self {
+            event: Some(event),
+            active,
+        }
+    }
+
+    pub fn invoke(&mut self) {
+        if let Some(event) = self.event.take() {
+            let mut guard = CallbackUnwindGuard {
+                active: Rc::clone(&self.active),
+                completed: false,
+            };
+            event.invoke();
+            guard.completed = true;
+        }
+    }
+}
+
+impl Drop for NativeEventDispatch {
+    fn drop(&mut self) {
+        self.active.set(false);
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
 enum RetainedRelationValue {
     One(Option<ObjectId>),
     Many(Vec<ObjectId>),
@@ -223,9 +445,97 @@ struct RetainedRelation {
 struct RetainedObject {
     kind: ObjectType,
     key: Option<Key>,
+    reference: Option<ElementRef>,
+    exit_transition: Option<ExitTransition>,
     properties: SharedList<Property>,
     events: Option<Rc<Vec<Event>>>,
     relations: Vec<RetainedRelation>,
+    virtual_items: Option<Box<RetainedVirtualItems>>,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+struct RetainedVirtualItems {
+    relation: RelationId,
+    owner: Option<ComponentId>,
+    items: VirtualItems,
+    keys: Rc<Vec<Key>>,
+    source_revision: u64,
+    lease_revision: u64,
+    active: HashMap<Key, (u64, RealizedContainer)>,
+    containers: HashMap<RealizedContainer, RetainedRealization>,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+struct RetainedRealization {
+    key: Key,
+    revision: u64,
+    index: usize,
+    child: Option<ObjectId>,
+}
+
+fn virtual_relation(kind: ObjectType) -> Option<RelationId> {
+    relation_contracts(kind)
+        .iter()
+        .find(|contract| {
+            contract.realization == Realization::Container
+                && contract.child == ObjectCategory::Visual
+        })
+        .map(|contract| contract.id)
+}
+
+fn virtual_keys(items: &VirtualItems) -> Result<Vec<Key>, GraphError> {
+    let mut keys = Vec::with_capacity(items.len());
+    let mut unique = HashSet::with_capacity(items.len());
+    for index in 0..items.len() {
+        let Some(key) = items.key(index) else {
+            return Err(GraphError::SizeExceeded);
+        };
+        if !unique.insert(key.clone()) {
+            return Err(GraphError::DuplicateKey(key));
+        }
+        keys.push(key);
+    }
+    Ok(keys)
+}
+
+fn retain_virtual_items(
+    declaration: &Declaration,
+) -> Result<Option<Box<RetainedVirtualItems>>, GraphError> {
+    let Some(relation) = virtual_relation(declaration.kind) else {
+        return Ok(None);
+    };
+    let declared = declaration
+        .virtual_items
+        .as_deref()
+        .cloned()
+        .unwrap_or(DeclaredVirtualItems {
+            relation,
+            owner: declaration.component,
+            items: VirtualItems::Eager(Rc::default()),
+        });
+    if declared.relation != relation {
+        return Err(GraphError::InvalidRelation(
+            declaration.kind,
+            declared.relation,
+        ));
+    }
+    let keys = virtual_keys(&declared.items)?;
+    Ok(Some(Box::new(RetainedVirtualItems {
+        relation,
+        owner: declared.owner.or(declaration.component),
+        items: declared.items,
+        keys: Rc::new(keys),
+        source_revision: 0,
+        lease_revision: 0,
+        active: HashMap::new(),
+        containers: HashMap::new(),
+    })))
+}
+
+#[derive(Clone, Debug, PartialEq)]
+struct RetainedRetirement {
+    nodes: Vec<ObjectId>,
+    parent: ObjectId,
 }
 
 fn retained_events(events: &Option<Rc<Vec<Event>>>) -> &[Event] {
@@ -241,12 +551,14 @@ pub struct RetainedGraph {
     root: Option<ObjectId>,
     objects: Vec<RetainedSlot>,
     free: Vec<u32>,
+    retirements: HashMap<ObjectId, RetainedRetirement>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
 struct RetainedSlot {
     generation: u32,
     object: Option<RetainedObject>,
+    retiring: bool,
 }
 
 impl RetainedGraph {
@@ -257,8 +569,12 @@ impl RetainedGraph {
     pub fn object_count(&self) -> usize {
         self.objects
             .iter()
-            .filter(|slot| slot.object.is_some())
+            .filter(|slot| slot.object.is_some() && !slot.retiring)
             .count()
+    }
+
+    pub fn retired_count(&self) -> usize {
+        self.retirements.len()
     }
 
     pub fn kind(&self, object: ObjectId) -> Option<ObjectType> {
@@ -281,7 +597,7 @@ impl RetainedGraph {
 
     pub(crate) fn owner(&self, child: ObjectId) -> Option<(ObjectId, RelationId)> {
         self.objects.iter().enumerate().find_map(|(index, slot)| {
-            let object = slot.object.as_ref()?;
+            let object = (!slot.retiring).then_some(slot.object.as_ref()).flatten()?;
             object.relations.iter().find_map(|relation| {
                 let contains = match &relation.value {
                     RetainedRelationValue::One(current) => *current == Some(child),
@@ -309,65 +625,6 @@ impl RetainedGraph {
     pub fn events(&self, object: ObjectId) -> Option<&[Event]> {
         self.get(object)
             .map(|object| retained_events(&object.events))
-    }
-
-    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
-        match observation {
-            Observation::SetProperty { object, property } => {
-                let Some(object) = self.try_get_mut(object) else {
-                    return Ok(());
-                };
-                validate_property(object.kind, &property)?;
-                let property_id = property.id;
-                object
-                    .properties
-                    .upsert(|current| current.id == property_id, property);
-            }
-            Observation::SetSelection { object, selected } => {
-                let Some(owner) = self.get(object) else {
-                    return Ok(());
-                };
-                let Some(contract) = selection_contract(owner.kind) else {
-                    return Err(GraphError::InvalidSelection(owner.kind));
-                };
-                if selected.is_some_and(|selected| {
-                    self.kind(selected) != Some(contract.item)
-                        || !contract.relations.iter().any(|relation| {
-                            self.children(object, *relation)
-                                .is_some_and(|children| children.contains(&selected))
-                        })
-                }) {
-                    return Ok(());
-                }
-                let children = contract
-                    .relations
-                    .iter()
-                    .flat_map(|relation| {
-                        self.children(object, *relation)
-                            .unwrap_or_default()
-                            .iter()
-                            .copied()
-                    })
-                    .collect::<Vec<_>>();
-                for child in children {
-                    let child_object = self.get_mut(child);
-                    if child_object
-                        .properties
-                        .iter()
-                        .any(|property| property.id == contract.selected_property)
-                    {
-                        child_object.properties.upsert(
-                            |property| property.id == contract.selected_property,
-                            Property {
-                                id: contract.selected_property,
-                                value: PropertyValue::Bool(Some(child) == selected),
-                            },
-                        );
-                    }
-                }
-            }
-        }
-        Ok(())
     }
 
     fn validate_event_dispatch(&self, dispatch: &EventDispatch) -> Result<bool, GraphError> {
@@ -440,7 +697,7 @@ impl RetainedGraph {
 
     fn get(&self, object: ObjectId) -> Option<&RetainedObject> {
         let slot = self.objects.get(object.index as usize)?;
-        (slot.generation == object.generation)
+        (slot.generation == object.generation && !slot.retiring)
             .then_some(slot.object.as_ref())
             .flatten()
     }
@@ -448,14 +705,8 @@ impl RetainedGraph {
     fn get_mut(&mut self, object: ObjectId) -> &mut RetainedObject {
         let slot = &mut self.objects[object.index as usize];
         assert_eq!(slot.generation, object.generation);
+        assert!(!slot.retiring);
         slot.object.as_mut().unwrap()
-    }
-
-    fn try_get_mut(&mut self, object: ObjectId) -> Option<&mut RetainedObject> {
-        let slot = self.objects.get_mut(object.index as usize)?;
-        (slot.generation == object.generation)
-            .then_some(slot.object.as_mut())
-            .flatten()
     }
 
     fn relation(&self, object: ObjectId, relation: RelationId) -> Option<&RetainedRelation> {
@@ -465,46 +716,18 @@ impl RetainedGraph {
             .find(|state| state.id == relation)
     }
 
-    fn relation_mut(&mut self, object: ObjectId, relation: RelationId) -> &mut RetainedRelation {
-        self.get_mut(object)
-            .relations
-            .iter_mut()
-            .find(|state| state.id == relation)
-            .unwrap()
+    fn retirement_nodes(&self, root: ObjectId) -> Option<&[ObjectId]> {
+        self.retirements
+            .get(&root)
+            .map(|retirement| retirement.nodes.as_slice())
     }
 
-    fn allocate(&mut self, object: RetainedObject) -> Result<ObjectId, GraphError> {
-        if let Some(index) = self.free.pop() {
-            let slot = &mut self.objects[index as usize];
-            slot.object = Some(object);
-            Ok(ObjectId {
-                index,
-                generation: slot.generation,
-            })
-        } else {
-            let index = self
-                .objects
-                .len()
-                .try_into()
-                .map_err(|_| GraphError::SizeExceeded)?;
-            let id = ObjectId {
-                index,
-                generation: 0,
-            };
-            self.objects.push(RetainedSlot {
-                generation: 0,
-                object: Some(object),
-            });
-            Ok(id)
-        }
-    }
-
-    fn remove(&mut self, object: ObjectId) {
-        let slot = &mut self.objects[object.index as usize];
-        assert_eq!(slot.generation, object.generation);
-        slot.object = None;
-        slot.generation = slot.generation.wrapping_add(1);
-        self.free.push(object.index);
+    fn retirements_for_parent(&self, parent: ObjectId) -> Vec<(ObjectId, Vec<ObjectId>)> {
+        self.retirements
+            .iter()
+            .filter(|(_, retirement)| retirement.parent == parent)
+            .map(|(root, retirement)| (*root, retirement.nodes.clone()))
+            .collect()
     }
 
     fn matches_declaration(
@@ -541,12 +764,40 @@ impl RetainedGraph {
         };
         if current.kind != declaration.kind
             || (compare_key && current.key != declaration.key)
+            || current.reference != declaration.reference
+            || current.exit_transition != declaration.exit_transition
             || current.properties.as_slice() != declaration.properties.as_slice()
             || retained_events(&current.events) != declaration.events.as_slice()
         {
             return Ok(false);
         }
-        for contract in relation_contracts(current.kind) {
+        if let Some(current_virtual) = &current.virtual_items {
+            let declared = declaration.virtual_items.as_ref();
+            if declared.map(|declared| &declared.items) != Some(&current_virtual.items)
+                || declared
+                    .and_then(|declared| declared.owner)
+                    .or(declaration.component)
+                    != current_virtual.owner
+            {
+                return Ok(false);
+            }
+        } else if declaration.virtual_items.is_some() {
+            return Ok(false);
+        }
+        let contracts = relation_contracts(current.kind);
+        for (index, relation) in declaration.relations.iter().enumerate() {
+            if !contracts.iter().any(|contract| contract.id == relation.id)
+                || declaration.relations.as_slice()[..index]
+                    .iter()
+                    .any(|previous| previous.id == relation.id)
+            {
+                return Ok(false);
+            }
+        }
+        for contract in contracts {
+            if contract.realization == Realization::Container && current.virtual_items.is_some() {
+                continue;
+            }
             let declared = declaration
                 .relations
                 .iter()
@@ -592,23 +843,412 @@ impl RetainedGraph {
         }
         Ok(true)
     }
+
+    fn validate_realization_request(
+        &self,
+        request: RealizationRequest,
+    ) -> Result<bool, GraphError> {
+        let (collection, source_revision, index) = match request {
+            RealizationRequest::Realize {
+                collection,
+                source_revision,
+                index,
+                ..
+            } => (collection, source_revision, Some(index)),
+            RealizationRequest::Recycle {
+                collection,
+                source_revision,
+                ..
+            }
+            | RealizationRequest::Cancel {
+                collection,
+                source_revision,
+                ..
+            } => (collection, source_revision, None),
+        };
+        let Some(object) = self.get(collection) else {
+            return Ok(false);
+        };
+        let Some(items) = &object.virtual_items else {
+            return Err(GraphError::InvalidRealization(
+                collection,
+                index.unwrap_or_default(),
+            ));
+        };
+        if items.source_revision != source_revision {
+            return Ok(false);
+        }
+        if let Some(index) = index
+            && index >= items.keys.len()
+        {
+            return Err(GraphError::InvalidRealization(collection, index));
+        }
+        Ok(true)
+    }
+
+    fn virtual_work(&self, request: RealizationRequest) -> Result<Option<VirtualWork>, GraphError> {
+        if !self.validate_realization_request(request)? {
+            return Ok(None);
+        }
+        match request {
+            RealizationRequest::Realize {
+                collection,
+                container,
+                index,
+                ..
+            } => {
+                let items = self
+                    .get(collection)
+                    .unwrap()
+                    .virtual_items
+                    .as_ref()
+                    .unwrap();
+                let key = items.keys[index].clone();
+                let revision = match items.active.get(&key) {
+                    Some((revision, _)) => *revision,
+                    None => items
+                        .lease_revision
+                        .checked_add(1)
+                        .ok_or(GraphError::SizeExceeded)?,
+                };
+                Ok(Some(VirtualWork::Realize {
+                    lease: RealizationLease {
+                        collection,
+                        container,
+                        key,
+                        revision,
+                    },
+                    index,
+                    view: items.items.view(index).ok_or(GraphError::SizeExceeded)?,
+                    owner: items.owner,
+                }))
+            }
+            RealizationRequest::Recycle {
+                collection,
+                container,
+                ..
+            } => {
+                let items = self
+                    .get(collection)
+                    .unwrap()
+                    .virtual_items
+                    .as_ref()
+                    .unwrap();
+                Ok(items
+                    .containers
+                    .get(&container)
+                    .map(|realization| VirtualWork::Recycle {
+                        lease: RealizationLease {
+                            collection,
+                            container,
+                            key: realization.key.clone(),
+                            revision: realization.revision,
+                        },
+                    }))
+            }
+            RealizationRequest::Cancel {
+                collection,
+                container,
+                ..
+            } => {
+                let relation = self
+                    .get(collection)
+                    .unwrap()
+                    .virtual_items
+                    .as_ref()
+                    .unwrap()
+                    .relation;
+                Ok(Some(VirtualWork::Cancel {
+                    collection,
+                    relation,
+                    container,
+                }))
+            }
+        }
+    }
 }
 
 pub trait Adapter {
     type Error;
 
-    fn drain_observations(&mut self, _observations: &mut Vec<Observation>) {}
-    fn drain_events(&mut self, _events: &mut Vec<EventDispatch>) {}
+    fn preview_native_events(&self, _events: &mut Vec<NativeEvent>) {}
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        None
+    }
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error>;
     fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error>;
+    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error>;
+}
+
+enum GraphUndo {
+    Root(Option<ObjectId>),
+    Slot {
+        index: usize,
+        previous: RetainedSlot,
+    },
+    ObjectPushed,
+    FreePopped(u32),
+    FreePushed(u32),
+    RetirementInserted(ObjectId),
+    RetirementRemoved {
+        root: ObjectId,
+        retirement: RetainedRetirement,
+    },
+}
+
+struct GraphTransaction<'a> {
+    graph: &'a mut RetainedGraph,
+    undo: Vec<GraphUndo>,
+    snapshotted_slots: HashSet<usize>,
+    initial_object_len: usize,
+    root_snapshotted: bool,
+    armed: bool,
+}
+
+impl<'a> GraphTransaction<'a> {
+    fn new(graph: &'a mut RetainedGraph) -> Self {
+        Self {
+            initial_object_len: graph.objects.len(),
+            graph,
+            undo: Vec::new(),
+            snapshotted_slots: HashSet::new(),
+            root_snapshotted: false,
+            armed: true,
+        }
+    }
+
+    fn snapshot_slot(&mut self, index: usize) {
+        if index < self.initial_object_len && self.snapshotted_slots.insert(index) {
+            self.undo.push(GraphUndo::Slot {
+                index,
+                previous: self.graph.objects[index].clone(),
+            });
+        }
+    }
+
+    fn get_mut(&mut self, object: ObjectId) -> &mut RetainedObject {
+        self.snapshot_slot(object.index as usize);
+        self.graph.get_mut(object)
+    }
+
+    fn relation_mut(&mut self, object: ObjectId, relation: RelationId) -> &mut RetainedRelation {
+        self.get_mut(object)
+            .relations
+            .iter_mut()
+            .find(|state| state.id == relation)
+            .unwrap()
+    }
+
+    fn set_root(&mut self, root: Option<ObjectId>) {
+        if self.graph.root == root {
+            return;
+        }
+        if !self.root_snapshotted {
+            self.undo.push(GraphUndo::Root(self.graph.root));
+            self.root_snapshotted = true;
+        }
+        self.graph.root = root;
+    }
+
+    fn allocate(&mut self, object: RetainedObject) -> Result<ObjectId, GraphError> {
+        if let Some(index) = self.graph.free.last().copied() {
+            self.snapshot_slot(index as usize);
+            let popped = self.graph.free.pop().unwrap();
+            debug_assert_eq!(popped, index);
+            self.undo.push(GraphUndo::FreePopped(index));
+            let slot = &mut self.graph.objects[index as usize];
+            slot.object = Some(object);
+            slot.retiring = false;
+            Ok(ObjectId {
+                index,
+                generation: slot.generation,
+            })
+        } else {
+            let index = self
+                .graph
+                .objects
+                .len()
+                .try_into()
+                .map_err(|_| GraphError::SizeExceeded)?;
+            let id = ObjectId {
+                index,
+                generation: 0,
+            };
+            self.undo.push(GraphUndo::ObjectPushed);
+            self.graph.objects.push(RetainedSlot {
+                generation: 0,
+                object: Some(object),
+                retiring: false,
+            });
+            Ok(id)
+        }
+    }
+
+    fn remove(&mut self, object: ObjectId) {
+        self.snapshot_slot(object.index as usize);
+        let slot = &mut self.graph.objects[object.index as usize];
+        assert_eq!(slot.generation, object.generation);
+        slot.object = None;
+        slot.retiring = false;
+        slot.generation = slot.generation.wrapping_add(1);
+        self.undo.push(GraphUndo::FreePushed(object.index));
+        self.graph.free.push(object.index);
+    }
+
+    fn mark_retiring(&mut self, root: ObjectId, nodes: Vec<ObjectId>, parent: ObjectId) {
+        for object in &nodes {
+            self.snapshot_slot(object.index as usize);
+            let slot = &mut self.graph.objects[object.index as usize];
+            assert_eq!(slot.generation, object.generation);
+            assert!(!slot.retiring);
+            slot.retiring = true;
+        }
+        self.undo.push(GraphUndo::RetirementInserted(root));
+        assert!(
+            self.graph
+                .retirements
+                .insert(root, RetainedRetirement { nodes, parent })
+                .is_none()
+        );
+    }
+
+    fn complete_retirement(&mut self, root: ObjectId) {
+        let Some(retirement) = self.graph.retirements.remove(&root) else {
+            return;
+        };
+        self.undo.push(GraphUndo::RetirementRemoved {
+            root,
+            retirement: retirement.clone(),
+        });
+        for object in retirement.nodes {
+            self.remove(object);
+        }
+    }
+
+    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
+        match observation {
+            Observation::SetProperty { object, property } => {
+                let Some(retained) = self.graph.get(object) else {
+                    return Ok(());
+                };
+                validate_property(retained.kind, &property)?;
+                let property_id = property.id;
+                self.get_mut(object)
+                    .properties
+                    .upsert(|current| current.id == property_id, property);
+            }
+            Observation::SetSelection { object, selected } => {
+                let Some(owner) = self.graph.get(object) else {
+                    return Ok(());
+                };
+                let Some(contract) = selection_contract(owner.kind) else {
+                    return Err(GraphError::InvalidSelection(owner.kind));
+                };
+                if selected.is_some_and(|selected| {
+                    self.graph.kind(selected) != Some(contract.item)
+                        || !contract.relations.iter().any(|relation| {
+                            self.graph
+                                .children(object, *relation)
+                                .is_some_and(|children| children.contains(&selected))
+                        })
+                }) {
+                    return Ok(());
+                }
+                let children = contract
+                    .relations
+                    .iter()
+                    .flat_map(|relation| {
+                        self.graph
+                            .children(object, *relation)
+                            .unwrap_or_default()
+                            .iter()
+                            .copied()
+                    })
+                    .collect::<Vec<_>>();
+                for child in children {
+                    let child_object = self.get_mut(child);
+                    if child_object
+                        .properties
+                        .iter()
+                        .any(|property| property.id == contract.selected_property)
+                    {
+                        child_object.properties.upsert(
+                            |property| property.id == contract.selected_property,
+                            Property {
+                                id: contract.selected_property,
+                                value: PropertyValue::Bool(Some(child) == selected),
+                            },
+                        );
+                    }
+                }
+            }
+        }
+        Ok(())
+    }
+
+    fn rollback_entries(&mut self) {
+        for undo in self.undo.drain(..).rev() {
+            match undo {
+                GraphUndo::Root(previous) => self.graph.root = previous,
+                GraphUndo::Slot { index, previous } => self.graph.objects[index] = previous,
+                GraphUndo::ObjectPushed => {
+                    self.graph.objects.pop().unwrap();
+                }
+                GraphUndo::FreePopped(index) => self.graph.free.push(index),
+                GraphUndo::FreePushed(index) => {
+                    assert_eq!(self.graph.free.pop(), Some(index));
+                }
+                GraphUndo::RetirementInserted(root) => {
+                    self.graph.retirements.remove(&root).unwrap();
+                }
+                GraphUndo::RetirementRemoved { root, retirement } => {
+                    assert!(self.graph.retirements.insert(root, retirement).is_none());
+                }
+            }
+        }
+    }
+
+    fn rollback(mut self) {
+        self.rollback_entries();
+        self.armed = false;
+    }
+
+    fn commit(mut self) {
+        self.armed = false;
+    }
+}
+
+impl std::ops::Deref for GraphTransaction<'_> {
+    type Target = RetainedGraph;
+
+    fn deref(&self) -> &Self::Target {
+        self.graph
+    }
+}
+
+impl Drop for GraphTransaction<'_> {
+    fn drop(&mut self) {
+        if self.armed {
+            self.rollback_entries();
+        }
+    }
+}
+
+#[cfg(test)]
+pub(crate) fn panic_during_transaction(graph: &mut RetainedGraph, object: ObjectId) {
+    let mut transaction = GraphTransaction::new(graph);
+    transaction.get_mut(object).exit_transition = ExitTransition::fade(Duration::from_millis(1));
+    panic!("test planning unwind");
 }
 
 pub struct Runtime<A> {
     graph: RetainedGraph,
     adapter: A,
     mutations: Vec<Mutation>,
-    observations: Vec<Observation>,
-    events: Vec<EventDispatch>,
+    native_events: Vec<NativeEvent>,
+    virtual_refreshes: VecDeque<RealizationRequest>,
+    validator: DeclarationValidator,
+    native_event_active: Rc<Cell<bool>>,
     poisoned: bool,
 }
 
@@ -618,8 +1258,10 @@ impl<A: Adapter> Runtime<A> {
             graph: RetainedGraph::default(),
             adapter,
             mutations: Vec::new(),
-            observations: Vec::new(),
-            events: Vec::new(),
+            native_events: Vec::new(),
+            virtual_refreshes: VecDeque::new(),
+            validator: DeclarationValidator::default(),
+            native_event_active: Rc::new(Cell::new(false)),
             poisoned: false,
         }
     }
@@ -636,51 +1278,572 @@ impl<A: Adapter> Runtime<A> {
         &mut self.adapter
     }
 
-    pub fn drain_events(
-        &mut self,
-        events: &mut Vec<EventDispatch>,
-    ) -> Result<(), UpdateError<A::Error>> {
+    pub fn focus(&mut self, reference: &ElementRef) -> Result<bool, UpdateError<A::Error>> {
         if self.poisoned {
             return Err(UpdateError::Poisoned);
         }
-        self.observations.clear();
-        self.adapter.drain_observations(&mut self.observations);
-        for observation in self.observations.drain(..) {
-            self.graph
-                .apply_observation(observation)
-                .map_err(UpdateError::Graph)?;
+        let object = reference
+            .get()
+            .ok_or(UpdateError::Graph(GraphError::ReferenceUnavailable))?;
+        let kind = self
+            .graph
+            .kind(object)
+            .ok_or(UpdateError::Graph(GraphError::StaleObject(object)))?;
+        if !focus_capable(kind) {
+            return Err(UpdateError::Graph(GraphError::InvalidFocus(kind)));
         }
-        self.events.clear();
-        self.adapter.drain_events(&mut self.events);
-        for event in self.events.drain(..) {
-            if self
-                .graph
-                .validate_event_dispatch(&event)
-                .map_err(UpdateError::Graph)?
+        self.adapter.focus(object).map_err(UpdateError::Adapter)
+    }
+
+    fn preview_native_events(&mut self) -> Result<(), UpdateError<A::Error>> {
+        self.native_events.clear();
+        self.adapter.preview_native_events(&mut self.native_events);
+        if self.native_events.is_empty() {
+            return Ok(());
+        }
+        let mut transaction = GraphTransaction::new(&mut self.graph);
+        for event in &self.native_events {
+            if let Some(observation) = &event.observation
+                && let Err(error) = transaction.apply_observation(observation.clone())
             {
-                events.push(event);
+                transaction.rollback();
+                self.poisoned = true;
+                return Err(UpdateError::InvalidNativeEvent(error));
+            }
+            if let Some(completion) = event.retirement {
+                transaction.complete_retirement(completion.root);
+            }
+            if let Some(realization) = event.realization
+                && let Err(error) = transaction.validate_realization_request(realization)
+            {
+                transaction.rollback();
+                self.poisoned = true;
+                return Err(UpdateError::InvalidNativeEvent(error));
             }
         }
+        transaction.rollback();
         Ok(())
+    }
+
+    fn pop_native_event(&mut self) -> Result<Option<EventDispatch>, UpdateError<A::Error>> {
+        let Some(event) = self.adapter.pop_native_event() else {
+            return Ok(None);
+        };
+        if let Some(observation) = event.observation {
+            let mut transaction = GraphTransaction::new(&mut self.graph);
+            if let Err(error) = transaction.apply_observation(observation) {
+                transaction.rollback();
+                self.poisoned = true;
+                return Err(UpdateError::InvalidNativeEvent(error));
+            }
+            transaction.commit();
+        }
+        if let Some(completion) = event.retirement {
+            self.apply_retirement_completion(completion)?;
+        }
+        if event.realization.is_some() {
+            return Err(UpdateError::PendingNativeEvent);
+        }
+        let Some(dispatch) = event.event else {
+            return Ok(None);
+        };
+        match self.graph.validate_event_dispatch(&dispatch) {
+            Ok(true) => Ok(Some(dispatch)),
+            Ok(false) => Ok(None),
+            Err(error) => {
+                self.poisoned = true;
+                Err(UpdateError::InvalidNativeEvent(error))
+            }
+        }
+    }
+
+    fn pop_native_work(&mut self) -> Result<Option<NativeWork>, UpdateError<A::Error>> {
+        let Some(event) = self.adapter.pop_native_event() else {
+            return Ok(None);
+        };
+        if let Some(observation) = event.observation {
+            let mut transaction = GraphTransaction::new(&mut self.graph);
+            if let Err(error) = transaction.apply_observation(observation) {
+                transaction.rollback();
+                self.poisoned = true;
+                return Err(UpdateError::InvalidNativeEvent(error));
+            }
+            transaction.commit();
+        }
+        if let Some(completion) = event.retirement {
+            self.apply_retirement_completion(completion)?;
+        }
+        if let Some(request) = event.realization {
+            if let RealizationRequest::Recycle {
+                collection,
+                container,
+                ..
+            }
+            | RealizationRequest::Cancel {
+                collection,
+                container,
+                ..
+            } = request
+            {
+                self.virtual_refreshes.retain(|refresh| {
+                    !matches!(
+                        refresh,
+                        RealizationRequest::Realize {
+                            collection: refresh_collection,
+                            container: refresh_container,
+                            ..
+                        } if *refresh_collection == collection && *refresh_container == container
+                    )
+                });
+            }
+            return self
+                .graph
+                .virtual_work(request)
+                .map(|work| work.map(NativeWork::Virtual))
+                .map_err(|error| {
+                    self.poisoned = true;
+                    UpdateError::InvalidNativeEvent(error)
+                });
+        }
+        let Some(dispatch) = event.event else {
+            return Ok(None);
+        };
+        match self.graph.validate_event_dispatch(&dispatch) {
+            Ok(true) => {
+                self.native_event_active.set(true);
+                Ok(Some(NativeWork::Event(NativeEventDispatch::new(
+                    dispatch,
+                    Rc::clone(&self.native_event_active),
+                ))))
+            }
+            Ok(false) => Ok(None),
+            Err(error) => {
+                self.poisoned = true;
+                Err(UpdateError::InvalidNativeEvent(error))
+            }
+        }
+    }
+
+    pub(crate) fn next_native_work(&mut self) -> Result<Option<NativeWork>, UpdateError<A::Error>> {
+        if self.poisoned {
+            return Err(UpdateError::Poisoned);
+        }
+        if self.native_event_active.get() {
+            return Err(UpdateError::NativeEventInProgress);
+        }
+        loop {
+            self.preview_native_events()?;
+            if !self.native_events.is_empty() {
+                if let Some(work) = self.pop_native_work()? {
+                    return Ok(Some(work));
+                }
+                continue;
+            }
+            if let Some(request) = self.virtual_refreshes.pop_front()
+                && let Some(work) = self
+                    .graph
+                    .virtual_work(request)
+                    .map_err(UpdateError::Graph)?
+            {
+                return Ok(Some(NativeWork::Virtual(work)));
+            }
+            if self.virtual_refreshes.is_empty() {
+                return Ok(None);
+            }
+        }
+    }
+
+    pub(crate) fn prepare_update(&mut self) -> Result<(), UpdateError<A::Error>> {
+        if self.poisoned {
+            return Err(UpdateError::Poisoned);
+        }
+        if self.native_event_active.get() {
+            return Ok(());
+        }
+        if !self.virtual_refreshes.is_empty() {
+            return Err(UpdateError::PendingNativeEvent);
+        }
+        loop {
+            self.preview_native_events()?;
+            let Some(next) = self.native_events.first() else {
+                return Ok(());
+            };
+            if next.event.is_some() || next.realization.is_some() {
+                return Err(UpdateError::PendingNativeEvent);
+            }
+            self.pop_native_event()?;
+        }
+    }
+
+    pub fn next_native_event(
+        &mut self,
+    ) -> Result<Option<NativeEventDispatch>, UpdateError<A::Error>> {
+        if self.poisoned {
+            return Err(UpdateError::Poisoned);
+        }
+        if self.native_event_active.get() {
+            return Err(UpdateError::NativeEventInProgress);
+        }
+        loop {
+            self.preview_native_events()?;
+            if self.native_events.is_empty() {
+                return Ok(None);
+            }
+            if let Some(event) = self.pop_native_event()? {
+                self.native_event_active.set(true);
+                return Ok(Some(NativeEventDispatch::new(
+                    event,
+                    Rc::clone(&self.native_event_active),
+                )));
+            }
+        }
+    }
+
+    pub fn dispatch_native_events(&mut self) -> Result<usize, UpdateError<A::Error>> {
+        let mut dispatched = 0;
+        while let Some(work) = self.next_native_work()? {
+            match work {
+                NativeWork::Event(mut event) => {
+                    event.invoke();
+                    dispatched += 1;
+                }
+                NativeWork::Virtual(VirtualWork::Realize {
+                    lease, index, view, ..
+                }) => {
+                    self.realize_virtual(&lease, index, view)?;
+                }
+                NativeWork::Virtual(VirtualWork::Recycle { lease }) => {
+                    self.recycle_virtual(&lease)?;
+                }
+                NativeWork::Virtual(VirtualWork::Cancel {
+                    collection,
+                    relation,
+                    container,
+                }) => {
+                    self.cancel_virtual(collection, relation, container)?;
+                }
+            }
+        }
+        Ok(dispatched)
+    }
+
+    pub(crate) fn realize_virtual(
+        &mut self,
+        lease: &RealizationLease,
+        index: usize,
+        root: impl Into<Visual>,
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        self.mutations.clear();
+        let mut declaration = root.into().0.object().map_err(UpdateError::Graph)?;
+        declaration.key = Some(lease.key.clone());
+        self.validator
+            .validate(&declaration)
+            .map_err(UpdateError::Graph)?;
+        let mut transaction = GraphTransaction::new(&mut self.graph);
+        let mut references = Vec::new();
+        let plan = (|| {
+            let snapshot = transaction
+                .get(lease.collection)
+                .and_then(|object| object.virtual_items.as_ref())
+                .cloned()
+                .ok_or(GraphError::StaleObject(lease.collection))?;
+            if snapshot.keys.get(index) != Some(&lease.key) {
+                return Err(GraphError::InvalidRealization(lease.collection, index));
+            }
+            let mut child = snapshot
+                .active
+                .get(&lease.key)
+                .and_then(|(_, container)| snapshot.containers.get(container))
+                .and_then(|active| active.child);
+            if let Some(current) = snapshot.containers.get(&lease.container)
+                && (current.key != lease.key || current.revision != lease.revision)
+            {
+                self.mutations.push(Mutation::Recycle {
+                    parent: lease.collection,
+                    relation: snapshot.relation,
+                    container: lease.container,
+                    child: current.child,
+                });
+                if snapshot
+                    .active
+                    .get(&current.key)
+                    .is_some_and(|(_, container)| *container == lease.container)
+                    && let Some(previous) = current.child
+                {
+                    let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+                    let RetainedRelationValue::Many(children) = &mut relation.value else {
+                        unreachable!();
+                    };
+                    children.retain(|current| *current != previous);
+                    let mut planner = Planner {
+                        retained: &mut transaction,
+                        mutations: &mut self.mutations,
+                        references: &mut references,
+                        virtual_refreshes: None,
+                    };
+                    planner.retire(previous);
+                }
+            }
+            if let Some((revision, container)) = snapshot.active.get(&lease.key) {
+                if *revision != lease.revision {
+                    return Err(GraphError::InvalidRealization(lease.collection, index));
+                }
+                if *container != lease.container {
+                    self.mutations.push(Mutation::Recycle {
+                        parent: lease.collection,
+                        relation: snapshot.relation,
+                        container: *container,
+                        child: snapshot
+                            .containers
+                            .get(container)
+                            .and_then(|realization| realization.child),
+                    });
+                }
+            } else if snapshot.lease_revision.checked_add(1) != Some(lease.revision) {
+                return Err(GraphError::InvalidRealization(lease.collection, index));
+            }
+            if let Some(current) = child {
+                if transaction.get(current).unwrap().kind == declaration.kind {
+                    let mut planner = Planner {
+                        retained: &mut transaction,
+                        mutations: &mut self.mutations,
+                        references: &mut references,
+                        virtual_refreshes: None,
+                    };
+                    planner.reconcile_object(current, &declaration)?;
+                } else {
+                    let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+                    let RetainedRelationValue::Many(children) = &mut relation.value else {
+                        unreachable!();
+                    };
+                    children.retain(|candidate| *candidate != current);
+                    let mut planner = Planner {
+                        retained: &mut transaction,
+                        mutations: &mut self.mutations,
+                        references: &mut references,
+                        virtual_refreshes: None,
+                    };
+                    planner.retire(current);
+                    child = None;
+                }
+            }
+            let child = if let Some(child) = child {
+                child
+            } else {
+                let mut planner = Planner {
+                    retained: &mut transaction,
+                    mutations: &mut self.mutations,
+                    references: &mut references,
+                    virtual_refreshes: None,
+                };
+                planner.mount(&declaration)?
+            };
+            let items = transaction
+                .get_mut(lease.collection)
+                .virtual_items
+                .as_mut()
+                .unwrap();
+            if !items.active.contains_key(&lease.key) {
+                items.lease_revision = lease.revision;
+            }
+            if let Some((_, previous)) = items
+                .active
+                .insert(lease.key.clone(), (lease.revision, lease.container))
+            {
+                items.containers.remove(&previous);
+            }
+            if let Some(previous) = items.containers.insert(
+                lease.container,
+                RetainedRealization {
+                    key: lease.key.clone(),
+                    index,
+                    revision: lease.revision,
+                    child: Some(child),
+                },
+            ) && previous.key != lease.key
+            {
+                items.active.remove(&previous.key);
+            }
+            let ordered = {
+                let mut active = items
+                    .containers
+                    .values()
+                    .filter_map(|realization| {
+                        realization.child.map(|child| (realization.index, child))
+                    })
+                    .collect::<Vec<_>>();
+                active.sort_unstable_by_key(|(index, _)| *index);
+                active.into_iter().map(|(_, child)| child).collect()
+            };
+            let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+            let RetainedRelationValue::Many(children) = &mut relation.value else {
+                unreachable!();
+            };
+            *children = ordered;
+            self.mutations.push(Mutation::Realize {
+                parent: lease.collection,
+                relation: snapshot.relation,
+                container: lease.container,
+                index,
+                child,
+            });
+            Ok::<(), GraphError>(())
+        })();
+        if let Err(error) = plan {
+            transaction.rollback();
+            self.mutations.clear();
+            return Err(UpdateError::Graph(error));
+        }
+        self.poisoned = true;
+        if let Err(error) = self.adapter.validate(&self.mutations) {
+            transaction.commit();
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        if let Err(error) = self.adapter.apply(&self.mutations) {
+            transaction.commit();
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        transaction.commit();
+        self.poisoned = false;
+        apply_reference_changes(references);
+        Ok(self.mutations.clone())
+    }
+
+    pub(crate) fn recycle_virtual(
+        &mut self,
+        lease: &RealizationLease,
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        self.recycle_virtual_before_apply(lease, || {})
+    }
+
+    pub(crate) fn recycle_virtual_before_apply(
+        &mut self,
+        lease: &RealizationLease,
+        before_apply: impl FnOnce(),
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        self.mutations.clear();
+        let mut transaction = GraphTransaction::new(&mut self.graph);
+        let mut references = Vec::new();
+        let plan = (|| {
+            let snapshot = transaction
+                .get(lease.collection)
+                .and_then(|object| object.virtual_items.as_ref())
+                .cloned()
+                .ok_or(GraphError::StaleObject(lease.collection))?;
+            let Some(realization) = snapshot.containers.get(&lease.container) else {
+                return Ok(());
+            };
+            if realization.key != lease.key || realization.revision != lease.revision {
+                return Ok(());
+            }
+            self.mutations.push(Mutation::Recycle {
+                parent: lease.collection,
+                relation: snapshot.relation,
+                container: lease.container,
+                child: realization.child,
+            });
+            let items = transaction
+                .get_mut(lease.collection)
+                .virtual_items
+                .as_mut()
+                .unwrap();
+            items.containers.remove(&lease.container);
+            if items
+                .active
+                .get(&lease.key)
+                .is_some_and(|(_, container)| *container == lease.container)
+            {
+                items.active.remove(&lease.key);
+            }
+            if let Some(child) = realization.child {
+                let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+                let RetainedRelationValue::Many(children) = &mut relation.value else {
+                    unreachable!();
+                };
+                children.retain(|current| *current != child);
+                let mut planner = Planner {
+                    retained: &mut transaction,
+                    mutations: &mut self.mutations,
+                    references: &mut references,
+                    virtual_refreshes: None,
+                };
+                planner.retire(child);
+            }
+            Ok::<(), GraphError>(())
+        })();
+        if let Err(error) = plan {
+            transaction.rollback();
+            self.mutations.clear();
+            return Err(UpdateError::Graph(error));
+        }
+        self.poisoned = true;
+        if let Err(error) = self.adapter.validate(&self.mutations) {
+            transaction.commit();
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            apply_reference_changes(references);
+            return Err(UpdateError::Adapter(error));
+        }
+        before_apply();
+        if let Err(error) = self.adapter.apply(&self.mutations) {
+            transaction.commit();
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            apply_reference_changes(references);
+            return Err(UpdateError::Adapter(error));
+        }
+        transaction.commit();
+        self.poisoned = false;
+        apply_reference_changes(references);
+        Ok(self.mutations.clone())
+    }
+
+    pub(crate) fn cancel_virtual(
+        &mut self,
+        collection: ObjectId,
+        relation: RelationId,
+        container: RealizedContainer,
+    ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
+        self.mutations.clear();
+        self.mutations.push(Mutation::Recycle {
+            parent: collection,
+            relation,
+            container,
+            child: None,
+        });
+        self.poisoned = true;
+        if let Err(error) = self.adapter.validate(&self.mutations) {
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        if let Err(error) = self.adapter.apply(&self.mutations) {
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        self.poisoned = false;
+        Ok(self.mutations.clone())
+    }
+
+    pub(crate) fn virtual_lease_active(&self, collection: ObjectId, key: &Key) -> bool {
+        self.graph
+            .get(collection)
+            .and_then(|object| object.virtual_items.as_ref())
+            .is_some_and(|items| items.active.contains_key(key))
     }
 
     pub fn update(
         &mut self,
         root: impl Into<Visual>,
     ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
-        if self.poisoned {
-            return Err(UpdateError::Poisoned);
-        }
+        self.prepare_update()?;
         self.mutations.clear();
         let declaration = root.into().0.object().map_err(UpdateError::Graph)?;
-        validate_declaration(&declaration).map_err(UpdateError::Graph)?;
-        self.observations.clear();
-        self.adapter.drain_observations(&mut self.observations);
-        for observation in self.observations.drain(..) {
-            self.graph
-                .apply_observation(observation)
-                .map_err(UpdateError::Graph)?;
-        }
         if let Some(root) = self.graph.root {
             let mut remaining = MAX_OBJECTS;
             if self
@@ -691,6 +1854,9 @@ impl<A: Adapter> Runtime<A> {
                 return Ok(Vec::new());
             }
         }
+        self.validator
+            .validate(&declaration)
+            .map_err(UpdateError::Graph)?;
         if let Some(current) = self.graph.root {
             let previous = self.graph.get(current).unwrap().kind;
             let next = declaration.kind;
@@ -701,31 +1867,45 @@ impl<A: Adapter> Runtime<A> {
                 }));
             }
         }
-        {
+        let mut transaction = GraphTransaction::new(&mut self.graph);
+        let mut references = Vec::new();
+        let mut virtual_refreshes = Vec::new();
+        let plan = (|| {
             let mut planner = Planner {
-                retained: &mut self.graph,
+                retained: &mut transaction,
                 mutations: &mut self.mutations,
+                references: &mut references,
+                virtual_refreshes: Some(&mut virtual_refreshes),
             };
             let root = match planner.retained.root {
-                Some(current) => planner
-                    .reconcile_object(current, &declaration)
-                    .map_err(UpdateError::Graph)?,
-                None => planner.mount(&declaration).map_err(UpdateError::Graph)?,
+                Some(current) => planner.reconcile_object(current, &declaration)?,
+                None => planner.mount(&declaration)?,
             };
-            planner.retained.root = Some(root);
+            planner.retained.set_root(Some(root));
+            Ok::<(), GraphError>(())
+        })();
+        if let Err(error) = plan {
+            transaction.rollback();
+            self.mutations.clear();
+            return Err(UpdateError::Graph(error));
         }
+        self.poisoned = true;
         if let Err(error) = self.adapter.validate(&self.mutations) {
-            self.poisoned = true;
+            transaction.commit();
             self.graph = RetainedGraph::default();
             self.mutations.clear();
             return Err(UpdateError::Adapter(error));
         }
         if let Err(error) = self.adapter.apply(&self.mutations) {
-            self.poisoned = true;
+            transaction.commit();
             self.graph = RetainedGraph::default();
             self.mutations.clear();
             return Err(UpdateError::Adapter(error));
         }
+        transaction.commit();
+        self.poisoned = false;
+        apply_reference_changes(references);
+        self.virtual_refreshes.extend(virtual_refreshes);
         let mutations = self.mutations.clone();
         if self.mutations.capacity() > 256 {
             self.mutations = Vec::with_capacity(256);
@@ -757,12 +1937,12 @@ impl<A: Adapter> Runtime<A> {
         owner: Option<(ObjectId, RelationId)>,
         before_apply: impl FnOnce(),
     ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
-        if self.poisoned {
-            return Err(UpdateError::Poisoned);
-        }
+        self.prepare_update()?;
         self.mutations.clear();
         let declaration = declaration.0.object().map_err(UpdateError::Graph)?;
-        validate_declaration(&declaration).map_err(UpdateError::Graph)?;
+        self.validator
+            .validate(&declaration)
+            .map_err(UpdateError::Graph)?;
         let previous = self
             .graph
             .get(object)
@@ -809,34 +1989,48 @@ impl<A: Adapter> Runtime<A> {
             before_apply();
             return Ok(Vec::new());
         }
-        {
+        let mut transaction = GraphTransaction::new(&mut self.graph);
+        let mut references = Vec::new();
+        let mut virtual_refreshes = Vec::new();
+        let plan = (|| {
             let mut planner = Planner {
-                retained: &mut self.graph,
+                retained: &mut transaction,
                 mutations: &mut self.mutations,
+                references: &mut references,
+                virtual_refreshes: Some(&mut virtual_refreshes),
             };
             if previous == declaration.kind {
-                planner
-                    .reconcile_object(object, &declaration)
-                    .map_err(UpdateError::Graph)?;
+                planner.reconcile_object(object, &declaration)?;
             } else {
-                planner
-                    .replace_object(object, &declaration)
-                    .map_err(UpdateError::Graph)?;
+                planner.replace_object(object, &declaration)?;
             }
+            Ok::<(), GraphError>(())
+        })();
+        if let Err(error) = plan {
+            transaction.rollback();
+            self.mutations.clear();
+            return Err(UpdateError::Graph(error));
         }
+        self.poisoned = true;
         if let Err(error) = self.adapter.validate(&self.mutations) {
-            self.poisoned = true;
+            transaction.commit();
             self.graph = RetainedGraph::default();
             self.mutations.clear();
             return Err(UpdateError::Adapter(error));
         }
+        self.poisoned = false;
         before_apply();
+        self.poisoned = true;
         if let Err(error) = self.adapter.apply(&self.mutations) {
-            self.poisoned = true;
+            transaction.commit();
             self.graph = RetainedGraph::default();
             self.mutations.clear();
             return Err(UpdateError::Adapter(error));
         }
+        transaction.commit();
+        self.poisoned = false;
+        apply_reference_changes(references);
+        self.virtual_refreshes.extend(virtual_refreshes);
         let mutations = self.mutations.clone();
         if self.mutations.capacity() > 256 {
             self.mutations = Vec::with_capacity(256);
@@ -850,9 +2044,7 @@ impl<A: Adapter> Runtime<A> {
         relation: RelationId,
         child: ObjectId,
     ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
-        if self.poisoned {
-            return Err(UpdateError::Poisoned);
-        }
+        self.prepare_update()?;
         self.mutations.clear();
         let index = self
             .graph
@@ -866,58 +2058,132 @@ impl<A: Adapter> Runtime<A> {
             .ok_or(UpdateError::Graph(GraphError::MissingChild(
                 relation, child,
             )))?;
-        self.mutations.push(Mutation::Remove {
-            parent,
-            relation,
-            child,
-            index,
-        });
-        {
+        let mut transaction = GraphTransaction::new(&mut self.graph);
+        let mut references = Vec::new();
+        let plan = (|| {
             let mut planner = Planner {
-                retained: &mut self.graph,
+                retained: &mut transaction,
                 mutations: &mut self.mutations,
+                references: &mut references,
+                virtual_refreshes: None,
             };
-            planner.retire(child);
+            if !planner.retire_with_transition(parent, relation, child)? {
+                planner.mutations.push(Mutation::Remove {
+                    parent,
+                    relation,
+                    child,
+                    index,
+                });
+                planner.retire(child);
+            }
+            Ok::<(), GraphError>(())
+        })();
+        if let Err(error) = plan {
+            transaction.rollback();
+            self.mutations.clear();
+            return Err(UpdateError::Graph(error));
         }
         let RetainedRelationValue::Many(children) =
-            &mut self.graph.relation_mut(parent, relation).value
+            &mut transaction.relation_mut(parent, relation).value
         else {
             unreachable!()
         };
         children.remove(index);
+        self.poisoned = true;
         if let Err(error) = self.adapter.validate(&self.mutations) {
-            self.poisoned = true;
+            transaction.commit();
             self.graph = RetainedGraph::default();
             self.mutations.clear();
             return Err(UpdateError::Adapter(error));
         }
         if let Err(error) = self.adapter.apply(&self.mutations) {
-            self.poisoned = true;
+            transaction.commit();
             self.graph = RetainedGraph::default();
             self.mutations.clear();
             return Err(UpdateError::Adapter(error));
         }
+        transaction.commit();
+        self.poisoned = false;
+        apply_reference_changes(references);
         let mutations = self.mutations.clone();
         if self.mutations.capacity() > 256 {
             self.mutations = Vec::with_capacity(256);
         }
         Ok(mutations)
     }
+
+    fn apply_retirement_completion(
+        &mut self,
+        completion: RetirementCompletion,
+    ) -> Result<(), UpdateError<A::Error>> {
+        self.mutations.clear();
+        let Some(nodes) = self.graph.retirement_nodes(completion.root) else {
+            return Ok(());
+        };
+        self.mutations.push(Mutation::CompleteRetirement {
+            root: completion.root,
+            nodes: nodes.to_vec(),
+        });
+        let mut transaction = GraphTransaction::new(&mut self.graph);
+        transaction.complete_retirement(completion.root);
+        self.poisoned = true;
+        if let Err(error) = self.adapter.validate(&self.mutations) {
+            transaction.commit();
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        if let Err(error) = self.adapter.apply(&self.mutations) {
+            transaction.commit();
+            self.graph = RetainedGraph::default();
+            self.mutations.clear();
+            return Err(UpdateError::Adapter(error));
+        }
+        transaction.commit();
+        self.mutations.clear();
+        self.poisoned = false;
+        Ok(())
+    }
 }
 
 #[derive(Debug, PartialEq)]
 pub enum UpdateError<E> {
     Graph(GraphError),
+    InvalidNativeEvent(GraphError),
     Adapter(E),
+    PendingNativeEvent,
+    NativeEventInProgress,
     Poisoned,
 }
 
-struct Planner<'a> {
-    retained: &'a mut RetainedGraph,
+struct Planner<'a, 'graph> {
+    retained: &'a mut GraphTransaction<'graph>,
     mutations: &'a mut Vec<Mutation>,
+    references: &'a mut Vec<ReferenceChange>,
+    virtual_refreshes: Option<&'a mut Vec<RealizationRequest>>,
 }
 
-impl Planner<'_> {
+enum ReferenceChange {
+    Clear {
+        reference: ElementRef,
+        object: ObjectId,
+    },
+    Set {
+        reference: ElementRef,
+        object: ObjectId,
+    },
+}
+
+fn apply_reference_changes(changes: Vec<ReferenceChange>) {
+    for change in changes {
+        match change {
+            ReferenceChange::Clear { reference, object } => reference.clear(object),
+            ReferenceChange::Set { reference, object } => reference.set(Some(object)),
+        }
+    }
+}
+
+impl Planner<'_, '_> {
     fn replace_object(
         &mut self,
         object: ObjectId,
@@ -948,10 +2214,24 @@ impl Planner<'_> {
                 RetainedRelationValue::One(None) => {}
             }
         }
-        let key = self.retained.get_mut(object).key.take();
+        let retained = self.retained.get_mut(object);
+        let key = retained.key.take();
+        if let Some(reference) = retained.reference.take() {
+            self.references
+                .push(ReferenceChange::Clear { reference, object });
+        }
+        if let Some(reference) = &declaration.reference {
+            self.references.push(ReferenceChange::Set {
+                reference: reference.clone(),
+                object,
+            });
+        }
+        let virtual_items = retain_virtual_items(declaration)?;
         *self.retained.get_mut(object) = RetainedObject {
             kind: declaration.kind,
             key,
+            reference: declaration.reference.clone(),
+            exit_transition: declaration.exit_transition,
             properties: declaration.properties.clone(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
@@ -964,6 +2244,7 @@ impl Planner<'_> {
                     },
                 })
                 .collect(),
+            virtual_items,
         };
         self.mutations.push(Mutation::Replace {
             object,
@@ -983,6 +2264,13 @@ impl Planner<'_> {
                 clear: Rc::from([]),
             });
         }
+        if let Some(items) = &self.retained.get(object).unwrap().virtual_items {
+            self.mutations.push(Mutation::SetVirtualSource {
+                object,
+                item_count: items.keys.len(),
+                source_revision: items.source_revision,
+            });
+        }
         for contract in relation_contracts(declaration.kind) {
             self.mount_relation(object, declaration, contract)?;
         }
@@ -990,9 +2278,12 @@ impl Planner<'_> {
     }
 
     fn mount(&mut self, declaration: &Declaration) -> Result<ObjectId, GraphError> {
+        let virtual_items = retain_virtual_items(declaration)?;
         let object = self.retained.allocate(RetainedObject {
             kind: declaration.kind,
             key: declaration.key.clone(),
+            reference: declaration.reference.clone(),
+            exit_transition: declaration.exit_transition,
             properties: declaration.properties.clone(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
@@ -1005,7 +2296,14 @@ impl Planner<'_> {
                     },
                 })
                 .collect(),
+            virtual_items,
         })?;
+        if let Some(reference) = &declaration.reference {
+            self.references.push(ReferenceChange::Set {
+                reference: reference.clone(),
+                object,
+            });
+        }
         self.mutations.push(Mutation::Create {
             object,
             kind: declaration.kind,
@@ -1031,6 +2329,13 @@ impl Planner<'_> {
                 clear: Rc::from([]),
             });
         }
+        if let Some(items) = &self.retained.get(object).unwrap().virtual_items {
+            self.mutations.push(Mutation::SetVirtualSource {
+                object,
+                item_count: items.keys.len(),
+                source_revision: items.source_revision,
+            });
+        }
         for contract in relation_contracts(declaration.kind) {
             self.mount_relation(object, declaration, contract)?;
         }
@@ -1043,6 +2348,11 @@ impl Planner<'_> {
         declaration: &Declaration,
         contract: &RelationContract,
     ) -> Result<(), GraphError> {
+        if contract.realization == Realization::Container
+            && self.retained.get(object).unwrap().virtual_items.is_some()
+        {
+            return Ok(());
+        }
         let relation = declaration
             .relations
             .iter()
@@ -1097,6 +2407,25 @@ impl Planner<'_> {
         declaration: &Declaration,
     ) -> Result<ObjectId, GraphError> {
         debug_assert_eq!(self.retained.get(object).unwrap().kind, declaration.kind);
+        if self.retained.get(object).unwrap().reference != declaration.reference {
+            if let Some(reference) = self.retained.get_mut(object).reference.take() {
+                self.references
+                    .push(ReferenceChange::Clear { reference, object });
+            }
+            if let Some(reference) = &declaration.reference {
+                self.references.push(ReferenceChange::Set {
+                    reference: reference.clone(),
+                    object,
+                });
+            }
+            self.retained
+                .get_mut(object)
+                .reference
+                .clone_from(&declaration.reference);
+        }
+        if self.retained.get(object).unwrap().exit_transition != declaration.exit_transition {
+            self.retained.get_mut(object).exit_transition = declaration.exit_transition;
+        }
         let properties = declaration.properties.as_slice();
         if self.retained.get(object).unwrap().properties.as_slice() != properties {
             let previous = self.retained.get(object).unwrap().properties.clone();
@@ -1138,6 +2467,7 @@ impl Planner<'_> {
             self.mutations
                 .push(Mutation::SetEvents { object, set, clear });
         }
+        self.reconcile_virtual_items(object, declaration)?;
         for contract in relation_contracts(declaration.kind) {
             self.reconcile_relation(object, declaration, contract)?;
         }
@@ -1150,6 +2480,11 @@ impl Planner<'_> {
         declaration: &Declaration,
         contract: &RelationContract,
     ) -> Result<(), GraphError> {
+        if contract.realization == Realization::Container
+            && self.retained.get(object).unwrap().virtual_items.is_some()
+        {
+            return Ok(());
+        }
         let relation = declaration
             .relations
             .iter()
@@ -1174,6 +2509,15 @@ impl Planner<'_> {
                     }
                     (previous, desired) => {
                         if let Some(previous) = previous {
+                            if self
+                                .retained
+                                .get(previous)
+                                .unwrap()
+                                .exit_transition
+                                .is_some()
+                            {
+                                return Err(GraphError::ExitTransitionUnsupported);
+                            }
                             self.mutations.push(Mutation::Detach {
                                 parent: object,
                                 relation: contract.id,
@@ -1209,6 +2553,169 @@ impl Planner<'_> {
         Ok(())
     }
 
+    fn reconcile_virtual_items(
+        &mut self,
+        object: ObjectId,
+        declaration: &Declaration,
+    ) -> Result<(), GraphError> {
+        let Some(previous) = self.retained.get(object).unwrap().virtual_items.clone() else {
+            return Ok(());
+        };
+        let declared =
+            declaration
+                .virtual_items
+                .as_deref()
+                .cloned()
+                .unwrap_or(DeclaredVirtualItems {
+                    relation: previous.relation,
+                    owner: declaration.component,
+                    items: VirtualItems::Eager(Rc::default()),
+                });
+        if declared.relation != previous.relation {
+            return Err(GraphError::InvalidRelation(
+                declaration.kind,
+                declared.relation,
+            ));
+        }
+        let keys = match (&previous.items, &declared.items) {
+            (VirtualItems::Lazy(previous_source), VirtualItems::Lazy(next_source))
+                if previous_source.key_revision == next_source.key_revision
+                    && previous_source.len == next_source.len =>
+            {
+                Rc::clone(&previous.keys)
+            }
+            _ => Rc::new(virtual_keys(&declared.items)?),
+        };
+        let items_changed = previous.items != declared.items;
+        let keys_changed = previous.keys.as_ref() != keys.as_ref();
+        let source_revision = if keys_changed {
+            previous
+                .source_revision
+                .checked_add(1)
+                .ok_or(GraphError::SizeExceeded)?
+        } else {
+            previous.source_revision
+        };
+        let old_by_key = previous
+            .containers
+            .values()
+            .map(|realization| (realization.key.clone(), realization.clone()))
+            .collect::<HashMap<_, _>>();
+        let represented = previous
+            .containers
+            .values()
+            .filter_map(|realization| keys.get(realization.index))
+            .cloned()
+            .collect::<HashSet<_>>();
+        let mut lease_revision = previous.lease_revision;
+        let mut containers = HashMap::with_capacity(previous.containers.len());
+        let mut active = HashMap::with_capacity(previous.active.len());
+        let mut retired = HashSet::new();
+        let mut previous_containers = previous.containers.iter().collect::<Vec<_>>();
+        previous_containers
+            .sort_unstable_by_key(|(container, realization)| (realization.index, container.0));
+        for (container, current) in previous_containers {
+            let Some(key) = keys.get(current.index).cloned() else {
+                self.mutations.push(Mutation::Recycle {
+                    parent: object,
+                    relation: previous.relation,
+                    container: *container,
+                    child: current.child,
+                });
+                if let Some(child) = current.child
+                    && !represented.contains(&current.key)
+                    && retired.insert(child)
+                {
+                    self.retire(child);
+                }
+                continue;
+            };
+            let preserved = old_by_key.get(&key);
+            let child = preserved.and_then(|realization| realization.child);
+            let revision = if let Some(realization) = preserved {
+                realization.revision
+            } else {
+                lease_revision = lease_revision
+                    .checked_add(1)
+                    .ok_or(GraphError::SizeExceeded)?;
+                lease_revision
+            };
+            if current.key != key || current.child != child {
+                self.mutations.push(Mutation::Recycle {
+                    parent: object,
+                    relation: previous.relation,
+                    container: *container,
+                    child: current.child,
+                });
+                if let Some(current_child) = current.child
+                    && !represented.contains(&current.key)
+                    && retired.insert(current_child)
+                {
+                    self.retire(current_child);
+                }
+            }
+            containers.insert(
+                *container,
+                RetainedRealization {
+                    key: key.clone(),
+                    revision,
+                    index: current.index,
+                    child,
+                },
+            );
+            active.insert(key, (revision, *container));
+        }
+        let children = {
+            let mut children = containers
+                .values()
+                .filter_map(|realization| realization.child.map(|child| (realization.index, child)))
+                .collect::<Vec<_>>();
+            children.sort_unstable_by_key(|(index, _)| *index);
+            children.into_iter().map(|(_, child)| child).collect()
+        };
+        let relation = self.retained.relation_mut(object, previous.relation);
+        let RetainedRelationValue::Many(retained_children) = &mut relation.value else {
+            unreachable!();
+        };
+        *retained_children = children;
+        let retained = self
+            .retained
+            .get_mut(object)
+            .virtual_items
+            .as_mut()
+            .unwrap();
+        retained.owner = declared.owner.or(declaration.component);
+        retained.items = declared.items;
+        retained.keys = keys;
+        retained.source_revision = source_revision;
+        retained.lease_revision = lease_revision;
+        retained.containers = containers;
+        retained.active = active;
+        if items_changed || keys_changed {
+            self.mutations.push(Mutation::SetVirtualSource {
+                object,
+                item_count: retained.keys.len(),
+                source_revision,
+            });
+        }
+        if (items_changed || keys_changed)
+            && let Some(refreshes) = self.virtual_refreshes.as_mut()
+        {
+            let mut containers = retained.containers.iter().collect::<Vec<_>>();
+            containers
+                .sort_unstable_by_key(|(container, realization)| (realization.index, container.0));
+            refreshes.extend(containers.into_iter().map(|(container, realization)| {
+                RealizationRequest::Realize {
+                    collection: object,
+                    container: *container,
+                    index: realization.index,
+                    source_revision,
+                }
+            }));
+        }
+        Ok(())
+    }
+
     fn reconcile_keyed_many(
         &mut self,
         object: ObjectId,
@@ -1221,30 +2728,35 @@ impl Planner<'_> {
                 RelationValue::One(_) => unreachable!(),
             })
             .unwrap_or_default();
-        let desired = desired
-            .iter()
-            .map(DeclaredNode::as_object)
-            .collect::<Result<Vec<_>, _>>()?;
         let same_order = match &self.retained.relation(object, relation_id).unwrap().value {
-            RetainedRelationValue::Many(previous) if previous.len() == desired.len() => previous
-                .iter()
-                .zip(desired.iter().copied())
-                .all(|(previous, desired)| {
+            RetainedRelationValue::Many(previous) if previous.len() == desired.len() => {
+                let mut same_order = true;
+                for (previous, desired) in previous.iter().zip(desired) {
                     let previous = self.retained.get(*previous).unwrap();
-                    previous.kind == desired.kind && previous.key == desired.key
-                }),
+                    let desired = desired.as_object()?;
+                    if previous.kind != desired.kind || previous.key != desired.key {
+                        same_order = false;
+                        break;
+                    }
+                }
+                same_order
+            }
             _ => false,
         };
         if same_order {
-            for (index, desired) in desired.iter().copied().enumerate() {
+            for (index, desired) in desired.iter().enumerate() {
                 let previous = match &self.retained.relation(object, relation_id).unwrap().value {
                     RetainedRelationValue::Many(previous) => previous[index],
                     _ => unreachable!(),
                 };
-                self.reconcile_object(previous, desired)?;
+                self.reconcile_object(previous, desired.as_object()?)?;
             }
             return Ok(());
         }
+        let desired = desired
+            .iter()
+            .map(DeclaredNode::as_object)
+            .collect::<Result<Vec<_>, _>>()?;
         let previous = match &self.retained.relation(object, relation_id).unwrap().value {
             RetainedRelationValue::Many(children) => children.clone(),
             _ => unreachable!(),
@@ -1279,13 +2791,15 @@ impl Planner<'_> {
         removed.sort_unstable_by_key(|(_, index)| std::cmp::Reverse(*index));
         let mut current = previous.clone();
         for (child, index) in removed {
-            self.mutations.push(Mutation::Remove {
-                parent: object,
-                relation: relation_id,
-                child,
-                index,
-            });
-            self.retire(child);
+            if !self.retire_with_transition(object, relation_id, child)? {
+                self.mutations.push(Mutation::Remove {
+                    parent: object,
+                    relation: relation_id,
+                    child,
+                    index,
+                });
+                self.retire(child);
+            }
             current.remove(index);
         }
 
@@ -1355,9 +2869,7 @@ impl Planner<'_> {
             moves
         }
 
-        fn longest_increasing_positions(
-            sequence: &[(usize, usize)],
-        ) -> std::collections::HashSet<usize> {
+        fn longest_increasing_positions(sequence: &[(usize, usize)]) -> HashSet<usize> {
             let mut tails = Vec::<usize>::new();
             let mut predecessors = vec![None; sequence.len()];
 
@@ -1373,7 +2885,7 @@ impl Planner<'_> {
                 }
             }
 
-            let mut positions = std::collections::HashSet::with_capacity(tails.len());
+            let mut positions = HashSet::with_capacity(tails.len());
             let mut cursor = tails.last().copied();
             while let Some(sequence_index) = cursor {
                 positions.insert(sequence[sequence_index].0);
@@ -1410,13 +2922,15 @@ impl Planner<'_> {
                 if self.retained.get(previous).unwrap().kind == desired.kind {
                     self.reconcile_object(previous, desired)?
                 } else {
-                    self.mutations.push(Mutation::Remove {
-                        parent: object,
-                        relation: relation_id,
-                        child: previous,
-                        index,
-                    });
-                    self.retire(previous);
+                    if !self.retire_with_transition(object, relation_id, previous)? {
+                        self.mutations.push(Mutation::Remove {
+                            parent: object,
+                            relation: relation_id,
+                            child: previous,
+                            index,
+                        });
+                        self.retire(previous);
+                    }
                     let child = self.mount(desired)?;
                     self.mutations.push(Mutation::Insert {
                         parent: object,
@@ -1445,13 +2959,15 @@ impl Planner<'_> {
             .rev()
             .map(|(index, child)| (index, *child))
         {
-            self.mutations.push(Mutation::Remove {
-                parent: object,
-                relation: relation_id,
-                child,
-                index,
-            });
-            self.retire(child);
+            if !self.retire_with_transition(object, relation_id, child)? {
+                self.mutations.push(Mutation::Remove {
+                    parent: object,
+                    relation: relation_id,
+                    child,
+                    index,
+                });
+                self.retire(child);
+            }
         }
         if previous != next {
             self.retained.relation_mut(object, relation_id).value =
@@ -1461,6 +2977,16 @@ impl Planner<'_> {
     }
 
     fn retire(&mut self, object: ObjectId) {
+        for (root, nodes) in self.retained.retirements_for_parent(object) {
+            self.mutations
+                .push(Mutation::CompleteRetirement { root, nodes });
+            self.retained.complete_retirement(root);
+        }
+        if let Some(reference) = self.retained.get_mut(object).reference.take() {
+            self.references
+                .push(ReferenceChange::Clear { reference, object });
+        }
+        let virtual_items = self.retained.get_mut(object).virtual_items.take();
         let relations = std::mem::take(&mut self.retained.get_mut(object).relations);
         for relation in relations {
             match relation.value {
@@ -1473,14 +2999,35 @@ impl Planner<'_> {
                     self.retire(child);
                 }
                 RetainedRelationValue::Many(children) => {
-                    for (index, child) in children.into_iter().enumerate().rev() {
-                        self.mutations.push(Mutation::Remove {
-                            parent: object,
-                            relation: relation.id,
-                            child,
-                            index,
+                    if let Some(items) = virtual_items
+                        .as_ref()
+                        .filter(|items| items.relation == relation.id)
+                    {
+                        let mut containers = items.containers.iter().collect::<Vec<_>>();
+                        containers.sort_unstable_by_key(|(container, realization)| {
+                            (realization.index, container.0)
                         });
-                        self.retire(child);
+                        for (container, realization) in containers {
+                            self.mutations.push(Mutation::Recycle {
+                                parent: object,
+                                relation: relation.id,
+                                container: *container,
+                                child: realization.child,
+                            });
+                        }
+                        for child in children.into_iter().rev() {
+                            self.retire(child);
+                        }
+                    } else {
+                        for (index, child) in children.into_iter().enumerate().rev() {
+                            self.mutations.push(Mutation::Remove {
+                                parent: object,
+                                relation: relation.id,
+                                child,
+                                index,
+                            });
+                            self.retire(child);
+                        }
                     }
                 }
                 RetainedRelationValue::One(None) => {}
@@ -1488,5 +3035,67 @@ impl Planner<'_> {
         }
         self.mutations.push(Mutation::Destroy { object });
         self.retained.remove(object);
+    }
+
+    fn retire_with_transition(
+        &mut self,
+        parent: ObjectId,
+        relation: RelationId,
+        root: ObjectId,
+    ) -> Result<bool, GraphError> {
+        let Some(transition) = self.retained.get(root).unwrap().exit_transition else {
+            return Ok(false);
+        };
+        let contract = relation_contracts(self.retained.get(parent).unwrap().kind)
+            .iter()
+            .find(|contract| contract.id == relation)
+            .unwrap();
+        if contract.cardinality != Cardinality::Many || contract.realization != Realization::Owned {
+            return Err(GraphError::ExitTransitionUnsupported);
+        }
+        let mut nodes = Vec::new();
+        self.collect_subtree_postorder(root, &mut nodes);
+        for object in &nodes {
+            let retained = self.retained.get_mut(*object);
+            if let Some(reference) = retained.reference.take() {
+                self.references.push(ReferenceChange::Clear {
+                    reference,
+                    object: *object,
+                });
+            }
+            if let Some(events) = retained.events.take() {
+                self.mutations.push(Mutation::SetEvents {
+                    object: *object,
+                    set: Rc::from([]),
+                    clear: events.iter().map(|event| event.id).collect(),
+                });
+            }
+        }
+        self.mutations.push(Mutation::Retire {
+            root,
+            nodes: nodes.clone(),
+            parent,
+            relation,
+            duration: transition.duration(),
+        });
+        self.retained.mark_retiring(root, nodes, parent);
+        Ok(true)
+    }
+
+    fn collect_subtree_postorder(&self, object: ObjectId, nodes: &mut Vec<ObjectId>) {
+        for relation in &self.retained.get(object).unwrap().relations {
+            match &relation.value {
+                RetainedRelationValue::One(Some(child)) => {
+                    self.collect_subtree_postorder(*child, nodes);
+                }
+                RetainedRelationValue::Many(children) => {
+                    for child in children {
+                        self.collect_subtree_postorder(*child, nodes);
+                    }
+                }
+                RetainedRelationValue::One(None) => {}
+            }
+        }
+        nodes.push(object);
     }
 }

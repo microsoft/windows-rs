@@ -189,7 +189,6 @@ struct Harness {
     runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     callback: reactor2::Callback<Rc<str>>,
     pending_text: Rc<RefCell<Option<Rc<str>>>>,
-    events: Vec<reactor2::EventDispatch>,
     measurements: Arc<Measurements>,
     root: reactor2::ObjectId,
     window: reactor2::native::NativeWindow,
@@ -226,7 +225,6 @@ fn create_harness(
         runtime,
         callback,
         pending_text,
-        events: Vec::new(),
         measurements: Arc::clone(&measurements),
         root,
         window,
@@ -256,19 +254,21 @@ fn create_harness(
 
 fn process_events(holder: &Weak<RefCell<Option<Harness>>>) {
     let holder = holder.upgrade().unwrap();
-    let mut events = {
-        let mut holder = holder.borrow_mut();
-        let harness = holder.as_mut().unwrap();
-        let mut events = std::mem::take(&mut harness.events);
-        harness.runtime.drain_events(&mut events).unwrap();
-        events
-    };
-    for event in events.drain(..) {
+    loop {
+        let event = holder
+            .borrow_mut()
+            .as_mut()
+            .unwrap()
+            .runtime
+            .next_native_event()
+            .unwrap();
+        let Some(mut event) = event else {
+            break;
+        };
         event.invoke();
     }
     let mut holder = holder.borrow_mut();
     let harness = holder.as_mut().unwrap();
-    harness.events = events;
     let Some(text) = harness.pending_text.borrow_mut().take() else {
         return;
     };

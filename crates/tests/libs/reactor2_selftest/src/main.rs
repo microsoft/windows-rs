@@ -37,7 +37,12 @@ struct Fixture {
     boundary_window: reactor2::native::NativeWindow,
     pointer_runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     pointer_window: reactor2::native::NativeWindow,
+    retirement_runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
+    retirement_window: reactor2::native::NativeWindow,
+    retiring_object: reactor2::ObjectId,
+    retirement_verified: bool,
     received_pointer: Rc<RefCell<Option<reactor2::PointerEventInfo>>>,
+    pointer_injected: bool,
     pointer_waits: usize,
     runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     window: reactor2::native::NativeWindow,
@@ -357,15 +362,20 @@ impl Component for Fixture {
             .unwrap();
         replacement_runtime
             .adapter()
+            .simulate_text_input(replacement_child, "First", 0, 0)
+            .unwrap();
+        replacement_runtime
+            .adapter()
             .simulate_text_input(replacement_child, "Stale", 0, 0)
             .unwrap();
+        let mut active = replacement_runtime.next_native_event().unwrap().unwrap();
+        active.invoke();
         replacement_runtime
             .update_subtree(replacement_child, reactor2::Border::new())
             .unwrap();
-        let mut stale_events = Vec::new();
-        replacement_runtime.drain_events(&mut stale_events).unwrap();
-        assert!(stale_events.is_empty());
-        assert_eq!(stale_calls.get(), 0);
+        drop(active);
+        assert_eq!(replacement_runtime.dispatch_native_events().unwrap(), 0);
+        assert_eq!(stale_calls.get(), 1);
         replacement_runtime
             .adapter()
             .validate_graph(replacement_runtime.graph())
@@ -386,11 +396,7 @@ impl Component for Fixture {
         let button = button_runtime.graph().root().unwrap();
         let button_window = button_runtime.adapter().open_window(button).unwrap();
         button_runtime.adapter().simulate_click(button).unwrap();
-        let mut button_events = Vec::new();
-        button_runtime.drain_events(&mut button_events).unwrap();
-        for event in button_events {
-            event.invoke();
-        }
+        assert_eq!(button_runtime.dispatch_native_events().unwrap(), 1);
         assert_eq!(button_calls.get(), 1);
         button_runtime
             .adapter()
@@ -438,6 +444,12 @@ impl Component for Fixture {
             .simulate_pointer_released(pointer_border, pointer_value)
             .unwrap();
         pointer_runtime
+            .adapter()
+            .simulate_pointer_released(pointer_border, pointer_value)
+            .unwrap();
+        let mut active = pointer_runtime.next_native_event().unwrap().unwrap();
+        active.invoke();
+        pointer_runtime
             .update(
                 reactor2::Border::new()
                     .width(200.0)
@@ -448,18 +460,14 @@ impl Component for Fixture {
                     }),
             )
             .unwrap();
-        let mut pointer_events = Vec::new();
-        pointer_runtime.drain_events(&mut pointer_events).unwrap();
-        assert!(pointer_events.is_empty());
-        assert_eq!(stale_pointer_calls.get(), 0);
+        drop(active);
+        assert_eq!(pointer_runtime.dispatch_native_events().unwrap(), 0);
+        assert_eq!(stale_pointer_calls.get(), 1);
         pointer_runtime
             .adapter()
             .simulate_pointer_released(pointer_border, pointer_value)
             .unwrap();
-        pointer_runtime.drain_events(&mut pointer_events).unwrap();
-        for event in pointer_events {
-            event.invoke();
-        }
+        assert_eq!(pointer_runtime.dispatch_native_events().unwrap(), 1);
         assert_eq!(*received_pointer.borrow(), Some(pointer_value));
         *received_pointer.borrow_mut() = None;
         pointer_runtime
@@ -476,6 +484,7 @@ impl Component for Fixture {
         let toggle_changed_count = Rc::new(Cell::new(0));
         let toggle_changed_callback = Rc::clone(&toggle_changed);
         let toggle_count_callback = Rc::clone(&toggle_changed_count);
+        let focus_reference = reactor2::ElementRef::default();
         generated_runtime
             .update(
                 reactor2::StackPanel::new()
@@ -522,6 +531,18 @@ impl Component for Fixture {
                             .label("Icon")
                             .icon(reactor2::SymbolIcon::new())
                             .into(),
+                        reactor2::Button::new()
+                            .element_ref(&focus_reference)
+                            .is_enabled(true)
+                            .min_width(20.0)
+                            .max_height(80.0)
+                            .grid_row(2)
+                            .relative_align_left()
+                            .automation_name("capability button")
+                            .into(),
+                        reactor2::TextBlock::new("Styled")
+                            .font_weight(reactor2::FontWeight::SEMI_BOLD)
+                            .into(),
                     ]),
             )
             .unwrap();
@@ -546,6 +567,8 @@ impl Component for Fixture {
             .graph()
             .children(canvas, reactor2::RelationId::Children)
             .unwrap()[0];
+        let capability_button = generated_children[6];
+        let styled_text = generated_children[7];
         assert_eq!(
             generated_runtime
                 .adapter()
@@ -576,11 +599,132 @@ impl Component for Fixture {
                 .unwrap(),
             (12.0, 24.0)
         );
-        let mut generated_events = Vec::new();
-        generated_runtime
-            .drain_events(&mut generated_events)
+        assert_eq!(
+            generated_runtime
+                .adapter()
+                .capability_state(capability_button)
+                .unwrap(),
+            (20.0, 80.0, 2, true, "capability button".to_string(), true,)
+        );
+        assert_eq!(
+            generated_runtime
+                .adapter()
+                .text_block_font_weight(styled_text)
+                .unwrap(),
+            600
+        );
+        let mut early_virtual_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        early_virtual_runtime
+            .update(
+                reactor2::ItemsRepeater::new().virtual_source(reactor2::VirtualSource::new(
+                    1,
+                    10_000,
+                    reactor2::Key::from,
+                    |index| -> reactor2::Visual {
+                        reactor2::TextBlock::new(format!("virtual {index}")).into()
+                    },
+                )),
+            )
             .unwrap();
-        assert!(generated_events.is_empty());
+        let early_virtual_root = early_virtual_runtime.graph().root().unwrap();
+        let early_virtual_window = early_virtual_runtime
+            .adapter()
+            .open_window(early_virtual_root)
+            .unwrap();
+        early_virtual_runtime
+            .adapter()
+            .realize_virtual_item(early_virtual_root, 9_999)
+            .unwrap();
+        assert_eq!(early_virtual_runtime.dispatch_native_events().unwrap(), 0);
+        assert!(early_virtual_runtime.graph().object_count() < 100);
+        assert!(
+            early_virtual_runtime
+                .adapter()
+                .virtual_shell_count(early_virtual_root)
+                .unwrap()
+                < 100
+        );
+        early_virtual_runtime
+            .adapter()
+            .validate_graph(early_virtual_runtime.graph())
+            .unwrap();
+        early_virtual_window.close().unwrap();
+
+        let mut destroyed_virtual_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        destroyed_virtual_runtime
+            .update(reactor2::Grid::new().children([reactor2::keyed(
+                "repeater",
+                reactor2::ItemsRepeater::new().item("row", reactor2::TextBlock::new("row")),
+            )]))
+            .unwrap();
+        let destroyed_virtual_root = destroyed_virtual_runtime.graph().root().unwrap();
+        let destroyed_repeater = destroyed_virtual_runtime
+            .graph()
+            .children(destroyed_virtual_root, reactor2::RelationId::Children)
+            .unwrap()[0];
+        let destroyed_virtual_window = destroyed_virtual_runtime
+            .adapter()
+            .open_window(destroyed_virtual_root)
+            .unwrap();
+        destroyed_virtual_runtime
+            .adapter()
+            .realize_virtual_item(destroyed_repeater, 0)
+            .unwrap();
+        assert_eq!(
+            destroyed_virtual_runtime.dispatch_native_events().unwrap(),
+            0
+        );
+        destroyed_virtual_runtime
+            .update(reactor2::Grid::new())
+            .unwrap();
+        destroyed_virtual_runtime
+            .adapter()
+            .validate_graph(destroyed_virtual_runtime.graph())
+            .unwrap();
+        destroyed_virtual_window.close().unwrap();
+
+        let mut replaced_virtual_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        replaced_virtual_runtime
+            .update(reactor2::Grid::new().children([reactor2::keyed(
+                "slot",
+                reactor2::ItemsRepeater::new().item("row", reactor2::TextBlock::new("row")),
+            )]))
+            .unwrap();
+        let replaced_virtual_root = replaced_virtual_runtime.graph().root().unwrap();
+        let replaced_repeater = replaced_virtual_runtime
+            .graph()
+            .children(replaced_virtual_root, reactor2::RelationId::Children)
+            .unwrap()[0];
+        let replaced_virtual_window = replaced_virtual_runtime
+            .adapter()
+            .open_window(replaced_virtual_root)
+            .unwrap();
+        replaced_virtual_runtime
+            .adapter()
+            .realize_virtual_item(replaced_repeater, 0)
+            .unwrap();
+        assert_eq!(
+            replaced_virtual_runtime.dispatch_native_events().unwrap(),
+            0
+        );
+        replaced_virtual_runtime
+            .update(
+                reactor2::Grid::new().children([reactor2::keyed("slot", reactor2::Border::new())]),
+            )
+            .unwrap();
+        replaced_virtual_runtime
+            .adapter()
+            .validate_graph(replaced_virtual_runtime.graph())
+            .unwrap();
+        replaced_virtual_window.close().unwrap();
+        let focused = generated_runtime.focus(&focus_reference).unwrap();
+        if !std::env::args().any(|argument| argument == "--headless") {
+            assert!(focused, "WinUI rejected generic focus");
+        }
+        assert_eq!(generated_runtime.dispatch_native_events().unwrap(), 0);
         assert_eq!(slider_changed_count.get(), 0);
         assert_eq!(toggle_changed_count.get(), 0);
         generated_runtime
@@ -646,10 +790,7 @@ impl Component for Fixture {
                     ]),
             )
             .unwrap();
-        generated_runtime
-            .drain_events(&mut generated_events)
-            .unwrap();
-        assert!(generated_events.is_empty());
+        assert_eq!(generated_runtime.dispatch_native_events().unwrap(), 0);
         assert_eq!(slider_changed_count.get(), 0);
         assert_eq!(toggle_changed_count.get(), 0);
         assert_eq!(
@@ -680,12 +821,7 @@ impl Component for Fixture {
             .adapter()
             .set_toggle_switch_is_on(toggle, true)
             .unwrap();
-        generated_runtime
-            .drain_events(&mut generated_events)
-            .unwrap();
-        for event in generated_events {
-            event.invoke();
-        }
+        assert_eq!(generated_runtime.dispatch_native_events().unwrap(), 2);
         assert_eq!(slider_changed.get(), 7.5);
         assert_eq!(slider_changed_count.get(), 1);
         assert!(toggle_changed.get());
@@ -775,6 +911,208 @@ impl Component for Fixture {
         assert_eq!(cleared_position, (0.0, 0.0));
         generated_window.close().unwrap();
 
+        let rich_value = Rc::new(RefCell::new(Rc::<str>::from("")));
+        let rich_count = Rc::new(Cell::new(0));
+        let rich_callback = {
+            let value = Rc::clone(&rich_value);
+            let count = Rc::clone(&rich_count);
+            reactor2::Callback::new(move |next: Rc<str>| {
+                *value.borrow_mut() = next;
+                count.set(count.get() + 1);
+            })
+        };
+        let mut document_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        document_runtime
+            .update(
+                reactor2::Grid::new()
+                    .rows([reactor2::GridLength::Auto, reactor2::GridLength::STAR])
+                    .columns([reactor2::GridLength::Pixel(120.0).min(40.0)])
+                    .children([reactor2::keyed(
+                        "document",
+                        reactor2::RichEditBox::new()
+                            .text("first\r\nsecond")
+                            .is_read_only(true)
+                            .on_text_changed_callback(rich_callback.clone()),
+                    )]),
+            )
+            .unwrap();
+        let document_root = document_runtime.graph().root().unwrap();
+        let document = document_runtime
+            .graph()
+            .children(document_root, reactor2::RelationId::Children)
+            .unwrap()[0];
+        let document_window = document_runtime
+            .adapter()
+            .open_window(document_root)
+            .unwrap();
+        assert_eq!(
+            document_runtime
+                .adapter()
+                .grid_definition_counts(document_root)
+                .unwrap(),
+            (2, 1)
+        );
+        assert_eq!(
+            document_runtime
+                .adapter()
+                .rich_edit_state(document)
+                .unwrap(),
+            ("first\nsecond".to_string(), true)
+        );
+        assert_eq!(document_runtime.dispatch_native_events().unwrap(), 0);
+        document_runtime
+            .update(
+                reactor2::Grid::new()
+                    .rows([reactor2::GridLength::Pixel(24.0)])
+                    .children([reactor2::keyed(
+                        "document",
+                        reactor2::RichEditBox::new()
+                            .text("application")
+                            .is_read_only(true)
+                            .on_text_changed_callback(rich_callback.clone()),
+                    )]),
+            )
+            .unwrap();
+        assert_eq!(document_runtime.dispatch_native_events().unwrap(), 0);
+        assert_eq!(
+            document_runtime
+                .adapter()
+                .grid_definition_counts(document_root)
+                .unwrap(),
+            (1, 0)
+        );
+        assert_eq!(
+            document_runtime
+                .adapter()
+                .rich_edit_state(document)
+                .unwrap(),
+            ("application".to_string(), true)
+        );
+        document_runtime
+            .update(
+                reactor2::Grid::new()
+                    .rows([reactor2::GridLength::Pixel(24.0)])
+                    .children([reactor2::keyed(
+                        "document",
+                        reactor2::RichEditBox::new()
+                            .text("application")
+                            .is_read_only(false)
+                            .on_text_changed_callback(rich_callback),
+                    )]),
+            )
+            .unwrap();
+        assert_eq!(document_runtime.dispatch_native_events().unwrap(), 0);
+        document_runtime
+            .adapter()
+            .simulate_rich_edit_input(document, "native\r\ntext")
+            .unwrap();
+        assert_eq!(document_runtime.dispatch_native_events().unwrap(), 1);
+        assert_eq!(rich_count.get(), 1);
+        assert_eq!(rich_value.borrow().as_ref(), "native\ntext");
+        let clear_callback = {
+            let value = Rc::clone(&rich_value);
+            let count = Rc::clone(&rich_count);
+            reactor2::Callback::new(move |next| {
+                *value.borrow_mut() = next;
+                count.set(count.get() + 1);
+            })
+        };
+        let cleared_document = || {
+            reactor2::Grid::new()
+                .rows([reactor2::GridLength::Pixel(24.0)])
+                .children([reactor2::keyed(
+                    "document",
+                    reactor2::RichEditBox::new()
+                        .is_read_only(false)
+                        .on_text_changed_callback(clear_callback.clone()),
+                )])
+        };
+        document_runtime.update(cleared_document()).unwrap();
+        assert_eq!(document_runtime.dispatch_native_events().unwrap(), 0);
+        assert_eq!(rich_count.get(), 1);
+        assert_eq!(
+            document_runtime
+                .adapter()
+                .rich_edit_state(document)
+                .unwrap()
+                .0,
+            ""
+        );
+        assert!(
+            document_runtime
+                .graph()
+                .properties(document)
+                .unwrap()
+                .iter()
+                .all(|property| property.id != reactor2::PropertyId::Document)
+        );
+        assert!(
+            document_runtime
+                .update(cleared_document())
+                .unwrap()
+                .is_empty()
+        );
+        assert_eq!(document_runtime.dispatch_native_events().unwrap(), 0);
+        assert_eq!(rich_count.get(), 1);
+        document_window.close().unwrap();
+
+        let virtual_view = |prefix: &'static str| {
+            reactor2::ItemsRepeater::new().virtual_source(reactor2::VirtualSource::new(
+                1,
+                10_000,
+                reactor2::Key::from,
+                move |index| -> reactor2::Visual {
+                    reactor2::TextBlock::new(format!("{prefix} {index}")).into()
+                },
+            ))
+        };
+        let mut virtual_runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        virtual_runtime.update(virtual_view("first")).unwrap();
+        let virtual_root = virtual_runtime.graph().root().unwrap();
+        let virtual_window = virtual_runtime.adapter().open_window(virtual_root).unwrap();
+        virtual_runtime
+            .adapter()
+            .realize_virtual_item(virtual_root, 9_999)
+            .unwrap();
+        assert_eq!(virtual_runtime.dispatch_native_events().unwrap(), 0);
+        assert!(virtual_runtime.graph().object_count() < 100);
+        assert!(
+            virtual_runtime
+                .adapter()
+                .virtual_shell_count(virtual_root)
+                .unwrap()
+                < 100
+        );
+        let realized = virtual_runtime
+            .graph()
+            .children(virtual_root, reactor2::RelationId::Items)
+            .unwrap()
+            .to_vec();
+        assert!(!realized.is_empty());
+        virtual_runtime.update(virtual_view("updated")).unwrap();
+        assert_eq!(virtual_runtime.dispatch_native_events().unwrap(), 0);
+        assert!(
+            virtual_runtime
+                .graph()
+                .children(virtual_root, reactor2::RelationId::Items)
+                .unwrap()
+                .len()
+                <= 1
+        );
+        virtual_runtime
+            .update(reactor2::ItemsRepeater::new())
+            .unwrap();
+        assert_eq!(virtual_runtime.dispatch_native_events().unwrap(), 0);
+        assert_eq!(virtual_runtime.graph().object_count(), 1);
+        virtual_runtime.update(virtual_view("again")).unwrap();
+        assert_eq!(virtual_runtime.dispatch_native_events().unwrap(), 0);
+        virtual_runtime
+            .adapter()
+            .validate_graph(virtual_runtime.graph())
+            .unwrap();
+        virtual_window.close().unwrap();
+
         let password_value = Rc::new(RefCell::new(Rc::<str>::from("")));
         let password_count = Rc::new(Cell::new(0));
         let rating_value = Rc::new(Cell::new(None));
@@ -837,12 +1175,7 @@ impl Component for Fixture {
             .adapter()
             .set_combo_box_selected_index(payload_children[2], Some(1))
             .unwrap();
-        let mut payload_events = Vec::new();
-        payload_runtime.drain_events(&mut payload_events).unwrap();
-        assert_eq!(payload_events.len(), 3);
-        for event in payload_events {
-            event.invoke();
-        }
+        assert_eq!(payload_runtime.dispatch_native_events().unwrap(), 3);
         assert_eq!(password_value.borrow().as_ref(), "secret");
         assert_eq!(password_count.get(), 1);
         assert_eq!(rating_value.get(), Some(4.0));
@@ -1042,11 +1375,7 @@ impl Component for Fixture {
             .children(selection_owners[2], reactor2::RelationId::Items)
             .unwrap()
             .to_vec();
-        let mut selection_events = Vec::new();
-        selection_runtime
-            .drain_events(&mut selection_events)
-            .unwrap();
-        assert!(selection_events.is_empty());
+        assert_eq!(selection_runtime.dispatch_native_events().unwrap(), 0);
         assert_eq!(navigation_count.get(), 0);
         assert_eq!(list_count.get(), 0);
         assert_eq!(selector_count.get(), 0);
@@ -1061,13 +1390,7 @@ impl Component for Fixture {
                 .select_item(owner, Some(item))
                 .unwrap();
         }
-        selection_runtime
-            .drain_events(&mut selection_events)
-            .unwrap();
-        assert_eq!(selection_events.len(), 3);
-        for event in selection_events.drain(..) {
-            event.invoke();
-        }
+        assert_eq!(selection_runtime.dispatch_native_events().unwrap(), 3);
         assert_eq!(navigation_value.borrow().as_deref(), Some("nav-second"));
         assert_eq!(list_value.borrow().as_deref(), Some("list-second"));
         assert_eq!(selector_value.borrow().as_deref(), Some("selector-second"));
@@ -1087,13 +1410,7 @@ impl Component for Fixture {
             .adapter()
             .select_item(selection_owners[0], Some(navigation_items[1]))
             .unwrap();
-        selection_runtime
-            .drain_events(&mut selection_events)
-            .unwrap();
-        assert_eq!(selection_events.len(), 2);
-        for event in selection_events.drain(..) {
-            event.invoke();
-        }
+        assert_eq!(selection_runtime.dispatch_native_events().unwrap(), 2);
         assert_eq!(
             navigation_history.borrow().as_slice(),
             [
@@ -1105,10 +1422,7 @@ impl Component for Fixture {
         assert_eq!(navigation_count.get(), 3);
 
         selection_runtime.update(selections(true, false)).unwrap();
-        selection_runtime
-            .drain_events(&mut selection_events)
-            .unwrap();
-        assert!(selection_events.is_empty());
+        assert_eq!(selection_runtime.dispatch_native_events().unwrap(), 0);
         assert_eq!(
             selection_runtime
                 .adapter()
@@ -1132,10 +1446,7 @@ impl Component for Fixture {
         );
 
         selection_runtime.update(selections(false, true)).unwrap();
-        selection_runtime
-            .drain_events(&mut selection_events)
-            .unwrap();
-        assert!(selection_events.is_empty());
+        assert_eq!(selection_runtime.dispatch_native_events().unwrap(), 0);
         for owner in selection_owners {
             assert_eq!(
                 selection_runtime.adapter().selected_item(owner).unwrap(),
@@ -1151,7 +1462,52 @@ impl Component for Fixture {
             .unwrap();
         selection_window.close().unwrap();
 
-        Self::inject_pointer_click().unwrap();
+        let mut retirement_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        retirement_runtime
+            .update(
+                reactor2::Grid::new().children([
+                    reactor2::keyed(
+                        "retiring",
+                        reactor2::Button::new()
+                            .exit_fade(Duration::from_millis(50))
+                            .content(reactor2::TextBlock::new("retiring")),
+                    ),
+                    reactor2::keyed("tail", reactor2::TextBlock::new("tail")),
+                ]),
+            )
+            .unwrap();
+        let retirement_root = retirement_runtime.graph().root().unwrap();
+        let retiring_object = retirement_runtime
+            .graph()
+            .children(retirement_root, reactor2::RelationId::Children)
+            .unwrap()[0];
+        let retirement_window = retirement_runtime
+            .adapter()
+            .create_window(retirement_root)
+            .unwrap();
+        retirement_window.activate().unwrap();
+        retirement_runtime
+            .update(
+                reactor2::Grid::new()
+                    .children([reactor2::keyed("tail", reactor2::TextBlock::new("tail"))]),
+            )
+            .unwrap();
+        assert_eq!(retirement_runtime.graph().retired_count(), 1);
+        assert_eq!(retirement_runtime.adapter().retirement_count(), 1);
+        assert!(
+            retirement_runtime
+                .adapter()
+                .contains_object(retiring_object)
+        );
+        assert_eq!(
+            retirement_runtime
+                .adapter()
+                .opacity(retiring_object)
+                .unwrap(),
+            0.0
+        );
+
         Self::schedule(context);
         Self {
             app: input.app.clone(),
@@ -1162,7 +1518,12 @@ impl Component for Fixture {
             boundary_window,
             pointer_runtime,
             pointer_window,
+            retirement_runtime,
+            retirement_window,
+            retiring_object,
+            retirement_verified: false,
             received_pointer,
+            pointer_injected: false,
             pointer_waits: 0,
             runtime,
             window,
@@ -1181,13 +1542,39 @@ impl Component for Fixture {
     }
 
     fn update(&mut self, _message: Self::Message, context: &ComponentContext<Self>) {
-        let mut pointer_events = Vec::new();
-        self.pointer_runtime
-            .drain_events(&mut pointer_events)
-            .unwrap();
-        for event in pointer_events {
-            event.invoke();
+        self.retirement_runtime.dispatch_native_events().unwrap();
+        if !self.retirement_verified {
+            if self.retirement_runtime.graph().retired_count() == 0 {
+                assert_eq!(self.retirement_runtime.adapter().retirement_count(), 0);
+                assert!(
+                    !self
+                        .retirement_runtime
+                        .adapter()
+                        .contains_object(self.retiring_object)
+                );
+                self.retirement_runtime
+                    .adapter()
+                    .validate_graph(self.retirement_runtime.graph())
+                    .unwrap();
+                self.retirement_window.close().unwrap();
+                self.retirement_verified = true;
+            } else {
+                assert!(
+                    self.retirement_runtime
+                        .adapter()
+                        .contains_object(self.retiring_object)
+                );
+                Self::schedule(context);
+                return;
+            }
         }
+        if !self.pointer_injected {
+            Self::inject_pointer_click().unwrap();
+            self.pointer_injected = true;
+            Self::schedule(context);
+            return;
+        }
+        self.pointer_runtime.dispatch_native_events().unwrap();
         if let Some(pointer) = *self.received_pointer.borrow() {
             assert!(pointer.pointer_id > 0);
             assert!(!pointer.is_captured);
@@ -1207,11 +1594,7 @@ impl Component for Fixture {
             .adapter()
             .validate_graph(self.boundary_host.runtime().graph())
             .unwrap();
-        let mut events = Vec::new();
-        self.runtime.drain_events(&mut events).unwrap();
-        for event in events {
-            event.invoke();
-        }
+        self.runtime.dispatch_native_events().unwrap();
         self.iteration += 1;
         let root = self.runtime.graph().root().unwrap();
         let text_box = self

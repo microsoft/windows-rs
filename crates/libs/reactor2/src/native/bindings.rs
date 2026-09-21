@@ -540,6 +540,139 @@ impl windows_core::RuntimeName for AutoSuggestBoxTextChangedEventArgs {
 unsafe impl Send for AutoSuggestBoxTextChangedEventArgs {}
 unsafe impl Sync for AutoSuggestBoxTextChangedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AutomationHeadingLevel(pub i32);
+impl AutomationHeadingLevel {
+    pub const None: Self = Self(0);
+    pub const Level1: Self = Self(1);
+    pub const Level2: Self = Self(2);
+    pub const Level3: Self = Self(3);
+    pub const Level4: Self = Self(4);
+    pub const Level5: Self = Self(5);
+    pub const Level6: Self = Self(6);
+    pub const Level7: Self = Self(7);
+    pub const Level8: Self = Self(8);
+    pub const Level9: Self = Self(9);
+}
+impl windows_core::imp::TypeKind for AutomationHeadingLevel {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for AutomationHeadingLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Automation.Peers.AutomationHeadingLevel;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AutomationProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    AutomationProperties,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl AutomationProperties {
+    pub(crate) fn SetAutomationId<P0>(element: P0, value: &str) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetAutomationId)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn GetName<P0>(element: P0) -> windows_core::Result<String>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetName)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| {
+                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                hstring.to_string_lossy()
+            })
+        })
+    }
+    pub(crate) fn SetName<P0>(element: P0, value: &str) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetName)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn HeadingLevelProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadingLevelProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetHeadingLevel<P0>(
+        element: P0,
+        value: AutomationHeadingLevel,
+    ) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IAutomationPropertiesStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetHeadingLevel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    fn IAutomationPropertiesStatics<
+        R,
+        F: FnOnce(&IAutomationPropertiesStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            AutomationProperties,
+            IAutomationPropertiesStatics,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for AutomationProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IAutomationProperties>();
+}
+unsafe impl windows_core::Interface for AutomationProperties {
+    type Vtable = <IAutomationProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IAutomationProperties as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for AutomationProperties {
+    type Target = IAutomationProperties;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for AutomationProperties {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Automation.AutomationProperties";
+}
+unsafe impl Send for AutomationProperties {}
+unsafe impl Sync for AutomationProperties {}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -1361,6 +1494,83 @@ unsafe impl Send for ColorPicker {}
 unsafe impl Sync for ColorPicker {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ColumnDefinition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ColumnDefinition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(ColumnDefinition, DependencyObject);
+impl ColumnDefinition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            ColumnDefinition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ColumnDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IColumnDefinition>();
+}
+unsafe impl windows_core::Interface for ColumnDefinition {
+    type Vtable = <IColumnDefinition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IColumnDefinition as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ColumnDefinition {
+    type Target = IColumnDefinition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ColumnDefinition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ColumnDefinition";
+}
+unsafe impl Send for ColumnDefinition {}
+unsafe impl Sync for ColumnDefinition {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ColumnDefinitionCollection(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ColumnDefinitionCollection,
+    windows_core::IUnknown,
+    windows_core::IInspectable,
+    windows_collections::IVector<ColumnDefinition>
+);
+impl windows_core::RuntimeType for ColumnDefinitionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
+        Self,
+        windows_collections::IVector<ColumnDefinition>,
+    >();
+}
+unsafe impl windows_core::Interface for ColumnDefinitionCollection {
+    type Vtable =
+        <windows_collections::IVector<ColumnDefinition> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <windows_collections::IVector<ColumnDefinition> as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ColumnDefinitionCollection {
+    type Target = windows_collections::IVector<ColumnDefinition>;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ColumnDefinitionCollection {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ColumnDefinitionCollection";
+}
+unsafe impl Send for ColumnDefinitionCollection {}
+unsafe impl Sync for ColumnDefinitionCollection {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ComboBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     ComboBox,
@@ -1515,6 +1725,27 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
+impl ContentControl {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IContentControlFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IContentControlFactory<R, F: FnOnce(&IContentControlFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ContentControl, IContentControlFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for ContentControl {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IContentControl>();
@@ -2208,6 +2439,60 @@ unsafe impl Sync for DropDownButton {}
 pub const ERROR_INSUFFICIENT_BUFFER: i32 = 122;
 pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ElementFactoryGetArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ElementFactoryGetArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for ElementFactoryGetArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IElementFactoryGetArgs>();
+}
+unsafe impl windows_core::Interface for ElementFactoryGetArgs {
+    type Vtable = <IElementFactoryGetArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IElementFactoryGetArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ElementFactoryGetArgs {
+    type Target = IElementFactoryGetArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ElementFactoryGetArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ElementFactoryGetArgs";
+}
+unsafe impl Send for ElementFactoryGetArgs {}
+unsafe impl Sync for ElementFactoryGetArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ElementFactoryRecycleArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ElementFactoryRecycleArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for ElementFactoryRecycleArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IElementFactoryRecycleArgs>();
+}
+unsafe impl windows_core::Interface for ElementFactoryRecycleArgs {
+    type Vtable = <IElementFactoryRecycleArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IElementFactoryRecycleArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ElementFactoryRecycleArgs {
+    type Target = IElementFactoryRecycleArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ElementFactoryRecycleArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ElementFactoryRecycleArgs";
+}
+unsafe impl Send for ElementFactoryRecycleArgs {}
+unsafe impl Sync for ElementFactoryRecycleArgs {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ElementTheme(pub i32);
 impl ElementTheme {
@@ -2572,6 +2857,18 @@ impl windows_core::RuntimeName for FontIcon {
 }
 unsafe impl Send for FontIcon {}
 unsafe impl Sync for FontIcon {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FontWeight {
+    pub weight: u16,
+}
+impl windows_core::imp::TypeKind for FontWeight {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for FontWeight {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.FontWeight;u2)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FrameworkElement(windows_core::IUnknown);
@@ -2586,6 +2883,96 @@ impl FrameworkElement {
         Self::IFrameworkElementStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TagProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn WidthProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WidthProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn HeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MinWidthProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MinWidthProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MaxWidthProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxWidthProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MinHeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MinHeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MaxHeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxHeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn HorizontalAlignmentProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HorizontalAlignmentProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn VerticalAlignmentProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).VerticalAlignmentProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MarginProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MarginProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
@@ -2698,6 +3085,112 @@ impl Grid {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn RowProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RowProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetRow<P0>(element: P0) -> windows_core::Result<i32>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetRow)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetRow<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetRow)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn ColumnProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ColumnProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetColumn<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetColumn)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn RowSpanProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RowSpanProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetRowSpan<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetRowSpan)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn ColumnSpanProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ColumnSpanProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetColumnSpan<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetColumnSpan)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
     fn IGridFactory<R, F: FnOnce(&IGridFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -2732,6 +3225,35 @@ impl windows_core::RuntimeName for Grid {
 }
 unsafe impl Send for Grid {}
 unsafe impl Sync for Grid {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GridLength {
+    pub value: f64,
+    pub grid_unit_type: GridUnitType,
+}
+impl windows_core::imp::TypeKind for GridLength {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for GridLength {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"struct(Microsoft.UI.Xaml.GridLength;f8;enum(Microsoft.UI.Xaml.GridUnitType;i4))",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GridUnitType(pub i32);
+impl GridUnitType {
+    pub const Auto: Self = Self(0);
+    pub const Pixel: Self = Self(1);
+    pub const Star: Self = Self(2);
+}
+impl windows_core::imp::TypeKind for GridUnitType {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for GridUnitType {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Xaml.GridUnitType;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GridView(windows_core::IUnknown);
@@ -3606,6 +4128,127 @@ impl windows_core::RuntimeType for IAutoSuggestBoxTextChangedEventArgs {
 #[repr(C)]
 pub struct IAutoSuggestBoxTextChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IAutomationProperties,
+    IAutomationProperties_Vtbl,
+    0x525c6a71_dd8a_52a0_977b_db1b02f8e896
+);
+impl windows_core::RuntimeType for IAutomationProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAutomationProperties_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IAutomationPropertiesStatics,
+    IAutomationPropertiesStatics_Vtbl,
+    0xb1e3e0f3_112f_5966_87dc_7862d4ad50e5
+);
+impl windows_core::RuntimeType for IAutomationPropertiesStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAutomationPropertiesStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    AcceleratorKeyProperty: usize,
+    GetAcceleratorKey: usize,
+    SetAcceleratorKey: usize,
+    AccessKeyProperty: usize,
+    GetAccessKey: usize,
+    SetAccessKey: usize,
+    AutomationIdProperty: usize,
+    GetAutomationId: usize,
+    pub SetAutomationId: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    HelpTextProperty: usize,
+    GetHelpText: usize,
+    SetHelpText: usize,
+    IsRequiredForFormProperty: usize,
+    GetIsRequiredForForm: usize,
+    SetIsRequiredForForm: usize,
+    ItemStatusProperty: usize,
+    GetItemStatus: usize,
+    SetItemStatus: usize,
+    ItemTypeProperty: usize,
+    GetItemType: usize,
+    SetItemType: usize,
+    LabeledByProperty: usize,
+    GetLabeledBy: usize,
+    SetLabeledBy: usize,
+    NameProperty: usize,
+    pub GetName: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    LiveSettingProperty: usize,
+    GetLiveSetting: usize,
+    SetLiveSetting: usize,
+    AccessibilityViewProperty: usize,
+    GetAccessibilityView: usize,
+    SetAccessibilityView: usize,
+    ControlledPeersProperty: usize,
+    GetControlledPeers: usize,
+    PositionInSetProperty: usize,
+    GetPositionInSet: usize,
+    SetPositionInSet: usize,
+    SizeOfSetProperty: usize,
+    GetSizeOfSet: usize,
+    SetSizeOfSet: usize,
+    LevelProperty: usize,
+    GetLevel: usize,
+    SetLevel: usize,
+    AnnotationsProperty: usize,
+    GetAnnotations: usize,
+    LandmarkTypeProperty: usize,
+    GetLandmarkType: usize,
+    SetLandmarkType: usize,
+    LocalizedLandmarkTypeProperty: usize,
+    GetLocalizedLandmarkType: usize,
+    SetLocalizedLandmarkType: usize,
+    IsPeripheralProperty: usize,
+    GetIsPeripheral: usize,
+    SetIsPeripheral: usize,
+    IsDataValidForFormProperty: usize,
+    GetIsDataValidForForm: usize,
+    SetIsDataValidForForm: usize,
+    FullDescriptionProperty: usize,
+    GetFullDescription: usize,
+    SetFullDescription: usize,
+    LocalizedControlTypeProperty: usize,
+    GetLocalizedControlType: usize,
+    SetLocalizedControlType: usize,
+    DescribedByProperty: usize,
+    GetDescribedBy: usize,
+    FlowsToProperty: usize,
+    GetFlowsTo: usize,
+    FlowsFromProperty: usize,
+    GetFlowsFrom: usize,
+    CultureProperty: usize,
+    GetCulture: usize,
+    SetCulture: usize,
+    pub HeadingLevelProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetHeadingLevel: usize,
+    pub SetHeadingLevel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        AutomationHeadingLevel,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IBitmapIcon,
@@ -4614,6 +5257,57 @@ pub struct IColorPickerStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IColumnDefinition,
+    IColumnDefinition_Vtbl,
+    0x454cea14_87ec_5890_bb62_f1d82a94758e
+);
+impl windows_core::RuntimeType for IColumnDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IColumnDefinition {
+    pub(crate) fn SetWidth(&self, value: GridLength) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetWidth)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMaxWidth(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMaxWidth)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMinWidth(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMinWidth)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IColumnDefinition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Width: usize,
+    pub SetWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, GridLength) -> windows_core::HRESULT,
+    MaxWidth: usize,
+    pub SetMaxWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    MinWidth: usize,
+    pub SetMinWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IComboBox,
     IComboBox_Vtbl,
     0xc77da58b_4fd7_51e0_a431_f84658a83e9e
@@ -4842,6 +5536,25 @@ pub struct IContentControl_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IContentControlFactory,
+    IContentControlFactory_Vtbl,
+    0x3dea958e_5acd_5f80_8938_38634f51493a
+);
+impl windows_core::RuntimeType for IContentControlFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IContentControlFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IContentDialog,
     IContentDialog_Vtbl,
     0xac2145a3_4a32_5305_a81d_47509515bfce
@@ -5029,6 +5742,16 @@ impl windows_core::RuntimeType for IControl {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IControl {
+    pub(crate) fn IsEnabled(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsEnabled)(
@@ -5100,7 +5823,8 @@ pub struct IControl_Vtbl {
     SetForeground: usize,
     IsTextScaleFactorEnabled: usize,
     SetIsTextScaleFactorEnabled: usize,
-    IsEnabled: usize,
+    pub IsEnabled:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEnabled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     TabNavigation: usize,
@@ -5551,6 +6275,152 @@ pub struct IDropDownButtonFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IElementFactory,
+    IElementFactory_Vtbl,
+    0x75faba47_2cf2_54ae_91e6_0581556fddaa
+);
+impl windows_core::RuntimeType for IElementFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.IElementFactory");
+}
+windows_core::imp::interface_hierarchy!(
+    IElementFactory,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeName for IElementFactory {
+    const NAME: &'static str = "Microsoft.UI.Xaml.IElementFactory";
+}
+pub trait IElementFactory_Impl: windows_core::IUnknownImpl {
+    fn GetElement(
+        &self,
+        args: windows_core::Ref<ElementFactoryGetArgs>,
+    ) -> windows_core::Result<UIElement>;
+    fn RecycleElement(
+        &self,
+        args: windows_core::Ref<ElementFactoryRecycleArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl IElementFactory_Vtbl {
+    pub const fn new<Identity: IElementFactory_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetElement<
+            Identity: IElementFactory_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IElementFactory_Impl::GetElement(this, core::mem::transmute_copy(&args)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn RecycleElement<
+            Identity: IElementFactory_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IElementFactory_Impl::RecycleElement(this, core::mem::transmute_copy(&args)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IElementFactory, OFFSET>(),
+            GetElement: GetElement::<Identity, OFFSET>,
+            RecycleElement: RecycleElement::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IElementFactory as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IElementFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub RecycleElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IElementFactoryGetArgs,
+    IElementFactoryGetArgs_Vtbl,
+    0xb7017d68_ec9e_5435_b078_be6f906f0953
+);
+impl windows_core::RuntimeType for IElementFactoryGetArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IElementFactoryGetArgs {
+    pub(crate) fn Data(&self) -> windows_core::Result<windows_core::IInspectable> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Data)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IElementFactoryGetArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Data: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IElementFactoryRecycleArgs,
+    IElementFactoryRecycleArgs_Vtbl,
+    0x46e444f7_05d3_5c5e_9b7a_5541f63e4ef9
+);
+impl windows_core::RuntimeType for IElementFactoryRecycleArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IElementFactoryRecycleArgs {
+    pub(crate) fn Element(&self) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Element)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IElementFactoryRecycleArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Element: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IEllipse,
     IEllipse_Vtbl,
     0x805c39aa_fa8a_5e0b_9847_4ab81b42a3df
@@ -5810,6 +6680,62 @@ impl IFrameworkElement {
             .ok()
         }
     }
+    pub(crate) fn MinWidth(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MinWidth)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetMinWidth(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMinWidth)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMaxWidth(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMaxWidth)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMinHeight(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMinHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn MaxHeight(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MaxHeight)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetMaxHeight(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMaxHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetHorizontalAlignment(
         &self,
         value: HorizontalAlignment,
@@ -5884,14 +6810,20 @@ pub struct IFrameworkElement_Vtbl {
     pub SetWidth: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     Height: usize,
     pub SetHeight: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    MinWidth: usize,
-    SetMinWidth: usize,
+    pub MinWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetMinWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     MaxWidth: usize,
-    SetMaxWidth: usize,
+    pub SetMaxWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     MinHeight: usize,
-    SetMinHeight: usize,
-    MaxHeight: usize,
-    SetMaxHeight: usize,
+    pub SetMinHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub MaxHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetMaxHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     HorizontalAlignment: usize,
     pub SetHorizontalAlignment: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -5953,15 +6885,42 @@ pub struct IFrameworkElementStatics_Vtbl {
     LanguageProperty: usize,
     ActualWidthProperty: usize,
     ActualHeightProperty: usize,
-    WidthProperty: usize,
-    HeightProperty: usize,
-    MinWidthProperty: usize,
-    MaxWidthProperty: usize,
-    MinHeightProperty: usize,
-    MaxHeightProperty: usize,
-    HorizontalAlignmentProperty: usize,
-    VerticalAlignmentProperty: usize,
-    MarginProperty: usize,
+    pub WidthProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub HeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MinWidthProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MaxWidthProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MinHeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MaxHeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub HorizontalAlignmentProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub VerticalAlignmentProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MarginProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     NameProperty: usize,
     DataContextProperty: usize,
     pub AllowFocusOnInteractionProperty: unsafe extern "system" fn(
@@ -5988,6 +6947,26 @@ impl windows_core::RuntimeType for IGrid {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IGrid {
+    pub(crate) fn RowDefinitions(&self) -> windows_core::Result<RowDefinitionCollection> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RowDefinitions)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn ColumnDefinitions(&self) -> windows_core::Result<ColumnDefinitionCollection> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ColumnDefinitions)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn SetRowSpacing(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetRowSpacing)(
@@ -6010,8 +6989,14 @@ impl IGrid {
 #[repr(C)]
 pub struct IGrid_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    RowDefinitions: usize,
-    ColumnDefinitions: usize,
+    pub RowDefinitions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ColumnDefinitions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     BackgroundSizing: usize,
     SetBackgroundSizing: usize,
     BorderBrush: usize,
@@ -6072,6 +7057,50 @@ pub struct IGridStatics_Vtbl {
     pub ColumnSpacingProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub RowProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetRow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+    pub SetRow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+    ) -> windows_core::HRESULT,
+    pub ColumnProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetColumn: usize,
+    pub SetColumn: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+    ) -> windows_core::HRESULT,
+    pub RowSpanProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetRowSpan: usize,
+    pub SetRowSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+    ) -> windows_core::HRESULT,
+    pub ColumnSpanProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetColumnSpan: usize,
+    pub SetColumnSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -6747,9 +7776,72 @@ impl windows_core::RuntimeType for IItemsRepeater {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IItemsRepeater {
+    pub(crate) fn SetItemsSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetItemsSource)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetItemTemplate<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetItemTemplate)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn GetOrCreateElement(&self, index: i32) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOrCreateElement)(
+                windows_core::Interface::as_raw(self),
+                index,
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+}
 #[repr(C)]
 pub struct IItemsRepeater_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    ItemsSource: usize,
+    pub SetItemsSource: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    ItemsSourceView: usize,
+    ItemTemplate: usize,
+    pub SetItemTemplate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    Layout: usize,
+    SetLayout: usize,
+    HorizontalCacheLength: usize,
+    SetHorizontalCacheLength: usize,
+    VerticalCacheLength: usize,
+    SetVerticalCacheLength: usize,
+    Background: usize,
+    SetBackground: usize,
+    GetElementIndex: usize,
+    TryGetElement: usize,
+    pub GetOrCreateElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IItemsRepeaterFactory,
@@ -9741,6 +10833,116 @@ pub struct IRelativePanelFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IRelativePanelStatics,
+    IRelativePanelStatics_Vtbl,
+    0xbdd929a2_76cc_59c4_82c1_f14b5da4221a
+);
+impl windows_core::RuntimeType for IRelativePanelStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRelativePanelStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    BackgroundSizingProperty: usize,
+    LeftOfProperty: usize,
+    GetLeftOf: usize,
+    SetLeftOf: usize,
+    AboveProperty: usize,
+    GetAbove: usize,
+    SetAbove: usize,
+    RightOfProperty: usize,
+    GetRightOf: usize,
+    SetRightOf: usize,
+    BelowProperty: usize,
+    GetBelow: usize,
+    SetBelow: usize,
+    AlignHorizontalCenterWithProperty: usize,
+    GetAlignHorizontalCenterWith: usize,
+    SetAlignHorizontalCenterWith: usize,
+    AlignVerticalCenterWithProperty: usize,
+    GetAlignVerticalCenterWith: usize,
+    SetAlignVerticalCenterWith: usize,
+    AlignLeftWithProperty: usize,
+    GetAlignLeftWith: usize,
+    SetAlignLeftWith: usize,
+    AlignTopWithProperty: usize,
+    GetAlignTopWith: usize,
+    SetAlignTopWith: usize,
+    AlignRightWithProperty: usize,
+    GetAlignRightWith: usize,
+    SetAlignRightWith: usize,
+    AlignBottomWithProperty: usize,
+    GetAlignBottomWith: usize,
+    SetAlignBottomWith: usize,
+    pub AlignLeftWithPanelProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetAlignLeftWithPanel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut bool,
+    ) -> windows_core::HRESULT,
+    pub SetAlignLeftWithPanel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        bool,
+    ) -> windows_core::HRESULT,
+    pub AlignTopWithPanelProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetAlignTopWithPanel: usize,
+    pub SetAlignTopWithPanel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        bool,
+    ) -> windows_core::HRESULT,
+    pub AlignRightWithPanelProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetAlignRightWithPanel: usize,
+    pub SetAlignRightWithPanel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        bool,
+    ) -> windows_core::HRESULT,
+    pub AlignBottomWithPanelProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetAlignBottomWithPanel: usize,
+    pub SetAlignBottomWithPanel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        bool,
+    ) -> windows_core::HRESULT,
+    pub AlignHorizontalCenterWithPanelProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    )
+        -> windows_core::HRESULT,
+    GetAlignHorizontalCenterWithPanel: usize,
+    pub SetAlignHorizontalCenterWithPanel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        bool,
+    ) -> windows_core::HRESULT,
+    pub AlignVerticalCenterWithPanelProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    )
+        -> windows_core::HRESULT,
+    GetAlignVerticalCenterWithPanel: usize,
+    pub SetAlignVerticalCenterWithPanel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        bool,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IRepeatButton,
     IRepeatButton_Vtbl,
     0x97f4c728_4a94_56b5_91e4_e7c6f6a1251a
@@ -9855,6 +11057,16 @@ impl windows_core::RuntimeType for IRichEditBox {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IRichEditBox {
+    pub(crate) fn IsReadOnly(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsReadOnly)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetIsReadOnly(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsReadOnly)(
@@ -9862,6 +11074,16 @@ impl IRichEditBox {
                 value,
             )
             .ok()
+        }
+    }
+    pub(crate) fn Document(&self) -> windows_core::Result<RichEditTextDocument> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Document)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9885,11 +11107,42 @@ impl IRichEditBox {
             .ok()
         }
     }
+    pub(crate) fn TextChanged<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + 'static,
+    {
+        let handler: RoutedEventHandler = {
+            let com = windows_core::imp::DelegateBox::<RoutedEventHandler, F>::new(
+                &RoutedEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).TextChanged)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveTextChanged,
+            ))
+        }
+    }
 }
 #[repr(C)]
 pub struct IRichEditBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    IsReadOnly: usize,
+    pub IsReadOnly:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsReadOnly:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     AcceptsReturn: usize,
@@ -9902,7 +11155,10 @@ pub struct IRichEditBox_Vtbl {
     SetIsSpellCheckEnabled: usize,
     IsTextPredictionEnabled: usize,
     SetIsTextPredictionEnabled: usize,
-    Document: usize,
+    pub Document: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     InputScope: usize,
     SetInputScope: usize,
     Header: usize,
@@ -9917,6 +11173,35 @@ pub struct IRichEditBox_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    SelectionHighlightColor: usize,
+    SetSelectionHighlightColor: usize,
+    PreventKeyboardDisplayOnProgrammaticFocus: usize,
+    SetPreventKeyboardDisplayOnProgrammaticFocus: usize,
+    IsColorFontEnabled: usize,
+    SetIsColorFontEnabled: usize,
+    SelectionHighlightColorWhenNotFocused: usize,
+    SetSelectionHighlightColorWhenNotFocused: usize,
+    MaxLength: usize,
+    SetMaxLength: usize,
+    HorizontalTextAlignment: usize,
+    SetHorizontalTextAlignment: usize,
+    CharacterCasing: usize,
+    SetCharacterCasing: usize,
+    DisabledFormattingAccelerators: usize,
+    SetDisabledFormattingAccelerators: usize,
+    TextDocument: usize,
+    SelectionFlyout: usize,
+    SetSelectionFlyout: usize,
+    ProofingMenuFlyout: usize,
+    Description: usize,
+    SetDescription: usize,
+    pub TextChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveTextChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IRichEditBoxFactory,
@@ -10091,6 +11376,105 @@ impl windows_core::RuntimeType for IRoutedEventArgs {
 #[repr(C)]
 pub struct IRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IRowDefinition,
+    IRowDefinition_Vtbl,
+    0xfe870f2f_89ef_5dac_9f33_968d0dc577c3
+);
+impl windows_core::RuntimeType for IRowDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IRowDefinition {
+    pub(crate) fn SetHeight(&self, value: GridLength) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMaxHeight(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMaxHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMinHeight(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMinHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IRowDefinition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Height: usize,
+    pub SetHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, GridLength) -> windows_core::HRESULT,
+    MaxHeight: usize,
+    pub SetMaxHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    MinHeight: usize,
+    pub SetMinHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IScalarTransition,
+    IScalarTransition_Vtbl,
+    0xc2da2ac8_814c_5889_b2f4_4ebe4b001ee3
+);
+impl windows_core::RuntimeType for IScalarTransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IScalarTransition {
+    pub(crate) fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDuration)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IScalarTransition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Duration: usize,
+    pub SetDuration: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IScalarTransitionFactory,
+    IScalarTransitionFactory_Vtbl,
+    0xa1650cf8_a15b_54fc_b595_c52491318f58
+);
+impl windows_core::RuntimeType for IScalarTransitionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IScalarTransitionFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IScrollView,
@@ -12064,6 +13448,25 @@ impl ITextBlock {
             .ok()
         }
     }
+    pub(crate) fn FontWeight(&self) -> windows_core::Result<FontWeight> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FontWeight)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetFontWeight(&self, value: FontWeight) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetFontWeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetForeground<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Brush>,
@@ -12143,8 +13546,10 @@ pub struct ITextBlock_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     FontFamily: usize,
     SetFontFamily: usize,
-    FontWeight: usize,
-    SetFontWeight: usize,
+    pub FontWeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontWeight) -> windows_core::HRESULT,
+    pub SetFontWeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, FontWeight) -> windows_core::HRESULT,
     FontStyle: usize,
     SetFontStyle: usize,
     FontStretch: usize,
@@ -12208,7 +13613,10 @@ pub struct ITextBlockStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     FontSizeProperty: usize,
     FontFamilyProperty: usize,
-    FontWeightProperty: usize,
+    pub FontWeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     FontStyleProperty: usize,
     FontStretchProperty: usize,
     CharacterSpacingProperty: usize,
@@ -12444,6 +13852,79 @@ impl windows_core::RuntimeType for ITextChangedEventArgs {
 #[repr(C)]
 pub struct ITextChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    ITextDocument,
+    ITextDocument_Vtbl,
+    0x1149d57d_86a6_59dd_88d9_196f27bc5c85
+);
+impl windows_core::RuntimeType for ITextDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ITextDocument {
+    pub(crate) fn GetText(
+        &self,
+        options: TextGetOptions,
+        value: &mut windows_core::HSTRING,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetText)(
+                windows_core::Interface::as_raw(self),
+                options,
+                value as *mut _ as _,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetText(&self, options: TextSetOptions, value: &str) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetText)(
+                windows_core::Interface::as_raw(self),
+                options,
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ITextDocument_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    CaretType: usize,
+    SetCaretType: usize,
+    DefaultTabStop: usize,
+    SetDefaultTabStop: usize,
+    Selection: usize,
+    UndoLimit: usize,
+    SetUndoLimit: usize,
+    CanCopy: usize,
+    CanPaste: usize,
+    CanRedo: usize,
+    CanUndo: usize,
+    ApplyDisplayUpdates: usize,
+    BatchDisplayUpdates: usize,
+    BeginUndoGroup: usize,
+    EndUndoGroup: usize,
+    GetDefaultCharacterFormat: usize,
+    GetDefaultParagraphFormat: usize,
+    GetRange: usize,
+    GetRangeFromPoint: usize,
+    pub GetText: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        TextGetOptions,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    LoadFromStream: usize,
+    Redo: usize,
+    SaveToStream: usize,
+    SetDefaultCharacterFormat: usize,
+    SetDefaultParagraphFormat: usize,
+    pub SetText: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        TextSetOptions,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ITimePicker,
@@ -13292,6 +14773,16 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn Opacity(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Opacity)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetOpacity(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetOpacity)(
@@ -13323,6 +14814,18 @@ impl IUIElement {
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn SetOpacityTransition<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ScalarTransition>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetOpacityTransition)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
         }
     }
     pub(crate) fn SetIsTabStop(&self, value: bool) -> windows_core::Result<()> {
@@ -13487,7 +14990,8 @@ pub struct IUIElement_Vtbl {
     AllowDrop: usize,
     pub SetAllowDrop:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    Opacity: usize,
+    pub Opacity:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     Clip: usize,
     SetClip: usize,
@@ -13572,7 +15076,10 @@ pub struct IUIElement_Vtbl {
     TabFocusNavigation: usize,
     SetTabFocusNavigation: usize,
     OpacityTransition: usize,
-    SetOpacityTransition: usize,
+    pub SetOpacityTransition: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     Translation: usize,
     SetTranslation: usize,
     TranslationTransition: usize,
@@ -13784,7 +15291,10 @@ pub struct IUIElementStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    OpacityProperty: usize,
+    pub OpacityProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     ClipProperty: usize,
     RenderTransformProperty: usize,
     ProjectionProperty: usize,
@@ -17445,10 +18955,177 @@ impl RelativePanel {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn AlignLeftWithPanelProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IRelativePanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlignLeftWithPanelProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetAlignLeftWithPanel<P0>(element: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAlignLeftWithPanel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetAlignLeftWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetAlignLeftWithPanel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn AlignTopWithPanelProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IRelativePanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlignTopWithPanelProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetAlignTopWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetAlignTopWithPanel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn AlignRightWithPanelProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IRelativePanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlignRightWithPanelProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetAlignRightWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetAlignRightWithPanel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn AlignBottomWithPanelProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IRelativePanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlignBottomWithPanelProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetAlignBottomWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetAlignBottomWithPanel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn AlignHorizontalCenterWithPanelProperty()
+    -> windows_core::Result<DependencyProperty> {
+        Self::IRelativePanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlignHorizontalCenterWithPanelProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetAlignHorizontalCenterWithPanel<P0>(
+        element: P0,
+        value: bool,
+    ) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetAlignHorizontalCenterWithPanel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn AlignVerticalCenterWithPanelProperty() -> windows_core::Result<DependencyProperty>
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlignVerticalCenterWithPanelProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetAlignVerticalCenterWithPanel<P0>(
+        element: P0,
+        value: bool,
+    ) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IRelativePanelStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetAlignVerticalCenterWithPanel)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
     fn IRelativePanelFactory<R, F: FnOnce(&IRelativePanelFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RelativePanel, IRelativePanelFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IRelativePanelStatics<R, F: FnOnce(&IRelativePanelStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RelativePanel, IRelativePanelStatics> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -17709,6 +19386,33 @@ unsafe impl Send for RichEditBox {}
 unsafe impl Sync for RichEditBox {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RichEditTextDocument(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    RichEditTextDocument,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for RichEditTextDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ITextDocument>();
+}
+unsafe impl windows_core::Interface for RichEditTextDocument {
+    type Vtable = <ITextDocument as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITextDocument as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for RichEditTextDocument {
+    type Target = ITextDocument;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for RichEditTextDocument {
+    const NAME: &'static str = "Microsoft.UI.Text.RichEditTextDocument";
+}
+unsafe impl Send for RichEditTextDocument {}
+unsafe impl Sync for RichEditTextDocument {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RichTextBlock(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     RichTextBlock,
@@ -17870,9 +19574,136 @@ impl<
         }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RowDefinition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    RowDefinition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(RowDefinition, DependencyObject);
+impl RowDefinition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            RowDefinition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for RowDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IRowDefinition>();
+}
+unsafe impl windows_core::Interface for RowDefinition {
+    type Vtable = <IRowDefinition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRowDefinition as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for RowDefinition {
+    type Target = IRowDefinition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for RowDefinition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.RowDefinition";
+}
+unsafe impl Send for RowDefinition {}
+unsafe impl Sync for RowDefinition {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RowDefinitionCollection(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    RowDefinitionCollection,
+    windows_core::IUnknown,
+    windows_core::IInspectable,
+    windows_collections::IVector<RowDefinition>
+);
+impl windows_core::RuntimeType for RowDefinitionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
+        Self,
+        windows_collections::IVector<RowDefinition>,
+    >();
+}
+unsafe impl windows_core::Interface for RowDefinitionCollection {
+    type Vtable = <windows_collections::IVector<RowDefinition> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <windows_collections::IVector<RowDefinition> as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for RowDefinitionCollection {
+    type Target = windows_collections::IVector<RowDefinition>;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for RowDefinitionCollection {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.RowDefinitionCollection";
+}
+unsafe impl Send for RowDefinitionCollection {}
+unsafe impl Sync for RowDefinitionCollection {}
 pub const STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED: windows_core::HRESULT =
     windows_core::HRESULT(0x80670016_u32 as _);
 pub const SW_SHOWNORMAL: i32 = 1;
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ScalarTransition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ScalarTransition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl ScalarTransition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IScalarTransitionFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    fn IScalarTransitionFactory<
+        R,
+        F: FnOnce(&IScalarTransitionFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ScalarTransition, IScalarTransitionFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ScalarTransition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IScalarTransition>();
+}
+unsafe impl windows_core::Interface for ScalarTransition {
+    type Vtable = <IScalarTransition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IScalarTransition as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ScalarTransition {
+    type Target = IScalarTransition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ScalarTransition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ScalarTransition";
+}
+unsafe impl Send for ScalarTransition {}
+unsafe impl Sync for ScalarTransition {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollBarVisibility(pub i32);
@@ -19600,6 +21431,16 @@ impl TextBlock {
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    pub(crate) fn FontWeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FontWeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     pub(crate) fn TextWrappingProperty() -> windows_core::Result<DependencyProperty> {
         Self::ITextBlockStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19800,6 +21641,112 @@ impl<
             );
             windows_core::HRESULT(0)
         }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TextGetOptions(pub u32);
+impl TextGetOptions {
+    pub const None: Self = Self(0);
+    pub const AdjustCrlf: Self = Self(1);
+    pub const UseCrlf: Self = Self(2);
+    pub const UseObjectText: Self = Self(4);
+    pub const AllowFinalEop: Self = Self(8);
+    pub const NoHidden: Self = Self(32);
+    pub const IncludeNumbering: Self = Self(64);
+    pub const FormatRtf: Self = Self(8192);
+    pub const UseLf: Self = Self(16777216);
+}
+impl windows_core::imp::TypeKind for TextGetOptions {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for TextGetOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Text.TextGetOptions;u4)");
+}
+impl TextGetOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TextGetOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TextGetOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TextGetOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0);
+    }
+}
+impl core::ops::BitAndAssign for TextGetOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0);
+    }
+}
+impl core::ops::Not for TextGetOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TextSetOptions(pub u32);
+impl TextSetOptions {
+    pub const None: Self = Self(0);
+    pub const UnicodeBidi: Self = Self(1);
+    pub const Unlink: Self = Self(8);
+    pub const Unhide: Self = Self(16);
+    pub const CheckTextLimit: Self = Self(32);
+    pub const FormatRtf: Self = Self(8192);
+    pub const ApplyRtfDocumentDefaults: Self = Self(16384);
+}
+impl windows_core::imp::TypeKind for TextSetOptions {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for TextSetOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Text.TextSetOptions;u4)");
+}
+impl TextSetOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TextSetOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TextSetOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TextSetOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0);
+    }
+}
+impl core::ops::BitAndAssign for TextSetOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0);
+    }
+}
+impl core::ops::Not for TextSetOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -20549,6 +22496,16 @@ impl UIElement {
         Self::IUIElementStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowDropProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn OpacityProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IUIElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpacityProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )

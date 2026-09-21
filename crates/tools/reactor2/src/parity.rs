@@ -248,37 +248,108 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
                     .relations
                     .iter()
                     .any(|relation| relation.name == "Children"),
-                "items" => object
-                    .relations
+                "items" => {
+                    object.virtual_items
+                        && object.relations.iter().any(|relation| {
+                            relation.name == "Items"
+                                && relation.child == "Visual"
+                                && relation.cardinality == "Many"
+                                && relation.identity == "Keyed"
+                                && relation.realization == "Container"
+                        })
+                }
+                "layout" => {
+                    let visual = [
+                        "Width",
+                        "Height",
+                        "MinWidth",
+                        "MaxWidth",
+                        "MinHeight",
+                        "MaxHeight",
+                        "Opacity",
+                        "HorizontalAlignment",
+                        "VerticalAlignment",
+                        "Margin",
+                        "Transitions",
+                    ];
+                    let attached = [
+                        "GridRow",
+                        "GridColumn",
+                        "GridRowSpan",
+                        "GridColumnSpan",
+                        "RelativeAlignLeft",
+                        "RelativeAlignTop",
+                        "RelativeAlignRight",
+                        "RelativeAlignBottom",
+                        "RelativeAlignHorizontalCenter",
+                        "RelativeAlignVerticalCenter",
+                        "CanvasLeft",
+                        "CanvasTop",
+                        "AutomationName",
+                        "AutomationId",
+                        "AutomationHeadingLevel",
+                    ];
+                    schema.capabilities.layout_exit_transition
+                        && visual.iter().all(|name| {
+                            schema
+                                .visual_properties
+                                .iter()
+                                .any(|property| property.name == *name)
+                        })
+                        && attached.iter().all(|name| {
+                            schema.attached_properties.iter().any(|property| {
+                                property.name == *name
+                                    && match *name {
+                                        "GridRow" | "GridColumn" => {
+                                            property.validation.as_deref() == Some("non_negative")
+                                        }
+                                        "GridRowSpan" | "GridColumnSpan" => {
+                                            property.validation.as_deref() == Some("positive")
+                                        }
+                                        _ => true,
+                                    }
+                            })
+                        })
+                }
+                "enabled" => schema
+                    .capabilities
+                    .enabled
                     .iter()
-                    .any(|relation| relation.name == "Items"),
-                "enabled" => object
-                    .properties
+                    .any(|name| name == &object.name),
+                "focus" => schema
+                    .capabilities
+                    .focus
                     .iter()
-                    .any(|property| property.name == "IsEnabled"),
-                "controlled_text" => object.name == "TextBox" && object.native == "handwritten",
+                    .any(|name| name == &object.name),
+                "text_style" => schema
+                    .capabilities
+                    .text_style
+                    .iter()
+                    .any(|name| name == &object.name),
+                "controlled_text" => object.properties.iter().any(|property| {
+                    property.value == "String"
+                        && property.controlled.as_deref() == Some("TextChanged")
+                        && property.feedback.as_deref()
+                            == Some(if object.name == "RichEditBox" {
+                                "deferred_exact"
+                            } else {
+                                "synchronous_exact"
+                            })
+                        && (object.name != "RichEditBox"
+                            || property.adapter.as_deref() == Some("rich_edit_text"))
+                }),
+                "grid_definitions" => ["grid_rows", "grid_columns"].iter().all(|adapter| {
+                    object.properties.iter().any(|property| {
+                        property.value == "GridLengths"
+                            && property.adapter.as_deref() == Some(adapter)
+                    })
+                }),
                 _ => false,
             };
             if mapped {
                 report.capabilities.mapped += 1;
             } else {
-                let reason = if capability == "layout"
-                    && object.category == "Visual"
-                    && [
-                        "Width",
-                        "Height",
-                        "Margin",
-                        "HorizontalAlignment",
-                        "VerticalAlignment",
-                        "Opacity",
-                    ]
-                    .iter()
-                    .all(|name| {
-                        schema
-                            .visual_properties
-                            .iter()
-                            .any(|property| property.name == *name)
-                    }) {
+                let reason = if capability == "layout" && object.category == "Visual" {
                     "partial capability `layout`".to_string()
                 } else {
                     format!("unmapped capability `{capability}`")
@@ -297,7 +368,13 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
                 && schema
                     .visual_properties
                     .iter()
-                    .any(|candidate| candidate.name == property.name));
+                    .any(|candidate| candidate.name == property.name))
+                || (property.name == "IsEnabled"
+                    && schema
+                        .capabilities
+                        .enabled
+                        .iter()
+                        .any(|name| name == &object.name));
             if !mapped_property {
                 report.unresolved("missing property", contract);
                 continue;
@@ -337,7 +414,7 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
                         candidate.controlled.as_ref().or(candidate.coerces.as_ref());
                     !matches!(
                         candidate.feedback.as_deref(),
-                        Some("synchronous_exact" | "synchronous_normalized")
+                        Some("synchronous_exact" | "synchronous_normalized" | "deferred_exact")
                     ) || !feedback_event.is_some_and(|event| {
                         object.events.iter().any(|candidate_event| {
                             candidate_event.name == *event
@@ -367,7 +444,12 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
             if !property.variants.is_empty() {
                 semantics.push("resource_variants".to_string());
             }
-            if property.field.is_some() {
+            if property.field.is_some()
+                && !mapped_property.is_some_and(|candidate| {
+                    candidate.adapter.as_deref() == Some("rich_edit_text")
+                        && property.field.as_deref() == Some("text")
+                })
+            {
                 semantics.push("renamed_field".to_string());
             }
             if semantics.is_empty() {
@@ -412,8 +494,16 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
                         })
                 })
             });
+            let adapter_matches = event.adapter.is_none()
+                || event.adapter.as_deref() == Some("rich_edit_text")
+                    && candidate.observes.as_deref().is_some_and(|observed| {
+                        object.properties.iter().any(|property| {
+                            property.name == *observed
+                                && property.adapter.as_deref() == Some("rich_edit_text")
+                        })
+                    });
             if event.field.as_ref() != candidate.field.as_ref()
-                || event.adapter.is_some()
+                || !adapter_matches
                 || !event.active_properties.is_empty()
                 || event.routed
                 || !observed_matches
@@ -551,6 +641,7 @@ pub(super) fn convert(
                 native: control.type_name.clone(),
                 native_type: None,
                 key: false,
+                virtual_items: false,
                 properties: Vec::new(),
                 relations: Vec::new(),
                 events: Vec::new(),
@@ -643,6 +734,7 @@ pub(super) fn convert(
                     required: false,
                     default: None,
                     validation: property.validation.clone(),
+                    readback: false,
                 });
         }
 
@@ -964,7 +1056,7 @@ mod tests {
         assert_eq!(report.events.total, 68);
         assert_eq!(report.slots.total, 42);
         assert_eq!(report.selections.total, 3);
-        assert_eq!(report.events.mapped, 36);
+        assert_eq!(report.events.mapped, 37);
         assert_eq!(report.slots.mapped, 42);
         assert_eq!(report.selections.mapped, 3);
         assert!(!report.is_complete());

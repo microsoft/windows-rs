@@ -700,6 +700,10 @@ impl reactor2::Adapter for MeasuredWinUiAdapter {
         metrics.apply_bytes += allocator::allocated_bytes() - bytes;
         result
     }
+
+    fn focus(&mut self, object: reactor2::ObjectId) -> Result<bool, Self::Error> {
+        self.inner.focus(object)
+    }
 }
 
 struct Reactor2Host {

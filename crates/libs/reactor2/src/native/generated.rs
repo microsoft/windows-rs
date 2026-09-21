@@ -163,6 +163,11 @@ struct GeneratedGridView {
     selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
     _selection_changed: windows_core::EventRevoker,
 }
+struct GeneratedRichEditBox {
+    value: native::RichEditBox,
+    text_changed: Rc<RefCell<NativeStringEvent>>,
+    _text_changed: windows_core::EventRevoker,
+}
 enum GeneratedCollection {
     Visual(native::UIElementCollection),
     Inspectable(windows_collections::IVector<IInspectable>),
@@ -291,7 +296,7 @@ enum GeneratedHandle {
     GridView(GeneratedGridView),
     GridViewItem(native::GridViewItem),
     RelativePanel(native::RelativePanel),
-    RichEditBox(native::RichEditBox),
+    RichEditBox(GeneratedRichEditBox),
     RichTextBlock(native::RichTextBlock),
     WebView2(native::WebView2),
     SwapChainPanel(native::SwapChainPanel),
@@ -311,12 +316,14 @@ impl GeneratedHandle {
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
+                            observation,
                         );
                     }
                 })?;
@@ -356,19 +363,14 @@ impl GeneratedHandle {
                     };
                     let dispatch =
                         event_queue_click.observe(object, EventId::Click, observation.clone());
-                    if dispatch {
-                        event_queue_click
-                            .observations
-                            .borrow_mut()
-                            .push(observation);
-                        WinUiAdapter::schedule_event_wake(&event_queue_click);
-                    }
+                    let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
+                            observation,
                         );
                     }
                 })?;
@@ -391,6 +393,7 @@ impl GeneratedHandle {
                         .cast::<native::IUIElement>()?
                         .PointerReleased(move |_, args| {
                             let dispatch = true;
+                            let observation = None;
                             let value = match WinUiAdapter::pointer_event_info(
                                 &source_pointer_released,
                                 args,
@@ -407,6 +410,7 @@ impl GeneratedHandle {
                                     &event_queue_pointer_released,
                                     object,
                                     EventId::PointerReleased,
+                                    observation,
                                     value,
                                 );
                             }
@@ -420,12 +424,14 @@ impl GeneratedHandle {
                         .cast::<native::IUIElement>()?
                         .PointerCaptureLost(move |_, _| {
                             let dispatch = true;
+                            let observation = None;
                             if dispatch {
                                 WinUiAdapter::dispatch_unit(
                                     &event_for_callback,
                                     &event_queue_pointer_capture_lost,
                                     object,
                                     EventId::PointerCaptureLost,
+                                    observation,
                                 );
                             }
                         })?;
@@ -438,12 +444,14 @@ impl GeneratedHandle {
                         .cast::<native::IUIElement>()?
                         .PointerCanceled(move |_, _| {
                             let dispatch = true;
+                            let observation = None;
                             if dispatch {
                                 WinUiAdapter::dispatch_unit(
                                     &event_for_callback,
                                     &event_queue_pointer_canceled,
                                     object,
                                     EventId::PointerCanceled,
+                                    observation,
                                 );
                             }
                         })?;
@@ -453,12 +461,14 @@ impl GeneratedHandle {
                 let event_queue_drag_leave = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IUIElement>()?.DragLeave(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_drag_leave,
                             object,
                             EventId::DragLeave,
+                            observation,
                         );
                     }
                 })?;
@@ -489,12 +499,14 @@ impl GeneratedHandle {
                     .cast::<native::ITitleBar>()?
                     .BackRequested(move |_, _| {
                         let dispatch = true;
+                        let observation = None;
                         if dispatch {
                             WinUiAdapter::dispatch_unit(
                                 &event_for_callback,
                                 &event_queue_back_requested,
                                 object,
                                 EventId::BackRequested,
+                                observation,
                             );
                         }
                     })?;
@@ -507,12 +519,14 @@ impl GeneratedHandle {
                         .cast::<native::ITitleBar>()?
                         .PaneToggleRequested(move |_, _| {
                             let dispatch = true;
+                            let observation = None;
                             if dispatch {
                                 WinUiAdapter::dispatch_unit(
                                     &event_for_callback,
                                     &event_queue_pane_toggle_requested,
                                     object,
                                     EventId::PaneToggleRequested,
+                                    observation,
                                 );
                             }
                         })?;
@@ -559,13 +573,7 @@ impl GeneratedHandle {
                                 EventId::ValueChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_value_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_value_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             let Some(args) = args.as_ref() else {
                                 super::app::report_error(WinUiError::InvalidEventArgs.into());
                                 return;
@@ -583,6 +591,7 @@ impl GeneratedHandle {
                                     &event_queue_value_changed,
                                     object,
                                     EventId::ValueChanged,
+                                    observation,
                                     payload,
                                 );
                             }
@@ -601,12 +610,14 @@ impl GeneratedHandle {
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
+                            observation,
                         );
                     }
                 })?;
@@ -624,12 +635,14 @@ impl GeneratedHandle {
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
+                            observation,
                         );
                     }
                 })?;
@@ -679,19 +692,14 @@ impl GeneratedHandle {
                                 EventId::TextChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_text_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_text_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch_string(
                                     &event_for_callback,
                                     &event_queue_text_changed,
                                     object,
                                     EventId::TextChanged,
+                                    observation,
                                     observed,
                                 );
                             }
@@ -738,19 +746,14 @@ impl GeneratedHandle {
                                 EventId::PasswordChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_password_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_password_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch_string(
                                     &event_for_callback,
                                     &event_queue_password_changed,
                                     object,
                                     EventId::PasswordChanged,
+                                    observation,
                                     observed,
                                 );
                             }
@@ -797,13 +800,7 @@ impl GeneratedHandle {
                                 EventId::ValueChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_value_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_value_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             let Some(args) = args.as_ref() else {
                                 super::app::report_error(WinUiError::InvalidEventArgs.into());
                                 return;
@@ -821,6 +818,7 @@ impl GeneratedHandle {
                                     &event_queue_value_changed,
                                     object,
                                     EventId::ValueChanged,
+                                    observation,
                                     payload,
                                 );
                             }
@@ -898,19 +896,14 @@ impl GeneratedHandle {
                             EventId::PaneClosed,
                             observation.clone(),
                         );
-                        if dispatch {
-                            event_queue_pane_closed
-                                .observations
-                                .borrow_mut()
-                                .push(observation);
-                            WinUiAdapter::schedule_event_wake(&event_queue_pane_closed);
-                        }
+                        let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch_bool(
                                 &event_for_callback,
                                 &event_queue_pane_closed,
                                 object,
                                 EventId::PaneClosed,
+                                observation,
                                 observed,
                             );
                         }
@@ -956,19 +949,14 @@ impl GeneratedHandle {
                             EventId::Toggled,
                             observation.clone(),
                         );
-                        if dispatch {
-                            event_queue_toggled
-                                .observations
-                                .borrow_mut()
-                                .push(observation);
-                            WinUiAdapter::schedule_event_wake(&event_queue_toggled);
-                        }
+                        let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch_bool(
                                 &event_for_callback,
                                 &event_queue_toggled,
                                 object,
                                 EventId::Toggled,
+                                observation,
                                 observed,
                             );
                         }
@@ -1015,19 +1003,14 @@ impl GeneratedHandle {
                             EventId::Checked,
                             observation.clone(),
                         );
-                        if dispatch {
-                            event_queue_checked
-                                .observations
-                                .borrow_mut()
-                                .push(observation);
-                            WinUiAdapter::schedule_event_wake(&event_queue_checked);
-                        }
+                        let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch_optional_bool(
                                 &event_for_callback,
                                 &event_queue_checked,
                                 object,
                                 EventId::Checked,
+                                observation,
                                 observed,
                             );
                         }
@@ -1074,19 +1057,14 @@ impl GeneratedHandle {
                                 EventId::SelectionChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_selection_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_selection_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch_selection_index(
                                     &event_for_callback,
                                     &event_queue_selection_changed,
                                     object,
                                     EventId::SelectionChanged,
+                                    observation,
                                     observed,
                                 );
                             }
@@ -1107,12 +1085,14 @@ impl GeneratedHandle {
                 let event_queue_closed = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IInfoBar>()?.Closed(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_closed,
                             object,
                             EventId::Closed,
+                            observation,
                         );
                     }
                 })?;
@@ -1132,12 +1112,14 @@ impl GeneratedHandle {
                 let event_queue_image_opened = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IImage>()?.ImageOpened(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_image_opened,
                             object,
                             EventId::ImageOpened,
+                            observation,
                         );
                     }
                 })?;
@@ -1147,12 +1129,14 @@ impl GeneratedHandle {
                 let event_queue_image_failed = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IImage>()?.ImageFailed(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_image_failed,
                             object,
                             EventId::ImageFailed,
+                            observation,
                         );
                     }
                 })?;
@@ -1238,19 +1222,14 @@ impl GeneratedHandle {
                                 EventId::ValueChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_value_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_value_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch_optional_f64(
                                     &event_for_callback,
                                     &event_queue_value_changed,
                                     object,
                                     EventId::ValueChanged,
+                                    observation,
                                     observed,
                                 );
                             }
@@ -1298,19 +1277,14 @@ impl GeneratedHandle {
                                 EventId::SelectionChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_selection_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_selection_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch_selection_index(
                                     &event_for_callback,
                                     &event_queue_selection_changed,
                                     object,
                                     EventId::SelectionChanged,
+                                    observation,
                                     observed,
                                 );
                             }
@@ -1356,19 +1330,14 @@ impl GeneratedHandle {
                             EventId::SelectionChanged,
                             observation.clone(),
                         );
-                        if dispatch {
-                            event_queue_selection_changed
-                                .observations
-                                .borrow_mut()
-                                .push(observation);
-                            WinUiAdapter::schedule_event_wake(&event_queue_selection_changed);
-                        }
+                        let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch_selection_index(
                                 &event_for_callback,
                                 &event_queue_selection_changed,
                                 object,
                                 EventId::SelectionChanged,
+                                observation,
                                 observed,
                             );
                         }
@@ -1416,19 +1385,14 @@ impl GeneratedHandle {
                                 EventId::SelectionChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_selection_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_selection_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch_selection_index(
                                     &event_for_callback,
                                     &event_queue_selection_changed,
                                     object,
                                     EventId::SelectionChanged,
+                                    observation,
                                     observed,
                                 );
                             }
@@ -1479,12 +1443,14 @@ impl GeneratedHandle {
                         .cast::<native::ITabView>()?
                         .AddTabButtonClick(move |_, _| {
                             let dispatch = true;
+                            let observation = None;
                             if dispatch {
                                 WinUiAdapter::dispatch_unit(
                                     &event_for_callback,
                                     &event_queue_add_tab_button_click,
                                     object,
                                     EventId::AddTabButtonClick,
+                                    observation,
                                 );
                             }
                         })?;
@@ -1521,19 +1487,14 @@ impl GeneratedHandle {
                             EventId::SelectionChanged,
                             observation.clone(),
                         );
-                        if dispatch {
-                            event_queue_selection_changed
-                                .observations
-                                .borrow_mut()
-                                .push(observation);
-                            WinUiAdapter::schedule_event_wake(&event_queue_selection_changed);
-                        }
+                        let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch_selection_index(
                                 &event_for_callback,
                                 &event_queue_selection_changed,
                                 object,
                                 EventId::SelectionChanged,
+                                observation,
                                 observed,
                             );
                         }
@@ -1555,12 +1516,14 @@ impl GeneratedHandle {
                 let event_queue_closed = Rc::clone(event_queue);
                 let revoker = value.cast::<native::ITeachingTip>()?.Closed(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_closed,
                             object,
                             EventId::Closed,
+                            observation,
                         );
                     }
                 })?;
@@ -1573,12 +1536,14 @@ impl GeneratedHandle {
                         .cast::<native::ITeachingTip>()?
                         .ActionButtonClick(move |_, _| {
                             let dispatch = true;
+                            let observation = None;
                             if dispatch {
                                 WinUiAdapter::dispatch_unit(
                                     &event_for_callback,
                                     &event_queue_action_button_click,
                                     object,
                                     EventId::ActionButtonClick,
+                                    observation,
                                 );
                             }
                         })?;
@@ -1598,12 +1563,14 @@ impl GeneratedHandle {
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
+                            observation,
                         );
                     }
                 })?;
@@ -1622,12 +1589,14 @@ impl GeneratedHandle {
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
+                            observation,
                         );
                     }
                 })?;
@@ -1648,12 +1617,14 @@ impl GeneratedHandle {
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::ISplitButton>()?.Click(move |_, _| {
                     let dispatch = true;
+                    let observation = None;
                     if dispatch {
                         WinUiAdapter::dispatch_unit(
                             &event_for_callback,
                             &event_queue_click,
                             object,
                             EventId::Click,
+                            observation,
                         );
                     }
                 })?;
@@ -1681,12 +1652,14 @@ impl GeneratedHandle {
                     .cast::<native::ICalendarView>()?
                     .SelectedDatesChanged(move |_, _| {
                         let dispatch = true;
+                        let observation = None;
                         if dispatch {
                             WinUiAdapter::dispatch_unit(
                                 &event_for_callback,
                                 &event_queue_selected_dates_changed,
                                 object,
                                 EventId::SelectedDatesChanged,
+                                observation,
                             );
                         }
                     })?;
@@ -1733,19 +1706,14 @@ impl GeneratedHandle {
                                 EventId::SelectionChanged,
                                 observation.clone(),
                             );
-                            if dispatch {
-                                event_queue_selection_changed
-                                    .observations
-                                    .borrow_mut()
-                                    .push(observation);
-                                WinUiAdapter::schedule_event_wake(&event_queue_selection_changed);
-                            }
+                            let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch_selection_index(
                                     &event_for_callback,
                                     &event_queue_selection_changed,
                                     object,
                                     EventId::SelectionChanged,
+                                    observation,
                                     observed,
                                 );
                             }
@@ -1759,7 +1727,54 @@ impl GeneratedHandle {
             }
             ObjectType::GridViewItem => Self::GridViewItem(native::GridViewItem::new()?),
             ObjectType::RelativePanel => Self::RelativePanel(native::RelativePanel::new()?),
-            ObjectType::RichEditBox => Self::RichEditBox(native::RichEditBox::new()?),
+            ObjectType::RichEditBox => {
+                let value = native::RichEditBox::new()?;
+                let source_text_changed = value.clone();
+                let read_text_changed = move || read_rich_edit_text(&source_text_changed);
+                let text_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
+                let event_for_callback = Rc::clone(&text_changed);
+                let event_queue_text_changed = Rc::clone(event_queue);
+                let revoker = value
+                    .cast::<native::IRichEditBox>()?
+                    .TextChanged(move |_, _| {
+                        let observed = match read_text_changed() {
+                            Ok(value) => value,
+                            Err(error) => {
+                                super::app::report_error(error);
+                                return;
+                            }
+                        };
+                        let observation = Observation::SetProperty {
+                            object,
+                            property: Property {
+                                id: PropertyId::Document,
+                                value: PropertyValue::String(Rc::clone(&observed)),
+                            },
+                        };
+                        let dispatch = event_queue_text_changed.observe(
+                            object,
+                            EventId::TextChanged,
+                            observation.clone(),
+                        );
+                        let observation = dispatch.then_some(observation);
+                        if dispatch {
+                            WinUiAdapter::dispatch_string(
+                                &event_for_callback,
+                                &event_queue_text_changed,
+                                object,
+                                EventId::TextChanged,
+                                observation,
+                                observed,
+                            );
+                        }
+                    })?;
+                let _text_changed = revoker;
+                Self::RichEditBox(GeneratedRichEditBox {
+                    value,
+                    text_changed,
+                    _text_changed,
+                })
+            }
             ObjectType::RichTextBlock => Self::RichTextBlock(native::RichTextBlock::new()?),
             ObjectType::WebView2 => Self::WebView2(native::WebView2::new()?),
             ObjectType::SwapChainPanel => Self::SwapChainPanel(native::SwapChainPanel::new()?),
@@ -1920,7 +1935,7 @@ impl GeneratedHandle {
             Self::GridView(value) => Ok(value.value.cast()?),
             Self::GridViewItem(value) => Ok(value.cast()?),
             Self::RelativePanel(value) => Ok(value.cast()?),
-            Self::RichEditBox(value) => Ok(value.cast()?),
+            Self::RichEditBox(value) => Ok(value.value.cast()?),
             Self::RichTextBlock(value) => Ok(value.cast()?),
             Self::WebView2(value) => Ok(value.cast()?),
             Self::SwapChainPanel(value) => Ok(value.cast()?),
@@ -2299,6 +2314,265 @@ impl GeneratedHandle {
                             .and_then(|property| element.ClearValue(&property).map_err(Into::into))
                     }),
             ),
+            (PropertyId::GridRow, Some(PropertyValue::I32(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| native::Grid::SetRow(&element, *value).map_err(Into::into)),
+            ),
+            (PropertyId::GridRow, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Grid::RowProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::GridColumn, Some(PropertyValue::I32(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Grid::SetColumn(&element, *value).map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::GridColumn, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Grid::ColumnProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::GridRowSpan, Some(PropertyValue::I32(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Grid::SetRowSpan(&element, *value).map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::GridRowSpan, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Grid::RowSpanProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::GridColumnSpan, Some(PropertyValue::I32(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Grid::SetColumnSpan(&element, *value).map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::GridColumnSpan, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::Grid::ColumnSpanProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::RelativeAlignLeft, Some(PropertyValue::Bool(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::SetAlignLeftWithPanel(&element, *value)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::RelativeAlignLeft, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::AlignLeftWithPanelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::RelativeAlignTop, Some(PropertyValue::Bool(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::SetAlignTopWithPanel(&element, *value)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::RelativeAlignTop, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::AlignTopWithPanelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::RelativeAlignRight, Some(PropertyValue::Bool(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::SetAlignRightWithPanel(&element, *value)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::RelativeAlignRight, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::AlignRightWithPanelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::RelativeAlignBottom, Some(PropertyValue::Bool(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::SetAlignBottomWithPanel(&element, *value)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::RelativeAlignBottom, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::AlignBottomWithPanelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::RelativeAlignHorizontalCenter, Some(PropertyValue::Bool(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::SetAlignHorizontalCenterWithPanel(&element, *value)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::RelativeAlignHorizontalCenter, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::AlignHorizontalCenterWithPanelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::RelativeAlignVerticalCenter, Some(PropertyValue::Bool(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::SetAlignVerticalCenterWithPanel(&element, *value)
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::RelativeAlignVerticalCenter, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::RelativePanel::AlignVerticalCenterWithPanelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::AutomationName, Some(PropertyValue::String(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetName(&element, value.as_ref())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationName, None) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetName(&element, "").map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationId, Some(PropertyValue::String(value))) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetAutomationId(&element, value.as_ref())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationId, None) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::SetAutomationId(&element, "")
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                PropertyId::AutomationHeadingLevel,
+                Some(PropertyValue::Enum {
+                    kind: "AutomationHeadingLevel",
+                    variant,
+                }),
+            ) => Some(
+                element
+                    .cast::<native::FrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        let _ = native::AutomationHeadingLevel::None;
+                        native::AutomationProperties::SetHeadingLevel(
+                            &element,
+                            match *variant {
+                                "Level1" => native::AutomationHeadingLevel::Level1,
+                                "Level2" => native::AutomationHeadingLevel::Level2,
+                                "Level3" => native::AutomationHeadingLevel::Level3,
+                                "Level4" => native::AutomationHeadingLevel::Level4,
+                                "Level5" => native::AutomationHeadingLevel::Level5,
+                                "Level6" => native::AutomationHeadingLevel::Level6,
+                                "Level7" => native::AutomationHeadingLevel::Level7,
+                                "Level8" => native::AutomationHeadingLevel::Level8,
+                                "Level9" => native::AutomationHeadingLevel::Level9,
+                                _ => unreachable!("validated enum variant"),
+                            },
+                        )
+                        .map_err(Into::into)
+                    }),
+            ),
+            (PropertyId::AutomationHeadingLevel, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|element| {
+                        native::AutomationProperties::HeadingLevelProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| element.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
             _ => None,
         }
     }
@@ -2308,11 +2582,31 @@ impl GeneratedHandle {
         value: Option<&PropertyValue>,
     ) -> Option<Result<(), WinUiError>> {
         match (property, value) {
+            (PropertyId::IsEnabled, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::Control::IsEnabledProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::IsEnabled, Some(PropertyValue::Bool(value))) => Some(
+                element
+                    .cast::<native::IControl>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetIsEnabled(*value).map_err(Into::into)),
+            ),
             (PropertyId::Width, None) => Some(
                 element
-                    .cast::<native::IFrameworkElement>()
+                    .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
-                    .and_then(|object| object.SetWidth(f64::NAN).map_err(Into::into)),
+                    .and_then(|object| {
+                        native::FrameworkElement::WidthProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
             ),
             (PropertyId::Width, Some(PropertyValue::F64(value))) => Some(
                 element
@@ -2322,9 +2616,13 @@ impl GeneratedHandle {
             ),
             (PropertyId::Height, None) => Some(
                 element
-                    .cast::<native::IFrameworkElement>()
+                    .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
-                    .and_then(|object| object.SetHeight(f64::NAN).map_err(Into::into)),
+                    .and_then(|object| {
+                        native::FrameworkElement::HeightProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
             ),
             (PropertyId::Height, Some(PropertyValue::F64(value))) => Some(
                 element
@@ -2332,14 +2630,78 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|object| object.SetHeight(*value).map_err(Into::into)),
             ),
-            (PropertyId::Margin, None) => Some(
+            (PropertyId::MinWidth, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::FrameworkElement::MinWidthProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::MinWidth, Some(PropertyValue::F64(value))) => Some(
                 element
                     .cast::<native::IFrameworkElement>()
                     .map_err(Into::into)
+                    .and_then(|object| object.SetMinWidth(*value).map_err(Into::into)),
+            ),
+            (PropertyId::MaxWidth, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
                     .and_then(|object| {
-                        object
-                            .SetMargin(native::Thickness::default())
+                        native::FrameworkElement::MaxWidthProperty()
                             .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::MaxWidth, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetMaxWidth(*value).map_err(Into::into)),
+            ),
+            (PropertyId::MinHeight, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::FrameworkElement::MinHeightProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::MinHeight, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetMinHeight(*value).map_err(Into::into)),
+            ),
+            (PropertyId::MaxHeight, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::FrameworkElement::MaxHeightProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (PropertyId::MaxHeight, Some(PropertyValue::F64(value))) => Some(
+                element
+                    .cast::<native::IFrameworkElement>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetMaxHeight(*value).map_err(Into::into)),
+            ),
+            (PropertyId::Margin, None) => Some(
+                element
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::FrameworkElement::MarginProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
                     }),
             ),
             (PropertyId::Margin, Some(PropertyValue::Thickness(value))) => Some(
@@ -2359,12 +2721,12 @@ impl GeneratedHandle {
             ),
             (PropertyId::HorizontalAlignment, None) => Some(
                 element
-                    .cast::<native::IFrameworkElement>()
+                    .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
                     .and_then(|object| {
-                        object
-                            .SetHorizontalAlignment(native::HorizontalAlignment::Stretch)
+                        native::FrameworkElement::HorizontalAlignmentProperty()
                             .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
                     }),
             ),
             (
@@ -2391,12 +2753,12 @@ impl GeneratedHandle {
             ),
             (PropertyId::VerticalAlignment, None) => Some(
                 element
-                    .cast::<native::IFrameworkElement>()
+                    .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
                     .and_then(|object| {
-                        object
-                            .SetVerticalAlignment(native::VerticalAlignment::Stretch)
+                        native::FrameworkElement::VerticalAlignmentProperty()
                             .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
                     }),
             ),
             (
@@ -2423,9 +2785,13 @@ impl GeneratedHandle {
             ),
             (PropertyId::Opacity, None) => Some(
                 element
-                    .cast::<native::IUIElement>()
+                    .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
-                    .and_then(|object| object.SetOpacity(1.0).map_err(Into::into)),
+                    .and_then(|object| {
+                        native::UIElement::OpacityProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
             ),
             (PropertyId::Opacity, Some(PropertyValue::F64(value))) => Some(
                 element
@@ -2631,6 +2997,20 @@ impl GeneratedHandle {
                 EventId::SelectionChanged,
                 FeedbackExpectation::Normalized { observation: None },
             )),
+            (ObjectType::RichEditBox, PropertyId::Document, Some(value)) => Some((
+                EventId::TextChanged,
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::Document,
+                    value: value.clone(),
+                }),
+            )),
+            (ObjectType::RichEditBox, PropertyId::Document, None) => Some((
+                EventId::TextChanged,
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::Document,
+                    value: PropertyValue::String(Rc::from("")),
+                }),
+            )),
             _ => None,
         }
     }
@@ -2668,6 +3048,32 @@ impl GeneratedHandle {
                         .and_then(|object| object.SetFontSize(*value).map_err(Into::into)),
                 )
             }
+            (Self::TextBlock(object), PropertyId::FontWeight, None) => Some(
+                object
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::TextBlock::FontWeightProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::FontWeight,
+                Some(PropertyValue::FontWeight(value)),
+            ) => Some(
+                object
+                    .cast::<native::ITextBlock>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetFontWeight(native::FontWeight {
+                                weight: value.value(),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
             (Self::TextBlock(object), PropertyId::Foreground, None) => Some(
                 object
                     .cast::<native::ITextBlock>()
@@ -3130,6 +3536,20 @@ impl GeneratedHandle {
                             .map_err(Into::into)
                     }),
             ),
+            (Self::Grid(object), PropertyId::GridRows, None) => {
+                Some(set_grid_definitions(object, &[], true))
+            }
+            (Self::Grid(object), PropertyId::GridRows, Some(PropertyValue::GridLengths(value))) => {
+                Some(set_grid_definitions(object, value, true))
+            }
+            (Self::Grid(object), PropertyId::GridColumns, None) => {
+                Some(set_grid_definitions(object, &[], false))
+            }
+            (
+                Self::Grid(object),
+                PropertyId::GridColumns,
+                Some(PropertyValue::GridLengths(value)),
+            ) => Some(set_grid_definitions(object, value, false)),
             (Self::Grid(object), PropertyId::RowSpacing, None) => Some(
                 object
                     .cast::<native::IDependencyObject>()
@@ -7104,8 +7524,17 @@ impl GeneratedHandle {
                         }),
                 )
             }
+            (Self::RichEditBox(object), PropertyId::Document, None) => {
+                Some(set_rich_edit_text(&object.value, ""))
+            }
+            (
+                Self::RichEditBox(object),
+                PropertyId::Document,
+                Some(PropertyValue::String(value)),
+            ) => Some(set_rich_edit_text(&object.value, value)),
             (Self::RichEditBox(object), PropertyId::PlaceholderText, None) => Some(
                 object
+                    .value
                     .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
                     .and_then(|object| {
@@ -7120,6 +7549,7 @@ impl GeneratedHandle {
                 Some(PropertyValue::String(value)),
             ) => Some(
                 object
+                    .value
                     .cast::<native::IRichEditBox>()
                     .map_err(Into::into)
                     .and_then(|object| {
@@ -7130,6 +7560,7 @@ impl GeneratedHandle {
             ),
             (Self::RichEditBox(object), PropertyId::IsReadOnly, None) => Some(
                 object
+                    .value
                     .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
                     .and_then(|object| {
@@ -7144,12 +7575,14 @@ impl GeneratedHandle {
                 Some(PropertyValue::Bool(value)),
             ) => Some(
                 object
+                    .value
                     .cast::<native::IRichEditBox>()
                     .map_err(Into::into)
                     .and_then(|object| object.SetIsReadOnly(*value).map_err(Into::into)),
             ),
             (Self::RichEditBox(object), PropertyId::IsEnabled, None) => Some(
                 object
+                    .value
                     .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
                     .and_then(|object| {
@@ -7164,6 +7597,7 @@ impl GeneratedHandle {
                 Some(PropertyValue::Bool(value)),
             ) => Some(
                 object
+                    .value
                     .cast::<native::IControl>()
                     .map_err(Into::into)
                     .and_then(|object| object.SetIsEnabled(*value).map_err(Into::into)),
@@ -7862,6 +8296,24 @@ impl GeneratedHandle {
                 }
                 Ok(())
             })()),
+            Self::RichEditBox(object) => Some((|| {
+                if clear.contains(&EventId::TextChanged) {
+                    let mut native_event = object.text_changed.borrow_mut();
+                    native_event.revision = native_event.revision.wrapping_add(1);
+                    native_event.callback = None;
+                }
+                for event in set {
+                    match (event.id, &event.value) {
+                        (EventId::TextChanged, EventValue::String(callback)) => {
+                            let mut native_event = object.text_changed.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
+                        }
+                        _ => return Err(WinUiError::InvalidObject(object_id)),
+                    }
+                }
+                Ok(())
+            })()),
             _ => None,
         }
     }
@@ -8349,6 +8801,7 @@ impl GeneratedHandle {
             ),
             (Self::RichEditBox(object), RelationId::Header) => Some(
                 object
+                    .value
                     .cast::<native::IRichEditBox>()
                     .map_err(Into::into)
                     .and_then(|object| match child {
@@ -8619,6 +9072,13 @@ impl GeneratedHandle {
                     .then(|| event.callback.clone())
                     .flatten()
                     .map(EventValue::SelectionIndex)
+            }
+            (Self::RichEditBox(object), EventId::TextChanged) => {
+                let event = object.text_changed.borrow();
+                (event.revision == revision)
+                    .then(|| event.callback.clone())
+                    .flatten()
+                    .map(EventValue::String)
             }
             _ => None,
         }

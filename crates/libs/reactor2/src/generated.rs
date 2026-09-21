@@ -89,6 +89,9 @@ pub enum PropertyId {
     AllowDrop,
     AllowFocusOnInteraction,
     AlwaysShowHeader,
+    AutomationHeadingLevel,
+    AutomationId,
+    AutomationName,
     Background,
     BorderBrush,
     BorderThickness,
@@ -108,10 +111,18 @@ pub enum PropertyId {
     Delay,
     DisplayMode,
     DisplayName,
+    Document,
     Expanded,
     FontSize,
+    FontWeight,
     Foreground,
     Glyph,
+    GridColumn,
+    GridColumnSpan,
+    GridColumns,
+    GridRow,
+    GridRowSpan,
+    GridRows,
     GroupName,
     Header,
     Height,
@@ -156,10 +167,14 @@ pub enum PropertyId {
     Label,
     Margin,
     MaxColumns,
+    MaxHeight,
     MaxLines,
     MaxRating,
+    MaxWidth,
     Maximum,
     Message,
+    MinHeight,
+    MinWidth,
     Minimum,
     MinuteIncrement,
     MonthVisible,
@@ -179,6 +194,12 @@ pub enum PropertyId {
     RadiusX,
     RadiusY,
     RatingControlValue,
+    RelativeAlignBottom,
+    RelativeAlignHorizontalCenter,
+    RelativeAlignLeft,
+    RelativeAlignRight,
+    RelativeAlignTop,
+    RelativeAlignVerticalCenter,
     RowSpacing,
     ScrollViewHorizontalScrollBarVisibility,
     ScrollViewVerticalScrollBarVisibility,
@@ -295,6 +316,8 @@ pub enum ValueType {
     Color,
     CornerRadius,
     F64,
+    FontWeight,
+    GridLengths,
     I32,
     OptionalBool,
     OptionalF64,
@@ -677,4565 +700,1853 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
         }],
         ObjectType::GridViewItem => &[],
         ObjectType::RelativePanel => &[],
-        ObjectType::RichEditBox => &[],
+        ObjectType::RichEditBox => &[EventContract {
+            id: EventId::TextChanged,
+            value: ValueType::String,
+        }],
         ObjectType::RichTextBlock => &[],
         ObjectType::WebView2 => &[],
         ObjectType::SwapChainPanel => &[],
     }
 }
-pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
-    match kind {
-        ObjectType::TextBlock => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Text,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::FontSize,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Foreground,
-                value: ValueType::Color,
-            },
-            PropertyContract {
-                id: PropertyId::TextWrapping,
-                value: ValueType::Enum {
-                    kind: "TextWrapping",
-                    variants: &["NoWrap", "Wrap", "WrapWholeWords"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::IsTextSelectionEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::TextTrimming,
-                value: ValueType::Enum {
-                    kind: "TextTrimming",
-                    variants: &["None", "CharacterEllipsis", "WordEllipsis", "Clip"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::MaxLines,
-                value: ValueType::I32,
-            },
-        ],
-        ObjectType::TextBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Text,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::Button => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Background,
-                value: ValueType::Color,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalContentAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalContentAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-        ],
-        ObjectType::CheckBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsChecked,
-                value: ValueType::OptionalBool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::Border => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Background,
-                value: ValueType::Color,
-            },
-            PropertyContract {
-                id: PropertyId::BorderBrush,
-                value: ValueType::Color,
-            },
-            PropertyContract {
-                id: PropertyId::BorderThickness,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::CornerRadius,
-                value: ValueType::CornerRadius,
-            },
-            PropertyContract {
-                id: PropertyId::Padding,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::IsTabStop,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::AllowFocusOnInteraction,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::Grid => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::RowSpacing,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::ColumnSpacing,
-                value: ValueType::F64,
-            },
-        ],
-        ObjectType::StackPanel => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Spacing,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Orientation,
-                value: ValueType::Enum {
-                    kind: "Orientation",
-                    variants: &["Vertical", "Horizontal"],
-                },
-            },
-        ],
-        ObjectType::Canvas => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::ScrollViewer => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalScrollBarVisibility,
-                value: ValueType::Enum {
-                    kind: "ScrollBarVisibility",
-                    variants: &["Disabled", "Auto", "Hidden", "Visible"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalScrollBarVisibility,
-                value: ValueType::Enum {
-                    kind: "ScrollBarVisibility",
-                    variants: &["Disabled", "Auto", "Hidden", "Visible"],
-                },
-            },
-        ],
-        ObjectType::Viewbox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Stretch,
-                value: ValueType::Enum {
-                    kind: "Stretch",
-                    variants: &["None", "Fill", "Uniform", "UniformToFill"],
-                },
-            },
-        ],
-        ObjectType::TitleBar => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Title,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::Subtitle,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsBackButtonVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsBackButtonEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsPaneToggleButtonVisible,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::Slider => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Minimum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Maximum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Value,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Orientation,
-                value: ValueType::Enum {
-                    kind: "Orientation",
-                    variants: &["Vertical", "Horizontal"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::StepFrequency,
-                value: ValueType::F64,
-            },
-        ],
-        ObjectType::TreeView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::TreeNode => &[
-            PropertyContract {
-                id: PropertyId::Text,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::Expanded,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ListView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::DataItem => &[PropertyContract {
-            id: PropertyId::Text,
+pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyContract> {
+    if object_category(kind) == ObjectCategory::Visual {
+        match id {
+            PropertyId::CanvasLeft => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::CanvasTop => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::GridRow => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::I32,
+                });
+            }
+            PropertyId::GridColumn => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::I32,
+                });
+            }
+            PropertyId::GridRowSpan => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::I32,
+                });
+            }
+            PropertyId::GridColumnSpan => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::I32,
+                });
+            }
+            PropertyId::RelativeAlignLeft => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Bool,
+                });
+            }
+            PropertyId::RelativeAlignTop => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Bool,
+                });
+            }
+            PropertyId::RelativeAlignRight => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Bool,
+                });
+            }
+            PropertyId::RelativeAlignBottom => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Bool,
+                });
+            }
+            PropertyId::RelativeAlignHorizontalCenter => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Bool,
+                });
+            }
+            PropertyId::RelativeAlignVerticalCenter => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Bool,
+                });
+            }
+            PropertyId::AutomationName => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::String,
+                });
+            }
+            PropertyId::AutomationId => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::String,
+                });
+            }
+            PropertyId::AutomationHeadingLevel => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Enum {
+                        kind: "AutomationHeadingLevel",
+                        variants: &[
+                            "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "Level7",
+                            "Level8", "Level9",
+                        ],
+                    },
+                });
+            }
+            PropertyId::Width => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::Height => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::MinWidth => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::MaxWidth => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::MinHeight => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::MaxHeight => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::Margin => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Thickness,
+                });
+            }
+            PropertyId::HorizontalAlignment => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Enum {
+                        kind: "HorizontalAlignment",
+                        variants: &["Left", "Center", "Right", "Stretch"],
+                    },
+                });
+            }
+            PropertyId::VerticalAlignment => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::Enum {
+                        kind: "VerticalAlignment",
+                        variants: &["Top", "Center", "Bottom", "Stretch"],
+                    },
+                });
+            }
+            PropertyId::Opacity => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::F64,
+                });
+            }
+            PropertyId::Transitions => {
+                return Some(PropertyContract {
+                    id,
+                    value: ValueType::ThemeTransitions,
+                });
+            }
+            _ => {}
+        }
+    }
+    if id == PropertyId::IsEnabled
+        && matches!(
+            kind,
+            ObjectType::Button
+                | ObjectType::HyperlinkButton
+                | ObjectType::RepeatButton
+                | ObjectType::TextBox
+                | ObjectType::AutoSuggestBox
+                | ObjectType::PasswordBox
+                | ObjectType::NumberBox
+                | ObjectType::Slider
+                | ObjectType::NavigationView
+                | ObjectType::ProgressBar
+                | ObjectType::ToggleSwitch
+                | ObjectType::CheckBox
+                | ObjectType::ToggleButton
+                | ObjectType::RadioButton
+                | ObjectType::ProgressRing
+                | ObjectType::ListBox
+                | ObjectType::ComboBox
+                | ObjectType::DropDownButton
+                | ObjectType::AppBarButton
+                | ObjectType::SplitButton
+                | ObjectType::ColorPicker
+                | ObjectType::DatePicker
+                | ObjectType::TimePicker
+                | ObjectType::CalendarDatePicker
+                | ObjectType::CalendarView
+                | ObjectType::ListView
+                | ObjectType::ListViewItem
+                | ObjectType::TreeView
+                | ObjectType::GridView
+                | ObjectType::GridViewItem
+                | ObjectType::RichEditBox
+        )
+    {
+        return Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        });
+    }
+    match (kind, id) {
+        (ObjectType::TextBlock, PropertyId::Text) => Some(PropertyContract {
+            id,
             value: ValueType::String,
-        }],
-        ObjectType::HyperlinkButton => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
+        }),
+        (ObjectType::TextBlock, PropertyId::FontSize) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::TextBlock, PropertyId::FontWeight) => Some(PropertyContract {
+            id,
+            value: ValueType::FontWeight,
+        }),
+        (ObjectType::TextBlock, PropertyId::Foreground) => Some(PropertyContract {
+            id,
+            value: ValueType::Color,
+        }),
+        (ObjectType::TextBlock, PropertyId::TextWrapping) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "TextWrapping",
+                variants: &["NoWrap", "Wrap", "WrapWholeWords"],
             },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
+        }),
+        (ObjectType::TextBlock, PropertyId::IsTextSelectionEnabled) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TextBlock, PropertyId::TextTrimming) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "TextTrimming",
+                variants: &["None", "CharacterEllipsis", "WordEllipsis", "Clip"],
             },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
+        }),
+        (ObjectType::TextBlock, PropertyId::MaxLines) => Some(PropertyContract {
+            id,
+            value: ValueType::I32,
+        }),
+        (ObjectType::TextBox, PropertyId::Text) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::Button, PropertyId::Background) => Some(PropertyContract {
+            id,
+            value: ValueType::Color,
+        }),
+        (ObjectType::Button, PropertyId::HorizontalContentAlignment) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "HorizontalAlignment",
+                variants: &["Left", "Center", "Right", "Stretch"],
             },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
+        }),
+        (ObjectType::Button, PropertyId::VerticalContentAlignment) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "VerticalAlignment",
+                variants: &["Top", "Center", "Bottom", "Stretch"],
             },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
+        }),
+        (ObjectType::CheckBox, PropertyId::IsChecked) => Some(PropertyContract {
+            id,
+            value: ValueType::OptionalBool,
+        }),
+        (ObjectType::Border, PropertyId::Background) => Some(PropertyContract {
+            id,
+            value: ValueType::Color,
+        }),
+        (ObjectType::Border, PropertyId::BorderBrush) => Some(PropertyContract {
+            id,
+            value: ValueType::Color,
+        }),
+        (ObjectType::Border, PropertyId::BorderThickness) => Some(PropertyContract {
+            id,
+            value: ValueType::Thickness,
+        }),
+        (ObjectType::Border, PropertyId::CornerRadius) => Some(PropertyContract {
+            id,
+            value: ValueType::CornerRadius,
+        }),
+        (ObjectType::Border, PropertyId::Padding) => Some(PropertyContract {
+            id,
+            value: ValueType::Thickness,
+        }),
+        (ObjectType::Border, PropertyId::IsTabStop) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::Border, PropertyId::AllowFocusOnInteraction) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::Grid, PropertyId::GridRows) => Some(PropertyContract {
+            id,
+            value: ValueType::GridLengths,
+        }),
+        (ObjectType::Grid, PropertyId::GridColumns) => Some(PropertyContract {
+            id,
+            value: ValueType::GridLengths,
+        }),
+        (ObjectType::Grid, PropertyId::RowSpacing) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Grid, PropertyId::ColumnSpacing) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::StackPanel, PropertyId::Spacing) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::StackPanel, PropertyId::Orientation) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "Orientation",
+                variants: &["Vertical", "Horizontal"],
             },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
+        }),
+        (ObjectType::ScrollViewer, PropertyId::HorizontalScrollBarVisibility) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
+                    kind: "ScrollBarVisibility",
+                    variants: &["Disabled", "Auto", "Hidden", "Visible"],
                 },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
+            })
+        }
+        (ObjectType::ScrollViewer, PropertyId::VerticalScrollBarVisibility) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
+                    kind: "ScrollBarVisibility",
+                    variants: &["Disabled", "Auto", "Hidden", "Visible"],
                 },
+            })
+        }
+        (ObjectType::Viewbox, PropertyId::Stretch) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "Stretch",
+                variants: &["None", "Fill", "Uniform", "UniformToFill"],
             },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
+        }),
+        (ObjectType::TitleBar, PropertyId::Title) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TitleBar, PropertyId::Subtitle) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TitleBar, PropertyId::IsBackButtonVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TitleBar, PropertyId::IsBackButtonEnabled) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TitleBar, PropertyId::IsPaneToggleButtonVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::Slider, PropertyId::Minimum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Slider, PropertyId::Maximum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Slider, PropertyId::Value) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Slider, PropertyId::Orientation) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "Orientation",
+                variants: &["Vertical", "Horizontal"],
             },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
+        }),
+        (ObjectType::Slider, PropertyId::StepFrequency) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::TreeNode, PropertyId::Text) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TreeNode, PropertyId::Expanded) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::DataItem, PropertyId::Text) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::RepeatButton, PropertyId::Delay) => Some(PropertyContract {
+            id,
+            value: ValueType::I32,
+        }),
+        (ObjectType::RepeatButton, PropertyId::Interval) => Some(PropertyContract {
+            id,
+            value: ValueType::I32,
+        }),
+        (ObjectType::BreadcrumbBar, PropertyId::ItemsSource) => Some(PropertyContract {
+            id,
+            value: ValueType::StringList,
+        }),
+        (ObjectType::VariableSizedWrapGrid, PropertyId::Orientation) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "Orientation",
+                variants: &["Vertical", "Horizontal"],
             },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
+        }),
+        (ObjectType::VariableSizedWrapGrid, PropertyId::ItemWidth) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::VariableSizedWrapGrid, PropertyId::ItemHeight) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::AutoSuggestBox, PropertyId::PlaceholderText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::AutoSuggestBox, PropertyId::ItemsSource) => Some(PropertyContract {
+            id,
+            value: ValueType::StringList,
+        }),
+        (ObjectType::AutoSuggestBox, PropertyId::Text) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::PasswordBox, PropertyId::PlaceholderText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::PasswordBox, PropertyId::PasswordRevealMode) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "PasswordRevealMode",
+                variants: &["Peek", "Hidden", "Visible"],
+            },
+        }),
+        (ObjectType::PasswordBox, PropertyId::Password) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::NumberBox, PropertyId::Minimum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::NumberBox, PropertyId::Maximum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::NumberBox, PropertyId::NumberBoxValue) => Some(PropertyContract {
+            id,
+            value: ValueType::OptionalF64,
+        }),
+        (ObjectType::NavigationView, PropertyId::PaneDisplayMode) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "NavigationViewPaneDisplayMode",
+                variants: &["Auto", "Left", "Top", "LeftCompact", "LeftMinimal"],
+            },
+        }),
+        (ObjectType::NavigationView, PropertyId::IsPaneToggleButtonVisible) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Bool,
-            },
-        ],
-        ObjectType::RepeatButton => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Delay,
-                value: ValueType::I32,
-            },
-            PropertyContract {
-                id: PropertyId::Interval,
-                value: ValueType::I32,
-            },
-        ],
-        ObjectType::BreadcrumbBar => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::ItemsSource,
-                value: ValueType::StringList,
-            },
-        ],
-        ObjectType::VariableSizedWrapGrid => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Orientation,
-                value: ValueType::Enum {
-                    kind: "Orientation",
-                    variants: &["Vertical", "Horizontal"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::ItemWidth,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::ItemHeight,
-                value: ValueType::F64,
-            },
-        ],
-        ObjectType::AutoSuggestBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::PlaceholderText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::ItemsSource,
-                value: ValueType::StringList,
-            },
-            PropertyContract {
-                id: PropertyId::Text,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::PasswordBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::PlaceholderText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::PasswordRevealMode,
-                value: ValueType::Enum {
-                    kind: "PasswordRevealMode",
-                    variants: &["Peek", "Hidden", "Visible"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Password,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::NumberBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Minimum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Maximum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::NumberBoxValue,
-                value: ValueType::OptionalF64,
-            },
-        ],
-        ObjectType::NavigationView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::PaneDisplayMode,
-                value: ValueType::Enum {
-                    kind: "NavigationViewPaneDisplayMode",
-                    variants: &["Auto", "Left", "Top", "LeftCompact", "LeftMinimal"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::IsPaneToggleButtonVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::NavigationViewIsBackButtonVisible,
+            })
+        }
+        (ObjectType::NavigationView, PropertyId::NavigationViewIsBackButtonVisible) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Enum {
                     kind: "NavigationViewBackButtonVisible",
                     variants: &["Collapsed", "Visible", "Auto"],
                 },
-            },
-            PropertyContract {
-                id: PropertyId::IsSettingsVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::AlwaysShowHeader,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::PaneTitle,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::OpenPaneLength,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::IsPaneOpen,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::NavigationViewItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsSelected,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::SelectsOnInvoked,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsExpanded,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Tag,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::SplitView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::OpenPaneLength,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CompactPaneLength,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::DisplayMode,
-                value: ValueType::Enum {
-                    kind: "SplitViewDisplayMode",
-                    variants: &["Overlay", "Inline", "CompactOverlay", "CompactInline"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::IsPaneOpen,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ProgressBar => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Minimum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Maximum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Value,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::IsIndeterminate,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::ShowError,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::ShowPaused,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ToggleSwitch => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsOn,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ToggleButton => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsChecked,
-                value: ValueType::OptionalBool,
-            },
-        ],
-        ObjectType::RadioButton => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::GroupName,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsChecked,
-                value: ValueType::OptionalBool,
-            },
-        ],
-        ObjectType::RadioButtons => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::MaxColumns,
-                value: ValueType::I32,
-            },
-            PropertyContract {
-                id: PropertyId::ItemsSource,
-                value: ValueType::StringList,
-            },
-            PropertyContract {
-                id: PropertyId::SelectedIndex,
-                value: ValueType::SelectionIndex,
-            },
-        ],
-        ObjectType::ItemsRepeater => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::InfoBadge => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::InfoBadgeValue,
-                value: ValueType::I32,
-            },
-        ],
-        ObjectType::InfoBar => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Title,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::Message,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::Severity,
-                value: ValueType::Enum {
-                    kind: "InfoBarSeverity",
-                    variants: &["Informational", "Success", "Warning", "Error"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::IsOpen,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsClosable,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::PersonPicture => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::DisplayName,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::Initials,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::ScrollView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::ScrollViewHorizontalScrollBarVisibility,
+            })
+        }
+        (ObjectType::NavigationView, PropertyId::IsSettingsVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::NavigationView, PropertyId::AlwaysShowHeader) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::NavigationView, PropertyId::PaneTitle) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::NavigationView, PropertyId::OpenPaneLength) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::NavigationView, PropertyId::IsPaneOpen) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::NavigationViewItem, PropertyId::IsSelected) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::NavigationViewItem, PropertyId::SelectsOnInvoked) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::NavigationViewItem, PropertyId::IsExpanded) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::NavigationViewItem, PropertyId::Tag) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::SplitView, PropertyId::OpenPaneLength) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::SplitView, PropertyId::CompactPaneLength) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::SplitView, PropertyId::DisplayMode) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "SplitViewDisplayMode",
+                variants: &["Overlay", "Inline", "CompactOverlay", "CompactInline"],
+            },
+        }),
+        (ObjectType::SplitView, PropertyId::IsPaneOpen) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ProgressBar, PropertyId::Minimum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::ProgressBar, PropertyId::Maximum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::ProgressBar, PropertyId::Value) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::ProgressBar, PropertyId::IsIndeterminate) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ProgressBar, PropertyId::ShowError) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ProgressBar, PropertyId::ShowPaused) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ToggleSwitch, PropertyId::IsOn) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ToggleButton, PropertyId::IsChecked) => Some(PropertyContract {
+            id,
+            value: ValueType::OptionalBool,
+        }),
+        (ObjectType::RadioButton, PropertyId::GroupName) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::RadioButton, PropertyId::IsChecked) => Some(PropertyContract {
+            id,
+            value: ValueType::OptionalBool,
+        }),
+        (ObjectType::RadioButtons, PropertyId::MaxColumns) => Some(PropertyContract {
+            id,
+            value: ValueType::I32,
+        }),
+        (ObjectType::RadioButtons, PropertyId::ItemsSource) => Some(PropertyContract {
+            id,
+            value: ValueType::StringList,
+        }),
+        (ObjectType::RadioButtons, PropertyId::SelectedIndex) => Some(PropertyContract {
+            id,
+            value: ValueType::SelectionIndex,
+        }),
+        (ObjectType::InfoBadge, PropertyId::InfoBadgeValue) => Some(PropertyContract {
+            id,
+            value: ValueType::I32,
+        }),
+        (ObjectType::InfoBar, PropertyId::Title) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::InfoBar, PropertyId::Message) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::InfoBar, PropertyId::Severity) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "InfoBarSeverity",
+                variants: &["Informational", "Success", "Warning", "Error"],
+            },
+        }),
+        (ObjectType::InfoBar, PropertyId::IsOpen) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::InfoBar, PropertyId::IsClosable) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::PersonPicture, PropertyId::DisplayName) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::PersonPicture, PropertyId::Initials) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::ScrollView, PropertyId::ScrollViewHorizontalScrollBarVisibility) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Enum {
                     kind: "ScrollingScrollBarVisibility",
                     variants: &["Auto", "Visible", "Hidden"],
                 },
-            },
-            PropertyContract {
-                id: PropertyId::ScrollViewVerticalScrollBarVisibility,
+            })
+        }
+        (ObjectType::ScrollView, PropertyId::ScrollViewVerticalScrollBarVisibility) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Enum {
                     kind: "ScrollingScrollBarVisibility",
                     variants: &["Auto", "Visible", "Hidden"],
                 },
+            })
+        }
+        (ObjectType::Image, PropertyId::Stretch) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "Stretch",
+                variants: &["None", "Fill", "Uniform", "UniformToFill"],
             },
-        ],
-        ObjectType::Image => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
+        }),
+        (ObjectType::ProgressRing, PropertyId::Minimum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::ProgressRing, PropertyId::Maximum) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::ProgressRing, PropertyId::Value) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::ProgressRing, PropertyId::IsIndeterminate) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ProgressRing, PropertyId::IsActive) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::Rectangle, PropertyId::StrokeThickness) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Rectangle, PropertyId::RadiusX) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Rectangle, PropertyId::RadiusY) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Ellipse, PropertyId::StrokeThickness) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Line, PropertyId::StrokeThickness) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Line, PropertyId::X1) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Line, PropertyId::Y1) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Line, PropertyId::X2) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::Line, PropertyId::Y2) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        (ObjectType::SymbolIcon, PropertyId::Symbol) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "Symbol",
+                variants: &[
+                    "Previous",
+                    "Next",
+                    "Play",
+                    "Pause",
+                    "Edit",
+                    "Save",
+                    "Clear",
+                    "Delete",
+                    "Remove",
+                    "Add",
+                    "Cancel",
+                    "Accept",
+                    "More",
+                    "Redo",
+                    "Undo",
+                    "Home",
+                    "Up",
+                    "Forward",
+                    "Back",
+                    "Favorite",
+                    "Camera",
+                    "Setting",
+                    "Video",
+                    "Sync",
+                    "Download",
+                    "Mail",
+                    "Find",
+                    "Help",
+                    "Upload",
+                    "Emoji",
+                    "TwoPage",
+                    "LeaveChat",
+                    "MailForward",
+                    "Clock",
+                    "Send",
+                    "Crop",
+                    "RotateCamera",
+                    "People",
+                    "OpenPane",
+                    "ClosePane",
+                    "World",
+                    "Flag",
+                    "PreviewLink",
+                    "Globe",
+                    "Trim",
+                    "AttachCamera",
+                    "ZoomIn",
+                    "Bookmarks",
+                    "Document",
+                    "ProtectedDocument",
+                    "Page",
+                    "Bullets",
+                    "Comment",
+                    "MailFilled",
+                    "ContactInfo",
+                    "HangUp",
+                    "ViewAll",
+                    "MapPin",
+                    "Phone",
+                    "VideoChat",
+                    "Switch",
+                    "Contact",
+                    "Rename",
+                    "Pin",
+                    "MusicInfo",
+                    "Go",
+                    "Keyboard",
+                    "DockLeft",
+                    "DockRight",
+                    "DockBottom",
+                    "Remote",
+                    "Refresh",
+                    "Rotate",
+                    "Shuffle",
+                    "List",
+                    "Shop",
+                    "SelectAll",
+                    "Orientation",
+                    "Import",
+                    "ImportAll",
+                    "BrowsePhotos",
+                    "WebCam",
+                    "Pictures",
+                    "SaveLocal",
+                    "Caption",
+                    "Stop",
+                    "ShowResults",
+                    "Volume",
+                    "Repair",
+                    "Message",
+                    "Page2",
+                    "CalendarDay",
+                    "CalendarWeek",
+                    "Calendar",
+                    "Character",
+                    "MailReplyAll",
+                    "Read",
+                    "Link",
+                    "Account",
+                    "ShowBcc",
+                    "HideBcc",
+                    "Cut",
+                    "Attach",
+                    "Paste",
+                    "Filter",
+                    "Copy",
+                    "Emoji2",
+                    "Important",
+                    "MailReply",
+                    "SlideShow",
+                    "Sort",
+                    "Manage",
+                    "AllApps",
+                    "DisconnectDrive",
+                    "MapDrive",
+                    "NewWindow",
+                    "OpenWith",
+                    "ContactPresence",
+                    "Priority",
+                    "GoToToday",
+                    "Font",
+                    "FontColor",
+                    "Contact2",
+                    "Folder",
+                    "Audio",
+                    "Placeholder",
+                    "View",
+                    "SetLockScreen",
+                    "SetTile",
+                    "ClosedCaption",
+                    "StopSlideShow",
+                    "Permissions",
+                    "Highlight",
+                    "DisableUpdates",
+                    "UnFavorite",
+                    "UnPin",
+                    "OpenLocal",
+                    "Mute",
+                    "Italic",
+                    "Underline",
+                    "Bold",
+                    "MoveToFolder",
+                    "LikeDislike",
+                    "Dislike",
+                    "Like",
+                    "AlignRight",
+                    "AlignCenter",
+                    "AlignLeft",
+                    "Zoom",
+                    "ZoomOut",
+                    "OpenFile",
+                    "OtherUser",
+                    "Admin",
+                    "Street",
+                    "Map",
+                    "ClearSelection",
+                    "FontDecrease",
+                    "FontIncrease",
+                    "FontSize",
+                    "CellPhone",
+                    "ReShare",
+                    "Tag",
+                    "RepeatOne",
+                    "RepeatAll",
+                    "OutlineStar",
+                    "SolidStar",
+                    "Calculator",
+                    "Directions",
+                    "Target",
+                    "Library",
+                    "PhoneBook",
+                    "Memo",
+                    "Microphone",
+                    "PostUpdate",
+                    "BackToWindow",
+                    "FullScreen",
+                    "NewFolder",
+                    "CalendarReply",
+                    "UnSyncFolder",
+                    "ReportHacked",
+                    "SyncFolder",
+                    "BlockContact",
+                    "SwitchApps",
+                    "AddFriend",
+                    "TouchPointer",
+                    "GoToStart",
+                    "ZeroBars",
+                    "OneBar",
+                    "TwoBars",
+                    "ThreeBars",
+                    "FourBars",
+                    "Scan",
+                    "Preview",
+                    "GlobalNavigationButton",
+                    "Share",
+                    "Print",
+                    "XboxOneConsole",
+                ],
             },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
+        }),
+        (ObjectType::FontIcon, PropertyId::Glyph) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::BitmapIcon, PropertyId::ShowAsMonochrome) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ListBoxItem, PropertyId::IsSelected) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ListBoxItem, PropertyId::Tag) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::RatingControl, PropertyId::Caption) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::RatingControl, PropertyId::IsReadOnly) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::RatingControl, PropertyId::MaxRating) => Some(PropertyContract {
+            id,
+            value: ValueType::I32,
+        }),
+        (ObjectType::RatingControl, PropertyId::RatingControlValue) => Some(PropertyContract {
+            id,
+            value: ValueType::OptionalF64,
+        }),
+        (ObjectType::Expander, PropertyId::IsExpanded) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ComboBox, PropertyId::PlaceholderText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::ComboBox, PropertyId::IsEditable) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ComboBox, PropertyId::ItemsSource) => Some(PropertyContract {
+            id,
+            value: ValueType::StringList,
+        }),
+        (ObjectType::ComboBox, PropertyId::SelectedIndex) => Some(PropertyContract {
+            id,
+            value: ValueType::SelectionIndex,
+        }),
+        (ObjectType::Pivot, PropertyId::Title) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::Pivot, PropertyId::SelectedIndex) => Some(PropertyContract {
+            id,
+            value: ValueType::SelectionIndex,
+        }),
+        (ObjectType::PivotItem, PropertyId::Header) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::FlipView, PropertyId::SelectedIndex) => Some(PropertyContract {
+            id,
+            value: ValueType::SelectionIndex,
+        }),
+        (ObjectType::SelectorBarItem, PropertyId::Text) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::SelectorBarItem, PropertyId::IsSelected) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TabView, PropertyId::CanReorderTabs) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TabView, PropertyId::IsAddTabButtonVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TabView, PropertyId::SelectedIndex) => Some(PropertyContract {
+            id,
+            value: ValueType::SelectionIndex,
+        }),
+        (ObjectType::TabViewItem, PropertyId::IsClosable) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TabViewItem, PropertyId::Header) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TabViewItem, PropertyId::Tag) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TeachingTip, PropertyId::Title) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TeachingTip, PropertyId::Subtitle) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TeachingTip, PropertyId::IsOpen) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TeachingTip, PropertyId::IsLightDismissEnabled) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TeachingTip, PropertyId::PreferredPlacement) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "TeachingTipPlacementMode",
+                variants: &[
+                    "Auto",
+                    "Top",
+                    "Bottom",
+                    "Left",
+                    "Right",
+                    "TopRight",
+                    "TopLeft",
+                    "BottomRight",
+                    "BottomLeft",
+                    "LeftTop",
+                    "LeftBottom",
+                    "RightTop",
+                    "RightBottom",
+                    "Center",
+                ],
             },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Stretch,
-                value: ValueType::Enum {
-                    kind: "Stretch",
-                    variants: &["None", "Fill", "Uniform", "UniformToFill"],
-                },
-            },
-        ],
-        ObjectType::ProgressRing => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Minimum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Maximum,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Value,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::IsIndeterminate,
+        }),
+        (ObjectType::TeachingTip, PropertyId::ActionButtonContent) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::TeachingTip, PropertyId::CloseButtonContent) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::AppBarButton, PropertyId::Label) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::MenuBarItem, PropertyId::Title) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::ColorPicker, PropertyId::IsAlphaEnabled) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ColorPicker, PropertyId::IsHexInputVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ColorPicker, PropertyId::IsColorSliderVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ColorPicker, PropertyId::IsColorChannelTextInputVisible) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsActive,
+            })
+        }
+        (ObjectType::DatePicker, PropertyId::DayVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::DatePicker, PropertyId::MonthVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::DatePicker, PropertyId::YearVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::TimePicker, PropertyId::MinuteIncrement) => Some(PropertyContract {
+            id,
+            value: ValueType::I32,
+        }),
+        (ObjectType::TimePicker, PropertyId::ClockIdentifier) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::CalendarDatePicker, PropertyId::PlaceholderText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::CalendarDatePicker, PropertyId::IsTodayHighlighted) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
+            })
+        }
+        (ObjectType::CalendarDatePicker, PropertyId::IsCalendarOpen) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ContentDialog, PropertyId::PrimaryButtonText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::ContentDialog, PropertyId::SecondaryButtonText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::ContentDialog, PropertyId::CloseButtonText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::ContentDialog, PropertyId::IsPrimaryButtonEnabled) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ContentDialog, PropertyId::IsSecondaryButtonEnabled) => {
+            Some(PropertyContract {
+                id,
                 value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ListBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::Rectangle => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::StrokeThickness,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::RadiusX,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::RadiusY,
-                value: ValueType::F64,
-            },
-        ],
-        ObjectType::Ellipse => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::StrokeThickness,
-                value: ValueType::F64,
-            },
-        ],
-        ObjectType::Line => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::StrokeThickness,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::X1,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Y1,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::X2,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Y2,
-                value: ValueType::F64,
-            },
-        ],
-        ObjectType::SymbolIcon => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Symbol,
-                value: ValueType::Enum {
-                    kind: "Symbol",
-                    variants: &[
-                        "Previous",
-                        "Next",
-                        "Play",
-                        "Pause",
-                        "Edit",
-                        "Save",
-                        "Clear",
-                        "Delete",
-                        "Remove",
-                        "Add",
-                        "Cancel",
-                        "Accept",
-                        "More",
-                        "Redo",
-                        "Undo",
-                        "Home",
-                        "Up",
-                        "Forward",
-                        "Back",
-                        "Favorite",
-                        "Camera",
-                        "Setting",
-                        "Video",
-                        "Sync",
-                        "Download",
-                        "Mail",
-                        "Find",
-                        "Help",
-                        "Upload",
-                        "Emoji",
-                        "TwoPage",
-                        "LeaveChat",
-                        "MailForward",
-                        "Clock",
-                        "Send",
-                        "Crop",
-                        "RotateCamera",
-                        "People",
-                        "OpenPane",
-                        "ClosePane",
-                        "World",
-                        "Flag",
-                        "PreviewLink",
-                        "Globe",
-                        "Trim",
-                        "AttachCamera",
-                        "ZoomIn",
-                        "Bookmarks",
-                        "Document",
-                        "ProtectedDocument",
-                        "Page",
-                        "Bullets",
-                        "Comment",
-                        "MailFilled",
-                        "ContactInfo",
-                        "HangUp",
-                        "ViewAll",
-                        "MapPin",
-                        "Phone",
-                        "VideoChat",
-                        "Switch",
-                        "Contact",
-                        "Rename",
-                        "Pin",
-                        "MusicInfo",
-                        "Go",
-                        "Keyboard",
-                        "DockLeft",
-                        "DockRight",
-                        "DockBottom",
-                        "Remote",
-                        "Refresh",
-                        "Rotate",
-                        "Shuffle",
-                        "List",
-                        "Shop",
-                        "SelectAll",
-                        "Orientation",
-                        "Import",
-                        "ImportAll",
-                        "BrowsePhotos",
-                        "WebCam",
-                        "Pictures",
-                        "SaveLocal",
-                        "Caption",
-                        "Stop",
-                        "ShowResults",
-                        "Volume",
-                        "Repair",
-                        "Message",
-                        "Page2",
-                        "CalendarDay",
-                        "CalendarWeek",
-                        "Calendar",
-                        "Character",
-                        "MailReplyAll",
-                        "Read",
-                        "Link",
-                        "Account",
-                        "ShowBcc",
-                        "HideBcc",
-                        "Cut",
-                        "Attach",
-                        "Paste",
-                        "Filter",
-                        "Copy",
-                        "Emoji2",
-                        "Important",
-                        "MailReply",
-                        "SlideShow",
-                        "Sort",
-                        "Manage",
-                        "AllApps",
-                        "DisconnectDrive",
-                        "MapDrive",
-                        "NewWindow",
-                        "OpenWith",
-                        "ContactPresence",
-                        "Priority",
-                        "GoToToday",
-                        "Font",
-                        "FontColor",
-                        "Contact2",
-                        "Folder",
-                        "Audio",
-                        "Placeholder",
-                        "View",
-                        "SetLockScreen",
-                        "SetTile",
-                        "ClosedCaption",
-                        "StopSlideShow",
-                        "Permissions",
-                        "Highlight",
-                        "DisableUpdates",
-                        "UnFavorite",
-                        "UnPin",
-                        "OpenLocal",
-                        "Mute",
-                        "Italic",
-                        "Underline",
-                        "Bold",
-                        "MoveToFolder",
-                        "LikeDislike",
-                        "Dislike",
-                        "Like",
-                        "AlignRight",
-                        "AlignCenter",
-                        "AlignLeft",
-                        "Zoom",
-                        "ZoomOut",
-                        "OpenFile",
-                        "OtherUser",
-                        "Admin",
-                        "Street",
-                        "Map",
-                        "ClearSelection",
-                        "FontDecrease",
-                        "FontIncrease",
-                        "FontSize",
-                        "CellPhone",
-                        "ReShare",
-                        "Tag",
-                        "RepeatOne",
-                        "RepeatAll",
-                        "OutlineStar",
-                        "SolidStar",
-                        "Calculator",
-                        "Directions",
-                        "Target",
-                        "Library",
-                        "PhoneBook",
-                        "Memo",
-                        "Microphone",
-                        "PostUpdate",
-                        "BackToWindow",
-                        "FullScreen",
-                        "NewFolder",
-                        "CalendarReply",
-                        "UnSyncFolder",
-                        "ReportHacked",
-                        "SyncFolder",
-                        "BlockContact",
-                        "SwitchApps",
-                        "AddFriend",
-                        "TouchPointer",
-                        "GoToStart",
-                        "ZeroBars",
-                        "OneBar",
-                        "TwoBars",
-                        "ThreeBars",
-                        "FourBars",
-                        "Scan",
-                        "Preview",
-                        "GlobalNavigationButton",
-                        "Share",
-                        "Print",
-                        "XboxOneConsole",
-                    ],
-                },
-            },
-        ],
-        ObjectType::ImageIcon => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::FontIcon => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Glyph,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::BitmapIcon => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::ShowAsMonochrome,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::PathIcon => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::ListBoxItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsSelected,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Tag,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::RatingControl => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Caption,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsReadOnly,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::MaxRating,
-                value: ValueType::I32,
-            },
-            PropertyContract {
-                id: PropertyId::RatingControlValue,
-                value: ValueType::OptionalF64,
-            },
-        ],
-        ObjectType::Expander => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsExpanded,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ComboBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::PlaceholderText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsEditable,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::ItemsSource,
-                value: ValueType::StringList,
-            },
-            PropertyContract {
-                id: PropertyId::SelectedIndex,
-                value: ValueType::SelectionIndex,
-            },
-        ],
-        ObjectType::Pivot => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Title,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::SelectedIndex,
-                value: ValueType::SelectionIndex,
-            },
-        ],
-        ObjectType::PivotItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Header,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::FlipView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::SelectedIndex,
-                value: ValueType::SelectionIndex,
-            },
-        ],
-        ObjectType::SelectorBar => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::SelectorBarItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Text,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsSelected,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::TabView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::CanReorderTabs,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsAddTabButtonVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::SelectedIndex,
-                value: ValueType::SelectionIndex,
-            },
-        ],
-        ObjectType::TabViewItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsClosable,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Header,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::Tag,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::TeachingTip => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Title,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::Subtitle,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsOpen,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsLightDismissEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::PreferredPlacement,
-                value: ValueType::Enum {
-                    kind: "TeachingTipPlacementMode",
-                    variants: &[
-                        "Auto",
-                        "Top",
-                        "Bottom",
-                        "Left",
-                        "Right",
-                        "TopRight",
-                        "TopLeft",
-                        "BottomRight",
-                        "BottomLeft",
-                        "LeftTop",
-                        "LeftBottom",
-                        "RightTop",
-                        "RightBottom",
-                        "Center",
-                    ],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::ActionButtonContent,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::CloseButtonContent,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::DropDownButton => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::CommandBar => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::AppBarButton => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Label,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::AppBarSeparator => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::MenuBar => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::MenuBarItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Title,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::SplitButton => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ColorPicker => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsAlphaEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsHexInputVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsColorSliderVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsColorChannelTextInputVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::DatePicker => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::DayVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::MonthVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::YearVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::TimePicker => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::MinuteIncrement,
-                value: ValueType::I32,
-            },
-            PropertyContract {
-                id: PropertyId::ClockIdentifier,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::CalendarDatePicker => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::PlaceholderText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsTodayHighlighted,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsCalendarOpen,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ToolTip => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::ContentDialog => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::PrimaryButtonText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::SecondaryButtonText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::CloseButtonText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsPrimaryButtonEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsSecondaryButtonEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::Title,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::CalendarView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsTodayHighlighted,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsGroupLabelVisible,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::ListViewItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Tag,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::GridView => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::CanDragItems,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::CanReorderItems,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::AllowDrop,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::SelectedIndex,
-                value: ValueType::SelectionIndex,
-            },
-        ],
-        ObjectType::GridViewItem => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::Tag,
-                value: ValueType::String,
-            },
-        ],
-        ObjectType::RelativePanel => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::RichEditBox => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::PlaceholderText,
-                value: ValueType::String,
-            },
-            PropertyContract {
-                id: PropertyId::IsReadOnly,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::IsEnabled,
-                value: ValueType::Bool,
-            },
-        ],
-        ObjectType::RichTextBlock => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-            PropertyContract {
-                id: PropertyId::IsTextSelectionEnabled,
-                value: ValueType::Bool,
-            },
-            PropertyContract {
-                id: PropertyId::TextWrapping,
-                value: ValueType::Enum {
-                    kind: "TextWrapping",
-                    variants: &["NoWrap", "Wrap", "WrapWholeWords"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::FontSize,
-                value: ValueType::F64,
-            },
-        ],
-        ObjectType::WebView2 => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
-        ObjectType::SwapChainPanel => &[
-            PropertyContract {
-                id: PropertyId::CanvasLeft,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::CanvasTop,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Width,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Height,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Margin,
-                value: ValueType::Thickness,
-            },
-            PropertyContract {
-                id: PropertyId::HorizontalAlignment,
-                value: ValueType::Enum {
-                    kind: "HorizontalAlignment",
-                    variants: &["Left", "Center", "Right", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::VerticalAlignment,
-                value: ValueType::Enum {
-                    kind: "VerticalAlignment",
-                    variants: &["Top", "Center", "Bottom", "Stretch"],
-                },
-            },
-            PropertyContract {
-                id: PropertyId::Opacity,
-                value: ValueType::F64,
-            },
-            PropertyContract {
-                id: PropertyId::Transitions,
-                value: ValueType::ThemeTransitions,
-            },
-        ],
+            })
+        }
+        (ObjectType::ContentDialog, PropertyId::Title) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::CalendarView, PropertyId::IsTodayHighlighted) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::CalendarView, PropertyId::IsGroupLabelVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::ListViewItem, PropertyId::Tag) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::GridView, PropertyId::CanDragItems) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::GridView, PropertyId::CanReorderItems) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::GridView, PropertyId::AllowDrop) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::GridView, PropertyId::SelectedIndex) => Some(PropertyContract {
+            id,
+            value: ValueType::SelectionIndex,
+        }),
+        (ObjectType::GridViewItem, PropertyId::Tag) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::RichEditBox, PropertyId::Document) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::RichEditBox, PropertyId::PlaceholderText) => Some(PropertyContract {
+            id,
+            value: ValueType::String,
+        }),
+        (ObjectType::RichEditBox, PropertyId::IsReadOnly) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::RichTextBlock, PropertyId::IsTextSelectionEnabled) => Some(PropertyContract {
+            id,
+            value: ValueType::Bool,
+        }),
+        (ObjectType::RichTextBlock, PropertyId::TextWrapping) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "TextWrapping",
+                variants: &["NoWrap", "Wrap", "WrapWholeWords"],
+            },
+        }),
+        (ObjectType::RichTextBlock, PropertyId::FontSize) => Some(PropertyContract {
+            id,
+            value: ValueType::F64,
+        }),
+        _ => None,
     }
+}
+pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
+    if object_category(kind) == ObjectCategory::Visual {
+        match id {
+            PropertyId::CanvasLeft => return 0,
+            PropertyId::CanvasTop => return 1,
+            PropertyId::GridRow => return 2,
+            PropertyId::GridColumn => return 3,
+            PropertyId::GridRowSpan => return 4,
+            PropertyId::GridColumnSpan => return 5,
+            PropertyId::RelativeAlignLeft => return 6,
+            PropertyId::RelativeAlignTop => return 7,
+            PropertyId::RelativeAlignRight => return 8,
+            PropertyId::RelativeAlignBottom => return 9,
+            PropertyId::RelativeAlignHorizontalCenter => return 10,
+            PropertyId::RelativeAlignVerticalCenter => return 11,
+            PropertyId::AutomationName => return 12,
+            PropertyId::AutomationId => return 13,
+            PropertyId::AutomationHeadingLevel => return 14,
+            PropertyId::Width => return 15,
+            PropertyId::Height => return 16,
+            PropertyId::MinWidth => return 17,
+            PropertyId::MaxWidth => return 18,
+            PropertyId::MinHeight => return 19,
+            PropertyId::MaxHeight => return 20,
+            PropertyId::Margin => return 21,
+            PropertyId::HorizontalAlignment => return 22,
+            PropertyId::VerticalAlignment => return 23,
+            PropertyId::Opacity => return 24,
+            PropertyId::Transitions => return 25,
+            _ => {}
+        }
+    }
+    match (kind, id) {
+        (ObjectType::TextBlock, PropertyId::Text) => 26,
+        (ObjectType::TextBlock, PropertyId::FontSize) => 27,
+        (ObjectType::TextBlock, PropertyId::FontWeight) => 28,
+        (ObjectType::TextBlock, PropertyId::Foreground) => 29,
+        (ObjectType::TextBlock, PropertyId::TextWrapping) => 30,
+        (ObjectType::TextBlock, PropertyId::IsTextSelectionEnabled) => 31,
+        (ObjectType::TextBlock, PropertyId::TextTrimming) => 32,
+        (ObjectType::TextBlock, PropertyId::MaxLines) => 33,
+        (ObjectType::TextBox, PropertyId::Text) => 26,
+        (ObjectType::TextBox, PropertyId::IsEnabled) => 27,
+        (ObjectType::Button, PropertyId::Background) => 26,
+        (ObjectType::Button, PropertyId::IsEnabled) => 27,
+        (ObjectType::Button, PropertyId::HorizontalContentAlignment) => 28,
+        (ObjectType::Button, PropertyId::VerticalContentAlignment) => 29,
+        (ObjectType::CheckBox, PropertyId::IsChecked) => 26,
+        (ObjectType::CheckBox, PropertyId::IsEnabled) => 27,
+        (ObjectType::Border, PropertyId::Background) => 26,
+        (ObjectType::Border, PropertyId::BorderBrush) => 27,
+        (ObjectType::Border, PropertyId::BorderThickness) => 28,
+        (ObjectType::Border, PropertyId::CornerRadius) => 29,
+        (ObjectType::Border, PropertyId::Padding) => 30,
+        (ObjectType::Border, PropertyId::IsTabStop) => 31,
+        (ObjectType::Border, PropertyId::AllowFocusOnInteraction) => 32,
+        (ObjectType::Grid, PropertyId::GridRows) => 26,
+        (ObjectType::Grid, PropertyId::GridColumns) => 27,
+        (ObjectType::Grid, PropertyId::RowSpacing) => 28,
+        (ObjectType::Grid, PropertyId::ColumnSpacing) => 29,
+        (ObjectType::StackPanel, PropertyId::Spacing) => 26,
+        (ObjectType::StackPanel, PropertyId::Orientation) => 27,
+        (ObjectType::ScrollViewer, PropertyId::HorizontalScrollBarVisibility) => 26,
+        (ObjectType::ScrollViewer, PropertyId::VerticalScrollBarVisibility) => 27,
+        (ObjectType::Viewbox, PropertyId::Stretch) => 26,
+        (ObjectType::TitleBar, PropertyId::Title) => 26,
+        (ObjectType::TitleBar, PropertyId::Subtitle) => 27,
+        (ObjectType::TitleBar, PropertyId::IsBackButtonVisible) => 28,
+        (ObjectType::TitleBar, PropertyId::IsBackButtonEnabled) => 29,
+        (ObjectType::TitleBar, PropertyId::IsPaneToggleButtonVisible) => 30,
+        (ObjectType::Slider, PropertyId::Minimum) => 26,
+        (ObjectType::Slider, PropertyId::Maximum) => 27,
+        (ObjectType::Slider, PropertyId::Value) => 28,
+        (ObjectType::Slider, PropertyId::IsEnabled) => 29,
+        (ObjectType::Slider, PropertyId::Orientation) => 30,
+        (ObjectType::Slider, PropertyId::StepFrequency) => 31,
+        (ObjectType::TreeView, PropertyId::IsEnabled) => 26,
+        (ObjectType::TreeNode, PropertyId::Text) => 26,
+        (ObjectType::TreeNode, PropertyId::Expanded) => 27,
+        (ObjectType::ListView, PropertyId::IsEnabled) => 26,
+        (ObjectType::DataItem, PropertyId::Text) => 26,
+        (ObjectType::HyperlinkButton, PropertyId::IsEnabled) => 26,
+        (ObjectType::RepeatButton, PropertyId::IsEnabled) => 26,
+        (ObjectType::RepeatButton, PropertyId::Delay) => 27,
+        (ObjectType::RepeatButton, PropertyId::Interval) => 28,
+        (ObjectType::BreadcrumbBar, PropertyId::ItemsSource) => 26,
+        (ObjectType::VariableSizedWrapGrid, PropertyId::Orientation) => 26,
+        (ObjectType::VariableSizedWrapGrid, PropertyId::ItemWidth) => 27,
+        (ObjectType::VariableSizedWrapGrid, PropertyId::ItemHeight) => 28,
+        (ObjectType::AutoSuggestBox, PropertyId::PlaceholderText) => 26,
+        (ObjectType::AutoSuggestBox, PropertyId::IsEnabled) => 27,
+        (ObjectType::AutoSuggestBox, PropertyId::ItemsSource) => 28,
+        (ObjectType::AutoSuggestBox, PropertyId::Text) => 29,
+        (ObjectType::PasswordBox, PropertyId::PlaceholderText) => 26,
+        (ObjectType::PasswordBox, PropertyId::PasswordRevealMode) => 27,
+        (ObjectType::PasswordBox, PropertyId::IsEnabled) => 28,
+        (ObjectType::PasswordBox, PropertyId::Password) => 29,
+        (ObjectType::NumberBox, PropertyId::IsEnabled) => 26,
+        (ObjectType::NumberBox, PropertyId::Minimum) => 27,
+        (ObjectType::NumberBox, PropertyId::Maximum) => 28,
+        (ObjectType::NumberBox, PropertyId::NumberBoxValue) => 29,
+        (ObjectType::NavigationView, PropertyId::IsEnabled) => 26,
+        (ObjectType::NavigationView, PropertyId::PaneDisplayMode) => 27,
+        (ObjectType::NavigationView, PropertyId::IsPaneToggleButtonVisible) => 28,
+        (ObjectType::NavigationView, PropertyId::NavigationViewIsBackButtonVisible) => 29,
+        (ObjectType::NavigationView, PropertyId::IsSettingsVisible) => 30,
+        (ObjectType::NavigationView, PropertyId::AlwaysShowHeader) => 31,
+        (ObjectType::NavigationView, PropertyId::PaneTitle) => 32,
+        (ObjectType::NavigationView, PropertyId::OpenPaneLength) => 33,
+        (ObjectType::NavigationView, PropertyId::IsPaneOpen) => 34,
+        (ObjectType::NavigationViewItem, PropertyId::IsSelected) => 26,
+        (ObjectType::NavigationViewItem, PropertyId::SelectsOnInvoked) => 27,
+        (ObjectType::NavigationViewItem, PropertyId::IsExpanded) => 28,
+        (ObjectType::NavigationViewItem, PropertyId::Tag) => 29,
+        (ObjectType::SplitView, PropertyId::OpenPaneLength) => 26,
+        (ObjectType::SplitView, PropertyId::CompactPaneLength) => 27,
+        (ObjectType::SplitView, PropertyId::DisplayMode) => 28,
+        (ObjectType::SplitView, PropertyId::IsPaneOpen) => 29,
+        (ObjectType::ProgressBar, PropertyId::Minimum) => 26,
+        (ObjectType::ProgressBar, PropertyId::Maximum) => 27,
+        (ObjectType::ProgressBar, PropertyId::Value) => 28,
+        (ObjectType::ProgressBar, PropertyId::IsIndeterminate) => 29,
+        (ObjectType::ProgressBar, PropertyId::ShowError) => 30,
+        (ObjectType::ProgressBar, PropertyId::ShowPaused) => 31,
+        (ObjectType::ProgressBar, PropertyId::IsEnabled) => 32,
+        (ObjectType::ToggleSwitch, PropertyId::IsEnabled) => 26,
+        (ObjectType::ToggleSwitch, PropertyId::IsOn) => 27,
+        (ObjectType::ToggleButton, PropertyId::IsEnabled) => 26,
+        (ObjectType::ToggleButton, PropertyId::IsChecked) => 27,
+        (ObjectType::RadioButton, PropertyId::GroupName) => 26,
+        (ObjectType::RadioButton, PropertyId::IsEnabled) => 27,
+        (ObjectType::RadioButton, PropertyId::IsChecked) => 28,
+        (ObjectType::RadioButtons, PropertyId::MaxColumns) => 26,
+        (ObjectType::RadioButtons, PropertyId::ItemsSource) => 27,
+        (ObjectType::RadioButtons, PropertyId::SelectedIndex) => 28,
+        (ObjectType::InfoBadge, PropertyId::InfoBadgeValue) => 26,
+        (ObjectType::InfoBar, PropertyId::Title) => 26,
+        (ObjectType::InfoBar, PropertyId::Message) => 27,
+        (ObjectType::InfoBar, PropertyId::Severity) => 28,
+        (ObjectType::InfoBar, PropertyId::IsOpen) => 29,
+        (ObjectType::InfoBar, PropertyId::IsClosable) => 30,
+        (ObjectType::PersonPicture, PropertyId::DisplayName) => 26,
+        (ObjectType::PersonPicture, PropertyId::Initials) => 27,
+        (ObjectType::ScrollView, PropertyId::ScrollViewHorizontalScrollBarVisibility) => 26,
+        (ObjectType::ScrollView, PropertyId::ScrollViewVerticalScrollBarVisibility) => 27,
+        (ObjectType::Image, PropertyId::Stretch) => 26,
+        (ObjectType::ProgressRing, PropertyId::Minimum) => 26,
+        (ObjectType::ProgressRing, PropertyId::Maximum) => 27,
+        (ObjectType::ProgressRing, PropertyId::Value) => 28,
+        (ObjectType::ProgressRing, PropertyId::IsIndeterminate) => 29,
+        (ObjectType::ProgressRing, PropertyId::IsActive) => 30,
+        (ObjectType::ProgressRing, PropertyId::IsEnabled) => 31,
+        (ObjectType::ListBox, PropertyId::IsEnabled) => 26,
+        (ObjectType::Rectangle, PropertyId::StrokeThickness) => 26,
+        (ObjectType::Rectangle, PropertyId::RadiusX) => 27,
+        (ObjectType::Rectangle, PropertyId::RadiusY) => 28,
+        (ObjectType::Ellipse, PropertyId::StrokeThickness) => 26,
+        (ObjectType::Line, PropertyId::StrokeThickness) => 26,
+        (ObjectType::Line, PropertyId::X1) => 27,
+        (ObjectType::Line, PropertyId::Y1) => 28,
+        (ObjectType::Line, PropertyId::X2) => 29,
+        (ObjectType::Line, PropertyId::Y2) => 30,
+        (ObjectType::SymbolIcon, PropertyId::Symbol) => 26,
+        (ObjectType::FontIcon, PropertyId::Glyph) => 26,
+        (ObjectType::BitmapIcon, PropertyId::ShowAsMonochrome) => 26,
+        (ObjectType::ListBoxItem, PropertyId::IsSelected) => 26,
+        (ObjectType::ListBoxItem, PropertyId::Tag) => 27,
+        (ObjectType::RatingControl, PropertyId::Caption) => 26,
+        (ObjectType::RatingControl, PropertyId::IsReadOnly) => 27,
+        (ObjectType::RatingControl, PropertyId::MaxRating) => 28,
+        (ObjectType::RatingControl, PropertyId::RatingControlValue) => 29,
+        (ObjectType::Expander, PropertyId::IsExpanded) => 26,
+        (ObjectType::ComboBox, PropertyId::PlaceholderText) => 26,
+        (ObjectType::ComboBox, PropertyId::IsEditable) => 27,
+        (ObjectType::ComboBox, PropertyId::IsEnabled) => 28,
+        (ObjectType::ComboBox, PropertyId::ItemsSource) => 29,
+        (ObjectType::ComboBox, PropertyId::SelectedIndex) => 30,
+        (ObjectType::Pivot, PropertyId::Title) => 26,
+        (ObjectType::Pivot, PropertyId::SelectedIndex) => 27,
+        (ObjectType::PivotItem, PropertyId::Header) => 26,
+        (ObjectType::FlipView, PropertyId::SelectedIndex) => 26,
+        (ObjectType::SelectorBarItem, PropertyId::Text) => 26,
+        (ObjectType::SelectorBarItem, PropertyId::IsSelected) => 27,
+        (ObjectType::TabView, PropertyId::CanReorderTabs) => 26,
+        (ObjectType::TabView, PropertyId::IsAddTabButtonVisible) => 27,
+        (ObjectType::TabView, PropertyId::SelectedIndex) => 28,
+        (ObjectType::TabViewItem, PropertyId::IsClosable) => 26,
+        (ObjectType::TabViewItem, PropertyId::Header) => 27,
+        (ObjectType::TabViewItem, PropertyId::Tag) => 28,
+        (ObjectType::TeachingTip, PropertyId::Title) => 26,
+        (ObjectType::TeachingTip, PropertyId::Subtitle) => 27,
+        (ObjectType::TeachingTip, PropertyId::IsOpen) => 28,
+        (ObjectType::TeachingTip, PropertyId::IsLightDismissEnabled) => 29,
+        (ObjectType::TeachingTip, PropertyId::PreferredPlacement) => 30,
+        (ObjectType::TeachingTip, PropertyId::ActionButtonContent) => 31,
+        (ObjectType::TeachingTip, PropertyId::CloseButtonContent) => 32,
+        (ObjectType::DropDownButton, PropertyId::IsEnabled) => 26,
+        (ObjectType::AppBarButton, PropertyId::Label) => 26,
+        (ObjectType::AppBarButton, PropertyId::IsEnabled) => 27,
+        (ObjectType::MenuBarItem, PropertyId::Title) => 26,
+        (ObjectType::SplitButton, PropertyId::IsEnabled) => 26,
+        (ObjectType::ColorPicker, PropertyId::IsAlphaEnabled) => 26,
+        (ObjectType::ColorPicker, PropertyId::IsHexInputVisible) => 27,
+        (ObjectType::ColorPicker, PropertyId::IsColorSliderVisible) => 28,
+        (ObjectType::ColorPicker, PropertyId::IsColorChannelTextInputVisible) => 29,
+        (ObjectType::ColorPicker, PropertyId::IsEnabled) => 30,
+        (ObjectType::DatePicker, PropertyId::DayVisible) => 26,
+        (ObjectType::DatePicker, PropertyId::MonthVisible) => 27,
+        (ObjectType::DatePicker, PropertyId::YearVisible) => 28,
+        (ObjectType::DatePicker, PropertyId::IsEnabled) => 29,
+        (ObjectType::TimePicker, PropertyId::IsEnabled) => 26,
+        (ObjectType::TimePicker, PropertyId::MinuteIncrement) => 27,
+        (ObjectType::TimePicker, PropertyId::ClockIdentifier) => 28,
+        (ObjectType::CalendarDatePicker, PropertyId::PlaceholderText) => 26,
+        (ObjectType::CalendarDatePicker, PropertyId::IsTodayHighlighted) => 27,
+        (ObjectType::CalendarDatePicker, PropertyId::IsCalendarOpen) => 28,
+        (ObjectType::CalendarDatePicker, PropertyId::IsEnabled) => 29,
+        (ObjectType::ContentDialog, PropertyId::PrimaryButtonText) => 26,
+        (ObjectType::ContentDialog, PropertyId::SecondaryButtonText) => 27,
+        (ObjectType::ContentDialog, PropertyId::CloseButtonText) => 28,
+        (ObjectType::ContentDialog, PropertyId::IsPrimaryButtonEnabled) => 29,
+        (ObjectType::ContentDialog, PropertyId::IsSecondaryButtonEnabled) => 30,
+        (ObjectType::ContentDialog, PropertyId::Title) => 31,
+        (ObjectType::CalendarView, PropertyId::IsTodayHighlighted) => 26,
+        (ObjectType::CalendarView, PropertyId::IsGroupLabelVisible) => 27,
+        (ObjectType::CalendarView, PropertyId::IsEnabled) => 28,
+        (ObjectType::ListViewItem, PropertyId::Tag) => 26,
+        (ObjectType::ListViewItem, PropertyId::IsEnabled) => 27,
+        (ObjectType::GridView, PropertyId::CanDragItems) => 26,
+        (ObjectType::GridView, PropertyId::CanReorderItems) => 27,
+        (ObjectType::GridView, PropertyId::AllowDrop) => 28,
+        (ObjectType::GridView, PropertyId::SelectedIndex) => 29,
+        (ObjectType::GridView, PropertyId::IsEnabled) => 30,
+        (ObjectType::GridViewItem, PropertyId::Tag) => 26,
+        (ObjectType::GridViewItem, PropertyId::IsEnabled) => 27,
+        (ObjectType::RichEditBox, PropertyId::Document) => 26,
+        (ObjectType::RichEditBox, PropertyId::PlaceholderText) => 27,
+        (ObjectType::RichEditBox, PropertyId::IsReadOnly) => 28,
+        (ObjectType::RichEditBox, PropertyId::IsEnabled) => 29,
+        (ObjectType::RichTextBlock, PropertyId::IsTextSelectionEnabled) => 26,
+        (ObjectType::RichTextBlock, PropertyId::TextWrapping) => 27,
+        (ObjectType::RichTextBlock, PropertyId::FontSize) => 28,
+        _ => usize::MAX,
+    }
+}
+pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
+    ObjectType::TextBlock,
+    ObjectType::TextBox,
+    ObjectType::Button,
+    ObjectType::CheckBox,
+    ObjectType::Border,
+    ObjectType::Grid,
+    ObjectType::StackPanel,
+    ObjectType::Canvas,
+    ObjectType::ScrollViewer,
+    ObjectType::Viewbox,
+    ObjectType::TitleBar,
+    ObjectType::Slider,
+    ObjectType::TreeView,
+    ObjectType::TreeNode,
+    ObjectType::ListView,
+    ObjectType::DataItem,
+    ObjectType::HyperlinkButton,
+    ObjectType::RepeatButton,
+    ObjectType::BreadcrumbBar,
+    ObjectType::VariableSizedWrapGrid,
+    ObjectType::AutoSuggestBox,
+    ObjectType::PasswordBox,
+    ObjectType::NumberBox,
+    ObjectType::NavigationView,
+    ObjectType::NavigationViewItem,
+    ObjectType::SplitView,
+    ObjectType::ProgressBar,
+    ObjectType::ToggleSwitch,
+    ObjectType::ToggleButton,
+    ObjectType::RadioButton,
+    ObjectType::RadioButtons,
+    ObjectType::ItemsRepeater,
+    ObjectType::InfoBadge,
+    ObjectType::InfoBar,
+    ObjectType::PersonPicture,
+    ObjectType::ScrollView,
+    ObjectType::Image,
+    ObjectType::ProgressRing,
+    ObjectType::ListBox,
+    ObjectType::Rectangle,
+    ObjectType::Ellipse,
+    ObjectType::Line,
+    ObjectType::SymbolIcon,
+    ObjectType::ImageIcon,
+    ObjectType::FontIcon,
+    ObjectType::BitmapIcon,
+    ObjectType::PathIcon,
+    ObjectType::ListBoxItem,
+    ObjectType::RatingControl,
+    ObjectType::Expander,
+    ObjectType::ComboBox,
+    ObjectType::Pivot,
+    ObjectType::PivotItem,
+    ObjectType::FlipView,
+    ObjectType::SelectorBar,
+    ObjectType::SelectorBarItem,
+    ObjectType::TabView,
+    ObjectType::TabViewItem,
+    ObjectType::TeachingTip,
+    ObjectType::DropDownButton,
+    ObjectType::CommandBar,
+    ObjectType::AppBarButton,
+    ObjectType::AppBarSeparator,
+    ObjectType::MenuBar,
+    ObjectType::MenuBarItem,
+    ObjectType::SplitButton,
+    ObjectType::ColorPicker,
+    ObjectType::DatePicker,
+    ObjectType::TimePicker,
+    ObjectType::CalendarDatePicker,
+    ObjectType::ToolTip,
+    ObjectType::ContentDialog,
+    ObjectType::CalendarView,
+    ObjectType::ListViewItem,
+    ObjectType::GridView,
+    ObjectType::GridViewItem,
+    ObjectType::RelativePanel,
+    ObjectType::RichEditBox,
+    ObjectType::RichTextBlock,
+    ObjectType::WebView2,
+    ObjectType::SwapChainPanel,
+];
+pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
+    PropertyId::ActionButtonContent,
+    PropertyId::AllowDrop,
+    PropertyId::AllowFocusOnInteraction,
+    PropertyId::AlwaysShowHeader,
+    PropertyId::AutomationHeadingLevel,
+    PropertyId::AutomationId,
+    PropertyId::AutomationName,
+    PropertyId::Background,
+    PropertyId::BorderBrush,
+    PropertyId::BorderThickness,
+    PropertyId::CanDragItems,
+    PropertyId::CanReorderItems,
+    PropertyId::CanReorderTabs,
+    PropertyId::CanvasLeft,
+    PropertyId::CanvasTop,
+    PropertyId::Caption,
+    PropertyId::ClockIdentifier,
+    PropertyId::CloseButtonContent,
+    PropertyId::CloseButtonText,
+    PropertyId::ColumnSpacing,
+    PropertyId::CompactPaneLength,
+    PropertyId::CornerRadius,
+    PropertyId::DayVisible,
+    PropertyId::Delay,
+    PropertyId::DisplayMode,
+    PropertyId::DisplayName,
+    PropertyId::Document,
+    PropertyId::Expanded,
+    PropertyId::FontSize,
+    PropertyId::FontWeight,
+    PropertyId::Foreground,
+    PropertyId::Glyph,
+    PropertyId::GridColumn,
+    PropertyId::GridColumnSpan,
+    PropertyId::GridColumns,
+    PropertyId::GridRow,
+    PropertyId::GridRowSpan,
+    PropertyId::GridRows,
+    PropertyId::GroupName,
+    PropertyId::Header,
+    PropertyId::Height,
+    PropertyId::HorizontalAlignment,
+    PropertyId::HorizontalContentAlignment,
+    PropertyId::HorizontalScrollBarVisibility,
+    PropertyId::InfoBadgeValue,
+    PropertyId::Initials,
+    PropertyId::Interval,
+    PropertyId::IsActive,
+    PropertyId::IsAddTabButtonVisible,
+    PropertyId::IsAlphaEnabled,
+    PropertyId::IsBackButtonEnabled,
+    PropertyId::IsBackButtonVisible,
+    PropertyId::IsCalendarOpen,
+    PropertyId::IsChecked,
+    PropertyId::IsClosable,
+    PropertyId::IsColorChannelTextInputVisible,
+    PropertyId::IsColorSliderVisible,
+    PropertyId::IsEditable,
+    PropertyId::IsEnabled,
+    PropertyId::IsExpanded,
+    PropertyId::IsGroupLabelVisible,
+    PropertyId::IsHexInputVisible,
+    PropertyId::IsIndeterminate,
+    PropertyId::IsLightDismissEnabled,
+    PropertyId::IsOn,
+    PropertyId::IsOpen,
+    PropertyId::IsPaneOpen,
+    PropertyId::IsPaneToggleButtonVisible,
+    PropertyId::IsPrimaryButtonEnabled,
+    PropertyId::IsReadOnly,
+    PropertyId::IsSecondaryButtonEnabled,
+    PropertyId::IsSelected,
+    PropertyId::IsSettingsVisible,
+    PropertyId::IsTabStop,
+    PropertyId::IsTextSelectionEnabled,
+    PropertyId::IsTodayHighlighted,
+    PropertyId::ItemHeight,
+    PropertyId::ItemWidth,
+    PropertyId::ItemsSource,
+    PropertyId::Label,
+    PropertyId::Margin,
+    PropertyId::MaxColumns,
+    PropertyId::MaxHeight,
+    PropertyId::MaxLines,
+    PropertyId::MaxRating,
+    PropertyId::MaxWidth,
+    PropertyId::Maximum,
+    PropertyId::Message,
+    PropertyId::MinHeight,
+    PropertyId::MinWidth,
+    PropertyId::Minimum,
+    PropertyId::MinuteIncrement,
+    PropertyId::MonthVisible,
+    PropertyId::NavigationViewIsBackButtonVisible,
+    PropertyId::NumberBoxValue,
+    PropertyId::Opacity,
+    PropertyId::OpenPaneLength,
+    PropertyId::Orientation,
+    PropertyId::Padding,
+    PropertyId::PaneDisplayMode,
+    PropertyId::PaneTitle,
+    PropertyId::Password,
+    PropertyId::PasswordRevealMode,
+    PropertyId::PlaceholderText,
+    PropertyId::PreferredPlacement,
+    PropertyId::PrimaryButtonText,
+    PropertyId::RadiusX,
+    PropertyId::RadiusY,
+    PropertyId::RatingControlValue,
+    PropertyId::RelativeAlignBottom,
+    PropertyId::RelativeAlignHorizontalCenter,
+    PropertyId::RelativeAlignLeft,
+    PropertyId::RelativeAlignRight,
+    PropertyId::RelativeAlignTop,
+    PropertyId::RelativeAlignVerticalCenter,
+    PropertyId::RowSpacing,
+    PropertyId::ScrollViewHorizontalScrollBarVisibility,
+    PropertyId::ScrollViewVerticalScrollBarVisibility,
+    PropertyId::SecondaryButtonText,
+    PropertyId::SelectedIndex,
+    PropertyId::SelectsOnInvoked,
+    PropertyId::Severity,
+    PropertyId::ShowAsMonochrome,
+    PropertyId::ShowError,
+    PropertyId::ShowPaused,
+    PropertyId::Spacing,
+    PropertyId::StepFrequency,
+    PropertyId::Stretch,
+    PropertyId::StrokeThickness,
+    PropertyId::Subtitle,
+    PropertyId::Symbol,
+    PropertyId::Tag,
+    PropertyId::Text,
+    PropertyId::TextTrimming,
+    PropertyId::TextWrapping,
+    PropertyId::Title,
+    PropertyId::Transitions,
+    PropertyId::Value,
+    PropertyId::VerticalAlignment,
+    PropertyId::VerticalContentAlignment,
+    PropertyId::VerticalScrollBarVisibility,
+    PropertyId::Width,
+    PropertyId::X1,
+    PropertyId::X2,
+    PropertyId::Y1,
+    PropertyId::Y2,
+    PropertyId::YearVisible,
+];
+fn object_index(kind: ObjectType) -> usize {
+    match kind {
+        ObjectType::TextBlock => 0,
+        ObjectType::TextBox => 1,
+        ObjectType::Button => 2,
+        ObjectType::CheckBox => 3,
+        ObjectType::Border => 4,
+        ObjectType::Grid => 5,
+        ObjectType::StackPanel => 6,
+        ObjectType::Canvas => 7,
+        ObjectType::ScrollViewer => 8,
+        ObjectType::Viewbox => 9,
+        ObjectType::TitleBar => 10,
+        ObjectType::Slider => 11,
+        ObjectType::TreeView => 12,
+        ObjectType::TreeNode => 13,
+        ObjectType::ListView => 14,
+        ObjectType::DataItem => 15,
+        ObjectType::HyperlinkButton => 16,
+        ObjectType::RepeatButton => 17,
+        ObjectType::BreadcrumbBar => 18,
+        ObjectType::VariableSizedWrapGrid => 19,
+        ObjectType::AutoSuggestBox => 20,
+        ObjectType::PasswordBox => 21,
+        ObjectType::NumberBox => 22,
+        ObjectType::NavigationView => 23,
+        ObjectType::NavigationViewItem => 24,
+        ObjectType::SplitView => 25,
+        ObjectType::ProgressBar => 26,
+        ObjectType::ToggleSwitch => 27,
+        ObjectType::ToggleButton => 28,
+        ObjectType::RadioButton => 29,
+        ObjectType::RadioButtons => 30,
+        ObjectType::ItemsRepeater => 31,
+        ObjectType::InfoBadge => 32,
+        ObjectType::InfoBar => 33,
+        ObjectType::PersonPicture => 34,
+        ObjectType::ScrollView => 35,
+        ObjectType::Image => 36,
+        ObjectType::ProgressRing => 37,
+        ObjectType::ListBox => 38,
+        ObjectType::Rectangle => 39,
+        ObjectType::Ellipse => 40,
+        ObjectType::Line => 41,
+        ObjectType::SymbolIcon => 42,
+        ObjectType::ImageIcon => 43,
+        ObjectType::FontIcon => 44,
+        ObjectType::BitmapIcon => 45,
+        ObjectType::PathIcon => 46,
+        ObjectType::ListBoxItem => 47,
+        ObjectType::RatingControl => 48,
+        ObjectType::Expander => 49,
+        ObjectType::ComboBox => 50,
+        ObjectType::Pivot => 51,
+        ObjectType::PivotItem => 52,
+        ObjectType::FlipView => 53,
+        ObjectType::SelectorBar => 54,
+        ObjectType::SelectorBarItem => 55,
+        ObjectType::TabView => 56,
+        ObjectType::TabViewItem => 57,
+        ObjectType::TeachingTip => 58,
+        ObjectType::DropDownButton => 59,
+        ObjectType::CommandBar => 60,
+        ObjectType::AppBarButton => 61,
+        ObjectType::AppBarSeparator => 62,
+        ObjectType::MenuBar => 63,
+        ObjectType::MenuBarItem => 64,
+        ObjectType::SplitButton => 65,
+        ObjectType::ColorPicker => 66,
+        ObjectType::DatePicker => 67,
+        ObjectType::TimePicker => 68,
+        ObjectType::CalendarDatePicker => 69,
+        ObjectType::ToolTip => 70,
+        ObjectType::ContentDialog => 71,
+        ObjectType::CalendarView => 72,
+        ObjectType::ListViewItem => 73,
+        ObjectType::GridView => 74,
+        ObjectType::GridViewItem => 75,
+        ObjectType::RelativePanel => 76,
+        ObjectType::RichEditBox => 77,
+        ObjectType::RichTextBlock => 78,
+        ObjectType::WebView2 => 79,
+        ObjectType::SwapChainPanel => 80,
+    }
+}
+pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
+    static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> =
+        std::sync::OnceLock::new();
+    let contracts = CONTRACTS.get_or_init(|| {
+        let mut unique = Vec::<&'static [PropertyContract]>::new();
+        ALL_OBJECT_TYPES
+            .iter()
+            .copied()
+            .map(|kind| {
+                let mut current = ALL_PROPERTY_IDS
+                    .iter()
+                    .copied()
+                    .filter_map(|id| property_contract(kind, id))
+                    .collect::<Vec<_>>();
+                current.sort_by_key(|contract| property_order(kind, contract.id));
+                if let Some(existing) = unique
+                    .iter()
+                    .copied()
+                    .find(|existing| *existing == current.as_slice())
+                {
+                    existing
+                } else {
+                    let current: &'static [PropertyContract] =
+                        Box::leak(current.into_boxed_slice());
+                    unique.push(current);
+                    current
+                }
+            })
+            .collect()
+    });
+    contracts[object_index(kind)]
+}
+pub(crate) fn focus_capable(kind: ObjectType) -> bool {
+    matches!(
+        kind,
+        ObjectType::Button
+            | ObjectType::HyperlinkButton
+            | ObjectType::Border
+            | ObjectType::TextBox
+            | ObjectType::AutoSuggestBox
+            | ObjectType::PasswordBox
+            | ObjectType::NumberBox
+            | ObjectType::Slider
+            | ObjectType::ToggleSwitch
+            | ObjectType::CheckBox
+            | ObjectType::ToggleButton
+            | ObjectType::RadioButton
+            | ObjectType::RatingControl
+            | ObjectType::ComboBox
+            | ObjectType::RichEditBox
+    )
 }
 pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
     match kind {
@@ -5577,7 +2888,14 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
             identity: Identity::Positional,
             realization: Realization::Owned,
         }],
-        ObjectType::ItemsRepeater => &[],
+        ObjectType::ItemsRepeater => &[RelationContract {
+            id: RelationId::Items,
+            child: ObjectCategory::Visual,
+            allowed_objects: &[],
+            cardinality: Cardinality::Many,
+            identity: Identity::Keyed,
+            realization: Realization::Container,
+        }],
         ObjectType::InfoBadge => &[],
         ObjectType::InfoBar => &[],
         ObjectType::PersonPicture => &[],

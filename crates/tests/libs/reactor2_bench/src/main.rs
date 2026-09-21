@@ -196,6 +196,10 @@ impl reactor2::Adapter for NullAdapter {
     fn apply(&mut self, _mutations: &[reactor2::Mutation]) -> Result<(), Self::Error> {
         Ok(())
     }
+
+    fn focus(&mut self, _object: reactor2::ObjectId) -> Result<bool, Self::Error> {
+        Ok(false)
+    }
 }
 
 fn measure(samples: usize, batch: usize, mut operation: impl FnMut()) -> Perf {
@@ -225,6 +229,43 @@ fn measure(samples: usize, batch: usize, mut operation: impl FnMut()) -> Perf {
         bytes: (allocator::allocated_bytes() - bytes) as f64 / (samples * batch) as f64,
         allocations: (allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations) as f64
             / (samples * batch) as f64,
+    }
+}
+
+fn measure_prepared<S>(
+    samples: usize,
+    batch: usize,
+    mut prepare: impl FnMut() -> S,
+    mut operation: impl FnMut(S),
+) -> Perf {
+    for _ in 0..8 {
+        operation(prepare());
+    }
+    let mut timings = Vec::with_capacity(samples * batch);
+    let mut bytes = 0;
+    let mut allocations = 0;
+    for _ in 0..samples {
+        for _ in 0..batch {
+            let state = prepare();
+            let before_bytes = allocator::allocated_bytes();
+            let before_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+            let start = Instant::now();
+            operation(state);
+            timings.push(start.elapsed().as_nanos() as f64);
+            bytes += allocator::allocated_bytes() - before_bytes;
+            allocations += allocator::ALLOCATIONS.load(Ordering::Relaxed) - before_allocations;
+        }
+    }
+    timings.sort_by(f64::total_cmp);
+    let percentile = |value: f64| {
+        let index = ((timings.len() - 1) as f64 * value).round() as usize;
+        timings[index]
+    };
+    Perf {
+        median_ns: percentile(0.50),
+        p95_ns: percentile(0.95),
+        bytes: bytes as f64 / timings.len() as f64,
+        allocations: allocations as f64 / timings.len() as f64,
     }
 }
 
@@ -344,6 +385,314 @@ fn bench_reactor2(
         objects,
         perf,
     }
+}
+
+fn retirement_view(visible: bool) -> reactor2::Visual {
+    reactor2::Grid::new()
+        .children(visible.then(|| {
+            reactor2::keyed(
+                "retiring",
+                reactor2::Button::new()
+                    .exit_fade(std::time::Duration::from_secs(1))
+                    .content(reactor2::TextBlock::new("retiring")),
+            )
+        }))
+        .into()
+}
+
+fn retirement_runtime() -> (
+    reactor2::Runtime<reactor2::RecordingAdapter>,
+    reactor2::ObjectId,
+) {
+    let mut runtime = reactor2_runtime();
+    runtime.update(retirement_view(true)).unwrap();
+    let root = runtime.graph().root().unwrap();
+    let retiring = runtime
+        .graph()
+        .children(root, reactor2::RelationId::Children)
+        .unwrap()[0];
+    (runtime, retiring)
+}
+
+fn bench_reactor2_retirement_initiation(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(samples, batch, retirement_runtime, |(mut runtime, _)| {
+        runtime.update(retirement_view(false)).unwrap();
+    });
+    Row {
+        frontend: "reactor2",
+        workload: "retirement_start",
+        objects: 3,
+        perf,
+    }
+}
+
+fn bench_reactor2_retirement_completion(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, retiring) = retirement_runtime();
+            runtime.update(retirement_view(false)).unwrap();
+            assert!(runtime.adapter_mut().complete_retirement(retiring));
+            runtime
+        },
+        |mut runtime| {
+            runtime.dispatch_native_events().unwrap();
+        },
+    );
+    Row {
+        frontend: "reactor2",
+        workload: "retirement_finish",
+        objects: 3,
+        perf,
+    }
+}
+
+fn bench_reactor2_retirement_remount(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, retiring) = retirement_runtime();
+            runtime.update(retirement_view(false)).unwrap();
+            assert!(runtime.adapter_mut().complete_retirement(retiring));
+            runtime.dispatch_native_events().unwrap();
+            runtime
+        },
+        |mut runtime| {
+            runtime.update(retirement_view(true)).unwrap();
+        },
+    );
+    Row {
+        frontend: "reactor2",
+        workload: "retirement_remount",
+        objects: 3,
+        perf,
+    }
+}
+
+fn virtual_items_view(revision: u64) -> reactor2::Visual {
+    reactor2::ItemsRepeater::new()
+        .virtual_source(reactor2::VirtualSource::new(
+            1,
+            10_000,
+            reactor2::Key::from,
+            move |index| -> reactor2::Visual {
+                reactor2::TextBlock::new(format!("{revision}:{index}")).into()
+            },
+        ))
+        .into()
+}
+
+fn virtual_items_runtime() -> (
+    reactor2::Runtime<reactor2::RecordingAdapter>,
+    reactor2::ObjectId,
+) {
+    let mut runtime = reactor2_runtime();
+    runtime.update(virtual_items_view(0)).unwrap();
+    let collection = runtime.graph().root().unwrap();
+    (runtime, collection)
+}
+
+fn virtual_items_realized_runtime(
+    realized: usize,
+) -> (
+    reactor2::Runtime<reactor2::RecordingAdapter>,
+    reactor2::ObjectId,
+) {
+    let (mut runtime, collection) = virtual_items_runtime();
+    for index in 0..realized {
+        runtime
+            .adapter_mut()
+            .queue_realization(reactor2::RealizationRequest::Realize {
+                collection,
+                container: reactor2::RealizedContainer(index as u64),
+                index,
+                source_revision: 0,
+            });
+    }
+    runtime.dispatch_native_events().unwrap();
+    (runtime, collection)
+}
+
+fn bench_reactor2_virtual_create(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(samples, batch, reactor2_runtime, |mut runtime| {
+        black_box(runtime.update(virtual_items_view(0)).unwrap());
+    });
+    Row {
+        frontend: "reactor2",
+        workload: "virtual_create_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn bench_reactor2_virtual_source_replace(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let mut runtime = reactor2_runtime();
+            runtime.update(reactor2::ItemsRepeater::new()).unwrap();
+            runtime
+        },
+        |mut runtime| {
+            black_box(runtime.update(virtual_items_view(0)).unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor2",
+        workload: "virtual_source_replace_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn bench_reactor2_virtual_realize(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, collection) = virtual_items_runtime();
+            runtime
+                .adapter_mut()
+                .queue_realization(reactor2::RealizationRequest::Realize {
+                    collection,
+                    container: reactor2::RealizedContainer(1),
+                    index: 9_999,
+                    source_revision: 0,
+                });
+            runtime
+        },
+        |mut runtime| {
+            black_box(runtime.dispatch_native_events().unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor2",
+        workload: "virtual_realize_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn bench_reactor2_virtual_update(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || virtual_items_realized_runtime(8),
+        |(mut runtime, _)| {
+            black_box(runtime.update(virtual_items_view(1)).unwrap());
+            black_box(runtime.dispatch_native_events().unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor2",
+        workload: "virtual_update_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn bench_reactor2_virtual_recycle(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, collection) = virtual_items_realized_runtime(8);
+            runtime
+                .adapter_mut()
+                .queue_realization(reactor2::RealizationRequest::Recycle {
+                    collection,
+                    container: reactor2::RealizedContainer(7),
+                    source_revision: 0,
+                });
+            runtime
+        },
+        |mut runtime| {
+            black_box(runtime.dispatch_native_events().unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor2",
+        workload: "virtual_recycle_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn reactor2_virtual_memory() -> MemoryRow {
+    let before_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let before_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let (runtime, _) = virtual_items_realized_runtime(8);
+    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before_bytes;
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - before_allocations;
+    assert_eq!(runtime.graph().object_count(), 9);
+    black_box(runtime);
+    MemoryRow {
+        frontend: "reactor2",
+        workload: "virtual_10k_eight_rows",
+        objects: 10_000,
+        bytes,
+        allocations,
+    }
+}
+
+fn reactor2_virtual_mutation_counts() -> [(&'static str, usize, usize); 4] {
+    let mut create = reactor2_runtime();
+    create.adapter_mut().record_batches(true);
+    create.update(virtual_items_view(0)).unwrap();
+
+    let (mut realize, collection) = virtual_items_runtime();
+    realize.adapter_mut().record_batches(true);
+    realize
+        .adapter_mut()
+        .queue_realization(reactor2::RealizationRequest::Realize {
+            collection,
+            container: reactor2::RealizedContainer(0),
+            index: 0,
+            source_revision: 0,
+        });
+    realize.dispatch_native_events().unwrap();
+
+    let (mut update, _) = virtual_items_realized_runtime(8);
+    update.adapter_mut().record_batches(true);
+    update.update(virtual_items_view(1)).unwrap();
+    update.dispatch_native_events().unwrap();
+
+    let (mut recycle, collection) = virtual_items_realized_runtime(8);
+    recycle.adapter_mut().record_batches(true);
+    recycle
+        .adapter_mut()
+        .queue_realization(reactor2::RealizationRequest::Recycle {
+            collection,
+            container: reactor2::RealizedContainer(7),
+            source_revision: 0,
+        });
+    recycle.dispatch_native_events().unwrap();
+
+    [
+        (
+            "virtual_create_10k",
+            create.adapter().batches().iter().map(Vec::len).sum(),
+            create.graph().object_count() - 1,
+        ),
+        (
+            "virtual_realize_10k",
+            realize.adapter().batches().iter().map(Vec::len).sum(),
+            realize.graph().object_count() - 1,
+        ),
+        (
+            "virtual_update_10k",
+            update.adapter().batches().iter().map(Vec::len).sum(),
+            update.graph().object_count() - 1,
+        ),
+        (
+            "virtual_recycle_10k",
+            recycle.adapter().batches().iter().map(Vec::len).sum(),
+            recycle.graph().object_count() - 1,
+        ),
+    ]
 }
 
 fn reactor1_memory(count: usize) -> MemoryRow {
@@ -626,9 +975,56 @@ fn argument(name: &str, default: usize) -> usize {
         .unwrap_or(default)
 }
 
+fn has_argument(name: &str) -> bool {
+    std::env::args().any(|argument| argument == name)
+}
+
+fn print_perf_rows(rows: impl IntoIterator<Item = Row>) {
+    println!(
+        "{:<9} {:<20} {:>7} {:>14} {:>14} {:>14} {:>12}",
+        "frontend", "workload", "objects", "median ns", "p95 ns", "bytes/op", "allocs/op"
+    );
+    for row in rows {
+        println!(
+            "{:<9} {:<20} {:>7} {:>14.1} {:>14.1} {:>14.1} {:>12.2}",
+            row.frontend,
+            row.workload,
+            row.objects,
+            row.perf.median_ns,
+            row.perf.p95_ns,
+            row.perf.bytes,
+            row.perf.allocations
+        );
+    }
+}
+
 fn main() {
     let samples = argument("--samples", 80);
     let batch = argument("--batch", 8);
+    if has_argument("--keyed-scaling") {
+        let mut rows = Vec::new();
+        for count in [512, 1_024, 10_000] {
+            let order = (0..count).collect::<Vec<_>>();
+            rows.push(bench_reactor2(
+                "keyed_no_change",
+                count,
+                reactor2_grid(&order, None),
+                reactor2_grid(&order, None),
+                samples,
+                batch,
+            ));
+            rows.push(bench_reactor2(
+                "keyed_one_changed",
+                count,
+                reactor2_grid(&order, None),
+                reactor2_grid(&order, Some(0)),
+                samples,
+                batch,
+            ));
+        }
+        print_perf_rows(rows);
+        return;
+    }
     let count = argument("--count", 512);
     let order = (0..count).collect::<Vec<_>>();
     let mut rotated = order.clone();
@@ -722,24 +1118,17 @@ fn main() {
         reactor2_component_root_replace(count, samples, batch),
         reactor2_context(count, false, samples),
         reactor2_context(count, true, samples),
+        bench_reactor2_retirement_initiation(samples, batch),
+        bench_reactor2_retirement_completion(samples, batch),
+        bench_reactor2_retirement_remount(samples, batch),
+        bench_reactor2_virtual_create(samples, batch),
+        bench_reactor2_virtual_source_replace(samples, batch),
+        bench_reactor2_virtual_realize(samples, batch),
+        bench_reactor2_virtual_update(samples, batch),
+        bench_reactor2_virtual_recycle(samples, batch),
     ];
 
-    println!(
-        "{:<9} {:<20} {:>7} {:>14} {:>14} {:>14} {:>12}",
-        "frontend", "workload", "objects", "median ns", "p95 ns", "bytes/op", "allocs/op"
-    );
-    for row in rows {
-        println!(
-            "{:<9} {:<20} {:>7} {:>14.1} {:>14.1} {:>14.1} {:>12.2}",
-            row.frontend,
-            row.workload,
-            row.objects,
-            row.perf.median_ns,
-            row.perf.p95_ns,
-            row.perf.bytes,
-            row.perf.allocations
-        );
-    }
+    print_perf_rows(rows);
 
     println!();
     println!(
@@ -757,6 +1146,7 @@ fn main() {
         reactor2_tree_memory(count, true),
         reactor2_component_memory(count, false),
         reactor2_component_memory(count, true),
+        reactor2_virtual_memory(),
     ] {
         println!(
             "{:<9} {:<22} {:>7} {:>16} {:>14.1} {:>16}",
@@ -767,6 +1157,15 @@ fn main() {
             row.bytes as f64 / row.objects as f64,
             row.allocations
         );
+    }
+
+    println!("\nvirtual mutation trace");
+    println!(
+        "{:<24} {:>12} {:>15}",
+        "workload", "mutations", "realized rows"
+    );
+    for (workload, mutations, realized) in reactor2_virtual_mutation_counts() {
+        println!("{workload:<24} {mutations:>12} {realized:>15}");
     }
 
     println!("\nrecursive component scaling");

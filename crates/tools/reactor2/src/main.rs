@@ -21,14 +21,37 @@ struct Schema {
     attached_properties: Vec<AttachedProperty>,
     #[serde(default)]
     visual_properties: Vec<VisualProperty>,
+    #[serde(default)]
+    capabilities: Capabilities,
     objects: Vec<Object>,
+}
+
+#[derive(Clone, Default, Deserialize, Serialize)]
+struct Capabilities {
+    #[serde(default)]
+    layout_exit_transition: bool,
+    #[serde(default)]
+    enabled: Vec<String>,
+    #[serde(default)]
+    focus: Vec<String>,
+    #[serde(default)]
+    text_style: Vec<String>,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
 struct AttachedProperty {
     name: String,
     owner: String,
+    native: String,
     value: String,
+    #[serde(default)]
+    flag: bool,
+    default: Option<String>,
+    validation: Option<String>,
+    #[serde(default)]
+    variants: Vec<String>,
+    #[serde(default)]
+    readback: bool,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
@@ -37,6 +60,8 @@ struct VisualProperty {
     owner: String,
     value: String,
     default: Option<String>,
+    #[serde(default)]
+    readback: bool,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
@@ -47,6 +72,8 @@ struct Object {
     native_type: Option<String>,
     #[serde(default)]
     key: bool,
+    #[serde(default)]
+    virtual_items: bool,
     #[serde(default)]
     properties: Vec<Property>,
     #[serde(default)]
@@ -71,6 +98,8 @@ struct Property {
     required: bool,
     default: Option<String>,
     validation: Option<String>,
+    #[serde(default)]
+    readback: bool,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
@@ -167,6 +196,7 @@ fn main() {
         .output(workspace_path(BINDINGS_OUTPUT))
         .implements([
             "Microsoft.UI.Xaml.IApplicationOverrides",
+            "Microsoft.UI.Xaml.IElementFactory",
             "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
         ])
         .compose("Microsoft.UI.Xaml.Application")
@@ -192,7 +222,24 @@ fn validate(schema: &Schema) {
 
     for property in &schema.attached_properties {
         assert_identifier(&property.name);
+        assert_identifier(&property.native);
         assert_identifier(&property.value);
+        assert!(
+            !property.flag || property.value == "Bool",
+            "attached property flags must be Bool"
+        );
+        if let Some(validation) = &property.validation {
+            assert!(
+                validation_supported(validation, &property.value),
+                "{} has unsupported validation {validation}",
+                property.name
+            );
+        }
+        assert_eq!(
+            property.variants.is_empty(),
+            is_builtin_value(&property.value),
+            "attached enum variants must match the value type"
+        );
         assert!(
             property.owner.rsplit_once('.').is_some(),
             "invalid attached property owner"
@@ -253,11 +300,15 @@ fn validate(schema: &Schema) {
                 assert!(matches!(
                     adapter.as_str(),
                     "clock_identifier"
+                        | "font_weight"
+                        | "grid_columns"
+                        | "grid_rows"
                         | "horizontal_content_alignment"
                         | "inspectable_string"
                         | "inspectable_string_list"
                         | "number_box_value"
                         | "rating_value"
+                        | "rich_edit_text"
                         | "selection_index"
                         | "vertical_content_alignment"
                 ));
@@ -296,14 +347,7 @@ fn validate(schema: &Schema) {
             assert_identifier(&property.value);
             if let Some(validation) = &property.validation {
                 assert!(
-                    matches!(
-                        (validation.as_str(), property.value.as_str()),
-                        (
-                            "finite_positive" | "finite_non_negative",
-                            "F64" | "Thickness" | "CornerRadius"
-                        ) | ("finite", "F64" | "Thickness")
-                            | ("non_negative" | "zero_to_fifty_nine", "I32")
-                    ),
+                    validation_supported(validation, &property.value),
                     "{}.{} has unsupported validation {validation}",
                     object.name,
                     property.name
@@ -421,6 +465,23 @@ fn validate(schema: &Schema) {
             }
         }
     }
+    for (capability, members) in [
+        ("enabled", &schema.capabilities.enabled),
+        ("focus", &schema.capabilities.focus),
+        ("text_style", &schema.capabilities.text_style),
+    ] {
+        let mut unique = BTreeSet::new();
+        for member in members {
+            assert!(
+                objects.contains(member.as_str()),
+                "unknown {capability} capability object {member}"
+            );
+            assert!(
+                unique.insert(member),
+                "duplicate {capability} capability object {member}"
+            );
+        }
+    }
     validate_relations(schema);
 }
 
@@ -432,6 +493,22 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
         .collect::<Vec<_>>();
     let mut output = String::from("// This file is generated by tool-reactor2.\n");
 
+    for property in &schema.attached_properties {
+        let owner = property.owner.rsplit('.').next().unwrap();
+        let (declaring_owner, _) = metadata
+            .dependency_property(owner, &property.native)
+            .unwrap_or_else(|| {
+                panic!(
+                    "cannot resolve {}.{} dependency property",
+                    property.owner, property.native
+                )
+            });
+        assert_eq!(
+            declaring_owner, property.owner,
+            "{}.{} has declaring owner {declaring_owner}",
+            property.owner, property.native
+        );
+    }
     for property in &schema.visual_properties {
         let owner = property.owner.rsplit('.').next().unwrap();
         if property.value != "ThemeTransitions" {
@@ -444,6 +521,19 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 None,
             );
         }
+        let (declaring_owner, _) = metadata
+            .dependency_property(owner, &property.name)
+            .unwrap_or_else(|| {
+                panic!(
+                    "cannot resolve {}.{} dependency property",
+                    property.owner, property.name
+                )
+            });
+        assert_eq!(
+            declaring_owner, property.owner,
+            "{}.{} has declaring owner {declaring_owner}",
+            property.owner, property.name
+        );
         for object in schema
             .objects
             .iter()
@@ -489,6 +579,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 event.value.as_str(),
                 "Bool"
                     | "F64"
+                    | "FontWeight"
                     | "OptionalBool"
                     | "OptionalF64"
                     | "PointerEventInfo"
@@ -812,39 +903,43 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                         .unwrap()
                         .short_name();
                     output.push_str(&format!("let source_{field} = value.clone();\n"));
-                    let read = match property.value.as_str() {
-                        "String" => format!(
-                            "source_{field}.cast::<native::{observed_interface}>()\
+                    let read = if property.adapter.as_deref() == Some("rich_edit_text") {
+                        format!("read_rich_edit_text(&source_{field})")
+                    } else {
+                        match property.value.as_str() {
+                            "String" => format!(
+                                "source_{field}.cast::<native::{observed_interface}>()\
                              .and_then(|source| source.{observed_native}()).map(Rc::<str>::from)"
-                        ),
-                        "Bool" => format!(
-                            "source_{field}.cast::<native::{observed_interface}>()\
+                            ),
+                            "Bool" => format!(
+                                "source_{field}.cast::<native::{observed_interface}>()\
                              .and_then(|source| source.{observed_native}())"
-                        ),
-                        "F64" => format!(
-                            "source_{field}.cast::<native::{observed_interface}>()\
+                            ),
+                            "F64" => format!(
+                                "source_{field}.cast::<native::{observed_interface}>()\
                              .and_then(|source| source.{observed_native}())"
-                        ),
-                        "OptionalBool" => format!(
-                            "source_{field}.cast::<native::{observed_interface}>()\
+                            ),
+                            "OptionalBool" => format!(
+                                "source_{field}.cast::<native::{observed_interface}>()\
                              .and_then(|source| source.{observed_native}()).map(Some)"
-                        ),
-                        "OptionalF64" => format!(
-                            "source_{field}.cast::<native::{observed_interface}>()\
+                            ),
+                            "OptionalF64" => format!(
+                                "source_{field}.cast::<native::{observed_interface}>()\
                              .and_then(|source| source.{observed_native}())\
                              .map({})",
-                            if property.adapter.as_deref() == Some("rating_value") {
-                                "rating_value"
-                            } else {
-                                "number_box_value"
-                            }
-                        ),
-                        "SelectionIndex" => format!(
-                            "source_{field}.cast::<native::{observed_interface}>()\
+                                if property.adapter.as_deref() == Some("rating_value") {
+                                    "rating_value"
+                                } else {
+                                    "number_box_value"
+                                }
+                            ),
+                            "SelectionIndex" => format!(
+                                "source_{field}.cast::<native::{observed_interface}>()\
                              .and_then(|source| source.{observed_native}())\
                              .map(|value| usize::try_from(value).ok())"
-                        ),
-                        _ => unreachable!("unsupported generated observation type"),
+                            ),
+                            _ => unreachable!("unsupported generated observation type"),
+                        }
                     };
                     output.push_str(&format!("let read_{field} = move || {read};\n"));
                 }
@@ -937,12 +1032,11 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                          value: PropertyValue::{variant}({observed_value}) }} }};\n\
                          let dispatch = event_queue_{field}.observe(object, EventId::{}, \
                          observation.clone());\n\
-                         if dispatch {{ event_queue_{field}.observations.borrow_mut()\
-                         .push(observation); WinUiAdapter::schedule_event_wake(&event_queue_{field}); }}\n",
+                         let observation = dispatch.then_some(observation);\n",
                         event.name
                     ));
                 } else {
-                    output.push_str("let dispatch = true;\n");
+                    output.push_str("let dispatch = true;\nlet observation = None;\n");
                 }
                 if selection.is_none()
                     && let Some(payload) = &event.payload
@@ -975,22 +1069,26 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 match event.value.as_str() {
                     "Bool" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_bool(&event_for_callback, \
-                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                         &event_queue_{field}, object, EventId::{}, observation, \
+                         {dispatch_value}); }}\n",
                         event.name,
                     )),
                     "F64" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_f64(&event_for_callback, \
-                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                         &event_queue_{field}, object, EventId::{}, observation, \
+                         {dispatch_value}); }}\n",
                         event.name,
                     )),
                     "OptionalBool" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_optional_bool(&event_for_callback, \
-                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                         &event_queue_{field}, object, EventId::{}, observation, \
+                         {dispatch_value}); }}\n",
                         event.name,
                     )),
                     "OptionalF64" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_optional_f64(&event_for_callback, \
-                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                         &event_queue_{field}, object, EventId::{}, observation, \
+                         {dispatch_value}); }}\n",
                         event.name,
                     )),
                     "PointerEventInfo" => output.push_str(&format!(
@@ -998,22 +1096,25 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                          {{ Ok(value) => value, Err(error) => {{ \
                          super::app::report_error(error.into()); return; }} }};\n\
                          if dispatch {{ WinUiAdapter::dispatch_pointer_event_info(\
-                         &event_for_callback, &event_queue_{field}, object, EventId::{}, value); }}\n",
+                         &event_for_callback, &event_queue_{field}, object, EventId::{}, \
+                         observation, value); }}\n",
                         event.name
                     )),
                     "Unit" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_unit(&event_for_callback, \
-                         &event_queue_{field}, object, EventId::{}); }}\n",
+                         &event_queue_{field}, object, EventId::{}, observation); }}\n",
                         event.name
                     )),
                     "SelectionIndex" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_selection_index(&event_for_callback, \
-                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                         &event_queue_{field}, object, EventId::{}, observation, \
+                         {dispatch_value}); }}\n",
                         event.name,
                     )),
                     "String" => output.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch_string(&event_for_callback, \
-                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                         &event_queue_{field}, object, EventId::{}, observation, \
+                         {dispatch_value}); }}\n",
                         event.name,
                     )),
                     _ => unreachable!("unsupported generated native event"),
@@ -1275,28 +1376,63 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
     );
     for property in &schema.attached_properties {
         let owner = property.owner.rsplit('.').next().unwrap();
-        let name = property
-            .name
-            .strip_prefix(owner)
-            .unwrap_or_else(|| panic!("{} must start with {owner}", property.name));
         let (variant, expression) = match property.value.as_str() {
             "F64" => ("F64", "*value"),
-            _ => panic!("unsupported attached property value"),
+            "FontWeight" => ("FontWeight", "native::FontWeight { weight: value.value() }"),
+            "I32" => ("I32", "*value"),
+            "Bool" => ("Bool", "*value"),
+            "String" => ("String", "value.as_ref()"),
+            value => {
+                let arms = property
+                    .variants
+                    .iter()
+                    .map(|variant| format!("\"{variant}\" => native::{value}::{variant},"))
+                    .collect::<String>();
+                output.push_str(&format!(
+                    "(PropertyId::{}, Some(PropertyValue::Enum {{ kind: \"{value}\", variant }})) \
+                     => Some(element.cast::<native::FrameworkElement>().map_err(Into::into)\
+                     .and_then(|element| {{ let _ = native::{value}::None; \
+                     native::{owner}::Set{}(&element, match *variant {{ {arms} \
+                     _ => unreachable!(\"validated enum variant\") }}).map_err(Into::into) }})),\n",
+                    property.name, property.native
+                ));
+                if property.default.is_none() {
+                    output.push_str(&format!(
+                        "(PropertyId::{}, None) => \
+                         Some(element.cast::<native::IDependencyObject>().map_err(Into::into)\
+                         .and_then(|element| native::{owner}::{}Property().map_err(Into::into)\
+                         .and_then(|property| element.ClearValue(&property).map_err(Into::into)))),\n",
+                        property.name, property.native
+                    ));
+                }
+                continue;
+            }
         };
         output.push_str(&format!(
             "(PropertyId::{}, Some(PropertyValue::{variant}(value))) => \
              Some(element.cast::<native::FrameworkElement>().map_err(Into::into)\
-             .and_then(|element| native::{owner}::Set{name}(&element, {expression})\
+             .and_then(|element| native::{owner}::Set{}(&element, {expression})\
              .map_err(Into::into))),\n",
-            property.name
+            property.name, property.native
         ));
-        output.push_str(&format!(
-            "(PropertyId::{}, None) => \
-             Some(element.cast::<native::IDependencyObject>().map_err(Into::into)\
-             .and_then(|element| native::{owner}::{name}Property().map_err(Into::into)\
-             .and_then(|property| element.ClearValue(&property).map_err(Into::into)))),\n",
-            property.name
-        ));
+        if let Some(default) = property.default.as_deref() {
+            let default = property_default_parts(&property.value, default);
+            output.push_str(&format!(
+                "(PropertyId::{}, None) => \
+                 Some(element.cast::<native::FrameworkElement>().map_err(Into::into)\
+                 .and_then(|element| native::{owner}::Set{}(&element, {default})\
+                 .map_err(Into::into))),\n",
+                property.name, property.native
+            ));
+        } else {
+            output.push_str(&format!(
+                "(PropertyId::{}, None) => \
+                 Some(element.cast::<native::IDependencyObject>().map_err(Into::into)\
+                 .and_then(|element| native::{owner}::{}Property().map_err(Into::into)\
+                 .and_then(|property| element.ClearValue(&property).map_err(Into::into)))),\n",
+                property.name, property.native
+            ));
+        }
     }
     output.push_str("_ => None,\n} }\n");
 
@@ -1304,6 +1440,20 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
         "fn set_visual_property(element: &native::UIElement, property: PropertyId, \
          value: Option<&PropertyValue>) -> Option<Result<(), WinUiError>> { match (property, value) {\n",
     );
+    if !schema.capabilities.enabled.is_empty() {
+        emit_native_property_arms(
+            &mut output,
+            "(PropertyId::IsEnabled, ",
+            "element",
+            "IControl",
+            "Control",
+            "IsEnabled",
+            "Bool",
+            None,
+            None,
+            metadata,
+        );
+    }
     for property in &schema.visual_properties {
         let owner = property.owner.rsplit('.').next().unwrap();
         if property.value == "ThemeTransitions" {
@@ -1330,10 +1480,6 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 property.name, property.name
             ));
         } else {
-            let default = property
-                .default
-                .as_deref()
-                .unwrap_or_else(|| panic!("visual property {} requires a default", property.name));
             emit_native_property_arms(
                 &mut output,
                 &format!("(PropertyId::{}, ", property.name),
@@ -1342,7 +1488,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 owner,
                 &property.name,
                 &property.value,
-                Some(default),
+                property.default.as_deref(),
                 None,
                 metadata,
             );
@@ -1407,7 +1553,25 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                      FeedbackExpectation::Normalized {{ observation: None }})),\n",
                     object.name, property.name
                 )),
-                "deferred_exact" => {}
+                "deferred_exact" => {
+                    assert_eq!(property.value, "String");
+                    output.push_str(&format!(
+                        "(ObjectType::{}, PropertyId::{}, Some(value)) => \
+                         Some((EventId::{event}, \
+                         FeedbackExpectation::DeferredExact(Property {{ id: PropertyId::{}, \
+                         value: value.clone() }}))),\n\
+                         (ObjectType::{}, PropertyId::{}, None) => \
+                         Some((EventId::{event}, \
+                         FeedbackExpectation::DeferredExact(Property {{ id: PropertyId::{}, \
+                         value: PropertyValue::String(Rc::from(\"\")) }}))),\n",
+                        object.name,
+                        property.name,
+                        property.name,
+                        object.name,
+                        property.name,
+                        property.name
+                    ));
+                }
                 _ => unreachable!(),
             }
         }
@@ -1421,8 +1585,16 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
     for object in &objects {
         for property in &object.properties {
             let native = native_property(property);
+            let method = if matches!(
+                property.adapter.as_deref(),
+                Some("rich_edit_text" | "grid_rows" | "grid_columns")
+            ) {
+                format!("get_{native}")
+            } else {
+                format!("put_{native}")
+            };
             let interface = metadata
-                .resolve(&native_name(object), &format!("put_{native}"))
+                .resolve(&native_name(object), &method)
                 .unwrap()
                 .short_name();
             let target = if object.events.is_empty() {
@@ -1585,6 +1757,22 @@ fn validate_native_property(
     default: Option<&str>,
     adapter: Option<&str>,
 ) {
+    if adapter == Some("rich_edit_text") {
+        assert_eq!(value, "String");
+        assert!(default.is_none());
+        metadata
+            .resolve(owner, &format!("get_{native}"))
+            .unwrap_or_else(|| panic!("cannot resolve {owner}.get_{native}"));
+        return;
+    }
+    if matches!(adapter, Some("grid_rows" | "grid_columns")) {
+        assert_eq!(value, "GridLengths");
+        assert!(default.is_none());
+        metadata
+            .resolve(owner, &format!("get_{native}"))
+            .unwrap_or_else(|| panic!("cannot resolve {owner}.get_{native}"));
+        return;
+    }
     let method = format!("put_{native}");
     metadata
         .resolve(owner, &method)
@@ -1635,6 +1823,10 @@ fn validate_native_property(
             assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
             assert_eq!(metadata_value, "F64");
         }
+        "FontWeight" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Complex);
+            assert_eq!(metadata_value, "U16");
+        }
         "I32" => {
             assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
             assert_eq!(metadata_value, "I32");
@@ -1677,6 +1869,23 @@ fn emit_native_property_arms(
     adapter: Option<&str>,
     metadata: &tool_reactor::metadata::MetadataResolver,
 ) {
+    if adapter == Some("rich_edit_text") {
+        output.push_str(&format!(
+            "{pattern}None) => Some(set_rich_edit_text(&{target}, \"\")),\n\
+             {pattern}Some(PropertyValue::String(value))) => \
+             Some(set_rich_edit_text(&{target}, value)),\n"
+        ));
+        return;
+    }
+    if matches!(adapter, Some("grid_rows" | "grid_columns")) {
+        let rows = adapter == Some("grid_rows");
+        output.push_str(&format!(
+            "{pattern}None) => Some(set_grid_definitions({target}, &[], {rows})),\n\
+             {pattern}Some(PropertyValue::GridLengths(value))) => \
+             Some(set_grid_definitions({target}, value, {rows})),\n"
+        ));
+        return;
+    }
     let clear = default.map(|default| property_default_parts(value, default));
     if let Some(clear) = &clear {
         output.push_str(&format!(
@@ -1759,6 +1968,7 @@ fn emit_native_property_arms(
         "String" => ("String", "value.as_ref()"),
         "Bool" => ("Bool", "*value"),
         "F64" => ("F64", "*value"),
+        "FontWeight" => ("FontWeight", "native::FontWeight { weight: value.value() }"),
         "I32" => ("I32", "*value"),
         "OptionalBool" => ("OptionalBool", "*value"),
         "CornerRadius" => (
@@ -1795,6 +2005,17 @@ fn emit_native_property_arms(
     ));
 }
 
+fn has_capability(objects: &[String], object: &Object) -> bool {
+    objects.iter().any(|name| name == &object.name)
+}
+
+fn has_local_property(object: &Object, name: &str) -> bool {
+    object
+        .properties
+        .iter()
+        .any(|property| property.name == name)
+}
+
 fn generate_bindings(
     schema: &Schema,
     metadata: &tool_reactor::metadata::MetadataResolver,
@@ -1807,20 +2028,45 @@ fn generate_bindings(
     if !schema.attached_properties.is_empty() || !schema.visual_properties.is_empty() {
         generated.insert("Microsoft::UI::Xaml::IDependencyObject::ClearValue".to_string());
     }
+    if !schema.capabilities.enabled.is_empty() {
+        generated.insert("Microsoft::UI::Xaml::Controls::IControl::get_IsEnabled".to_string());
+        generated.insert("Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled".to_string());
+        generated.insert("Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty".to_string());
+    }
+    if schema.capabilities.layout_exit_transition {
+        generated.insert("Microsoft::UI::Xaml::IScalarTransition::put_Duration".to_string());
+        generated.insert("Microsoft::UI::Xaml::IUIElement::get_Opacity".to_string());
+        generated.insert("Microsoft::UI::Xaml::IUIElement::put_OpacityTransition".to_string());
+        generated.insert("Microsoft::UI::Xaml::ScalarTransition::CreateInstance".to_string());
+    }
+    if schema.objects.iter().any(|object| object.virtual_items) {
+        generated.extend([
+            "Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance".to_string(),
+            "Microsoft::UI::Xaml::Controls::IContentControl::put_Content".to_string(),
+            "Microsoft::UI::Xaml::Controls::IItemsRepeater::GetOrCreateElement".to_string(),
+            "Microsoft::UI::Xaml::Controls::IItemsRepeater::put_ItemsSource".to_string(),
+            "Microsoft::UI::Xaml::Controls::IItemsRepeater::put_ItemTemplate".to_string(),
+            "Microsoft::UI::Xaml::IElementFactory::{}".to_string(),
+            "Microsoft::UI::Xaml::IElementFactoryGetArgs::get_Data".to_string(),
+            "Microsoft::UI::Xaml::IElementFactoryRecycleArgs::get_Element".to_string(),
+        ]);
+    }
     for property in &schema.attached_properties {
-        let owner = property.owner.rsplit('.').next().unwrap();
-        let name = property
-            .name
-            .strip_prefix(owner)
-            .unwrap_or_else(|| panic!("{} must start with {owner}", property.name));
         let owner = binding_path(&property.owner);
-        generated.insert(format!("{owner}::Get{name}"));
-        generated.insert(format!("{owner}::Set{name}"));
-        generated.insert(format!("{owner}::{name}Property"));
+        if property.readback {
+            generated.insert(format!("{owner}::Get{}", property.native));
+        }
+        generated.insert(format!("{owner}::Set{}", property.native));
+        if property.default.is_none() {
+            generated.insert(format!("{owner}::{}Property", property.native));
+        }
     }
     for property in &schema.visual_properties {
         let (namespace, owner) = property.owner.rsplit_once('.').unwrap();
         let namespace = binding_path(namespace);
+        if property.readback {
+            generated.insert(format!("{namespace}::I{owner}::get_{}", property.name));
+        }
         generated.insert(format!("{namespace}::I{owner}::put_{}", property.name));
         if property.default.is_none() {
             generated.insert(format!(
@@ -1859,12 +2105,62 @@ fn generate_bindings(
         generated.insert(format!("{}::CreateInstance", binding_path(&object.native)));
         for property in &object.properties {
             let native = native_property(property);
+            if property.adapter.as_deref() == Some("rich_edit_text") {
+                generated.extend([
+                    "Microsoft::UI::Xaml::Controls::IRichEditBox::get_IsReadOnly".to_string(),
+                    "Microsoft::UI::Text::ITextDocument::GetText".to_string(),
+                    "Microsoft::UI::Text::ITextDocument::SetText".to_string(),
+                    "Microsoft::UI::Text::TextGetOptions".to_string(),
+                    "Microsoft::UI::Text::TextSetOptions".to_string(),
+                ]);
+                let getter = format!("get_{native}");
+                let interface = metadata
+                    .resolve(&native_name(object), &getter)
+                    .unwrap()
+                    .full_path();
+                generated.insert(format!("{}::{getter}", binding_path(&interface)));
+                continue;
+            }
+            if matches!(
+                property.adapter.as_deref(),
+                Some("grid_rows" | "grid_columns")
+            ) {
+                let getter = format!("get_{native}");
+                let interface = metadata
+                    .resolve(&native_name(object), &getter)
+                    .unwrap()
+                    .full_path();
+                generated.insert(format!("{}::{getter}", binding_path(&interface)));
+                let (definition, dimension) = if property.adapter.as_deref() == Some("grid_rows") {
+                    ("RowDefinition", "Height")
+                } else {
+                    ("ColumnDefinition", "Width")
+                };
+                generated.extend([
+                    format!("Microsoft::UI::Xaml::Controls::{definition}::CreateInstance"),
+                    format!("Microsoft::UI::Xaml::Controls::I{definition}::put_{dimension}"),
+                    format!("Microsoft::UI::Xaml::Controls::I{definition}::put_Min{dimension}"),
+                    format!("Microsoft::UI::Xaml::Controls::I{definition}::put_Max{dimension}"),
+                    format!("Microsoft::UI::Xaml::Controls::{definition}Collection::{{}}"),
+                    "Microsoft::UI::Xaml::GridLength".to_string(),
+                    "Microsoft::UI::Xaml::GridUnitType".to_string(),
+                ]);
+                continue;
+            }
             let setter = format!("put_{native}");
             let interface = metadata
                 .resolve(&native_name(object), &setter)
                 .unwrap()
                 .full_path();
             generated.insert(format!("{}::{setter}", binding_path(&interface)));
+            if property.readback {
+                let getter = format!("get_{native}");
+                let interface = metadata
+                    .resolve(&native_name(object), &getter)
+                    .unwrap()
+                    .full_path();
+                generated.insert(format!("{}::{getter}", binding_path(&interface)));
+            }
             if property.default.is_none() {
                 let (_, interface) = metadata
                     .dependency_property(&native_name(object), native)
@@ -1934,6 +2230,10 @@ fn generate_bindings(
                     "{}::get_{observed_native}",
                     binding_path(&interface)
                 ));
+                if property.adapter.as_deref() == Some("rich_edit_text") {
+                    generated.insert("Microsoft::UI::Text::ITextDocument::GetText".to_string());
+                    generated.insert("Microsoft::UI::Text::TextGetOptions".to_string());
+                }
             }
         }
         if let Some(selection) = &object.selection
@@ -2060,10 +2360,26 @@ fn validate_relations(schema: &Schema) {
             match relation.realization.as_str() {
                 "Owned" => assert_eq!(relation.child, "Visual"),
                 "Structural" => assert_eq!(relation.child, "Structural"),
+                "Container" if object.virtual_items => {
+                    assert_eq!(relation.child, "Visual");
+                    assert_eq!(relation.cardinality, "Many");
+                    assert_eq!(relation.identity, "Keyed");
+                }
                 "Container" => assert_eq!(relation.child, "Data"),
                 _ => unreachable!(),
             }
         }
+        assert_eq!(
+            object
+                .relations
+                .iter()
+                .filter(|relation| {
+                    relation.realization == "Container" && relation.child == "Visual"
+                })
+                .count(),
+            usize::from(object.virtual_items),
+            "virtual objects require exactly one container-realized relation"
+        );
         let mut events = BTreeSet::new();
         for event in &object.events {
             assert_identifier(&event.name);
@@ -2148,6 +2464,9 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
     for property in &schema.visual_properties {
         properties.insert(property.name.as_str(), property.value.as_str());
     }
+    if !schema.capabilities.enabled.is_empty() {
+        properties.insert("IsEnabled", "Bool");
+    }
     for object in &schema.objects {
         for property in &object.properties {
             properties
@@ -2193,6 +2512,8 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
               Color,\n\
               CornerRadius,\n\
               F64,\n\
+              FontWeight,\n\
+              GridLengths,\n\
               I32,\n\
               OptionalBool,\n\
               OptionalF64,\n\
@@ -2300,41 +2621,70 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
     output.push_str("} }\n");
 
     output.push_str(
-        "pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] { match kind {\n",
+        "pub fn property_contract(kind: ObjectType, id: PropertyId) -> \
+         Option<PropertyContract> {\n\
+         if object_category(kind) == ObjectCategory::Visual { match id {\n",
     );
-    for object in &schema.objects {
-        output.push_str(&format!("ObjectType::{} => &[", object.name));
-        if object.category == "Visual" {
-            for property in &schema.attached_properties {
-                output.push_str(&format!(
-                    "PropertyContract {{ id: PropertyId::{}, value: ValueType::{} }},",
-                    property.name, property.value
-                ));
+    for property in &schema.attached_properties {
+        let value = if is_builtin_value(&property.value) {
+            format!("ValueType::{}", property.value)
+        } else {
+            let variants = property
+                .variants
+                .iter()
+                .map(|variant| format!("\"{variant}\""))
+                .collect::<Vec<_>>()
+                .join(",");
+            format!(
+                "ValueType::Enum {{ kind: \"{}\", variants: &[{variants}] }}",
+                property.value
+            )
+        };
+        output.push_str(&format!(
+            "PropertyId::{} => return Some(PropertyContract {{ id, value: {value} }}),",
+            property.name
+        ));
+    }
+    for property in &schema.visual_properties {
+        let value = if is_builtin_value(&property.value) {
+            format!("ValueType::{}", property.value)
+        } else {
+            let owner = property.owner.rsplit('.').next().unwrap();
+            let (_, variants) = metadata
+                .enum_info(owner, &format!("put_{}", property.name))
+                .unwrap();
+            format!(
+                "ValueType::Enum {{ kind: \"{}\", variants: &[{}] }}",
+                property.value,
+                variants
+                    .iter()
+                    .map(|variant| format!("\"{variant}\","))
+                    .collect::<String>()
+            )
+        };
+        output.push_str(&format!(
+            "PropertyId::{} => return Some(PropertyContract {{ id, value: {value} }}),",
+            property.name
+        ));
+    }
+    output.push_str("_ => {} } }\n");
+    if !schema.capabilities.enabled.is_empty() {
+        output.push_str("if id == PropertyId::IsEnabled && matches!(kind,");
+        for (index, object) in schema.capabilities.enabled.iter().enumerate() {
+            if index != 0 {
+                output.push('|');
             }
-            for property in &schema.visual_properties {
-                let value = if is_builtin_value(&property.value) {
-                    format!("ValueType::{}", property.value)
-                } else {
-                    let owner = property.owner.rsplit('.').next().unwrap();
-                    let (_, variants) = metadata
-                        .enum_info(owner, &format!("put_{}", property.name))
-                        .unwrap();
-                    format!(
-                        "ValueType::Enum {{ kind: \"{}\", variants: &[{}] }}",
-                        property.value,
-                        variants
-                            .iter()
-                            .map(|variant| format!("\"{variant}\","))
-                            .collect::<String>()
-                    )
-                };
-                output.push_str(&format!(
-                    "PropertyContract {{ id: PropertyId::{}, value: {value} }},",
-                    property.name
-                ));
-            }
+            output.push_str(&format!("ObjectType::{object}"));
         }
+        output.push_str(") { return Some(PropertyContract { id, value: ValueType::Bool }); }\n");
+    }
+    output.push_str("match (kind, id) {\n");
+    for object in &schema.objects {
         for property in &object.properties {
+            if property.name == "IsEnabled" && has_capability(&schema.capabilities.enabled, object)
+            {
+                continue;
+            }
             let value = if is_builtin_value(&property.value) {
                 format!("ValueType::{}", property.value)
             } else {
@@ -2356,13 +2706,95 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
                 )
             };
             output.push_str(&format!(
-                "PropertyContract {{ id: PropertyId::{}, value: {} }},",
-                property.name, value
+                "(ObjectType::{}, PropertyId::{}) => \
+                 Some(PropertyContract {{ id, value: {value} }}),",
+                object.name, property.name
             ));
         }
-        output.push_str("],\n");
+    }
+    output.push_str("_ => None,\n} }\n");
+    output.push_str(
+        "pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {\n\
+         if object_category(kind) == ObjectCategory::Visual { match id {\n",
+    );
+    for (index, property) in schema.attached_properties.iter().enumerate() {
+        output.push_str(&format!("PropertyId::{} => return {index},", property.name));
+    }
+    for (offset, property) in schema.visual_properties.iter().enumerate() {
+        let index = schema.attached_properties.len() + offset;
+        output.push_str(&format!("PropertyId::{} => return {index},", property.name));
+    }
+    output.push_str("_ => {} } }\nmatch (kind, id) {\n");
+    let shared_count = schema.attached_properties.len() + schema.visual_properties.len();
+    for object in &schema.objects {
+        for (index, property) in object.properties.iter().enumerate() {
+            output.push_str(&format!(
+                "(ObjectType::{}, PropertyId::{}) => {},",
+                object.name,
+                property.name,
+                shared_count + index
+            ));
+        }
+        if has_capability(&schema.capabilities.enabled, object)
+            && !has_local_property(object, "IsEnabled")
+        {
+            output.push_str(&format!(
+                "(ObjectType::{}, PropertyId::IsEnabled) => {},",
+                object.name,
+                shared_count + object.properties.len()
+            ));
+        }
+    }
+    output.push_str("_ => usize::MAX,\n} }\n");
+    output.push_str("pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[");
+    for object in &schema.objects {
+        output.push_str(&format!("ObjectType::{},", object.name));
+    }
+    output.push_str("];\n");
+    output.push_str("pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[");
+    for property in properties.keys() {
+        output.push_str(&format!("PropertyId::{property},"));
+    }
+    output.push_str("];\n");
+    output.push_str("fn object_index(kind: ObjectType) -> usize { match kind {\n");
+    for (index, object) in schema.objects.iter().enumerate() {
+        output.push_str(&format!("ObjectType::{} => {index},", object.name));
     }
     output.push_str("} }\n");
+    output.push_str(
+        "pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {\n\
+         static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> = \
+         std::sync::OnceLock::new();\n\
+         let contracts = CONTRACTS.get_or_init(|| {\n\
+         let mut unique = Vec::<&'static [PropertyContract]>::new();\n\
+         ALL_OBJECT_TYPES.iter().copied().map(|kind| {\n\
+         let mut current = ALL_PROPERTY_IDS.iter().copied()\
+         .filter_map(|id| property_contract(kind, id)).collect::<Vec<_>>();\n\
+         current.sort_by_key(|contract| property_order(kind, contract.id));\n\
+         if let Some(existing) = unique.iter().copied()\
+         .find(|existing| *existing == current.as_slice()) { existing } else {\n\
+         let current: &'static [PropertyContract] = Box::leak(current.into_boxed_slice());\n\
+         unique.push(current);\n\
+         current\n\
+         }\n\
+         }).collect()\n\
+         });\n\
+         contracts[object_index(kind)]\n\
+         }\n",
+    );
+
+    output.push_str("pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,");
+    if schema.capabilities.focus.is_empty() {
+        output.push_str("_ if false");
+    } else {
+        for (index, object) in schema.capabilities.focus.iter().enumerate() {
+            if index != 0 {
+                output.push('|');
+            }
+            output.push_str(&format!("ObjectType::{object}"));
+        }
+    }
+    output.push_str(") }\n");
 
     output.push_str(
         "pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] { match kind {\n",
@@ -2399,6 +2831,14 @@ fn generate_declarations(
 ) -> String {
     let mut output = String::from("// This file is generated by tool-reactor2.\n");
     let mut enums = BTreeMap::new();
+    for property in &schema.attached_properties {
+        if is_builtin_value(&property.value) {
+            continue;
+        }
+        if let Some(previous) = enums.insert(property.value.as_str(), property.variants.clone()) {
+            assert_eq!(previous, property.variants, "conflicting enum definitions");
+        }
+    }
     for property in &schema.visual_properties {
         if is_builtin_value(&property.value) {
             continue;
@@ -2449,6 +2889,84 @@ fn generate_declarations(
         }
         output.push_str("}\n} }\n");
     }
+    output.push_str("macro_rules! enabled_methods { () => {\n");
+    output.push_str(
+        "pub fn is_enabled(mut self, is_enabled: bool) -> Self {\n\
+         self.0 = self.0.property(PropertyId::IsEnabled, \
+         PropertyValue::Bool(is_enabled));\nself\n}\n",
+    );
+    output.push_str("}; }\n");
+    output.push_str("macro_rules! focus_methods { () => {\n");
+    output.push_str(
+        "pub fn element_ref(mut self, reference: &ElementRef) -> Self {\n\
+         self.0.reference = Some(reference.clone());\nself\n}\n",
+    );
+    output.push_str("}; }\n");
+    output.push_str("macro_rules! visual_methods { () => {\n");
+    output.push_str(
+        "pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {\n\
+         self.0.exit_transition = transition;\nself\n}\n\
+         pub fn exit_fade(self, duration: std::time::Duration) -> Self {\n\
+         self.exit_transition(ExitTransition::fade(duration))\n}\n",
+    );
+    for property in &schema.attached_properties {
+        let name = snake_case(&property.name);
+        if property.flag {
+            output.push_str(&format!("pub fn {name}(mut self) -> Self {{\n"));
+            output.push_str(&format!(
+                "self.0 = self.0.property(PropertyId::{}, \
+                 PropertyValue::Bool(true));\nself\n}}\n",
+                property.name
+            ));
+            continue;
+        }
+        output.push_str(&format!(
+            "pub fn {name}(mut self, {}) -> Self {{\n",
+            property_argument_parts(&property.name, &property.value)
+        ));
+        if let Some(validation) = &property.validation {
+            let expression = validation_expression(&name, &property.value, validation);
+            output.push_str(&format!(
+                "assert!({expression}, \"{} requires {validation}\");\n",
+                property.name
+            ));
+        }
+        output.push_str(&format!(
+            "self.0 = self.0.property(PropertyId::{}, {});\nself\n}}\n",
+            property.name,
+            property_value_parts(&property.value, &name)
+        ));
+    }
+    for property in &schema.visual_properties {
+        let name = snake_case(&property.name);
+        if property.value == "ThemeTransitions" {
+            output.push_str(&format!(
+                "pub fn {name}<T>(self, {name}: T) -> Self where T: \
+                 IntoIterator<Item = ThemeTransition> {{ \
+                 self.{name}_optional(Some({name})) }}\n\
+                 pub fn {name}_optional<T>(mut self, {name}: Option<T>) -> Self where T: \
+                 IntoIterator<Item = ThemeTransition> {{\n\
+                 if let Some({name}) = {name} {{\n\
+                 self.0 = self.0.property(PropertyId::{}, \
+                 PropertyValue::ThemeTransitions({name}.into_iter().collect()));\n\
+                 }}\n\
+                 self\n\
+                 }}\n",
+                property.name
+            ));
+        } else {
+            output.push_str(&format!(
+                "pub fn {name}(mut self, {}) -> Self {{\n",
+                property_argument_parts(&property.name, &property.value)
+            ));
+            output.push_str(&format!(
+                "self.0 = self.0.property(PropertyId::{}, {});\nself\n}}\n",
+                property.name,
+                property_value_parts(&property.value, &name)
+            ));
+        }
+    }
+    output.push_str("}; }\n");
     for object in &schema.objects {
         output.push_str("#[derive(Clone, Debug, PartialEq)]\n");
         output.push_str(&format!("pub struct {}(Declaration);\n", object.name));
@@ -2494,79 +3012,78 @@ fn generate_declarations(
             .iter()
             .filter(|property| !property.required)
         {
-            let name = snake_case(&property.name);
-            output.push_str(&format!(
-                "pub fn {name}(mut self, {}) -> Self {{\n",
-                property_argument(property)
-            ));
+            let name = match property.adapter.as_deref() {
+                Some("rich_edit_text") => "text".to_string(),
+                Some("grid_rows") => "rows".to_string(),
+                Some("grid_columns") => "columns".to_string(),
+                _ => snake_case(&property.name),
+            };
+            let argument = match property.adapter.as_deref() {
+                Some("rich_edit_text") => "text: impl Into<Rc<str>>".to_string(),
+                Some("grid_rows" | "grid_columns") => {
+                    "values: impl IntoIterator<Item = GridLength>".to_string()
+                }
+                _ => property_argument(property),
+            };
+            output.push_str(&format!("pub fn {name}(mut self, {argument}) -> Self {{\n"));
             if let Some(validation) = &property.validation {
-                let expression = match validation.as_str() {
-                    "finite" => format!("{name}.is_finite()"),
-                    "finite_positive" => format!("{name}.is_finite() && {name} > 0.0"),
-                    "finite_non_negative" if property.value == "F64" => {
-                        format!("{name}.is_finite() && {name} >= 0.0")
-                    }
-                    "finite_non_negative" => format!("{name}.is_finite_non_negative()"),
-                    "non_negative" => format!("{name} >= 0"),
-                    "zero_to_fifty_nine" => format!("(0..=59).contains(&{name})"),
-                    _ => unreachable!(),
-                };
+                let expression = validation_expression(&name, &property.value, validation);
                 output.push_str(&format!(
                     "assert!({expression}, \"{}.{} requires {validation}\");\n",
                     object.name, property.name
                 ));
             }
-            output.push_str(&format!(
-                "self.0 = self.0.property(PropertyId::{}, {});\nself\n}}\n",
-                property.name,
+            let value = if property.adapter.as_deref() == Some("rich_edit_text") {
+                format!("PropertyValue::String(canonical_rich_edit_text({name}.into()))")
+            } else if matches!(
+                property.adapter.as_deref(),
+                Some("grid_rows" | "grid_columns")
+            ) {
+                "PropertyValue::GridLengths(values.into_iter().collect())".to_string()
+            } else {
                 property_value(property, &name)
+            };
+            output.push_str(&format!(
+                "self.0 = self.0.property(PropertyId::{}, {value});\nself\n}}\n",
+                property.name
             ));
+        }
+        if has_capability(&schema.capabilities.enabled, object)
+            && !has_local_property(object, "IsEnabled")
+        {
+            output.push_str("enabled_methods!();\n");
+        }
+        if has_capability(&schema.capabilities.focus, object) {
+            output.push_str("focus_methods!();\n");
         }
 
         if object.category == "Visual" {
-            for property in &schema.attached_properties {
-                let name = snake_case(&property.name);
-                output.push_str(&format!(
-                    "pub fn {name}(mut self, {name}: f64) -> Self {{\n"
-                ));
-                output.push_str(&format!(
-                    "self.0 = self.0.property(PropertyId::{}, \
-                     PropertyValue::F64({name}));\nself\n}}\n",
-                    property.name
-                ));
-            }
-            for property in &schema.visual_properties {
-                let name = snake_case(&property.name);
-                if property.value == "ThemeTransitions" {
-                    output.push_str(&format!(
-                        "pub fn {name}<T>(self, {name}: T) -> Self where T: \
-                         IntoIterator<Item = ThemeTransition> {{ \
-                         self.{name}_optional(Some({name})) }}\n\
-                         pub fn {name}_optional<T>(mut self, {name}: Option<T>) -> Self where T: \
-                         IntoIterator<Item = ThemeTransition> {{\n\
-                         if let Some({name}) = {name} {{\n\
-                         self.0 = self.0.property(PropertyId::{}, \
-                         PropertyValue::ThemeTransitions({name}.into_iter().collect()));\n\
-                         }}\n\
-                         self\n\
-                         }}\n",
-                        property.name
-                    ));
-                } else {
-                    output.push_str(&format!(
-                        "pub fn {name}(mut self, {}) -> Self {{\n",
-                        property_argument_parts(&property.name, &property.value)
-                    ));
-                    output.push_str(&format!(
-                        "self.0 = self.0.property(PropertyId::{}, {});\nself\n}}\n",
-                        property.name,
-                        property_value_parts(&property.value, &name)
-                    ));
-                }
-            }
+            output.push_str("visual_methods!();\n");
+        }
+
+        if object.virtual_items {
+            let relation = object
+                .relations
+                .iter()
+                .find(|relation| relation.realization == "Container")
+                .unwrap();
+            output.push_str(&format!(
+                "                pub fn item(mut self, key: impl Into<Key>, visual: impl Into<Visual>) -> Self {{\n\
+                self.0 = self.0.virtual_item(RelationId::{}, keyed(key, visual));\nself\n}}\n\
+                 pub fn items(mut self, items: impl IntoIterator<Item = KeyedVisual>) -> Self {{\n\
+                 self.0 = self.0.virtual_items(RelationId::{}, \
+                 VirtualItems::eager(items));\nself\n}}\n\
+                 pub fn virtual_source(mut self, source: VirtualSource) -> Self {{\n\
+                 self.0 = self.0.virtual_items(RelationId::{}, \
+                 VirtualItems::Lazy(source));\nself\n}}\n",
+                relation.name, relation.name, relation.name
+            ));
         }
 
         for relation in &object.relations {
+            if object.virtual_items && relation.realization == "Container" {
+                continue;
+            }
             let method = relation
                 .method
                 .clone()
@@ -2774,6 +3291,32 @@ fn property_argument(property: &Property) -> String {
     property_argument_parts(&property.name, &property.value)
 }
 
+fn validation_supported(validation: &str, value: &str) -> bool {
+    matches!(
+        (validation, value),
+        (
+            "finite_positive" | "finite_non_negative",
+            "F64" | "Thickness" | "CornerRadius"
+        ) | ("finite", "F64" | "Thickness")
+            | ("non_negative" | "positive" | "zero_to_fifty_nine", "I32")
+    )
+}
+
+fn validation_expression(name: &str, value: &str, validation: &str) -> String {
+    match validation {
+        "finite" => format!("{name}.is_finite()"),
+        "finite_positive" => format!("{name}.is_finite() && {name} > 0.0"),
+        "finite_non_negative" if value == "F64" => {
+            format!("{name}.is_finite() && {name} >= 0.0")
+        }
+        "finite_non_negative" => format!("{name}.is_finite_non_negative()"),
+        "non_negative" => format!("{name} >= 0"),
+        "positive" => format!("{name} > 0"),
+        "zero_to_fifty_nine" => format!("(0..=59).contains(&{name})"),
+        _ => unreachable!(),
+    }
+}
+
 fn property_argument_parts(name: &str, value: &str) -> String {
     let name = snake_case(name);
     match value {
@@ -2782,6 +3325,8 @@ fn property_argument_parts(name: &str, value: &str) -> String {
         "Color" => format!("{name}: Color"),
         "CornerRadius" => format!("{name}: CornerRadius"),
         "F64" => format!("{name}: f64"),
+        "FontWeight" => format!("{name}: FontWeight"),
+        "GridLengths" => format!("{name}: impl IntoIterator<Item = GridLength>"),
         "I32" => format!("{name}: i32"),
         "OptionalF64" => format!("{name}: Option<f64>"),
         "OptionalBool" => format!("{name}: Option<bool>"),
@@ -2803,6 +3348,10 @@ fn property_value_parts(value: &str, name: &str) -> String {
         "Color" => format!("PropertyValue::Color({name})"),
         "CornerRadius" => format!("PropertyValue::CornerRadius({name})"),
         "F64" => format!("PropertyValue::F64({name})"),
+        "FontWeight" => format!("PropertyValue::FontWeight({name})"),
+        "GridLengths" => {
+            format!("PropertyValue::GridLengths({name}.into_iter().collect())")
+        }
         "I32" => format!("PropertyValue::I32({name})"),
         "OptionalF64" => format!("PropertyValue::OptionalF64({name})"),
         "OptionalBool" => format!("PropertyValue::OptionalBool({name})"),
@@ -2869,6 +3418,8 @@ fn is_builtin_value(value: &str) -> bool {
             | "Color"
             | "CornerRadius"
             | "F64"
+            | "FontWeight"
+            | "GridLengths"
             | "I32"
             | "OptionalF64"
             | "OptionalBool"
@@ -2950,6 +3501,38 @@ fn checked_output_is_current() {
     assert!(native.contains("WinUiAdapter::handle_selection_changed"));
     assert!(native.contains("let Some(args) = args.as_ref() else"));
     assert!(native.contains("args.SelectedItem()"));
+    assert!(native.contains("native::Grid::SetRow(&element, *value)"));
+    assert!(native.contains("native::AutomationProperties::SetName"));
+    assert!(native.contains("native::Control::IsEnabledProperty()"));
+    assert!(native.contains("native::FontWeight {"));
+    assert!(native.contains("read_rich_edit_text(&source_text_changed)"));
+    assert!(native.contains("set_rich_edit_text(&object.value"));
+    assert!(native.contains("(ObjectType::RichEditBox, PropertyId::Document, None) => Some(("));
+    assert!(native.contains("value: PropertyValue::String(Rc::from(\"\"))"));
+    assert!(native.contains("set_grid_definitions(object"));
+    let declarations = fs::read_to_string(workspace_path(DECLARATIONS_OUTPUT)).unwrap();
+    assert!(declarations.contains("pub fn relative_align_left(mut self)"));
+    assert!(declarations.contains("pub fn exit_fade(self, duration: std::time::Duration)"));
+    assert!(declarations.contains("GridRow requires non_negative"));
+    assert!(declarations.contains("GridRowSpan requires positive"));
+    assert!(declarations.contains("pub fn text(mut self, text: impl Into<Rc<str>>)"));
+    assert!(declarations.contains("PropertyId::Document"));
+    assert!(
+        declarations
+            .contains("pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>)")
+    );
+    assert!(
+        declarations
+            .contains("pub fn columns(mut self, values: impl IntoIterator<Item = GridLength>)")
+    );
+    assert!(declarations.contains("pub fn element_ref(mut self, reference: &ElementRef)"));
+    assert!(declarations.contains("pub fn font_weight"));
+    let contracts = fs::read_to_string(workspace_path(OUTPUT)).unwrap();
+    assert!(contracts.contains("pub(crate) fn focus_capable"));
+    assert!(
+        contracts
+            .contains("pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract]")
+    );
     let navigation = native
         .split("ObjectType::NavigationView =>")
         .nth(1)
@@ -2991,6 +3574,12 @@ fn checked_output_is_current() {
     assert!(bindings.contains(
         "Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem"
     ));
+    assert!(bindings.contains("Microsoft::UI::Xaml::ScalarTransition::CreateInstance"));
+    assert!(bindings.contains("Microsoft::UI::Xaml::IElementFactory::{}"));
+    let declarations = fs::read_to_string(workspace_path(DECLARATIONS_OUTPUT)).unwrap();
+    assert!(declarations.contains("pub fn virtual_source(mut self, source: VirtualSource)"));
+    assert!(declarations.contains("self.0.virtual_item(RelationId::Items, keyed(key, visual))"));
+    assert!(schema.capabilities.layout_exit_transition);
 }
 
 #[test]
@@ -3013,6 +3602,67 @@ fn rejects_local_visual_property_collision() {
         name = "Width"
         value = "F64"
         default = "f64::NAN"
+        "#,
+    )
+    .unwrap();
+    validate(&schema);
+}
+
+#[test]
+#[should_panic(expected = "unknown focus capability object Missing")]
+fn rejects_unknown_capability_object() {
+    let schema: Schema = toml::from_str(
+        r#"
+        [capabilities]
+        focus = ["Missing"]
+
+        [[objects]]
+        name = "TextBlock"
+        category = "Visual"
+        native = "Microsoft.UI.Xaml.Controls.TextBlock"
+        "#,
+    )
+    .unwrap();
+    validate(&schema);
+}
+
+#[test]
+#[should_panic(expected = "attached enum variants must match the value type")]
+fn rejects_attached_enum_without_variants() {
+    let schema: Schema = toml::from_str(
+        r#"
+        [[attached_properties]]
+        name = "AutomationHeadingLevel"
+        owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+        native = "HeadingLevel"
+        value = "AutomationHeadingLevel"
+
+        [[objects]]
+        name = "TextBlock"
+        category = "Visual"
+        native = "Microsoft.UI.Xaml.Controls.TextBlock"
+        "#,
+    )
+    .unwrap();
+    validate(&schema);
+}
+
+#[test]
+#[should_panic(expected = "GridRow has unsupported validation positive")]
+fn rejects_incompatible_attached_property_validation() {
+    let schema: Schema = toml::from_str(
+        r#"
+        [[attached_properties]]
+        name = "GridRow"
+        owner = "Microsoft.UI.Xaml.Controls.Grid"
+        native = "Row"
+        value = "Bool"
+        validation = "positive"
+
+        [[objects]]
+        name = "TextBlock"
+        category = "Visual"
+        native = "Microsoft.UI.Xaml.Controls.TextBlock"
         "#,
     )
     .unwrap();

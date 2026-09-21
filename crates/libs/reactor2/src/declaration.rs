@@ -1,6 +1,30 @@
 use super::*;
 use std::fmt;
 use std::rc::Rc;
+use std::time::Duration;
+
+fn canonical_rich_edit_text(value: Rc<str>) -> Rc<str> {
+    if value.contains('\r') {
+        Rc::from(value.replace("\r\n", "\n").replace('\r', "\n"))
+    } else {
+        value
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ExitTransition {
+    duration: Duration,
+}
+
+impl ExitTransition {
+    pub fn fade(duration: Duration) -> Option<Self> {
+        (!duration.is_zero()).then_some(Self { duration })
+    }
+
+    pub const fn duration(self) -> Duration {
+        self.duration
+    }
+}
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Color {
@@ -95,6 +119,91 @@ pub enum ThemeTransition {
     Reposition,
 }
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct FontWeight(u16);
+
+impl FontWeight {
+    pub const BLACK: Self = Self(900);
+    pub const BOLD: Self = Self(700);
+    pub const EXTRA_BLACK: Self = Self(950);
+    pub const EXTRA_BOLD: Self = Self(800);
+    pub const EXTRA_LIGHT: Self = Self(200);
+    pub const LIGHT: Self = Self(300);
+    pub const MEDIUM: Self = Self(500);
+    pub const NORMAL: Self = Self(400);
+    pub const SEMI_BOLD: Self = Self(600);
+    pub const SEMI_LIGHT: Self = Self(350);
+    pub const THIN: Self = Self(100);
+
+    pub const fn new(weight: u16) -> Option<Self> {
+        if weight >= 1 && weight <= 999 {
+            Some(Self(weight))
+        } else {
+            None
+        }
+    }
+
+    pub(crate) const fn value(self) -> u16 {
+        self.0
+    }
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GridLength {
+    pub(crate) size: GridLengthSize,
+    pub(crate) min: Option<f64>,
+    pub(crate) max: Option<f64>,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub(crate) enum GridLengthSize {
+    Auto,
+    Pixel(f64),
+    Star(f64),
+}
+
+#[expect(non_upper_case_globals, non_snake_case)]
+impl GridLength {
+    pub const Auto: Self = Self::new(GridLengthSize::Auto);
+    pub const STAR: Self = Self::new(GridLengthSize::Star(1.0));
+
+    const fn new(size: GridLengthSize) -> Self {
+        Self {
+            size,
+            min: None,
+            max: None,
+        }
+    }
+
+    pub const fn Pixel(value: f64) -> Self {
+        assert_grid_length(value);
+        Self::new(GridLengthSize::Pixel(value))
+    }
+
+    pub const fn Star(value: f64) -> Self {
+        assert_grid_length(value);
+        Self::new(GridLengthSize::Star(value))
+    }
+
+    pub fn min(mut self, value: f64) -> Self {
+        assert_grid_length(value);
+        assert!(self.max.is_none_or(|max| value <= max));
+        self.min = Some(value);
+        self
+    }
+
+    pub fn max(mut self, value: f64) -> Self {
+        assert_grid_length(value);
+        assert!(self.min.is_none_or(|min| min <= value));
+        self.max = Some(value);
+        self
+    }
+}
+
+const fn assert_grid_length(value: f64) {
+    assert!(value.is_finite() && value >= 0.0);
+}
+
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Key(KeyKind);
 
@@ -141,6 +250,8 @@ pub enum PropertyValue {
     Color(Color),
     CornerRadius(CornerRadius),
     F64(f64),
+    FontWeight(FontWeight),
+    GridLengths(Rc<[GridLength]>),
     I32(i32),
     OptionalF64(Option<f64>),
     OptionalBool(Option<bool>),
@@ -238,6 +349,124 @@ pub struct Event {
     pub value: EventValue,
 }
 
+/// A lazily materialized keyed source for a virtualizing declaration.
+///
+/// ```
+/// use windows_reactor2::{ItemsRepeater, Key, TextBlock, VirtualSource, Visual};
+///
+/// let source = VirtualSource::new(
+///     7,
+///     10_000,
+///     Key::from,
+///     |index| -> Visual { TextBlock::new(index.to_string()).into() },
+/// );
+/// let view: Visual = ItemsRepeater::new().virtual_source(source).into();
+/// ```
+#[derive(Clone)]
+pub struct VirtualSource {
+    pub(crate) key_revision: u64,
+    pub(crate) len: usize,
+    pub(crate) key: Rc<dyn Fn(usize) -> Key>,
+    pub(crate) view: Rc<dyn Fn(usize) -> Visual>,
+}
+
+impl VirtualSource {
+    pub fn new<K, V, KI, VI>(key_revision: u64, len: usize, key: K, view: V) -> Self
+    where
+        K: Fn(usize) -> KI + 'static,
+        V: Fn(usize) -> VI + 'static,
+        KI: Into<Key>,
+        VI: Into<Visual>,
+    {
+        Self {
+            key_revision,
+            len,
+            key: Rc::new(move |index| key(index).into()),
+            view: Rc::new(move |index| view(index).into()),
+        }
+    }
+
+    pub fn len(&self) -> usize {
+        self.len
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.len == 0
+    }
+
+    pub fn key_revision(&self) -> u64 {
+        self.key_revision
+    }
+}
+
+impl fmt::Debug for VirtualSource {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("VirtualSource")
+            .field("key_revision", &self.key_revision)
+            .field("len", &self.len)
+            .finish_non_exhaustive()
+    }
+}
+
+impl PartialEq for VirtualSource {
+    fn eq(&self, other: &Self) -> bool {
+        self.key_revision == other.key_revision
+            && self.len == other.len
+            && Rc::ptr_eq(&self.key, &other.key)
+            && Rc::ptr_eq(&self.view, &other.view)
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum VirtualItems {
+    Eager(Rc<Vec<(Key, Visual)>>),
+    Lazy(VirtualSource),
+}
+
+impl VirtualItems {
+    pub(crate) fn eager(items: impl IntoIterator<Item = KeyedVisual>) -> Self {
+        Self::Eager(Rc::new(
+            items
+                .into_iter()
+                .map(|item| {
+                    let visual = item.0;
+                    let key = visual.0.key_ref().clone();
+                    (key, visual)
+                })
+                .collect(),
+        ))
+    }
+
+    pub(crate) fn len(&self) -> usize {
+        match self {
+            Self::Eager(items) => items.len(),
+            Self::Lazy(source) => source.len,
+        }
+    }
+
+    pub(crate) fn key(&self, index: usize) -> Option<Key> {
+        match self {
+            Self::Eager(items) => items.get(index).map(|(key, _)| key.clone()),
+            Self::Lazy(source) => (index < source.len).then(|| (source.key)(index)),
+        }
+    }
+
+    pub(crate) fn view(&self, index: usize) -> Option<Visual> {
+        match self {
+            Self::Eager(items) => items.get(index).map(|(_, view)| view.clone()),
+            Self::Lazy(source) => (index < source.len).then(|| (source.view)(index)),
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct DeclaredVirtualItems {
+    pub(crate) relation: RelationId,
+    pub(crate) owner: Option<ComponentId>,
+    pub(crate) items: VirtualItems,
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum RelationValue {
     One(Option<Rc<DeclaredNode>>),
@@ -255,9 +484,12 @@ pub(crate) struct Declaration {
     pub kind: ObjectType,
     pub key: Option<Key>,
     pub component: Option<ComponentId>,
+    pub reference: Option<ElementRef>,
+    pub exit_transition: Option<ExitTransition>,
     pub properties: SharedList<Property>,
     pub events: SharedList<Event>,
     pub relations: SharedList<DeclaredRelation>,
+    pub virtual_items: Option<Box<DeclaredVirtualItems>>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -432,6 +664,18 @@ impl DeclaredNode {
             Self::Component { .. } => Err(GraphError::UnresolvedComponent),
         }
     }
+
+    fn key_ref(&self) -> &Key {
+        match self {
+            Self::Object(value) => {
+                let Some(key) = value.key.as_ref() else {
+                    unreachable!("KeyedVisual object without a key");
+                };
+                key
+            }
+            Self::Component { node, relation_key } => relation_key.as_ref().unwrap_or(&node.key),
+        }
+    }
 }
 
 impl Declaration {
@@ -440,9 +684,12 @@ impl Declaration {
             kind,
             key: None,
             component: None,
+            reference: None,
+            exit_transition: None,
             properties: SharedList::Empty,
             events: SharedList::Empty,
             relations: SharedList::Empty,
+            virtual_items: None,
         }
     }
 
@@ -454,19 +701,64 @@ impl Declaration {
     fn property(mut self, id: PropertyId, value: PropertyValue) -> Self {
         self.properties
             .upsert(|property| property.id == id, Property { id, value });
-        let contracts = property_contracts(self.kind);
-        self.properties.sort_by_key(|property| {
-            contracts
-                .iter()
-                .position(|contract| contract.id == property.id)
-                .unwrap()
-        });
+        self.properties
+            .sort_by_key(|property| property_order(self.kind, property.id));
         self
     }
 
     pub(crate) fn relation(mut self, id: RelationId, value: RelationValue) -> Self {
         self.relations
             .upsert(|relation| relation.id == id, DeclaredRelation { id, value });
+        self
+    }
+
+    pub(crate) fn virtual_items(mut self, relation: RelationId, items: VirtualItems) -> Self {
+        self.virtual_items = Some(Box::new(DeclaredVirtualItems {
+            relation,
+            owner: None,
+            items,
+        }));
+        self
+    }
+
+    pub(crate) fn virtual_item(mut self, relation: RelationId, item: KeyedVisual) -> Self {
+        let visual = item.0;
+        let item = (visual.0.key_ref().clone(), visual);
+        let items = match self.virtual_items.take() {
+            Some(items)
+                if matches!(
+                    items.as_ref(),
+                    DeclaredVirtualItems {
+                        relation: current,
+                        items: VirtualItems::Eager(_),
+                        ..
+                    } if *current == relation
+                ) =>
+            {
+                let DeclaredVirtualItems {
+                    owner,
+                    items: VirtualItems::Eager(items),
+                    ..
+                } = *items
+                else {
+                    unreachable!()
+                };
+                let mut items = items.as_ref().clone();
+                items.push(item);
+                self.virtual_items = Some(Box::new(DeclaredVirtualItems {
+                    relation,
+                    owner,
+                    items: VirtualItems::Eager(Rc::new(items)),
+                }));
+                return self;
+            }
+            _ => Rc::new(vec![item]),
+        };
+        self.virtual_items = Some(Box::new(DeclaredVirtualItems {
+            relation,
+            owner: None,
+            items: VirtualItems::Eager(items),
+        }));
         self
     }
 

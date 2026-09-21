@@ -1,48 +1,226 @@
+[capabilities]
+layout_exit_transition = true
+enabled = [
+    "Button",
+    "HyperlinkButton",
+    "RepeatButton",
+    "TextBox",
+    "AutoSuggestBox",
+    "PasswordBox",
+    "NumberBox",
+    "Slider",
+    "NavigationView",
+    "ProgressBar",
+    "ToggleSwitch",
+    "CheckBox",
+    "ToggleButton",
+    "RadioButton",
+    "ProgressRing",
+    "ListBox",
+    "ComboBox",
+    "DropDownButton",
+    "AppBarButton",
+    "SplitButton",
+    "ColorPicker",
+    "DatePicker",
+    "TimePicker",
+    "CalendarDatePicker",
+    "CalendarView",
+    "ListView",
+    "ListViewItem",
+    "TreeView",
+    "GridView",
+    "GridViewItem",
+    "RichEditBox",
+]
+focus = [
+    "Button",
+    "HyperlinkButton",
+    "Border",
+    "TextBox",
+    "AutoSuggestBox",
+    "PasswordBox",
+    "NumberBox",
+    "Slider",
+    "ToggleSwitch",
+    "CheckBox",
+    "ToggleButton",
+    "RadioButton",
+    "RatingControl",
+    "ComboBox",
+    "RichEditBox",
+]
+text_style = ["TextBlock", "TextBox", "RichTextBlock"]
+
 [[attached_properties]]
 name = "CanvasLeft"
 owner = "Microsoft.UI.Xaml.Controls.Canvas"
+native = "Left"
 value = "F64"
+readback = true
 
 [[attached_properties]]
 name = "CanvasTop"
 owner = "Microsoft.UI.Xaml.Controls.Canvas"
+native = "Top"
 value = "F64"
+readback = true
+
+[[attached_properties]]
+name = "GridRow"
+owner = "Microsoft.UI.Xaml.Controls.Grid"
+native = "Row"
+value = "I32"
+validation = "non_negative"
+readback = true
+
+[[attached_properties]]
+name = "GridColumn"
+owner = "Microsoft.UI.Xaml.Controls.Grid"
+native = "Column"
+value = "I32"
+validation = "non_negative"
+
+[[attached_properties]]
+name = "GridRowSpan"
+owner = "Microsoft.UI.Xaml.Controls.Grid"
+native = "RowSpan"
+value = "I32"
+validation = "positive"
+
+[[attached_properties]]
+name = "GridColumnSpan"
+owner = "Microsoft.UI.Xaml.Controls.Grid"
+native = "ColumnSpan"
+value = "I32"
+validation = "positive"
+
+[[attached_properties]]
+name = "RelativeAlignLeft"
+owner = "Microsoft.UI.Xaml.Controls.RelativePanel"
+native = "AlignLeftWithPanel"
+value = "Bool"
+flag = true
+readback = true
+
+[[attached_properties]]
+name = "RelativeAlignTop"
+owner = "Microsoft.UI.Xaml.Controls.RelativePanel"
+native = "AlignTopWithPanel"
+value = "Bool"
+flag = true
+
+[[attached_properties]]
+name = "RelativeAlignRight"
+owner = "Microsoft.UI.Xaml.Controls.RelativePanel"
+native = "AlignRightWithPanel"
+value = "Bool"
+flag = true
+
+[[attached_properties]]
+name = "RelativeAlignBottom"
+owner = "Microsoft.UI.Xaml.Controls.RelativePanel"
+native = "AlignBottomWithPanel"
+value = "Bool"
+flag = true
+
+[[attached_properties]]
+name = "RelativeAlignHorizontalCenter"
+owner = "Microsoft.UI.Xaml.Controls.RelativePanel"
+native = "AlignHorizontalCenterWithPanel"
+value = "Bool"
+flag = true
+
+[[attached_properties]]
+name = "RelativeAlignVerticalCenter"
+owner = "Microsoft.UI.Xaml.Controls.RelativePanel"
+native = "AlignVerticalCenterWithPanel"
+value = "Bool"
+flag = true
+
+[[attached_properties]]
+name = "AutomationName"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "Name"
+value = "String"
+default = ""
+readback = true
+
+[[attached_properties]]
+name = "AutomationId"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "AutomationId"
+value = "String"
+default = ""
+
+[[attached_properties]]
+name = "AutomationHeadingLevel"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "HeadingLevel"
+value = "AutomationHeadingLevel"
+variants = [
+    "Level1",
+    "Level2",
+    "Level3",
+    "Level4",
+    "Level5",
+    "Level6",
+    "Level7",
+    "Level8",
+    "Level9",
+]
 
 [[visual_properties]]
 name = "Width"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
 value = "F64"
-default = "f64::NAN"
 
 [[visual_properties]]
 name = "Height"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
 value = "F64"
-default = "f64::NAN"
+
+[[visual_properties]]
+name = "MinWidth"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "F64"
+readback = true
+
+[[visual_properties]]
+name = "MaxWidth"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "F64"
+
+[[visual_properties]]
+name = "MinHeight"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "F64"
+
+[[visual_properties]]
+name = "MaxHeight"
+owner = "Microsoft.UI.Xaml.FrameworkElement"
+value = "F64"
+readback = true
 
 [[visual_properties]]
 name = "Margin"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
 value = "Thickness"
-default = "default"
 
 [[visual_properties]]
 name = "HorizontalAlignment"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
 value = "HorizontalAlignment"
-default = "Stretch"
 
 [[visual_properties]]
 name = "VerticalAlignment"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
 value = "VerticalAlignment"
-default = "Stretch"
 
 [[visual_properties]]
 name = "Opacity"
 owner = "Microsoft.UI.Xaml.UIElement"
 value = "F64"
-default = "1.0"
 
 [[visual_properties]]
 name = "Transitions"
@@ -71,6 +249,14 @@ clear_feedback = false
 required = false
 default = "14.0"
 validation = "finite_positive"
+
+[[objects.properties]]
+name = "FontWeight"
+value = "FontWeight"
+adapter = "font_weight"
+clear_feedback = false
+required = false
+readback = true
 
 [[objects.properties]]
 name = "Foreground"
@@ -297,6 +483,22 @@ category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Grid"
 key = false
 events = []
+
+[[objects.properties]]
+name = "GridRows"
+native = "RowDefinitions"
+value = "GridLengths"
+adapter = "grid_rows"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "GridColumns"
+native = "ColumnDefinitions"
+value = "GridLengths"
+adapter = "grid_columns"
+clear_feedback = false
+required = false
 
 [[objects.properties]]
 name = "RowSpacing"
@@ -1341,9 +1543,17 @@ name = "ItemsRepeater"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
 key = false
+virtual_items = true
 properties = []
-relations = []
 events = []
+
+[[objects.relations]]
+name = "Items"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Keyed"
+realization = "Container"
 
 [[objects]]
 name = "InfoBadge"
@@ -2650,7 +2860,20 @@ name = "RichEditBox"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.RichEditBox"
 key = false
-events = []
+
+[[objects.properties]]
+name = "Document"
+value = "String"
+adapter = "rich_edit_text"
+controlled = "TextChanged"
+feedback = "deferred_exact"
+clear_feedback = false
+required = false
+
+[[objects.events]]
+name = "TextChanged"
+value = "String"
+observes = "Document"
 
 [[objects.properties]]
 name = "PlaceholderText"

@@ -31,8 +31,31 @@ Generated visual properties also include typed theme-transition declarations. Om
 transition property clears the WinUI dependency property, while retained equality avoids
 rebuilding unchanged native transition collections.
 
+Shared visual builders cover min/max sizing, Grid, RelativePanel, and Canvas placement,
+automation metadata, and enabled state. Focus-capable controls accept an `ElementRef`;
+`Runtime::focus` validates the generated capability contract before issuing the adapter command.
+An `ElementRef` may appear once in a declaration tree; moving it between objects updates the
+reference without depending on reconciliation order.
+`exit_fade` removes a subtree from active identity immediately while retaining its native objects
+until the WinUI fade completes. Completion shares the ordered native-occurrence stream with
+observations and callbacks, so timer completion cannot overtake an earlier native event. References
+and event callbacks are cleared at retirement, and component/effect ownership ends without waiting
+for native cleanup.
+
 NavigationView, ListBox, and SelectorBar expose retained selection over keyed item relations.
 Native selection updates controlled item state and invokes the optional Tag or Text callback once;
 application-driven selection, insertion, removal, and reorder suppress native feedback.
+
+RichEditBox controlled text uses its native text document rather than treating `Document` as a
+string dependency property. Declarations and native events normalize line endings to LF, deferred
+exact feedback suppresses application writes, and read-only state is restored after native writes.
+Grid row and column definitions use typed `GridLength` values with Auto, Pixel, and Star sizing,
+optional minimum and maximum values, validation, retained equality, and native collection clearing.
+
+ItemsRepeater accepts eager keyed items or a lazy `VirtualSource`. Logical items remain outside the
+retained graph until WinUI realizes a container. Realization and recycling share the ordered native
+event stream, preserve active keyed identity across source updates and reorder, and release row
+components, effects, tasks, and references on recycle. A 10,000-item source therefore retains only
+the source keys and the small set of realized visual rows.
 
 This crate is not a supported replacement for `windows-reactor`.
