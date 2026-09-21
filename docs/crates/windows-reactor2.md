@@ -142,25 +142,56 @@ an owned visual `Content` relation and unit-valued `Click` event. Button creatio
 and event delivery reuse the existing retained relation and queued-event protocols without changes
 to the planner or component lifecycle.
 
-The same schema now generates native realization for ordinary controls. The current set is
-TextBlock, Button, CheckBox, Border, Grid, StackPanel, Canvas, ScrollViewer, Viewbox, and Slider. It
-covers string, `f64`, nullable boxed `bool`, solid color, thickness, and metadata-derived enum
-properties; keyed and positional panel children; content ownership; Canvas attached positioning;
-unit events; typed pointer events; and visual theme-transition collections. `PointerEventInfo`
-carries element-local and window-relative coordinates, pointer identity, left/right/middle button
-state, current capture state, and an optional capture-attempt result. `PointerReleased` leaves the
-capture-attempt result unset because release does not initiate capture. Attached and visual
-properties are ordinary retained properties on the child visual. The adapter applies them through
-the owning WinUI class and clears the dependency property when omitted. Theme transitions create a
-WinUI `TransitionCollection` owned by `UIElement.Transitions`; each
-`ThemeTransition::Reposition` entry creates a `RepositionThemeTransition`. The generated
-`GeneratedHandle` owns native construction, object-kind and UIElement conversion, direct
-properties, panel children, content attachment, event subscription, and callback lookup.
-`tool-reactor2` verifies setter ABI shapes and resolves property, content, event, and enum
-information through the metadata resolver shared with `tool-reactor`; it also derives the binding
-filter needed by those generated paths. Generated mutable controls report native feedback into the
-retained graph even when no callback is installed. TextBox feedback, TreeView structural nodes,
-ListView container data, and templates remain focused handwritten adapter cases.
+The same schema now represents all 79 control classes from the old Reactor schema. Ordinary WinUI
+controls use generated native realization; TextBox feedback, TreeView structural nodes, ListView
+container data, and templates remain focused handwritten adapter cases. The generated surface
+covers string, `bool`, `i32`, `f64`, nullable boxed `bool`, solid color, thickness, corner radius,
+and metadata-derived enum properties. It also covers validated numeric properties, keyed and
+positional panel children, single-child native relations, Canvas attached positioning, unit
+events, typed pointer events, and visual theme-transition collections.
+
+`cargo run -p tool-reactor2 --quiet -- --convert-old-schema` is a one-shot migration command. It
+reads the old schema only for that explicit command, merges metadata-backed direct contracts into
+the current Reactor2 schema, and writes ordinary Reactor2 TOML to standard output. Normal
+generation reads only `schema.toml`. The strict parity report currently accounts for 79/79
+controls, 188/233 properties, 36/68 events, 42/42 slots, 3/3 selection contracts, 49/158
+capabilities, and 0/2 lifecycle contracts. It includes inspectable strings and string lists,
+distinct NumberBox and RatingControl optional numeric values, checked selection indices,
+controlled and coercing property feedback backed by native events, and renamed event-builder
+fields. Feedback expectations are keyed by retained object and event. Exact native echoes are
+suppressed, normalized observations are deferred until the native setter returns, and clear
+operations install the corresponding default expectation. Event payload contracts read supported
+values from native event arguments or the event's declared source property; only matching value
+types count toward parity. Native collection contracts cover inspectable, typed, and observable
+vectors plus ItemCollection, while typed child and allowed-object contracts preserve native and
+schema item restrictions.
+
+NavigationView, ListBox, and SelectorBar selection uses one generated contract over keyed owned
+relations. The retained child `ObjectId` is the stable selection identity, while callbacks receive
+the selected item's optional Tag or Text. Application-driven item selection and collection changes
+suppress owner feedback. Native changes update controlled child `IsSelected` properties and queue
+one callback. Keyed reorder preserves the selected native object, selected-item removal clears it,
+and observations queued for an item removed before dispatch are ignored. The selection descriptor
+also records where the event's selected item comes from. NavigationView reads
+`NavigationViewSelectionChangedEventArgs.SelectedItem`; ListBox and SelectorBar read their owner
+selection properties. Parity requires this source and event-args type to match the old contract.
+The remaining surface includes dependency-property-only feedback, more routed and typed event
+payloads, ToolTip placement, ContentDialog lifecycle, and the remaining shared capability families.
+
+`PointerEventInfo` carries element-local and window-relative coordinates, pointer identity,
+left/right/middle button state, current capture state, and an optional capture-attempt result.
+`PointerReleased` leaves the capture-attempt result unset because release does not initiate
+capture. Attached and visual properties are ordinary retained properties on the child visual. The
+adapter applies them through the owning WinUI class and clears the dependency property when
+omitted. Theme transitions create a WinUI `TransitionCollection` owned by
+`UIElement.Transitions`; each `ThemeTransition::Reposition` entry creates a
+`RepositionThemeTransition`. The generated `GeneratedHandle` owns native construction,
+object-kind and UIElement conversion, direct properties, panel children, content attachment, event
+subscription, and callback lookup. `tool-reactor2` verifies setter ABI shapes and resolves
+property, dependency-property owner, content, event, and enum information through the metadata
+resolver shared with `tool-reactor`; it also derives the binding filter needed by those generated
+paths. Generated mutable controls report native feedback into the retained graph even when no
+callback is installed.
 
 Width, height, margin, horizontal and vertical alignment, and opacity are owner-aware shared visual
 contracts. Their builders, metadata checks, native setters, enum conversion, defaults, and binding
@@ -168,6 +199,11 @@ filters are generated once for every visual object. Local properties cannot coll
 property. The old Reactor `layout` capability also includes min/max sizing, Grid and RelativePanel
 placement, automation metadata, and exit transitions, so the parity checker reports layout as
 partial until those contracts are represented.
+
+Hand-authored properties with a schema default restore that explicit value when removed. Imported
+properties without a known default clear the declaring dependency property instead, allowing the
+native control or style default to apply. The generator resolves the declaring class through
+metadata rather than assuming the dependency property is declared by the concrete control.
 
 ## Public API shape
 
@@ -345,8 +381,8 @@ cargo run -p test-reactor-bench --bin reactor-live-compare --release --quiet -- 
 `--parity-report` compares the complete Reactor `winui.toml` surface with Reactor2's schema. It
 counts controls, properties, events, slots, selections, capabilities, and lifecycle contracts,
 then groups every unresolved contract by the missing model or behavior. `--check-parity` emits the
-same report and exits unsuccessfully while anything remains unresolved. The initial baseline is 79
-controls against 16 Reactor2 objects; 14 controls currently correspond to old Reactor controls.
+same report and exits unsuccessfully while anything remains unresolved. The schema contains all 79
+old Reactor controls plus Reactor2's data and structural objects.
 
 `test-reactor2-bench` compares Reactor and Reactor2 using the same node counts and update patterns.
 It reports median and p95 time, allocated bytes, allocation count, and retained bytes per object.
@@ -430,14 +466,17 @@ handler, and stale events do not reach replacement callbacks. A controlled reren
 value produces no mutation and no native setter call. Authoritative replacements preserve and
 clamp UTF-16 selection indices.
 
-The native self-test routes a simulated native text change through the same observed-text and
-callback path as the WinUI event handler, rerenders the controlled value, and then applies a
-different authoritative value. It verifies callback count, native text, selection preservation,
-and delayed programmatic feedback suppression across message-loop turns. It also injects a real
-mouse press and release into a Reactor2 Border. This exercises `PointerRoutedEventArgs`, validates
-the typed payload, and verifies that a missing pointer-capture collection means "not captured."
-Raw keyboard injection remains a benchmark concern because foreground-window activation is not
-deterministic enough for the correctness fixture.
+The native self-test routes simulated native text, password, rating, toggle, slider, and selected
+index changes through the same observations and typed callbacks as the WinUI event handlers. It
+rerenders controlled values and verifies callback counts, native state, selection preservation,
+and delayed programmatic feedback suppression across message-loop turns. NavigationView, ListBox,
+and SelectorBar fixtures also verify initial controlled selection, one callback per native change,
+queued NavigationView changes retaining their event-specific payloads, keyed reorder, and
+selected-item removal. The test injects a real mouse press and release into a Reactor2 Border. This
+exercises `PointerRoutedEventArgs`, validates the typed payload, and verifies that a missing
+pointer-capture collection means "not captured." Raw keyboard injection remains a benchmark
+concern because foreground-window activation is not deterministic enough for the correctness
+fixture.
 
 The matched `reactor-live-notepad --single-line` and `reactor2-live-notepad` benchmarks inject real
 keyboard input into the same native TextBox configuration. With 1,000 measured characters,

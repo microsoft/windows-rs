@@ -1,8 +1,10 @@
 use super::bindings as native;
+use crate::reconcile::{FeedbackExpectation, FeedbackState};
 use crate::{
     Adapter, Event, EventDispatch, EventId, EventPayload, EventValue, Mutation, ObjectId,
     ObjectType, Observation, Property, PropertyId, PropertyValue, Realization, RelationContract,
-    RelationId, relation_contracts,
+    RelationId, SelectionContract, relation_contracts, selection_for_item_property,
+    selection_for_relation,
 };
 use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet};
@@ -32,29 +34,30 @@ struct NativeTextBox {
     _text_changed: windows_core::EventRevoker,
 }
 
-#[derive(Default)]
-struct NativeTextEvent {
+struct NativeValueEvent<T> {
     revision: u64,
-    callback: Option<crate::Callback<Rc<str>>>,
+    callback: Option<crate::Callback<T>>,
 }
 
-#[derive(Default)]
-struct NativeF64Event {
-    revision: u64,
-    callback: Option<crate::Callback<f64>>,
+impl<T> Default for NativeValueEvent<T> {
+    fn default() -> Self {
+        Self {
+            revision: 0,
+            callback: None,
+        }
+    }
 }
 
-#[derive(Default)]
-struct NativePointerEventInfoEvent {
-    revision: u64,
-    callback: Option<crate::Callback<crate::PointerEventInfo>>,
-}
-
-#[derive(Default)]
-struct NativeUnitEvent {
-    revision: u64,
-    callback: Option<crate::Callback<()>>,
-}
+type NativeBoolEvent = NativeValueEvent<bool>;
+type NativeF64Event = NativeValueEvent<f64>;
+type NativeOptionalBoolEvent = NativeValueEvent<Option<bool>>;
+type NativeOptionalF64Event = NativeValueEvent<Option<f64>>;
+type NativePointerEventInfoEvent = NativeValueEvent<crate::PointerEventInfo>;
+type NativeSelectionEvent = NativeValueEvent<Option<Rc<str>>>;
+type NativeSelectionIndexEvent = NativeValueEvent<Option<usize>>;
+type NativeTextEvent = NativeValueEvent<Rc<str>>;
+type NativeStringEvent = NativeTextEvent;
+type NativeUnitEvent = NativeValueEvent<()>;
 
 include!("generated.rs");
 
@@ -65,12 +68,28 @@ struct QueuedEvent {
     payload: EventPayload,
 }
 
+struct NativeSelectionItem {
+    owner: ObjectId,
+    object: ObjectId,
+    value: IInspectable,
+}
+
 #[derive(Default)]
 struct NativeEventQueue {
     observations: RefCell<Vec<Observation>>,
     events: RefCell<Vec<QueuedEvent>>,
+    feedback: RefCell<FeedbackState>,
+    selection_items: RefCell<Vec<NativeSelectionItem>>,
     waker: RefCell<Option<Rc<dyn Fn()>>>,
     wake_pending: Cell<bool>,
+}
+
+impl NativeEventQueue {
+    fn observe(&self, object: ObjectId, event: EventId, observation: Observation) -> bool {
+        self.feedback
+            .borrow_mut()
+            .observe(object, event, observation)
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -444,6 +463,46 @@ impl WinUiAdapter {
                     return Err(WinUiError::StateMismatch(object));
                 }
             }
+            if let Some(selection) = crate::selection_contract(kind) {
+                let selected = self.read_selected_item(object, selection)?;
+                let selected = selected.as_ref().and_then(|selected| {
+                    self.event_queue
+                        .selection_items
+                        .borrow()
+                        .iter()
+                        .find_map(|item| {
+                            (item.owner == object && item.value == *selected).then_some(item.object)
+                        })
+                });
+                for child in selection.relations.iter().flat_map(|relation| {
+                    graph
+                        .children(object, *relation)
+                        .unwrap_or_default()
+                        .iter()
+                        .copied()
+                }) {
+                    if graph.kind(child) != Some(selection.item) {
+                        continue;
+                    }
+                    let expected =
+                        graph
+                            .properties(child)
+                            .unwrap_or_default()
+                            .iter()
+                            .find_map(|property| match property {
+                                Property {
+                                    id,
+                                    value: PropertyValue::Bool(value),
+                                } if *id == selection.selected_property => Some(*value),
+                                _ => None,
+                            });
+                    if let Some(expected) = expected
+                        && expected != (selected == Some(child))
+                    {
+                        return Err(WinUiError::StateMismatch(child));
+                    }
+                }
+            }
             for contract in relation_contracts(kind) {
                 match contract.cardinality {
                     crate::Cardinality::One => {
@@ -591,6 +650,164 @@ impl WinUiAdapter {
         Ok((slider.Minimum()?, slider.Maximum()?, slider.Value()?))
     }
 
+    pub fn set_toggle_switch_is_on(&self, object: ObjectId, value: bool) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::ToggleSwitch(toggle))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        toggle.value.SetIsOn(value)?;
+        Ok(())
+    }
+
+    pub fn toggle_switch_state(&self, object: ObjectId) -> Result<bool, WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::ToggleSwitch(toggle))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        Ok(toggle.value.IsOn()?)
+    }
+
+    pub fn set_password(&self, object: ObjectId, value: &str) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::PasswordBox(password_box))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        self.event_queue.feedback.borrow_mut().begin(
+            object,
+            EventId::PasswordChanged,
+            FeedbackExpectation::Suppressed,
+        );
+        let result = password_box.value.SetPassword(value);
+        self.event_queue
+            .feedback
+            .borrow_mut()
+            .finish(object, EventId::PasswordChanged);
+        result?;
+        let value = password_box
+            .value
+            .cast::<native::IPasswordBox>()?
+            .Password()
+            .map(Rc::<str>::from)?;
+        self.event_queue
+            .observations
+            .borrow_mut()
+            .push(Observation::SetProperty {
+                object,
+                property: Property {
+                    id: PropertyId::Password,
+                    value: PropertyValue::String(Rc::clone(&value)),
+                },
+            });
+        Self::dispatch_string(
+            &password_box.password_changed,
+            &self.event_queue,
+            object,
+            EventId::PasswordChanged,
+            value,
+        );
+        Ok(())
+    }
+
+    pub fn set_rating_value(&self, object: ObjectId, value: f64) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::RatingControl(rating))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        self.event_queue.feedback.borrow_mut().begin(
+            object,
+            EventId::ValueChanged,
+            FeedbackExpectation::Suppressed,
+        );
+        let result = rating.value.SetValue(value);
+        self.event_queue
+            .feedback
+            .borrow_mut()
+            .finish(object, EventId::ValueChanged);
+        result?;
+        let value = rating
+            .value
+            .cast::<native::IRatingControl>()?
+            .Value()
+            .map(rating_value)?;
+        self.event_queue
+            .observations
+            .borrow_mut()
+            .push(Observation::SetProperty {
+                object,
+                property: Property {
+                    id: PropertyId::RatingControlValue,
+                    value: PropertyValue::OptionalF64(value),
+                },
+            });
+        Self::dispatch_optional_f64(
+            &rating.value_changed,
+            &self.event_queue,
+            object,
+            EventId::ValueChanged,
+            value,
+        );
+        Ok(())
+    }
+
+    pub fn set_combo_box_selected_index(
+        &self,
+        object: ObjectId,
+        value: Option<usize>,
+    ) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::ComboBox(combo_box))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        combo_box
+            .value
+            .cast::<native::ISelector>()?
+            .SetSelectedIndex(native_selection_index(value)?)?;
+        Ok(())
+    }
+
+    pub fn select_item(
+        &self,
+        object: ObjectId,
+        selected: Option<ObjectId>,
+    ) -> Result<(), WinUiError> {
+        let selection = crate::selection_contract(self.kind(object)?)
+            .ok_or(WinUiError::InvalidObject(object))?;
+        let selected = selected
+            .map(|selected| {
+                self.event_queue
+                    .selection_items
+                    .borrow()
+                    .iter()
+                    .find_map(|item| {
+                        (item.owner == object && item.object == selected)
+                            .then(|| item.value.clone())
+                    })
+                    .ok_or(WinUiError::ChildNotFound(selected))
+            })
+            .transpose()?;
+        self.write_selected_item(object, selection, selected.as_ref())
+    }
+
+    pub fn selected_item(&self, object: ObjectId) -> Result<Option<ObjectId>, WinUiError> {
+        let selection = crate::selection_contract(self.kind(object)?)
+            .ok_or(WinUiError::InvalidObject(object))?;
+        let selected = self.read_selected_item(object, selection)?;
+        Ok(selected.as_ref().and_then(|selected| {
+            self.event_queue
+                .selection_items
+                .borrow()
+                .iter()
+                .find_map(|item| {
+                    (item.owner == object && item.value == *selected).then_some(item.object)
+                })
+        }))
+    }
+
     pub fn check_box_state(&self, object: ObjectId) -> Result<bool, WinUiError> {
         let Some(Handle::Generated(GeneratedHandle::CheckBox(check_box))) =
             self.handles.get(&object)
@@ -644,13 +861,17 @@ impl WinUiAdapter {
     ) -> Result<(), WinUiError> {
         let matches = match contract.realization {
             Realization::Owned => {
-                let values = self.panel_children(parent)?;
-                if values.Size()? as usize != children.len() {
+                let values = self.owned_collection(parent, contract.id)?;
+                if values.size()? as usize != children.len() {
                     false
                 } else {
                     children.iter().enumerate().all(|(index, child)| {
-                        values.GetAt(index as u32).ok().as_ref()
-                            == self.ui_element(*child).ok().as_ref()
+                        values.get_at(index as u32).ok().as_ref()
+                            == self
+                                .ui_element(*child)
+                                .and_then(|value| value.cast().map_err(Into::into))
+                                .ok()
+                                .as_ref()
                     })
                 }
             }
@@ -702,8 +923,12 @@ impl WinUiAdapter {
                     let event_queue = Rc::clone(&self.event_queue);
                     let source = value.clone();
                     let text_changed = value.TextChanged(move |_, _| {
-                        let Ok(text) = source.Text() else {
-                            std::process::abort();
+                        let text = match source.Text() {
+                            Ok(text) => text,
+                            Err(error) => {
+                                super::app::report_error(error);
+                                return;
+                            }
                         };
                         Self::dispatch_text_changed(
                             &event_for_callback,
@@ -757,101 +982,155 @@ impl WinUiAdapter {
         set: &[Property],
         clear: &[PropertyId],
     ) -> Result<(), WinUiError> {
+        let kind = self.kind(object)?;
         for property in clear {
-            if let Ok(element) = self.ui_element(object)
-                && let Some(result) =
-                    GeneratedHandle::set_attached_property(&element, *property, None)
-            {
-                result?;
-                continue;
+            let feedback = GeneratedHandle::feedback_expectation(kind, *property, None);
+            if let Some((event, expectation)) = feedback.clone() {
+                self.event_queue
+                    .feedback
+                    .borrow_mut()
+                    .begin(object, event, expectation);
             }
-            if let Ok(element) = self.ui_element(object)
-                && let Some(result) =
-                    GeneratedHandle::set_visual_property(&element, *property, None)
-            {
-                result?;
-                continue;
+            let selection_feedback = self.selection_feedback(object, *property)?;
+            if let Some((owner, event)) = selection_feedback {
+                self.event_queue.feedback.borrow_mut().begin(
+                    owner,
+                    event,
+                    FeedbackExpectation::Suppressed,
+                );
             }
-            if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                && let Some(result) = handle.set_property(*property, None)
-            {
-                result?;
-                continue;
-            }
-            if *property == PropertyId::Text
-                && matches!(self.handles.get(&object), Some(Handle::Data(_)))
-            {
-                self.set_data_text(object, "")?;
-                continue;
-            }
-            match (self.handle(object)?, property) {
-                (Handle::TextBox(value), PropertyId::Text) => {
-                    Self::set_text_box_text(value, "")?;
+            let result = 'apply: {
+                if let Ok(element) = self.ui_element(object)
+                    && let Some(result) =
+                        GeneratedHandle::set_attached_property(&element, *property, None)
+                {
+                    break 'apply result;
                 }
-                (Handle::TreeNode(value), PropertyId::Text) => {
-                    value.text = HSTRING::new();
-                    if value.content.is_none() {
-                        let content: IInspectable =
-                            windows_reference::IReference::from(value.text.clone()).into();
-                        value.value.SetContent(&content)?;
+                if let Ok(element) = self.ui_element(object)
+                    && let Some(result) =
+                        GeneratedHandle::set_visual_property(&element, *property, None)
+                {
+                    break 'apply result;
+                }
+                if let Some(Handle::Generated(handle)) = self.handles.get(&object)
+                    && let Some(result) = handle.set_property(*property, None)
+                {
+                    break 'apply result;
+                }
+                if *property == PropertyId::Text
+                    && matches!(self.handles.get(&object), Some(Handle::Data(_)))
+                {
+                    break 'apply self.set_data_text(object, "");
+                }
+                break 'apply match (self.handle(object)?, property) {
+                    (Handle::TextBox(value), PropertyId::Text) => {
+                        Self::set_text_box_text(value, "")
                     }
-                }
-                (Handle::TreeNode(value), PropertyId::Expanded) => {
-                    value.value.SetIsExpanded(false)?;
-                }
-                _ => return Err(WinUiError::InvalidObject(object)),
+                    (Handle::TreeNode(value), PropertyId::Text) => {
+                        value.text = HSTRING::new();
+                        if value.content.is_none() {
+                            let content: IInspectable =
+                                windows_reference::IReference::from(value.text.clone()).into();
+                            value.value.SetContent(&content)?;
+                        }
+                        Ok(())
+                    }
+                    (Handle::TreeNode(value), PropertyId::Expanded) => {
+                        value.value.SetIsExpanded(false).map_err(Into::into)
+                    }
+                    _ => Err(WinUiError::InvalidObject(object)),
+                };
+            };
+            let observation = feedback.and_then(|(event, _)| {
+                self.event_queue.feedback.borrow_mut().finish(object, event)
+            });
+            if let Some((owner, event)) = selection_feedback {
+                self.event_queue.feedback.borrow_mut().finish(owner, event);
+            }
+            result?;
+            if let Some(observation) = observation {
+                self.event_queue.observations.borrow_mut().push(observation);
+                Self::schedule_event_wake(&self.event_queue);
             }
         }
         for property in set {
-            if let Ok(element) = self.ui_element(object)
-                && let Some(result) = GeneratedHandle::set_attached_property(
-                    &element,
-                    property.id,
-                    Some(&property.value),
-                )
-            {
-                result?;
-                continue;
+            let feedback =
+                GeneratedHandle::feedback_expectation(kind, property.id, Some(&property.value));
+            if let Some((event, expectation)) = feedback.clone() {
+                self.event_queue
+                    .feedback
+                    .borrow_mut()
+                    .begin(object, event, expectation);
             }
-            if let Ok(element) = self.ui_element(object)
-                && let Some(result) = GeneratedHandle::set_visual_property(
-                    &element,
-                    property.id,
-                    Some(&property.value),
-                )
-            {
-                result?;
-                continue;
+            let selection_feedback = self.selection_feedback(object, property.id)?;
+            if let Some((owner, event)) = selection_feedback {
+                self.event_queue.feedback.borrow_mut().begin(
+                    owner,
+                    event,
+                    FeedbackExpectation::Suppressed,
+                );
             }
-            if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                && let Some(result) = handle.set_property(property.id, Some(&property.value))
-            {
-                result?;
-                continue;
-            }
-            if property.id == PropertyId::Text
-                && matches!(self.handles.get(&object), Some(Handle::Data(_)))
-                && let PropertyValue::String(text) = &property.value
-            {
-                self.set_data_text(object, text)?;
-                continue;
-            }
-            match (self.handle(object)?, property.id, &property.value) {
-                (Handle::TextBox(value), PropertyId::Text, PropertyValue::String(text)) => {
-                    Self::set_text_box_text(value, text)?;
+            let result = 'apply: {
+                if let Ok(element) = self.ui_element(object)
+                    && let Some(result) = GeneratedHandle::set_attached_property(
+                        &element,
+                        property.id,
+                        Some(&property.value),
+                    )
+                {
+                    break 'apply result;
                 }
-                (Handle::TreeNode(value), PropertyId::Text, PropertyValue::String(text)) => {
-                    value.text = HSTRING::from(text.as_ref());
-                    if value.content.is_none() {
-                        let content: IInspectable =
-                            windows_reference::IReference::from(value.text.clone()).into();
-                        value.value.SetContent(&content)?;
+                if let Ok(element) = self.ui_element(object)
+                    && let Some(result) = GeneratedHandle::set_visual_property(
+                        &element,
+                        property.id,
+                        Some(&property.value),
+                    )
+                {
+                    break 'apply result;
+                }
+                if let Some(Handle::Generated(handle)) = self.handles.get(&object)
+                    && let Some(result) = handle.set_property(property.id, Some(&property.value))
+                {
+                    break 'apply result;
+                }
+                if property.id == PropertyId::Text
+                    && matches!(self.handles.get(&object), Some(Handle::Data(_)))
+                    && let PropertyValue::String(text) = &property.value
+                {
+                    break 'apply self.set_data_text(object, text);
+                }
+                break 'apply match (self.handle(object)?, property.id, &property.value) {
+                    (Handle::TextBox(value), PropertyId::Text, PropertyValue::String(text)) => {
+                        Self::set_text_box_text(value, text)
                     }
-                }
-                (Handle::TreeNode(value), PropertyId::Expanded, PropertyValue::Bool(expanded)) => {
-                    value.value.SetIsExpanded(*expanded)?;
-                }
-                _ => return Err(WinUiError::InvalidObject(object)),
+                    (Handle::TreeNode(value), PropertyId::Text, PropertyValue::String(text)) => {
+                        value.text = HSTRING::from(text.as_ref());
+                        if value.content.is_none() {
+                            let content: IInspectable =
+                                windows_reference::IReference::from(value.text.clone()).into();
+                            value.value.SetContent(&content)?;
+                        }
+                        Ok(())
+                    }
+                    (
+                        Handle::TreeNode(value),
+                        PropertyId::Expanded,
+                        PropertyValue::Bool(expanded),
+                    ) => value.value.SetIsExpanded(*expanded).map_err(Into::into),
+                    _ => Err(WinUiError::InvalidObject(object)),
+                };
+            };
+            let observation = feedback.and_then(|(event, _)| {
+                self.event_queue.feedback.borrow_mut().finish(object, event)
+            });
+            if let Some((owner, event)) = selection_feedback {
+                self.event_queue.feedback.borrow_mut().finish(owner, event);
+            }
+            result?;
+            if let Some(observation) = observation {
+                self.event_queue.observations.borrow_mut().push(observation);
+                Self::schedule_event_wake(&self.event_queue);
             }
         }
         Ok(())
@@ -889,12 +1168,16 @@ impl WinUiAdapter {
                 None
             }
             crate::Cardinality::Many => {
-                let values = self.panel_children(parent)?;
+                let values = self.owned_collection(parent, relation)?;
+                let previous: IInspectable = previous.cast()?;
                 let mut index = 0;
-                if !values.IndexOf(&previous, &mut index)? {
+                while index < values.size()? && values.get_at(index)? != previous {
+                    index += 1;
+                }
+                if index == values.size()? {
                     return Err(WinUiError::ChildNotFound(object));
                 }
-                values.RemoveAt(index)?;
+                values.remove_at(index)?;
                 Some(index)
             }
         };
@@ -904,7 +1187,8 @@ impl WinUiAdapter {
         self.create(object, kind)?;
         let replacement = self.ui_element(object)?;
         if let Some(index) = index {
-            self.panel_children(parent)?.InsertAt(index, &replacement)?;
+            self.owned_collection(parent, relation)?
+                .insert_at(index, &replacement.cast()?)?;
         } else {
             match (self.handle(parent)?, relation) {
                 (Handle::Generated(parent_handle), relation) => {
@@ -952,16 +1236,17 @@ impl WinUiAdapter {
             }
             *observed = Rc::clone(&text);
         }
-        event_queue
-            .observations
-            .borrow_mut()
-            .push(Observation::SetProperty {
-                object,
-                property: Property {
-                    id: PropertyId::Text,
-                    value: PropertyValue::String(Rc::clone(&text)),
-                },
-            });
+        let observation = Observation::SetProperty {
+            object,
+            property: Property {
+                id: PropertyId::Text,
+                value: PropertyValue::String(Rc::clone(&text)),
+            },
+        };
+        if !event_queue.observe(object, EventId::TextChanged, observation.clone()) {
+            return;
+        }
+        event_queue.observations.borrow_mut().push(observation);
         let event = event.borrow();
         if event.callback.is_some() {
             event_queue.events.borrow_mut().push(QueuedEvent {
@@ -992,6 +1277,25 @@ impl WinUiAdapter {
         }
     }
 
+    fn dispatch_bool(
+        event: &Rc<RefCell<NativeBoolEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: bool,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::Bool(value),
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
     fn dispatch_f64(
         event: &Rc<RefCell<NativeF64Event>>,
         event_queue: &Rc<NativeEventQueue>,
@@ -1006,6 +1310,151 @@ impl WinUiAdapter {
                 event: event_id,
                 revision: event.revision,
                 payload: EventPayload::F64(value),
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn dispatch_optional_bool(
+        event: &Rc<RefCell<NativeOptionalBoolEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: Option<bool>,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::OptionalBool(value),
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn dispatch_optional_f64(
+        event: &Rc<RefCell<NativeOptionalF64Event>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: Option<f64>,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::OptionalF64(value),
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn dispatch_selection(
+        event: &Rc<RefCell<NativeSelectionEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        item: Option<ObjectId>,
+        value: Option<Rc<str>>,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::Selection(crate::SelectionChange { item, value }),
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn handle_selection_changed(
+        event: &Rc<RefCell<NativeSelectionEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        selected: windows_core::Result<IInspectable>,
+        payload_property: PropertyId,
+    ) {
+        let selected = match selected {
+            Ok(selected) => Some(selected),
+            Err(error) if error.code().is_ok() => None,
+            Err(error) => {
+                super::app::report_error(error);
+                return;
+            }
+        };
+        let selected_object = selected.as_ref().and_then(|selected| {
+            event_queue
+                .selection_items
+                .borrow()
+                .iter()
+                .find_map(|item| {
+                    (item.owner == object && item.value == *selected).then_some(item.object)
+                })
+        });
+        let observation = Observation::SetSelection {
+            object,
+            selected: selected_object,
+        };
+        if !event_queue.observe(object, event_id, observation.clone()) {
+            return;
+        }
+        event_queue.observations.borrow_mut().push(observation);
+        let value = match selected.as_ref() {
+            Some(selected) => {
+                match GeneratedHandle::selection_payload(payload_property, selected) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        super::app::report_error(error.into());
+                        return;
+                    }
+                }
+            }
+            None => None,
+        };
+        Self::dispatch_selection(event, event_queue, object, event_id, selected_object, value);
+        Self::schedule_event_wake(event_queue);
+    }
+
+    fn dispatch_selection_index(
+        event: &Rc<RefCell<NativeSelectionIndexEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: Option<usize>,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::SelectionIndex(value),
+            });
+            Self::schedule_event_wake(event_queue);
+        }
+    }
+
+    fn dispatch_string(
+        event: &Rc<RefCell<NativeTextEvent>>,
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        event_id: EventId,
+        value: Rc<str>,
+    ) {
+        let event = event.borrow();
+        if event.callback.is_some() {
+            event_queue.events.borrow_mut().push(QueuedEvent {
+                object,
+                event: event_id,
+                revision: event.revision,
+                payload: EventPayload::String(value),
             });
             Self::schedule_event_wake(event_queue);
         }
@@ -1083,21 +1532,35 @@ impl WinUiAdapter {
             return;
         }
         let event_queue = Rc::clone(event_queue);
-        let Ok(queue) = native::DispatcherQueue::GetForCurrentThread() else {
-            std::process::abort();
+        let queue = match native::DispatcherQueue::GetForCurrentThread() {
+            Ok(queue) => queue,
+            Err(error) => {
+                event_queue.wake_pending.set(false);
+                super::app::report_error(error);
+                return;
+            }
         };
+        let event_queue_for_handler = Rc::clone(&event_queue);
         let handler = native::DispatcherQueueHandler::new(move || {
-            event_queue.wake_pending.set(false);
-            let waker = event_queue.waker.borrow().clone();
+            event_queue_for_handler.wake_pending.set(false);
+            let waker = event_queue_for_handler.waker.borrow().clone();
             if let Some(waker) = waker {
                 waker();
             }
         });
-        if !queue
-            .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)
-            .unwrap_or(false)
-        {
-            std::process::abort();
+        match queue.TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler) {
+            Ok(true) => {}
+            Ok(false) => {
+                event_queue.wake_pending.set(false);
+                super::app::report_error(windows_core::Error::new(
+                    native::E_FAIL,
+                    "DispatcherQueue rejected the Reactor2 event wake",
+                ));
+            }
+            Err(error) => {
+                event_queue.wake_pending.set(false);
+                super::app::report_error(error);
+            }
         }
     }
 
@@ -1140,8 +1603,8 @@ impl WinUiAdapter {
         }
         let selection_start = value.value.SelectionStart()?;
         let selection_length = value.value.SelectionLength()?;
-        *value.observed_text.borrow_mut() = Rc::from(text);
         value.value.SetText(text)?;
+        *value.observed_text.borrow_mut() = Rc::from(text);
         value.set_count.set(value.set_count.get() + 1);
         let text_length = i32::try_from(text.encode_utf16().count()).unwrap_or(i32::MAX);
         let selection_start = selection_start.clamp(0, text_length);
@@ -1214,22 +1677,59 @@ impl WinUiAdapter {
         if self.owners.contains_key(&child) {
             return Err(WinUiError::StillOwned(child));
         }
-        match relation_contract(self.kind(parent)?, relation)?.realization {
-            Realization::Owned => {
-                self.panel_children(parent)?
-                    .InsertAt(index32(index)?, &self.ui_element(child)?)?;
+        let selection = selection_for_relation(self.kind(parent)?, relation);
+        let selected = selection
+            .map(|selection| self.read_selected_item(parent, selection))
+            .transpose()?
+            .flatten();
+        let selection_item =
+            selection.filter(|selection| self.kind(child).is_ok_and(|kind| kind == selection.item));
+        let child_value = selection_item
+            .map(|_| {
+                self.ui_element(child)
+                    .and_then(|value| value.cast::<IInspectable>().map_err(Into::into))
+            })
+            .transpose()?;
+        let child_selected = selection_item
+            .map(|selection| self.selection_item_is_selected(child, selection))
+            .transpose()?
+            .unwrap_or(false);
+        let feedback = self.begin_selection_feedback(parent, selection);
+        let result = (|| {
+            match relation_contract(self.kind(parent)?, relation)?.realization {
+                Realization::Owned => {
+                    self.owned_collection(parent, relation)?
+                        .insert_at(index32(index)?, &self.ui_element(child)?.cast()?)?;
+                }
+                Realization::Structural => {
+                    self.tree_nodes(parent)?
+                        .InsertAt(index32(index)?, &self.tree_node(child)?)?;
+                }
+                Realization::Container => {
+                    self.items(parent)?
+                        .InsertAt(index32(index)?, &self.inspectable(child)?)?;
+                }
             }
-            Realization::Structural => {
-                self.tree_nodes(parent)?
-                    .InsertAt(index32(index)?, &self.tree_node(child)?)?;
+            self.owners.insert(child, (parent, relation));
+            if let (Some(selection), Some(value)) = (selection_item, child_value.as_ref()) {
+                self.event_queue
+                    .selection_items
+                    .borrow_mut()
+                    .push(NativeSelectionItem {
+                        owner: parent,
+                        object: child,
+                        value: value.clone(),
+                    });
+                if child_selected {
+                    self.write_selected_item(parent, selection, Some(value))?;
+                } else if let Some(selected) = selected.as_ref() {
+                    self.write_selected_item(parent, selection, Some(selected))?;
+                }
             }
-            Realization::Container => {
-                self.items(parent)?
-                    .InsertAt(index32(index)?, &self.inspectable(child)?)?;
-            }
-        }
-        self.owners.insert(child, (parent, relation));
-        Ok(())
+            Ok(())
+        })();
+        self.finish_selection_feedback(parent, feedback);
+        result
     }
 
     fn remove(
@@ -1242,31 +1742,60 @@ impl WinUiAdapter {
         if self.owners.get(&child) != Some(&(parent, relation)) {
             return Err(WinUiError::ChildNotFound(child));
         }
-        match relation_contract(self.kind(parent)?, relation)?.realization {
-            Realization::Owned => {
-                let values = self.panel_children(parent)?;
-                if values.GetAt(index32(index)?)? != self.ui_element(child)? {
-                    return Err(WinUiError::ChildNotFound(child));
+        let selection = selection_for_relation(self.kind(parent)?, relation);
+        let selected = selection
+            .map(|selection| self.read_selected_item(parent, selection))
+            .transpose()?
+            .flatten();
+        let selection_item =
+            selection.filter(|selection| self.kind(child).is_ok_and(|kind| kind == selection.item));
+        let child_value = selection_item
+            .map(|_| {
+                self.ui_element(child)
+                    .and_then(|value| value.cast::<IInspectable>().map_err(Into::into))
+            })
+            .transpose()?;
+        let feedback = self.begin_selection_feedback(parent, selection);
+        let result = (|| {
+            match relation_contract(self.kind(parent)?, relation)?.realization {
+                Realization::Owned => {
+                    let values = self.owned_collection(parent, relation)?;
+                    if values.get_at(index32(index)?)? != self.ui_element(child)?.cast()? {
+                        return Err(WinUiError::ChildNotFound(child));
+                    }
+                    values.remove_at(index32(index)?)?;
                 }
-                values.RemoveAt(index32(index)?)?;
-            }
-            Realization::Structural => {
-                let values = self.tree_nodes(parent)?;
-                if values.GetAt(index32(index)?)? != self.tree_node(child)? {
-                    return Err(WinUiError::ChildNotFound(child));
+                Realization::Structural => {
+                    let values = self.tree_nodes(parent)?;
+                    if values.GetAt(index32(index)?)? != self.tree_node(child)? {
+                        return Err(WinUiError::ChildNotFound(child));
+                    }
+                    values.RemoveAt(index32(index)?)?;
                 }
-                values.RemoveAt(index32(index)?)?;
-            }
-            Realization::Container => {
-                let values = self.items(parent)?;
-                if values.GetAt(index32(index)?)? != self.inspectable(child)? {
-                    return Err(WinUiError::ChildNotFound(child));
+                Realization::Container => {
+                    let values = self.items(parent)?;
+                    if values.GetAt(index32(index)?)? != self.inspectable(child)? {
+                        return Err(WinUiError::ChildNotFound(child));
+                    }
+                    values.RemoveAt(index32(index)?)?;
                 }
-                values.RemoveAt(index32(index)?)?;
             }
-        }
-        self.owners.remove(&child);
-        Ok(())
+            self.owners.remove(&child);
+            if let Some(selection) = selection {
+                self.event_queue
+                    .selection_items
+                    .borrow_mut()
+                    .retain(|item| item.object != child);
+                if let Some(selected) = selected.as_ref()
+                    && child_value.as_ref() != Some(selected)
+                {
+                    self.write_selected_item(parent, selection, Some(selected))?;
+                }
+            }
+            Ok(())
+        })();
+        self.finish_selection_feedback(parent, feedback);
+        result
     }
 
     fn reorder(
@@ -1276,75 +1805,58 @@ impl WinUiAdapter {
         moves: &[crate::Move],
         children: &[ObjectId],
     ) -> Result<(), WinUiError> {
-        match relation_contract(self.kind(parent)?, relation)?.realization {
-            Realization::Owned => {
-                let values = self.panel_children(parent)?;
-                let movable = values.cast::<native::IUIElementCollection>()?;
-                for movement in moves {
-                    let child = self.ui_element(movement.child)?;
-                    let mut from = 0;
-                    if !values.IndexOf(&child, &mut from)? {
-                        return Err(WinUiError::ChildNotFound(movement.child));
-                    }
-                    let target = if let Some(before) = movement.before {
-                        let before = self.ui_element(before)?;
-                        let mut target = 0;
-                        if !values.IndexOf(&before, &mut target)? {
-                            return Err(WinUiError::ChildNotFound(movement.child));
-                        }
-                        if from < target { target - 1 } else { target }
-                    } else {
-                        values.Size()?.checked_sub(1).unwrap()
-                    };
-                    movable.Move(from, target)?;
-                }
-            }
-            Realization::Structural => {
-                let tree = self.tree_owner(parent)?;
-                let template = self.tree_template()?;
-                let tree2 = tree.cast::<native::ITreeView2>()?;
-                tree2.SetItemTemplate(None::<&native::DataTemplate>)?;
-                tree.cast::<native::IUIElement>()?.UpdateLayout()?;
-                let values = self.tree_nodes(parent)?;
-                for movement in moves {
-                    let child = self.tree_node(movement.child)?;
-                    let mut previous = 0;
-                    if !values.IndexOf(&child, &mut previous)? {
-                        return Err(WinUiError::ChildNotFound(movement.child));
-                    }
-                    values.RemoveAt(previous)?;
-                    let index = if let Some(before) = movement.before {
-                        let before = self.tree_node(before)?;
-                        let mut index = 0;
-                        if !values.IndexOf(&before, &mut index)? {
-                            return Err(WinUiError::ChildNotFound(movement.child));
-                        }
-                        index
-                    } else {
-                        values.Size()?
-                    };
-                    values.InsertAt(index, &child)?;
-                }
-                tree2.SetItemTemplate(&template)?;
-            }
-            Realization::Container => {
-                let values = self.items(parent)?;
-                if moves.len().saturating_add(1) >= children.len() {
-                    let children = children
-                        .iter()
-                        .map(|child| self.inspectable(*child).map(Some))
-                        .collect::<Result<Vec<_>, _>>()?;
-                    values.ReplaceAll(&children)?;
-                } else {
+        let selection = selection_for_relation(self.kind(parent)?, relation);
+        let selected = selection
+            .map(|selection| self.read_selected_item(parent, selection))
+            .transpose()?
+            .flatten();
+        let feedback = self.begin_selection_feedback(parent, selection);
+        let result = (|| {
+            match relation_contract(self.kind(parent)?, relation)?.realization {
+                Realization::Owned => {
+                    let values = self.owned_collection(parent, relation)?;
                     for movement in moves {
-                        let child = self.inspectable(movement.child)?;
+                        let child: IInspectable = self.ui_element(movement.child)?.cast()?;
+                        let mut from = 0;
+                        while from < values.size()? && values.get_at(from)? != child {
+                            from += 1;
+                        }
+                        if from == values.size()? {
+                            return Err(WinUiError::ChildNotFound(movement.child));
+                        }
+                        values.remove_at(from)?;
+                        let target = if let Some(before) = movement.before {
+                            let before: IInspectable = self.ui_element(before)?.cast()?;
+                            let mut target = 0;
+                            while target < values.size()? && values.get_at(target)? != before {
+                                target += 1;
+                            }
+                            if target == values.size()? {
+                                return Err(WinUiError::ChildNotFound(movement.child));
+                            }
+                            target
+                        } else {
+                            values.size()?
+                        };
+                        values.insert_at(target, &child)?;
+                    }
+                }
+                Realization::Structural => {
+                    let tree = self.tree_owner(parent)?;
+                    let template = self.tree_template()?;
+                    let tree2 = tree.cast::<native::ITreeView2>()?;
+                    tree2.SetItemTemplate(None::<&native::DataTemplate>)?;
+                    tree.cast::<native::IUIElement>()?.UpdateLayout()?;
+                    let values = self.tree_nodes(parent)?;
+                    for movement in moves {
+                        let child = self.tree_node(movement.child)?;
                         let mut previous = 0;
                         if !values.IndexOf(&child, &mut previous)? {
                             return Err(WinUiError::ChildNotFound(movement.child));
                         }
                         values.RemoveAt(previous)?;
                         let index = if let Some(before) = movement.before {
-                            let before = self.inspectable(before)?;
+                            let before = self.tree_node(before)?;
                             let mut index = 0;
                             if !values.IndexOf(&before, &mut index)? {
                                 return Err(WinUiError::ChildNotFound(movement.child));
@@ -1355,9 +1867,46 @@ impl WinUiAdapter {
                         };
                         values.InsertAt(index, &child)?;
                     }
+                    tree2.SetItemTemplate(&template)?;
+                }
+                Realization::Container => {
+                    let values = self.items(parent)?;
+                    if moves.len().saturating_add(1) >= children.len() {
+                        let children = children
+                            .iter()
+                            .map(|child| self.inspectable(*child).map(Some))
+                            .collect::<Result<Vec<_>, _>>()?;
+                        values.ReplaceAll(&children)?;
+                    } else {
+                        for movement in moves {
+                            let child = self.inspectable(movement.child)?;
+                            let mut previous = 0;
+                            if !values.IndexOf(&child, &mut previous)? {
+                                return Err(WinUiError::ChildNotFound(movement.child));
+                            }
+                            values.RemoveAt(previous)?;
+                            let index = if let Some(before) = movement.before {
+                                let before = self.inspectable(before)?;
+                                let mut index = 0;
+                                if !values.IndexOf(&before, &mut index)? {
+                                    return Err(WinUiError::ChildNotFound(movement.child));
+                                }
+                                index
+                            } else {
+                                values.Size()?
+                            };
+                            values.InsertAt(index, &child)?;
+                        }
+                    }
                 }
             }
-        }
+            if let (Some(selection), Some(selected)) = (selection, selected.as_ref()) {
+                self.write_selected_item(parent, selection, Some(selected))?;
+            }
+            Ok(())
+        })();
+        self.finish_selection_feedback(parent, feedback);
+        result?;
         debug_assert_eq!(
             children.len(),
             self.owners
@@ -1366,6 +1915,79 @@ impl WinUiAdapter {
                 .count()
         );
         Ok(())
+    }
+
+    fn selection_feedback(
+        &self,
+        object: ObjectId,
+        property: PropertyId,
+    ) -> Result<Option<(ObjectId, EventId)>, WinUiError> {
+        let Some((owner, relation)) = self.owners.get(&object).copied() else {
+            return Ok(None);
+        };
+        Ok(
+            selection_for_item_property(self.kind(owner)?, relation, self.kind(object)?, property)
+                .map(|selection| (owner, selection.event)),
+        )
+    }
+
+    fn begin_selection_feedback(
+        &self,
+        owner: ObjectId,
+        selection: Option<SelectionContract>,
+    ) -> Option<EventId> {
+        let event = selection.map(|selection| selection.event)?;
+        self.event_queue
+            .feedback
+            .borrow_mut()
+            .begin(owner, event, FeedbackExpectation::Suppressed);
+        Some(event)
+    }
+
+    fn finish_selection_feedback(&self, owner: ObjectId, event: Option<EventId>) {
+        if let Some(event) = event {
+            self.event_queue.feedback.borrow_mut().finish(owner, event);
+        }
+    }
+
+    fn read_selected_item(
+        &self,
+        object: ObjectId,
+        selection: SelectionContract,
+    ) -> Result<Option<IInspectable>, WinUiError> {
+        let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        handle
+            .selected_item(selection.event)
+            .unwrap_or(Err(WinUiError::InvalidObject(object)))
+    }
+
+    fn write_selected_item(
+        &self,
+        object: ObjectId,
+        selection: SelectionContract,
+        selected: Option<&IInspectable>,
+    ) -> Result<(), WinUiError> {
+        let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        handle
+            .set_selected_item(selection.event, selected)
+            .unwrap_or(Err(WinUiError::InvalidObject(object)))
+    }
+
+    fn selection_item_is_selected(
+        &self,
+        object: ObjectId,
+        selection: SelectionContract,
+    ) -> Result<bool, WinUiError> {
+        let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        handle
+            .selection_item_is_selected(selection.selected_property)
+            .unwrap_or(Err(WinUiError::InvalidObject(object)))
     }
 
     fn handle(&mut self, object: ObjectId) -> Result<&mut Handle, WinUiError> {
@@ -1427,14 +2049,18 @@ impl WinUiAdapter {
         }
     }
 
-    fn panel_children(&self, object: ObjectId) -> Result<native::UIElementCollection, WinUiError> {
+    fn owned_collection(
+        &self,
+        object: ObjectId,
+        relation: RelationId,
+    ) -> Result<GeneratedCollection, WinUiError> {
         match self
             .handles
             .get(&object)
             .ok_or(WinUiError::MissingObject(object))?
         {
             Handle::Generated(value) => value
-                .panel_children()
+                .owned_collection(relation)
                 .unwrap_or(Err(WinUiError::InvalidObject(object))),
             _ => Err(WinUiError::InvalidObject(object)),
         }
@@ -1611,6 +2237,14 @@ impl Adapter for WinUiAdapter {
                     self.handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
+                    self.event_queue
+                        .feedback
+                        .borrow_mut()
+                        .remove_object(*object);
+                    self.event_queue
+                        .selection_items
+                        .borrow_mut()
+                        .retain(|item| item.object != *object && item.owner != *object);
                 }
             }
         }
@@ -1632,6 +2266,29 @@ fn index32(index: usize) -> Result<u32, WinUiError> {
     index
         .try_into()
         .map_err(|_| WinUiError::IndexOverflow(index))
+}
+
+fn native_selection_index(value: Option<usize>) -> Result<i32, WinUiError> {
+    value
+        .map(|value| i32::try_from(value).map_err(|_| WinUiError::IndexOverflow(value)))
+        .transpose()
+        .map(|value| value.unwrap_or(-1))
+}
+
+fn native_number_box_value(value: Option<f64>) -> f64 {
+    value.unwrap_or(f64::NAN)
+}
+
+fn number_box_value(value: f64) -> Option<f64> {
+    (!value.is_nan()).then_some(value)
+}
+
+fn native_rating_value(value: Option<f64>) -> f64 {
+    value.unwrap_or(-1.0)
+}
+
+fn rating_value(value: f64) -> Option<f64> {
+    (value != -1.0).then_some(value)
 }
 
 #[cfg(test)]
@@ -1703,5 +2360,78 @@ mod tests {
         assert_eq!(queued[0].event, EventId::PointerReleased);
         assert_eq!(queued[0].revision, 7);
         assert_eq!(queued[0].payload, EventPayload::PointerEventInfo(payload));
+    }
+
+    #[test]
+    fn optional_numeric_adapters_use_distinct_sentinels() {
+        assert!(native_number_box_value(None).is_nan());
+        assert_eq!(number_box_value(f64::NAN), None);
+        assert_eq!(number_box_value(-1.0), Some(-1.0));
+
+        assert_eq!(native_rating_value(None), -1.0);
+        assert_eq!(rating_value(-1.0), None);
+        assert!(rating_value(f64::NAN).unwrap().is_nan());
+    }
+
+    #[test]
+    fn selection_index_conversion_reports_overflow() {
+        assert_eq!(native_selection_index(None), Ok(-1));
+        assert_eq!(
+            native_selection_index(Some(i32::MAX as usize)),
+            Ok(i32::MAX)
+        );
+        let overflow = i32::MAX as usize + 1;
+        assert_eq!(
+            native_selection_index(Some(overflow)),
+            Err(WinUiError::IndexOverflow(overflow))
+        );
+    }
+
+    #[test]
+    fn generated_feedback_contracts_distinguish_exact_normalized_and_clear() {
+        let exact = GeneratedHandle::feedback_expectation(
+            ObjectType::ToggleSwitch,
+            PropertyId::IsOn,
+            Some(&PropertyValue::Bool(true)),
+        );
+        assert_eq!(
+            exact,
+            Some((
+                EventId::Toggled,
+                FeedbackExpectation::Exact(Property {
+                    id: PropertyId::IsOn,
+                    value: PropertyValue::Bool(true),
+                })
+            ))
+        );
+        assert_eq!(
+            GeneratedHandle::feedback_expectation(ObjectType::ToggleSwitch, PropertyId::IsOn, None,),
+            Some((
+                EventId::Toggled,
+                FeedbackExpectation::Exact(Property {
+                    id: PropertyId::IsOn,
+                    value: PropertyValue::Bool(false),
+                })
+            ))
+        );
+        assert_eq!(
+            GeneratedHandle::feedback_expectation(
+                ObjectType::Slider,
+                PropertyId::Value,
+                Some(&PropertyValue::F64(0.5)),
+            ),
+            Some((
+                EventId::ValueChanged,
+                FeedbackExpectation::Normalized { observation: None }
+            ))
+        );
+        assert_eq!(
+            GeneratedHandle::feedback_expectation(
+                ObjectType::ProgressBar,
+                PropertyId::Value,
+                Some(&PropertyValue::F64(0.5)),
+            ),
+            None
+        );
     }
 }

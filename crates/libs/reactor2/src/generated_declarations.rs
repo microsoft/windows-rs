@@ -31,6 +31,96 @@ impl HorizontalAlignment {
 }
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum InfoBarSeverity {
+    Informational,
+    Success,
+    Warning,
+    Error,
+}
+impl InfoBarSeverity {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Informational => PropertyValue::Enum {
+                kind: "InfoBarSeverity",
+                variant: "Informational",
+            },
+            Self::Success => PropertyValue::Enum {
+                kind: "InfoBarSeverity",
+                variant: "Success",
+            },
+            Self::Warning => PropertyValue::Enum {
+                kind: "InfoBarSeverity",
+                variant: "Warning",
+            },
+            Self::Error => PropertyValue::Enum {
+                kind: "InfoBarSeverity",
+                variant: "Error",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum NavigationViewBackButtonVisible {
+    Collapsed,
+    Visible,
+    Auto,
+}
+impl NavigationViewBackButtonVisible {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Collapsed => PropertyValue::Enum {
+                kind: "NavigationViewBackButtonVisible",
+                variant: "Collapsed",
+            },
+            Self::Visible => PropertyValue::Enum {
+                kind: "NavigationViewBackButtonVisible",
+                variant: "Visible",
+            },
+            Self::Auto => PropertyValue::Enum {
+                kind: "NavigationViewBackButtonVisible",
+                variant: "Auto",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum NavigationViewPaneDisplayMode {
+    Auto,
+    Left,
+    Top,
+    LeftCompact,
+    LeftMinimal,
+}
+impl NavigationViewPaneDisplayMode {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Auto => PropertyValue::Enum {
+                kind: "NavigationViewPaneDisplayMode",
+                variant: "Auto",
+            },
+            Self::Left => PropertyValue::Enum {
+                kind: "NavigationViewPaneDisplayMode",
+                variant: "Left",
+            },
+            Self::Top => PropertyValue::Enum {
+                kind: "NavigationViewPaneDisplayMode",
+                variant: "Top",
+            },
+            Self::LeftCompact => PropertyValue::Enum {
+                kind: "NavigationViewPaneDisplayMode",
+                variant: "LeftCompact",
+            },
+            Self::LeftMinimal => PropertyValue::Enum {
+                kind: "NavigationViewPaneDisplayMode",
+                variant: "LeftMinimal",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Orientation {
     Vertical,
     Horizontal,
@@ -45,6 +135,1276 @@ impl Orientation {
             Self::Horizontal => PropertyValue::Enum {
                 kind: "Orientation",
                 variant: "Horizontal",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum PasswordRevealMode {
+    Peek,
+    Hidden,
+    Visible,
+}
+impl PasswordRevealMode {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Peek => PropertyValue::Enum {
+                kind: "PasswordRevealMode",
+                variant: "Peek",
+            },
+            Self::Hidden => PropertyValue::Enum {
+                kind: "PasswordRevealMode",
+                variant: "Hidden",
+            },
+            Self::Visible => PropertyValue::Enum {
+                kind: "PasswordRevealMode",
+                variant: "Visible",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ScrollBarVisibility {
+    Disabled,
+    Auto,
+    Hidden,
+    Visible,
+}
+impl ScrollBarVisibility {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Disabled => PropertyValue::Enum {
+                kind: "ScrollBarVisibility",
+                variant: "Disabled",
+            },
+            Self::Auto => PropertyValue::Enum {
+                kind: "ScrollBarVisibility",
+                variant: "Auto",
+            },
+            Self::Hidden => PropertyValue::Enum {
+                kind: "ScrollBarVisibility",
+                variant: "Hidden",
+            },
+            Self::Visible => PropertyValue::Enum {
+                kind: "ScrollBarVisibility",
+                variant: "Visible",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ScrollingScrollBarVisibility {
+    Auto,
+    Visible,
+    Hidden,
+}
+impl ScrollingScrollBarVisibility {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Auto => PropertyValue::Enum {
+                kind: "ScrollingScrollBarVisibility",
+                variant: "Auto",
+            },
+            Self::Visible => PropertyValue::Enum {
+                kind: "ScrollingScrollBarVisibility",
+                variant: "Visible",
+            },
+            Self::Hidden => PropertyValue::Enum {
+                kind: "ScrollingScrollBarVisibility",
+                variant: "Hidden",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum SplitViewDisplayMode {
+    Overlay,
+    Inline,
+    CompactOverlay,
+    CompactInline,
+}
+impl SplitViewDisplayMode {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Overlay => PropertyValue::Enum {
+                kind: "SplitViewDisplayMode",
+                variant: "Overlay",
+            },
+            Self::Inline => PropertyValue::Enum {
+                kind: "SplitViewDisplayMode",
+                variant: "Inline",
+            },
+            Self::CompactOverlay => PropertyValue::Enum {
+                kind: "SplitViewDisplayMode",
+                variant: "CompactOverlay",
+            },
+            Self::CompactInline => PropertyValue::Enum {
+                kind: "SplitViewDisplayMode",
+                variant: "CompactInline",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum Stretch {
+    None,
+    Fill,
+    Uniform,
+    UniformToFill,
+}
+impl Stretch {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::None => PropertyValue::Enum {
+                kind: "Stretch",
+                variant: "None",
+            },
+            Self::Fill => PropertyValue::Enum {
+                kind: "Stretch",
+                variant: "Fill",
+            },
+            Self::Uniform => PropertyValue::Enum {
+                kind: "Stretch",
+                variant: "Uniform",
+            },
+            Self::UniformToFill => PropertyValue::Enum {
+                kind: "Stretch",
+                variant: "UniformToFill",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum Symbol {
+    Previous,
+    Next,
+    Play,
+    Pause,
+    Edit,
+    Save,
+    Clear,
+    Delete,
+    Remove,
+    Add,
+    Cancel,
+    Accept,
+    More,
+    Redo,
+    Undo,
+    Home,
+    Up,
+    Forward,
+    Back,
+    Favorite,
+    Camera,
+    Setting,
+    Video,
+    Sync,
+    Download,
+    Mail,
+    Find,
+    Help,
+    Upload,
+    Emoji,
+    TwoPage,
+    LeaveChat,
+    MailForward,
+    Clock,
+    Send,
+    Crop,
+    RotateCamera,
+    People,
+    OpenPane,
+    ClosePane,
+    World,
+    Flag,
+    PreviewLink,
+    Globe,
+    Trim,
+    AttachCamera,
+    ZoomIn,
+    Bookmarks,
+    Document,
+    ProtectedDocument,
+    Page,
+    Bullets,
+    Comment,
+    MailFilled,
+    ContactInfo,
+    HangUp,
+    ViewAll,
+    MapPin,
+    Phone,
+    VideoChat,
+    Switch,
+    Contact,
+    Rename,
+    Pin,
+    MusicInfo,
+    Go,
+    Keyboard,
+    DockLeft,
+    DockRight,
+    DockBottom,
+    Remote,
+    Refresh,
+    Rotate,
+    Shuffle,
+    List,
+    Shop,
+    SelectAll,
+    Orientation,
+    Import,
+    ImportAll,
+    BrowsePhotos,
+    WebCam,
+    Pictures,
+    SaveLocal,
+    Caption,
+    Stop,
+    ShowResults,
+    Volume,
+    Repair,
+    Message,
+    Page2,
+    CalendarDay,
+    CalendarWeek,
+    Calendar,
+    Character,
+    MailReplyAll,
+    Read,
+    Link,
+    Account,
+    ShowBcc,
+    HideBcc,
+    Cut,
+    Attach,
+    Paste,
+    Filter,
+    Copy,
+    Emoji2,
+    Important,
+    MailReply,
+    SlideShow,
+    Sort,
+    Manage,
+    AllApps,
+    DisconnectDrive,
+    MapDrive,
+    NewWindow,
+    OpenWith,
+    ContactPresence,
+    Priority,
+    GoToToday,
+    Font,
+    FontColor,
+    Contact2,
+    Folder,
+    Audio,
+    Placeholder,
+    View,
+    SetLockScreen,
+    SetTile,
+    ClosedCaption,
+    StopSlideShow,
+    Permissions,
+    Highlight,
+    DisableUpdates,
+    UnFavorite,
+    UnPin,
+    OpenLocal,
+    Mute,
+    Italic,
+    Underline,
+    Bold,
+    MoveToFolder,
+    LikeDislike,
+    Dislike,
+    Like,
+    AlignRight,
+    AlignCenter,
+    AlignLeft,
+    Zoom,
+    ZoomOut,
+    OpenFile,
+    OtherUser,
+    Admin,
+    Street,
+    Map,
+    ClearSelection,
+    FontDecrease,
+    FontIncrease,
+    FontSize,
+    CellPhone,
+    ReShare,
+    Tag,
+    RepeatOne,
+    RepeatAll,
+    OutlineStar,
+    SolidStar,
+    Calculator,
+    Directions,
+    Target,
+    Library,
+    PhoneBook,
+    Memo,
+    Microphone,
+    PostUpdate,
+    BackToWindow,
+    FullScreen,
+    NewFolder,
+    CalendarReply,
+    UnSyncFolder,
+    ReportHacked,
+    SyncFolder,
+    BlockContact,
+    SwitchApps,
+    AddFriend,
+    TouchPointer,
+    GoToStart,
+    ZeroBars,
+    OneBar,
+    TwoBars,
+    ThreeBars,
+    FourBars,
+    Scan,
+    Preview,
+    GlobalNavigationButton,
+    Share,
+    Print,
+    XboxOneConsole,
+}
+impl Symbol {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Previous => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Previous",
+            },
+            Self::Next => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Next",
+            },
+            Self::Play => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Play",
+            },
+            Self::Pause => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Pause",
+            },
+            Self::Edit => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Edit",
+            },
+            Self::Save => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Save",
+            },
+            Self::Clear => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Clear",
+            },
+            Self::Delete => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Delete",
+            },
+            Self::Remove => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Remove",
+            },
+            Self::Add => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Add",
+            },
+            Self::Cancel => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Cancel",
+            },
+            Self::Accept => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Accept",
+            },
+            Self::More => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "More",
+            },
+            Self::Redo => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Redo",
+            },
+            Self::Undo => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Undo",
+            },
+            Self::Home => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Home",
+            },
+            Self::Up => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Up",
+            },
+            Self::Forward => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Forward",
+            },
+            Self::Back => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Back",
+            },
+            Self::Favorite => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Favorite",
+            },
+            Self::Camera => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Camera",
+            },
+            Self::Setting => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Setting",
+            },
+            Self::Video => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Video",
+            },
+            Self::Sync => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Sync",
+            },
+            Self::Download => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Download",
+            },
+            Self::Mail => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Mail",
+            },
+            Self::Find => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Find",
+            },
+            Self::Help => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Help",
+            },
+            Self::Upload => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Upload",
+            },
+            Self::Emoji => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Emoji",
+            },
+            Self::TwoPage => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "TwoPage",
+            },
+            Self::LeaveChat => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "LeaveChat",
+            },
+            Self::MailForward => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MailForward",
+            },
+            Self::Clock => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Clock",
+            },
+            Self::Send => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Send",
+            },
+            Self::Crop => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Crop",
+            },
+            Self::RotateCamera => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "RotateCamera",
+            },
+            Self::People => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "People",
+            },
+            Self::OpenPane => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "OpenPane",
+            },
+            Self::ClosePane => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ClosePane",
+            },
+            Self::World => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "World",
+            },
+            Self::Flag => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Flag",
+            },
+            Self::PreviewLink => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "PreviewLink",
+            },
+            Self::Globe => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Globe",
+            },
+            Self::Trim => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Trim",
+            },
+            Self::AttachCamera => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "AttachCamera",
+            },
+            Self::ZoomIn => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ZoomIn",
+            },
+            Self::Bookmarks => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Bookmarks",
+            },
+            Self::Document => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Document",
+            },
+            Self::ProtectedDocument => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ProtectedDocument",
+            },
+            Self::Page => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Page",
+            },
+            Self::Bullets => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Bullets",
+            },
+            Self::Comment => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Comment",
+            },
+            Self::MailFilled => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MailFilled",
+            },
+            Self::ContactInfo => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ContactInfo",
+            },
+            Self::HangUp => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "HangUp",
+            },
+            Self::ViewAll => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ViewAll",
+            },
+            Self::MapPin => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MapPin",
+            },
+            Self::Phone => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Phone",
+            },
+            Self::VideoChat => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "VideoChat",
+            },
+            Self::Switch => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Switch",
+            },
+            Self::Contact => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Contact",
+            },
+            Self::Rename => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Rename",
+            },
+            Self::Pin => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Pin",
+            },
+            Self::MusicInfo => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MusicInfo",
+            },
+            Self::Go => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Go",
+            },
+            Self::Keyboard => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Keyboard",
+            },
+            Self::DockLeft => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "DockLeft",
+            },
+            Self::DockRight => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "DockRight",
+            },
+            Self::DockBottom => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "DockBottom",
+            },
+            Self::Remote => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Remote",
+            },
+            Self::Refresh => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Refresh",
+            },
+            Self::Rotate => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Rotate",
+            },
+            Self::Shuffle => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Shuffle",
+            },
+            Self::List => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "List",
+            },
+            Self::Shop => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Shop",
+            },
+            Self::SelectAll => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SelectAll",
+            },
+            Self::Orientation => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Orientation",
+            },
+            Self::Import => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Import",
+            },
+            Self::ImportAll => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ImportAll",
+            },
+            Self::BrowsePhotos => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "BrowsePhotos",
+            },
+            Self::WebCam => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "WebCam",
+            },
+            Self::Pictures => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Pictures",
+            },
+            Self::SaveLocal => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SaveLocal",
+            },
+            Self::Caption => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Caption",
+            },
+            Self::Stop => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Stop",
+            },
+            Self::ShowResults => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ShowResults",
+            },
+            Self::Volume => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Volume",
+            },
+            Self::Repair => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Repair",
+            },
+            Self::Message => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Message",
+            },
+            Self::Page2 => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Page2",
+            },
+            Self::CalendarDay => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "CalendarDay",
+            },
+            Self::CalendarWeek => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "CalendarWeek",
+            },
+            Self::Calendar => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Calendar",
+            },
+            Self::Character => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Character",
+            },
+            Self::MailReplyAll => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MailReplyAll",
+            },
+            Self::Read => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Read",
+            },
+            Self::Link => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Link",
+            },
+            Self::Account => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Account",
+            },
+            Self::ShowBcc => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ShowBcc",
+            },
+            Self::HideBcc => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "HideBcc",
+            },
+            Self::Cut => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Cut",
+            },
+            Self::Attach => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Attach",
+            },
+            Self::Paste => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Paste",
+            },
+            Self::Filter => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Filter",
+            },
+            Self::Copy => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Copy",
+            },
+            Self::Emoji2 => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Emoji2",
+            },
+            Self::Important => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Important",
+            },
+            Self::MailReply => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MailReply",
+            },
+            Self::SlideShow => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SlideShow",
+            },
+            Self::Sort => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Sort",
+            },
+            Self::Manage => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Manage",
+            },
+            Self::AllApps => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "AllApps",
+            },
+            Self::DisconnectDrive => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "DisconnectDrive",
+            },
+            Self::MapDrive => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MapDrive",
+            },
+            Self::NewWindow => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "NewWindow",
+            },
+            Self::OpenWith => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "OpenWith",
+            },
+            Self::ContactPresence => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ContactPresence",
+            },
+            Self::Priority => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Priority",
+            },
+            Self::GoToToday => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "GoToToday",
+            },
+            Self::Font => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Font",
+            },
+            Self::FontColor => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "FontColor",
+            },
+            Self::Contact2 => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Contact2",
+            },
+            Self::Folder => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Folder",
+            },
+            Self::Audio => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Audio",
+            },
+            Self::Placeholder => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Placeholder",
+            },
+            Self::View => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "View",
+            },
+            Self::SetLockScreen => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SetLockScreen",
+            },
+            Self::SetTile => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SetTile",
+            },
+            Self::ClosedCaption => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ClosedCaption",
+            },
+            Self::StopSlideShow => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "StopSlideShow",
+            },
+            Self::Permissions => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Permissions",
+            },
+            Self::Highlight => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Highlight",
+            },
+            Self::DisableUpdates => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "DisableUpdates",
+            },
+            Self::UnFavorite => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "UnFavorite",
+            },
+            Self::UnPin => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "UnPin",
+            },
+            Self::OpenLocal => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "OpenLocal",
+            },
+            Self::Mute => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Mute",
+            },
+            Self::Italic => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Italic",
+            },
+            Self::Underline => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Underline",
+            },
+            Self::Bold => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Bold",
+            },
+            Self::MoveToFolder => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "MoveToFolder",
+            },
+            Self::LikeDislike => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "LikeDislike",
+            },
+            Self::Dislike => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Dislike",
+            },
+            Self::Like => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Like",
+            },
+            Self::AlignRight => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "AlignRight",
+            },
+            Self::AlignCenter => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "AlignCenter",
+            },
+            Self::AlignLeft => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "AlignLeft",
+            },
+            Self::Zoom => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Zoom",
+            },
+            Self::ZoomOut => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ZoomOut",
+            },
+            Self::OpenFile => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "OpenFile",
+            },
+            Self::OtherUser => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "OtherUser",
+            },
+            Self::Admin => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Admin",
+            },
+            Self::Street => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Street",
+            },
+            Self::Map => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Map",
+            },
+            Self::ClearSelection => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ClearSelection",
+            },
+            Self::FontDecrease => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "FontDecrease",
+            },
+            Self::FontIncrease => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "FontIncrease",
+            },
+            Self::FontSize => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "FontSize",
+            },
+            Self::CellPhone => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "CellPhone",
+            },
+            Self::ReShare => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ReShare",
+            },
+            Self::Tag => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Tag",
+            },
+            Self::RepeatOne => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "RepeatOne",
+            },
+            Self::RepeatAll => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "RepeatAll",
+            },
+            Self::OutlineStar => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "OutlineStar",
+            },
+            Self::SolidStar => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SolidStar",
+            },
+            Self::Calculator => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Calculator",
+            },
+            Self::Directions => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Directions",
+            },
+            Self::Target => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Target",
+            },
+            Self::Library => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Library",
+            },
+            Self::PhoneBook => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "PhoneBook",
+            },
+            Self::Memo => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Memo",
+            },
+            Self::Microphone => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Microphone",
+            },
+            Self::PostUpdate => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "PostUpdate",
+            },
+            Self::BackToWindow => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "BackToWindow",
+            },
+            Self::FullScreen => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "FullScreen",
+            },
+            Self::NewFolder => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "NewFolder",
+            },
+            Self::CalendarReply => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "CalendarReply",
+            },
+            Self::UnSyncFolder => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "UnSyncFolder",
+            },
+            Self::ReportHacked => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ReportHacked",
+            },
+            Self::SyncFolder => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SyncFolder",
+            },
+            Self::BlockContact => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "BlockContact",
+            },
+            Self::SwitchApps => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "SwitchApps",
+            },
+            Self::AddFriend => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "AddFriend",
+            },
+            Self::TouchPointer => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "TouchPointer",
+            },
+            Self::GoToStart => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "GoToStart",
+            },
+            Self::ZeroBars => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ZeroBars",
+            },
+            Self::OneBar => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "OneBar",
+            },
+            Self::TwoBars => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "TwoBars",
+            },
+            Self::ThreeBars => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "ThreeBars",
+            },
+            Self::FourBars => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "FourBars",
+            },
+            Self::Scan => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Scan",
+            },
+            Self::Preview => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Preview",
+            },
+            Self::GlobalNavigationButton => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "GlobalNavigationButton",
+            },
+            Self::Share => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Share",
+            },
+            Self::Print => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "Print",
+            },
+            Self::XboxOneConsole => PropertyValue::Enum {
+                kind: "Symbol",
+                variant: "XboxOneConsole",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TeachingTipPlacementMode {
+    Auto,
+    Top,
+    Bottom,
+    Left,
+    Right,
+    TopRight,
+    TopLeft,
+    BottomRight,
+    BottomLeft,
+    LeftTop,
+    LeftBottom,
+    RightTop,
+    RightBottom,
+    Center,
+}
+impl TeachingTipPlacementMode {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Auto => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "Auto",
+            },
+            Self::Top => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "Top",
+            },
+            Self::Bottom => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "Bottom",
+            },
+            Self::Left => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "Left",
+            },
+            Self::Right => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "Right",
+            },
+            Self::TopRight => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "TopRight",
+            },
+            Self::TopLeft => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "TopLeft",
+            },
+            Self::BottomRight => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "BottomRight",
+            },
+            Self::BottomLeft => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "BottomLeft",
+            },
+            Self::LeftTop => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "LeftTop",
+            },
+            Self::LeftBottom => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "LeftBottom",
+            },
+            Self::RightTop => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "RightTop",
+            },
+            Self::RightBottom => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "RightBottom",
+            },
+            Self::Center => PropertyValue::Enum {
+                kind: "TeachingTipPlacementMode",
+                variant: "Center",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TextTrimming {
+    None,
+    CharacterEllipsis,
+    WordEllipsis,
+    Clip,
+}
+impl TextTrimming {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::None => PropertyValue::Enum {
+                kind: "TextTrimming",
+                variant: "None",
+            },
+            Self::CharacterEllipsis => PropertyValue::Enum {
+                kind: "TextTrimming",
+                variant: "CharacterEllipsis",
+            },
+            Self::WordEllipsis => PropertyValue::Enum {
+                kind: "TextTrimming",
+                variant: "WordEllipsis",
+            },
+            Self::Clip => PropertyValue::Enum {
+                kind: "TextTrimming",
+                variant: "Clip",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TextWrapping {
+    NoWrap,
+    Wrap,
+    WrapWholeWords,
+}
+impl TextWrapping {
+    fn property_value(self) -> PropertyValue {
+        match self {
+            Self::NoWrap => PropertyValue::Enum {
+                kind: "TextWrapping",
+                variant: "NoWrap",
+            },
+            Self::Wrap => PropertyValue::Enum {
+                kind: "TextWrapping",
+                variant: "Wrap",
+            },
+            Self::WrapWholeWords => PropertyValue::Enum {
+                kind: "TextWrapping",
+                variant: "WrapWholeWords",
             },
         }
     }
@@ -89,6 +1449,10 @@ impl TextBlock {
         Self(declaration)
     }
     pub fn font_size(mut self, font_size: f64) -> Self {
+        assert!(
+            font_size.is_finite() && font_size > 0.0,
+            "TextBlock.FontSize requires finite_positive"
+        );
         self.0 = self
             .0
             .property(PropertyId::FontSize, PropertyValue::F64(font_size));
@@ -98,6 +1462,32 @@ impl TextBlock {
         self.0 = self
             .0
             .property(PropertyId::Foreground, PropertyValue::Color(foreground));
+        self
+    }
+    pub fn text_wrapping(mut self, text_wrapping: TextWrapping) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::TextWrapping, text_wrapping.property_value());
+        self
+    }
+    pub fn is_text_selection_enabled(mut self, is_text_selection_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsTextSelectionEnabled,
+            PropertyValue::Bool(is_text_selection_enabled),
+        );
+        self
+    }
+    pub fn text_trimming(mut self, text_trimming: TextTrimming) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::TextTrimming, text_trimming.property_value());
+        self
+    }
+    pub fn max_lines(mut self, max_lines: i32) -> Self {
+        assert!(max_lines >= 0, "TextBlock.MaxLines requires non_negative");
+        self.0 = self
+            .0
+            .property(PropertyId::MaxLines, PropertyValue::I32(max_lines));
         self
     }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
@@ -251,6 +1641,19 @@ impl TextBox {
         }
         self
     }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = TextBox::new("Text").header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
     pub fn on_text_changed(self, callback: impl Fn(Rc<str>) + 'static) -> Self {
         self.on_text_changed_callback(Callback::new(callback))
     }
@@ -277,6 +1680,32 @@ impl Button {
         self.0 = self
             .0
             .property(PropertyId::Background, PropertyValue::Color(background));
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn horizontal_content_alignment(
+        mut self,
+        horizontal_content_alignment: HorizontalAlignment,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalContentAlignment,
+            horizontal_content_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_content_alignment(
+        mut self,
+        vertical_content_alignment: VerticalAlignment,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalContentAlignment,
+            vertical_content_alignment.property_value(),
+        );
         self
     }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
@@ -390,6 +1819,12 @@ impl CheckBox {
             PropertyId::IsChecked,
             PropertyValue::OptionalBool(is_checked),
         );
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
         self
     }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
@@ -511,6 +1946,10 @@ impl Border {
         self
     }
     pub fn border_thickness(mut self, border_thickness: Thickness) -> Self {
+        assert!(
+            border_thickness.is_finite_non_negative(),
+            "Border.BorderThickness requires finite_non_negative"
+        );
         self.0 = self.0.property(
             PropertyId::BorderThickness,
             PropertyValue::Thickness(border_thickness),
@@ -518,6 +1957,10 @@ impl Border {
         self
     }
     pub fn corner_radius(mut self, corner_radius: CornerRadius) -> Self {
+        assert!(
+            corner_radius.is_finite_non_negative(),
+            "Border.CornerRadius requires finite_non_negative"
+        );
         self.0 = self.0.property(
             PropertyId::CornerRadius,
             PropertyValue::CornerRadius(corner_radius),
@@ -525,9 +1968,26 @@ impl Border {
         self
     }
     pub fn padding(mut self, padding: Thickness) -> Self {
+        assert!(
+            padding.is_finite_non_negative(),
+            "Border.Padding requires finite_non_negative"
+        );
         self.0 = self
             .0
             .property(PropertyId::Padding, PropertyValue::Thickness(padding));
+        self
+    }
+    pub fn is_tab_stop(mut self, is_tab_stop: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsTabStop, PropertyValue::Bool(is_tab_stop));
+        self
+    }
+    pub fn allow_focus_on_interaction(mut self, allow_focus_on_interaction: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::AllowFocusOnInteraction,
+            PropertyValue::Bool(allow_focus_on_interaction),
+        );
         self
     }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
@@ -621,6 +2081,31 @@ impl Border {
         );
         self
     }
+    pub fn on_pointer_capture_lost(self, callback: impl Fn() + 'static) -> Self {
+        self.on_pointer_capture_lost_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_pointer_capture_lost_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::PointerCaptureLost, EventValue::Unit(callback));
+        self
+    }
+    pub fn on_pointer_canceled(self, callback: impl Fn() + 'static) -> Self {
+        self.on_pointer_canceled_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_pointer_canceled_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::PointerCanceled, EventValue::Unit(callback));
+        self
+    }
+    pub fn on_drag_leave(self, callback: impl Fn() + 'static) -> Self {
+        self.on_drag_leave_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_drag_leave_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::DragLeave, EventValue::Unit(callback));
+        self
+    }
 }
 impl Default for Border {
     fn default() -> Self {
@@ -638,6 +2123,19 @@ impl Grid {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::Grid);
         Self(declaration)
+    }
+    pub fn row_spacing(mut self, row_spacing: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::RowSpacing, PropertyValue::F64(row_spacing));
+        self
+    }
+    pub fn column_spacing(mut self, column_spacing: f64) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ColumnSpacing,
+            PropertyValue::F64(column_spacing),
+        );
+        self
     }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
         self.0 = self
@@ -950,6 +2448,26 @@ impl ScrollViewer {
         let declaration = Declaration::new(ObjectType::ScrollViewer);
         Self(declaration)
     }
+    pub fn horizontal_scroll_bar_visibility(
+        mut self,
+        horizontal_scroll_bar_visibility: ScrollBarVisibility,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalScrollBarVisibility,
+            horizontal_scroll_bar_visibility.property_value(),
+        );
+        self
+    }
+    pub fn vertical_scroll_bar_visibility(
+        mut self,
+        vertical_scroll_bar_visibility: ScrollBarVisibility,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalScrollBarVisibility,
+            vertical_scroll_bar_visibility.property_value(),
+        );
+        self
+    }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
         self.0 = self
             .0
@@ -1049,6 +2567,12 @@ impl Viewbox {
         let declaration = Declaration::new(ObjectType::Viewbox);
         Self(declaration)
     }
+    pub fn stretch(mut self, stretch: Stretch) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Stretch, stretch.property_value());
+        self
+    }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
         self.0 = self
             .0
@@ -1130,6 +2654,19 @@ impl Viewbox {
         );
         self
     }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = Viewbox::new().child(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn child(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Child,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
 }
 impl Default for Viewbox {
     fn default() -> Self {
@@ -1158,6 +2695,27 @@ impl TitleBar {
         self.0 = self
             .0
             .property(PropertyId::Subtitle, PropertyValue::String(subtitle.into()));
+        self
+    }
+    pub fn is_back_button_visible(mut self, is_back_button_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsBackButtonVisible,
+            PropertyValue::Bool(is_back_button_visible),
+        );
+        self
+    }
+    pub fn is_back_button_enabled(mut self, is_back_button_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsBackButtonEnabled,
+            PropertyValue::Bool(is_back_button_enabled),
+        );
+        self
+    }
+    pub fn is_pane_toggle_button_visible(mut self, is_pane_toggle_button_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsPaneToggleButtonVisible,
+            PropertyValue::Bool(is_pane_toggle_button_visible),
+        );
         self
     }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
@@ -1226,6 +2784,50 @@ impl TitleBar {
                 PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
             );
         }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = TitleBar::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = TitleBar::new().right_header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn right_header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::RightHeader,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_back_requested(self, callback: impl Fn() + 'static) -> Self {
+        self.on_back_requested_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_back_requested_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::BackRequested, EventValue::Unit(callback));
+        self
+    }
+    pub fn on_pane_toggle_requested(self, callback: impl Fn() + 'static) -> Self {
+        self.on_pane_toggle_requested_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_pane_toggle_requested_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::PaneToggleRequested, EventValue::Unit(callback));
         self
     }
 }
@@ -1264,6 +2866,29 @@ impl Slider {
             .property(PropertyId::Value, PropertyValue::F64(value));
         self
     }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn orientation(mut self, orientation: Orientation) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Orientation, orientation.property_value());
+        self
+    }
+    pub fn step_frequency(mut self, step_frequency: f64) -> Self {
+        assert!(
+            step_frequency.is_finite() && step_frequency > 0.0,
+            "Slider.StepFrequency requires finite_positive"
+        );
+        self.0 = self.0.property(
+            PropertyId::StepFrequency,
+            PropertyValue::F64(step_frequency),
+        );
+        self
+    }
     pub fn canvas_left(mut self, canvas_left: f64) -> Self {
         self.0 = self
             .0
@@ -1330,6 +2955,19 @@ impl Slider {
                 PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
             );
         }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = Slider::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
         self
     }
     pub fn on_value_changed(self, callback: impl Fn(f64) + 'static) -> Self {
@@ -1617,5 +3255,7594 @@ impl DataItem {
         let declaration =
             declaration.property(PropertyId::Text, PropertyValue::String(text.into()));
         Self(declaration)
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct HyperlinkButton(Declaration);
+impl HyperlinkButton {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::HyperlinkButton);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = HyperlinkButton::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_click(self, callback: impl Fn() + 'static) -> Self {
+        self.on_click_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_click_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::Click, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for HyperlinkButton {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<HyperlinkButton> for Visual {
+    fn from(value: HyperlinkButton) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RepeatButton(Declaration);
+impl RepeatButton {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::RepeatButton);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn delay(mut self, delay: i32) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Delay, PropertyValue::I32(delay));
+        self
+    }
+    pub fn interval(mut self, interval: i32) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Interval, PropertyValue::I32(interval));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = RepeatButton::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_click(self, callback: impl Fn() + 'static) -> Self {
+        self.on_click_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_click_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::Click, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for RepeatButton {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<RepeatButton> for Visual {
+    fn from(value: RepeatButton) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct BreadcrumbBar(Declaration);
+impl BreadcrumbBar {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::BreadcrumbBar);
+        Self(declaration)
+    }
+    pub fn items_source(
+        mut self,
+        items_source: impl IntoIterator<Item = impl Into<Rc<str>>>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ItemsSource,
+            PropertyValue::StringList(items_source.into_iter().map(Into::into).collect()),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for BreadcrumbBar {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<BreadcrumbBar> for Visual {
+    fn from(value: BreadcrumbBar) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct VariableSizedWrapGrid(Declaration);
+impl VariableSizedWrapGrid {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::VariableSizedWrapGrid);
+        Self(declaration)
+    }
+    pub fn orientation(mut self, orientation: Orientation) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Orientation, orientation.property_value());
+        self
+    }
+    pub fn item_width(mut self, item_width: f64) -> Self {
+        assert!(
+            item_width.is_finite() && item_width > 0.0,
+            "VariableSizedWrapGrid.ItemWidth requires finite_positive"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::ItemWidth, PropertyValue::F64(item_width));
+        self
+    }
+    pub fn item_height(mut self, item_height: f64) -> Self {
+        assert!(
+            item_height.is_finite() && item_height > 0.0,
+            "VariableSizedWrapGrid.ItemHeight requires finite_positive"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::ItemHeight, PropertyValue::F64(item_height));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = VariableSizedWrapGrid::new().children([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Children,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+}
+impl Default for VariableSizedWrapGrid {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<VariableSizedWrapGrid> for Visual {
+    fn from(value: VariableSizedWrapGrid) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct AutoSuggestBox(Declaration);
+impl AutoSuggestBox {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::AutoSuggestBox);
+        Self(declaration)
+    }
+    pub fn placeholder_text(mut self, placeholder_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PlaceholderText,
+            PropertyValue::String(placeholder_text.into()),
+        );
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn items_source(
+        mut self,
+        items_source: impl IntoIterator<Item = impl Into<Rc<str>>>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ItemsSource,
+            PropertyValue::StringList(items_source.into_iter().map(Into::into).collect()),
+        );
+        self
+    }
+    pub fn text(mut self, text: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Text, PropertyValue::String(text.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = AutoSuggestBox::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_text_changed(self, callback: impl Fn(Rc<str>) + 'static) -> Self {
+        self.on_text_changed_callback(Callback::new(callback))
+    }
+    pub fn on_text_changed_callback(mut self, callback: Callback<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::TextChanged, EventValue::String(callback));
+        self
+    }
+}
+impl Default for AutoSuggestBox {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<AutoSuggestBox> for Visual {
+    fn from(value: AutoSuggestBox) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct PasswordBox(Declaration);
+impl PasswordBox {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::PasswordBox);
+        Self(declaration)
+    }
+    pub fn placeholder_text(mut self, placeholder_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PlaceholderText,
+            PropertyValue::String(placeholder_text.into()),
+        );
+        self
+    }
+    pub fn password_reveal_mode(mut self, password_reveal_mode: PasswordRevealMode) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PasswordRevealMode,
+            password_reveal_mode.property_value(),
+        );
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn password(mut self, password: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Password, PropertyValue::String(password.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = PasswordBox::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_password_changed(self, callback: impl Fn(Rc<str>) + 'static) -> Self {
+        self.on_password_changed_callback(Callback::new(callback))
+    }
+    pub fn on_password_changed_callback(mut self, callback: Callback<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::PasswordChanged, EventValue::String(callback));
+        self
+    }
+}
+impl Default for PasswordBox {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<PasswordBox> for Visual {
+    fn from(value: PasswordBox) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct NumberBox(Declaration);
+impl NumberBox {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::NumberBox);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn minimum(mut self, minimum: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Minimum, PropertyValue::F64(minimum));
+        self
+    }
+    pub fn maximum(mut self, maximum: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Maximum, PropertyValue::F64(maximum));
+        self
+    }
+    pub fn number_box_value(mut self, number_box_value: Option<f64>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::NumberBoxValue,
+            PropertyValue::OptionalF64(number_box_value),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NumberBox::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_value_changed(self, callback: impl Fn(Option<f64>) + 'static) -> Self {
+        self.on_value_changed_callback(Callback::new(callback))
+    }
+    pub fn on_value_changed_callback(mut self, callback: Callback<Option<f64>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::ValueChanged, EventValue::OptionalF64(callback));
+        self
+    }
+}
+impl Default for NumberBox {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<NumberBox> for Visual {
+    fn from(value: NumberBox) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct NavigationView(Declaration);
+impl NavigationView {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::NavigationView);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn pane_display_mode(mut self, pane_display_mode: NavigationViewPaneDisplayMode) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PaneDisplayMode,
+            pane_display_mode.property_value(),
+        );
+        self
+    }
+    pub fn is_pane_toggle_button_visible(mut self, is_pane_toggle_button_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsPaneToggleButtonVisible,
+            PropertyValue::Bool(is_pane_toggle_button_visible),
+        );
+        self
+    }
+    pub fn navigation_view_is_back_button_visible(
+        mut self,
+        navigation_view_is_back_button_visible: NavigationViewBackButtonVisible,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::NavigationViewIsBackButtonVisible,
+            navigation_view_is_back_button_visible.property_value(),
+        );
+        self
+    }
+    pub fn is_settings_visible(mut self, is_settings_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsSettingsVisible,
+            PropertyValue::Bool(is_settings_visible),
+        );
+        self
+    }
+    pub fn always_show_header(mut self, always_show_header: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::AlwaysShowHeader,
+            PropertyValue::Bool(always_show_header),
+        );
+        self
+    }
+    pub fn pane_title(mut self, pane_title: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PaneTitle,
+            PropertyValue::String(pane_title.into()),
+        );
+        self
+    }
+    pub fn open_pane_length(mut self, open_pane_length: f64) -> Self {
+        assert!(
+            open_pane_length.is_finite() && open_pane_length >= 0.0,
+            "NavigationView.OpenPaneLength requires finite_non_negative"
+        );
+        self.0 = self.0.property(
+            PropertyId::OpenPaneLength,
+            PropertyValue::F64(open_pane_length),
+        );
+        self
+    }
+    pub fn is_pane_open(mut self, is_pane_open: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsPaneOpen, PropertyValue::Bool(is_pane_open));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationView::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationView::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationView::new().pane_custom_content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn pane_custom_content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::PaneCustomContent,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationView::new().pane_footer(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn pane_footer(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::PaneFooter,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationView::new().menu_items([TextBlock::new("Text")]);
+    /// ```
+    pub fn menu_items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::MenuItems,
+            RelationValue::Many(Rc::new(
+                children.into_iter().map(|child| child.0.0).collect(),
+            )),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationView::new().footer_menu_items([TextBlock::new("Text")]);
+    /// ```
+    pub fn footer_menu_items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::FooterMenuItems,
+            RelationValue::Many(Rc::new(
+                children.into_iter().map(|child| child.0.0).collect(),
+            )),
+        );
+        self
+    }
+    pub fn on_selected_tag_changed(self, callback: impl Fn(Option<Rc<str>>) + 'static) -> Self {
+        self.on_selected_tag_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selected_tag_changed_callback(mut self, callback: Callback<Option<Rc<str>>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::SelectionChanged, EventValue::Selection(callback));
+        self
+    }
+}
+impl Default for NavigationView {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<NavigationView> for Visual {
+    fn from(value: NavigationView) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct NavigationViewItem(Declaration);
+impl NavigationViewItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::NavigationViewItem);
+        Self(declaration)
+    }
+    pub fn is_selected(mut self, is_selected: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsSelected, PropertyValue::Bool(is_selected));
+        self
+    }
+    pub fn selects_on_invoked(mut self, selects_on_invoked: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SelectsOnInvoked,
+            PropertyValue::Bool(selects_on_invoked),
+        );
+        self
+    }
+    pub fn is_expanded(mut self, is_expanded: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsExpanded, PropertyValue::Bool(is_expanded));
+        self
+    }
+    pub fn tag(mut self, tag: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Tag, PropertyValue::String(tag.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationViewItem::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationViewItem::new().icon(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn icon(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Icon,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = NavigationViewItem::new().menu_items([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn menu_items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::MenuItems,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+}
+impl Default for NavigationViewItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<NavigationViewItem> for Visual {
+    fn from(value: NavigationViewItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct SplitView(Declaration);
+impl SplitView {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::SplitView);
+        Self(declaration)
+    }
+    pub fn open_pane_length(mut self, open_pane_length: f64) -> Self {
+        self.0 = self.0.property(
+            PropertyId::OpenPaneLength,
+            PropertyValue::F64(open_pane_length),
+        );
+        self
+    }
+    pub fn compact_pane_length(mut self, compact_pane_length: f64) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CompactPaneLength,
+            PropertyValue::F64(compact_pane_length),
+        );
+        self
+    }
+    pub fn display_mode(mut self, display_mode: SplitViewDisplayMode) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::DisplayMode, display_mode.property_value());
+        self
+    }
+    pub fn is_pane_open(mut self, is_pane_open: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsPaneOpen, PropertyValue::Bool(is_pane_open));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = SplitView::new().pane(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn pane(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Pane,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = SplitView::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_pane_closed(self, callback: impl Fn(bool) + 'static) -> Self {
+        self.on_pane_closed_callback(Callback::new(callback))
+    }
+    pub fn on_pane_closed_callback(mut self, callback: Callback<bool>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::PaneClosed, EventValue::Bool(callback));
+        self
+    }
+}
+impl Default for SplitView {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<SplitView> for Visual {
+    fn from(value: SplitView) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ProgressBar(Declaration);
+impl ProgressBar {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ProgressBar);
+        Self(declaration)
+    }
+    pub fn minimum(mut self, minimum: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Minimum, PropertyValue::F64(minimum));
+        self
+    }
+    pub fn maximum(mut self, maximum: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Maximum, PropertyValue::F64(maximum));
+        self
+    }
+    pub fn value(mut self, value: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Value, PropertyValue::F64(value));
+        self
+    }
+    pub fn is_indeterminate(mut self, is_indeterminate: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsIndeterminate,
+            PropertyValue::Bool(is_indeterminate),
+        );
+        self
+    }
+    pub fn show_error(mut self, show_error: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::ShowError, PropertyValue::Bool(show_error));
+        self
+    }
+    pub fn show_paused(mut self, show_paused: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::ShowPaused, PropertyValue::Bool(show_paused));
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for ProgressBar {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ProgressBar> for Visual {
+    fn from(value: ProgressBar) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ToggleSwitch(Declaration);
+impl ToggleSwitch {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ToggleSwitch);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn is_on(mut self, is_on: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsOn, PropertyValue::Bool(is_on));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ToggleSwitch::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ToggleSwitch::new().on_content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn on_content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::OnContent,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ToggleSwitch::new().off_content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn off_content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::OffContent,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_toggled(self, callback: impl Fn(bool) + 'static) -> Self {
+        self.on_toggled_callback(Callback::new(callback))
+    }
+    pub fn on_toggled_callback(mut self, callback: Callback<bool>) -> Self {
+        self.0 = self.0.event(EventId::Toggled, EventValue::Bool(callback));
+        self
+    }
+}
+impl Default for ToggleSwitch {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ToggleSwitch> for Visual {
+    fn from(value: ToggleSwitch) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ToggleButton(Declaration);
+impl ToggleButton {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ToggleButton);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn is_checked(mut self, is_checked: Option<bool>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsChecked,
+            PropertyValue::OptionalBool(is_checked),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ToggleButton::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for ToggleButton {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ToggleButton> for Visual {
+    fn from(value: ToggleButton) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RadioButton(Declaration);
+impl RadioButton {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::RadioButton);
+        Self(declaration)
+    }
+    pub fn group_name(mut self, group_name: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::GroupName,
+            PropertyValue::String(group_name.into()),
+        );
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn is_checked(mut self, is_checked: Option<bool>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsChecked,
+            PropertyValue::OptionalBool(is_checked),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = RadioButton::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_checked(self, callback: impl Fn(Option<bool>) + 'static) -> Self {
+        self.on_checked_callback(Callback::new(callback))
+    }
+    pub fn on_checked_callback(mut self, callback: Callback<Option<bool>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::Checked, EventValue::OptionalBool(callback));
+        self
+    }
+}
+impl Default for RadioButton {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<RadioButton> for Visual {
+    fn from(value: RadioButton) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RadioButtons(Declaration);
+impl RadioButtons {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::RadioButtons);
+        Self(declaration)
+    }
+    pub fn max_columns(mut self, max_columns: i32) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::MaxColumns, PropertyValue::I32(max_columns));
+        self
+    }
+    pub fn items_source(
+        mut self,
+        items_source: impl IntoIterator<Item = impl Into<Rc<str>>>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ItemsSource,
+            PropertyValue::StringList(items_source.into_iter().map(Into::into).collect()),
+        );
+        self
+    }
+    pub fn selected_index(mut self, selected_index: Option<usize>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SelectedIndex,
+            PropertyValue::SelectionIndex(selected_index),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = RadioButtons::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_selection_changed(self, callback: impl Fn(Option<usize>) + 'static) -> Self {
+        self.on_selection_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selection_changed_callback(mut self, callback: Callback<Option<usize>>) -> Self {
+        self.0 = self.0.event(
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(callback),
+        );
+        self
+    }
+}
+impl Default for RadioButtons {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<RadioButtons> for Visual {
+    fn from(value: RadioButtons) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ItemsRepeater(Declaration);
+impl ItemsRepeater {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ItemsRepeater);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for ItemsRepeater {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ItemsRepeater> for Visual {
+    fn from(value: ItemsRepeater) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct InfoBadge(Declaration);
+impl InfoBadge {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::InfoBadge);
+        Self(declaration)
+    }
+    pub fn info_badge_value(mut self, info_badge_value: i32) -> Self {
+        self.0 = self.0.property(
+            PropertyId::InfoBadgeValue,
+            PropertyValue::I32(info_badge_value),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for InfoBadge {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<InfoBadge> for Visual {
+    fn from(value: InfoBadge) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct InfoBar(Declaration);
+impl InfoBar {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::InfoBar);
+        Self(declaration)
+    }
+    pub fn title(mut self, title: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Title, PropertyValue::String(title.into()));
+        self
+    }
+    pub fn message(mut self, message: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Message, PropertyValue::String(message.into()));
+        self
+    }
+    pub fn severity(mut self, severity: InfoBarSeverity) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Severity, severity.property_value());
+        self
+    }
+    pub fn is_open(mut self, is_open: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsOpen, PropertyValue::Bool(is_open));
+        self
+    }
+    pub fn is_closable(mut self, is_closable: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsClosable, PropertyValue::Bool(is_closable));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    pub fn on_closed(self, callback: impl Fn() + 'static) -> Self {
+        self.on_closed_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_closed_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::Closed, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for InfoBar {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<InfoBar> for Visual {
+    fn from(value: InfoBar) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct PersonPicture(Declaration);
+impl PersonPicture {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::PersonPicture);
+        Self(declaration)
+    }
+    pub fn display_name(mut self, display_name: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::DisplayName,
+            PropertyValue::String(display_name.into()),
+        );
+        self
+    }
+    pub fn initials(mut self, initials: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Initials, PropertyValue::String(initials.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for PersonPicture {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<PersonPicture> for Visual {
+    fn from(value: PersonPicture) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ScrollView(Declaration);
+impl ScrollView {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ScrollView);
+        Self(declaration)
+    }
+    pub fn scroll_view_horizontal_scroll_bar_visibility(
+        mut self,
+        scroll_view_horizontal_scroll_bar_visibility: ScrollingScrollBarVisibility,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ScrollViewHorizontalScrollBarVisibility,
+            scroll_view_horizontal_scroll_bar_visibility.property_value(),
+        );
+        self
+    }
+    pub fn scroll_view_vertical_scroll_bar_visibility(
+        mut self,
+        scroll_view_vertical_scroll_bar_visibility: ScrollingScrollBarVisibility,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ScrollViewVerticalScrollBarVisibility,
+            scroll_view_vertical_scroll_bar_visibility.property_value(),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ScrollView::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for ScrollView {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ScrollView> for Visual {
+    fn from(value: ScrollView) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct Image(Declaration);
+impl Image {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::Image);
+        Self(declaration)
+    }
+    pub fn stretch(mut self, stretch: Stretch) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Stretch, stretch.property_value());
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    pub fn on_opened(self, callback: impl Fn() + 'static) -> Self {
+        self.on_opened_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_opened_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::ImageOpened, EventValue::Unit(callback));
+        self
+    }
+    pub fn on_failed(self, callback: impl Fn() + 'static) -> Self {
+        self.on_failed_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_failed_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::ImageFailed, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for Image {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<Image> for Visual {
+    fn from(value: Image) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ProgressRing(Declaration);
+impl ProgressRing {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ProgressRing);
+        Self(declaration)
+    }
+    pub fn minimum(mut self, minimum: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Minimum, PropertyValue::F64(minimum));
+        self
+    }
+    pub fn maximum(mut self, maximum: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Maximum, PropertyValue::F64(maximum));
+        self
+    }
+    pub fn value(mut self, value: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Value, PropertyValue::F64(value));
+        self
+    }
+    pub fn is_indeterminate(mut self, is_indeterminate: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsIndeterminate,
+            PropertyValue::Bool(is_indeterminate),
+        );
+        self
+    }
+    pub fn is_active(mut self, is_active: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsActive, PropertyValue::Bool(is_active));
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for ProgressRing {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ProgressRing> for Visual {
+    fn from(value: ProgressRing) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ListBox(Declaration);
+impl ListBox {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ListBox);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ListBox::new().items([TextBlock::new("Text")]);
+    /// ```
+    pub fn items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Items,
+            RelationValue::Many(Rc::new(
+                children.into_iter().map(|child| child.0.0).collect(),
+            )),
+        );
+        self
+    }
+    pub fn on_selected_tag_changed(self, callback: impl Fn(Option<Rc<str>>) + 'static) -> Self {
+        self.on_selected_tag_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selected_tag_changed_callback(mut self, callback: Callback<Option<Rc<str>>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::SelectionChanged, EventValue::Selection(callback));
+        self
+    }
+}
+impl Default for ListBox {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ListBox> for Visual {
+    fn from(value: ListBox) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct Rectangle(Declaration);
+impl Rectangle {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::Rectangle);
+        Self(declaration)
+    }
+    pub fn stroke_thickness(mut self, stroke_thickness: f64) -> Self {
+        assert!(
+            stroke_thickness.is_finite() && stroke_thickness >= 0.0,
+            "Rectangle.StrokeThickness requires finite_non_negative"
+        );
+        self.0 = self.0.property(
+            PropertyId::StrokeThickness,
+            PropertyValue::F64(stroke_thickness),
+        );
+        self
+    }
+    pub fn radius_x(mut self, radius_x: f64) -> Self {
+        assert!(
+            radius_x.is_finite() && radius_x >= 0.0,
+            "Rectangle.RadiusX requires finite_non_negative"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::RadiusX, PropertyValue::F64(radius_x));
+        self
+    }
+    pub fn radius_y(mut self, radius_y: f64) -> Self {
+        assert!(
+            radius_y.is_finite() && radius_y >= 0.0,
+            "Rectangle.RadiusY requires finite_non_negative"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::RadiusY, PropertyValue::F64(radius_y));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for Rectangle {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<Rectangle> for Visual {
+    fn from(value: Rectangle) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct Ellipse(Declaration);
+impl Ellipse {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::Ellipse);
+        Self(declaration)
+    }
+    pub fn stroke_thickness(mut self, stroke_thickness: f64) -> Self {
+        assert!(
+            stroke_thickness.is_finite() && stroke_thickness >= 0.0,
+            "Ellipse.StrokeThickness requires finite_non_negative"
+        );
+        self.0 = self.0.property(
+            PropertyId::StrokeThickness,
+            PropertyValue::F64(stroke_thickness),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for Ellipse {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<Ellipse> for Visual {
+    fn from(value: Ellipse) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct Line(Declaration);
+impl Line {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::Line);
+        Self(declaration)
+    }
+    pub fn stroke_thickness(mut self, stroke_thickness: f64) -> Self {
+        assert!(
+            stroke_thickness.is_finite() && stroke_thickness >= 0.0,
+            "Line.StrokeThickness requires finite_non_negative"
+        );
+        self.0 = self.0.property(
+            PropertyId::StrokeThickness,
+            PropertyValue::F64(stroke_thickness),
+        );
+        self
+    }
+    pub fn x1(mut self, x1: f64) -> Self {
+        assert!(x1.is_finite(), "Line.X1 requires finite");
+        self.0 = self.0.property(PropertyId::X1, PropertyValue::F64(x1));
+        self
+    }
+    pub fn y1(mut self, y1: f64) -> Self {
+        assert!(y1.is_finite(), "Line.Y1 requires finite");
+        self.0 = self.0.property(PropertyId::Y1, PropertyValue::F64(y1));
+        self
+    }
+    pub fn x2(mut self, x2: f64) -> Self {
+        assert!(x2.is_finite(), "Line.X2 requires finite");
+        self.0 = self.0.property(PropertyId::X2, PropertyValue::F64(x2));
+        self
+    }
+    pub fn y2(mut self, y2: f64) -> Self {
+        assert!(y2.is_finite(), "Line.Y2 requires finite");
+        self.0 = self.0.property(PropertyId::Y2, PropertyValue::F64(y2));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for Line {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<Line> for Visual {
+    fn from(value: Line) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct SymbolIcon(Declaration);
+impl SymbolIcon {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::SymbolIcon);
+        Self(declaration)
+    }
+    pub fn symbol(mut self, symbol: Symbol) -> Self {
+        self.0 = self.0.property(PropertyId::Symbol, symbol.property_value());
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for SymbolIcon {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<SymbolIcon> for Visual {
+    fn from(value: SymbolIcon) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ImageIcon(Declaration);
+impl ImageIcon {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ImageIcon);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for ImageIcon {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ImageIcon> for Visual {
+    fn from(value: ImageIcon) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct FontIcon(Declaration);
+impl FontIcon {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::FontIcon);
+        Self(declaration)
+    }
+    pub fn glyph(mut self, glyph: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Glyph, PropertyValue::String(glyph.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for FontIcon {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<FontIcon> for Visual {
+    fn from(value: FontIcon) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct BitmapIcon(Declaration);
+impl BitmapIcon {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::BitmapIcon);
+        Self(declaration)
+    }
+    pub fn show_as_monochrome(mut self, show_as_monochrome: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ShowAsMonochrome,
+            PropertyValue::Bool(show_as_monochrome),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for BitmapIcon {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<BitmapIcon> for Visual {
+    fn from(value: BitmapIcon) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct PathIcon(Declaration);
+impl PathIcon {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::PathIcon);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for PathIcon {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<PathIcon> for Visual {
+    fn from(value: PathIcon) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ListBoxItem(Declaration);
+impl ListBoxItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ListBoxItem);
+        Self(declaration)
+    }
+    pub fn is_selected(mut self, is_selected: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsSelected, PropertyValue::Bool(is_selected));
+        self
+    }
+    pub fn tag(mut self, tag: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Tag, PropertyValue::String(tag.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ListBoxItem::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for ListBoxItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ListBoxItem> for Visual {
+    fn from(value: ListBoxItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RatingControl(Declaration);
+impl RatingControl {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::RatingControl);
+        Self(declaration)
+    }
+    pub fn caption(mut self, caption: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Caption, PropertyValue::String(caption.into()));
+        self
+    }
+    pub fn is_read_only(mut self, is_read_only: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsReadOnly, PropertyValue::Bool(is_read_only));
+        self
+    }
+    pub fn max_rating(mut self, max_rating: i32) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::MaxRating, PropertyValue::I32(max_rating));
+        self
+    }
+    pub fn rating_control_value(mut self, rating_control_value: Option<f64>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::RatingControlValue,
+            PropertyValue::OptionalF64(rating_control_value),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    pub fn on_value_changed(self, callback: impl Fn(Option<f64>) + 'static) -> Self {
+        self.on_value_changed_callback(Callback::new(callback))
+    }
+    pub fn on_value_changed_callback(mut self, callback: Callback<Option<f64>>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::ValueChanged, EventValue::OptionalF64(callback));
+        self
+    }
+}
+impl Default for RatingControl {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<RatingControl> for Visual {
+    fn from(value: RatingControl) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct Expander(Declaration);
+impl Expander {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::Expander);
+        Self(declaration)
+    }
+    pub fn is_expanded(mut self, is_expanded: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsExpanded, PropertyValue::Bool(is_expanded));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = Expander::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = Expander::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for Expander {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<Expander> for Visual {
+    fn from(value: Expander) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ComboBox(Declaration);
+impl ComboBox {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ComboBox);
+        Self(declaration)
+    }
+    pub fn placeholder_text(mut self, placeholder_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PlaceholderText,
+            PropertyValue::String(placeholder_text.into()),
+        );
+        self
+    }
+    pub fn is_editable(mut self, is_editable: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEditable, PropertyValue::Bool(is_editable));
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn items_source(
+        mut self,
+        items_source: impl IntoIterator<Item = impl Into<Rc<str>>>,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ItemsSource,
+            PropertyValue::StringList(items_source.into_iter().map(Into::into).collect()),
+        );
+        self
+    }
+    pub fn selected_index(mut self, selected_index: Option<usize>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SelectedIndex,
+            PropertyValue::SelectionIndex(selected_index),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ComboBox::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_selection_changed(self, callback: impl Fn(Option<usize>) + 'static) -> Self {
+        self.on_selection_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selection_changed_callback(mut self, callback: Callback<Option<usize>>) -> Self {
+        self.0 = self.0.event(
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(callback),
+        );
+        self
+    }
+}
+impl Default for ComboBox {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ComboBox> for Visual {
+    fn from(value: ComboBox) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct Pivot(Declaration);
+impl Pivot {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::Pivot);
+        Self(declaration)
+    }
+    pub fn title(mut self, title: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Title, PropertyValue::String(title.into()));
+        self
+    }
+    pub fn selected_index(mut self, selected_index: Option<usize>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SelectedIndex,
+            PropertyValue::SelectionIndex(selected_index),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = Pivot::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn items(mut self, children: impl IntoIterator<Item = PivotItem>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Items,
+            RelationValue::Many(Rc::new(
+                children
+                    .into_iter()
+                    .map(|child| DeclaredNode::Object(child.0))
+                    .collect(),
+            )),
+        );
+        self
+    }
+    pub fn on_selection_changed(self, callback: impl Fn(Option<usize>) + 'static) -> Self {
+        self.on_selection_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selection_changed_callback(mut self, callback: Callback<Option<usize>>) -> Self {
+        self.0 = self.0.event(
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(callback),
+        );
+        self
+    }
+}
+impl Default for Pivot {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<Pivot> for Visual {
+    fn from(value: Pivot) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct PivotItem(Declaration);
+impl PivotItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::PivotItem);
+        Self(declaration)
+    }
+    pub fn header(mut self, header: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Header, PropertyValue::String(header.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = PivotItem::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for PivotItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<PivotItem> for Visual {
+    fn from(value: PivotItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct FlipView(Declaration);
+impl FlipView {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::FlipView);
+        Self(declaration)
+    }
+    pub fn selected_index(mut self, selected_index: Option<usize>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SelectedIndex,
+            PropertyValue::SelectionIndex(selected_index),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = FlipView::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Items,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+    pub fn on_selection_changed(self, callback: impl Fn(Option<usize>) + 'static) -> Self {
+        self.on_selection_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selection_changed_callback(mut self, callback: Callback<Option<usize>>) -> Self {
+        self.0 = self.0.event(
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(callback),
+        );
+        self
+    }
+}
+impl Default for FlipView {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<FlipView> for Visual {
+    fn from(value: FlipView) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct SelectorBar(Declaration);
+impl SelectorBar {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::SelectorBar);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = SelectorBar::new().items([TextBlock::new("Text")]);
+    /// ```
+    pub fn items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Items,
+            RelationValue::Many(Rc::new(
+                children.into_iter().map(|child| child.0.0).collect(),
+            )),
+        );
+        self
+    }
+    pub fn on_selected_text_changed(self, callback: impl Fn(Option<Rc<str>>) + 'static) -> Self {
+        self.on_selected_text_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selected_text_changed_callback(
+        mut self,
+        callback: Callback<Option<Rc<str>>>,
+    ) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::SelectionChanged, EventValue::Selection(callback));
+        self
+    }
+}
+impl Default for SelectorBar {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<SelectorBar> for Visual {
+    fn from(value: SelectorBar) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct SelectorBarItem(Declaration);
+impl SelectorBarItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::SelectorBarItem);
+        Self(declaration)
+    }
+    pub fn text(mut self, text: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Text, PropertyValue::String(text.into()));
+        self
+    }
+    pub fn is_selected(mut self, is_selected: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsSelected, PropertyValue::Bool(is_selected));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = SelectorBarItem::new().icon(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn icon(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Icon,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for SelectorBarItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<SelectorBarItem> for Visual {
+    fn from(value: SelectorBarItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct TabView(Declaration);
+impl TabView {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::TabView);
+        Self(declaration)
+    }
+    pub fn can_reorder_tabs(mut self, can_reorder_tabs: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CanReorderTabs,
+            PropertyValue::Bool(can_reorder_tabs),
+        );
+        self
+    }
+    pub fn is_add_tab_button_visible(mut self, is_add_tab_button_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsAddTabButtonVisible,
+            PropertyValue::Bool(is_add_tab_button_visible),
+        );
+        self
+    }
+    pub fn selected_index(mut self, selected_index: Option<usize>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SelectedIndex,
+            PropertyValue::SelectionIndex(selected_index),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = TabView::new().tab_items([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn tab_items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::TabItems,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+    pub fn on_add_tab_button_click(self, callback: impl Fn() + 'static) -> Self {
+        self.on_add_tab_button_click_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_add_tab_button_click_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::AddTabButtonClick, EventValue::Unit(callback));
+        self
+    }
+    pub fn on_selection_changed(self, callback: impl Fn(Option<usize>) + 'static) -> Self {
+        self.on_selection_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selection_changed_callback(mut self, callback: Callback<Option<usize>>) -> Self {
+        self.0 = self.0.event(
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(callback),
+        );
+        self
+    }
+}
+impl Default for TabView {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<TabView> for Visual {
+    fn from(value: TabView) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct TabViewItem(Declaration);
+impl TabViewItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::TabViewItem);
+        Self(declaration)
+    }
+    pub fn is_closable(mut self, is_closable: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsClosable, PropertyValue::Bool(is_closable));
+        self
+    }
+    pub fn header(mut self, header: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Header, PropertyValue::String(header.into()));
+        self
+    }
+    pub fn tag(mut self, tag: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Tag, PropertyValue::String(tag.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = TabViewItem::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for TabViewItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<TabViewItem> for Visual {
+    fn from(value: TabViewItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct TeachingTip(Declaration);
+impl TeachingTip {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::TeachingTip);
+        Self(declaration)
+    }
+    pub fn title(mut self, title: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Title, PropertyValue::String(title.into()));
+        self
+    }
+    pub fn subtitle(mut self, subtitle: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Subtitle, PropertyValue::String(subtitle.into()));
+        self
+    }
+    pub fn is_open(mut self, is_open: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsOpen, PropertyValue::Bool(is_open));
+        self
+    }
+    pub fn is_light_dismiss_enabled(mut self, is_light_dismiss_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsLightDismissEnabled,
+            PropertyValue::Bool(is_light_dismiss_enabled),
+        );
+        self
+    }
+    pub fn preferred_placement(mut self, preferred_placement: TeachingTipPlacementMode) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PreferredPlacement,
+            preferred_placement.property_value(),
+        );
+        self
+    }
+    pub fn action_button_content(mut self, action_button_content: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ActionButtonContent,
+            PropertyValue::String(action_button_content.into()),
+        );
+        self
+    }
+    pub fn close_button_content(mut self, close_button_content: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CloseButtonContent,
+            PropertyValue::String(close_button_content.into()),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    pub fn on_closed(self, callback: impl Fn() + 'static) -> Self {
+        self.on_closed_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_closed_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::Closed, EventValue::Unit(callback));
+        self
+    }
+    pub fn on_action_button_click(self, callback: impl Fn() + 'static) -> Self {
+        self.on_action_button_click_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_action_button_click_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::ActionButtonClick, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for TeachingTip {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<TeachingTip> for Visual {
+    fn from(value: TeachingTip) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct DropDownButton(Declaration);
+impl DropDownButton {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::DropDownButton);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = DropDownButton::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_click(self, callback: impl Fn() + 'static) -> Self {
+        self.on_click_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_click_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::Click, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for DropDownButton {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<DropDownButton> for Visual {
+    fn from(value: DropDownButton) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct CommandBar(Declaration);
+impl CommandBar {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::CommandBar);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = CommandBar::new().primary_commands([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn primary_commands(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::PrimaryCommands,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = CommandBar::new().secondary_commands([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn secondary_commands(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::SecondaryCommands,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+}
+impl Default for CommandBar {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<CommandBar> for Visual {
+    fn from(value: CommandBar) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct AppBarButton(Declaration);
+impl AppBarButton {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::AppBarButton);
+        Self(declaration)
+    }
+    pub fn label(mut self, label: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Label, PropertyValue::String(label.into()));
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = AppBarButton::new().icon(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn icon(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Icon,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_click(self, callback: impl Fn() + 'static) -> Self {
+        self.on_click_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_click_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::Click, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for AppBarButton {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<AppBarButton> for Visual {
+    fn from(value: AppBarButton) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct AppBarSeparator(Declaration);
+impl AppBarSeparator {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::AppBarSeparator);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for AppBarSeparator {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<AppBarSeparator> for Visual {
+    fn from(value: AppBarSeparator) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct MenuBar(Declaration);
+impl MenuBar {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::MenuBar);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = MenuBar::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Items,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+}
+impl Default for MenuBar {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<MenuBar> for Visual {
+    fn from(value: MenuBar) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct MenuBarItem(Declaration);
+impl MenuBarItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::MenuBarItem);
+        Self(declaration)
+    }
+    pub fn title(mut self, title: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Title, PropertyValue::String(title.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for MenuBarItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<MenuBarItem> for Visual {
+    fn from(value: MenuBarItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct SplitButton(Declaration);
+impl SplitButton {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::SplitButton);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = SplitButton::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    pub fn on_click(self, callback: impl Fn() + 'static) -> Self {
+        self.on_click_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_click_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self.0.event(EventId::Click, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for SplitButton {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<SplitButton> for Visual {
+    fn from(value: SplitButton) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ColorPicker(Declaration);
+impl ColorPicker {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ColorPicker);
+        Self(declaration)
+    }
+    pub fn is_alpha_enabled(mut self, is_alpha_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsAlphaEnabled,
+            PropertyValue::Bool(is_alpha_enabled),
+        );
+        self
+    }
+    pub fn is_hex_input_visible(mut self, is_hex_input_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsHexInputVisible,
+            PropertyValue::Bool(is_hex_input_visible),
+        );
+        self
+    }
+    pub fn is_color_slider_visible(mut self, is_color_slider_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsColorSliderVisible,
+            PropertyValue::Bool(is_color_slider_visible),
+        );
+        self
+    }
+    pub fn is_color_channel_text_input_visible(
+        mut self,
+        is_color_channel_text_input_visible: bool,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsColorChannelTextInputVisible,
+            PropertyValue::Bool(is_color_channel_text_input_visible),
+        );
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for ColorPicker {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ColorPicker> for Visual {
+    fn from(value: ColorPicker) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct DatePicker(Declaration);
+impl DatePicker {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::DatePicker);
+        Self(declaration)
+    }
+    pub fn day_visible(mut self, day_visible: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::DayVisible, PropertyValue::Bool(day_visible));
+        self
+    }
+    pub fn month_visible(mut self, month_visible: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::MonthVisible, PropertyValue::Bool(month_visible));
+        self
+    }
+    pub fn year_visible(mut self, year_visible: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::YearVisible, PropertyValue::Bool(year_visible));
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = DatePicker::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for DatePicker {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<DatePicker> for Visual {
+    fn from(value: DatePicker) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct TimePicker(Declaration);
+impl TimePicker {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::TimePicker);
+        Self(declaration)
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn minute_increment(mut self, minute_increment: i32) -> Self {
+        assert!(
+            (0..=59).contains(&minute_increment),
+            "TimePicker.MinuteIncrement requires zero_to_fifty_nine"
+        );
+        self.0 = self.0.property(
+            PropertyId::MinuteIncrement,
+            PropertyValue::I32(minute_increment),
+        );
+        self
+    }
+    pub fn clock_identifier(mut self, clock_identifier: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::ClockIdentifier,
+            PropertyValue::String(clock_identifier.into()),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = TimePicker::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for TimePicker {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<TimePicker> for Visual {
+    fn from(value: TimePicker) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct CalendarDatePicker(Declaration);
+impl CalendarDatePicker {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::CalendarDatePicker);
+        Self(declaration)
+    }
+    pub fn placeholder_text(mut self, placeholder_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PlaceholderText,
+            PropertyValue::String(placeholder_text.into()),
+        );
+        self
+    }
+    pub fn is_today_highlighted(mut self, is_today_highlighted: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsTodayHighlighted,
+            PropertyValue::Bool(is_today_highlighted),
+        );
+        self
+    }
+    pub fn is_calendar_open(mut self, is_calendar_open: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsCalendarOpen,
+            PropertyValue::Bool(is_calendar_open),
+        );
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = CalendarDatePicker::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for CalendarDatePicker {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<CalendarDatePicker> for Visual {
+    fn from(value: CalendarDatePicker) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ToolTip(Declaration);
+impl ToolTip {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ToolTip);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ToolTip::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for ToolTip {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ToolTip> for Visual {
+    fn from(value: ToolTip) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ContentDialog(Declaration);
+impl ContentDialog {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ContentDialog);
+        Self(declaration)
+    }
+    pub fn primary_button_text(mut self, primary_button_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PrimaryButtonText,
+            PropertyValue::String(primary_button_text.into()),
+        );
+        self
+    }
+    pub fn secondary_button_text(mut self, secondary_button_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SecondaryButtonText,
+            PropertyValue::String(secondary_button_text.into()),
+        );
+        self
+    }
+    pub fn close_button_text(mut self, close_button_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CloseButtonText,
+            PropertyValue::String(close_button_text.into()),
+        );
+        self
+    }
+    pub fn is_primary_button_enabled(mut self, is_primary_button_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsPrimaryButtonEnabled,
+            PropertyValue::Bool(is_primary_button_enabled),
+        );
+        self
+    }
+    pub fn is_secondary_button_enabled(mut self, is_secondary_button_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsSecondaryButtonEnabled,
+            PropertyValue::Bool(is_secondary_button_enabled),
+        );
+        self
+    }
+    pub fn title(mut self, title: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Title, PropertyValue::String(title.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ContentDialog::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for ContentDialog {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ContentDialog> for Visual {
+    fn from(value: ContentDialog) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct CalendarView(Declaration);
+impl CalendarView {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::CalendarView);
+        Self(declaration)
+    }
+    pub fn is_today_highlighted(mut self, is_today_highlighted: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsTodayHighlighted,
+            PropertyValue::Bool(is_today_highlighted),
+        );
+        self
+    }
+    pub fn is_group_label_visible(mut self, is_group_label_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsGroupLabelVisible,
+            PropertyValue::Bool(is_group_label_visible),
+        );
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    pub fn on_selected_dates_changed(self, callback: impl Fn() + 'static) -> Self {
+        self.on_selected_dates_changed_callback(Callback::new(move |()| callback()))
+    }
+    pub fn on_selected_dates_changed_callback(mut self, callback: Callback<()>) -> Self {
+        self.0 = self
+            .0
+            .event(EventId::SelectedDatesChanged, EventValue::Unit(callback));
+        self
+    }
+}
+impl Default for CalendarView {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<CalendarView> for Visual {
+    fn from(value: CalendarView) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct ListViewItem(Declaration);
+impl ListViewItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::ListViewItem);
+        Self(declaration)
+    }
+    pub fn tag(mut self, tag: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Tag, PropertyValue::String(tag.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = ListViewItem::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for ListViewItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<ListViewItem> for Visual {
+    fn from(value: ListViewItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct GridView(Declaration);
+impl GridView {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::GridView);
+        Self(declaration)
+    }
+    pub fn can_drag_items(mut self, can_drag_items: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CanDragItems,
+            PropertyValue::Bool(can_drag_items),
+        );
+        self
+    }
+    pub fn can_reorder_items(mut self, can_reorder_items: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CanReorderItems,
+            PropertyValue::Bool(can_reorder_items),
+        );
+        self
+    }
+    pub fn allow_drop(mut self, allow_drop: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::AllowDrop, PropertyValue::Bool(allow_drop));
+        self
+    }
+    pub fn selected_index(mut self, selected_index: Option<usize>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SelectedIndex,
+            PropertyValue::SelectionIndex(selected_index),
+        );
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = GridView::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Items,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+    pub fn on_selection_changed(self, callback: impl Fn(Option<usize>) + 'static) -> Self {
+        self.on_selection_changed_callback(Callback::new(callback))
+    }
+    pub fn on_selection_changed_callback(mut self, callback: Callback<Option<usize>>) -> Self {
+        self.0 = self.0.event(
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(callback),
+        );
+        self
+    }
+}
+impl Default for GridView {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<GridView> for Visual {
+    fn from(value: GridView) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct GridViewItem(Declaration);
+impl GridViewItem {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::GridViewItem);
+        Self(declaration)
+    }
+    pub fn tag(mut self, tag: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Tag, PropertyValue::String(tag.into()));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = GridViewItem::new().content(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn content(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for GridViewItem {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<GridViewItem> for Visual {
+    fn from(value: GridViewItem) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RelativePanel(Declaration);
+impl RelativePanel {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::RelativePanel);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = RelativePanel::new().children([keyed("text", TextBlock::new("Text"))]);
+    /// ```
+    pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Children,
+            RelationValue::Many(Rc::new(children.into_iter().map(|child| child.0).collect())),
+        );
+        self
+    }
+}
+impl Default for RelativePanel {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<RelativePanel> for Visual {
+    fn from(value: RelativePanel) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RichEditBox(Declaration);
+impl RichEditBox {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::RichEditBox);
+        Self(declaration)
+    }
+    pub fn placeholder_text(mut self, placeholder_text: impl Into<Rc<str>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::PlaceholderText,
+            PropertyValue::String(placeholder_text.into()),
+        );
+        self
+    }
+    pub fn is_read_only(mut self, is_read_only: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsReadOnly, PropertyValue::Bool(is_read_only));
+        self
+    }
+    pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor2::*;
+    /// let _ = RichEditBox::new().header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn header(mut self, content: impl Into<Visual>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::Header,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+}
+impl Default for RichEditBox {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<RichEditBox> for Visual {
+    fn from(value: RichEditBox) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct RichTextBlock(Declaration);
+impl RichTextBlock {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::RichTextBlock);
+        Self(declaration)
+    }
+    pub fn is_text_selection_enabled(mut self, is_text_selection_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsTextSelectionEnabled,
+            PropertyValue::Bool(is_text_selection_enabled),
+        );
+        self
+    }
+    pub fn text_wrapping(mut self, text_wrapping: TextWrapping) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::TextWrapping, text_wrapping.property_value());
+        self
+    }
+    pub fn font_size(mut self, font_size: f64) -> Self {
+        assert!(
+            font_size.is_finite() && font_size > 0.0,
+            "RichTextBlock.FontSize requires finite_positive"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::FontSize, PropertyValue::F64(font_size));
+        self
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for RichTextBlock {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<RichTextBlock> for Visual {
+    fn from(value: RichTextBlock) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct WebView2(Declaration);
+impl WebView2 {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::WebView2);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for WebView2 {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<WebView2> for Visual {
+    fn from(value: WebView2) -> Self {
+        Self(DeclaredNode::Object(value.0))
+    }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub struct SwapChainPanel(Declaration);
+impl SwapChainPanel {
+    pub fn new() -> Self {
+        let declaration = Declaration::new(ObjectType::SwapChainPanel);
+        Self(declaration)
+    }
+    pub fn canvas_left(mut self, canvas_left: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasLeft, PropertyValue::F64(canvas_left));
+        self
+    }
+    pub fn canvas_top(mut self, canvas_top: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::CanvasTop, PropertyValue::F64(canvas_top));
+        self
+    }
+    pub fn width(mut self, width: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Width, PropertyValue::F64(width));
+        self
+    }
+    pub fn height(mut self, height: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Height, PropertyValue::F64(height));
+        self
+    }
+    pub fn margin(mut self, margin: Thickness) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Margin, PropertyValue::Thickness(margin));
+        self
+    }
+    pub fn horizontal_alignment(mut self, horizontal_alignment: HorizontalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalAlignment,
+            horizontal_alignment.property_value(),
+        );
+        self
+    }
+    pub fn vertical_alignment(mut self, vertical_alignment: VerticalAlignment) -> Self {
+        self.0 = self.0.property(
+            PropertyId::VerticalAlignment,
+            vertical_alignment.property_value(),
+        );
+        self
+    }
+    pub fn opacity(mut self, opacity: f64) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Opacity, PropertyValue::F64(opacity));
+        self
+    }
+    pub fn transitions<T>(self, transitions: T) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        self.transitions_optional(Some(transitions))
+    }
+    pub fn transitions_optional<T>(mut self, transitions: Option<T>) -> Self
+    where
+        T: IntoIterator<Item = ThemeTransition>,
+    {
+        if let Some(transitions) = transitions {
+            self.0 = self.0.property(
+                PropertyId::Transitions,
+                PropertyValue::ThemeTransitions(transitions.into_iter().collect()),
+            );
+        }
+        self
+    }
+}
+impl Default for SwapChainPanel {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl From<SwapChainPanel> for Visual {
+    fn from(value: SwapChainPanel) -> Self {
+        Self(DeclaredNode::Object(value.0))
     }
 }

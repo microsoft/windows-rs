@@ -79,6 +79,8 @@ pub struct MetadataResolver {
     implemented_interfaces: HashMap<(String, String), Vec<(String, String)>>,
     /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
     interface_owners: HashMap<(String, String), Option<(String, String)>>,
+    /// Runtime class and dependency-property getter -> owning static interface.
+    dependency_properties: HashMap<(String, String), InterfaceRef>,
     /// Value-type structs that wrap a single primitive field.
     /// Maps `(namespace, name)` to the unwrapped inner `Type`.
     single_field_types: HashMap<(String, String), (String, Type)>,
@@ -125,6 +127,7 @@ impl MetadataResolver {
         let mut base_classes = HashMap::new();
         let mut implemented_interfaces = HashMap::new();
         let mut content_properties = HashMap::new();
+        let mut dependency_properties = HashMap::new();
 
         // Walk all types in the index, collecting method-to-interface mappings for classes
         // in Microsoft.UI.Xaml namespaces.
@@ -197,6 +200,29 @@ impl MetadataResolver {
             }
         }
 
+        for (namespace, name, typedef) in index.iter() {
+            if !namespace.starts_with("Microsoft.UI.Xaml") {
+                continue;
+            }
+            let Some(class_name) = name
+                .strip_prefix('I')
+                .and_then(|name| name.split_once("Statics").map(|(class, _)| class))
+            else {
+                continue;
+            };
+            for method in typedef.methods() {
+                let method_name = method.name();
+                if method_name.starts_with("get_") && method_name.ends_with("Property") {
+                    dependency_properties
+                        .entry((class_name.to_string(), method_name.to_string()))
+                        .or_insert_with(|| InterfaceRef {
+                            namespace: namespace.to_string(),
+                            name: name.to_string(),
+                        });
+                }
+            }
+        }
+
         // Validate all entries - remove any with namespaces that don't exist in the index.
         lookup.retain(|_, mref| {
             index
@@ -263,6 +289,7 @@ impl MetadataResolver {
             base_classes,
             implemented_interfaces,
             interface_owners,
+            dependency_properties,
             single_field_types,
             enum_variants,
             delegate_params,
@@ -488,6 +515,40 @@ impl MetadataResolver {
             .get(&(interface.namespace.clone(), interface.name.clone()))?
             .as_ref()?;
         Some(format!("{namespace}.{name}"))
+    }
+
+    /// Resolve the runtime class and static interface that expose a dependency property.
+    pub fn dependency_property(
+        &self,
+        class_name: &str,
+        property_name: &str,
+    ) -> Option<(String, &InterfaceRef)> {
+        let method = format!("get_{property_name}Property");
+        let mut current = self
+            .base_classes
+            .keys()
+            .find(|(_, name)| name == class_name)
+            .cloned()
+            .or_else(|| {
+                self.dependency_properties
+                    .keys()
+                    .find(|(name, _)| name == class_name)
+                    .map(|(name, _)| (String::new(), name.clone()))
+            })?;
+        loop {
+            if let Some(interface) = self
+                .dependency_properties
+                .get(&(current.1.clone(), method.clone()))
+            {
+                let class = if current.0.is_empty() {
+                    interface.namespace.clone()
+                } else {
+                    current.0.clone()
+                };
+                return Some((format!("{class}.{}", current.1), interface));
+            }
+            current = self.base_classes.get(&current)?.clone();
+        }
     }
 
     /// Check if a method exists for a class in metadata.

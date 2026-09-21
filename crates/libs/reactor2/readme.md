@@ -31,4 +31,8 @@ Generated visual properties also include typed theme-transition declarations. Om
 transition property clears the WinUI dependency property, while retained equality avoids
 rebuilding unchanged native transition collections.
 
+NavigationView, ListBox, and SelectorBar expose retained selection over keyed item relations.
+Native selection updates controlled item state and invokes the optional Tag or Text callback once;
+application-driven selection, insertion, removal, and reorder suppress native feedback.
+
 This crate is not a supported replacement for `windows-reactor`.

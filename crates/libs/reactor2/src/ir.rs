@@ -16,6 +16,7 @@ pub enum GraphError {
     InvalidPropertyValue(PropertyId),
     InvalidEvent(ObjectType, EventId),
     InvalidEventValue(EventId),
+    InvalidSelection(ObjectType),
     InvalidRelation(ObjectType, RelationId),
     MissingChild(RelationId, ObjectId),
     InvalidChildCategory(RelationId),
@@ -55,9 +56,14 @@ fn validate_object(
             .ok_or(GraphError::InvalidEvent(declaration.kind, event.id))?;
         let valid = matches!(
             (contract.value, &event.value),
-            (ValueType::String, EventValue::String(_))
+            (ValueType::Bool, EventValue::Bool(_))
+                | (ValueType::String, EventValue::String(_))
                 | (ValueType::F64, EventValue::F64(_))
+                | (ValueType::OptionalBool, EventValue::OptionalBool(_))
+                | (ValueType::OptionalF64, EventValue::OptionalF64(_))
                 | (ValueType::PointerEventInfo, EventValue::PointerEventInfo(_))
+                | (ValueType::Selection, EventValue::Selection(_))
+                | (ValueType::SelectionIndex, EventValue::SelectionIndex(_))
                 | (ValueType::Unit, EventValue::Unit(_))
         );
         if !valid {
@@ -126,7 +132,11 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         | (ValueType::Color, PropertyValue::Color(_))
         | (ValueType::CornerRadius, PropertyValue::CornerRadius(_))
         | (ValueType::F64, PropertyValue::F64(_))
+        | (ValueType::I32, PropertyValue::I32(_))
+        | (ValueType::OptionalF64, PropertyValue::OptionalF64(_))
         | (ValueType::OptionalBool, PropertyValue::OptionalBool(_))
+        | (ValueType::SelectionIndex, PropertyValue::SelectionIndex(_))
+        | (ValueType::StringList, PropertyValue::StringList(_))
         | (ValueType::ThemeTransitions, PropertyValue::ThemeTransitions(_))
         | (ValueType::Thickness, PropertyValue::Thickness(_)) => true,
         (
@@ -146,7 +156,7 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
 }
 
 fn validate_child(contract: &RelationContract, child: &Declaration) -> Result<(), GraphError> {
-    if object_category(child.kind) == contract.child {
+    if relation_accepts(contract, child.kind) {
         Ok(())
     } else {
         Err(GraphError::InvalidChildCategory(contract.id))

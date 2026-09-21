@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -15,7 +15,7 @@ const BINDINGS_BASE: &str = "crates/tools/reactor2/src/bindings_base.txt";
 const BINDINGS_FILTER: &str = "crates/tools/reactor2/src/bindings.txt";
 const BINDINGS_OUTPUT: &str = "crates/libs/reactor2/src/native/bindings.rs";
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 struct Schema {
     #[serde(default)]
     attached_properties: Vec<AttachedProperty>,
@@ -24,14 +24,14 @@ struct Schema {
     objects: Vec<Object>,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 struct AttachedProperty {
     name: String,
     owner: String,
     value: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 struct VisualProperty {
     name: String,
     owner: String,
@@ -39,7 +39,7 @@ struct VisualProperty {
     default: Option<String>,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 struct Object {
     name: String,
     category: String,
@@ -53,50 +53,85 @@ struct Object {
     relations: Vec<Relation>,
     #[serde(default)]
     events: Vec<Event>,
+    selection: Option<Selection>,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 struct Property {
     name: String,
     native: Option<String>,
     value: String,
+    adapter: Option<String>,
+    controlled: Option<String>,
+    coerces: Option<String>,
+    feedback: Option<String>,
+    #[serde(default)]
+    clear_feedback: bool,
     #[serde(default)]
     required: bool,
     default: Option<String>,
+    validation: Option<String>,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 struct Relation {
     name: String,
     native: Option<String>,
     child: String,
+    #[serde(default)]
+    allowed_objects: Vec<String>,
     cardinality: String,
     identity: String,
     realization: String,
     method: Option<String>,
     item: Option<String>,
+    native_collection: Option<String>,
+    native_item: Option<String>,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 struct Event {
     name: String,
+    field: Option<String>,
     value: String,
     observes: Option<String>,
+    payload: Option<String>,
+    payload_adapter: Option<String>,
+}
+
+#[derive(Clone, Deserialize, Serialize)]
+struct Selection {
+    relations: Vec<String>,
+    item: String,
+    selected_property: String,
+    selected_item_property: String,
+    event: String,
+    event_item_source: String,
+    event_args: Option<String>,
+    payload_property: String,
 }
 
 fn main() {
     let source = fs::read_to_string(workspace_path(SCHEMA)).unwrap();
     let schema: Schema = toml::from_str(&source).unwrap();
-    validate(&schema);
     let mut args = std::env::args().skip(1);
     if let Some(argument) = args.next() {
         assert!(args.next().is_none(), "unexpected additional argument");
         assert!(
-            argument == "--parity-report" || argument == "--check-parity",
+            matches!(
+                argument.as_str(),
+                "--parity-report" | "--check-parity" | "--convert-old-schema"
+            ),
             "unknown argument `{argument}`"
         );
         let old =
             fs::read_to_string(workspace_path("crates/tools/reactor/src/winui.toml")).unwrap();
+        if argument == "--convert-old-schema" {
+            let metadata = tool_reactor::metadata::MetadataResolver::load(&workspace_path(WINMD));
+            print!("{}", parity::convert(&old, &schema, &metadata).unwrap());
+            return;
+        }
+        validate(&schema);
         let report = parity::compare(&old, &schema).unwrap();
         print!("{}", report.render());
         if argument == "--check-parity" && !report.is_complete() {
@@ -104,6 +139,7 @@ fn main() {
         }
         return;
     }
+    validate(&schema);
     let metadata = tool_reactor::metadata::MetadataResolver::load(&workspace_path(WINMD));
     let generated = rustfmt(&generate(&schema, &metadata));
     let declarations = rustfmt(&generate_declarations(&schema, &metadata));
@@ -213,6 +249,37 @@ fn validate(schema: &Schema) {
             if let Some(native) = &property.native {
                 assert_identifier(native);
             }
+            if let Some(adapter) = &property.adapter {
+                assert!(matches!(
+                    adapter.as_str(),
+                    "clock_identifier"
+                        | "horizontal_content_alignment"
+                        | "inspectable_string"
+                        | "inspectable_string_list"
+                        | "number_box_value"
+                        | "rating_value"
+                        | "selection_index"
+                        | "vertical_content_alignment"
+                ));
+            }
+            if let Some(event) = &property.controlled {
+                assert_identifier(event);
+            }
+            if let Some(event) = &property.coerces {
+                assert_identifier(event);
+            }
+            if let Some(feedback) = &property.feedback {
+                assert!(matches!(
+                    feedback.as_str(),
+                    "synchronous_exact" | "synchronous_normalized" | "deferred_exact"
+                ));
+                assert!(
+                    property.controlled.is_some() || property.coerces.is_some(),
+                    "{}.{} has feedback without an event",
+                    object.name,
+                    property.name
+                );
+            }
             assert!(
                 properties.insert(property.name.as_str()),
                 "duplicate property"
@@ -227,10 +294,17 @@ fn validate(schema: &Schema) {
                 property.name
             );
             assert_identifier(&property.value);
-            if object.native != "handwritten" {
+            if let Some(validation) = &property.validation {
                 assert!(
-                    property.default.is_some(),
-                    "{}.{} requires a default",
+                    matches!(
+                        (validation.as_str(), property.value.as_str()),
+                        (
+                            "finite_positive" | "finite_non_negative",
+                            "F64" | "Thickness" | "CornerRadius"
+                        ) | ("finite", "F64" | "Thickness")
+                            | ("non_negative" | "zero_to_fifty_nine", "I32")
+                    ),
+                    "{}.{} has unsupported validation {validation}",
                     object.name,
                     property.name
                 );
@@ -240,6 +314,110 @@ fn validate(schema: &Schema) {
                     previous, &property.value,
                     "conflicting property value types"
                 );
+            }
+        }
+        for property in object
+            .properties
+            .iter()
+            .filter(|property| property.feedback.is_some())
+        {
+            let event = property
+                .controlled
+                .as_ref()
+                .or(property.coerces.as_ref())
+                .unwrap();
+            assert!(
+                object.events.iter().any(|candidate| {
+                    candidate.name == *event
+                        && candidate.observes.as_deref().is_some_and(|observed| {
+                            property.coerces.is_some() || observed == property.name
+                        })
+                }),
+                "{}.{} feedback event {event} must observe the property",
+                object.name,
+                property.name
+            );
+        }
+        if let Some(selection) = &object.selection {
+            assert!(
+                !selection.relations.is_empty(),
+                "{} has no selection relations",
+                object.name
+            );
+            let item = schema
+                .objects
+                .iter()
+                .find(|candidate| candidate.name == selection.item)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "{} selection item {} does not exist",
+                        object.name, selection.item
+                    )
+                });
+            let selected_property = item
+                .properties
+                .iter()
+                .find(|property| property.name == selection.selected_property)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "{} selection item {} has no property {}",
+                        object.name, selection.item, selection.selected_property
+                    )
+                });
+            assert_eq!(selected_property.value, "Bool");
+            let payload_property = item
+                .properties
+                .iter()
+                .find(|property| property.name == selection.payload_property)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "{} selection item {} has no property {}",
+                        object.name, selection.item, selection.payload_property
+                    )
+                });
+            assert_eq!(payload_property.value, "String");
+            for relation in &selection.relations {
+                let relation = object
+                    .relations
+                    .iter()
+                    .find(|candidate| candidate.name == *relation)
+                    .unwrap_or_else(|| {
+                        panic!(
+                            "{} selection relation {relation} does not exist",
+                            object.name
+                        )
+                    });
+                assert_eq!(relation.cardinality, "Many");
+                assert_eq!(relation.identity, "Keyed");
+                assert_eq!(relation.realization, "Owned");
+                assert!(
+                    relation.allowed_objects.is_empty()
+                        || relation.allowed_objects.contains(&selection.item)
+                );
+            }
+            let event = object
+                .events
+                .iter()
+                .find(|event| event.name == selection.event)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "{} selection event {} does not exist",
+                        object.name, selection.event
+                    )
+                });
+            assert_eq!(event.value, "Selection");
+            assert!(event.observes.is_none());
+            assert!(event.payload.is_none());
+            assert!(matches!(
+                selection.event_item_source.as_str(),
+                "Owner" | "EventArgs"
+            ));
+            match selection.event_item_source.as_str() {
+                "Owner" => assert!(selection.event_args.is_none()),
+                "EventArgs" => {
+                    assert!(selection.event_args.is_some());
+                }
+                _ => unreachable!(),
             }
         }
     }
@@ -263,6 +441,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 &property.name,
                 &property.value,
                 property.default.as_deref(),
+                None,
             );
         }
         for object in schema
@@ -302,18 +481,60 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 native,
                 &property.value,
                 property.default.as_deref(),
+                property.adapter.as_deref(),
             );
         }
         for event in &object.events {
             assert!(matches!(
                 event.value.as_str(),
-                "F64" | "PointerEventInfo" | "String" | "Unit"
+                "Bool"
+                    | "F64"
+                    | "OptionalBool"
+                    | "OptionalF64"
+                    | "PointerEventInfo"
+                    | "Selection"
+                    | "SelectionIndex"
+                    | "String"
+                    | "Unit"
             ));
             metadata
                 .resolve(&native_name(object), &format!("add_{}", event.name))
                 .unwrap_or_else(|| {
                     panic!("cannot resolve {}.add_{}", native_name(object), event.name)
                 });
+            if let Some(payload) = &event.payload {
+                assert!(matches!(
+                    event.payload_adapter.as_deref(),
+                    None | Some("number_box_value" | "rating_value" | "selection_index")
+                ));
+                let (value, _, conversion) = metadata
+                    .resolve_event_args_property(
+                        &native_name(object),
+                        &format!("add_{}", event.name),
+                        payload,
+                    )
+                    .unwrap_or_else(|| {
+                        panic!(
+                            "cannot resolve {}.{} event payload {payload}",
+                            native_name(object),
+                            event.name
+                        )
+                    });
+                assert_eq!(
+                    conversion,
+                    tool_reactor::metadata::ReadValueConversion::Identity
+                );
+                let expected = match event.payload_adapter.as_deref() {
+                    Some("number_box_value" | "rating_value") => "OptionalF64",
+                    Some("selection_index") => "SelectionIndex",
+                    None if value == "Str" => "String",
+                    None => value.as_str(),
+                    _ => unreachable!(),
+                };
+                assert_eq!(event.value, expected);
+            } else {
+                assert!(event.payload_adapter.is_none());
+            }
             if let Some(observed) = &event.observes {
                 let property = object
                     .properties
@@ -325,10 +546,14 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                             object.name, event.name
                         )
                     });
+                let observed_native = native_property(property);
                 metadata
-                    .resolve(&native_name(object), &format!("get_{observed}"))
+                    .resolve(&native_name(object), &format!("get_{observed_native}"))
                     .unwrap_or_else(|| {
-                        panic!("cannot resolve {}.get_{observed}", native_name(object))
+                        panic!(
+                            "cannot resolve {}.get_{observed_native}",
+                            native_name(object)
+                        )
                     });
                 if event.value != "Unit" {
                     assert_eq!(event.value, property.value);
@@ -338,22 +563,110 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
         for relation in &object.relations {
             if relation.realization == "Owned" && relation.cardinality == "One" {
                 let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
-                assert_eq!(
-                    metadata.content_property(&object.native).as_deref(),
-                    Some(native_relation),
-                    "{} content relation does not match metadata",
-                    object.name
-                );
+                metadata
+                    .resolve(&native_name(object), &format!("put_{native_relation}"))
+                    .unwrap_or_else(|| {
+                        panic!(
+                            "cannot resolve {}.put_{native_relation} for relation {}",
+                            native_name(object),
+                            relation.name
+                        )
+                    });
             } else if relation.realization == "Owned" && relation.cardinality == "Many" {
-                assert_eq!(
-                    metadata
-                        .resolve(&native_name(object), "get_Children")
-                        .map(tool_reactor::metadata::InterfaceRef::short_name),
-                    Some("IPanel"),
-                    "{} child collection is not a Panel.Children collection",
-                    object.name
-                );
+                if relation.name == "Children" && relation.native_item.is_none() {
+                    assert_eq!(
+                        metadata
+                            .resolve(&native_name(object), "get_Children")
+                            .map(tool_reactor::metadata::InterfaceRef::short_name),
+                        Some("IPanel"),
+                        "{} child collection is not a Panel.Children collection",
+                        object.name
+                    );
+                } else {
+                    let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
+                    let collection = metadata
+                        .classify_collection(
+                            &native_name(object),
+                            &format!("get_{native_relation}"),
+                        )
+                        .unwrap_or_else(|| {
+                            panic!(
+                                "{}.{native_relation} is not a supported collection",
+                                object.name
+                            )
+                        });
+                    assert!(relation.native_item.is_some());
+                    assert!(matches!(
+                        (relation.native_collection.as_deref(), collection),
+                        (
+                            Some("Vector"),
+                            tool_reactor::metadata::CollectionType::InspectableVector
+                                | tool_reactor::metadata::CollectionType::TypedVector(_)
+                        ) | (
+                            Some("ObservableVector"),
+                            tool_reactor::metadata::CollectionType::ObservableVector(_)
+                        ) | (
+                            Some("ItemCollection"),
+                            tool_reactor::metadata::CollectionType::ItemCollection
+                        )
+                    ));
+                }
             }
+        }
+        if let Some(selection) = &object.selection {
+            metadata
+                .resolve(
+                    &native_name(object),
+                    &format!("get_{}", selection.selected_item_property),
+                )
+                .unwrap_or_else(|| {
+                    panic!(
+                        "cannot resolve {}.get_{}",
+                        native_name(object),
+                        selection.selected_item_property
+                    )
+                });
+            metadata
+                .resolve(
+                    &native_name(object),
+                    &format!("put_{}", selection.selected_item_property),
+                )
+                .unwrap_or_else(|| {
+                    panic!(
+                        "cannot resolve {}.put_{}",
+                        native_name(object),
+                        selection.selected_item_property
+                    )
+                });
+            let item = schema
+                .objects
+                .iter()
+                .find(|candidate| candidate.name == selection.item)
+                .unwrap();
+            metadata
+                .resolve(
+                    &native_name(item),
+                    &format!("get_{}", selection.selected_property),
+                )
+                .unwrap_or_else(|| {
+                    panic!(
+                        "cannot resolve {}.get_{}",
+                        native_name(item),
+                        selection.selected_property
+                    )
+                });
+            metadata
+                .resolve(
+                    &native_name(item),
+                    &format!("get_{}", selection.payload_property),
+                )
+                .unwrap_or_else(|| {
+                    panic!(
+                        "cannot resolve {}.get_{}",
+                        native_name(item),
+                        selection.payload_property
+                    )
+                });
         }
     }
 
@@ -372,6 +685,79 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
             output.push_str("}\n");
         }
     }
+
+    let collection_items = objects
+        .iter()
+        .flat_map(|object| &object.relations)
+        .filter(|relation| {
+            relation.realization == "Owned"
+                && relation.cardinality == "Many"
+                && relation.native_item.as_deref() != Some("IInspectable")
+        })
+        .filter_map(|relation| relation.native_item.as_deref())
+        .collect::<BTreeSet<_>>();
+    output.push_str(
+        "enum GeneratedCollection {\n\
+         Visual(native::UIElementCollection),\n\
+         Inspectable(windows_collections::IVector<IInspectable>),\n",
+    );
+    for item in &collection_items {
+        let item = item.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "{item}(windows_collections::IVector<native::{item}>),\n"
+        ));
+    }
+    output.push_str("}\nimpl GeneratedCollection {\n");
+    output.push_str(
+        "fn size(&self) -> Result<u32, WinUiError> { match self { \
+         Self::Visual(value) => value.Size().map_err(Into::into), \
+         Self::Inspectable(value) => value.Size().map_err(Into::into),",
+    );
+    for item in &collection_items {
+        let item = item.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "Self::{item}(value) => value.Size().map_err(Into::into),"
+        ));
+    }
+    output.push_str("} }\n");
+    output.push_str(
+        "fn get_at(&self, index: u32) -> Result<IInspectable, WinUiError> { match self { \
+         Self::Visual(value) => value.GetAt(index).map(Into::into).map_err(Into::into), \
+         Self::Inspectable(value) => value.GetAt(index).map_err(Into::into),",
+    );
+    for item in &collection_items {
+        let item = item.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "Self::{item}(value) => value.GetAt(index).map(Into::into).map_err(Into::into),"
+        ));
+    }
+    output.push_str("} }\n");
+    output.push_str(
+        "fn insert_at(&self, index: u32, child: &IInspectable) -> Result<(), WinUiError> { \
+         match self { Self::Visual(value) => value.InsertAt(index, \
+         &child.cast::<native::UIElement>()?).map_err(Into::into), \
+         Self::Inspectable(value) => value.InsertAt(index, child).map_err(Into::into),",
+    );
+    for item in &collection_items {
+        let item = item.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "Self::{item}(value) => value.InsertAt(index, &child.cast::<native::{item}>()?)\
+             .map_err(Into::into),"
+        ));
+    }
+    output.push_str(
+        "} }\n\
+         fn remove_at(&self, index: u32) -> Result<(), WinUiError> { match self { \
+         Self::Visual(value) => value.RemoveAt(index).map_err(Into::into), \
+         Self::Inspectable(value) => value.RemoveAt(index).map_err(Into::into),",
+    );
+    for item in &collection_items {
+        let item = item.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "Self::{item}(value) => value.RemoveAt(index).map_err(Into::into),"
+        ));
+    }
+    output.push_str("} }\n}\n");
 
     output.push_str("enum GeneratedHandle {\n");
     for object in &objects {
@@ -404,29 +790,59 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
             ));
             for event in &object.events {
                 let field = snake_case(&event.name);
+                let selection = object
+                    .selection
+                    .as_ref()
+                    .filter(|selection| selection.event == event.name);
                 let interface = metadata
                     .resolve(&native_name(object), &format!("add_{}", event.name))
                     .unwrap()
                     .short_name();
-                if let Some(observed) = &event.observes {
+                if selection.is_none()
+                    && let Some(observed) = &event.observes
+                {
                     let property = object
                         .properties
                         .iter()
                         .find(|property| property.name == *observed)
                         .unwrap();
+                    let observed_native = native_property(property);
                     let observed_interface = metadata
-                        .resolve(&native_name(object), &format!("get_{observed}"))
+                        .resolve(&native_name(object), &format!("get_{observed_native}"))
                         .unwrap()
                         .short_name();
                     output.push_str(&format!("let source_{field} = value.clone();\n"));
                     let read = match property.value.as_str() {
+                        "String" => format!(
+                            "source_{field}.cast::<native::{observed_interface}>()\
+                             .and_then(|source| source.{observed_native}()).map(Rc::<str>::from)"
+                        ),
+                        "Bool" => format!(
+                            "source_{field}.cast::<native::{observed_interface}>()\
+                             .and_then(|source| source.{observed_native}())"
+                        ),
                         "F64" => format!(
                             "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed}())"
+                             .and_then(|source| source.{observed_native}())"
                         ),
                         "OptionalBool" => format!(
                             "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed}()).map(Some)"
+                             .and_then(|source| source.{observed_native}()).map(Some)"
+                        ),
+                        "OptionalF64" => format!(
+                            "source_{field}.cast::<native::{observed_interface}>()\
+                             .and_then(|source| source.{observed_native}())\
+                             .map({})",
+                            if property.adapter.as_deref() == Some("rating_value") {
+                                "rating_value"
+                            } else {
+                                "number_box_value"
+                            }
+                        ),
+                        "SelectionIndex" => format!(
+                            "source_{field}.cast::<native::{observed_interface}>()\
+                             .and_then(|source| source.{observed_native}())\
+                             .map(|value| usize::try_from(value).ok())"
                         ),
                         _ => unreachable!("unsupported generated observation type"),
                     };
@@ -435,15 +851,31 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 output.push_str(&format!(
                     "let {field} = Rc::new(RefCell::new(Native{}Event::default()));\n\
                      let event_for_callback = Rc::clone(&{field});\n\
-                     let event_queue = Rc::clone(event_queue);\n",
+                     let event_queue_{field} = Rc::clone(event_queue);\n",
                     event.value
                 ));
-                if event.value == "PointerEventInfo" {
+                if let Some(selection) = selection {
+                    if selection.event_item_source == "Owner" {
+                        let selected_interface = metadata
+                            .resolve(
+                                &native_name(object),
+                                &format!("get_{}", selection.selected_item_property),
+                            )
+                            .unwrap()
+                            .short_name();
+                        output.push_str(&format!(
+                            "let source_{field} = value.cast::<native::{selected_interface}>()?;\n"
+                        ));
+                    }
+                } else if event.value == "PointerEventInfo" {
                     output.push_str(&format!(
                         "let source_{field} = value.cast::<native::UIElement>()?;\n"
                     ));
                 }
-                let args = if event.value == "PointerEventInfo" {
+                let args = if event.value == "PointerEventInfo"
+                    || event.payload.is_some()
+                    || selection.is_some_and(|selection| selection.event_item_source == "EventArgs")
+                {
                     "args"
                 } else {
                     "_"
@@ -452,39 +884,137 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                     "let revoker = value.cast::<native::{interface}>()?.{}(move |_, {args}| {{\n",
                     event.name
                 ));
-                if let Some(observed) = &event.observes {
+                if let Some(selection) = selection {
+                    let selected = match selection.event_item_source.as_str() {
+                        "Owner" => format!(
+                            "source_{field}.{}().and_then(|selected| \
+                             selected.cast::<IInspectable>())",
+                            selection.selected_item_property
+                        ),
+                        "EventArgs" => {
+                            output.push_str(
+                                "let Some(args) = args.as_ref() else {\n\
+                                 super::app::report_error(WinUiError::InvalidEventArgs.into());\n\
+                                 return;\n\
+                                 };\n",
+                            );
+                            format!(
+                                "args.{}().and_then(|selected| \
+                                 selected.cast::<IInspectable>())",
+                                selection.selected_item_property
+                            )
+                        }
+                        _ => unreachable!(),
+                    };
+                    output.push_str(&format!(
+                        "WinUiAdapter::handle_selection_changed(\n\
+                         &event_for_callback,\n\
+                         &event_queue_{field},\n\
+                         object,\n\
+                         EventId::{},\n\
+                         {selected},\n\
+                         PropertyId::{},\n\
+                         );\n",
+                        event.name, selection.payload_property,
+                    ));
+                } else if let Some(observed) = &event.observes {
                     let property = object
                         .properties
                         .iter()
                         .find(|property| property.name == *observed)
                         .unwrap();
                     let variant = property.value.as_str();
+                    let observed_value = if variant == "String" {
+                        "Rc::clone(&observed)"
+                    } else {
+                        "observed"
+                    };
                     output.push_str(&format!(
-                        "let Ok(observed) = read_{field}() else {{ std::process::abort(); }};\n\
-                         event_queue.observations.borrow_mut().push(Observation::SetProperty {{ \
+                        "let observed = match read_{field}() {{ Ok(value) => value, Err(error) => {{ \
+                         super::app::report_error(error); return; }} }};\n\
+                         let observation = Observation::SetProperty {{ \
                          object, property: Property {{ id: PropertyId::{observed}, \
-                         value: PropertyValue::{variant}(observed) }} }});\n\
-                         WinUiAdapter::schedule_event_wake(&event_queue);\n"
+                         value: PropertyValue::{variant}({observed_value}) }} }};\n\
+                         let dispatch = event_queue_{field}.observe(object, EventId::{}, \
+                         observation.clone());\n\
+                         if dispatch {{ event_queue_{field}.observations.borrow_mut()\
+                         .push(observation); WinUiAdapter::schedule_event_wake(&event_queue_{field}); }}\n",
+                        event.name
+                    ));
+                } else {
+                    output.push_str("let dispatch = true;\n");
+                }
+                if selection.is_none()
+                    && let Some(payload) = &event.payload
+                {
+                    let conversion = match event.payload_adapter.as_deref() {
+                        Some("number_box_value") => ".map(number_box_value)",
+                        Some("rating_value") => ".map(rating_value)",
+                        Some("selection_index") => ".map(|value| usize::try_from(value).ok())",
+                        None if event.value == "String" => ".map(Rc::<str>::from)",
+                        None => "",
+                        _ => unreachable!(),
+                    };
+                    output.push_str(&format!(
+                        "let Some(args) = args.as_ref() else {{ super::app::report_error(\
+                         WinUiError::InvalidEventArgs.into()); return; }};\n\
+                         let payload = match args.{payload}(){conversion} {{ Ok(value) => value, \
+                         Err(error) => {{ super::app::report_error(error); return; }} }};\n"
                     ));
                 }
+                let dispatch_value = if event.payload.is_some() {
+                    "payload"
+                } else {
+                    "observed"
+                };
+                if selection.is_some() {
+                    output.push_str("})?;\n");
+                    output.push_str(&format!("let _{field} = revoker;\n"));
+                    continue;
+                }
                 match event.value.as_str() {
+                    "Bool" => output.push_str(&format!(
+                        "if dispatch {{ WinUiAdapter::dispatch_bool(&event_for_callback, \
+                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                        event.name,
+                    )),
                     "F64" => output.push_str(&format!(
-                        "WinUiAdapter::dispatch_f64(&event_for_callback, &event_queue, object, \
-                         EventId::{}, observed);\n",
-                        event.name
+                        "if dispatch {{ WinUiAdapter::dispatch_f64(&event_for_callback, \
+                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                        event.name,
+                    )),
+                    "OptionalBool" => output.push_str(&format!(
+                        "if dispatch {{ WinUiAdapter::dispatch_optional_bool(&event_for_callback, \
+                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                        event.name,
+                    )),
+                    "OptionalF64" => output.push_str(&format!(
+                        "if dispatch {{ WinUiAdapter::dispatch_optional_f64(&event_for_callback, \
+                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                        event.name,
                     )),
                     "PointerEventInfo" => output.push_str(&format!(
                         "let value = match WinUiAdapter::pointer_event_info(&source_{field}, args) \
                          {{ Ok(value) => value, Err(error) => {{ \
                          super::app::report_error(error.into()); return; }} }};\n\
-                         WinUiAdapter::dispatch_pointer_event_info(&event_for_callback, \
-                         &event_queue, object, EventId::{}, value);\n",
+                         if dispatch {{ WinUiAdapter::dispatch_pointer_event_info(\
+                         &event_for_callback, &event_queue_{field}, object, EventId::{}, value); }}\n",
                         event.name
                     )),
                     "Unit" => output.push_str(&format!(
-                        "WinUiAdapter::dispatch_unit(&event_for_callback, &event_queue, object, \
-                                     EventId::{});\n",
+                        "if dispatch {{ WinUiAdapter::dispatch_unit(&event_for_callback, \
+                         &event_queue_{field}, object, EventId::{}); }}\n",
                         event.name
+                    )),
+                    "SelectionIndex" => output.push_str(&format!(
+                        "if dispatch {{ WinUiAdapter::dispatch_selection_index(&event_for_callback, \
+                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                        event.name,
+                    )),
+                    "String" => output.push_str(&format!(
+                        "if dispatch {{ WinUiAdapter::dispatch_string(&event_for_callback, \
+                         &event_queue_{field}, object, EventId::{}, {dispatch_value}); }}\n",
+                        event.name,
                     )),
                     _ => unreachable!("unsupported generated native event"),
                 }
@@ -529,23 +1059,215 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
     output.push_str("} }\n");
 
     output.push_str(
-        "fn panel_children(&self) -> Option<Result<native::UIElementCollection, WinUiError>> { \
-                     match self {\n",
+        "fn owned_collection(&self, relation: RelationId) -> \
+         Option<Result<GeneratedCollection, WinUiError>> { match (self, relation) {\n",
     );
     for object in &objects {
-        if object
-            .relations
-            .iter()
-            .any(|relation| relation.realization == "Owned" && relation.cardinality == "Many")
-        {
+        for relation in &object.relations {
+            if relation.realization != "Owned" || relation.cardinality != "Many" {
+                continue;
+            }
+            let target = if object.events.is_empty() {
+                "value"
+            } else {
+                "value.value"
+            };
+            if relation.name == "Children" && relation.native_item.is_none() {
+                output.push_str(&format!(
+                    "(Self::{}(value), RelationId::{}) => Some({target}.cast::<native::IPanel>()\
+                     .map_err(Into::into).and_then(|value| value.Children().map(\
+                     GeneratedCollection::Visual).map_err(Into::into))),\n",
+                    object.name, relation.name
+                ));
+                continue;
+            }
+            let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
+            let interface = metadata
+                .resolve(&native_name(object), &format!("get_{native_relation}"))
+                .unwrap()
+                .short_name();
+            let item = relation.native_item.as_deref().unwrap();
+            let conversion = if relation.native_collection.as_deref() == Some("ItemCollection") {
+                ".and_then(|value| value.cast::<windows_collections::IVector<IInspectable>>()\
+                 .map(GeneratedCollection::Inspectable).map_err(Into::into))"
+                    .to_string()
+            } else if item == "IInspectable" {
+                ".map(GeneratedCollection::Inspectable)".to_string()
+            } else {
+                let item = item.rsplit('.').next().unwrap();
+                format!(
+                    ".and_then(|value| value.cast::<windows_collections::IVector<native::{item}>>()\
+                     .map(GeneratedCollection::{item}).map_err(Into::into))"
+                )
+            };
             output.push_str(&format!(
-                            "Self::{}(value) => Some(value.cast::<native::IPanel>()\
-                             .map_err(Into::into).and_then(|value| value.Children().map_err(Into::into))),\n",
-                            object.name
-                        ));
+                "(Self::{}(value), RelationId::{}) => Some({target}.cast::<native::{interface}>()\
+                 .map_err(Into::into).and_then(|value| value.{native_relation}()\
+                 .map_err(Into::into)){conversion}),\n",
+                object.name, relation.name
+            ));
         }
     }
     output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
+        "fn selected_item(&self, event: EventId) -> \
+         Option<Result<Option<IInspectable>, WinUiError>> { match (self, event) {\n",
+    );
+    for object in &objects {
+        let Some(selection) = &object.selection else {
+            continue;
+        };
+        let target = if object.events.is_empty() {
+            "object"
+        } else {
+            "object.value"
+        };
+        let interface = metadata
+            .resolve(
+                &native_name(object),
+                &format!("get_{}", selection.selected_item_property),
+            )
+            .unwrap()
+            .short_name();
+        output.push_str(&format!(
+            "(Self::{}(object), EventId::{}) => Some({target}.cast::<native::{interface}>()\
+             .map_err(Into::into).and_then(|object| match object.{}() {{ \
+             Ok(selected) => selected.cast::<IInspectable>().map(Some).map_err(Into::into), \
+             Err(error) if error.code().is_ok() => Ok(None), Err(error) => Err(error.into()) }})),\n",
+            object.name, selection.event, selection.selected_item_property
+        ));
+    }
+    output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
+        "fn set_selected_item(&self, event: EventId, selected: Option<&IInspectable>) -> \
+         Option<Result<(), WinUiError>> { match (self, event) {\n",
+    );
+    for object in &objects {
+        let Some(selection) = &object.selection else {
+            continue;
+        };
+        let target = if object.events.is_empty() {
+            "object"
+        } else {
+            "object.value"
+        };
+        let interface = metadata
+            .resolve(
+                &native_name(object),
+                &format!("put_{}", selection.selected_item_property),
+            )
+            .unwrap()
+            .short_name();
+        let item_type = metadata
+            .parameter_type_name(
+                &native_name(object),
+                &format!("put_{}", selection.selected_item_property),
+            )
+            .unwrap();
+        let set = if item_type == "IInspectable" {
+            format!(
+                "object.Set{}(selected).map_err(Into::into)",
+                selection.selected_item_property
+            )
+        } else {
+            format!(
+                "match selected {{ Some(selected) => selected.cast::<native::{item_type}>()\
+                 .and_then(|selected| object.Set{}(&selected)).map_err(Into::into), \
+                 None => object.Set{}(None::<&native::{item_type}>).map_err(Into::into) }}",
+                selection.selected_item_property, selection.selected_item_property
+            )
+        };
+        output.push_str(&format!(
+            "(Self::{}(object), EventId::{}) => Some({target}.cast::<native::{interface}>()\
+             .map_err(Into::into).and_then(|object| {set})),\n",
+            object.name, selection.event
+        ));
+    }
+    output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
+        "fn selection_item_is_selected(&self, property: PropertyId) -> \
+         Option<Result<bool, WinUiError>> { match (self, property) {\n",
+    );
+    for object in &objects {
+        for owner in &objects {
+            let Some(selection) = &owner.selection else {
+                continue;
+            };
+            if selection.item != object.name {
+                continue;
+            }
+            let target = if object.events.is_empty() {
+                "object"
+            } else {
+                "object.value"
+            };
+            let interface = metadata
+                .resolve(
+                    &native_name(object),
+                    &format!("get_{}", selection.selected_property),
+                )
+                .unwrap()
+                .short_name();
+            output.push_str(&format!(
+                "(Self::{}(object), PropertyId::{}) => Some({target}.cast::<native::{interface}>()\
+                 .map_err(Into::into).and_then(|object| object.{}().map_err(Into::into))),\n",
+                object.name, selection.selected_property, selection.selected_property
+            ));
+        }
+    }
+    output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
+        "fn selection_payload(property: PropertyId, item: &IInspectable) -> \
+         Result<Option<Rc<str>>, WinUiError> { match property {\n",
+    );
+    let mut payload_properties = BTreeSet::new();
+    for object in &objects {
+        for owner in &objects {
+            let Some(selection) = &owner.selection else {
+                continue;
+            };
+            if selection.item != object.name {
+                continue;
+            }
+            if !payload_properties.insert(selection.payload_property.as_str()) {
+                continue;
+            }
+            let property = object
+                .properties
+                .iter()
+                .find(|property| property.name == selection.payload_property)
+                .unwrap();
+            let native = native_property(property);
+            let interface = metadata
+                .resolve(&native_name(object), &format!("get_{native}"))
+                .unwrap()
+                .short_name();
+            let read = if property.adapter.as_deref() == Some("inspectable_string") {
+                format!(
+                    "item.cast::<native::{interface}>().and_then(|item| item.{native}())\
+                     .and_then(|value| value.cast::<windows_reference::IReference<HSTRING>>())\
+                     .and_then(|value| value.Value()).map(|value| Rc::<str>::from(\
+                     value.to_string_lossy()))"
+                )
+            } else {
+                format!(
+                    "item.cast::<native::{interface}>().and_then(|item| item.{native}())\
+                     .map(Rc::<str>::from)"
+                )
+            };
+            output.push_str(&format!(
+                "PropertyId::{} => match {read} {{ Ok(value) => Ok(Some(value)), \
+                 Err(error) if error.code().is_ok() => Ok(None), \
+                 Err(error) => Err(error.into()) }},\n",
+                selection.payload_property
+            ));
+        }
+    }
+    output.push_str("_ => Err(WinUiError::InvalidEventArgs),\n} }\n");
 
     output.push_str(
         "fn set_attached_property(element: &native::UIElement, property: PropertyId, \
@@ -620,9 +1342,74 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 owner,
                 &property.name,
                 &property.value,
-                default,
+                Some(default),
+                None,
                 metadata,
             );
+        }
+    }
+    output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
+        "fn feedback_expectation(kind: ObjectType, property: PropertyId, \
+         value: Option<&PropertyValue>) -> Option<(EventId, FeedbackExpectation)> { \
+         match (kind, property, value) {\n",
+    );
+    for object in &objects {
+        for property in &object.properties {
+            let Some(feedback) = &property.feedback else {
+                continue;
+            };
+            let event = property
+                .controlled
+                .as_ref()
+                .or(property.coerces.as_ref())
+                .unwrap();
+            match feedback.as_str() {
+                "synchronous_exact" => {
+                    output.push_str(&format!(
+                        "(ObjectType::{}, PropertyId::{}, Some(value)) => \
+                         Some((EventId::{event}, \
+                         FeedbackExpectation::Exact(Property {{ id: PropertyId::{}, \
+                         value: value.clone() }}))),\n",
+                        object.name, property.name, property.name
+                    ));
+                    let clear = match property.value.as_str() {
+                        "Bool" => format!("PropertyValue::Bool({})", property.clear_feedback),
+                        "String" => "PropertyValue::String(Rc::from(\"\"))".to_string(),
+                        "F64" => "PropertyValue::F64(0.0)".to_string(),
+                        "I32" => "PropertyValue::I32(0)".to_string(),
+                        "OptionalBool" => "PropertyValue::OptionalBool(None)".to_string(),
+                        "OptionalF64" => "PropertyValue::OptionalF64(None)".to_string(),
+                        "SelectionIndex" => {
+                            output.push_str(&format!(
+                                "(ObjectType::{}, PropertyId::{}, None) => \
+                                 Some((EventId::{event}, \
+                                 FeedbackExpectation::Normalized {{ observation: None }})),\n",
+                                object.name, property.name
+                            ));
+                            continue;
+                        }
+                        value => panic!(
+                            "{}.{} has unsupported exact feedback value {value}",
+                            object.name, property.name
+                        ),
+                    };
+                    output.push_str(&format!(
+                        "(ObjectType::{}, PropertyId::{}, None) => Some((EventId::{event}, \
+                         FeedbackExpectation::Exact(Property {{ id: PropertyId::{}, \
+                         value: {clear} }}))),\n",
+                        object.name, property.name, property.name
+                    ));
+                }
+                "synchronous_normalized" => output.push_str(&format!(
+                    "(ObjectType::{}, PropertyId::{}, _) => Some((EventId::{event}, \
+                     FeedbackExpectation::Normalized {{ observation: None }})),\n",
+                    object.name, property.name
+                )),
+                "deferred_exact" => {}
+                _ => unreachable!(),
+            }
         }
     }
     output.push_str("_ => None,\n} }\n");
@@ -654,7 +1441,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
                 &native_name(object),
                 native,
                 &property.value,
-                property.default.as_deref().unwrap(),
+                property.default.as_deref(),
+                property.adapter.as_deref(),
                 metadata,
             );
         }
@@ -722,13 +1510,26 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor::metadata::MetadataR
             } else {
                 "object.value"
             };
+            let set = if let Some(item) = &relation.native_item {
+                let item = item.rsplit('.').next().unwrap();
+                format!(
+                    "match child {{ Some(child) => object.Set{native_relation}(\
+                     &child.cast::<native::{item}>()?).map_err(Into::into), \
+                     None => object.Set{native_relation}(None::<&{empty_type}>).map_err(Into::into) }}"
+                )
+            } else {
+                format!(
+                    "match child {{ Some(child) => object.Set{native_relation}(child)\
+                     .map_err(Into::into), None => object.Set{native_relation}(\
+                     None::<&{empty_type}>).map_err(Into::into) }}"
+                )
+            };
             output.push_str(&format!(
-                            "(Self::{}(object), RelationId::{}) => Some({target}\
-                             .cast::<native::{interface}>().map_err(Into::into).and_then(|object| \
-                             match child {{ Some(child) => object.Set{}(child).map_err(Into::into), \
-                             None => object.Set{}(None::<&{empty_type}>).map_err(Into::into) }})),\n",
-                            object.name, relation.name, native_relation, native_relation
-                        ));
+                "(Self::{}(object), RelationId::{}) => Some({target}\
+                 .cast::<native::{interface}>().map_err(Into::into)\
+                 .and_then(|object| {set})),\n",
+                object.name, relation.name
+            ));
         }
     }
     output.push_str("_ => None,\n} }\n");
@@ -782,6 +1583,7 @@ fn validate_native_property(
     native: &str,
     value: &str,
     default: Option<&str>,
+    adapter: Option<&str>,
 ) {
     let method = format!("put_{native}");
     metadata
@@ -797,9 +1599,25 @@ fn validate_native_property(
         metadata.parameter_value(owner, &method).unwrap()
     };
     match value {
+        "StringList" => {
+            assert_eq!(adapter, Some("inspectable_string_list"));
+            assert_eq!(class, tool_reactor::metadata::ParamClass::IInspectable);
+        }
+        "SelectionIndex" => {
+            assert_eq!(adapter, Some("selection_index"));
+            assert_eq!(metadata_value, "I32");
+        }
+        "OptionalF64" => {
+            assert!(matches!(adapter, Some("number_box_value" | "rating_value")));
+            assert_eq!(metadata_value, "F64");
+        }
         "String" => {
-            assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
-            assert_eq!(metadata_value, "Str");
+            if adapter == Some("inspectable_string") {
+                assert_eq!(class, tool_reactor::metadata::ParamClass::IInspectable);
+            } else {
+                assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
+                assert_eq!(metadata_value, "Str");
+            }
         }
         "Bool" => {
             assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
@@ -816,6 +1634,10 @@ fn validate_native_property(
         "F64" => {
             assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
             assert_eq!(metadata_value, "F64");
+        }
+        "I32" => {
+            assert_eq!(class, tool_reactor::metadata::ParamClass::Primitive);
+            assert_eq!(metadata_value, "I32");
         }
         "OptionalBool" => {
             assert_eq!(class, tool_reactor::metadata::ParamClass::NullableBool);
@@ -851,16 +1673,32 @@ fn emit_native_property_arms(
     metadata_owner: &str,
     native: &str,
     value: &str,
-    default: &str,
+    default: Option<&str>,
+    adapter: Option<&str>,
     metadata: &tool_reactor::metadata::MetadataResolver,
 ) {
-    let clear = property_default_parts(value, default);
-    if value == "Color" {
+    let clear = default.map(|default| property_default_parts(value, default));
+    if let Some(clear) = &clear {
         output.push_str(&format!(
             "{pattern}None) => \
              Some({target}.cast::<native::{interface}>().map_err(Into::into)\
              .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n"
         ));
+    } else {
+        let (declaring_class, _) = metadata
+            .dependency_property(metadata_owner, native)
+            .unwrap_or_else(|| {
+                panic!("cannot resolve {metadata_owner}.{native} dependency property")
+            });
+        let declaring_class = declaring_class.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "{pattern}None) => \
+             Some({target}.cast::<native::IDependencyObject>().map_err(Into::into)\
+             .and_then(|object| native::{declaring_class}::{native}Property().map_err(Into::into)\
+             .and_then(|property| object.ClearValue(&property).map_err(Into::into)))),\n"
+        ));
+    }
+    if value == "Color" {
         output.push_str(&format!(
             "{pattern}Some(PropertyValue::Color(value))) => \
              Some({target}.cast::<native::{interface}>().map_err(Into::into)\
@@ -869,10 +1707,59 @@ fn emit_native_property_arms(
         ));
         return;
     }
+    if adapter == Some("inspectable_string") {
+        output.push_str(&format!(
+            "{pattern}Some(PropertyValue::String(value))) => \
+             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| {{ let value: IInspectable = \
+             windows_reference::IReference::from(value.as_ref()).into(); \
+             object.Set{native}(&value).map_err(Into::into) }})),\n"
+        ));
+        return;
+    }
+    if adapter == Some("inspectable_string_list") {
+        output.push_str(&format!(
+            "{pattern}Some(PropertyValue::StringList(value))) => \
+             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| {{ let values: Vec<Option<IInspectable>> = value.iter()\
+             .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()))\
+             .collect(); let values: windows_collections::IVector<IInspectable> = values.into(); \
+             object.Set{native}(&values).map_err(Into::into) }})),\n"
+        ));
+        return;
+    }
+    if adapter == Some("selection_index") {
+        output.push_str(&format!(
+            "{pattern}Some(PropertyValue::SelectionIndex(value))) => \
+             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| {{ let value = native_selection_index(*value)?; \
+             object.Set{native}(value).map_err(Into::into) }})),\n"
+        ));
+        return;
+    }
+    if adapter == Some("number_box_value") {
+        output.push_str(&format!(
+            "{pattern}Some(PropertyValue::OptionalF64(value))) => \
+             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| object.Set{native}(native_number_box_value(*value))\
+             .map_err(Into::into))),\n"
+        ));
+        return;
+    }
+    if adapter == Some("rating_value") {
+        output.push_str(&format!(
+            "{pattern}Some(PropertyValue::OptionalF64(value))) => \
+             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| object.Set{native}(native_rating_value(*value))\
+             .map_err(Into::into))),\n"
+        ));
+        return;
+    }
     let (variant, expression) = match value {
         "String" => ("String", "value.as_ref()"),
         "Bool" => ("Bool", "*value"),
         "F64" => ("F64", "*value"),
+        "I32" => ("I32", "*value"),
         "OptionalBool" => ("OptionalBool", "*value"),
         "CornerRadius" => (
             "CornerRadius",
@@ -893,12 +1780,6 @@ fn emit_native_property_arms(
                 .map(|variant| format!("\"{variant}\" => native::{value}::{variant},"))
                 .collect::<String>();
             output.push_str(&format!(
-                "{pattern}None) => \
-                 Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                 .and_then(|object| object.Set{native}(native::{value}::{clear})\
-                 .map_err(Into::into))),\n"
-            ));
-            output.push_str(&format!(
                 "{pattern}Some(PropertyValue::Enum {{ kind: \"{value}\", variant }})) => \
                  Some({target}.cast::<native::{interface}>().map_err(Into::into)\
                  .and_then(|object| object.Set{native}(match *variant {{ {arms} \
@@ -907,11 +1788,6 @@ fn emit_native_property_arms(
             return;
         }
     };
-    output.push_str(&format!(
-        "{pattern}None) => \
-         Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-         .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n"
-    ));
     output.push_str(&format!(
         "{pattern}Some(PropertyValue::{variant}(value))) => \
          Some({target}.cast::<native::{interface}>().map_err(Into::into)\
@@ -989,13 +1865,18 @@ fn generate_bindings(
                 .unwrap()
                 .full_path();
             generated.insert(format!("{}::{setter}", binding_path(&interface)));
-            if let Some(interface) =
-                metadata.resolve(&native_name(object), &format!("get_{native}"))
-            {
+            if property.default.is_none() {
+                let (_, interface) = metadata
+                    .dependency_property(&native_name(object), native)
+                    .unwrap_or_else(|| {
+                        panic!(
+                            "cannot resolve {}.{native} dependency property",
+                            native_name(object)
+                        )
+                    });
                 generated.insert(format!(
-                    "{}::get_{}",
-                    binding_path(&interface.full_path()),
-                    native
+                    "{}::get_{native}Property",
+                    binding_path(&interface.full_path())
                 ));
             }
             if !is_builtin_value(&property.value) {
@@ -1028,13 +1909,55 @@ fn generate_bindings(
                     "Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_Pointer".to_string(),
                 ]);
             }
+            if let Some(payload) = &event.payload {
+                let (_, interface, _) = metadata
+                    .resolve_event_args_property(
+                        &native_name(object),
+                        &format!("add_{}", event.name),
+                        payload,
+                    )
+                    .unwrap();
+                generated.insert(format!("{}::get_{payload}", binding_path(&interface)));
+            }
             if let Some(observed) = &event.observes {
+                let property = object
+                    .properties
+                    .iter()
+                    .find(|property| property.name == *observed)
+                    .unwrap();
+                let observed_native = native_property(property);
                 let interface = metadata
-                    .resolve(&native_name(object), &format!("get_{observed}"))
+                    .resolve(&native_name(object), &format!("get_{observed_native}"))
                     .unwrap()
                     .full_path();
-                generated.insert(format!("{}::get_{observed}", binding_path(&interface)));
+                generated.insert(format!(
+                    "{}::get_{observed_native}",
+                    binding_path(&interface)
+                ));
             }
+        }
+        if let Some(selection) = &object.selection
+            && selection.event_item_source == "EventArgs"
+        {
+            let interface = metadata
+                .resolve_event_args_object_property(
+                    &native_name(object),
+                    &format!("add_{}", selection.event),
+                    &selection.selected_item_property,
+                )
+                .unwrap();
+            let event_args = selection.event_args.as_deref().unwrap();
+            assert!(
+                interface.ends_with(&format!(".I{event_args}")),
+                "{}.{} event args must be {event_args}",
+                object.name,
+                selection.event
+            );
+            generated.insert(format!(
+                "{}::get_{}",
+                binding_path(&interface),
+                selection.selected_item_property
+            ));
         }
         for relation in &object.relations {
             if relation.realization == "Owned" && relation.cardinality == "One" {
@@ -1046,7 +1969,51 @@ fn generate_bindings(
                     .full_path();
                 generated.insert(format!("{}::{method}", binding_path(&interface)));
             } else if relation.realization == "Owned" && relation.cardinality == "Many" {
-                generated.insert("Microsoft::UI::Xaml::Controls::IPanel::get_Children".to_string());
+                if relation.name == "Children" && relation.native_item.is_none() {
+                    generated
+                        .insert("Microsoft::UI::Xaml::Controls::IPanel::get_Children".to_string());
+                } else {
+                    let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
+                    let interface = metadata
+                        .resolve(&native_name(object), &format!("get_{native_relation}"))
+                        .unwrap()
+                        .full_path();
+                    generated.insert(format!(
+                        "{}::get_{native_relation}",
+                        binding_path(&interface)
+                    ));
+                }
+            }
+        }
+        if let Some(selection) = &object.selection {
+            for method in [
+                format!("get_{}", selection.selected_item_property),
+                format!("put_{}", selection.selected_item_property),
+            ] {
+                let interface = metadata
+                    .resolve(&native_name(object), &method)
+                    .unwrap()
+                    .full_path();
+                generated.insert(format!("{}::{method}", binding_path(&interface)));
+            }
+            let item = schema
+                .objects
+                .iter()
+                .find(|candidate| candidate.name == selection.item)
+                .unwrap();
+            for property in [&selection.selected_property, &selection.payload_property] {
+                let native = item
+                    .properties
+                    .iter()
+                    .find(|candidate| candidate.name == *property)
+                    .map(native_property)
+                    .unwrap();
+                let method = format!("get_{native}");
+                let interface = metadata
+                    .resolve(&native_name(item), &method)
+                    .unwrap()
+                    .full_path();
+                generated.insert(format!("{}::{method}", binding_path(&interface)));
             }
         }
     }
@@ -1075,6 +2042,14 @@ fn validate_relations(schema: &Schema) {
                 "duplicate relation"
             );
             assert!(categories.contains(&relation.child.as_str()));
+            for allowed in &relation.allowed_objects {
+                let allowed = schema
+                    .objects
+                    .iter()
+                    .find(|object| object.name == *allowed)
+                    .unwrap_or_else(|| panic!("unknown allowed object `{allowed}`"));
+                assert_eq!(allowed.category, relation.child);
+            }
             assert!(cardinalities.contains(&relation.cardinality.as_str()));
             assert!(identities.contains(&relation.identity.as_str()));
             assert!(realizations.contains(&relation.realization.as_str()));
@@ -1092,10 +2067,21 @@ fn validate_relations(schema: &Schema) {
         let mut events = BTreeSet::new();
         for event in &object.events {
             assert_identifier(&event.name);
+            if let Some(field) = &event.field {
+                assert_identifier(field);
+            }
             assert!(events.insert(event.name.as_str()), "duplicate event");
             assert!(matches!(
                 event.value.as_str(),
-                "String" | "F64" | "PointerEventInfo" | "Unit"
+                "Bool"
+                    | "F64"
+                    | "OptionalBool"
+                    | "OptionalF64"
+                    | "PointerEventInfo"
+                    | "Selection"
+                    | "SelectionIndex"
+                    | "String"
+                    | "Unit"
             ));
         }
     }
@@ -1207,10 +2193,15 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
               Color,\n\
               CornerRadius,\n\
               F64,\n\
+              I32,\n\
               OptionalBool,\n\
+              OptionalF64,\n\
               PointerEventInfo,\n\
+               Selection,\n\
                ThemeTransitions,\n\
                Thickness,\n\
+               SelectionIndex,\n\
+               StringList,\n\
              Enum { kind: &'static str, variants: &'static [&'static str] },\n\
              Unit,\n\
          }\n\
@@ -1218,9 +2209,22 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
          pub struct RelationContract {\n\
              pub id: RelationId,\n\
              pub child: ObjectCategory,\n\
+             pub allowed_objects: &'static [ObjectType],\n\
              pub cardinality: Cardinality,\n\
              pub identity: Identity,\n\
              pub realization: Realization,\n\
+         }\n\
+         #[derive(Clone, Copy, Debug, Eq, PartialEq)]\n\
+         pub enum SelectionEventItemSource { Owner, EventArgs }\n\
+         #[derive(Clone, Copy, Debug, Eq, PartialEq)]\n\
+         pub struct SelectionContract {\n\
+             pub relations: &'static [RelationId],\n\
+             pub item: ObjectType,\n\
+             pub selected_property: PropertyId,\n\
+             pub event: EventId,\n\
+             pub event_item_source: SelectionEventItemSource,\n\
+             pub event_args: Option<&'static str>,\n\
+             pub payload_property: PropertyId,\n\
          }\n",
     );
 
@@ -1232,6 +2236,53 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
         ));
     }
     output.push_str("} }\n");
+
+    output.push_str(
+        "pub fn selection_contract(kind: ObjectType) -> Option<SelectionContract> { match kind {\n",
+    );
+    for object in &schema.objects {
+        if let Some(selection) = &object.selection {
+            output.push_str(&format!(
+                "ObjectType::{} => Some(SelectionContract {{ relations: &[{}], \
+                 item: ObjectType::{}, selected_property: PropertyId::{}, \
+                 event: EventId::{}, event_item_source: SelectionEventItemSource::{}, \
+                 event_args: {}, payload_property: PropertyId::{} }}),\n",
+                object.name,
+                selection
+                    .relations
+                    .iter()
+                    .map(|relation| format!("RelationId::{relation},"))
+                    .collect::<String>(),
+                selection.item,
+                selection.selected_property,
+                selection.event,
+                selection.event_item_source,
+                selection
+                    .event_args
+                    .as_ref()
+                    .map_or_else(|| "None".to_string(), |value| format!("Some({value:?})")),
+                selection.payload_property
+            ));
+        }
+    }
+    output.push_str("_ => None,\n} }\n");
+    output.push_str(
+        "pub fn selection_for_relation(kind: ObjectType, relation: RelationId) -> \
+         Option<SelectionContract> { selection_contract(kind)\
+         .filter(|selection| selection.relations.contains(&relation)) }\n",
+    );
+    output.push_str(
+        "pub fn selection_for_item_property(owner: ObjectType, relation: RelationId, \
+         item: ObjectType, property: PropertyId) -> Option<SelectionContract> { \
+         selection_for_relation(owner, relation).filter(|selection| \
+         selection.item == item && selection.selected_property == property) }\n",
+    );
+    output.push_str(
+        "pub fn relation_accepts(contract: &RelationContract, kind: ObjectType) -> bool {\n\
+             object_category(kind) == contract.child\n\
+                 && (contract.allowed_objects.is_empty() || contract.allowed_objects.contains(&kind))\n\
+         }\n",
+    );
 
     output.push_str(
         "pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] { match kind {\n",
@@ -1321,10 +2372,16 @@ fn generate(schema: &Schema, metadata: &tool_reactor::metadata::MetadataResolver
         for relation in &object.relations {
             output.push_str(&format!(
                 "RelationContract {{ id: RelationId::{}, child: ObjectCategory::{}, \
+                 allowed_objects: &[{}], \
                  cardinality: Cardinality::{}, identity: Identity::{}, \
                  realization: Realization::{} }},",
                 relation.name,
                 relation.child,
+                relation
+                    .allowed_objects
+                    .iter()
+                    .map(|object| format!("ObjectType::{object},"))
+                    .collect::<String>(),
                 relation.cardinality,
                 relation.identity,
                 relation.realization
@@ -1442,6 +2499,23 @@ fn generate_declarations(
                 "pub fn {name}(mut self, {}) -> Self {{\n",
                 property_argument(property)
             ));
+            if let Some(validation) = &property.validation {
+                let expression = match validation.as_str() {
+                    "finite" => format!("{name}.is_finite()"),
+                    "finite_positive" => format!("{name}.is_finite() && {name} > 0.0"),
+                    "finite_non_negative" if property.value == "F64" => {
+                        format!("{name}.is_finite() && {name} >= 0.0")
+                    }
+                    "finite_non_negative" => format!("{name}.is_finite_non_negative()"),
+                    "non_negative" => format!("{name} >= 0"),
+                    "zero_to_fifty_nine" => format!("(0..=59).contains(&{name})"),
+                    _ => unreachable!(),
+                };
+                output.push_str(&format!(
+                    "assert!({expression}, \"{}.{} requires {validation}\");\n",
+                    object.name, property.name
+                ));
+            }
             output.push_str(&format!(
                 "self.0 = self.0.property(PropertyId::{}, {});\nself\n}}\n",
                 property.name,
@@ -1562,7 +2636,11 @@ fn generate_declarations(
         }
 
         for event in &object.events {
-            let method = snake_case(&event.name);
+            let method = event
+                .field
+                .as_deref()
+                .and_then(|field| field.strip_prefix("on_"))
+                .map_or_else(|| snake_case(&event.name), str::to_string);
             match event.value.as_str() {
                 "String" => {
                     output.push_str(&format!(
@@ -1576,6 +2654,17 @@ fn generate_declarations(
                         event.name
                     ));
                 }
+                "Bool" => {
+                    output.push_str(&format!(
+                        "pub fn on_{method}(self, callback: impl Fn(bool) + 'static) -> Self {{ \
+                         self.on_{method}_callback(Callback::new(callback)) }}\n"
+                    ));
+                    output.push_str(&format!(
+                        "pub fn on_{method}_callback(mut self, callback: Callback<bool>) -> Self {{ \
+                         self.0 = self.0.event(EventId::{}, EventValue::Bool(callback)); self }}\n",
+                        event.name
+                    ));
+                }
                 "F64" => {
                     output.push_str(&format!(
                         "pub fn on_{method}(self, callback: impl Fn(f64) + 'static) -> Self {{ \
@@ -1584,6 +2673,42 @@ fn generate_declarations(
                     output.push_str(&format!(
                         "pub fn on_{method}_callback(mut self, callback: Callback<f64>) -> Self {{ \
                          self.0 = self.0.event(EventId::{}, EventValue::F64(callback)); self }}\n",
+                        event.name
+                    ));
+                }
+                "OptionalBool" => {
+                    output.push_str(&format!(
+                        "pub fn on_{method}(self, callback: impl Fn(Option<bool>) + 'static) -> Self \
+                         {{ self.on_{method}_callback(Callback::new(callback)) }}\n"
+                    ));
+                    output.push_str(&format!(
+                        "pub fn on_{method}_callback(mut self, callback: Callback<Option<bool>>) -> \
+                         Self {{ self.0 = self.0.event(EventId::{}, \
+                         EventValue::OptionalBool(callback)); self }}\n",
+                        event.name
+                    ));
+                }
+                "OptionalF64" => {
+                    output.push_str(&format!(
+                        "pub fn on_{method}(self, callback: impl Fn(Option<f64>) + 'static) -> Self \
+                         {{ self.on_{method}_callback(Callback::new(callback)) }}\n"
+                    ));
+                    output.push_str(&format!(
+                        "pub fn on_{method}_callback(mut self, callback: Callback<Option<f64>>) -> \
+                         Self {{ self.0 = self.0.event(EventId::{}, \
+                         EventValue::OptionalF64(callback)); self }}\n",
+                        event.name
+                    ));
+                }
+                "Selection" => {
+                    output.push_str(&format!(
+                        "pub fn on_{method}(self, callback: impl Fn(Option<Rc<str>>) + 'static) -> \
+                         Self {{ self.on_{method}_callback(Callback::new(callback)) }}\n"
+                    ));
+                    output.push_str(&format!(
+                        "pub fn on_{method}_callback(mut self, callback: \
+                         Callback<Option<Rc<str>>>) -> Self {{ self.0 = \
+                         self.0.event(EventId::{}, EventValue::Selection(callback)); self }}\n",
                         event.name
                     ));
                 }
@@ -1608,6 +2733,18 @@ fn generate_declarations(
                     output.push_str(&format!(
                         "pub fn on_{method}_callback(mut self, callback: Callback<()>) -> Self {{ \
                          self.0 = self.0.event(EventId::{}, EventValue::Unit(callback)); self }}\n",
+                        event.name
+                    ));
+                }
+                "SelectionIndex" => {
+                    output.push_str(&format!(
+                        "pub fn on_{method}(self, callback: impl Fn(Option<usize>) + 'static) -> \
+                         Self {{ self.on_{method}_callback(Callback::new(callback)) }}\n"
+                    ));
+                    output.push_str(&format!(
+                        "pub fn on_{method}_callback(mut self, callback: \
+                         Callback<Option<usize>>) -> Self {{ self.0 = \
+                         self.0.event(EventId::{}, EventValue::SelectionIndex(callback)); self }}\n",
                         event.name
                     ));
                 }
@@ -1645,7 +2782,11 @@ fn property_argument_parts(name: &str, value: &str) -> String {
         "Color" => format!("{name}: Color"),
         "CornerRadius" => format!("{name}: CornerRadius"),
         "F64" => format!("{name}: f64"),
+        "I32" => format!("{name}: i32"),
+        "OptionalF64" => format!("{name}: Option<f64>"),
         "OptionalBool" => format!("{name}: Option<bool>"),
+        "SelectionIndex" => format!("{name}: Option<usize>"),
+        "StringList" => format!("{name}: impl IntoIterator<Item = impl Into<Rc<str>>>"),
         "Thickness" => format!("{name}: Thickness"),
         value => format!("{name}: {value}"),
     }
@@ -1662,7 +2803,13 @@ fn property_value_parts(value: &str, name: &str) -> String {
         "Color" => format!("PropertyValue::Color({name})"),
         "CornerRadius" => format!("PropertyValue::CornerRadius({name})"),
         "F64" => format!("PropertyValue::F64({name})"),
+        "I32" => format!("PropertyValue::I32({name})"),
+        "OptionalF64" => format!("PropertyValue::OptionalF64({name})"),
         "OptionalBool" => format!("PropertyValue::OptionalBool({name})"),
+        "SelectionIndex" => format!("PropertyValue::SelectionIndex({name})"),
+        "StringList" => {
+            format!("PropertyValue::StringList({name}.into_iter().map(Into::into).collect())")
+        }
         "Thickness" => format!("PropertyValue::Thickness({name})"),
         _ => format!("{name}.property_value()"),
     }
@@ -1675,10 +2822,14 @@ fn property_default_parts(value_type: &str, value: &str) -> String {
         "Color" => "None::<&native::Brush>".to_string(),
         "CornerRadius" => "native::CornerRadius::default()".to_string(),
         "F64" => value.to_string(),
+        "I32" => value.to_string(),
+        "OptionalF64" => "None".to_string(),
         "OptionalBool" if value == "none" => "None".to_string(),
         "OptionalBool" => format!("Some({value})"),
         "Thickness" => "native::Thickness::default()".to_string(),
-        _ => value.to_string(),
+        "SelectionIndex" => "None".to_string(),
+        "StringList" => "Vec::<Option<IInspectable>>::new().into()".to_string(),
+        _ => format!("native::{value_type}::{value}"),
     }
 }
 
@@ -1698,7 +2849,11 @@ fn example_constructor(object: &Object) -> String {
             "Color" => "Color::rgb(0, 0, 0)".to_string(),
             "CornerRadius" => "CornerRadius::uniform(0.0)".to_string(),
             "F64" => "0.0".to_string(),
+            "I32" => "0".to_string(),
+            "OptionalF64" => "None".to_string(),
             "OptionalBool" => "None".to_string(),
+            "SelectionIndex" => "None".to_string(),
+            "StringList" => "std::iter::empty::<&str>()".to_string(),
             "Thickness" => "Thickness::uniform(0.0)".to_string(),
             value => format!("{value}::{}", property.default.as_deref().unwrap()),
         });
@@ -1714,7 +2869,12 @@ fn is_builtin_value(value: &str) -> bool {
             | "Color"
             | "CornerRadius"
             | "F64"
+            | "I32"
+            | "OptionalF64"
             | "OptionalBool"
+            | "SelectionIndex"
+            | "Selection"
+            | "StringList"
             | "ThemeTransitions"
             | "Thickness"
     )
@@ -1778,14 +2938,59 @@ fn checked_output_is_current() {
         fs::read_to_string(workspace_path(DECLARATIONS_OUTPUT)).unwrap(),
         rustfmt(&generate_declarations(&schema, &metadata))
     );
+    let native = rustfmt(&generate_native(&schema, &metadata));
     assert_eq!(
         fs::read_to_string(workspace_path(NATIVE_OUTPUT)).unwrap(),
-        rustfmt(&generate_native(&schema, &metadata))
+        native
+    );
+    assert!(!native.contains("std::process::abort"));
+    assert!(native.contains("super::app::report_error(error)"));
+    assert!(native.contains("args.NewValue().map(number_box_value)"));
+    assert!(native.contains("args.NewValue()"));
+    assert!(native.contains("WinUiAdapter::handle_selection_changed"));
+    assert!(native.contains("let Some(args) = args.as_ref() else"));
+    assert!(native.contains("args.SelectedItem()"));
+    let navigation = native
+        .split("ObjectType::NavigationView =>")
+        .nth(1)
+        .unwrap()
+        .split("ObjectType::NavigationViewItem =>")
+        .next()
+        .unwrap();
+    assert!(!navigation.contains("source_selection_changed"));
+    assert!(native.contains("fn selected_item("));
+    assert!(native.contains("fn set_selected_item("));
+    let number_box = schema
+        .objects
+        .iter()
+        .find(|object| object.name == "NumberBox")
+        .unwrap();
+    let value_changed = number_box
+        .events
+        .iter()
+        .find(|event| event.name == "ValueChanged")
+        .unwrap();
+    assert_eq!(value_changed.payload.as_deref(), Some("NewValue"));
+    assert_eq!(
+        value_changed.payload_adapter.as_deref(),
+        Some("number_box_value")
+    );
+    assert_eq!(
+        schema
+            .objects
+            .iter()
+            .filter(|object| object.selection.is_some())
+            .count(),
+        3
     );
     assert_eq!(
         fs::read_to_string(workspace_path(BINDINGS_FILTER)).unwrap(),
         generate_bindings(&schema, &metadata)
     );
+    let bindings = fs::read_to_string(workspace_path(BINDINGS_FILTER)).unwrap();
+    assert!(bindings.contains(
+        "Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem"
+    ));
 }
 
 #[test]
@@ -1812,4 +3017,25 @@ fn rejects_local_visual_property_collision() {
     )
     .unwrap();
     validate(&schema);
+}
+
+#[test]
+fn missing_default_clears_declaring_dependency_property() {
+    let metadata = tool_reactor::metadata::MetadataResolver::load(&workspace_path(WINMD));
+    let mut output = String::new();
+    emit_native_property_arms(
+        &mut output,
+        "(Self::Button(object), PropertyId::Background, ",
+        "object",
+        "IControl",
+        "Button",
+        "Background",
+        "Color",
+        None,
+        None,
+        &metadata,
+    );
+    assert!(output.contains("native::Control::BackgroundProperty()"));
+    assert!(output.contains("object.ClearValue(&property)"));
+    assert!(!output.contains("SetBackground(None"));
 }

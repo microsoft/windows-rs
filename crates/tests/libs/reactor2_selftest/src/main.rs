@@ -466,11 +466,16 @@ impl Component for Fixture {
             .adapter()
             .validate_graph(pointer_runtime.graph())
             .unwrap();
-        Self::inject_pointer_click().unwrap();
         let mut generated_runtime =
             reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
         let slider_changed = Rc::new(Cell::new(0.0));
+        let slider_changed_count = Rc::new(Cell::new(0));
         let slider_changed_callback = Rc::clone(&slider_changed);
+        let slider_count_callback = Rc::clone(&slider_changed_count);
+        let toggle_changed = Rc::new(Cell::new(false));
+        let toggle_changed_count = Rc::new(Cell::new(0));
+        let toggle_changed_callback = Rc::clone(&toggle_changed);
+        let toggle_count_callback = Rc::clone(&toggle_changed_count);
         generated_runtime
             .update(
                 reactor2::StackPanel::new()
@@ -481,7 +486,17 @@ impl Component for Fixture {
                             .minimum(-10.0)
                             .maximum(10.0)
                             .value(2.5)
-                            .on_value_changed(move |value| slider_changed_callback.set(value))
+                            .on_value_changed(move |value| {
+                                slider_changed_callback.set(value);
+                                slider_count_callback.set(slider_count_callback.get() + 1);
+                            })
+                            .into(),
+                        reactor2::ToggleSwitch::new()
+                            .is_on(true)
+                            .on_toggled(move |value| {
+                                toggle_changed_callback.set(value);
+                                toggle_count_callback.set(toggle_count_callback.get() + 1);
+                            })
                             .into(),
                         reactor2::CheckBox::new()
                             .is_checked(Some(true))
@@ -497,6 +512,16 @@ impl Component for Fixture {
                                 .into()]),
                             )
                             .into(),
+                        reactor2::SelectorBar::new()
+                            .items([reactor2::keyed(
+                                "only",
+                                reactor2::SelectorBarItem::new().text("Only"),
+                            )])
+                            .into(),
+                        reactor2::AppBarButton::new()
+                            .label("Icon")
+                            .icon(reactor2::SymbolIcon::new())
+                            .into(),
                     ]),
             )
             .unwrap();
@@ -510,8 +535,9 @@ impl Component for Fixture {
             .children(generated_root, reactor2::RelationId::Children)
             .unwrap();
         let slider = generated_children[0];
-        let check_box = generated_children[1];
-        let scroll_viewer = generated_children[2];
+        let toggle = generated_children[1];
+        let check_box = generated_children[2];
+        let scroll_viewer = generated_children[3];
         let canvas = generated_runtime
             .graph()
             .child(scroll_viewer, reactor2::RelationId::Content)
@@ -537,6 +563,12 @@ impl Component for Fixture {
                 .check_box_state(check_box)
                 .unwrap()
         );
+        assert!(
+            generated_runtime
+                .adapter()
+                .toggle_switch_state(toggle)
+                .unwrap()
+        );
         assert_eq!(
             generated_runtime
                 .adapter()
@@ -544,11 +576,110 @@ impl Component for Fixture {
                 .unwrap(),
             (12.0, 24.0)
         );
+        let mut generated_events = Vec::new();
+        generated_runtime
+            .drain_events(&mut generated_events)
+            .unwrap();
+        assert!(generated_events.is_empty());
+        assert_eq!(slider_changed_count.get(), 0);
+        assert_eq!(toggle_changed_count.get(), 0);
+        generated_runtime
+            .update(
+                reactor2::StackPanel::new()
+                    .spacing(8.0)
+                    .orientation(reactor2::Orientation::Horizontal)
+                    .children([
+                        reactor2::Slider::new()
+                            .minimum(-10.0)
+                            .maximum(10.0)
+                            .value(6.0)
+                            .on_value_changed({
+                                let value = Rc::clone(&slider_changed);
+                                let count = Rc::clone(&slider_changed_count);
+                                move |next| {
+                                    value.set(next);
+                                    count.set(count.get() + 1);
+                                }
+                            })
+                            .into(),
+                        reactor2::ToggleSwitch::new()
+                            .is_on(false)
+                            .on_toggled({
+                                let value = Rc::clone(&toggle_changed);
+                                let count = Rc::clone(&toggle_changed_count);
+                                move |next| {
+                                    value.set(next);
+                                    count.set(count.get() + 1);
+                                }
+                            })
+                            .into(),
+                        reactor2::CheckBox::new()
+                            .is_checked(Some(true))
+                            .content(reactor2::TextBlock::new("Enabled"))
+                            .into(),
+                        reactor2::ScrollViewer::new()
+                            .content(
+                                reactor2::Canvas::new().children([reactor2::TextBlock::new(
+                                    "Scrollable canvas",
+                                )
+                                .canvas_left(12.0)
+                                .canvas_top(24.0)
+                                .into()]),
+                            )
+                            .into(),
+                        reactor2::SelectorBar::new()
+                            .items([
+                                reactor2::keyed(
+                                    "first",
+                                    reactor2::SelectorBarItem::new().text("First"),
+                                ),
+                                reactor2::keyed(
+                                    "second",
+                                    reactor2::SelectorBarItem::new().text("Second"),
+                                ),
+                            ])
+                            .into(),
+                        reactor2::AppBarButton::new()
+                            .label("Icon")
+                            .icon(reactor2::SymbolIcon::new())
+                            .into(),
+                    ]),
+            )
+            .unwrap();
+        generated_runtime
+            .drain_events(&mut generated_events)
+            .unwrap();
+        assert!(generated_events.is_empty());
+        assert_eq!(slider_changed_count.get(), 0);
+        assert_eq!(toggle_changed_count.get(), 0);
+        assert_eq!(
+            generated_runtime.adapter().slider_state(slider).unwrap().2,
+            6.0
+        );
+        assert!(
+            generated_runtime
+                .graph()
+                .properties(slider)
+                .unwrap()
+                .contains(&reactor2::Property {
+                    id: reactor2::PropertyId::Value,
+                    value: reactor2::PropertyValue::F64(6.0),
+                })
+        );
+        assert!(
+            !generated_runtime
+                .adapter()
+                .toggle_switch_state(toggle)
+                .unwrap()
+        );
         generated_runtime
             .adapter()
             .set_slider_value(slider, 7.5)
             .unwrap();
-        let mut generated_events = Vec::new();
+        generated_runtime
+            .adapter()
+            .set_toggle_switch_is_on(toggle, true)
+            .unwrap();
         generated_runtime
             .drain_events(&mut generated_events)
             .unwrap();
@@ -556,6 +687,9 @@ impl Component for Fixture {
             event.invoke();
         }
         assert_eq!(slider_changed.get(), 7.5);
+        assert_eq!(slider_changed_count.get(), 1);
+        assert!(toggle_changed.get());
+        assert_eq!(toggle_changed_count.get(), 1);
         assert!(
             generated_runtime
                 .graph()
@@ -566,6 +700,16 @@ impl Component for Fixture {
                     value: reactor2::PropertyValue::F64(7.5),
                 })
         );
+        assert!(
+            generated_runtime
+                .graph()
+                .properties(toggle)
+                .unwrap()
+                .contains(&reactor2::Property {
+                    id: reactor2::PropertyId::IsOn,
+                    value: reactor2::PropertyValue::Bool(true),
+                })
+        );
         generated_runtime
             .adapter()
             .validate_graph(generated_runtime.graph())
@@ -574,6 +718,7 @@ impl Component for Fixture {
             .update(
                 reactor2::StackPanel::new().children([
                     reactor2::Slider::new().into(),
+                    reactor2::ToggleSwitch::new().into(),
                     reactor2::CheckBox::new()
                         .content(reactor2::TextBlock::new("Enabled"))
                         .into(),
@@ -582,6 +727,22 @@ impl Component for Fixture {
                             reactor2::Canvas::new()
                                 .children([reactor2::TextBlock::new("Scrollable canvas").into()]),
                         )
+                        .into(),
+                    reactor2::SelectorBar::new()
+                        .items([
+                            reactor2::keyed(
+                                "first",
+                                reactor2::SelectorBarItem::new().text("First"),
+                            ),
+                            reactor2::keyed(
+                                "second",
+                                reactor2::SelectorBarItem::new().text("Second"),
+                            ),
+                        ])
+                        .into(),
+                    reactor2::AppBarButton::new()
+                        .label("Icon")
+                        .icon(reactor2::SymbolIcon::new())
                         .into(),
                 ]),
             )
@@ -613,6 +774,384 @@ impl Component for Fixture {
             .unwrap();
         assert_eq!(cleared_position, (0.0, 0.0));
         generated_window.close().unwrap();
+
+        let password_value = Rc::new(RefCell::new(Rc::<str>::from("")));
+        let password_count = Rc::new(Cell::new(0));
+        let rating_value = Rc::new(Cell::new(None));
+        let rating_count = Rc::new(Cell::new(0));
+        let selected_index = Rc::new(Cell::new(None));
+        let selected_index_count = Rc::new(Cell::new(0));
+        let mut payload_runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        payload_runtime
+            .update(
+                reactor2::StackPanel::new().children([
+                    reactor2::PasswordBox::new()
+                        .on_password_changed({
+                            let value = Rc::clone(&password_value);
+                            let count = Rc::clone(&password_count);
+                            move |next| {
+                                *value.borrow_mut() = next;
+                                count.set(count.get() + 1);
+                            }
+                        })
+                        .into(),
+                    reactor2::RatingControl::new()
+                        .on_value_changed({
+                            let value = Rc::clone(&rating_value);
+                            let count = Rc::clone(&rating_count);
+                            move |next| {
+                                value.set(next);
+                                count.set(count.get() + 1);
+                            }
+                        })
+                        .into(),
+                    reactor2::ComboBox::new()
+                        .items_source(["First", "Second"])
+                        .on_selection_changed({
+                            let value = Rc::clone(&selected_index);
+                            let count = Rc::clone(&selected_index_count);
+                            move |next| {
+                                value.set(next);
+                                count.set(count.get() + 1);
+                            }
+                        })
+                        .into(),
+                ]),
+            )
+            .unwrap();
+        let payload_root = payload_runtime.graph().root().unwrap();
+        let payload_window = payload_runtime.adapter().open_window(payload_root).unwrap();
+        let payload_children = payload_runtime
+            .graph()
+            .children(payload_root, reactor2::RelationId::Children)
+            .unwrap();
+        payload_runtime
+            .adapter()
+            .set_password(payload_children[0], "secret")
+            .unwrap();
+        payload_runtime
+            .adapter()
+            .set_rating_value(payload_children[1], 4.0)
+            .unwrap();
+        payload_runtime
+            .adapter()
+            .set_combo_box_selected_index(payload_children[2], Some(1))
+            .unwrap();
+        let mut payload_events = Vec::new();
+        payload_runtime.drain_events(&mut payload_events).unwrap();
+        assert_eq!(payload_events.len(), 3);
+        for event in payload_events {
+            event.invoke();
+        }
+        assert_eq!(password_value.borrow().as_ref(), "secret");
+        assert_eq!(password_count.get(), 1);
+        assert_eq!(rating_value.get(), Some(4.0));
+        assert_eq!(rating_count.get(), 1);
+        assert_eq!(selected_index.get(), Some(1));
+        assert_eq!(selected_index_count.get(), 1);
+        payload_window.close().unwrap();
+
+        let navigation_value = Rc::new(RefCell::new(None));
+        let navigation_history = Rc::new(RefCell::new(Vec::new()));
+        let navigation_count = Rc::new(Cell::new(0));
+        let list_value = Rc::new(RefCell::new(None));
+        let list_count = Rc::new(Cell::new(0));
+        let selector_value = Rc::new(RefCell::new(None));
+        let selector_count = Rc::new(Cell::new(0));
+        let navigation_callback = {
+            let value = Rc::clone(&navigation_value);
+            let history = Rc::clone(&navigation_history);
+            let count = Rc::clone(&navigation_count);
+            reactor2::Callback::new(move |next: Option<Rc<str>>| {
+                value.borrow_mut().clone_from(&next);
+                history.borrow_mut().push(next);
+                count.set(count.get() + 1);
+            })
+        };
+        let list_callback = {
+            let value = Rc::clone(&list_value);
+            let count = Rc::clone(&list_count);
+            reactor2::Callback::new(move |next| {
+                *value.borrow_mut() = next;
+                count.set(count.get() + 1);
+            })
+        };
+        let selector_callback = {
+            let value = Rc::clone(&selector_value);
+            let count = Rc::clone(&selector_count);
+            reactor2::Callback::new(move |next| {
+                *value.borrow_mut() = next;
+                count.set(count.get() + 1);
+            })
+        };
+        let selections = |reversed: bool, remove_selected: bool| {
+            let navigation_items = if remove_selected {
+                vec![reactor2::keyed(
+                    "first",
+                    reactor2::NavigationViewItem::new()
+                        .tag("nav-first")
+                        .is_selected(false),
+                )]
+            } else if reversed {
+                vec![
+                    reactor2::keyed(
+                        "second",
+                        reactor2::NavigationViewItem::new()
+                            .tag("nav-second")
+                            .is_selected(true),
+                    ),
+                    reactor2::keyed(
+                        "first",
+                        reactor2::NavigationViewItem::new()
+                            .tag("nav-first")
+                            .is_selected(false),
+                    ),
+                ]
+            } else {
+                vec![
+                    reactor2::keyed(
+                        "first",
+                        reactor2::NavigationViewItem::new()
+                            .tag("nav-first")
+                            .is_selected(true),
+                    ),
+                    reactor2::keyed(
+                        "second",
+                        reactor2::NavigationViewItem::new()
+                            .tag("nav-second")
+                            .is_selected(false),
+                    ),
+                ]
+            };
+            let list_items = if remove_selected {
+                vec![reactor2::keyed(
+                    "first",
+                    reactor2::ListBoxItem::new()
+                        .tag("list-first")
+                        .is_selected(false),
+                )]
+            } else if reversed {
+                vec![
+                    reactor2::keyed(
+                        "second",
+                        reactor2::ListBoxItem::new()
+                            .tag("list-second")
+                            .is_selected(true),
+                    ),
+                    reactor2::keyed(
+                        "first",
+                        reactor2::ListBoxItem::new()
+                            .tag("list-first")
+                            .is_selected(false),
+                    ),
+                ]
+            } else {
+                vec![
+                    reactor2::keyed(
+                        "first",
+                        reactor2::ListBoxItem::new()
+                            .tag("list-first")
+                            .is_selected(true),
+                    ),
+                    reactor2::keyed(
+                        "second",
+                        reactor2::ListBoxItem::new()
+                            .tag("list-second")
+                            .is_selected(false),
+                    ),
+                ]
+            };
+            let selector_items = if remove_selected {
+                vec![reactor2::keyed(
+                    "first",
+                    reactor2::SelectorBarItem::new()
+                        .text("selector-first")
+                        .is_selected(false),
+                )]
+            } else if reversed {
+                vec![
+                    reactor2::keyed(
+                        "second",
+                        reactor2::SelectorBarItem::new()
+                            .text("selector-second")
+                            .is_selected(true),
+                    ),
+                    reactor2::keyed(
+                        "first",
+                        reactor2::SelectorBarItem::new()
+                            .text("selector-first")
+                            .is_selected(false),
+                    ),
+                ]
+            } else {
+                vec![
+                    reactor2::keyed(
+                        "first",
+                        reactor2::SelectorBarItem::new()
+                            .text("selector-first")
+                            .is_selected(true),
+                    ),
+                    reactor2::keyed(
+                        "second",
+                        reactor2::SelectorBarItem::new()
+                            .text("selector-second")
+                            .is_selected(false),
+                    ),
+                ]
+            };
+            reactor2::StackPanel::new().children([
+                reactor2::NavigationView::new()
+                    .menu_items(navigation_items)
+                    .on_selected_tag_changed_callback(navigation_callback.clone())
+                    .into(),
+                reactor2::ListBox::new()
+                    .items(list_items)
+                    .on_selected_tag_changed_callback(list_callback.clone())
+                    .into(),
+                reactor2::SelectorBar::new()
+                    .items(selector_items)
+                    .on_selected_text_changed_callback(selector_callback.clone())
+                    .into(),
+            ])
+        };
+        let mut selection_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        selection_runtime.update(selections(false, false)).unwrap();
+        let selection_root = selection_runtime.graph().root().unwrap();
+        let selection_window = selection_runtime
+            .adapter()
+            .open_window(selection_root)
+            .unwrap();
+        let selection_owners = selection_runtime
+            .graph()
+            .children(selection_root, reactor2::RelationId::Children)
+            .unwrap()
+            .to_vec();
+        let navigation_items = selection_runtime
+            .graph()
+            .children(selection_owners[0], reactor2::RelationId::MenuItems)
+            .unwrap()
+            .to_vec();
+        let list_items = selection_runtime
+            .graph()
+            .children(selection_owners[1], reactor2::RelationId::Items)
+            .unwrap()
+            .to_vec();
+        let selector_items = selection_runtime
+            .graph()
+            .children(selection_owners[2], reactor2::RelationId::Items)
+            .unwrap()
+            .to_vec();
+        let mut selection_events = Vec::new();
+        selection_runtime
+            .drain_events(&mut selection_events)
+            .unwrap();
+        assert!(selection_events.is_empty());
+        assert_eq!(navigation_count.get(), 0);
+        assert_eq!(list_count.get(), 0);
+        assert_eq!(selector_count.get(), 0);
+
+        for (owner, item) in [
+            (selection_owners[0], navigation_items[1]),
+            (selection_owners[1], list_items[1]),
+            (selection_owners[2], selector_items[1]),
+        ] {
+            selection_runtime
+                .adapter()
+                .select_item(owner, Some(item))
+                .unwrap();
+        }
+        selection_runtime
+            .drain_events(&mut selection_events)
+            .unwrap();
+        assert_eq!(selection_events.len(), 3);
+        for event in selection_events.drain(..) {
+            event.invoke();
+        }
+        assert_eq!(navigation_value.borrow().as_deref(), Some("nav-second"));
+        assert_eq!(list_value.borrow().as_deref(), Some("list-second"));
+        assert_eq!(selector_value.borrow().as_deref(), Some("selector-second"));
+        assert_eq!(navigation_count.get(), 1);
+        assert_eq!(list_count.get(), 1);
+        assert_eq!(selector_count.get(), 1);
+        assert_eq!(
+            navigation_history.borrow().as_slice(),
+            [Some(Rc::from("nav-second"))]
+        );
+
+        selection_runtime
+            .adapter()
+            .select_item(selection_owners[0], Some(navigation_items[0]))
+            .unwrap();
+        selection_runtime
+            .adapter()
+            .select_item(selection_owners[0], Some(navigation_items[1]))
+            .unwrap();
+        selection_runtime
+            .drain_events(&mut selection_events)
+            .unwrap();
+        assert_eq!(selection_events.len(), 2);
+        for event in selection_events.drain(..) {
+            event.invoke();
+        }
+        assert_eq!(
+            navigation_history.borrow().as_slice(),
+            [
+                Some(Rc::from("nav-second")),
+                Some(Rc::from("nav-first")),
+                Some(Rc::from("nav-second")),
+            ]
+        );
+        assert_eq!(navigation_count.get(), 3);
+
+        selection_runtime.update(selections(true, false)).unwrap();
+        selection_runtime
+            .drain_events(&mut selection_events)
+            .unwrap();
+        assert!(selection_events.is_empty());
+        assert_eq!(
+            selection_runtime
+                .adapter()
+                .selected_item(selection_owners[0])
+                .unwrap(),
+            Some(navigation_items[1])
+        );
+        assert_eq!(
+            selection_runtime
+                .adapter()
+                .selected_item(selection_owners[1])
+                .unwrap(),
+            Some(list_items[1])
+        );
+        assert_eq!(
+            selection_runtime
+                .adapter()
+                .selected_item(selection_owners[2])
+                .unwrap(),
+            Some(selector_items[1])
+        );
+
+        selection_runtime.update(selections(false, true)).unwrap();
+        selection_runtime
+            .drain_events(&mut selection_events)
+            .unwrap();
+        assert!(selection_events.is_empty());
+        for owner in selection_owners {
+            assert_eq!(
+                selection_runtime.adapter().selected_item(owner).unwrap(),
+                None
+            );
+        }
+        assert_eq!(navigation_count.get(), 3);
+        assert_eq!(list_count.get(), 1);
+        assert_eq!(selector_count.get(), 1);
+        selection_runtime
+            .adapter()
+            .validate_graph(selection_runtime.graph())
+            .unwrap();
+        selection_window.close().unwrap();
+
+        Self::inject_pointer_click().unwrap();
         Self::schedule(context);
         Self {
             app: input.app.clone(),

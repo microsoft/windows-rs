@@ -1,7 +1,6 @@
 #[allow(
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
-    dead_code,
     non_camel_case_types,
     non_snake_case,
     non_upper_case_globals

@@ -2,8 +2,23 @@ use super::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
+#[test]
+fn usize_keys_preserve_their_integer_value() {
+    assert_eq!(Key::from(7usize), Key::from(7u64));
+}
+
 fn text(value: &str) -> Visual {
     TextBlock::new(value).into()
+}
+
+#[test]
+fn typed_relation_rejects_other_visual_kinds() {
+    let contract = relation_contracts(ObjectType::Pivot)
+        .iter()
+        .find(|contract| contract.id == RelationId::Items)
+        .unwrap();
+    assert!(relation_accepts(contract, ObjectType::PivotItem));
+    assert!(!relation_accepts(contract, ObjectType::Button));
 }
 
 #[test]
@@ -532,6 +547,360 @@ fn native_property_observation_updates_retained_state_before_reconciliation() {
 }
 
 #[test]
+fn exact_feedback_suppresses_matching_observation_until_write_finishes() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(TextBox::new("Before")).unwrap();
+    let object = runtime.graph().root().unwrap();
+    let property = Property {
+        id: PropertyId::Text,
+        value: PropertyValue::String(Rc::from("After")),
+    };
+    let mut feedback = FeedbackState::default();
+    feedback.begin(
+        object,
+        EventId::TextChanged,
+        FeedbackExpectation::Exact(property.clone()),
+    );
+
+    assert!(!feedback.observe(
+        object,
+        EventId::TextChanged,
+        Observation::SetProperty {
+            object,
+            property: property.clone(),
+        }
+    ));
+    assert_eq!(feedback.finish(object, EventId::TextChanged), None);
+
+    feedback.begin(
+        object,
+        EventId::TextChanged,
+        FeedbackExpectation::Exact(property),
+    );
+    assert!(feedback.observe(
+        object,
+        EventId::TextChanged,
+        Observation::SetProperty {
+            object,
+            property: Property {
+                id: PropertyId::Text,
+                value: PropertyValue::String(Rc::from("Normalized")),
+            },
+        }
+    ));
+}
+
+#[test]
+fn normalized_feedback_defers_latest_observation_until_write_finishes() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(Slider::new()).unwrap();
+    let object = runtime.graph().root().unwrap();
+    let mut feedback = FeedbackState::default();
+    feedback.begin(
+        object,
+        EventId::ValueChanged,
+        FeedbackExpectation::Normalized { observation: None },
+    );
+    let observation = Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::Value,
+            value: PropertyValue::F64(0.75),
+        },
+    };
+
+    assert!(!feedback.observe(object, EventId::ValueChanged, observation.clone()));
+    assert_eq!(
+        feedback.finish(object, EventId::ValueChanged),
+        Some(observation)
+    );
+}
+
+#[test]
+fn suppressed_feedback_drops_selection_observations_during_native_writes() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(ListBox::new().items([
+            keyed("first", ListBoxItem::new().tag("first").is_selected(true)),
+            keyed(
+                "second",
+                ListBoxItem::new().tag("second").is_selected(false),
+            ),
+        ]))
+        .unwrap();
+    let owner = runtime.graph().root().unwrap();
+    let selected = runtime.graph().children(owner, RelationId::Items).unwrap()[1];
+    let observation = Observation::SetSelection {
+        object: owner,
+        selected: Some(selected),
+    };
+    let mut feedback = FeedbackState::default();
+    feedback.begin(
+        owner,
+        EventId::SelectionChanged,
+        FeedbackExpectation::Suppressed,
+    );
+
+    assert!(!feedback.observe(owner, EventId::SelectionChanged, observation));
+    assert_eq!(feedback.finish(owner, EventId::SelectionChanged), None);
+}
+
+#[test]
+fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
+    let selected_values = Rc::new(RefCell::new(Vec::new()));
+    let selected_values_for_callback = Rc::clone(&selected_values);
+    let callback =
+        Callback::new(move |value| selected_values_for_callback.borrow_mut().push(value));
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            ListBox::new()
+                .items([
+                    keyed("first", ListBoxItem::new().tag("first").is_selected(true)),
+                    keyed(
+                        "second",
+                        ListBoxItem::new().tag("second").is_selected(false),
+                    ),
+                ])
+                .on_selected_tag_changed_callback(callback.clone()),
+        )
+        .unwrap();
+    let owner = runtime.graph().root().unwrap();
+    let before = runtime
+        .graph()
+        .children(owner, RelationId::Items)
+        .unwrap()
+        .to_vec();
+    runtime.adapter_mut().observe(Observation::SetSelection {
+        object: owner,
+        selected: Some(before[1]),
+    });
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        owner,
+        EventId::SelectionChanged,
+        EventValue::Selection(callback.clone()),
+        EventPayload::Selection(SelectionChange {
+            item: Some(before[1]),
+            value: Some(Rc::from("second")),
+        }),
+    ));
+
+    let mut events = Vec::new();
+    runtime.drain_events(&mut events).unwrap();
+    assert_eq!(events.len(), 1);
+    events.pop().unwrap().invoke();
+    assert_eq!(
+        runtime.graph().properties(before[0]).unwrap(),
+        [
+            Property {
+                id: PropertyId::IsSelected,
+                value: PropertyValue::Bool(false),
+            },
+            Property {
+                id: PropertyId::Tag,
+                value: PropertyValue::String(Rc::from("first")),
+            },
+        ]
+    );
+    assert_eq!(
+        runtime.graph().properties(before[1]).unwrap(),
+        [
+            Property {
+                id: PropertyId::IsSelected,
+                value: PropertyValue::Bool(true),
+            },
+            Property {
+                id: PropertyId::Tag,
+                value: PropertyValue::String(Rc::from("second")),
+            },
+        ]
+    );
+    assert_eq!(&*selected_values.borrow(), &[Some(Rc::from("second"))]);
+
+    let mutations = runtime
+        .update(
+            ListBox::new()
+                .items([
+                    keyed("second", ListBoxItem::new().tag("second").is_selected(true)),
+                    keyed("first", ListBoxItem::new().tag("first").is_selected(false)),
+                ])
+                .on_selected_tag_changed_callback(callback.clone()),
+        )
+        .unwrap();
+    assert_eq!(
+        runtime.graph().children(owner, RelationId::Items).unwrap(),
+        [before[1], before[0]]
+    );
+    assert_eq!(
+        mutations
+            .iter()
+            .filter(|mutation| matches!(mutation, Mutation::Reorder { .. }))
+            .count(),
+        1
+    );
+    assert!(!mutations.iter().any(|mutation| matches!(
+        mutation,
+        Mutation::SetProperties { object, .. } if before.contains(object)
+    )));
+
+    runtime
+        .update(
+            ListBox::new()
+                .items([keyed(
+                    "first",
+                    ListBoxItem::new().tag("first").is_selected(true),
+                )])
+                .on_selected_tag_changed_callback(callback.clone()),
+        )
+        .unwrap();
+    runtime.adapter_mut().observe(Observation::SetSelection {
+        object: owner,
+        selected: Some(before[1]),
+    });
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        owner,
+        EventId::SelectionChanged,
+        EventValue::Selection(callback),
+        EventPayload::Selection(SelectionChange {
+            item: Some(before[1]),
+            value: Some(Rc::from("stale")),
+        }),
+    ));
+    runtime.drain_events(&mut events).unwrap();
+
+    assert!(events.is_empty());
+    assert_eq!(&*selected_values.borrow(), &[Some(Rc::from("second"))]);
+    assert_eq!(
+        runtime.graph().properties(before[0]).unwrap(),
+        [
+            Property {
+                id: PropertyId::IsSelected,
+                value: PropertyValue::Bool(true),
+            },
+            Property {
+                id: PropertyId::Tag,
+                value: PropertyValue::String(Rc::from("first")),
+            },
+        ]
+    );
+}
+
+#[test]
+fn selection_contracts_cover_navigation_list_box_and_selector_bar() {
+    for (owner, item, relations, payload) in [
+        (
+            ObjectType::NavigationView,
+            ObjectType::NavigationViewItem,
+            &[RelationId::MenuItems, RelationId::FooterMenuItems][..],
+            PropertyId::Tag,
+        ),
+        (
+            ObjectType::ListBox,
+            ObjectType::ListBoxItem,
+            &[RelationId::Items][..],
+            PropertyId::Tag,
+        ),
+        (
+            ObjectType::SelectorBar,
+            ObjectType::SelectorBarItem,
+            &[RelationId::Items][..],
+            PropertyId::Text,
+        ),
+    ] {
+        let contract = selection_contract(owner).unwrap();
+        assert_eq!(contract.item, item);
+        assert_eq!(contract.relations, relations);
+        assert_eq!(contract.selected_property, PropertyId::IsSelected);
+        assert_eq!(contract.event, EventId::SelectionChanged);
+        assert_eq!(contract.payload_property, payload);
+    }
+}
+
+#[test]
+fn straightforward_event_payloads_round_trip_through_recording_protocol() {
+    let boolean = Rc::new(Cell::new(false));
+    let boolean_callback = {
+        let boolean = Rc::clone(&boolean);
+        Callback::new(move |value| boolean.set(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(ToggleSwitch::new().on_toggled_callback(boolean_callback.clone()))
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        object,
+        EventId::Toggled,
+        EventValue::Bool(boolean_callback),
+        EventPayload::Bool(true),
+    ));
+    let mut events = Vec::new();
+    runtime.drain_events(&mut events).unwrap();
+    events.pop().unwrap().invoke();
+    assert!(boolean.get());
+
+    let text = Rc::new(RefCell::new(None));
+    let text_callback = {
+        let text = Rc::clone(&text);
+        Callback::new(move |value| *text.borrow_mut() = Some(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(PasswordBox::new().on_password_changed_callback(text_callback.clone()))
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        object,
+        EventId::PasswordChanged,
+        EventValue::String(text_callback),
+        EventPayload::String(Rc::from("secret")),
+    ));
+    runtime.drain_events(&mut events).unwrap();
+    events.pop().unwrap().invoke();
+    assert_eq!(*text.borrow(), Some(Rc::from("secret")));
+
+    let number = Rc::new(Cell::new(None));
+    let number_callback = {
+        let number = Rc::clone(&number);
+        Callback::new(move |value| number.set(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(RatingControl::new().on_value_changed_callback(number_callback.clone()))
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        object,
+        EventId::ValueChanged,
+        EventValue::OptionalF64(number_callback),
+        EventPayload::OptionalF64(Some(4.0)),
+    ));
+    runtime.drain_events(&mut events).unwrap();
+    events.pop().unwrap().invoke();
+    assert_eq!(number.get(), Some(4.0));
+
+    let index = Rc::new(Cell::new(None));
+    let index_callback = {
+        let index = Rc::clone(&index);
+        Callback::new(move |value| index.set(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(ComboBox::new().on_selection_changed_callback(index_callback.clone()))
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        object,
+        EventId::SelectionChanged,
+        EventValue::SelectionIndex(index_callback),
+        EventPayload::SelectionIndex(Some(2)),
+    ));
+    runtime.drain_events(&mut events).unwrap();
+    events.pop().unwrap().invoke();
+    assert_eq!(index.get(), Some(2));
+}
+
+#[test]
 fn invalid_native_property_observation_is_rejected() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.update(TextBox::new("Text")).unwrap();
@@ -685,12 +1054,11 @@ fn pointer_event_payload_round_trips_through_recording_protocol() {
     events.pop().unwrap().invoke();
 
     assert_eq!(*received.borrow(), Some(payload));
-    assert_eq!(
-        event_contracts(ObjectType::Border),
-        [EventContract {
+    assert!(
+        event_contracts(ObjectType::Border).contains(&EventContract {
             id: EventId::PointerReleased,
             value: ValueType::PointerEventInfo,
-        }]
+        })
     );
 }
 

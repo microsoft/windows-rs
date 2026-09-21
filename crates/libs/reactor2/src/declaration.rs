@@ -41,6 +41,17 @@ impl CornerRadius {
     pub const fn uniform(value: f64) -> Self {
         Self::new(value, value, value, value)
     }
+
+    pub fn is_finite_non_negative(self) -> bool {
+        [
+            self.top_left,
+            self.top_right,
+            self.bottom_right,
+            self.bottom_left,
+        ]
+        .into_iter()
+        .all(|value| value.is_finite() && value >= 0.0)
+    }
 }
 
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -63,6 +74,18 @@ impl Thickness {
 
     pub const fn uniform(value: f64) -> Self {
         Self::new(value, value, value, value)
+    }
+
+    pub fn is_finite(self) -> bool {
+        [self.left, self.top, self.right, self.bottom]
+            .into_iter()
+            .all(f64::is_finite)
+    }
+
+    pub fn is_finite_non_negative(self) -> bool {
+        [self.left, self.top, self.right, self.bottom]
+            .into_iter()
+            .all(|value| value.is_finite() && value >= 0.0)
     }
 }
 
@@ -107,7 +130,7 @@ impl From<u32> for Key {
 
 impl From<usize> for Key {
     fn from(value: usize) -> Self {
-        Self(KeyKind::Integer(value.try_into().unwrap()))
+        Self(KeyKind::Integer(value as u64))
     }
 }
 
@@ -118,7 +141,11 @@ pub enum PropertyValue {
     Color(Color),
     CornerRadius(CornerRadius),
     F64(f64),
+    I32(i32),
+    OptionalF64(Option<f64>),
     OptionalBool(Option<bool>),
+    SelectionIndex(Option<usize>),
+    StringList(Rc<[Rc<str>]>),
     ThemeTransitions(Rc<[ThemeTransition]>),
     Thickness(Thickness),
     Enum {
@@ -175,18 +202,34 @@ pub struct PointerEventInfo {
 
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventValue {
+    Bool(Callback<bool>),
     String(Callback<Rc<str>>),
     F64(Callback<f64>),
+    OptionalBool(Callback<Option<bool>>),
+    OptionalF64(Callback<Option<f64>>),
     PointerEventInfo(Callback<PointerEventInfo>),
+    Selection(Callback<Option<Rc<str>>>),
+    SelectionIndex(Callback<Option<usize>>),
     Unit(Callback<()>),
 }
 
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventPayload {
+    Bool(bool),
     String(Rc<str>),
     F64(f64),
+    OptionalBool(Option<bool>),
+    OptionalF64(Option<f64>),
     PointerEventInfo(PointerEventInfo),
+    Selection(SelectionChange),
+    SelectionIndex(Option<usize>),
     Unit,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct SelectionChange {
+    pub item: Option<ObjectId>,
+    pub value: Option<Rc<str>>,
 }
 
 #[derive(Clone, Debug, PartialEq)]

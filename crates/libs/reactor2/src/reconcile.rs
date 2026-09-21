@@ -84,6 +84,74 @@ pub enum Observation {
         object: ObjectId,
         property: Property,
     },
+    SetSelection {
+        object: ObjectId,
+        selected: Option<ObjectId>,
+    },
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum FeedbackExpectation {
+    Exact(Property),
+    Normalized { observation: Option<Observation> },
+    Suppressed,
+}
+
+#[derive(Default)]
+pub(crate) struct FeedbackState {
+    expectations: HashMap<(ObjectId, EventId), FeedbackExpectation>,
+}
+
+impl FeedbackState {
+    pub(crate) fn begin(
+        &mut self,
+        object: ObjectId,
+        event: EventId,
+        expectation: FeedbackExpectation,
+    ) {
+        self.expectations.insert((object, event), expectation);
+    }
+
+    pub(crate) fn observe(
+        &mut self,
+        object: ObjectId,
+        event: EventId,
+        observation: Observation,
+    ) -> bool {
+        let Some(expectation) = self.expectations.get_mut(&(object, event)) else {
+            return true;
+        };
+        match expectation {
+            FeedbackExpectation::Exact(expected)
+                if matches!(
+                    &observation,
+                    Observation::SetProperty { property, .. } if property == expected
+                ) =>
+            {
+                false
+            }
+            FeedbackExpectation::Normalized {
+                observation: pending,
+            } => {
+                *pending = Some(observation);
+                false
+            }
+            FeedbackExpectation::Suppressed => false,
+            FeedbackExpectation::Exact(_) => true,
+        }
+    }
+
+    pub(crate) fn finish(&mut self, object: ObjectId, event: EventId) -> Option<Observation> {
+        match self.expectations.remove(&(object, event)) {
+            Some(FeedbackExpectation::Normalized { observation }) => observation,
+            Some(FeedbackExpectation::Exact(_) | FeedbackExpectation::Suppressed) | None => None,
+        }
+    }
+
+    pub(crate) fn remove_object(&mut self, object: ObjectId) {
+        self.expectations
+            .retain(|(expected_object, _), _| *expected_object != object);
+    }
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -111,9 +179,22 @@ impl EventDispatch {
 
     pub fn invoke(self) {
         match (self.callback, self.payload) {
+            (EventValue::Bool(callback), EventPayload::Bool(value)) => callback.call(value),
             (EventValue::String(callback), EventPayload::String(value)) => callback.call(value),
             (EventValue::F64(callback), EventPayload::F64(value)) => callback.call(value),
+            (EventValue::OptionalBool(callback), EventPayload::OptionalBool(value)) => {
+                callback.call(value);
+            }
+            (EventValue::OptionalF64(callback), EventPayload::OptionalF64(value)) => {
+                callback.call(value);
+            }
+            (EventValue::Selection(callback), EventPayload::Selection(value)) => {
+                callback.call(value.value);
+            }
             (EventValue::PointerEventInfo(callback), EventPayload::PointerEventInfo(value)) => {
+                callback.call(value);
+            }
+            (EventValue::SelectionIndex(callback), EventPayload::SelectionIndex(value)) => {
                 callback.call(value);
             }
             (EventValue::Unit(callback), EventPayload::Unit) => callback.call(()),
@@ -206,13 +287,17 @@ impl RetainedGraph {
                     RetainedRelationValue::One(current) => *current == Some(child),
                     RetainedRelationValue::Many(children) => children.contains(&child),
                 };
-                contains.then_some((
-                    ObjectId {
-                        index: index.try_into().unwrap(),
-                        generation: slot.generation,
-                    },
-                    relation.id,
-                ))
+                if contains {
+                    Some((
+                        ObjectId {
+                            index: index.try_into().ok()?,
+                            generation: slot.generation,
+                        },
+                        relation.id,
+                    ))
+                } else {
+                    None
+                }
             })
         })
     }
@@ -238,6 +323,49 @@ impl RetainedGraph {
                     .properties
                     .upsert(|current| current.id == property_id, property);
             }
+            Observation::SetSelection { object, selected } => {
+                let Some(owner) = self.get(object) else {
+                    return Ok(());
+                };
+                let Some(contract) = selection_contract(owner.kind) else {
+                    return Err(GraphError::InvalidSelection(owner.kind));
+                };
+                if selected.is_some_and(|selected| {
+                    self.kind(selected) != Some(contract.item)
+                        || !contract.relations.iter().any(|relation| {
+                            self.children(object, *relation)
+                                .is_some_and(|children| children.contains(&selected))
+                        })
+                }) {
+                    return Ok(());
+                }
+                let children = contract
+                    .relations
+                    .iter()
+                    .flat_map(|relation| {
+                        self.children(object, *relation)
+                            .unwrap_or_default()
+                            .iter()
+                            .copied()
+                    })
+                    .collect::<Vec<_>>();
+                for child in children {
+                    let child_object = self.get_mut(child);
+                    if child_object
+                        .properties
+                        .iter()
+                        .any(|property| property.id == contract.selected_property)
+                    {
+                        child_object.properties.upsert(
+                            |property| property.id == contract.selected_property,
+                            Property {
+                                id: contract.selected_property,
+                                value: PropertyValue::Bool(Some(child) == selected),
+                            },
+                        );
+                    }
+                }
+            }
         }
         Ok(())
     }
@@ -252,19 +380,54 @@ impl RetainedGraph {
             .ok_or(GraphError::InvalidEvent(object.kind, dispatch.event))?;
         if !matches!(
             (contract.value, &dispatch.callback, &dispatch.payload),
-            (
-                ValueType::String,
-                EventValue::String(_),
-                EventPayload::String(_)
-            ) | (ValueType::F64, EventValue::F64(_), EventPayload::F64(_))
+            (ValueType::Bool, EventValue::Bool(_), EventPayload::Bool(_))
+                | (
+                    ValueType::String,
+                    EventValue::String(_),
+                    EventPayload::String(_)
+                )
+                | (ValueType::F64, EventValue::F64(_), EventPayload::F64(_))
+                | (
+                    ValueType::OptionalBool,
+                    EventValue::OptionalBool(_),
+                    EventPayload::OptionalBool(_)
+                )
+                | (
+                    ValueType::OptionalF64,
+                    EventValue::OptionalF64(_),
+                    EventPayload::OptionalF64(_)
+                )
+                | (
+                    ValueType::Selection,
+                    EventValue::Selection(_),
+                    EventPayload::Selection(_)
+                )
                 | (
                     ValueType::PointerEventInfo,
                     EventValue::PointerEventInfo(_),
                     EventPayload::PointerEventInfo(_)
                 )
+                | (
+                    ValueType::SelectionIndex,
+                    EventValue::SelectionIndex(_),
+                    EventPayload::SelectionIndex(_)
+                )
                 | (ValueType::Unit, EventValue::Unit(_), EventPayload::Unit)
         ) {
             return Err(GraphError::InvalidEventValue(dispatch.event));
+        }
+        if let EventPayload::Selection(selection) = &dispatch.payload
+            && let Some(item) = selection.item
+        {
+            let Some(contract) = selection_contract(object.kind) else {
+                return Err(GraphError::InvalidSelection(object.kind));
+            };
+            if !contract.relations.iter().any(|relation| {
+                self.children(dispatch.object, *relation)
+                    .is_some_and(|children| children.contains(&item))
+            }) {
+                return Ok(false);
+            }
         }
         Ok(object
             .events
@@ -310,24 +473,29 @@ impl RetainedGraph {
             .unwrap()
     }
 
-    fn allocate(&mut self, object: RetainedObject) -> ObjectId {
+    fn allocate(&mut self, object: RetainedObject) -> Result<ObjectId, GraphError> {
         if let Some(index) = self.free.pop() {
             let slot = &mut self.objects[index as usize];
             slot.object = Some(object);
-            ObjectId {
+            Ok(ObjectId {
                 index,
                 generation: slot.generation,
-            }
+            })
         } else {
+            let index = self
+                .objects
+                .len()
+                .try_into()
+                .map_err(|_| GraphError::SizeExceeded)?;
             let id = ObjectId {
-                index: self.objects.len() as u32,
+                index,
                 generation: 0,
             };
             self.objects.push(RetainedSlot {
                 generation: 0,
                 object: Some(object),
             });
-            id
+            Ok(id)
         }
     }
 
@@ -625,7 +793,7 @@ impl<A: Adapter> Runtime<A> {
                 .find(|contract| contract.id == relation)
                 .unwrap();
             if contract.realization != Realization::Owned
-                || contract.child != object_category(declaration.kind)
+                || !relation_accepts(contract, declaration.kind)
             {
                 return Err(UpdateError::Graph(GraphError::InvalidChildCategory(
                     relation,
@@ -837,7 +1005,7 @@ impl Planner<'_> {
                     },
                 })
                 .collect(),
-        });
+        })?;
         self.mutations.push(Mutation::Create {
             object,
             kind: declaration.kind,

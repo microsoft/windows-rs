@@ -53,51 +53,122 @@ value = "ThemeTransitions"
 name = "TextBlock"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.TextBlock"
+key = false
+relations = []
+events = []
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+clear_feedback = false
 required = true
 default = ""
 
 [[objects.properties]]
 name = "FontSize"
 value = "F64"
+clear_feedback = false
+required = false
 default = "14.0"
+validation = "finite_positive"
 
 [[objects.properties]]
 name = "Foreground"
 value = "Color"
+clear_feedback = false
+required = false
 default = "none"
+
+[[objects.properties]]
+name = "TextWrapping"
+value = "TextWrapping"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsTextSelectionEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "TextTrimming"
+value = "TextTrimming"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "MaxLines"
+value = "I32"
+clear_feedback = false
+required = false
+validation = "non_negative"
 
 [[objects]]
 name = "TextBox"
 category = "Visual"
 native = "handwritten"
 native_type = "Microsoft.UI.Xaml.Controls.TextBox"
+key = false
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+controlled = "TextChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
 required = true
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
 
 [[objects.events]]
 name = "TextChanged"
 value = "String"
+observes = "Text"
 
 [[objects]]
 name = "Button"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Button"
+key = false
 
 [[objects.properties]]
 name = "Background"
 value = "Color"
+clear_feedback = false
+required = false
 default = "none"
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "HorizontalContentAlignment"
+value = "HorizontalAlignment"
+adapter = "horizontal_content_alignment"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "VerticalContentAlignment"
+value = "VerticalAlignment"
+adapter = "vertical_content_alignment"
+clear_feedback = false
+required = false
 
 [[objects.relations]]
 name = "Content"
 child = "Visual"
+allowed_objects = []
 cardinality = "One"
 identity = "Positional"
 realization = "Owned"
@@ -110,15 +181,25 @@ value = "Unit"
 name = "CheckBox"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.CheckBox"
+key = false
 
 [[objects.properties]]
 name = "IsChecked"
 value = "OptionalBool"
+clear_feedback = false
+required = false
 default = "false"
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
 
 [[objects.relations]]
 name = "Content"
 child = "Visual"
+allowed_objects = []
 cardinality = "One"
 identity = "Positional"
 realization = "Owned"
@@ -132,36 +213,63 @@ observes = "IsChecked"
 name = "Border"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Border"
+key = false
 
 [[objects.properties]]
 name = "Background"
 value = "Color"
+clear_feedback = false
+required = false
 default = "none"
 
 [[objects.properties]]
 name = "BorderBrush"
 value = "Color"
+clear_feedback = false
+required = false
 default = "none"
 
 [[objects.properties]]
 name = "BorderThickness"
 value = "Thickness"
+clear_feedback = false
+required = false
 default = "default"
+validation = "finite_non_negative"
 
 [[objects.properties]]
 name = "CornerRadius"
 value = "CornerRadius"
+clear_feedback = false
+required = false
 default = "default"
+validation = "finite_non_negative"
 
 [[objects.properties]]
 name = "Padding"
 value = "Thickness"
+clear_feedback = false
+required = false
 default = "default"
+validation = "finite_non_negative"
+
+[[objects.properties]]
+name = "IsTabStop"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "AllowFocusOnInteraction"
+value = "Bool"
+clear_feedback = false
+required = false
 
 [[objects.relations]]
 name = "Content"
 native = "Child"
 child = "Visual"
+allowed_objects = []
 cardinality = "One"
 identity = "Positional"
 realization = "Owned"
@@ -170,14 +278,42 @@ realization = "Owned"
 name = "PointerReleased"
 value = "PointerEventInfo"
 
+[[objects.events]]
+name = "PointerCaptureLost"
+value = "Unit"
+
+[[objects.events]]
+name = "PointerCanceled"
+value = "Unit"
+
+[[objects.events]]
+name = "DragLeave"
+field = "on_drag_leave"
+value = "Unit"
+
 [[objects]]
 name = "Grid"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Grid"
+key = false
+events = []
+
+[[objects.properties]]
+name = "RowSpacing"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ColumnSpacing"
+value = "F64"
+clear_feedback = false
+required = false
 
 [[objects.relations]]
 name = "Children"
 child = "Visual"
+allowed_objects = []
 cardinality = "Many"
 identity = "Keyed"
 realization = "Owned"
@@ -186,20 +322,27 @@ realization = "Owned"
 name = "StackPanel"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.StackPanel"
+key = false
+events = []
 
 [[objects.properties]]
 name = "Spacing"
 value = "F64"
+clear_feedback = false
+required = false
 default = "0.0"
 
 [[objects.properties]]
 name = "Orientation"
 value = "Orientation"
+clear_feedback = false
+required = false
 default = "Vertical"
 
 [[objects.relations]]
 name = "Children"
 child = "Visual"
+allowed_objects = []
 cardinality = "Many"
 identity = "Positional"
 realization = "Owned"
@@ -208,10 +351,14 @@ realization = "Owned"
 name = "Canvas"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Canvas"
+key = false
+properties = []
+events = []
 
 [[objects.relations]]
 name = "Children"
 child = "Visual"
+allowed_objects = []
 cardinality = "Many"
 identity = "Positional"
 realization = "Owned"
@@ -220,10 +367,25 @@ realization = "Owned"
 name = "ScrollViewer"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.ScrollViewer"
+key = false
+events = []
+
+[[objects.properties]]
+name = "HorizontalScrollBarVisibility"
+value = "ScrollBarVisibility"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "VerticalScrollBarVisibility"
+value = "ScrollBarVisibility"
+clear_feedback = false
+required = false
 
 [[objects.relations]]
 name = "Content"
 child = "Visual"
+allowed_objects = []
 cardinality = "One"
 identity = "Positional"
 realization = "Owned"
@@ -232,11 +394,28 @@ realization = "Owned"
 name = "Viewbox"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Viewbox"
+key = false
+events = []
+
+[[objects.properties]]
+name = "Stretch"
+value = "Stretch"
+clear_feedback = false
+required = false
 
 [[objects.relations]]
 name = "Content"
 native = "Child"
 child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "Child"
+child = "Visual"
+allowed_objects = []
 cardinality = "One"
 identity = "Positional"
 realization = "Owned"
@@ -245,75 +424,172 @@ realization = "Owned"
 name = "TitleBar"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.TitleBar"
+key = false
 
 [[objects.properties]]
 name = "Title"
 value = "String"
+clear_feedback = false
+required = false
 default = ""
 
 [[objects.properties]]
 name = "Subtitle"
 value = "String"
+clear_feedback = false
+required = false
 default = ""
+
+[[objects.properties]]
+name = "IsBackButtonVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsBackButtonEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsPaneToggleButtonVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "RightHeader"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "BackRequested"
+value = "Unit"
+
+[[objects.events]]
+name = "PaneToggleRequested"
+value = "Unit"
 
 [[objects]]
 name = "Slider"
 category = "Visual"
 native = "Microsoft.UI.Xaml.Controls.Slider"
+key = false
 
 [[objects.properties]]
 name = "Minimum"
 value = "F64"
+coerces = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
 default = "0.0"
 
 [[objects.properties]]
 name = "Maximum"
 value = "F64"
+coerces = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
 default = "100.0"
 
 [[objects.properties]]
 name = "Value"
 value = "F64"
+controlled = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
 default = "0.0"
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Orientation"
+value = "Orientation"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "StepFrequency"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_positive"
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
 
 [[objects.events]]
 name = "ValueChanged"
 value = "F64"
 observes = "Value"
+payload = "NewValue"
 
 [[objects]]
 name = "TreeView"
 category = "Visual"
 native = "handwritten"
 native_type = "Microsoft.UI.Xaml.Controls.TreeView"
+key = false
+properties = []
+events = []
 
 [[objects.relations]]
 name = "Roots"
 child = "Structural"
+allowed_objects = []
 cardinality = "Many"
 identity = "Keyed"
 realization = "Structural"
-item = "TreeNode"
 method = "nodes"
+item = "TreeNode"
 
 [[objects]]
 name = "TreeNode"
 category = "Structural"
 native = "handwritten"
 key = true
+events = []
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+clear_feedback = false
 required = true
 
 [[objects.properties]]
 name = "Expanded"
 value = "Bool"
+clear_feedback = false
+required = false
 
 [[objects.relations]]
 name = "Content"
 child = "Visual"
+allowed_objects = []
 cardinality = "One"
 identity = "Positional"
 realization = "Owned"
@@ -321,6 +597,7 @@ realization = "Owned"
 [[objects.relations]]
 name = "Children"
 child = "Structural"
+allowed_objects = []
 cardinality = "Many"
 identity = "Keyed"
 realization = "Structural"
@@ -331,10 +608,14 @@ name = "ListView"
 category = "Visual"
 native = "handwritten"
 native_type = "Microsoft.UI.Xaml.Controls.ListView"
+key = false
+properties = []
+events = []
 
 [[objects.relations]]
 name = "Items"
 child = "Data"
+allowed_objects = []
 cardinality = "Many"
 identity = "Keyed"
 realization = "Container"
@@ -345,8 +626,2099 @@ name = "DataItem"
 category = "Data"
 native = "handwritten"
 key = true
+relations = []
+events = []
 
 [[objects.properties]]
 name = "Text"
 value = "String"
+clear_feedback = false
 required = true
+
+[[objects]]
+name = "HyperlinkButton"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.HyperlinkButton"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "Click"
+value = "Unit"
+
+[[objects]]
+name = "RepeatButton"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Primitives.RepeatButton"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Delay"
+value = "I32"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Interval"
+value = "I32"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "Click"
+value = "Unit"
+
+[[objects]]
+name = "BreadcrumbBar"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.BreadcrumbBar"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "ItemsSource"
+value = "StringList"
+adapter = "inspectable_string_list"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "VariableSizedWrapGrid"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid"
+key = false
+events = []
+
+[[objects.properties]]
+name = "Orientation"
+value = "Orientation"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ItemWidth"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_positive"
+
+[[objects.properties]]
+name = "ItemHeight"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_positive"
+
+[[objects.relations]]
+name = "Children"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "AutoSuggestBox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.AutoSuggestBox"
+key = false
+
+[[objects.properties]]
+name = "PlaceholderText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ItemsSource"
+value = "StringList"
+adapter = "inspectable_string_list"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Text"
+value = "String"
+controlled = "TextChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "TextChanged"
+value = "String"
+observes = "Text"
+
+[[objects]]
+name = "PasswordBox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.PasswordBox"
+key = false
+
+[[objects.properties]]
+name = "PlaceholderText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "PasswordRevealMode"
+value = "PasswordRevealMode"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Password"
+value = "String"
+controlled = "PasswordChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "PasswordChanged"
+value = "String"
+observes = "Password"
+
+[[objects]]
+name = "NumberBox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.NumberBox"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Minimum"
+value = "F64"
+coerces = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Maximum"
+value = "F64"
+coerces = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "NumberBoxValue"
+native = "Value"
+value = "OptionalF64"
+adapter = "number_box_value"
+controlled = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "ValueChanged"
+value = "OptionalF64"
+observes = "NumberBoxValue"
+payload = "NewValue"
+payload_adapter = "number_box_value"
+
+[[objects]]
+name = "NavigationView"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.NavigationView"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "PaneDisplayMode"
+value = "NavigationViewPaneDisplayMode"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsPaneToggleButtonVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "NavigationViewIsBackButtonVisible"
+native = "IsBackButtonVisible"
+value = "NavigationViewBackButtonVisible"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsSettingsVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "AlwaysShowHeader"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "PaneTitle"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "OpenPaneLength"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_non_negative"
+
+[[objects.properties]]
+name = "IsPaneOpen"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "PaneCustomContent"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "PaneFooter"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "MenuItems"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Keyed"
+realization = "Owned"
+native_collection = "Vector"
+native_item = "IInspectable"
+
+[[objects.relations]]
+name = "FooterMenuItems"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Keyed"
+realization = "Owned"
+native_collection = "Vector"
+native_item = "IInspectable"
+
+[[objects.events]]
+name = "SelectionChanged"
+field = "on_selected_tag_changed"
+value = "Selection"
+
+[objects.selection]
+relations = ["MenuItems", "FooterMenuItems"]
+item = "NavigationViewItem"
+selected_property = "IsSelected"
+selected_item_property = "SelectedItem"
+event = "SelectionChanged"
+event_item_source = "EventArgs"
+event_args = "NavigationViewSelectionChangedEventArgs"
+payload_property = "Tag"
+
+[[objects]]
+name = "NavigationViewItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.NavigationViewItem"
+key = false
+events = []
+
+[[objects.properties]]
+name = "IsSelected"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "SelectsOnInvoked"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsExpanded"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Tag"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "Icon"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+native_item = "Microsoft.UI.Xaml.Controls.IconElement"
+
+[[objects.relations]]
+name = "MenuItems"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+native_collection = "Vector"
+native_item = "IInspectable"
+
+[[objects]]
+name = "SplitView"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.SplitView"
+key = false
+
+[[objects.properties]]
+name = "OpenPaneLength"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "CompactPaneLength"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "DisplayMode"
+value = "SplitViewDisplayMode"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsPaneOpen"
+value = "Bool"
+controlled = "PaneClosed"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Pane"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "PaneClosed"
+value = "Bool"
+observes = "IsPaneOpen"
+
+[[objects]]
+name = "ProgressBar"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ProgressBar"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "Minimum"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Maximum"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Value"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsIndeterminate"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ShowError"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ShowPaused"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "ToggleSwitch"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ToggleSwitch"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsOn"
+value = "Bool"
+controlled = "Toggled"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "OnContent"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "OffContent"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "Toggled"
+value = "Bool"
+observes = "IsOn"
+
+[[objects]]
+name = "ToggleButton"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"
+key = false
+events = []
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsChecked"
+value = "OptionalBool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "RadioButton"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.RadioButton"
+key = false
+
+[[objects.properties]]
+name = "GroupName"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsChecked"
+value = "OptionalBool"
+controlled = "Checked"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "Checked"
+value = "OptionalBool"
+observes = "IsChecked"
+
+[[objects]]
+name = "RadioButtons"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.RadioButtons"
+key = false
+
+[[objects.properties]]
+name = "MaxColumns"
+value = "I32"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ItemsSource"
+value = "StringList"
+adapter = "inspectable_string_list"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "SelectedIndex"
+value = "SelectionIndex"
+adapter = "selection_index"
+controlled = "SelectionChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "SelectionChanged"
+value = "SelectionIndex"
+observes = "SelectedIndex"
+
+[[objects]]
+name = "ItemsRepeater"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
+key = false
+properties = []
+relations = []
+events = []
+
+[[objects]]
+name = "InfoBadge"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.InfoBadge"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "InfoBadgeValue"
+native = "Value"
+value = "I32"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "InfoBar"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.InfoBar"
+key = false
+relations = []
+
+[[objects.properties]]
+name = "Title"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Message"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Severity"
+value = "InfoBarSeverity"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsOpen"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsClosable"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.events]]
+name = "Closed"
+value = "Unit"
+
+[[objects]]
+name = "PersonPicture"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.PersonPicture"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "DisplayName"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Initials"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "ScrollView"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ScrollView"
+key = false
+events = []
+
+[[objects.properties]]
+name = "ScrollViewHorizontalScrollBarVisibility"
+native = "HorizontalScrollBarVisibility"
+value = "ScrollingScrollBarVisibility"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ScrollViewVerticalScrollBarVisibility"
+native = "VerticalScrollBarVisibility"
+value = "ScrollingScrollBarVisibility"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "Image"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Image"
+key = false
+relations = []
+
+[[objects.properties]]
+name = "Stretch"
+value = "Stretch"
+clear_feedback = false
+required = false
+
+[[objects.events]]
+name = "ImageOpened"
+field = "on_opened"
+value = "Unit"
+
+[[objects.events]]
+name = "ImageFailed"
+field = "on_failed"
+value = "Unit"
+
+[[objects]]
+name = "ProgressRing"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ProgressRing"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "Minimum"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Maximum"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Value"
+value = "F64"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsIndeterminate"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsActive"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "ListBox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ListBox"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Items"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Keyed"
+realization = "Owned"
+native_collection = "ItemCollection"
+native_item = "IInspectable"
+
+[[objects.events]]
+name = "SelectionChanged"
+field = "on_selected_tag_changed"
+value = "Selection"
+
+[objects.selection]
+relations = ["Items"]
+item = "ListBoxItem"
+selected_property = "IsSelected"
+selected_item_property = "SelectedItem"
+event = "SelectionChanged"
+event_item_source = "Owner"
+payload_property = "Tag"
+
+[[objects]]
+name = "Rectangle"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Shapes.Rectangle"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "StrokeThickness"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_non_negative"
+
+[[objects.properties]]
+name = "RadiusX"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_non_negative"
+
+[[objects.properties]]
+name = "RadiusY"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_non_negative"
+
+[[objects]]
+name = "Ellipse"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Shapes.Ellipse"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "StrokeThickness"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_non_negative"
+
+[[objects]]
+name = "Line"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Shapes.Line"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "StrokeThickness"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_non_negative"
+
+[[objects.properties]]
+name = "X1"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite"
+
+[[objects.properties]]
+name = "Y1"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite"
+
+[[objects.properties]]
+name = "X2"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite"
+
+[[objects.properties]]
+name = "Y2"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite"
+
+[[objects]]
+name = "SymbolIcon"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.SymbolIcon"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "Symbol"
+value = "Symbol"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "ImageIcon"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ImageIcon"
+key = false
+properties = []
+relations = []
+events = []
+
+[[objects]]
+name = "FontIcon"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.FontIcon"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "Glyph"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "BitmapIcon"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.BitmapIcon"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "ShowAsMonochrome"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "PathIcon"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.PathIcon"
+key = false
+properties = []
+relations = []
+events = []
+
+[[objects]]
+name = "ListBoxItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ListBoxItem"
+key = false
+events = []
+
+[[objects.properties]]
+name = "IsSelected"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Tag"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "RatingControl"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.RatingControl"
+key = false
+relations = []
+
+[[objects.properties]]
+name = "Caption"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsReadOnly"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "MaxRating"
+value = "I32"
+coerces = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "RatingControlValue"
+native = "Value"
+value = "OptionalF64"
+adapter = "rating_value"
+controlled = "ValueChanged"
+feedback = "synchronous_normalized"
+clear_feedback = false
+required = false
+
+[[objects.events]]
+name = "ValueChanged"
+value = "OptionalF64"
+observes = "RatingControlValue"
+
+[[objects]]
+name = "Expander"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Expander"
+key = false
+events = []
+
+[[objects.properties]]
+name = "IsExpanded"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "ComboBox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ComboBox"
+key = false
+
+[[objects.properties]]
+name = "PlaceholderText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEditable"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ItemsSource"
+value = "StringList"
+adapter = "inspectable_string_list"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "SelectedIndex"
+value = "SelectionIndex"
+adapter = "selection_index"
+controlled = "SelectionChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "SelectionChanged"
+value = "SelectionIndex"
+observes = "SelectedIndex"
+
+[[objects]]
+name = "Pivot"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.Pivot"
+key = false
+
+[[objects.properties]]
+name = "Title"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "SelectedIndex"
+value = "SelectionIndex"
+adapter = "selection_index"
+controlled = "SelectionChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Items"
+child = "Visual"
+allowed_objects = ["PivotItem"]
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+item = "PivotItem"
+native_collection = "ItemCollection"
+native_item = "IInspectable"
+
+[[objects.events]]
+name = "SelectionChanged"
+value = "SelectionIndex"
+observes = "SelectedIndex"
+
+[[objects]]
+name = "PivotItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.PivotItem"
+key = false
+events = []
+
+[[objects.properties]]
+name = "Header"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "FlipView"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.FlipView"
+key = false
+
+[[objects.properties]]
+name = "SelectedIndex"
+value = "SelectionIndex"
+adapter = "selection_index"
+controlled = "SelectionChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Items"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+native_collection = "ItemCollection"
+native_item = "IInspectable"
+
+[[objects.events]]
+name = "SelectionChanged"
+value = "SelectionIndex"
+observes = "SelectedIndex"
+
+[[objects]]
+name = "SelectorBar"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.SelectorBar"
+key = false
+properties = []
+
+[[objects.relations]]
+name = "Items"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Keyed"
+realization = "Owned"
+native_collection = "Vector"
+native_item = "Microsoft.UI.Xaml.Controls.SelectorBarItem"
+
+[[objects.events]]
+name = "SelectionChanged"
+field = "on_selected_text_changed"
+value = "Selection"
+
+[objects.selection]
+relations = ["Items"]
+item = "SelectorBarItem"
+selected_property = "IsSelected"
+selected_item_property = "SelectedItem"
+event = "SelectionChanged"
+event_item_source = "Owner"
+payload_property = "Text"
+
+[[objects]]
+name = "SelectorBarItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.SelectorBarItem"
+key = false
+events = []
+
+[[objects.properties]]
+name = "Text"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsSelected"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Icon"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+native_item = "Microsoft.UI.Xaml.Controls.IconElement"
+
+[[objects]]
+name = "TabView"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.TabView"
+key = false
+
+[[objects.properties]]
+name = "CanReorderTabs"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsAddTabButtonVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "SelectedIndex"
+value = "SelectionIndex"
+adapter = "selection_index"
+controlled = "SelectionChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "TabItems"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+native_collection = "Vector"
+native_item = "IInspectable"
+
+[[objects.events]]
+name = "AddTabButtonClick"
+value = "Unit"
+
+[[objects.events]]
+name = "SelectionChanged"
+value = "SelectionIndex"
+observes = "SelectedIndex"
+
+[[objects]]
+name = "TabViewItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.TabViewItem"
+key = false
+events = []
+
+[[objects.properties]]
+name = "IsClosable"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Header"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Tag"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "TeachingTip"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.TeachingTip"
+key = false
+relations = []
+
+[[objects.properties]]
+name = "Title"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Subtitle"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsOpen"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsLightDismissEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "PreferredPlacement"
+value = "TeachingTipPlacementMode"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "ActionButtonContent"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "CloseButtonContent"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.events]]
+name = "Closed"
+value = "Unit"
+
+[[objects.events]]
+name = "ActionButtonClick"
+value = "Unit"
+
+[[objects]]
+name = "DropDownButton"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.DropDownButton"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "Click"
+value = "Unit"
+
+[[objects]]
+name = "CommandBar"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.CommandBar"
+key = false
+properties = []
+events = []
+
+[[objects.relations]]
+name = "PrimaryCommands"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+native_collection = "ObservableVector"
+native_item = "Microsoft.UI.Xaml.Controls.ICommandBarElement"
+
+[[objects.relations]]
+name = "SecondaryCommands"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+native_collection = "ObservableVector"
+native_item = "Microsoft.UI.Xaml.Controls.ICommandBarElement"
+
+[[objects]]
+name = "AppBarButton"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.AppBarButton"
+key = false
+
+[[objects.properties]]
+name = "Label"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Icon"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+native_item = "Microsoft.UI.Xaml.Controls.IconElement"
+
+[[objects.events]]
+name = "Click"
+value = "Unit"
+
+[[objects]]
+name = "AppBarSeparator"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.AppBarSeparator"
+key = false
+properties = []
+relations = []
+events = []
+
+[[objects]]
+name = "MenuBar"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.MenuBar"
+key = false
+properties = []
+events = []
+
+[[objects.relations]]
+name = "Items"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+native_collection = "Vector"
+native_item = "Microsoft.UI.Xaml.Controls.MenuBarItem"
+
+[[objects]]
+name = "MenuBarItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.MenuBarItem"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "Title"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "SplitButton"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.SplitButton"
+key = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects.events]]
+name = "Click"
+value = "Unit"
+
+[[objects]]
+name = "ColorPicker"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ColorPicker"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "IsAlphaEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsHexInputVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsColorSliderVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsColorChannelTextInputVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects]]
+name = "DatePicker"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.DatePicker"
+key = false
+events = []
+
+[[objects.properties]]
+name = "DayVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "MonthVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "YearVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "TimePicker"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.TimePicker"
+key = false
+events = []
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "MinuteIncrement"
+value = "I32"
+clear_feedback = false
+required = false
+validation = "zero_to_fifty_nine"
+
+[[objects.properties]]
+name = "ClockIdentifier"
+value = "String"
+adapter = "clock_identifier"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "CalendarDatePicker"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.CalendarDatePicker"
+key = false
+events = []
+
+[[objects.properties]]
+name = "PlaceholderText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsTodayHighlighted"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsCalendarOpen"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "ToolTip"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ToolTip"
+key = false
+properties = []
+events = []
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "ContentDialog"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ContentDialog"
+key = false
+events = []
+
+[[objects.properties]]
+name = "PrimaryButtonText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "SecondaryButtonText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "CloseButtonText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsPrimaryButtonEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsSecondaryButtonEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Title"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "CalendarView"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.CalendarView"
+key = false
+relations = []
+
+[[objects.properties]]
+name = "IsTodayHighlighted"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsGroupLabelVisible"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.events]]
+name = "SelectedDatesChanged"
+value = "Unit"
+
+[[objects]]
+name = "ListViewItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.ListViewItem"
+key = false
+events = []
+
+[[objects.properties]]
+name = "Tag"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "GridView"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.GridView"
+key = false
+
+[[objects.properties]]
+name = "CanDragItems"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "CanReorderItems"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "AllowDrop"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "SelectedIndex"
+value = "SelectionIndex"
+adapter = "selection_index"
+controlled = "SelectionChanged"
+feedback = "synchronous_exact"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Items"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+native_collection = "ItemCollection"
+native_item = "IInspectable"
+
+[[objects.events]]
+name = "SelectionChanged"
+value = "SelectionIndex"
+observes = "SelectedIndex"
+
+[[objects]]
+name = "GridViewItem"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.GridViewItem"
+key = false
+events = []
+
+[[objects.properties]]
+name = "Tag"
+value = "String"
+adapter = "inspectable_string"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Content"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "RelativePanel"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.RelativePanel"
+key = false
+properties = []
+events = []
+
+[[objects.relations]]
+name = "Children"
+child = "Visual"
+allowed_objects = []
+cardinality = "Many"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "RichEditBox"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.RichEditBox"
+key = false
+events = []
+
+[[objects.properties]]
+name = "PlaceholderText"
+value = "String"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsReadOnly"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "IsEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.relations]]
+name = "Header"
+child = "Visual"
+allowed_objects = []
+cardinality = "One"
+identity = "Positional"
+realization = "Owned"
+
+[[objects]]
+name = "RichTextBlock"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.RichTextBlock"
+key = false
+relations = []
+events = []
+
+[[objects.properties]]
+name = "IsTextSelectionEnabled"
+value = "Bool"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "TextWrapping"
+value = "TextWrapping"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "FontSize"
+value = "F64"
+clear_feedback = false
+required = false
+validation = "finite_positive"
+
+[[objects]]
+name = "WebView2"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.WebView2"
+key = false
+properties = []
+relations = []
+events = []
+
+[[objects]]
+name = "SwapChainPanel"
+category = "Visual"
+native = "Microsoft.UI.Xaml.Controls.SwapChainPanel"
+key = false
+properties = []
+relations = []
+events = []

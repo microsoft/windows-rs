@@ -118,7 +118,7 @@ impl RecordingAdapter {
                         .find(|contract| contract.id == relation)
                         .ok_or(AdapterError::InvalidRelation(parent, relation))?;
                     if contract.realization != Realization::Owned
-                        || contract.child != object_category(*kind)
+                        || !relation_accepts(contract, *kind)
                     {
                         return Err(AdapterError::InvalidReplacement(*object));
                     }
