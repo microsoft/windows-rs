@@ -16,6 +16,7 @@ use windows_reactor::{
     App, AppContext, AppProxy, Component, ComponentContext, TextBlock, View, ViewContext,
 };
 use windows_reactor2 as reactor2;
+use windows_reactor2::TooltipExt as _;
 
 #[derive(Clone)]
 struct Input {
@@ -799,6 +800,36 @@ impl Component for Fixture {
         destroyed_virtual_runtime
             .update(reactor2::Grid::new())
             .unwrap();
+        title_bar_runtime
+            .update(
+                reactor2::Grid::new().children([reactor2::keyed(
+                    "target",
+                    reactor2::Button::new()
+                        .content("Hover target")
+                        .tooltip_with(
+                            reactor2::Tooltip::rich(reactor2::StackPanel::new().children([
+                                reactor2::TextBlock::new().text("Rich tooltip").into(),
+                                reactor2::TextBlock::new().text("Live content").into(),
+                            ]))
+                            .placement(reactor2::TooltipPlacement::Bottom),
+                        ),
+                )]),
+            )
+            .unwrap();
+        title_bar_runtime
+            .update(
+                reactor2::Grid::new().children([reactor2::keyed(
+                    "target",
+                    reactor2::Button::new()
+                        .content("Hover target")
+                        .tooltip_with(
+                            reactor2::Tooltip::text("Updated tooltip")
+                                .placement(reactor2::TooltipPlacement::Mouse),
+                        ),
+                )]),
+            )
+            .unwrap();
+        title_bar_runtime.update(reactor2::Grid::new()).unwrap();
         destroyed_virtual_runtime
             .adapter()
             .validate_graph(destroyed_virtual_runtime.graph())

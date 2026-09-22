@@ -5,8 +5,8 @@ use crate::{
     EventPayload, EventValue, GridLength, GridLengthSize, ImperativeRequest, IntegrationError,
     Mutation, NativeEvent, ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue,
     Realization, RealizationRequest, RealizedContainer, RelationContract, RelationId,
-    RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, relation_contracts,
-    selection_for_item_property, selection_for_relation,
+    RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, TooltipPlacement,
+    relation_contracts, selection_for_item_property, selection_for_relation,
 };
 use native::IElementFactory;
 use std::cell::{Cell, RefCell};
@@ -786,6 +786,8 @@ pub struct WinUiAdapter {
     webview_initializations: Rc<RefCell<HashMap<ObjectId, WebViewInitialization>>>,
     windows: Rc<RefCell<Vec<Weak<NativeWindowState>>>>,
     window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
+    tooltips: HashMap<ObjectId, (ObjectId, TooltipPlacement)>,
+    tooltip_owners: HashMap<ObjectId, ObjectId>,
 }
 
 struct NativeRetirement {
@@ -811,6 +813,8 @@ impl Default for WinUiAdapter {
             webview_initializations: Rc::new(RefCell::new(HashMap::new())),
             windows: Rc::new(RefCell::new(Vec::new())),
             window_title_bar: None,
+            tooltips: HashMap::new(),
+            tooltip_owners: HashMap::new(),
         }
     }
 }
@@ -1071,6 +1075,59 @@ impl WinUiAdapter {
             .is_some_and(|(current, _)| current == object)
         {
             self.window_title_bar = None;
+        }
+        Ok(())
+    }
+
+    fn set_tooltip(
+        &mut self,
+        target: ObjectId,
+        tooltip: Option<ObjectId>,
+        placement: TooltipPlacement,
+    ) -> Result<(), WinUiError> {
+        if self.tooltip_owners.contains_key(&target) {
+            return Err(WinUiError::StillOwned(target));
+        }
+        let target_element = self
+            .ui_element(target)?
+            .cast::<native::DependencyObject>()?;
+        let tooltip_element = tooltip
+            .map(|tooltip| {
+                if tooltip == target || self.kind(tooltip)? != ObjectType::ToolTip {
+                    return Err(WinUiError::InvalidObject(tooltip));
+                }
+                if self.owners.contains_key(&tooltip)
+                    || self
+                        .tooltip_owners
+                        .get(&tooltip)
+                        .is_some_and(|owner| *owner != target)
+                {
+                    return Err(WinUiError::StillOwned(tooltip));
+                }
+                self.ui_element(tooltip)
+            })
+            .transpose()?;
+        if let Some(tooltip) = &tooltip_element {
+            native::ToolTipService::SetToolTip(&target_element, tooltip)?;
+        } else {
+            native::ToolTipService::SetToolTip(&target_element, None::<&IInspectable>)?;
+        }
+        native::ToolTipService::SetPlacement(
+            &target_element,
+            match placement {
+                TooltipPlacement::Top => native::PlacementMode::Top,
+                TooltipPlacement::Bottom => native::PlacementMode::Bottom,
+                TooltipPlacement::Left => native::PlacementMode::Left,
+                TooltipPlacement::Right => native::PlacementMode::Right,
+                TooltipPlacement::Mouse => native::PlacementMode::Mouse,
+            },
+        )?;
+        if let Some((previous, _)) = self.tooltips.remove(&target) {
+            self.tooltip_owners.remove(&previous);
+        }
+        if let Some(tooltip) = tooltip {
+            self.tooltips.insert(target, (tooltip, placement));
+            self.tooltip_owners.insert(tooltip, target);
         }
         Ok(())
     }
@@ -2098,6 +2155,9 @@ impl WinUiAdapter {
     }
 
     fn replace(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
+        if self.tooltips.contains_key(&object) || self.tooltip_owners.contains_key(&object) {
+            return Err(WinUiError::StillOwned(object));
+        }
         let (parent, relation) = self
             .owners
             .get(&object)
@@ -3358,6 +3418,11 @@ impl Adapter for WinUiAdapter {
                 Mutation::SetWindowTitleBar { object, height } => {
                     self.set_window_title_bar(*object, *height)?;
                 }
+                Mutation::SetTooltip {
+                    target,
+                    tooltip,
+                    placement,
+                } => self.set_tooltip(*target, *tooltip, *placement)?,
                 Mutation::SetVirtualSource {
                     object,
                     item_count,
@@ -3457,6 +3522,12 @@ impl Adapter for WinUiAdapter {
                     self.start_retirement(*root, nodes.clone(), *parent, *relation, *duration)?;
                 }
                 Mutation::CompleteRetirement { root, nodes } => {
+                    if nodes.iter().any(|object| {
+                        self.tooltips.contains_key(object)
+                            || self.tooltip_owners.contains_key(object)
+                    }) {
+                        return Err(WinUiError::StillOwned(*root));
+                    }
                     self.complete_retirement(*root, nodes)?;
                 }
                 Mutation::Destroy { object } => {
@@ -3467,6 +3538,11 @@ impl Adapter for WinUiAdapter {
                         return Err(WinUiError::InvalidObject(*object));
                     }
                     if self.owners.contains_key(object) {
+                        return Err(WinUiError::StillOwned(*object));
+                    }
+                    if self.tooltips.contains_key(object)
+                        || self.tooltip_owners.contains_key(object)
+                    {
                         return Err(WinUiError::StillOwned(*object));
                     }
                     self.handles

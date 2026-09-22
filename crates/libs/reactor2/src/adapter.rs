@@ -13,6 +13,8 @@ pub struct RecordingAdapter {
     focuses: Vec<ObjectId>,
     imperatives: Vec<ImperativeRequest>,
     window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
+    tooltips: HashMap<ObjectId, (ObjectId, TooltipPlacement)>,
+    tooltip_owners: HashMap<ObjectId, ObjectId>,
     record_batches: bool,
     validate_batches: bool,
 }
@@ -47,6 +49,7 @@ pub enum AdapterError {
     InvalidChildCategory(RelationId),
     InvalidReplacement(ObjectId),
     InvalidWindowTitleBar(ObjectId),
+    InvalidTooltip(ObjectId),
     ChildNotFound(ObjectId),
     AlreadyOwned(ObjectId),
     StillOwned(ObjectId),
@@ -64,6 +67,8 @@ impl RecordingAdapter {
             focuses: Vec::new(),
             imperatives: Vec::new(),
             window_title_bar: None,
+            tooltips: HashMap::new(),
+            tooltip_owners: HashMap::new(),
             record_batches: false,
             validate_batches: true,
         }
@@ -95,6 +100,10 @@ impl RecordingAdapter {
 
     pub fn window_title_bar(&self) -> Option<(ObjectId, WindowTitleBarHeight)> {
         self.window_title_bar
+    }
+
+    pub fn tooltip(&self, target: ObjectId) -> Option<(ObjectId, TooltipPlacement)> {
+        self.tooltips.get(&target).copied()
     }
 
     pub fn retirement_count(&self) -> usize {
@@ -214,7 +223,9 @@ impl RecordingAdapter {
                     if previous.relations.values().any(|relation| match relation {
                         RecordedRelation::One(child) => child.is_some(),
                         RecordedRelation::Many(children) => !children.is_empty(),
-                    }) {
+                    }) || self.tooltips.contains_key(object)
+                        || self.tooltip_owners.contains_key(object)
+                    {
                         return Err(AdapterError::StillOwned(*object));
                     }
                     let (parent, relation) = self
@@ -287,6 +298,38 @@ impl RecordingAdapter {
                         return Err(AdapterError::InvalidWindowTitleBar(*object));
                     }
                     self.window_title_bar = Some((*object, *height));
+                }
+                Mutation::SetTooltip {
+                    target,
+                    tooltip,
+                    placement,
+                } => {
+                    self.require_object(*target)?;
+                    if self.tooltip_owners.contains_key(target) {
+                        return Err(AdapterError::AlreadyOwned(*target));
+                    }
+                    if let Some(tooltip) = tooltip {
+                        if target == tooltip
+                            || self
+                                .objects
+                                .get(tooltip)
+                                .is_none_or(|object| object.kind != ObjectType::ToolTip)
+                        {
+                            return Err(AdapterError::InvalidTooltip(*tooltip));
+                        }
+                        if self.is_owned(*tooltip)
+                            && self.tooltip_owners.get(tooltip) != Some(target)
+                        {
+                            return Err(AdapterError::AlreadyOwned(*tooltip));
+                        }
+                    }
+                    if let Some((previous, _)) = self.tooltips.remove(target) {
+                        self.tooltip_owners.remove(&previous);
+                    }
+                    if let Some(tooltip) = tooltip {
+                        self.tooltips.insert(*target, (*tooltip, *placement));
+                        self.tooltip_owners.insert(*tooltip, *target);
+                    }
                 }
                 Mutation::SetVirtualSource { object, .. } => {
                     self.require_object(*object)?;
@@ -471,6 +514,12 @@ impl RecordingAdapter {
                     if retirement.nodes != *nodes {
                         return Err(AdapterError::InvalidReplacement(*root));
                     }
+                    if nodes.iter().any(|object| {
+                        self.tooltips.contains_key(object)
+                            || self.tooltip_owners.contains_key(object)
+                    }) {
+                        return Err(AdapterError::StillOwned(*root));
+                    }
                     let relation = self.relation_mut(retirement.parent, retirement.relation)?;
                     let RecordedRelation::Many(children) = relation else {
                         return Err(AdapterError::InvalidMutation(retirement.relation));
@@ -497,6 +546,11 @@ impl RecordingAdapter {
                         return Err(AdapterError::InvalidWindowTitleBar(*object));
                     }
                     if self.is_owned(*object) {
+                        return Err(AdapterError::StillOwned(*object));
+                    }
+                    if self.tooltips.contains_key(object)
+                        || self.tooltip_owners.contains_key(object)
+                    {
                         return Err(AdapterError::StillOwned(*object));
                     }
                     self.objects
@@ -638,7 +692,7 @@ impl RecordingAdapter {
     }
 
     fn is_owned(&self, object: ObjectId) -> bool {
-        self.owners.contains_key(&object)
+        self.owners.contains_key(&object) || self.tooltip_owners.contains_key(&object)
     }
 }
 

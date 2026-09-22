@@ -119,6 +119,40 @@ pub enum ThemeTransition {
     Reposition,
 }
 
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+pub enum TooltipPlacement {
+    #[default]
+    Top,
+    Bottom,
+    Left,
+    Right,
+    Mouse,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct Tooltip {
+    content: Box<Visual>,
+    placement: TooltipPlacement,
+}
+
+impl Tooltip {
+    pub fn text(value: impl Into<Rc<str>>) -> Self {
+        Self::rich(TextBlock::new().text(value))
+    }
+
+    pub fn rich(content: impl Into<Visual>) -> Self {
+        Self {
+            content: Box::new(content.into()),
+            placement: TooltipPlacement::Top,
+        }
+    }
+
+    pub fn placement(mut self, placement: TooltipPlacement) -> Self {
+        self.placement = placement;
+        self
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct FontWeight(u16);
 
@@ -480,6 +514,21 @@ pub(crate) struct DeclaredRelation {
 }
 
 #[derive(Clone, Debug, PartialEq)]
+pub(crate) struct DeclaredTooltip {
+    pub content: Box<DeclaredNode>,
+    pub placement: TooltipPlacement,
+}
+
+impl DeclaredTooltip {
+    pub(crate) fn declaration(&self) -> Declaration {
+        Declaration::new(ObjectType::ToolTip).relation(
+            RelationId::Content,
+            RelationValue::One(Some(Rc::new(self.content.as_ref().clone()))),
+        )
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
 pub(crate) struct Declaration {
     pub kind: ObjectType,
     pub key: Option<Key>,
@@ -487,6 +536,7 @@ pub(crate) struct Declaration {
     pub reference: Option<ElementRef>,
     pub exit_transition: Option<ExitTransition>,
     pub window_title_bar: Option<WindowTitleBarHeight>,
+    pub tooltip: Option<Box<DeclaredTooltip>>,
     pub properties: SharedList<Property>,
     pub events: SharedList<Event>,
     pub relations: SharedList<DeclaredRelation>,
@@ -562,6 +612,9 @@ impl<T> FromIterator<T> for SharedList<T> {
 impl Drop for Declaration {
     fn drop(&mut self) {
         let mut pending = Vec::new();
+        if let Some(tooltip) = self.tooltip.take() {
+            pending.push(DropFrame::One(Some(*tooltip.content)));
+        }
         Self::queue_relations(std::mem::take(&mut self.relations), &mut pending);
         while let Some(frame) = pending.pop() {
             match frame {
@@ -605,6 +658,7 @@ pub(crate) enum DeclaredNode {
     Component {
         node: ComponentNode,
         relation_key: Option<Key>,
+        tooltip: Option<Box<DeclaredTooltip>>,
     },
 }
 
@@ -612,10 +666,15 @@ impl fmt::Debug for DeclaredNode {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::Object(value) => value.fmt(formatter),
-            Self::Component { node, relation_key } => formatter
+            Self::Component {
+                node,
+                relation_key,
+                tooltip,
+            } => formatter
                 .debug_struct("Component")
                 .field("key", &node.key)
                 .field("relation_key", relation_key)
+                .field("tooltip", tooltip)
                 .finish(),
         }
     }
@@ -629,12 +688,14 @@ impl PartialEq for DeclaredNode {
                 Self::Component {
                     node: left,
                     relation_key: left_key,
+                    tooltip: left_tooltip,
                 },
                 Self::Component {
                     node: right,
                     relation_key: right_key,
+                    tooltip: right_tooltip,
                 },
-            ) => left == right && left_key == right_key,
+            ) => left == right && left_key == right_key && left_tooltip == right_tooltip,
             _ => false,
         }
     }
@@ -645,9 +706,10 @@ impl DeclaredNode {
         let key = key.into();
         match self {
             Self::Object(value) => Self::Object(value.key(key)),
-            Self::Component { node, .. } => Self::Component {
+            Self::Component { node, tooltip, .. } => Self::Component {
                 node,
                 relation_key: Some(key),
+                tooltip,
             },
         }
     }
@@ -674,7 +736,9 @@ impl DeclaredNode {
                 };
                 key
             }
-            Self::Component { node, relation_key } => relation_key.as_ref().unwrap_or(&node.key),
+            Self::Component {
+                node, relation_key, ..
+            } => relation_key.as_ref().unwrap_or(&node.key),
         }
     }
 }
@@ -688,6 +752,7 @@ impl Declaration {
             reference: None,
             exit_transition: None,
             window_title_bar: None,
+            tooltip: None,
             properties: SharedList::Empty,
             events: SharedList::Empty,
             relations: SharedList::Empty,
@@ -806,6 +871,29 @@ impl Declaration {
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct Visual(pub(crate) DeclaredNode);
+
+pub trait TooltipExt: Into<Visual> + Sized {
+    fn tooltip(self, value: impl Into<Rc<str>>) -> Visual {
+        self.tooltip_with(Tooltip::text(value))
+    }
+
+    fn tooltip_with(self, tooltip: Tooltip) -> Visual {
+        let mut visual = self.into();
+        let tooltip = DeclaredTooltip {
+            content: Box::new(tooltip.content.0),
+            placement: tooltip.placement,
+        };
+        match &mut visual.0 {
+            DeclaredNode::Object(declaration) => declaration.tooltip = Some(Box::new(tooltip)),
+            DeclaredNode::Component {
+                tooltip: current, ..
+            } => *current = Some(Box::new(tooltip)),
+        }
+        visual
+    }
+}
+
+impl<T> TooltipExt for T where T: Into<Visual> {}
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct KeyedVisual(Visual);

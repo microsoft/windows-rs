@@ -56,6 +56,11 @@ pub enum Mutation {
         object: ObjectId,
         height: WindowTitleBarHeight,
     },
+    SetTooltip {
+        target: ObjectId,
+        tooltip: Option<ObjectId>,
+        placement: TooltipPlacement,
+    },
     SetVirtualSource {
         object: ObjectId,
         item_count: usize,
@@ -159,7 +164,7 @@ pub(crate) enum VirtualWork {
     Realize {
         lease: RealizationLease,
         index: usize,
-        view: Visual,
+        view: Box<Visual>,
         owner: Option<ComponentId>,
     },
     Recycle {
@@ -457,10 +462,17 @@ struct RetainedObject {
     reference: Option<ElementRef>,
     exit_transition: Option<ExitTransition>,
     window_title_bar: Option<WindowTitleBarHeight>,
+    tooltip: Option<Box<RetainedTooltip>>,
     properties: SharedList<Property>,
     events: Option<Rc<Vec<Event>>>,
     relations: Vec<RetainedRelation>,
     virtual_items: Option<Box<RetainedVirtualItems>>,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+struct RetainedTooltip {
+    object: ObjectId,
+    placement: TooltipPlacement,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -637,6 +649,13 @@ struct RetainedSlot {
 impl RetainedGraph {
     pub fn window_title_bar(&self) -> Result<Option<(ObjectId, WindowTitleBarHeight)>, GraphError> {
         Ok(self.window_title_bar)
+    }
+
+    pub(crate) fn tooltip(&self, target: ObjectId) -> Option<ObjectId> {
+        self.get(target)?
+            .tooltip
+            .as_ref()
+            .map(|tooltip| tooltip.object)
     }
 
     #[cfg(any(test, feature = "test"))]
@@ -958,6 +977,18 @@ impl RetainedGraph {
         {
             return Ok(false);
         }
+        match (&current.tooltip, &declaration.tooltip) {
+            (None, None) => {}
+            (Some(current), Some(declared))
+                if current.placement == declared.placement
+                    && self.matches_declaration_inner(
+                        current.object,
+                        &declared.declaration(),
+                        remaining,
+                        true,
+                    )? => {}
+            _ => return Ok(false),
+        }
         if let Some(current_virtual) = &current.virtual_items {
             let declared = declaration.virtual_items.as_ref();
             if declared.map(|declared| &declared.items) != Some(&current_virtual.items)
@@ -1106,7 +1137,7 @@ impl RetainedGraph {
                         revision,
                     },
                     index,
-                    view: items.items.view(index).ok_or(GraphError::SizeExceeded)?,
+                    view: Box::new(items.items.view(index).ok_or(GraphError::SizeExceeded)?),
                     owner: items.owner,
                 }))
             }
@@ -1877,7 +1908,7 @@ impl<A: Adapter> Runtime<A> {
                 NativeWork::Virtual(VirtualWork::Realize {
                     lease, index, view, ..
                 }) => {
-                    self.realize_virtual(&lease, index, view)?;
+                    self.realize_virtual(&lease, index, *view)?;
                 }
                 NativeWork::Virtual(VirtualWork::Recycle { lease }) => {
                     self.recycle_virtual(&lease)?;
@@ -2576,6 +2607,76 @@ fn defer_window_title_bar_sets(mutations: &mut Vec<Mutation>) {
 }
 
 impl Planner<'_, '_> {
+    fn mount_tooltip(
+        &mut self,
+        target: ObjectId,
+        tooltip: &DeclaredTooltip,
+    ) -> Result<(), GraphError> {
+        let object = self.mount(&tooltip.declaration())?;
+        self.retained.get_mut(target).tooltip = Some(Box::new(RetainedTooltip {
+            object,
+            placement: tooltip.placement,
+        }));
+        self.mutations.push(Mutation::SetTooltip {
+            target,
+            tooltip: Some(object),
+            placement: tooltip.placement,
+        });
+        Ok(())
+    }
+
+    fn clear_tooltip(&mut self, target: ObjectId) {
+        if let Some(tooltip) = self.retained.get_mut(target).tooltip.take() {
+            self.mutations.push(Mutation::SetTooltip {
+                target,
+                tooltip: None,
+                placement: tooltip.placement,
+            });
+            self.retire(tooltip.object);
+        }
+    }
+
+    fn reconcile_tooltip(
+        &mut self,
+        target: ObjectId,
+        previous: Option<Box<RetainedTooltip>>,
+        desired: Option<&DeclaredTooltip>,
+        target_replaced: bool,
+    ) -> Result<(), GraphError> {
+        match (previous, desired) {
+            (None, None) => {}
+            (None, Some(desired)) => self.mount_tooltip(target, desired)?,
+            (Some(previous), None) => {
+                if !target_replaced {
+                    self.mutations.push(Mutation::SetTooltip {
+                        target,
+                        tooltip: None,
+                        placement: previous.placement,
+                    });
+                }
+                self.retire(previous.object);
+            }
+            (Some(previous), Some(desired)) => {
+                let object = self.reconcile_object(previous.object, &desired.declaration())?;
+                if target_replaced
+                    || object != previous.object
+                    || desired.placement != previous.placement
+                {
+                    self.mutations.push(Mutation::SetTooltip {
+                        target,
+                        tooltip: Some(object),
+                        placement: desired.placement,
+                    });
+                }
+                self.retained.get_mut(target).tooltip = Some(Box::new(RetainedTooltip {
+                    object,
+                    placement: desired.placement,
+                }));
+            }
+        }
+        Ok(())
+    }
+
     fn replace_object(
         &mut self,
         object: ObjectId,
@@ -2591,6 +2692,14 @@ impl Planner<'_, '_> {
             self.retained.clear_window_title_bar(object);
             self.mutations
                 .push(Mutation::ClearWindowTitleBar { object });
+        }
+        let previous_tooltip = self.retained.get_mut(object).tooltip.take();
+        if let Some(tooltip) = &previous_tooltip {
+            self.mutations.push(Mutation::SetTooltip {
+                target: object,
+                tooltip: None,
+                placement: tooltip.placement,
+            });
         }
         let previous = std::mem::take(&mut self.retained.get_mut(object).relations);
         for relation in previous {
@@ -2636,6 +2745,7 @@ impl Planner<'_, '_> {
             reference: declaration.reference.clone(),
             exit_transition: declaration.exit_transition,
             window_title_bar: declaration.window_title_bar,
+            tooltip: None,
             properties: declaration.properties.clone(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
@@ -2683,6 +2793,12 @@ impl Planner<'_, '_> {
             self.mutations
                 .push(Mutation::SetWindowTitleBar { object, height });
         }
+        self.reconcile_tooltip(
+            object,
+            previous_tooltip,
+            declaration.tooltip.as_deref(),
+            true,
+        )?;
         Ok(())
     }
 
@@ -2694,6 +2810,7 @@ impl Planner<'_, '_> {
             reference: declaration.reference.clone(),
             exit_transition: declaration.exit_transition,
             window_title_bar: declaration.window_title_bar,
+            tooltip: None,
             properties: declaration.properties.clone(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
@@ -2755,6 +2872,9 @@ impl Planner<'_, '_> {
         if let Some(height) = declaration.window_title_bar {
             self.mutations
                 .push(Mutation::SetWindowTitleBar { object, height });
+        }
+        if let Some(tooltip) = &declaration.tooltip {
+            self.mount_tooltip(object, tooltip)?;
         }
         Ok(object)
     }
@@ -2860,6 +2980,13 @@ impl Planner<'_, '_> {
             }
             self.retained.get_mut(object).window_title_bar = declaration.window_title_bar;
         }
+        let previous_tooltip = self.retained.get_mut(object).tooltip.take();
+        self.reconcile_tooltip(
+            object,
+            previous_tooltip,
+            declaration.tooltip.as_deref(),
+            false,
+        )?;
         let properties = declaration.properties.as_slice();
         if self.retained.get(object).unwrap().properties.as_slice() != properties {
             let previous = self.retained.get(object).unwrap().properties.clone();
@@ -3431,6 +3558,7 @@ impl Planner<'_, '_> {
             self.mutations
                 .push(Mutation::ClearWindowTitleBar { object });
         }
+        self.clear_tooltip(object);
         let virtual_items = self.retained.get_mut(object).virtual_items.take();
         let relations = std::mem::take(&mut self.retained.get_mut(object).relations);
         for relation in relations {
@@ -3500,6 +3628,9 @@ impl Planner<'_, '_> {
         }
         let mut nodes = Vec::new();
         self.collect_subtree_postorder(root, &mut nodes);
+        for object in nodes.iter().copied() {
+            self.clear_tooltip(object);
+        }
         for object in &nodes {
             let retained = self.retained.get_mut(*object);
             if let Some(reference) = retained.reference.take() {

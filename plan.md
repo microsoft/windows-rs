@@ -18,8 +18,8 @@ typed declarations -> retained generational graph -> generic mutation batch -> r
 
 The architecture decision gate is complete and accepts Reactor2 as the replacement direction. It is
 not yet complete API or behavioral parity. Typed imperative references and declaration-owned
-TitleBar attachment are complete; the next host-owned lifecycle contracts are ToolTip and
-ContentDialog.
+TitleBar and ToolTip attachment are complete; ContentDialog is the remaining host-owned lifecycle
+contract.
 
 ## Current conclusion
 
@@ -39,7 +39,7 @@ Early results favor Reactor2:
 The remaining work is completeness rather than an architecture blocker:
 
 - Property and event parity remains incomplete.
-- All capability contracts are represented; two lifecycle/placement contracts remain.
+- All capability contracts are represented; one lifecycle contract remains.
 - Native ItemsRepeater uses a count-backed WinRT source and boxes indices only when WinUI requests
   them.
 - Tree and component retained-memory costs are measured and explained below.
@@ -409,7 +409,7 @@ Current result:
 | Slots | 42 | 42 | 0 |
 | Selections | 3 | 3 | 0 |
 | Capabilities | 158 | 158 | 0 |
-| Lifecycle/placement | 0 | 2 | 2 |
+| Lifecycle/placement | 1 | 2 | 1 |
 
 `--check-parity` must continue to fail until every old contract is represented exactly.
 
@@ -1217,11 +1217,16 @@ Latest local validation:
 - All 73 doctests and all 8 `tool-reactor2` tests passed.
 - Affected Reactor2 libraries, samples, and selftest passed all-target checks and strict Clippy.
 - Consecutive generation remained stable after the TitleBar and TextBlock surface changes.
+- ToolTip checkpoint: 158 `windows-reactor2` library tests passed.
+- ToolTip checkpoint: 72 doctests and all 8 `tool-reactor2` tests passed.
+- Affected Reactor2 libraries, samples, and selftest passed all-target checks and strict Clippy.
+- Consecutive ToolTip generation remained stable and parity reports lifecycle 1/2.
 
 The live selftest passes the newer selection, feedback, layout, retirement, RichEdit, Grid, and
 ItemsRepeater fixtures. It also passes opening a window before declaring a TitleBar, changing its
-preferred height from tall to standard, and removing it. It later fails at the real
-`PointerReleased` injection fixture because the test window is not foreground in the current
+preferred height from tall to standard, and removing it. The same open window then passes rich
+ToolTip attachment, content and placement replacement, and removal. The selftest later fails at the
+real `PointerReleased` injection fixture because the test window is not foreground in the current
 desktop session. This is an environment/test-host blocker, not a reason to skip or weaken the test.
 
 ## Remaining exact parity
@@ -1237,6 +1242,14 @@ index, rejects duplicate declarations, defers native attachment until structural
 complete, and clears the native attachment before destruction. WinUI synchronizes open windows
 after each mutation batch, so mounting, height changes, removal, and opening a window after initial
 publication use the same path. One retained root may be content of only one live native window.
+
+ToolTip is owned by its target declaration and retained graph. The public `Tooltip`,
+`TooltipPlacement`, and `TooltipExt` API supports text and rich visual content without exposing the
+internal native ToolTip as an ordinary declaration builder. Stable content updates preserve the
+attachment, placement changes reuse the retained ToolTip, replacement clears before replacing the
+target and reattaches afterward, and retirement clears before either object is destroyed. Adapter
+ownership checks are transactional and reject shared, normally owned, or prematurely destroyed
+ToolTips.
 
 Reference-family validation:
 
@@ -1271,13 +1284,12 @@ The remaining sample differences are intentional architecture boundaries:
 - `Solitaire -> Board -> keyed CardView` preserves targeted subtree ownership and card identity
   across pile moves, so it should not be flattened to match the original component structure.
 
-### Lifecycle and placement: 2
+### Lifecycle and placement: 1
 
 - ContentDialog lifecycle
-- ToolTip attachment
 
-These require host-owned placement/lifecycle state. They should not be represented as ordinary child
-relations or property aliases.
+ContentDialog requires host-owned lifecycle state and should not be represented as an ordinary child
+relation or property alias.
 
 ### Properties: 42
 
@@ -1464,7 +1476,7 @@ Recommended order:
 
 1. [x] Typed imperative reference service shared by Grid, Image, WebView2, and SwapChainPanel.
 2. [x] Window-owned TitleBar attachment.
-3. [ ] ToolTip attachment lifecycle.
+3. [x] ToolTip attachment lifecycle.
 4. [ ] ContentDialog lifecycle.
 5. [ ] Shared resource/style/brush/image/geometry value contracts.
 6. [ ] Controlled CheckBox, ToggleButton, Expander, and NavigationView events.

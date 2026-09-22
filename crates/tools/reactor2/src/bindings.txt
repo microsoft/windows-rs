@@ -36,6 +36,8 @@ Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
 Microsoft::UI::Xaml::IWindow::{put_Content, put_Title, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, Close, add_Closed, remove_Closed}
 Microsoft::UI::Xaml::IWindow2::get_AppWindow
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
+Microsoft::UI::Xaml::Controls::ToolTipService::{SetToolTip, SetPlacement}
+Microsoft::UI::Xaml::Controls::Primitives::PlacementMode::{Top, Bottom, Left, Right, Mouse}
 Microsoft::UI::Xaml::Controls::TreeView::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
 Microsoft::UI::Xaml::Controls::ListView::CreateInstance

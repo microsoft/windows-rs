@@ -39,6 +39,8 @@ struct Capabilities {
     #[serde(default)]
     text_style: Vec<String>,
     #[serde(default)]
+    tooltip_attachment: Vec<String>,
+    #[serde(default)]
     window_title_bar: Vec<String>,
 }
 
@@ -474,6 +476,11 @@ fn validate(schema: &Schema) {
         ("focus", &schema.capabilities.focus),
         ("reference", &schema.capabilities.reference),
         ("text_style", &schema.capabilities.text_style),
+        (
+            "tooltip_attachment",
+            &schema.capabilities.tooltip_attachment,
+        ),
+        ("window_title_bar", &schema.capabilities.window_title_bar),
     ] {
         let mut unique = BTreeSet::new();
         for member in members {
@@ -2985,6 +2992,9 @@ fn generate_declarations(
     }
     output.push_str("}; }\n");
     for object in &schema.objects {
+        if has_capability(&schema.capabilities.tooltip_attachment, object) {
+            continue;
+        }
         output.push_str("#[derive(Clone, Debug, PartialEq)]\n");
         output.push_str(&format!("pub struct {}(Declaration);\n", object.name));
 
@@ -3570,6 +3580,7 @@ fn checked_output_is_current() {
         assert!(declarations.contains(&format!("reference_methods!({object});")));
     }
     assert!(declarations.contains("window_title_bar_methods!();"));
+    assert!(!declarations.contains("pub struct ToolTip(Declaration);"));
     assert!(declarations.contains("pub fn font_weight"));
     let contracts = fs::read_to_string(workspace_path(OUTPUT)).unwrap();
     assert!(contracts.contains("pub(crate) fn focus_capable"));

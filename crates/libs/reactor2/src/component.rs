@@ -720,6 +720,7 @@ impl From<ComponentNode> for Visual {
         Self(DeclaredNode::Component {
             node,
             relation_key: None,
+            tooltip: None,
         })
     }
 }
@@ -1316,6 +1317,7 @@ impl<A: Adapter> ComponentHost<A> {
                 view,
                 owner,
             } => {
+                let view = *view;
                 if let Some(owner) = owner
                     && self.scope(owner).is_none()
                 {
@@ -1568,6 +1570,8 @@ impl<A: Adapter> ComponentHost<A> {
         if let Some(items) = declaration.virtual_items.as_mut() {
             items.owner = Some(owner);
         }
+        declaration.tooltip =
+            self.expand_tooltip(owner, declaration.tooltip.take(), depth, expansion)?;
         for relation in declaration.relations.as_slice().to_vec() {
             let mut value = relation.value;
             match &mut value {
@@ -1601,7 +1605,11 @@ impl<A: Adapter> ComponentHost<A> {
             DeclaredNode::Object(declaration) => {
                 self.expand_declaration(owner, declaration, false, depth, expansion)
             }
-            DeclaredNode::Component { node, relation_key } => {
+            DeclaredNode::Component {
+                node,
+                relation_key,
+                tooltip,
+            } => {
                 if let Some(relation_key) = &relation_key
                     && relation_key != &node.key
                 {
@@ -1657,9 +1665,31 @@ impl<A: Adapter> ComponentHost<A> {
                 let expanded = self.expand_view(id, view, depth, expansion)?;
                 let mut declaration = expanded.0.object().unwrap();
                 declaration.key = Some(component_key);
+                declaration.tooltip = self.expand_tooltip(owner, tooltip, depth, expansion)?;
                 Ok(declaration)
             }
         }
+    }
+
+    fn expand_tooltip(
+        &mut self,
+        owner: ComponentId,
+        tooltip: Option<Box<DeclaredTooltip>>,
+        depth: usize,
+        expansion: &mut ExpansionState,
+    ) -> Result<Option<Box<DeclaredTooltip>>, ComponentError<A::Error>> {
+        let Some(mut tooltip) = tooltip else {
+            return Ok(None);
+        };
+        if expansion.objects >= MAX_OBJECTS {
+            return Err(ComponentError::Runtime(UpdateError::Graph(
+                GraphError::SizeExceeded,
+            )));
+        }
+        expansion.objects += 1;
+        let expanded = self.expand_node(owner, *tooltip.content, depth + 2, expansion)?;
+        tooltip.content = Box::new(DeclaredNode::Object(expanded));
+        Ok(Some(tooltip))
     }
 
     fn refresh_roots(&mut self, root: &Visual) {
@@ -1675,6 +1705,15 @@ impl<A: Adapter> ComponentHost<A> {
             scope.reference.set(Some(object));
         }
         let mut pending = Vec::new();
+        if let Some(tooltip) = &declaration.tooltip {
+            let tooltip_object = self.runtime.graph().tooltip(object).unwrap();
+            let content_object = self
+                .runtime
+                .graph()
+                .child(tooltip_object, RelationId::Content)
+                .unwrap();
+            pending.push((tooltip.content.as_object().unwrap().clone(), content_object));
+        }
         for relation in declaration.relations.iter() {
             match &relation.value {
                 RelationValue::One(Some(child)) => {
@@ -2181,6 +2220,27 @@ mod tests {
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
             TextBlock::new().text(input.clone()).into()
+        }
+    }
+
+    struct TooltipParent;
+
+    impl Component for TooltipParent {
+        type Input = ();
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            Border::new()
+                .content(component::<Label>("label", Rc::from("Label")).tooltip("Help"))
+                .into()
         }
     }
 
@@ -3126,6 +3186,26 @@ mod tests {
         assert!(sender.send(0));
         assert_eq!(host.drain(1).unwrap().mutations, 0);
         assert_eq!(cleanup.load(Ordering::Relaxed), 1);
+    }
+
+    #[test]
+    fn tooltip_attachment_expands_across_component_boundary() {
+        let host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<TooltipParent>("parent", ())],
+        )
+        .unwrap();
+        let target = host
+            .reference_at(&[Key::from("parent"), Key::from("label")])
+            .unwrap()
+            .get()
+            .unwrap();
+        let tooltip = host.runtime().graph().tooltip(target).unwrap();
+
+        assert_eq!(
+            host.runtime().adapter().tooltip(target),
+            Some((tooltip, TooltipPlacement::Top))
+        );
     }
 
     #[test]

@@ -71,6 +71,24 @@ fn validate_object(
         return Err(GraphError::DuplicateReference);
     }
 
+    if let Some(tooltip) = &declaration.tooltip {
+        if depth >= MAX_DEPTH || *objects >= MAX_OBJECTS {
+            return Err(if depth >= MAX_DEPTH {
+                GraphError::DepthExceeded
+            } else {
+                GraphError::SizeExceeded
+            });
+        }
+        *objects += 1;
+        validate_object(
+            child_object(&tooltip.content)?,
+            depth + 2,
+            objects,
+            references,
+            keys,
+        )?;
+    }
+
     for property in declaration.properties.iter() {
         validate_property(declaration.kind, property)?;
     }

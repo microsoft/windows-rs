@@ -5430,38 +5430,6 @@ impl From<CalendarDatePicker> for Visual {
     }
 }
 #[derive(Clone, Debug, PartialEq)]
-pub struct ToolTip(Declaration);
-impl ToolTip {
-    pub fn new() -> Self {
-        let declaration = Declaration::new(ObjectType::ToolTip);
-        Self(declaration)
-    }
-    visual_methods!();
-    /// Rejects values outside this relation's generated type contract.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor2::*;
-    /// let _ = ToolTip::new().content(TreeNode::new("node", "Node"));
-    /// ```
-    pub fn content(mut self, content: impl Into<Visual>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Content,
-            RelationValue::One(Some(Rc::new(content.into().0))),
-        );
-        self
-    }
-}
-impl Default for ToolTip {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-impl From<ToolTip> for Visual {
-    fn from(value: ToolTip) -> Self {
-        Self(DeclaredNode::Object(value.0))
-    }
-}
-#[derive(Clone, Debug, PartialEq)]
 pub struct ContentDialog(Declaration);
 impl ContentDialog {
     pub fn new() -> Self {

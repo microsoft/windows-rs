@@ -15282,6 +15282,49 @@ pub struct IToolTipFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IToolTipService,
+    IToolTipService_Vtbl,
+    0x01140768_2727_5f89_80e0_5210326a3431
+);
+impl windows_core::RuntimeType for IToolTipService {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IToolTipService_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IToolTipServiceStatics,
+    IToolTipServiceStatics_Vtbl,
+    0x5aa38adc_9874_5e0a_8d8e_1574efc0b88f
+);
+impl windows_core::RuntimeType for IToolTipServiceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IToolTipServiceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    PlacementProperty: usize,
+    GetPlacement: usize,
+    pub SetPlacement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        PlacementMode,
+    ) -> windows_core::HRESULT,
+    PlacementTargetProperty: usize,
+    GetPlacementTarget: usize,
+    SetPlacementTarget: usize,
+    ToolTipProperty: usize,
+    GetToolTip: usize,
+    pub SetToolTip: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ITransition,
     ITransition_Vtbl,
     0xe5b71956_8e44_5a38_b41e_274d706102bf
@@ -18977,6 +19020,24 @@ impl windows_core::RuntimeName for PivotItem {
 }
 unsafe impl Send for PivotItem {}
 unsafe impl Sync for PivotItem {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PlacementMode(pub i32);
+impl PlacementMode {
+    pub const Bottom: Self = Self(2);
+    pub const Left: Self = Self(9);
+    pub const Mouse: Self = Self(7);
+    pub const Right: Self = Self(4);
+    pub const Top: Self = Self(10);
+}
+impl windows_core::imp::TypeKind for PlacementMode {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for PlacementMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Controls.Primitives.PlacementMode;i4)",
+    );
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Point {
@@ -23233,6 +23294,69 @@ impl windows_core::RuntimeName for ToolTip {
 }
 unsafe impl Send for ToolTip {}
 unsafe impl Sync for ToolTip {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ToolTipService(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ToolTipService,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl ToolTipService {
+    pub(crate) fn SetPlacement<P0>(element: P0, value: PlacementMode) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IToolTipServiceStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetPlacement)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn SetToolTip<P0, P1>(element: P0, value: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyObject>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+    {
+        Self::IToolTipServiceStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetToolTip)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value.param().abi(),
+            )
+            .ok()
+        })
+    }
+    fn IToolTipServiceStatics<R, F: FnOnce(&IToolTipServiceStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ToolTipService, IToolTipServiceStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ToolTipService {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IToolTipService>();
+}
+unsafe impl windows_core::Interface for ToolTipService {
+    type Vtable = <IToolTipService as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IToolTipService as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ToolTipService {
+    type Target = IToolTipService;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ToolTipService {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ToolTipService";
+}
+unsafe impl Send for ToolTipService {}
+unsafe impl Sync for ToolTipService {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Transition(windows_core::IUnknown);

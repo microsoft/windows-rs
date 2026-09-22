@@ -986,6 +986,252 @@ fn duplicate_title_bars_fail_before_adapter_apply() {
 }
 
 #[test]
+fn tooltip_attachment_reconciles_content_and_placement() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let mutations = runtime
+        .update(
+            TextBlock::new()
+                .text("Target")
+                .tooltip_with(Tooltip::text("First").placement(TooltipPlacement::Bottom)),
+        )
+        .unwrap();
+    let target = runtime.graph().root().unwrap();
+    let tooltip = runtime.graph().tooltip(target).unwrap();
+    let attach = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::SetTooltip {
+                    target: current_target,
+                    tooltip: Some(current_tooltip),
+                    placement: TooltipPlacement::Bottom,
+                } if *current_target == target && *current_tooltip == tooltip
+            )
+        })
+        .unwrap();
+    let create = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::Create {
+                    object,
+                    kind: ObjectType::ToolTip,
+                } if *object == tooltip
+            )
+        })
+        .unwrap();
+    assert!(create < attach);
+    assert_eq!(
+        runtime.adapter().tooltip(target),
+        Some((tooltip, TooltipPlacement::Bottom))
+    );
+
+    let mutations = runtime
+        .update(
+            TextBlock::new()
+                .text("Target")
+                .tooltip_with(Tooltip::text("Second").placement(TooltipPlacement::Bottom)),
+        )
+        .unwrap();
+    assert_eq!(runtime.graph().tooltip(target), Some(tooltip));
+    assert!(
+        !mutations
+            .iter()
+            .any(|mutation| matches!(mutation, Mutation::SetTooltip { .. }))
+    );
+
+    let mutations = runtime
+        .update(
+            TextBlock::new()
+                .text("Target")
+                .tooltip_with(Tooltip::text("Third").placement(TooltipPlacement::Left)),
+        )
+        .unwrap();
+    assert_eq!(runtime.graph().tooltip(target), Some(tooltip));
+    assert!(mutations.iter().any(|mutation| {
+        matches!(
+            mutation,
+            Mutation::SetTooltip {
+                target: current_target,
+                tooltip: Some(current_tooltip),
+                placement: TooltipPlacement::Left,
+            } if *current_target == target && *current_tooltip == tooltip
+        )
+    }));
+}
+
+#[test]
+fn tooltip_target_replacement_clears_before_replace_and_reattaches() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Border::new().content(TextBlock::new().text("Target").tooltip("Tip")))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let target = runtime.graph().child(root, RelationId::Content).unwrap();
+    let tooltip = runtime.graph().tooltip(target).unwrap();
+
+    let mutations = runtime
+        .update_subtree(target, Button::new().content("Target").tooltip("Tip"))
+        .unwrap();
+    let clear = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::SetTooltip {
+                    target: current,
+                    tooltip: None,
+                    ..
+                } if *current == target
+            )
+        })
+        .unwrap();
+    let replace = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::Replace { object, .. } if *object == target
+            )
+        })
+        .unwrap();
+    let attach = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::SetTooltip {
+                    target: current_target,
+                    tooltip: Some(current_tooltip),
+                    ..
+                } if *current_target == target && *current_tooltip == tooltip
+            )
+        })
+        .unwrap();
+
+    assert!(clear < replace);
+    assert!(replace < attach);
+    assert_eq!(
+        runtime.adapter().tooltip(target),
+        Some((tooltip, TooltipPlacement::Top))
+    );
+}
+
+#[test]
+fn recording_adapter_enforces_tooltip_ownership_transactionally() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([
+            keyed("first", Button::new().tooltip("Tip")),
+            keyed("second", Border::new()),
+        ]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    let first = children[0];
+    let second = children[1];
+    let tooltip = runtime.graph().tooltip(first).unwrap();
+
+    assert_eq!(
+        runtime.adapter_mut().apply(&[Mutation::SetTooltip {
+            target: second,
+            tooltip: Some(tooltip),
+            placement: TooltipPlacement::Top,
+        }]),
+        Err(AdapterError::AlreadyOwned(tooltip))
+    );
+    assert_eq!(
+        runtime.adapter().tooltip(first),
+        Some((tooltip, TooltipPlacement::Top))
+    );
+    assert_eq!(runtime.adapter().tooltip(second), None);
+
+    assert_eq!(
+        runtime.adapter_mut().apply(&[Mutation::Attach {
+            parent: second,
+            relation: RelationId::Content,
+            child: tooltip,
+        }]),
+        Err(AdapterError::AlreadyOwned(tooltip))
+    );
+    assert_eq!(
+        runtime
+            .adapter_mut()
+            .apply(&[Mutation::Destroy { object: first }]),
+        Err(AdapterError::StillOwned(first))
+    );
+    assert_eq!(
+        runtime
+            .adapter_mut()
+            .apply(&[Mutation::Destroy { object: tooltip }]),
+        Err(AdapterError::StillOwned(tooltip))
+    );
+    assert_eq!(
+        runtime.adapter_mut().apply(&[Mutation::Replace {
+            object: first,
+            kind: ObjectType::Border,
+        }]),
+        Err(AdapterError::StillOwned(first))
+    );
+
+    runtime
+        .adapter_mut()
+        .apply(&[
+            Mutation::SetTooltip {
+                target: first,
+                tooltip: None,
+                placement: TooltipPlacement::Top,
+            },
+            Mutation::Remove {
+                parent: root,
+                relation: RelationId::Children,
+                child: first,
+                index: 0,
+            },
+            Mutation::Destroy { object: first },
+        ])
+        .unwrap();
+}
+
+#[test]
+fn tooltip_clear_precedes_destruction() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TextBlock::new().text("Target").tooltip("Tip"))
+        .unwrap();
+    let target = runtime.graph().root().unwrap();
+    let tooltip = runtime.graph().tooltip(target).unwrap();
+
+    let mutations = runtime.update(TextBlock::new().text("Target")).unwrap();
+    let clear = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::SetTooltip {
+                    target: current_target,
+                    tooltip: None,
+                    ..
+                } if *current_target == target
+            )
+        })
+        .unwrap();
+    let destroy = mutations
+        .iter()
+        .position(|mutation| matches!(mutation, Mutation::Destroy { object } if *object == tooltip))
+        .unwrap();
+
+    assert!(clear < destroy);
+    assert_eq!(runtime.graph().tooltip(target), None);
+    assert_eq!(runtime.adapter().tooltip(target), None);
+}
+
+#[test]
 fn stale_imperative_completion_reports_unavailable_after_rebinding() {
     let commands = Rc::new(RefCell::new(Vec::new()));
     let reference = ElementRef::<Image>::new();
@@ -3954,7 +4200,7 @@ fn virtual_items_realize_only_requested_rows() {
     else {
         panic!("expected realization");
     };
-    runtime.realize_virtual(&lease, index, view).unwrap();
+    runtime.realize_virtual(&lease, index, *view).unwrap();
 
     assert_eq!(runtime.adapter().object_count(), 2);
     assert_eq!(runtime.adapter().realized_count(collection), 1);
@@ -3994,7 +4240,7 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
         else {
             panic!("expected realization");
         };
-        runtime.realize_virtual(&lease, index, view).unwrap();
+        runtime.realize_virtual(&lease, index, *view).unwrap();
         lease
     };
     let first = realize(&mut runtime, RealizedContainer(1), 0);
@@ -4046,7 +4292,7 @@ fn virtual_items_preserve_keyed_child_across_reorder() {
         else {
             panic!("expected realization");
         };
-        runtime.realize_virtual(&lease, index, view).unwrap();
+        runtime.realize_virtual(&lease, index, *view).unwrap();
     }
     let before = runtime
         .adapter()
@@ -4068,7 +4314,7 @@ fn virtual_items_preserve_keyed_child_across_reorder() {
         else {
             panic!("expected refresh");
         };
-        runtime.realize_virtual(&lease, index, view).unwrap();
+        runtime.realize_virtual(&lease, index, *view).unwrap();
     }
     assert_eq!(
         runtime
@@ -4143,7 +4389,7 @@ fn virtual_items_remove_active_rows_when_source_becomes_empty() {
     else {
         panic!("expected realization");
     };
-    runtime.realize_virtual(&lease, index, view).unwrap();
+    runtime.realize_virtual(&lease, index, *view).unwrap();
 
     runtime.update(ItemsRepeater::new()).unwrap();
     assert_eq!(runtime.adapter().object_count(), 1);

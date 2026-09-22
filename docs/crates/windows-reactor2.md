@@ -165,7 +165,7 @@ reads the old schema only for that explicit command, merges metadata-backed dire
 the current Reactor2 schema, and writes ordinary Reactor2 TOML to standard output. Normal
 generation reads only `schema.toml`. The strict parity report currently accounts for 79/79
 controls, 191/233 properties, 37/68 events, 42/42 slots, 3/3 selection contracts, 158/158
-capabilities, and 0/2 lifecycle contracts. It includes inspectable strings and string lists,
+capabilities, and 1/2 lifecycle contracts. It includes inspectable strings and string lists,
 distinct NumberBox and RatingControl optional numeric values, checked selection indices,
 controlled and coercing property feedback backed by native events, and renamed event-builder
 fields. Feedback expectations are keyed by retained object and event. Exact native echoes are
@@ -186,7 +186,7 @@ also records where the event's selected item comes from. NavigationView reads
 `NavigationViewSelectionChangedEventArgs.SelectedItem`; ListBox and SelectorBar read their owner
 selection properties. Parity requires this source and event-args type to match the old contract.
 The remaining surface includes dependency-property-only feedback, more routed and typed event
-payloads, ToolTip placement, ContentDialog lifecycle, and the remaining shared capability families.
+payloads, ContentDialog lifecycle, and the remaining shared capability families.
 
 `PointerEventInfo` carries element-local and window-relative coordinates, pointer identity,
 left/right/middle button state, current capture state, and an optional capture-attempt result.
@@ -279,6 +279,14 @@ transactionally through rollback. WinUI synchronizes the desired declaration aft
 mutations so a newly mounted TitleBar is attached only after its native element enters the window
 root. A root cannot be opened in a second live `NativeWindow`, because one `UIElement` cannot be
 content of two WinUI windows.
+
+ToolTip is also declaration-owned rather than a public control relation. `TooltipExt` attaches
+`Tooltip::text` or `Tooltip::rich` content to any visual declaration, with Top, Bottom, Left, Right,
+or Mouse placement. The retained target owns a boxed attachment sidecar and an internal native
+ToolTip object whose Content relation uses normal reconciliation. Stable content updates preserve
+the native attachment. Placement changes reuse the same ToolTip, target replacement clears before
+replacement and reattaches afterward, and removal clears before either the ToolTip or target is
+destroyed. Recording and WinUI adapters enforce exclusive ownership transactionally.
 
 `Property`, `Event`, `Observation`, `NativeEvent`, `EventDispatch`, and their payload enums form the
 public adapter protocol rather than the application declaration API. External adapters consume

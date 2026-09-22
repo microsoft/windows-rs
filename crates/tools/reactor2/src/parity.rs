@@ -326,6 +326,11 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
                     .reference
                     .iter()
                     .any(|name| name == &object.name),
+                "tooltip_attachment" => schema
+                    .capabilities
+                    .tooltip_attachment
+                    .iter()
+                    .any(|name| name == &object.name),
                 "window_title_bar" => schema
                     .capabilities
                     .window_title_bar
@@ -608,7 +613,18 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
         ] {
             if let Some(value) = value {
                 report.lifecycle.total += 1;
-                report.unresolved(format!("unmapped {kind} `{value}`"), &control.type_name);
+                let mapped = kind == "placement"
+                    && value == "tooltip_attachment"
+                    && schema
+                        .capabilities
+                        .tooltip_attachment
+                        .iter()
+                        .any(|name| name == &object.name);
+                if mapped {
+                    report.lifecycle.mapped += 1;
+                } else {
+                    report.unresolved(format!("unmapped {kind} `{value}`"), &control.type_name);
+                }
             }
         }
     }

@@ -52,6 +52,7 @@ focus = [
 ]
 reference = ["Grid", "Image", "WebView2", "SwapChainPanel"]
 text_style = ["TextBlock", "TextBox", "RichTextBlock"]
+tooltip_attachment = ["ToolTip"]
 window_title_bar = ["TitleBar"]
 
 [[attached_properties]]

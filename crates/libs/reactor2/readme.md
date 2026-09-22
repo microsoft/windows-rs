@@ -54,6 +54,10 @@ changing the preferred height, or removing it updates an already-open window wit
 object lookup or window-policy attachment. A retained root may be assigned to only one live native
 window.
 
+`TooltipExt` attaches text or rich visual content to any visual declaration. The attachment owns
+an internal native `ToolTip`, preserves it across target and content updates, applies
+`TooltipPlacement`, and clears native ownership before either object is replaced or destroyed.
+
 `TextBlock` keeps the original builder shape, `TextBlock::new().text(value)`. Strings also convert
 directly to `Visual`, so content controls accept values such as `.content("New Game")`.
 
