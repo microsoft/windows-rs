@@ -21,6 +21,7 @@ pub enum GraphError {
     InvalidFocus(ObjectType),
     ReferenceUnavailable,
     DuplicateReference,
+    DuplicateWindowTitleBar,
     ExitTransitionUnsupported,
     InvalidRelation(ObjectType, RelationId),
     MissingChild(RelationId, ObjectId),

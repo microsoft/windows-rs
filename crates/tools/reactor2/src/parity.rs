@@ -326,6 +326,11 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
                     .reference
                     .iter()
                     .any(|name| name == &object.name),
+                "window_title_bar" => schema
+                    .capabilities
+                    .window_title_bar
+                    .iter()
+                    .any(|name| name == &object.name),
                 "text_style" => schema
                     .capabilities
                     .text_style

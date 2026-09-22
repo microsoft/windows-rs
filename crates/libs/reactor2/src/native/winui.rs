@@ -11,7 +11,7 @@ use crate::{
 use native::IElementFactory;
 use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet, VecDeque};
-use std::rc::Rc;
+use std::rc::{Rc, Weak};
 use std::sync::atomic::{AtomicU32, Ordering};
 use windows_collections::{
     CollectionChange, IIterable_Impl, IIterator_Impl, IObservableVector_Impl, IVector_Impl,
@@ -692,6 +692,7 @@ pub enum WinUiError {
     InvalidReplacement(ObjectId),
     InvalidEventArgs,
     InvalidDuration,
+    DuplicateWindowRoot(ObjectId),
     Native(windows_core::Error),
 }
 
@@ -783,6 +784,8 @@ pub struct WinUiAdapter {
     virtual_items: HashMap<ObjectId, NativeVirtualItems>,
     observations: HashMap<(ObjectId, u64), ObservationSubscription>,
     webview_initializations: Rc<RefCell<HashMap<ObjectId, WebViewInitialization>>>,
+    windows: Rc<RefCell<Vec<Weak<NativeWindowState>>>>,
+    window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
 }
 
 struct NativeRetirement {
@@ -806,6 +809,8 @@ impl Default for WinUiAdapter {
             virtual_items: HashMap::new(),
             observations: HashMap::new(),
             webview_initializations: Rc::new(RefCell::new(HashMap::new())),
+            windows: Rc::new(RefCell::new(Vec::new())),
+            window_title_bar: None,
         }
     }
 }
@@ -829,8 +834,14 @@ impl Drop for WinUiAdapter {
 }
 
 pub struct NativeWindow {
-    window: native::Window,
+    state: Rc<NativeWindowState>,
     closed: Option<windows_core::EventRevoker>,
+}
+
+struct NativeWindowState {
+    window: native::Window,
+    root: ObjectId,
+    title_bar: Cell<Option<(ObjectId, WindowTitleBarHeight)>>,
 }
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -854,7 +865,6 @@ pub struct WindowPolicy {
     theme: WindowTheme,
     client_size: Option<(f64, f64)>,
     minimum_client_size: Option<(f64, f64)>,
-    title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
 }
 
 impl WindowPolicy {
@@ -883,11 +893,6 @@ impl WindowPolicy {
         self.minimum_client_size = Some((width, height));
         self
     }
-
-    pub fn title_bar(mut self, title_bar: ObjectId, height: WindowTitleBarHeight) -> Self {
-        self.title_bar = Some((title_bar, height));
-        self
-    }
 }
 
 fn validate_window_size(width: f64, height: f64) {
@@ -900,7 +905,7 @@ fn validate_window_size(width: f64, height: f64) {
 impl Clone for NativeWindow {
     fn clone(&self) -> Self {
         Self {
-            window: self.window.clone(),
+            state: Rc::clone(&self.state),
             closed: None,
         }
     }
@@ -908,22 +913,22 @@ impl Clone for NativeWindow {
 
 impl NativeWindow {
     pub fn set_title(&self, title: &str) -> Result<(), WinUiError> {
-        self.window.SetTitle(title).map_err(Into::into)
+        self.state.window.SetTitle(title).map_err(Into::into)
     }
 
     pub fn activate(&self) -> Result<(), WinUiError> {
-        self.window.Activate().map_err(Into::into)
+        self.state.window.Activate().map_err(Into::into)
     }
 
     pub fn close(&self) -> Result<(), WinUiError> {
-        self.window.Close().map_err(Into::into)
+        self.state.window.Close().map_err(Into::into)
     }
 
     pub fn set_closed(
         &mut self,
         callback: impl Fn() -> windows_core::Result<()> + 'static,
     ) -> Result<(), WinUiError> {
-        self.closed = Some(self.window.Closed(move |_, _| {
+        self.closed = Some(self.state.window.Closed(move |_, _| {
             if let Err(error) = callback() {
                 super::app::report_error(error);
             }
@@ -943,18 +948,149 @@ impl WinUiAdapter {
 
     pub fn create_window_with_policy(
         &self,
-        root: ObjectId,
+        root_object: ObjectId,
         policy: &WindowPolicy,
     ) -> Result<NativeWindow, WinUiError> {
+        if self
+            .live_windows()
+            .iter()
+            .any(|window| window.root == root_object)
+        {
+            return Err(WinUiError::DuplicateWindowRoot(root_object));
+        }
         let window = native::Window::new()?;
-        let root = self.ui_element(root)?;
+        let root = self.ui_element(root_object)?;
         window.SetContent(&root)?;
         root.cast::<native::IUIElement>()?.UpdateLayout()?;
         self.apply_window_policy(&window, &root, policy)?;
-        Ok(NativeWindow {
+        let state = Rc::new(NativeWindowState {
             window,
+            root: root_object,
+            title_bar: Cell::new(None),
+        });
+        self.windows.borrow_mut().push(Rc::downgrade(&state));
+        if let Some((object, height)) = self.window_title_bar
+            && self.owns(state.root, object)
+        {
+            self.apply_title_bar_to_window(&state, object, height)?;
+        }
+        Ok(NativeWindow {
+            state,
             closed: None,
         })
+    }
+
+    fn owns(&self, root: ObjectId, mut object: ObjectId) -> bool {
+        loop {
+            if object == root {
+                return true;
+            }
+            let Some((parent, _)) = self.owners.get(&object) else {
+                return false;
+            };
+            object = *parent;
+        }
+    }
+
+    fn live_windows(&self) -> Vec<Rc<NativeWindowState>> {
+        let mut windows = self.windows.borrow_mut();
+        let live = windows.iter().filter_map(Weak::upgrade).collect::<Vec<_>>();
+        windows.retain(|window| window.strong_count() != 0);
+        live
+    }
+
+    fn apply_title_bar_to_window(
+        &self,
+        state: &NativeWindowState,
+        object: ObjectId,
+        height: WindowTitleBarHeight,
+    ) -> Result<(), WinUiError> {
+        if self.kind(object)? != ObjectType::TitleBar {
+            return Err(WinUiError::InvalidObject(object));
+        }
+        let element = self.ui_element(object)?;
+        element.cast::<native::IUIElement>()?.SetIsTabStop(false)?;
+        state.window.SetExtendsContentIntoTitleBar(true)?;
+        state.window.SetTitleBar(&element)?;
+        state
+            .window
+            .cast::<native::IWindow2>()?
+            .AppWindow()?
+            .TitleBar()?
+            .cast::<native::IAppWindowTitleBar2>()?
+            .SetPreferredHeightOption(match height {
+                WindowTitleBarHeight::Standard => native::TitleBarHeightOption::Standard,
+                WindowTitleBarHeight::Tall => native::TitleBarHeightOption::Tall,
+            })?;
+        state.title_bar.set(Some((object, height)));
+        Ok(())
+    }
+
+    fn clear_title_bar_from_window(
+        state: &NativeWindowState,
+        object: ObjectId,
+    ) -> Result<(), WinUiError> {
+        if !state
+            .title_bar
+            .get()
+            .is_some_and(|(current, _)| current == object)
+        {
+            return Ok(());
+        }
+        state
+            .window
+            .cast::<native::IWindow2>()?
+            .AppWindow()?
+            .TitleBar()?
+            .cast::<native::IAppWindowTitleBar2>()?
+            .SetPreferredHeightOption(native::TitleBarHeightOption::Standard)?;
+        state.window.SetTitleBar(None::<&native::UIElement>)?;
+        state.window.SetExtendsContentIntoTitleBar(false)?;
+        state.title_bar.set(None);
+        Ok(())
+    }
+
+    fn set_window_title_bar(
+        &mut self,
+        object: ObjectId,
+        height: WindowTitleBarHeight,
+    ) -> Result<(), WinUiError> {
+        if self.kind(object)? != ObjectType::TitleBar {
+            return Err(WinUiError::InvalidObject(object));
+        }
+        self.window_title_bar = Some((object, height));
+        Ok(())
+    }
+
+    fn clear_window_title_bar(&mut self, object: ObjectId) -> Result<(), WinUiError> {
+        for window in self.live_windows() {
+            Self::clear_title_bar_from_window(&window, object)?;
+        }
+        if self
+            .window_title_bar
+            .is_some_and(|(current, _)| current == object)
+        {
+            self.window_title_bar = None;
+        }
+        Ok(())
+    }
+
+    fn sync_window_title_bars(&self) -> Result<(), WinUiError> {
+        for window in self.live_windows() {
+            let desired = self
+                .window_title_bar
+                .filter(|(object, _)| self.owns(window.root, *object));
+            if window.title_bar.get() == desired {
+                continue;
+            }
+            if let Some((object, _)) = window.title_bar.get() {
+                Self::clear_title_bar_from_window(&window, object)?;
+            }
+            if let Some((object, height)) = desired {
+                self.apply_title_bar_to_window(&window, object, height)?;
+            }
+        }
+        Ok(())
     }
 
     pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
@@ -999,22 +1135,6 @@ impl WinUiAdapter {
                 WindowTheme::Light => native::ElementTheme::Light,
                 WindowTheme::Dark => native::ElementTheme::Dark,
             })?;
-
-        if let Some((object, height)) = policy.title_bar {
-            if self.kind(object)? != ObjectType::TitleBar {
-                return Err(WinUiError::InvalidObject(object));
-            }
-            let element = self.ui_element(object)?;
-            element.cast::<native::IUIElement>()?.SetIsTabStop(false)?;
-            window.SetExtendsContentIntoTitleBar(true)?;
-            window.SetTitleBar(&element)?;
-            title_bar
-                .cast::<native::IAppWindowTitleBar2>()?
-                .SetPreferredHeightOption(match height {
-                    WindowTitleBarHeight::Standard => native::TitleBarHeightOption::Standard,
-                    WindowTitleBarHeight::Tall => native::TitleBarHeightOption::Tall,
-                })?;
-        }
 
         let needs_metrics = policy.client_size.is_some() || policy.minimum_client_size.is_some();
         if needs_metrics {
@@ -3232,6 +3352,12 @@ impl Adapter for WinUiAdapter {
                 Mutation::SetEvents { object, set, clear } => {
                     self.set_events(*object, set, clear)?;
                 }
+                Mutation::ClearWindowTitleBar { object } => {
+                    self.clear_window_title_bar(*object)?;
+                }
+                Mutation::SetWindowTitleBar { object, height } => {
+                    self.set_window_title_bar(*object, *height)?;
+                }
                 Mutation::SetVirtualSource {
                     object,
                     item_count,
@@ -3334,6 +3460,12 @@ impl Adapter for WinUiAdapter {
                     self.complete_retirement(*root, nodes)?;
                 }
                 Mutation::Destroy { object } => {
+                    if self
+                        .window_title_bar
+                        .is_some_and(|(current, _)| current == *object)
+                    {
+                        return Err(WinUiError::InvalidObject(*object));
+                    }
                     if self.owners.contains_key(object) {
                         return Err(WinUiError::StillOwned(*object));
                     }
@@ -3361,7 +3493,7 @@ impl Adapter for WinUiAdapter {
                 }
             }
         }
-        Ok(())
+        self.sync_window_title_bars()
     }
 
     fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {

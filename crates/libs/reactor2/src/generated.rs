@@ -2615,24 +2615,14 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
             identity: Identity::Positional,
             realization: Realization::Owned,
         }],
-        ObjectType::Viewbox => &[
-            RelationContract {
-                id: RelationId::Content,
-                child: ObjectCategory::Visual,
-                allowed_objects: &[],
-                cardinality: Cardinality::One,
-                identity: Identity::Positional,
-                realization: Realization::Owned,
-            },
-            RelationContract {
-                id: RelationId::Child,
-                child: ObjectCategory::Visual,
-                allowed_objects: &[],
-                cardinality: Cardinality::One,
-                identity: Identity::Positional,
-                realization: Realization::Owned,
-            },
-        ],
+        ObjectType::Viewbox => &[RelationContract {
+            id: RelationId::Child,
+            child: ObjectCategory::Visual,
+            allowed_objects: &[],
+            cardinality: Cardinality::One,
+            identity: Identity::Positional,
+            realization: Realization::Owned,
+        }],
         ObjectType::TitleBar => &[
             RelationContract {
                 id: RelationId::Content,

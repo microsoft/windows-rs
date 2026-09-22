@@ -2110,7 +2110,7 @@ mod tests {
         ) -> Visual {
             let cleanup = Arc::clone(&input.cleanup);
             context.use_effect_guard("value", self.value, move || Cleanup(cleanup));
-            TextBlock::new(self.value.to_string()).into()
+            TextBlock::new().text(self.value.to_string()).into()
         }
     }
 
@@ -2180,7 +2180,7 @@ mod tests {
             input: &Self::Input,
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
-            TextBlock::new(input.clone()).into()
+            TextBlock::new().text(input.clone()).into()
         }
     }
 
@@ -2228,7 +2228,7 @@ mod tests {
             } else {
                 0
             };
-            TextBlock::new(value.to_string()).into()
+            TextBlock::new().text(value.to_string()).into()
         }
     }
 
@@ -2309,7 +2309,7 @@ mod tests {
             _input: &Self::Input,
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
-            TextBlock::new("Worker").into()
+            TextBlock::new().text("Worker").into()
         }
     }
 
@@ -2372,7 +2372,7 @@ mod tests {
             _input: &Self::Input,
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
-            TextBlock::new(self.value.to_string()).into()
+            TextBlock::new().text(self.value.to_string()).into()
         }
     }
 
@@ -2398,7 +2398,7 @@ mod tests {
             if self.0 {
                 Border::new().into()
             } else {
-                TextBlock::new("Stable").into()
+                TextBlock::new().text("Stable").into()
             }
         }
     }
@@ -2522,8 +2522,8 @@ mod tests {
         ) -> Visual {
             StackPanel::new()
                 .children([
-                    TextBlock::new(input.clone()).into(),
-                    TextBlock::new(self.0.to_string()).into(),
+                    TextBlock::new().text(input.clone()).into(),
+                    TextBlock::new().text(self.0.to_string()).into(),
                 ])
                 .into()
         }
@@ -2581,7 +2581,7 @@ mod tests {
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
             if *input == 0 {
-                TextBlock::new("leaf").into()
+                TextBlock::new().text("leaf").into()
             } else {
                 Border::new()
                     .content(component::<Self>("child", *input - 1))
@@ -2675,7 +2675,7 @@ mod tests {
             if self.0 {
                 Border::new().into()
             } else {
-                TextBlock::new("Stable").into()
+                TextBlock::new().text("Stable").into()
             }
         }
     }
@@ -2709,12 +2709,12 @@ mod tests {
             if self.0 {
                 Grid::new()
                     .children([
-                        keyed("duplicate", TextBlock::new("First")),
-                        keyed("duplicate", TextBlock::new("Second")),
+                        keyed("duplicate", TextBlock::new().text("First")),
+                        keyed("duplicate", TextBlock::new().text("Second")),
                     ])
                     .into()
             } else {
-                TextBlock::new("Valid").into()
+                TextBlock::new().text("Valid").into()
             }
         }
     }
@@ -2754,7 +2754,7 @@ mod tests {
             input: &Self::Input,
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
-            TextBlock::new(input.value.to_string()).into()
+            TextBlock::new().text(input.value.to_string()).into()
         }
     }
 
@@ -2781,7 +2781,7 @@ mod tests {
             input: &Self::Input,
             _context: &mut ComponentViewContext<Self::Message>,
         ) -> Visual {
-            TextBlock::new(input.to_string()).into()
+            TextBlock::new().text(input.to_string()).into()
         }
     }
 
@@ -2807,8 +2807,8 @@ mod tests {
             if self.0 {
                 Grid::new()
                     .children([
-                        keyed("duplicate", TextBlock::new("first")),
-                        keyed("duplicate", TextBlock::new("second")),
+                        keyed("duplicate", TextBlock::new().text("first")),
+                        keyed("duplicate", TextBlock::new().text("second")),
                     ])
                     .into()
             } else {
@@ -2890,7 +2890,7 @@ mod tests {
                 setup.borrow_mut().push("setup");
                 Some(Box::new(move || cleanup.borrow_mut().push("cleanup")))
             });
-            TextBlock::new("virtual").into()
+            TextBlock::new().text("virtual").into()
         }
     }
 

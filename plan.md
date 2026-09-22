@@ -17,8 +17,9 @@ typed declarations -> retained generational graph -> generic mutation batch -> r
 ```
 
 The architecture decision gate is complete and accepts Reactor2 as the replacement direction. It is
-not yet complete API or behavioral parity. The next milestone is exact parity, beginning with typed
-imperative references and host-owned lifecycle contracts.
+not yet complete API or behavioral parity. Typed imperative references and declaration-owned
+TitleBar attachment are complete; the next host-owned lifecycle contracts are ToolTip and
+ContentDialog.
 
 ## Current conclusion
 
@@ -38,7 +39,7 @@ Early results favor Reactor2:
 The remaining work is completeness rather than an architecture blocker:
 
 - Property and event parity remains incomplete.
-- Five capability contracts and two lifecycle/placement contracts remain.
+- All capability contracts are represented; two lifecycle/placement contracts remain.
 - Native ItemsRepeater uses a count-backed WinRT source and boxes indices only when WinUI requests
   them.
 - Tree and component retained-memory costs are measured and explained below.
@@ -407,7 +408,7 @@ Current result:
 | Events | 37 | 68 | 31 |
 | Slots | 42 | 42 | 0 |
 | Selections | 3 | 3 | 0 |
-| Capabilities | 153 | 158 | 5 |
+| Capabilities | 158 | 158 | 0 |
 | Lifecycle/placement | 0 | 2 | 2 |
 
 `--check-parity` must continue to fail until every old contract is represented exactly.
@@ -1212,22 +1213,30 @@ Latest local validation:
 - `git diff --check`: passed.
 - No product `abort()` remains in the audited Reactor2 paths.
 - No `#[allow(dead_code)]` remains in the audited Reactor2 paths.
+- TitleBar and compatibility checkpoint: 153 `windows-reactor2` library tests passed.
+- All 73 doctests and all 8 `tool-reactor2` tests passed.
+- Affected Reactor2 libraries, samples, and selftest passed all-target checks and strict Clippy.
+- Consecutive generation remained stable after the TitleBar and TextBlock surface changes.
 
 The live selftest passes the newer selection, feedback, layout, retirement, RichEdit, Grid, and
-ItemsRepeater fixtures. It later fails at the real `PointerReleased` injection fixture because the
-test window is not foreground in the current desktop session. This is an environment/test-host
-blocker, not a reason to skip or weaken the test.
+ItemsRepeater fixtures. It also passes opening a window before declaring a TitleBar, changing its
+preferred height from tall to standard, and removing it. It later fails at the real
+`PointerReleased` injection fixture because the test window is not foreground in the current
+desktop session. This is an environment/test-host blocker, not a reason to skip or weaken the test.
 
 ## Remaining exact parity
 
-### Capabilities: 1
+### Capabilities: 0
 
-- `window_title_bar`: TitleBar
+All 158 capability contracts are represented. The four typed reference capabilities share one
+bounded runtime queue, binding generations, observation revocation, asynchronous completion
+filtering, and runtime-drop cleanup model.
 
-The four typed reference capabilities are complete. Their bounded runtime queue, binding
-generations, observation revocation, asynchronous completion filtering, and runtime-drop cleanup
-share one ownership model. TitleBar needs explicit window ownership and clear-before-replace
-attachment lifecycle.
+TitleBar is owned by its declaration and retained graph. The planner maintains a transactional
+index, rejects duplicate declarations, defers native attachment until structural mutations
+complete, and clears the native attachment before destruction. WinUI synchronizes open windows
+after each mutation batch, so mounting, height changes, removal, and opening a window after initial
+publication use the same path. One retained root may be content of only one live native window.
 
 Reference-family validation:
 
@@ -1239,6 +1248,28 @@ Reference-family validation:
 - The live selftest passed the new Grid, Image, WebView2, and SwapChainPanel fixture. The process
   later stopped at the existing foreground-dependent pointer injection test because the test window
   was not foreground.
+
+### Solitaire compatibility checkpoint
+
+The original Reactor and Reactor2 Solitaire samples were compared before continuing with more
+surface generation. Avoidable differences were removed:
+
+- TitleBar attachment no longer requires component-reference lookup or a `WindowPolicy` object ID.
+- The TitleBar is declared inline and owns its preferred height, matching the original view.
+- Viewbox exposes the canonical `child` relation rather than duplicate `content` and `child`
+  aliases for the same native slot.
+- `TextBlock` again uses `TextBlock::new().text(value)` because empty text is valid.
+- Strings convert directly to `Visual`, so content controls accept `.content("New Game")`.
+
+The remaining sample differences are intentional architecture boundaries:
+
+- Component callbacks use queued senders so native events cannot mutate component state inline.
+- Heterogeneous child arrays require explicit `Visual` conversions; retaining iterator support and
+  adding tuple overloads under one Rust method would create competing collection APIs.
+- The native host owns window creation and `WindowPolicy`; component declarations remain usable in
+  recording and non-window adapters.
+- `Solitaire -> Board -> keyed CardView` preserves targeted subtree ownership and card identity
+  across pile moves, so it should not be flattened to match the original component structure.
 
 ### Lifecycle and placement: 2
 
@@ -1431,16 +1462,16 @@ If these conditions fail, fix the architecture before adding more controls or ad
 
 Recommended order:
 
-1. Typed imperative reference service shared by Grid, Image, WebView2, and SwapChainPanel.
-2. Window-owned TitleBar attachment.
-3. ToolTip attachment lifecycle.
-4. ContentDialog lifecycle.
-5. Shared resource/style/brush/image/geometry value contracts.
-6. Controlled CheckBox, ToggleButton, Expander, and NavigationView events.
-7. Typed drag/drop, routed input, focus, tab, color, date, and time events.
-8. Remaining rich-text and collection contracts.
-10. Strict `--check-parity`.
-11. Full apples-to-apples benchmarks and live acceptance suite.
+1. [x] Typed imperative reference service shared by Grid, Image, WebView2, and SwapChainPanel.
+2. [x] Window-owned TitleBar attachment.
+3. [ ] ToolTip attachment lifecycle.
+4. [ ] ContentDialog lifecycle.
+5. [ ] Shared resource/style/brush/image/geometry value contracts.
+6. [ ] Controlled CheckBox, ToggleButton, Expander, and NavigationView events.
+7. [ ] Typed drag/drop, routed input, focus, tab, color, date, and time events.
+8. [ ] Remaining rich-text and collection contracts.
+9. [ ] Strict `--check-parity`.
+10. [ ] Full apples-to-apples benchmarks and live acceptance suite.
 
 Each family must have:
 

@@ -476,7 +476,8 @@ fn positioned_slot(
     pointer_released: reactor2::Callback<reactor2::PointerEventInfo>,
 ) -> reactor2::Border {
     positioned_border(
-        reactor2::TextBlock::new(label)
+        reactor2::TextBlock::new()
+            .text(label)
             .font_size(18.0)
             .foreground(foreground)
             .horizontal_alignment(reactor2::HorizontalAlignment::Center)
@@ -617,12 +618,14 @@ impl reactor2::Component for CardView {
             (
                 reactor2::StackPanel::new()
                     .children([
-                        reactor2::TextBlock::new(card.card.label())
+                        reactor2::TextBlock::new()
+                            .text(card.card.label())
                             .font_size(13.0)
                             .foreground(foreground)
                             .horizontal_alignment(reactor2::HorizontalAlignment::Left)
                             .into(),
-                        reactor2::TextBlock::new(card.card.suit.symbol())
+                        reactor2::TextBlock::new()
+                            .text(card.card.suit.symbol())
                             .font_size(22.0)
                             .foreground(foreground)
                             .horizontal_alignment(reactor2::HorizontalAlignment::Center)
@@ -646,7 +649,8 @@ impl reactor2::Component for CardView {
             )
         } else {
             (
-                reactor2::TextBlock::new("🂠")
+                reactor2::TextBlock::new()
+                    .text("🂠")
                     .font_size(18.0)
                     .foreground(reactor2::Color::rgb(240, 240, 255))
                     .horizontal_alignment(reactor2::HorizontalAlignment::Center)
@@ -825,28 +829,6 @@ struct Solitaire {
     game: Game,
 }
 
-struct SolitaireTitleBar;
-
-impl reactor2::Component for SolitaireTitleBar {
-    type Input = bool;
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &reactor2::ComponentContext<Self::Message>) -> Self {
-        Self
-    }
-
-    fn view(
-        &self,
-        won: &Self::Input,
-        _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
-    ) -> reactor2::Visual {
-        reactor2::TitleBar::new()
-            .title("Solitaire")
-            .subtitle(if *won { "You win!" } else { "" })
-            .into()
-    }
-}
-
 impl reactor2::Component for Solitaire {
     type Input = ();
     type Message = Message;
@@ -889,7 +871,10 @@ impl reactor2::Component for Solitaire {
             .background(reactor2::Color::rgb(20, 100, 60))
             .content(
                 reactor2::StackPanel::new().children([
-                    reactor2::component::<SolitaireTitleBar>("title-bar", self.game.is_won())
+                    reactor2::TitleBar::new()
+                        .preferred_height(reactor2::WindowTitleBarHeight::Tall)
+                        .title("Solitaire")
+                        .subtitle(if self.game.is_won() { "You win!" } else { "" })
                         .into(),
                     reactor2::StackPanel::new()
                         .orientation(reactor2::Orientation::Horizontal)
@@ -897,12 +882,13 @@ impl reactor2::Component for Solitaire {
                         .margin(reactor2::Thickness::new(12.0, 8.0, 12.0, 4.0))
                         .children([
                             reactor2::Button::new()
-                                .content(reactor2::TextBlock::new("New Game"))
+                                .content("New Game")
                                 .on_click(move || {
                                     _ = new_game.send(Message::NewGame);
                                 })
                                 .into(),
-                            reactor2::TextBlock::new(status)
+                            reactor2::TextBlock::new()
+                                .text(status)
                                 .foreground(reactor2::Color::rgb(255, 255, 255))
                                 .vertical_alignment(reactor2::VerticalAlignment::Center)
                                 .into(),
@@ -910,7 +896,7 @@ impl reactor2::Component for Solitaire {
                         .into(),
                     reactor2::Viewbox::new()
                         .height(520.0)
-                        .content(reactor2::component::<Board>(
+                        .child(reactor2::component::<Board>(
                             "board",
                             BoardInput {
                                 game: self.game.clone(),
@@ -958,24 +944,11 @@ impl Host {
             _ = wake.invoke();
         });
         let root = host.runtime().graph().root().unwrap();
-        let title_bar = host
-            .reference_at(&[
-                reactor2::Key::from("solitaire"),
-                reactor2::Key::from("title-bar"),
-            ])
-            .and_then(|reference| reference.get())
-            .ok_or_else(|| {
-                windows_core::Error::new(
-                    windows_core::HRESULT(0x80004005_u32 as i32),
-                    "missing Solitaire title bar",
-                )
-            })?;
         let policy = reactor2::WindowPolicy::new()
             .title("Solitaire")
             .theme(reactor2::WindowTheme::Dark)
             .client_size(800.0, 600.0)
-            .minimum_client_size(800.0, 600.0)
-            .title_bar(title_bar, reactor2::WindowTitleBarHeight::Tall);
+            .minimum_client_size(800.0, 600.0);
         let mut window = host
             .runtime()
             .adapter()

@@ -12,6 +12,7 @@ pub struct RecordingAdapter {
     realizations: HashMap<(ObjectId, RealizedContainer), (RelationId, usize, ObjectId)>,
     focuses: Vec<ObjectId>,
     imperatives: Vec<ImperativeRequest>,
+    window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
     record_batches: bool,
     validate_batches: bool,
 }
@@ -45,6 +46,7 @@ pub enum AdapterError {
     InvalidMutation(RelationId),
     InvalidChildCategory(RelationId),
     InvalidReplacement(ObjectId),
+    InvalidWindowTitleBar(ObjectId),
     ChildNotFound(ObjectId),
     AlreadyOwned(ObjectId),
     StillOwned(ObjectId),
@@ -61,6 +63,7 @@ impl RecordingAdapter {
             realizations: HashMap::new(),
             focuses: Vec::new(),
             imperatives: Vec::new(),
+            window_title_bar: None,
             record_batches: false,
             validate_batches: true,
         }
@@ -88,6 +91,10 @@ impl RecordingAdapter {
 
     pub fn imperatives(&self) -> &[ImperativeRequest] {
         &self.imperatives
+    }
+
+    pub fn window_title_bar(&self) -> Option<(ObjectId, WindowTitleBarHeight)> {
+        self.window_title_bar
     }
 
     pub fn retirement_count(&self) -> usize {
@@ -262,6 +269,24 @@ impl RecordingAdapter {
                         }
                     }
                     object.events = events.into();
+                }
+                Mutation::ClearWindowTitleBar { object } => {
+                    if self
+                        .window_title_bar
+                        .is_some_and(|(current, _)| current == *object)
+                    {
+                        self.window_title_bar = None;
+                    }
+                }
+                Mutation::SetWindowTitleBar { object, height } => {
+                    if self
+                        .objects
+                        .get(object)
+                        .is_none_or(|object| object.kind != ObjectType::TitleBar)
+                    {
+                        return Err(AdapterError::InvalidWindowTitleBar(*object));
+                    }
+                    self.window_title_bar = Some((*object, *height));
                 }
                 Mutation::SetVirtualSource { object, .. } => {
                     self.require_object(*object)?;
@@ -465,6 +490,12 @@ impl RecordingAdapter {
                     }
                 }
                 Mutation::Destroy { object } => {
+                    if self
+                        .window_title_bar
+                        .is_some_and(|(current, _)| current == *object)
+                    {
+                        return Err(AdapterError::InvalidWindowTitleBar(*object));
+                    }
                     if self.is_owned(*object) {
                         return Err(AdapterError::StillOwned(*object));
                     }

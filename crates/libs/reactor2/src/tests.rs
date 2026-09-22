@@ -8,7 +8,23 @@ fn usize_keys_preserve_their_integer_value() {
 }
 
 fn text(value: &str) -> Visual {
-    TextBlock::new(value).into()
+    TextBlock::new().text(value).into()
+}
+
+#[test]
+fn strings_convert_to_text_visuals() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update("Text").unwrap();
+
+    let root = runtime.graph().root().unwrap();
+    assert_eq!(runtime.graph().kind(root), Some(ObjectType::TextBlock));
+    assert_eq!(
+        runtime.graph().properties(root).unwrap(),
+        [Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Text")),
+        }]
+    );
 }
 
 #[test]
@@ -396,8 +412,8 @@ fn keyed_visual_reorder_preserves_objects_and_emits_one_generic_reorder() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().children([
-            keyed("first", TextBlock::new("First")),
-            keyed("second", TextBlock::new("Second")),
+            keyed("first", TextBlock::new().text("First")),
+            keyed("second", TextBlock::new().text("Second")),
         ]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -409,8 +425,8 @@ fn keyed_visual_reorder_preserves_objects_and_emits_one_generic_reorder() {
 
     let mutations = runtime
         .update(Grid::new().children([
-            keyed("second", TextBlock::new("Second")),
-            keyed("first", TextBlock::new("Changed")),
+            keyed("second", TextBlock::new().text("Second")),
+            keyed("first", TextBlock::new().text("Changed")),
         ]))
         .unwrap();
     let after = runtime
@@ -441,8 +457,8 @@ fn keyed_insert_and_remove_produce_the_declared_order() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().children([
-            keyed("first", TextBlock::new("First")),
-            keyed("second", TextBlock::new("Second")),
+            keyed("first", TextBlock::new().text("First")),
+            keyed("second", TextBlock::new().text("Second")),
         ]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -453,8 +469,8 @@ fn keyed_insert_and_remove_produce_the_declared_order() {
 
     runtime
         .update(Grid::new().children([
-            keyed("second", TextBlock::new("Second")),
-            keyed("third", TextBlock::new("Third")),
+            keyed("second", TextBlock::new().text("Second")),
+            keyed("third", TextBlock::new().text("Third")),
         ]))
         .unwrap();
 
@@ -479,7 +495,7 @@ fn hierarchical_objects_use_the_same_keyed_relation_reconciler() {
     runtime
         .update(
             TreeView::new().nodes([TreeNode::new("root", "Root")
-                .content(TextBlock::new("Content"))
+                .content(TextBlock::new().text("Content"))
                 .children([
                     TreeNode::new("first", "First"),
                     TreeNode::new("second", "Second"),
@@ -498,7 +514,7 @@ fn hierarchical_objects_use_the_same_keyed_relation_reconciler() {
     let mutations = runtime
         .update(
             TreeView::new().nodes([TreeNode::new("root", "Renamed")
-                .content(TextBlock::new("Updated"))
+                .content(TextBlock::new().text("Updated"))
                 .children([
                     TreeNode::new("second", "Second"),
                     TreeNode::new("first", "First"),
@@ -568,7 +584,7 @@ fn container_generated_data_uses_the_same_keyed_relation_reconciler() {
 fn owned_content_replacement_uses_generic_relation_mutations() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(Border::new().content(TextBlock::new("Text")))
+        .update(Border::new().content(TextBlock::new().text("Text")))
         .unwrap();
     let border = runtime.graph().root().unwrap();
     let previous = runtime.graph().child(border, RelationId::Content).unwrap();
@@ -593,7 +609,10 @@ fn owned_content_replacement_uses_generic_relation_mutations() {
 fn positional_children_reconcile_by_index_without_keys() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(StackPanel::new().children([TextBlock::new("First").into(), Border::new().into()]))
+        .update(
+            StackPanel::new()
+                .children([TextBlock::new().text("First").into(), Border::new().into()]),
+        )
         .unwrap();
     let panel = runtime.graph().root().unwrap();
     let before = runtime
@@ -604,9 +623,9 @@ fn positional_children_reconcile_by_index_without_keys() {
 
     runtime
         .update(StackPanel::new().children([
-            TextBlock::new("Changed").into(),
+            TextBlock::new().text("Changed").into(),
             Grid::new().into(),
-            TextBlock::new("Third").into(),
+            TextBlock::new().text("Third").into(),
         ]))
         .unwrap();
 
@@ -746,7 +765,8 @@ fn shared_capabilities_record_exact_property_and_focus_changes() {
                     .relative_align_left()
                     .automation_name("action")
                     .into(),
-                TextBlock::new("Text")
+                TextBlock::new()
+                    .text("Text")
                     .min_width(20.0)
                     .max_height(80.0)
                     .font_weight(FontWeight::SEMI_BOLD)
@@ -782,7 +802,7 @@ fn shared_capabilities_record_exact_property_and_focus_changes() {
     let mutations = runtime
         .update(StackPanel::new().children([
             Button::new().element_ref(&reference).into(),
-            TextBlock::new("Text").into(),
+            TextBlock::new().text("Text").into(),
         ]))
         .unwrap();
     assert_eq!(mutations.len(), 2);
@@ -863,6 +883,106 @@ fn typed_references_cover_all_imperative_controls() {
     let _: Visual = Image::new().element_ref(&image).into();
     let _: Visual = WebView2::new().element_ref(&webview).into();
     let _: Visual = SwapChainPanel::new().element_ref(&swap_chain).into();
+}
+
+#[test]
+fn title_bar_declaration_owns_window_attachment() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let mutations = runtime
+        .update(Grid::new().children([keyed(
+            "title",
+            TitleBar::new().preferred_height(WindowTitleBarHeight::Tall),
+        )]))
+        .unwrap();
+    let (title_bar, height) = runtime.graph().window_title_bar().unwrap().unwrap();
+    let insert = mutations
+        .iter()
+        .position(
+            |mutation| matches!(mutation, Mutation::Insert { child, .. } if *child == title_bar),
+        )
+        .unwrap();
+    let set = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::SetWindowTitleBar { object, .. } if *object == title_bar
+            )
+        })
+        .unwrap();
+
+    assert_eq!(height, WindowTitleBarHeight::Tall);
+    assert!(insert < set);
+    assert_eq!(
+        runtime.adapter().window_title_bar(),
+        Some((title_bar, WindowTitleBarHeight::Tall))
+    );
+
+    let mutations = runtime
+        .update(Grid::new().children([keyed(
+            "title",
+            TitleBar::new().preferred_height(WindowTitleBarHeight::Standard),
+        )]))
+        .unwrap();
+    assert!(mutations.iter().any(|mutation| {
+        matches!(
+            mutation,
+            Mutation::SetWindowTitleBar {
+                object,
+                height: WindowTitleBarHeight::Standard
+            } if *object == title_bar
+        )
+    }));
+    assert_eq!(
+        runtime.adapter().window_title_bar(),
+        Some((title_bar, WindowTitleBarHeight::Standard))
+    );
+}
+
+#[test]
+fn title_bar_clear_precedes_destruction() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([keyed("title", TitleBar::new())]))
+        .unwrap();
+    let title_bar = runtime.graph().window_title_bar().unwrap().unwrap().0;
+
+    let mutations = runtime.update(Grid::new()).unwrap();
+    let clear = mutations
+        .iter()
+        .position(|mutation| {
+            matches!(
+                mutation,
+                Mutation::ClearWindowTitleBar { object } if *object == title_bar
+            )
+        })
+        .unwrap();
+    let destroy = mutations
+        .iter()
+        .position(
+            |mutation| matches!(mutation, Mutation::Destroy { object } if *object == title_bar),
+        )
+        .unwrap();
+
+    assert!(clear < destroy);
+    assert_eq!(runtime.graph().window_title_bar().unwrap(), None);
+    assert_eq!(runtime.adapter().window_title_bar(), None);
+}
+
+#[test]
+fn duplicate_title_bars_fail_before_adapter_apply() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.record_batches(true);
+
+    assert_eq!(
+        runtime.update(Grid::new().children([
+            keyed("first", TitleBar::new()),
+            keyed("second", TitleBar::new()),
+        ])),
+        Err(UpdateError::Graph(GraphError::DuplicateWindowTitleBar))
+    );
+    assert!(runtime.adapter().batches().is_empty());
+    assert!(runtime.graph().root().is_none());
 }
 
 #[test]
@@ -1119,9 +1239,9 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
                         .element_ref(&reference)
                         .exit_fade(std::time::Duration::from_millis(200))
                         .on_click_callback(callback.clone())
-                        .content(TextBlock::new("old")),
+                        .content(TextBlock::new().text("old")),
                 ),
-                keyed("tail", TextBlock::new("tail")),
+                keyed("tail", TextBlock::new().text("tail")),
             ]),
         )
         .unwrap();
@@ -1144,15 +1264,15 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
     runtime.adapter_mut().record_batches(true);
 
     let mutations = runtime
-        .update(Grid::new().children([keyed("tail", TextBlock::new("tail"))]))
+        .update(Grid::new().children([keyed("tail", TextBlock::new().text("tail"))]))
         .unwrap();
     drop(active);
     assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
     assert_eq!(calls.get(), 1);
     runtime
         .update(Grid::new().children([
-            keyed("item", Button::new().content(TextBlock::new("new"))),
-            keyed("tail", TextBlock::new("tail")),
+            keyed("item", Button::new().content(TextBlock::new().text("new"))),
+            keyed("tail", TextBlock::new().text("tail")),
         ]))
         .unwrap();
     let replacement = runtime
@@ -1204,8 +1324,8 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
         .unwrap()[1];
     runtime
         .update(Grid::new().children([
-            keyed("tail", TextBlock::new("tail")),
-            keyed("item", Button::new().content(TextBlock::new("new"))),
+            keyed("tail", TextBlock::new().text("tail")),
+            keyed("item", Button::new().content(TextBlock::new().text("new"))),
         ]))
         .unwrap();
     assert_eq!(
@@ -1236,17 +1356,17 @@ fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
     let children = |include_retiring: bool, reversed: bool| {
         let mut values = if reversed {
             vec![
-                keyed("d", TextBlock::new("d")),
-                keyed("c", TextBlock::new("c")),
-                keyed("b", TextBlock::new("b")),
-                keyed("a", TextBlock::new("a")),
+                keyed("d", TextBlock::new().text("d")),
+                keyed("c", TextBlock::new().text("c")),
+                keyed("b", TextBlock::new().text("b")),
+                keyed("a", TextBlock::new().text("a")),
             ]
         } else {
             vec![
-                keyed("a", TextBlock::new("a")),
-                keyed("b", TextBlock::new("b")),
-                keyed("c", TextBlock::new("c")),
-                keyed("d", TextBlock::new("d")),
+                keyed("a", TextBlock::new().text("a")),
+                keyed("b", TextBlock::new().text("b")),
+                keyed("c", TextBlock::new().text("c")),
+                keyed("d", TextBlock::new().text("d")),
             ]
         };
         if include_retiring {
@@ -1254,7 +1374,9 @@ fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
                 2,
                 keyed(
                     "retiring",
-                    TextBlock::new("retiring").exit_fade(std::time::Duration::from_secs(1)),
+                    TextBlock::new()
+                        .text("retiring")
+                        .exit_fade(std::time::Duration::from_secs(1)),
                 ),
             );
         }
@@ -1304,7 +1426,7 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
                 "second",
                 Button::new().exit_fade(std::time::Duration::from_millis(200)),
             ),
-            keyed("tail", TextBlock::new("tail")),
+            keyed("tail", TextBlock::new().text("tail")),
         ]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -1315,7 +1437,7 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
         .to_vec();
 
     runtime
-        .update(Grid::new().children([keyed("tail", TextBlock::new("tail"))]))
+        .update(Grid::new().children([keyed("tail", TextBlock::new().text("tail"))]))
         .unwrap();
     assert_eq!(runtime.graph().retired_count(), 2);
     assert!(runtime.adapter_mut().complete_retirement(previous[1]));
@@ -1373,8 +1495,11 @@ fn exit_transition_rejects_single_child_attachment() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(
-            Button::new()
-                .content(TextBlock::new("old").exit_fade(std::time::Duration::from_millis(200))),
+            Button::new().content(
+                TextBlock::new()
+                    .text("old")
+                    .exit_fade(std::time::Duration::from_millis(200)),
+            ),
         )
         .unwrap();
 
@@ -1455,7 +1580,9 @@ fn observations_survive_a_later_planning_failure() {
             keyed(
                 "holder",
                 Button::new().content(
-                    TextBlock::new("nested").exit_fade(std::time::Duration::from_millis(100)),
+                    TextBlock::new()
+                        .text("nested")
+                        .exit_fade(std::time::Duration::from_millis(100)),
                 ),
             ),
         ])
@@ -1503,7 +1630,11 @@ fn observations_survive_a_later_planning_failure() {
 
 #[test]
 fn allocation_from_the_free_list_rolls_back_generation_and_order() {
-    let nested = || TextBlock::new("nested").exit_fade(std::time::Duration::from_millis(100));
+    let nested = || {
+        TextBlock::new()
+            .text("nested")
+            .exit_fade(std::time::Duration::from_millis(100))
+    };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().children([
@@ -1552,7 +1683,11 @@ fn allocation_from_the_free_list_rolls_back_generation_and_order() {
 
 #[test]
 fn removal_and_reallocation_roll_back_multiple_slot_generations() {
-    let nested = || TextBlock::new("nested").exit_fade(std::time::Duration::from_millis(100));
+    let nested = || {
+        TextBlock::new()
+            .text("nested")
+            .exit_fade(std::time::Duration::from_millis(100))
+    };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().children([
@@ -1601,7 +1736,11 @@ fn removal_and_reallocation_roll_back_multiple_slot_generations() {
 
 #[test]
 fn forced_retirement_completion_rolls_back_with_parent_removal() {
-    let nested = || TextBlock::new("nested").exit_fade(std::time::Duration::from_millis(100));
+    let nested = || {
+        TextBlock::new()
+            .text("nested")
+            .exit_fade(std::time::Duration::from_millis(100))
+    };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().children([
@@ -2725,7 +2864,7 @@ fn button_content_and_click_use_generated_contracts() {
     runtime
         .update(
             Button::new()
-                .content(TextBlock::new("Deal"))
+                .content(TextBlock::new().text("Deal"))
                 .on_click_callback(callback.clone()),
         )
         .unwrap();
@@ -2835,11 +2974,12 @@ fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
                     Slider::new().minimum(-10.0).maximum(10.0).value(2.5).into(),
                     CheckBox::new()
                         .is_checked(Some(true))
-                        .content(TextBlock::new("Enabled"))
+                        .content(TextBlock::new().text("Enabled"))
                         .into(),
                     ScrollViewer::new()
                         .content(
-                            Canvas::new().children([TextBlock::new("Scrollable canvas")
+                            Canvas::new().children([TextBlock::new()
+                                .text("Scrollable canvas")
                                 .canvas_left(12.0)
                                 .canvas_top(24.0)
                                 .into()]),
@@ -2954,12 +3094,13 @@ fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
                 .children([
                     Slider::new().value(2.5).maximum(10.0).minimum(-10.0).into(),
                     CheckBox::new()
-                        .content(TextBlock::new("Enabled"))
+                        .content(TextBlock::new().text("Enabled"))
                         .is_checked(Some(true))
                         .into(),
                     ScrollViewer::new()
                         .content(
-                            Canvas::new().children([TextBlock::new("Scrollable canvas")
+                            Canvas::new().children([TextBlock::new()
+                                .text("Scrollable canvas")
                                 .canvas_top(24.0)
                                 .canvas_left(12.0)
                                 .into()]),
@@ -2974,9 +3115,13 @@ fn generated_controls_cover_distinct_native_value_and_relation_shapes() {
         .update(
             StackPanel::new().children([
                 Slider::new().into(),
-                CheckBox::new().content(TextBlock::new("Enabled")).into(),
+                CheckBox::new()
+                    .content(TextBlock::new().text("Enabled"))
+                    .into(),
                 ScrollViewer::new()
-                    .content(Canvas::new().children([TextBlock::new("Scrollable canvas").into()]))
+                    .content(
+                        Canvas::new().children([TextBlock::new().text("Scrollable canvas").into()]),
+                    )
                     .into(),
             ]),
         )
@@ -3020,8 +3165,8 @@ fn subtree_update_reconciles_only_the_target_object() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().children([
-            keyed("first", TextBlock::new("First")),
-            keyed("second", TextBlock::new("Second")),
+            keyed("first", TextBlock::new().text("First")),
+            keyed("second", TextBlock::new().text("Second")),
         ]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -3033,7 +3178,7 @@ fn subtree_update_reconciles_only_the_target_object() {
     let second = children[1];
 
     let mutations = runtime
-        .update_subtree(first, TextBlock::new("Changed"))
+        .update_subtree(first, TextBlock::new().text("Changed"))
         .unwrap();
 
     assert_eq!(
@@ -3060,7 +3205,7 @@ fn subtree_update_reconciles_only_the_target_object() {
 fn subtree_root_type_replacement_preserves_identity() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(Grid::new().children([keyed("child", TextBlock::new("Text"))]))
+        .update(Grid::new().children([keyed("child", TextBlock::new().text("Text"))]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
     let child = runtime
@@ -3097,7 +3242,7 @@ fn subtree_root_type_replacement_rejects_incompatible_relations() {
     let node = runtime.graph().children(root, RelationId::Roots).unwrap()[0];
 
     assert_eq!(
-        runtime.update_subtree(node, TextBlock::new("Invalid")),
+        runtime.update_subtree(node, TextBlock::new().text("Invalid")),
         Err(UpdateError::Graph(GraphError::InvalidChildCategory(
             RelationId::Roots
         )))
@@ -3108,7 +3253,7 @@ fn subtree_root_type_replacement_rejects_incompatible_relations() {
 #[test]
 fn recording_adapter_rejects_invalid_replacement_batches() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBlock::new("Root")).unwrap();
+    runtime.update(TextBlock::new().text("Root")).unwrap();
     let root = runtime.graph().root().unwrap();
     assert_eq!(
         runtime.adapter_mut().apply(&[Mutation::Replace {
@@ -3183,8 +3328,8 @@ fn targeted_child_removal_preserves_sibling_identity() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().children([
-            keyed("first", TextBlock::new("First")),
-            keyed("second", TextBlock::new("Second")),
+            keyed("first", TextBlock::new().text("First")),
+            keyed("second", TextBlock::new().text("Second")),
         ]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -3225,12 +3370,12 @@ fn targeted_child_removal_preserves_sibling_identity() {
 fn no_change_produces_no_mutations() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(Border::new().content(TextBlock::new("Text")))
+        .update(Border::new().content(TextBlock::new().text("Text")))
         .unwrap();
 
     assert!(
         runtime
-            .update(Border::new().content(TextBlock::new("Text")))
+            .update(Border::new().content(TextBlock::new().text("Text")))
             .unwrap()
             .is_empty()
     );
@@ -3257,7 +3402,7 @@ impl Adapter for NeverCalledAdapter {
 
 #[test]
 fn excessive_depth_is_rejected_before_reconciliation() {
-    let mut child: Visual = TextBlock::new("leaf").into();
+    let mut child: Visual = TextBlock::new().text("leaf").into();
     for _ in 0..10_000 {
         child = Border::new().content(child).into();
     }
@@ -3271,7 +3416,7 @@ fn excessive_depth_is_rejected_before_reconciliation() {
 
 #[test]
 fn shared_declarations_cannot_expand_beyond_the_graph_limit() {
-    let mut child: Visual = TextBlock::new("leaf").into();
+    let mut child: Visual = TextBlock::new().text("leaf").into();
     for _ in 0..17 {
         child = StackPanel::new().children([child.clone(), child]).into();
     }
@@ -3347,7 +3492,7 @@ fn adapter_validation_failure_poisons_the_runtime() {
     let mut runtime = Runtime::new(RejectingAdapter);
 
     assert_eq!(
-        runtime.update(Border::new().content(TextBlock::new("Text"))),
+        runtime.update(Border::new().content(TextBlock::new().text("Text"))),
         Err(UpdateError::Adapter(()))
     );
     assert_eq!(runtime.update(Border::new()), Err(UpdateError::Poisoned));
@@ -3377,7 +3522,7 @@ fn adapter_apply_failure_poisons_the_runtime() {
     let mut runtime = Runtime::new(FailingApplyAdapter);
 
     assert_eq!(
-        runtime.update(Border::new().content(TextBlock::new("Text"))),
+        runtime.update(Border::new().content(TextBlock::new().text("Text"))),
         Err(UpdateError::Adapter(()))
     );
     assert_eq!(runtime.update(Border::new()), Err(UpdateError::Poisoned));
@@ -3787,7 +3932,7 @@ fn retirement_completion_errors_poison_the_runtime() {
 fn virtual_items_realize_only_requested_rows() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     let source = VirtualSource::new(1, 10_000, Key::from, |index| -> Visual {
-        TextBlock::new(index.to_string()).into()
+        TextBlock::new().text(index.to_string()).into()
     });
     runtime
         .update(ItemsRepeater::new().virtual_source(source))
@@ -3829,8 +3974,8 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
     runtime
         .update(
             ItemsRepeater::new()
-                .item(1_u64, TextBlock::new("one"))
-                .item(2_u64, TextBlock::new("two")),
+                .item(1_u64, TextBlock::new().text("one"))
+                .item(2_u64, TextBlock::new().text("two")),
         )
         .unwrap();
     let collection = runtime.graph().root().unwrap();
@@ -3881,8 +4026,8 @@ fn virtual_items_preserve_keyed_child_across_reorder() {
     runtime
         .update(
             ItemsRepeater::new()
-                .item("a", TextBlock::new("a"))
-                .item("b", TextBlock::new("b")),
+                .item("a", TextBlock::new().text("a"))
+                .item("b", TextBlock::new().text("b")),
         )
         .unwrap();
     let collection = runtime.graph().root().unwrap();
@@ -3912,8 +4057,8 @@ fn virtual_items_preserve_keyed_child_across_reorder() {
     runtime
         .update(
             ItemsRepeater::new()
-                .item("b", TextBlock::new("b"))
-                .item("a", TextBlock::new("updated")),
+                .item("b", TextBlock::new().text("b"))
+                .item("a", TextBlock::new().text("updated")),
         )
         .unwrap();
     for _ in 0..2 {
@@ -3943,8 +4088,8 @@ fn virtual_items_reject_duplicate_keys_without_mutation() {
     assert_eq!(
         runtime.update(
             ItemsRepeater::new()
-                .item("duplicate", TextBlock::new("first"))
-                .item("duplicate", TextBlock::new("second"))
+                .item("duplicate", TextBlock::new().text("first"))
+                .item("duplicate", TextBlock::new().text("second"))
         ),
         Err(UpdateError::Graph(GraphError::DuplicateKey(Key::from(
             "duplicate"
@@ -3958,11 +4103,11 @@ fn virtual_items_reject_duplicate_keys_without_mutation() {
 fn virtual_items_ignore_stale_source_requests() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime
-        .update(ItemsRepeater::new().item("first", TextBlock::new("first")))
+        .update(ItemsRepeater::new().item("first", TextBlock::new().text("first")))
         .unwrap();
     let collection = runtime.graph().root().unwrap();
     runtime
-        .update(ItemsRepeater::new().item("second", TextBlock::new("second")))
+        .update(ItemsRepeater::new().item("second", TextBlock::new().text("second")))
         .unwrap();
     runtime
         .adapter_mut()
@@ -3981,7 +4126,7 @@ fn virtual_items_ignore_stale_source_requests() {
 fn virtual_items_remove_active_rows_when_source_becomes_empty() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime
-        .update(ItemsRepeater::new().item("first", TextBlock::new("first")))
+        .update(ItemsRepeater::new().item("first", TextBlock::new().text("first")))
         .unwrap();
     let collection = runtime.graph().root().unwrap();
     runtime
@@ -4016,7 +4161,7 @@ fn virtual_items_remove_active_rows_when_source_becomes_empty() {
 fn virtual_realization_batches_validate_before_consumption() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime
-        .update(ItemsRepeater::new().item("only", TextBlock::new("only")))
+        .update(ItemsRepeater::new().item("only", TextBlock::new().text("only")))
         .unwrap();
     let collection = runtime.graph().root().unwrap();
     runtime
@@ -4054,7 +4199,7 @@ fn virtual_realization_batches_validate_before_consumption() {
 fn duplicate_virtual_recycle_is_idempotent() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime
-        .update(ItemsRepeater::new().item("only", TextBlock::new("only")))
+        .update(ItemsRepeater::new().item("only", TextBlock::new().text("only")))
         .unwrap();
     let collection = runtime.graph().root().unwrap();
     runtime
@@ -4088,7 +4233,7 @@ fn realized_virtual_children_recycle_before_repeater_destruction() {
     runtime
         .update(Grid::new().children([keyed(
             "repeater",
-            ItemsRepeater::new().item("row", TextBlock::new("row")),
+            ItemsRepeater::new().item("row", TextBlock::new().text("row")),
         )]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -4147,7 +4292,7 @@ fn realized_virtual_children_recycle_before_repeater_replacement() {
     runtime
         .update(Grid::new().children([keyed(
             "slot",
-            ItemsRepeater::new().item("row", TextBlock::new("row")),
+            ItemsRepeater::new().item("row", TextBlock::new().text("row")),
         )]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -4202,7 +4347,7 @@ fn realized_virtual_children_recycle_before_repeater_replacement() {
 
 #[test]
 fn update_peeks_pending_virtual_work_without_consuming_it() {
-    let view = || ItemsRepeater::new().item("row", TextBlock::new("row"));
+    let view = || ItemsRepeater::new().item("row", TextBlock::new().text("row"));
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime.update(view()).unwrap();
     let collection = runtime.graph().root().unwrap();
@@ -4245,8 +4390,8 @@ fn public_event_api_preserves_virtual_work_until_ordered_dispatch() {
     runtime
         .update(
             ItemsRepeater::new()
-                .item("old", TextBlock::new("old"))
-                .item("new", TextBlock::new("new")),
+                .item("old", TextBlock::new().text("old"))
+                .item("new", TextBlock::new().text("new")),
         )
         .unwrap();
     let collection = runtime.graph().root().unwrap();
@@ -4316,8 +4461,8 @@ fn recycle_before_dispatch_cancels_realization_and_allows_token_reuse() {
     runtime
         .update(
             ItemsRepeater::new()
-                .item("old", TextBlock::new("old"))
-                .item("new", TextBlock::new("new")),
+                .item("old", TextBlock::new().text("old"))
+                .item("new", TextBlock::new().text("new")),
         )
         .unwrap();
     let collection = runtime.graph().root().unwrap();
@@ -4332,8 +4477,8 @@ fn recycle_before_dispatch_cancels_realization_and_allows_token_reuse() {
     assert!(matches!(
         runtime.update(
             ItemsRepeater::new()
-                .item("old", TextBlock::new("old"))
-                .item("new", TextBlock::new("new"))
+                .item("old", TextBlock::new().text("old"))
+                .item("new", TextBlock::new().text("new"))
         ),
         Err(UpdateError::PendingNativeEvent)
     ));

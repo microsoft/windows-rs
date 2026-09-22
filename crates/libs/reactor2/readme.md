@@ -49,6 +49,14 @@ NavigationView, ListBox, and SelectorBar expose retained selection over keyed it
 Native selection updates controlled item state and invokes the optional Tag or Text callback once;
 application-driven selection, insertion, removal, and reorder suppress native feedback.
 
+`TitleBar` owns its window attachment through the retained declaration graph. Mounting, replacing,
+changing the preferred height, or removing it updates an already-open window without a separate
+object lookup or window-policy attachment. A retained root may be assigned to only one live native
+window.
+
+`TextBlock` keeps the original builder shape, `TextBlock::new().text(value)`. Strings also convert
+directly to `Visual`, so content controls accept values such as `.content("New Game")`.
+
 RichEditBox controlled text uses its native text document rather than treating `Document` as a
 string dependency property. Declarations and native events normalize line endings to LF, deferred
 exact feedback suppresses application writes, and read-only state is restored after native writes.

@@ -38,6 +38,8 @@ struct Capabilities {
     reference: Vec<String>,
     #[serde(default)]
     text_style: Vec<String>,
+    #[serde(default)]
+    window_title_bar: Vec<String>,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
@@ -2911,6 +2913,12 @@ fn generate_declarations(
          self.0.reference = Some(reference.erased());\nself\n}\n",
     );
     output.push_str("}; }\n");
+    output.push_str("macro_rules! window_title_bar_methods { () => {\n");
+    output.push_str(
+        "pub fn preferred_height(mut self, height: WindowTitleBarHeight) -> Self {\n\
+         self.0.window_title_bar = Some(height);\nself\n}\n",
+    );
+    output.push_str("}; }\n");
     output.push_str("macro_rules! visual_methods { () => {\n");
     output.push_str(
         "pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {\n\
@@ -3000,6 +3008,11 @@ fn generate_declarations(
             "let declaration = Declaration::new(ObjectType::{});\n",
             object.name
         ));
+        if has_capability(&schema.capabilities.window_title_bar, object) {
+            output.push_str(
+                "let declaration = declaration.window_title_bar(WindowTitleBarHeight::Standard);\n",
+            );
+        }
         if object.key {
             output.push_str("let declaration = declaration.key(key);\n");
         }
@@ -3068,6 +3081,9 @@ fn generate_declarations(
         if has_capability(&schema.capabilities.reference, object) {
             output.push_str(&format!("reference_methods!({});\n", object.name));
         }
+        if has_capability(&schema.capabilities.window_title_bar, object) {
+            output.push_str("window_title_bar_methods!();\n");
+        }
 
         if object.category == "Visual" {
             output.push_str("visual_methods!();\n");
@@ -3107,9 +3123,13 @@ fn generate_declarations(
                 relation.identity.as_str(),
             ) {
                 ("Visual", "One", _) => "TreeNode::new(\"node\", \"Node\")",
-                ("Visual", "Many", "Keyed") => "TextBlock::new(\"Text\")",
-                ("Visual", "Many", "Positional") => "keyed(\"text\", TextBlock::new(\"Text\"))",
-                ("Structural", "Many", _) | ("Data", "Many", _) => "TextBlock::new(\"Text\")",
+                ("Visual", "Many", "Keyed") => "TextBlock::new().text(\"Text\")",
+                ("Visual", "Many", "Positional") => {
+                    "keyed(\"text\", TextBlock::new().text(\"Text\"))"
+                }
+                ("Structural", "Many", _) | ("Data", "Many", _) => {
+                    "TextBlock::new().text(\"Text\")"
+                }
                 _ => unreachable!("unsupported relation shape"),
             };
             let argument = if relation.cardinality == "One" {
@@ -3296,6 +3316,11 @@ fn generate_declarations(
             ));
         }
     }
+    output.push_str(
+        "impl From<&str> for Visual { fn from(value: &str) -> Self { TextBlock::new().text(value).into() } }\n\
+         impl From<String> for Visual { fn from(value: String) -> Self { TextBlock::new().text(value).into() } }\n\
+         impl From<Rc<str>> for Visual { fn from(value: Rc<str>) -> Self { TextBlock::new().text(value).into() } }\n",
+    );
     output
 }
 
@@ -3527,7 +3552,10 @@ fn checked_output_is_current() {
     assert!(declarations.contains("pub fn exit_fade(self, duration: std::time::Duration)"));
     assert!(declarations.contains("GridRow requires non_negative"));
     assert!(declarations.contains("GridRowSpan requires positive"));
+    assert!(declarations.contains("impl TextBlock {\n    pub fn new() -> Self"));
     assert!(declarations.contains("pub fn text(mut self, text: impl Into<Rc<str>>)"));
+    assert!(declarations.contains("impl From<&str> for Visual"));
+    assert!(declarations.contains("TextBlock::new().text(value).into()"));
     assert!(declarations.contains("PropertyId::Document"));
     assert!(
         declarations
@@ -3541,6 +3569,7 @@ fn checked_output_is_current() {
     for object in ["Grid", "Image", "WebView2", "SwapChainPanel"] {
         assert!(declarations.contains(&format!("reference_methods!({object});")));
     }
+    assert!(declarations.contains("window_title_bar_methods!();"));
     assert!(declarations.contains("pub fn font_weight"));
     let contracts = fs::read_to_string(workspace_path(OUTPUT)).unwrap();
     assert!(contracts.contains("pub(crate) fn focus_capable"));

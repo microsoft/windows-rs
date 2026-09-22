@@ -85,19 +85,20 @@ impl reactor2::Component for Navigation {
             .orientation(reactor2::Orientation::Horizontal)
             .spacing(8.0)
             .children([
-                reactor2::TextBlock::new(match self.0.page {
-                    Page::Projects => "Page: Projects",
-                    Page::Settings => "Page: Settings",
-                })
-                .into(),
+                reactor2::TextBlock::new()
+                    .text(match self.0.page {
+                        Page::Projects => "Page: Projects",
+                        Page::Settings => "Page: Settings",
+                    })
+                    .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Projects"))
+                    .content(reactor2::TextBlock::new().text("Projects"))
                     .on_click(move || {
                         _ = projects.send(NavigationMessage::Projects);
                     })
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Settings"))
+                    .content(reactor2::TextBlock::new().text("Settings"))
                     .on_click(move || {
                         _ = settings.send(NavigationMessage::Settings);
                     })
@@ -185,19 +186,20 @@ impl reactor2::Component for ProjectRow {
             .orientation(reactor2::Orientation::Horizontal)
             .spacing(8.0)
             .children([
-                reactor2::TextBlock::new(format!(
-                    "{marker} {} (revision {})",
-                    self.input.project.name, self.input.project.revision
-                ))
-                .into(),
+                reactor2::TextBlock::new()
+                    .text(format!(
+                        "{marker} {} (revision {})",
+                        self.input.project.name, self.input.project.revision
+                    ))
+                    .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Select"))
+                    .content(reactor2::TextBlock::new().text("Select"))
                     .on_click(move || {
                         _ = select.send(ProjectRowMessage::Select);
                     })
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new(state))
+                    .content(reactor2::TextBlock::new().text(state))
                     .on_click(move || {
                         _ = sync.send(ProjectRowMessage::Sync);
                     })
@@ -284,13 +286,13 @@ impl reactor2::Component for ProjectsPage {
                     })
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Add project"))
+                    .content(reactor2::TextBlock::new().text("Add project"))
                     .on_click(move || {
                         _ = add.send(ProjectsMessage::Add);
                     })
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Reverse projects"))
+                    .content(reactor2::TextBlock::new().text("Reverse projects"))
                     .on_click(move || {
                         _ = reverse.send(ProjectsMessage::Reverse);
                     })
@@ -350,15 +352,17 @@ impl reactor2::Component for SettingsPage {
         reactor2::StackPanel::new()
             .spacing(8.0)
             .children([
-                reactor2::TextBlock::new(format!("Shared theme: {}", theme.name())).into(),
+                reactor2::TextBlock::new()
+                    .text(format!("Shared theme: {}", theme.name()))
+                    .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Light"))
+                    .content(reactor2::TextBlock::new().text("Light"))
                     .on_click(move || {
                         _ = light.send(Theme::Light);
                     })
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Dark"))
+                    .content(reactor2::TextBlock::new().text("Dark"))
                     .on_click(move || {
                         _ = dark.send(Theme::Dark);
                     })
@@ -388,14 +392,15 @@ impl reactor2::Component for ProjectDetails {
         input: &Self::Input,
         _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
     ) -> reactor2::Visual {
-        reactor2::TextBlock::new(match &input.project {
-            Some(project) => format!(
-                "Selected project: {} at revision {}",
-                project.name, project.revision
-            ),
-            None => "No project selected".into(),
-        })
-        .into()
+        reactor2::TextBlock::new()
+            .text(match &input.project {
+                Some(project) => format!(
+                    "Selected project: {} at revision {}",
+                    project.name, project.revision
+                ),
+                None => "No project selected".into(),
+            })
+            .into()
     }
 }
 
@@ -427,12 +432,13 @@ impl reactor2::Component for StatusBar {
         context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
     ) -> reactor2::Visual {
         let theme = context.use_context(&input.theme);
-        reactor2::TextBlock::new(format!(
-            "{} theme - {} projects",
-            theme.name(),
-            input.projects
-        ))
-        .into()
+        reactor2::TextBlock::new()
+            .text(format!(
+                "{} theme - {} projects",
+                theme.name(),
+                input.projects
+            ))
+            .into()
     }
 }
 
@@ -575,7 +581,9 @@ impl reactor2::Component for Workbench {
         reactor2::StackPanel::new()
             .spacing(10.0)
             .children([
-                reactor2::TextBlock::new("Reactor2 project workbench").into(),
+                reactor2::TextBlock::new()
+                    .text("Reactor2 project workbench")
+                    .into(),
                 reactor2::component::<Navigation>(
                     "navigation",
                     NavigationInput {

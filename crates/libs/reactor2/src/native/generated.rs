@@ -8364,17 +8364,6 @@ impl GeneratedHandle {
                         None => object.SetContent(None::<&IInspectable>).map_err(Into::into),
                     }),
             ),
-            (Self::Viewbox(object), RelationId::Content) => Some(
-                object
-                    .cast::<native::IViewbox>()
-                    .map_err(Into::into)
-                    .and_then(|object| match child {
-                        Some(child) => object.SetChild(child).map_err(Into::into),
-                        None => object
-                            .SetChild(None::<&native::UIElement>)
-                            .map_err(Into::into),
-                    }),
-            ),
             (Self::Viewbox(object), RelationId::Child) => Some(
                 object
                     .cast::<native::IViewbox>()

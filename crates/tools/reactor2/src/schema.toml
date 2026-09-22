@@ -52,6 +52,7 @@ focus = [
 ]
 reference = ["Grid", "Image", "WebView2", "SwapChainPanel"]
 text_style = ["TextBlock", "TextBox", "RichTextBlock"]
+window_title_bar = ["TitleBar"]
 
 [[attached_properties]]
 name = "CanvasLeft"
@@ -240,7 +241,7 @@ events = []
 name = "Text"
 value = "String"
 clear_feedback = false
-required = true
+required = false
 default = ""
 
 [[objects.properties]]
@@ -605,15 +606,6 @@ name = "Stretch"
 value = "Stretch"
 clear_feedback = false
 required = false
-
-[[objects.relations]]
-name = "Content"
-native = "Child"
-child = "Visual"
-allowed_objects = []
-cardinality = "One"
-identity = "Positional"
-realization = "Owned"
 
 [[objects.relations]]
 name = "Child"

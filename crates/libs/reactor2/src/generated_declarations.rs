@@ -1520,6 +1520,14 @@ macro_rules! reference_methods {
         }
     };
 }
+macro_rules! window_title_bar_methods {
+    () => {
+        pub fn preferred_height(mut self, height: WindowTitleBarHeight) -> Self {
+            self.0.window_title_bar = Some(height);
+            self
+        }
+    };
+}
 macro_rules! visual_methods {
     () => {
         pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {
@@ -1717,11 +1725,15 @@ macro_rules! visual_methods {
 #[derive(Clone, Debug, PartialEq)]
 pub struct TextBlock(Declaration);
 impl TextBlock {
-    pub fn new(text: impl Into<Rc<str>>) -> Self {
+    pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::TextBlock);
-        let declaration =
-            declaration.property(PropertyId::Text, PropertyValue::String(text.into()));
         Self(declaration)
+    }
+    pub fn text(mut self, text: impl Into<Rc<str>>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Text, PropertyValue::String(text.into()));
+        self
     }
     pub fn font_size(mut self, font_size: f64) -> Self {
         assert!(
@@ -1773,6 +1785,11 @@ impl TextBlock {
         self
     }
     visual_methods!();
+}
+impl Default for TextBlock {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 impl From<TextBlock> for Visual {
     fn from(value: TextBlock) -> Self {
@@ -2109,7 +2126,7 @@ impl Grid {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = Grid::new().children([TextBlock::new("Text")]);
+    /// let _ = Grid::new().children([TextBlock::new().text("Text")]);
     /// ```
     pub fn children(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
         self.0 = self.0.relation(
@@ -2155,7 +2172,7 @@ impl StackPanel {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = StackPanel::new().children([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = StackPanel::new().children([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -2187,7 +2204,7 @@ impl Canvas {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = Canvas::new().children([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = Canvas::new().children([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -2277,19 +2294,6 @@ impl Viewbox {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = Viewbox::new().content(TreeNode::new("node", "Node"));
-    /// ```
-    pub fn content(mut self, content: impl Into<Visual>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Content,
-            RelationValue::One(Some(Rc::new(content.into().0))),
-        );
-        self
-    }
-    /// Rejects values outside this relation's generated type contract.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor2::*;
     /// let _ = Viewbox::new().child(TreeNode::new("node", "Node"));
     /// ```
     pub fn child(mut self, content: impl Into<Visual>) -> Self {
@@ -2315,6 +2319,7 @@ pub struct TitleBar(Declaration);
 impl TitleBar {
     pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::TitleBar);
+        let declaration = declaration.window_title_bar(WindowTitleBarHeight::Standard);
         Self(declaration)
     }
     pub fn title(mut self, title: impl Into<Rc<str>>) -> Self {
@@ -2350,6 +2355,7 @@ impl TitleBar {
         );
         self
     }
+    window_title_bar_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -2502,7 +2508,7 @@ impl TreeView {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = TreeView::new().nodes([TextBlock::new("Text")]);
+    /// let _ = TreeView::new().nodes([TextBlock::new().text("Text")]);
     /// ```
     pub fn nodes(mut self, children: impl IntoIterator<Item = TreeNode>) -> Self {
         self.0 = self.0.relation(
@@ -2560,7 +2566,7 @@ impl TreeNode {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = TreeNode::new("key", "Text").children([TextBlock::new("Text")]);
+    /// let _ = TreeNode::new("key", "Text").children([TextBlock::new().text("Text")]);
     /// ```
     pub fn children(mut self, children: impl IntoIterator<Item = Self>) -> Self {
         self.0 = self.0.relation(
@@ -2588,7 +2594,7 @@ impl ListView {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = ListView::new().items([TextBlock::new("Text")]);
+    /// let _ = ListView::new().items([TextBlock::new().text("Text")]);
     /// ```
     pub fn items(mut self, children: impl IntoIterator<Item = DataItem>) -> Self {
         self.0 = self.0.relation(
@@ -2794,7 +2800,7 @@ impl VariableSizedWrapGrid {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = VariableSizedWrapGrid::new().children([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = VariableSizedWrapGrid::new().children([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -3152,7 +3158,7 @@ impl NavigationView {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = NavigationView::new().menu_items([TextBlock::new("Text")]);
+    /// let _ = NavigationView::new().menu_items([TextBlock::new().text("Text")]);
     /// ```
     pub fn menu_items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
         self.0 = self.0.relation(
@@ -3167,7 +3173,7 @@ impl NavigationView {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = NavigationView::new().footer_menu_items([TextBlock::new("Text")]);
+    /// let _ = NavigationView::new().footer_menu_items([TextBlock::new().text("Text")]);
     /// ```
     pub fn footer_menu_items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
         self.0 = self.0.relation(
@@ -3261,7 +3267,7 @@ impl NavigationViewItem {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = NavigationViewItem::new().menu_items([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = NavigationViewItem::new().menu_items([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn menu_items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -3993,7 +3999,7 @@ impl ListBox {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = ListBox::new().items([TextBlock::new("Text")]);
+    /// let _ = ListBox::new().items([TextBlock::new().text("Text")]);
     /// ```
     pub fn items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
         self.0 = self.0.relation(
@@ -4519,7 +4525,7 @@ impl Pivot {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = Pivot::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = Pivot::new().items([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn items(mut self, children: impl IntoIterator<Item = PivotItem>) -> Self {
         self.0 = self.0.relation(
@@ -4611,7 +4617,7 @@ impl FlipView {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = FlipView::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = FlipView::new().items([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -4653,7 +4659,7 @@ impl SelectorBar {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = SelectorBar::new().items([TextBlock::new("Text")]);
+    /// let _ = SelectorBar::new().items([TextBlock::new().text("Text")]);
     /// ```
     pub fn items(mut self, children: impl IntoIterator<Item = KeyedVisual>) -> Self {
         self.0 = self.0.relation(
@@ -4764,7 +4770,7 @@ impl TabView {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = TabView::new().tab_items([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = TabView::new().tab_items([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn tab_items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -4991,7 +4997,7 @@ impl CommandBar {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = CommandBar::new().primary_commands([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = CommandBar::new().primary_commands([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn primary_commands(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -5004,7 +5010,7 @@ impl CommandBar {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = CommandBar::new().secondary_commands([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = CommandBar::new().secondary_commands([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn secondary_commands(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -5106,7 +5112,7 @@ impl MenuBar {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = MenuBar::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = MenuBar::new().items([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -5655,7 +5661,7 @@ impl GridView {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = GridView::new().items([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = GridView::new().items([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn items(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -5736,7 +5742,7 @@ impl RelativePanel {
     ///
     /// ```compile_fail
     /// use windows_reactor2::*;
-    /// let _ = RelativePanel::new().children([keyed("text", TextBlock::new("Text"))]);
+    /// let _ = RelativePanel::new().children([keyed("text", TextBlock::new().text("Text"))]);
     /// ```
     pub fn children(mut self, children: impl IntoIterator<Item = Visual>) -> Self {
         self.0 = self.0.relation(
@@ -5904,5 +5910,20 @@ impl Default for SwapChainPanel {
 impl From<SwapChainPanel> for Visual {
     fn from(value: SwapChainPanel) -> Self {
         Self(DeclaredNode::Object(value.0))
+    }
+}
+impl From<&str> for Visual {
+    fn from(value: &str) -> Self {
+        TextBlock::new().text(value).into()
+    }
+}
+impl From<String> for Visual {
+    fn from(value: String) -> Self {
+        TextBlock::new().text(value).into()
+    }
+}
+impl From<Rc<str>> for Visual {
+    fn from(value: Rc<str>) -> Self {
+        TextBlock::new().text(value).into()
     }
 }

@@ -358,7 +358,7 @@ pub struct Event {
 ///     7,
 ///     10_000,
 ///     Key::from,
-///     |index| -> Visual { TextBlock::new(index.to_string()).into() },
+///     |index| -> Visual { TextBlock::new().text(index.to_string()).into() },
 /// );
 /// let view: Visual = ItemsRepeater::new().virtual_source(source).into();
 /// ```
@@ -486,6 +486,7 @@ pub(crate) struct Declaration {
     pub component: Option<ComponentId>,
     pub reference: Option<ElementRef>,
     pub exit_transition: Option<ExitTransition>,
+    pub window_title_bar: Option<WindowTitleBarHeight>,
     pub properties: SharedList<Property>,
     pub events: SharedList<Event>,
     pub relations: SharedList<DeclaredRelation>,
@@ -686,6 +687,7 @@ impl Declaration {
             component: None,
             reference: None,
             exit_transition: None,
+            window_title_bar: None,
             properties: SharedList::Empty,
             events: SharedList::Empty,
             relations: SharedList::Empty,
@@ -703,6 +705,11 @@ impl Declaration {
             .upsert(|property| property.id == id, Property { id, value });
         self.properties
             .sort_by_key(|property| property_order(self.kind, property.id));
+        self
+    }
+
+    fn window_title_bar(mut self, height: WindowTitleBarHeight) -> Self {
+        self.window_title_bar = Some(height);
         self
     }
 

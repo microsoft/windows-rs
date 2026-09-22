@@ -81,10 +81,10 @@ impl reactor2::Component for RootSwitch {
     ) -> reactor2::Visual {
         if self.0 {
             reactor2::Border::new()
-                .content(reactor2::TextBlock::new("Border root"))
+                .content(reactor2::TextBlock::new().text("Border root"))
                 .into()
         } else {
-            reactor2::TextBlock::new("Text root").into()
+            reactor2::TextBlock::new().text("Text root").into()
         }
     }
 }
@@ -114,8 +114,8 @@ impl reactor2::Component for TreeContent {
     ) -> reactor2::Visual {
         reactor2::StackPanel::new()
             .children([
-                reactor2::TextBlock::new(input.clone()).into(),
-                reactor2::TextBlock::new(self.0.to_string()).into(),
+                reactor2::TextBlock::new().text(input.clone()).into(),
+                reactor2::TextBlock::new().text(self.0.to_string()).into(),
             ])
             .into()
     }
@@ -212,7 +212,7 @@ impl Fixture {
     ) -> reactor2::Visual {
         let children = [
             reactor2::TreeNode::new("first-child", format!("First child {iteration}"))
-                .content(reactor2::TextBlock::new("Nested content")),
+                .content(reactor2::TextBlock::new().text("Nested content")),
             reactor2::TreeNode::new("second-child", "Second child"),
         ];
         let children = if iteration.is_multiple_of(2) {
@@ -224,12 +224,12 @@ impl Fixture {
             reactor2::TreeNode::new("first", format!("First {iteration}"))
                 .expanded(true)
                 .content(reactor2::StackPanel::new().children(vec![
-                    reactor2::TextBlock::new("Folder").into(),
-                    reactor2::TextBlock::new(format!("{} changes", iteration % 7)).into(),
+                    reactor2::TextBlock::new().text("Folder").into(),
+                    reactor2::TextBlock::new().text(format!("{} changes", iteration % 7)).into(),
                 ]))
                 .children(children),
             reactor2::TreeNode::new("second", format!("Second {iteration}"))
-                .content(reactor2::TextBlock::new("Leaf")),
+                .content(reactor2::TextBlock::new().text("Leaf")),
         ];
         let roots = if iteration.is_multiple_of(2) {
             reactor2::TreeView::new().nodes(roots)
@@ -262,7 +262,7 @@ impl Fixture {
                             .is_multiple_of(2)
                             .then_some([reactor2::ThemeTransition::Reposition]),
                     )
-                    .content(reactor2::TextBlock::new(format!("Iteration {iteration}")))
+                    .content(reactor2::TextBlock::new().text(format!("Iteration {iteration}")))
                     .into(),
                 roots.into(),
                 reactor2::ListView::new().items(items).into(),
@@ -394,6 +394,40 @@ impl Component for Fixture {
         reference_window.close().unwrap();
         drop(reference_runtime);
         assert_eq!(webview_results.get(), 1);
+        let mut title_bar_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        title_bar_runtime.update(reactor2::Grid::new()).unwrap();
+        let title_bar_root = title_bar_runtime.graph().root().unwrap();
+        let title_bar_window = title_bar_runtime
+            .adapter()
+            .open_window(title_bar_root)
+            .unwrap();
+        assert!(matches!(
+            title_bar_runtime.adapter().create_window(title_bar_root),
+            Err(reactor2::native::WinUiError::DuplicateWindowRoot(root)) if root == title_bar_root
+        ));
+        title_bar_runtime
+            .update(
+                reactor2::Grid::new().children([reactor2::keyed(
+                    "title",
+                    reactor2::TitleBar::new()
+                        .title("Reactor2 title-bar self-test")
+                        .preferred_height(reactor2::WindowTitleBarHeight::Tall),
+                )]),
+            )
+            .unwrap();
+        title_bar_runtime
+            .update(
+                reactor2::Grid::new().children([reactor2::keyed(
+                    "title",
+                    reactor2::TitleBar::new()
+                        .title("Reactor2 title-bar self-test")
+                        .preferred_height(reactor2::WindowTitleBarHeight::Standard),
+                )]),
+            )
+            .unwrap();
+        title_bar_runtime.update(reactor2::Grid::new()).unwrap();
+        title_bar_window.close().unwrap();
         let boundary_host = reactor2::ComponentHost::mount(
             reactor2::native::WinUiAdapter::default(),
             [
@@ -471,7 +505,7 @@ impl Component for Fixture {
         button_runtime
             .update(
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Click"))
+                    .content(reactor2::TextBlock::new().text("Click"))
                     .on_click(move || {
                         button_callback_calls.set(button_callback_calls.get() + 1);
                     }),
@@ -593,16 +627,15 @@ impl Component for Fixture {
                             .into(),
                         reactor2::CheckBox::new()
                             .is_checked(Some(true))
-                            .content(reactor2::TextBlock::new("Enabled"))
+                            .content(reactor2::TextBlock::new().text("Enabled"))
                             .into(),
                         reactor2::ScrollViewer::new()
                             .content(
-                                reactor2::Canvas::new().children([reactor2::TextBlock::new(
-                                    "Scrollable canvas",
-                                )
-                                .canvas_left(12.0)
-                                .canvas_top(24.0)
-                                .into()]),
+                                reactor2::Canvas::new().children([reactor2::TextBlock::new()
+                                    .text("Scrollable canvas")
+                                    .canvas_left(12.0)
+                                    .canvas_top(24.0)
+                                    .into()]),
                             )
                             .into(),
                         reactor2::SelectorBar::new()
@@ -624,7 +657,8 @@ impl Component for Fixture {
                             .relative_align_left()
                             .automation_name("capability button")
                             .into(),
-                        reactor2::TextBlock::new("Styled")
+                        reactor2::TextBlock::new()
+                            .text("Styled")
                             .font_weight(reactor2::FontWeight::SEMI_BOLD)
                             .into(),
                     ]),
@@ -706,7 +740,9 @@ impl Component for Fixture {
                     10_000,
                     reactor2::Key::from,
                     |index| -> reactor2::Visual {
-                        reactor2::TextBlock::new(format!("virtual {index}")).into()
+                        reactor2::TextBlock::new()
+                            .text(format!("virtual {index}"))
+                            .into()
                     },
                 )),
             )
@@ -740,7 +776,7 @@ impl Component for Fixture {
         destroyed_virtual_runtime
             .update(reactor2::Grid::new().children([reactor2::keyed(
                 "repeater",
-                reactor2::ItemsRepeater::new().item("row", reactor2::TextBlock::new("row")),
+                reactor2::ItemsRepeater::new().item("row", reactor2::TextBlock::new().text("row")),
             )]))
             .unwrap();
         let destroyed_virtual_root = destroyed_virtual_runtime.graph().root().unwrap();
@@ -774,7 +810,7 @@ impl Component for Fixture {
         replaced_virtual_runtime
             .update(reactor2::Grid::new().children([reactor2::keyed(
                 "slot",
-                reactor2::ItemsRepeater::new().item("row", reactor2::TextBlock::new("row")),
+                reactor2::ItemsRepeater::new().item("row", reactor2::TextBlock::new().text("row")),
             )]))
             .unwrap();
         let replaced_virtual_root = replaced_virtual_runtime.graph().root().unwrap();
@@ -843,16 +879,15 @@ impl Component for Fixture {
                             .into(),
                         reactor2::CheckBox::new()
                             .is_checked(Some(true))
-                            .content(reactor2::TextBlock::new("Enabled"))
+                            .content(reactor2::TextBlock::new().text("Enabled"))
                             .into(),
                         reactor2::ScrollViewer::new()
                             .content(
-                                reactor2::Canvas::new().children([reactor2::TextBlock::new(
-                                    "Scrollable canvas",
-                                )
-                                .canvas_left(12.0)
-                                .canvas_top(24.0)
-                                .into()]),
+                                reactor2::Canvas::new().children([reactor2::TextBlock::new()
+                                    .text("Scrollable canvas")
+                                    .canvas_left(12.0)
+                                    .canvas_top(24.0)
+                                    .into()]),
                             )
                             .into(),
                         reactor2::SelectorBar::new()
@@ -940,13 +975,12 @@ impl Component for Fixture {
                     reactor2::Slider::new().into(),
                     reactor2::ToggleSwitch::new().into(),
                     reactor2::CheckBox::new()
-                        .content(reactor2::TextBlock::new("Enabled"))
+                        .content(reactor2::TextBlock::new().text("Enabled"))
                         .into(),
                     reactor2::ScrollViewer::new()
-                        .content(
-                            reactor2::Canvas::new()
-                                .children([reactor2::TextBlock::new("Scrollable canvas").into()]),
-                        )
+                        .content(reactor2::Canvas::new().children([
+                            reactor2::TextBlock::new().text("Scrollable canvas").into(),
+                        ]))
                         .into(),
                     reactor2::SelectorBar::new()
                         .items([
@@ -1147,7 +1181,9 @@ impl Component for Fixture {
                 10_000,
                 reactor2::Key::from,
                 move |index| -> reactor2::Visual {
-                    reactor2::TextBlock::new(format!("{prefix} {index}")).into()
+                    reactor2::TextBlock::new()
+                        .text(format!("{prefix} {index}"))
+                        .into()
                 },
             ))
         };
@@ -1559,12 +1595,12 @@ impl Component for Fixture {
                         "retiring-owned",
                         reactor2::Button::new()
                             .exit_fade(Duration::from_millis(50))
-                            .content(reactor2::TextBlock::new("retiring-owned")),
+                            .content(reactor2::TextBlock::new().text("retiring-owned")),
                     ));
                 }
                 children.push(reactor2::keyed(
                     format!("owned-{index}"),
-                    reactor2::TextBlock::new(index.to_string()),
+                    reactor2::TextBlock::new().text(index.to_string()),
                 ));
             }
             reactor2::Grid::new().children(children)

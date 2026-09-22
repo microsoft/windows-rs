@@ -57,8 +57,9 @@ ends. UI callback failures are returned from `run_with` after requesting applica
 service boundary and passes it to every component scope. `ComponentHost::mount` remains available
 for recording tests and generic adapters through a default Windows thread-pool implementation
 whose timers use cancellable waits rather than WinUI.
-`WindowPolicy` keeps window title, root theme, client size, minimum client constraints, and custom
-AppWindow title-bar configuration outside the generated control property schema.
+`WindowPolicy` keeps window title, root theme, client size, and minimum client constraints outside
+the generated control property schema. A declared `TitleBar` owns custom AppWindow title-bar
+attachment and preferred height through the retained graph.
 
 `reactor2-counter` is the minimal recursive sample. The parent owns the count and event handler,
 while a nested `Count` component receives the value through `Border.Content`. This keeps the sample
@@ -71,15 +72,24 @@ foundation and tableau slots, direct card actions, move highlights, and failure 
 `Solitaire -> Board -> keyed CardView` hierarchy preserves card component identity across pile
 moves. Reactor2 supplies the Windows App Runtime bootstrap and WinUI application host without
 creating a separate framework window. Its window policy matches the original sample's title, dark
-theme, 800x600 client and minimum sizes, and tall AppWindow title bar.
+theme, and 800x600 client and minimum sizes. Its declared `TitleBar` owns the tall AppWindow title
+bar.
 
 The port added solid-color, thickness, and corner-radius property values to the generic adapter
 protocol. Border styling, inherited layout properties, pointer release, Viewbox, and TitleBar then
 entered through `schema.toml` and generated realization without planner or control-specific
-adapter branches. AppWindow title-bar height and client-size policy remain application-host state.
-Reposition transitions use the generated visual-property contract and apply
+adapter branches. TitleBar attachment and height now follow declaration ownership, while
+client-size policy remains application-host state. Reposition transitions use the generated
+visual-property contract and apply
 `ThemeTransition::Reposition` to each keyed `CardView` root. Pointer release uses the generated
 typed event path even though Solitaire's click logic does not inspect its payload.
+
+The Solitaire migration is also an application compatibility gate. The comparison removed manual
+TitleBar lookup and window-policy attachment, restored `Viewbox::child`, restored
+`TextBlock::new().text(value)`, and permits direct string content. Explicit component senders,
+`Visual` conversions for heterogeneous arrays, and host-owned window creation remain because they
+follow Reactor2's targeted component and native-host ownership model rather than control-surface
+differences.
 
 `reactor2-explorer` is the recursive structural sample. Component-rendered TreeView rows support
 filtering, root reorder, explicit selection, expansion, asynchronous child loading, cancellation
@@ -154,7 +164,7 @@ events, typed pointer events, and visual theme-transition collections.
 reads the old schema only for that explicit command, merges metadata-backed direct contracts into
 the current Reactor2 schema, and writes ordinary Reactor2 TOML to standard output. Normal
 generation reads only `schema.toml`. The strict parity report currently accounts for 79/79
-controls, 191/233 properties, 37/68 events, 42/42 slots, 3/3 selection contracts, 157/158
+controls, 191/233 properties, 37/68 events, 42/42 slots, 3/3 selection contracts, 158/158
 capabilities, and 0/2 lifecycle contracts. It includes inspectable strings and string lists,
 distinct NumberBox and RatingControl optional numeric values, checked selection indices,
 controlled and coercing property feedback backed by native events, and renamed event-builder
@@ -248,7 +258,7 @@ The declaration API exposes one typed path for each generated contract:
 
 | Contract | Public shape |
 | --- | --- |
-| Authoritative scalar value | Required constructor input |
+| Controlled or identity scalar value | Required constructor input |
 | Optional scalar or event | Builder method; omission removes it |
 | Attached visual property | Builder method on every visual; omission clears the dependency value |
 | Visual collection property | Typed iterator builder on every visual; omission clears the dependency value |
@@ -260,7 +270,15 @@ The declaration API exposes one typed path for each generated contract:
 This keeps invalid category and identity combinations from compiling. Compile-fail doctests cover
 visual, keyed visual, structural, and data relation boundaries. Controlled `TextBox` text remains a
 required constructor input because an unset value would create a second authority model. There is
-no separate common and advanced control path.
+no separate common and advanced control path. `TextBlock` text is optional because empty text is a
+valid native state, and strings convert directly to a `TextBlock` visual for content relations.
+
+TitleBar attachment is a declaration capability rather than a property or `WindowPolicy` field.
+The retained graph permits one active TitleBar, emits clear-before-destroy mutations, and tracks it
+transactionally through rollback. WinUI synchronizes the desired declaration after structural
+mutations so a newly mounted TitleBar is attached only after its native element enters the window
+root. A root cannot be opened in a second live `NativeWindow`, because one `UIElement` cannot be
+content of two WinUI windows.
 
 `Property`, `Event`, `Observation`, `NativeEvent`, `EventDispatch`, and their payload enums form the
 public adapter protocol rather than the application declaration API. External adapters consume

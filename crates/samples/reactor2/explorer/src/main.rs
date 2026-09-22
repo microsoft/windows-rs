@@ -171,15 +171,17 @@ impl reactor2::Component for Row {
             .orientation(reactor2::Orientation::Horizontal)
             .spacing(6.0)
             .children([
-                reactor2::TextBlock::new(format!("{marker} {}", self.input.label)).into(),
+                reactor2::TextBlock::new()
+                    .text(format!("{marker} {}", self.input.label))
+                    .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Select"))
+                    .content(reactor2::TextBlock::new().text("Select"))
                     .on_click(move || {
                         _ = select.send(RowMessage::Select);
                     })
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new(state))
+                    .content(reactor2::TextBlock::new().text(state))
                     .on_click(move || {
                         _ = toggle.send(RowMessage::Toggle);
                     })
@@ -204,14 +206,15 @@ impl reactor2::Component for Details {
         input: &Self::Input,
         _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
     ) -> reactor2::Visual {
-        reactor2::TextBlock::new(
-            input
-                .as_deref()
-                .map_or("No node selected".to_string(), |key| {
-                    format!("Selected node: {key}")
-                }),
-        )
-        .into()
+        reactor2::TextBlock::new()
+            .text(
+                input
+                    .as_deref()
+                    .map_or("No node selected".to_string(), |key| {
+                        format!("Selected node: {key}")
+                    }),
+            )
+            .into()
     }
 }
 
@@ -333,18 +336,21 @@ impl reactor2::Component for Explorer {
         reactor2::StackPanel::new()
             .spacing(8.0)
             .children([
-                reactor2::TextBlock::new("Reactor2 TreeView explorer").into(),
-                reactor2::TextBlock::new(
-                    "Selection uses row actions until native TreeView selection is projected.",
-                )
-                .into(),
+                reactor2::TextBlock::new()
+                    .text("Reactor2 TreeView explorer")
+                    .into(),
+                reactor2::TextBlock::new()
+                    .text(
+                        "Selection uses row actions until native TreeView selection is projected.",
+                    )
+                    .into(),
                 reactor2::TextBox::new(Rc::clone(&self.filter))
                     .on_text_changed(move |value| {
                         _ = filter.send(ExplorerMessage::Filter(value.to_string()));
                     })
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Reverse roots"))
+                    .content(reactor2::TextBlock::new().text("Reverse roots"))
                     .on_click(move || {
                         _ = reverse.send(ExplorerMessage::Reverse);
                     })

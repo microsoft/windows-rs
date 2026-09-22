@@ -49,6 +49,13 @@ pub enum Mutation {
         set: Rc<[Event]>,
         clear: Rc<[EventId]>,
     },
+    ClearWindowTitleBar {
+        object: ObjectId,
+    },
+    SetWindowTitleBar {
+        object: ObjectId,
+        height: WindowTitleBarHeight,
+    },
     SetVirtualSource {
         object: ObjectId,
         item_count: usize,
@@ -449,6 +456,7 @@ struct RetainedObject {
     key: Option<Key>,
     reference: Option<ElementRef>,
     exit_transition: Option<ExitTransition>,
+    window_title_bar: Option<WindowTitleBarHeight>,
     properties: SharedList<Property>,
     events: Option<Rc<Vec<Event>>>,
     relations: Vec<RetainedRelation>,
@@ -554,6 +562,7 @@ pub struct RetainedGraph {
     objects: Vec<RetainedSlot>,
     free: Vec<u32>,
     retirements: HashMap<ObjectId, RetainedRetirement>,
+    window_title_bar: Option<(ObjectId, WindowTitleBarHeight)>,
     #[cfg(test)]
     full_reference_scans: ReferenceScanCounter,
 }
@@ -626,6 +635,10 @@ struct RetainedSlot {
 }
 
 impl RetainedGraph {
+    pub fn window_title_bar(&self) -> Result<Option<(ObjectId, WindowTitleBarHeight)>, GraphError> {
+        Ok(self.window_title_bar)
+    }
+
     #[cfg(any(test, feature = "test"))]
     pub fn retained_memory(&self) -> RetainedMemory {
         let mut memory = RetainedMemory {
@@ -939,6 +952,7 @@ impl RetainedGraph {
             || (compare_key && current.key != declaration.key)
             || current.reference != declaration.reference
             || current.exit_transition != declaration.exit_transition
+            || current.window_title_bar != declaration.window_title_bar
             || current.properties.as_slice() != declaration.properties.as_slice()
             || retained_events(&current.events) != declaration.events.as_slice()
         {
@@ -1162,6 +1176,7 @@ pub trait Adapter {
 
 enum GraphUndo {
     Root(Option<ObjectId>),
+    WindowTitleBar(Option<(ObjectId, WindowTitleBarHeight)>),
     Slot {
         index: usize,
         previous: RetainedSlot,
@@ -1182,6 +1197,7 @@ struct GraphTransaction<'a> {
     snapshotted_slots: HashSet<usize>,
     initial_object_len: usize,
     root_snapshotted: bool,
+    window_title_bar_snapshotted: bool,
     armed: bool,
 }
 
@@ -1193,6 +1209,7 @@ impl<'a> GraphTransaction<'a> {
             undo: Vec::new(),
             snapshotted_slots: HashSet::new(),
             root_snapshotted: false,
+            window_title_bar_snapshotted: false,
             armed: true,
         }
     }
@@ -1228,6 +1245,44 @@ impl<'a> GraphTransaction<'a> {
             self.root_snapshotted = true;
         }
         self.graph.root = root;
+    }
+
+    fn snapshot_window_title_bar(&mut self) {
+        if !self.window_title_bar_snapshotted {
+            self.undo
+                .push(GraphUndo::WindowTitleBar(self.graph.window_title_bar));
+            self.window_title_bar_snapshotted = true;
+        }
+    }
+
+    fn set_window_title_bar(
+        &mut self,
+        object: ObjectId,
+        height: WindowTitleBarHeight,
+    ) -> Result<(), GraphError> {
+        if self
+            .graph
+            .window_title_bar
+            .is_some_and(|(current, _)| current != object)
+        {
+            return Err(GraphError::DuplicateWindowTitleBar);
+        }
+        if self.graph.window_title_bar != Some((object, height)) {
+            self.snapshot_window_title_bar();
+            self.graph.window_title_bar = Some((object, height));
+        }
+        Ok(())
+    }
+
+    fn clear_window_title_bar(&mut self, object: ObjectId) {
+        if self
+            .graph
+            .window_title_bar
+            .is_some_and(|(current, _)| current == object)
+        {
+            self.snapshot_window_title_bar();
+            self.graph.window_title_bar = None;
+        }
     }
 
     fn allocate(&mut self, object: RetainedObject) -> Result<ObjectId, GraphError> {
@@ -1370,6 +1425,9 @@ impl<'a> GraphTransaction<'a> {
         for undo in self.undo.drain(..).rev() {
             match undo {
                 GraphUndo::Root(previous) => self.graph.root = previous,
+                GraphUndo::WindowTitleBar(previous) => {
+                    self.graph.window_title_bar = previous;
+                }
                 GraphUndo::Slot { index, previous } => self.graph.objects[index] = previous,
                 GraphUndo::ObjectPushed => {
                     self.graph.objects.pop().unwrap();
@@ -2000,11 +2058,13 @@ impl<A: Adapter> Runtime<A> {
             });
             Ok::<(), GraphError>(())
         })();
+        let plan = plan.and_then(|()| transaction.window_title_bar().map(|_| ()));
         if let Err(error) = plan {
             transaction.rollback();
             self.mutations.clear();
             return Err(UpdateError::Graph(error));
         }
+        defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
         if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
@@ -2085,11 +2145,13 @@ impl<A: Adapter> Runtime<A> {
             }
             Ok::<(), GraphError>(())
         })();
+        let plan = plan.and_then(|()| transaction.window_title_bar().map(|_| ()));
         if let Err(error) = plan {
             transaction.rollback();
             self.mutations.clear();
             return Err(UpdateError::Graph(error));
         }
+        defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
         if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
@@ -2194,11 +2256,13 @@ impl<A: Adapter> Runtime<A> {
             planner.retained.set_root(Some(root));
             Ok::<(), GraphError>(())
         })();
+        let plan = plan.and_then(|()| transaction.window_title_bar().map(|_| ()));
         if let Err(error) = plan {
             transaction.rollback();
             self.mutations.clear();
             return Err(UpdateError::Graph(error));
         }
+        defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
         if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
@@ -2315,11 +2379,13 @@ impl<A: Adapter> Runtime<A> {
             }
             Ok::<(), GraphError>(())
         })();
+        let plan = plan.and_then(|()| transaction.window_title_bar().map(|_| ()));
         if let Err(error) = plan {
             transaction.rollback();
             self.mutations.clear();
             return Err(UpdateError::Graph(error));
         }
+        defer_window_title_bar_sets(&mut self.mutations);
         let poison_references = detached_references(&references);
         self.poisoned = true;
         if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
@@ -2387,6 +2453,7 @@ impl<A: Adapter> Runtime<A> {
             }
             Ok::<(), GraphError>(())
         })();
+        let plan = plan.and_then(|()| transaction.window_title_bar().map(|_| ()));
         if let Err(error) = plan {
             transaction.rollback();
             self.mutations.clear();
@@ -2398,6 +2465,7 @@ impl<A: Adapter> Runtime<A> {
             unreachable!()
         };
         children.remove(index);
+        defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
         if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
@@ -2499,12 +2567,31 @@ fn apply_reference_changes(endpoint: &ReferenceEndpoint, changes: Vec<ReferenceC
     }
 }
 
+fn defer_window_title_bar_sets(mutations: &mut Vec<Mutation>) {
+    let (deferred, immediate): (Vec<_>, Vec<_>) = std::mem::take(mutations)
+        .into_iter()
+        .partition(|mutation| matches!(mutation, Mutation::SetWindowTitleBar { .. }));
+    *mutations = immediate;
+    mutations.extend(deferred);
+}
+
 impl Planner<'_, '_> {
     fn replace_object(
         &mut self,
         object: ObjectId,
         declaration: &Declaration,
     ) -> Result<(), GraphError> {
+        if self
+            .retained
+            .get_mut(object)
+            .window_title_bar
+            .take()
+            .is_some()
+        {
+            self.retained.clear_window_title_bar(object);
+            self.mutations
+                .push(Mutation::ClearWindowTitleBar { object });
+        }
         let previous = std::mem::take(&mut self.retained.get_mut(object).relations);
         for relation in previous {
             match relation.value {
@@ -2548,6 +2635,7 @@ impl Planner<'_, '_> {
             key,
             reference: declaration.reference.clone(),
             exit_transition: declaration.exit_transition,
+            window_title_bar: declaration.window_title_bar,
             properties: declaration.properties.clone(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
@@ -2590,6 +2678,11 @@ impl Planner<'_, '_> {
         for contract in relation_contracts(declaration.kind) {
             self.mount_relation(object, declaration, contract)?;
         }
+        if let Some(height) = declaration.window_title_bar {
+            self.retained.set_window_title_bar(object, height)?;
+            self.mutations
+                .push(Mutation::SetWindowTitleBar { object, height });
+        }
         Ok(())
     }
 
@@ -2600,6 +2693,7 @@ impl Planner<'_, '_> {
             key: declaration.key.clone(),
             reference: declaration.reference.clone(),
             exit_transition: declaration.exit_transition,
+            window_title_bar: declaration.window_title_bar,
             properties: declaration.properties.clone(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
@@ -2614,6 +2708,9 @@ impl Planner<'_, '_> {
                 .collect(),
             virtual_items,
         })?;
+        if let Some(height) = declaration.window_title_bar {
+            self.retained.set_window_title_bar(object, height)?;
+        }
         if let Some(reference) = &declaration.reference {
             self.references.push(ReferenceChange::Set {
                 reference: reference.clone(),
@@ -2654,6 +2751,10 @@ impl Planner<'_, '_> {
         }
         for contract in relation_contracts(declaration.kind) {
             self.mount_relation(object, declaration, contract)?;
+        }
+        if let Some(height) = declaration.window_title_bar {
+            self.mutations
+                .push(Mutation::SetWindowTitleBar { object, height });
         }
         Ok(object)
     }
@@ -2741,6 +2842,23 @@ impl Planner<'_, '_> {
         }
         if self.retained.get(object).unwrap().exit_transition != declaration.exit_transition {
             self.retained.get_mut(object).exit_transition = declaration.exit_transition;
+        }
+        let previous_title_bar = self.retained.get(object).unwrap().window_title_bar;
+        if previous_title_bar != declaration.window_title_bar {
+            match (previous_title_bar, declaration.window_title_bar) {
+                (Some(_), None) => {
+                    self.retained.clear_window_title_bar(object);
+                    self.mutations
+                        .push(Mutation::ClearWindowTitleBar { object });
+                }
+                (_, Some(height)) => {
+                    self.retained.set_window_title_bar(object, height)?;
+                    self.mutations
+                        .push(Mutation::SetWindowTitleBar { object, height });
+                }
+                (None, None) => {}
+            }
+            self.retained.get_mut(object).window_title_bar = declaration.window_title_bar;
         }
         let properties = declaration.properties.as_slice();
         if self.retained.get(object).unwrap().properties.as_slice() != properties {
@@ -3302,6 +3420,17 @@ impl Planner<'_, '_> {
             self.references
                 .push(ReferenceChange::Clear { reference, object });
         }
+        if self
+            .retained
+            .get_mut(object)
+            .window_title_bar
+            .take()
+            .is_some()
+        {
+            self.retained.clear_window_title_bar(object);
+            self.mutations
+                .push(Mutation::ClearWindowTitleBar { object });
+        }
         let virtual_items = self.retained.get_mut(object).virtual_items.take();
         let relations = std::mem::take(&mut self.retained.get_mut(object).relations);
         for relation in relations {
@@ -3385,6 +3514,11 @@ impl Planner<'_, '_> {
                     set: Rc::from([]),
                     clear: events.iter().map(|event| event.id).collect(),
                 });
+            }
+            if retained.window_title_bar.take().is_some() {
+                self.retained.clear_window_title_bar(*object);
+                self.mutations
+                    .push(Mutation::ClearWindowTitleBar { object: *object });
             }
         }
         self.mutations.push(Mutation::Retire {

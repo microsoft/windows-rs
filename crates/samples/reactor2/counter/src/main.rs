@@ -20,7 +20,7 @@ impl reactor2::Component for Count {
         input: &Self::Input,
         _context: &mut reactor2::ComponentViewContext<'_, Self::Message>,
     ) -> reactor2::Visual {
-        reactor2::TextBlock::new(input.to_string()).into()
+        reactor2::TextBlock::new().text(input.to_string()).into()
     }
 }
 
@@ -53,12 +53,12 @@ impl reactor2::Component for Counter {
         reactor2::StackPanel::new()
             .spacing(8.0)
             .children([
-                reactor2::TextBlock::new("Reactor2 counter").into(),
+                reactor2::TextBlock::new().text("Reactor2 counter").into(),
                 reactor2::Border::new()
                     .content(reactor2::component::<Count>("count", self.count))
                     .into(),
                 reactor2::Button::new()
-                    .content(reactor2::TextBlock::new("Increment"))
+                    .content(reactor2::TextBlock::new().text("Increment"))
                     .on_click(move || {
                         _ = increment.send(());
                     })
