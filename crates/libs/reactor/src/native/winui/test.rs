@@ -18,6 +18,8 @@ windows_core::link!("user32.dll" "system" fn GetFocus() -> *mut std::ffi::c_void
 thread_local! {
     static INPUT_PROBE_CALLBACK: RefCell<Option<Rc<dyn Fn(LiveInputProbeStage)>>> =
         const { RefCell::new(None) };
+    static WINDOW_ACTIVATION_CALLBACK: RefCell<Option<Rc<dyn Fn()>>> =
+        const { RefCell::new(None) };
     static TEXT_INPUT_PENDING: Cell<usize> = const { Cell::new(0) };
 }
 
@@ -121,6 +123,35 @@ pub(crate) fn finish_live_text_input_dispatch() {
     for _ in 0..pending {
         record_live_input_probe_stage(LiveInputProbeStage::ReactorDispatchComplete);
     }
+}
+
+#[must_use = "dropping the probe stops window activation observation"]
+pub struct LiveWindowActivationProbe;
+
+impl Drop for LiveWindowActivationProbe {
+    fn drop(&mut self) {
+        let _ = WINDOW_ACTIVATION_CALLBACK.try_with(|callback| callback.borrow_mut().take());
+    }
+}
+
+pub fn subscribe_live_window_activation(
+    callback: impl Fn() + 'static,
+) -> LiveWindowActivationProbe {
+    WINDOW_ACTIVATION_CALLBACK.with(|slot| {
+        assert!(
+            slot.borrow_mut().replace(Rc::new(callback)).is_none(),
+            "only one live window activation probe may be active"
+        );
+    });
+    LiveWindowActivationProbe
+}
+
+pub(crate) fn record_live_window_activation() {
+    let _ = WINDOW_ACTIVATION_CALLBACK.try_with(|callback| {
+        if let Some(callback) = callback.borrow().as_ref() {
+            callback();
+        }
+    });
 }
 
 pub(crate) fn native_window_handle(window: &Window) -> windows_core::Result<isize> {

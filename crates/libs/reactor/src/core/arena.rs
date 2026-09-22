@@ -1,3 +1,5 @@
+#[cfg(any(test, feature = "test"))]
+use std::mem::size_of;
 use std::rc::Rc;
 
 const CHUNK_CAPACITY: usize = 256;
@@ -108,9 +110,14 @@ impl<T: Clone> Arena<T> {
         Some(value)
     }
 
-    #[cfg(test)]
+    #[cfg(any(test, feature = "test"))]
     pub fn len(&self) -> usize {
         self.live
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn slot_size() -> usize {
+        size_of::<Slot<T>>()
     }
 
     fn slot(&self, id: NodeId) -> Option<&Slot<T>> {

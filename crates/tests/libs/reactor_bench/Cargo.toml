@@ -8,7 +8,7 @@ default-run = "test-reactor-bench"
 [dependencies]
 windows-core = { workspace = true }
 windows-reactor = { workspace = true, features = ["test"] }
-windows-reactor2 = { workspace = true }
+windows-reactor2 = { workspace = true, features = ["test"] }
 windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt", "winuser"] }
 
 [[bin]]

@@ -3,6 +3,8 @@ use super::*;
 use crate::reference::NativeElementRef;
 use rustc_hash::FxHashMap as HashMap;
 use std::any::TypeId;
+#[cfg(any(test, feature = "test"))]
+use std::mem::size_of;
 use std::rc::Rc;
 
 const PROVIDER_CHUNK_CAPACITY: usize = 256;
@@ -363,6 +365,21 @@ impl Tree {
             window_declarations: Rc::new(HashMap::default()),
             window_title_bars: Rc::new(HashMap::default()),
         }
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn retained_node_count(&self) -> usize {
+        self.arena.len()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn retained_node_size(&self) -> usize {
+        size_of::<Node>()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn arena_slot_size(&self) -> usize {
+        Arena::<Node>::slot_size()
     }
 
     // Avoid `unwrap` here: its caller tracking measurably slows these hot-path invariant lookups.

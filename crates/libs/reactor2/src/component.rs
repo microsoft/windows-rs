@@ -86,6 +86,7 @@ struct Message {
 
 #[derive(Default)]
 struct MessageQueue {
+    closed: bool,
     messages: VecDeque<Message>,
     wake_pending: bool,
     waker: Option<Arc<dyn Fn() + Send + Sync>>,
@@ -125,7 +126,7 @@ impl<M: Send + 'static> ComponentSender<M> {
 
     fn enqueue(&self, value: M, control: Option<Arc<TaskControl>>) -> bool {
         let mut queue = self.queue.lock().unwrap();
-        if queue.messages.len() >= MESSAGE_CAPACITY {
+        if queue.closed || queue.messages.len() >= MESSAGE_CAPACITY {
             if let Some(control) = control {
                 control.reject();
             }
@@ -781,6 +782,8 @@ trait ErasedComponent {
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<(Visual, EffectDraft, HashSet<ContextId>), EffectKey>;
     fn sender(&self) -> &dyn Any;
+    #[cfg(any(test, feature = "test"))]
+    fn tracked_tasks(&self) -> usize;
 }
 
 struct TypedScope<C: Component> {
@@ -876,6 +879,16 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
     fn sender(&self) -> &dyn Any {
         &self.sender
     }
+
+    #[cfg(any(test, feature = "test"))]
+    fn tracked_tasks(&self) -> usize {
+        self.tasks
+            .lock()
+            .unwrap()
+            .iter()
+            .filter(|task| task.strong_count() != 0)
+            .count()
+    }
 }
 
 struct Scope {
@@ -941,6 +954,25 @@ impl<E: std::fmt::Debug> From<ComponentError<E>> for windows_core::Error {
     }
 }
 
+/// Coordinates component scopes with retained runtime updates.
+///
+/// The adapter is exposed read-only. Native protocol methods cannot be called through the host.
+///
+/// ```compile_fail
+/// use windows_reactor2::{Adapter, ComponentHost};
+///
+/// fn pop<A: Adapter>(host: &ComponentHost<A>) {
+///     host.adapter().pop_native_event();
+/// }
+/// ```
+///
+/// ```compile_fail
+/// use windows_reactor2::{Adapter, ComponentHost};
+///
+/// fn apply<A: Adapter>(host: &mut ComponentHost<A>) {
+///     let _ = host.adapter_mut().apply(&[]);
+/// }
+/// ```
 pub struct ComponentHost<A: Adapter> {
     context_consumers: HashMap<ContextId, HashSet<ComponentId>>,
     contexts: HashMap<ContextId, ContextValue>,
@@ -955,16 +987,26 @@ pub struct ComponentHost<A: Adapter> {
     virtual_rows: HashMap<(ObjectId, Key), ComponentId>,
 }
 
+#[cfg(any(test, feature = "test"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ComponentHostState {
+    pub live_scopes: usize,
+    pub scope_slots: usize,
+    pub free_scopes: usize,
+    pub effects: usize,
+    pub tasks: usize,
+    pub contexts: usize,
+    pub context_consumers: usize,
+    pub virtual_rows: usize,
+    pub queued_messages: usize,
+    pub queue_closed: bool,
+    pub graph_objects: usize,
+    pub retirements: usize,
+}
+
 impl<A: Adapter> Drop for ComponentHost<A> {
     fn drop(&mut self) {
-        for slot in &mut self.scopes {
-            let Some(scope) = slot.scope.as_mut() else {
-                continue;
-            };
-            scope.reference.set(None);
-            scope.component.cancel_tasks();
-            cleanup_effects(&mut scope.effects);
-        }
+        self.invalidate_host();
     }
 }
 
@@ -1030,13 +1072,59 @@ impl<A: Adapter> ComponentHost<A> {
         &self.runtime
     }
 
-    pub fn runtime_mut(&mut self) -> &mut Runtime<A> {
+    pub(crate) fn runtime_mut_internal(&mut self) -> &mut Runtime<A> {
         &mut self.runtime
+    }
+
+    pub fn adapter(&self) -> &A {
+        self.runtime.adapter()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn test_state(&self) -> ComponentHostState {
+        let queue = self.queue.lock().unwrap();
+        ComponentHostState {
+            live_scopes: self
+                .scopes
+                .iter()
+                .filter(|slot| slot.scope.is_some())
+                .count(),
+            scope_slots: self.scopes.len(),
+            free_scopes: self.free_scopes.len(),
+            effects: self
+                .scopes
+                .iter()
+                .filter_map(|slot| slot.scope.as_ref())
+                .map(|scope| scope.effects.len())
+                .sum(),
+            tasks: self
+                .scopes
+                .iter()
+                .filter_map(|slot| slot.scope.as_ref())
+                .map(|scope| scope.component.tracked_tasks())
+                .sum(),
+            contexts: self.contexts.len(),
+            context_consumers: self.context_consumers.values().map(HashSet::len).sum(),
+            virtual_rows: self.virtual_rows.len(),
+            queued_messages: queue.messages.len(),
+            queue_closed: queue.closed,
+            graph_objects: self.runtime.graph().object_count(),
+            retirements: self.runtime.graph().retired_count(),
+        }
+    }
+
+    pub fn focus(&mut self, reference: &ElementRef) -> Result<bool, ComponentError<A::Error>> {
+        self.ensure_active()?;
+        self.runtime
+            .focus(reference)
+            .map_err(|error| self.runtime_error(error))
     }
 
     pub fn set_waker(&mut self, waker: impl Fn() + Send + Sync + 'static) {
         let mut queue = self.queue.lock().unwrap();
-        queue.waker = Some(Arc::new(waker));
+        if !queue.closed {
+            queue.waker = Some(Arc::new(waker));
+        }
     }
 
     pub fn sender<C: Component>(&self, key: &Key) -> Option<ComponentSender<C::Message>> {
@@ -1092,17 +1180,19 @@ impl<A: Adapter> ComponentHost<A> {
         if self.scope(id).unwrap().component.component_type() != TypeId::of::<C>() {
             return Err(ComponentError::ComponentType(key));
         }
-        let contexts = self.contexts.clone();
-        let scope = self.scope_mut(id).unwrap();
-        let reference = scope.reference.clone();
-        let Some((view, effects, dependencies)) = scope
-            .component
-            .apply_input(&input, reference, &contexts)
-            .map_err(ComponentError::DuplicateEffect)?
-        else {
-            return Ok(Vec::new());
-        };
-        self.apply_render(id, view, effects, dependencies)
+        self.run_component_operation(move |host| {
+            let contexts = host.contexts.clone();
+            let scope = host.scope_mut(id).unwrap();
+            let reference = scope.reference.clone();
+            let Some((view, effects, dependencies)) = scope
+                .component
+                .apply_input(&input, reference, &contexts)
+                .map_err(ComponentError::DuplicateEffect)?
+            else {
+                return Ok(Vec::new());
+            };
+            host.apply_render(id, view, effects, dependencies)
+        })
     }
 
     pub fn set_context<T: Clone + PartialEq + 'static>(
@@ -1119,54 +1209,56 @@ impl<A: Adapter> ComponentHost<A> {
         {
             return Ok(ComponentDrain::default());
         }
-        let mut contexts = self.contexts.clone();
-        contexts.insert(
-            context.id,
-            ContextValue {
-                equals: |left, right| {
-                    left.downcast_ref::<T>()
-                        .zip(right.downcast_ref::<T>())
-                        .is_some_and(|(left, right)| left == right)
+        self.run_component_operation(move |host| {
+            let mut contexts = host.contexts.clone();
+            contexts.insert(
+                context.id,
+                ContextValue {
+                    equals: |left, right| {
+                        left.downcast_ref::<T>()
+                            .zip(right.downcast_ref::<T>())
+                            .is_some_and(|(left, right)| left == right)
+                    },
+                    value: Rc::new(value),
                 },
-                value: Rc::new(value),
-            },
-        );
-        let affected = self
-            .context_consumers
-            .get(&context.id)
-            .map(|consumers| consumers.iter().copied().collect::<Vec<_>>())
-            .unwrap_or_default();
-        let affected_set = affected.iter().copied().collect::<HashSet<_>>();
-        let affected = affected
-            .into_iter()
-            .filter(|id| {
-                let mut parent = self.scope(*id).and_then(|scope| scope.parent);
-                while let Some(current) = parent {
-                    if affected_set.contains(&current) {
-                        return false;
+            );
+            let affected = host
+                .context_consumers
+                .get(&context.id)
+                .map(|consumers| consumers.iter().copied().collect::<Vec<_>>())
+                .unwrap_or_default();
+            let affected_set = affected.iter().copied().collect::<HashSet<_>>();
+            let affected = affected
+                .into_iter()
+                .filter(|id| {
+                    let mut parent = host.scope(*id).and_then(|scope| scope.parent);
+                    while let Some(current) = parent {
+                        if affected_set.contains(&current) {
+                            return false;
+                        }
+                        parent = host.scope(current).and_then(|scope| scope.parent);
                     }
-                    parent = self.scope(current).and_then(|scope| scope.parent);
-                }
-                true
-            })
-            .collect::<Vec<_>>();
-        let mut pending = Vec::with_capacity(affected.len());
-        for id in affected {
-            let scope = self.scope(id).unwrap();
-            let (view, effects, dependencies) = scope
-                .component
-                .render_view(scope.reference.clone(), &contexts)
-                .map_err(ComponentError::DuplicateEffect)?;
-            pending.push((id, view, effects, dependencies));
-        }
-        self.contexts = contexts;
-        let mut report = ComponentDrain::default();
-        for (id, view, effects, dependencies) in pending {
-            let mutations = self.apply_render(id, view, effects, dependencies)?;
-            report.dispatched += 1;
-            report.mutations += mutations.len();
-        }
-        Ok(report)
+                    true
+                })
+                .collect::<Vec<_>>();
+            let mut pending = Vec::with_capacity(affected.len());
+            for id in affected {
+                let scope = host.scope(id).unwrap();
+                let (view, effects, dependencies) = scope
+                    .component
+                    .render_view(scope.reference.clone(), &contexts)
+                    .map_err(ComponentError::DuplicateEffect)?;
+                pending.push((id, view, effects, dependencies));
+            }
+            host.contexts = contexts;
+            let mut report = ComponentDrain::default();
+            for (id, view, effects, dependencies) in pending {
+                let mutations = host.apply_render(id, view, effects, dependencies)?;
+                report.dispatched += 1;
+                report.mutations += mutations.len();
+            }
+            Ok(report)
+        })
     }
 
     pub fn drain(&mut self, limit: usize) -> Result<ComponentDrain, ComponentError<A::Error>> {
@@ -1181,39 +1273,36 @@ impl<A: Adapter> ComponentHost<A> {
                 let message = self.queue.lock().unwrap().messages.pop_front();
                 if let Some(message) = message {
                     processed += 1;
-                    let Some(scope) = self.scope_mut(message.component) else {
+                    if self.scope(message.component).is_none() {
                         if let Some(control) = message.control {
                             control.cancel();
                         }
                         report.dropped += 1;
                         continue;
-                    };
+                    }
                     if let Some(control) = &message.control
                         && !control.deliver()
                     {
                         report.dropped += 1;
                         continue;
                     }
-                    let reference = scope.reference.clone();
-                    let (view, effects, dependencies) =
-                        match scope
+                    let component = message.component;
+                    let value = message.value;
+                    let mutations = match self.run_component_operation(|host| {
+                        let scope = host.scope_mut(component).unwrap();
+                        let reference = scope.reference.clone();
+                        let (view, effects, dependencies) = scope
                             .component
-                            .dispatch(message.value, reference, &contexts)
-                        {
-                            Ok(rendered) => rendered,
-                            Err(error) => {
-                                self.rearm_wake();
-                                return Err(ComponentError::DuplicateEffect(error));
-                            }
-                        };
-                    let mutations =
-                        match self.apply_render(message.component, view, effects, dependencies) {
-                            Ok(mutations) => mutations,
-                            Err(error) => {
-                                self.rearm_wake();
-                                return Err(error);
-                            }
-                        };
+                            .dispatch(value, reference, &contexts)
+                            .map_err(ComponentError::DuplicateEffect)?;
+                        host.apply_render(component, view, effects, dependencies)
+                    }) {
+                        Ok(mutations) => mutations,
+                        Err(error) => {
+                            self.rearm_wake();
+                            return Err(error);
+                        }
+                    };
                     report.dispatched += 1;
                     report.mutations += mutations.len();
                     continue;
@@ -1225,17 +1314,21 @@ impl<A: Adapter> ComponentHost<A> {
             drop(active_event.take());
             match self.runtime.next_native_work() {
                 Ok(Some(NativeWork::Event(mut event))) => {
-                    event.invoke();
+                    self.run_component_operation(|_| {
+                        event.invoke();
+                        Ok(())
+                    })?;
                     active_event = Some(event);
                 }
                 Ok(Some(NativeWork::Virtual(work))) => {
-                    let mutations = match self.apply_virtual_work(work) {
-                        Ok(mutations) => mutations,
-                        Err(error) => {
-                            self.rearm_wake();
-                            return Err(error);
-                        }
-                    };
+                    let mutations =
+                        match self.run_component_operation(|host| host.apply_virtual_work(work)) {
+                            Ok(mutations) => mutations,
+                            Err(error) => {
+                                self.rearm_wake();
+                                return Err(error);
+                            }
+                        };
                     report.mutations += mutations.len();
                 }
                 Ok(None) => break,
@@ -1400,12 +1493,14 @@ impl<A: Adapter> ComponentHost<A> {
         {
             return Err(self.runtime_error(error));
         }
-        self.order.retain(|current| *current != id);
-        self.keys.remove(key);
-        self.retire_scope(id);
-        self.context_consumers
-            .retain(|_, consumers| !consumers.is_empty());
-        Ok(())
+        self.run_component_operation(|host| {
+            host.order.retain(|current| *current != id);
+            host.keys.remove(key);
+            host.retire_scope(id);
+            host.context_consumers
+                .retain(|_, consumers| !consumers.is_empty());
+            Ok(())
+        })
     }
 
     fn create_scope(
@@ -1796,13 +1891,65 @@ impl<A: Adapter> ComponentHost<A> {
             .flatten()
     }
 
-    fn invalidate(&mut self) {
-        for slot in &mut self.scopes {
-            if let Some(scope) = slot.scope.as_mut() {
-                scope.root = None;
-                scope.reference.set(None);
-                scope.component.cancel_tasks();
+    fn run_component_operation<T>(
+        &mut self,
+        operation: impl FnOnce(&mut Self) -> Result<T, ComponentError<A::Error>>,
+    ) -> Result<T, ComponentError<A::Error>> {
+        match operation(self) {
+            Ok(value) => Ok(value),
+            Err(error) => {
+                self.invalidate_host();
+                Err(error)
             }
+        }
+    }
+
+    fn invalidate_host(&mut self) {
+        self.poisoned = true;
+        self.runtime.poison_and_discard_all();
+        self.context_consumers.clear();
+        self.contexts.clear();
+        self.keys.clear();
+        self.order.clear();
+        self.virtual_rows.clear();
+        self.free_scopes.clear();
+
+        let controls = {
+            let mut queue = self.queue.lock().unwrap_or_else(|error| error.into_inner());
+            queue.closed = true;
+            queue.wake_pending = false;
+            queue.waker = None;
+            queue
+                .messages
+                .drain(..)
+                .filter_map(|message| message.control)
+                .collect::<Vec<_>>()
+        };
+        let mut scopes = Vec::new();
+        for (index, slot) in self.scopes.iter_mut().enumerate().rev() {
+            let Some(mut scope) = slot.scope.take() else {
+                continue;
+            };
+            scope.root = None;
+            scope.reference.set(None);
+            slot.generation = slot.generation.wrapping_add(1);
+            if let Ok(index) = u32::try_from(index) {
+                self.free_scopes.push(index);
+            }
+            scopes.push(scope);
+        }
+
+        for control in controls {
+            control.cancel();
+        }
+        for mut scope in scopes {
+            scope.component.cancel_tasks();
+            for effect in scope.effects.iter_mut().rev() {
+                if let Some(cleanup) = effect.cleanup.take() {
+                    cleanup();
+                }
+            }
+            drop(scope);
         }
     }
 
@@ -1832,15 +1979,14 @@ impl<A: Adapter> ComponentHost<A> {
             &error,
             UpdateError::Adapter(_) | UpdateError::InvalidNativeEvent(_) | UpdateError::Poisoned
         ) {
-            self.poisoned = true;
-            self.invalidate();
+            self.invalidate_host();
         }
         ComponentError::Runtime(error)
     }
 
     fn rearm_wake(&self) {
         let mut queue = self.queue.lock().unwrap();
-        let wake = (!queue.messages.is_empty() && !queue.wake_pending)
+        let wake = (!queue.closed && !queue.messages.is_empty() && !queue.wake_pending)
             .then(|| queue.waker.clone())
             .flatten();
         queue.wake_pending |= wake.is_some();
@@ -2611,6 +2757,147 @@ mod tests {
     }
 
     #[derive(Clone)]
+    struct StatefulInput {
+        changes: Rc<Cell<usize>>,
+        value: usize,
+    }
+
+    impl PartialEq for StatefulInput {
+        fn eq(&self, other: &Self) -> bool {
+            self.value == other.value && Rc::ptr_eq(&self.changes, &other.changes)
+        }
+    }
+
+    struct StatefulInputComponent;
+
+    impl Component for StatefulInputComponent {
+        type Input = StatefulInput;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn input_changed(
+            &mut self,
+            input: &Self::Input,
+            _context: &ComponentContext<Self::Message>,
+        ) {
+            input.changes.set(input.changes.get() + 1);
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            TextBlock::new(input.value.to_string()).into()
+        }
+    }
+
+    struct DropPayload(Arc<AtomicUsize>);
+
+    impl Drop for DropPayload {
+        fn drop(&mut self) {
+            self.0.fetch_add(1, Ordering::Relaxed);
+        }
+    }
+
+    struct PayloadComponent;
+
+    impl Component for PayloadComponent {
+        type Input = usize;
+        type Message = DropPayload;
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            input: &Self::Input,
+            _context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            TextBlock::new(input.to_string()).into()
+        }
+    }
+
+    struct CallbackRenderFailure(bool);
+
+    impl Component for CallbackRenderFailure {
+        type Input = ();
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self::Message>) -> Self {
+            Self(false)
+        }
+
+        fn update(&mut self, (): (), _context: &ComponentContext<Self::Message>) {
+            self.0 = true;
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            context: &mut ComponentViewContext<Self::Message>,
+        ) -> Visual {
+            if self.0 {
+                Grid::new()
+                    .children([
+                        keyed("duplicate", TextBlock::new("first")),
+                        keyed("duplicate", TextBlock::new("second")),
+                    ])
+                    .into()
+            } else {
+                let sender = context.sender();
+                Button::new()
+                    .on_click(move || {
+                        let _ = sender.send(());
+                    })
+                    .into()
+            }
+        }
+    }
+
+    struct ControlledApplyAdapter {
+        fail_after: Rc<Cell<Option<usize>>>,
+        inner: RecordingAdapter,
+        successful: Rc<Cell<usize>>,
+    }
+
+    impl Adapter for ControlledApplyAdapter {
+        type Error = ();
+
+        fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
+            self.inner.preview_native_events(events);
+        }
+
+        fn pop_native_event(&mut self) -> Option<NativeEvent> {
+            self.inner.pop_native_event()
+        }
+
+        fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+            self.inner.validate(mutations).map_err(|_| ())
+        }
+
+        fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+            if let Some(remaining) = self.fail_after.get() {
+                if remaining == 0 {
+                    return Err(());
+                }
+                self.fail_after.set(Some(remaining - 1));
+            }
+            self.inner.apply(mutations).map_err(|_| ())?;
+            self.successful.set(self.successful.get() + 1);
+            Ok(())
+        }
+
+        fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
+            self.inner.focus(object).map_err(|_| ())
+        }
+    }
+
+    #[derive(Clone)]
     struct VirtualEffectLog(Rc<RefCell<Vec<&'static str>>>);
 
     impl PartialEq for VirtualEffectLog {
@@ -2823,7 +3110,7 @@ mod tests {
             .graph()
             .children(root, RelationId::Children)
             .unwrap()[0];
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .inner
             .queue_realization(RealizationRequest::Realize {
@@ -2964,7 +3251,7 @@ mod tests {
         assert_eq!(host.runtime().graph().retired_count(), 1);
         assert_eq!(host.runtime().adapter().retirement_count(), 1);
 
-        assert!(host.runtime_mut().adapter_mut().complete_retirement(root));
+        assert!(host.runtime.adapter_mut().complete_retirement(root));
         host.drain(1).unwrap();
         assert_eq!(host.runtime().graph().retired_count(), 0);
         assert_eq!(host.runtime().adapter().retirement_count(), 0);
@@ -3029,6 +3316,33 @@ mod tests {
         let report = host.set_context(&context, 1).unwrap();
         assert_eq!(report.dispatched, 1);
         assert_eq!(renders.load(Ordering::Relaxed), 4);
+    }
+
+    #[test]
+    fn broad_context_update_does_not_scan_all_graph_references_per_consumer() {
+        let count = 16_384;
+        let context = Rc::new(Context::new(0usize));
+        let renders = Arc::new(AtomicUsize::new(0));
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            (0..count).map(|index| {
+                component::<ContextReader>(
+                    index,
+                    ContextInput {
+                        context: Rc::clone(&context),
+                        renders: Arc::clone(&renders),
+                        subscribe: true,
+                    },
+                )
+            }),
+        )
+        .unwrap();
+        let scans = host.runtime().graph().full_reference_scan_count();
+
+        let report = host.set_context(&context, 1).unwrap();
+
+        assert_eq!(report.dispatched, count);
+        assert_eq!(host.runtime().graph().full_reference_scan_count(), scans);
     }
 
     #[test]
@@ -3180,7 +3494,7 @@ mod tests {
         let label_reference = host.reference(&Key::from("label")).unwrap();
         let switch_root = switch_reference.get();
         let label_root = label_reference.get();
-        host.runtime_mut().adapter_mut().record_batches(true);
+        host.runtime.adapter_mut().record_batches(true);
 
         assert!(switch.send(()));
         assert_eq!(host.drain(1).unwrap().dispatched, 1);
@@ -3291,7 +3605,7 @@ mod tests {
             _ => unreachable!(),
         };
         for value in ["A", "B"] {
-            host.runtime_mut().adapter_mut().queue_native_event(
+            host.runtime.adapter_mut().queue_native_event(
                 Some(Observation::SetProperty {
                     object,
                     property: Property {
@@ -3336,7 +3650,7 @@ mod tests {
         let path = [Key::from("parent"), Key::from("counter")];
         let parent = host.reference(&Key::from("parent")).unwrap().get();
         let child = host.reference_at(&path).unwrap().get();
-        host.runtime_mut().adapter_mut().record_batches(true);
+        host.runtime.adapter_mut().record_batches(true);
 
         host.update_input_at::<Counter>(
             &path,
@@ -3531,7 +3845,7 @@ mod tests {
     }
 
     #[test]
-    fn invalid_update_preserves_active_effects() {
+    fn invalid_update_poisons_host_and_cleans_active_effects() {
         let events = Rc::new(RefCell::new(Vec::new()));
         let mut host = ComponentHost::mount(
             RecordingAdapter::default(),
@@ -3559,14 +3873,297 @@ mod tests {
                 GraphError::DuplicateKey(_)
             )))
         ));
-        assert_eq!(wakes.load(Ordering::Relaxed), 2);
-        assert_eq!(events.borrow().as_slice(), [("setup", None)]);
+        assert_eq!(wakes.load(Ordering::Relaxed), 1);
+        assert_eq!(
+            events.borrow().as_slice(),
+            [("setup", None), ("cleanup", None)]
+        );
+        assert!(
+            host.sender::<InvalidEffectUpdate>(&Key::from("invalid"))
+                .is_none()
+        );
+        assert!(matches!(
+            host.drain(1),
+            Err(ComponentError::Runtime(UpdateError::Poisoned))
+        ));
 
         drop(host);
         assert_eq!(
             events.borrow().as_slice(),
             [("setup", None), ("cleanup", None)]
         );
+    }
+
+    #[test]
+    fn input_state_change_followed_by_adapter_error_poisons_same_input_retry() {
+        let fail_after = Rc::new(Cell::new(None));
+        let successful = Rc::new(Cell::new(0));
+        let changes = Rc::new(Cell::new(0));
+        let mut host = ComponentHost::mount(
+            ControlledApplyAdapter {
+                fail_after: Rc::clone(&fail_after),
+                inner: RecordingAdapter::default(),
+                successful,
+            },
+            [component::<StatefulInputComponent>(
+                "input",
+                StatefulInput {
+                    changes: Rc::clone(&changes),
+                    value: 0,
+                },
+            )],
+        )
+        .unwrap();
+        let reference = host.reference(&Key::from("input")).unwrap();
+        fail_after.set(Some(0));
+        let next = StatefulInput {
+            changes: Rc::clone(&changes),
+            value: 1,
+        };
+
+        assert!(matches!(
+            host.update_input::<StatefulInputComponent>(&Key::from("input"), next.clone()),
+            Err(ComponentError::Runtime(UpdateError::Adapter(())))
+        ));
+        assert_eq!(changes.get(), 1);
+        assert_eq!(reference.get(), None);
+        assert!(matches!(
+            host.update_input::<StatefulInputComponent>(&Key::from("input"), next),
+            Err(ComponentError::Runtime(UpdateError::Poisoned))
+        ));
+    }
+
+    #[test]
+    fn closed_queue_rejects_stale_sender_completion_and_callback() {
+        let fail_after = Rc::new(Cell::new(None));
+        let rendered = Rc::new(RefCell::new(String::new()));
+        let seen = Rc::new(RefCell::new(Vec::new()));
+        let input = OrderedInput {
+            rendered: Rc::clone(&rendered),
+            seen: Rc::clone(&seen),
+        };
+        let changes = Rc::new(Cell::new(0));
+        let mut host = ComponentHost::mount(
+            ControlledApplyAdapter {
+                fail_after: Rc::clone(&fail_after),
+                inner: RecordingAdapter::default(),
+                successful: Rc::new(Cell::new(0)),
+            },
+            [
+                component::<OrderedText>("ordered", input),
+                component::<StatefulInputComponent>(
+                    "poison",
+                    StatefulInput {
+                        changes: Rc::clone(&changes),
+                        value: 0,
+                    },
+                ),
+            ],
+        )
+        .unwrap();
+        let sender = host.sender::<OrderedText>(&Key::from("ordered")).unwrap();
+        let completion = sender.completion();
+        let object = host
+            .reference(&Key::from("ordered"))
+            .unwrap()
+            .get()
+            .unwrap();
+        let EventValue::String(callback) = host.runtime().graph().events(object).unwrap()[0]
+            .value
+            .clone()
+        else {
+            panic!("expected string callback");
+        };
+        fail_after.set(Some(0));
+
+        assert!(matches!(
+            host.update_input::<StatefulInputComponent>(
+                &Key::from("poison"),
+                StatefulInput { changes, value: 1 }
+            ),
+            Err(ComponentError::Runtime(UpdateError::Adapter(())))
+        ));
+        assert!(host.queue.lock().unwrap().closed);
+        assert!(!sender.send(String::from("sender")));
+        assert!(!completion.complete(String::from("completion")));
+        callback.call(Rc::from("callback"));
+        assert!(host.queue.lock().unwrap().messages.is_empty());
+        assert_eq!(
+            seen.borrow().as_slice(),
+            [(String::from("callback"), String::from("Before"))]
+        );
+    }
+
+    #[test]
+    fn queue_capacity_and_closure_release_all_payloads() {
+        let fail_after = Rc::new(Cell::new(None));
+        let drops = Arc::new(AtomicUsize::new(0));
+        let mut host = ComponentHost::mount(
+            ControlledApplyAdapter {
+                fail_after: Rc::clone(&fail_after),
+                inner: RecordingAdapter::default(),
+                successful: Rc::new(Cell::new(0)),
+            },
+            [component::<PayloadComponent>("payload", 0)],
+        )
+        .unwrap();
+        let sender = host
+            .sender::<PayloadComponent>(&Key::from("payload"))
+            .unwrap();
+        for _ in 0..MESSAGE_CAPACITY {
+            assert!(sender.send(DropPayload(Arc::clone(&drops))));
+        }
+        assert!(!sender.send(DropPayload(Arc::clone(&drops))));
+        assert_eq!(drops.load(Ordering::Relaxed), 1);
+        fail_after.set(Some(0));
+
+        assert!(matches!(
+            host.update_input::<PayloadComponent>(&Key::from("payload"), 1),
+            Err(ComponentError::Runtime(UpdateError::Adapter(())))
+        ));
+        assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 1);
+        assert!(!sender.send(DropPayload(Arc::clone(&drops))));
+        assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 2);
+        assert!(host.queue.lock().unwrap().messages.is_empty());
+    }
+
+    #[test]
+    fn controlled_task_send_after_closure_is_cancelled_or_rejected() {
+        let services = Arc::new(TestServices::default());
+        let task_input = ServiceProbeInput::default();
+        let fail_after = Rc::new(Cell::new(None));
+        let changes = Rc::new(Cell::new(0));
+        let mut host = ComponentHost::mount_with_services(
+            ControlledApplyAdapter {
+                fail_after: Rc::clone(&fail_after),
+                inner: RecordingAdapter::default(),
+                successful: Rc::new(Cell::new(0)),
+            },
+            services,
+            [
+                component::<ServiceProbe>("task", task_input.clone()),
+                component::<StatefulInputComponent>(
+                    "poison",
+                    StatefulInput {
+                        changes: Rc::clone(&changes),
+                        value: 0,
+                    },
+                ),
+            ],
+        )
+        .unwrap();
+        let sender = host.sender::<ServiceProbe>(&Key::from("task")).unwrap();
+        assert!(sender.send(ServiceProbeMessage::Background));
+        host.drain(1).unwrap();
+        let task = task_input.task.lock().unwrap().as_ref().unwrap().clone();
+        let control = Arc::clone(&task.control);
+        assert!(control.queue());
+        fail_after.set(Some(0));
+
+        assert!(matches!(
+            host.update_input::<StatefulInputComponent>(
+                &Key::from("poison"),
+                StatefulInput { changes, value: 1 }
+            ),
+            Err(ComponentError::Runtime(UpdateError::Adapter(())))
+        ));
+        assert_eq!(task.status(), ComponentTaskStatus::Cancelled);
+        assert!(!sender.send_controlled(
+            ServiceProbeMessage::BackgroundComplete,
+            Arc::clone(&control)
+        ));
+        assert_eq!(control.status(), ComponentTaskStatus::Cancelled);
+
+        let untracked = Arc::new(TaskControl::default());
+        assert!(untracked.queue());
+        assert!(!sender.send_controlled(
+            ServiceProbeMessage::BackgroundComplete,
+            Arc::clone(&untracked)
+        ));
+        assert_eq!(untracked.status(), ComponentTaskStatus::Rejected);
+    }
+
+    #[test]
+    fn context_failure_after_one_consumer_commit_poisons_every_consumer() {
+        let context = Rc::new(Context::new(0usize));
+        let fail_after = Rc::new(Cell::new(None));
+        let successful = Rc::new(Cell::new(0));
+        let first_renders = Arc::new(AtomicUsize::new(0));
+        let second_renders = Arc::new(AtomicUsize::new(0));
+        let mut host = ComponentHost::mount(
+            ControlledApplyAdapter {
+                fail_after: Rc::clone(&fail_after),
+                inner: RecordingAdapter::default(),
+                successful: Rc::clone(&successful),
+            },
+            [
+                component::<ContextReader>(
+                    "first",
+                    ContextInput {
+                        context: Rc::clone(&context),
+                        renders: Arc::clone(&first_renders),
+                        subscribe: true,
+                    },
+                ),
+                component::<ContextReader>(
+                    "second",
+                    ContextInput {
+                        context: Rc::clone(&context),
+                        renders: Arc::clone(&second_renders),
+                        subscribe: true,
+                    },
+                ),
+            ],
+        )
+        .unwrap();
+        let first = host.reference(&Key::from("first")).unwrap();
+        let second = host.reference(&Key::from("second")).unwrap();
+        let baseline = successful.get();
+        fail_after.set(Some(1));
+
+        assert!(matches!(
+            host.set_context(&context, 1),
+            Err(ComponentError::Runtime(UpdateError::Adapter(())))
+        ));
+        assert_eq!(successful.get(), baseline + 1);
+        assert_eq!(first_renders.load(Ordering::Relaxed), 2);
+        assert_eq!(second_renders.load(Ordering::Relaxed), 2);
+        assert_eq!(first.get(), None);
+        assert_eq!(second.get(), None);
+        assert!(matches!(
+            host.set_context(&context, 1),
+            Err(ComponentError::Runtime(UpdateError::Poisoned))
+        ));
+    }
+
+    #[test]
+    fn callback_triggered_render_failure_poisons_host() {
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<CallbackRenderFailure>("callback", ())],
+        )
+        .unwrap();
+        let reference = host.reference(&Key::from("callback")).unwrap();
+        let object = reference.get().unwrap();
+        let event = host.runtime().graph().events(object).unwrap()[0].clone();
+        host.queue_event(EventDispatch::new(
+            object,
+            event.id,
+            event.value,
+            EventPayload::Unit,
+        ));
+
+        assert!(matches!(
+            host.drain(usize::MAX),
+            Err(ComponentError::Runtime(UpdateError::Graph(
+                GraphError::DuplicateKey(_)
+            )))
+        ));
+        assert_eq!(reference.get(), None);
+        assert!(matches!(
+            host.drain(1),
+            Err(ComponentError::Runtime(UpdateError::Poisoned))
+        ));
     }
 
     #[test]
@@ -3588,7 +4185,7 @@ mod tests {
             .unwrap()[0];
         assert_eq!(host.runtime().adapter().object_count(), 2);
 
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .queue_realization(RealizationRequest::Realize {
                 collection,
@@ -3600,7 +4197,7 @@ mod tests {
         assert_eq!(events.borrow().as_slice(), ["setup"]);
         assert_eq!(host.runtime().adapter().object_count(), 3);
 
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .queue_realization(RealizationRequest::Recycle {
                 collection,
@@ -3628,7 +4225,7 @@ mod tests {
             .children(root, RelationId::Children)
             .unwrap()[0];
 
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .queue_realization(RealizationRequest::Realize {
                 collection,
@@ -3643,7 +4240,7 @@ mod tests {
         host.drain(10).unwrap();
         assert_eq!(events.borrow().as_slice(), ["setup"]);
 
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .queue_realization(RealizationRequest::Recycle {
                 collection,
@@ -3668,7 +4265,7 @@ mod tests {
             ComponentTaskStatus::Running
         );
 
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .inner
             .queue_realization(RealizationRequest::Recycle {
@@ -3691,7 +4288,7 @@ mod tests {
         let (mut host, input, collection) = virtual_cleanup_host(false, true);
         let object = input.reference.get();
 
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .inner
             .queue_realization(RealizationRequest::Recycle {
@@ -3718,7 +4315,7 @@ mod tests {
     fn virtual_cleanup_waits_for_successful_recycle_validation() {
         let (mut host, input, collection) = virtual_cleanup_host(true, false);
 
-        host.runtime_mut()
+        host.runtime
             .adapter_mut()
             .inner
             .queue_realization(RealizationRequest::Recycle {
@@ -3730,7 +4327,7 @@ mod tests {
             host.drain(10),
             Err(ComponentError::Runtime(UpdateError::Adapter(())))
         ));
-        assert!(input.events.borrow().is_empty());
+        assert_eq!(input.events.borrow().len(), 1);
         assert!(!input.published.get());
         assert_eq!(
             input.task.lock().unwrap().as_ref().unwrap().status(),

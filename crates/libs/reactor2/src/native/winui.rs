@@ -1,17 +1,25 @@
 use super::bindings as native;
 use crate::reconcile::{FeedbackExpectation, FeedbackState};
 use crate::{
-    Adapter, Event, EventDispatch, EventId, EventPayload, EventValue, GridLength, GridLengthSize,
-    Mutation, NativeEvent, ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue,
-    Realization, RealizationRequest, RealizedContainer, RelationContract, RelationId,
-    RetirementCompletion, SelectionContract, relation_contracts, selection_for_item_property,
-    selection_for_relation,
+    Adapter, ComponentHost, Event, EventDispatch, EventId, EventPayload, EventValue, GridLength,
+    GridLengthSize, Mutation, NativeEvent, ObjectId, ObjectType, Observation, Property, PropertyId,
+    PropertyValue, Realization, RealizationRequest, RealizedContainer, RelationContract,
+    RelationId, RetirementCompletion, Runtime, SelectionContract, relation_contracts,
+    selection_for_item_property, selection_for_relation,
 };
 use native::IElementFactory;
 use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::Rc;
-use windows_core::{ComObject, HSTRING, IInspectable, Interface, Ref, implement_decl};
+use std::sync::atomic::{AtomicU32, Ordering};
+use windows_collections::{
+    CollectionChange, IIterable_Impl, IIterator_Impl, IObservableVector_Impl, IVector_Impl,
+    IVectorChangedEventArgs_Impl, IVectorView_Impl, VectorChangedEventHandler,
+};
+use windows_core::{
+    ComObject, Event as WinEvent, HRESULT, HSTRING, IInspectable, IUnknownImpl, Interface, Ref,
+    implement_decl,
+};
 
 enum Handle {
     Generated(GeneratedHandle),
@@ -169,7 +177,7 @@ struct NativeElementFactory {
 
 struct NativeVirtualItems {
     _factory: IElementFactory,
-    source: windows_collections::IObservableVector<IInspectable>,
+    source: ComObject<NativeVirtualSource>,
     source_revision: Rc<Cell<u64>>,
     shells: Rc<RealizedShells>,
 }
@@ -191,10 +199,11 @@ impl NativeVirtualItems {
             shells: Rc::clone(&shells),
         })
         .into_interface();
-        let source: windows_collections::IObservableVector<IInspectable> =
-            virtual_item_values(item_count)?.into();
+        let source = ComObject::new(NativeVirtualSource::new(item_count)?);
+        let source_interface: windows_collections::IObservableVector<IInspectable> =
+            source.to_interface();
         repeater.SetItemTemplate(&factory)?;
-        repeater.SetItemsSource(&source)?;
+        repeater.SetItemsSource(&source_interface)?;
         Ok(Self {
             _factory: factory,
             source,
@@ -204,8 +213,267 @@ impl NativeVirtualItems {
     }
 
     fn reset(&self, item_count: usize, source_revision: u64) -> windows_core::Result<()> {
+        let item_count = virtual_item_count(item_count)?;
         self.source_revision.set(source_revision);
-        self.source.ReplaceAll(&virtual_item_values(item_count)?)
+        self.source.reset(item_count);
+        Ok(())
+    }
+}
+
+const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as i32);
+const E_ILLEGAL_METHOD_CALL: HRESULT = HRESULT(0x8000000E_u32 as i32);
+
+type NativeObservableVector = windows_collections::IObservableVector<IInspectable>;
+type NativeVector = windows_collections::IVector<IInspectable>;
+type NativeVectorView = windows_collections::IVectorView<IInspectable>;
+type NativeIterable = windows_collections::IIterable<IInspectable>;
+type NativeIterator = windows_collections::IIterator<IInspectable>;
+type NativeVectorChangedEventArgs = windows_collections::IVectorChangedEventArgs;
+
+implement_decl! {
+    impl NativeVirtualSource as NativeVirtualSource_Impl: [
+        NativeObservableVector,
+        NativeVector,
+        NativeVectorView,
+        NativeIterable,
+    ]
+}
+
+struct NativeVirtualSource {
+    item_count: AtomicU32,
+    handlers: WinEvent<VectorChangedEventHandler<IInspectable>>,
+}
+
+impl NativeVirtualSource {
+    fn new(count: usize) -> windows_core::Result<Self> {
+        Ok(Self {
+            item_count: AtomicU32::new(virtual_item_count(count)?),
+            handlers: WinEvent::new(),
+        })
+    }
+}
+
+impl NativeVirtualSource_Impl {
+    fn count(&self) -> u32 {
+        self.item_count.load(Ordering::Acquire)
+    }
+
+    fn get_at(&self, index: u32) -> windows_core::Result<IInspectable> {
+        if index >= self.count() {
+            return Err(E_BOUNDS.into());
+        }
+        virtual_item_value(index)
+    }
+
+    fn index_of(&self, value: Ref<IInspectable>, result: &mut u32) -> windows_core::Result<bool> {
+        let value = value
+            .ok()?
+            .cast::<windows_reference::IReference<i32>>()?
+            .Value()?;
+        let Ok(value) = u32::try_from(value) else {
+            *result = 0;
+            return Ok(false);
+        };
+        if value < self.count() {
+            *result = value;
+            Ok(true)
+        } else {
+            *result = 0;
+            Ok(false)
+        }
+    }
+
+    fn get_many(
+        &self,
+        start_index: u32,
+        items: &mut [Option<IInspectable>],
+    ) -> windows_core::Result<u32> {
+        let count = self.count();
+        if start_index >= count {
+            return Ok(0);
+        }
+        let available = usize::try_from(count - start_index)
+            .map_err(|_| windows_core::Error::new(E_BOUNDS, "item count exceeds usize"))?;
+        let actual = available.min(items.len());
+        for (offset, item) in items[..actual].iter_mut().enumerate() {
+            let offset = u32::try_from(offset)
+                .map_err(|_| windows_core::Error::new(E_BOUNDS, "item buffer is too large"))?;
+            *item = Some(virtual_item_value(start_index + offset)?);
+        }
+        u32::try_from(actual)
+            .map_err(|_| windows_core::Error::new(E_BOUNDS, "item buffer is too large"))
+    }
+
+    fn read_only_error() -> windows_core::Error {
+        windows_core::Error::new(E_ILLEGAL_METHOD_CALL, "virtual item source is read-only")
+    }
+
+    fn reset(&self, count: u32) {
+        self.item_count.store(count, Ordering::Release);
+        let source: windows_collections::IObservableVector<IInspectable> =
+            self.to_object().into_interface();
+        let args: windows_collections::IVectorChangedEventArgs =
+            ComObject::new(NativeVirtualChangedEventArgs).into_interface();
+        self.handlers
+            .call(|handler: &VectorChangedEventHandler<IInspectable>| {
+                handler.Invoke(&source, &args)
+            });
+    }
+}
+
+impl IObservableVector_Impl<IInspectable> for NativeVirtualSource_Impl {
+    fn VectorChanged(
+        &self,
+        handler: Ref<VectorChangedEventHandler<IInspectable>>,
+    ) -> windows_core::Result<i64> {
+        self.handlers.add(handler.ok()?)
+    }
+
+    fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()> {
+        self.handlers.remove(token);
+        Ok(())
+    }
+}
+
+impl IIterable_Impl<IInspectable> for NativeVirtualSource_Impl {
+    fn First(&self) -> windows_core::Result<windows_collections::IIterator<IInspectable>> {
+        Ok(ComObject::new(NativeVirtualSourceIterator {
+            source: self.to_object(),
+            current: AtomicU32::new(0),
+        })
+        .into_interface())
+    }
+}
+
+impl IVector_Impl<IInspectable> for NativeVirtualSource_Impl {
+    fn GetAt(&self, index: u32) -> windows_core::Result<IInspectable> {
+        self.get_at(index)
+    }
+
+    fn Size(&self) -> windows_core::Result<u32> {
+        Ok(self.count())
+    }
+
+    fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<IInspectable>> {
+        Ok(self.to_object().into_interface())
+    }
+
+    fn IndexOf(&self, value: Ref<IInspectable>, result: &mut u32) -> windows_core::Result<bool> {
+        self.index_of(value, result)
+    }
+
+    fn SetAt(&self, _index: u32, _value: Ref<IInspectable>) -> windows_core::Result<()> {
+        Err(Self::read_only_error())
+    }
+
+    fn InsertAt(&self, _index: u32, _value: Ref<IInspectable>) -> windows_core::Result<()> {
+        Err(Self::read_only_error())
+    }
+
+    fn RemoveAt(&self, _index: u32) -> windows_core::Result<()> {
+        Err(Self::read_only_error())
+    }
+
+    fn Append(&self, _value: Ref<IInspectable>) -> windows_core::Result<()> {
+        Err(Self::read_only_error())
+    }
+
+    fn RemoveAtEnd(&self) -> windows_core::Result<()> {
+        Err(Self::read_only_error())
+    }
+
+    fn Clear(&self) -> windows_core::Result<()> {
+        Err(Self::read_only_error())
+    }
+
+    fn GetMany(
+        &self,
+        start_index: u32,
+        items: &mut [Option<IInspectable>],
+    ) -> windows_core::Result<u32> {
+        self.get_many(start_index, items)
+    }
+
+    fn ReplaceAll(&self, _items: &[Option<IInspectable>]) -> windows_core::Result<()> {
+        Err(Self::read_only_error())
+    }
+}
+
+impl IVectorView_Impl<IInspectable> for NativeVirtualSource_Impl {
+    fn GetAt(&self, index: u32) -> windows_core::Result<IInspectable> {
+        self.get_at(index)
+    }
+
+    fn Size(&self) -> windows_core::Result<u32> {
+        Ok(self.count())
+    }
+
+    fn IndexOf(&self, value: Ref<IInspectable>, result: &mut u32) -> windows_core::Result<bool> {
+        self.index_of(value, result)
+    }
+
+    fn GetMany(
+        &self,
+        start_index: u32,
+        items: &mut [Option<IInspectable>],
+    ) -> windows_core::Result<u32> {
+        self.get_many(start_index, items)
+    }
+}
+
+implement_decl! {
+    impl NativeVirtualSourceIterator as NativeVirtualSourceIterator_Impl: [
+        NativeIterator,
+    ]
+}
+
+struct NativeVirtualSourceIterator {
+    source: ComObject<NativeVirtualSource>,
+    current: AtomicU32,
+}
+
+impl IIterator_Impl<IInspectable> for NativeVirtualSourceIterator_Impl {
+    fn Current(&self) -> windows_core::Result<IInspectable> {
+        self.source.get_at(self.current.load(Ordering::Acquire))
+    }
+
+    fn HasCurrent(&self) -> windows_core::Result<bool> {
+        Ok(self.current.load(Ordering::Acquire) < self.source.count())
+    }
+
+    fn MoveNext(&self) -> windows_core::Result<bool> {
+        let count = self.source.count();
+        let current = self.current.load(Ordering::Acquire);
+        if current < count {
+            self.current.store(current + 1, Ordering::Release);
+        }
+        Ok(current.saturating_add(1) < count)
+    }
+
+    fn GetMany(&self, items: &mut [Option<IInspectable>]) -> windows_core::Result<u32> {
+        let current = self.current.load(Ordering::Acquire);
+        let actual = self.source.get_many(current, items)?;
+        self.current
+            .store(current.saturating_add(actual), Ordering::Release);
+        Ok(actual)
+    }
+}
+
+implement_decl! {
+    impl NativeVirtualChangedEventArgs as NativeVirtualChangedEventArgs_Impl: [
+        NativeVectorChangedEventArgs,
+    ]
+}
+
+struct NativeVirtualChangedEventArgs;
+
+impl IVectorChangedEventArgs_Impl for NativeVirtualChangedEventArgs_Impl {
+    fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
+        Ok(CollectionChange::Reset)
+    }
+
+    fn Index(&self) -> windows_core::Result<u32> {
+        Ok(0)
     }
 }
 
@@ -364,16 +632,23 @@ impl native::IElementFactory_Impl for NativeElementFactory_Impl {
     }
 }
 
-fn virtual_item_values(
-    item_count: usize,
-) -> Result<Vec<Option<IInspectable>>, windows_core::Error> {
-    (0..item_count)
-        .map(|index| {
-            i32::try_from(index)
-                .map(|index| Some(windows_reference::IReference::<i32>::from(index).into()))
-                .map_err(|_| windows_core::Error::new(native::E_FAIL, "item count exceeds i32"))
-        })
-        .collect()
+fn virtual_item_count(item_count: usize) -> windows_core::Result<u32> {
+    let max_count = i32::MAX as usize + 1;
+    if item_count > max_count {
+        return Err(windows_core::Error::new(
+            native::E_FAIL,
+            "item count exceeds i32 index range",
+        ));
+    }
+    item_count
+        .try_into()
+        .map_err(|_| windows_core::Error::new(native::E_FAIL, "item count exceeds u32"))
+}
+
+fn virtual_item_value(index: u32) -> windows_core::Result<IInspectable> {
+    let index = i32::try_from(index)
+        .map_err(|_| windows_core::Error::new(E_BOUNDS, "item index exceeds i32"))?;
+    Ok(windows_reference::IReference::<i32>::from(index).into())
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -404,10 +679,7 @@ impl From<WinUiError> for windows_core::Error {
     fn from(value: WinUiError) -> Self {
         match value {
             WinUiError::Native(error) => error,
-            error => Self::new(
-                windows_core::HRESULT(0x80004005_u32 as i32),
-                format!("{error:?}"),
-            ),
+            error => Self::new(HRESULT(0x80004005_u32 as i32), format!("{error:?}")),
         }
     }
 }
@@ -942,6 +1214,19 @@ impl WinUiAdapter {
         Ok(items.shells.pool.borrow().shells.len())
     }
 
+    #[cfg(any(test, feature = "test"))]
+    pub fn queued_event_count(&self) -> usize {
+        self.event_queue.events.borrow().len()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn total_virtual_shell_count(&self) -> usize {
+        self.virtual_items
+            .values()
+            .map(|items| items.shells.pool.borrow().shells.len())
+            .sum()
+    }
+
     pub fn focus_text_box_deferred(
         &self,
         object: ObjectId,
@@ -991,6 +1276,33 @@ impl WinUiAdapter {
 
     pub fn retirement_count(&self) -> usize {
         self.retirements.len()
+    }
+
+    pub fn owned_physical_children(
+        &self,
+        parent: ObjectId,
+        relation: RelationId,
+    ) -> Result<Vec<ObjectId>, WinUiError> {
+        let identities = self
+            .owners
+            .iter()
+            .filter(|(_, owner)| **owner == (parent, relation))
+            .map(|(object, _)| {
+                self.ui_element(*object)
+                    .and_then(|value| com_identity(&value))
+                    .map(|identity| (identity, *object))
+            })
+            .collect::<Result<HashMap<_, _>, _>>()?;
+        let values = self.owned_collection(parent, relation)?;
+        (0..values.size()?)
+            .map(|index| {
+                let value = values.get_at(index)?;
+                identities
+                    .get(&com_identity(&value)?)
+                    .copied()
+                    .ok_or(WinUiError::StateMismatch(parent))
+            })
+            .collect()
     }
 
     pub fn contains_object(&self, object: ObjectId) -> bool {
@@ -1296,30 +1608,24 @@ impl WinUiAdapter {
                         (retirement.parent == parent && retirement.relation == contract.id)
                             .then_some(*root)
                     })
-                    .map(|root| {
-                        self.ui_element(root)
-                            .and_then(|value| value.cast().map_err(Into::into))
-                    })
-                    .collect::<Result<Vec<IInspectable>, _>>()?;
+                    .map(|root| self.ui_element(root).and_then(|value| com_identity(&value)))
+                    .collect::<Result<HashSet<_>, _>>()?;
                 let mut active = Vec::new();
                 for index in 0..values.size()? {
                     let value = values.get_at(index)?;
-                    if !retired.contains(&value) {
-                        active.push(value);
+                    let identity = com_identity(&value)?;
+                    if !retired.contains(&identity) {
+                        active.push(identity);
                     }
                 }
-                if active.len() != children.len() {
-                    false
-                } else {
-                    children.iter().enumerate().all(|(index, child)| {
-                        active.get(index)
-                            == self
-                                .ui_element(*child)
-                                .and_then(|value| value.cast().map_err(Into::into))
-                                .ok()
-                                .as_ref()
+                let desired = children
+                    .iter()
+                    .map(|child| {
+                        self.ui_element(*child)
+                            .and_then(|value| com_identity(&value))
                     })
-                }
+                    .collect::<Result<Vec<_>, _>>()?;
+                active == desired
             }
             Realization::Structural => {
                 let values = self.tree_nodes(parent)?;
@@ -2315,30 +2621,27 @@ impl WinUiAdapter {
             match relation_contract(self.kind(parent)?, relation)?.realization {
                 Realization::Owned => {
                     let values = self.owned_collection(parent, relation)?;
-                    for movement in moves {
-                        let child: IInspectable = self.ui_element(movement.child)?.cast()?;
-                        let mut from = 0;
-                        while from < values.size()? && values.get_at(from)? != child {
-                            from += 1;
-                        }
-                        if from == values.size()? {
-                            return Err(WinUiError::ChildNotFound(movement.child));
-                        }
-                        values.remove_at(from)?;
-                        let target = if let Some(before) = movement.before {
-                            let before: IInspectable = self.ui_element(before)?.cast()?;
-                            let mut target = 0;
-                            while target < values.size()? && values.get_at(target)? != before {
-                                target += 1;
-                            }
-                            if target == values.size()? {
-                                return Err(WinUiError::ChildNotFound(movement.child));
-                            }
-                            target
-                        } else {
-                            values.size()?
-                        };
-                        values.insert_at(target, &child)?;
+                    let mut current = (0..values.size()?)
+                        .map(|index| {
+                            let value = values.get_at(index)?;
+                            Ok((com_identity(&value)?, value))
+                        })
+                        .collect::<Result<Vec<_>, WinUiError>>()?;
+                    let desired = children
+                        .iter()
+                        .map(|child| {
+                            self.ui_element(*child)
+                                .and_then(|value| com_identity(&value))
+                        })
+                        .collect::<Result<Vec<_>, _>>()?;
+                    let active = desired.iter().copied().collect::<HashSet<_>>();
+                    let swaps = simulate_active_slot_reorder(&mut current, &active, &desired)
+                        .ok_or(WinUiError::InvalidMutation(relation))?;
+                    for (left, right, left_value, right_value) in swaps {
+                        values.remove_at(index32(right)?)?;
+                        values.remove_at(index32(left)?)?;
+                        values.insert_at(index32(left)?, &left_value)?;
+                        values.insert_at(index32(right)?, &right_value)?;
                     }
                 }
                 Realization::Structural => {
@@ -2407,11 +2710,12 @@ impl WinUiAdapter {
         })();
         self.finish_selection_feedback(parent, feedback);
         result?;
+        let active = children.iter().copied().collect::<HashSet<_>>();
         debug_assert_eq!(
             children.len(),
             self.owners
-                .values()
-                .filter(|owner| **owner == (parent, relation))
+                .iter()
+                .filter(|(object, owner)| **owner == (parent, relation) && active.contains(object))
                 .count()
         );
         Ok(())
@@ -2783,6 +3087,18 @@ impl WinUiAdapter {
     }
 }
 
+impl Runtime<WinUiAdapter> {
+    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
+        self.adapter_mut().set_event_waker(waker);
+    }
+}
+
+impl ComponentHost<WinUiAdapter> {
+    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
+        self.runtime_mut_internal().set_native_event_waker(waker);
+    }
+}
+
 impl Adapter for WinUiAdapter {
     type Error = WinUiError;
 
@@ -2961,6 +3277,44 @@ fn relation_contract(
         .ok_or(WinUiError::MissingContract(kind, relation))
 }
 
+fn com_identity(value: &impl Interface) -> Result<usize, WinUiError> {
+    Ok(value.cast::<windows_core::IUnknown>()?.as_raw() as usize)
+}
+
+fn simulate_active_slot_reorder<T: Clone>(
+    current: &mut [(usize, T)],
+    active: &HashSet<usize>,
+    desired: &[usize],
+) -> Option<Vec<(usize, usize, T, T)>> {
+    let slots = current
+        .iter()
+        .enumerate()
+        .filter_map(|(index, (identity, _))| active.contains(identity).then_some(index))
+        .collect::<Vec<_>>();
+    if slots.len() != desired.len() || active.len() != desired.len() {
+        return None;
+    }
+    let mut swaps = Vec::new();
+    for (desired_index, left) in slots.iter().copied().enumerate() {
+        if current[left].0 == desired[desired_index] {
+            continue;
+        }
+        let right = slots[desired_index + 1..]
+            .iter()
+            .copied()
+            .find(|right| current[*right].0 == desired[desired_index])?;
+        let left_value = current[right].1.clone();
+        let right_value = current[left].1.clone();
+        current.swap(left, right);
+        swaps.push((left, right, left_value, right_value));
+    }
+    current
+        .iter()
+        .filter_map(|(identity, _)| active.contains(identity).then_some(*identity))
+        .eq(desired.iter().copied())
+        .then_some(swaps)
+}
+
 fn index32(index: usize) -> Result<u32, WinUiError> {
     index
         .try_into()
@@ -3074,7 +3428,36 @@ fn set_grid_definitions(
 mod tests {
     use super::*;
     use std::sync::Arc;
+
+    #[test]
+    fn active_slot_reorder_preserves_interleaved_retiring_indices() {
+        let mut current = vec![(1, 1), (99, 99), (2, 2), (3, 3), (4, 4)];
+        let active = HashSet::from([1, 2, 3, 4]);
+
+        let swaps = simulate_active_slot_reorder(&mut current, &active, &[4, 3, 2, 1]).unwrap();
+
+        assert_eq!(current, [(4, 4), (99, 99), (3, 3), (2, 2), (1, 1)]);
+        assert_eq!(swaps.len(), 2);
+        assert!(swaps.iter().all(|(left, right, _, _)| left < right));
+    }
+
+    #[test]
+    fn active_slot_reorder_rejects_missing_or_duplicate_active_identity() {
+        let mut current = vec![(1, ()), (99, ()), (2, ())];
+        let active = HashSet::from([1, 2]);
+
+        assert!(simulate_active_slot_reorder(&mut current, &active, &[2, 3]).is_none());
+        assert!(simulate_active_slot_reorder(&mut current, &active, &[2, 2]).is_none());
+    }
     use std::sync::atomic::{AtomicUsize, Ordering};
+
+    fn virtual_index(value: IInspectable) -> i32 {
+        value
+            .cast::<windows_reference::IReference<i32>>()
+            .unwrap()
+            .Value()
+            .unwrap()
+    }
 
     #[test]
     fn recycled_physical_shell_keeps_old_token_until_acknowledged() {
@@ -3098,34 +3481,124 @@ mod tests {
     }
 
     #[test]
-    fn virtual_source_replacement_raises_one_reset_notification() {
-        let source: windows_collections::IObservableVector<IInspectable> =
-            virtual_item_values(0).unwrap().into();
-        let notifications = Arc::new(AtomicUsize::new(0));
-        let observed = Arc::clone(&notifications);
-        let _changed = source
+    fn virtual_source_generates_indices_on_demand() {
+        let source = ComObject::new(NativeVirtualSource::new(3).unwrap());
+        let vector: windows_collections::IObservableVector<IInspectable> = source.to_interface();
+
+        assert_eq!(vector.Size().unwrap(), 3);
+        assert_eq!(virtual_index(vector.GetAt(0).unwrap()), 0);
+        assert_eq!(virtual_index(vector.GetAt(2).unwrap()), 2);
+        assert_eq!(vector.GetAt(3).unwrap_err().code(), E_BOUNDS);
+
+        let mut index = u32::MAX;
+        assert!(
+            vector
+                .IndexOf(&virtual_item_value(2).unwrap(), &mut index)
+                .unwrap()
+        );
+        assert_eq!(index, 2);
+        let missing: IInspectable = windows_reference::IReference::<i32>::from(9).into();
+        assert!(!vector.IndexOf(&missing, &mut index).unwrap());
+        assert_eq!(index, 0);
+        let negative: IInspectable = windows_reference::IReference::<i32>::from(-1).into();
+        assert!(!vector.IndexOf(&negative, &mut index).unwrap());
+        let invalid: IInspectable =
+            windows_reference::IReference::<HSTRING>::from(HSTRING::from("invalid")).into();
+        assert!(vector.IndexOf(&invalid, &mut index).is_err());
+
+        let mut values = vec![None; 4];
+        assert_eq!(vector.GetMany(1, &mut values).unwrap(), 2);
+        assert_eq!(virtual_index(values[0].take().unwrap()), 1);
+        assert_eq!(virtual_index(values[1].take().unwrap()), 2);
+        assert!(values[2].is_none());
+
+        let view = vector.GetView().unwrap();
+        assert_eq!(view.Size().unwrap(), 3);
+        assert_eq!(virtual_index(view.GetAt(1).unwrap()), 1);
+
+        let iterator = vector.First().unwrap();
+        assert!(iterator.HasCurrent().unwrap());
+        assert_eq!(virtual_index(iterator.Current().unwrap()), 0);
+        assert!(iterator.MoveNext().unwrap());
+        assert_eq!(virtual_index(iterator.Current().unwrap()), 1);
+        let mut tail = vec![None; 3];
+        assert_eq!(iterator.GetMany(&mut tail).unwrap(), 2);
+        assert_eq!(virtual_index(tail[0].take().unwrap()), 1);
+        assert_eq!(virtual_index(tail[1].take().unwrap()), 2);
+        assert!(!iterator.HasCurrent().unwrap());
+        assert_eq!(iterator.Current().unwrap_err().code(), E_BOUNDS);
+    }
+
+    #[test]
+    fn virtual_source_is_read_only_and_validates_index_limits() {
+        let max_count = i32::MAX as usize + 1;
+        let source = ComObject::new(NativeVirtualSource::new(max_count).unwrap());
+        let vector: windows_collections::IObservableVector<IInspectable> = source.to_interface();
+
+        assert_eq!(vector.Size().unwrap(), max_count as u32);
+        assert_eq!(
+            virtual_index(vector.GetAt(i32::MAX as u32).unwrap()),
+            i32::MAX
+        );
+        assert_eq!(
+            vector.GetAt(i32::MAX as u32 + 1).unwrap_err().code(),
+            E_BOUNDS
+        );
+        assert!(NativeVirtualSource::new(max_count + 1).is_err());
+
+        let value = virtual_item_value(0).unwrap();
+        assert_eq!(
+            vector.SetAt(0, &value).unwrap_err().code(),
+            E_ILLEGAL_METHOD_CALL
+        );
+        assert_eq!(
+            vector.Append(&value).unwrap_err().code(),
+            E_ILLEGAL_METHOD_CALL
+        );
+        assert_eq!(vector.Clear().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
+        assert_eq!(
+            vector.ReplaceAll(&[Some(value)]).unwrap_err().code(),
+            E_ILLEGAL_METHOD_CALL
+        );
+    }
+
+    #[test]
+    fn virtual_source_reset_notifies_once_and_honors_event_removal() {
+        let source = ComObject::new(NativeVirtualSource::new(0).unwrap());
+        let vector: windows_collections::IObservableVector<IInspectable> = source.to_interface();
+        let first = Arc::new(AtomicUsize::new(0));
+        let second = Arc::new(AtomicUsize::new(0));
+        let first_observed = Arc::clone(&first);
+        let first_revoker = vector
+            .VectorChanged(move |_, args| {
+                let args = args.ok().unwrap();
+                assert_eq!(args.CollectionChange().unwrap(), CollectionChange::Reset);
+                assert_eq!(args.Index().unwrap(), 0);
+                first_observed.fetch_add(1, Ordering::Relaxed);
+            })
+            .unwrap();
+        let second_observed = Arc::clone(&second);
+        let second_revoker = vector
             .VectorChanged(move |_, _| {
-                observed.fetch_add(1, Ordering::Relaxed);
+                second_observed.fetch_add(1, Ordering::Relaxed);
             })
             .unwrap();
 
-        source
-            .ReplaceAll(&virtual_item_values(10_000).unwrap())
-            .unwrap();
-        assert_eq!(notifications.load(Ordering::Relaxed), 1);
+        source.reset(10_000);
+        assert_eq!(vector.Size().unwrap(), 10_000);
+        assert_eq!(first.load(Ordering::Relaxed), 1);
+        assert_eq!(second.load(Ordering::Relaxed), 1);
 
-        source.ReplaceAll(&virtual_item_values(0).unwrap()).unwrap();
-        assert_eq!(notifications.load(Ordering::Relaxed), 2);
+        drop(first_revoker);
+        source.reset(10_000);
+        assert_eq!(first.load(Ordering::Relaxed), 1);
+        assert_eq!(second.load(Ordering::Relaxed), 2);
 
-        source
-            .ReplaceAll(&virtual_item_values(10_000).unwrap())
-            .unwrap();
-        assert_eq!(notifications.load(Ordering::Relaxed), 3);
-
-        source
-            .ReplaceAll(&virtual_item_values(10_000).unwrap())
-            .unwrap();
-        assert_eq!(notifications.load(Ordering::Relaxed), 4);
+        drop(second_revoker);
+        source.reset(0);
+        assert_eq!(vector.Size().unwrap(), 0);
+        assert_eq!(first.load(Ordering::Relaxed), 1);
+        assert_eq!(second.load(Ordering::Relaxed), 2);
     }
 
     #[test]
@@ -3165,7 +3638,7 @@ mod tests {
 
     #[test]
     fn pointer_event_queue_preserves_payload_and_revision() {
-        let mut runtime = crate::Runtime::new(crate::RecordingAdapter::default());
+        let mut runtime = Runtime::new(crate::RecordingAdapter::default());
         runtime.update(crate::Border::new()).unwrap();
         let object = runtime.graph().root().unwrap();
         let event = Rc::new(RefCell::new(NativePointerEventInfoEvent {

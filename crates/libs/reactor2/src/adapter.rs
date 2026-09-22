@@ -132,6 +132,16 @@ impl RecordingAdapter {
             .count()
     }
 
+    #[cfg(any(test, feature = "test"))]
+    pub fn realization_count(&self) -> usize {
+        self.realizations.len()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn queued_native_event_count(&self) -> usize {
+        self.native_events.len()
+    }
+
     fn coalesce_realization(
         events: &mut VecDeque<NativeEvent>,
         request: RealizationRequest,
@@ -180,6 +190,7 @@ impl RecordingAdapter {
                     if self.objects.contains_key(object) {
                         return Err(AdapterError::DuplicateObject(*object));
                     }
+
                     self.objects.insert(*object, Self::recorded_object(*kind));
                 }
                 Mutation::Replace { object, kind } => {
@@ -591,6 +602,46 @@ impl RecordingAdapter {
 
     fn is_owned(&self, object: ObjectId) -> bool {
         self.owners.contains_key(&object)
+    }
+}
+
+impl Runtime<RecordingAdapter> {
+    pub fn record_batches(&mut self, record: bool) {
+        self.adapter_mut().record_batches(record);
+    }
+
+    pub fn validate_batches(&mut self, validate: bool) {
+        self.adapter_mut().validate_batches(validate);
+    }
+
+    pub fn complete_retirement(&mut self, root: ObjectId) -> bool {
+        self.adapter_mut().complete_retirement(root)
+    }
+
+    pub fn queue_event(&mut self, event: EventDispatch) {
+        self.adapter_mut().queue_event(event);
+    }
+
+    pub fn queue_realization(&mut self, request: RealizationRequest) {
+        self.adapter_mut().queue_realization(request);
+    }
+}
+
+impl ComponentHost<RecordingAdapter> {
+    pub fn record_batches(&mut self, record: bool) {
+        self.runtime_mut_internal().record_batches(record);
+    }
+
+    pub fn validate_batches(&mut self, validate: bool) {
+        self.runtime_mut_internal().validate_batches(validate);
+    }
+
+    pub fn queue_event(&mut self, event: EventDispatch) {
+        self.runtime_mut_internal().queue_event(event);
+    }
+
+    pub fn queue_realization(&mut self, request: RealizationRequest) {
+        self.runtime_mut_internal().queue_realization(request);
     }
 }
 

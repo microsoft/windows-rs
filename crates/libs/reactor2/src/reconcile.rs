@@ -2,6 +2,8 @@ use super::*;
 use crate::ir::{DeclarationValidator, validate_property};
 use std::cell::Cell;
 use std::collections::{HashMap, HashSet, VecDeque};
+#[cfg(any(test, feature = "test"))]
+use std::mem::size_of;
 use std::rc::Rc;
 use std::time::Duration;
 
@@ -552,6 +554,68 @@ pub struct RetainedGraph {
     objects: Vec<RetainedSlot>,
     free: Vec<u32>,
     retirements: HashMap<ObjectId, RetainedRetirement>,
+    #[cfg(test)]
+    full_reference_scans: ReferenceScanCounter,
+}
+
+#[cfg(any(test, feature = "test"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RetainedMemory {
+    pub graph_size: usize,
+    pub object_id_size: usize,
+    pub object_type_size: usize,
+    pub key_size: usize,
+    pub optional_key_size: usize,
+    pub optional_reference_size: usize,
+    pub optional_transition_size: usize,
+    pub property_size: usize,
+    pub event_size: usize,
+    pub property_list_size: usize,
+    pub event_list_size: usize,
+    pub retained_event_list_size: usize,
+    pub relation_list_size: usize,
+    pub optional_virtual_items_size: usize,
+    pub slot_size: usize,
+    pub object_size: usize,
+    pub relation_size: usize,
+    pub relation_value_size: usize,
+    pub virtual_items_size: usize,
+    pub retirement_size: usize,
+    pub hash_map_size: usize,
+    pub slot_len: usize,
+    pub slot_capacity: usize,
+    pub slot_bytes: usize,
+    pub live_objects: usize,
+    pub keyed_objects: usize,
+    pub property_lists: usize,
+    pub property_entries: usize,
+    pub event_lists: usize,
+    pub event_entries: usize,
+    pub relation_entries: usize,
+    pub relation_capacity: usize,
+    pub relation_bytes: usize,
+    pub child_entries: usize,
+    pub child_capacity: usize,
+    pub child_bytes: usize,
+    pub virtual_items: usize,
+    pub virtual_bytes: usize,
+    pub retirement_entries: usize,
+    pub retirement_node_capacity: usize,
+    pub retirement_node_bytes: usize,
+    pub free_len: usize,
+    pub free_capacity: usize,
+    pub free_bytes: usize,
+}
+
+#[cfg(test)]
+#[derive(Clone, Debug, Default)]
+struct ReferenceScanCounter(Cell<usize>);
+
+#[cfg(test)]
+impl PartialEq for ReferenceScanCounter {
+    fn eq(&self, _other: &Self) -> bool {
+        true
+    }
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -562,6 +626,115 @@ struct RetainedSlot {
 }
 
 impl RetainedGraph {
+    #[cfg(any(test, feature = "test"))]
+    pub fn retained_memory(&self) -> RetainedMemory {
+        let mut memory = RetainedMemory {
+            graph_size: size_of::<Self>(),
+            object_id_size: size_of::<ObjectId>(),
+            object_type_size: size_of::<ObjectType>(),
+            key_size: size_of::<Key>(),
+            optional_key_size: size_of::<Option<Key>>(),
+            optional_reference_size: size_of::<Option<ElementRef>>(),
+            optional_transition_size: size_of::<Option<ExitTransition>>(),
+            property_size: size_of::<Property>(),
+            event_size: size_of::<Event>(),
+            property_list_size: size_of::<SharedList<Property>>(),
+            event_list_size: size_of::<SharedList<Event>>(),
+            retained_event_list_size: size_of::<Option<Rc<Vec<Event>>>>(),
+            relation_list_size: size_of::<Vec<RetainedRelation>>(),
+            optional_virtual_items_size: size_of::<Option<Box<RetainedVirtualItems>>>(),
+            slot_size: size_of::<RetainedSlot>(),
+            object_size: size_of::<RetainedObject>(),
+            relation_size: size_of::<RetainedRelation>(),
+            relation_value_size: size_of::<RetainedRelationValue>(),
+            virtual_items_size: size_of::<RetainedVirtualItems>(),
+            retirement_size: size_of::<RetainedRetirement>(),
+            hash_map_size: size_of::<HashMap<Key, (u64, RealizedContainer)>>(),
+            slot_len: self.objects.len(),
+            slot_capacity: self.objects.capacity(),
+            slot_bytes: self.objects.capacity() * size_of::<RetainedSlot>(),
+            free_len: self.free.len(),
+            free_capacity: self.free.capacity(),
+            free_bytes: self.free.capacity() * size_of::<u32>(),
+            retirement_entries: self.retirements.len(),
+            ..Default::default()
+        };
+        for slot in &self.objects {
+            let Some(object) = &slot.object else {
+                continue;
+            };
+            memory.live_objects += 1;
+            memory.keyed_objects += usize::from(object.key.is_some());
+            memory.property_lists += usize::from(!object.properties.as_slice().is_empty());
+            memory.property_entries += object.properties.as_slice().len();
+            memory.event_lists += usize::from(object.events.is_some());
+            memory.event_entries += retained_events(&object.events).len();
+            memory.relation_entries += object.relations.len();
+            memory.relation_capacity += object.relations.capacity();
+            memory.relation_bytes += object.relations.capacity() * size_of::<RetainedRelation>();
+            for relation in &object.relations {
+                if let RetainedRelationValue::Many(children) = &relation.value {
+                    memory.child_entries += children.len();
+                    memory.child_capacity += children.capacity();
+                    memory.child_bytes += children.capacity() * size_of::<ObjectId>();
+                }
+            }
+            if object.virtual_items.is_some() {
+                memory.virtual_items += 1;
+                memory.virtual_bytes += size_of::<RetainedVirtualItems>();
+            }
+        }
+        for retirement in self.retirements.values() {
+            memory.retirement_node_capacity += retirement.nodes.capacity();
+            memory.retirement_node_bytes += retirement.nodes.capacity() * size_of::<ObjectId>();
+        }
+        memory
+    }
+
+    fn references(&self) -> Vec<(ElementRef, ObjectId)> {
+        #[cfg(test)]
+        self.full_reference_scans
+            .0
+            .set(self.full_reference_scans.0.get() + 1);
+        self.objects
+            .iter()
+            .enumerate()
+            .filter_map(|(index, slot)| {
+                let index = u32::try_from(index).ok()?;
+                slot.object.as_ref()?.reference.as_ref().map(|reference| {
+                    (
+                        reference.clone(),
+                        ObjectId {
+                            index,
+                            generation: slot.generation,
+                        },
+                    )
+                })
+            })
+            .collect()
+    }
+
+    #[cfg(test)]
+    pub(crate) fn full_reference_scan_count(&self) -> usize {
+        self.full_reference_scans.0.get()
+    }
+
+    fn clear_references(&mut self) {
+        for (index, slot) in self.objects.iter_mut().enumerate() {
+            let Some(object) = slot.object.as_mut() else {
+                continue;
+            };
+            if let Some(reference) = object.reference.take()
+                && let Ok(index) = u32::try_from(index)
+            {
+                reference.clear(ObjectId {
+                    index,
+                    generation: slot.generation,
+                });
+            }
+        }
+    }
+
     pub fn root(&self) -> Option<ObjectId> {
         self.root
     }
@@ -1241,6 +1414,66 @@ pub(crate) fn panic_during_transaction(graph: &mut RetainedGraph, object: Object
     panic!("test planning unwind");
 }
 
+struct ReferenceUnwindGuard {
+    references: Vec<(ElementRef, ObjectId)>,
+    armed: bool,
+}
+
+impl ReferenceUnwindGuard {
+    fn new(references: Vec<(ElementRef, ObjectId)>) -> Self {
+        Self {
+            references,
+            armed: true,
+        }
+    }
+
+    fn disarm(mut self) {
+        self.armed = false;
+    }
+}
+
+impl Drop for ReferenceUnwindGuard {
+    fn drop(&mut self) {
+        if self.armed && std::thread::panicking() {
+            for (reference, object) in &self.references {
+                reference.clear(*object);
+            }
+        }
+    }
+}
+
+fn validate_adapter<A: Adapter>(
+    adapter: &A,
+    mutations: &[Mutation],
+    references: &[(ElementRef, ObjectId)],
+) -> Result<(), A::Error> {
+    let guard = ReferenceUnwindGuard::new(references.to_vec());
+    let result = adapter.validate(mutations);
+    guard.disarm();
+    result
+}
+
+fn apply_adapter<A: Adapter>(
+    adapter: &mut A,
+    mutations: &[Mutation],
+    references: &[(ElementRef, ObjectId)],
+) -> Result<(), A::Error> {
+    let guard = ReferenceUnwindGuard::new(references.to_vec());
+    let result = adapter.apply(mutations);
+    guard.disarm();
+    result
+}
+
+/// Owns retained state and the adapter protocol.
+///
+/// Mutable adapter access is intentionally unavailable so callers cannot bypass reconciliation.
+///
+/// ```compile_fail
+/// use windows_reactor2::{RecordingAdapter, Runtime};
+///
+/// let mut runtime = Runtime::new(RecordingAdapter::new());
+/// let _: &mut RecordingAdapter = runtime.adapter_mut();
+/// ```
 pub struct Runtime<A> {
     graph: RetainedGraph,
     adapter: A,
@@ -1274,8 +1507,33 @@ impl<A: Adapter> Runtime<A> {
         &self.adapter
     }
 
-    pub fn adapter_mut(&mut self) -> &mut A {
+    #[cfg(feature = "test")]
+    pub fn release_test_scratch(&mut self) {
+        self.mutations = Vec::new();
+        self.native_events = Vec::new();
+        self.virtual_refreshes = VecDeque::new();
+        self.validator = DeclarationValidator::default();
+    }
+
+    pub(crate) fn adapter_mut(&mut self) -> &mut A {
         &mut self.adapter
+    }
+
+    fn poison_and_discard(&mut self, references: &[(ElementRef, ObjectId)]) {
+        self.poisoned = true;
+        for (reference, object) in references {
+            reference.clear(*object);
+        }
+        self.graph.clear_references();
+        self.graph = RetainedGraph::default();
+        self.mutations.clear();
+        self.native_events.clear();
+        self.virtual_refreshes.clear();
+    }
+
+    pub(crate) fn poison_and_discard_all(&mut self) {
+        let references = self.graph.references();
+        self.poison_and_discard(&references);
     }
 
     pub fn focus(&mut self, reference: &ElementRef) -> Result<bool, UpdateError<A::Error>> {
@@ -1486,8 +1744,11 @@ impl<A: Adapter> Runtime<A> {
         }
         loop {
             self.preview_native_events()?;
-            if self.native_events.is_empty() {
+            let Some(next) = self.native_events.first() else {
                 return Ok(None);
+            };
+            if next.realization.is_some() {
+                return Err(UpdateError::PendingNativeEvent);
             }
             if let Some(event) = self.pop_native_event()? {
                 self.native_event_active.set(true);
@@ -1534,9 +1795,11 @@ impl<A: Adapter> Runtime<A> {
         root: impl Into<Visual>,
     ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
         self.mutations.clear();
+        let poison_references = self.graph.references();
         let mut declaration = root.into().0.object().map_err(UpdateError::Graph)?;
         declaration.key = Some(lease.key.clone());
-        self.validator
+        let _ = self
+            .validator
             .validate(&declaration)
             .map_err(UpdateError::Graph)?;
         let mut transaction = GraphTransaction::new(&mut self.graph);
@@ -1695,16 +1958,14 @@ impl<A: Adapter> Runtime<A> {
             return Err(UpdateError::Graph(error));
         }
         self.poisoned = true;
-        if let Err(error) = self.adapter.validate(&self.mutations) {
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = self.adapter.apply(&self.mutations) {
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -1726,6 +1987,7 @@ impl<A: Adapter> Runtime<A> {
         before_apply: impl FnOnce(),
     ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
         self.mutations.clear();
+        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let plan = (|| {
@@ -1781,19 +2043,15 @@ impl<A: Adapter> Runtime<A> {
             return Err(UpdateError::Graph(error));
         }
         self.poisoned = true;
-        if let Err(error) = self.adapter.validate(&self.mutations) {
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
-            apply_reference_changes(references);
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         before_apply();
-        if let Err(error) = self.adapter.apply(&self.mutations) {
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
-            apply_reference_changes(references);
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -1809,6 +2067,7 @@ impl<A: Adapter> Runtime<A> {
         container: RealizedContainer,
     ) -> Result<Vec<Mutation>, UpdateError<A::Error>> {
         self.mutations.clear();
+        let poison_references = self.graph.references();
         self.mutations.push(Mutation::Recycle {
             parent: collection,
             relation,
@@ -1816,14 +2075,12 @@ impl<A: Adapter> Runtime<A> {
             child: None,
         });
         self.poisoned = true;
-        if let Err(error) = self.adapter.validate(&self.mutations) {
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = self.adapter.apply(&self.mutations) {
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         self.poisoned = false;
@@ -1854,9 +2111,13 @@ impl<A: Adapter> Runtime<A> {
                 return Ok(Vec::new());
             }
         }
-        self.validator
+        let object_count = self
+            .validator
             .validate(&declaration)
             .map_err(UpdateError::Graph)?;
+        if self.graph.objects.is_empty() {
+            self.graph.objects.reserve_exact(object_count);
+        }
         if let Some(current) = self.graph.root {
             let previous = self.graph.get(current).unwrap().kind;
             let next = declaration.kind;
@@ -1867,6 +2128,7 @@ impl<A: Adapter> Runtime<A> {
                 }));
             }
         }
+        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let mut virtual_refreshes = Vec::new();
@@ -1890,16 +2152,14 @@ impl<A: Adapter> Runtime<A> {
             return Err(UpdateError::Graph(error));
         }
         self.poisoned = true;
-        if let Err(error) = self.adapter.validate(&self.mutations) {
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = self.adapter.apply(&self.mutations) {
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -1940,7 +2200,8 @@ impl<A: Adapter> Runtime<A> {
         self.prepare_update()?;
         self.mutations.clear();
         let declaration = declaration.0.object().map_err(UpdateError::Graph)?;
-        self.validator
+        let _ = self
+            .validator
             .validate(&declaration)
             .map_err(UpdateError::Graph)?;
         let previous = self
@@ -2011,20 +2272,19 @@ impl<A: Adapter> Runtime<A> {
             self.mutations.clear();
             return Err(UpdateError::Graph(error));
         }
+        let poison_references = detached_references(&references);
         self.poisoned = true;
-        if let Err(error) = self.adapter.validate(&self.mutations) {
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         self.poisoned = false;
         before_apply();
         self.poisoned = true;
-        if let Err(error) = self.adapter.apply(&self.mutations) {
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2058,6 +2318,7 @@ impl<A: Adapter> Runtime<A> {
             .ok_or(UpdateError::Graph(GraphError::MissingChild(
                 relation, child,
             )))?;
+        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let plan = (|| {
@@ -2090,16 +2351,14 @@ impl<A: Adapter> Runtime<A> {
         };
         children.remove(index);
         self.poisoned = true;
-        if let Err(error) = self.adapter.validate(&self.mutations) {
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = self.adapter.apply(&self.mutations) {
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2124,19 +2383,18 @@ impl<A: Adapter> Runtime<A> {
             root: completion.root,
             nodes: nodes.to_vec(),
         });
+        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         transaction.complete_retirement(completion.root);
         self.poisoned = true;
-        if let Err(error) = self.adapter.validate(&self.mutations) {
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = self.adapter.apply(&self.mutations) {
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
             transaction.commit();
-            self.graph = RetainedGraph::default();
-            self.mutations.clear();
+            self.poison_and_discard(&poison_references);
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2172,6 +2430,16 @@ enum ReferenceChange {
         reference: ElementRef,
         object: ObjectId,
     },
+}
+
+fn detached_references(changes: &[ReferenceChange]) -> Vec<(ElementRef, ObjectId)> {
+    changes
+        .iter()
+        .filter_map(|change| match change {
+            ReferenceChange::Clear { reference, object } => Some((reference.clone(), *object)),
+            ReferenceChange::Set { .. } => None,
+        })
+        .collect()
 }
 
 fn apply_reference_changes(changes: Vec<ReferenceChange>) {

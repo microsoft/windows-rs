@@ -954,7 +954,7 @@ impl Host {
             _ = wake.invoke();
         });
         let wake = drain;
-        host.runtime_mut().adapter_mut().set_event_waker(move || {
+        host.set_native_event_waker(move || {
             _ = wake.invoke();
         });
         let root = host.runtime().graph().root().unwrap();
@@ -1186,21 +1186,19 @@ mod tests {
         );
 
         let callback = pointer_callback(&host, upper_object);
-        host.runtime_mut()
-            .adapter_mut()
-            .queue_event(reactor2::EventDispatch::new(
-                upper_object,
-                reactor2::EventId::PointerReleased,
-                EventValue::PointerEventInfo(callback),
-                EventPayload::PointerEventInfo(reactor2::PointerEventInfo {
-                    x: 10.0,
-                    y: 8.0,
-                    window_x: pile_x(0) + 10.0,
-                    window_y: TABLEAU_Y + FACE_UP_OFFSET + 8.0,
-                    pointer_id: 17,
-                    ..Default::default()
-                }),
-            ));
+        host.queue_event(reactor2::EventDispatch::new(
+            upper_object,
+            reactor2::EventId::PointerReleased,
+            EventValue::PointerEventInfo(callback),
+            EventPayload::PointerEventInfo(reactor2::PointerEventInfo {
+                x: 10.0,
+                y: 8.0,
+                window_x: pile_x(0) + 10.0,
+                window_y: TABLEAU_Y + FACE_UP_OFFSET + 8.0,
+                pointer_id: 17,
+                ..Default::default()
+            }),
+        ));
         host.drain(usize::MAX).unwrap();
 
         assert_eq!(*clicked.borrow(), Some(Click::Tableau(0, 1)));
@@ -1247,7 +1245,7 @@ mod tests {
             .unwrap()
             .get()
             .unwrap();
-        host.runtime_mut().adapter_mut().record_batches(true);
+        host.record_batches(true);
 
         let next = handle_click(&game, Click::Tableau(2, 0));
         let mutations = host
@@ -1300,6 +1298,7 @@ mod tests {
                 *parent == unrelated_object || *child == unrelated_object
             }
             Mutation::Reorder { parent, .. } => *parent == unrelated_object,
+            _ => false,
         }));
         assert_eq!(
             mutations

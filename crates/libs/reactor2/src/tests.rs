@@ -22,6 +22,18 @@ fn typed_relation_rejects_other_visual_kinds() {
 }
 
 #[test]
+fn initial_mount_reserves_the_validated_object_count() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children((0usize..512).map(|index| keyed(index, Border::new()))))
+        .unwrap();
+
+    let memory = runtime.graph().retained_memory();
+    assert_eq!(memory.slot_len, 513);
+    assert_eq!(memory.slot_capacity, 513);
+}
+
+#[test]
 fn property_contract_enumeration_matches_point_lookup() {
     for kind in ALL_OBJECT_TYPES.iter().copied() {
         let contracts = property_contracts(kind);
@@ -1035,6 +1047,66 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
         runtime.graph().object_count()
     );
     assert!(!runtime.adapter_mut().complete_retirement(old));
+}
+
+#[test]
+fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
+    let children = |include_retiring: bool, reversed: bool| {
+        let mut values = if reversed {
+            vec![
+                keyed("d", TextBlock::new("d")),
+                keyed("c", TextBlock::new("c")),
+                keyed("b", TextBlock::new("b")),
+                keyed("a", TextBlock::new("a")),
+            ]
+        } else {
+            vec![
+                keyed("a", TextBlock::new("a")),
+                keyed("b", TextBlock::new("b")),
+                keyed("c", TextBlock::new("c")),
+                keyed("d", TextBlock::new("d")),
+            ]
+        };
+        if include_retiring {
+            values.insert(
+                2,
+                keyed(
+                    "retiring",
+                    TextBlock::new("retiring").exit_fade(std::time::Duration::from_secs(1)),
+                ),
+            );
+        }
+        Grid::new().children(values)
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(children(true, false)).unwrap();
+    let root = runtime.graph().root().unwrap();
+    let initial = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()
+        .to_vec();
+    let retiring = initial[2];
+    let active = [initial[4], initial[3], initial[1], initial[0]];
+
+    runtime.update(children(false, true)).unwrap();
+
+    assert_eq!(
+        runtime
+            .adapter()
+            .children(root, RelationId::Children)
+            .unwrap(),
+        &[active[0], active[1], retiring, active[2], active[3]]
+    );
+    assert!(runtime.adapter_mut().complete_retirement(retiring));
+    runtime.dispatch_native_events().unwrap();
+    assert_eq!(
+        runtime
+            .adapter()
+            .children(root, RelationId::Children)
+            .unwrap(),
+        active
+    );
 }
 
 #[test]
@@ -3242,6 +3314,231 @@ fn adapter_application_unwind_rolls_back_and_poisons_runtime() {
     );
 }
 
+fn referenced_virtual_view(nested: &ElementRef, row: &ElementRef) -> Grid {
+    Grid::new().children([
+        keyed("button", Button::new().element_ref(nested)),
+        keyed(
+            "repeater",
+            ItemsRepeater::new().item("row", Button::new().element_ref(row)),
+        ),
+    ])
+}
+
+#[derive(Default)]
+struct ControlledFailureAdapter {
+    inner: RecordingAdapter,
+    fail_validate: bool,
+    fail_apply: bool,
+}
+
+impl Adapter for ControlledFailureAdapter {
+    type Error = ();
+
+    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
+        self.inner.preview_native_events(events);
+    }
+
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        self.inner.pop_native_event()
+    }
+
+    fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+        if self.fail_validate {
+            Err(())
+        } else {
+            self.inner.validate(mutations).map_err(|_| ())
+        }
+    }
+
+    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+        if self.fail_apply {
+            Err(())
+        } else {
+            self.inner.apply(mutations).map_err(|_| ())
+        }
+    }
+
+    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
+        self.inner.focus(object).map_err(|_| ())
+    }
+}
+
+fn realize_controlled_virtual_row(
+    runtime: &mut Runtime<ControlledFailureAdapter>,
+    collection: ObjectId,
+) -> Result<(), UpdateError<()>> {
+    runtime
+        .adapter_mut()
+        .inner
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 0,
+            source_revision: 0,
+        });
+    runtime.dispatch_native_events().map(|_| ())
+}
+
+#[test]
+fn adapter_failures_clear_all_retained_references_before_discard() {
+    for fail_validate in [true, false] {
+        let nested = ElementRef::default();
+        let row = ElementRef::default();
+        let mut runtime = Runtime::new(ControlledFailureAdapter::default());
+        runtime
+            .update(referenced_virtual_view(&nested, &row))
+            .unwrap();
+        let root = runtime.graph().root().unwrap();
+        let collection = runtime
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap()[1];
+        realize_controlled_virtual_row(&mut runtime, collection).unwrap();
+        assert!(nested.get().is_some());
+        assert!(row.get().is_some());
+
+        runtime.adapter_mut().fail_validate = fail_validate;
+        runtime.adapter_mut().fail_apply = !fail_validate;
+        assert!(matches!(
+            runtime.update(referenced_virtual_view(&nested, &row).width(1.0)),
+            Err(UpdateError::Adapter(_))
+        ));
+        assert_eq!(nested.get(), None);
+        assert_eq!(row.get(), None);
+        assert_eq!(
+            runtime.update(referenced_virtual_view(&nested, &row)),
+            Err(UpdateError::Poisoned)
+        );
+    }
+}
+
+fn referenced_failure_subtree(
+    primary: Option<(&'static str, &ElementRef)>,
+    row: &ElementRef,
+) -> Grid {
+    let mut children = Vec::new();
+    if let Some((key, reference)) = primary {
+        children.push(keyed(key, Button::new().element_ref(reference)));
+    }
+    children.push(keyed(
+        "repeater",
+        ItemsRepeater::new().item("row", Button::new().element_ref(row)),
+    ));
+    Grid::new().children(children)
+}
+
+#[test]
+fn subtree_adapter_failures_clear_detached_virtual_and_unrelated_references() {
+    for fail_validate in [true, false] {
+        let nested = ElementRef::default();
+        let reused = ElementRef::default();
+        let row = ElementRef::default();
+        let outside = ElementRef::default();
+        let replacement = ElementRef::default();
+        let mut runtime = Runtime::new(ControlledFailureAdapter::default());
+        runtime
+            .update(Grid::new().children([
+                keyed(
+                    "target",
+                    referenced_failure_subtree(Some(("nested", &nested)), &row),
+                ),
+                keyed("outside", Button::new().element_ref(&outside)),
+            ]))
+            .unwrap();
+        let root = runtime.graph().root().unwrap();
+        let children = runtime
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap();
+        let target = children[0];
+        let collection = runtime
+            .graph()
+            .children(target, RelationId::Children)
+            .unwrap()[1];
+        realize_controlled_virtual_row(&mut runtime, collection).unwrap();
+        let nested_id = nested.get().unwrap();
+
+        runtime
+            .update_subtree(target, referenced_failure_subtree(None, &row))
+            .unwrap();
+        assert_eq!(nested.get(), None);
+        runtime
+            .update_subtree(
+                target,
+                referenced_failure_subtree(Some(("reused", &reused)), &row),
+            )
+            .unwrap();
+        let reused_id = reused.get().unwrap();
+        assert_eq!(reused_id.index(), nested_id.index());
+        assert_ne!(reused_id.generation(), nested_id.generation());
+        assert!(row.get().is_some());
+        assert!(outside.get().is_some());
+
+        runtime.adapter_mut().fail_validate = fail_validate;
+        runtime.adapter_mut().fail_apply = !fail_validate;
+        assert!(matches!(
+            runtime.update_subtree(
+                target,
+                Grid::new().children([keyed(
+                    "replacement",
+                    Button::new().element_ref(&replacement),
+                )])
+            ),
+            Err(UpdateError::Adapter(_))
+        ));
+        assert_eq!(nested.get(), None);
+        assert_eq!(reused.get(), None);
+        assert_eq!(row.get(), None);
+        assert_eq!(outside.get(), None);
+        assert_eq!(replacement.get(), None);
+        assert_eq!(runtime.graph().root(), None);
+        assert_eq!(runtime.update(Grid::new()), Err(UpdateError::Poisoned));
+    }
+}
+
+#[test]
+fn adapter_unwinds_clear_all_retained_references() {
+    for panic_validate in [true, false] {
+        let nested = ElementRef::default();
+        let row = ElementRef::default();
+        let mut runtime = Runtime::new(PanicAdapter::default());
+        runtime
+            .update(referenced_virtual_view(&nested, &row))
+            .unwrap();
+        let root = runtime.graph().root().unwrap();
+        let collection = runtime
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap()[1];
+        runtime
+            .adapter_mut()
+            .inner
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container: RealizedContainer(1),
+                index: 0,
+                source_revision: 0,
+            });
+        runtime.dispatch_native_events().unwrap();
+
+        runtime.adapter_mut().panic_validate = panic_validate;
+        runtime.adapter_mut().panic_apply = !panic_validate;
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            runtime
+                .update(referenced_virtual_view(&nested, &row).width(1.0))
+                .unwrap();
+        }));
+
+        assert!(result.is_err());
+        assert_eq!(nested.get(), None);
+        assert_eq!(row.get(), None);
+        assert_eq!(
+            runtime.update(referenced_virtual_view(&nested, &row)),
+            Err(UpdateError::Poisoned)
+        );
+    }
+}
+
 #[derive(Default)]
 struct CompletionFailAdapter {
     inner: RecordingAdapter,
@@ -3753,6 +4050,77 @@ fn update_peeks_pending_virtual_work_without_consuming_it() {
         });
     assert!(matches!(
         runtime.update(view()),
+        Err(UpdateError::PendingNativeEvent)
+    ));
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.adapter().realized_count(collection), 0);
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+}
+
+#[test]
+fn public_event_api_preserves_virtual_work_until_ordered_dispatch() {
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            ItemsRepeater::new()
+                .item("old", TextBlock::new("old"))
+                .item("new", TextBlock::new("new")),
+        )
+        .unwrap();
+    let collection = runtime.graph().root().unwrap();
+
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 0,
+            source_revision: 0,
+        });
+    assert!(matches!(
+        runtime.next_native_event(),
+        Err(UpdateError::PendingNativeEvent)
+    ));
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.adapter().realized_count(collection), 1);
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Recycle {
+            collection,
+            container: RealizedContainer(1),
+            source_revision: 0,
+        });
+    assert!(matches!(
+        runtime.next_native_event(),
+        Err(UpdateError::PendingNativeEvent)
+    ));
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.adapter().realized_count(collection), 0);
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(2),
+            index: 1,
+            source_revision: 0,
+        });
+    assert!(matches!(
+        runtime.next_native_event(),
+        Err(UpdateError::PendingNativeEvent)
+    ));
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Recycle {
+            collection,
+            container: RealizedContainer(2),
+            source_revision: 0,
+        });
+    assert!(matches!(
+        runtime.next_native_event(),
         Err(UpdateError::PendingNativeEvent)
     ));
     assert_eq!(runtime.dispatch_native_events().unwrap(), 0);

@@ -40,6 +40,7 @@ struct Fixture {
     retirement_runtime: reactor2::Runtime<reactor2::native::WinUiAdapter>,
     retirement_window: reactor2::native::NativeWindow,
     retiring_object: reactor2::ObjectId,
+    retirement_expected_order: Vec<reactor2::ObjectId>,
     retirement_verified: bool,
     received_pointer: Rc<RefCell<Option<reactor2::PointerEventInfo>>>,
     pointer_injected: bool,
@@ -298,7 +299,7 @@ impl Component for Fixture {
         });
         let mut runtime = reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
         let sender = context.sender();
-        runtime.adapter_mut().set_event_waker(move || {
+        runtime.set_native_event_waker(move || {
             sender.send(());
         });
         runtime
@@ -1462,37 +1463,64 @@ impl Component for Fixture {
             .unwrap();
         selection_window.close().unwrap();
 
+        let retirement_children = |reversed: bool, include_retiring: bool| {
+            let mut children = Vec::new();
+            let indices: Box<dyn Iterator<Item = usize>> = if reversed {
+                Box::new((0..64).rev())
+            } else {
+                Box::new(0..64)
+            };
+            for index in indices {
+                if include_retiring && index == 32 {
+                    children.push(reactor2::keyed(
+                        "retiring-owned",
+                        reactor2::Button::new()
+                            .exit_fade(Duration::from_millis(50))
+                            .content(reactor2::TextBlock::new("retiring-owned")),
+                    ));
+                }
+                children.push(reactor2::keyed(
+                    format!("owned-{index}"),
+                    reactor2::TextBlock::new(index.to_string()),
+                ));
+            }
+            reactor2::Grid::new().children(children)
+        };
         let mut retirement_runtime =
             reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
         retirement_runtime
-            .update(
-                reactor2::Grid::new().children([
-                    reactor2::keyed(
-                        "retiring",
-                        reactor2::Button::new()
-                            .exit_fade(Duration::from_millis(50))
-                            .content(reactor2::TextBlock::new("retiring")),
-                    ),
-                    reactor2::keyed("tail", reactor2::TextBlock::new("tail")),
-                ]),
-            )
+            .update(retirement_children(false, true))
             .unwrap();
         let retirement_root = retirement_runtime.graph().root().unwrap();
-        let retiring_object = retirement_runtime
+        let initial_retirement_order = retirement_runtime
             .graph()
             .children(retirement_root, reactor2::RelationId::Children)
-            .unwrap()[0];
+            .unwrap()
+            .to_vec();
+        let retiring_object = initial_retirement_order[32];
+        let retirement_expected_order = initial_retirement_order
+            .iter()
+            .copied()
+            .filter(|object| *object != retiring_object)
+            .rev()
+            .collect::<Vec<_>>();
         let retirement_window = retirement_runtime
             .adapter()
             .create_window(retirement_root)
             .unwrap();
         retirement_window.activate().unwrap();
         retirement_runtime
-            .update(
-                reactor2::Grid::new()
-                    .children([reactor2::keyed("tail", reactor2::TextBlock::new("tail"))]),
-            )
+            .update(retirement_children(true, false))
             .unwrap();
+        let mut physical_with_retirement = retirement_expected_order.clone();
+        physical_with_retirement.insert(32, retiring_object);
+        assert_eq!(
+            retirement_runtime
+                .adapter()
+                .owned_physical_children(retirement_root, reactor2::RelationId::Children)
+                .unwrap(),
+            physical_with_retirement
+        );
         assert_eq!(retirement_runtime.graph().retired_count(), 1);
         assert_eq!(retirement_runtime.adapter().retirement_count(), 1);
         assert!(
@@ -1521,6 +1549,7 @@ impl Component for Fixture {
             retirement_runtime,
             retirement_window,
             retiring_object,
+            retirement_expected_order,
             retirement_verified: false,
             received_pointer,
             pointer_injected: false,
@@ -1556,6 +1585,16 @@ impl Component for Fixture {
                     .adapter()
                     .validate_graph(self.retirement_runtime.graph())
                     .unwrap();
+                assert_eq!(
+                    self.retirement_runtime
+                        .adapter()
+                        .owned_physical_children(
+                            self.retirement_runtime.graph().root().unwrap(),
+                            reactor2::RelationId::Children,
+                        )
+                        .unwrap(),
+                    self.retirement_expected_order
+                );
                 self.retirement_window.close().unwrap();
                 self.retirement_verified = true;
             } else {

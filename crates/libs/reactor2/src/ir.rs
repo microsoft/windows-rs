@@ -39,11 +39,12 @@ pub(crate) struct DeclarationValidator {
 }
 
 impl DeclarationValidator {
-    pub(crate) fn validate(&mut self, root: &Declaration) -> Result<(), GraphError> {
+    pub(crate) fn validate(&mut self, root: &Declaration) -> Result<usize, GraphError> {
         self.references.clear();
         self.keys.clear();
         let mut objects = 0;
-        validate_object(root, 0, &mut objects, &mut self.references, &mut self.keys)
+        validate_object(root, 0, &mut objects, &mut self.references, &mut self.keys)?;
+        Ok(objects)
     }
 }
 

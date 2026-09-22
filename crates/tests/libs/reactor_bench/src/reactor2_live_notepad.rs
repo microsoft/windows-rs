@@ -236,8 +236,7 @@ fn create_harness(
         .as_mut()
         .unwrap()
         .runtime
-        .adapter_mut()
-        .set_event_waker(move || process_events(&event_holder));
+        .set_native_event_waker(move || process_events(&event_holder));
 
     let window = holder.borrow().as_ref().unwrap().window.clone();
     window.activate().unwrap();

@@ -349,6 +349,21 @@ impl<R: NativeRuntime> Pump<R> {
         &self.runtime
     }
 
+    #[cfg(any(test, feature = "test"))]
+    pub fn retained_node_count(&self) -> usize {
+        self.tree.retained_node_count()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn retained_node_size(&self) -> usize {
+        self.tree.retained_node_size()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn retained_arena_slot_size(&self) -> usize {
+        self.tree.arena_slot_size()
+    }
+
     pub fn drain_diagnostics(&mut self) -> Vec<PumpDiagnostic> {
         self.diagnostics.drain(..).collect()
     }

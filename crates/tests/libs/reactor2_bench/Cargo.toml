@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 windows-reactor = { workspace = true, features = ["test"] }
-windows-reactor2 = { workspace = true }
+windows-reactor2 = { workspace = true, features = ["test"] }
 
 [lints]
 workspace = true

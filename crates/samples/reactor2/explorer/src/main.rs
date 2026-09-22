@@ -389,7 +389,7 @@ impl Host {
             _ = wake.invoke();
         });
         let wake = drain;
-        host.runtime_mut().adapter_mut().set_event_waker(move || {
+        host.set_native_event_waker(move || {
             _ = wake.invoke();
         });
         let root = host.runtime().graph().root().unwrap();

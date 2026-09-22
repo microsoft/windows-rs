@@ -1750,6 +1750,8 @@ impl WinUiRuntime {
                     .ok_or(RuntimeError::MissingNode(*node))?
                     .Activate()
                     .map_err(native_error)?;
+                #[cfg(feature = "test")]
+                test::record_live_window_activation();
             }
             Command::RequestWindowActivation { node } => {
                 let window = self
