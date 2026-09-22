@@ -154,7 +154,7 @@ events, typed pointer events, and visual theme-transition collections.
 reads the old schema only for that explicit command, merges metadata-backed direct contracts into
 the current Reactor2 schema, and writes ordinary Reactor2 TOML to standard output. Normal
 generation reads only `schema.toml`. The strict parity report currently accounts for 79/79
-controls, 191/233 properties, 37/68 events, 42/42 slots, 3/3 selection contracts, 153/158
+controls, 191/233 properties, 37/68 events, 42/42 slots, 3/3 selection contracts, 157/158
 capabilities, and 0/2 lifecycle contracts. It includes inspectable strings and string lists,
 distinct NumberBox and RatingControl optional numeric values, checked selection indices,
 controlled and coercing property feedback backed by native events, and renamed event-builder
@@ -226,6 +226,16 @@ properties are represented; TextBlock font weight uses a checked `FontWeight` va
 An `ElementRef` may occur once in a declaration tree. Validation rejects duplicates before native
 mutation, while conditional cleanup makes transfers, replacement, detachment, and destruction
 independent of reconciliation order.
+
+Grid, Image, WebView2, and SwapChainPanel use generated typed reference attachment. Their
+imperative APIs cover composition child visuals, native image sources, CoreWebView2
+initialization, swap-chain assignment, rendering requests, and native metric observations.
+References publish only after a native transaction commits. Each binding has a generation used by
+queued requests, asynchronous completions, and observation callbacks, so work from an earlier
+object cannot reach a rebound reference. Observation handles revoke their native subscriptions on
+drop. Queue overflow, shutdown, runtime poison, and runtime drop complete pending one-shot
+requests as unavailable rather than leaving them unresolved. Native observation failures enter the
+adapter error stream and poison the runtime through the same boundary as other adapter failures.
 
 Hand-authored properties with a schema default restore that explicit value when removed. Imported
 properties without a known default clear the declaring dependency property instead, allowing the

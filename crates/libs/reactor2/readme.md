@@ -35,7 +35,10 @@ Shared visual builders cover min/max sizing, Grid, RelativePanel, and Canvas pla
 automation metadata, and enabled state. Focus-capable controls accept an `ElementRef`;
 `Runtime::focus` validates the generated capability contract before issuing the adapter command.
 An `ElementRef` may appear once in a declaration tree; moving it between objects updates the
-reference without depending on reconciliation order.
+reference without depending on reconciliation order. Typed references for Grid, Image, WebView2,
+and SwapChainPanel expose their native integration commands and observations. Binding generations
+reject queued work and asynchronous completion after a reference moves, and dropping the runtime
+completes pending requests as unavailable.
 `exit_fade` removes a subtree from active identity immediately while retaining its native objects
 until the WinUI fade completes. Completion shares the ordered native-occurrence stream with
 observations and callbacks, so timer completion cannot overtake an earlier native event. References

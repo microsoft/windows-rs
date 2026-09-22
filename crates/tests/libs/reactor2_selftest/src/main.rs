@@ -311,6 +311,89 @@ impl Component for Fixture {
             .unwrap();
         let root = runtime.graph().root().unwrap();
         let window = runtime.adapter().open_window(root).unwrap();
+        let grid_reference = reactor2::ElementRef::<reactor2::Grid>::new();
+        let image_reference = reactor2::ElementRef::<reactor2::Image>::new();
+        let webview_reference = reactor2::ElementRef::<reactor2::WebView2>::new();
+        let surface_reference = reactor2::ElementRef::<reactor2::SwapChainPanel>::new();
+        let composition_events = Rc::new(Cell::new(0));
+        let composition_callback = Rc::clone(&composition_events);
+        let composition_observation = grid_reference.observe_composition_host(move |_| {
+            composition_callback.set(composition_callback.get() + 1);
+        });
+        let image_events = Rc::new(Cell::new(0));
+        let image_callback = Rc::clone(&image_events);
+        let image_observation = image_reference.observe_rasterization_scale(move |_| {
+            image_callback.set(image_callback.get() + 1);
+        });
+        let surface_events = Rc::new(Cell::new(0));
+        let surface_callback = Rc::clone(&surface_events);
+        let surface_observation = surface_reference.observe_surface(move |_| {
+            surface_callback.set(surface_callback.get() + 1);
+        });
+        let mut reference_runtime =
+            reactor2::Runtime::new(reactor2::native::WinUiAdapter::default());
+        reference_runtime
+            .update(
+                reactor2::Grid::new()
+                    .element_ref(&grid_reference)
+                    .children([
+                        reactor2::keyed(
+                            "image",
+                            reactor2::Image::new().element_ref(&image_reference),
+                        ),
+                        reactor2::keyed(
+                            "webview",
+                            reactor2::WebView2::new().element_ref(&webview_reference),
+                        ),
+                        reactor2::keyed(
+                            "surface",
+                            reactor2::SwapChainPanel::new().element_ref(&surface_reference),
+                        ),
+                    ]),
+            )
+            .unwrap();
+        let reference_root = reference_runtime.graph().root().unwrap();
+        let reference_window = reference_runtime
+            .adapter()
+            .open_window(reference_root)
+            .unwrap();
+        let composition_results = Rc::new(RefCell::new(Vec::new()));
+        let composition_completion = Rc::clone(&composition_results);
+        assert!(
+            grid_reference.request_set_child_visual(None, move |result| {
+                composition_completion.borrow_mut().push(result);
+            })
+        );
+        let image_results = Rc::new(RefCell::new(Vec::new()));
+        let image_completion = Rc::clone(&image_results);
+        assert!(
+            image_reference.request_set_native_source(None, move |result| {
+                image_completion.borrow_mut().push(result);
+            })
+        );
+        let surface_results = Rc::new(RefCell::new(Vec::new()));
+        let surface_completion = Rc::clone(&surface_results);
+        assert!(surface_reference.request_clear_swap_chain(move |result| {
+            surface_completion.borrow_mut().push(result);
+        }));
+        let webview_results = Rc::new(Cell::new(0));
+        let webview_completion = Rc::clone(&webview_results);
+        assert!(webview_reference.request_core_web_view2(move |_| {
+            webview_completion.set(webview_completion.get() + 1);
+        }));
+        reference_runtime.dispatch_native_events().unwrap();
+        assert!(!composition_results.borrow().is_empty());
+        assert!(!image_results.borrow().is_empty());
+        assert!(!surface_results.borrow().is_empty());
+        assert!(composition_events.get() != 0);
+        assert!(surface_events.get() != 0);
+        drop(composition_observation);
+        drop(image_observation);
+        drop(surface_observation);
+        reference_runtime.dispatch_native_events().unwrap();
+        reference_window.close().unwrap();
+        drop(reference_runtime);
+        assert_eq!(webview_results.get(), 1);
         let boundary_host = reactor2::ComponentHost::mount(
             reactor2::native::WinUiAdapter::default(),
             [

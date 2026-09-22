@@ -1,5 +1,6 @@
 use super::*;
 use std::any::{Any, TypeId};
+#[cfg(test)]
 use std::cell::Cell;
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::Rc;
@@ -38,44 +39,6 @@ struct ContextValue {
 pub struct ComponentId {
     index: u32,
     generation: u32,
-}
-
-#[derive(Clone, Default)]
-pub struct ElementRef(Rc<Cell<Option<ObjectId>>>);
-
-impl std::fmt::Debug for ElementRef {
-    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        formatter
-            .debug_tuple("ElementRef")
-            .field(&self.get())
-            .finish()
-    }
-}
-
-impl PartialEq for ElementRef {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.0, &other.0)
-    }
-}
-
-impl ElementRef {
-    pub fn get(&self) -> Option<ObjectId> {
-        self.0.get()
-    }
-
-    pub(crate) fn set(&self, object: Option<ObjectId>) {
-        self.0.set(object);
-    }
-
-    pub(crate) fn clear(&self, object: ObjectId) {
-        if self.get() == Some(object) {
-            self.set(None);
-        }
-    }
-
-    pub(crate) fn identity(&self) -> usize {
-        Rc::as_ptr(&self.0) as usize
-    }
 }
 
 struct Message {

@@ -1148,9 +1148,16 @@ pub trait Adapter {
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
         None
     }
+    fn take_error(&mut self) -> Option<Self::Error> {
+        None
+    }
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error>;
     fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error>;
     fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error>;
+    fn imperative(&mut self, request: ImperativeRequest) -> Result<(), Self::Error> {
+        request.complete_unavailable();
+        Ok(())
+    }
 }
 
 enum GraphUndo {
@@ -1482,7 +1489,15 @@ pub struct Runtime<A> {
     virtual_refreshes: VecDeque<RealizationRequest>,
     validator: DeclarationValidator,
     native_event_active: Rc<Cell<bool>>,
+    references: ReferenceEndpoint,
     poisoned: bool,
+}
+
+impl<A> Drop for Runtime<A> {
+    fn drop(&mut self) {
+        self.graph.clear_references();
+        self.references.clear();
+    }
 }
 
 impl<A: Adapter> Runtime<A> {
@@ -1495,6 +1510,7 @@ impl<A: Adapter> Runtime<A> {
             virtual_refreshes: VecDeque::new(),
             validator: DeclarationValidator::default(),
             native_event_active: Rc::new(Cell::new(false)),
+            references: ReferenceEndpoint::new(),
             poisoned: false,
         }
     }
@@ -1529,6 +1545,7 @@ impl<A: Adapter> Runtime<A> {
         self.mutations.clear();
         self.native_events.clear();
         self.virtual_refreshes.clear();
+        self.references.clear();
     }
 
     pub(crate) fn poison_and_discard_all(&mut self) {
@@ -1553,7 +1570,32 @@ impl<A: Adapter> Runtime<A> {
         self.adapter.focus(object).map_err(UpdateError::Adapter)
     }
 
+    pub(crate) fn set_imperative_waker(&self, waker: impl Fn() + 'static) {
+        self.references.set_waker(waker);
+    }
+
+    fn dispatch_imperative(&mut self) -> Result<bool, UpdateError<A::Error>> {
+        let Some(queued) = self.references.pop() else {
+            return Ok(false);
+        };
+        let revoke = matches!(queued.request, ImperativeRequest::RevokeObservation { .. });
+        let available = self.graph.kind(queued.object).is_some() && (revoke || queued.is_current());
+        if !available {
+            queued.request.complete_unavailable();
+            return Ok(true);
+        }
+        if let Err(error) = self.adapter.imperative(queued.request) {
+            self.poison_and_discard_all();
+            return Err(UpdateError::Adapter(error));
+        }
+        Ok(true)
+    }
+
     fn preview_native_events(&mut self) -> Result<(), UpdateError<A::Error>> {
+        if let Some(error) = self.adapter.take_error() {
+            self.poison_and_discard_all();
+            return Err(UpdateError::Adapter(error));
+        }
         self.native_events.clear();
         self.adapter.preview_native_events(&mut self.native_events);
         if self.native_events.is_empty() {
@@ -1706,6 +1748,12 @@ impl<A: Adapter> Runtime<A> {
                 return Ok(Some(NativeWork::Virtual(work)));
             }
             if self.virtual_refreshes.is_empty() {
+                for _ in 0..64 {
+                    if !self.dispatch_imperative()? {
+                        return Ok(None);
+                    }
+                }
+                self.references.wake();
                 return Ok(None);
             }
         }
@@ -1970,7 +2018,7 @@ impl<A: Adapter> Runtime<A> {
         }
         transaction.commit();
         self.poisoned = false;
-        apply_reference_changes(references);
+        apply_reference_changes(&self.references, references);
         Ok(self.mutations.clone())
     }
 
@@ -2056,7 +2104,7 @@ impl<A: Adapter> Runtime<A> {
         }
         transaction.commit();
         self.poisoned = false;
-        apply_reference_changes(references);
+        apply_reference_changes(&self.references, references);
         Ok(self.mutations.clone())
     }
 
@@ -2164,7 +2212,7 @@ impl<A: Adapter> Runtime<A> {
         }
         transaction.commit();
         self.poisoned = false;
-        apply_reference_changes(references);
+        apply_reference_changes(&self.references, references);
         self.virtual_refreshes.extend(virtual_refreshes);
         let mutations = self.mutations.clone();
         if self.mutations.capacity() > 256 {
@@ -2289,7 +2337,7 @@ impl<A: Adapter> Runtime<A> {
         }
         transaction.commit();
         self.poisoned = false;
-        apply_reference_changes(references);
+        apply_reference_changes(&self.references, references);
         self.virtual_refreshes.extend(virtual_refreshes);
         let mutations = self.mutations.clone();
         if self.mutations.capacity() > 256 {
@@ -2363,7 +2411,7 @@ impl<A: Adapter> Runtime<A> {
         }
         transaction.commit();
         self.poisoned = false;
-        apply_reference_changes(references);
+        apply_reference_changes(&self.references, references);
         let mutations = self.mutations.clone();
         if self.mutations.capacity() > 256 {
             self.mutations = Vec::with_capacity(256);
@@ -2442,11 +2490,11 @@ fn detached_references(changes: &[ReferenceChange]) -> Vec<(ElementRef, ObjectId
         .collect()
 }
 
-fn apply_reference_changes(changes: Vec<ReferenceChange>) {
+fn apply_reference_changes(endpoint: &ReferenceEndpoint, changes: Vec<ReferenceChange>) {
     for change in changes {
         match change {
             ReferenceChange::Clear { reference, object } => reference.clear(object),
-            ReferenceChange::Set { reference, object } => reference.set(Some(object)),
+            ReferenceChange::Set { reference, object } => reference.bind(endpoint.clone(), object),
         }
     }
 }

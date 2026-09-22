@@ -1,10 +1,11 @@
 use super::bindings as native;
 use crate::reconcile::{FeedbackExpectation, FeedbackState};
 use crate::{
-    Adapter, ComponentHost, Event, EventDispatch, EventId, EventPayload, EventValue, GridLength,
-    GridLengthSize, Mutation, NativeEvent, ObjectId, ObjectType, Observation, Property, PropertyId,
-    PropertyValue, Realization, RealizationRequest, RealizedContainer, RelationContract,
-    RelationId, RetirementCompletion, Runtime, SelectionContract, relation_contracts,
+    Adapter, Callback, ComponentHost, CompositionHostEvent, Event, EventDispatch, EventId,
+    EventPayload, EventValue, GridLength, GridLengthSize, ImperativeRequest, IntegrationError,
+    Mutation, NativeEvent, ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue,
+    Realization, RealizationRequest, RealizedContainer, RelationContract, RelationId,
+    RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, relation_contracts,
     selection_for_item_property, selection_for_relation,
 };
 use native::IElementFactory;
@@ -46,7 +47,7 @@ struct NativeTextBox {
 
 struct NativeValueEvent<T> {
     revision: u64,
-    callback: Option<crate::Callback<T>>,
+    callback: Option<Callback<T>>,
 }
 
 impl<T> Default for NativeValueEvent<T> {
@@ -94,10 +95,35 @@ struct NativeSelectionItem {
 #[derive(Default)]
 struct NativeEventQueue {
     events: RefCell<VecDeque<QueuedNativeEvent>>,
+    errors: RefCell<VecDeque<WinUiError>>,
     feedback: RefCell<FeedbackState>,
     selection_items: RefCell<Vec<NativeSelectionItem>>,
     waker: RefCell<Option<Rc<dyn Fn()>>>,
     wake_pending: Cell<bool>,
+}
+
+enum ObservationSubscription {
+    SwapChainPanel {
+        _rendering: windows_core::EventRevoker,
+        _scale: windows_core::EventRevoker,
+        _size: windows_core::EventRevoker,
+    },
+    ImageScale {
+        _changed: Rc<RefCell<Option<windows_core::EventRevoker>>>,
+        _loaded: windows_core::EventRevoker,
+    },
+    CompositionHost {
+        _changed: Rc<RefCell<Option<windows_core::EventRevoker>>>,
+        _loaded: windows_core::EventRevoker,
+        _size: windows_core::EventRevoker,
+    },
+}
+
+struct WebViewInitialization {
+    _action: Option<windows_future::IAsyncAction>,
+    _loaded: Option<windows_core::EventRevoker>,
+    _initialized: windows_core::EventRevoker,
+    completions: Vec<Callback<Result<windows_core::IUnknown, IntegrationError>>>,
 }
 
 impl NativeEventQueue {
@@ -695,6 +721,57 @@ fn solid_color_brush(value: crate::Color) -> Result<native::SolidColorBrush, Win
     Ok(brush)
 }
 
+fn integration_error(error: windows_core::Error) -> IntegrationError {
+    IntegrationError::Native(error.code().0)
+}
+
+fn complete_webview_initialization(
+    initializations: &Rc<RefCell<HashMap<ObjectId, WebViewInitialization>>>,
+    object: ObjectId,
+    result: Result<windows_core::IUnknown, IntegrationError>,
+) {
+    if let Some(initialization) = initializations.borrow_mut().remove(&object) {
+        for completion in initialization.completions {
+            completion.call(result.clone());
+        }
+    }
+}
+
+fn xaml_scale(element: &native::UIElement) -> windows_core::Result<f64> {
+    match element.XamlRoot() {
+        Ok(root) => root.RasterizationScale(),
+        Err(error) if error.code().is_ok() => Ok(1.0),
+        Err(error) => Err(error),
+    }
+}
+
+fn observe_xaml_scale(
+    element: &native::UIElement,
+    changed: &Rc<RefCell<Option<windows_core::EventRevoker>>>,
+    errors: &Rc<NativeEventQueue>,
+    callback: Callback<f64>,
+) -> windows_core::Result<()> {
+    let root = match element.XamlRoot() {
+        Ok(root) => root,
+        Err(error) if error.code().is_ok() => return Ok(()),
+        Err(error) => return Err(error),
+    };
+    callback.call(root.RasterizationScale()?);
+    let callback_root = callback;
+    let callback_errors = Rc::clone(errors);
+    changed.replace(Some(root.Changed(move |sender, _| {
+        let result = sender
+            .as_ref()
+            .ok_or_else(windows_core::Error::empty)
+            .and_then(|sender| sender.RasterizationScale());
+        match result {
+            Ok(scale) => callback_root.call(scale),
+            Err(error) => callback_errors.errors.borrow_mut().push_back(error.into()),
+        }
+    })?));
+    Ok(())
+}
+
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
@@ -704,6 +781,8 @@ pub struct WinUiAdapter {
     event_queue: Rc<NativeEventQueue>,
     retirements: HashMap<ObjectId, NativeRetirement>,
     virtual_items: HashMap<ObjectId, NativeVirtualItems>,
+    observations: HashMap<(ObjectId, u64), ObservationSubscription>,
+    webview_initializations: Rc<RefCell<HashMap<ObjectId, WebViewInitialization>>>,
 }
 
 struct NativeRetirement {
@@ -725,6 +804,8 @@ impl Default for WinUiAdapter {
             event_queue: Rc::new(NativeEventQueue::default()),
             retirements: HashMap::new(),
             virtual_items: HashMap::new(),
+            observations: HashMap::new(),
+            webview_initializations: Rc::new(RefCell::new(HashMap::new())),
         }
     }
 }
@@ -736,6 +817,14 @@ impl Drop for WinUiAdapter {
         }
         self.retirements.clear();
         self.event_queue.events.borrow_mut().clear();
+        self.observations.clear();
+        for initialization in
+            std::mem::take(&mut *self.webview_initializations.borrow_mut()).into_values()
+        {
+            for completion in initialization.completions {
+                completion.call(Err(IntegrationError::Unavailable));
+            }
+        }
     }
 }
 
@@ -3089,7 +3178,10 @@ impl WinUiAdapter {
 
 impl Runtime<WinUiAdapter> {
     pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
-        self.adapter_mut().set_event_waker(waker);
+        let waker = Rc::new(waker);
+        let native = Rc::clone(&waker);
+        self.adapter_mut().set_event_waker(move || native());
+        self.set_imperative_waker(move || waker());
     }
 }
 
@@ -3119,6 +3211,10 @@ impl Adapter for WinUiAdapter {
                 return Some(event);
             }
         }
+    }
+
+    fn take_error(&mut self) -> Option<Self::Error> {
+        self.event_queue.errors.borrow_mut().pop_front()
     }
 
     fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {
@@ -3245,6 +3341,15 @@ impl Adapter for WinUiAdapter {
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
                     self.virtual_items.remove(object);
+                    self.observations
+                        .retain(|(observed, _), _| *observed != *object);
+                    if let Some(initialization) =
+                        self.webview_initializations.borrow_mut().remove(object)
+                    {
+                        for completion in initialization.completions {
+                            completion.call(Err(IntegrationError::Unavailable));
+                        }
+                    }
                     self.event_queue
                         .feedback
                         .borrow_mut()
@@ -3264,6 +3369,391 @@ impl Adapter for WinUiAdapter {
             .cast::<native::IUIElement>()?
             .Focus(native::FocusState::Programmatic)
             .map_err(Into::into)
+    }
+
+    fn imperative(&mut self, request: ImperativeRequest) -> Result<(), Self::Error> {
+        match request {
+            ImperativeRequest::InitializeWebView2 { object, completion } => {
+                let Some(Handle::Generated(GeneratedHandle::WebView2(control))) =
+                    self.handles.get(&object)
+                else {
+                    completion.call(Err(IntegrationError::Unavailable));
+                    return Ok(());
+                };
+                if let Ok(core) = control.CoreWebView2() {
+                    completion.call(Ok(core.into()));
+                    return Ok(());
+                }
+                if let Some(initialization) =
+                    self.webview_initializations.borrow_mut().get_mut(&object)
+                {
+                    initialization.completions.push(completion);
+                    return Ok(());
+                }
+                let setup = (|| {
+                    let initializations = Rc::clone(&self.webview_initializations);
+                    let initialized = control.CoreWebView2Initialized(move |sender, _| {
+                        let result = sender
+                            .as_ref()
+                            .ok_or_else(windows_core::Error::empty)
+                            .and_then(|control| control.CoreWebView2())
+                            .map(Into::into)
+                            .map_err(integration_error);
+                        complete_webview_initialization(&initializations, object, result);
+                    })?;
+                    let framework = control.cast::<native::IFrameworkElement>()?;
+                    let is_loaded = framework.IsLoaded()?;
+                    Ok::<_, windows_core::Error>((initialized, framework, is_loaded))
+                })();
+                let (initialized, framework, is_loaded) = match setup {
+                    Ok(setup) => setup,
+                    Err(error) => {
+                        completion.call(Err(integration_error(error)));
+                        return Ok(());
+                    }
+                };
+                let loaded = if is_loaded {
+                    None
+                } else {
+                    let control = control.clone();
+                    let initializations = Rc::clone(&self.webview_initializations);
+                    let loaded = framework.Loaded(move |_, _| {
+                        let result = control.EnsureCoreWebView2Async();
+                        match result {
+                            Ok(action) => {
+                                if let Some(initialization) =
+                                    initializations.borrow_mut().get_mut(&object)
+                                {
+                                    initialization._action = Some(action);
+                                }
+                            }
+                            Err(error) => complete_webview_initialization(
+                                &initializations,
+                                object,
+                                Err(integration_error(error)),
+                            ),
+                        }
+                    });
+                    match loaded {
+                        Ok(loaded) => Some(loaded),
+                        Err(error) => {
+                            completion.call(Err(integration_error(error)));
+                            return Ok(());
+                        }
+                    }
+                };
+                self.webview_initializations.borrow_mut().insert(
+                    object,
+                    WebViewInitialization {
+                        _action: None,
+                        _loaded: loaded,
+                        _initialized: initialized,
+                        completions: vec![completion],
+                    },
+                );
+                if is_loaded {
+                    match control.EnsureCoreWebView2Async() {
+                        Ok(action) => {
+                            if let Some(initialization) =
+                                self.webview_initializations.borrow_mut().get_mut(&object)
+                            {
+                                initialization._action = Some(action);
+                            }
+                        }
+                        Err(error) => complete_webview_initialization(
+                            &self.webview_initializations,
+                            object,
+                            Err(integration_error(error)),
+                        ),
+                    }
+                }
+            }
+            ImperativeRequest::ObserveSwapChainPanel {
+                object,
+                observation,
+                binding,
+                callback,
+            } => {
+                let Some(Handle::Generated(GeneratedHandle::SwapChainPanel(control))) =
+                    self.handles.get(&object)
+                else {
+                    return Ok(());
+                };
+                let element = control.cast::<native::IFrameworkElement>()?;
+                callback.call(SwapChainPanelEvent::Metrics {
+                    binding,
+                    width: element.ActualWidth().unwrap_or(0.0),
+                    height: element.ActualHeight().unwrap_or(0.0),
+                    scale_x: control.CompositionScaleX().unwrap_or(1.0),
+                    scale_y: control.CompositionScaleY().unwrap_or(1.0),
+                });
+                let size_callback = callback.clone();
+                let size_control = control.clone();
+                let size = element.SizeChanged(move |_, args| {
+                    if let Some(args) = args.as_ref()
+                        && let Ok(size) = args.NewSize()
+                    {
+                        size_callback.call(SwapChainPanelEvent::Metrics {
+                            binding,
+                            width: f64::from(size.width),
+                            height: f64::from(size.height),
+                            scale_x: size_control.CompositionScaleX().unwrap_or(1.0),
+                            scale_y: size_control.CompositionScaleY().unwrap_or(1.0),
+                        });
+                    }
+                })?;
+                let scale_callback = callback.clone();
+                let scale_element = element;
+                let scale = control.CompositionScaleChanged(move |sender, _| {
+                    if let Some(sender) = sender.as_ref() {
+                        scale_callback.call(SwapChainPanelEvent::Metrics {
+                            binding,
+                            width: scale_element.ActualWidth().unwrap_or(0.0),
+                            height: scale_element.ActualHeight().unwrap_or(0.0),
+                            scale_x: sender.CompositionScaleX().unwrap_or(1.0),
+                            scale_y: sender.CompositionScaleY().unwrap_or(1.0),
+                        });
+                    }
+                })?;
+                let rendering_callback = callback;
+                let rendering = native::CompositionTarget::Rendering(move |_, _| {
+                    rendering_callback.call(SwapChainPanelEvent::Rendering);
+                })?;
+                self.observations.insert(
+                    (object, observation),
+                    ObservationSubscription::SwapChainPanel {
+                        _rendering: rendering,
+                        _scale: scale,
+                        _size: size,
+                    },
+                );
+            }
+            ImperativeRequest::RequestSwapChainPanelFrame { object, completion } => {
+                if !matches!(
+                    self.handles.get(&object),
+                    Some(Handle::Generated(GeneratedHandle::SwapChainPanel(_)))
+                ) {
+                    completion.call(Err(IntegrationError::Unavailable));
+                    return Ok(());
+                }
+                let queued_completion = completion.clone();
+                let queued = native::DispatcherQueue::GetForCurrentThread().and_then(|queue| {
+                    queue.TryEnqueueWithPriority(
+                        native::DispatcherQueuePriority::Normal,
+                        &native::DispatcherQueueHandler::new(move || {
+                            queued_completion.call(Ok(()));
+                        }),
+                    )
+                });
+                match queued {
+                    Ok(true) => {}
+                    Ok(false) => completion.call(Err(IntegrationError::Unavailable)),
+                    Err(error) => completion.call(Err(integration_error(error))),
+                }
+            }
+            ImperativeRequest::SetSwapChain {
+                object,
+                swap_chain,
+                completion,
+            } => {
+                let result = match self.handles.get(&object) {
+                    Some(Handle::Generated(GeneratedHandle::SwapChainPanel(control))) => control
+                        .cast::<native::ISwapChainPanelNative>()
+                        .and_then(|panel| unsafe {
+                            panel
+                                .SetSwapChain(
+                                    swap_chain
+                                        .as_ref()
+                                        .map_or(std::ptr::null_mut(), Interface::as_raw),
+                                )
+                                .ok()
+                        }),
+                    _ => Err(windows_core::Error::new(
+                        HRESULT(0x8000000E_u32 as i32),
+                        "swap-chain panel unavailable",
+                    )),
+                }
+                .map_err(integration_error);
+                completion.call(result);
+            }
+            ImperativeRequest::SetNativeImageSource {
+                object,
+                source,
+                completion,
+            } => {
+                let result = match self.handles.get(&object) {
+                    Some(Handle::Generated(GeneratedHandle::Image(control))) => source
+                        .as_ref()
+                        .map(|source| source.cast::<native::ImageSource>())
+                        .transpose()
+                        .and_then(|source| control.value.SetSource(source.as_ref())),
+                    _ => Err(windows_core::Error::new(
+                        HRESULT(0x8000000E_u32 as i32),
+                        "image unavailable",
+                    )),
+                }
+                .map_err(integration_error);
+                completion.call(result);
+            }
+            ImperativeRequest::ObserveImageScale {
+                object,
+                observation,
+                callback,
+            } => {
+                let Some(Handle::Generated(GeneratedHandle::Image(control))) =
+                    self.handles.get(&object)
+                else {
+                    return Ok(());
+                };
+                let element = control.value.cast::<native::UIElement>()?;
+                let framework = control.value.cast::<native::IFrameworkElement>()?;
+                let changed = Rc::new(RefCell::new(None));
+                observe_xaml_scale(&element, &changed, &self.event_queue, callback.clone())?;
+                let loaded_element = element;
+                let loaded_changed = Rc::clone(&changed);
+                let loaded_errors = Rc::clone(&self.event_queue);
+                let loaded = framework.Loaded(move |_, _| {
+                    if let Err(error) = observe_xaml_scale(
+                        &loaded_element,
+                        &loaded_changed,
+                        &loaded_errors,
+                        callback.clone(),
+                    ) {
+                        loaded_errors.errors.borrow_mut().push_back(error.into());
+                    }
+                })?;
+                self.observations.insert(
+                    (object, observation),
+                    ObservationSubscription::ImageScale {
+                        _changed: changed,
+                        _loaded: loaded,
+                    },
+                );
+            }
+            ImperativeRequest::ObserveCompositionHost {
+                object,
+                observation,
+                callback,
+            } => {
+                let Some(Handle::Generated(GeneratedHandle::Grid(control))) =
+                    self.handles.get(&object)
+                else {
+                    return Ok(());
+                };
+                let element = control.cast::<native::UIElement>()?;
+                let framework = control.cast::<native::IFrameworkElement>()?;
+                let visual = native::ElementCompositionPreview::GetElementVisual(&element)?;
+                let compositor = visual.cast::<native::ICompositionObject>()?.Compositor()?;
+                callback.call(CompositionHostEvent::Ready {
+                    compositor: compositor.into(),
+                    width: framework.ActualWidth().unwrap_or(0.0),
+                    height: framework.ActualHeight().unwrap_or(0.0),
+                    scale: xaml_scale(&element)?,
+                });
+                let size_callback = callback.clone();
+                let size_element = element.clone();
+                let size_errors = Rc::clone(&self.event_queue);
+                let size = framework.SizeChanged(move |_, args| {
+                    if let Some(args) = args.as_ref()
+                        && let Ok(value) = args.NewSize()
+                    {
+                        match xaml_scale(&size_element) {
+                            Ok(scale) => size_callback.call(CompositionHostEvent::Metrics {
+                                width: f64::from(value.width),
+                                height: f64::from(value.height),
+                                scale,
+                            }),
+                            Err(error) => {
+                                size_errors.errors.borrow_mut().push_back(error.into());
+                            }
+                        }
+                    }
+                })?;
+                let changed = Rc::new(RefCell::new(None));
+                let scale_callback = callback.clone();
+                let scale_framework = framework.clone();
+                observe_xaml_scale(
+                    &element,
+                    &changed,
+                    &self.event_queue,
+                    Callback::new(move |scale| {
+                        scale_callback.call(CompositionHostEvent::Metrics {
+                            width: scale_framework.ActualWidth().unwrap_or(0.0),
+                            height: scale_framework.ActualHeight().unwrap_or(0.0),
+                            scale,
+                        });
+                    }),
+                )?;
+                let loaded_element = element;
+                let loaded_changed = Rc::clone(&changed);
+                let loaded_errors = Rc::clone(&self.event_queue);
+                let loaded_callback = callback;
+                let loaded_framework = framework;
+                let loaded = loaded_framework.clone().Loaded(move |_, _| {
+                    let framework = loaded_framework.clone();
+                    if let Err(error) = observe_xaml_scale(
+                        &loaded_element,
+                        &loaded_changed,
+                        &loaded_errors,
+                        Callback::new({
+                            let callback = loaded_callback.clone();
+                            move |scale| {
+                                callback.call(CompositionHostEvent::Metrics {
+                                    width: framework.ActualWidth().unwrap_or(0.0),
+                                    height: framework.ActualHeight().unwrap_or(0.0),
+                                    scale,
+                                });
+                            }
+                        }),
+                    ) {
+                        loaded_errors.errors.borrow_mut().push_back(error.into());
+                    }
+                })?;
+                self.observations.insert(
+                    (object, observation),
+                    ObservationSubscription::CompositionHost {
+                        _changed: changed,
+                        _loaded: loaded,
+                        _size: size,
+                    },
+                );
+            }
+            ImperativeRequest::RevokeObservation {
+                object,
+                observation,
+            } => {
+                self.observations.remove(&(object, observation));
+            }
+            ImperativeRequest::SetCompositionChildVisual {
+                object,
+                visual,
+                completion,
+            } => {
+                let result = match self.handles.get(&object) {
+                    Some(Handle::Generated(GeneratedHandle::Grid(control))) => {
+                        control.cast::<native::UIElement>().and_then(|element| {
+                            visual
+                                .as_ref()
+                                .map(|visual| visual.cast::<native::Visual>())
+                                .transpose()
+                                .and_then(|visual| {
+                                    native::ElementCompositionPreview::SetElementChildVisual(
+                                        &element,
+                                        visual.as_ref(),
+                                    )
+                                })
+                        })
+                    }
+                    _ => Err(windows_core::Error::new(
+                        HRESULT(0x8000000E_u32 as i32),
+                        "composition host unavailable",
+                    )),
+                }
+                .map_err(integration_error);
+                completion.call(result);
+            }
+        }
+        Ok(())
     }
 }
 
@@ -3643,7 +4133,7 @@ mod tests {
         let object = runtime.graph().root().unwrap();
         let event = Rc::new(RefCell::new(NativePointerEventInfoEvent {
             revision: 7,
-            callback: Some(crate::Callback::new(|_| {})),
+            callback: Some(Callback::new(|_| {})),
         }));
         let event_queue = Rc::new(NativeEventQueue::default());
         let payload = crate::PointerEventInfo {

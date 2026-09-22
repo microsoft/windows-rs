@@ -35,6 +35,8 @@ struct Capabilities {
     #[serde(default)]
     focus: Vec<String>,
     #[serde(default)]
+    reference: Vec<String>,
+    #[serde(default)]
     text_style: Vec<String>,
 }
 
@@ -468,6 +470,7 @@ fn validate(schema: &Schema) {
     for (capability, members) in [
         ("enabled", &schema.capabilities.enabled),
         ("focus", &schema.capabilities.focus),
+        ("reference", &schema.capabilities.reference),
         ("text_style", &schema.capabilities.text_style),
     ] {
         let mut unique = BTreeSet::new();
@@ -2902,6 +2905,12 @@ fn generate_declarations(
          self.0.reference = Some(reference.clone());\nself\n}\n",
     );
     output.push_str("}; }\n");
+    output.push_str("macro_rules! reference_methods { ($type:ty) => {\n");
+    output.push_str(
+        "pub fn element_ref(mut self, reference: &ElementRef<$type>) -> Self {\n\
+         self.0.reference = Some(reference.erased());\nself\n}\n",
+    );
+    output.push_str("}; }\n");
     output.push_str("macro_rules! visual_methods { () => {\n");
     output.push_str(
         "pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {\n\
@@ -3055,6 +3064,9 @@ fn generate_declarations(
         }
         if has_capability(&schema.capabilities.focus, object) {
             output.push_str("focus_methods!();\n");
+        }
+        if has_capability(&schema.capabilities.reference, object) {
+            output.push_str(&format!("reference_methods!({});\n", object.name));
         }
 
         if object.category == "Visual" {
@@ -3526,6 +3538,9 @@ fn checked_output_is_current() {
             .contains("pub fn columns(mut self, values: impl IntoIterator<Item = GridLength>)")
     );
     assert!(declarations.contains("pub fn element_ref(mut self, reference: &ElementRef)"));
+    for object in ["Grid", "Image", "WebView2", "SwapChainPanel"] {
+        assert!(declarations.contains(&format!("reference_methods!({object});")));
+    }
     assert!(declarations.contains("pub fn font_weight"));
     let contracts = fs::read_to_string(workspace_path(OUTPUT)).unwrap();
     assert!(contracts.contains("pub(crate) fn focus_capable"));

@@ -1512,6 +1512,14 @@ macro_rules! focus_methods {
         }
     };
 }
+macro_rules! reference_methods {
+    ($type:ty) => {
+        pub fn element_ref(mut self, reference: &ElementRef<$type>) -> Self {
+            self.0.reference = Some(reference.erased());
+            self
+        }
+    };
+}
 macro_rules! visual_methods {
     () => {
         pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {
@@ -2095,6 +2103,7 @@ impl Grid {
         );
         self
     }
+    reference_methods!(Grid);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3879,6 +3888,7 @@ impl Image {
             .property(PropertyId::Stretch, stretch.property_value());
         self
     }
+    reference_methods!(Image);
     visual_methods!();
     pub fn on_opened(self, callback: impl Fn() + 'static) -> Self {
         self.on_opened_callback(Callback::new(move |()| callback()))
@@ -5863,6 +5873,7 @@ impl WebView2 {
         let declaration = Declaration::new(ObjectType::WebView2);
         Self(declaration)
     }
+    reference_methods!(WebView2);
     visual_methods!();
 }
 impl Default for WebView2 {
@@ -5882,6 +5893,7 @@ impl SwapChainPanel {
         let declaration = Declaration::new(ObjectType::SwapChainPanel);
         Self(declaration)
     }
+    reference_methods!(SwapChainPanel);
     visual_methods!();
 }
 impl Default for SwapChainPanel {

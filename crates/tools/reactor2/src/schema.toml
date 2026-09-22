@@ -50,6 +50,7 @@ focus = [
     "ComboBox",
     "RichEditBox",
 ]
+reference = ["Grid", "Image", "WebView2", "SwapChainPanel"]
 text_style = ["TextBlock", "TextBox", "RichTextBlock"]
 
 [[attached_properties]]

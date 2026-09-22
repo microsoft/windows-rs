@@ -321,6 +321,11 @@ pub(super) fn compare(old_source: &str, schema: &Schema) -> Result<Report, Strin
                     .focus
                     .iter()
                     .any(|name| name == &object.name),
+                "reference" => schema
+                    .capabilities
+                    .reference
+                    .iter()
+                    .any(|name| name == &object.name),
                 "text_style" => schema
                     .capabilities
                     .text_style

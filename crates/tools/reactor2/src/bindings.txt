@@ -22,8 +22,11 @@ Microsoft::UI::Xaml::IApplication::get_Resources
 Microsoft::UI::Xaml::IApplication3::put_DispatcherShutdownMode
 Microsoft::UI::Xaml::IApplicationOverrides::{}
 Microsoft::UI::Xaml::IFrameworkElement::put_RequestedTheme
+Microsoft::UI::Xaml::IFrameworkElement::{get_ActualWidth, get_ActualHeight, get_IsLoaded, add_Loaded, remove_Loaded, add_SizeChanged, remove_SizeChanged}
+Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::IUIElement::UpdateLayout
+Microsoft::UI::Xaml::IUIElement::get_XamlRoot
 Microsoft::UI::Xaml::IUIElement::Focus
 Microsoft::UI::Xaml::IUIElement::put_IsTabStop
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
@@ -53,6 +56,17 @@ Microsoft::UI::Xaml::Markup::XamlReader::Load
 Microsoft::UI::Xaml::Markup::XmlnsDefinition
 Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
 Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color
+Microsoft::UI::Xaml::Controls::IImage::put_Source
+Microsoft::UI::Xaml::Controls::ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}
+Microsoft::UI::Xaml::Controls::IWebView2::{get_CoreWebView2, EnsureCoreWebView2Async, add_CoreWebView2Initialized, remove_CoreWebView2Initialized}
+Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::{GetElementVisual, SetElementChildVisual}
+Microsoft::UI::Xaml::Media::CompositionTarget::{add_Rendering, remove_Rendering}
+Microsoft::UI::Xaml::Media::ImageSource::{}
+Microsoft::UI::Xaml::IXamlRoot::{get_RasterizationScale, add_Changed, remove_Changed}
+Microsoft::UI::Composition::ICompositionObject::get_Compositor
+Microsoft::UI::Composition::Compositor::{}
+Microsoft::UI::Composition::Visual::{}
+extras::ISwapChainPanelNative::SetSwapChain
 Microsoft::UI::Xaml::XamlTypeInfo::XamlControlsXamlMetaDataProvider::CreateInstance
 Windows::Graphics::SizeInt32
 Windows::UI::Xaml::Interop::TypeName

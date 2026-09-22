@@ -1142,6 +1142,8 @@ retire at logical removal. Completion is idempotent and generation-safe.
 - All three old selection contracts.
 - Shared `IsEnabled`.
 - Element references and generic focus commands.
+- Typed Grid, Image, WebView2, and SwapChainPanel imperative references with rebinding-aware
+  observations and stale-completion rejection.
 - Text styling and validated `FontWeight`.
 - RichEditBox controlled `ITextDocument` text with LF normalization.
 - Typed Grid row and column definitions.
@@ -1218,17 +1220,25 @@ blocker, not a reason to skip or weaken the test.
 
 ## Remaining exact parity
 
-### Capabilities: 5
+### Capabilities: 1
 
-- `reference`: Grid
-- `reference`: Image
-- `reference`: WebView2
-- `reference`: SwapChainPanel
 - `window_title_bar`: TitleBar
 
-The four references need typed asynchronous imperative endpoints with rebinding, observations, and
-stale-completion rejection. TitleBar needs explicit window ownership and clear-before-replace
+The four typed reference capabilities are complete. Their bounded runtime queue, binding
+generations, observation revocation, asynchronous completion filtering, and runtime-drop cleanup
+share one ownership model. TitleBar needs explicit window ownership and clear-before-replace
 attachment lifecycle.
+
+Reference-family validation:
+
+- 149 `windows-reactor2` library tests passed, including destroyed-object revocation and imperative
+  budget rearming.
+- 73 doctests passed, including typed reference mismatch compile failure.
+- `tool-reactor2` generated stable output and all 8 generator tests passed.
+- Strict all-target Clippy passed for Reactor2, its generator, selftest, and both benchmark crates.
+- The live selftest passed the new Grid, Image, WebView2, and SwapChainPanel fixture. The process
+  later stopped at the existing foreground-dependent pointer injection test because the test window
+  was not foreground.
 
 ### Lifecycle and placement: 2
 

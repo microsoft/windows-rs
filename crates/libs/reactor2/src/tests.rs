@@ -818,6 +818,188 @@ fn reference_only_changes_reconcile_without_native_mutations() {
     assert_eq!(reference.get(), None);
 }
 
+struct HoldingImperativeAdapter {
+    inner: RecordingAdapter,
+    commands: Rc<RefCell<Vec<ImperativeRequest>>>,
+}
+
+impl Adapter for HoldingImperativeAdapter {
+    type Error = AdapterError;
+
+    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
+        self.inner.preview_native_events(events);
+    }
+
+    fn pop_native_event(&mut self) -> Option<NativeEvent> {
+        self.inner.pop_native_event()
+    }
+
+    fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+        self.inner.validate(mutations)
+    }
+
+    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+        self.inner.apply(mutations)
+    }
+
+    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
+        self.inner.focus(object)
+    }
+
+    fn imperative(&mut self, request: ImperativeRequest) -> Result<(), Self::Error> {
+        self.commands.borrow_mut().push(request);
+        Ok(())
+    }
+}
+
+#[test]
+fn typed_references_cover_all_imperative_controls() {
+    let grid = ElementRef::<Grid>::new();
+    let image = ElementRef::<Image>::new();
+    let webview = ElementRef::<WebView2>::new();
+    let swap_chain = ElementRef::<SwapChainPanel>::new();
+
+    let _: Visual = Grid::new().element_ref(&grid).into();
+    let _: Visual = Image::new().element_ref(&image).into();
+    let _: Visual = WebView2::new().element_ref(&webview).into();
+    let _: Visual = SwapChainPanel::new().element_ref(&swap_chain).into();
+}
+
+#[test]
+fn stale_imperative_completion_reports_unavailable_after_rebinding() {
+    let commands = Rc::new(RefCell::new(Vec::new()));
+    let reference = ElementRef::<Image>::new();
+    let replacement = ElementRef::<Image>::new();
+    let results = Rc::new(RefCell::new(Vec::new()));
+    let mut runtime = Runtime::new(HoldingImperativeAdapter {
+        inner: RecordingAdapter::default(),
+        commands: Rc::clone(&commands),
+    });
+    runtime
+        .update(Image::new().element_ref(&reference))
+        .unwrap();
+    let callback_results = Rc::clone(&results);
+    assert!(reference.request_set_native_source(None, move |result| {
+        callback_results.borrow_mut().push(result);
+    }));
+    runtime.dispatch_native_events().unwrap();
+    runtime
+        .update(Image::new().element_ref(&replacement))
+        .unwrap();
+
+    let ImperativeRequest::SetNativeImageSource { completion, .. } =
+        commands.borrow_mut().remove(0)
+    else {
+        panic!("expected image-source request");
+    };
+    completion.call(Ok(()));
+
+    assert_eq!(
+        results.borrow().as_slice(),
+        [Err(IntegrationError::Unavailable)]
+    );
+    assert_eq!(reference.get(), None);
+    assert!(replacement.get().is_some());
+}
+
+#[test]
+fn observations_follow_reference_rebinding_and_drop() {
+    let commands = Rc::new(RefCell::new(Vec::new()));
+    let reference = ElementRef::<Grid>::new();
+    let observation = reference.observe_composition_host(|_| {});
+    let mut runtime = Runtime::new(HoldingImperativeAdapter {
+        inner: RecordingAdapter::default(),
+        commands: Rc::clone(&commands),
+    });
+
+    runtime.update(Grid::new().element_ref(&reference)).unwrap();
+    runtime.dispatch_native_events().unwrap();
+    assert!(matches!(
+        commands.borrow().last(),
+        Some(ImperativeRequest::ObserveCompositionHost { .. })
+    ));
+
+    runtime.update(Grid::new()).unwrap();
+    runtime.dispatch_native_events().unwrap();
+    assert!(matches!(
+        commands.borrow().last(),
+        Some(ImperativeRequest::RevokeObservation { .. })
+    ));
+
+    runtime.update(Grid::new().element_ref(&reference)).unwrap();
+    runtime.dispatch_native_events().unwrap();
+    assert!(matches!(
+        commands.borrow().last(),
+        Some(ImperativeRequest::ObserveCompositionHost { .. })
+    ));
+
+    drop(observation);
+    runtime.dispatch_native_events().unwrap();
+    assert!(matches!(
+        commands.borrow().last(),
+        Some(ImperativeRequest::RevokeObservation { .. })
+    ));
+}
+
+#[test]
+fn destroying_observed_object_discards_queued_revocation() {
+    let reference = ElementRef::<Grid>::new();
+    let _observation = reference.observe_composition_host(|_| {});
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(Grid::new().children([keyed("observed", Grid::new().element_ref(&reference))]))
+        .unwrap();
+    runtime.dispatch_native_events().unwrap();
+
+    runtime.update(Grid::new()).unwrap();
+
+    assert_eq!(reference.get(), None);
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+}
+
+#[test]
+fn dropping_runtime_clears_typed_reference_and_pending_completion() {
+    let reference = ElementRef::<SwapChainPanel>::new();
+    let results = Rc::new(RefCell::new(Vec::new()));
+    {
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        runtime
+            .update(SwapChainPanel::new().element_ref(&reference))
+            .unwrap();
+        let callback_results = Rc::clone(&results);
+        assert!(reference.request_clear_swap_chain(move |result| {
+            callback_results.borrow_mut().push(result);
+        }));
+    }
+    assert_eq!(reference.get(), None);
+    assert_eq!(
+        results.borrow().as_slice(),
+        [Err(IntegrationError::Unavailable)]
+    );
+}
+
+#[test]
+fn imperative_budget_rearms_pending_work() {
+    let reference = ElementRef::<Image>::new();
+    let wakes = Rc::new(Cell::new(0));
+    let wake_count = Rc::clone(&wakes);
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.set_imperative_waker(move || wake_count.set(wake_count.get() + 1));
+    runtime
+        .update(Image::new().element_ref(&reference))
+        .unwrap();
+    for _ in 0..65 {
+        assert!(reference.request_set_native_source(None, |_| {}));
+    }
+    wakes.set(0);
+
+    runtime.dispatch_native_events().unwrap();
+
+    assert_eq!(wakes.get(), 1);
+    runtime.dispatch_native_events().unwrap();
+    assert_eq!(runtime.adapter().imperatives().len(), 65);
+}
+
 #[test]
 fn reference_transfers_are_order_independent() {
     let reference = ElementRef::default();

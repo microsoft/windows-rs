@@ -11,6 +11,7 @@ pub struct RecordingAdapter {
     retirements: HashMap<ObjectId, RecordedRetirement>,
     realizations: HashMap<(ObjectId, RealizedContainer), (RelationId, usize, ObjectId)>,
     focuses: Vec<ObjectId>,
+    imperatives: Vec<ImperativeRequest>,
     record_batches: bool,
     validate_batches: bool,
 }
@@ -59,6 +60,7 @@ impl RecordingAdapter {
             retirements: HashMap::new(),
             realizations: HashMap::new(),
             focuses: Vec::new(),
+            imperatives: Vec::new(),
             record_batches: false,
             validate_batches: true,
         }
@@ -82,6 +84,10 @@ impl RecordingAdapter {
 
     pub fn focuses(&self) -> &[ObjectId] {
         &self.focuses
+    }
+
+    pub fn imperatives(&self) -> &[ImperativeRequest] {
+        &self.imperatives
     }
 
     pub fn retirement_count(&self) -> usize {
@@ -684,5 +690,25 @@ impl Adapter for RecordingAdapter {
         }
         self.focuses.push(object);
         Ok(true)
+    }
+
+    fn imperative(&mut self, request: ImperativeRequest) -> Result<(), Self::Error> {
+        if !self.objects.contains_key(&request.object()) {
+            return Err(AdapterError::MissingObject(request.object()));
+        }
+        self.imperatives.push(request.clone());
+        match request {
+            ImperativeRequest::InitializeWebView2 { completion, .. } => {
+                completion.call(Err(IntegrationError::Unavailable));
+            }
+            ImperativeRequest::RequestSwapChainPanelFrame { completion, .. }
+            | ImperativeRequest::SetSwapChain { completion, .. }
+            | ImperativeRequest::SetNativeImageSource { completion, .. }
+            | ImperativeRequest::SetCompositionChildVisual { completion, .. } => {
+                completion.call(Ok(()));
+            }
+            _ => {}
+        }
+        Ok(())
     }
 }
