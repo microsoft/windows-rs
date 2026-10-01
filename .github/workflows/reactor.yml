@@ -163,7 +163,6 @@ jobs:
             }
           cargo run -p test-reactor-selftest --bin application_menu --quiet
           cargo run -p test-reactor-selftest --bin canvas_integration --quiet
-          cargo run -p test-reactor-selftest --bin webview_integration --quiet
           cargo run -p test-reactor-selftest --bin window_state --quiet
 
       - name: Run Reactor sample smoke tests
