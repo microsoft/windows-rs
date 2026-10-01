@@ -1,180 +1,195 @@
 # windows-reactor
 
-`windows-reactor` is a typed declarative UI library backed by WinUI 3. Applications describe a
-view from state, and Reactor reconciles that declaration into a retained object graph and a live
-native window.
+> A declarative WinUI 3 library built around components, typed messages, and native controls.
 
-See the crate [readme](../../crates/libs/reactor/readme.md) for the user-facing introduction and
-sample overview.
+- 📦 [crates.io](https://crates.io/crates/windows-reactor)
+- 📖 [docs.rs](https://docs.rs/windows-reactor)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
 
-## Architecture
+Windows Reactor lets Rust state drive native WinUI 3 controls. This guide builds a counter
+and then points to focused samples for the rest of the API.
 
-The pipeline has four layers:
+Reactor is currently a preview, so releases may still refine public APIs.
+
+## Create a project
+
+Create a binary crate and add Reactor:
 
 ```text
-typed declarations -> retained generational arena -> generic mutations -> native adapter
+cargo new counter
+cd counter
+cargo add windows-reactor@0.100
 ```
 
-Generated builders constrain property, event, and relation shapes. A `Border` owns one visual
-content relation, panels own positional or keyed visual children, `TreeView` owns structural
-`TreeNode` values, and list controls own keyed `DataItem` values. Invalid relation categories
-cannot be assembled through the public builders.
+For a GUI executable that should not open a console window, add this to the top of `main.rs`:
 
-Declarations reconcile directly into one retained arena. Retained relations store stable
-generation-checked `ObjectId` values, while declarations use recursive Rust ownership for natural
-builder composition. Reconciliation emits generic property, event, relation, focus, and lifecycle
-mutations instead of control-specific planner commands.
+```rust,ignore
+#![windows_subsystem = "windows"]
+```
 
-The WinUI adapter maps those mutations to native objects and owns backend policy such as
-controlled input feedback, TreeView structural content, ListView data templates, attachments,
-virtualization, and native retirement. Recording tests use the same mutation protocol through
-`RecordingAdapter`.
+Leave it out while diagnosing startup problems so console output remains visible.
 
-## Application and windows
+## Add a component
 
-`App::run_component` owns the WinUI application, dispatcher, component host, and initial native
-window. `App::run_component_with_policy` also applies creation-time window policy.
+Replace `main.rs` with:
 
-Components can open, activate, and close windows through `ComponentContext`. Each live window owns
-one independently scheduled component host. Rejectable window commands use a bounded queue.
-Committed publication and latest size or color observations use durable entries coalesced by
-window and observation generation, while close completion remains non-rejectable. The application
-exits after its last component window closes.
+```rust,no_run
+use windows_reactor::*;
 
-`App::run_with` supports application lifetime independent of component windows. `AppContext`
-opens independently scheduled windows and displays a keyed `Menu` at physical screen coordinates
-through a lazily created hidden host. Closing the last component window does not end this mode;
-the application exits when `AppContext::exit` is requested.
+#[derive(Clone, Copy)]
+enum Message {
+    Increment,
+    Reset,
+}
 
-Components publish retained window state through `ViewContext::window_title`,
-`window_visuals`, `on_window_size`, and `on_color_scheme`. One component scope owns each contract,
-and removing that scope clears its publication or observation. `WindowVisuals` covers theme,
-backdrop, icon, client size, and minimum or maximum client-size constraints.
+struct Counter {
+    count: i32,
+}
 
-## Components and lifecycle
+impl Component for Counter {
+    type Input = ();
+    type Message = Message;
 
-Components use `ComponentContext<Self>`, `ViewContext<Self>`, and `View`. A component retains its
-state, input, effective typed contexts, effects, references, tasks, timers, and one retained root
-identity. It never retains a second rendered declaration tree.
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
 
-`View::component` derives unkeyed identity from the component type and complete owning relation
-path. `component(key, input)` supplies explicit application identity for dynamic movement. Root
-replacement updates the retained subtree in place, while keyed reorder preserves component state
-and native identity.
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Increment => self.count += 1,
+            Message::Reset => self.count = 0,
+        }
+    }
 
-Callbacks, forwards, and messages queue UI-local component work. Background work retains its
-`Send` boundary and uses generation checks so completion cannot reach a replaced or retired
-scope. Removal cancels tasks, cleans effects, invalidates references, and rejects stale senders.
-Typed-reference commands use bounded admission when callers can observe rejection. Observation
-registration and revocation are durable lifecycle entries coalesced by object and observation, so
-queue saturation cannot leave the Rust handle and native subscription out of sync.
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        let content = StackPanel::new().spacing(8.0).children((
+            format!("Count: {}", self.count),
+            Button::new()
+                .on_click(context.message(Message::Increment))
+                .content("Increment"),
+            Button::new()
+                .on_click(context.message(Message::Reset))
+                .content("Reset"),
+        ));
 
-`provide` applies the nearest typed context value to a visual subtree. Descendant components keep
-the same shadowing across input changes, messages, window lifecycle work, and virtualized rows.
+        context.window_frame("Counter", content)
+    }
+}
 
-## Controls and values
+fn main() {
+    App::run_component::<Counter>(()).unwrap();
+}
+```
 
-`crates/tools/reactor/src/schema.toml` is the source of truth for generated controls, properties,
-events, relations, controlled-state contracts, and capability checks. Shared values include
-brushes, styles, resource overrides, keyboard accelerators, validated URIs, geometry, transitions,
-window policy, pointer and keyboard payloads, menus, and rich text.
+Run it:
 
-TreeView supports keyed structural nodes with nested nodes and optional visual content. ListView
-uses keyed `DataItem` values; each item may use text-only content or own a rich visual subtree
-while retaining data identity and native selection behavior. ItemsRepeater accepts a lazy
-`VirtualSource`, realizes only requested rows, and retires row components and references when
-native containers recycle.
+```text
+cargo run
+```
 
-Attachments such as ToolTip, Flyout, Menu, CommandBarFlyout, and ContentDialog are owned by their
-declaration target. Stable updates preserve the native attachment, while replacement and
-destruction clear native ownership in the required order.
+The component loop is:
 
-Controlled properties use an expected-feedback contract generated from the schema. Native echoes
-from application writes are suppressed, native changes enter the ordered event stream, and
-callback revision checks reject stale delivery. RichEditBox text uses the same contract with its
-native document adapter and LF normalization.
+```text
+native event -> typed message -> update state -> describe the next view
+```
 
-## Code generation
-
-`tool-reactor` reads the schema and checked-in WinUI metadata, then writes:
-
-| Output | Purpose |
+| Method | Purpose |
 | --- | --- |
-| `crates/libs/reactor/src/generated.rs` | IDs, contracts, values, and shared generated API |
-| `crates/libs/reactor/src/generated_declarations.rs` | Typed declaration builders |
-| `crates/libs/reactor/src/native/generated.rs` | Native realization dispatch |
-| `crates/libs/reactor/src/native/bindings.rs` | Minimal WinUI bindings |
-| `crates/libs/canvas/src/reactor_bindings.rs` | Canvas bridge bindings |
-| `crates/tests/libs/reactor_selftest/src/generated_coverage.rs` | Live contract fixture |
-| `crates/tests/libs/reactor_selftest/coverage.md` | Generated live coverage inventory |
+| `create` | Build the initial state |
+| `update` | Handle a message and change the state |
+| `view` | Describe the controls for the current state |
 
-Do not edit these files by hand. After changing the schema, parity mappings, generator, or WinUI
-metadata, run:
+`view` uses typed builders. `StackPanel::children` accepts a tuple of different control types, and
+strings convert directly to text views. The button callbacks enqueue messages for `update`; they
+do not mutate state inside the native event callback.
 
-```text
-cargo run -p tool-reactor --quiet
-cargo check -p windows-reactor --quiet
+`context.window_frame` publishes the window title and returns the standard title-bar layout. For a
+static view with no state or events, call `App::run(view)` instead.
+
+## Add editable state
+
+Editable controls are controlled: pass the current value from component state and send changes
+back as messages.
+
+```rust,ignore
+TextBox::new(self.name.clone())
+    .placeholder_text("Type your name")
+    .on_text_changed(context.callback(Message::SetName))
 ```
 
-The frozen semantic baseline in `parity-baseline.toml` verifies all 79 controls, 233 properties,
-68 events, 42 slots, three selection contracts, 158 capabilities, and two lifecycle contracts.
-`parity.toml` records reviewed representation mappings. The Rust checker applies mapping kinds
-generically rather than branching on individual controls.
+Handle `Message::SetName(name)` in `update` by assigning `self.name = name`. Reactor suppresses
+feedback from its own writes while still delivering user edits.
 
-## Validation
+The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 
-Run the smallest relevant commands while developing:
+## Split up the view
 
-```text
-cargo run -p tool-reactor --quiet -- --check-parity
-cargo run -p tool-reactor --quiet -- --live-coverage-report
-cargo test -p tool-reactor --quiet
-cargo test -p windows-reactor --all-features --quiet
-cargo test -p reactor-gallery --quiet
-cargo clippy -p windows-reactor --all-features --all-targets
-cargo +nightly llvm-cov -p windows-reactor --all-features --branch \
-    --json --output-path target\reactor-coverage.json
-crates\tests\libs\reactor_selftest\coverage.ps1
+Use a function returning `View` for a stateless piece. Use a child component when a subtree needs
+its own state or lifecycle:
+
+```rust,ignore
+View::component::<Greeting>(GreetingInput {
+    name: self.name.clone(),
+})
 ```
 
-The real WinUI fixture and application-host fixtures require the Windows App Runtime:
+Component input must implement `Clone + PartialEq`.
 
-```text
-cargo run -p test-reactor-selftest --quiet -- --headless
-cargo run -p test-reactor-selftest --bin application_lifecycle --quiet -- replacement
-cargo run -p test-reactor-selftest --bin application_lifecycle --quiet -- multiple
-cargo run -p test-reactor-selftest --bin application_lifecycle --quiet -- startup-error
-cargo run -p test-reactor-selftest --bin application_menu --quiet
-cargo run -p test-reactor-selftest --bin canvas_integration --quiet
-cargo run -p test-reactor-selftest --bin webview_integration --quiet
-cargo run -p test-reactor-selftest --bin window_state --quiet
-powershell -File crates\tests\libs\reactor_selftest\run_samples.ps1
+Children at fixed positions keep identity by position and type. Items that can move need stable
+application keys:
+
+```rust,ignore
+StackPanel::new().keyed_children(
+    self.tasks
+        .iter()
+        .map(|task| (task.id, task.title.clone())),
+)
 ```
 
-The lifecycle cases cover replacement of the last window, shutdown after multiple windows close,
-and propagation of startup errors. The sample smoke script builds and launches every default
-Reactor, Composition, and WebView sample, captures runtime output, and fails if a sample exits
-early or writes to stderr.
+Do not use list indices as keys when items can move. Stable keys keep state and focus attached to
+the correct item.
 
-`test-reactor-bench` provides replacement-only retained-memory, update, lifecycle, component, and
-virtualization measurements:
+## Do work without blocking the window
 
-```text
-cargo run -p test-reactor-bench --release --quiet
-cargo run -p test-reactor-bench --release --quiet -- \
-    --architecture-gate --gate-samples 6
+Rendering and component updates run on the UI thread. Use `set_timeout` for delayed messages and
+`spawn_background` for blocking or CPU-intensive work. Background work returns a message rather
+than touching controls or component state directly.
+
+Use an effect when an external subscription or resource should exist only while part of the view
+is present. See the [`use-effect`](../../crates/samples/reactor/use-effect) and
+[`async-state`](../../crates/samples/reactor/async-state) samples for complete lifecycle patterns.
+
+## Choose a deployment model
+
+A framework-dependent application uses an installed Windows App SDK framework package and needs
+only `windows-reactor`.
+
+For a self-contained application, add:
+
+```toml
+[build-dependencies]
+windows-reactor-setup = "0.100"
 ```
 
-Before submitting generator changes, run generation twice and confirm that the generated file
-hashes are unchanged.
+Then create `build.rs`:
 
-## Limits
+```rust,ignore
+fn main() {
+    windows_reactor_setup::as_self_contained();
+}
+```
 
-- Component roots are visual declarations. Structural and data objects are owned through visual
-  control relations.
-- Declaration depth is limited to 128 and a retained graph is limited to 65,536 objects.
-- Adapter validation or application failure poisons the runtime and clears retained state.
-- Native accessibility behavior requires live testing; recording tests validate contracts and
-  mutation shape but cannot replace WinUI acceptance coverage.
-- Dense 10,000-item reorder remains a backend cost that should be measured against the frame
-  budget when changing container synchronization.
+The [setup guide](windows-reactor-setup.md) covers prerequisites, WebView2, and packaging.
+
+## Explore larger samples
+
+| Sample | What it demonstrates |
+| --- | --- |
+| [`calculator`](../../crates/samples/reactor/calculator) | State, messages, and Grid layout |
+| [`solitaire`](../../crates/samples/reactor/solitaire) | A larger application with keyed state |
+| [`stacker`](../../crates/samples/reactor/stacker) | Reactor, Canvas, and Composition together |
+| [`gallery`](../../crates/samples/reactor/gallery) | Available controls and navigation |
+
+Browse the [sample directory](../../crates/samples/reactor) for smaller examples of controlled
+input, context, effects, multiple windows, virtualization, WebView2, and deployment.
