@@ -3,8 +3,8 @@ use windows_rdl::*;
 
 // WebView2 owns its SDK pin here: the headers are downloaded from this exact NuGet package
 // (via `nuget_package`, like the other header scrapers) instead of being vendored, so a version
-// bump is a one-line edit that re-fetches byte-stable headers. `tool-reactor` reads the pin to
-// refresh its committed Core.winmd and rejects drift in `windows-reactor-setup`.
+// bump is a one-line edit that re-fetches byte-stable headers. `tool-reactor-metadata` reads the
+// pin to refresh its committed Core.winmd and rejects drift in `windows-reactor-setup`.
 const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
 const WEBVIEW2_VERSION: &str = "1.0.4078.44";
 

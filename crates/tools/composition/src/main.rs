@@ -29,8 +29,8 @@ fn main() {
     let lifted_filter = write_lifted_filter();
     builder()
         .inputs([
-            "crates/tools/reactor/winmd/Microsoft.UI.winmd",
-            "crates/tools/reactor/winmd/Microsoft.Graphics.winmd",
+            "crates/tools/reactor-metadata/winmd/Microsoft.UI.winmd",
+            "crates/tools/reactor-metadata/winmd/Microsoft.Graphics.winmd",
             "crates/libs/default/Windows.winmd",
             "crates/libs/default/Windows.Win32.winmd",
             interop.to_str().unwrap(),

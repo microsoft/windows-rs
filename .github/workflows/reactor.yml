@@ -18,8 +18,8 @@ env:
   CARGO_INCREMENTAL: "0"
 
 jobs:
-  selftest:
-    name: cargo run -p test-reactor-selftest
+  test:
+    name: Reactor tests
     runs-on: windows-2025-vs2026
     timeout-minutes: 60
     steps:
@@ -30,22 +30,43 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Install WebView2 Evergreen runtime
+      - name: Install public API tool
+        run: cargo install cargo-public-api --locked --version 0.52.0
+
+      - name: Install coverage tool
+        run: cargo install cargo-llvm-cov --locked --version 0.8.7
+
+      - name: Regenerate Reactor
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          $installerUrl = "https://go.microsoft.com/fwlink/p/?LinkId=2124703"
-          $installerPath = Join-Path $env:RUNNER_TEMP "MicrosoftEdgeWebview2Setup.exe"
-          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-          $installer = Start-Process -FilePath $installerPath `
-            -ArgumentList "/silent", "/install" -Wait -PassThru
-          if ($installer.ExitCode -ne 0) {
-            throw "WebView2 installer exited with code $($installer.ExitCode)"
-          }
+          cargo run -p tool-reactor --quiet
+          git diff --exit-code
 
-      - name: Install public API tool
-        run: cargo install cargo-public-api --locked --version 0.52.0
+      - name: Test Reactor
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo test -p tool-reactor --quiet
+          cargo test -p windows-reactor --all-features --quiet
+          cargo test -p reactor-gallery --quiet
+          cargo check -p test-reactor-selftest -p test-reactor-bench --all-targets --quiet
+
+      - name: Check Reactor core coverage
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo +nightly llvm-cov clean --workspace
+          cargo +nightly llvm-cov -p windows-reactor --all-features `
+            --branch --json --output-path target\reactor-coverage.json
+          crates\tests\libs\reactor_selftest\coverage.ps1
 
       - name: Check Reactor feature combinations
         shell: pwsh
@@ -54,8 +75,8 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo clippy -p reactor-virtual --features perf `
-            --all-targets --quiet
+          cargo clippy -p windows-reactor --all-features --all-targets --quiet
+          cargo clippy -p reactor-virtual --features perf --all-targets --quiet
           cargo clippy -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
           cargo clippy -p windows-composition --no-default-features `
@@ -83,7 +104,21 @@ jobs:
             throw "windows-reactor public API changed"
           }
 
-      - name: Live self-contained headless self-test
+      - name: Install WebView2 Evergreen runtime
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $installerUrl = "https://go.microsoft.com/fwlink/p/?LinkId=2124703"
+          $installerPath = Join-Path $env:RUNNER_TEMP "MicrosoftEdgeWebview2Setup.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          $installer = Start-Process -FilePath $installerPath `
+            -ArgumentList "/silent", "/install" -Wait -PassThru
+          if ($installer.ExitCode -ne 0) {
+            throw "WebView2 installer exited with code $($installer.ExitCode)"
+          }
+
+      - name: Run live self-contained Reactor tests
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
@@ -93,18 +128,9 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test-reactor-selftest --features self-contained `
-            --quiet -- --headless
+            --bin window_state --quiet
           cargo run -p test-reactor-selftest --features self-contained `
-            --quiet -- --headless --explicit-lifetime `
-            --filter ContentDialog_QueuedReopenLifecycle
-          cargo run -p test-reactor-selftest --features self-contained `
-            --quiet -- --headless --explicit-lifetime `
-            --filter Window_NestedOperationRearming
-          cargo run -p test-reactor-selftest --features self-contained `
-            --quiet -- --headless --explicit-lifetime `
-            --filter WebView_InitializeBridgeAndScript
-          cargo run -p test-reactor-surface --features self-contained `
-            --quiet -- --headless
+            --bin webview_integration --quiet
 
       - name: Install Windows App Runtime
         shell: pwsh
@@ -120,103 +146,37 @@ jobs:
             throw "Windows App Runtime installer exited with code $($installer.ExitCode)"
           }
 
-      - name: Live framework-dependent headless self-test
+      - name: Run live Reactor reliability tests
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          $lifetime = cargo test -p test_reactor --test public_surface `
-            application_lifetime_is_independent_of_windows `
-            -- --ignored --exact --test-threads=1 2>&1
-          $lifetime | Write-Output
-          if ($LASTEXITCODE -ne 0 -or -not ($lifetime -match "1 passed")) {
-            throw "Reactor application lifetime test did not run successfully"
+          1..3 | ForEach-Object {
+            cargo run -p test-reactor-selftest --quiet -- --headless
           }
-          $menu = cargo test -p test_reactor --test public_surface `
-            application_menu_does_not_require_a_reactor_window `
-            -- --ignored --exact --test-threads=1 2>&1
-          $menu | Write-Output
-          if ($LASTEXITCODE -ne 0 -or -not ($menu -match "1 passed")) {
-            throw "Reactor application menu test did not run successfully"
-          }
-          $replacement = cargo test -p test_reactor --test public_surface `
-            last_window_can_be_replaced_in_one_publication `
-            -- --ignored --exact --test-threads=1 2>&1
-          $replacement | Write-Output
-          if ($LASTEXITCODE -ne 0 -or -not ($replacement -match "1 passed")) {
-            throw "Reactor replacement-window test did not run successfully"
-          }
-          $multiple = cargo test -p test_reactor --test public_surface `
-            multiple_windows_exit_after_all_have_closed `
-            -- --ignored --exact --test-threads=1 2>&1
-          $multiple | Write-Output
-          if ($LASTEXITCODE -ne 0 -or -not ($multiple -match "1 passed")) {
-            throw "Reactor multiple-window lifetime test did not run successfully"
-          }
-          $startup = cargo test -p test_reactor --test public_surface `
-            application_startup_error_is_returned `
-            -- --ignored --exact --test-threads=1 2>&1
-          $startup | Write-Output
-          if ($LASTEXITCODE -ne 0 -or -not ($startup -match "1 passed")) {
-            throw "Reactor application startup error test did not run successfully"
-          }
-          $rejected = cargo test -p test_reactor --test public_surface `
-            excessive_startup_windows_are_rejected `
-            -- --ignored --exact --test-threads=1 2>&1
-          $rejected | Write-Output
-          if ($LASTEXITCODE -ne 0 -or -not ($rejected -match "1 passed")) {
-            throw "Reactor rejected-window test did not run successfully"
-          }
-          cargo run -p test-reactor-selftest --quiet -- --headless
-          cargo run -p test-reactor-surface --quiet -- --headless
+          "replacement", "multiple", "startup-error" |
+            ForEach-Object {
+              cargo run -p test-reactor-selftest --bin application_lifecycle `
+                --quiet -- $_
+            }
+          cargo run -p test-reactor-selftest --bin application_menu --quiet
+          cargo run -p test-reactor-selftest --bin canvas_integration --quiet
+          cargo run -p test-reactor-selftest --bin webview_integration --quiet
+          cargo run -p test-reactor-selftest --bin window_state --quiet
 
-  reconciler-quality:
-    name: reconciler coverage and performance
-    runs-on: windows-2025-vs2026
-    timeout-minutes: 60
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - name: Update toolchain
-        run: rustup update --no-self-update stable && rustup default stable
-
-      - uses: Swatinem/rust-cache@v2
-
-      - name: Install coverage tools
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          rustup toolchain install nightly --profile minimal --component llvm-tools-preview
-          cargo install cargo-llvm-cov --locked --version 0.8.7
-
-      - name: Reconciler branch coverage
+      - name: Run Reactor sample smoke tests
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo +nightly llvm-cov clean --workspace
-          cargo +nightly llvm-cov -p windows-reactor -p test_reactor `
-            --branch --no-report
-          cargo +nightly llvm-cov report -p windows-reactor --branch --json `
-            --output-path target\reactor-coverage.json
-          crates\tests\libs\reactor\coverage.ps1
+          & .\crates\tests\libs\reactor_selftest\run_samples.ps1
 
-      - name: Compare reconciler performance with merge base
-        if: github.event_name == 'pull_request'
-        shell: pwsh
-        run: |
-          crates\tests\libs\reactor_bench\compare.ps1 `
-            -BaseRef "${{ github.event.pull_request.base.sha }}"
-
-  live-performance:
-    name: live grid performance
+  performance:
+    name: Reactor performance
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: windows-2025-vs2026
     timeout-minutes: 30
@@ -228,56 +188,14 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Install Windows App Runtime
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          $installerUrl = "https://aka.ms/windowsappsdk/2.5/2.5.1/windowsappruntimeinstall-x64.exe"
-          $installerPath = Join-Path $env:RUNNER_TEMP "WindowsAppRuntimeInstall.exe"
-          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-          $installer = Start-Process -FilePath $installerPath -ArgumentList "--quiet" `
-            -Wait -PassThru
-          if ($installer.ExitCode -ne 0) {
-            throw "Windows App Runtime installer exited with code $($installer.ExitCode)"
-          }
-
-      - name: Run update and churn workloads
+      - name: Run recording benchmarks
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          $outputDirectory = "target\reactor-performance"
-          New-Item -ItemType Directory -Force -Path $outputDirectory | Out-Null
-          cargo run -p test-reactor-bench --bin reactor-live-grid `
-            --release --quiet -- --headless --percent 10 --duration 10 --churn-count 0 |
-            Tee-Object -FilePath "$outputDirectory\live-grid-update.json"
-          cargo run -p test-reactor-bench --bin reactor-live-grid `
-            --release --quiet -- --headless --percent 10 --duration 10 --churn-count 400 |
-            Tee-Object -FilePath "$outputDirectory\live-grid-churn.json"
+          cargo run -p test-reactor-bench --release --quiet -- `
+            --architecture-gate --gate-samples 6
           cargo run -p reactor-virtual --bin reactor-virtual-perf `
-            --features perf --release --quiet |
-            Tee-Object -FilePath "$outputDirectory\virtual-recording.txt"
-          cargo run -p reactor-virtual --bin reactor-virtual-live-perf `
-            --features perf --release --quiet -- --samples 300 --baseline
-          Copy-Item target\release\reactor-virtual-live-baseline.txt `
-            "$outputDirectory\virtual-live-baseline.txt"
-          cargo run -p reactor-virtual --bin reactor-virtual-live-perf `
-            --features perf --release --quiet -- --samples 300
-          Copy-Item target\release\reactor-virtual-live-perf.txt `
-            "$outputDirectory\virtual-live-active.txt"
-          "## Reactor live performance" | Out-File $env:GITHUB_STEP_SUMMARY -Append
-          foreach ($file in Get-ChildItem "$outputDirectory\*") {
-            "### $($file.BaseName)" | Out-File $env:GITHUB_STEP_SUMMARY -Append
-            '```text' | Out-File $env:GITHUB_STEP_SUMMARY -Append
-            Get-Content $file | Out-File $env:GITHUB_STEP_SUMMARY -Append
-            '```' | Out-File $env:GITHUB_STEP_SUMMARY -Append
-          }
-
-      - name: Upload performance results
-        uses: actions/upload-artifact@v7
-        with:
-          name: reactor-performance
-          path: target\reactor-performance\*
+            --features perf --release --quiet

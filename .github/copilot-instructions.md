@@ -60,7 +60,10 @@ warnings and therefore enforced.
 ### Reactor
 
 ```sh
-# Regenerate codegen (after editing winui.toml or tool-reactor source)
+# Refresh WinUI metadata after changing Windows App SDK or WebView2 pins
+cargo run -p tool-reactor-metadata --quiet
+
+# Regenerate Reactor code after editing schema.toml or tool-reactor source
 cargo run -p tool-reactor --quiet
 
 # Regenerate bindings (after editing filter .txt files)
@@ -70,12 +73,15 @@ cargo run -p tool-bindings --quiet
 cargo check -p windows-reactor --quiet
 
 # Unit tests (headless, fast)
-cargo test -p test_reactor --quiet
+cargo test -p windows-reactor --all-features --quiet
 
 # Integration tests (launches WinUI window)
 cargo run -p test-reactor-selftest
 cargo run -p test-reactor-selftest -- --headless    # CI mode
-cargo run -p test-reactor-selftest -- --filter Name  # single fixture
+cargo run -p test-reactor-selftest --bin application_menu
+cargo run -p test-reactor-selftest --bin canvas_integration
+cargo run -p test-reactor-selftest --bin webview_integration
+cargo run -p test-reactor-selftest --bin window_state
 
 # Clippy
 cargo clippy -p windows-reactor --all-targets
@@ -106,16 +112,19 @@ The core `windows` / `windows-sys` crates are generated from Windows metadata (`
 `windows-bindgen` (driven by `tool-package`). `windows-metadata` and `windows-rdl` support
 reading/authoring that metadata. The reactor / canvas / webview pipelines layer on top:
 
-1. **`tool-reactor`** - reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd` metadata ->
-   generates `generated.rs`, `generated_set_prop.rs`, `generated_attach_event.rs`, and
-   `generated.txt` filter entries.
+1. **`tool-reactor-metadata`** - refreshes committed WinUI / Windows App SDK / WebView2 `.winmd`
+   metadata and generates `extras.winmd`.
 
-2. **`tool-bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
+2. **`tool-reactor`** - reads `crates/tools/reactor/src/schema.toml` plus the shared WinUI
+   metadata -> generates Reactor declarations, native projection code, binding filters, the
+   Reactor native bindings, and the canvas Reactor bridge bindings.
+
+3. **`tool-bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
    `windows-bindgen` -> generates `bindings.rs` in each crate:
    - `crates/libs/canvas/src/bindings.rs` (from `canvas.txt`)
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
-3. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
+4. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
    `--package` mode (per-namespace files + Cargo.toml features).
 
 4. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
@@ -134,9 +143,11 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 ### Reactor architecture
 
-- WinUI backend is in `crates/libs/reactor/src/backend/winui/`.
-- The TOML config (`winui.toml`) declares ~52 WinUI controls. Keys are WinUI metadata names; the
-  tool infers types, setter patterns, and event handlers from `.winmd` files.
+- WinUI backend ownership is split across `crates/libs/reactor/src/native/winui.rs` and
+  `crates/libs/reactor/src/native/winui/`.
+- The TOML config (`crates/tools/reactor/src/schema.toml`) declares 79 WinUI controls. Keys are
+  WinUI metadata names; the tool infers types, setter patterns, and event handlers from `.winmd`
+  files.
 - COM casts: classes Deref to their default interface (zero-cost). Only cast to non-default parent
   interfaces. The `Param` trait handles parent-class conversions automatically.
 
@@ -152,10 +163,10 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **Panics**: Use `panic!` only for invariant violations. Use `diag::` helpers for missing features
   (warn in debug, no-op in release).
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
-- **No `thread_local!` in app code** - use reactor hooks (`use_state`, `use_ref`) instead.
-  `thread_local!` is reserved for framework plumbing.
-- **Test naming**: Unit tests in `test_reactor`, integration tests in `test-reactor-selftest`.
-  Canvas tests use WARP software rendering.
+- **No `thread_local!` in app code** - keep state in components and pass shared values through typed
+  contexts. `thread_local!` is reserved for framework plumbing.
+- **Test naming**: Reactor unit tests live in `windows-reactor`; live WinUI coverage lives in
+  `test-reactor-selftest`. Canvas tests use WARP software rendering.
 
 ## Documentation
 
