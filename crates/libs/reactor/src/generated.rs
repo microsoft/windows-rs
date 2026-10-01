@@ -1126,6 +1126,10 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::Brush,
         }),
+        (ObjectType::TextBlock, PropertyId::Padding) => Some(PropertyContract {
+            id,
+            value: ValueType::Thickness,
+        }),
         (ObjectType::TextBlock, PropertyId::TextWrapping) => Some(PropertyContract {
             id,
             value: ValueType::Enum {
@@ -2305,10 +2309,11 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::TextBlock, PropertyId::FontSize) => 27,
         (ObjectType::TextBlock, PropertyId::FontWeight) => 28,
         (ObjectType::TextBlock, PropertyId::Foreground) => 29,
-        (ObjectType::TextBlock, PropertyId::TextWrapping) => 30,
-        (ObjectType::TextBlock, PropertyId::IsTextSelectionEnabled) => 31,
-        (ObjectType::TextBlock, PropertyId::TextTrimming) => 32,
-        (ObjectType::TextBlock, PropertyId::MaxLines) => 33,
+        (ObjectType::TextBlock, PropertyId::Padding) => 30,
+        (ObjectType::TextBlock, PropertyId::TextWrapping) => 31,
+        (ObjectType::TextBlock, PropertyId::IsTextSelectionEnabled) => 32,
+        (ObjectType::TextBlock, PropertyId::TextTrimming) => 33,
+        (ObjectType::TextBlock, PropertyId::MaxLines) => 34,
         (ObjectType::TextBox, PropertyId::Text) => 26,
         (ObjectType::TextBox, PropertyId::PlaceholderText) => 27,
         (ObjectType::TextBox, PropertyId::AcceptsReturn) => 28,

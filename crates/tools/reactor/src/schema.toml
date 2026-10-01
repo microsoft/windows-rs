@@ -269,6 +269,14 @@ clear_feedback = false
 required = false
 
 [[objects.properties]]
+name = "Padding"
+value = "Thickness"
+clear_feedback = false
+required = false
+default = "default"
+validation = "finite_non_negative"
+
+[[objects.properties]]
 name = "TextWrapping"
 value = "TextWrapping"
 clear_feedback = false

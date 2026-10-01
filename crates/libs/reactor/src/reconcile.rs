@@ -4384,6 +4384,29 @@ impl Planner<'_, '_> {
                 RelationValue::One(_) => unreachable!(),
             })
             .unwrap_or_default();
+        let same_order = match &self.retained.relation(object, relation_id).unwrap().value {
+            RetainedRelationValue::Many(previous) if previous.len() == desired.len() => {
+                let mut same_order = true;
+                for (previous, desired) in previous.iter().zip(desired) {
+                    if self.retained.get(*previous).unwrap().kind != desired.as_object()?.kind {
+                        same_order = false;
+                        break;
+                    }
+                }
+                same_order
+            }
+            _ => false,
+        };
+        if same_order {
+            for (index, desired) in desired.iter().enumerate() {
+                let previous = match &self.retained.relation(object, relation_id).unwrap().value {
+                    RetainedRelationValue::Many(previous) => previous[index],
+                    _ => unreachable!(),
+                };
+                self.reconcile_object(previous, desired.as_object()?)?;
+            }
+            return Ok(());
+        }
         let desired = desired
             .iter()
             .map(DeclaredNode::as_object)

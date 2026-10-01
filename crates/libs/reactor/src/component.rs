@@ -2380,6 +2380,26 @@ impl<A: Adapter> ComponentHost<A> {
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
     ) -> Result<Declaration, ComponentError<A::Error>> {
+        self.expand_declaration_in_place(
+            owner,
+            &mut declaration,
+            environment,
+            scope_root,
+            location,
+            expansion,
+        )?;
+        Ok(declaration)
+    }
+
+    fn expand_declaration_in_place(
+        &mut self,
+        owner: ComponentId,
+        declaration: &mut Declaration,
+        environment: &ContextEnvironment<'_>,
+        scope_root: bool,
+        location: ExpansionLocation<'_>,
+        expansion: &mut ExpansionState,
+    ) -> Result<(), ComponentError<A::Error>> {
         if location.depth > MAX_DEPTH {
             return Err(ComponentError::Runtime(UpdateError::Graph(
                 GraphError::DepthExceeded,
@@ -2405,50 +2425,100 @@ impl<A: Adapter> ComponentHost<A> {
             expansion,
             location.path,
         )?;
-        for relation in declaration.relations.as_slice().to_vec() {
-            let mut value = relation.value;
-            match &mut value {
+        let mut relations = std::mem::take(&mut declaration.relations);
+        let relation_slice = match &mut relations {
+            SharedList::Empty => &mut [],
+            SharedList::One(relation) => std::slice::from_mut(relation),
+            SharedList::Many(relations) => Rc::make_mut(relations),
+        };
+        for relation in relation_slice {
+            let value = std::mem::replace(&mut relation.value, RelationValue::One(None));
+            relation.value = match value {
                 RelationValue::One(Some(child)) => {
+                    let mut retained = Some(child);
                     location.path.push(ComponentPathSegment::Relation(
                         relation.id,
-                        child.as_ref().relation_identity(0),
+                        retained.as_ref().unwrap().relation_identity(0),
                     ));
-                    let result = self.expand_node(
-                        owner,
-                        child.as_ref().clone(),
-                        environment,
-                        location.depth + 1,
-                        expansion,
-                        location.path,
-                    );
-                    location.path.pop();
-                    let expanded = result?;
-                    *child = Rc::new(DeclaredNode::Object(expanded));
-                }
-                RelationValue::Many(children) => {
-                    for (index, child) in Rc::make_mut(children).iter_mut().enumerate() {
-                        location.path.push(ComponentPathSegment::Relation(
-                            relation.id,
-                            child.relation_identity(index),
-                        ));
-                        let result = self.expand_node(
+                    let result = if let Some(DeclaredNode::Object(declaration)) =
+                        Rc::get_mut(retained.as_mut().unwrap())
+                    {
+                        self.expand_declaration_in_place(
                             owner,
-                            child.clone(),
+                            declaration,
+                            environment,
+                            false,
+                            ExpansionLocation {
+                                depth: location.depth + 1,
+                                path: location.path,
+                            },
+                            expansion,
+                        )
+                        .map(|()| None)
+                    } else {
+                        let child = Rc::try_unwrap(retained.take().unwrap())
+                            .unwrap_or_else(|child| child.as_ref().clone());
+                        self.expand_node(
+                            owner,
+                            child,
                             environment,
                             location.depth + 1,
                             expansion,
                             location.path,
-                        );
-                        location.path.pop();
-                        let expanded = result?;
-                        *child = DeclaredNode::Object(expanded);
+                        )
+                        .map(Some)
+                    };
+                    location.path.pop();
+                    match result? {
+                        Some(expanded) => {
+                            RelationValue::One(Some(Rc::new(DeclaredNode::Object(expanded))))
+                        }
+                        None => RelationValue::One(retained),
                     }
                 }
-                RelationValue::One(None) => {}
-            }
-            declaration = declaration.relation(relation.id, value);
+                RelationValue::Many(mut children) => {
+                    for (index, child) in Rc::make_mut(&mut children).iter_mut().enumerate() {
+                        let identity = child.relation_identity(index);
+                        location
+                            .path
+                            .push(ComponentPathSegment::Relation(relation.id, identity));
+                        let result = match child {
+                            DeclaredNode::Object(declaration) => self
+                                .expand_declaration_in_place(
+                                    owner,
+                                    declaration,
+                                    environment,
+                                    false,
+                                    ExpansionLocation {
+                                        depth: location.depth + 1,
+                                        path: location.path,
+                                    },
+                                    expansion,
+                                )
+                                .map(|()| None),
+                            _ => self
+                                .expand_node(
+                                    owner,
+                                    child.clone(),
+                                    environment,
+                                    location.depth + 1,
+                                    expansion,
+                                    location.path,
+                                )
+                                .map(Some),
+                        };
+                        location.path.pop();
+                        if let Some(expanded) = result? {
+                            *child = DeclaredNode::Object(expanded);
+                        }
+                    }
+                    RelationValue::Many(children)
+                }
+                RelationValue::One(None) => RelationValue::One(None),
+            };
         }
-        Ok(declaration)
+        declaration.relations = relations;
+        Ok(())
     }
 
     fn expand_node(
@@ -2735,7 +2805,6 @@ impl<A: Adapter> ComponentHost<A> {
             scope.root = Some(object);
             scope.reference.set(Some(object));
         }
-        let mut pending = Vec::new();
         if let Some(attachments) = &declaration.attachments {
             if let Some(tooltip) = &attachments.tooltip {
                 let tooltip_object = self.runtime.graph().tooltip(object).unwrap();
@@ -2744,38 +2813,32 @@ impl<A: Adapter> ComponentHost<A> {
                     .graph()
                     .child(tooltip_object, RelationId::Content)
                     .unwrap();
-                pending.push((tooltip.content.as_object().unwrap().clone(), content_object));
+                self.refresh_roots_from(tooltip.content.as_object().unwrap(), content_object);
             }
             if let Some(flyout) = &attachments.flyout {
                 let content_object = self.runtime.graph().flyout(object).unwrap().0;
-                pending.push((flyout.content.as_object().unwrap().clone(), content_object));
+                self.refresh_roots_from(flyout.content.as_object().unwrap(), content_object);
             }
             if let Some(dialog) = &attachments.content_dialog {
                 let dialog_object = self.runtime.graph().content_dialog(object).unwrap().0;
-                pending.push((dialog.declaration.clone(), dialog_object));
+                self.refresh_roots_from(&dialog.declaration, dialog_object);
             }
         }
         for relation in declaration.relations.iter() {
             match &relation.value {
                 RelationValue::One(Some(child)) => {
-                    let child = child.as_object().unwrap().clone();
                     let object = self.runtime.graph().child(object, relation.id).unwrap();
-                    pending.push((child, object));
+                    self.refresh_roots_from(child.as_object().unwrap(), object);
                 }
                 RelationValue::Many(children) => {
-                    let objects = self.runtime.graph().children(object, relation.id).unwrap();
-                    pending.extend(
-                        children
-                            .iter()
-                            .zip(objects)
-                            .map(|(child, object)| (child.as_object().unwrap().clone(), *object)),
-                    );
+                    for (index, child) in children.iter().enumerate() {
+                        let object =
+                            self.runtime.graph().children(object, relation.id).unwrap()[index];
+                        self.refresh_roots_from(child.as_object().unwrap(), object);
+                    }
                 }
                 RelationValue::One(None) => {}
             }
-        }
-        for (declaration, object) in pending {
-            self.refresh_roots_from(&declaration, object);
         }
     }
 

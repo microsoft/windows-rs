@@ -196,13 +196,19 @@ impl WinUiAdapter {
         clear: &[PropertyId],
     ) -> Result<(), WinUiError> {
         let kind = self.kind(object)?;
-        let mut clear = clear.to_vec();
-        let mut set = set.iter().collect::<Vec<_>>();
-        if kind == ObjectType::ListView {
+        let sorted_clear = (kind == ObjectType::ListView).then(|| {
+            let mut clear = clear.to_vec();
             clear.sort_by_key(|property| *property == PropertyId::SelectedIndex);
+            clear
+        });
+        let sorted_set = (kind == ObjectType::ListView).then(|| {
+            let mut set = set.to_vec();
             set.sort_by_key(|property| property.id == PropertyId::SelectedIndex);
-        }
-        for property in clear {
+            set
+        });
+        let clear = sorted_clear.as_deref().unwrap_or(clear);
+        let set = sorted_set.as_deref().unwrap_or(set);
+        for property in clear.iter().copied() {
             let feedback = GeneratedHandle::feedback_expectation(kind, property, None);
             if let Some((event, expectation)) = feedback.clone() {
                 self.event_queue

@@ -4700,6 +4700,35 @@ impl GeneratedHandle {
                             .and_then(|brush| object.SetForeground(&brush).map_err(Into::into))
                     }),
             ),
+            (Self::TextBlock(object), PropertyId::Padding, None) => Some(
+                object
+                    .cast::<native::ITextBlock>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetPadding(native::Thickness::default())
+                            .map_err(Into::into)
+                    }),
+            ),
+            (
+                Self::TextBlock(object),
+                PropertyId::Padding,
+                Some(PropertyValue::Thickness(value)),
+            ) => Some(
+                object
+                    .cast::<native::ITextBlock>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetPadding(native::Thickness {
+                                left: value.left,
+                                top: value.top,
+                                right: value.right,
+                                bottom: value.bottom,
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
             (Self::TextBlock(object), PropertyId::TextWrapping, None) => Some(
                 object
                     .cast::<native::IDependencyObject>()

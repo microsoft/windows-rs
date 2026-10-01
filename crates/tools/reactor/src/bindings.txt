@@ -603,6 +603,7 @@ Microsoft::UI::Xaml::Controls::ITextBlock::put_FontWeight
 Microsoft::UI::Xaml::Controls::ITextBlock::put_Foreground
 Microsoft::UI::Xaml::Controls::ITextBlock::put_IsTextSelectionEnabled
 Microsoft::UI::Xaml::Controls::ITextBlock::put_MaxLines
+Microsoft::UI::Xaml::Controls::ITextBlock::put_Padding
 Microsoft::UI::Xaml::Controls::ITextBlock::put_Text
 Microsoft::UI::Xaml::Controls::ITextBlock::put_TextTrimming
 Microsoft::UI::Xaml::Controls::ITextBlock::put_TextWrapping
