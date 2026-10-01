@@ -29,6 +29,7 @@ impl Component for Sample {
                 .is_text_selection_enabled(true)
                 .text_wrapping(TextWrapping::Wrap),
         ))
+        .into()
     }
 }
 

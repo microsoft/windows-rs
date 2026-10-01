@@ -75,7 +75,7 @@ fn nav_item(
         item = item.icon(SymbolIcon::new().symbol(symbol));
     }
     if has_children {
-        item = item.menu_items(children).is_expanded(expanded);
+        item = item.keyed_menu_items(children).is_expanded(expanded);
     }
     KeyedView::new(tag.to_string(), item)
 }
@@ -96,16 +96,18 @@ fn category_page(category: &'static str, on_navigate: Callback<String>) -> View 
         })
         .collect();
 
-    ScrollViewer::new().content(
-        Border::new()
-            .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
-            .content(StackPanel::new().spacing(24.0).children((
-                page_header(category, &format!("{count} controls")),
-                card_grid(&items, move |tag| {
-                    let _ = on_navigate.call(tag);
-                }),
-            ))),
-    )
+    ScrollViewer::new()
+        .content(
+            Border::new()
+                .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
+                .content(StackPanel::new().spacing(24.0).children((
+                    page_header(category, &format!("{count} controls")),
+                    card_grid(&items, move |tag| {
+                        on_navigate.call(tag);
+                    }),
+                ))),
+        )
+        .into()
 }
 
 impl Gallery {
@@ -282,9 +284,11 @@ impl Component for Gallery {
             .pane_title("Reactor gallery")
             .is_pane_open(self.pane_open)
             .on_is_pane_open_changed(context.callback(Message::PaneOpenChanged))
-            .on_selected_tag_changed(context.callback(Message::SelectedTagChanged))
+            .on_selected_tag_changed(context.callback(|tag: Option<std::rc::Rc<str>>| {
+                Message::SelectedTagChanged(tag.map(|tag| tag.to_string()))
+            }))
             .grid_row(1)
-            .menu_items(menu_items)
+            .keyed_menu_items(menu_items)
             .content(content);
 
         let title_bar = TitleBar::new()
@@ -298,10 +302,11 @@ impl Component for Gallery {
             .on_pane_toggle_requested(context.message(Message::TogglePane))
             .grid_row(0)
             .content(
-                TextBox::new()
-                    .text(self.search.clone())
+                TextBox::new(self.search.clone())
                     .placeholder_text("Search controls and samples...")
-                    .on_text_changed(context.callback(Message::SearchChanged)),
+                    .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
+                        Message::SearchChanged(value.to_string())
+                    })),
             )
             .right_header(
                 Button::new()
@@ -312,5 +317,6 @@ impl Component for Gallery {
         Grid::new()
             .rows([GridLength::Auto, GridLength::Star(1.0)])
             .children((title_bar, navigation))
+            .into()
     }
 }

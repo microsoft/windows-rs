@@ -27,7 +27,7 @@ impl Component for MenuBarPage {
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        let callback = context.callback(Message::ItemClicked);
+        let callback = context.callback(|key: Key| Message::ItemClicked(key_label(&key)));
         page_content(
             "MenuBar",
             "A horizontal bar hosting drop-down menus.",
@@ -36,31 +36,25 @@ impl Component for MenuBarPage {
                 sample_card(
                     "Basic MenuBar",
                     StackPanel::new().spacing(8.0).children((
-                        MenuBar::new().items([
-                            Keyed::new(
-                                "file",
-                                MenuBarItem::new().title("File").menu(Menu::new(
-                                    [
-                                        MenuItem::item("new", "New"),
-                                        MenuItem::item("open", "Open"),
-                                        MenuItem::item("save", "Save"),
-                                    ],
-                                    callback.clone(),
-                                )),
-                            ),
-                            Keyed::new(
-                                "edit",
-                                MenuBarItem::new().title("Edit").menu(Menu::new(
-                                    [
-                                        MenuItem::item("undo", "Undo"),
-                                        MenuItem::item("cut", "Cut"),
-                                        MenuItem::item("copy", "Copy"),
-                                        MenuItem::item("paste", "Paste"),
-                                    ],
-                                    callback,
-                                )),
-                            ),
-                        ]),
+                        MenuBar::new().items((
+                            MenuBarItem::new().title("File").menu(Menu::new(
+                                [
+                                    MenuItem::item("new", "New"),
+                                    MenuItem::item("open", "Open"),
+                                    MenuItem::item("save", "Save"),
+                                ],
+                                callback.clone(),
+                            )),
+                            MenuBarItem::new().title("Edit").menu(Menu::new(
+                                [
+                                    MenuItem::item("undo", "Undo"),
+                                    MenuItem::item("cut", "Cut"),
+                                    MenuItem::item("copy", "Copy"),
+                                    MenuItem::item("paste", "Paste"),
+                                ],
+                                callback,
+                            )),
+                        )),
                         TextBlock::new()
                             .text(format!("Last clicked: {}", self.last_click))
                             .opacity(0.6),

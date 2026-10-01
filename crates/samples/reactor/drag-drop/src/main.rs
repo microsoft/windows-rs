@@ -94,6 +94,7 @@ impl Component for DragDrop {
                     .horizontal_alignment(HorizontalAlignment::Center)
                     .vertical_alignment(VerticalAlignment::Center),
             )
+            .into()
     }
 }
 

@@ -109,24 +109,27 @@ impl Component for PickerSample {
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Windows Pickers");
 
-        StackPanel::new().spacing(8.0).children((
-            Button::new()
-                .on_click(context.callback(|()| Message::OpenFile))
-                .content("Open file"),
-            Button::new()
-                .on_click(context.callback(|()| Message::OpenFiles))
-                .content("Open files"),
-            Button::new()
-                .on_click(context.callback(|()| Message::PickFolder))
-                .content("Choose folder"),
-            Button::new()
-                .on_click(context.callback(|()| Message::PickFolders))
-                .content("Choose folders"),
-            Button::new()
-                .on_click(context.callback(|()| Message::SaveFile))
-                .content("Save file"),
-            self.status.clone(),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                Button::new()
+                    .on_click(context.callback(|()| Message::OpenFile))
+                    .content("Open file"),
+                Button::new()
+                    .on_click(context.callback(|()| Message::OpenFiles))
+                    .content("Open files"),
+                Button::new()
+                    .on_click(context.callback(|()| Message::PickFolder))
+                    .content("Choose folder"),
+                Button::new()
+                    .on_click(context.callback(|()| Message::PickFolders))
+                    .content("Choose folders"),
+                Button::new()
+                    .on_click(context.callback(|()| Message::SaveFile))
+                    .content("Save file"),
+                self.status.clone(),
+            ))
+            .into()
     }
 }
 

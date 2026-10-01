@@ -109,7 +109,7 @@ impl Component for Sample {
                         scale
                     }
                 };
-                sender.send(scale);
+                _ = sender.send(scale);
             })
         });
         Grid::new()
@@ -123,6 +123,7 @@ impl Component for Sample {
                     .grid_row(0),
                 Grid::new().element_ref(&self.host).grid_row(1),
             ))
+            .into()
     }
 }
 

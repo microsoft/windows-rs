@@ -133,10 +133,11 @@ impl Component for BrowserControls {
                 grid_button("Back", Message::Back, 0, context),
                 grid_button("Forward", Message::Forward, 1, context),
                 grid_button("Reload", Message::Reload, 2, context),
-                TextBox::new()
-                    .text(&self.address)
+                TextBox::new(&self.address)
                     .placeholder_text("Enter a URL")
-                    .on_text_changed(context.callback(Message::Address))
+                    .on_text_changed(
+                        context.callback(|value: Rc<str>| Message::Address(value.to_string())),
+                    )
                     .grid_column(3),
                 grid_button("Go", Message::Go, 4, context),
             ));
@@ -167,6 +168,7 @@ impl Component for BrowserControls {
                 host_controls,
                 TextBlock::new().text(&self.status),
             ))
+            .into()
     }
 }
 
@@ -188,6 +190,7 @@ fn button(
     Button::new()
         .on_click(context.message(message))
         .content(label)
+        .into()
 }
 
 fn grid_button(
@@ -200,6 +203,7 @@ fn grid_button(
         .on_click(context.message(message))
         .grid_column(column)
         .content(label)
+        .into()
 }
 
 fn create_window(generation: u64, sender: LocalSender<Message>) -> Result<()> {

@@ -49,7 +49,7 @@ impl Component for CommandBarFlyoutPage {
                                         ),
                                     ],
                                     [],
-                                    context.forward(),
+                                    context.callback(|key: Key| key_label(&key)),
                                 ),
                             ),
                             TextBlock::new()
@@ -65,7 +65,9 @@ impl Component for CommandBarFlyoutPage {
             CommandBarCommand::button_with_icon("paste", "Paste", Symbol::Paste),
         ],
         [],
-        context.forward(),
+        context.callback(|key: Key| {
+            key_label(&key)
+        }),
     ))"#,
                     ),
                 ),
@@ -85,7 +87,7 @@ impl Component for CommandBarFlyoutPage {
                                     CommandBarCommand::separator("separator"),
                                     CommandBarCommand::button("print", "Print"),
                                 ],
-                                context.forward(),
+                                context.callback(|key: Key| key_label(&key)),
                             ),
                         ),
                         r#"Button::new()

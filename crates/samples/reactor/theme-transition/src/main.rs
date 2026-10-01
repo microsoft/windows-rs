@@ -51,7 +51,7 @@ impl Component for ThemeTransitionSample {
                             .margin(Thickness::new(left, top, 0.0, 0.0))
                             .transitions([ThemeTransition::Reposition])
                             .background(color)
-                            .corner_radius(12.0)
+                            .corner_radius(CornerRadius::uniform(12.0))
                             .content(
                                 TextBlock::new()
                                     .text(format!("Card {}", index + 1))
@@ -62,17 +62,20 @@ impl Component for ThemeTransitionSample {
                     )
                 });
 
-        Border::new().padding(24.0).content(
-            StackPanel::new().spacing(16.0).children((
-                "The same native elements move to new Grid layout positions.",
-                Button::new()
-                    .on_click(context.forward())
-                    .content("Move cards"),
-                Border::new()
-                    .background(Color::rgb(32, 64, 48))
-                    .content(Grid::new().width(400.0).height(260.0).keyed_children(cards)),
-            )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(24.0))
+            .content(
+                StackPanel::new().spacing(16.0).children((
+                    "The same native elements move to new Grid layout positions.",
+                    Button::new()
+                        .on_click(context.forward())
+                        .content("Move cards"),
+                    Border::new()
+                        .background(Color::rgb(32, 64, 48))
+                        .content(Grid::new().width(400.0).height(260.0).keyed_children(cards)),
+                )),
+            )
+            .into()
     }
 }
 

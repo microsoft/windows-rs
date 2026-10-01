@@ -56,12 +56,15 @@ impl Component for MessageBoxSample {
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Native message box");
 
-        StackPanel::new().spacing(8.0).children((
-            Button::new()
-                .on_click(context.message(Message::Confirm))
-                .content("Show message box"),
-            self.status.clone(),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                Button::new()
+                    .on_click(context.message(Message::Confirm))
+                    .content("Show message box"),
+                self.status.clone(),
+            ))
+            .into()
     }
 }
 

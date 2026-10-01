@@ -29,7 +29,7 @@ impl Component for MaterialsPage {
                     ButtonStyle::Default
                 })
                 .on_click(Callback::new(move |_| {
-                    let _ = callback.call(backdrop);
+                    callback.call(backdrop);
                 }))
                 .content(label)
         };

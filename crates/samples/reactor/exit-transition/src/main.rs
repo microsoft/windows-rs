@@ -34,15 +34,20 @@ impl Component for ExitTransitionSample {
                 )
         });
 
-        let content = StackPanel::new().spacing(16.0).children((
+        let mut children: Vec<View> = vec![
             Button::new()
                 .on_click(context.forward())
-                .content(if self.visible { "Remove" } else { "Restore" }),
-            card.unwrap_or_else(View::empty),
-        ));
+                .content(if self.visible { "Remove" } else { "Restore" })
+                .into(),
+        ];
+        if let Some(card) = card {
+            children.push(card.into());
+        }
+        let content = StackPanel::new().spacing(16.0).children(children);
         Border::new()
             .padding(Thickness::uniform(24.0))
             .content(content)
+            .into()
     }
 }
 

@@ -55,6 +55,7 @@ impl Component for Sample {
                         format!("revision {}", self.seed),
                     )),
             ))
+            .into()
     }
 }
 

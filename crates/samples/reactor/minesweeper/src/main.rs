@@ -356,6 +356,7 @@ impl Component for Game {
                     .spacing(12.0)
                     .children((header, board)),
             ))
+            .into()
     }
 }
 
@@ -370,6 +371,7 @@ fn build_board(game: &Game, context: &ViewContext<Game>) -> View {
         .height(420.0)
         .horizontal_alignment(HorizontalAlignment::Center)
         .keyed_children(cells)
+        .into()
 }
 
 fn build_cells(game: &Game, context: &ViewContext<Game>) -> Vec<KeyedView> {

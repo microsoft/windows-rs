@@ -8,7 +8,7 @@ fn type_sample(name: &str, size: f64, weight: FontWeight) -> View {
         .spacing(12.0)
         .children((
             TextBlock::new()
-                .text(name.to_string())
+                .text(name)
                 .font_size(size)
                 .font_weight(weight),
             TextBlock::new()
@@ -16,6 +16,7 @@ fn type_sample(name: &str, size: f64, weight: FontWeight) -> View {
                 .font_size(12.0)
                 .opacity(0.6),
         ))
+        .into()
 }
 
 pub struct TypographyPage;

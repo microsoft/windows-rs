@@ -1,5 +1,6 @@
 #![windows_subsystem = "windows"]
 
+use std::rc::Rc;
 use windows_reactor::*;
 use windows_webview::{EventRegistration, Result, WebView, webview_result};
 
@@ -129,10 +130,11 @@ impl Component for Browser {
                 button("Back", Message::Back, 0),
                 button("Forward", Message::Forward, 1),
                 button("Reload", Message::Reload, 2),
-                TextBox::new()
-                    .text(&self.address)
+                TextBox::new(&self.address)
                     .placeholder_text("Enter a URL")
-                    .on_text_changed(context.callback(Message::Address))
+                    .on_text_changed(
+                        context.callback(|value: Rc<str>| Message::Address(value.to_string())),
+                    )
                     .grid_column(3),
                 button("Go", Message::Go, 4),
             ));
@@ -172,6 +174,7 @@ impl Component for Browser {
                 actions,
                 status,
             ))
+            .into()
     }
 }
 

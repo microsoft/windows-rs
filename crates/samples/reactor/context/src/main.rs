@@ -21,14 +21,17 @@ impl Component for Leaf {
             "neon" => (Color::rgb(50, 200, 150), Color::rgb(0, 0, 0)),
             _ => (Color::rgb(240, 240, 240), Color::rgb(0, 0, 0)),
         };
-        Border::new().background(background).content(
-            Border::new().padding(Thickness::uniform(16.0)).content(
-                TextBlock::new()
-                    .text(format!("Leaf sees theme = {theme}"))
-                    .font_size(16.0)
-                    .foreground(foreground),
-            ),
-        )
+        Border::new()
+            .background(background)
+            .content(
+                Border::new().padding(Thickness::uniform(16.0)).content(
+                    TextBlock::new()
+                        .text(format!("Leaf sees theme = {theme}"))
+                        .font_size(16.0)
+                        .foreground(foreground),
+                ),
+            )
+            .into()
     }
 }
 
@@ -53,7 +56,7 @@ impl Component for ContextSample {
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("Context");
         let pick = |name| Button::new().on_click(context.message(name)).content(name);
-        View::provide(
+        provide(
             &THEME,
             self.theme.clone(),
             Border::new().padding(Thickness::uniform(16.0)).content(
@@ -67,7 +70,7 @@ impl Component for ContextSample {
                         .children((pick("light"), pick("dark"), pick("neon"))),
                     Border::new()
                         .padding(Thickness::uniform(8.0))
-                        .content(View::component::<Leaf>(())),
+                        .content(component::<Leaf>("leaf", ())),
                 )),
             ),
         )

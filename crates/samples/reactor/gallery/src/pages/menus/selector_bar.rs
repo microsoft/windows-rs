@@ -29,7 +29,7 @@ impl Component for SelectorBarPage {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         let item = |text: &'static str| {
-            Keyed::new(
+            KeyedView::new(
                 text,
                 SelectorBarItem::new()
                     .text(text)
@@ -46,8 +46,12 @@ impl Component for SelectorBarPage {
                     "Basic SelectorBar",
                     StackPanel::new().spacing(8.0).children((
                         SelectorBar::new()
-                            .on_selected_text_changed(context.callback(Message::SelectionChanged))
-                            .items([item("Recent"), item("Shared"), item("Favorites")]),
+                            .on_selected_text_changed(context.callback(
+                                |value: Option<std::rc::Rc<str>>| {
+                                    Message::SelectionChanged(value.map(|value| value.to_string()))
+                                },
+                            ))
+                            .keyed_items([item("Recent"), item("Shared"), item("Favorites")]),
                         TextBlock::new()
                             .text(format!("Selected: {}", self.selected))
                             .opacity(0.6),

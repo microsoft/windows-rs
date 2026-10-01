@@ -33,15 +33,18 @@ impl Component for ScaleTransition {
                     .foreground(Color::rgb(255, 255, 255)),
             );
 
-        Border::new().padding(Thickness::uniform(16.0)).content(
-            StackPanel::new().spacing(12.0).children((
-                "Toggle to drive scale through an implicit transition.",
-                Button::new()
-                    .on_click(context.callback(|_| ()))
-                    .content(if self.big { "Scale down" } else { "Scale up" }),
-                swatch,
-            )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(16.0))
+            .content(
+                StackPanel::new().spacing(12.0).children((
+                    "Toggle to drive scale through an implicit transition.",
+                    Button::new()
+                        .on_click(context.callback(|_| ()))
+                        .content(if self.big { "Scale down" } else { "Scale up" }),
+                    swatch,
+                )),
+            )
+            .into()
     }
 }
 

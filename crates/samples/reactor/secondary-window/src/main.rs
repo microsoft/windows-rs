@@ -30,25 +30,28 @@ impl Component for CounterWindow {
     fn view(&self, number: &u32, context: &mut ViewContext<Self>) -> View {
         context.window_title(format!("Counter window #{number}"));
         context.window_visuals(WindowVisuals::new().client_size(320.0, 220.0));
-        Border::new().padding(24.0).content(
-            StackPanel::new().spacing(12.0).children((
-                TextBlock::new().text("Independent counter").font_size(20.0),
-                TextBlock::new()
-                    .text(format!("Count: {}", self.count))
-                    .font_size(28.0),
-                StackPanel::new()
-                    .orientation(Orientation::Horizontal)
-                    .spacing(8.0)
-                    .children((
-                        Button::new()
-                            .on_click(context.message(CounterMessage::Decrement))
-                            .content("-"),
-                        Button::new()
-                            .on_click(context.message(CounterMessage::Increment))
-                            .content("+"),
-                    )),
-            )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(24.0))
+            .content(
+                StackPanel::new().spacing(12.0).children((
+                    TextBlock::new().text("Independent counter").font_size(20.0),
+                    TextBlock::new()
+                        .text(format!("Count: {}", self.count))
+                        .font_size(28.0),
+                    StackPanel::new()
+                        .orientation(Orientation::Horizontal)
+                        .spacing(8.0)
+                        .children((
+                            Button::new()
+                                .on_click(context.message(CounterMessage::Decrement))
+                                .content("-"),
+                            Button::new()
+                                .on_click(context.message(CounterMessage::Increment))
+                                .content("+"),
+                        )),
+                )),
+            )
+            .into()
     }
 }
 
@@ -66,23 +69,26 @@ impl Component for SecondaryWindowSample {
 
     fn update(&mut self, _message: (), context: &ComponentContext<Self>) {
         let number = self.opened + 1;
-        if context.open_window(View::component::<CounterWindow>(number)) {
+        if context.open_window::<CounterWindow>(number) {
             self.opened = number;
         }
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("Secondary windows");
-        Border::new().padding(24.0).content(
-            StackPanel::new().spacing(12.0).children((
-                "Each opened window hosts its own independent counter.",
-                "Closing the last remaining window exits the app.",
-                Button::new()
-                    .on_click(context.forward())
-                    .content("Open counter window"),
-                format!("Windows opened: {}", self.opened),
-            )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(24.0))
+            .content(
+                StackPanel::new().spacing(12.0).children((
+                    "Each opened window hosts its own independent counter.",
+                    "Closing the last remaining window exits the app.",
+                    Button::new()
+                        .on_click(context.forward())
+                        .content("Open counter window"),
+                    format!("Windows opened: {}", self.opened),
+                )),
+            )
+            .into()
     }
 }
 

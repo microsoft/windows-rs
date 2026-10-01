@@ -94,6 +94,7 @@ impl Component for Sample {
                             .content("Remove circle"),
                     )),
             ))
+            .into()
     }
 }
 

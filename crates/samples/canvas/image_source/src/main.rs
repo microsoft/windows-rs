@@ -58,7 +58,7 @@ impl Component for Sample {
         let sender = context.sender();
         context.use_effect_guard("image-scale", (), move || {
             image.observe_rasterization_scale(move |scale| {
-                sender.send(Message::Scale(scale));
+                _ = sender.send(Message::Scale(scale));
             })
         });
 
@@ -99,6 +99,7 @@ impl Component for Sample {
                         format!("{count} dots"),
                     )),
             ))
+            .into()
     }
 }
 

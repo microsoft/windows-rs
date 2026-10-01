@@ -27,7 +27,7 @@ impl Component for PointerResize {
     fn update(&mut self, message: PointerMessage, _context: &ComponentContext<Self>) {
         match message {
             PointerMessage::Pressed(info) => {
-                if info.is_left_button_pressed && info.capture_succeeded {
+                if info.is_left_button_pressed && info.capture_succeeded == Some(true) {
                     self.drag_start = Some((info.window_x, self.width));
                 }
             }
@@ -46,37 +46,42 @@ impl Component for PointerResize {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Pointer Resize");
-        StackPanel::new().spacing(12.0).children((
-            format!("Left pane width: {:.0} DIPs", self.width),
-            Border::new().height(240.0).content(
-                StackPanel::new()
-                    .orientation(Orientation::Horizontal)
-                    .children((
-                        Border::new()
-                            .width(self.width)
-                            .background(Color::rgb(35, 90, 150))
-                            .padding(16.0)
-                            .content("Resizable pane"),
-                        Border::new()
-                            .width(44.0)
-                            .background(Color::rgb(90, 90, 100))
-                            .capture_pointer_on_press(true)
-                            .on_pointer_pressed(context.callback(PointerMessage::Pressed))
-                            .on_pointer_moved(context.callback(PointerMessage::Moved))
-                            .on_pointer_released(context.callback(|_| PointerMessage::Released))
-                            .on_pointer_capture_lost(context.callback(|_| PointerMessage::Released))
-                            .on_pointer_canceled(context.callback(|_| PointerMessage::Released))
-                            .content(
-                                TextBlock::new()
-                                    .text("Drag")
-                                    .foreground(Color::rgb(255, 255, 255)),
-                            ),
-                        Border::new()
-                            .padding(16.0)
-                            .content("The handle moves, but window_x remains stable."),
-                    )),
-            ),
-        ))
+        StackPanel::new()
+            .spacing(12.0)
+            .children((
+                format!("Left pane width: {:.0} DIPs", self.width),
+                Border::new().height(240.0).content(
+                    StackPanel::new()
+                        .orientation(Orientation::Horizontal)
+                        .children((
+                            Border::new()
+                                .width(self.width)
+                                .background(Color::rgb(35, 90, 150))
+                                .padding(Thickness::uniform(16.0))
+                                .content("Resizable pane"),
+                            Border::new()
+                                .width(44.0)
+                                .background(Color::rgb(90, 90, 100))
+                                .capture_pointer_on_press(true)
+                                .on_pointer_pressed(context.callback(PointerMessage::Pressed))
+                                .on_pointer_moved(context.callback(PointerMessage::Moved))
+                                .on_pointer_released(context.callback(|_| PointerMessage::Released))
+                                .on_pointer_capture_lost(
+                                    context.callback(|_| PointerMessage::Released),
+                                )
+                                .on_pointer_canceled(context.callback(|_| PointerMessage::Released))
+                                .content(
+                                    TextBlock::new()
+                                        .text("Drag")
+                                        .foreground(Color::rgb(255, 255, 255)),
+                                ),
+                            Border::new()
+                                .padding(Thickness::uniform(16.0))
+                                .content("The handle moves, but window_x remains stable."),
+                        )),
+                ),
+            ))
+            .into()
     }
 }
 

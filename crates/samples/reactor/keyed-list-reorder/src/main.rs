@@ -24,17 +24,20 @@ impl Component for Row {
     }
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        Border::new().padding(6.0).content(
-            StackPanel::new()
-                .orientation(Orientation::Horizontal)
-                .spacing(8.0)
-                .children((
-                    format!("{}: {}", input.name, self.clicks),
-                    Button::new()
-                        .on_click(context.forward())
-                        .content(format!("Increment {}", input.name)),
-                )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(6.0))
+            .content(
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .children((
+                        format!("{}: {}", input.name, self.clicks),
+                        Button::new()
+                            .on_click(context.forward())
+                            .content(format!("Increment {}", input.name)),
+                    )),
+            )
+            .into()
     }
 }
 
@@ -67,12 +70,13 @@ impl Component for KeyedListReorderSample {
             )
         });
         Border::new()
-            .padding(16.0)
+            .padding(Thickness::uniform(16.0))
             .content(StackPanel::new().spacing(12.0).children((
                 "Increment a row, then rotate the list. The count stays with its name.",
                 Button::new().on_click(context.forward()).content("Rotate"),
                 StackPanel::new().spacing(8.0).keyed_children(rows),
             )))
+            .into()
     }
 }
 

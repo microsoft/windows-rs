@@ -1,10 +1,12 @@
 #![windows_subsystem = "windows"]
 
+use std::rc::Rc;
+
 use windows_reactor::*;
 
 #[derive(Clone, PartialEq)]
 struct GreetingInput {
-    name: String,
+    name: Rc<str>,
 }
 
 struct Greeting;
@@ -43,24 +45,27 @@ impl Component for Counter {
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().spacing(8.0).children((
-            TextBlock::new()
-                .text(format!("count = {}", self.count))
-                .font_size(24.0)
-                .font_weight(FontWeight::BOLD),
-            Button::new()
-                .on_click(context.forward())
-                .content("Increment"),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                TextBlock::new()
+                    .text(format!("count = {}", self.count))
+                    .font_size(24.0)
+                    .font_weight(FontWeight::BOLD),
+                Button::new()
+                    .on_click(context.forward())
+                    .content("Increment"),
+            ))
+            .into()
     }
 }
 
 struct FunctionComponentSample {
-    name: String,
+    name: Rc<str>,
 }
 
 impl Component for FunctionComponentSample {
-    type Message = String;
+    type Message = Rc<str>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
@@ -69,23 +74,25 @@ impl Component for FunctionComponentSample {
         }
     }
 
-    fn update(&mut self, name: String, _context: &ComponentContext<Self>) {
+    fn update(&mut self, name: Rc<str>, _context: &ComponentContext<Self>) {
         self.name = name;
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("FunctionComponent");
-        StackPanel::new().spacing(12.0).children((
-            View::component::<Greeting>(GreetingInput {
-                name: self.name.clone(),
-            }),
-            TextBox::new()
-                .text(self.name.clone())
-                .placeholder_text("Type a name...")
-                .on_text_changed(context.forward())
-                .header("Your name"),
-            View::component::<Counter>(()),
-        ))
+        StackPanel::new()
+            .spacing(12.0)
+            .children((
+                View::component::<Greeting>(GreetingInput {
+                    name: self.name.clone(),
+                }),
+                TextBox::new(self.name.clone())
+                    .placeholder_text("Type a name...")
+                    .on_text_changed(context.forward())
+                    .header("Your name"),
+                View::component::<Counter>(()),
+            ))
+            .into()
     }
 }
 

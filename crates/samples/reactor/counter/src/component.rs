@@ -19,10 +19,13 @@ impl Component for Counter {
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().spacing(8.0).children((
-            self.count.to_string(),
-            Button::new().on_click(context.forward()).content("+"),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                self.count.to_string(),
+                Button::new().on_click(context.forward()).content("+"),
+            ))
+            .into()
     }
 }
 

@@ -590,6 +590,7 @@ fn build_board(
         .padding(Thickness::uniform(1.0))
         .horizontal_alignment(HorizontalAlignment::Center)
         .content(g.keyed_children(children))
+        .into()
 }
 
 fn led_display(value: i32) -> View {
@@ -612,6 +613,7 @@ fn led_display(value: i32) -> View {
                 .horizontal_alignment(HorizontalAlignment::Center)
                 .vertical_alignment(VerticalAlignment::Center),
         )
+        .into()
 }
 
 fn status_subtitle(state: &AppState) -> String {
@@ -797,6 +799,7 @@ impl Component for Dotsweeper {
                     .spacing(8.0)
                     .children((status_card, toolbar, board)),
             ))
+            .into()
     }
 }
 

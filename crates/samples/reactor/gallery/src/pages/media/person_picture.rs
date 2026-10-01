@@ -35,6 +35,7 @@ impl Component for PersonPicturePage {
                     PersonPicture::new().display_name("Bob Johnson"),
                     PersonPicture::new().display_name("Carol Lee"),
                 ))
+                .into()
         } else {
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
@@ -44,6 +45,7 @@ impl Component for PersonPicturePage {
                     PersonPicture::new().initials("BJ"),
                     PersonPicture::new().initials("CL"),
                 ))
+                .into()
         };
 
         page_content(

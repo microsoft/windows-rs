@@ -22,12 +22,9 @@ impl Component for PivotPage {
             ["Overview", "Details", "History"]
                 .into_iter()
                 .map(move |header| {
-                    KeyedView::new(
-                        format!("{prefix}-{header}"),
-                        PivotItem::new()
-                            .header(header)
-                            .content(format!("{header} content")),
-                    )
+                    PivotItem::new()
+                        .header(format!("{prefix} {header}"))
+                        .content(format!("{header} content"))
                 })
         };
         page_content(

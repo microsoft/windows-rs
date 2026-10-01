@@ -68,7 +68,7 @@ impl Component for ResponsiveNavigation {
             .on_display_mode_changed(context.callback(NavigationMessage::DisplayMode))
             .pane_title("Responsive navigation")
             .is_settings_visible(false)
-            .menu_items(items)
+            .keyed_menu_items(items)
             .content(
                 StackPanel::new().spacing(12.0).children((
                     format!(

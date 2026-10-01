@@ -57,7 +57,7 @@ impl Component for FlipViewPage {
                             .selected_index(self.selected)
                             .on_selection_changed(context.callback(Message::Selected))
                             .height(200.0)
-                            .items([
+                            .keyed_items([
                                 slide("welcome", "Welcome", 0),
                                 slide("features", "Features", 1),
                                 slide("getting-started", "Getting Started", 2),
