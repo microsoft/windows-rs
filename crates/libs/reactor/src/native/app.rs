@@ -732,6 +732,7 @@ pub fn subscribe_live_interval(
 }
 
 #[cfg(feature = "test")]
+#[must_use = "dropping the subscription stops rendering notifications"]
 pub struct LiveRenderingSubscription {
     _rendering: windows_core::EventRevoker,
 }
