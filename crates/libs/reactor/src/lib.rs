@@ -1,6 +1,4 @@
-#[cfg(doctest)]
-#[doc = include_str!("../readme.md")]
-mod readme {}
+#![doc = include_str!("../readme.md")]
 
 #[cfg(doctest)]
 #[doc = include_str!("../../../../docs/crates/windows-reactor.md")]
