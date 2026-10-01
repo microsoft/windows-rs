@@ -784,7 +784,7 @@ fn report_error_ref(
 ) {
     if state.replace(Some(error)) != Some(error) {
         let callback = input.borrow().on_error.clone();
-        _ = callback.call(error);
+        callback.call(error);
     }
 }
 

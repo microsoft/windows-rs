@@ -54,7 +54,9 @@ impl Component for CheckBoxPage {
                         StackPanel::new().spacing(8.0).children((
                             CheckBox::new()
                                 .is_checked(self.accepted)
-                                .on_is_checked_changed(context.callback(Message::Accepted))
+                                .on_is_checked_changed(context.callback(|value: Option<bool>| {
+                                    Message::Accepted(value.unwrap_or(false))
+                                }))
                                 .content("I accept the terms and conditions"),
                             TextBlock::new()
                                 .text(if self.accepted {
@@ -74,15 +76,21 @@ impl Component for CheckBoxPage {
                         StackPanel::new().spacing(6.0).children((
                             CheckBox::new()
                                 .is_checked(self.email)
-                                .on_is_checked_changed(context.callback(Message::Email))
+                                .on_is_checked_changed(context.callback(|value: Option<bool>| {
+                                    Message::Email(value.unwrap_or(false))
+                                }))
                                 .content("Email notifications"),
                             CheckBox::new()
                                 .is_checked(self.sms)
-                                .on_is_checked_changed(context.callback(Message::Sms))
+                                .on_is_checked_changed(context.callback(|value: Option<bool>| {
+                                    Message::Sms(value.unwrap_or(false))
+                                }))
                                 .content("SMS notifications"),
                             CheckBox::new()
                                 .is_checked(self.push)
-                                .on_is_checked_changed(context.callback(Message::Push))
+                                .on_is_checked_changed(context.callback(|value: Option<bool>| {
+                                    Message::Push(value.unwrap_or(false))
+                                }))
                                 .content("Push notifications"),
                             TextBlock::new()
                                 .text(format!("{active} channel(s) active"))

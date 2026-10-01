@@ -46,22 +46,25 @@ impl Component for AsyncStateSample {
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("AsyncState");
-        StackPanel::new().spacing(8.0).children((
-            TextBlock::new()
-                .text(format!("count = {}", self.count))
-                .font_size(24.0),
-            TextBlock::new()
-                .text(if self.busy {
-                    "working off the UI thread..."
-                } else {
-                    "idle"
-                })
-                .font_size(12.0),
-            Button::new()
-                .is_enabled(!self.busy)
-                .on_click(context.message(Message::Bump))
-                .content("Bump (off-thread)"),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                TextBlock::new()
+                    .text(format!("count = {}", self.count))
+                    .font_size(24.0),
+                TextBlock::new()
+                    .text(if self.busy {
+                        "working off the UI thread..."
+                    } else {
+                        "idle"
+                    })
+                    .font_size(12.0),
+                Button::new()
+                    .is_enabled(!self.busy)
+                    .on_click(context.message(Message::Bump))
+                    .content("Bump (off-thread)"),
+            ))
+            .into()
     }
 }
 

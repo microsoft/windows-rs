@@ -5,7 +5,7 @@ fn card(title: &str, body: &str, radius: f64, stroke: f64, column: i32) -> View 
         .background(ThemeBrush::CardBackground)
         .border_brush(Color::rgb(160, 160, 160))
         .border_thickness(Thickness::uniform(stroke))
-        .corner_radius(radius)
+        .corner_radius(CornerRadius::uniform(radius))
         .padding(Thickness::uniform(16.0))
         .min_width(160.0)
         .max_width(240.0)
@@ -20,6 +20,7 @@ fn card(title: &str, body: &str, radius: f64, stroke: f64, column: i32) -> View 
                 TextBlock::new().text(body).font_size(13.0),
             )),
         )
+        .into()
 }
 
 fn content() -> View {
@@ -28,10 +29,17 @@ fn content() -> View {
         .column_spacing(12.0)
         .margin(Thickness::uniform(24.0))
         .children((
-            card("Sharp", "corner_radius(0.0)", 0.0, 1.0, 0),
-            card("Rounded", "corner_radius(8.0)", 8.0, 1.0, 1),
-            card("Pill", "corner_radius(24.0) + 4px stroke", 24.0, 4.0, 2),
+            card("Sharp", "CornerRadius::uniform(0.0)", 0.0, 1.0, 0),
+            card("Rounded", "CornerRadius::uniform(8.0)", 8.0, 1.0, 1),
+            card(
+                "Pill",
+                "CornerRadius::uniform(24.0) + 4px stroke",
+                24.0,
+                4.0,
+                2,
+            ),
         ))
+        .into()
 }
 
 struct Sample;

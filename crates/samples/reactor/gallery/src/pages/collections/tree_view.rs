@@ -36,7 +36,7 @@ impl Component for TreeViewPage {
                         TreeNode::new("budget", "Budget.xlsx"),
                     ]),
                     TreeNode::new("personal", "Personal")
-                        .child(TreeNode::new("resume", "Resume.pdf")),
+                        .children([TreeNode::new("resume", "Resume.pdf")]),
                 ]),
             TreeNode::new("pictures", "Pictures").children([
                 TreeNode::new("vacation", "Vacation.jpg"),
@@ -63,7 +63,9 @@ impl Component for TreeViewPage {
                         "File Explorer TreeView",
                         StackPanel::new().spacing(8.0).children((
                             TreeView::new()
-                                .on_item_invoked(context.callback(Message::Invoked))
+                                .on_item_invoked(context.callback(|value: std::rc::Rc<str>| {
+                                    Message::Invoked(value.to_string())
+                                }))
                                 .nodes(file_system),
                             TextBlock::new()
                                 .text(format!("Last invoked: {}", self.last_invoked))

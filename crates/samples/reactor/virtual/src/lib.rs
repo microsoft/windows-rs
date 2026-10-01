@@ -1,10 +1,6 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use std::time::Duration;
-#[cfg(feature = "perf")]
-use windows_core::EventRevoker;
-#[cfg(any(test, feature = "perf"))]
-use windows_reactor::test::*;
 use windows_reactor::*;
 
 const INITIAL_TASKS: usize = 100;
@@ -292,35 +288,38 @@ impl Component for TaskEditor {
             },
         );
 
-        StackPanel::new().spacing(8.0).children((
-            TextBlock::new()
-                .text("Virtual task editor")
-                .text_wrapping(TextWrapping::Wrap),
-            self.status.clone(),
-            StackPanel::new().spacing(4.0).children((
-                Button::new()
-                    .on_click(context.message(Message::Add))
-                    .content("Add at front"),
-                Button::new()
-                    .on_click(context.message(Message::MoveFirstToEnd))
-                    .content("Move first to end"),
-                Button::new()
-                    .on_click(context.message(Message::Reverse))
-                    .content("Reverse"),
-                Button::new()
-                    .is_enabled(!self.loading)
-                    .on_click(context.message(Message::Load))
-                    .content("Load 100"),
-                Button::new()
-                    .on_click(context.message(Message::Stress))
-                    .content("Reset to 1,000"),
-            )),
-            ProgressBar::new()
-                .minimum(0.0)
-                .maximum(1.0)
-                .is_indeterminate(self.loading),
-            ScrollViewer::new().content(ItemsRepeater::new().virtual_source(rows)),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                TextBlock::new()
+                    .text("Virtual task editor")
+                    .text_wrapping(TextWrapping::Wrap),
+                self.status.clone(),
+                StackPanel::new().spacing(4.0).children((
+                    Button::new()
+                        .on_click(context.message(Message::Add))
+                        .content("Add at front"),
+                    Button::new()
+                        .on_click(context.message(Message::MoveFirstToEnd))
+                        .content("Move first to end"),
+                    Button::new()
+                        .on_click(context.message(Message::Reverse))
+                        .content("Reverse"),
+                    Button::new()
+                        .is_enabled(!self.loading)
+                        .on_click(context.message(Message::Load))
+                        .content("Load 100"),
+                    Button::new()
+                        .on_click(context.message(Message::Stress))
+                        .content("Reset to 1,000"),
+                )),
+                ProgressBar::new()
+                    .minimum(0.0)
+                    .maximum(1.0)
+                    .is_indeterminate(self.loading),
+                ScrollViewer::new().content(ItemsRepeater::new().virtual_source(rows)),
+            ))
+            .into()
     }
 }
 
@@ -403,44 +402,51 @@ impl Component for TaskRow {
                 metrics.cleanups.set(metrics.cleanups.get() + 1);
             }))
         });
-        let edit_status = if editing {
-            "Editing; title must not be empty".into()
-        } else {
-            View::empty()
-        };
-
-        StackPanel::new().spacing(4.0).children((
+        let mut children = vec![
             format!(
                 "#{}{}",
                 input.item.id,
                 if input.selected { " selected" } else { "" }
-            ),
+            )
+            .into(),
             ToggleSwitch::new()
                 .is_on(input.item.done)
-                .on_toggled(context.callback(RowMessage::SetDone)),
-            TextBox::new()
+                .on_toggled(context.callback(RowMessage::SetDone))
+                .into(),
+            TextBox::new(self.draft.clone())
                 .element_ref(&self.input)
-                .text(self.draft.clone())
                 .is_enabled(editing)
-                .on_text_changed(context.callback(RowMessage::Draft)),
-            edit_status,
-            StackPanel::new().spacing(2.0).children((
-                Button::new()
-                    .on_click(context.message(RowMessage::Select))
-                    .content("Select"),
-                Button::new()
-                    .is_enabled(!editing)
-                    .on_click(context.message(RowMessage::Edit))
-                    .content("Edit"),
-                Button::new()
-                    .is_enabled(editing)
-                    .on_click(context.message(RowMessage::Save))
-                    .content("Save"),
-                Button::new()
-                    .on_click(context.message(RowMessage::Remove))
-                    .content("Remove"),
-            )),
-        ))
+                .on_text_changed(
+                    context.callback(|value: Rc<str>| RowMessage::Draft(value.to_string())),
+                )
+                .into(),
+        ];
+        if editing {
+            children.push("Editing; title must not be empty".into());
+        }
+        children.push(
+            StackPanel::new()
+                .spacing(2.0)
+                .children((
+                    Button::new()
+                        .on_click(context.message(RowMessage::Select))
+                        .content("Select"),
+                    Button::new()
+                        .is_enabled(!editing)
+                        .on_click(context.message(RowMessage::Edit))
+                        .content("Edit"),
+                    Button::new()
+                        .is_enabled(editing)
+                        .on_click(context.message(RowMessage::Save))
+                        .content("Save"),
+                    Button::new()
+                        .on_click(context.message(RowMessage::Remove))
+                        .content("Remove"),
+                ))
+                .into(),
+        );
+
+        StackPanel::new().spacing(4.0).children(children).into()
     }
 }
 
@@ -463,17 +469,17 @@ pub mod performance {
     use std::time::Instant;
 
     const REALIZED_ROWS: usize = 32;
-    const SETTLE_FRAMES: usize = 5;
-    const WARMUP_FRAMES: usize = 30;
+    const SETTLE_TICKS: usize = 5;
+    const WARMUP_TICKS: usize = 30;
 
     pub struct Scenario {
-        collection: NodeId,
+        collection: ObjectId,
         containers: Vec<RealizedContainer>,
         edit: usize,
+        host: ComponentHost<RecordingAdapter>,
         next_container: u64,
         next_index: usize,
         input: EditorInput,
-        pump: Pump<RecordingRuntime>,
         selected: u64,
         task_count: usize,
     }
@@ -489,28 +495,38 @@ pub mod performance {
                 task_count,
                 ..Default::default()
             };
-            let mut pump = Pump::new(RecordingRuntime::default());
-            pump.mount_view(View::component::<TaskEditor>(input.clone()))
-                .unwrap();
-            let collection = pump
+            let mut host = ComponentHost::mount(
+                RecordingAdapter::default(),
+                [component::<TaskEditor>("root", input.clone())],
+            )
+            .unwrap();
+            let collection = host
                 .runtime()
-                .commands()
-                .iter()
-                .flatten()
-                .find_map(|command| match command {
-                    Command::CreateVirtualCollection { node, .. } => Some(*node),
-                    _ => None,
+                .graph()
+                .objects()
+                .find(|object| {
+                    host.runtime().graph().kind(*object) == Some(ObjectType::ItemsRepeater)
                 })
+                .unwrap();
+            let source_revision = host
+                .runtime()
+                .graph()
+                .virtual_source_revision(collection)
                 .unwrap();
 
             let containers = (0..REALIZED_ROWS)
                 .map(|value| RealizedContainer(value as u64))
                 .collect::<Vec<_>>();
             for (index, container) in containers.iter().copied().enumerate() {
-                pump.runtime_mut()
-                    .queue_realize(collection, container, index);
+                host.test_adapter_mut()
+                    .queue_realization(RealizationRequest::Realize {
+                        collection,
+                        container,
+                        index,
+                        source_revision,
+                    });
             }
-            pump.process_realizations().unwrap();
+            host.drain(usize::MAX).unwrap();
 
             assert!(
                 input
@@ -521,18 +537,16 @@ pub mod performance {
                     .unwrap()
                     .send(RowMessage::Edit)
             );
-            pump.dispatch_components(1).unwrap();
-            pump.process_imperatives().unwrap();
-            pump.runtime_mut().record_commands(false);
+            host.drain(usize::MAX).unwrap();
 
             Self {
                 collection,
                 containers,
                 edit: 0,
+                host,
                 next_container: REALIZED_ROWS as u64,
                 next_index: REALIZED_ROWS,
                 input,
-                pump,
                 selected: task_count as u64 / 10,
                 task_count,
             }
@@ -553,7 +567,7 @@ pub mod performance {
                     .unwrap()
                     .send(RowMessage::Draft(format!("Edited task {}", self.edit)))
             );
-            assert!(self.pump.dispatch_components(64).unwrap() >= 2);
+            self.host.drain(usize::MAX).unwrap();
         }
 
         pub fn broad_selection_change(&mut self) {
@@ -566,7 +580,7 @@ pub mod performance {
                 self.editor_sender()
                     .send(Message::Row(RowAction::Select(self.selected)))
             );
-            assert_eq!(self.pump.dispatch_components(1), Ok(1));
+            self.host.drain(usize::MAX).unwrap();
         }
 
         pub fn redundant_parent_message(&mut self) {
@@ -574,29 +588,39 @@ pub mod performance {
                 self.editor_sender()
                     .send(Message::Row(RowAction::Select(self.selected)))
             );
-            assert_eq!(self.pump.dispatch_components(1), Ok(1));
+            self.host.drain(usize::MAX).unwrap();
         }
 
         pub fn unchanged_root_component_memo_hit(&mut self) {
-            self.pump
-                .update_view(View::component::<TaskEditor>(self.input.clone()))
+            self.host
+                .update_input::<TaskEditor>(&Key::from("root"), self.input.clone())
                 .unwrap();
         }
 
         pub fn value_equal_root_recomposition(&mut self) {
             let mut input = self.input.clone();
             input.render_revision = input.render_revision.checked_add(1).unwrap();
-            self.pump
-                .update_view(View::component::<TaskEditor>(input.clone()))
+            self.host
+                .update_input::<TaskEditor>(&Key::from("root"), input.clone())
                 .unwrap();
             self.input = input;
         }
 
         pub fn realize_recycle_batch(&mut self) {
+            let source_revision = self
+                .host
+                .runtime()
+                .graph()
+                .virtual_source_revision(self.collection)
+                .unwrap();
             for container in self.containers.drain(..) {
-                self.pump
-                    .runtime_mut()
-                    .queue_recycle(self.collection, container);
+                self.host
+                    .test_adapter_mut()
+                    .queue_realization(RealizationRequest::Recycle {
+                        collection: self.collection,
+                        container,
+                        source_revision,
+                    });
             }
 
             self.next_index = (self.next_index + REALIZED_ROWS) % (self.task_count - REALIZED_ROWS);
@@ -604,18 +628,18 @@ pub mod performance {
                 .map(|offset| {
                     let container = RealizedContainer(self.next_container);
                     self.next_container += 1;
-                    self.pump.runtime_mut().queue_realize(
-                        self.collection,
-                        container,
-                        self.next_index + offset,
-                    );
+                    self.host
+                        .test_adapter_mut()
+                        .queue_realization(RealizationRequest::Realize {
+                            collection: self.collection,
+                            container,
+                            index: self.next_index + offset,
+                            source_revision,
+                        });
                     container
                 })
                 .collect();
-            self.pump.process_realizations().unwrap();
-            while self.pump.native_work_pending() {
-                self.pump.process_realizations().unwrap();
-            }
+            self.host.drain(usize::MAX).unwrap();
         }
 
         pub fn background_completion(&mut self) {
@@ -623,7 +647,7 @@ pub mod performance {
                 generation: 0,
                 tasks: Vec::new(),
             }));
-            assert_eq!(self.pump.dispatch_components(1), Ok(1));
+            self.host.drain(usize::MAX).unwrap();
         }
 
         pub fn mixed_virtual_cycle(&mut self) {
@@ -641,16 +665,16 @@ pub mod performance {
 
     struct LivePerformance {
         _editor: EditorInput,
-        _rendering: EventRevoker,
+        _tick: LiveTickSubscription,
     }
 
     struct LiveStats {
         active: bool,
         complete: bool,
-        frame: usize,
-        last_frame: Option<Instant>,
+        last_tick: Option<Instant>,
         samples: Vec<f64>,
-        settle_frames: Option<usize>,
+        settle_ticks: Option<usize>,
+        tick: usize,
     }
 
     #[derive(Clone, Copy, PartialEq)]
@@ -670,13 +694,13 @@ pub mod performance {
             let stats = Rc::new(RefCell::new(LiveStats {
                 active,
                 complete: false,
-                frame: 0,
-                last_frame: None,
+                last_tick: None,
                 samples: Vec::with_capacity(target_samples),
-                settle_frames: None,
+                settle_ticks: None,
+                tick: 0,
             }));
             let done = Arc::new(AtomicBool::new(false));
-            let rendering = subscribe_live_rendering({
+            let tick = subscribe_live_tick({
                 let done = Arc::clone(&done);
                 let editor = editor.clone();
                 let stats = Rc::clone(&stats);
@@ -686,10 +710,10 @@ pub mod performance {
                     if stats.complete {
                         return;
                     }
-                    stats.frame += 1;
-                    if let Some(remaining) = stats.settle_frames {
+                    stats.tick += 1;
+                    if let Some(remaining) = stats.settle_ticks {
                         if remaining != 0 {
-                            stats.settle_frames = Some(remaining - 1);
+                            stats.settle_ticks = Some(remaining - 1);
                             return;
                         }
                         let result = match live_virtual_shell_counts() {
@@ -705,27 +729,19 @@ pub mod performance {
                         finish_live(&mut stats, &done, result);
                         return;
                     }
-                    if stats.frame == 1
-                        && let Some(sender) = editor.sender.borrow().as_ref()
-                    {
-                        _ = sender.send(Message::Stress);
-                    }
-                    if stats.frame <= WARMUP_FRAMES {
-                        stats.last_frame = Some(now);
-                        if stats.frame == WARMUP_FRAMES {
-                            _ = take_live_performance_times();
-                        }
+                    if stats.tick <= WARMUP_TICKS {
+                        stats.last_tick = Some(now);
                         return;
                     }
-                    if let Some(last) = stats.last_frame.replace(now) {
+                    if let Some(last) = stats.last_tick.replace(now) {
                         stats
                             .samples
                             .push(now.duration_since(last).as_secs_f64() * 1_000.0);
                     }
 
                     if stats.active {
-                        let measured_frame = stats.frame - WARMUP_FRAMES;
-                        let index = (measured_frame * REALIZED_ROWS) % STRESS_TASKS;
+                        let measured_tick = stats.tick - WARMUP_TICKS;
+                        let index = (measured_tick * REALIZED_ROWS) % STRESS_TASKS;
                         if let Err(error) = bring_live_virtual_index(index) {
                             finish_live(
                                 &mut stats,
@@ -736,24 +752,24 @@ pub mod performance {
                         }
                         if let Some(sender) = editor.sender.borrow().as_ref() {
                             _ = sender.send(Message::Row(RowAction::Select(
-                                STRESS_TASKS as u64 / 10 + (measured_frame % 2) as u64,
+                                STRESS_TASKS as u64 / 10 + (measured_tick % 2) as u64,
                             )));
-                            if measured_frame.is_multiple_of(30) {
+                            if measured_tick.is_multiple_of(30) {
                                 _ = sender.send(Message::Loaded {
                                     generation: 1,
                                     tasks: Vec::new(),
                                 });
                             }
                         }
-                        if measured_frame.is_multiple_of(6)
+                        if measured_tick.is_multiple_of(6)
                             && let Some(sender) = editor.metrics.sender.borrow().as_ref()
                         {
                             _ = sender
-                                .send(RowMessage::Draft(format!("Live edit {measured_frame}")));
+                                .send(RowMessage::Draft(format!("Live edit {measured_tick}")));
                         }
                     }
                     if stats.samples.len() >= target_samples {
-                        stats.settle_frames = Some(SETTLE_FRAMES);
+                        stats.settle_ticks = Some(SETTLE_TICKS);
                     }
                 }
             })
@@ -764,7 +780,7 @@ pub mod performance {
                 if !done.swap(true, Ordering::AcqRel) {
                     _ = std::fs::write(
                         live_report_path(active),
-                        "windows-reactor live virtual editor\nno composition frames captured\n",
+                        "windows-reactor live virtual editor\nno dispatcher ticks captured\n",
                     );
                     std::process::exit(2);
                 }
@@ -772,14 +788,23 @@ pub mod performance {
 
             Self {
                 _editor: editor,
-                _rendering: rendering,
+                _tick: tick,
             }
         }
 
         fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
 
-        fn view(&self, _input: &LiveInput, _context: &mut ViewContext<Self>) -> View {
-            View::component::<TaskEditor>(self._editor.clone())
+        fn view(&self, _input: &LiveInput, context: &mut ViewContext<Self>) -> View {
+            let editor = self._editor.clone();
+            context.use_effect("start", (), move || {
+                if let Some(sender) = editor.sender.borrow().as_ref() {
+                    _ = sender.send(Message::Stress);
+                }
+                None
+            });
+            Grid::new()
+                .children([component::<TaskEditor>("editor", self._editor.clone()).into()])
+                .into()
         }
     }
 
@@ -807,19 +832,16 @@ pub mod performance {
         let average = sorted.iter().sum::<f64>() / sorted.len() as f64;
         let over_25_ms = sorted.iter().filter(|value| **value > 25.0).count();
         let over_two_frames = sorted.iter().filter(|value| **value > 33.4).count();
-        let (mut dispatch, mut native) = take_live_performance_times();
         format!(
             "windows-reactor live virtual editor ({})\n\
-             frames: {}\n\
+             ticks: {}\n\
              average: {:.2} ms\n\
              median: {:.2} ms\n\
              p95: {:.2} ms\n\
              p99: {:.2} ms\n\
              max: {:.2} ms\n\
              >25 ms: {}\n\
-             >33.4 ms: {}\n\
-             {}\n\
-             {}\n",
+             >33.4 ms: {}\n",
             if active { "active" } else { "baseline" },
             sorted.len(),
             average,
@@ -829,27 +851,6 @@ pub mod performance {
             sorted.last().unwrap(),
             over_25_ms,
             over_two_frames,
-            microsecond_distribution("host dispatch", &mut dispatch),
-            microsecond_distribution("native apply", &mut native),
-        )
-    }
-
-    fn microsecond_distribution(name: &str, samples: &mut [f64]) -> String {
-        if samples.is_empty() {
-            return format!("{name}: no samples");
-        }
-        samples.sort_by(f64::total_cmp);
-        let percentile = |value: f64| {
-            let index = ((samples.len() - 1) as f64 * value).ceil() as usize;
-            samples[index]
-        };
-        format!(
-            "{name}: {} calls, median {:.1} us, p95 {:.1} us, p99 {:.1} us, max {:.1} us",
-            samples.len(),
-            percentile(0.50),
-            percentile(0.95),
-            percentile(0.99),
-            samples.last().unwrap(),
         )
     }
 
@@ -876,64 +877,114 @@ pub mod performance {
 mod tests {
     use super::*;
 
-    fn virtual_collection(pump: &Pump<RecordingRuntime>) -> NodeId {
-        pump.runtime()
-            .commands()
-            .iter()
-            .flatten()
-            .find_map(|command| match command {
-                Command::CreateVirtualCollection { node, .. } => Some(*node),
-                _ => None,
-            })
+    fn mount(input: EditorInput) -> ComponentHost<RecordingAdapter> {
+        ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<TaskEditor>("root", input)],
+        )
+        .unwrap()
+    }
+
+    fn virtual_collection(host: &ComponentHost<RecordingAdapter>) -> ObjectId {
+        host.runtime()
+            .graph()
+            .objects()
+            .find(|object| host.runtime().graph().kind(*object) == Some(ObjectType::ItemsRepeater))
             .unwrap()
     }
 
-    fn live_text(pump: &Pump<RecordingRuntime>, expected: &str) -> bool {
-        pump.runtime()
-            .commands()
+    fn live_text(host: &ComponentHost<RecordingAdapter>, expected: &str) -> bool {
+        host.runtime().graph().objects().any(|object| {
+            host.runtime()
+                .graph()
+                .properties(object)
+                .is_some_and(|properties| {
+                    properties.iter().any(|property| {
+                        property.id == PropertyId::Text
+                            && property.value == PropertyValue::String(expected.into())
+                    })
+                })
+        })
+    }
+
+    fn event(
+        host: &ComponentHost<RecordingAdapter>,
+        object: ObjectId,
+        event: EventId,
+    ) -> EventValue {
+        host.runtime()
+            .graph()
+            .events(object)
+            .unwrap()
             .iter()
-            .flatten()
-            .filter_map(|command| match command {
-                Command::SetProperty {
-                    node,
-                    property: PropertyId::TextBoxText,
-                    ..
-                } => Some(*node),
-                _ => None,
-            })
-            .any(|node| {
-                pump.runtime()
-                    .node(node)
-                    .and_then(|node| node.property(PropertyId::TextBoxText))
-                    == Some(&PropertyValue::Str(expected.into()))
-            })
+            .find(|candidate| candidate.id == event)
+            .unwrap()
+            .value
+            .clone()
+    }
+
+    fn realize(
+        host: &mut ComponentHost<RecordingAdapter>,
+        collection: ObjectId,
+        container: RealizedContainer,
+        index: usize,
+    ) {
+        let source_revision = host
+            .runtime()
+            .graph()
+            .virtual_source_revision(collection)
+            .unwrap();
+        host.test_adapter_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container,
+                index,
+                source_revision,
+            });
+        host.drain(64).unwrap();
+    }
+
+    fn recycle(
+        host: &mut ComponentHost<RecordingAdapter>,
+        collection: ObjectId,
+        container: RealizedContainer,
+    ) {
+        let source_revision = host
+            .runtime()
+            .graph()
+            .virtual_source_revision(collection)
+            .unwrap();
+        host.test_adapter_mut()
+            .queue_realization(RealizationRequest::Recycle {
+                collection,
+                container,
+                source_revision,
+            });
+        host.drain(64).unwrap();
     }
 
     #[test]
     fn edit_survives_reorder_recycle_and_realization() {
         let editor_input = EditorInput::default();
-        let mut pump = Pump::new(RecordingRuntime::default());
-        pump.mount_view(View::component::<TaskEditor>(editor_input.clone()))
-            .unwrap();
-        let collection = virtual_collection(&pump);
-        pump.runtime_mut()
-            .queue_realize(collection, RealizedContainer(1), 0);
-        pump.process_realizations().unwrap();
+        let mut host = mount(editor_input.clone());
+        let collection = virtual_collection(&host);
+        realize(&mut host, collection, RealizedContainer(1), 0);
 
         assert_eq!(editor_input.metrics.creates.get(), 1);
         assert_eq!(editor_input.metrics.setups.get(), 1);
-        let input = pump
+        let input = host
             .runtime()
-            .commands()
-            .iter()
-            .flatten()
-            .find_map(|command| match command {
-                Command::SubscribeEvent {
-                    node,
-                    event: EventId::TextBoxTextChanged,
-                    ..
-                } if pump.runtime().node(*node).is_some() => Some(*node),
-                _ => None,
+            .graph()
+            .objects()
+            .find(|object| {
+                host.runtime().graph().kind(*object) == Some(ObjectType::TextBox)
+                    && host
+                        .runtime()
+                        .graph()
+                        .events(*object)
+                        .is_some_and(|events| {
+                            events.iter().any(|event| event.id == EventId::TextChanged)
+                        })
             })
             .unwrap();
 
@@ -946,58 +997,54 @@ mod tests {
                 .unwrap()
                 .send(RowMessage::Edit)
         );
-        assert_eq!(pump.dispatch_components(1), Ok(1));
+        host.drain(64).unwrap();
         assert_eq!(editor_input.metrics.setups.get(), 2);
         assert_eq!(editor_input.metrics.cleanups.get(), 1);
-        assert_eq!(
-            pump.runtime()
-                .node(input)
-                .and_then(|node| node.property(PropertyId::TextBoxIsEnabled)),
-            Some(&PropertyValue::Bool(true))
-        );
-        assert_eq!(pump.process_imperatives(), Ok(1));
-        assert_eq!(
-            pump.runtime()
-                .commands()
+        assert!(
+            host.runtime()
+                .graph()
+                .properties(input)
+                .unwrap()
                 .iter()
-                .flatten()
-                .filter(|command| matches!(command, Command::Focus { node, .. } if *node == input))
+                .any(|property| {
+                    property.id == PropertyId::IsEnabled
+                        && property.value == PropertyValue::Bool(true)
+                })
+        );
+        assert_eq!(
+            host.runtime()
+                .adapter()
+                .imperatives()
+                .iter()
+                .filter(|request| {
+                    matches!(
+                        request,
+                        ImperativeRequest::Focus { object, .. } if *object == input
+                    )
+                })
                 .count(),
             1
         );
 
-        let revision = pump
-            .event_revision(input, EventId::TextBoxTextChanged)
-            .unwrap();
-        pump.runtime_mut()
-            .record_property_observation(
-                input,
-                PropertyId::TextBoxText,
-                PropertyValue::Str("Edited task".into()),
-            )
-            .unwrap();
-        pump.queue_event(QueuedEvent::new(
+        let callback = event(&host, input, EventId::TextChanged);
+        host.test_adapter_mut().queue_event(EventDispatch::new(
             input,
-            EventId::TextBoxTextChanged,
-            revision,
-            EventPayload::Str("Edited task".into()),
+            EventId::TextChanged,
+            callback,
+            EventPayload::String("Edited task".into()),
         ));
-        assert_eq!(pump.dispatch_events(), Ok(1));
-        assert!(pump.dispatch_components(64).unwrap() >= 2);
-        assert!(live_text(&pump, "Edited task"));
+        let drain = host.drain(64).unwrap();
+        assert!(drain.dispatched >= 1);
+        assert!(live_text(&host, "Edited task"));
 
-        pump.runtime_mut()
-            .queue_recycle(collection, RealizedContainer(1));
-        pump.process_realizations().unwrap();
+        recycle(&mut host, collection, RealizedContainer(1));
         assert_eq!(editor_input.metrics.cleanups.get(), 2);
 
-        pump.runtime_mut()
-            .queue_realize(collection, RealizedContainer(2), 0);
-        pump.process_realizations().unwrap();
+        realize(&mut host, collection, RealizedContainer(2), 0);
         assert_eq!(editor_input.metrics.creates.get(), 2);
         assert_eq!(editor_input.metrics.setups.get(), 3);
         assert_eq!(editor_input.metrics.cleanups.get(), 2);
-        assert!(live_text(&pump, "Edited task"));
+        assert!(live_text(&host, "Edited task"));
 
         assert!(
             editor_input
@@ -1007,39 +1054,49 @@ mod tests {
                 .unwrap()
                 .send(Message::Reverse)
         );
-        assert_eq!(pump.dispatch_components(64), Ok(1));
+        host.drain(64).unwrap();
         assert_eq!(editor_input.metrics.cleanups.get(), 3);
-        assert_eq!(pump.runtime().source_revision(collection), Some(1));
+        assert_eq!(
+            host.runtime().graph().virtual_source_revision(collection),
+            Some(1)
+        );
 
-        pump.runtime_mut()
-            .queue_realize(collection, RealizedContainer(3), INITIAL_TASKS - 1);
-        pump.process_realizations().unwrap();
-        assert_eq!(editor_input.metrics.creates.get(), 3);
-        assert_eq!(editor_input.metrics.setups.get(), 4);
+        realize(
+            &mut host,
+            collection,
+            RealizedContainer(3),
+            INITIAL_TASKS - 1,
+        );
+        assert_eq!(editor_input.metrics.creates.get(), 4);
+        assert_eq!(editor_input.metrics.setups.get(), 5);
         assert_eq!(editor_input.metrics.cleanups.get(), 3);
-        assert!(live_text(&pump, "Edited task"));
+        assert!(live_text(&host, "Edited task"));
     }
 
     #[test]
     fn reset_ignores_an_in_flight_load_result() {
         let input = EditorInput::default();
-        let mut pump = Pump::new(RecordingRuntime::default());
-        pump.mount_view(View::component::<TaskEditor>(input.clone()))
-            .unwrap();
-        let collection = virtual_collection(&pump);
+        let mut host = mount(input.clone());
+        let collection = virtual_collection(&host);
         let sender = input.sender.borrow().as_ref().unwrap().clone();
 
         assert!(sender.send(Message::Load));
-        assert_eq!(pump.dispatch_components(1), Ok(1));
+        host.drain(1).unwrap();
         assert!(sender.send(Message::Stress));
-        assert_eq!(pump.dispatch_components(1), Ok(1));
-        assert_eq!(pump.runtime().source_revision(collection), Some(1));
+        host.drain(1).unwrap();
+        assert_eq!(
+            host.runtime().graph().virtual_source_revision(collection),
+            Some(1)
+        );
 
         assert!(sender.send(Message::Loaded {
             generation: 0,
             tasks: TaskEditor::tasks(INITIAL_TASKS as u64, LOAD_TASKS),
         }));
-        assert_eq!(pump.dispatch_components(1), Ok(1));
-        assert_eq!(pump.runtime().source_revision(collection), Some(1));
+        host.drain(1).unwrap();
+        assert_eq!(
+            host.runtime().graph().virtual_source_revision(collection),
+            Some(1)
+        );
     }
 }

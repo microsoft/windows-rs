@@ -59,14 +59,16 @@ impl Component for ContentDialogPage {
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
                                 .on_click(context.message(Message::Open))
-                                .content("Show Dialog"),
-                            ContentDialog::new()
-                                .title("Confirm Action")
-                                .primary_button_text("Yes")
-                                .close_button_text("No")
-                                .is_open(self.open)
-                                .on_closed(context.callback(Message::Closed))
-                                .content("Are you sure you want to proceed?"),
+                                .content("Show Dialog")
+                                .content_dialog(
+                                    ContentDialog::new()
+                                        .title("Confirm Action")
+                                        .primary_button_text("Yes")
+                                        .close_button_text("No")
+                                        .is_open(self.open)
+                                        .on_closed(context.callback(Message::Closed))
+                                        .content("Are you sure you want to proceed?"),
+                                ),
                             TextBlock::new()
                                 .text(format!("Last result: {result_text}"))
                                 .opacity(0.6),
@@ -84,19 +86,21 @@ impl Component for ContentDialogPage {
                     "three-button",
                     sample_card(
                         "Three-Button Dialog",
-                        StackPanel::new().spacing(8.0).children((
-                            Button::new()
-                                .on_click(context.message(Message::OpenThree))
-                                .content("Show Three-Button"),
-                            ContentDialog::new()
-                                .title("Save Changes?")
-                                .primary_button_text("Save")
-                                .secondary_button_text("Don't Save")
-                                .close_button_text("Cancel")
-                                .is_open(self.open_three)
-                                .on_closed(context.callback(|_| Message::ClosedThree))
-                                .content("You have unsaved changes. What would you like to do?"),
-                        )),
+                        StackPanel::new().spacing(8.0).children((Button::new()
+                            .on_click(context.message(Message::OpenThree))
+                            .content("Show Three-Button")
+                            .content_dialog(
+                                ContentDialog::new()
+                                    .title("Save Changes?")
+                                    .primary_button_text("Save")
+                                    .secondary_button_text("Don't Save")
+                                    .close_button_text("Cancel")
+                                    .is_open(self.open_three)
+                                    .on_closed(context.callback(|_| Message::ClosedThree))
+                                    .content(
+                                        "You have unsaved changes. What would you like to do?",
+                                    ),
+                            ),)),
                         r#"ContentDialog::new()
     .title("Save Changes?")
     .primary_button_text("Save")

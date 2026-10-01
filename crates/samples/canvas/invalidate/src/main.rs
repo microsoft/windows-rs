@@ -42,6 +42,7 @@ impl Component for Sample {
             .content(canvas_invalidated(&self.invalidator, move |context| {
                 draw(context, &points.borrow())
             }))
+            .into()
     }
 }
 

@@ -27,7 +27,7 @@ impl Component for TypedElementReference {
             Message::Focus => {
                 let sender = context.sender();
                 if !self.input.request_focus_result(move |result| {
-                    sender.send(Message::Focused(result));
+                    _ = sender.send(Message::Focused(result));
                 }) {
                     self.status = "Focus failed";
                 }
@@ -40,17 +40,20 @@ impl Component for TypedElementReference {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Typed Element Reference");
-        Border::new().padding(Thickness::uniform(16.0)).content(
-            StackPanel::new().spacing(8.0).children((
-                "The typed reference exists across renders, points at the TextBox only while \
-                 mounted, and cannot be attached to a different widget type.",
-                TextBox::new().text("Focus target").element_ref(&self.input),
-                Button::new()
-                    .on_click(context.message(Message::Focus))
-                    .content("Focus TextBox"),
-                self.status,
-            )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(16.0))
+            .content(
+                StackPanel::new().spacing(8.0).children((
+                    "The typed reference exists across renders, points at the TextBox only while \
+                     mounted, and cannot be attached to a different widget type.",
+                    TextBox::new("Focus target").element_ref(&self.input),
+                    Button::new()
+                        .on_click(context.message(Message::Focus))
+                        .content("Focus TextBox"),
+                    self.status,
+                )),
+            )
+            .into()
     }
 }
 

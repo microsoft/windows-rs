@@ -50,22 +50,25 @@ impl Component for PointerTracking {
             Color::rgb(40, 120, 200)
         };
 
-        StackPanel::new().spacing(12.0).children((
-            TextBlock::new().text(label).font_size(20.0),
-            Border::new()
-                .background(fill)
-                .padding(40.0)
-                .width(360.0)
-                .height(240.0)
-                .on_pointer_entered(context.callback(PointerMessage::Entered))
-                .on_pointer_moved(context.callback(PointerMessage::Moved))
-                .on_pointer_exited(context.callback(|_| PointerMessage::Exited))
-                .content(
-                    TextBlock::new()
-                        .text("Move the pointer over me")
-                        .foreground(Color::rgb(255, 255, 255)),
-                ),
-        ))
+        StackPanel::new()
+            .spacing(12.0)
+            .children((
+                TextBlock::new().text(label).font_size(20.0),
+                Border::new()
+                    .background(fill)
+                    .padding(Thickness::uniform(40.0))
+                    .width(360.0)
+                    .height(240.0)
+                    .on_pointer_entered(context.callback(PointerMessage::Entered))
+                    .on_pointer_moved(context.callback(PointerMessage::Moved))
+                    .on_pointer_exited(context.callback(|_| PointerMessage::Exited))
+                    .content(
+                        TextBlock::new()
+                            .text("Move the pointer over me")
+                            .foreground(Color::rgb(255, 255, 255)),
+                    ),
+            ))
+            .into()
     }
 }
 

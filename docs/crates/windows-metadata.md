@@ -36,10 +36,10 @@ For methods, match ECMA-335 parameter rows with
 nonzero sequences are one-based signature positions. `params()` instead returns physical table
 order and is appropriate for lossless copying, not semantic parameter association.
 
-`tool-reactor` provides a larger example. Its metadata resolver loads WinUI winmd files, adds
-`windows-default` byte inputs, indexes classes and interfaces, then uses method signatures and
-attributes to drive generated UI code. `tool-features` uses `Index::iter_items` to enumerate types,
-free functions, and constants.
+`tool-reactor-metadata` provides a larger example. Its metadata resolver loads WinUI winmd files,
+adds `windows-default` byte inputs, indexes classes and interfaces, then uses method signatures and
+attributes to drive generated UI code. `tool-features` uses `Index::iter_items` to enumerate
+types, free functions, and constants.
 
 ## Input and output model
 
@@ -89,7 +89,7 @@ their routed target namespaces.
 
 The focused fixtures in `crates/tests/libs/rdl` and `crates/tests/libs/bindgen` show metadata
 shapes. The main tool consumers are `tool-winrt`, `tool-win32`, `tool-package`, `tool-features`,
-and `tool-reactor`.
+and `tool-reactor-metadata`.
 
 ---
 

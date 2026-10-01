@@ -102,8 +102,10 @@ impl Component for TabViewPage {
                             .can_reorder_tabs(true)
                             .height(200.0)
                             .on_selection_changed(context.callback(Message::BasicSelected))
-                            .on_close_requested(context.callback(Message::CloseBasic))
-                            .tab_items(tabs(&self.basic_tabs, true)),
+                            .on_close_requested(context.callback(|tag: std::rc::Rc<str>| {
+                                Message::CloseBasic(tag.to_string())
+                            }))
+                            .keyed_tab_items(tabs(&self.basic_tabs, true)),
                         "TabView::new().selected_index(index)\n    \
                          .tab_items(tab_items)",
                     ),
@@ -117,8 +119,10 @@ impl Component for TabViewPage {
                                 .selected_index(self.dynamic_selected)
                                 .height(180.0)
                                 .on_selection_changed(context.callback(Message::DynamicSelected))
-                                .on_close_requested(context.callback(Message::CloseDynamic))
-                                .tab_items(tabs(&self.dynamic_tabs, true)),
+                                .on_close_requested(context.callback(|tag: std::rc::Rc<str>| {
+                                    Message::CloseDynamic(tag.to_string())
+                                }))
+                                .keyed_tab_items(tabs(&self.dynamic_tabs, true)),
                             StackPanel::new()
                                 .orientation(Orientation::Horizontal)
                                 .spacing(8.0)
@@ -139,7 +143,9 @@ impl Component for TabViewPage {
                     "fixed",
                     sample_card(
                         "Non-closable Tabs",
-                        TabView::new().height(150.0).tab_items(tabs(&[1, 2], false)),
+                        TabView::new()
+                            .height(150.0)
+                            .keyed_tab_items(tabs(&[1, 2], false)),
                         "TabViewItem::new().is_closable(false)",
                     ),
                 ),

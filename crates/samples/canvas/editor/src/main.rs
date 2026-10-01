@@ -186,6 +186,7 @@ impl Component for Sample {
                             .content("Clear"),
                     )),
             ))
+            .into()
     }
 }
 

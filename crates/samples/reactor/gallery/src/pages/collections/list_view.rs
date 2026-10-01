@@ -63,21 +63,18 @@ impl Component for ListViewPage {
                         "Basic ListView",
                         ListView::new().height(220.0).items(
                             INBOX_ITEMS.into_iter().enumerate().map(|(index, subject)| {
-                                KeyedView::new(
-                                    subject,
-                                    ListViewItem::new().tag(subject).content(
-                                        StackPanel::new().spacing(2.0).children((
-                                            TextBlock::new()
-                                                .text(subject)
-                                                .font_weight(FontWeight::BOLD),
-                                            TextBlock::new()
-                                                .text(format!(
-                                                    "Message #{} - Updated just now",
-                                                    index + 1
-                                                ))
-                                                .opacity(0.6),
-                                        )),
-                                    ),
+                                DataItem::new(subject, subject).content(
+                                    StackPanel::new().spacing(2.0).children((
+                                        TextBlock::new()
+                                            .text(subject)
+                                            .font_weight(FontWeight::BOLD),
+                                        TextBlock::new()
+                                            .text(format!(
+                                                "Message #{} - Updated just now",
+                                                index + 1
+                                            ))
+                                            .opacity(0.6),
+                                    )),
                                 )
                             }),
                         ),
@@ -93,12 +90,7 @@ impl Component for ListViewPage {
                                 .height(180.0)
                                 .selected_index(self.selected_contact)
                                 .on_selection_changed(context.callback(Message::SelectContact))
-                                .items(CONTACTS.into_iter().map(|name| {
-                                    KeyedView::new(
-                                        name,
-                                        ListViewItem::new().tag(name).content(name),
-                                    )
-                                })),
+                                .items(CONTACTS.into_iter().map(|name| DataItem::new(name, name))),
                             TextBlock::new()
                                 .text(format!("Selected contact: {contact_label}"))
                                 .opacity(0.6),
@@ -118,21 +110,18 @@ impl Component for ListViewPage {
                                 .selected_index(self.selected_playlist)
                                 .on_selection_changed(context.callback(Message::SelectPlaylist))
                                 .items(PLAYLISTS.into_iter().enumerate().map(|(index, name)| {
-                                    KeyedView::new(
-                                        name,
-                                        ListViewItem::new().tag(name).content(
-                                            StackPanel::new().spacing(2.0).children((
-                                                TextBlock::new()
-                                                    .text(name)
-                                                    .font_weight(FontWeight::BOLD),
-                                                TextBlock::new()
-                                                    .text(format!(
-                                                        "{} tracks ready to play",
-                                                        12 + index * 5
-                                                    ))
-                                                    .opacity(0.6),
-                                            )),
-                                        ),
+                                    DataItem::new(name, name).content(
+                                        StackPanel::new().spacing(2.0).children((
+                                            TextBlock::new()
+                                                .text(name)
+                                                .font_weight(FontWeight::BOLD),
+                                            TextBlock::new()
+                                                .text(format!(
+                                                    "{} tracks ready to play",
+                                                    12 + index * 5
+                                                ))
+                                                .opacity(0.6),
+                                        )),
                                     )
                                 })),
                             TextBlock::new()

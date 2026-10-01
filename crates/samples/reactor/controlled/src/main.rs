@@ -1,13 +1,15 @@
+use std::rc::Rc;
+
 use windows_reactor::*;
 
 struct Controlled {
     number: Option<f64>,
-    text: String,
+    text: Rc<str>,
 }
 
 enum Message {
     Number(Option<f64>),
-    Text(String),
+    Text(Rc<str>),
 }
 
 impl Component for Controlled {
@@ -17,7 +19,7 @@ impl Component for Controlled {
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
             number: Some(5.0),
-            text: String::new(),
+            text: Rc::from(""),
         }
     }
 
@@ -29,20 +31,22 @@ impl Component for Controlled {
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().spacing(8.0).children((
-            TextBox::new()
-                .text(self.text.clone())
-                .placeholder_text("Type here")
-                .on_text_changed(context.callback(Message::Text)),
-            self.text.clone(),
-            NumberBox::new()
-                .minimum(0.0)
-                .maximum(10.0)
-                .value(self.number)
-                .on_value_changed(context.callback(Message::Number)),
-            self.number
-                .map_or_else(|| "(empty)".to_string(), |number| number.to_string()),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                TextBox::new(self.text.clone())
+                    .placeholder_text("Type here")
+                    .on_text_changed(context.callback(Message::Text)),
+                self.text.clone(),
+                NumberBox::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .value(self.number)
+                    .on_value_changed(context.callback(Message::Number)),
+                self.number
+                    .map_or_else(|| "(empty)".to_string(), |number| number.to_string()),
+            ))
+            .into()
     }
 }
 

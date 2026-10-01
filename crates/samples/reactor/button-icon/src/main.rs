@@ -16,6 +16,7 @@ fn icon_content(symbol: Symbol, label: impl Into<String>) -> View {
         .orientation(Orientation::Horizontal)
         .spacing(6.0)
         .children((SymbolIcon::new().symbol(symbol), label))
+        .into()
 }
 
 impl Component for ButtonIconSample {
@@ -35,21 +36,24 @@ impl Component for ButtonIconSample {
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("ButtonIcon");
-        StackPanel::new().spacing(8.0).children((
-            Button::new()
-                .on_click(context.message(Message::Add))
-                .content("Plain Button"),
-            Button::new()
-                .on_click(context.message(Message::Add))
-                .content(icon_content(Symbol::Add, "Add Item")),
-            Button::new()
-                .on_click(context.message(Message::Delete))
-                .content(icon_content(Symbol::Delete, "Delete")),
-            Button::new()
-                .style(ButtonStyle::Accent)
-                .content(icon_content(Symbol::Save, "Save")),
-            format!("Count: {}", self.count),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                Button::new()
+                    .on_click(context.message(Message::Add))
+                    .content("Plain Button"),
+                Button::new()
+                    .on_click(context.message(Message::Add))
+                    .content(icon_content(Symbol::Add, "Add Item")),
+                Button::new()
+                    .on_click(context.message(Message::Delete))
+                    .content(icon_content(Symbol::Delete, "Delete")),
+                Button::new()
+                    .style(ButtonStyle::Accent)
+                    .content(icon_content(Symbol::Save, "Save")),
+                format!("Count: {}", self.count),
+            ))
+            .into()
     }
 }
 

@@ -19,12 +19,15 @@ impl Component for Greeting {
     }
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().spacing(4.0).children((
-            TextBlock::new()
-                .text(format!("Hello, {}!", input.name))
-                .font_size(20.0),
-            format!("You have clicked the button {} times.", input.clicks),
-        ))
+        StackPanel::new()
+            .spacing(4.0)
+            .children((
+                TextBlock::new()
+                    .text(format!("Hello, {}!", input.name))
+                    .font_size(20.0),
+                format!("You have clicked the button {} times.", input.clicks),
+            ))
+            .into()
     }
 }
 
@@ -50,20 +53,26 @@ impl Component for ComponentInputSample {
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("ComponentInput");
-        Border::new().padding(16.0).content(
-            StackPanel::new().spacing(12.0).children((
-                TextBlock::new()
-                    .text("windows-reactor - component input")
-                    .font_size(24.0),
-                View::component::<Greeting>(GreetingInput {
-                    clicks: self.clicks,
-                    name: self.name.clone(),
-                }),
-                Button::new()
-                    .on_click(context.forward())
-                    .content("Click me"),
-            )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(16.0))
+            .content(
+                StackPanel::new().spacing(12.0).children((
+                    TextBlock::new()
+                        .text("windows-reactor - component input")
+                        .font_size(24.0),
+                    component::<Greeting>(
+                        "greeting",
+                        GreetingInput {
+                            clicks: self.clicks,
+                            name: self.name.clone(),
+                        },
+                    ),
+                    Button::new()
+                        .on_click(context.forward())
+                        .content("Click me"),
+                )),
+            )
+            .into()
     }
 }
 

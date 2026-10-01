@@ -220,6 +220,7 @@ impl Component for Sample {
                             .opacity(0.75),
                     )),
             ))
+            .into()
     }
 }
 

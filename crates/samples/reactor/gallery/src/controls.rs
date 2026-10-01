@@ -11,55 +11,76 @@ pub fn asset_path(name: &str) -> std::path::PathBuf {
         .join(name)
 }
 
-/// Loads a bundled asset as an `Image`, or an empty view when `name` is blank (some design
-/// destinations have no representative screenshot).
-pub fn asset_image(name: &str, width: f64, height: f64) -> View {
-    if name.is_empty() {
-        return View::empty();
-    }
-    Image::new()
-        .source_file(asset_path(name))
+pub fn key_label(key: &Key) -> String {
+    key.as_str()
         .unwrap()
-        .width(width)
-        .height(height)
-        .stretch(Stretch::Uniform)
-        .into()
+        .split('-')
+        .map(|word| {
+            let mut chars = word.chars();
+            chars.next().map_or_else(String::new, |first| {
+                first.to_uppercase().chain(chars).collect()
+            })
+        })
+        .collect::<Vec<_>>()
+        .join(" ")
+}
+
+/// Loads a bundled asset as an `Image`, or returns `None` when `name` is blank.
+pub fn asset_image(name: &str, width: f64, height: f64) -> Option<View> {
+    if name.is_empty() {
+        return None;
+    }
+    Some(
+        Image::new()
+            .source_file(asset_path(name))
+            .unwrap()
+            .width(width)
+            .height(height)
+            .stretch(Stretch::Uniform)
+            .into(),
+    )
 }
 
 pub fn page_header(title: &str, description: &str) -> View {
-    StackPanel::new().spacing(4.0).children((
-        TextBlock::new()
-            .text(title)
-            .font_size(28.0)
-            .font_weight(FontWeight::BOLD),
-        description,
-    ))
+    StackPanel::new()
+        .spacing(4.0)
+        .children((
+            TextBlock::new()
+                .text(title)
+                .font_size(28.0)
+                .font_weight(FontWeight::BOLD),
+            description,
+        ))
+        .into()
 }
 
 /// Wraps a live sample in a card with its source snippet shown underneath.
 pub fn sample_card(title: &str, sample: impl Into<View>, source: &str) -> View {
-    StackPanel::new().spacing(8.0).children((
-        TextBlock::new()
-            .text(title)
-            .font_size(14.0)
-            .font_weight(FontWeight::SEMI_BOLD),
-        Border::new()
-            .border_thickness(1.0)
-            .corner_radius(8.0)
-            .background(ThemeBrush::CardBackground)
-            .border_brush(ThemeBrush::CardStroke)
-            .content(
-                StackPanel::new().children((
-                    Border::new()
-                        .padding(24.0)
-                        .background(ThemeBrush::SolidBackground)
-                        .content(sample),
-                    Border::new()
-                        .padding(Thickness::new(12.0, 8.0, 12.0, 8.0))
-                        .content(TextBlock::new().text(source).font_size(13.0)),
-                )),
-            ),
-    ))
+    StackPanel::new()
+        .spacing(8.0)
+        .children((
+            TextBlock::new()
+                .text(title)
+                .font_size(14.0)
+                .font_weight(FontWeight::SEMI_BOLD),
+            Border::new()
+                .border_thickness(1.0)
+                .corner_radius(8.0)
+                .background(ThemeBrush::CardBackground)
+                .border_brush(ThemeBrush::CardStroke)
+                .content(
+                    StackPanel::new().children((
+                        Border::new()
+                            .padding(24.0)
+                            .background(ThemeBrush::SolidBackground)
+                            .content(sample),
+                        Border::new()
+                            .padding(Thickness::new(12.0, 8.0, 12.0, 8.0))
+                            .content(TextBlock::new().text(source).font_size(13.0)),
+                    )),
+                ),
+        ))
+        .into()
 }
 
 /// Lays out a page title, description, and a list of keyed sample cards inside a scroll viewer.
@@ -71,11 +92,13 @@ pub fn page_content(
     let children = std::iter::once(KeyedView::new("header", page_header(title, description)))
         .chain(cards)
         .collect::<Vec<_>>();
-    ScrollViewer::new().content(
-        Border::new()
-            .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
-            .content(StackPanel::new().spacing(16.0).keyed_children(children)),
-    )
+    ScrollViewer::new()
+        .content(
+            Border::new()
+                .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
+                .content(StackPanel::new().spacing(16.0).keyed_children(children)),
+        )
+        .into()
 }
 
 /// One card in a home or category grid: a destination title, subtitle, bundled screenshot, and
@@ -118,16 +141,25 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static
                             StackPanel::new()
                                 .orientation(Orientation::Horizontal)
                                 .spacing(12.0)
-                                .children((
-                                    asset_image(&item.image_file, 32.0, 32.0),
-                                    StackPanel::new().spacing(4.0).children((
-                                        TextBlock::new()
-                                            .text(item.title.clone())
-                                            .font_size(14.0)
-                                            .font_weight(FontWeight::SEMI_BOLD),
-                                        TextBlock::new().text(item.subtitle.clone()).opacity(0.6),
-                                    )),
-                                )),
+                                .children(
+                                    asset_image(&item.image_file, 32.0, 32.0)
+                                        .into_iter()
+                                        .chain(std::iter::once(
+                                            StackPanel::new()
+                                                .spacing(4.0)
+                                                .children((
+                                                    TextBlock::new()
+                                                        .text(item.title.clone())
+                                                        .font_size(14.0)
+                                                        .font_weight(FontWeight::SEMI_BOLD),
+                                                    TextBlock::new()
+                                                        .text(item.subtitle.clone())
+                                                        .opacity(0.6),
+                                                ))
+                                                .into(),
+                                        ))
+                                        .collect::<Vec<_>>(),
+                                ),
                         ),
                 ),
         )
@@ -138,6 +170,7 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static
         .item_width(CARD_WIDTH + CARD_GAP)
         .item_height(CARD_HEIGHT + CARD_GAP)
         .keyed_children(children)
+        .into()
 }
 
 /// Picks a representative pane icon for a category, mirroring the incumbent gallery's mapping.

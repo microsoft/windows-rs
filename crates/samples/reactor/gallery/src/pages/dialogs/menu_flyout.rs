@@ -42,7 +42,8 @@ impl Component for MenuFlyoutPage {
                                     MenuItem::item("copy", "Copy"),
                                     MenuItem::item("paste", "Paste"),
                                 ],
-                                context.callback(|label| ("action".to_string(), label)),
+                                context
+                                    .callback(|key: Key| ("action".to_string(), key_label(&key))),
                             )),
                             TextBlock::new()
                                 .text(format!("Last action: {}", self.last_action))
@@ -73,7 +74,8 @@ impl Component for MenuFlyoutPage {
                                     MenuItem::item("underline", "Underline"),
                                     MenuItem::item("strikethrough", "Strikethrough"),
                                 ],
-                                context.callback(|label| ("format".to_string(), label)),
+                                context
+                                    .callback(|key: Key| ("format".to_string(), key_label(&key))),
                             )),
                             TextBlock::new()
                                 .text(format!("Last format: {}", self.last_format))

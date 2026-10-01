@@ -182,11 +182,14 @@ impl Component for Sample {
                 rendering.borrow_mut().take();
             }))
         });
-        Border::new().padding(Thickness::uniform(12.0)).content(
-            TextBlock::new()
-                .text("Blank Windows Reactor")
-                .font_size(14.0),
-        )
+        Border::new()
+            .padding(Thickness::uniform(12.0))
+            .content(
+                TextBlock::new()
+                    .text("Blank Windows Reactor")
+                    .font_size(14.0),
+            )
+            .into()
     }
 }
 

@@ -67,6 +67,8 @@ impl Component for Sample {
     }
 
     fn view(&self, _input: &(), cx: &mut ViewContext<Self>) -> View {
+        let key_sender = cx.sender();
+        let character_sender = cx.sender();
         let border = Border::new()
             .is_tab_stop(true)
             .automation_name("Keyboard input canvas")
@@ -79,18 +81,20 @@ impl Component for Sample {
                 Color::rgb(70, 76, 88)
             })
             .border_thickness(Thickness::uniform(if self.focused { 3.0 } else { 1.0 }))
-            .on_preview_key_down(cx.routed_callback(|info: KeyEventInfo| {
+            .on_preview_key_down(RoutedCallback::new(move |info: KeyEventInfo| {
                 if matches!(info.key, VirtualKey::BACK | VirtualKey::DELETE) {
-                    RoutedMessage::handled(Message::Key(info))
+                    _ = key_sender.send(Message::Key(info));
+                    true
                 } else {
-                    RoutedMessage::bubble_without_message()
+                    false
                 }
             }))
-            .on_character_received(cx.routed_callback(|info: CharacterEventInfo| {
+            .on_character_received(RoutedCallback::new(move |info: CharacterEventInfo| {
                 if info.character >= 0x20 && info.character != 0x7F {
-                    RoutedMessage::handled(Message::Character(info.character))
+                    _ = character_sender.send(Message::Character(info.character));
+                    true
                 } else {
-                    RoutedMessage::bubble_without_message()
+                    false
                 }
             }))
             .on_got_focus(cx.callback(|info: FocusEventInfo| Message::Focus(info.is_direct)))

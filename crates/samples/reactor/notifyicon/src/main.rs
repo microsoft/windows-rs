@@ -56,16 +56,20 @@ impl AppState {
 
     fn show_menu(self: &Rc<Self>, position: windows_notifyicon::Point) {
         let state = Rc::clone(self);
+        let open = Key::from("open");
+        let exit = Key::from("exit");
         let menu = Menu::new(
             [
-                MenuItem::item("open", OPEN),
+                MenuItem::item(open.clone(), OPEN),
                 MenuItem::separator("separator"),
-                MenuItem::item("exit", EXIT),
+                MenuItem::item(exit.clone(), EXIT),
             ],
-            move |label: String| match label.as_str() {
-                OPEN => state.open_window(),
-                EXIT => state.exit(),
-                _ => {}
+            move |key| {
+                if key == open {
+                    state.open_window();
+                } else if key == exit {
+                    state.exit();
+                }
             },
         );
         if let Err(error) = self
@@ -89,14 +93,12 @@ impl AppState {
             }
         };
         if let Some(activate) = activate {
-            _ = activate.call(());
+            activate.call(());
             return;
         }
-        if let Err(error) =
-            self.app
-                .open_window(View::component::<NotifyWindow>(NotifyWindowInput(
-                    Rc::clone(self),
-                )))
+        if let Err(error) = self
+            .app
+            .open_component_window::<NotifyWindow>(NotifyWindowInput(Rc::clone(self)))
         {
             *self.window.borrow_mut() = OpenWindow::Closed;
             eprintln!("could not open Reactor window: {error}");
@@ -145,7 +147,7 @@ impl Component for NotifyWindow {
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
             Message::Activate => {
-                if !context.window().request_activate() {
+                if !context.activate_window() {
                     eprintln!("could not activate Reactor window");
                 }
             }

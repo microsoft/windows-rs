@@ -1,37 +1,39 @@
+use std::rc::Rc;
+
 use windows_reactor::*;
 
 struct NavigationIconsSample {
-    page: String,
+    page: Rc<str>,
 }
 
 impl Component for NavigationIconsSample {
-    type Message = Option<String>;
+    type Message = Option<Rc<str>>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
         Self {
-            page: "home".to_string(),
+            page: "home".into(),
         }
     }
 
-    fn update(&mut self, page: Option<String>, _context: &ComponentContext<Self>) {
+    fn update(&mut self, page: Option<Rc<str>>, _context: &ComponentContext<Self>) {
         if let Some(page) = page {
             self.page = page;
         }
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let item = |tag, label, symbol| {
+        let item = |tag: &'static str, label: &'static str, symbol| {
             KeyedView::new(
                 tag,
                 NavigationViewItem::new()
                     .tag(tag)
-                    .is_selected(self.page == tag)
+                    .is_selected(self.page.as_ref() == tag)
                     .content(label)
                     .icon(SymbolIcon::new().symbol(symbol)),
             )
         };
-        let content = match self.page.as_str() {
+        let content = match self.page.as_ref() {
             "home" => "Welcome home!",
             "settings" => "Settings page",
             "mail" => "Mail inbox",
@@ -43,7 +45,7 @@ impl Component for NavigationIconsSample {
         NavigationView::new()
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
-            .menu_items([
+            .keyed_menu_items([
                 item("home", "Home", Symbol::Home),
                 item("mail", "Mail", Symbol::Mail),
                 item("people", "People", Symbol::People),

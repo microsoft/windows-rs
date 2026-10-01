@@ -29,23 +29,27 @@ impl Component for Sample {
                 )
         };
 
-        StackPanel::new().spacing(6.0).max_width(420.0).children((
-            swatch(
-                "Accent / AccentText",
-                ThemeBrush::Accent,
-                ThemeBrush::AccentText,
-            ),
-            swatch(
-                "Card / Primary text",
-                ThemeBrush::CardBackground,
-                ThemeBrush::PrimaryText,
-            ),
-            swatch(
-                "SystemCritical background / foreground",
-                ThemeBrush::SystemCriticalBackground,
-                ThemeBrush::SystemCritical,
-            ),
-        ))
+        StackPanel::new()
+            .spacing(6.0)
+            .max_width(420.0)
+            .children((
+                swatch(
+                    "Accent / AccentText",
+                    ThemeBrush::Accent,
+                    ThemeBrush::AccentText,
+                ),
+                swatch(
+                    "Card / Primary text",
+                    ThemeBrush::CardBackground,
+                    ThemeBrush::PrimaryText,
+                ),
+                swatch(
+                    "SystemCritical background / foreground",
+                    ThemeBrush::SystemCriticalBackground,
+                    ThemeBrush::SystemCritical,
+                ),
+            ))
+            .into()
     }
 }
 

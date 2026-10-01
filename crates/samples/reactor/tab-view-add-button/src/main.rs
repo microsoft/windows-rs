@@ -1,3 +1,5 @@
+use std::rc::Rc;
+
 use windows_reactor::*;
 
 struct TabViewAddButtonSample {
@@ -16,7 +18,7 @@ struct Tab {
 enum Message {
     Selected(Option<usize>),
     Add,
-    Close(String),
+    Close(Rc<str>),
     Reordered(Vec<String>),
 }
 
@@ -53,7 +55,8 @@ impl Component for TabViewAddButtonSample {
                 self.selected = Some(self.tabs.len() - 1);
             }
             Message::Close(key) => {
-                self.tabs.retain(|tab| tab.id.to_string() != key);
+                self.tabs
+                    .retain(|tab| tab.id.to_string().as_str() != key.as_ref());
                 self.selected = self
                     .selected
                     .map(|selected| selected.min(self.tabs.len().saturating_sub(1)))
@@ -96,21 +99,24 @@ impl Component for TabViewAddButtonSample {
             )
         });
 
-        StackPanel::new().spacing(8.0).children((
-            TabView::new()
-                .selected_index(self.selected)
-                .is_add_tab_button_visible(true)
-                .on_selection_changed(context.callback(Message::Selected))
-                .on_add_tab_button_click(context.message(Message::Add))
-                .on_close_requested(context.callback(Message::Close))
-                .on_reordered(context.callback(Message::Reordered))
-                .tab_items(items),
-            format!(
-                "selected = {:?}, total tabs = {}",
-                self.selected,
-                self.tabs.len()
-            ),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                TabView::new()
+                    .selected_index(self.selected)
+                    .is_add_tab_button_visible(true)
+                    .on_selection_changed(context.callback(Message::Selected))
+                    .on_add_tab_button_click(context.message(Message::Add))
+                    .on_close_requested(context.callback(Message::Close))
+                    .on_reordered(context.callback(Message::Reordered))
+                    .keyed_tab_items(items),
+                format!(
+                    "selected = {:?}, total tabs = {}",
+                    self.selected,
+                    self.tabs.len()
+                ),
+            ))
+            .into()
     }
 }
 

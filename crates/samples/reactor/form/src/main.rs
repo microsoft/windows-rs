@@ -120,12 +120,13 @@ impl Component for Form {
                     .text_wrapping(TextWrapping::Wrap)
                     .grid_column_span(2),
                 TextBlock::new().text("Name").grid_row(1),
-                TextBox::new()
+                TextBox::new(self.name.clone())
                     .element_ref(&self.name_ref)
-                    .text(self.name.clone())
                     .placeholder_text("Name")
                     .is_enabled(self.status != Status::Submitting)
-                    .on_text_changed(context.callback(Message::NameChanged))
+                    .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
+                        Message::NameChanged(value.to_string())
+                    }))
                     .grid_row(1)
                     .grid_column(1),
                 TextBlock::new().text("Amount").grid_row(2),
@@ -167,6 +168,7 @@ impl Component for Form {
                     .grid_column(1)
                     .content("Submit"),
             ))
+            .into()
     }
 }
 

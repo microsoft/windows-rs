@@ -30,10 +30,12 @@ impl Component for RichEditBoxPage {
                         "Basic RichEditBox",
                         StackPanel::new().spacing(8.0).children((
                             RichEditBox::new()
-                                .text(&self.text)
+                                .text(self.text.as_str())
                                 .placeholder_text("Start typing...")
                                 .height(200.0)
-                                .on_text_changed(context.forward())
+                                .on_text_changed(
+                                    context.callback(|value: std::rc::Rc<str>| value.to_string()),
+                                )
                                 .header("Document"),
                             TextBlock::new()
                                 .text(if self.text.is_empty() {

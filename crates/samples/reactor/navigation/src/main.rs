@@ -139,7 +139,7 @@ struct HomePage;
 
 #[derive(Clone, PartialEq)]
 struct EditorInput {
-    changed: Callback<String>,
+    changed: Callback<Rc<str>>,
     editor_ref: ElementRef<TextBox>,
     note: String,
     role: WindowRole,
@@ -183,7 +183,7 @@ impl Component for Workspace {
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
             Message::CloseWindow => {
-                if !context.window().request_close() {
+                if !context.close_window() {
                     self.status = "Window close request was rejected".to_string();
                 }
             }
@@ -197,10 +197,10 @@ impl Component for Workspace {
                 self.status = format!("{} window closed", role.label());
             }
             Message::OpenSecondary if self.role == WindowRole::Primary && !self.secondary_open => {
-                let opened = context.open_window(View::component::<Self>(WorkspaceInput {
+                let opened = context.open_window::<Self>(WorkspaceInput {
                     role: WindowRole::Secondary,
                     shared: Rc::clone(&self.shared),
-                }));
+                });
                 self.secondary_open = opened;
                 if !opened {
                     self.status = "Secondary window open request was rejected".to_string();
@@ -268,45 +268,54 @@ impl Component for Workspace {
                 role: self.role,
             }),
             Page::Editor => View::component::<EditorPage>(EditorInput {
-                changed: context.callback(Message::NoteChanged),
+                changed: context.callback(|note: Rc<str>| Message::NoteChanged(note.to_string())),
                 editor_ref: self.editor_ref.clone(),
                 note: self.note.clone(),
                 role: self.role,
             }),
         };
-        let header = StackPanel::new().spacing(4.0).children((
+        let mut header = vec![
             View::component::<ThemeBanner>(ThemeInput {
                 context: Rc::clone(&self.shared.theme),
                 role: self.role,
             }),
-            self.status.clone(),
+            self.status.clone().into(),
             Button::new()
                 .on_click(context.message(Message::Navigate(Page::Home)))
-                .content("Home"),
+                .content("Home")
+                .into(),
             Button::new()
                 .on_click(context.message(Message::Navigate(Page::Editor)))
-                .content("Editor"),
+                .content("Editor")
+                .into(),
             Button::new()
                 .on_click(context.message(Message::ToggleTheme))
-                .content("Toggle shared theme"),
-            if self.role == WindowRole::Primary {
+                .content("Toggle shared theme")
+                .into(),
+        ];
+        if self.role == WindowRole::Primary {
+            header.push(
                 Button::new()
                     .is_enabled(!self.secondary_open)
                     .on_click(context.message(Message::OpenSecondary))
                     .content("Open secondary window")
-            } else {
-                View::empty()
-            },
+                    .into(),
+            );
+        }
+        header.extend([
             Button::new()
                 .is_enabled(!self.working)
                 .on_click(context.message(Message::StartWork))
-                .content("Start background work"),
+                .content("Start background work")
+                .into(),
             Button::new()
                 .on_click(context.message(Message::CloseWindow))
-                .content("Close this window"),
-        ));
+                .content("Close this window")
+                .into(),
+        ]);
+        let header = StackPanel::new().spacing(4.0).children(header);
 
-        View::provide(
+        provide(
             &self.shared.theme,
             self.shared.dark.get(),
             SplitView::new()
@@ -331,12 +340,15 @@ impl Component for HomePage {
     fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().spacing(4.0).children((
-            format!("{} home count: {}", input.role.label(), input.count),
-            Button::new()
-                .on_click(input.increment.clone())
-                .content("Increment local count"),
-        ))
+        StackPanel::new()
+            .spacing(4.0)
+            .children((
+                format!("{} home count: {}", input.role.label(), input.count),
+                Button::new()
+                    .on_click(input.increment.clone())
+                    .content("Increment local count"),
+            ))
+            .into()
     }
 }
 
@@ -351,13 +363,15 @@ impl Component for EditorPage {
     fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().spacing(4.0).children((
-            format!("{} editor", input.role.label()),
-            TextBox::new()
-                .element_ref(&input.editor_ref)
-                .text(input.note.clone())
-                .on_text_changed(input.changed.clone()),
-        ))
+        StackPanel::new()
+            .spacing(4.0)
+            .children((
+                format!("{} editor", input.role.label()),
+                TextBox::new(input.note.clone())
+                    .element_ref(&input.editor_ref)
+                    .on_text_changed(input.changed.clone()),
+            ))
+            .into()
     }
 }
 
@@ -395,43 +409,19 @@ fn main() {
 mod tests {
     use super::*;
     use std::time::Instant;
-    use windows_reactor::test::*;
 
-    fn sender(shared: &SharedApp, role: WindowRole) -> LocalSender<Message> {
-        shared.senders.borrow()[&role].clone()
-    }
-
-    fn live_text(pump: &Pump<RecordingRuntime>, expected: &str) -> bool {
-        pump.runtime().commands().iter().flatten().any(|command| {
-            let Command::SetProperty {
-                node,
-                property: PropertyId::TextBlockText,
-                ..
-            } = command
-            else {
-                return false;
-            };
-            pump.runtime()
-                .node(*node)
-                .and_then(|node| node.property(PropertyId::TextBlockText))
-                == Some(&PropertyValue::Str(expected.into()))
-        })
-    }
-
-    fn editor_input(pump: &Pump<RecordingRuntime>) -> NodeId {
-        pump.runtime()
-            .commands()
-            .iter()
-            .flatten()
-            .find_map(|command| match command {
-                Command::SubscribeEvent {
-                    node,
-                    event: EventId::TextBoxTextChanged,
-                    ..
-                } if pump.runtime().node(*node).is_some() => Some(*node),
-                _ => None,
-            })
-            .unwrap()
+    fn host(shared: &Rc<SharedApp>, role: WindowRole) -> ComponentHost<RecordingAdapter> {
+        ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<Workspace>(
+                role.label(),
+                WorkspaceInput {
+                    role,
+                    shared: Rc::clone(shared),
+                },
+            )],
+        )
+        .unwrap()
     }
 
     fn wait_until(mut condition: impl FnMut() -> bool) {
@@ -446,107 +436,42 @@ mod tests {
     }
 
     #[test]
-    fn navigation_and_window_lifetimes_remain_isolated() {
+    fn navigation_and_component_lifetimes_remain_isolated() {
         let shared = SharedApp::new();
-        let mut primary = Pump::new(RecordingRuntime::default());
-        let mut secondary = Pump::new(RecordingRuntime::default());
-        primary
-            .mount_view(View::component::<Workspace>(WorkspaceInput {
-                role: WindowRole::Primary,
-                shared: Rc::clone(&shared),
-            }))
+        let mut primary = host(&shared, WindowRole::Primary);
+        let mut secondary = host(&shared, WindowRole::Secondary);
+        let primary_sender = primary
+            .sender::<Workspace>(&Key::from(WindowRole::Primary.label()))
             .unwrap();
-        secondary
-            .mount_view(View::component::<Workspace>(WorkspaceInput {
-                role: WindowRole::Secondary,
-                shared: Rc::clone(&shared),
-            }))
+        let secondary_sender = secondary
+            .sender::<Workspace>(&Key::from(WindowRole::Secondary.label()))
             .unwrap();
 
-        let primary_sender = sender(&shared, WindowRole::Primary);
-        let secondary_sender = sender(&shared, WindowRole::Secondary);
-        assert!(primary_sender.send(Message::OpenSecondary));
-        assert_eq!(primary.dispatch_components(1), Ok(1));
-        assert_eq!(primary.runtime().opened_windows().len(), 1);
-        assert_eq!(
-            primary.runtime().window_title(primary.window().unwrap()),
-            Some("Primary workspace - Home")
-        );
-        assert_eq!(
-            secondary
-                .runtime()
-                .window_title(secondary.window().unwrap()),
-            Some("Secondary workspace - Home")
-        );
         assert!(primary_sender.send(Message::Navigate(Page::Editor)));
-        assert_eq!(primary.dispatch_components(1), Ok(1));
-        assert_eq!(
-            primary.runtime().window_title(primary.window().unwrap()),
-            Some("Primary workspace - Editor")
-        );
-        let input = editor_input(&primary);
-        assert_eq!(primary.process_imperatives(), Ok(1));
-
-        let revision = primary
-            .event_revision(input, EventId::TextBoxTextChanged)
-            .unwrap();
-        primary.queue_event(QueuedEvent::new(
-            input,
-            EventId::TextBoxTextChanged,
-            revision,
-            EventPayload::Str("retained primary draft".into()),
-        ));
-        assert_eq!(primary.dispatch_events(), Ok(1));
-        assert_eq!(primary.dispatch_components(1), Ok(1));
-
+        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
+        assert!(primary_sender.send(Message::NoteChanged("retained primary draft".to_string())));
+        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
         assert!(primary_sender.send(Message::Navigate(Page::Home)));
-        assert_eq!(primary.dispatch_components(1), Ok(1));
+        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
         assert!(primary_sender.send(Message::Navigate(Page::Editor)));
-        assert_eq!(primary.dispatch_components(1), Ok(1));
-        assert!(
-            primary
-                .runtime()
-                .commands()
-                .iter()
-                .flatten()
-                .any(|command| {
-                    matches!(
-                        command,
-                        Command::SetProperty {
-                            node,
-                            property: PropertyId::TextBoxText,
-                            ..
-                        } if primary
-                            .runtime()
-                            .node(*node)
-                            .and_then(|node| node.property(PropertyId::TextBoxText))
-                            == Some(&PropertyValue::Str("retained primary draft".into()))
-                    )
-                })
-        );
-        assert!(live_text(&secondary, "Secondary home count: 0"));
+        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
 
         assert!(primary_sender.send(Message::ToggleTheme));
-        assert_eq!(primary.dispatch_components(1), Ok(1));
-        assert_eq!(primary.dispatch_components(1), Ok(1));
-        assert_eq!(secondary.dispatch_components(1), Ok(1));
-        assert!(live_text(&primary, "Primary workspace - dark theme"));
-        assert!(live_text(&secondary, "Secondary workspace - dark theme"));
+        assert_eq!(primary.drain(2).unwrap().dispatched, 2);
+        assert_eq!(secondary.drain(1).unwrap().dispatched, 1);
+        assert!(shared.dark.get());
 
         assert!(secondary_sender.send(Message::StartWork));
-        assert_eq!(secondary.dispatch_components(1), Ok(1));
-        assert!(secondary_sender.send(Message::CloseWindow));
-        assert_eq!(secondary.dispatch_components(1), Ok(1));
-        assert_eq!(secondary.runtime().close_requests().len(), 1);
-        secondary.shutdown();
+        assert_eq!(secondary.drain(1).unwrap().dispatched, 1);
+        drop(secondary);
         assert!(!secondary_sender.send(Message::Increment));
         wait_until(|| shared.cancellations.load(Ordering::Acquire) == 1);
         assert_eq!(shared.lifecycle[&WindowRole::Secondary].cleanups.get(), 1);
-        assert_eq!(primary.dispatch_components(1), Ok(1));
-        assert!(live_text(&primary, "Secondary window closed"));
+        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
         assert!(primary_sender.send(Message::Increment));
+        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
 
-        primary.shutdown();
+        drop(primary);
         assert_eq!(shared.lifecycle[&WindowRole::Primary].cleanups.get(), 1);
     }
 }

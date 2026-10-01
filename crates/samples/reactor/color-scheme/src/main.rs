@@ -44,7 +44,7 @@ impl Component for ColorSchemeSample {
                 .font_size(14.0)
                 .foreground(ThemeBrush::PrimaryText),
         ));
-        Grid::new().children((content,))
+        Grid::new().children((content,)).into()
     }
 }
 

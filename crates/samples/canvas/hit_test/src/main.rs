@@ -4,8 +4,8 @@ use std::cell::RefCell;
 use std::rc::Rc;
 use windows_canvas::*;
 use windows_reactor::{
-    App, Border, Component, ComponentContext, ContentControl, PointerEventInfo, View, ViewContext,
-    WindowBackdrop, WindowVisuals,
+    App, Border, Component, ComponentContext, PointerEventInfo, View, ViewContext, WindowBackdrop,
+    WindowVisuals,
 };
 
 struct Sample {
@@ -99,6 +99,7 @@ impl Component for Sample {
                 );
                 Ok(())
             }))
+            .into()
     }
 }
 

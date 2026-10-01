@@ -43,7 +43,7 @@ impl Component for GridViewPage {
                             .height(300.0)
                             .selected_index(self.selected)
                             .on_selection_changed(context.callback(Message::Selected))
-                            .items(items.iter().map(|item| {
+                            .keyed_items(items.iter().map(|item| {
                                 KeyedView::new(
                                     item.clone(),
                                     GridViewItem::new().tag(item).content(

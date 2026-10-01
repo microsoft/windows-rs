@@ -1,7 +1,7 @@
 fn main() {
     let bindings = format!("{}/bindings.rs", std::env::var("OUT_DIR").unwrap());
     windows_bindgen::builder()
-        .input("../../../tools/reactor/winmd")
+        .input("../../../tools/reactor-metadata/winmd")
         .input_default()
         .output(bindings)
         .flat()

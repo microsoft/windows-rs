@@ -202,6 +202,7 @@ impl Component for Game {
                     .spacing(12.0)
                     .children((header, board)),
             ))
+            .into()
     }
 }
 
@@ -216,6 +217,7 @@ fn build_board(game: &Game, click_handler: Callback<usize>) -> View {
         .height(360.0)
         .horizontal_alignment(HorizontalAlignment::Center)
         .keyed_children(cells)
+        .into()
 }
 
 fn build_cells(game: &Game, click_handler: Callback<usize>) -> Vec<KeyedView> {
@@ -230,7 +232,7 @@ fn build_cells(game: &Game, click_handler: Callback<usize>) -> Vec<KeyedView> {
                 .on_click({
                     let click_handler = click_handler.clone();
                     move || {
-                        _ = click_handler.call(pos);
+                        click_handler.call(pos);
                     }
                 })
                 .horizontal_alignment(HorizontalAlignment::Stretch)
@@ -238,7 +240,7 @@ fn build_cells(game: &Game, click_handler: Callback<usize>) -> Vec<KeyedView> {
             if game_over || cell != Cell::Empty {
                 btn = btn.is_enabled(false);
             }
-            KeyedView::new(
+            keyed(
                 pos,
                 btn.grid_row(row as i32)
                     .grid_column(col as i32)

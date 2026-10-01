@@ -230,9 +230,10 @@ impl Component for Calculator {
                             .columns([GridLength::STAR; 4])
                             .row_spacing(4.0)
                             .column_spacing(4.0)
-                            .children(buttons),
+                            .children(buttons.map(Into::into)),
                     ),
             ))
+            .into()
     }
 }
 

@@ -1,0 +1,198 @@
+[[capability]]
+name = "content"
+kind = "relation"
+relation = "Content"
+rationale = "The incumbent content capability is the Reactor Content relation."
+
+[[capability]]
+name = "children"
+kind = "relation"
+relation = "Children"
+rationale = "The incumbent children capability is the Reactor Children relation."
+
+[[capability]]
+name = "items"
+kind = "virtual_items"
+rationale = "The incumbent items capability is a keyed container-realized virtual Items relation."
+
+[[capability]]
+name = "layout"
+kind = "layout"
+rationale = "Layout is represented by shared visual and attached properties plus exit transitions."
+
+[[capability]]
+name = "enabled"
+kind = "schema_capability"
+schema_capability = "enabled"
+rationale = "Enabled support is declared once in the Reactor capability table."
+
+[[capability]]
+name = "focus"
+kind = "schema_capability"
+schema_capability = "focus"
+rationale = "Focus support is declared once in the Reactor capability table."
+
+[[capability]]
+name = "reference"
+kind = "schema_capability"
+schema_capability = "reference"
+rationale = "Typed reference support is declared once in the Reactor capability table."
+
+[[capability]]
+name = "tooltip_attachment"
+kind = "schema_capability"
+schema_capability = "tooltip_attachment"
+rationale = "ToolTip placement became a declaration-owned attachment capability."
+
+[[capability]]
+name = "content_dialog_attachment"
+kind = "schema_capability"
+schema_capability = "content_dialog_attachment"
+rationale = "ContentDialog lifecycle became a declaration-owned attachment capability."
+
+[[capability]]
+name = "window_title_bar"
+kind = "schema_capability"
+schema_capability = "window_title_bar"
+rationale = "TitleBar ownership is represented by a declaration capability."
+
+[[capability]]
+name = "text_style"
+kind = "schema_capability"
+schema_capability = "text_style"
+rationale = "Shared text styling is declared once in the Reactor capability table."
+
+[[capability]]
+name = "controlled_text"
+kind = "controlled_text"
+rationale = "Controlled text is represented by generated feedback contracts on string properties."
+
+[[capability]]
+name = "grid_definitions"
+kind = "property_adapters"
+property_adapters = ["grid_rows", "grid_columns"]
+rationale = "Grid row and column definitions are generated property adapters."
+
+[[property]]
+control = "Microsoft.UI.Xaml.Controls.ColorPicker"
+name = "Color"
+old_adapter = ""
+new_adapter = "native_color"
+rationale = "Reactor names the Color conversion explicitly at the generated native boundary."
+
+[[property]]
+control = "Microsoft.UI.Xaml.Controls.ListView"
+name = "SelectedIndex"
+old_feedback = "synchronous_exact"
+new_feedback = "deferred_exact"
+rationale = "Reactor waits for the native selection event because ListView applies selection asynchronously."
+
+[[event_adapter]]
+old_adapter = "rich_edit_text"
+property_adapter = "rich_edit_text"
+rationale = "RichEdit text events observe the property that owns the rich_edit_text adapter."
+
+[[event_adapter]]
+old_adapter = "content_dialog_result"
+payload_adapter = "content_dialog_result"
+schema_capability = "content_dialog_attachment"
+rationale = "ContentDialog completion is emitted by the declaration-owned dialog attachment."
+
+[[event_adapter]]
+old_adapter = "pointer_event"
+value = "PointerEventInfo"
+rationale = "Pointer payload conversion is represented by the generated PointerEventInfo value."
+
+[[event_adapter]]
+old_adapter = "key_event"
+value = "KeyEventInfo"
+required_routed = true
+rationale = "Key payload conversion is represented by a routed KeyEventInfo value."
+
+[[event_adapter]]
+old_adapter = "character_event"
+value = "CharacterEventInfo"
+required_routed = true
+rationale = "Character payload conversion is represented by a routed CharacterEventInfo value."
+
+[[event_adapter]]
+old_adapter = "focus_event"
+value = "FocusEventInfo"
+rationale = "Focus payload conversion is represented by the generated FocusEventInfo value."
+
+[[event_adapter]]
+old_adapter = "drag_info"
+value = "DragKind"
+rationale = "Drag state conversion is represented by the generated DragKind value."
+
+[[event_adapter]]
+old_adapter = "drop_data"
+value = "DroppedData"
+rationale = "Drop payload conversion is represented by the generated DroppedData value."
+
+[[event_adapter]]
+old_adapter = "item_tags"
+value = "StringList"
+payload_property_equivalent = true
+rationale = "The generated event publishes the projected item-tag list directly."
+
+[[event_adapter]]
+old_adapter = "item_tag"
+value = "String"
+payload_adapter = "item_tag"
+payload_property_equivalent = true
+rationale = "The generated event publishes the projected item tag directly."
+
+[[event_adapter]]
+old_adapter = "navigation_display_mode"
+value = "NavigationViewDisplayMode"
+payload_adapter = "navigation_display_mode"
+rationale = "Navigation display-mode conversion is represented by the generated enum value."
+
+[[event_adapter]]
+old_adapter = ""
+value = "Color"
+payload_adapter = "native_color"
+rationale = "Color event conversion is explicit at the generated native boundary."
+
+[[event_adapter]]
+old_adapter = ""
+value = "OptionalDateTime"
+payload_adapter = "optional_datetime"
+rationale = "Nullable date values use the generated optional_datetime payload adapter."
+
+[[event_adapter]]
+old_adapter = ""
+value = "OptionalTimeSpan"
+payload_adapter = "optional_timespan"
+rationale = "Nullable time values use the generated optional_timespan payload adapter."
+
+[[event_adapter]]
+old_adapter = ""
+value = "OptionalF64"
+payload_adapter = "number_box_value"
+rationale = "NumberBox uses the same optional numeric conversion for property and event payloads."
+
+[[event_adapter]]
+old_adapter = "inspectable_string"
+value = "String"
+payload_adapter = "inspectable_string"
+rationale = "Inspectable string payloads are projected as generated String values."
+
+[[event_adapter]]
+old_adapter = "tree_node_content"
+value = "String"
+payload_property_equivalent = true
+rationale = "Tree node content is published as the generated string event value."
+
+[[lifecycle]]
+kind = "placement"
+old = "tooltip_attachment"
+schema_capability = "tooltip_attachment"
+rationale = "ToolTip placement became declaration-owned attachment state."
+
+[[lifecycle]]
+kind = "lifecycle"
+old = "content_dialog"
+schema_capability = "content_dialog_attachment"
+rationale = "ContentDialog lifecycle became declaration-owned attachment state."

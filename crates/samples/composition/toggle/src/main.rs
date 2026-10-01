@@ -83,6 +83,7 @@ impl Component for Sample {
                     .margin(Thickness::uniform(16.0))
                     .content(if shown { "Hide visual" } else { "Show visual" }),
             ))
+            .into()
     }
 }
 

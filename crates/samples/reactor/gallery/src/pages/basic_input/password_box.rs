@@ -32,7 +32,9 @@ impl Component for PasswordBoxPage {
                             PasswordBox::new()
                                 .password(&self.password)
                                 .placeholder_text("Enter password")
-                                .on_password_changed(context.forward())
+                                .on_password_changed(
+                                    context.callback(|value: std::rc::Rc<str>| value.to_string()),
+                                )
                                 .header("Password"),
                             TextBlock::new()
                                 .text(format!("Length: {} chars", self.password.len()))

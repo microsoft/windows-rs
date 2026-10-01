@@ -50,7 +50,7 @@ impl Component for CommandBarPage {
                                 CommandBarCommand::button("select-all", "Select All"),
                                 CommandBarCommand::button("share", "Share"),
                             ],
-                            context.callback(Message::CommandClicked),
+                            context.callback(|key: Key| Message::CommandClicked(key_label(&key))),
                         ),
                         TextBlock::new()
                             .text(format!("Last command: {}", self.last_command))

@@ -147,7 +147,8 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 - Use `writer().split()` to maintain namespace-partitioned reviewable metadata.
 - Use `merge_arch_rdl` only for generators that have per-architecture RDL directories and winmds.
   It merges structural differences and restores the defining-header partition.
-- `tool-reactor` compiles hand-authored `extras.rdl` to fill metadata gaps before binding WinUI.
+- `tool-reactor-metadata` compiles hand-authored `extras.rdl` to fill metadata gaps before binding
+  WinUI.
 
 ## Pitfalls
 

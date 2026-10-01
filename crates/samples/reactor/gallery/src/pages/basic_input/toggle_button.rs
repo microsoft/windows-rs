@@ -46,11 +46,19 @@ impl Component for ToggleButtonPage {
                                 .children((
                                     ToggleButton::new()
                                         .is_checked(self.bold)
-                                        .on_is_checked_changed(context.callback(Message::Bold))
+                                        .on_is_checked_changed(context.callback(
+                                            |value: Option<bool>| {
+                                                Message::Bold(value.unwrap_or(false))
+                                            },
+                                        ))
                                         .content("Bold"),
                                     ToggleButton::new()
                                         .is_checked(self.italic)
-                                        .on_is_checked_changed(context.callback(Message::Italic))
+                                        .on_is_checked_changed(context.callback(
+                                            |value: Option<bool>| {
+                                                Message::Italic(value.unwrap_or(false))
+                                            },
+                                        ))
                                         .content("Italic"),
                                 )),
                             TextBlock::new()

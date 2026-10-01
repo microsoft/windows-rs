@@ -1,20 +1,22 @@
+use std::rc::Rc;
+
 use windows_reactor::*;
 
 struct IconElementsSample {
-    page: String,
+    page: Rc<str>,
 }
 
 impl Component for IconElementsSample {
-    type Message = Option<String>;
+    type Message = Option<Rc<str>>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
         Self {
-            page: "home".to_string(),
+            page: "home".into(),
         }
     }
 
-    fn update(&mut self, page: Option<String>, _context: &ComponentContext<Self>) {
+    fn update(&mut self, page: Option<Rc<str>>, _context: &ComponentContext<Self>) {
         if let Some(page) = page {
             self.page = page;
         }
@@ -29,17 +31,17 @@ impl Component for IconElementsSample {
             "file:///{}/image.png",
             env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
         );
-        let item = |tag, label, icon: Icon| {
+        let item = |tag: &'static str, label: &'static str, icon: Icon| {
             KeyedView::new(
                 tag,
                 NavigationViewItem::new()
                     .tag(tag)
-                    .is_selected(self.page == tag)
+                    .is_selected(self.page.as_ref() == tag)
                     .content(label)
                     .icon(icon),
             )
         };
-        let content = match self.page.as_str() {
+        let content = match self.page.as_ref() {
             "home" => "Symbol icon (SymbolIcon).",
             "starred" => "Font-glyph icon (FontIcon).",
             "repo" => "SVG image icon (ImageIcon).",
@@ -52,7 +54,7 @@ impl Component for IconElementsSample {
         NavigationView::new()
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
-            .menu_items([
+            .keyed_menu_items([
                 item(
                     "home",
                     "Home",

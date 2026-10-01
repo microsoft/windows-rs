@@ -24,20 +24,23 @@ impl Component for PointerPosition {
             Some((x, y)) => format!("Pressed at ({x:.0}, {y:.0})"),
             None => "Click anywhere in the box".to_string(),
         };
-        StackPanel::new().spacing(12.0).children((
-            TextBlock::new().text(label).font_size(20.0),
-            Border::new()
-                .background(Color::rgb(40, 120, 200))
-                .padding(40.0)
-                .width(360.0)
-                .height(240.0)
-                .on_pointer_pressed(context.forward())
-                .content(
-                    TextBlock::new()
-                        .text("Click to read the pointer position")
-                        .foreground(Color::rgb(255, 255, 255)),
-                ),
-        ))
+        StackPanel::new()
+            .spacing(12.0)
+            .children((
+                TextBlock::new().text(label).font_size(20.0),
+                Border::new()
+                    .background(Color::rgb(40, 120, 200))
+                    .padding(Thickness::uniform(40.0))
+                    .width(360.0)
+                    .height(240.0)
+                    .on_pointer_pressed(context.forward())
+                    .content(
+                        TextBlock::new()
+                            .text("Click to read the pointer position")
+                            .foreground(Color::rgb(255, 255, 255)),
+                    ),
+            ))
+            .into()
     }
 }
 

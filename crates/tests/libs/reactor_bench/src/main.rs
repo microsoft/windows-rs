@@ -1,1790 +1,2004 @@
-use std::cell::RefCell;
 use std::hint::black_box;
 use std::rc::Rc;
-use std::sync::atomic::Ordering;
-use std::time::Instant;
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+use std::sync::{Arc, Mutex};
+use std::time::{Duration, Instant};
 
-use windows_reactor::test::*;
-use windows_reactor::*;
+use windows_reactor as reactor;
 
 mod allocator;
 
 struct Perf {
-    ns: f64,
+    median_ns: f64,
+    p95_ns: f64,
     bytes: f64,
-    allocs: f64,
+    allocations: f64,
 }
 
 struct Row {
-    name: &'static str,
-    n: usize,
+    frontend: &'static str,
+    workload: &'static str,
+    objects: usize,
     perf: Perf,
 }
 
-struct FrontendRow {
-    frontend: &'static str,
-    name: &'static str,
-    n: usize,
-    median_ns: f64,
-    p95_ns: f64,
-    p99_ns: f64,
-    bytes: f64,
-    allocs: f64,
-}
-
 struct MemoryRow {
-    allocations: u64,
-    n: usize,
+    frontend: &'static str,
+    workload: &'static str,
+    objects: usize,
     bytes: u64,
-    bytes_per_scope: f64,
+    allocations: u64,
 }
 
-struct NativeMemoryRow {
-    name: &'static str,
-    allocations: u64,
-    n: usize,
+struct GraphMemoryRow {
+    fixture: &'static str,
     bytes: u64,
-    bytes_per_element: f64,
+    allocations: u64,
+    memory: reactor::RetainedMemory,
+}
+
+struct RecursiveRow {
+    allocations: f64,
+    bytes: f64,
+    bytes_per_scope: f64,
+    depth: usize,
+    fanout: usize,
+    median_ns: f64,
+    mutations: f64,
+    p95_ns: f64,
+    retained_bytes: u64,
+    scopes: usize,
+}
+
+struct BenchComponent {
+    active: bool,
+    effect: bool,
+}
+
+#[derive(Default)]
+struct LifecycleServices {
+    background: Mutex<Vec<Box<dyn FnOnce() + Send>>>,
+    cancelled_timers: Arc<AtomicUsize>,
+}
+
+impl LifecycleServices {
+    fn run_background(&self) {
+        for work in std::mem::take(&mut *self.background.lock().unwrap()) {
+            work();
+        }
+    }
+}
+
+struct LifecycleTimerRegistration {
+    active: AtomicBool,
+    cancelled: Arc<AtomicUsize>,
+}
+
+impl reactor::ComponentTimerRegistration for LifecycleTimerRegistration {
+    fn cancel(&self) {
+        if self.active.swap(false, Ordering::AcqRel) {
+            self.cancelled.fetch_add(1, Ordering::Relaxed);
+        }
+    }
+}
+
+impl reactor::ComponentServices for LifecycleServices {
+    fn spawn_background(&self, work: Box<dyn FnOnce() + Send>) {
+        self.background.lock().unwrap().push(work);
+    }
+
+    fn set_timeout(
+        &self,
+        _delay: Duration,
+        _callback: Box<dyn FnOnce() + Send>,
+    ) -> Arc<dyn reactor::ComponentTimerRegistration> {
+        Arc::new(LifecycleTimerRegistration {
+            active: AtomicBool::new(true),
+            cancelled: Arc::clone(&self.cancelled_timers),
+        })
+    }
 }
 
 #[derive(Clone)]
-struct LeafInput {
-    sender: Rc<RefCell<Option<LocalSender<bool>>>>,
+struct LifecycleInput {
+    cleanups: Arc<AtomicUsize>,
+    context: Rc<reactor::Context<usize>>,
+    task: Arc<Mutex<Option<reactor::ComponentTask>>>,
 }
 
-impl PartialEq for LeafInput {
+impl PartialEq for LifecycleInput {
     fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.sender, &other.sender)
+        Arc::ptr_eq(&self.cleanups, &other.cleanups) && Rc::ptr_eq(&self.context, &other.context)
     }
 }
 
-struct BenchLeaf {
-    active: bool,
+struct LifecycleComponent {
+    _timer: reactor::ComponentTimer,
 }
 
-struct BenchNotepad {
-    text: String,
-}
+impl reactor::Component for LifecycleComponent {
+    type Input = LifecycleInput;
+    type Message = usize;
 
-struct BenchRoutedInput {
-    events: u64,
-}
-
-struct BenchQueuedInput {
-    events: u64,
-}
-
-impl Component for BenchQueuedInput {
-    type Input = ();
-    type Message = PointerEventInfo;
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self { events: 0 }
-    }
-
-    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {
-        self.events += 1;
-    }
-
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        Border::new().on_pointer_pressed(context.forward()).into()
-    }
-}
-
-impl Component for BenchRoutedInput {
-    type Input = ();
-    type Message = KeyEventInfo;
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self { events: 0 }
-    }
-
-    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {
-        self.events += 1;
-    }
-
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        Border::new()
-            .is_tab_stop(true)
-            .on_preview_key_down(context.routed_callback(RoutedMessage::handled))
-            .into()
-    }
-}
-
-impl Component for BenchNotepad {
-    type Input = ();
-    type Message = String;
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+    fn create(input: &Self::Input, context: &reactor::ComponentContext<Self>) -> Self {
+        let task = context.spawn_background(|cancel| usize::from(cancel.is_cancelled()));
+        *input.task.lock().unwrap() = Some(task);
         Self {
-            text: String::new(),
+            _timer: context.set_timeout(Duration::from_secs(60), 1),
         }
     }
 
-    fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
-        self.text = message;
-    }
-
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        TextBox::new()
-            .text(self.text.clone())
-            .on_text_changed(context.forward())
+    fn view(&self, input: &Self::Input, context: &mut reactor::ViewContext<Self>) -> reactor::View {
+        let value = context.use_context(&input.context);
+        let cleanups = Arc::clone(&input.cleanups);
+        context.use_effect("lifecycle", value, move || {
+            Some(Box::new(move || {
+                cleanups.fetch_add(1, Ordering::Relaxed);
+            }))
+        });
+        let sender = context.sender();
+        reactor::Button::new()
+            .automation_name(format!("lifecycle-{value}"))
+            .element_ref(&context.root())
+            .on_click(move || {
+                let _ = sender.send(value);
+            })
             .into()
     }
 }
 
-enum BackgroundMessage {
-    Complete,
-    Start,
+#[derive(Clone, PartialEq)]
+struct BranchInput {
+    depth: usize,
+    fanout: usize,
 }
 
-#[derive(Clone)]
-struct BackgroundInput {
-    sender: Rc<RefCell<Option<LocalSender<BackgroundMessage>>>>,
-}
+struct Branch(usize);
 
-impl PartialEq for BackgroundInput {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.sender, &other.sender)
+impl reactor::Component for Branch {
+    type Input = BranchInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor::ComponentContext<Self>) -> Self {
+        Self(0)
+    }
+
+    fn update(&mut self, (): Self::Message, _context: &reactor::ComponentContext<Self>) {
+        self.0 += 1;
+    }
+
+    fn view(
+        &self,
+        input: &Self::Input,
+        _context: &mut reactor::ViewContext<Self>,
+    ) -> reactor::View {
+        if input.depth == 0 {
+            return reactor::TextBlock::new().text(self.0.to_string()).into();
+        }
+        reactor::StackPanel::new()
+            .children(
+                (0..input.fanout)
+                    .map(|index| {
+                        reactor::component::<Self>(
+                            index.to_string(),
+                            BranchInput {
+                                depth: input.depth - 1,
+                                fanout: input.fanout,
+                            },
+                        )
+                        .into()
+                    })
+                    .collect::<Vec<reactor::View>>(),
+            )
+            .into()
     }
 }
 
-struct BackgroundLeaf(bool);
+#[derive(Clone)]
+struct ContextInput {
+    context: Rc<reactor::Context<bool>>,
+    subscribe: bool,
+}
 
-impl Component for BackgroundLeaf {
-    type Input = BackgroundInput;
-    type Message = BackgroundMessage;
+impl PartialEq for ContextInput {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.context, &other.context) && self.subscribe == other.subscribe
+    }
+}
 
-    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-        *input.sender.borrow_mut() = Some(context.sender());
+struct ContextComponent;
+
+impl reactor::Component for ContextComponent {
+    type Input = ContextInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor::ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, input: &Self::Input, context: &mut reactor::ViewContext<Self>) -> reactor::View {
+        let value = if input.subscribe {
+            context.use_context(&input.context)
+        } else {
+            false
+        };
+        reactor::TextBlock::new()
+            .text(if value { "on" } else { "off" })
+            .into()
+    }
+}
+
+impl reactor::Component for BenchComponent {
+    type Input = bool;
+    type Message = bool;
+
+    fn create(effect: &bool, _context: &reactor::ComponentContext<Self>) -> Self {
+        Self {
+            active: false,
+            effect: *effect,
+        }
+    }
+
+    fn update(&mut self, toggle: bool, _context: &reactor::ComponentContext<Self>) {
+        if toggle {
+            self.active = !self.active;
+        }
+    }
+
+    fn view(&self, _input: &bool, context: &mut reactor::ViewContext<Self>) -> reactor::View {
+        if self.effect {
+            context.use_effect("bench", self.active, || None);
+        }
+        reactor::TextBlock::new()
+            .text(if self.active { "on" } else { "off" })
+            .into()
+    }
+}
+
+struct RootSwitch(bool);
+
+impl reactor::Component for RootSwitch {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &reactor::ComponentContext<Self>) -> Self {
         Self(false)
     }
 
-    fn input_changed(&mut self, _input: &Self::Input, _context: &ComponentContext<Self>) {}
+    fn update(&mut self, (): (), _context: &reactor::ComponentContext<Self>) {
+        self.0 = !self.0;
+    }
 
-    fn update(&mut self, message: BackgroundMessage, context: &ComponentContext<Self>) {
-        match message {
-            BackgroundMessage::Complete => self.0 = !self.0,
-            BackgroundMessage::Start => {
-                context.spawn_background(|_| BackgroundMessage::Complete);
-            }
+    fn view(
+        &self,
+        _input: &Self::Input,
+        _context: &mut reactor::ViewContext<Self>,
+    ) -> reactor::View {
+        if self.0 {
+            reactor::Border::new().into()
+        } else {
+            reactor::TextBlock::new().text("root").into()
         }
     }
+}
 
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        TextBlock::new().text(self.0.to_string()).into()
+#[derive(Default)]
+struct NullAdapter;
+
+impl reactor::Adapter for NullAdapter {
+    type Error = std::convert::Infallible;
+
+    fn validate(&self, _mutations: &[reactor::Mutation]) -> Result<(), Self::Error> {
+        Ok(())
+    }
+
+    fn apply(&mut self, _mutations: &[reactor::Mutation]) -> Result<(), Self::Error> {
+        Ok(())
+    }
+
+    fn focus(&mut self, _object: reactor::ObjectId) -> Result<bool, Self::Error> {
+        Ok(false)
     }
 }
 
-#[derive(Clone)]
-struct BackgroundRootInput {
-    count: usize,
-    sender: Rc<RefCell<Option<LocalSender<BackgroundMessage>>>>,
-}
-
-impl PartialEq for BackgroundRootInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && Rc::ptr_eq(&self.sender, &other.sender)
-    }
-}
-
-struct BackgroundRoot(BackgroundRootInput);
-
-impl Component for BackgroundRoot {
-    type Input = BackgroundRootInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(input.clone())
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = input.clone();
-    }
-
-    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().keyed_children((0..self.0.count).map(|index| {
-            let view = if index == self.0.count / 2 {
-                View::component::<BackgroundLeaf>(BackgroundInput {
-                    sender: Rc::clone(&self.0.sender),
-                })
-            } else {
-                TextBlock::new().text("static").into()
-            };
-            KeyedView::new(index, view)
-        }))
-    }
-}
-
-impl Component for BenchLeaf {
-    type Input = LeafInput;
-    type Message = bool;
-
-    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-        *input.sender.borrow_mut() = Some(context.sender());
-        Self { active: false }
-    }
-
-    fn input_changed(&mut self, _input: &Self::Input, _context: &ComponentContext<Self>) {}
-
-    fn update(&mut self, toggle: Self::Message, _context: &ComponentContext<Self>) {
-        if toggle {
-            self.active = !self.active;
-        }
-    }
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        TextBlock::new()
-            .text(if self.active { "on" } else { "off" })
-            .into()
-    }
-}
-
-struct BenchRoot {
-    senders: Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>,
-}
-
-struct EffectLeaf {
-    active: bool,
-}
-
-impl Component for EffectLeaf {
-    type Input = LeafInput;
-    type Message = bool;
-
-    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-        *input.sender.borrow_mut() = Some(context.sender());
-        Self { active: false }
-    }
-
-    fn update(&mut self, toggle: Self::Message, _context: &ComponentContext<Self>) {
-        if toggle {
-            self.active = !self.active;
-        }
-    }
-
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        context.use_effect("bench", self.active, || None);
-        TextBlock::new()
-            .text(if self.active { "on" } else { "off" })
-            .into()
-    }
-}
-
-#[derive(Clone)]
-struct RootInput(Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>);
-
-impl PartialEq for RootInput {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.0, &other.0)
-    }
-}
-
-impl Component for BenchRoot {
-    type Input = RootInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self {
-            senders: Rc::clone(&input.0),
-        }
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.senders = Rc::clone(&input.0);
-    }
-
-    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().keyed_children(self.senders.iter().enumerate().map(|(index, sender)| {
-            KeyedView::new(
-                index,
-                View::component::<BenchLeaf>(LeafInput {
-                    sender: Rc::clone(sender),
-                }),
-            )
-        }))
-    }
-}
-
-struct EffectRoot(RootInput);
-
-impl Component for EffectRoot {
-    type Input = RootInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(input.clone())
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = input.clone();
-    }
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().keyed_children(self.0.0.iter().enumerate().map(|(index, sender)| {
-            KeyedView::new(
-                index,
-                View::component::<EffectLeaf>(LeafInput {
-                    sender: Rc::clone(sender),
-                }),
-            )
-        }))
-    }
-}
-
-struct BenchFragmentRoot(RootInput);
-
-impl Component for BenchFragmentRoot {
-    type Input = RootInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(input.clone())
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = input.clone();
-    }
-
-    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        let fragment = self.0.0.iter().enumerate().map(|(index, sender)| {
-            KeyedView::new(
-                index,
-                View::component::<BenchLeaf>(LeafInput {
-                    sender: Rc::clone(sender),
-                }),
-            )
-        });
-        StackPanel::new().children((View::keyed_fragment(fragment),))
-    }
-}
-
-#[derive(Clone)]
-struct ContextOwnerInput {
-    context: Rc<Context<bool>>,
-    sender: Rc<RefCell<Option<LocalSender<bool>>>>,
-}
-
-impl PartialEq for ContextOwnerInput {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.context, &other.context) && Rc::ptr_eq(&self.sender, &other.sender)
-    }
-}
-
-struct ContextConsumer(Rc<Context<bool>>);
-
-impl Component for ContextConsumer {
-    type Input = Rc<Context<bool>>;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(Rc::clone(input))
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = Rc::clone(input);
-    }
-
-    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        TextBlock::new()
-            .text(context.use_context(&self.0).to_string())
-            .into()
-    }
-}
-
-struct ContextOwner {
-    input: ContextOwnerInput,
-    value: bool,
-}
-
-impl Component for ContextOwner {
-    type Input = ContextOwnerInput;
-    type Message = bool;
-
-    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-        *input.sender.borrow_mut() = Some(context.sender());
-        Self {
-            input: input.clone(),
-            value: false,
-        }
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.input = input.clone();
-    }
-
-    fn update(&mut self, value: bool, _context: &ComponentContext<Self>) {
-        self.value = value;
-    }
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        View::provide(
-            &self.input.context,
-            self.value,
-            View::component::<ContextConsumer>(Rc::clone(&self.input.context)),
-        )
-    }
-}
-
-#[derive(Clone)]
-struct ContextSubtreeInput {
-    all_consumers: bool,
-    context: Rc<Context<bool>>,
-    count: usize,
-}
-
-impl PartialEq for ContextSubtreeInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.all_consumers == other.all_consumers
-            && self.count == other.count
-            && Rc::ptr_eq(&self.context, &other.context)
-    }
-}
-
-struct ContextSubtree(ContextSubtreeInput);
-
-impl Component for ContextSubtree {
-    type Input = ContextSubtreeInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(input.clone())
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = input.clone();
-    }
-
-    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().keyed_children((0..self.0.count).map(|index| {
-            let view = if self.0.all_consumers || index == self.0.count / 2 {
-                View::component::<ContextConsumer>(Rc::clone(&self.0.context))
-            } else {
-                TextBlock::new().text("static").into()
-            };
-            KeyedView::new(index, view)
-        }))
-    }
-}
-
-#[derive(Clone)]
-struct ContextBroadOwnerInput {
-    context: Rc<Context<bool>>,
-    sender: Rc<RefCell<Option<LocalSender<bool>>>>,
-    subtree: ContextSubtreeInput,
-}
-
-impl PartialEq for ContextBroadOwnerInput {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.context, &other.context)
-            && Rc::ptr_eq(&self.sender, &other.sender)
-            && self.subtree == other.subtree
-    }
-}
-
-struct ContextBroadOwner {
-    input: ContextBroadOwnerInput,
-    value: bool,
-}
-
-impl Component for ContextBroadOwner {
-    type Input = ContextBroadOwnerInput;
-    type Message = bool;
-
-    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-        *input.sender.borrow_mut() = Some(context.sender());
-        Self {
-            input: input.clone(),
-            value: false,
-        }
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.input = input.clone();
-    }
-
-    fn update(&mut self, value: bool, _context: &ComponentContext<Self>) {
-        self.value = value;
-    }
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        View::provide(
-            &self.input.context,
-            self.value,
-            View::component::<ContextSubtree>(self.input.subtree.clone()),
-        )
-    }
-}
-
-#[derive(Clone)]
-struct ContextRootInput {
-    context: Rc<Context<bool>>,
-    owner: Rc<RefCell<Option<LocalSender<bool>>>>,
-    senders: Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>,
-}
-
-impl PartialEq for ContextRootInput {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.context, &other.context)
-            && Rc::ptr_eq(&self.owner, &other.owner)
-            && Rc::ptr_eq(&self.senders, &other.senders)
-    }
-}
-
-struct ContextRoot(ContextRootInput);
-
-impl Component for ContextRoot {
-    type Input = ContextRootInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(input.clone())
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = input.clone();
-    }
-
-    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        let middle = self.0.senders.len() / 2;
-        StackPanel::new().keyed_children(self.0.senders.iter().enumerate().map(
-            |(index, sender)| {
-                let view = if index == middle {
-                    View::component::<ContextOwner>(ContextOwnerInput {
-                        context: Rc::clone(&self.0.context),
-                        sender: Rc::clone(&self.0.owner),
-                    })
-                } else {
-                    View::component::<BenchLeaf>(LeafInput {
-                        sender: Rc::clone(sender),
-                    })
-                };
-                KeyedView::new(index, view)
-            },
-        ))
-    }
-}
-
-#[derive(Clone)]
-struct ManyProviderRootInput {
-    context: Rc<Context<bool>>,
-    owners: Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>,
-}
-
-impl PartialEq for ManyProviderRootInput {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.context, &other.context) && Rc::ptr_eq(&self.owners, &other.owners)
-    }
-}
-
-struct ManyProviderRoot(ManyProviderRootInput);
-
-impl Component for ManyProviderRoot {
-    type Input = ManyProviderRootInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(input.clone())
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = input.clone();
-    }
-
-    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().keyed_children(self.0.owners.iter().enumerate().map(|(index, owner)| {
-            KeyedView::new(
-                index,
-                View::component::<ContextOwner>(ContextOwnerInput {
-                    context: Rc::clone(&self.0.context),
-                    sender: Rc::clone(owner),
-                }),
-            )
-        }))
-    }
-}
-
-#[derive(Clone)]
-struct KeyedRootInput(Rc<Vec<u64>>);
-
-impl PartialEq for KeyedRootInput {
-    fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.0, &other.0)
-    }
-}
-
-struct KeyedRoot(KeyedRootInput);
-
-impl Component for KeyedRoot {
-    type Input = KeyedRootInput;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(input.clone())
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = input.clone();
-    }
-
-    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().keyed_children(
-            self.0
-                .0
-                .iter()
-                .map(|key| KeyedView::new(*key, View::component::<KeyedLeaf>(*key))),
-        )
-    }
-}
-
-struct KeyedLeaf(u64);
-
-impl Component for KeyedLeaf {
-    type Input = u64;
-    type Message = ();
-
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(*input)
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.0 = *input;
-    }
-
-    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {}
-
-    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        TextBlock::new().text(self.0.to_string()).into()
-    }
-}
-
-fn measure(iters: u64, reps: u32, mut op: impl FnMut()) -> Perf {
-    for _ in 0..2 {
-        for _ in 0..iters {
-            op();
-        }
-    }
-
-    let mut best = Perf {
-        ns: f64::MAX,
-        bytes: 0.0,
-        allocs: 0.0,
-    };
-    for _ in 0..reps {
-        let bytes = allocator::allocated_bytes();
-        let allocs = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-        let start = Instant::now();
-        for _ in 0..iters {
-            op();
-        }
-        let ns = start.elapsed().as_nanos() as f64 / iters as f64;
-        if ns < best.ns {
-            best.ns = ns;
-            best.bytes = (allocator::allocated_bytes() - bytes) as f64 / iters as f64;
-            best.allocs =
-                (allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocs) as f64 / iters as f64;
-        }
-    }
-    best
-}
-
-fn measure_frontend(
-    frontend: &'static str,
-    name: &'static str,
-    n: usize,
-    samples: usize,
-    batch: usize,
-    mut op: impl FnMut(),
-) -> FrontendRow {
-    for _ in 0..16 {
+fn measure(samples: usize, batch: usize, mut operation: impl FnMut()) -> Perf {
+    for _ in 0..8 {
         for _ in 0..batch {
-            op();
+            operation();
         }
     }
     let mut timings = Vec::with_capacity(samples);
     let bytes = allocator::allocated_bytes();
-    let allocs = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
     for _ in 0..samples {
         let start = Instant::now();
         for _ in 0..batch {
-            op();
+            operation();
         }
         timings.push(start.elapsed().as_nanos() as f64 / batch as f64);
     }
     timings.sort_by(f64::total_cmp);
-    let percentile = |value: f64| {
-        let index = ((timings.len() - 1) as f64 * value).ceil() as usize;
+    let percentile = |fraction: f64| {
+        let index = ((timings.len() - 1) as f64 * fraction).ceil() as usize;
         timings[index]
     };
-    FrontendRow {
-        frontend,
-        name,
-        n,
+    Perf {
         median_ns: percentile(0.50),
         p95_ns: percentile(0.95),
-        p99_ns: percentile(0.99),
         bytes: (allocator::allocated_bytes() - bytes) as f64 / (samples * batch) as f64,
-        allocs: (allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocs) as f64
+        allocations: (allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations) as f64
             / (samples * batch) as f64,
     }
 }
 
-fn runtime() -> RecordingRuntime {
-    let mut runtime = RecordingRuntime::default();
-    runtime.record_commands(false);
-    runtime
+fn measure_prepared<S>(
+    samples: usize,
+    batch: usize,
+    mut prepare: impl FnMut() -> S,
+    mut operation: impl FnMut(S),
+) -> Perf {
+    for _ in 0..8 {
+        operation(prepare());
+    }
+    let mut timings = Vec::with_capacity(samples * batch);
+    let mut bytes = 0;
+    let mut allocations = 0;
+    for _ in 0..samples {
+        for _ in 0..batch {
+            let state = prepare();
+            let before_bytes = allocator::allocated_bytes();
+            let before_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+            let start = Instant::now();
+            operation(state);
+            timings.push(start.elapsed().as_nanos() as f64);
+            bytes += allocator::allocated_bytes() - before_bytes;
+            allocations += allocator::ALLOCATIONS.load(Ordering::Relaxed) - before_allocations;
+        }
+    }
+    timings.sort_by(f64::total_cmp);
+    let percentile = |value: f64| {
+        let index = ((timings.len() - 1) as f64 * value).round() as usize;
+        timings[index]
+    };
+    Perf {
+        median_ns: percentile(0.50),
+        p95_ns: percentile(0.95),
+        bytes: bytes as f64 / timings.len() as f64,
+        allocations: allocations as f64 / timings.len() as f64,
+    }
 }
 
-fn indexed_stack(labels: &[String]) -> View {
-    StackPanel::new().keyed_children(
-        labels
-            .iter()
-            .enumerate()
-            .map(|(index, text)| KeyedView::new(index, TextBlock::new().text(text))),
-    )
+fn reactor_runtime() -> reactor::Runtime<reactor::RecordingAdapter> {
+    let mut adapter = reactor::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    reactor::Runtime::new(adapter)
 }
 
-fn keyed_stack(keys: &[String]) -> View {
-    StackPanel::new().keyed_children(
-        keys.iter()
-            .map(|key| KeyedView::new(key.clone(), TextBlock::new().text(key.clone()))),
-    )
+fn reactor_grid(order: &[usize], changed: Option<usize>) -> reactor::View {
+    reactor::Grid::new()
+        .keyed_children(order.iter().map(|index| {
+            reactor::keyed(
+                *index,
+                reactor::TextBlock::new().text(if Some(*index) == changed {
+                    format!("Changed {index}")
+                } else {
+                    format!("Cell {index}")
+                }),
+            )
+        }))
+        .into()
 }
 
-fn border_stack(count: usize, properties: usize) -> View {
-    StackPanel::new().keyed_children((0..count).map(|index| {
-        let border = Border::new();
-        let border = if properties >= 1 {
-            border.is_tab_stop(true)
-        } else {
-            border
-        };
-        let border = if properties >= 2 {
-            border.padding(4.0)
-        } else {
-            border
-        };
-        let border = if properties >= 3 {
-            border.border_thickness(1.0)
-        } else {
-            border
-        };
-        let border = if properties >= 4 {
-            border.corner_radius(2.0)
-        } else {
-            border
-        };
-        KeyedView::new(index, border)
-    }))
+fn reactor_tree(order: &[usize], changed: Option<usize>) -> reactor::View {
+    reactor::TreeView::new()
+        .nodes(order.iter().map(|index| {
+            reactor::TreeNode::new(
+                *index,
+                if Some(*index) == changed {
+                    format!("Changed {index}")
+                } else {
+                    format!("Node {index}")
+                },
+            )
+        }))
+        .into()
 }
 
-fn border_event_stack(count: usize, events: usize) -> View {
-    StackPanel::new().keyed_children((0..count).map(|index| {
-        let border = Border::new();
-        let border = if events >= 1 {
-            border.on_pointer_pressed(|_| {})
-        } else {
-            border
-        };
-        let border = if events >= 2 {
-            border.on_pointer_moved(|_| {})
-        } else {
-            border
-        };
-        let border = if events >= 3 {
-            border.on_pointer_entered(|_| {})
-        } else {
-            border
-        };
-        let border = if events >= 4 {
-            border.on_pointer_exited(|_| {})
-        } else {
-            border
-        };
-        KeyedView::new(index, border)
-    }))
+fn bench_reactor(
+    workload: &'static str,
+    objects: usize,
+    first: reactor::View,
+    second: reactor::View,
+    samples: usize,
+    batch: usize,
+) -> Row {
+    let mut runtime = reactor_runtime();
+    runtime.update(first.clone()).unwrap();
+    let mut flip = false;
+    let perf = measure(samples, batch, || {
+        runtime
+            .update(if flip { first.clone() } else { second.clone() })
+            .unwrap();
+        flip = !flip;
+    });
+    Row {
+        frontend: "reactor",
+        workload,
+        objects,
+        perf,
+    }
 }
 
-fn virtual_list(key_revision: u64, key_prefix: &str, text_prefix: &str, count: usize) -> View {
-    let key_prefix = key_prefix.to_string();
-    let text_prefix = text_prefix.to_string();
-    ItemsRepeater::new()
-        .virtual_source(VirtualSource::new(
-            key_revision,
-            count,
-            move |index| format!("{key_prefix}{index}"),
-            move |index| TextBlock::new().text(format!("{text_prefix}{index}")),
+fn bench_reactor_100k(one_changed: bool, samples: usize) -> Row {
+    let count = 50_000;
+    let order = (0..count).collect::<Vec<_>>();
+    let first = reactor_grid(&order, None);
+    let changed = reactor_grid(&order, one_changed.then_some(0));
+    let mut runtimes = [reactor_runtime(), reactor_runtime()];
+    for runtime in &mut runtimes {
+        runtime.update(first.clone()).unwrap();
+    }
+    let mut flip = false;
+    let perf = measure(samples, 1, || {
+        runtimes[0]
+            .update(if flip { first.clone() } else { changed.clone() })
+            .unwrap();
+        runtimes[1].update(first.clone()).unwrap();
+        flip = !flip;
+    });
+    Row {
+        frontend: "reactor",
+        workload: if one_changed {
+            "keyed_one_changed"
+        } else {
+            "keyed_no_change"
+        },
+        objects: count * 2,
+        perf,
+    }
+}
+
+fn retirement_view(visible: bool) -> reactor::View {
+    reactor::Grid::new()
+        .keyed_children(visible.then(|| {
+            reactor::keyed(
+                "retiring",
+                reactor::Button::new()
+                    .exit_fade(Duration::from_secs(1))
+                    .content(reactor::TextBlock::new().text("retiring")),
+            )
+        }))
+        .into()
+}
+
+fn retirement_runtime() -> (
+    reactor::Runtime<reactor::RecordingAdapter>,
+    reactor::ObjectId,
+) {
+    let mut runtime = reactor_runtime();
+    runtime.update(retirement_view(true)).unwrap();
+    let root = runtime.graph().root().unwrap();
+    let retiring = runtime
+        .graph()
+        .children(root, reactor::RelationId::Children)
+        .unwrap()[0];
+    (runtime, retiring)
+}
+
+fn bench_reactor_retirement_initiation(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(samples, batch, retirement_runtime, |(mut runtime, _)| {
+        runtime.update(retirement_view(false)).unwrap();
+    });
+    Row {
+        frontend: "reactor",
+        workload: "retirement_start",
+        objects: 3,
+        perf,
+    }
+}
+
+fn bench_reactor_retirement_completion(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, retiring) = retirement_runtime();
+            runtime.update(retirement_view(false)).unwrap();
+            assert!(runtime.complete_retirement(retiring));
+            runtime
+        },
+        |mut runtime| {
+            runtime.dispatch_native_events().unwrap();
+        },
+    );
+    Row {
+        frontend: "reactor",
+        workload: "retirement_finish",
+        objects: 3,
+        perf,
+    }
+}
+
+fn bench_reactor_retirement_remount(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, retiring) = retirement_runtime();
+            runtime.update(retirement_view(false)).unwrap();
+            assert!(runtime.complete_retirement(retiring));
+            runtime.dispatch_native_events().unwrap();
+            runtime
+        },
+        |mut runtime| {
+            runtime.update(retirement_view(true)).unwrap();
+        },
+    );
+    Row {
+        frontend: "reactor",
+        workload: "retirement_remount",
+        objects: 3,
+        perf,
+    }
+}
+
+fn virtual_items_view(revision: u64) -> reactor::View {
+    reactor::ItemsRepeater::new()
+        .virtual_source(reactor::VirtualSource::new(
+            1,
+            10_000,
+            reactor::Key::from,
+            move |index| -> reactor::View {
+                reactor::TextBlock::new()
+                    .text(format!("{revision}:{index}"))
+                    .into()
+            },
         ))
         .into()
 }
 
-fn bench_virtual_construction(count: usize, iters: u64, reps: u32) -> Row {
-    let perf = measure(iters, reps, || {
-        black_box(virtual_list(0, "key-", "row-", count));
+fn virtual_items_runtime() -> (
+    reactor::Runtime<reactor::RecordingAdapter>,
+    reactor::ObjectId,
+) {
+    let mut runtime = reactor_runtime();
+    runtime.update(virtual_items_view(0)).unwrap();
+    let collection = runtime.graph().root().unwrap();
+    (runtime, collection)
+}
+
+fn virtual_items_realized_runtime(
+    realized: usize,
+) -> (
+    reactor::Runtime<reactor::RecordingAdapter>,
+    reactor::ObjectId,
+) {
+    let (mut runtime, collection) = virtual_items_runtime();
+    for index in 0..realized {
+        runtime.queue_realization(reactor::RealizationRequest::Realize {
+            collection,
+            container: reactor::RealizedContainer(index as u64),
+            index,
+            source_revision: 0,
+        });
+    }
+    runtime.dispatch_native_events().unwrap();
+    (runtime, collection)
+}
+
+fn bench_reactor_virtual_create(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(samples, batch, reactor_runtime, |mut runtime| {
+        black_box(runtime.update(virtual_items_view(0)).unwrap());
     });
     Row {
-        name: "virtual_construct",
-        n: count,
+        frontend: "reactor",
+        workload: "virtual_create_10k",
+        objects: 10_000,
         perf,
     }
 }
 
-fn bench_update(name: &'static str, n: usize, a: View, b: View, iters: u64, reps: u32) -> Row {
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(a.clone()).unwrap();
-    let mut flip = false;
-    let perf = measure(iters, reps, || {
-        pump.update_view(if flip { a.clone() } else { b.clone() })
-            .unwrap();
-        flip = !flip;
-    });
-    Row { name, n, perf }
-}
-
-fn bench_mount_shutdown(name: &'static str, n: usize, view: View, iters: u64, reps: u32) -> Row {
-    let perf = measure(iters, reps, || {
-        let mut pump = Pump::new(runtime());
-        pump.mount_view(view.clone()).unwrap();
-        pump.shutdown();
-    });
-    Row { name, n, perf }
-}
-
-fn bench_positional_array(iters: u64, reps: u32) -> Row {
-    let perf = measure(iters, reps, || {
-        black_box(StackPanel::new().children([
-            TextBlock::new(),
-            TextBlock::new(),
-            TextBlock::new(),
-            TextBlock::new(),
-        ]));
-    });
-    Row {
-        name: "positional_array",
-        n: 4,
-        perf,
-    }
-}
-
-fn bench_positional_tuple(iters: u64, reps: u32) -> Row {
-    let perf = measure(iters, reps, || {
-        black_box(StackPanel::new().children((
-            TextBlock::new(),
-            Button::new(),
-            TextBox::new(),
-            ProgressBar::new(),
-        )));
-    });
-    Row {
-        name: "positional_tuple",
-        n: 4,
-        perf,
-    }
-}
-
-fn bench_reference_mount(n: usize, iters: u64, reps: u32) -> Row {
-    let references = (0..n).map(|_| ElementRef::new()).collect::<Vec<_>>();
-    let view =
-        StackPanel::new().keyed_children(references.iter().enumerate().map(
-            |(index, reference)| KeyedView::new(index, TextBox::new().element_ref(reference)),
-        ));
-    bench_mount_shutdown("reference_mount", n, view, iters, reps)
-}
-
-fn bench_textbox_mount(n: usize, iters: u64, reps: u32) -> Row {
-    let view =
-        StackPanel::new().keyed_children((0..n).map(|index| KeyedView::new(index, TextBox::new())));
-    bench_mount_shutdown("textbox_mount", n, view, iters, reps)
-}
-
-fn bench_component_keyed(
-    name: &'static str,
-    n: usize,
-    a: Vec<u64>,
-    b: Vec<u64>,
-    iters: u64,
-    reps: u32,
-) -> Row {
-    let a = KeyedRootInput(Rc::new(a));
-    let b = KeyedRootInput(Rc::new(b));
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<KeyedRoot>(a.clone()))
-        .unwrap();
-    let mut flip = false;
-    let perf = measure(iters, reps, || {
-        let input = if flip { a.clone() } else { b.clone() };
-        pump.update_view(View::component::<KeyedRoot>(input))
-            .unwrap();
-        flip = !flip;
-    });
-    Row { name, n, perf }
-}
-
-fn queue_realize(pump: &mut Pump<RecordingRuntime>, count: usize) {
-    let collection = pump.root().unwrap();
-    for index in 0..count {
-        pump.runtime_mut()
-            .queue_realize(collection, RealizedContainer(index as u64), index);
-    }
-    pump.process_realizations().unwrap();
-}
-
-fn queue_recycle(pump: &mut Pump<RecordingRuntime>, count: usize) {
-    let collection = pump.root().unwrap();
-    for index in 0..count {
-        pump.runtime_mut()
-            .queue_recycle(collection, RealizedContainer(index as u64));
-    }
-    pump.process_realizations().unwrap();
-}
-
-fn bench_virtual_payload(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
-    let a = virtual_list(0, "key-", "a-", count);
-    let b = virtual_list(0, "key-", "b-", count);
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(a.clone()).unwrap();
-    queue_realize(&mut pump, realized);
-    let mut flip = false;
-    let perf = measure(iters, reps, || {
-        pump.update_view(if flip { a.clone() } else { b.clone() })
-            .unwrap();
-        flip = !flip;
-    });
-    Row {
-        name: "virtual_payload",
-        n: count,
-        perf,
-    }
-}
-
-fn bench_virtual_reset(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
-    let a = virtual_list(0, "a-", "row-", count);
-    let b = virtual_list(1, "b-", "row-", count);
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(a.clone()).unwrap();
-    queue_realize(&mut pump, realized);
-    let mut flip = false;
-    let perf = measure(iters, reps, || {
-        pump.update_view(if flip { a.clone() } else { b.clone() })
-            .unwrap();
-        queue_realize(&mut pump, realized);
-        flip = !flip;
-    });
-    Row {
-        name: "virtual_reset",
-        n: count,
-        perf,
-    }
-}
-
-fn bench_realize_cycle(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(virtual_list(0, "key-", "row-", count))
-        .unwrap();
-    let perf = measure(iters, reps, || {
-        queue_realize(&mut pump, realized);
-        queue_recycle(&mut pump, realized);
-    });
-    Row {
-        name: "realize_recycle",
-        n: realized,
-        perf,
-    }
-}
-
-fn bench_component_leaf(count: usize, iters: u64, reps: u32) -> Row {
-    let senders = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<BenchRoot>(RootInput(Rc::clone(&senders))))
-        .unwrap();
-    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
-    let perf = measure(iters, reps, || {
-        sender.send(true);
-        pump.dispatch_components(1).unwrap();
-    });
-    Row {
-        name: "component_leaf",
-        n: count,
-        perf,
-    }
-}
-
-fn bench_textbox_input(size: usize, iters: u64, reps: u32) -> Row {
-    let mut runtime = RecordingRuntime::default();
-    runtime.record_commands(true);
-    let mut pump = Pump::new(runtime);
-    pump.mount_view(View::component::<BenchNotepad>(()))
-        .unwrap();
-    let node = pump
-        .runtime()
-        .commands()
-        .iter()
-        .flatten()
-        .find_map(|command| match command {
-            Command::Create { node, .. } => Some(*node),
-            _ => None,
-        })
-        .unwrap();
-    let revision = pump
-        .event_revision(node, EventId::TextBoxTextChanged)
-        .unwrap();
-    pump.runtime_mut().record_commands(false);
-    let first = "a".repeat(size);
-    let second = "b".repeat(size);
-    let mut value = false;
-    let perf = measure(iters, reps, || {
-        let text = if value { &first } else { &second };
-        pump.queue_event(QueuedEvent::new(
-            node,
-            EventId::TextBoxTextChanged,
-            revision,
-            EventPayload::Str(text.clone()),
-        ));
-        assert_eq!(pump.dispatch_events(), Ok(1));
-        assert_eq!(pump.dispatch_components(1), Ok(1));
-        value = !value;
-    });
-    Row {
-        name: "textbox_input",
-        n: size,
-        perf,
-    }
-}
-
-fn bench_routed_key_input(iters: u64, reps: u32) -> Row {
-    let mut runtime = RecordingRuntime::default();
-    runtime.record_commands(true);
-    let mut pump = Pump::new(runtime);
-    pump.mount_view(View::component::<BenchRoutedInput>(()))
-        .unwrap();
-    let node = pump
-        .runtime()
-        .commands()
-        .iter()
-        .flatten()
-        .find_map(|command| match command {
-            Command::Create { node, .. } => Some(*node),
-            _ => None,
-        })
-        .unwrap();
-    let revision = pump
-        .event_revision(node, EventId::BorderPreviewKeyDown)
-        .unwrap();
-    pump.runtime_mut().record_commands(false);
-    let event = KeyEventInfo {
-        key: VirtualKey::A,
-        original_key: VirtualKey::A,
-        status: PhysicalKeyStatus::default(),
-        modifiers: InputModifiers::CONTROL,
-    };
-    let perf = measure(iters, reps, || {
-        assert!(
-            pump.runtime_mut()
-                .route_key(node, EventId::BorderPreviewKeyDown, revision, event,)
-        );
-        assert_eq!(pump.dispatch_events(), Ok(1));
-        assert_eq!(pump.dispatch_components(1), Ok(1));
-    });
-    Row {
-        name: "routed_key_input",
-        n: 1,
-        perf,
-    }
-}
-
-fn bench_queued_pointer_input(iters: u64, reps: u32) -> Row {
-    let mut runtime = RecordingRuntime::default();
-    runtime.record_commands(true);
-    let mut pump = Pump::new(runtime);
-    pump.mount_view(View::component::<BenchQueuedInput>(()))
-        .unwrap();
-    let node = pump
-        .runtime()
-        .commands()
-        .iter()
-        .flatten()
-        .find_map(|command| match command {
-            Command::Create { node, .. } => Some(*node),
-            _ => None,
-        })
-        .unwrap();
-    let revision = pump
-        .event_revision(node, EventId::BorderPointerPressed)
-        .unwrap();
-    pump.runtime_mut().record_commands(false);
-    let event = PointerEventInfo::default();
-    let perf = measure(iters, reps, || {
-        pump.queue_event(QueuedEvent::new(
-            node,
-            EventId::BorderPointerPressed,
-            revision,
-            EventPayload::PointerEventInfo(event),
-        ));
-        assert_eq!(pump.dispatch_events(), Ok(1));
-        assert_eq!(pump.dispatch_components(1), Ok(1));
-    });
-    Row {
-        name: "queued_pointer_input",
-        n: 1,
-        perf,
-    }
-}
-
-fn effect_tree(count: usize) -> View {
-    View::component::<EffectRoot>(RootInput(effect_senders(count)))
-}
-
-fn effect_senders(count: usize) -> Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>> {
-    Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    )
-}
-
-fn bench_effect_mount(count: usize, iters: u64, reps: u32) -> Row {
-    bench_mount_shutdown("effect_mount", count, effect_tree(count), iters, reps)
-}
-
-fn bench_component_no_change(count: usize, samples: usize) -> FrontendRow {
-    let senders = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<BenchRoot>(RootInput(Rc::clone(&senders))))
-        .unwrap();
-    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
-    measure_frontend("components", "no_change", count, samples, 1, || {
-        _ = sender.send(false);
-        pump.dispatch_components(1).unwrap();
-    })
-}
-
-fn bench_component_isolated_leaf(count: usize, samples: usize) -> FrontendRow {
-    let senders = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<BenchRoot>(RootInput(Rc::clone(&senders))))
-        .unwrap();
-    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
-    measure_frontend("components", "isolated_leaf", count, samples, 1, || {
-        _ = sender.send(true);
-        pump.dispatch_components(1).unwrap();
-    })
-}
-
-fn bench_component_effect_leaf(count: usize, samples: usize) -> FrontendRow {
-    let senders = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<EffectRoot>(RootInput(Rc::clone(
-        &senders,
-    ))))
-    .unwrap();
-    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
-    measure_frontend("components", "effect_leaf", count, samples, 1, || {
-        _ = sender.send(true);
-        pump.dispatch_components(1).unwrap();
-    })
-}
-
-fn bench_component_fragment_leaf(count: usize, samples: usize) -> FrontendRow {
-    let senders = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<BenchFragmentRoot>(RootInput(Rc::clone(
-        &senders,
-    ))))
-    .unwrap();
-    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
-    measure_frontend("components", "fragment_leaf", count, samples, 1, || {
-        _ = sender.send(true);
-        pump.dispatch_components(1).unwrap();
-    })
-}
-
-fn bench_context_isolated_provider(count: usize, samples: usize) -> FrontendRow {
-    let senders = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let owner = Rc::new(RefCell::new(None));
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<ContextRoot>(ContextRootInput {
-        context: Rc::new(Context::new(false)),
-        owner: Rc::clone(&owner),
-        senders,
-    }))
-    .unwrap();
-    let sender = owner.borrow().as_ref().unwrap().clone();
-    let mut value = false;
-    measure_frontend("components", "context_provider", count, samples, 1, || {
-        value = !value;
-        _ = sender.send(value);
-        pump.dispatch_components(1).unwrap();
-    })
-}
-
-fn bench_context_broad_provider(count: usize, all_consumers: bool, samples: usize) -> FrontendRow {
-    let context = Rc::new(Context::new(false));
-    let owner = Rc::new(RefCell::new(None));
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<ContextBroadOwner>(
-        ContextBroadOwnerInput {
-            context: Rc::clone(&context),
-            sender: Rc::clone(&owner),
-            subtree: ContextSubtreeInput {
-                all_consumers,
-                context,
-                count,
-            },
+fn bench_reactor_virtual_source_replace(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let mut runtime = reactor_runtime();
+            runtime.update(reactor::ItemsRepeater::new()).unwrap();
+            runtime
         },
-    ))
-    .unwrap();
-    let sender = owner.borrow().as_ref().unwrap().clone();
-    let mut value = false;
-    measure_frontend(
-        "components",
-        if all_consumers {
-            "context_all"
+        |mut runtime| {
+            black_box(runtime.update(virtual_items_view(0)).unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor",
+        workload: "virtual_source_replace_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn bench_reactor_virtual_realize(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, collection) = virtual_items_runtime();
+            runtime.queue_realization(reactor::RealizationRequest::Realize {
+                collection,
+                container: reactor::RealizedContainer(1),
+                index: 9_999,
+                source_revision: 0,
+            });
+            runtime
+        },
+        |mut runtime| {
+            black_box(runtime.dispatch_native_events().unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor",
+        workload: "virtual_realize_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn bench_reactor_virtual_update(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || virtual_items_realized_runtime(8),
+        |(mut runtime, _)| {
+            black_box(runtime.update(virtual_items_view(1)).unwrap());
+            black_box(runtime.dispatch_native_events().unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor",
+        workload: "virtual_update_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn bench_reactor_virtual_recycle(samples: usize, batch: usize) -> Row {
+    let perf = measure_prepared(
+        samples,
+        batch,
+        || {
+            let (mut runtime, collection) = virtual_items_realized_runtime(8);
+            runtime.queue_realization(reactor::RealizationRequest::Recycle {
+                collection,
+                container: reactor::RealizedContainer(7),
+                source_revision: 0,
+            });
+            runtime
+        },
+        |mut runtime| {
+            black_box(runtime.dispatch_native_events().unwrap());
+        },
+    );
+    Row {
+        frontend: "reactor",
+        workload: "virtual_recycle_10k",
+        objects: 10_000,
+        perf,
+    }
+}
+
+fn reactor_virtual_memory() -> MemoryRow {
+    let before_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let before_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let (runtime, _) = virtual_items_realized_runtime(8);
+    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before_bytes;
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - before_allocations;
+    assert_eq!(runtime.graph().object_count(), 9);
+    black_box(runtime);
+    MemoryRow {
+        frontend: "reactor",
+        workload: "virtual_10k_eight_rows",
+        objects: 10_000,
+        bytes,
+        allocations,
+    }
+}
+
+fn reactor_virtual_mutation_counts() -> [(&'static str, usize, usize); 4] {
+    let mut create = reactor_runtime();
+    create.record_batches(true);
+    create.update(virtual_items_view(0)).unwrap();
+
+    let (mut realize, collection) = virtual_items_runtime();
+    realize.record_batches(true);
+    realize.queue_realization(reactor::RealizationRequest::Realize {
+        collection,
+        container: reactor::RealizedContainer(0),
+        index: 0,
+        source_revision: 0,
+    });
+    realize.dispatch_native_events().unwrap();
+
+    let (mut update, _) = virtual_items_realized_runtime(8);
+    update.record_batches(true);
+    update.update(virtual_items_view(1)).unwrap();
+    update.dispatch_native_events().unwrap();
+
+    let (mut recycle, collection) = virtual_items_realized_runtime(8);
+    recycle.record_batches(true);
+    recycle.queue_realization(reactor::RealizationRequest::Recycle {
+        collection,
+        container: reactor::RealizedContainer(7),
+        source_revision: 0,
+    });
+    recycle.dispatch_native_events().unwrap();
+
+    [
+        (
+            "virtual_create_10k",
+            create.adapter().batches().iter().map(Vec::len).sum(),
+            create.graph().object_count() - 1,
+        ),
+        (
+            "virtual_realize_10k",
+            realize.adapter().batches().iter().map(Vec::len).sum(),
+            realize.graph().object_count() - 1,
+        ),
+        (
+            "virtual_update_10k",
+            update.adapter().batches().iter().map(Vec::len).sum(),
+            update.graph().object_count() - 1,
+        ),
+        (
+            "virtual_recycle_10k",
+            recycle.adapter().batches().iter().map(Vec::len).sum(),
+            recycle.graph().object_count() - 1,
+        ),
+    ]
+}
+
+fn reactor_memory(count: usize) -> MemoryRow {
+    let order = (0..count).collect::<Vec<_>>();
+    let mut runtime = reactor_runtime();
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    runtime.update(reactor_grid(&order, None)).unwrap();
+    black_box(runtime.graph());
+    MemoryRow {
+        frontend: "reactor",
+        workload: "keyed_grid_retained",
+        objects: count + 1,
+        bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
+        allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
+}
+
+fn reactor_graph_memory(count: usize) -> MemoryRow {
+    let order = (0..count).collect::<Vec<_>>();
+    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    runtime.update(reactor_grid(&order, None)).unwrap();
+    black_box(runtime.graph());
+    MemoryRow {
+        frontend: "reactor",
+        workload: "keyed_grid_graph",
+        objects: count + 1,
+        bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
+        allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
+}
+
+fn reactor_tree_memory(count: usize, custom_content: bool) -> MemoryRow {
+    let mut runtime = reactor_runtime();
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    runtime
+        .update(reactor::TreeView::new().nodes((0..count).map(|index| {
+            let node = reactor::TreeNode::new(index, format!("Node {index}"));
+            if custom_content {
+                node.content(reactor::TextBlock::new().text(format!("Content {index}")))
+            } else {
+                node
+            }
+        })))
+        .unwrap();
+    black_box(runtime.graph());
+    MemoryRow {
+        frontend: "reactor",
+        workload: if custom_content {
+            "tree_content_retained"
         } else {
-            "context_broad"
+            "tree_retained"
         },
-        count,
+        objects: count + 1 + usize::from(custom_content) * count,
+        bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
+        allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
+}
+
+fn reactor_tree_graph_memory(count: usize, custom_content: bool) -> MemoryRow {
+    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    runtime
+        .update(reactor::TreeView::new().nodes((0..count).map(|index| {
+            let node = reactor::TreeNode::new(index, format!("Node {index}"));
+            if custom_content {
+                node.content(reactor::TextBlock::new().text(format!("Content {index}")))
+            } else {
+                node
+            }
+        })))
+        .unwrap();
+    black_box(runtime.graph());
+    MemoryRow {
+        frontend: "reactor",
+        workload: if custom_content {
+            "tree_content_graph"
+        } else {
+            "tree_graph"
+        },
+        objects: count + 1 + usize::from(custom_content) * count,
+        bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
+        allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
+}
+
+fn reactor_border_fixture(count: usize, text: bool, event: bool) -> reactor::View {
+    reactor::Grid::new()
+        .keyed_children((0..count).map(|index| {
+            let border = reactor::Border::new();
+            let border = if text {
+                border.automation_name(format!("Node {index}"))
+            } else {
+                border
+            };
+            let border = if event {
+                border.on_pointer_released(|_| {})
+            } else {
+                border
+            };
+            reactor::keyed(index, border)
+        }))
+        .into()
+}
+
+fn reactor_unkeyed_border_fixture(count: usize) -> reactor::View {
+    reactor::StackPanel::new()
+        .children(
+            (0..count)
+                .map(|_| reactor::Border::new().into())
+                .collect::<Vec<reactor::View>>(),
+        )
+        .into()
+}
+
+fn reactor_deep_chain(count: usize) -> reactor::View {
+    let mut current: reactor::View = reactor::Border::new().into();
+    for _ in 1..count {
+        current = reactor::Border::new().content(current).into();
+    }
+    current
+}
+
+fn reactor_empty_navigation_fixture(count: usize) -> reactor::View {
+    reactor::Grid::new()
+        .keyed_children(
+            (0..count).map(|index| reactor::keyed(index, reactor::NavigationView::new())),
+        )
+        .into()
+}
+
+fn reactor_filled_navigation_fixture(count: usize) -> reactor::View {
+    reactor::Grid::new()
+        .keyed_children((0..count).map(|index| {
+            reactor::keyed(
+                index,
+                reactor::NavigationView::new()
+                    .content(reactor::Border::new())
+                    .header(reactor::Border::new())
+                    .pane_custom_content(reactor::Border::new())
+                    .pane_footer(reactor::Border::new()),
+            )
+        }))
+        .into()
+}
+
+fn reactor_graph_shape(
+    fixture: &'static str,
+    visual: impl FnOnce() -> reactor::View,
+) -> GraphMemoryRow {
+    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    runtime.update(visual()).unwrap();
+    runtime.release_test_scratch();
+    let memory = runtime.graph().retained_memory();
+    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
+    black_box(runtime.graph());
+    GraphMemoryRow {
+        fixture,
+        bytes,
+        allocations,
+        memory,
+    }
+}
+
+fn reactor_retirement_graph_shape() -> GraphMemoryRow {
+    let mut runtime = reactor::Runtime::new(NullAdapter);
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    runtime.update(retirement_view(true)).unwrap();
+    runtime.update(retirement_view(false)).unwrap();
+    runtime.release_test_scratch();
+    let memory = runtime.graph().retained_memory();
+    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
+    black_box(runtime.graph());
+    GraphMemoryRow {
+        fixture: "active_retirement",
+        bytes,
+        allocations,
+        memory,
+    }
+}
+
+fn reactor_retained_memory_shapes(count: usize) -> Vec<GraphMemoryRow> {
+    vec![
+        reactor_graph_shape("flat_keyed_empty", || {
+            reactor_border_fixture(count, false, false)
+        }),
+        reactor_graph_shape("flat_unkeyed_empty", || {
+            reactor_unkeyed_border_fixture(count)
+        }),
+        reactor_graph_shape("flat_string_property", || {
+            reactor_border_fixture(count, true, false)
+        }),
+        reactor_graph_shape("flat_event", || reactor_border_fixture(count, false, true)),
+        reactor_graph_shape("deep_one_child", || reactor_deep_chain(count.min(128))),
+        reactor_graph_shape("many_empty_relations", || {
+            reactor_empty_navigation_fixture(count)
+        }),
+        reactor_graph_shape("many_filled_relations", || {
+            reactor_filled_navigation_fixture(count / 4)
+        }),
+        reactor_graph_shape("tree_structural", || {
+            reactor_tree(&(0..count).collect::<Vec<_>>(), None)
+        }),
+        reactor_graph_shape("virtual_10k_zero_rows", || virtual_items_view(0)),
+        reactor_retirement_graph_shape(),
+    ]
+}
+
+fn print_retained_memory_shapes(rows: &[GraphMemoryRow]) {
+    let layout = rows.first().unwrap().memory;
+    println!("release retained layout sizes");
+    println!("{:<28} {:>10}", "RetainedGraph", layout.graph_size);
+    println!("{:<28} {:>10}", "RetainedSlot", layout.slot_size);
+    println!("{:<28} {:>10}", "RetainedObject", layout.object_size);
+    println!("{:<28} {:>10}", "ObjectType", layout.object_type_size);
+    println!("{:<28} {:>10}", "Option<Key>", layout.optional_key_size);
+    println!(
+        "{:<28} {:>10}",
+        "Option<ElementRef>", layout.optional_reference_size
+    );
+    println!(
+        "{:<28} {:>10}",
+        "Option<ExitTransition>", layout.optional_transition_size
+    );
+    println!(
+        "{:<28} {:>10}",
+        "retained properties", layout.property_list_size
+    );
+    println!(
+        "{:<28} {:>10}",
+        "retained events", layout.retained_event_list_size
+    );
+    println!("{:<28} {:>10}", "relation Vec", layout.relation_list_size);
+    println!(
+        "{:<28} {:>10}",
+        "optional virtual pointer", layout.optional_virtual_items_size
+    );
+    println!("{:<28} {:>10}", "RetainedRelation", layout.relation_size);
+    println!(
+        "{:<28} {:>10}",
+        "RetainedRelationValue", layout.relation_value_size
+    );
+    println!("{:<28} {:>10}", "ObjectId", layout.object_id_size);
+    println!("{:<28} {:>10}", "Key", layout.key_size);
+    println!("{:<28} {:>10}", "Property", layout.property_size);
+    println!("{:<28} {:>10}", "Event", layout.event_size);
+    println!(
+        "{:<28} {:>10}",
+        "SharedList<Property>", layout.property_list_size
+    );
+    println!("{:<28} {:>10}", "SharedList<Event>", layout.event_list_size);
+    println!(
+        "{:<28} {:>10}",
+        "RetainedVirtualItems", layout.virtual_items_size
+    );
+    println!(
+        "{:<28} {:>10}",
+        "RetainedRetirement", layout.retirement_size
+    );
+    println!("{:<28} {:>10}", "HashMap header", layout.hash_map_size);
+
+    println!("\nretained graph allocation attribution");
+    println!(
+        "{:<24} {:>7} {:>10} {:>12} {:>12} {:>12} {:>12} {:>10}",
+        "fixture", "objects", "slot cap", "allocator", "slots", "relations", "children", "residual"
+    );
+    for row in rows {
+        let memory = row.memory;
+        let known = memory.slot_bytes
+            + memory.relation_bytes
+            + memory.child_bytes
+            + memory.free_bytes
+            + memory.virtual_bytes
+            + memory.retirement_node_bytes;
+        println!(
+            "{:<24} {:>7} {:>10} {:>12} {:>12} {:>12} {:>12} {:>10}",
+            row.fixture,
+            memory.live_objects,
+            memory.slot_capacity,
+            row.bytes,
+            memory.slot_bytes,
+            memory.relation_bytes,
+            memory.child_bytes,
+            row.bytes.saturating_sub(known as u64)
+        );
+    }
+
+    println!("\nretained graph shape details");
+    println!(
+        "{:<24} {:>10} {:>10} {:>10} {:>10} {:>8} {:>8} {:>10}",
+        "fixture", "bytes/obj", "relations", "rel cap", "child cap", "keys", "props", "events"
+    );
+    for row in rows {
+        let memory = row.memory;
+        println!(
+            "{:<24} {:>10.1} {:>10} {:>10} {:>10} {:>8} {:>8} {:>10}",
+            row.fixture,
+            row.bytes as f64 / memory.live_objects as f64,
+            memory.relation_entries,
+            memory.relation_capacity,
+            memory.child_capacity,
+            memory.keyed_objects,
+            memory.property_entries,
+            memory.event_entries
+        );
+    }
+    println!("\nmount allocation counts");
+    for row in rows {
+        println!("{:<24} {:>12}", row.fixture, row.allocations);
+    }
+
+    println!("\nvirtual and retirement state");
+    println!(
+        "{:<24} {:>10} {:>14} {:>12} {:>16}",
+        "fixture", "virtuals", "virtual bytes", "retirements", "retired node cap"
+    );
+    for row in rows
+        .iter()
+        .filter(|row| row.memory.virtual_items != 0 || row.memory.retirement_entries != 0)
+    {
+        println!(
+            "{:<24} {:>10} {:>14} {:>12} {:>16}",
+            row.fixture,
+            row.memory.virtual_items,
+            row.memory.virtual_bytes,
+            row.memory.retirement_entries,
+            row.memory.retirement_node_capacity
+        );
+    }
+}
+
+fn lifecycle_root_view(reference: &reactor::ElementRef, cycle: usize) -> reactor::View {
+    reactor::Grid::new()
+        .keyed_children([reactor::keyed(
+            "child",
+            reactor::Button::new()
+                .automation_name(format!("cycle-{cycle}"))
+                .element_ref(reference)
+                .on_click(|| {})
+                .content(reactor::TextBlock::new().text(format!("value-{cycle}"))),
+        )])
+        .into()
+}
+
+fn lifecycle_retirement_view(visible: bool) -> reactor::View {
+    reactor::Grid::new()
+        .keyed_children(
+            visible
+                .then(|| {
+                    [
+                        reactor::keyed(
+                            "first",
+                            reactor::Button::new().exit_fade(Duration::from_secs(1)),
+                        ),
+                        reactor::keyed(
+                            "second",
+                            reactor::Button::new().exit_fade(Duration::from_secs(1)),
+                        ),
+                    ]
+                })
+                .into_iter()
+                .flatten(),
+        )
+        .into()
+}
+
+fn print_lifecycle_checkpoint(
+    suite: &str,
+    iteration: usize,
+    baseline_bytes: u64,
+    baseline_allocations: u64,
+    state: reactor::ComponentHostState,
+) {
+    println!(
+        "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"{suite}\",\
+         \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
+         \"graph_objects\":{},\"scopes\":{},\"scope_slots\":{},\"free_scopes\":{},\
+         \"effects\":{},\"tasks\":{},\"contexts\":{},\"context_consumers\":{},\
+         \"virtual_rows\":{},\"queued_messages\":{},\"queue_closed\":{},\
+         \"retirements\":{}}}",
+        allocator::CURRENT_BYTES
+            .load(Ordering::Relaxed)
+            .saturating_sub(baseline_bytes),
+        allocator::ALLOCATIONS
+            .load(Ordering::Relaxed)
+            .saturating_sub(baseline_allocations),
+        state.graph_objects,
+        state.live_scopes,
+        state.scope_slots,
+        state.free_scopes,
+        state.effects,
+        state.tasks,
+        state.contexts,
+        state.context_consumers,
+        state.virtual_rows,
+        state.queued_messages,
+        state.queue_closed,
+        state.retirements,
+    );
+}
+
+fn run_recording_lifecycle_stress(iterations: usize, checkpoint: usize) {
+    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let mut runtime = reactor_runtime();
+    runtime.update(reactor::Grid::new()).unwrap();
+    for iteration in 1..=iterations {
+        let reference = reactor::ElementRef::default();
+        runtime
+            .update(lifecycle_root_view(&reference, iteration))
+            .unwrap();
+        assert!(reference.get().is_some());
+        runtime.update(reactor::Grid::new()).unwrap();
+        assert_eq!(reference.get(), None);
+        assert_eq!(runtime.graph().object_count(), 1);
+        assert_eq!(runtime.graph().retired_count(), 0);
+        assert_eq!(runtime.adapter().object_count(), 1);
+        assert_eq!(runtime.adapter().retirement_count(), 0);
+        assert_eq!(runtime.adapter().realization_count(), 0);
+        assert_eq!(runtime.adapter().queued_native_event_count(), 0);
+        if iteration % checkpoint == 0 || iteration == iterations {
+            let memory = runtime.graph().retained_memory();
+            println!(
+                "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"root\",\
+                 \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
+                 \"graph_objects\":1,\"slot_len\":{},\"slot_capacity\":{},\
+                 \"free_slots\":{},\"retirements\":0,\"realized_rows\":0,\
+                 \"queued_events\":0}}",
+                allocator::CURRENT_BYTES
+                    .load(Ordering::Relaxed)
+                    .saturating_sub(baseline_bytes),
+                allocator::ALLOCATIONS
+                    .load(Ordering::Relaxed)
+                    .saturating_sub(baseline_allocations),
+                memory.slot_len,
+                memory.slot_capacity,
+                memory.free_len,
+            );
+        }
+    }
+    drop(runtime);
+    println!(
+        "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"root_teardown\",\
+         \"iteration\":{iterations},\"rust_live_delta\":{}}}",
+        allocator::CURRENT_BYTES
+            .load(Ordering::Relaxed)
+            .saturating_sub(baseline_bytes)
+    );
+
+    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let services = Arc::new(LifecycleServices::default());
+    let cleanups = Arc::new(AtomicUsize::new(0));
+    for iteration in 1..=iterations {
+        {
+            let context = Rc::new(reactor::Context::new(0usize));
+            let task = Arc::new(Mutex::new(None));
+            let input = LifecycleInput {
+                cleanups: Arc::clone(&cleanups),
+                context: Rc::clone(&context),
+                task: Arc::clone(&task),
+            };
+            let mut host = reactor::ComponentHost::mount_with_services(
+                reactor::RecordingAdapter::default(),
+                services.clone(),
+                [reactor::component::<LifecycleComponent>("lifecycle", input)],
+            )
+            .unwrap();
+            let sender = host
+                .sender::<LifecycleComponent>(&reactor::Key::from("lifecycle"))
+                .unwrap();
+            let completion = sender.completion();
+            let reference = host.reference(&reactor::Key::from("lifecycle")).unwrap();
+            let object = reference.get().unwrap();
+            let event = host.runtime().graph().events(object).unwrap()[0].clone();
+            assert!(sender.send(iteration));
+            host.drain(1).unwrap();
+            host.set_context(&context, iteration).unwrap();
+            let state = host.test_state();
+            assert_eq!(state.live_scopes, 1);
+            assert_eq!(state.effects, 1);
+            assert_eq!(state.tasks, 2);
+            assert_eq!(state.contexts, 1);
+            assert_eq!(state.context_consumers, 1);
+            assert_eq!(state.queued_messages, 0);
+            drop(host);
+            assert_eq!(reference.get(), None);
+            assert!(!sender.send(iteration));
+            assert!(!completion.complete(iteration));
+            let reactor::EventValue::Unit(callback) = event.value else {
+                unreachable!()
+            };
+            callback.call(());
+            assert_eq!(
+                task.lock().unwrap().as_ref().unwrap().status(),
+                reactor::ComponentTaskStatus::Cancelled
+            );
+        }
+        services.run_background();
+        if iteration % checkpoint == 0 || iteration == iterations {
+            print_lifecycle_checkpoint(
+                "component_teardown",
+                iteration,
+                baseline_bytes,
+                baseline_allocations,
+                reactor::ComponentHostState {
+                    queue_closed: true,
+                    ..Default::default()
+                },
+            );
+        }
+    }
+    assert_eq!(cleanups.load(Ordering::Relaxed), iterations * 2);
+    assert_eq!(
+        services.cancelled_timers.load(Ordering::Relaxed),
+        iterations
+    );
+
+    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let mut runtime = reactor_runtime();
+    runtime.update(lifecycle_retirement_view(true)).unwrap();
+    for iteration in 1..=iterations {
+        let root = runtime.graph().root().unwrap();
+        let retiring = runtime
+            .graph()
+            .children(root, reactor::RelationId::Children)
+            .unwrap()
+            .to_vec();
+        runtime.update(lifecycle_retirement_view(false)).unwrap();
+        assert_eq!(runtime.graph().retired_count(), 2);
+        for object in retiring.iter().rev() {
+            assert!(runtime.complete_retirement(*object));
+        }
+        runtime.dispatch_native_events().unwrap();
+        for object in &retiring {
+            assert!(!runtime.complete_retirement(*object));
+        }
+        assert_eq!(runtime.graph().retired_count(), 0);
+        assert_eq!(runtime.adapter().retirement_count(), 0);
+        runtime.update(lifecycle_retirement_view(true)).unwrap();
+        if iteration % checkpoint == 0 || iteration == iterations {
+            let memory = runtime.graph().retained_memory();
+            println!(
+                "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"retirement\",\
+                 \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
+                 \"graph_objects\":{},\"slot_len\":{},\"slot_capacity\":{},\
+                 \"free_slots\":{},\"retirements\":0,\"queued_events\":0}}",
+                allocator::CURRENT_BYTES
+                    .load(Ordering::Relaxed)
+                    .saturating_sub(baseline_bytes),
+                allocator::ALLOCATIONS
+                    .load(Ordering::Relaxed)
+                    .saturating_sub(baseline_allocations),
+                runtime.graph().object_count(),
+                memory.slot_len,
+                memory.slot_capacity,
+                memory.free_len,
+            );
+        }
+    }
+    drop(runtime);
+
+    let baseline_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let baseline_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let mut runtime = reactor_runtime();
+    runtime.update(virtual_items_view(0)).unwrap();
+    let collection = runtime.graph().root().unwrap();
+    for iteration in 1..=iterations {
+        runtime
+            .update(virtual_items_view(u64::try_from(iteration).unwrap()))
+            .unwrap();
+        let source_revision = runtime.graph().virtual_source_revision(collection).unwrap();
+        runtime.queue_realization(reactor::RealizationRequest::Realize {
+            collection,
+            container: reactor::RealizedContainer(1),
+            index: iteration % 10_000,
+            source_revision,
+        });
+        runtime.dispatch_native_events().unwrap();
+        runtime.queue_realization(reactor::RealizationRequest::Recycle {
+            collection,
+            container: reactor::RealizedContainer(1),
+            source_revision,
+        });
+        runtime.dispatch_native_events().unwrap();
+        runtime.queue_realization(reactor::RealizationRequest::Realize {
+            collection,
+            container: reactor::RealizedContainer(1),
+            index: (iteration + 1) % 10_000,
+            source_revision,
+        });
+        runtime.queue_realization(reactor::RealizationRequest::Cancel {
+            collection,
+            container: reactor::RealizedContainer(1),
+            source_revision,
+        });
+        runtime.dispatch_native_events().unwrap();
+        runtime.update(reactor::ItemsRepeater::new()).unwrap();
+        runtime.dispatch_native_events().unwrap();
+        assert_eq!(runtime.graph().object_count(), 1);
+        assert_eq!(runtime.graph().retired_count(), 0);
+        assert_eq!(runtime.adapter().object_count(), 1);
+        assert_eq!(runtime.adapter().realization_count(), 0);
+        assert_eq!(runtime.adapter().queued_native_event_count(), 0);
+        runtime
+            .update(virtual_items_view(u64::try_from(iteration).unwrap()))
+            .unwrap();
+        if iteration % checkpoint == 0 || iteration == iterations {
+            println!(
+                "{{\"benchmark\":\"reactor-lifecycle\",\"suite\":\"virtual\",\
+                 \"iteration\":{iteration},\"rust_live_delta\":{},\"allocations\":{},\
+                 \"graph_objects\":1,\"retirements\":0,\"realized_rows\":0,\
+                 \"queued_events\":0}}",
+                allocator::CURRENT_BYTES
+                    .load(Ordering::Relaxed)
+                    .saturating_sub(baseline_bytes),
+                allocator::ALLOCATIONS
+                    .load(Ordering::Relaxed)
+                    .saturating_sub(baseline_allocations),
+            );
+        }
+    }
+}
+
+fn reactor_fixture_memory<A>(
+    frontend: &'static str,
+    workload: &'static str,
+    objects: usize,
+    mut runtime: reactor::Runtime<A>,
+    visual: impl FnOnce() -> reactor::View,
+) -> MemoryRow
+where
+    A: reactor::Adapter,
+    A::Error: std::fmt::Debug,
+{
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    runtime.update(visual()).unwrap();
+    runtime.release_test_scratch();
+    black_box(runtime.graph());
+    MemoryRow {
+        frontend,
+        workload,
+        objects,
+        bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
+        allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
+}
+
+fn reactor_tree_declaration_memory(count: usize) -> MemoryRow {
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let declaration = reactor_tree(&(0..count).collect::<Vec<_>>(), None);
+    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
+    black_box(declaration);
+    MemoryRow {
+        frontend: "declaration",
+        workload: "tree_declarations",
+        objects: count + 1,
+        bytes,
+        allocations,
+    }
+}
+
+fn reactor_memory_attribution(count: usize) -> [MemoryRow; 6] {
+    [
+        reactor_tree_declaration_memory(count),
+        reactor_fixture_memory(
+            "graph",
+            "flat_border_base",
+            count + 1,
+            reactor::Runtime::new(NullAdapter),
+            || reactor_border_fixture(count, false, false),
+        ),
+        reactor_fixture_memory(
+            "graph",
+            "flat_border_string",
+            count + 1,
+            reactor::Runtime::new(NullAdapter),
+            || reactor_border_fixture(count, true, false),
+        ),
+        reactor_fixture_memory(
+            "graph",
+            "flat_border_event",
+            count + 1,
+            reactor::Runtime::new(NullAdapter),
+            || reactor_border_fixture(count, false, true),
+        ),
+        reactor_fixture_memory(
+            "graph",
+            "tree_graph",
+            count + 1,
+            reactor::Runtime::new(NullAdapter),
+            || reactor_tree(&(0..count).collect::<Vec<_>>(), None),
+        ),
+        reactor_fixture_memory(
+            "recorded",
+            "tree_recorded",
+            count + 1,
+            reactor_runtime(),
+            || reactor_tree(&(0..count).collect::<Vec<_>>(), None),
+        ),
+    ]
+}
+
+fn reactor_component(count: usize, effect: bool, samples: usize, batch: usize) -> Row {
+    let mut adapter = reactor::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let mut components = reactor::ComponentHost::mount(
+        adapter,
+        (0..count).map(|index| reactor::component::<BenchComponent>(index, effect)),
+    )
+    .unwrap();
+    let sender = components
+        .sender::<BenchComponent>(&reactor::Key::from(count / 2))
+        .unwrap();
+    let perf = measure(samples, batch, || {
+        assert!(sender.send(true));
+        black_box(components.drain(1).unwrap());
+    });
+    Row {
+        frontend: "reactor",
+        workload: if effect {
+            "component_effect"
+        } else {
+            "component_isolated"
+        },
+        objects: count,
+        perf,
+    }
+}
+
+fn reactor_component_root_replace(count: usize, samples: usize, batch: usize) -> Row {
+    let mut adapter = reactor::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let mut components = reactor::ComponentHost::mount(
+        adapter,
+        (0..count).map(|index| reactor::component::<RootSwitch>(index, ())),
+    )
+    .unwrap();
+    let sender = components
+        .sender::<RootSwitch>(&reactor::Key::from(count / 2))
+        .unwrap();
+    let perf = measure(samples, batch, || {
+        assert!(sender.send(()));
+        black_box(components.drain(1).unwrap());
+    });
+    Row {
+        frontend: "reactor",
+        workload: "component_replace",
+        objects: count,
+        perf,
+    }
+}
+
+fn reactor_component_remove(count: usize, samples: usize) -> Row {
+    let perf = measure_prepared(
         samples,
         1,
         || {
-            value = !value;
-            _ = sender.send(value);
-            pump.dispatch_components(1).unwrap();
+            let mut adapter = reactor::RecordingAdapter::default();
+            adapter.record_batches(false);
+            adapter.validate_batches(false);
+            reactor::ComponentHost::mount(
+                adapter,
+                (0..count).map(|index| reactor::component::<BenchComponent>(index, false)),
+            )
+            .unwrap()
         },
+        |mut components| {
+            components.remove(&reactor::Key::from(count / 2)).unwrap();
+            black_box(components);
+        },
+    );
+    Row {
+        frontend: "reactor",
+        workload: "component_remove",
+        objects: count,
+        perf,
+    }
+}
+
+fn reactor_component_memory(count: usize, effect: bool) -> MemoryRow {
+    let mut adapter = reactor::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let components = reactor::ComponentHost::mount(
+        adapter,
+        (0..count).map(|index| reactor::component::<BenchComponent>(index, effect)),
     )
+    .unwrap();
+    black_box(&components);
+    MemoryRow {
+        frontend: "reactor",
+        workload: if effect {
+            "component_effect"
+        } else {
+            "component_idle"
+        },
+        objects: count,
+        bytes: allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before,
+        allocations: allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations,
+    }
 }
 
-fn bench_context_many_providers(count: usize, samples: usize) -> FrontendRow {
-    let owners = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<ManyProviderRoot>(ManyProviderRootInput {
-        context: Rc::new(Context::new(false)),
-        owners: Rc::clone(&owners),
-    }))
+fn reactor_context(count: usize, broad: bool, samples: usize) -> Row {
+    let mut adapter = reactor::RecordingAdapter::default();
+    adapter.record_batches(false);
+    adapter.validate_batches(false);
+    let context = Rc::new(reactor::Context::new(false));
+    let mut components = reactor::ComponentHost::mount(
+        adapter,
+        (0..count).map(|index| {
+            reactor::component::<ContextComponent>(
+                index,
+                ContextInput {
+                    context: Rc::clone(&context),
+                    subscribe: broad || index == count / 2,
+                },
+            )
+        }),
+    )
     .unwrap();
-    let sender = owners[count / 2].borrow().as_ref().unwrap().clone();
     let mut value = false;
-    measure_frontend("components", "context_many", count, samples, 1, || {
+    let perf = measure(samples, 1, || {
         value = !value;
-        _ = sender.send(value);
-        pump.dispatch_components(1).unwrap();
-    })
+        black_box(components.set_context(&context, value).unwrap());
+    });
+    Row {
+        frontend: "reactor",
+        workload: if broad {
+            "context_broad"
+        } else {
+            "context_isolated"
+        },
+        objects: count,
+        perf,
+    }
 }
 
-fn bench_background_task(count: usize, samples: usize) -> FrontendRow {
-    let sender = Rc::new(RefCell::new(None));
-    let mut pump = Pump::new(runtime());
-    pump.mount_view(View::component::<BackgroundRoot>(BackgroundRootInput {
-        count,
-        sender: Rc::clone(&sender),
-    }))
+fn reactor_recursive(depth: usize, fanout: usize, samples: usize) -> RecursiveRow {
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let mut components = reactor::ComponentHost::mount(
+        reactor::RecordingAdapter::default(),
+        [reactor::component::<Branch>(
+            "root",
+            BranchInput { depth, fanout },
+        )],
+    )
     .unwrap();
-    let sender = sender.borrow().as_ref().unwrap().clone();
-    measure_frontend("components", "background_task", count, samples, 1, || {
-        _ = sender.send(BackgroundMessage::Start);
-        pump.dispatch_components(1).unwrap();
-        while !pump.native_work_pending() {
-            std::thread::yield_now();
-        }
-        pump.dispatch_components(1).unwrap();
-    })
-}
-
-fn measure_idle_component_memory(count: usize) -> MemoryRow {
-    let senders = Rc::new(
-        (0..count)
-            .map(|_| Rc::new(RefCell::new(None)))
-            .collect::<Vec<_>>(),
-    );
-    let mut pump = Pump::new(runtime());
-    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    pump.mount_view(View::component::<BenchRoot>(RootInput(senders)))
-        .unwrap();
-    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
-    pump.shutdown();
-    MemoryRow {
-        allocations,
-        n: count + 1,
-        bytes,
-        bytes_per_scope: bytes as f64 / (count + 1) as f64,
+    let retained_bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    components.validate_batches(false);
+    let mut path = Vec::with_capacity(depth + 1);
+    path.push(reactor::Key::from("root"));
+    path.extend((0..depth).map(|_| reactor::Key::from("0")));
+    let sender = components.sender_at::<Branch>(&path).unwrap();
+    let mut mutations = 0;
+    let perf = measure(samples, 1, || {
+        assert!(sender.send(()));
+        mutations += components.drain(usize::MAX).unwrap().mutations;
+    });
+    let scopes = (0..=depth)
+        .map(|level| fanout.pow(level as u32))
+        .sum::<usize>();
+    RecursiveRow {
+        allocations: perf.allocations,
+        bytes: perf.bytes,
+        bytes_per_scope: retained_bytes as f64 / scopes as f64,
+        depth,
+        fanout,
+        median_ns: perf.median_ns,
+        mutations: mutations as f64 / (samples + 8) as f64,
+        p95_ns: perf.p95_ns,
+        retained_bytes,
+        scopes,
     }
 }
 
-fn measure_effect_component_memory(count: usize) -> MemoryRow {
-    let senders = effect_senders(count);
-    let mut pump = Pump::new(runtime());
-    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    pump.mount_view(View::component::<EffectRoot>(RootInput(senders)))
-        .unwrap();
-    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
-    pump.shutdown();
-    MemoryRow {
-        allocations,
-        n: count + 1,
-        bytes,
-        bytes_per_scope: bytes as f64 / (count + 1) as f64,
-    }
-}
-
-fn measure_native_memory(
-    name: &'static str,
-    count: usize,
-    view: impl FnOnce() -> View,
-) -> NativeMemoryRow {
-    let mut pump = Pump::new(runtime());
-    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
-    pump.mount_view(view()).unwrap();
-    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
-    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
-    pump.shutdown();
-    NativeMemoryRow {
-        name,
-        allocations,
-        n: count,
-        bytes,
-        bytes_per_element: bytes as f64 / count as f64,
-    }
-}
-
-fn parse_arg(name: &str, default: u64) -> u64 {
-    let args: Vec<String> = std::env::args().collect();
-    args.windows(2)
+fn argument(name: &str, default: usize) -> usize {
+    let arguments = std::env::args().collect::<Vec<_>>();
+    arguments
+        .windows(2)
         .find(|pair| pair[0] == name)
         .and_then(|pair| pair[1].parse().ok())
         .unwrap_or(default)
 }
 
-fn main() {
-    let iters = parse_arg("--iters", 500);
-    let reps = parse_arg("--reps", 6) as u32;
-    let labels: Vec<_> = (0..512).map(|index| format!("cell-{index}")).collect();
-    let mut changed = labels.clone();
-    changed[0] = "changed".to_string();
-    let mut reversed = labels.clone();
-    reversed.reverse();
-    let mut rotated = labels.clone();
-    rotated.rotate_left(1);
-    let all_changed: Vec<_> = (0..512).map(|index| format!("changed-{index}")).collect();
-    let labels_4k: Vec<_> = (0..4_096).map(|index| format!("cell-{index}")).collect();
-    let mut reversed_4k = labels_4k.clone();
-    reversed_4k.reverse();
-    let component_keys = (0..512_u64).collect::<Vec<_>>();
-    let mut component_reversed = component_keys.clone();
-    component_reversed.reverse();
-    let mut component_rotated = component_keys.clone();
-    component_rotated.rotate_left(1);
-    let mut component_inserted = component_keys.clone();
-    component_inserted.push(512);
-    let mut component_removed = component_keys.clone();
-    component_removed.pop();
-    let component_keys_4k = (0..4_096_u64).collect::<Vec<_>>();
-    let mut component_reversed_4k = component_keys_4k.clone();
-    component_reversed_4k.reverse();
-    let mut component_rotated_4k = component_keys_4k.clone();
-    component_rotated_4k.rotate_left(1);
-    let mut component_inserted_4k = component_keys_4k.clone();
-    component_inserted_4k.push(4_096);
-    let mut component_removed_4k = component_keys_4k.clone();
-    component_removed_4k.pop();
-    let mut component_moved_10_4k = component_keys_4k.clone();
-    component_moved_10_4k.rotate_left(410);
-    let mut component_moved_20_4k = component_keys_4k.clone();
-    component_moved_20_4k.rotate_left(819);
-    let mut component_moved_25_4k = component_keys_4k.clone();
-    component_moved_25_4k.rotate_left(1_024);
+fn has_argument(name: &str) -> bool {
+    std::env::args().any(|argument| argument == name)
+}
 
-    let rows = vec![
-        bench_positional_array(iters, reps),
-        bench_positional_tuple(iters, reps),
-        bench_mount_shutdown(
-            "mount_shutdown",
-            512,
-            indexed_stack(&labels),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_textbox_mount(512, (iters / 16).max(1), reps),
-        bench_reference_mount(512, (iters / 16).max(1), reps),
-        bench_mount_shutdown(
-            "border_mount_0",
-            512,
-            border_stack(512, 0),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_mount_shutdown(
-            "border_mount_1",
-            512,
-            border_stack(512, 1),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_mount_shutdown(
-            "border_mount_2",
-            512,
-            border_stack(512, 2),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_mount_shutdown(
-            "border_mount_4",
-            512,
-            border_stack(512, 4),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_mount_shutdown(
-            "border_event_1",
-            512,
-            border_event_stack(512, 1),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_mount_shutdown(
-            "border_event_4",
-            512,
-            border_event_stack(512, 4),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_effect_mount(512, (iters / 16).max(1), reps),
-        bench_update(
-            "update_no_change",
-            512,
-            indexed_stack(&labels),
-            indexed_stack(&labels),
-            iters,
-            reps,
-        ),
-        bench_update(
-            "update_1_changed",
-            512,
-            indexed_stack(&labels),
-            indexed_stack(&changed),
-            iters,
-            reps,
-        ),
-        bench_update(
-            "update_all_changed",
-            512,
-            indexed_stack(&labels),
-            indexed_stack(&all_changed),
-            iters,
-            reps,
-        ),
-        bench_update(
-            "keyed_reverse",
-            512,
-            keyed_stack(&labels),
-            keyed_stack(&reversed),
-            (iters / 4).max(1),
-            reps,
-        ),
-        bench_update(
-            "keyed_rotate1",
-            512,
-            keyed_stack(&labels),
-            keyed_stack(&rotated),
-            iters,
-            reps,
-        ),
-        bench_update(
-            "keyed_reverse",
-            4_096,
-            keyed_stack(&labels_4k),
-            keyed_stack(&reversed_4k),
-            (iters / 16).max(1),
-            reps,
-        ),
-        bench_update(
-            "root_replace",
-            1,
-            TextBlock::new().text("text").into(),
-            Button::new().content(TextBlock::new().text("button")),
-            iters,
-            reps,
-        ),
-        bench_update(
-            "content_replace",
-            2,
-            Button::new().content(TextBlock::new().text("text")),
-            Button::new().content(StackPanel::new().children([TextBlock::new().text("row")])),
-            iters,
-            reps,
-        ),
-        bench_update(
-            "virtual_no_change",
-            10_000,
-            virtual_list(0, "key-", "row-", 10_000),
-            virtual_list(0, "key-", "row-", 10_000),
-            iters,
-            reps,
-        ),
-        bench_virtual_construction(10_000, (iters / 10).max(1), reps),
-        bench_virtual_payload(10_000, 32, (iters / 4).max(1), reps),
-        bench_virtual_reset(10_000, 32, (iters / 10).max(1), reps),
-        bench_realize_cycle(10_000, 32, (iters / 4).max(1), reps),
-        bench_component_leaf(512, iters, reps),
-        bench_component_leaf(4_096, (iters / 4).max(1), reps),
-        bench_component_leaf(16_384, (iters / 16).max(1), reps),
-        bench_textbox_input(8, iters, reps),
-        bench_textbox_input(4_096, (iters / 4).max(1), reps),
-        bench_textbox_input(65_536, (iters / 32).max(1), reps),
-        bench_queued_pointer_input(iters, reps),
-        bench_routed_key_input(iters, reps),
-        bench_component_keyed(
-            "component_same_order",
-            512,
-            component_keys.clone(),
-            component_keys.clone(),
-            (iters / 4).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_reverse",
-            512,
-            component_keys.clone(),
-            component_reversed,
-            (iters / 4).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_rotate",
-            512,
-            component_keys.clone(),
-            component_rotated,
-            (iters / 4).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_insert",
-            512,
-            component_keys.clone(),
-            component_inserted,
-            (iters / 4).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_remove",
-            512,
-            component_keys,
-            component_removed,
-            (iters / 4).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_same_order",
-            4_096,
-            component_keys_4k.clone(),
-            component_keys_4k.clone(),
-            (iters / 32).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_reverse",
-            4_096,
-            component_keys_4k.clone(),
-            component_reversed_4k,
-            (iters / 32).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_rotate",
-            4_096,
-            component_keys_4k.clone(),
-            component_rotated_4k,
-            (iters / 32).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_insert",
-            4_096,
-            component_keys_4k.clone(),
-            component_inserted_4k,
-            (iters / 32).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_remove",
-            4_096,
-            component_keys_4k.clone(),
-            component_removed_4k,
-            (iters / 32).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_move_10pct",
-            4_096,
-            component_keys_4k.clone(),
-            component_moved_10_4k,
-            (iters / 32).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_move_20pct",
-            4_096,
-            component_keys_4k.clone(),
-            component_moved_20_4k,
-            (iters / 32).max(1),
-            reps,
-        ),
-        bench_component_keyed(
-            "component_move_25pct",
-            4_096,
-            component_keys_4k,
-            component_moved_25_4k,
-            (iters / 32).max(1),
-            reps,
-        ),
-    ];
+fn argument_value(name: &str) -> Option<String> {
+    let arguments = std::env::args().collect::<Vec<_>>();
+    arguments
+        .windows(2)
+        .find(|pair| pair[0] == name)
+        .map(|pair| pair[1].clone())
+}
 
-    println!("reactor-benchmark-format: 1");
-    println!("windows-reactor headless reconciler micro-benchmarks");
-    println!("(RecordingRuntime; best-of-reps, native command history disabled)\n");
+fn profile_virtual_source_replace(iterations: usize) {
+    let (mut runtime, _) = virtual_items_realized_runtime(8);
+    let bytes = allocator::allocated_bytes();
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    let started = Instant::now();
+    let mut mutations = 0;
+    for revision in 1..=iterations {
+        mutations += runtime
+            .update(virtual_items_view(revision as u64))
+            .unwrap()
+            .len();
+        runtime.dispatch_native_events().unwrap();
+    }
+    let elapsed = started.elapsed();
+    assert_eq!(runtime.graph().object_count(), 9);
     println!(
-        "{:<22} {:>8} {:>14} {:>14} {:>12}",
-        "bench", "N", "ns/op", "bytes/op", "allocs/op"
+        "{{\"benchmark\":\"reactor-profile\",\
+         \"workload\":\"virtual_source_replace_10k_eight_rows\",\
+         \"iterations\":{iterations},\"elapsed_us\":{:.3},\
+         \"ns_per_iteration\":{:.3},\"mutations_per_iteration\":{:.3},\
+         \"bytes_per_iteration\":{:.3},\"allocations_per_iteration\":{:.3}}}",
+        elapsed.as_secs_f64() * 1_000_000.0,
+        elapsed.as_nanos() as f64 / iterations as f64,
+        mutations as f64 / iterations as f64,
+        (allocator::allocated_bytes() - bytes) as f64 / iterations as f64,
+        (allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations) as f64 / iterations as f64,
     );
-    println!("{}", "-".repeat(76));
+}
+
+fn run_profile_workload(workload: &str, iterations: usize) -> Result<(), String> {
+    if iterations == 0 {
+        return Err("--profile-iterations must be greater than zero".to_string());
+    }
+    match workload {
+        "reactor-100k-no-change" => {
+            print_perf_rows([bench_reactor_100k(false, iterations)]);
+        }
+        "reactor-100k-one-changed" => {
+            print_perf_rows([bench_reactor_100k(true, iterations)]);
+        }
+        "reactor-context-broad" => {
+            print_perf_rows([reactor_context(
+                argument("--component-count", 16_384),
+                true,
+                iterations,
+            )]);
+        }
+        "reactor-virtual-source-replace" => profile_virtual_source_replace(iterations),
+        _ => return Err(format!("unknown --profile-workload value: {workload}")),
+    }
+    Ok(())
+}
+
+fn print_perf_rows(rows: impl IntoIterator<Item = Row>) {
+    println!(
+        "{:<9} {:<20} {:>7} {:>14} {:>14} {:>14} {:>12}",
+        "frontend", "workload", "objects", "median ns", "p95 ns", "bytes/op", "allocs/op"
+    );
     for row in rows {
         println!(
-            "{:<22} {:>8} {:>14.1} {:>14.1} {:>12.2}",
-            row.name, row.n, row.perf.ns, row.perf.bytes, row.perf.allocs
-        );
-    }
-
-    let samples = usize::try_from(iters).unwrap().max(128);
-    let frontend_rows = [
-        bench_component_no_change(512, samples),
-        bench_component_isolated_leaf(512, samples),
-        bench_component_isolated_leaf(4_096, samples),
-        bench_component_isolated_leaf(16_384, samples),
-        bench_component_effect_leaf(512, samples),
-        bench_component_effect_leaf(16_384, samples),
-        bench_component_fragment_leaf(512, samples),
-        bench_component_fragment_leaf(16_384, samples),
-        bench_context_isolated_provider(512, samples),
-        bench_context_isolated_provider(16_384, samples),
-        bench_context_broad_provider(512, false, samples),
-        bench_context_broad_provider(16_384, false, samples),
-        bench_context_broad_provider(512, true, samples),
-        bench_context_broad_provider(16_384, true, (samples / 32).max(8)),
-        bench_context_many_providers(512, samples),
-        bench_context_many_providers(16_384, samples),
-        bench_background_task(512, samples),
-        bench_background_task(16_384, samples),
-    ];
-    println!("\nfrontend comparison");
-    println!(
-        "{:<12} {:<16} {:>8} {:>12} {:>12} {:>12} {:>12} {:>10}",
-        "frontend", "bench", "N", "median ns", "p95 ns", "p99 ns", "bytes/op", "allocs/op"
-    );
-    println!("{}", "-".repeat(104));
-    for row in frontend_rows {
-        println!(
-            "{:<12} {:<16} {:>8} {:>12.1} {:>12.1} {:>12.1} {:>12.1} {:>10.2}",
+            "{:<9} {:<20} {:>7} {:>14.1} {:>14.1} {:>14.1} {:>12.2}",
             row.frontend,
-            row.name,
-            row.n,
-            row.median_ns,
-            row.p95_ns,
-            row.p99_ns,
+            row.workload,
+            row.objects,
+            row.perf.median_ns,
+            row.perf.p95_ns,
+            row.perf.bytes,
+            row.perf.allocations
+        );
+    }
+}
+
+fn print_memory_rows(rows: &[MemoryRow]) {
+    println!(
+        "{:<12} {:<22} {:>7} {:>16} {:>14} {:>16}",
+        "layer", "fixture", "objects", "retained bytes", "bytes/object", "allocations"
+    );
+    for row in rows {
+        println!(
+            "{:<12} {:<22} {:>7} {:>16} {:>14.1} {:>16}",
+            row.frontend,
+            row.workload,
+            row.objects,
             row.bytes,
-            row.allocs
+            row.bytes as f64 / row.objects as f64,
+            row.allocations
         );
     }
+}
 
-    println!("\nidle component memory");
+fn print_memory_attribution(rows: &[MemoryRow]) {
+    let bytes = |workload| {
+        rows.iter()
+            .find(|row| row.workload == workload)
+            .unwrap()
+            .bytes
+    };
+    let declarations = bytes("tree_declarations");
+    let graph = bytes("tree_graph");
+    let recorded = bytes("tree_recorded");
+    println!("\n513-node Reactor additive attribution");
+    println!("{:<30} {:>16}", "category", "bytes");
     println!(
-        "{:>8} {:>16} {:>18}",
-        "scopes", "retained bytes", "bytes/scope"
+        "{:<30} {:>16}",
+        "declarations held by fixture", declarations
     );
-    println!("{}", "-".repeat(46));
-    for row in [512, 4_096, 16_384].map(measure_idle_component_memory) {
-        println!(
-            "{:>8} {:>16} {:>18.1}",
-            row.n, row.bytes, row.bytes_per_scope
+    println!("{:<30} {:>16}", "retained graph", graph);
+    println!(
+        "{:<30} {:>16}",
+        "recording adapter overhead",
+        recorded - graph
+    );
+    println!("{:<30} {:>16}", "recorded runtime total", recorded);
+    println!(
+        "{:<30} {:>16}",
+        "fixture + recorded total",
+        declarations + recorded
+    );
+}
+
+fn main() {
+    let samples = argument("--samples", 80);
+    let batch = argument("--batch", 8);
+    if let Some(workload) = argument_value("--profile-workload") {
+        if let Err(error) =
+            run_profile_workload(&workload, argument("--profile-iterations", samples))
+        {
+            eprintln!("test-reactor-bench: {error}");
+            std::process::exit(2);
+        }
+        return;
+    }
+    if has_argument("--virtual-memory") {
+        print_memory_rows(&[reactor_virtual_memory()]);
+        return;
+    }
+    if has_argument("--retained-memory") {
+        let count = argument("--count", 512);
+        print_retained_memory_shapes(&reactor_retained_memory_shapes(count));
+        return;
+    }
+    if has_argument("--lifecycle-stress") {
+        run_recording_lifecycle_stress(
+            argument("--iterations", 1_000),
+            argument("--checkpoint", 100).max(1),
         );
+        return;
+    }
+    if has_argument("--virtual-items") {
+        print_perf_rows([
+            bench_reactor_virtual_create(samples, batch),
+            bench_reactor_virtual_source_replace(samples, batch),
+            bench_reactor_virtual_realize(samples, batch),
+            bench_reactor_virtual_update(samples, batch),
+            bench_reactor_virtual_recycle(samples, batch),
+        ]);
+        println!();
+        print_memory_rows(&[reactor_virtual_memory()]);
+        println!("\nvirtual mutation trace");
+        for (workload, mutations, realized) in reactor_virtual_mutation_counts() {
+            println!("{workload:<24} {mutations:>12} {realized:>15}");
+        }
+        return;
+    }
+    if has_argument("--architecture-gate") {
+        let gate_samples = argument("--gate-samples", 6);
+        println!("architecture decision gate: 100k keyed updates (2 x 50k graphs)");
+        print_perf_rows([
+            bench_reactor_100k(false, gate_samples),
+            bench_reactor_100k(true, gate_samples),
+        ]);
+
+        println!("\narchitecture decision gate: 513-node retained memory attribution");
+        let memory_rows = reactor_memory_attribution(512);
+        print_memory_rows(&memory_rows);
+        print_memory_attribution(&memory_rows);
+
+        let component_count = argument("--component-count", 16_384);
+        println!("\narchitecture decision gate: large component graph operations");
+        print_perf_rows([
+            reactor_component_root_replace(component_count, gate_samples, 1),
+            reactor_component_remove(component_count, gate_samples),
+        ]);
+        return;
+    }
+    if has_argument("--keyed-scaling") {
+        let mut rows = Vec::new();
+        for count in [512, 1_024, 10_000] {
+            let order = (0..count).collect::<Vec<_>>();
+            rows.push(bench_reactor(
+                "keyed_no_change",
+                count,
+                reactor_grid(&order, None),
+                reactor_grid(&order, None),
+                samples,
+                batch,
+            ));
+            rows.push(bench_reactor(
+                "keyed_one_changed",
+                count,
+                reactor_grid(&order, None),
+                reactor_grid(&order, Some(0)),
+                samples,
+                batch,
+            ));
+        }
+        print_perf_rows(rows);
+        return;
+    }
+    let count = argument("--count", 512);
+    let order = (0..count).collect::<Vec<_>>();
+    let mut rotated = order.clone();
+    rotated.rotate_left(1);
+    let mut reversed = order.clone();
+    reversed.reverse();
+
+    let rows = [
+        bench_reactor(
+            "keyed_no_change",
+            count,
+            reactor_grid(&order, None),
+            reactor_grid(&order, None),
+            samples,
+            batch,
+        ),
+        bench_reactor(
+            "keyed_one_changed",
+            count,
+            reactor_grid(&order, None),
+            reactor_grid(&order, Some(0)),
+            samples,
+            batch,
+        ),
+        bench_reactor(
+            "keyed_rotate_one",
+            count,
+            reactor_grid(&order, None),
+            reactor_grid(&rotated, None),
+            samples,
+            batch,
+        ),
+        bench_reactor(
+            "keyed_reverse",
+            count,
+            reactor_grid(&order, None),
+            reactor_grid(&reversed, None),
+            samples,
+            batch,
+        ),
+        bench_reactor(
+            "tree_rotate_one",
+            count,
+            reactor_tree(&order, None),
+            reactor_tree(&rotated, None),
+            samples,
+            batch,
+        ),
+        reactor_component(count, false, samples, batch),
+        reactor_component(count, true, samples, batch),
+        reactor_component_root_replace(count, samples, batch),
+        reactor_context(count, false, samples),
+        reactor_context(count, true, samples),
+        bench_reactor_retirement_initiation(samples, batch),
+        bench_reactor_retirement_completion(samples, batch),
+        bench_reactor_retirement_remount(samples, batch),
+        bench_reactor_virtual_create(samples, batch),
+        bench_reactor_virtual_source_replace(samples, batch),
+        bench_reactor_virtual_realize(samples, batch),
+        bench_reactor_virtual_update(samples, batch),
+        bench_reactor_virtual_recycle(samples, batch),
+    ];
+
+    print_perf_rows(rows);
+
+    println!();
+    let memory_rows = [
+        reactor_graph_memory(count),
+        reactor_memory(count),
+        reactor_tree_graph_memory(count, false),
+        reactor_tree_memory(count, false),
+        reactor_tree_graph_memory(count, true),
+        reactor_tree_memory(count, true),
+        reactor_component_memory(count, false),
+        reactor_component_memory(count, true),
+        reactor_virtual_memory(),
+    ];
+    print_memory_rows(&memory_rows);
+
+    println!("\nvirtual mutation trace");
+    println!(
+        "{:<24} {:>12} {:>15}",
+        "workload", "mutations", "realized rows"
+    );
+    for (workload, mutations, realized) in reactor_virtual_mutation_counts() {
+        println!("{workload:<24} {mutations:>12} {realized:>15}");
     }
 
-    println!("\neffect component memory");
+    println!("\nrecursive component scaling");
     println!(
-        "{:>8} {:>8} {:>16} {:>18} {:>16}",
-        "kind", "scopes", "retained bytes", "bytes/scope", "allocations"
+        "{:>5} {:>6} {:>8} {:>15} {:>13} {:>12} {:>12} {:>11} {:>12} {:>12}",
+        "depth",
+        "fanout",
+        "scopes",
+        "retained bytes",
+        "bytes/scope",
+        "median ns",
+        "p95 ns",
+        "allocs/op",
+        "bytes/op",
+        "mutations/op"
     );
-    println!("{}", "-".repeat(72));
-    for row in [512, 4_096, 16_384].map(measure_effect_component_memory) {
-        println!(
-            "{:>8} {:>8} {:>16} {:>18.1} {:>16}",
-            "effect", row.n, row.bytes, row.bytes_per_scope, row.allocations
-        );
-    }
-
-    println!("\nretained native Border memory");
-    println!(
-        "{:<16} {:>8} {:>16} {:>18} {:>16}",
-        "properties", "elements", "retained bytes", "bytes/element", "allocations"
-    );
-    println!("{}", "-".repeat(80));
     for row in [
-        measure_native_memory("none", 4_096, || border_stack(4_096, 0)),
-        measure_native_memory("one", 4_096, || border_stack(4_096, 1)),
-        measure_native_memory("two", 4_096, || border_stack(4_096, 2)),
-        measure_native_memory("four", 4_096, || border_stack(4_096, 4)),
-        measure_native_memory("one event", 4_096, || border_event_stack(4_096, 1)),
-        measure_native_memory("four events", 4_096, || border_event_stack(4_096, 4)),
+        reactor_recursive(3, 8, samples),
+        reactor_recursive(4, 8, samples),
+        reactor_recursive(7, 4, samples),
     ] {
         println!(
-            "{:<16} {:>8} {:>16} {:>18.1} {:>16}",
-            row.name, row.n, row.bytes, row.bytes_per_element, row.allocations
+            "{:>5} {:>6} {:>8} {:>15} {:>13.1} {:>12.1} {:>12.1} {:>11.2} {:>12.1} {:>12.2}",
+            row.depth,
+            row.fanout,
+            row.scopes,
+            row.retained_bytes,
+            row.bytes_per_scope,
+            row.median_ns,
+            row.p95_ns,
+            row.allocations,
+            row.bytes,
+            row.mutations
         );
     }
 }

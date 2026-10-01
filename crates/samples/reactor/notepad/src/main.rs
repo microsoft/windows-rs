@@ -21,12 +21,11 @@ impl Component for Notepad {
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        context.window_title("windows_reactor — notepad");
-        TextBox::new()
-            .text(self.text.clone())
+        context.window_title("windows-reactor - notepad");
+        TextBox::new(self.text.clone())
             .accepts_return(true)
-            .placeholder_text("Start typing…")
-            .on_text_changed(context.forward())
+            .placeholder_text("Start typing...")
+            .on_text_changed(context.callback(|text: std::rc::Rc<str>| text.to_string()))
             .horizontal_alignment(HorizontalAlignment::Stretch)
             .vertical_alignment(VerticalAlignment::Stretch)
             .into()

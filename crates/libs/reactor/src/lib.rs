@@ -1,23 +1,33 @@
-#![doc = include_str!("../readme.md")]
-
-mod app;
-mod core;
-mod element;
-mod generated;
-mod native;
-mod reference;
 #[cfg(any(test, feature = "test"))]
-pub mod test;
+mod adapter;
+mod component;
+mod declaration;
+mod generated;
+mod ir;
+#[cfg(not(feature = "test"))]
+mod native;
+#[cfg(feature = "test")]
+pub mod native;
+mod reconcile;
+mod reference;
+mod window;
 
-use generated::*;
-
-pub use app::*;
-pub use core::public::*;
-pub use element::*;
-pub use generated::public::*;
-pub use reference::{
-    CompositionHostError, CompositionHostEvent, ElementObservation, ElementRef, FocusControl,
-    FocusError, ImageSourceError, IntegrationError, ReferenceControl, SwapChainPanelError,
-    SwapChainPanelEvent, WebView2Error, WindowHandle, WindowRef,
+#[cfg(any(test, feature = "test"))]
+pub use adapter::*;
+pub use component::*;
+pub use declaration::*;
+pub use generated::*;
+pub use ir::*;
+pub use native::{App, AppCallback, AppContext, AppProxy, ScreenPoint, WindowTitleBarHeight};
+#[cfg(feature = "test")]
+pub use native::{
+    LiveTickSubscription, bring_live_virtual_index, live_virtual_shell_counts,
+    schedule_live_test_exit, subscribe_live_tick,
 };
+pub use reconcile::*;
+pub use reference::*;
+pub use window::*;
 pub use windows_time::{DateTime, TimeSpan};
+
+#[cfg(test)]
+mod tests;

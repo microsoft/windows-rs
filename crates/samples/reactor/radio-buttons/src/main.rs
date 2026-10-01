@@ -27,15 +27,18 @@ impl Component for RadioButtonsSample {
             .unwrap_or("(none)");
 
         context.window_title("RadioButtons");
-        StackPanel::new().spacing(8.0).children((
-            RadioButtons::new()
-                .items_source(OPTIONS)
-                .selected_index(self.selected)
-                .max_columns(3)
-                .on_selection_changed(context.callback(|index| index))
-                .header("Notifications"),
-            format!("selected_index = {:?} ({label})", self.selected),
-        ))
+        StackPanel::new()
+            .spacing(8.0)
+            .children((
+                RadioButtons::new()
+                    .items_source(OPTIONS)
+                    .selected_index(self.selected)
+                    .max_columns(3)
+                    .on_selection_changed(context.callback(|index| index))
+                    .header("Notifications"),
+                format!("selected_index = {:?} ({label})", self.selected),
+            ))
+            .into()
     }
 }
 

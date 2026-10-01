@@ -66,8 +66,12 @@ impl Component for NavigationViewPage {
                             .pane_title("Navigation demo")
                             .is_settings_visible(false)
                             .height(300.0)
-                            .on_selected_tag_changed(context.callback(Message::Left))
-                            .menu_items([
+                            .on_selected_tag_changed(context.callback(
+                                |value: Option<std::rc::Rc<str>>| {
+                                    Message::Left(value.map(|value| value.to_string()))
+                                },
+                            ))
+                            .keyed_menu_items([
                                 item("home", "Home", Symbol::Home, self.selected == "home"),
                                 item("browse", "Browse", Symbol::Find, self.selected == "browse"),
                                 item(
@@ -89,8 +93,12 @@ impl Component for NavigationViewPage {
                             .pane_display_mode(NavigationViewPaneDisplayMode::Top)
                             .is_settings_visible(false)
                             .height(200.0)
-                            .on_selected_tag_changed(context.callback(Message::Top))
-                            .menu_items([
+                            .on_selected_tag_changed(context.callback(
+                                |value: Option<std::rc::Rc<str>>| {
+                                    Message::Top(value.map(|value| value.to_string()))
+                                },
+                            ))
+                            .keyed_menu_items([
                                 item(
                                     "overview",
                                     "Overview",

@@ -47,8 +47,12 @@ impl Component for AutoSuggestBoxPage {
                             .text(&self.query)
                             .items_source(suggestions)
                             .placeholder_text("Search fruits...")
-                            .on_text_changed(context.callback(Message::Query))
-                            .on_suggestion_chosen(context.callback(Message::Chosen)),
+                            .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
+                                Message::Query(value.to_string())
+                            }))
+                            .on_suggestion_chosen(context.callback(|value: std::rc::Rc<str>| {
+                                Message::Chosen(value.to_string())
+                            })),
                         TextBlock::new()
                             .text(format!("Query: \"{}\"", self.query))
                             .opacity(0.6),

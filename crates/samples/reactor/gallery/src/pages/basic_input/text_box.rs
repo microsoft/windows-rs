@@ -40,10 +40,11 @@ impl Component for TextBoxPage {
                     sample_card(
                         "Basic TextBox",
                         StackPanel::new().spacing(8.0).children((
-                            TextBox::new()
-                                .text(&self.text)
+                            TextBox::new(&self.text)
                                 .placeholder_text("Type here...")
-                                .on_text_changed(context.callback(Message::Text))
+                                .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
+                                    Message::Text(value.to_string())
+                                }))
                                 .header("Name"),
                             TextBlock::new()
                                 .text(format!("Characters: {}", self.text.len()))
@@ -56,12 +57,13 @@ impl Component for TextBoxPage {
                     "multiline",
                     sample_card(
                         "Multi-line TextBox",
-                        TextBox::new()
-                            .text(&self.notes)
+                        TextBox::new(&self.notes)
                             .accepts_return(true)
                             .text_wrapping(TextWrapping::Wrap)
                             .height(120.0)
-                            .on_text_changed(context.callback(Message::Notes)),
+                            .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
+                                Message::Notes(value.to_string())
+                            })),
                         "TextBox::new().accepts_return(true).text_wrapping(TextWrapping::Wrap)",
                     ),
                 ),
@@ -69,7 +71,7 @@ impl Component for TextBoxPage {
                     "disabled",
                     sample_card(
                         "Disabled TextBox",
-                        TextBox::new().text("Read-only content").is_enabled(false),
+                        TextBox::new("Read-only content").is_enabled(false),
                         "TextBox::new().text(content).is_enabled(false)",
                     ),
                 ),

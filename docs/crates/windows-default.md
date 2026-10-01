@@ -34,9 +34,9 @@ not extract files or perform I/O.
 3. Build one `windows_metadata::reader::Index` over the combined files.
 4. Query or transform the index without locating an SDK installation.
 
-`tool-reactor` uses this pattern when its metadata resolver combines WinUI winmds with the standard
-definitions. If you are compiling RDL or generating Rust, use the neighboring builder methods
-instead; they already perform the byte-to-file conversion.
+`tool-reactor-metadata` uses this pattern when its metadata resolver combines WinUI winmds with the
+standard definitions. If you are compiling RDL or generating Rust, use the neighboring builder
+methods instead; they already perform the byte-to-file conversion.
 
 ## Integration
 

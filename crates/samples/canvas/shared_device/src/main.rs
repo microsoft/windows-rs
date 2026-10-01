@@ -47,7 +47,7 @@ impl Component for Sample {
         let sender = context.sender();
         context.use_effect_guard("image-scale", (), move || {
             image.observe_rasterization_scale(move |scale| {
-                sender.send(scale);
+                _ = sender.send(scale);
             })
         });
 
@@ -72,17 +72,15 @@ impl Component for Sample {
                     StackPanel::new()
                         .orientation(Orientation::Horizontal)
                         .spacing(8.0)
-                        .children((View::keyed_fragment(row.iter().enumerate().map(
-                            |(column, image)| {
-                                KeyedView::new(
-                                    column,
-                                    Image::new()
-                                        .element_ref(image)
-                                        .width(TILE as f64)
-                                        .height(TILE as f64),
-                                )
-                            },
-                        )),)),
+                        .keyed_children(row.iter().enumerate().map(|(column, image)| {
+                            KeyedView::new(
+                                column,
+                                Image::new()
+                                    .element_ref(image)
+                                    .width(TILE as f64)
+                                    .height(TILE as f64),
+                            )
+                        })),
                 )
             })
             .collect::<Vec<_>>();
@@ -92,10 +90,9 @@ impl Component for Sample {
             .margin(Thickness::uniform(16.0))
             .children((
                 format!("{TILES} on-demand surfaces - all sharing one GpuDevice:"),
-                StackPanel::new()
-                    .spacing(8.0)
-                    .children((View::keyed_fragment(rows),)),
+                StackPanel::new().spacing(8.0).keyed_children(rows),
             ))
+            .into()
     }
 }
 

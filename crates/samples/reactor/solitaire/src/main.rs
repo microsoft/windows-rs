@@ -481,15 +481,19 @@ impl Component for Solitaire {
                 String::new()
             });
 
-        Border::new().background(Color::rgb(20, 100, 60)).content(
-            StackPanel::new()
-                .orientation(Orientation::Vertical)
-                .children((
-                    title_bar,
-                    header,
-                    Viewbox::new().child(build_board(&self.game, context.callback(Message::Click))),
-                )),
-        )
+        Border::new()
+            .background(Color::rgb(20, 100, 60))
+            .content(
+                StackPanel::new()
+                    .orientation(Orientation::Vertical)
+                    .children((
+                        title_bar,
+                        header,
+                        Viewbox::new()
+                            .child(build_board(&self.game, context.callback(Message::Click))),
+                    )),
+            )
+            .into()
     }
 }
 
@@ -513,26 +517,23 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
         let stock_click = click.clone();
         let view = if game.waste.is_empty() {
             empty_slot("·", Color::rgb(220, 230, 220), move || {
-                _ = stock_click.call(Click::Stock);
+                stock_click.call(Click::Stock);
             })
         } else {
             recycle_stock(move || {
-                _ = stock_click.call(Click::Stock);
+                stock_click.call(Click::Stock);
             })
         };
-        children.push(KeyedView::new(
-            "stock-slot",
-            positioned(view, pile_x(0), TOP_ROW_Y),
-        ));
+        children.push(keyed("stock-slot", positioned(view, pile_x(0), TOP_ROW_Y)));
     }
 
     if game.waste.is_empty() {
         let waste_click = click.clone();
-        children.push(KeyedView::new(
+        children.push(keyed(
             "waste-slot",
             positioned(
                 empty_slot("·", Color::rgb(220, 230, 220), move || {
-                    _ = waste_click.call(Click::Waste);
+                    waste_click.call(Click::Waste);
                 }),
                 pile_x(1),
                 TOP_ROW_Y,
@@ -549,11 +550,11 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
             } else {
                 Color::rgb(180, 180, 180)
             };
-            children.push(KeyedView::new(
+            children.push(keyed(
                 format!("foundation-slot-{f}"),
                 positioned(
                     empty_slot(suit.symbol(), foreground, move || {
-                        _ = foundation_click.call(Click::Foundation(f));
+                        foundation_click.call(Click::Foundation(f));
                     }),
                     foundation_x(f),
                     TOP_ROW_Y,
@@ -565,11 +566,11 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
     for (p, pile) in game.tableau.iter().enumerate() {
         if pile.is_empty() {
             let tableau_click = click.clone();
-            children.push(KeyedView::new(
+            children.push(keyed(
                 format!("tableau-slot-{p}"),
                 positioned(
                     empty_slot("K", Color::rgb(180, 200, 180), move || {
-                        _ = tableau_click.call(Click::Tableau(p, 0));
+                        tableau_click.call(Click::Tableau(p, 0));
                     }),
                     pile_x(p),
                     TABLEAU_Y,
@@ -586,15 +587,15 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
                 placement.highlighted,
                 placement.failed,
                 move || {
-                    _ = card_click.call(placement.click);
+                    card_click.call(placement.click);
                 },
             )
         } else {
             card_back(move || {
-                _ = card_click.call(placement.click);
+                card_click.call(placement.click);
             })
         };
-        children.push(KeyedView::new(
+        children.push(keyed(
             card_key(placement.card),
             positioned_card(view, placement.x, placement.y),
         ));
@@ -605,6 +606,7 @@ fn build_board(game: &Game, click: Callback<Click>) -> View {
         .height(BOARD_H)
         .horizontal_alignment(HorizontalAlignment::Center)
         .keyed_children(children)
+        .into()
 }
 
 struct BoardCard {
@@ -701,7 +703,7 @@ fn recycle_stock(on_click: impl Fn() + 'static) -> View {
         .vertical_alignment(VerticalAlignment::Center)
         .horizontal_alignment(HorizontalAlignment::Center);
     Border::new()
-        .corner_radius(4.0)
+        .corner_radius(CornerRadius::uniform(4.0))
         .border_brush(Color::rgb(50, 90, 60))
         .border_thickness(Thickness::uniform(1.5))
         .background(Color::rgb(70, 110, 80))
@@ -709,6 +711,7 @@ fn recycle_stock(on_click: impl Fn() + 'static) -> View {
         .height(CARD_H)
         .on_pointer_released(move |_| on_click())
         .content(label)
+        .into()
 }
 
 fn card_face(card: Card, highlighted: bool, failed: bool, on_click: impl Fn() + 'static) -> View {
@@ -744,7 +747,7 @@ fn card_face(card: Card, highlighted: bool, failed: bool, on_click: impl Fn() + 
         .orientation(Orientation::Vertical)
         .children((top_label, center_suit));
     Border::new()
-        .corner_radius(4.0)
+        .corner_radius(CornerRadius::uniform(4.0))
         .border_brush(border_color)
         .border_thickness(Thickness::uniform(1.0))
         .background(bg)
@@ -753,6 +756,7 @@ fn card_face(card: Card, highlighted: bool, failed: bool, on_click: impl Fn() + 
         .padding(Thickness::new(4.0, 3.0, 2.0, 2.0))
         .on_pointer_released(move |_| on_click())
         .content(content)
+        .into()
 }
 
 fn card_back(on_click: impl Fn() + 'static) -> View {
@@ -763,7 +767,7 @@ fn card_back(on_click: impl Fn() + 'static) -> View {
         .vertical_alignment(VerticalAlignment::Center)
         .horizontal_alignment(HorizontalAlignment::Center);
     Border::new()
-        .corner_radius(4.0)
+        .corner_radius(CornerRadius::uniform(4.0))
         .border_brush(Color::rgb(30, 60, 130))
         .border_thickness(Thickness::uniform(1.0))
         .background(Color::rgb(40, 80, 160))
@@ -771,6 +775,7 @@ fn card_back(on_click: impl Fn() + 'static) -> View {
         .height(CARD_H)
         .on_pointer_released(move |_| on_click())
         .content(label)
+        .into()
 }
 
 fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
@@ -781,7 +786,7 @@ fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
         .vertical_alignment(VerticalAlignment::Center)
         .horizontal_alignment(HorizontalAlignment::Center);
     Border::new()
-        .corner_radius(4.0)
+        .corner_radius(CornerRadius::uniform(4.0))
         .border_brush(Color::rgb(50, 110, 70))
         .border_thickness(Thickness::uniform(1.5))
         .background(Color::rgb(40, 90, 55))
@@ -790,16 +795,18 @@ fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
         .opacity(0.7)
         .on_pointer_released(move |_| on_click())
         .content(tb)
+        .into()
 }
 
 fn positioned(content: View, x: f64, y: f64) -> View {
-    position(x, y).content(content)
+    position(x, y).content(content).into()
 }
 
 fn positioned_card(content: View, x: f64, y: f64) -> View {
     position(x, y)
         .transitions([ThemeTransition::Reposition])
         .content(content)
+        .into()
 }
 
 fn position(x: f64, y: f64) -> Border {

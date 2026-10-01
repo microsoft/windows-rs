@@ -34,19 +34,22 @@ impl Component for LightweightResources {
             Button::new().content("Delete")
         };
 
-        Border::new().padding(Thickness::uniform(16.0)).content(
-            StackPanel::new().spacing(12.0).children((
-                "Element resources override WinUI lightweight styling values.",
-                target,
-                Button::new()
-                    .on_click(context.callback(|_| ()))
-                    .content(if self.styled {
-                        "Clear resources"
-                    } else {
-                        "Apply resources"
-                    }),
-            )),
-        )
+        Border::new()
+            .padding(Thickness::uniform(16.0))
+            .content(
+                StackPanel::new().spacing(12.0).children((
+                    "Element resources override WinUI lightweight styling values.",
+                    target,
+                    Button::new()
+                        .on_click(context.callback(|_| ()))
+                        .content(if self.styled {
+                            "Clear resources"
+                        } else {
+                            "Apply resources"
+                        }),
+                )),
+            )
+            .into()
     }
 }
 

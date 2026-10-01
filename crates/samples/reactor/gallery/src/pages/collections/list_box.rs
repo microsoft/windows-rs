@@ -69,8 +69,12 @@ impl Component for ListBoxPage {
                         "Basic ListBox",
                         StackPanel::new().spacing(8.0).children((
                             ListBox::new()
-                                .on_selected_tag_changed(context.callback(Message::Selected))
-                                .items(items),
+                                .on_selected_tag_changed(context.callback(
+                                    |tag: Option<std::rc::Rc<str>>| {
+                                        Message::Selected(tag.map(|tag| tag.to_string()))
+                                    },
+                                ))
+                                .keyed_items(items),
                             TextBlock::new()
                                 .text(format!("Selected: {label}"))
                                 .opacity(0.6),
@@ -83,7 +87,7 @@ impl Component for ListBoxPage {
                     "disabled-list-box",
                     sample_card(
                         "Disabled ListBox",
-                        ListBox::new().is_enabled(false).items(disabled_items),
+                        ListBox::new().is_enabled(false).keyed_items(disabled_items),
                         r#"ListBox::new().is_enabled(false)
     .items(items)"#,
                     ),

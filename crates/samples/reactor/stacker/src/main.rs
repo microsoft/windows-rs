@@ -5,8 +5,10 @@
 
 use std::time::*;
 use windows_canvas::*;
+use windows_composition::Visual as CompositionVisual;
 use windows_composition::*;
 use windows_core::*;
+use windows_reactor::View as ReactorView;
 use windows_reactor::*;
 
 const COLS: usize = 8;
@@ -377,7 +379,7 @@ impl Scene {
         Ok(())
     }
 
-    fn place_visual(&self, visual: &Visual, row: usize, col: usize) {
+    fn place_visual(&self, visual: &CompositionVisual, row: usize, col: usize) {
         visual.set_size(ASSET_SIZE, ASSET_SIZE);
         let scale = self.cell / ASSET_SIZE;
         visual.set_scale(Vector3::new(scale, scale, 1.0));
@@ -471,7 +473,7 @@ impl Scene {
             let id = self.next_fade;
             self.next_fade = self.next_fade.wrapping_add(1);
             let completion = batch.on_completed(move || {
-                sender.send(Message::FadeCompleted(id));
+                _ = sender.send(Message::FadeCompleted(id));
             });
             batch.end();
             let completion = completion?;
@@ -605,19 +607,13 @@ struct Stacker {
 }
 
 impl Stacker {
-    fn schedule_tick(context: &ComponentContext<Self>, delay: Duration) -> Result<ComponentTimer> {
-        context.set_timeout(delay, Message::Tick)
+    fn schedule_tick(context: &ComponentContext<Self>, delay: Duration) -> ComponentTimer {
+        context.set_local_timeout(delay, || Message::Tick)
     }
 
     fn replace_timer(&mut self, context: &ComponentContext<Self>) {
         self.cancel_timer();
-        match Self::schedule_tick(context, self.game.tick_delay()) {
-            Ok(timer) => self.timer = Some(timer),
-            Err(error) => {
-                self.game.paused = true;
-                eprintln!("Stacker gravity paused because its timer could not start: {error}");
-            }
-        }
+        self.timer = Some(Self::schedule_tick(context, self.game.tick_delay()));
     }
 
     fn cancel_timer(&mut self) {
@@ -650,15 +646,8 @@ impl Component for Stacker {
     type Input = ();
 
     fn create(_input: &(), context: &ComponentContext<Self>) -> Self {
-        let mut game = Game::new(seed_from_clock());
-        let timer = match Self::schedule_tick(context, game.tick_delay()) {
-            Ok(timer) => Some(timer),
-            Err(error) => {
-                game.paused = true;
-                eprintln!("Stacker gravity paused because its timer could not start: {error}");
-                None
-            }
-        };
+        let game = Game::new(seed_from_clock());
+        let timer = Some(Self::schedule_tick(context, game.tick_delay()));
         Self {
             game,
             scene: None,
@@ -766,7 +755,7 @@ impl Component for Stacker {
         }
     }
 
-    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> ReactorView {
         context.window_title("Stacker");
         let inactive = self.game.paused || self.game.over;
         context.window_visuals(
@@ -788,7 +777,7 @@ impl Component for Stacker {
         let sender = context.sender();
         context.use_effect_guard("stacker-composition", (), move || {
             host.observe_composition_host(move |event| {
-                sender.send(Message::Host(event));
+                _ = sender.send(Message::Host(event));
             })
         });
 
@@ -841,11 +830,13 @@ impl Component for Stacker {
         } else {
             content
         };
-        content.children((
-            TitleBar::new().title("Stacker").grid_row(0),
-            header,
-            playfield,
-        ))
+        content
+            .children((
+                TitleBar::new().title("Stacker").grid_row(0),
+                header,
+                playfield,
+            ))
+            .into()
     }
 }
 

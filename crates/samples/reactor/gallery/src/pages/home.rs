@@ -36,27 +36,27 @@ impl Component for HomePage {
             .collect();
 
         let on_navigate = input.on_navigate.clone();
-        ScrollViewer::new().content(
-            Border::new()
-                .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
-                .content(
-                    StackPanel::new().spacing(24.0).children((
-                        page_header(
-                            "Reactor gallery",
-                            "A showcase of WinUI controls built entirely with windows-reactor \
+        ScrollViewer::new()
+            .content(
+                Border::new()
+                    .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
+                    .content(
+                        StackPanel::new().spacing(24.0).children((
+                            page_header(
+                                "Reactor gallery",
+                                "A showcase of WinUI controls built entirely with windows-reactor \
                          - a declarative, component-based UI framework for WinUI 3.",
-                        ),
-                        StackPanel::new().spacing(12.0).children((
-                            TextBlock::new()
-                                .text("Browse by category")
-                                .font_size(14.0)
-                                .font_weight(FontWeight::SEMI_BOLD),
-                            card_grid(&items, move |tag| {
-                                let _ = on_navigate.call(tag);
-                            }),
+                            ),
+                            StackPanel::new().spacing(12.0).children((
+                                TextBlock::new()
+                                    .text("Browse by category")
+                                    .font_size(14.0)
+                                    .font_weight(FontWeight::SEMI_BOLD),
+                                card_grid(&items, move |tag| on_navigate.call(tag)),
+                            )),
                         )),
-                    )),
-                ),
-        )
+                    ),
+            )
+            .into()
     }
 }

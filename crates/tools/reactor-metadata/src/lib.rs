@@ -1,0 +1,924 @@
+/// Reads WinUI `.winmd` files and resolves `put_*` method -> interface mappings.
+///
+/// Given a WinUI class name (e.g. `"TextBlock"`) and a method (e.g. `"put_Text"`),
+/// the resolver finds which exclusive interface owns that method (e.g. `"ITextBlock"`).
+use std::collections::HashMap;
+use std::path::Path;
+
+use windows_metadata::reader::{File, Index, TypeCategory, TypeDef, TypeDefOrRef};
+use windows_metadata::{HasAttributes, Type, Value};
+
+fn to_snake_case(value: &str) -> String {
+    let mut result = String::with_capacity(value.len() + 4);
+    for (index, character) in value.chars().enumerate() {
+        if character.is_uppercase() && index > 0 {
+            result.push('_');
+        }
+        result.push(character.to_ascii_lowercase());
+    }
+    result
+}
+
+/// Resolved interface location: namespace + name.
+#[derive(Clone, Debug)]
+pub struct InterfaceRef {
+    pub namespace: String,
+    pub name: String,
+}
+
+impl InterfaceRef {
+    /// The short name (e.g. `"ITextBlock"`).
+    pub fn short_name(&self) -> &str {
+        &self.name
+    }
+
+    /// Full dotted path (e.g. `"Microsoft.UI.Xaml.Controls.ITextBlock"`).
+    pub fn full_path(&self) -> String {
+        format!("{}.{}", self.namespace, self.name)
+    }
+}
+
+/// Resolved method location: owning interface + parameter types.
+#[derive(Clone, Debug)]
+pub struct MethodRef {
+    pub interface: InterfaceRef,
+    /// Parameter types from the method signature (excludes `this`/return).
+    pub param_types: Vec<Type>,
+    /// Return type of the method.
+    pub return_type: Type,
+}
+
+/// Classification of a metadata parameter type for setter pattern inference.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ParamClass {
+    /// Primitive type (String, Bool, F64, etc.) -> direct `put_X(value)`.
+    Primitive,
+    /// IInspectable -> needs wrapping (textblock by default, or IReference when
+    /// the TOML specifies an explicit type).
+    IInspectable,
+    /// IReference<bool> -> `put_X(Some(value))`.
+    NullableBool,
+    /// Enum, struct, or other complex type -> needs explicit TOML config.
+    Complex,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum CollectionType {
+    InspectableVector,
+    ItemCollection,
+    TypedVector(String),
+    ObservableVector(String),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ReadValueConversion {
+    Identity,
+    Field(String),
+    Nullable,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum EventHandlerType {
+    Inspectable,
+    Binding(String),
+}
+
+/// Pre-built lookup from `(class_short_name, method_name)` to `MethodRef`.
+pub struct MetadataResolver {
+    lookup: HashMap<(String, String), MethodRef>,
+    base_classes: HashMap<(String, String), (String, String)>,
+    implemented_interfaces: HashMap<(String, String), Vec<(String, String)>>,
+    /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
+    interface_owners: HashMap<(String, String), Option<(String, String)>>,
+    /// Runtime class and dependency-property getter -> owning static interface.
+    dependency_properties: HashMap<(String, String), InterfaceRef>,
+    /// Value-type structs that wrap a single primitive field.
+    /// Maps `(namespace, name)` to the unwrapped inner `Type`.
+    single_field_types: HashMap<(String, String), (String, Type)>,
+    /// Maps enum `(namespace, name)` pairs to their variant names.
+    enum_variants: HashMap<(String, String), Vec<String>>,
+    /// Maps non-generic delegates to sender and argument types from `Invoke`.
+    delegate_params: HashMap<(String, String), (Type, Type)>,
+    content_properties: HashMap<(String, String), String>,
+}
+
+impl MetadataResolver {
+    /// Load all `.winmd` files from `winmd_dir`, add the default Windows metadata, and build the
+    /// resolver.
+    pub fn load(winmd_dir: &Path) -> Self {
+        let read_dir = |dir: &Path| -> Vec<File> {
+            std::fs::read_dir(dir)
+                .unwrap_or_else(|_| panic!("cannot read winmd directory {}", dir.display()))
+                .filter_map(|e| e.ok())
+                .filter(|e| {
+                    e.path()
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
+                })
+                .filter_map(|e| File::read(e.path()))
+                .collect()
+        };
+
+        let mut files = read_dir(winmd_dir);
+        files.extend(
+            [windows_default::WINRT, windows_default::WIN32]
+                .into_iter()
+                .map(|bytes| File::new(bytes.to_vec()).unwrap()),
+        );
+
+        assert!(
+            !files.is_empty(),
+            "no .winmd files found in {}",
+            winmd_dir.display()
+        );
+
+        let index = Index::new(files);
+        let mut lookup = HashMap::new();
+        let mut interface_owners = HashMap::new();
+        let mut base_classes = HashMap::new();
+        let mut implemented_interfaces = HashMap::new();
+        let mut content_properties = HashMap::new();
+        let mut dependency_properties = HashMap::new();
+
+        // Walk all types in the index, collecting method-to-interface mappings for classes
+        // in Microsoft.UI.Xaml namespaces.
+        for (namespace, name, typedef) in index.iter() {
+            if namespace.starts_with("Microsoft.UI.Xaml")
+                && typedef.category() == TypeCategory::Class
+            {
+                let interfaces = typedef
+                    .interface_impls()
+                    .filter_map(|implementation| match implementation.interface(&[]) {
+                        Type::ClassName(type_name) | Type::ValueName(type_name) => {
+                            Some((type_name.namespace, type_name.name))
+                        }
+                        _ => None,
+                    })
+                    .collect::<Vec<_>>();
+                if !interfaces.is_empty() {
+                    implemented_interfaces
+                        .insert((namespace.to_string(), name.to_string()), interfaces);
+                }
+                if let Some(extends) = typedef.extends() {
+                    let base = match extends {
+                        TypeDefOrRef::TypeDef(base) => {
+                            Some((base.namespace().to_string(), base.name().to_string()))
+                        }
+                        TypeDefOrRef::TypeRef(base) => {
+                            Some((base.namespace().to_string(), base.name().to_string()))
+                        }
+                        _ => None,
+                    };
+                    if let Some(base) = base {
+                        base_classes.insert((namespace.to_string(), name.to_string()), base);
+                    }
+                }
+                if let Some(content) =
+                    typedef
+                        .find_attribute("ContentPropertyAttribute")
+                        .and_then(|attribute| {
+                            attribute.value().into_iter().find_map(|(name, value)| {
+                                (name == "Name")
+                                    .then_some(value)
+                                    .and_then(|value| match value {
+                                        Value::Utf8(value) => Some(value),
+                                        _ => None,
+                                    })
+                            })
+                        })
+                {
+                    content_properties.insert((namespace.to_string(), name.to_string()), content);
+                }
+                for implementation in typedef.interface_impls() {
+                    let interface = implementation.interface(&[]);
+                    let (interface_namespace, interface_name) = match interface {
+                        Type::ClassName(type_name) | Type::ValueName(type_name) => {
+                            (type_name.namespace, type_name.name)
+                        }
+                        _ => continue,
+                    };
+                    let owner = (namespace.to_string(), name.to_string());
+                    interface_owners
+                        .entry((interface_namespace, interface_name))
+                        .and_modify(|existing: &mut Option<(String, String)>| {
+                            if existing.as_ref() != Some(&owner) {
+                                *existing = None;
+                            }
+                        })
+                        .or_insert(Some(owner));
+                }
+                Self::collect_methods_for_class(&index, name, &typedef, &mut lookup);
+            }
+        }
+
+        for (namespace, name, typedef) in index.iter() {
+            if !namespace.starts_with("Microsoft.UI.Xaml") {
+                continue;
+            }
+            let Some(class_name) = name
+                .strip_prefix('I')
+                .and_then(|name| name.split_once("Statics").map(|(class, _)| class))
+            else {
+                continue;
+            };
+            for method in typedef.methods() {
+                let method_name = method.name();
+                if method_name.starts_with("get_") && method_name.ends_with("Property") {
+                    dependency_properties
+                        .entry((class_name.to_string(), method_name.to_string()))
+                        .or_insert_with(|| InterfaceRef {
+                            namespace: namespace.to_string(),
+                            name: name.to_string(),
+                        });
+                }
+            }
+        }
+
+        // Validate all entries - remove any with namespaces that don't exist in the index.
+        lookup.retain(|_, mref| {
+            index
+                .get(&mref.interface.namespace, &mref.interface.name)
+                .next()
+                .is_some()
+        });
+
+        // Map single-field value types to their inner primitive type.
+        let mut single_field_types = HashMap::new();
+        let mut enum_variants = HashMap::new();
+        for (namespace, name, typedef) in index.iter() {
+            let fields: Vec<_> = typedef.fields().collect();
+            // Enums have a `value__` field plus named variant fields.
+            let variant_names: Vec<_> = fields
+                .iter()
+                .filter(|f| f.name() != "value__")
+                .map(|f| f.name().to_string())
+                .collect();
+            let has_value_field = fields.iter().any(|f| f.name() == "value__");
+
+            if has_value_field && !variant_names.is_empty() {
+                enum_variants.insert((namespace.to_string(), name.to_string()), variant_names);
+            } else if fields.len() == 1 {
+                let inner_ty = fields[0].ty();
+                if Self::primitive_value_for_type(&inner_ty).is_some() {
+                    single_field_types.insert(
+                        (namespace.to_string(), name.to_string()),
+                        (to_snake_case(fields[0].name()), inner_ty),
+                    );
+                }
+            }
+        }
+
+        // Build the delegate parameter map for non-generic delegates used by `add_*` methods.
+        let mut delegate_params = HashMap::new();
+        for ((_, method_name), mref) in &lookup {
+            if !method_name.starts_with("add_") {
+                continue;
+            }
+            let Some(Type::ClassName(tn)) = mref.param_types.first() else {
+                continue;
+            };
+            let key = (tn.namespace.clone(), tn.name.clone());
+            if !tn.generics.is_empty() || delegate_params.contains_key(&key) {
+                continue;
+            }
+            let Some(delegate_def) = index.get(&tn.namespace, &tn.name).next() else {
+                continue;
+            };
+            for method in delegate_def.methods() {
+                if method.name() == "Invoke" {
+                    let sig = method.signature(&[]);
+                    if let (Some(sender), Some(args)) = (sig.types.first(), sig.types.get(1)) {
+                        delegate_params.insert(key, (sender.clone(), args.clone()));
+                    }
+                    break;
+                }
+            }
+        }
+
+        Self {
+            lookup,
+            base_classes,
+            implemented_interfaces,
+            interface_owners,
+            dependency_properties,
+            single_field_types,
+            enum_variants,
+            delegate_params,
+            content_properties,
+        }
+    }
+
+    pub fn class_derives_from(&self, class: &str, base: &str) -> bool {
+        let Some((class_namespace, class_name)) = class.rsplit_once('.') else {
+            return false;
+        };
+        let Some((base_namespace, base_name)) = base.rsplit_once('.') else {
+            return false;
+        };
+        let mut current = (class_namespace.to_string(), class_name.to_string());
+        while let Some(parent) = self.base_classes.get(&current) {
+            if parent.0 == base_namespace && parent.1 == base_name {
+                return true;
+            }
+            current.clone_from(parent);
+        }
+        false
+    }
+
+    pub fn class_is_assignable_to(&self, class: &str, target: &str) -> bool {
+        let Some((class_namespace, class_name)) = class.rsplit_once('.') else {
+            return false;
+        };
+        let Some((target_namespace, target_name)) = target.rsplit_once('.') else {
+            return false;
+        };
+        let target = (target_namespace.to_string(), target_name.to_string());
+        let mut pending = vec![(class_namespace.to_string(), class_name.to_string())];
+        let mut visited = std::collections::HashSet::new();
+        while let Some(current) = pending.pop() {
+            if current == target {
+                return true;
+            }
+            if !visited.insert(current.clone()) {
+                continue;
+            }
+            if let Some(base) = self.base_classes.get(&current) {
+                pending.push(base.clone());
+            }
+            if let Some(interfaces) = self.implemented_interfaces.get(&current) {
+                pending.extend(interfaces.iter().cloned());
+            }
+        }
+        false
+    }
+
+    pub fn content_property(&self, class: &str) -> Option<String> {
+        let (namespace, name) = class.rsplit_once('.')?;
+        let mut current = (namespace.to_string(), name.to_string());
+        loop {
+            if let Some(content) = self.content_properties.get(&current) {
+                return Some(content.clone());
+            }
+            current = self.base_classes.get(&current)?.clone();
+        }
+    }
+
+    /// Walk a class's interface hierarchy and record every `put_*` / `get_*` /
+    /// `add_*` / `remove_*` method with its owning interface and parameter types.
+    fn collect_methods_for_class(
+        index: &Index,
+        class_name: &str,
+        typedef: &TypeDef<'_>,
+        lookup: &mut HashMap<(String, String), MethodRef>,
+    ) {
+        // Walk implemented interfaces.
+        for iface_impl in typedef.interface_impls() {
+            let iface_type = iface_impl.interface(&[]);
+            let (iface_ns, iface_name) = match &iface_type {
+                Type::ClassName(tn) | Type::ValueName(tn) => {
+                    (tn.namespace.as_str(), tn.name.as_str())
+                }
+                _ => continue,
+            };
+
+            // Look up the interface TypeDef to get its methods.
+            let Some(iface_def) = index.get(iface_ns, iface_name).next() else {
+                continue;
+            };
+
+            for method in iface_def.methods() {
+                let method_name = method.name();
+                if method_name.starts_with("put_")
+                    || method_name.starts_with("get_")
+                    || method_name.starts_with("add_")
+                    || method_name.starts_with("remove_")
+                {
+                    lookup
+                        .entry((class_name.to_string(), method_name.to_string()))
+                        .or_insert_with(|| {
+                            let sig = method.signature(&[]);
+                            MethodRef {
+                                interface: InterfaceRef {
+                                    namespace: iface_ns.to_string(),
+                                    name: iface_name.to_string(),
+                                },
+                                param_types: sig.types,
+                                return_type: sig.return_type,
+                            }
+                        });
+                }
+            }
+        }
+
+        // Walk base class chain to inherit methods.
+        let Some(extends) = typedef.extends() else {
+            return;
+        };
+        let (base_ns, base_name) = match extends {
+            TypeDefOrRef::TypeDef(td) => (td.namespace().to_string(), td.name().to_string()),
+            TypeDefOrRef::TypeRef(tr) => (tr.namespace().to_string(), tr.name().to_string()),
+            _ => return,
+        };
+        // Stop at System.Object / DependencyObject.
+        if base_name == "Object" || base_name == "DependencyObject" {
+            return;
+        }
+
+        // Resolve the base class and recurse.
+        if let Some(base_def) = index.get(&base_ns, &base_name).next() {
+            Self::collect_methods_for_class(index, &base_name, &base_def, lookup);
+
+            // Propagate base class methods to the derived class.
+            let base_methods: Vec<(String, MethodRef)> = lookup
+                .iter()
+                .filter(|((cn, _), _)| cn == &base_name)
+                .map(|((_, mn), mref)| (mn.clone(), mref.clone()))
+                .collect();
+            for (method_name, method_ref) in base_methods {
+                lookup
+                    .entry((class_name.to_string(), method_name))
+                    .or_insert(method_ref);
+            }
+        }
+    }
+
+    /// Resolve a method on a class to its interface.
+    ///
+    /// Returns the InterfaceRef if found.
+    pub fn resolve(&self, class_name: &str, method_name: &str) -> Option<&InterfaceRef> {
+        self.lookup
+            .get(&(class_name.to_string(), method_name.to_string()))
+            .map(|m| &m.interface)
+    }
+
+    pub fn parameter_type_name(&self, class_name: &str, method_name: &str) -> Option<&str> {
+        match self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?
+            .param_types
+            .first()?
+        {
+            Type::Object => Some("IInspectable"),
+            Type::ClassName(name) | Type::ValueName(name) => Some(&name.name),
+            _ => None,
+        }
+    }
+
+    pub fn parameter_value(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        self.value_for_type(method.param_types.first()?)
+    }
+
+    /// Resolve the sender and argument types accepted by an event delegate.
+    pub fn resolve_event_handler_types(
+        &self,
+        class_name: &str,
+        event_name: &str,
+    ) -> Option<(EventHandlerType, EventHandlerType)> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), format!("add_{event_name}")))?;
+        let Type::ClassName(delegate) = method.param_types.first()? else {
+            return None;
+        };
+        match delegate.generics.as_slice() {
+            [sender, args] => Some((
+                Self::event_handler_type(sender)?,
+                Self::event_handler_type(args)?,
+            )),
+            [args] if delegate.name == "EventHandler" => Some((
+                EventHandlerType::Inspectable,
+                Self::event_handler_type(args)?,
+            )),
+            [] => {
+                let key = (delegate.namespace.clone(), delegate.name.clone());
+                let (sender, args) = self.delegate_params.get(&key)?;
+                Some((
+                    Self::event_handler_type(sender)?,
+                    Self::event_handler_type(args)?,
+                ))
+            }
+            _ => None,
+        }
+    }
+
+    fn event_handler_type(ty: &Type) -> Option<EventHandlerType> {
+        match ty {
+            Type::Object => Some(EventHandlerType::Inspectable),
+            Type::ClassName(name)
+                if name.namespace == "Windows.Foundation" && name.name == "IInspectable" =>
+            {
+                Some(EventHandlerType::Inspectable)
+            }
+            Type::ClassName(name) | Type::ValueName(name) => {
+                Some(EventHandlerType::Binding(name.name.clone()))
+            }
+            _ => None,
+        }
+    }
+
+    /// Resolve an exclusive interface to the runtime class that owns its static members.
+    pub fn runtime_class(&self, interface: &InterfaceRef) -> Option<String> {
+        let (namespace, name) = self
+            .interface_owners
+            .get(&(interface.namespace.clone(), interface.name.clone()))?
+            .as_ref()?;
+        Some(format!("{namespace}.{name}"))
+    }
+
+    /// Resolve the runtime class and static interface that expose a dependency property.
+    pub fn dependency_property(
+        &self,
+        class_name: &str,
+        property_name: &str,
+    ) -> Option<(String, &InterfaceRef)> {
+        let method = format!("get_{property_name}Property");
+        let mut current = self
+            .base_classes
+            .keys()
+            .find(|(_, name)| name == class_name)
+            .cloned()
+            .or_else(|| {
+                self.dependency_properties
+                    .keys()
+                    .find(|(name, _)| name == class_name)
+                    .map(|(name, _)| (String::new(), name.clone()))
+            })?;
+        loop {
+            if let Some(interface) = self
+                .dependency_properties
+                .get(&(current.1.clone(), method.clone()))
+            {
+                let class = if current.0.is_empty() {
+                    interface.namespace.clone()
+                } else {
+                    current.0.clone()
+                };
+                return Some((format!("{class}.{}", current.1), interface));
+            }
+            current = self.base_classes.get(&current)?.clone();
+        }
+    }
+
+    /// Check if a method exists for a class in metadata.
+    pub fn has_method(&self, class_name: &str, method_name: &str) -> bool {
+        self.lookup
+            .contains_key(&(class_name.to_string(), method_name.to_string()))
+    }
+
+    /// If a method's parameter is an enum, return `(short_name, [variant_names])`.
+    /// Used to auto-generate `enum_map` from metadata without explicit TOML overrides.
+    pub fn enum_info(&self, class_name: &str, method_name: &str) -> Option<(&str, &[String])> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let param = mref.param_types.first()?;
+        if let Type::ValueName(tn) = param {
+            let key = (tn.namespace.clone(), tn.name.clone());
+            let variants = self.enum_variants.get(&key)?;
+            Some((&tn.name, variants))
+        } else {
+            None
+        }
+    }
+
+    pub fn enum_path(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ValueName(type_name) = mref.param_types.first()? else {
+            return None;
+        };
+        self.enum_variants
+            .contains_key(&(type_name.namespace.clone(), type_name.name.clone()))
+            .then(|| format!("{}.{}", type_name.namespace, type_name.name))
+    }
+
+    pub fn single_field_param(
+        &self,
+        class_name: &str,
+        method_name: &str,
+    ) -> Option<(String, String)> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ValueName(type_name) = mref.param_types.first()? else {
+            return None;
+        };
+        let (field, _) = self
+            .single_field_types
+            .get(&(type_name.namespace.clone(), type_name.name.clone()))?;
+        Some((
+            format!("{}.{}", type_name.namespace, type_name.name),
+            field.clone(),
+        ))
+    }
+
+    /// Infer the `PropValue` variant name and Copy-ness from a method's parameter
+    /// type in metadata.
+    ///
+    /// Returns `None` for complex types (enums, generics) that need
+    /// explicit TOML declaration. The bool indicates whether the type is Copy.
+    pub fn infer_value_type(&self, class_name: &str, method_name: &str) -> Option<(String, bool)> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let param = mref.param_types.first()?;
+        let name = self.value_for_type(param)?;
+        // Copy-ness follows the same unwrapping as value_for_type:
+        // IReference<T> unwraps to T, single-field wrappers unwrap to inner.
+        let copy = self.is_unwrapped_copy(param);
+        Some((name, copy))
+    }
+
+    pub fn resolve_event_args_property(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<(String, String, ReadValueConversion)> {
+        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
+        let (value, conversion) = self.read_value_for_type(&getter_ref.return_type)?;
+        Some((value, getter_ref.interface.full_path(), conversion))
+    }
+
+    pub fn resolve_event_args_property_interface(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<String> {
+        self.resolve_event_args_getter(class_name, add_event, property)
+            .map(|method| method.interface.full_path())
+    }
+
+    pub fn resolve_event_args_object_property(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<String> {
+        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
+        matches!(getter_ref.return_type, Type::Object).then(|| getter_ref.interface.full_path())
+    }
+
+    /// Resolves an event-args property that returns a class type (not a primitive or
+    /// IInspectable). Returns the interface path for the getter on the event args.
+    pub fn resolve_event_args_class_property(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<String> {
+        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
+        matches!(getter_ref.return_type, Type::ClassName(_))
+            .then(|| getter_ref.interface.full_path())
+    }
+
+    fn resolve_event_args_getter(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<&MethodRef> {
+        let add_ref = self
+            .lookup
+            .get(&(class_name.to_string(), add_event.to_string()))?;
+        let delegate_type = add_ref.param_types.first()?;
+        let args_class = match delegate_type {
+            Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
+                Type::ClassName(args_tn) => args_tn.name.clone(),
+                Type::ValueName(args_tn) => args_tn.name.clone(),
+                _ => return None,
+            },
+            Type::ClassName(tn) => {
+                let key = (tn.namespace.clone(), tn.name.clone());
+                let (_, args) = self.delegate_params.get(&key)?;
+                match args {
+                    Type::ClassName(args_tn) | Type::ValueName(args_tn) => args_tn.name.clone(),
+                    _ => return None,
+                }
+            }
+            _ => return None,
+        };
+        let getter = format!("get_{property}");
+        self.lookup.get(&(args_class, getter))
+    }
+
+    pub fn resolve_property_read(
+        &self,
+        class_name: &str,
+        property: &str,
+    ) -> Option<(String, String, ReadValueConversion)> {
+        let getter = format!("get_{property}");
+        let getter_ref = self.lookup.get(&(class_name.to_string(), getter))?;
+        let (value, conversion) = self.read_value_for_type(&getter_ref.return_type)?;
+        Some((value, getter_ref.interface.full_path(), conversion))
+    }
+
+    /// Returns true if a metadata `Type` is Copy (primitive or value type).
+    ///
+    /// Follows the same pattern as `is_copyable` in windows-bindgen:
+    /// primitives and ValueName types (enums, blittable structs) are Copy;
+    /// String, ClassName, Object, and generics are not.
+    fn is_copy(ty: &Type) -> bool {
+        match ty {
+            Type::String | Type::Object | Type::ClassName(_) => false,
+            Type::Generic(..) | Type::Array(_) => false,
+            // Primitives and value types are `Copy`.
+            _ => true,
+        }
+    }
+
+    /// Check copy-ness after applying the same unwrapping as `value_for_type`:
+    /// `IReference<T>` uses `T`; single-field wrappers use their inner type.
+    fn is_unwrapped_copy(&self, ty: &Type) -> bool {
+        match ty {
+            // `PropValue` wraps `T`, not `IReference<T>`.
+            Type::ClassName(tn)
+                if tn.namespace == "Windows.Foundation" && tn.name == "IReference`1" =>
+            {
+                tn.generics.first().is_some_and(Self::is_copy)
+            }
+            Type::ValueName(tn) => {
+                let key = (tn.namespace.clone(), tn.name.clone());
+                if let Some((_, inner)) = self.single_field_types.get(&key) {
+                    Self::is_copy(inner)
+                } else {
+                    true
+                }
+            }
+            _ => Self::is_copy(ty),
+        }
+    }
+
+    /// Map a metadata Type to a PropValue variant name.
+    /// Handles primitives, IReference<bool>, single-field wrapper structs
+    /// (for example, `FontWeight { Weight: u16 }` -> `U16`), and multi-field value-type
+    /// structs by using the struct's short name (for example, `Thickness` -> `"Thickness"`).
+    pub fn value_for_type(&self, ty: &Type) -> Option<String> {
+        // Try primitives and well-known types first.
+        if let Some(v) = Self::primitive_value_for_type(ty) {
+            return Some(v);
+        }
+        match ty {
+            Type::ValueName(tn) => {
+                let key = (tn.namespace.clone(), tn.name.clone());
+                if let Some((_, inner)) = self.single_field_types.get(&key) {
+                    return Self::primitive_value_for_type(inner);
+                }
+                // Multi-field value types use the struct's short name as the `PropValue`
+                // variant.
+                // If there's no matching PropValue variant the generated code
+                // won't compile, signalling that an explicit override is needed.
+                Some(tn.name.clone())
+            }
+            _ => None,
+        }
+    }
+
+    fn read_value_for_type(&self, ty: &Type) -> Option<(String, ReadValueConversion)> {
+        match ty {
+            Type::ClassName(type_name)
+                if type_name.namespace == "Windows.Foundation"
+                    && type_name.name == "IReference`1"
+                    && type_name.generics.first() == Some(&Type::Bool) =>
+            {
+                Some(("Bool".to_string(), ReadValueConversion::Identity))
+            }
+            Type::ClassName(type_name)
+                if type_name.namespace == "Windows.Foundation"
+                    && type_name.name == "IReference`1" =>
+            {
+                let Type::ValueName(value) = type_name.generics.first()? else {
+                    return None;
+                };
+                matches!(value.name.as_str(), "DateTime" | "TimeSpan")
+                    .then(|| (value.name.clone(), ReadValueConversion::Nullable))
+            }
+            Type::Object | Type::ClassName(_) => None,
+            Type::ValueName(type_name) => {
+                let key = (type_name.namespace.clone(), type_name.name.clone());
+                if let Some((field, inner)) = self.single_field_types.get(&key) {
+                    return Some((
+                        Self::primitive_value_for_type(inner)?,
+                        ReadValueConversion::Field(field.clone()),
+                    ));
+                }
+                (type_name.name == "Color")
+                    .then(|| (type_name.name.clone(), ReadValueConversion::Identity))
+            }
+            _ => Some((
+                Self::primitive_value_for_type(ty)?,
+                ReadValueConversion::Identity,
+            )),
+        }
+    }
+
+    /// Map primitive and well-known Type variants to PropValue names.
+    /// Does not require resolver state - used during construction.
+    fn primitive_value_for_type(ty: &Type) -> Option<String> {
+        match ty {
+            Type::String => Some("Str".to_string()),
+            Type::Bool => Some("Bool".to_string()),
+            Type::F64 => Some("F64".to_string()),
+            Type::I32 => Some("I32".to_string()),
+            Type::U16 => Some("U16".to_string()),
+            Type::U32 => Some("U32".to_string()),
+            Type::Object => Some("Str".to_string()),
+            Type::ClassName(tn)
+                if tn.namespace == "Windows.Foundation"
+                    && tn.name == "IReference`1"
+                    && tn.generics.first() == Some(&Type::Bool) =>
+            {
+                Some("Bool".to_string())
+            }
+            _ => None,
+        }
+    }
+
+    /// Classify the parameter type for setter pattern inference.
+    pub fn classify_param(&self, class_name: &str, method_name: &str) -> Option<ParamClass> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let param = mref.param_types.first()?;
+        Some(Self::classify_type(param))
+    }
+
+    pub fn param_class_name(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ClassName(name) = mref.param_types.first()? else {
+            return None;
+        };
+        Some(format!("{}.{}", name.namespace, name.name))
+    }
+
+    pub fn classify_collection(
+        &self,
+        class_name: &str,
+        method_name: &str,
+    ) -> Option<CollectionType> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ClassName(name) = &method.return_type else {
+            return None;
+        };
+        if name.namespace == "Microsoft.UI.Xaml.Controls" && name.name == "ItemCollection" {
+            return Some(CollectionType::ItemCollection);
+        }
+        if name.namespace != "Windows.Foundation.Collections" {
+            return None;
+        }
+        match (name.name.as_str(), name.generics.first()?) {
+            ("IVector`1", Type::Object) => Some(CollectionType::InspectableVector),
+            ("IVector`1", Type::ClassName(item)) => Some(CollectionType::TypedVector(format!(
+                "{}.{}",
+                item.namespace, item.name
+            ))),
+            ("IObservableVector`1", Type::ClassName(item)) => Some(
+                CollectionType::ObservableVector(format!("{}.{}", item.namespace, item.name)),
+            ),
+            _ => None,
+        }
+    }
+
+    pub fn returns_object(&self, class_name: &str, method_name: &str) -> bool {
+        self.lookup
+            .get(&(class_name.to_string(), method_name.to_string()))
+            .is_some_and(|method| method.return_type == Type::Object)
+    }
+
+    pub fn return_class_name(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ClassName(name) = &method.return_type else {
+            return None;
+        };
+        Some(format!("{}.{}", name.namespace, name.name))
+    }
+
+    /// Classify a Type into a setter pattern category.
+    fn classify_type(ty: &Type) -> ParamClass {
+        match ty {
+            Type::String | Type::Bool | Type::F64 | Type::I32 | Type::U16 | Type::U32 => {
+                ParamClass::Primitive
+            }
+            Type::Object => ParamClass::IInspectable,
+            Type::ClassName(tn)
+                if tn.namespace == "Windows.Foundation"
+                    && tn.name == "IReference`1"
+                    && tn.generics.first() == Some(&Type::Bool) =>
+            {
+                ParamClass::NullableBool
+            }
+            _ => ParamClass::Complex,
+        }
+    }
+}
