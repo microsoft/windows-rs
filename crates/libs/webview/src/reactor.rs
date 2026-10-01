@@ -14,7 +14,7 @@ pub fn webview(on_ready: impl IntoPayloadCallback<WebView>) -> View {
     let on_ready = on_ready.into_payload_callback();
     webview_result(move |result| match result {
         Ok(webview) => {
-            _ = on_ready.call(webview);
+            on_ready.call(webview);
         }
         Err(IntegrationError::Native(code)) => {
             panic!("windows-webview Reactor integration failed: HRESULT({code:#010X})");
@@ -58,11 +58,11 @@ impl Component for WebViewHost {
             let accepted = control.request_core_web_view2(move |result| {
                 let result = result.and_then(|core| bridge(&core));
                 let callback = callback.borrow().clone();
-                _ = callback.call(result);
+                callback.call(result);
             });
             if !accepted {
                 let callback = on_ready.borrow().clone();
-                _ = callback.call(Err(IntegrationError::Unavailable));
+                callback.call(Err(IntegrationError::Unavailable));
             }
             None
         });

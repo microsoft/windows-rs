@@ -71,3 +71,41 @@ impl SaveFilePicker {
         context.run_window(move |window| map(self.show_for_hwnd(window.as_raw())))
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::rc::Rc;
+
+    struct LocalMessageComponent;
+
+    impl Component for LocalMessageComponent {
+        type Input = ();
+        type Message = Rc<()>;
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+            Self
+        }
+
+        fn view(
+            &self,
+            _input: &Self::Input,
+            _context: &mut windows_reactor::ViewContext<Self>,
+        ) -> windows_reactor::View {
+            "picker".into()
+        }
+    }
+
+    fn request_with_local_messages(context: &ComponentContext<LocalMessageComponent>) {
+        _ = OpenFilePicker::new().request(context, |_| Rc::new(()));
+        _ = OpenFilePicker::new().request_multiple(context, |_| Rc::new(()));
+        _ = FolderPicker::new().request(context, |_| Rc::new(()));
+        _ = FolderPicker::new().request_multiple(context, |_| Rc::new(()));
+        _ = SaveFilePicker::new().request(context, |_| Rc::new(()));
+    }
+
+    #[test]
+    fn picker_requests_accept_ui_local_messages() {
+        _ = request_with_local_messages as fn(&ComponentContext<LocalMessageComponent>);
+    }
+}
