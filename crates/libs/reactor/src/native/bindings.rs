@@ -1,4 +1,5 @@
 windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+windows_core::link!("user32.dll" "system" fn ClientToScreen(hwnd : HWND, lppoint : LPPOINT) -> windows_core::BOOL);
 windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
 windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut u32, packagefullname : windows_core::PWSTR) -> i32);
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
@@ -22971,6 +22972,7 @@ impl windows_core::RuntimeType for KeyboardAcceleratorPlacementMode {
     );
 }
 pub type LPARAM = isize;
+pub type LPPOINT = *mut POINT;
 pub type LRESULT = isize;
 pub const LWA_ALPHA: i32 = 2;
 #[repr(transparent)]
@@ -24485,6 +24487,12 @@ pub struct PACKAGE_VERSION_0_0 {
     pub Major: u16,
 }
 pub type PBYTE = *mut u8;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
 pub type PSID = *mut core::ffi::c_void;
 pub type PackageDependencyLifetimeKind = i32;
 pub type PackageDependencyProcessorArchitectures = u32;

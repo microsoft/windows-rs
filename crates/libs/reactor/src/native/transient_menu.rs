@@ -20,13 +20,13 @@ pub(super) struct TransientMenuHandle {
 
 struct TransientMenuState {
     anchor: FrameworkElement,
-    app_window: AppWindow,
     dispatcher: DispatcherQueue,
-    hwnd: HWND,
+    host: Window,
+    host_app_window: AppWindow,
+    host_hwnd: HWND,
     loaded: bool,
     menu: Option<ActiveMenu>,
     pending: Option<Menu>,
-    window: Window,
 }
 
 struct ActiveMenu {
@@ -36,7 +36,7 @@ struct ActiveMenu {
 
 impl TransientMenuHost {
     pub(super) fn new(dispatcher: DispatcherQueue) -> windows_core::Result<Self> {
-        let window = Window::new()?;
+        let host = Window::new()?;
         let root = Grid::new()?;
         let anchor = Grid::new()?;
         let anchor_element = anchor.cast::<IFrameworkElement>()?;
@@ -45,46 +45,47 @@ impl TransientMenuHost {
         anchor_element.SetHorizontalAlignment(HorizontalAlignment::Left)?;
         anchor_element.SetVerticalAlignment(VerticalAlignment::Top)?;
         root.cast::<IPanel>()?.Children()?.Append(&anchor)?;
-        window.SetContent(&root)?;
+        host.SetContent(&root)?;
 
-        let app_window = window.cast::<IWindow2>()?.AppWindow()?;
-        app_window.SetIsShownInSwitchers(false)?;
-        let presenter = app_window.Presenter()?.cast::<IOverlappedPresenter>()?;
+        let host_app_window = host.cast::<IWindow2>()?.AppWindow()?;
+        host_app_window.SetIsShownInSwitchers(false)?;
+        let presenter = host_app_window
+            .Presenter()?
+            .cast::<IOverlappedPresenter>()?;
         presenter.SetBorderAndTitleBar(false, false)?;
         presenter.SetIsAlwaysOnTop(true)?;
 
         let mut raw_hwnd = std::ptr::null_mut();
-        let hwnd;
+        let host_hwnd;
         unsafe {
-            window
-                .cast::<IWindowNative>()?
+            host.cast::<IWindowNative>()?
                 .WindowHandle(&mut raw_hwnd)
                 .ok()?;
-            hwnd = raw_hwnd.cast();
+            host_hwnd = raw_hwnd.cast();
             SetLastError(0);
-            let style = GetWindowLongW(hwnd, GWL_EXSTYLE);
+            let style = GetWindowLongW(host_hwnd, GWL_EXSTYLE);
             let error = GetLastError();
             if style == 0 && error != 0 {
                 return Err(windows_core::HRESULT::from(windows_core::WIN32_ERROR(error)).into());
             }
             SetLastError(0);
-            let previous = SetWindowLongW(hwnd, GWL_EXSTYLE, style | WS_EX_LAYERED);
+            let previous = SetWindowLongW(host_hwnd, GWL_EXSTYLE, style | WS_EX_LAYERED);
             let error = GetLastError();
             if previous == 0 && error != 0 {
                 return Err(windows_core::HRESULT::from(windows_core::WIN32_ERROR(error)).into());
             }
-            SetLayeredWindowAttributes(hwnd, 0, 0, LWA_ALPHA as u32).ok()?;
+            SetLayeredWindowAttributes(host_hwnd, 0, 0, LWA_ALPHA as u32).ok()?;
         }
 
         let state = Rc::new(RefCell::new(TransientMenuState {
             anchor: anchor.cast()?,
-            app_window,
             dispatcher,
-            hwnd,
+            host,
+            host_app_window,
+            host_hwnd,
             loaded: false,
             menu: None,
             pending: None,
-            window,
         }));
         let loaded_state = Rc::downgrade(&state);
         let loaded = anchor_element.Loaded(move |_, _| {
@@ -117,7 +118,7 @@ impl TransientMenuHandle {
         let state = self.state.upgrade().ok_or_else(|| {
             windows_core::Error::new(E_FAIL, "the application menu host is unavailable")
         })?;
-        let window = {
+        let host = {
             let mut state = state.borrow_mut();
             if state.pending.is_some() || state.menu.is_some() {
                 return Err(windows_core::Error::new(
@@ -125,24 +126,52 @@ impl TransientMenuHandle {
                     "an application menu is already open",
                 ));
             }
-            state.app_window.MoveAndResize(RectInt32 {
-                x: position.x,
-                y: position.y,
-                width: HOST_SIZE,
-                height: HOST_SIZE,
-            })?;
+            position_host_anchor(&state.host_app_window, state.host_hwnd, position)?;
             state.pending = Some(menu);
-            state.window.clone()
+            state.host.clone()
         };
 
-        if let Err(error) = window.Activate() {
+        if let Err(error) = host.Activate() {
             let mut state = state.borrow_mut();
             state.pending = None;
-            _ = state.app_window.Hide();
+            _ = state.host_app_window.Hide();
             return Err(error);
         }
         show_pending(&state)
     }
+}
+
+fn position_host_anchor(
+    host: &AppWindow,
+    host_hwnd: HWND,
+    position: ScreenPoint,
+) -> windows_core::Result<()> {
+    host.MoveAndResize(RectInt32 {
+        x: position.x,
+        y: position.y,
+        width: HOST_SIZE,
+        height: HOST_SIZE,
+    })?;
+
+    // MoveAndResize positions outer bounds. Measure and compensate for the client offset.
+    let mut client_origin = POINT::default();
+    unsafe {
+        ClientToScreen(host_hwnd, &mut client_origin).ok()?;
+    }
+    host.MoveAndResize(RectInt32 {
+        x: host_coordinate(position.x, client_origin.x)?,
+        y: host_coordinate(position.y, client_origin.y)?,
+        width: HOST_SIZE,
+        height: HOST_SIZE,
+    })
+}
+
+fn host_coordinate(requested: i32, client_origin: i32) -> windows_core::Result<i32> {
+    let requested = i64::from(requested);
+    let client_offset = i64::from(client_origin) - requested;
+    (requested - client_offset)
+        .try_into()
+        .map_err(|_| windows_core::Error::new(E_FAIL, "application menu position is out of range"))
 }
 
 fn validate_menu_items(items: &[MenuItem], keys: &mut HashSet<Key>) -> windows_core::Result<()> {
@@ -172,7 +201,7 @@ impl Drop for TransientMenuHost {
             _ = active.flyout.Hide();
         }
         state.pending = None;
-        _ = state.window.Close();
+        _ = state.host.Close();
     }
 }
 
@@ -211,7 +240,7 @@ fn build_menu_items(
 }
 
 fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result<()> {
-    let (anchor, app_window, dispatcher, hwnd, menu) = {
+    let (anchor, host_app_window, dispatcher, host_hwnd, menu) = {
         let mut state = state.borrow_mut();
         if !state.loaded || state.menu.is_some() {
             return Ok(());
@@ -221,9 +250,9 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
         };
         (
             state.anchor.clone(),
-            state.app_window.clone(),
+            state.host_app_window.clone(),
             state.dispatcher.clone(),
-            state.hwnd,
+            state.host_hwnd,
             menu,
         )
     };
@@ -231,7 +260,7 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
     let result = (|| {
         // Windows may deny foreground activation under its focus-stealing policy. The flyout can
         // still open, and notification-area callbacks normally carry foreground permission.
-        _ = unsafe { SetForegroundWindow(hwnd) };
+        _ = unsafe { SetForegroundWindow(host_hwnd) };
 
         let flyout = MenuFlyout::new()?;
         let flyout_base = flyout.cast::<IFlyoutBase>()?;
@@ -254,7 +283,7 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
                 };
                 let mut state = state.borrow_mut();
                 state.menu = None;
-                if let Err(error) = state.app_window.Hide() {
+                if let Err(error) = state.host_app_window.Hide() {
                     drop(state);
                     report_error(error);
                 }
@@ -277,7 +306,7 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
     })();
     if result.is_err() {
         state.borrow_mut().menu = None;
-        _ = app_window.Hide();
+        _ = host_app_window.Hide();
     }
     result
 }
@@ -285,6 +314,12 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn host_position_accounts_for_the_client_offset() {
+        assert_eq!(host_coordinate(100, 108).unwrap(), 92);
+        assert_eq!(host_coordinate(-100, -92).unwrap(), -108);
+    }
 
     #[test]
     fn application_menu_rejects_duplicate_nested_keys() {
