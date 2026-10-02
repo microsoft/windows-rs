@@ -193,3 +193,19 @@ The [setup guide](windows-reactor-setup.md) covers prerequisites, WebView2, and 
 
 Browse the [sample directory](../../crates/samples/reactor) for smaller examples of controlled
 input, context, effects, multiple windows, virtualization, WebView2, and deployment.
+
+## Maintain generated controls
+
+`crates/tools/reactor/src/schema.toml` declares controls, properties, relations, and events.
+Controls default to the `Visual` category and the
+`Microsoft.UI.Xaml.Controls.<ControlName>` native class. Specify only exceptions. Unknown schema
+fields are rejected so misspelled or obsolete settings cannot be ignored.
+
+After changing the schema or generator, run:
+
+```text
+cargo run -p tool-reactor --quiet
+```
+
+The command updates the Reactor declarations, native adapter, binding filters, and live coverage.
+Do not edit those generated files directly.

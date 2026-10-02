@@ -34,7 +34,7 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | visual.Transitions | property | generated set/clear | shared visual-property path |
 | TextBlock.Text | property | generated set/clear | native set/clear smoke |
 | TextBlock.FontSize | property | generated set/clear | native set/clear smoke |
-| TextBlock.FontWeight | property | generated set/clear | adapter-family phase |
+| TextBlock.FontWeight | property | generated set/clear | native readback phase |
 | TextBlock.Foreground | property | generated set/clear | adapter-family phase |
 | TextBlock.Padding | property | generated set/clear | native set/clear smoke |
 | TextBlock.TextWrapping | property | generated set/clear | native set/clear smoke |
@@ -51,8 +51,8 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | TextBox.TextChanged | event | generated subscribe/remove | string item/tag payload phase |
 | Button.Background | property | generated set/clear | adapter-family phase |
 | Button.IsEnabled | property | generated set/clear | native set/clear smoke |
-| Button.HorizontalContentAlignment | property | generated set/clear | adapter-family phase |
-| Button.VerticalContentAlignment | property | generated set/clear | adapter-family phase |
+| Button.HorizontalContentAlignment | property | generated set/clear | native set/clear smoke |
+| Button.VerticalContentAlignment | property | generated set/clear | native set/clear smoke |
 | Button.Resources | property | generated set/clear | adapter-family phase |
 | Button.Style | property | generated set/clear | adapter-family phase |
 | Button.KeyboardAccelerators | property | generated set/clear | adapter-family phase |
@@ -248,7 +248,7 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | RatingControl.RatingControlValue | property | generated set/clear | adapter-family phase |
 | RatingControl.ValueChanged | event | generated subscribe/remove | typed event dispatch phase |
 | Expander.IsExpanded | property | generated set/clear | controlled feedback phase |
-| Expander.HorizontalContentAlignment | property | generated set/clear | adapter-family phase |
+| Expander.HorizontalContentAlignment | property | generated set/clear | native set/clear smoke |
 | Expander.Resources | property | generated set/clear | adapter-family phase |
 | Expander.IsExpandedChanged | event | generated subscribe/remove | typed event dispatch phase |
 | ComboBox.PlaceholderText | property | generated set/clear | native set/clear smoke |
@@ -307,7 +307,7 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | DatePicker.SelectedDateChanged | event | generated subscribe/remove | nullable date/time phase |
 | TimePicker.IsEnabled | property | generated set/clear | native set/clear smoke |
 | TimePicker.MinuteIncrement | property | generated set/clear | native set/clear smoke |
-| TimePicker.ClockIdentifier | property | generated set/clear | adapter-family phase |
+| TimePicker.ClockIdentifier | property | generated set/clear | native set/clear smoke |
 | TimePicker.SelectedTimeChanged | event | generated subscribe/remove | nullable date/time phase |
 | CalendarDatePicker.PlaceholderText | property | generated set/clear | native set/clear smoke |
 | CalendarDatePicker.IsTodayHighlighted | property | generated set/clear | native set/clear smoke |
