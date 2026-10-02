@@ -4405,6 +4405,7 @@ pub fn windows_reactor::TextBlock::min_height(self, f64) -> Self
 pub fn windows_reactor::TextBlock::min_width(self, f64) -> Self
 pub fn windows_reactor::TextBlock::new() -> Self
 pub fn windows_reactor::TextBlock::opacity(self, f64) -> Self
+pub fn windows_reactor::TextBlock::padding(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBlock::relative_align_bottom(self) -> Self
 pub fn windows_reactor::TextBlock::relative_align_horizontal_center(self) -> Self
 pub fn windows_reactor::TextBlock::relative_align_left(self) -> Self

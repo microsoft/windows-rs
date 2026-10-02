@@ -27,8 +27,9 @@ pub use ir::*;
 pub use native::{App, AppCallback, AppContext, AppProxy, ScreenPoint, WindowTitleBarHeight};
 #[cfg(feature = "test")]
 pub use native::{
-    LiveTickSubscription, bring_live_virtual_index, live_virtual_shell_counts,
-    schedule_live_test_exit, subscribe_live_tick,
+    LiveRenderingSubscription, LiveTickSubscription, bring_live_virtual_index,
+    live_virtual_shell_counts, schedule_live_test_exit, subscribe_live_interval,
+    subscribe_live_rendering, subscribe_live_tick,
 };
 pub use reconcile::*;
 pub use reference::*;

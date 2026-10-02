@@ -1822,6 +1822,17 @@ impl TextBlock {
         );
         self
     }
+    pub fn padding(mut self, padding: impl Into<Thickness>) -> Self {
+        let padding = padding.into();
+        assert!(
+            padding.is_finite_non_negative(),
+            "TextBlock.Padding requires finite_non_negative"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::Padding, PropertyValue::Thickness(padding));
+        self
+    }
     pub fn text_wrapping(mut self, text_wrapping: TextWrapping) -> Self {
         self.0 = self
             .0

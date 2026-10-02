@@ -1,0 +1,15 @@
+[package]
+name = "test_reactor_perf"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-reactor = { workspace = true, features = ["test"] }
+windows-sys = { workspace = true, features = ["processthreadsapi", "psapi"] }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

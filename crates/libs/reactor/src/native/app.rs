@@ -710,9 +710,17 @@ impl Drop for LiveTickSubscription {
 pub fn subscribe_live_tick(
     tick_callback: impl Fn() + 'static,
 ) -> windows_core::Result<LiveTickSubscription> {
+    subscribe_live_interval(Duration::from_millis(16), tick_callback)
+}
+
+#[cfg(feature = "test")]
+pub fn subscribe_live_interval(
+    interval: Duration,
+    tick_callback: impl Fn() + 'static,
+) -> windows_core::Result<LiveTickSubscription> {
     let dispatcher = DispatcherQueue::GetForCurrentThread()?;
     let timer = dispatcher.CreateTimer()?;
-    timer.SetInterval(windows_time::TimeSpan::try_from(Duration::from_millis(16)).unwrap())?;
+    timer.SetInterval(windows_time::TimeSpan::try_from(interval).unwrap())?;
     timer.SetIsRepeating(true)?;
     let tick = timer.Tick(move |_, _| {
         if std::panic::catch_unwind(std::panic::AssertUnwindSafe(&tick_callback)).is_err() {
@@ -721,6 +729,26 @@ pub fn subscribe_live_tick(
     })?;
     timer.Start()?;
     Ok(LiveTickSubscription { _tick: tick, timer })
+}
+
+#[cfg(feature = "test")]
+#[must_use = "dropping the subscription stops rendering notifications"]
+pub struct LiveRenderingSubscription {
+    _rendering: windows_core::EventRevoker,
+}
+
+#[cfg(feature = "test")]
+pub fn subscribe_live_rendering(
+    rendering_callback: impl Fn() + 'static,
+) -> windows_core::Result<LiveRenderingSubscription> {
+    let rendering = CompositionTarget::Rendering(move |_, _| {
+        if std::panic::catch_unwind(std::panic::AssertUnwindSafe(&rendering_callback)).is_err() {
+            std::process::abort();
+        }
+    })?;
+    Ok(LiveRenderingSubscription {
+        _rendering: rendering,
+    })
 }
 
 #[cfg(feature = "test")]
