@@ -39,7 +39,7 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: x86_64-pc-windows-msvc
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
       - name: Check
         # Exclusions (both due to --all-targets feature-unification across the workspace):
         #   test_no_std - unification pulls std into its no_std graph (duplicate panic_impl).

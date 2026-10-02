@@ -28,7 +28,7 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
 
       - name: Install WebView2 Evergreen runtime
         shell: pwsh

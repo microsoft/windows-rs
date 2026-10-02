@@ -29,6 +29,6 @@ jobs:
         uses: actions/checkout@v7
       - name: Prepare
         run: rustup update --no-self-update stable && rustup default stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
       - name: Check
         run: cargo check -p test_no_std
