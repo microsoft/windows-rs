@@ -1,23 +1,18 @@
-layout_exit_transition = true
-
 [[attached_properties]]
 name = "CanvasLeft"
 owner = "Microsoft.UI.Xaml.Controls.Canvas"
 native = "Left"
-readback = true
 
 [[attached_properties]]
 name = "CanvasTop"
 owner = "Microsoft.UI.Xaml.Controls.Canvas"
 native = "Top"
-readback = true
 
 [[attached_properties]]
 name = "GridRow"
 owner = "Microsoft.UI.Xaml.Controls.Grid"
 native = "Row"
 validation = "non_negative"
-readback = true
 
 [[attached_properties]]
 name = "GridColumn"
@@ -42,7 +37,6 @@ name = "RelativeAlignLeft"
 owner = "Microsoft.UI.Xaml.Controls.RelativePanel"
 native = "AlignLeftWithPanel"
 flag = true
-readback = true
 
 [[attached_properties]]
 name = "RelativeAlignTop"
@@ -79,7 +73,6 @@ name = "AutomationName"
 owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
 native = "Name"
 default = ""
-readback = true
 
 [[attached_properties]]
 name = "AutomationId"
@@ -103,7 +96,6 @@ owner = "Microsoft.UI.Xaml.FrameworkElement"
 [[visual_properties]]
 name = "MinWidth"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
-readback = true
 
 [[visual_properties]]
 name = "MaxWidth"
@@ -116,7 +108,6 @@ owner = "Microsoft.UI.Xaml.FrameworkElement"
 [[visual_properties]]
 name = "MaxHeight"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
-readback = true
 
 [[visual_properties]]
 name = "Margin"
