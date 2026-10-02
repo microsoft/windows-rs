@@ -31,10 +31,10 @@ jobs:
       RUSTFLAGS: -D warnings
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
         with:
           shared-key: no-default-features-linux
       - name: Build
@@ -59,7 +59,7 @@ jobs:
     runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable-x86_64-pc-windows-msvc
       - name: Add toolchain target
@@ -68,7 +68,7 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: x86_64-pc-windows-msvc
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
 # generated - run `cargo run -p tool-yml` to update
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --no-default-features

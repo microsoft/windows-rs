@@ -53,7 +53,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
@@ -67,7 +67,7 @@ jobs:
 
       - name: LLVM MinGW toolchain cache configuration
         id: cache-llvm-mingw-toolchain
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         if: contains(matrix.target, 'gnullvm')
         with:
           path: ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}
@@ -85,7 +85,7 @@ jobs:
         run: |
           echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
         with:
           key: ${{ matrix.target }}
       - name: Test
