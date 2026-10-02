@@ -54,6 +54,7 @@ struct VisualProperty {
     owner: String,
     #[serde(default)]
     value: String,
+    adapter: Option<PropertyAdapter>,
     default: Option<String>,
     #[serde(default)]
     readback: bool,
@@ -198,6 +199,7 @@ enum PropertyAdapter {
     RichTextBlocks,
     SelectionIndex,
     ThemeBrush,
+    ThemeTransitions,
     Uri,
 }
 
@@ -220,6 +222,7 @@ impl PropertyAdapter {
             Self::RichTextBlocks => "RichText",
             Self::SelectionIndex => "SelectionIndex",
             Self::ThemeBrush => "Brush",
+            Self::ThemeTransitions => "ThemeTransitions",
         }
     }
 
@@ -558,7 +561,7 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
             metadata,
             owner,
             &format!("put_{}", property.name),
-            None,
+            property.adapter,
             &format!("{}.{}", property.owner, property.name),
         );
     }

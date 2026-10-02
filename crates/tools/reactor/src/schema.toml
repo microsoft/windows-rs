@@ -137,7 +137,7 @@ owner = "Microsoft.UI.Xaml.UIElement"
 [[visual_properties]]
 name = "Transitions"
 owner = "Microsoft.UI.Xaml.UIElement"
-value = "ThemeTransitions"
+adapter = "theme_transitions"
 
 [[objects]]
 name = "TextBlock"
