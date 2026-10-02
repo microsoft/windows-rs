@@ -199,7 +199,8 @@ input, context, effects, multiple windows, virtualization, WebView2, and deploym
 `crates/tools/reactor/src/schema.toml` declares controls, properties, relations, and events.
 Controls default to the `Visual` category and the
 `Microsoft.UI.Xaml.Controls.<ControlName>` native class. Specify only exceptions. Unknown schema
-fields are rejected so misspelled or obsolete settings cannot be ignored.
+fields are rejected so misspelled or obsolete settings cannot be ignored. Control capabilities
+such as focus, references, and attachments are declared on the control.
 
 After changing the schema or generator, run:
 

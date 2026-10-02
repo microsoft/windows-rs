@@ -1,59 +1,4 @@
-[capabilities]
 layout_exit_transition = true
-enabled = [
-    "Button",
-    "HyperlinkButton",
-    "RepeatButton",
-    "TextBox",
-    "AutoSuggestBox",
-    "PasswordBox",
-    "NumberBox",
-    "Slider",
-    "NavigationView",
-    "ProgressBar",
-    "ToggleSwitch",
-    "CheckBox",
-    "ToggleButton",
-    "RadioButton",
-    "ProgressRing",
-    "ListBox",
-    "ComboBox",
-    "DropDownButton",
-    "AppBarButton",
-    "SplitButton",
-    "ColorPicker",
-    "DatePicker",
-    "TimePicker",
-    "CalendarDatePicker",
-    "CalendarView",
-    "ListView",
-    "ListViewItem",
-    "TreeView",
-    "GridView",
-    "GridViewItem",
-    "RichEditBox",
-]
-focus = [
-    "Button",
-    "HyperlinkButton",
-    "Border",
-    "TextBox",
-    "AutoSuggestBox",
-    "PasswordBox",
-    "NumberBox",
-    "Slider",
-    "ToggleSwitch",
-    "CheckBox",
-    "ToggleButton",
-    "RadioButton",
-    "RatingControl",
-    "ComboBox",
-    "RichEditBox",
-]
-reference = ["Grid", "Image", "WebView2", "SwapChainPanel"]
-tooltip_attachment = ["ToolTip"]
-content_dialog_attachment = ["ContentDialog"]
-window_title_bar = ["TitleBar"]
 
 [[attached_properties]]
 name = "CanvasLeft"
@@ -280,6 +225,8 @@ validation = "non_negative"
 
 [[objects]]
 name = "TextBox"
+enabled = true
+focus = true
 handwritten = true
 
 [[objects.properties]]
@@ -333,6 +280,8 @@ observes = "Text"
 
 [[objects]]
 name = "Button"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "Background"
@@ -379,6 +328,8 @@ value = "Unit"
 
 [[objects]]
 name = "CheckBox"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "IsChecked"
@@ -411,6 +362,7 @@ observes = "IsChecked"
 
 [[objects]]
 name = "Border"
+focus = true
 
 [[objects.properties]]
 name = "Background"
@@ -565,6 +517,7 @@ value = "DroppedData"
 
 [[objects]]
 name = "Grid"
+reference = true
 
 [[objects.properties]]
 name = "GridRows"
@@ -668,6 +621,7 @@ realization = "Owned"
 
 [[objects]]
 name = "TitleBar"
+window_title_bar = true
 
 [[objects.properties]]
 name = "Title"
@@ -715,6 +669,8 @@ value = "Unit"
 
 [[objects]]
 name = "Slider"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "Minimum"
@@ -765,6 +721,7 @@ payload = "NewValue"
 
 [[objects]]
 name = "TreeView"
+enabled = true
 handwritten = true
 
 [[objects.properties]]
@@ -819,6 +776,7 @@ item = "TreeNode"
 
 [[objects]]
 name = "ListView"
+enabled = true
 handwritten = true
 
 [[objects.properties]]
@@ -886,6 +844,8 @@ realization = "Owned"
 
 [[objects]]
 name = "HyperlinkButton"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "NavigateUri"
@@ -909,6 +869,7 @@ value = "Unit"
 
 [[objects]]
 name = "RepeatButton"
+enabled = true
 native = "Microsoft.UI.Xaml.Controls.Primitives.RepeatButton"
 
 [[objects.properties]]
@@ -975,6 +936,8 @@ realization = "Owned"
 
 [[objects]]
 name = "AutoSuggestBox"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "PlaceholderText"
@@ -1015,6 +978,8 @@ payload_adapter = "inspectable_string"
 
 [[objects]]
 name = "PasswordBox"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "PlaceholderText"
@@ -1048,6 +1013,8 @@ observes = "Password"
 
 [[objects]]
 name = "NumberBox"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -1090,6 +1057,7 @@ payload_adapter = "number_box_value"
 
 [[objects]]
 name = "NavigationView"
+enabled = true
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -1292,6 +1260,7 @@ observes = "IsPaneOpen"
 
 [[objects]]
 name = "ProgressBar"
+enabled = true
 relations = []
 
 [[objects.properties]]
@@ -1324,6 +1293,8 @@ value = "Bool"
 
 [[objects]]
 name = "ToggleSwitch"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -1363,6 +1334,8 @@ observes = "IsOn"
 
 [[objects]]
 name = "ToggleButton"
+enabled = true
+focus = true
 native = "Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"
 
 [[objects.properties]]
@@ -1390,6 +1363,8 @@ observes = "IsChecked"
 
 [[objects]]
 name = "RadioButton"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "GroupName"
@@ -1532,6 +1507,7 @@ realization = "Owned"
 
 [[objects]]
 name = "Image"
+reference = true
 relations = []
 
 [[objects.properties]]
@@ -1555,6 +1531,7 @@ value = "Unit"
 
 [[objects]]
 name = "ProgressRing"
+enabled = true
 relations = []
 
 [[objects.properties]]
@@ -1583,6 +1560,7 @@ value = "Bool"
 
 [[objects]]
 name = "ListBox"
+enabled = true
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -1764,6 +1742,7 @@ realization = "Owned"
 
 [[objects]]
 name = "RatingControl"
+focus = true
 relations = []
 
 [[objects.properties]]
@@ -1834,6 +1813,8 @@ realization = "Owned"
 
 [[objects]]
 name = "ComboBox"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "PlaceholderText"
@@ -2103,6 +2084,7 @@ value = "Unit"
 
 [[objects]]
 name = "DropDownButton"
+enabled = true
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -2143,6 +2125,7 @@ native_item = "Microsoft.UI.Xaml.Controls.ICommandBarElement"
 
 [[objects]]
 name = "AppBarButton"
+enabled = true
 
 [[objects.properties]]
 name = "Label"
@@ -2192,6 +2175,7 @@ value = "String"
 
 [[objects]]
 name = "SplitButton"
+enabled = true
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -2210,6 +2194,7 @@ value = "Unit"
 
 [[objects]]
 name = "ColorPicker"
+enabled = true
 relations = []
 
 [[objects.properties]]
@@ -2248,6 +2233,7 @@ payload_adapter = "native_color"
 
 [[objects]]
 name = "DatePicker"
+enabled = true
 
 [[objects.properties]]
 name = "DayVisible"
@@ -2280,6 +2266,7 @@ payload_adapter = "optional_datetime"
 
 [[objects]]
 name = "TimePicker"
+enabled = true
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -2309,6 +2296,7 @@ payload_adapter = "optional_timespan"
 
 [[objects]]
 name = "CalendarDatePicker"
+enabled = true
 
 [[objects.properties]]
 name = "PlaceholderText"
@@ -2341,6 +2329,7 @@ payload_adapter = "optional_datetime"
 
 [[objects]]
 name = "ToolTip"
+tooltip_attachment = true
 properties = []
 
 [[objects.relations]]
@@ -2352,6 +2341,7 @@ realization = "Owned"
 
 [[objects]]
 name = "ContentDialog"
+content_dialog_attachment = true
 
 [[objects.events]]
 name = "Closed"
@@ -2393,6 +2383,7 @@ realization = "Owned"
 
 [[objects]]
 name = "CalendarView"
+enabled = true
 relations = []
 
 [[objects.properties]]
@@ -2413,6 +2404,7 @@ value = "Unit"
 
 [[objects]]
 name = "ListViewItem"
+enabled = true
 
 [[objects.properties]]
 name = "Tag"
@@ -2428,6 +2420,7 @@ realization = "Owned"
 
 [[objects]]
 name = "GridView"
+enabled = true
 
 [[objects.properties]]
 name = "CanDragItems"
@@ -2469,6 +2462,7 @@ value = "StringList"
 
 [[objects]]
 name = "GridViewItem"
+enabled = true
 
 [[objects.properties]]
 name = "Tag"
@@ -2495,6 +2489,8 @@ realization = "Owned"
 
 [[objects]]
 name = "RichEditBox"
+enabled = true
+focus = true
 
 [[objects.properties]]
 name = "Document"
@@ -2552,10 +2548,12 @@ validation = "finite_positive"
 
 [[objects]]
 name = "WebView2"
+reference = true
 properties = []
 relations = []
 
 [[objects]]
 name = "SwapChainPanel"
+reference = true
 properties = []
 relations = []

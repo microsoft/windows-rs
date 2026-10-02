@@ -1071,18 +1071,20 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
     if id == PropertyId::IsEnabled
         && matches!(
             kind,
-            ObjectType::Button
+            ObjectType::TextBox
+                | ObjectType::Button
+                | ObjectType::CheckBox
+                | ObjectType::Slider
+                | ObjectType::TreeView
+                | ObjectType::ListView
                 | ObjectType::HyperlinkButton
                 | ObjectType::RepeatButton
-                | ObjectType::TextBox
                 | ObjectType::AutoSuggestBox
                 | ObjectType::PasswordBox
                 | ObjectType::NumberBox
-                | ObjectType::Slider
                 | ObjectType::NavigationView
                 | ObjectType::ProgressBar
                 | ObjectType::ToggleSwitch
-                | ObjectType::CheckBox
                 | ObjectType::ToggleButton
                 | ObjectType::RadioButton
                 | ObjectType::ProgressRing
@@ -1096,9 +1098,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
                 | ObjectType::TimePicker
                 | ObjectType::CalendarDatePicker
                 | ObjectType::CalendarView
-                | ObjectType::ListView
                 | ObjectType::ListViewItem
-                | ObjectType::TreeView
                 | ObjectType::GridView
                 | ObjectType::GridViewItem
                 | ObjectType::RichEditBox
@@ -2938,16 +2938,16 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
 pub(crate) fn focus_capable(kind: ObjectType) -> bool {
     matches!(
         kind,
-        ObjectType::Button
-            | ObjectType::HyperlinkButton
+        ObjectType::TextBox
+            | ObjectType::Button
+            | ObjectType::CheckBox
             | ObjectType::Border
-            | ObjectType::TextBox
+            | ObjectType::Slider
+            | ObjectType::HyperlinkButton
             | ObjectType::AutoSuggestBox
             | ObjectType::PasswordBox
             | ObjectType::NumberBox
-            | ObjectType::Slider
             | ObjectType::ToggleSwitch
-            | ObjectType::CheckBox
             | ObjectType::ToggleButton
             | ObjectType::RadioButton
             | ObjectType::RatingControl
