@@ -254,11 +254,6 @@ pub fn scrape(um_winmd: &std::path::Path) {
         .merge()
         .unwrap();
     let canonical = &outputs[0];
-    std::fs::write(
-        output_dir.join("unsupported.txt"),
-        canonical.unsupported.join("\n"),
-    )
-    .unwrap();
     println!(
         "Wrote {} from {} WDK header(s), {} RDL partition(s), {} x64 exported function(s), {} x64 unsupported root declaration(s)",
         merged.display(),
@@ -353,7 +348,6 @@ fn scrape_arch(
         );
         std::fs::write(rdl_dir.join(format!("{stem}.rdl")), rdl).unwrap();
     }
-    std::fs::write(arch_dir.join("unsupported.txt"), unsupported.join("\n")).unwrap();
     let winmd = arch_dir.join("Windows.Win32.km.winmd");
     windows_rdl::reader()
         .input(&rdl_dir)

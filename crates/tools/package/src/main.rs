@@ -1,34 +1,10 @@
-use tool_package::remap::{self, RemapPlan};
+use tool_package::remap;
 use tool_package::{WINRT_WINMD, remap_plan};
 
 /// Throwaway `--in` directory feeding `--package` generation (under `target`, not committed).
 /// Holds the remapped header-namespaced Win32/WDK winmd plus a copy of the WinRT `Windows.winmd`.
 const PACKAGE_DIR: &str = "target/package";
 const REMAP_OUTPUT: &str = "target/package/Windows.Win32.winmd";
-
-/// Writes a `name<TAB>feature` map (e.g. `D2D1CreateFactory\td2d1`) for every routed item to
-/// `path`, so downstream consumer migration can look up the header feature/module for an API.
-fn dump_routes(plan: &RemapPlan, path: String) {
-    let mut lines: Vec<String> = Vec::new();
-    let (routes, _) = remap::routes(plan);
-    for (name, namespace) in routes {
-        // Mirror bindgen's `namespace_feature`: the `Windows.Win32` umbrella is stripped to
-        // the bare header stem; other namespaces drop the leading `Windows`.
-        let feature = namespace
-            .strip_prefix("Windows.Win32.")
-            .map(|stem| stem.replace('.', "_"))
-            .or_else(|| {
-                namespace
-                    .strip_prefix("Windows.")
-                    .map(|rest| rest.replace('.', "_"))
-            })
-            .unwrap_or_else(|| namespace.clone());
-        lines.push(format!("{name}\t{feature}"));
-    }
-    lines.sort();
-    std::fs::write(&path, lines.join("\n"))
-        .unwrap_or_else(|e| panic!("failed to write `{path}`: {e}"));
-}
 
 /// Generates the published `windows` and `windows-sys` package crates.
 ///
@@ -47,8 +23,6 @@ fn main() {
     let plan = remap_plan();
 
     let summary = remap::run(&plan, REMAP_OUTPUT);
-
-    dump_routes(&plan, format!("{PACKAGE_DIR}/routes.tsv"));
 
     // The WinRT metadata is already namespaced; copy it verbatim into the `--in` directory so the
     // `windows` crate can project it alongside the remapped Win32/WDK partition.
