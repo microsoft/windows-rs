@@ -211,4 +211,4 @@ cargo run -p tool-reactor --quiet
 ```
 
 The command updates the Reactor declarations, native adapter, native bindings, and live coverage.
-`crates/tools/reactor/src/bindings_base.txt` is the handwritten native binding filter.
+`crates/tools/reactor/src/bindings.txt` is the handwritten native binding filter.
