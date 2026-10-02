@@ -723,6 +723,7 @@ impl WinUiAdapter {
             window_x: f64::from(window_position.x),
             window_y: f64::from(window_position.y),
             pointer_id: local.PointerId()?,
+            modifiers: Self::input_modifiers()?,
             capture_succeeded,
             is_captured,
             is_left_button_pressed: properties.IsLeftButtonPressed()?,

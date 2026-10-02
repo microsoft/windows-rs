@@ -1300,6 +1300,7 @@ pub struct PointerEventInfo {
     pub window_x: f64,
     pub window_y: f64,
     pub pointer_id: u32,
+    pub modifiers: InputModifiers,
     pub capture_succeeded: Option<bool>,
     pub is_captured: bool,
     pub is_left_button_pressed: bool,

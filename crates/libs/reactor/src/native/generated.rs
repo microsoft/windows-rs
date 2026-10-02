@@ -8176,6 +8176,41 @@ impl GeneratedHandle {
                         .and_then(|object| object.SetIsExpanded(*value).map_err(Into::into)),
                 )
             }
+            (Self::Expander(object), PropertyId::HorizontalContentAlignment, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::Control::HorizontalContentAlignmentProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::Expander(object),
+                PropertyId::HorizontalContentAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "HorizontalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IControl>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalContentAlignment(match *variant {
+                                "Left" => native::HorizontalAlignment::Left,
+                                "Center" => native::HorizontalAlignment::Center,
+                                "Right" => native::HorizontalAlignment::Right,
+                                "Stretch" => native::HorizontalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
             (Self::ComboBox(object), PropertyId::PlaceholderText, None) => Some(
                 object
                     .value

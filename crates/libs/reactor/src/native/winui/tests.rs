@@ -321,6 +321,7 @@ mod tests {
         let event_queue = Rc::new(NativeEventQueue::default());
         let payload = crate::PointerEventInfo {
             pointer_id: 42,
+            modifiers: crate::InputModifiers::CONTROL,
             is_captured: true,
             is_right_button_pressed: true,
             ..Default::default()
