@@ -1243,7 +1243,7 @@ impl WinUiAdapter {
         let observation = Observation::SetProperty {
             object,
             property: Property {
-                id: PropertyId::RatingControlValue,
+                id: PropertyId::Value,
                 value: PropertyValue::OptionalF64(value),
             },
         };

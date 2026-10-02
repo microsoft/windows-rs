@@ -197,10 +197,12 @@ input, context, effects, multiple windows, virtualization, WebView2, and deploym
 ## Maintain generated controls
 
 `crates/tools/reactor/src/schema.toml` declares controls, properties, relations, and events.
-Controls default to the `Visual` category and the
-`Microsoft.UI.Xaml.Controls.<ControlName>` native class. Specify only exceptions. Unknown schema
-fields are rejected so misspelled or obsolete settings cannot be ignored. Control capabilities
-such as focus, references, and attachments are declared on the control.
+Native classes, property types, event payloads, and collection types come from the WinUI metadata.
+The schema specifies only Reactor behavior and public API exceptions. Controls default to the
+`Visual` category, relations default to one positional owned visual, and adapters define
+Reactor-specific value conversions. Unknown schema fields are rejected, and inferred metadata is
+validated before generation. Control capabilities such as focus, references, and attachments are
+declared on the control. `layout_exit_transition` is a top-level schema capability.
 
 After changing the schema or generator, run:
 

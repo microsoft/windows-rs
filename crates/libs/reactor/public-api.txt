@@ -40,6 +40,7 @@ pub windows_reactor::AutomationHeadingLevel::Level6
 pub windows_reactor::AutomationHeadingLevel::Level7
 pub windows_reactor::AutomationHeadingLevel::Level8
 pub windows_reactor::AutomationHeadingLevel::Level9
+pub windows_reactor::AutomationHeadingLevel::None
 pub enum windows_reactor::Brush
 pub windows_reactor::Brush::Solid(windows_reactor::Color)
 pub windows_reactor::Brush::Theme(windows_reactor::ThemeBrush)
@@ -593,7 +594,6 @@ pub windows_reactor::PropertyId::Height
 pub windows_reactor::PropertyId::HorizontalAlignment
 pub windows_reactor::PropertyId::HorizontalContentAlignment
 pub windows_reactor::PropertyId::HorizontalScrollBarVisibility
-pub windows_reactor::PropertyId::InfoBadgeValue
 pub windows_reactor::PropertyId::Initials
 pub windows_reactor::PropertyId::Interval
 pub windows_reactor::PropertyId::IsActive
@@ -644,8 +644,6 @@ pub windows_reactor::PropertyId::Minimum
 pub windows_reactor::PropertyId::MinuteIncrement
 pub windows_reactor::PropertyId::MonthVisible
 pub windows_reactor::PropertyId::NavigateUri
-pub windows_reactor::PropertyId::NavigationViewIsBackButtonVisible
-pub windows_reactor::PropertyId::NumberBoxValue
 pub windows_reactor::PropertyId::Opacity
 pub windows_reactor::PropertyId::OpacityTransition
 pub windows_reactor::PropertyId::OpenPaneLength
@@ -660,7 +658,6 @@ pub windows_reactor::PropertyId::PreferredPlacement
 pub windows_reactor::PropertyId::PrimaryButtonText
 pub windows_reactor::PropertyId::RadiusX
 pub windows_reactor::PropertyId::RadiusY
-pub windows_reactor::PropertyId::RatingControlValue
 pub windows_reactor::PropertyId::RelativeAlignBottom
 pub windows_reactor::PropertyId::RelativeAlignHorizontalCenter
 pub windows_reactor::PropertyId::RelativeAlignLeft
@@ -671,8 +668,6 @@ pub windows_reactor::PropertyId::Resources
 pub windows_reactor::PropertyId::RowSpacing
 pub windows_reactor::PropertyId::Scale
 pub windows_reactor::PropertyId::ScaleTransition
-pub windows_reactor::PropertyId::ScrollViewHorizontalScrollBarVisibility
-pub windows_reactor::PropertyId::ScrollViewVerticalScrollBarVisibility
 pub windows_reactor::PropertyId::SecondaryButtonText
 pub windows_reactor::PropertyId::SelectedIndex
 pub windows_reactor::PropertyId::SelectionMode
@@ -696,7 +691,6 @@ pub windows_reactor::PropertyId::TextTrimming
 pub windows_reactor::PropertyId::TextWrapping
 pub windows_reactor::PropertyId::Title
 pub windows_reactor::PropertyId::Transitions
-pub windows_reactor::PropertyId::TreeSelectionMode
 pub windows_reactor::PropertyId::UriSource
 pub windows_reactor::PropertyId::Value
 pub windows_reactor::PropertyId::VerticalAlignment
@@ -3857,6 +3851,7 @@ pub fn windows_reactor::ScrollView::grid_row(self, i32) -> Self
 pub fn windows_reactor::ScrollView::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::ScrollView::height(self, f64) -> Self
 pub fn windows_reactor::ScrollView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::ScrollView::horizontal_scroll_bar_visibility(self, windows_reactor::ScrollingScrollBarVisibility) -> Self
 pub fn windows_reactor::ScrollView::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::ScrollView::max_height(self, f64) -> Self
 pub fn windows_reactor::ScrollView::max_width(self, f64) -> Self
@@ -3870,11 +3865,10 @@ pub fn windows_reactor::ScrollView::relative_align_left(self) -> Self
 pub fn windows_reactor::ScrollView::relative_align_right(self) -> Self
 pub fn windows_reactor::ScrollView::relative_align_top(self) -> Self
 pub fn windows_reactor::ScrollView::relative_align_vertical_center(self) -> Self
-pub fn windows_reactor::ScrollView::scroll_view_horizontal_scroll_bar_visibility(self, windows_reactor::ScrollingScrollBarVisibility) -> Self
-pub fn windows_reactor::ScrollView::scroll_view_vertical_scroll_bar_visibility(self, windows_reactor::ScrollingScrollBarVisibility) -> Self
 pub fn windows_reactor::ScrollView::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ScrollView::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ScrollView::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
+pub fn windows_reactor::ScrollView::vertical_scroll_bar_visibility(self, windows_reactor::ScrollingScrollBarVisibility) -> Self
 pub fn windows_reactor::ScrollView::width(self, f64) -> Self
 impl core::convert::From<windows_reactor::ScrollView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ScrollView) -> Self

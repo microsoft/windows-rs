@@ -137,7 +137,6 @@ pub enum PropertyId {
     HorizontalAlignment,
     HorizontalContentAlignment,
     HorizontalScrollBarVisibility,
-    InfoBadgeValue,
     Initials,
     Interval,
     IsActive,
@@ -188,8 +187,6 @@ pub enum PropertyId {
     MinuteIncrement,
     MonthVisible,
     NavigateUri,
-    NavigationViewIsBackButtonVisible,
-    NumberBoxValue,
     Opacity,
     OpacityTransition,
     OpenPaneLength,
@@ -204,7 +201,6 @@ pub enum PropertyId {
     PrimaryButtonText,
     RadiusX,
     RadiusY,
-    RatingControlValue,
     RelativeAlignBottom,
     RelativeAlignHorizontalCenter,
     RelativeAlignLeft,
@@ -215,8 +211,6 @@ pub enum PropertyId {
     RowSpacing,
     Scale,
     ScaleTransition,
-    ScrollViewHorizontalScrollBarVisibility,
-    ScrollViewVerticalScrollBarVisibility,
     SecondaryButtonText,
     SelectedIndex,
     SelectionMode,
@@ -240,7 +234,6 @@ pub enum PropertyId {
     TextWrapping,
     Title,
     Transitions,
-    TreeSelectionMode,
     UriSource,
     Value,
     VerticalAlignment,
@@ -987,8 +980,8 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
                     value: ValueType::Enum {
                         kind: "AutomationHeadingLevel",
                         variants: &[
-                            "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "Level7",
-                            "Level8", "Level9",
+                            "None", "Level1", "Level2", "Level3", "Level4", "Level5", "Level6",
+                            "Level7", "Level8", "Level9",
                         ],
                     },
                 });
@@ -1372,7 +1365,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::F64,
         }),
-        (ObjectType::TreeView, PropertyId::TreeSelectionMode) => Some(PropertyContract {
+        (ObjectType::TreeView, PropertyId::SelectionMode) => Some(PropertyContract {
             id,
             value: ValueType::Enum {
                 kind: "TreeViewSelectionMode",
@@ -1480,7 +1473,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::F64,
         }),
-        (ObjectType::NumberBox, PropertyId::NumberBoxValue) => Some(PropertyContract {
+        (ObjectType::NumberBox, PropertyId::Value) => Some(PropertyContract {
             id,
             value: ValueType::OptionalF64,
         }),
@@ -1497,15 +1490,13 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
                 value: ValueType::Bool,
             })
         }
-        (ObjectType::NavigationView, PropertyId::NavigationViewIsBackButtonVisible) => {
-            Some(PropertyContract {
-                id,
-                value: ValueType::Enum {
-                    kind: "NavigationViewBackButtonVisible",
-                    variants: &["Collapsed", "Visible", "Auto"],
-                },
-            })
-        }
+        (ObjectType::NavigationView, PropertyId::IsBackButtonVisible) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "NavigationViewBackButtonVisible",
+                variants: &["Collapsed", "Visible", "Auto"],
+            },
+        }),
         (ObjectType::NavigationView, PropertyId::IsSettingsVisible) => Some(PropertyContract {
             id,
             value: ValueType::Bool,
@@ -1613,7 +1604,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::SelectionIndex,
         }),
-        (ObjectType::InfoBadge, PropertyId::InfoBadgeValue) => Some(PropertyContract {
+        (ObjectType::InfoBadge, PropertyId::Value) => Some(PropertyContract {
             id,
             value: ValueType::I32,
         }),
@@ -1648,7 +1639,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::String,
         }),
-        (ObjectType::ScrollView, PropertyId::ScrollViewHorizontalScrollBarVisibility) => {
+        (ObjectType::ScrollView, PropertyId::HorizontalScrollBarVisibility) => {
             Some(PropertyContract {
                 id,
                 value: ValueType::Enum {
@@ -1657,7 +1648,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
                 },
             })
         }
-        (ObjectType::ScrollView, PropertyId::ScrollViewVerticalScrollBarVisibility) => {
+        (ObjectType::ScrollView, PropertyId::VerticalScrollBarVisibility) => {
             Some(PropertyContract {
                 id,
                 value: ValueType::Enum {
@@ -1998,7 +1989,7 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::I32,
         }),
-        (ObjectType::RatingControl, PropertyId::RatingControlValue) => Some(PropertyContract {
+        (ObjectType::RatingControl, PropertyId::Value) => Some(PropertyContract {
             id,
             value: ValueType::OptionalF64,
         }),
@@ -2377,7 +2368,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::Slider, PropertyId::IsEnabled) => 29,
         (ObjectType::Slider, PropertyId::Orientation) => 30,
         (ObjectType::Slider, PropertyId::StepFrequency) => 31,
-        (ObjectType::TreeView, PropertyId::TreeSelectionMode) => 26,
+        (ObjectType::TreeView, PropertyId::SelectionMode) => 26,
         (ObjectType::TreeView, PropertyId::IsEnabled) => 27,
         (ObjectType::TreeNode, PropertyId::Text) => 26,
         (ObjectType::TreeNode, PropertyId::Expanded) => 27,
@@ -2408,11 +2399,11 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::NumberBox, PropertyId::IsEnabled) => 26,
         (ObjectType::NumberBox, PropertyId::Minimum) => 27,
         (ObjectType::NumberBox, PropertyId::Maximum) => 28,
-        (ObjectType::NumberBox, PropertyId::NumberBoxValue) => 29,
+        (ObjectType::NumberBox, PropertyId::Value) => 29,
         (ObjectType::NavigationView, PropertyId::IsEnabled) => 26,
         (ObjectType::NavigationView, PropertyId::PaneDisplayMode) => 27,
         (ObjectType::NavigationView, PropertyId::IsPaneToggleButtonVisible) => 28,
-        (ObjectType::NavigationView, PropertyId::NavigationViewIsBackButtonVisible) => 29,
+        (ObjectType::NavigationView, PropertyId::IsBackButtonVisible) => 29,
         (ObjectType::NavigationView, PropertyId::IsSettingsVisible) => 30,
         (ObjectType::NavigationView, PropertyId::AlwaysShowHeader) => 31,
         (ObjectType::NavigationView, PropertyId::PaneTitle) => 32,
@@ -2443,7 +2434,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::RadioButtons, PropertyId::MaxColumns) => 26,
         (ObjectType::RadioButtons, PropertyId::ItemsSource) => 27,
         (ObjectType::RadioButtons, PropertyId::SelectedIndex) => 28,
-        (ObjectType::InfoBadge, PropertyId::InfoBadgeValue) => 26,
+        (ObjectType::InfoBadge, PropertyId::Value) => 26,
         (ObjectType::InfoBar, PropertyId::Title) => 26,
         (ObjectType::InfoBar, PropertyId::Message) => 27,
         (ObjectType::InfoBar, PropertyId::Severity) => 28,
@@ -2451,8 +2442,8 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::InfoBar, PropertyId::IsClosable) => 30,
         (ObjectType::PersonPicture, PropertyId::DisplayName) => 26,
         (ObjectType::PersonPicture, PropertyId::Initials) => 27,
-        (ObjectType::ScrollView, PropertyId::ScrollViewHorizontalScrollBarVisibility) => 26,
-        (ObjectType::ScrollView, PropertyId::ScrollViewVerticalScrollBarVisibility) => 27,
+        (ObjectType::ScrollView, PropertyId::HorizontalScrollBarVisibility) => 26,
+        (ObjectType::ScrollView, PropertyId::VerticalScrollBarVisibility) => 27,
         (ObjectType::Image, PropertyId::Source) => 26,
         (ObjectType::Image, PropertyId::Stretch) => 27,
         (ObjectType::ProgressRing, PropertyId::Minimum) => 26,
@@ -2487,7 +2478,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::RatingControl, PropertyId::Caption) => 26,
         (ObjectType::RatingControl, PropertyId::IsReadOnly) => 27,
         (ObjectType::RatingControl, PropertyId::MaxRating) => 28,
-        (ObjectType::RatingControl, PropertyId::RatingControlValue) => 29,
+        (ObjectType::RatingControl, PropertyId::Value) => 29,
         (ObjectType::Expander, PropertyId::IsExpanded) => 26,
         (ObjectType::Expander, PropertyId::HorizontalContentAlignment) => 27,
         (ObjectType::Expander, PropertyId::Resources) => 28,
@@ -2702,7 +2693,6 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::HorizontalAlignment,
     PropertyId::HorizontalContentAlignment,
     PropertyId::HorizontalScrollBarVisibility,
-    PropertyId::InfoBadgeValue,
     PropertyId::Initials,
     PropertyId::Interval,
     PropertyId::IsActive,
@@ -2753,8 +2743,6 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::MinuteIncrement,
     PropertyId::MonthVisible,
     PropertyId::NavigateUri,
-    PropertyId::NavigationViewIsBackButtonVisible,
-    PropertyId::NumberBoxValue,
     PropertyId::Opacity,
     PropertyId::OpacityTransition,
     PropertyId::OpenPaneLength,
@@ -2769,7 +2757,6 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::PrimaryButtonText,
     PropertyId::RadiusX,
     PropertyId::RadiusY,
-    PropertyId::RatingControlValue,
     PropertyId::RelativeAlignBottom,
     PropertyId::RelativeAlignHorizontalCenter,
     PropertyId::RelativeAlignLeft,
@@ -2780,8 +2767,6 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::RowSpacing,
     PropertyId::Scale,
     PropertyId::ScaleTransition,
-    PropertyId::ScrollViewHorizontalScrollBarVisibility,
-    PropertyId::ScrollViewVerticalScrollBarVisibility,
     PropertyId::SecondaryButtonText,
     PropertyId::SelectedIndex,
     PropertyId::SelectionMode,
@@ -2805,7 +2790,6 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::TextWrapping,
     PropertyId::Title,
     PropertyId::Transitions,
-    PropertyId::TreeSelectionMode,
     PropertyId::UriSource,
     PropertyId::Value,
     PropertyId::VerticalAlignment,

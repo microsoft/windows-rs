@@ -115,7 +115,7 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | Slider.Orientation | property | generated set/clear | native set/clear smoke |
 | Slider.StepFrequency | property | generated set/clear | native set/clear smoke |
 | Slider.ValueChanged | event | generated subscribe/remove | typed event dispatch phase |
-| TreeView.TreeSelectionMode | property | generated set/clear | native readback phase |
+| TreeView.SelectionMode | property | generated set/clear | native readback phase |
 | TreeView.ItemInvoked | event | generated subscribe/remove | string item/tag payload phase |
 | TreeNode.Text | property | handwritten collection phase | native set/clear smoke |
 | TreeNode.Expanded | property | handwritten collection phase | native set/clear smoke |
@@ -153,12 +153,12 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | NumberBox.IsEnabled | property | generated set/clear | native set/clear smoke |
 | NumberBox.Minimum | property | generated set/clear | controlled feedback phase |
 | NumberBox.Maximum | property | generated set/clear | controlled feedback phase |
-| NumberBox.NumberBoxValue | property | generated set/clear | adapter-family phase |
+| NumberBox.Value | property | generated set/clear | adapter-family phase |
 | NumberBox.ValueChanged | event | generated subscribe/remove | typed event dispatch phase |
 | NavigationView.IsEnabled | property | generated set/clear | native set/clear smoke |
 | NavigationView.PaneDisplayMode | property | generated set/clear | native set/clear smoke |
 | NavigationView.IsPaneToggleButtonVisible | property | generated set/clear | native set/clear smoke |
-| NavigationView.NavigationViewIsBackButtonVisible | property | generated set/clear | native set/clear smoke |
+| NavigationView.IsBackButtonVisible | property | generated set/clear | native set/clear smoke |
 | NavigationView.IsSettingsVisible | property | generated set/clear | native set/clear smoke |
 | NavigationView.AlwaysShowHeader | property | generated set/clear | native set/clear smoke |
 | NavigationView.PaneTitle | property | generated set/clear | native set/clear smoke |
@@ -197,7 +197,7 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | RadioButtons.ItemsSource | property | generated set/clear | adapter-family phase |
 | RadioButtons.SelectedIndex | property | generated set/clear | selection feedback/readback phase |
 | RadioButtons.SelectionChanged | event | generated subscribe/remove | selection payload phase |
-| InfoBadge.InfoBadgeValue | property | generated set/clear | native set/clear smoke |
+| InfoBadge.Value | property | generated set/clear | native set/clear smoke |
 | InfoBar.Title | property | generated set/clear | native set/clear smoke |
 | InfoBar.Message | property | generated set/clear | native set/clear smoke |
 | InfoBar.Severity | property | generated set/clear | native set/clear smoke |
@@ -206,8 +206,8 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | InfoBar.Closed | event | generated subscribe/remove | typed event dispatch phase |
 | PersonPicture.DisplayName | property | generated set/clear | native set/clear smoke |
 | PersonPicture.Initials | property | generated set/clear | native set/clear smoke |
-| ScrollView.ScrollViewHorizontalScrollBarVisibility | property | generated set/clear | native set/clear smoke |
-| ScrollView.ScrollViewVerticalScrollBarVisibility | property | generated set/clear | native set/clear smoke |
+| ScrollView.HorizontalScrollBarVisibility | property | generated set/clear | native set/clear smoke |
+| ScrollView.VerticalScrollBarVisibility | property | generated set/clear | native set/clear smoke |
 | Image.Source | property | generated set/clear | image source/readback phase |
 | Image.Stretch | property | generated set/clear | native set/clear smoke |
 | Image.ImageOpened | event | generated subscribe/remove | typed event dispatch phase |
@@ -245,7 +245,7 @@ The live selftest executes all 267 schema property definitions and 69 event defi
 | RatingControl.Caption | property | generated set/clear | native set/clear smoke |
 | RatingControl.IsReadOnly | property | generated set/clear | native set/clear smoke |
 | RatingControl.MaxRating | property | generated set/clear | controlled feedback phase |
-| RatingControl.RatingControlValue | property | generated set/clear | adapter-family phase |
+| RatingControl.Value | property | generated set/clear | adapter-family phase |
 | RatingControl.ValueChanged | event | generated subscribe/remove | typed event dispatch phase |
 | Expander.IsExpanded | property | generated set/clear | controlled feedback phase |
 | Expander.HorizontalContentAlignment | property | generated set/clear | native set/clear smoke |

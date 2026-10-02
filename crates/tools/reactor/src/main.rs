@@ -37,13 +37,12 @@ struct AttachedProperty {
     name: String,
     owner: String,
     native: String,
+    #[serde(default)]
     value: String,
     #[serde(default)]
     flag: bool,
     default: Option<String>,
-    validation: Option<String>,
-    #[serde(default)]
-    variants: Vec<String>,
+    validation: Option<Validation>,
     #[serde(default)]
     readback: bool,
 }
@@ -53,13 +52,14 @@ struct AttachedProperty {
 struct VisualProperty {
     name: String,
     owner: String,
+    #[serde(default)]
     value: String,
     default: Option<String>,
     #[serde(default)]
     readback: bool,
 }
 
-#[derive(Clone, Copy, Default, Deserialize, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Deserialize, Eq, PartialEq)]
 enum ObjectCategory {
     #[default]
     Visual,
@@ -74,6 +74,102 @@ impl ObjectCategory {
             Self::Structural => "Structural",
             Self::Data => "Data",
         }
+    }
+}
+
+impl std::fmt::Display for ObjectCategory {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter.write_str(self.as_str())
+    }
+}
+
+#[derive(Clone, Copy, Debug, Default, Deserialize, Eq, PartialEq)]
+enum Cardinality {
+    #[default]
+    One,
+    Many,
+}
+
+impl std::fmt::Display for Cardinality {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(formatter, "{self:?}")
+    }
+}
+
+impl Cardinality {
+    fn as_str(self) -> &'static str {
+        match self {
+            Self::One => "One",
+            Self::Many => "Many",
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Default, Deserialize, Eq, PartialEq)]
+enum Identity {
+    #[default]
+    Positional,
+    Keyed,
+}
+
+impl std::fmt::Display for Identity {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(formatter, "{self:?}")
+    }
+}
+
+impl Identity {
+    fn as_str(self) -> &'static str {
+        match self {
+            Self::Positional => "Positional",
+            Self::Keyed => "Keyed",
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Default, Deserialize, Eq, PartialEq)]
+enum Realization {
+    #[default]
+    Owned,
+    Structural,
+    Container,
+}
+
+impl std::fmt::Display for Realization {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(formatter, "{self:?}")
+    }
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
+enum NativeCollection {
+    Vector,
+    ObservableVector,
+    ItemCollection,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
+#[serde(rename_all = "snake_case")]
+enum Validation {
+    Finite,
+    FinitePositive,
+    FiniteNonNegative,
+    NonNegative,
+    Positive,
+    ZeroToFiftyNine,
+}
+
+impl std::fmt::Display for Validation {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let value = match self {
+            Self::Finite => "finite",
+            Self::FinitePositive => "finite_positive",
+            Self::FiniteNonNegative => "finite_non_negative",
+            Self::NonNegative => "non_negative",
+            Self::Positive => "positive",
+            Self::ZeroToFiftyNine => "zero_to_fifty_nine",
+        };
+        formatter.write_str(value)
     }
 }
 
@@ -106,6 +202,27 @@ enum PropertyAdapter {
 }
 
 impl PropertyAdapter {
+    fn value(self) -> &'static str {
+        match self {
+            Self::DropPolicy => "DragDropPolicy",
+            Self::GridColumns | Self::GridRows => "GridLengths",
+            Self::ImageUri => "ImageSource",
+            Self::ImplicitOpacityTransition | Self::ImplicitScaleTransition => "Duration",
+            Self::ImplicitScale => "F64",
+            Self::InspectableString | Self::PathData | Self::RichEditText | Self::Uri => "String",
+            Self::InspectableStringList => "StringList",
+            Self::KeyAccelerators => "KeyAccelerators",
+            Self::NativeColor => "Color",
+            Self::NumberBoxValue | Self::RatingValue => "OptionalF64",
+            Self::PointerCapture | Self::PointerFocus => "Bool",
+            Self::ResourceOverrides => "ResourceOverrides",
+            Self::ResourceStyle => "ButtonStyle",
+            Self::RichTextBlocks => "RichText",
+            Self::SelectionIndex => "SelectionIndex",
+            Self::ThemeBrush => "Brush",
+        }
+    }
+
     fn method(self) -> Option<&'static str> {
         match self {
             Self::RichEditText => Some("text"),
@@ -154,6 +271,49 @@ enum PayloadAdapter {
     OptionalTimeSpan,
     RatingValue,
     SelectionIndex,
+}
+
+impl PayloadAdapter {
+    fn value(self) -> &'static str {
+        match self {
+            Self::ContentDialogResult => "ContentDialogResult",
+            Self::InspectableString | Self::ItemTag => "String",
+            Self::NativeColor => "Color",
+            Self::NavigationDisplayMode => "NavigationViewDisplayMode",
+            Self::NumberBoxValue | Self::RatingValue => "OptionalF64",
+            Self::OptionalDateTime => "OptionalDateTime",
+            Self::OptionalTimeSpan => "OptionalTimeSpan",
+            Self::SelectionIndex => "SelectionIndex",
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
+#[serde(rename_all = "snake_case")]
+enum EventAdapter {
+    Character,
+    DragKind,
+    DroppedData,
+    Focus,
+    ItemTag,
+    Key,
+    Pointer,
+    StringList,
+}
+
+impl EventAdapter {
+    fn value(self) -> &'static str {
+        match self {
+            Self::Character => "CharacterEventInfo",
+            Self::DragKind => "DragKind",
+            Self::DroppedData => "DroppedData",
+            Self::Focus => "FocusEventInfo",
+            Self::ItemTag => "String",
+            Self::Key => "KeyEventInfo",
+            Self::Pointer => "PointerEventInfo",
+            Self::StringList => "StringList",
+        }
+    }
 }
 
 #[derive(Clone, Copy, Deserialize)]
@@ -217,6 +377,7 @@ struct Property {
     name: String,
     native: Option<String>,
     method: Option<String>,
+    #[serde(default)]
     value: String,
     adapter: Option<PropertyAdapter>,
     controlled: Option<String>,
@@ -227,7 +388,7 @@ struct Property {
     #[serde(default)]
     required: bool,
     default: Option<String>,
-    validation: Option<String>,
+    validation: Option<Validation>,
     #[serde(default)]
     readback: bool,
 }
@@ -250,15 +411,19 @@ impl Property {
 struct Relation {
     name: String,
     native: Option<String>,
-    child: String,
+    #[serde(default)]
+    child: ObjectCategory,
     #[serde(default)]
     allowed_objects: Vec<String>,
-    cardinality: String,
-    identity: String,
-    realization: String,
+    #[serde(default)]
+    cardinality: Cardinality,
+    #[serde(default)]
+    identity: Identity,
+    #[serde(default)]
+    realization: Realization,
     method: Option<String>,
     item: Option<String>,
-    native_collection: Option<String>,
+    native_collection: Option<NativeCollection>,
     native_item: Option<String>,
 }
 
@@ -267,6 +432,8 @@ struct Relation {
 struct Event {
     name: String,
     field: Option<String>,
+    adapter: Option<EventAdapter>,
+    #[serde(default)]
     value: String,
     #[serde(default)]
     property_changed: bool,
@@ -294,8 +461,9 @@ struct Selection {
 
 fn main() {
     let source = fs::read_to_string(workspace_path(SCHEMA)).unwrap();
-    let schema: Schema = toml::from_str(&source).unwrap();
+    let mut schema: Schema = toml::from_str(&source).unwrap();
     let metadata = tool_reactor_metadata::MetadataResolver::load(&workspace_path(WINMD));
+    normalize_schema(&mut schema, &metadata);
     let generated = rustfmt(&generate(&schema, &metadata));
     let declarations = rustfmt(&generate_declarations(&schema, &metadata));
     let native = rustfmt(&generate_native(&schema, &metadata));
@@ -306,6 +474,7 @@ fn main() {
     if fs::read_to_string(&output).ok().as_deref() != Some(&generated) {
         fs::write(output, generated).unwrap();
     }
+
     let declarations_output = workspace_path(DECLARATIONS_OUTPUT);
     if fs::read_to_string(&declarations_output).ok().as_deref() != Some(&declarations) {
         fs::write(declarations_output, declarations).unwrap();
@@ -354,6 +523,344 @@ fn main() {
         .flat()
         .filter_file(workspace_path(CANVAS_FILTER))
         .write();
+}
+
+fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::MetadataResolver) {
+    for property in &mut schema.attached_properties {
+        let owner = property.owner.rsplit('.').next().unwrap();
+        let method = format!("Set{}", property.native);
+        let inferred = metadata
+            .infer_static_value_type(owner, &method)
+            .map_or_else(
+                || {
+                    panic!(
+                        "cannot infer value for {}.{} from {owner}.{method}",
+                        property.owner, property.native
+                    )
+                },
+                normalize_metadata_value,
+            );
+        if property.value.is_empty() {
+            property.value = inferred;
+        } else {
+            assert_eq!(
+                property.value, inferred,
+                "{}.{} value does not match metadata",
+                property.owner, property.native
+            );
+        }
+    }
+
+    for property in &mut schema.visual_properties {
+        let owner = property.owner.rsplit('.').next().unwrap();
+        normalize_property_value(
+            &mut property.value,
+            metadata,
+            owner,
+            &format!("put_{}", property.name),
+            None,
+            &format!("{}.{}", property.owner, property.name),
+        );
+    }
+
+    for object in &mut schema.objects {
+        if let Some(inferred) = metadata.class_path(&object.name) {
+            if let Some(explicit) = &object.native {
+                assert_eq!(
+                    explicit, inferred,
+                    "{} native class does not match metadata",
+                    object.name
+                );
+            } else {
+                object.native = Some(inferred.to_string());
+            }
+        }
+        let owner = object.native_path().rsplit('.').next().unwrap().to_string();
+        for property in &mut object.properties {
+            let native = native_property(property).to_string();
+            let method = if property
+                .adapter
+                .is_some_and(PropertyAdapter::mutates_native_collection)
+            {
+                format!("get_{native}")
+            } else {
+                format!("put_{native}")
+            };
+            normalize_property_value(
+                &mut property.value,
+                metadata,
+                &owner,
+                &method,
+                property.adapter,
+                &format!("{}.{}", object.name, property.name),
+            );
+        }
+
+        let property_values = object
+            .properties
+            .iter()
+            .map(|property| (property.name.as_str(), property.value.as_str()))
+            .collect::<BTreeMap<_, _>>();
+        for event in &mut object.events {
+            let inferred = event
+                .observes
+                .as_deref()
+                .map(|observed| {
+                    property_values
+                        .get(observed)
+                        .unwrap_or_else(|| {
+                            panic!(
+                                "{}.{} observes missing property {observed}",
+                                object.name, event.name
+                            )
+                        })
+                        .to_string()
+                })
+                .or_else(|| {
+                    object
+                        .selection
+                        .as_ref()
+                        .filter(|selection| selection.event == event.name)
+                        .map(|_| "Selection".to_string())
+                })
+                .or_else(|| event.adapter.map(EventAdapter::value).map(str::to_string))
+                .or_else(|| {
+                    event
+                        .payload_adapter
+                        .map(PayloadAdapter::value)
+                        .map(str::to_string)
+                })
+                .or_else(|| {
+                    event.payload.as_deref().and_then(|payload| {
+                        metadata
+                            .resolve_event_args_property(
+                                &owner,
+                                &format!("add_{}", event.name),
+                                payload,
+                            )
+                            .map(|(value, _, _)| normalize_metadata_value(value))
+                    })
+                });
+            if event.value.is_empty() {
+                event.value = inferred.unwrap_or_else(|| "Unit".to_string());
+            } else if let Some(inferred) = inferred {
+                assert!(
+                    event.value == "Unit"
+                        || event.value == inferred
+                        || matches!(
+                            (event.value.as_str(), inferred.as_str()),
+                            ("FontWeight", "U16")
+                        ),
+                    "{}.{} value {} does not match inferred value {inferred}",
+                    object.name,
+                    event.name,
+                    event.value
+                );
+            }
+        }
+
+        for relation in &mut object.relations {
+            if relation.realization != Realization::Owned {
+                continue;
+            }
+            let native = relation.native.as_deref().unwrap_or(&relation.name);
+            let Some(collection) = metadata.classify_collection(&owner, &format!("get_{native}"))
+            else {
+                assert_eq!(
+                    relation.cardinality,
+                    Cardinality::One,
+                    "{}.{} is declared as a collection but metadata is not",
+                    object.name,
+                    relation.name
+                );
+                continue;
+            };
+            relation.cardinality = Cardinality::Many;
+            let (native_collection, native_item) = match collection {
+                tool_reactor_metadata::CollectionType::UiElementCollection => continue,
+                tool_reactor_metadata::CollectionType::InspectableVector => {
+                    (NativeCollection::Vector, "IInspectable".to_string())
+                }
+                tool_reactor_metadata::CollectionType::ItemCollection => {
+                    (NativeCollection::ItemCollection, "IInspectable".to_string())
+                }
+                tool_reactor_metadata::CollectionType::TypedVector(item) => {
+                    (NativeCollection::Vector, item)
+                }
+                tool_reactor_metadata::CollectionType::ObservableVector(item) => {
+                    (NativeCollection::ObservableVector, item)
+                }
+            };
+            if let Some(explicit) = relation.native_collection {
+                assert_eq!(
+                    explicit, native_collection,
+                    "{}.{} native collection does not match metadata",
+                    object.name, relation.name
+                );
+            } else {
+                relation.native_collection = Some(native_collection);
+            }
+            if let Some(explicit) = &relation.native_item {
+                assert_eq!(
+                    explicit, &native_item,
+                    "{}.{} native item does not match metadata",
+                    object.name, relation.name
+                );
+            } else {
+                relation.native_item = Some(native_item);
+            }
+        }
+    }
+
+    for object in &schema.objects {
+        for property in &object.properties {
+            assert!(
+                !property.value.is_empty(),
+                "{}.{} has no resolved value",
+                object.name,
+                property.name
+            );
+            for event in [&property.controlled, &property.coerces]
+                .into_iter()
+                .flatten()
+            {
+                assert!(
+                    object
+                        .events
+                        .iter()
+                        .any(|candidate| candidate.name == *event),
+                    "{}.{} references missing event {event}",
+                    object.name,
+                    property.name
+                );
+            }
+        }
+        for event in &object.events {
+            if event.property_changed {
+                assert!(
+                    event.observes.is_some(),
+                    "{}.{} property change event must observe a property",
+                    object.name,
+                    event.name
+                );
+            }
+            if let Some(observed) = &event.observes {
+                assert!(
+                    object
+                        .properties
+                        .iter()
+                        .any(|property| property.name == *observed),
+                    "{}.{} observes missing property {observed}",
+                    object.name,
+                    event.name
+                );
+            }
+            if let Some(field) = &event.field {
+                assert!(
+                    field.starts_with("on_"),
+                    "{}.{} event field must start with on_",
+                    object.name,
+                    event.name
+                );
+            }
+            for property in &event.active_properties {
+                assert!(
+                    object
+                        .properties
+                        .iter()
+                        .any(|candidate| snake_case(&candidate.name) == *property),
+                    "{}.{} references missing active property {property}",
+                    object.name,
+                    event.name
+                );
+            }
+        }
+        for relation in &object.relations {
+            if let Some(item) = &relation.item {
+                assert!(
+                    schema
+                        .objects
+                        .iter()
+                        .any(|candidate| candidate.name == *item),
+                    "{}.{} references missing item {item}",
+                    object.name,
+                    relation.name
+                );
+            }
+            for allowed in &relation.allowed_objects {
+                assert!(
+                    schema
+                        .objects
+                        .iter()
+                        .any(|candidate| candidate.name == *allowed),
+                    "{}.{} references missing allowed object {allowed}",
+                    object.name,
+                    relation.name
+                );
+            }
+        }
+        if let Some(selection) = &object.selection {
+            assert!(
+                object
+                    .events
+                    .iter()
+                    .any(|event| event.name == selection.event),
+                "{} selection references missing event {}",
+                object.name,
+                selection.event
+            );
+            for relation in &selection.relations {
+                assert!(
+                    object
+                        .relations
+                        .iter()
+                        .any(|candidate| candidate.name == *relation),
+                    "{} selection references missing relation {relation}",
+                    object.name
+                );
+            }
+        }
+    }
+}
+
+fn normalize_property_value(
+    value: &mut String,
+    metadata: &tool_reactor_metadata::MetadataResolver,
+    owner: &str,
+    method: &str,
+    adapter: Option<PropertyAdapter>,
+    schema_name: &str,
+) {
+    let inferred = adapter
+        .map(PropertyAdapter::value)
+        .map(str::to_string)
+        .or_else(|| {
+            metadata
+                .infer_value_type(owner, method)
+                .map(|(value, _)| normalize_metadata_value(value))
+        });
+    if value.is_empty() {
+        *value = inferred.unwrap_or_else(|| {
+            panic!("cannot infer value for {schema_name} from {owner}.{method}")
+        });
+    } else if let Some(inferred) = inferred {
+        assert!(
+            *value == inferred
+                || matches!(
+                    (value.as_str(), inferred.as_str()),
+                    ("FontWeight", "U16") | ("OptionalBool", "Bool")
+                ),
+            "{schema_name} value {value} does not match inferred value {inferred}"
+        );
+    }
+}
+
+fn normalize_metadata_value(value: String) -> String {
+    if value == "Str" {
+        "String".to_string()
+    } else {
+        value
+    }
 }
 
 fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
@@ -435,8 +942,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
         .iter()
         .flat_map(|object| &object.relations)
         .filter(|relation| {
-            relation.realization == "Owned"
-                && relation.cardinality == "Many"
+            relation.realization == Realization::Owned
+                && relation.cardinality == Cardinality::Many
                 && relation.native_item.as_deref() != Some("IInspectable")
         })
         .filter_map(|relation| relation.native_item.as_deref())
@@ -1064,7 +1571,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     );
     for object in &objects {
         for relation in &object.relations {
-            if relation.realization != "Owned" || relation.cardinality != "Many" {
+            if relation.realization != Realization::Owned
+                || relation.cardinality != Cardinality::Many
+            {
                 continue;
             }
             let target = if object.events.is_empty() {
@@ -1087,7 +1596,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 .unwrap()
                 .short_name();
             let item = relation.native_item.as_deref().unwrap();
-            let conversion = if relation.native_collection.as_deref() == Some("ItemCollection") {
+            let conversion = if relation.native_collection == Some(NativeCollection::ItemCollection)
+            {
                 ".and_then(|value| value.cast::<windows_collections::IVector<IInspectable>>()\
                  .map(GeneratedCollection::Inspectable).map_err(Into::into))"
                     .to_string()
@@ -1282,8 +1792,10 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             "Bool" => ("Bool", "*value"),
             "String" => ("String", "value.as_ref()"),
             value => {
-                let arms = property
-                    .variants
+                let (_, variants) = metadata
+                    .static_enum_info(owner, &format!("Set{}", property.native))
+                    .unwrap();
+                let arms = variants
                     .iter()
                     .map(|variant| format!("\"{variant}\" => native::{value}::{variant},"))
                     .collect::<String>();
@@ -1662,7 +2174,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     );
     for object in &objects {
         for relation in &object.relations {
-            if relation.realization != "Owned" || relation.cardinality != "One" {
+            if relation.realization != Realization::Owned
+                || relation.cardinality != Cardinality::One
+            {
                 continue;
             }
             let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
@@ -2588,7 +3102,9 @@ fn generate_bindings(
             ));
         }
         for relation in &object.relations {
-            if relation.realization == "Owned" && relation.cardinality == "One" {
+            if relation.realization == Realization::Owned
+                && relation.cardinality == Cardinality::One
+            {
                 let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
                 let method = format!("put_{native_relation}");
                 let interface = metadata
@@ -2596,7 +3112,9 @@ fn generate_bindings(
                     .unwrap()
                     .full_path();
                 generated.insert(format!("{}::{method}", binding_path(&interface)));
-            } else if relation.realization == "Owned" && relation.cardinality == "Many" {
+            } else if relation.realization == Realization::Owned
+                && relation.cardinality == Cardinality::Many
+            {
                 if relation.name == "Children" && relation.native_item.is_none() {
                     generated
                         .insert("Microsoft::UI::Xaml::Controls::IPanel::get_Children".to_string());
@@ -2900,8 +3418,11 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
         let value = if is_builtin_value(&property.value) {
             format!("ValueType::{}", property.value)
         } else {
-            let variants = property
-                .variants
+            let owner = property.owner.rsplit('.').next().unwrap();
+            let (_, variants) = metadata
+                .static_enum_info(owner, &format!("Set{}", property.native))
+                .unwrap();
+            let variants = variants
                 .iter()
                 .map(|variant| format!("\"{variant}\""))
                 .collect::<Vec<_>>()
@@ -3113,8 +3634,12 @@ fn generate_declarations(
         if is_builtin_value(&property.value) {
             continue;
         }
-        if let Some(previous) = enums.insert(property.value.as_str(), property.variants.clone()) {
-            assert_eq!(previous, property.variants, "conflicting enum definitions");
+        let owner = property.owner.rsplit('.').next().unwrap();
+        let (_, variants) = metadata
+            .static_enum_info(owner, &format!("Set{}", property.native))
+            .unwrap();
+        if let Some(previous) = enums.insert(property.value.as_str(), variants.to_vec()) {
+            assert_eq!(previous, variants, "conflicting enum definitions");
         }
     }
     for property in &schema.visual_properties {
@@ -3216,7 +3741,7 @@ fn generate_declarations(
         if matches!(property.value.as_str(), "CornerRadius" | "Thickness") {
             output.push_str(&format!("let {name} = {name}.into();\n"));
         }
-        if let Some(validation) = &property.validation {
+        if let Some(validation) = property.validation {
             let expression = validation_expression(&name, &property.value, validation);
             output.push_str(&format!(
                 "assert!({expression}, \"{} requires {validation}\");\n",
@@ -3405,7 +3930,7 @@ fn generate_declarations(
             if matches!(property.value.as_str(), "CornerRadius" | "Thickness") {
                 output.push_str(&format!("let {name} = {name}.into();\n"));
             }
-            if let Some(validation) = &property.validation {
+            if let Some(validation) = property.validation {
                 let expression = validation_expression(&name, &property.value, validation);
                 output.push_str(&format!(
                     "assert!({expression}, \"{}.{} requires {validation}\");\n",
@@ -3448,7 +3973,7 @@ fn generate_declarations(
             let relation = object
                 .relations
                 .iter()
-                .find(|relation| relation.realization == "Container")
+                .find(|relation| relation.realization == Realization::Container)
                 .unwrap();
             output.push_str(&format!(
                 "                pub fn item(mut self, key: impl Into<Key>, visual: impl Into<View>) -> Self {{\n\
@@ -3464,7 +3989,7 @@ fn generate_declarations(
         }
 
         for relation in &object.relations {
-            if object.virtual_items && relation.realization == "Container" {
+            if object.virtual_items && relation.realization == Realization::Container {
                 continue;
             }
             let method = relation
@@ -3487,7 +4012,7 @@ fn generate_declarations(
                 }
                 _ => unreachable!("unsupported relation shape"),
             };
-            let argument = if relation.cardinality == "One" {
+            let argument = if relation.cardinality == Cardinality::One {
                 invalid.to_string()
             } else {
                 format!("[{invalid}]")
@@ -3500,8 +4025,8 @@ fn generate_declarations(
                  /// let _ = {constructor}.{method}({argument});\n\
                  /// ```\n",
             ));
-            match relation.cardinality.as_str() {
-                "One" => {
+            match relation.cardinality {
+                Cardinality::One => {
                     if relation.name == "Icon" {
                         output.push_str(&format!(
                             "pub fn {method}(mut self, content: impl Into<Icon>) -> Self {{\n"
@@ -3523,9 +4048,9 @@ fn generate_declarations(
                         ));
                     }
                 }
-                "Many" => {
+                Cardinality::Many => {
                     let item = relation.item.as_deref().unwrap_or_else(|| {
-                        if relation.identity == "Keyed" {
+                        if relation.identity == Identity::Keyed {
                             "KeyedView"
                         } else {
                             "View"
@@ -3580,7 +4105,6 @@ fn generate_declarations(
                         ));
                     }
                 }
-                _ => unreachable!(),
             }
         }
 
@@ -3675,18 +4199,17 @@ fn property_argument(property: &Property) -> String {
     property_argument_parts(&property.name, &property.value)
 }
 
-fn validation_expression(name: &str, value: &str, validation: &str) -> String {
+fn validation_expression(name: &str, value: &str, validation: Validation) -> String {
     match validation {
-        "finite" => format!("{name}.is_finite()"),
-        "finite_positive" => format!("{name}.is_finite() && {name} > 0.0"),
-        "finite_non_negative" if value == "F64" => {
+        Validation::Finite => format!("{name}.is_finite()"),
+        Validation::FinitePositive => format!("{name}.is_finite() && {name} > 0.0"),
+        Validation::FiniteNonNegative if value == "F64" => {
             format!("{name}.is_finite() && {name} >= 0.0")
         }
-        "finite_non_negative" => format!("{name}.is_finite_non_negative()"),
-        "non_negative" => format!("{name} >= 0"),
-        "positive" => format!("{name} > 0"),
-        "zero_to_fifty_nine" => format!("(0..=59).contains(&{name})"),
-        _ => unreachable!(),
+        Validation::FiniteNonNegative => format!("{name}.is_finite_non_negative()"),
+        Validation::NonNegative => format!("{name} >= 0"),
+        Validation::Positive => format!("{name} > 0"),
+        Validation::ZeroToFiftyNine => format!("(0..=59).contains(&{name})"),
     }
 }
 

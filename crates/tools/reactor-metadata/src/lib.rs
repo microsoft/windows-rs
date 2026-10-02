@@ -48,22 +48,9 @@ pub struct MethodRef {
     pub return_type: Type,
 }
 
-/// Classification of a metadata parameter type for setter pattern inference.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ParamClass {
-    /// Primitive type (String, Bool, F64, etc.) -> direct `put_X(value)`.
-    Primitive,
-    /// IInspectable -> needs wrapping (textblock by default, or IReference when
-    /// the TOML specifies an explicit type).
-    IInspectable,
-    /// IReference<bool> -> `put_X(Some(value))`.
-    NullableBool,
-    /// Enum, struct, or other complex type -> needs explicit TOML config.
-    Complex,
-}
-
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum CollectionType {
+    UiElementCollection,
     InspectableVector,
     ItemCollection,
     TypedVector(String),
@@ -86,6 +73,7 @@ pub enum EventHandlerType {
 /// Pre-built lookup from `(class_short_name, method_name)` to `MethodRef`.
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
+    class_paths: HashMap<String, Option<String>>,
     base_classes: HashMap<(String, String), (String, String)>,
     implemented_interfaces: HashMap<(String, String), Vec<(String, String)>>,
     /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
@@ -134,6 +122,7 @@ impl MetadataResolver {
 
         let index = Index::new(files);
         let mut lookup = HashMap::new();
+        let mut class_paths = HashMap::new();
         let mut interface_owners = HashMap::new();
         let mut base_classes = HashMap::new();
         let mut implemented_interfaces = HashMap::new();
@@ -146,6 +135,15 @@ impl MetadataResolver {
             if namespace.starts_with("Microsoft.UI.Xaml")
                 && typedef.category() == TypeCategory::Class
             {
+                let path = format!("{namespace}.{name}");
+                class_paths
+                    .entry(name.to_string())
+                    .and_modify(|existing: &mut Option<String>| {
+                        if existing.as_deref() != Some(&path) {
+                            *existing = None;
+                        }
+                    })
+                    .or_insert(Some(path));
                 let interfaces = typedef
                     .interface_impls()
                     .filter_map(|implementation| match implementation.interface(&[]) {
@@ -223,6 +221,19 @@ impl MetadataResolver {
             };
             for method in typedef.methods() {
                 let method_name = method.name();
+                lookup
+                    .entry((class_name.to_string(), method_name.to_string()))
+                    .or_insert_with(|| {
+                        let signature = method.signature(&[]);
+                        MethodRef {
+                            interface: InterfaceRef {
+                                namespace: namespace.to_string(),
+                                name: name.to_string(),
+                            },
+                            param_types: signature.types,
+                            return_type: signature.return_type,
+                        }
+                    });
                 if method_name.starts_with("get_") && method_name.ends_with("Property") {
                     dependency_properties
                         .entry((class_name.to_string(), method_name.to_string()))
@@ -297,6 +308,7 @@ impl MetadataResolver {
 
         Self {
             lookup,
+            class_paths,
             base_classes,
             implemented_interfaces,
             interface_owners,
@@ -306,6 +318,10 @@ impl MetadataResolver {
             delegate_params,
             content_properties,
         }
+    }
+
+    pub fn class_path(&self, name: &str) -> Option<&str> {
+        self.class_paths.get(name)?.as_deref()
     }
 
     pub fn class_derives_from(&self, class: &str, base: &str) -> bool {
@@ -462,13 +478,6 @@ impl MetadataResolver {
             Type::ClassName(name) | Type::ValueName(name) => Some(&name.name),
             _ => None,
         }
-    }
-
-    pub fn parameter_value(&self, class_name: &str, method_name: &str) -> Option<String> {
-        let method = self
-            .lookup
-            .get(&(class_name.to_string(), method_name.to_string()))?;
-        self.value_for_type(method.param_types.first()?)
     }
 
     /// Resolve the sender and argument types accepted by an event delegate.
@@ -631,6 +640,30 @@ impl MetadataResolver {
         // IReference<T> unwraps to T, single-field wrappers unwrap to inner.
         let copy = self.is_unwrapped_copy(param);
         Some((name, copy))
+    }
+
+    pub fn infer_static_value_type(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        self.value_for_type(method.param_types.last()?)
+    }
+
+    pub fn static_enum_info(
+        &self,
+        class_name: &str,
+        method_name: &str,
+    ) -> Option<(&str, &[String])> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ValueName(name) = method.param_types.last()? else {
+            return None;
+        };
+        let variants = self
+            .enum_variants
+            .get(&(name.namespace.clone(), name.name.clone()))?;
+        Some((&name.name, variants))
     }
 
     pub fn resolve_event_args_property(
@@ -839,25 +872,6 @@ impl MetadataResolver {
         }
     }
 
-    /// Classify the parameter type for setter pattern inference.
-    pub fn classify_param(&self, class_name: &str, method_name: &str) -> Option<ParamClass> {
-        let mref = self
-            .lookup
-            .get(&(class_name.to_string(), method_name.to_string()))?;
-        let param = mref.param_types.first()?;
-        Some(Self::classify_type(param))
-    }
-
-    pub fn param_class_name(&self, class_name: &str, method_name: &str) -> Option<String> {
-        let mref = self
-            .lookup
-            .get(&(class_name.to_string(), method_name.to_string()))?;
-        let Type::ClassName(name) = mref.param_types.first()? else {
-            return None;
-        };
-        Some(format!("{}.{}", name.namespace, name.name))
-    }
-
     pub fn classify_collection(
         &self,
         class_name: &str,
@@ -869,6 +883,9 @@ impl MetadataResolver {
         let Type::ClassName(name) = &method.return_type else {
             return None;
         };
+        if name.namespace == "Microsoft.UI.Xaml.Controls" && name.name == "UIElementCollection" {
+            return Some(CollectionType::UiElementCollection);
+        }
         if name.namespace == "Microsoft.UI.Xaml.Controls" && name.name == "ItemCollection" {
             return Some(CollectionType::ItemCollection);
         }
@@ -885,40 +902,6 @@ impl MetadataResolver {
                 CollectionType::ObservableVector(format!("{}.{}", item.namespace, item.name)),
             ),
             _ => None,
-        }
-    }
-
-    pub fn returns_object(&self, class_name: &str, method_name: &str) -> bool {
-        self.lookup
-            .get(&(class_name.to_string(), method_name.to_string()))
-            .is_some_and(|method| method.return_type == Type::Object)
-    }
-
-    pub fn return_class_name(&self, class_name: &str, method_name: &str) -> Option<String> {
-        let method = self
-            .lookup
-            .get(&(class_name.to_string(), method_name.to_string()))?;
-        let Type::ClassName(name) = &method.return_type else {
-            return None;
-        };
-        Some(format!("{}.{}", name.namespace, name.name))
-    }
-
-    /// Classify a Type into a setter pattern category.
-    fn classify_type(ty: &Type) -> ParamClass {
-        match ty {
-            Type::String | Type::Bool | Type::F64 | Type::I32 | Type::U16 | Type::U32 => {
-                ParamClass::Primitive
-            }
-            Type::Object => ParamClass::IInspectable,
-            Type::ClassName(tn)
-                if tn.namespace == "Windows.Foundation"
-                    && tn.name == "IReference`1"
-                    && tn.generics.first() == Some(&Type::Bool) =>
-            {
-                ParamClass::NullableBool
-            }
-            _ => ParamClass::Complex,
         }
     }
 }
