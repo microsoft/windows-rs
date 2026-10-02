@@ -397,9 +397,7 @@ impl WinUiAdapter {
         args: Ref<native::DragEventArgs>,
         policy: &Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
     ) -> Result<crate::DragKind, WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let data = args.DataView()?;
         let kind = if data.Contains("Shell IDList Array")? {
             crate::DragKind::StorageItems
@@ -432,9 +430,7 @@ impl WinUiAdapter {
         args: Ref<native::DragEventArgs>,
         policy: &Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
     ) -> Result<(), WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let deferral = args.GetDeferral()?;
         let data = args.DataView()?;
         let kind = if data.Contains("Shell IDList Array")? {
@@ -640,9 +636,7 @@ impl WinUiAdapter {
         focus_on_release: bool,
         pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
     ) -> Result<crate::PointerEventInfo, WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let local = args.GetCurrentPoint(element)?;
         let local_position = local.Position()?;
         let window = args.GetCurrentPoint(None::<&native::UIElement>)?;
@@ -811,9 +805,7 @@ impl WinUiAdapter {
         got_focus: bool,
         pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
     ) -> Result<crate::FocusEventInfo, WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let original = args.OriginalSource()?;
         let element_identity: &windows_core::IUnknown = element.into();
         let original_identity: &windows_core::IUnknown = (&original).into();

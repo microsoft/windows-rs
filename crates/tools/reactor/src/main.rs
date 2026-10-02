@@ -1314,12 +1314,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             selection.selected_item_property
                         ),
                         "EventArgs" => {
-                            output.push_str(
-                                "let Some(args) = args.as_ref() else {\n\
-                                 super::app::report_error(WinUiError::InvalidEventArgs.into());\n\
-                                 return;\n\
-                                 };\n",
-                            );
+                            output.push_str("let args = args.unwrap();\n");
                             format!(
                                 "args.{}().and_then(|selected| \
                                  selected.cast::<IInspectable>())",
@@ -1370,8 +1365,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 {
                     if event.payload_adapter.as_deref() == Some("item_tag") {
                         output.push_str(&format!(
-                            "let Some(args) = args.as_ref() else {{ super::app::report_error(\
-                             WinUiError::InvalidEventArgs.into()); return; }};\n\
+                            "let args = args.unwrap();\n\
                              let payload = match args.{payload}()\
                              .and_then(|value| value.cast::<native::IFrameworkElement>())\
                              .and_then(|value| value.Tag()) {{\
@@ -1388,8 +1382,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("optional_datetime" | "optional_timespan")
                     ) {
                         output.push_str(&format!(
-                            "let Some(args) = args.as_ref() else {{ super::app::report_error(\
-                             WinUiError::InvalidEventArgs.into()); return; }};\n\
+                            "let args = args.unwrap();\n\
                              let payload = match args.{payload}() {{ Ok(value) => Some(value), \
                              Err(error) if error.code().is_ok() => None, Err(error) => {{ \
                              super::app::report_error(error); return; }} }};\n"
@@ -1413,8 +1406,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             _ => unreachable!(),
                         };
                         output.push_str(&format!(
-                            "let Some(args) = args.as_ref() else {{ super::app::report_error(\
-                             WinUiError::InvalidEventArgs.into()); return; }};\n\
+                            "let args = args.unwrap();\n\
                              let payload = match args.{payload}(){conversion} {{ Ok(value) => value, \
                              Err(error) => {{ super::app::report_error(error); return; }} }};\n"
                         ));
@@ -1562,8 +1554,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         event.name
                     )),
                     "KeyEventInfo" => output.push_str(
-                        "let Some(args) = args.as_ref() else { \
-                         super::app::report_error(WinUiError::InvalidEventArgs.into()); return; };\n\
+                        "let args = args.unwrap();\n\
                          let value = match WinUiAdapter::key_event_info(args) { Ok(value) => value, \
                          Err(error) => { super::app::report_error(error.into()); return; } };\n\
                          let handled = event_for_callback.borrow().callback.as_ref()\
@@ -1572,8 +1563,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          super::app::report_error(error); }\n",
                     ),
                     "CharacterEventInfo" => output.push_str(
-                        "let Some(args) = args.as_ref() else { \
-                         super::app::report_error(WinUiError::InvalidEventArgs.into()); return; };\n\
+                        "let args = args.unwrap();\n\
                          let value = match WinUiAdapter::character_event_info(args) { \
                          Ok(value) => value, Err(error) => { \
                          super::app::report_error(error.into()); return; } };\n\
@@ -1871,7 +1861,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             ));
         }
     }
-    output.push_str("_ => Err(WinUiError::InvalidEventArgs),\n} }\n");
+    output.push_str("_ => unreachable!(\"not a selection payload property\"),\n} }\n");
 
     output.push_str(
         "fn set_attached_property(element: &native::UIElement, property: PropertyId, \
