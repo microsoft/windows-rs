@@ -286,7 +286,7 @@ handwritten = true
 name = "Text"
 value = "String"
 controlled = "TextChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 required = true
 
 [[objects.properties]]
@@ -384,7 +384,7 @@ name = "CheckBox"
 name = "IsChecked"
 value = "OptionalBool"
 controlled = "IsCheckedChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 default = "false"
 
 [[objects.properties]]
@@ -406,7 +406,7 @@ observes = "IsChecked"
 [[objects.events]]
 name = "IsCheckedChanged"
 value = "OptionalBool"
-subscription = "property_changed"
+property_changed = true
 observes = "IsChecked"
 
 [[objects]]
@@ -720,21 +720,21 @@ name = "Slider"
 name = "Minimum"
 value = "F64"
 coerces = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 default = "0.0"
 
 [[objects.properties]]
 name = "Maximum"
 value = "F64"
 coerces = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 default = "100.0"
 
 [[objects.properties]]
 name = "Value"
 value = "F64"
 controlled = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 default = "0.0"
 
 [[objects.properties]]
@@ -993,7 +993,7 @@ adapter = "inspectable_string_list"
 name = "Text"
 value = "String"
 controlled = "TextChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1032,7 +1032,7 @@ value = "Bool"
 name = "Password"
 value = "String"
 controlled = "PasswordChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1057,13 +1057,13 @@ value = "Bool"
 name = "Minimum"
 value = "F64"
 coerces = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 
 [[objects.properties]]
 name = "Maximum"
 value = "F64"
 coerces = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 
 [[objects.properties]]
 name = "NumberBoxValue"
@@ -1072,7 +1072,7 @@ method = "value"
 value = "OptionalF64"
 adapter = "number_box_value"
 controlled = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 
 [[objects.relations]]
 name = "Header"
@@ -1130,7 +1130,7 @@ validation = "finite_non_negative"
 name = "IsPaneOpen"
 value = "Bool"
 controlled = "IsPaneOpenChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 clear_feedback = true
 
 [[objects.relations]]
@@ -1182,7 +1182,7 @@ native_item = "IInspectable"
 [[objects.events]]
 name = "IsPaneOpenChanged"
 value = "Bool"
-subscription = "property_changed"
+property_changed = true
 observes = "IsPaneOpen"
 
 [[objects.events]]
@@ -1269,7 +1269,7 @@ value = "SplitViewDisplayMode"
 name = "IsPaneOpen"
 value = "Bool"
 controlled = "PaneClosed"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Pane"
@@ -1333,7 +1333,7 @@ value = "Bool"
 name = "IsOn"
 value = "Bool"
 controlled = "Toggled"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1373,7 +1373,7 @@ value = "Bool"
 name = "IsChecked"
 value = "OptionalBool"
 controlled = "IsCheckedChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Content"
@@ -1385,7 +1385,7 @@ realization = "Owned"
 [[objects.events]]
 name = "IsCheckedChanged"
 value = "OptionalBool"
-subscription = "property_changed"
+property_changed = true
 observes = "IsChecked"
 
 [[objects]]
@@ -1403,7 +1403,7 @@ value = "Bool"
 name = "IsChecked"
 value = "OptionalBool"
 controlled = "Checked"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Content"
@@ -1434,7 +1434,7 @@ name = "SelectedIndex"
 value = "SelectionIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 
 [[objects.relations]]
 name = "Header"
@@ -1778,7 +1778,7 @@ value = "Bool"
 name = "MaxRating"
 value = "I32"
 coerces = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 
 [[objects.properties]]
 name = "RatingControlValue"
@@ -1787,7 +1787,7 @@ method = "value"
 value = "OptionalF64"
 adapter = "rating_value"
 controlled = "ValueChanged"
-feedback = "synchronous_normalized"
+feedback = "normalized"
 
 [[objects.events]]
 name = "ValueChanged"
@@ -1801,7 +1801,7 @@ name = "Expander"
 name = "IsExpanded"
 value = "Bool"
 controlled = "IsExpandedChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.properties]]
 name = "HorizontalContentAlignment"
@@ -1822,7 +1822,7 @@ realization = "Owned"
 [[objects.events]]
 name = "IsExpandedChanged"
 value = "Bool"
-subscription = "property_changed"
+property_changed = true
 observes = "IsExpanded"
 
 [[objects.relations]]
@@ -1857,7 +1857,7 @@ name = "SelectedIndex"
 value = "SelectionIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1884,7 +1884,7 @@ name = "SelectedIndex"
 value = "SelectionIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Items"
@@ -1925,7 +1925,7 @@ name = "SelectedIndex"
 value = "SelectionIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Items"
@@ -2003,7 +2003,7 @@ name = "SelectedIndex"
 value = "SelectionIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "TabItems"
@@ -2217,7 +2217,7 @@ name = "Color"
 value = "Color"
 adapter = "native_color"
 controlled = "ColorChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.properties]]
 name = "IsAlphaEnabled"
@@ -2446,7 +2446,7 @@ name = "SelectedIndex"
 value = "SelectionIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "synchronous_exact"
+feedback = "exact"
 
 [[objects.relations]]
 name = "Items"
