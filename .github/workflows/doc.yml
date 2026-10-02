@@ -29,7 +29,7 @@ jobs:
       RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: Swatinem/rust-cache@v2
       - name: Check
         run: cargo doc --no-deps -p windows
@@ -41,7 +41,7 @@ jobs:
       RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: Swatinem/rust-cache@v2
 # generated - run `cargo run -p tool-yml` to update
       - name: Check
