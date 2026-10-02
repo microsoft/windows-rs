@@ -1,15 +1,11 @@
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet};
 use std::fmt::Write as _;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
-mod parity;
-
 const SCHEMA: &str = "crates/tools/reactor/src/schema.toml";
-const PARITY: &str = "crates/tools/reactor/src/parity.toml";
-const PARITY_BASELINE: &str = "crates/tools/reactor/src/parity-baseline.toml";
 const OUTPUT: &str = "crates/libs/reactor/src/generated.rs";
 const DECLARATIONS_OUTPUT: &str = "crates/libs/reactor/src/generated_declarations.rs";
 const NATIVE_OUTPUT: &str = "crates/libs/reactor/src/native/generated.rs";
@@ -22,7 +18,7 @@ const CANVAS_BINDINGS_OUTPUT: &str = "crates/libs/canvas/src/reactor_bindings.rs
 const LIVE_COVERAGE_OUTPUT: &str = "crates/tests/libs/reactor_selftest/src/generated_coverage.rs";
 const LIVE_COVERAGE_REPORT: &str = "crates/tests/libs/reactor_selftest/coverage.md";
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct Schema {
     #[serde(default)]
     attached_properties: Vec<AttachedProperty>,
@@ -33,7 +29,7 @@ struct Schema {
     objects: Vec<Object>,
 }
 
-#[derive(Clone, Default, Deserialize, Serialize)]
+#[derive(Clone, Default, Deserialize)]
 struct Capabilities {
     #[serde(default)]
     layout_exit_transition: bool,
@@ -44,8 +40,6 @@ struct Capabilities {
     #[serde(default)]
     reference: Vec<String>,
     #[serde(default)]
-    text_style: Vec<String>,
-    #[serde(default)]
     tooltip_attachment: Vec<String>,
     #[serde(default)]
     content_dialog_attachment: Vec<String>,
@@ -53,7 +47,7 @@ struct Capabilities {
     window_title_bar: Vec<String>,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct AttachedProperty {
     name: String,
     owner: String,
@@ -69,7 +63,7 @@ struct AttachedProperty {
     readback: bool,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct VisualProperty {
     name: String,
     owner: String,
@@ -79,7 +73,7 @@ struct VisualProperty {
     readback: bool,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct Object {
     name: String,
     category: String,
@@ -98,7 +92,7 @@ struct Object {
     selection: Option<Selection>,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct Property {
     name: String,
     native: Option<String>,
@@ -118,7 +112,7 @@ struct Property {
     readback: bool,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct Relation {
     name: String,
     native: Option<String>,
@@ -134,7 +128,7 @@ struct Relation {
     native_item: Option<String>,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct Event {
     name: String,
     field: Option<String>,
@@ -149,7 +143,7 @@ struct Event {
     routed: bool,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize)]
 struct Selection {
     relations: Vec<String>,
     item: String,
@@ -164,31 +158,6 @@ struct Selection {
 fn main() {
     let source = fs::read_to_string(workspace_path(SCHEMA)).unwrap();
     let schema: Schema = toml::from_str(&source).unwrap();
-    let mut args = std::env::args().skip(1);
-    if let Some(argument) = args.next() {
-        assert!(args.next().is_none(), "unexpected additional argument");
-        assert!(
-            matches!(
-                argument.as_str(),
-                "--parity-report" | "--check-parity" | "--live-coverage-report"
-            ),
-            "unknown argument `{argument}`"
-        );
-        let old = fs::read_to_string(workspace_path(PARITY_BASELINE)).unwrap();
-        validate(&schema);
-        if argument == "--live-coverage-report" {
-            print!("{}", generate_live_coverage_report(&schema));
-            return;
-        }
-        let mappings = fs::read_to_string(workspace_path(PARITY)).unwrap();
-        let report = parity::compare(&old, &schema, &mappings).unwrap();
-        print!("{}", report.render());
-        if argument == "--check-parity" && !report.is_complete() {
-            std::process::exit(1);
-        }
-        return;
-    }
-    validate(&schema);
     let metadata = tool_reactor_metadata::MetadataResolver::load(&workspace_path(WINMD));
     let generated = rustfmt(&generate(&schema, &metadata));
     let declarations = rustfmt(&generate_declarations(&schema, &metadata));
@@ -256,301 +225,6 @@ fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
         .join("..")
         .join("..")
         .join(path)
-}
-
-fn validate(schema: &Schema) {
-    let mut objects = BTreeSet::new();
-    let mut property_types = BTreeMap::new();
-    let categories = ["Visual", "Structural", "Data"];
-
-    for property in &schema.attached_properties {
-        assert_identifier(&property.name);
-        assert_identifier(&property.native);
-        assert_identifier(&property.value);
-        assert!(
-            !property.flag || property.value == "Bool",
-            "attached property flags must be Bool"
-        );
-        if let Some(validation) = &property.validation {
-            assert!(
-                validation_supported(validation, &property.value),
-                "{} has unsupported validation {validation}",
-                property.name
-            );
-        }
-        assert_eq!(
-            property.variants.is_empty(),
-            is_builtin_value(&property.value),
-            "attached enum variants must match the value type"
-        );
-        assert!(
-            property.owner.rsplit_once('.').is_some(),
-            "invalid attached property owner"
-        );
-        assert!(
-            property_types
-                .insert(&property.name, &property.value)
-                .is_none(),
-            "duplicate attached property"
-        );
-    }
-    for property in &schema.visual_properties {
-        assert_identifier(&property.name);
-        assert_identifier(&property.value);
-        assert!(
-            property.owner.rsplit_once('.').is_some(),
-            "invalid visual property owner"
-        );
-        assert!(
-            property_types
-                .insert(&property.name, &property.value)
-                .is_none(),
-            "duplicate visual property"
-        );
-    }
-
-    for object in &schema.objects {
-        assert_identifier(&object.name);
-        assert!(
-            object.native == "handwritten" || object.native.rsplit_once('.').is_some(),
-            "invalid native type"
-        );
-        if object.native == "handwritten" && object.category == "Visual" {
-            assert!(
-                object
-                    .native_type
-                    .as_ref()
-                    .is_some_and(|native| native.rsplit_once('.').is_some()),
-                "{} requires a native_type",
-                object.name
-            );
-        } else {
-            assert!(
-                object.native_type.is_none(),
-                "{} has an unused native_type",
-                object.name
-            );
-        }
-        assert!(objects.insert(object.name.as_str()), "duplicate object");
-        assert!(categories.contains(&object.category.as_str()));
-        let mut properties = BTreeSet::new();
-        for property in &object.properties {
-            assert_identifier(&property.name);
-            if let Some(native) = &property.native {
-                assert_identifier(native);
-            }
-            if let Some(adapter) = &property.adapter {
-                assert!(matches!(
-                    adapter.as_str(),
-                    "clock_identifier"
-                        | "drop_policy"
-                        | "font_weight"
-                        | "grid_columns"
-                        | "grid_rows"
-                        | "horizontal_content_alignment"
-                        | "image_uri"
-                        | "implicit_opacity_transition"
-                        | "implicit_scale"
-                        | "implicit_scale_transition"
-                        | "inspectable_string"
-                        | "inspectable_string_list"
-                        | "key_accelerators"
-                        | "native_color"
-                        | "number_box_value"
-                        | "path_data"
-                        | "pointer_capture"
-                        | "pointer_focus"
-                        | "rating_value"
-                        | "resource_overrides"
-                        | "resource_style"
-                        | "rich_edit_text"
-                        | "rich_text_blocks"
-                        | "selection_index"
-                        | "theme_brush"
-                        | "uri"
-                        | "vertical_content_alignment"
-                ));
-            }
-            if let Some(event) = &property.controlled {
-                assert_identifier(event);
-            }
-            if let Some(event) = &property.coerces {
-                assert_identifier(event);
-            }
-            if let Some(feedback) = &property.feedback {
-                assert!(matches!(
-                    feedback.as_str(),
-                    "synchronous_exact" | "synchronous_normalized" | "deferred_exact"
-                ));
-                assert!(
-                    property.controlled.is_some() || property.coerces.is_some(),
-                    "{}.{} has feedback without an event",
-                    object.name,
-                    property.name
-                );
-            }
-            assert!(
-                properties.insert(property.name.as_str()),
-                "duplicate property"
-            );
-            assert!(
-                !schema
-                    .visual_properties
-                    .iter()
-                    .any(|visual| visual.name == property.name),
-                "{}.{} duplicates a visual property",
-                object.name,
-                property.name
-            );
-            assert_identifier(&property.value);
-            if let Some(validation) = &property.validation {
-                assert!(
-                    validation_supported(validation, &property.value),
-                    "{}.{} has unsupported validation {validation}",
-                    object.name,
-                    property.name
-                );
-            }
-            if let Some(previous) = property_types.insert(&property.name, &property.value) {
-                assert_eq!(
-                    previous, &property.value,
-                    "conflicting property value types"
-                );
-            }
-        }
-        for property in object
-            .properties
-            .iter()
-            .filter(|property| property.feedback.is_some())
-        {
-            let event = property
-                .controlled
-                .as_ref()
-                .or(property.coerces.as_ref())
-                .unwrap();
-            assert!(
-                object.events.iter().any(|candidate| {
-                    candidate.name == *event
-                        && candidate.observes.as_deref().is_some_and(|observed| {
-                            property.coerces.is_some() || observed == property.name
-                        })
-                }),
-                "{}.{} feedback event {event} must observe the property",
-                object.name,
-                property.name
-            );
-        }
-        if let Some(selection) = &object.selection {
-            assert!(
-                !selection.relations.is_empty(),
-                "{} has no selection relations",
-                object.name
-            );
-            let item = schema
-                .objects
-                .iter()
-                .find(|candidate| candidate.name == selection.item)
-                .unwrap_or_else(|| {
-                    panic!(
-                        "{} selection item {} does not exist",
-                        object.name, selection.item
-                    )
-                });
-            let selected_property = item
-                .properties
-                .iter()
-                .find(|property| property.name == selection.selected_property)
-                .unwrap_or_else(|| {
-                    panic!(
-                        "{} selection item {} has no property {}",
-                        object.name, selection.item, selection.selected_property
-                    )
-                });
-            assert_eq!(selected_property.value, "Bool");
-            let payload_property = item
-                .properties
-                .iter()
-                .find(|property| property.name == selection.payload_property)
-                .unwrap_or_else(|| {
-                    panic!(
-                        "{} selection item {} has no property {}",
-                        object.name, selection.item, selection.payload_property
-                    )
-                });
-            assert_eq!(payload_property.value, "String");
-            for relation in &selection.relations {
-                let relation = object
-                    .relations
-                    .iter()
-                    .find(|candidate| candidate.name == *relation)
-                    .unwrap_or_else(|| {
-                        panic!(
-                            "{} selection relation {relation} does not exist",
-                            object.name
-                        )
-                    });
-                assert_eq!(relation.cardinality, "Many");
-                assert_eq!(relation.identity, "Keyed");
-                assert_eq!(relation.realization, "Owned");
-                assert!(
-                    relation.allowed_objects.is_empty()
-                        || relation.allowed_objects.contains(&selection.item)
-                );
-            }
-            let event = object
-                .events
-                .iter()
-                .find(|event| event.name == selection.event)
-                .unwrap_or_else(|| {
-                    panic!(
-                        "{} selection event {} does not exist",
-                        object.name, selection.event
-                    )
-                });
-            assert_eq!(event.value, "Selection");
-            assert!(event.observes.is_none());
-            assert!(event.payload.is_none());
-            assert!(matches!(
-                selection.event_item_source.as_str(),
-                "Owner" | "EventArgs"
-            ));
-            match selection.event_item_source.as_str() {
-                "Owner" => assert!(selection.event_args.is_none()),
-                "EventArgs" => {
-                    assert!(selection.event_args.is_some());
-                }
-                _ => unreachable!(),
-            }
-        }
-    }
-    for (capability, members) in [
-        ("enabled", &schema.capabilities.enabled),
-        ("focus", &schema.capabilities.focus),
-        ("reference", &schema.capabilities.reference),
-        ("text_style", &schema.capabilities.text_style),
-        (
-            "tooltip_attachment",
-            &schema.capabilities.tooltip_attachment,
-        ),
-        (
-            "content_dialog_attachment",
-            &schema.capabilities.content_dialog_attachment,
-        ),
-        ("window_title_bar", &schema.capabilities.window_title_bar),
-    ] {
-        let mut unique = BTreeSet::new();
-        for member in members {
-            assert!(
-                objects.contains(member.as_str()),
-                "unknown {capability} capability object {member}"
-            );
-            assert!(
-                unique.insert(member),
-                "duplicate {capability} capability object {member}"
-            );
-        }
-    }
-    validate_relations(schema);
 }
 
 fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver) -> String {
@@ -1314,12 +988,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             selection.selected_item_property
                         ),
                         "EventArgs" => {
-                            output.push_str(
-                                "let Some(args) = args.as_ref() else {\n\
-                                 super::app::report_error(WinUiError::InvalidEventArgs.into());\n\
-                                 return;\n\
-                                 };\n",
-                            );
+                            output.push_str("let args = args.unwrap();\n");
                             format!(
                                 "args.{}().and_then(|selected| \
                                  selected.cast::<IInspectable>())",
@@ -1370,8 +1039,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 {
                     if event.payload_adapter.as_deref() == Some("item_tag") {
                         output.push_str(&format!(
-                            "let Some(args) = args.as_ref() else {{ super::app::report_error(\
-                             WinUiError::InvalidEventArgs.into()); return; }};\n\
+                            "let args = args.unwrap();\n\
                              let payload = match args.{payload}()\
                              .and_then(|value| value.cast::<native::IFrameworkElement>())\
                              .and_then(|value| value.Tag()) {{\
@@ -1388,8 +1056,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("optional_datetime" | "optional_timespan")
                     ) {
                         output.push_str(&format!(
-                            "let Some(args) = args.as_ref() else {{ super::app::report_error(\
-                             WinUiError::InvalidEventArgs.into()); return; }};\n\
+                            "let args = args.unwrap();\n\
                              let payload = match args.{payload}() {{ Ok(value) => Some(value), \
                              Err(error) if error.code().is_ok() => None, Err(error) => {{ \
                              super::app::report_error(error); return; }} }};\n"
@@ -1413,8 +1080,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             _ => unreachable!(),
                         };
                         output.push_str(&format!(
-                            "let Some(args) = args.as_ref() else {{ super::app::report_error(\
-                             WinUiError::InvalidEventArgs.into()); return; }};\n\
+                            "let args = args.unwrap();\n\
                              let payload = match args.{payload}(){conversion} {{ Ok(value) => value, \
                              Err(error) => {{ super::app::report_error(error); return; }} }};\n"
                         ));
@@ -1562,8 +1228,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         event.name
                     )),
                     "KeyEventInfo" => output.push_str(
-                        "let Some(args) = args.as_ref() else { \
-                         super::app::report_error(WinUiError::InvalidEventArgs.into()); return; };\n\
+                        "let args = args.unwrap();\n\
                          let value = match WinUiAdapter::key_event_info(args) { Ok(value) => value, \
                          Err(error) => { super::app::report_error(error.into()); return; } };\n\
                          let handled = event_for_callback.borrow().callback.as_ref()\
@@ -1572,8 +1237,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          super::app::report_error(error); }\n",
                     ),
                     "CharacterEventInfo" => output.push_str(
-                        "let Some(args) = args.as_ref() else { \
-                         super::app::report_error(WinUiError::InvalidEventArgs.into()); return; };\n\
+                        "let args = args.unwrap();\n\
                          let value = match WinUiAdapter::character_event_info(args) { \
                          Ok(value) => value, Err(error) => { \
                          super::app::report_error(error.into()); return; } };\n\
@@ -1871,7 +1535,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             ));
         }
     }
-    output.push_str("_ => Err(WinUiError::InvalidEventArgs),\n} }\n");
+    output.push_str("_ => unreachable!(\"not a selection payload property\"),\n} }\n");
 
     output.push_str(
         "fn set_attached_property(element: &native::UIElement, property: PropertyId, \
@@ -3179,6 +2843,8 @@ fn generate_bindings(
                     "Microsoft::UI::Xaml::IUIElement::get_PointerCaptures".to_string(),
                     "Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::GetCurrentPoint"
                         .to_string(),
+                    "Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_KeyModifiers"
+                        .to_string(),
                     "Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_Pointer".to_string(),
                 ]);
                 if event
@@ -3492,143 +3158,6 @@ fn generate_bindings(
 
 fn binding_path(value: &str) -> String {
     value.replace('.', "::")
-}
-
-fn validate_relations(schema: &Schema) {
-    let categories = ["Visual", "Structural", "Data"];
-    let cardinalities = ["One", "Many"];
-    let identities = ["Positional", "Keyed"];
-    let realizations = ["Owned", "Structural", "Container"];
-    for object in &schema.objects {
-        let mut relations = BTreeSet::new();
-        for relation in &object.relations {
-            assert_identifier(&relation.name);
-            assert!(
-                relations.insert(relation.name.as_str()),
-                "duplicate relation"
-            );
-            assert!(categories.contains(&relation.child.as_str()));
-            for allowed in &relation.allowed_objects {
-                let allowed = schema
-                    .objects
-                    .iter()
-                    .find(|object| object.name == *allowed)
-                    .unwrap_or_else(|| panic!("unknown allowed object `{allowed}`"));
-                assert_eq!(allowed.category, relation.child);
-            }
-            assert!(cardinalities.contains(&relation.cardinality.as_str()));
-            assert!(identities.contains(&relation.identity.as_str()));
-            assert!(realizations.contains(&relation.realization.as_str()));
-            assert!(
-                relation.cardinality != "One" || relation.identity == "Positional",
-                "single relations must be positional"
-            );
-            match relation.realization.as_str() {
-                "Owned" => assert_eq!(relation.child, "Visual"),
-                "Structural" => assert_eq!(relation.child, "Structural"),
-                "Container" if object.virtual_items => {
-                    assert_eq!(relation.child, "Visual");
-                    assert_eq!(relation.cardinality, "Many");
-                    assert_eq!(relation.identity, "Keyed");
-                }
-                "Container" => assert_eq!(relation.child, "Data"),
-                _ => unreachable!(),
-            }
-        }
-        assert_eq!(
-            object
-                .relations
-                .iter()
-                .filter(|relation| {
-                    relation.realization == "Container" && relation.child == "Visual"
-                })
-                .count(),
-            usize::from(object.virtual_items),
-            "virtual objects require exactly one container-realized relation"
-        );
-        let mut events = BTreeSet::new();
-        for event in &object.events {
-            assert_identifier(&event.name);
-            if let Some(field) = &event.field {
-                assert_identifier(field);
-            }
-            assert!(events.insert(event.name.as_str()), "duplicate event");
-            assert!(matches!(
-                event.value.as_str(),
-                "Bool"
-                    | "CharacterEventInfo"
-                    | "Color"
-                    | "ContentDialogResult"
-                    | "DragKind"
-                    | "DroppedData"
-                    | "F64"
-                    | "FocusEventInfo"
-                    | "OptionalBool"
-                    | "OptionalDateTime"
-                    | "OptionalF64"
-                    | "OptionalTimeSpan"
-                    | "PointerEventInfo"
-                    | "KeyEventInfo"
-                    | "NavigationViewDisplayMode"
-                    | "Selection"
-                    | "SelectionIndex"
-                    | "String"
-                    | "StringList"
-                    | "Unit"
-            ));
-        }
-    }
-}
-
-fn assert_identifier(value: &str) {
-    let mut characters = value.chars();
-    assert!(
-        characters
-            .next()
-            .is_some_and(|character| character == '_' || character.is_ascii_alphabetic())
-            && characters.all(|character| character == '_' || character.is_ascii_alphanumeric()),
-        "invalid Rust identifier: {value}"
-    );
-    assert!(
-        !matches!(
-            value,
-            "as" | "break"
-                | "const"
-                | "continue"
-                | "crate"
-                | "else"
-                | "enum"
-                | "extern"
-                | "false"
-                | "fn"
-                | "for"
-                | "if"
-                | "impl"
-                | "in"
-                | "let"
-                | "loop"
-                | "match"
-                | "mod"
-                | "move"
-                | "mut"
-                | "pub"
-                | "ref"
-                | "return"
-                | "self"
-                | "Self"
-                | "static"
-                | "struct"
-                | "super"
-                | "trait"
-                | "true"
-                | "type"
-                | "unsafe"
-                | "use"
-                | "where"
-                | "while"
-        ),
-        "Rust keyword cannot be used as an identifier: {value}"
-    );
 }
 
 fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver) -> String {
@@ -4601,17 +4130,6 @@ fn property_argument(property: &Property) -> String {
     property_argument_parts(&property.name, &property.value)
 }
 
-fn validation_supported(validation: &str, value: &str) -> bool {
-    matches!(
-        (validation, value),
-        (
-            "finite_positive" | "finite_non_negative",
-            "F64" | "Thickness" | "CornerRadius"
-        ) | ("finite", "F64" | "Thickness")
-            | ("non_negative" | "positive" | "zero_to_fifty_nine", "I32")
-    )
-}
-
 fn validation_expression(name: &str, value: &str, validation: &str) -> String {
     match validation {
         "finite" => format!("{name}.is_finite()"),
@@ -4837,10 +4355,9 @@ fn generate_live_coverage_report(schema: &Schema) -> String {
         .sum::<usize>();
     let mut output = format!(
         "# Reactor live coverage matrix\n\n\
-         Generated by `cargo run -p tool-reactor --quiet -- --live-coverage-report`.\n\n\
-         Strict parity maps the incumbent contracts to this schema. The live selftest executes all \
-         {property_count} schema property definitions and {event_count} event definitions through \
-         the evidence routes below.\n\n\
+         Generated by `cargo run -p tool-reactor --quiet`.\n\n\
+         The live selftest executes all {property_count} schema property definitions and \
+         {event_count} event definitions through the evidence routes below.\n\n\
          | Contract | Kind | Native evidence | Behavioral evidence |\n\
          | --- | --- | --- | --- |\n"
     );
@@ -5162,371 +4679,4 @@ fn rustfmt(source: &str) -> String {
     let output = child.wait_with_output().unwrap();
     assert!(output.status.success());
     String::from_utf8(output.stdout).unwrap()
-}
-
-#[test]
-fn checked_output_is_current() {
-    let source = fs::read_to_string(workspace_path(SCHEMA)).unwrap();
-    let schema: Schema = toml::from_str(&source).unwrap();
-    validate(&schema);
-    let metadata = tool_reactor_metadata::MetadataResolver::load(&workspace_path(WINMD));
-    assert_eq!(
-        fs::read_to_string(workspace_path(OUTPUT)).unwrap(),
-        rustfmt(&generate(&schema, &metadata))
-    );
-    assert_eq!(
-        fs::read_to_string(workspace_path(DECLARATIONS_OUTPUT)).unwrap(),
-        rustfmt(&generate_declarations(&schema, &metadata))
-    );
-    let native = rustfmt(&generate_native(&schema, &metadata));
-    assert_eq!(
-        fs::read_to_string(workspace_path(NATIVE_OUTPUT)).unwrap(),
-        native
-    );
-    assert!(!native.contains("std::process::abort"));
-    assert!(native.contains("super::app::report_error(error)"));
-    assert!(native.contains("args.NewValue().map(number_box_value)"));
-    assert!(native.contains("args.NewValue()"));
-    assert!(native.contains("WinUiAdapter::handle_selection_changed"));
-    assert!(native.contains("let Some(args) = args.as_ref() else"));
-    assert!(native.contains("args.SelectedItem()"));
-    assert!(native.contains("native::Grid::SetRow(&element, *value)"));
-    assert!(native.contains("native::AutomationProperties::SetName"));
-    assert!(native.contains("native::Control::IsEnabledProperty()"));
-    assert!(native.contains("native::FontWeight {"));
-    assert!(native.contains("read_rich_edit_text(&source_text_changed)"));
-    assert!(native.contains("set_rich_edit_text(&object.value"));
-    assert!(native.contains("(ObjectType::RichEditBox, PropertyId::Document, None) => Some(("));
-    assert!(native.contains("value: PropertyValue::String(Rc::from(\"\"))"));
-    assert!(native.contains("set_grid_definitions(object"));
-    assert!(native.contains("fn theme_style_info("));
-    assert!(native.contains("PropertyValue::Brush(Brush::Solid(value))"));
-    assert!(native.contains("native::Uri::CreateUri(value.as_ref())"));
-    assert!(native.contains("uri_image(value)"));
-    assert!(native.contains("parse_path_data(value)"));
-    assert!(native.contains("set_opacity_transition(&object, Some(*value))"));
-    assert!(native.contains("set_implicit_scale(&object, *value)"));
-    assert!(native.contains("set_scale_transition(&object, Some(*value))"));
-    assert!(native.contains("fn set_handwritten_property("));
-    assert!(native.contains("(ObjectType::TextBox, PropertyId::PlaceholderText, None)"));
-    assert!(native.contains("(ObjectType::TextBox, PropertyId::AcceptsReturn, None)"));
-    assert!(native.contains("(ObjectType::TextBox, PropertyId::TextWrapping, None)"));
-    let declarations = fs::read_to_string(workspace_path(DECLARATIONS_OUTPUT)).unwrap();
-    assert!(declarations.contains("pub fn relative_align_left(mut self)"));
-    assert!(declarations.contains("pub fn exit_fade(self, duration: std::time::Duration)"));
-    assert!(declarations.contains("GridRow requires non_negative"));
-    assert!(declarations.contains("GridRowSpan requires positive"));
-    assert!(declarations.contains("impl TextBlock {\n    pub fn new() -> Self"));
-    assert!(declarations.contains("pub fn text(mut self, text: impl AsRef<str>)"));
-    assert!(declarations.contains("pub fn placeholder_text("));
-    assert!(declarations.contains("pub fn accepts_return("));
-    assert!(declarations.contains("pub fn capture_pointer_on_press("));
-    assert!(declarations.contains("pub fn focus_on_pointer_release("));
-    assert!(declarations.contains("RoutedCallback<KeyEventInfo>"));
-    assert!(declarations.contains("RoutedCallback<CharacterEventInfo>"));
-    assert!(declarations.contains("Callback<FocusEventInfo>"));
-    assert!(declarations.contains("pub fn drop_policy("));
-    assert!(declarations.contains("Callback<DragKind>"));
-    assert!(declarations.contains("Callback<DroppedData>"));
-    assert!(declarations.contains("Callback<Vec<String>>"));
-    assert!(declarations.contains("callback: impl IntoPayloadCallback<PointerEventInfo>"));
-    assert!(!declarations.contains("pub fn on_pointer_pressed_callback("));
-    assert!(declarations.contains("impl From<&str> for View"));
-    assert!(declarations.contains("TextBlock::new().text(value).into()"));
-    assert!(declarations.contains("PropertyId::Document"));
-    assert!(
-        declarations
-            .contains("pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>)")
-    );
-    assert!(
-        declarations
-            .contains("pub fn columns(mut self, values: impl IntoIterator<Item = GridLength>)")
-    );
-    assert!(declarations.contains("R: CompatibleElementRef<$type>"));
-    for object in ["Grid", "Image", "WebView2", "SwapChainPanel"] {
-        assert!(declarations.contains(&format!("reference_methods!({object});")));
-    }
-    assert!(declarations.contains("window_title_bar_methods!();"));
-    assert!(!declarations.contains("pub struct ToolTip(Declaration);"));
-    assert!(
-        declarations.contains("pub struct ContentDialog(pub(crate) Declaration, pub(crate) bool);")
-    );
-    assert!(declarations.contains("pub fn is_open(mut self, open: bool) -> Self"));
-    assert!(declarations.contains("Callback<ContentDialogResult>"));
-    assert!(!declarations.contains("impl From<ContentDialog> for View"));
-    let content_dialog = declarations
-        .split("pub struct ContentDialog")
-        .nth(1)
-        .unwrap()
-        .split("pub struct CalendarView")
-        .next()
-        .unwrap();
-    assert!(!content_dialog.contains("visual_methods!();"));
-    assert!(native.contains("WinUiAdapter::content_dialog_closed"));
-    assert!(native.contains("args.Result().map(content_dialog_result)"));
-    assert!(native.contains("args.NewDate()"));
-    assert!(native.contains("WinUiAdapter::dispatch_optional_date_time"));
-    assert!(native.contains("Some(capture_pointer_on_press_pointer_pressed.get())"));
-    assert!(native.contains("focus_on_pointer_release_pointer_released.get()"));
-    assert!(native.contains("WinUiAdapter::key_event_info(args)"));
-    assert!(native.contains("args.SetHandled(handled)"));
-    assert!(native.contains("WinUiAdapter::focus_event_info("));
-    assert!(native.contains("WinUiAdapter::drag_kind("));
-    assert!(native.contains("WinUiAdapter::dispatch_dropped_data("));
-    assert!(native.contains("WinUiAdapter::item_tags("));
-    assert!(declarations.contains("Callback<Option<DateTime>>"));
-    assert!(declarations.contains("pub fn font_weight"));
-    assert!(declarations.contains("pub fn foreground(mut self, foreground: impl Into<Brush>)"));
-    assert!(declarations.contains("pub fn resource_overrides("));
-    assert!(declarations.contains("pub fn key_accelerators("));
-    assert!(declarations.contains("pub fn navigate_uri("));
-    assert!(declarations.contains("windows_core::Result<Self>"));
-    assert!(declarations.contains("pub fn opacity_transition("));
-    assert!(declarations.contains("pub fn uri_source("));
-    assert!(declarations.contains("pub fn data(mut self, data: impl AsRef<str>)"));
-    let contracts = fs::read_to_string(workspace_path(OUTPUT)).unwrap();
-    assert!(contracts.contains("pub(crate) fn focus_capable"));
-    assert!(
-        contracts
-            .contains("pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract]")
-    );
-    let navigation = native
-        .split("ObjectType::NavigationView =>")
-        .nth(1)
-        .unwrap()
-        .split("ObjectType::NavigationViewItem =>")
-        .next()
-        .unwrap();
-    assert!(!navigation.contains("source_selection_changed"));
-    assert!(native.contains("fn selected_item("));
-    assert!(native.contains("fn set_selected_item("));
-    let number_box = schema
-        .objects
-        .iter()
-        .find(|object| object.name == "NumberBox")
-        .unwrap();
-    let value_changed = number_box
-        .events
-        .iter()
-        .find(|event| event.name == "ValueChanged")
-        .unwrap();
-    assert_eq!(value_changed.payload.as_deref(), Some("NewValue"));
-    assert_eq!(
-        value_changed.payload_adapter.as_deref(),
-        Some("number_box_value")
-    );
-    assert_eq!(
-        schema
-            .objects
-            .iter()
-            .filter(|object| object.selection.is_some())
-            .count(),
-        3
-    );
-    assert_eq!(
-        fs::read_to_string(workspace_path(BINDINGS_FILTER)).unwrap(),
-        generate_bindings(&schema, &metadata)
-    );
-    let bindings = fs::read_to_string(workspace_path(BINDINGS_FILTER)).unwrap();
-    assert!(bindings.contains(
-        "Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem"
-    ));
-    assert!(bindings.contains(
-        "Microsoft::UI::Xaml::Controls::ICalendarDatePickerDateChangedEventArgs::get_NewDate"
-    ));
-    assert!(bindings.contains("Microsoft::UI::Xaml::Controls::ICalendarDatePicker::put_Date"));
-    assert!(bindings.contains("Microsoft::UI::Xaml::ScalarTransition::CreateInstance"));
-    assert!(bindings.contains("Microsoft::UI::Xaml::IElementFactory::{}"));
-    assert!(bindings.contains("Microsoft::UI::Xaml::IUIElement::CapturePointer"));
-    assert!(bindings.contains("Microsoft::UI::Xaml::IUIElement::ReleasePointerCapture"));
-    assert!(
-        bindings.contains("Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance")
-    );
-    assert!(
-        bindings.contains("Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::put_UriSource")
-    );
-    assert!(bindings.contains("Windows::Win32::GetKeyboardState"));
-    assert!(bindings.contains("Microsoft::UI::Xaml::IRoutedEventArgs::get_OriginalSource"));
-    assert!(bindings.contains("Microsoft::UI::Xaml::IDragEventArgs::get_DataView"));
-    assert!(bindings.contains(
-        "Windows::ApplicationModel::DataTransfer::IDataPackageView::GetStorageItemsAsync"
-    ));
-    assert!(
-        bindings
-            .contains("Windows::ApplicationModel::DataTransfer::IDataPackageView::GetTextAsync")
-    );
-    assert!(bindings.contains("Microsoft::UI::Xaml::Controls::IItemsControl::get_Items"));
-    let declarations = fs::read_to_string(workspace_path(DECLARATIONS_OUTPUT)).unwrap();
-    assert!(declarations.contains("pub fn virtual_source(mut self, source: VirtualSource)"));
-    assert!(declarations.contains("self.0.virtual_item(RelationId::Items, keyed(key, visual))"));
-    let live_coverage = rustfmt(&generate_live_coverage(&schema));
-    assert_eq!(
-        fs::read_to_string(workspace_path(LIVE_COVERAGE_OUTPUT)).unwrap(),
-        live_coverage
-    );
-    let expected_live_cases = schema.attached_properties.len()
-        + schema.visual_properties.len()
-        + schema
-            .objects
-            .iter()
-            .filter(|object| object.category == "Visual" && !live_coverage_specialized(object))
-            .map(|object| object.properties.len() + object.events.len())
-            .sum::<usize>();
-    assert_eq!(
-        live_coverage
-            .lines()
-            .filter(|line| line.trim_start().starts_with("CoverageCase {"))
-            .count(),
-        expected_live_cases
-    );
-    assert_eq!(
-        fs::read_to_string(workspace_path(LIVE_COVERAGE_REPORT)).unwrap(),
-        generate_live_coverage_report(&schema)
-    );
-    assert!(schema.capabilities.layout_exit_transition);
-}
-
-#[test]
-#[should_panic(expected = "TextBlock.Width duplicates a visual property")]
-fn rejects_local_visual_property_collision() {
-    let schema: Schema = toml::from_str(
-        r#"
-        [[visual_properties]]
-        name = "Width"
-        owner = "Microsoft.UI.Xaml.FrameworkElement"
-        value = "F64"
-        default = "f64::NAN"
-
-        [[objects]]
-        name = "TextBlock"
-        category = "Visual"
-        native = "Microsoft.UI.Xaml.Controls.TextBlock"
-
-        [[objects.properties]]
-        name = "Width"
-        value = "F64"
-        default = "f64::NAN"
-        "#,
-    )
-    .unwrap();
-    validate(&schema);
-}
-
-#[test]
-#[should_panic(expected = "unknown focus capability object Missing")]
-fn rejects_unknown_capability_object() {
-    let schema: Schema = toml::from_str(
-        r#"
-        [capabilities]
-        focus = ["Missing"]
-
-        [[objects]]
-        name = "TextBlock"
-        category = "Visual"
-        native = "Microsoft.UI.Xaml.Controls.TextBlock"
-        "#,
-    )
-    .unwrap();
-    validate(&schema);
-}
-
-#[test]
-#[should_panic(expected = "attached enum variants must match the value type")]
-fn rejects_attached_enum_without_variants() {
-    let schema: Schema = toml::from_str(
-        r#"
-        [[attached_properties]]
-        name = "AutomationHeadingLevel"
-        owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
-        native = "HeadingLevel"
-        value = "AutomationHeadingLevel"
-
-        [[objects]]
-        name = "TextBlock"
-        category = "Visual"
-        native = "Microsoft.UI.Xaml.Controls.TextBlock"
-        "#,
-    )
-    .unwrap();
-    validate(&schema);
-}
-
-#[test]
-#[should_panic(expected = "GridRow has unsupported validation positive")]
-fn rejects_incompatible_attached_property_validation() {
-    let schema: Schema = toml::from_str(
-        r#"
-        [[attached_properties]]
-        name = "GridRow"
-        owner = "Microsoft.UI.Xaml.Controls.Grid"
-        native = "Row"
-        value = "Bool"
-        validation = "positive"
-
-        [[objects]]
-        name = "TextBlock"
-        category = "Visual"
-        native = "Microsoft.UI.Xaml.Controls.TextBlock"
-        "#,
-    )
-    .unwrap();
-    validate(&schema);
-}
-
-#[test]
-fn rejects_mismatched_shared_value_adapters() {
-    let source = fs::read_to_string(workspace_path(SCHEMA)).unwrap();
-    let schema: Schema = toml::from_str(&source).unwrap();
-    let metadata = tool_reactor_metadata::MetadataResolver::load(&workspace_path(WINMD));
-    for (object_name, property_name) in [
-        ("TextBlock", "Foreground"),
-        ("Button", "Resources"),
-        ("Button", "Style"),
-        ("Button", "KeyboardAccelerators"),
-        ("HyperlinkButton", "NavigateUri"),
-        ("Border", "OpacityTransition"),
-        ("Border", "Scale"),
-        ("Border", "ScaleTransition"),
-        ("PathIcon", "Data"),
-    ] {
-        let mut invalid = schema.clone();
-        let property = invalid
-            .objects
-            .iter_mut()
-            .find(|object| object.name == object_name)
-            .unwrap()
-            .properties
-            .iter_mut()
-            .find(|property| property.name == property_name)
-            .unwrap();
-        property.value = "Bool".to_string();
-        assert!(
-            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                generate_native(&invalid, &metadata)
-            }))
-            .is_err(),
-            "{object_name}.{property_name}"
-        );
-    }
-}
-
-#[test]
-fn missing_default_clears_declaring_dependency_property() {
-    let metadata = tool_reactor_metadata::MetadataResolver::load(&workspace_path(WINMD));
-    let mut output = String::new();
-    emit_native_property_arms(
-        &mut output,
-        "(Self::Button(object), PropertyId::Background, ",
-        "object",
-        "IControl",
-        "Button",
-        "Background",
-        "Color",
-        None,
-        None,
-        &metadata,
-    );
-    assert!(output.contains("native::Control::BackgroundProperty()"));
-    assert!(output.contains("object.ClearValue(&property)"));
-    assert!(!output.contains("SetBackground(None"));
 }

@@ -800,10 +800,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::IUIElement>()?
                         .PreviewKeyDown(move |_, args| {
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let value = match WinUiAdapter::key_event_info(args) {
                                 Ok(value) => value,
                                 Err(error) => {
@@ -824,10 +821,7 @@ impl GeneratedHandle {
                 let key_up = Rc::new(RefCell::new(NativeKeyEventInfoEvent::default()));
                 let event_for_callback = Rc::clone(&key_up);
                 let revoker = value.cast::<native::IUIElement>()?.KeyUp(move |_, args| {
-                    let Some(args) = args.as_ref() else {
-                        super::app::report_error(WinUiError::InvalidEventArgs.into());
-                        return;
-                    };
+                    let args = args.unwrap();
                     let value = match WinUiAdapter::key_event_info(args) {
                         Ok(value) => value,
                         Err(error) => {
@@ -852,10 +846,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::IUIElement>()?
                         .CharacterReceived(move |_, args| {
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let value = match WinUiAdapter::character_event_info(args) {
                                 Ok(value) => value,
                                 Err(error) => {
@@ -1165,10 +1156,7 @@ impl GeneratedHandle {
                                 observation.clone(),
                             );
                             let observation = dispatch.then_some(observation);
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args.NewValue() {
                                 Ok(value) => value,
                                 Err(error) => {
@@ -1255,10 +1243,7 @@ impl GeneratedHandle {
                         .ItemClicked(move |_, args| {
                             let dispatch = true;
                             let observation = None;
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args
                                 .Item()
                                 .and_then(|value| {
@@ -1351,10 +1336,7 @@ impl GeneratedHandle {
                         .SuggestionChosen(move |_, args| {
                             let dispatch = true;
                             let observation = None;
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args
                                 .SelectedItem()
                                 .and_then(|value| {
@@ -1479,10 +1461,7 @@ impl GeneratedHandle {
                                 observation.clone(),
                             );
                             let observation = dispatch.then_some(observation);
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args.NewValue().map(number_box_value) {
                                 Ok(value) => value,
                                 Err(error) => {
@@ -1571,10 +1550,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::INavigationView>()?
                         .SelectionChanged(move |_, args| {
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             WinUiAdapter::handle_selection_changed(
                                 &event_for_callback,
                                 &event_queue_selection_changed,
@@ -1595,10 +1571,7 @@ impl GeneratedHandle {
                     .DisplayModeChanged(move |_, args| {
                         let dispatch = true;
                         let observation = None;
-                        let Some(args) = args.as_ref() else {
-                            super::app::report_error(WinUiError::InvalidEventArgs.into());
-                            return;
-                        };
+                        let args = args.unwrap();
                         let payload = match args.DisplayMode().map(navigation_view_display_mode) {
                             Ok(value) => value,
                             Err(error) => {
@@ -2400,10 +2373,7 @@ impl GeneratedHandle {
                         .TabCloseRequested(move |_, args| {
                             let dispatch = true;
                             let observation = None;
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args
                                 .Tab()
                                 .and_then(|value| value.cast::<native::IFrameworkElement>())
@@ -2640,10 +2610,7 @@ impl GeneratedHandle {
                                 observation.clone(),
                             );
                             let observation = dispatch.then_some(observation);
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args.NewColor().map(from_native_color) {
                                 Ok(value) => value,
                                 Err(error) => {
@@ -2681,10 +2648,7 @@ impl GeneratedHandle {
                         .SelectedDateChanged(move |_, args| {
                             let dispatch = true;
                             let observation = None;
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args.NewDate() {
                                 Ok(value) => Some(value),
                                 Err(error) if error.code().is_ok() => None,
@@ -2723,10 +2687,7 @@ impl GeneratedHandle {
                         .SelectedTimeChanged(move |_, args| {
                             let dispatch = true;
                             let observation = None;
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args.NewTime() {
                                 Ok(value) => Some(value),
                                 Err(error) if error.code().is_ok() => None,
@@ -2764,10 +2725,7 @@ impl GeneratedHandle {
                         .DateChanged(move |_, args| {
                             let dispatch = true;
                             let observation = None;
-                            let Some(args) = args.as_ref() else {
-                                super::app::report_error(WinUiError::InvalidEventArgs.into());
-                                return;
-                            };
+                            let args = args.unwrap();
                             let payload = match args.NewDate() {
                                 Ok(value) => Some(value),
                                 Err(error) if error.code().is_ok() => None,
@@ -2805,10 +2763,7 @@ impl GeneratedHandle {
                     .Closed(move |_, args| {
                         let dispatch = true;
                         let observation = None;
-                        let Some(args) = args.as_ref() else {
-                            super::app::report_error(WinUiError::InvalidEventArgs.into());
-                            return;
-                        };
+                        let args = args.unwrap();
                         let payload = match args.Result().map(content_dialog_result) {
                             Ok(value) => value,
                             Err(error) => {
@@ -3494,7 +3449,7 @@ impl GeneratedHandle {
                 Err(error) if error.code().is_ok() => Ok(None),
                 Err(error) => Err(error.into()),
             },
-            _ => Err(WinUiError::InvalidEventArgs),
+            _ => unreachable!("not a selection payload property"),
         }
     }
     fn set_attached_property(
@@ -8176,6 +8131,41 @@ impl GeneratedHandle {
                         .and_then(|object| object.SetIsExpanded(*value).map_err(Into::into)),
                 )
             }
+            (Self::Expander(object), PropertyId::HorizontalContentAlignment, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::Control::HorizontalContentAlignmentProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::Expander(object),
+                PropertyId::HorizontalContentAlignment,
+                Some(PropertyValue::Enum {
+                    kind: "HorizontalAlignment",
+                    variant,
+                }),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::IControl>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        object
+                            .SetHorizontalContentAlignment(match *variant {
+                                "Left" => native::HorizontalAlignment::Left,
+                                "Center" => native::HorizontalAlignment::Center,
+                                "Right" => native::HorizontalAlignment::Right,
+                                "Stretch" => native::HorizontalAlignment::Stretch,
+                                _ => unreachable!("validated enum variant"),
+                            })
+                            .map_err(Into::into)
+                    }),
+            ),
             (Self::ComboBox(object), PropertyId::PlaceholderText, None) => Some(
                 object
                     .value

@@ -52,10 +52,10 @@ impl WinUiAdapter {
                     let item_queue = Rc::clone(&self.event_queue);
                     let item_texts = Rc::clone(&self.tree_node_texts);
                     let _item_invoked = value.ItemInvoked(move |_, args| {
+                        let args = args.unwrap();
                         let value = args
-                            .as_ref()
-                            .ok_or(WinUiError::InvalidEventArgs)
-                            .and_then(|args| args.InvokedItem().map_err(Into::into))
+                            .InvokedItem()
+                            .map_err(Into::into)
                             .and_then(|value| {
                                 value.cast::<native::ITreeViewNode>().map_err(Into::into)
                             })
@@ -65,7 +65,7 @@ impl WinUiAdapter {
                                     .borrow()
                                     .get(&identity)
                                     .cloned()
-                                    .ok_or(WinUiError::InvalidEventArgs)
+                                    .ok_or(WinUiError::UnknownTreeNode(identity))
                             });
                         match value {
                             Ok(value) => Self::dispatch_string(

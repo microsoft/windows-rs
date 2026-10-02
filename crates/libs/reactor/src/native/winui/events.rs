@@ -397,9 +397,7 @@ impl WinUiAdapter {
         args: Ref<native::DragEventArgs>,
         policy: &Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
     ) -> Result<crate::DragKind, WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let data = args.DataView()?;
         let kind = if data.Contains("Shell IDList Array")? {
             crate::DragKind::StorageItems
@@ -432,9 +430,7 @@ impl WinUiAdapter {
         args: Ref<native::DragEventArgs>,
         policy: &Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
     ) -> Result<(), WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let deferral = args.GetDeferral()?;
         let data = args.DataView()?;
         let kind = if data.Contains("Shell IDList Array")? {
@@ -640,9 +636,7 @@ impl WinUiAdapter {
         focus_on_release: bool,
         pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
     ) -> Result<crate::PointerEventInfo, WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let local = args.GetCurrentPoint(element)?;
         let local_position = local.Position()?;
         let window = args.GetCurrentPoint(None::<&native::UIElement>)?;
@@ -723,6 +717,7 @@ impl WinUiAdapter {
             window_x: f64::from(window_position.x),
             window_y: f64::from(window_position.y),
             pointer_id: local.PointerId()?,
+            modifiers: Self::input_modifiers_from_virtual_keys(args.KeyModifiers()?),
             capture_succeeded,
             is_captured,
             is_left_button_pressed: properties.IsLeftButtonPressed()?,
@@ -763,6 +758,25 @@ impl WinUiAdapter {
         }
     }
 
+    fn input_modifiers_from_virtual_keys(
+        value: native::VirtualKeyModifiers,
+    ) -> crate::InputModifiers {
+        let mut modifiers = crate::InputModifiers::NONE;
+        if value.contains(native::VirtualKeyModifiers::Shift) {
+            modifiers |= crate::InputModifiers::SHIFT;
+        }
+        if value.contains(native::VirtualKeyModifiers::Control) {
+            modifiers |= crate::InputModifiers::CONTROL;
+        }
+        if value.contains(native::VirtualKeyModifiers::Menu) {
+            modifiers |= crate::InputModifiers::ALT;
+        }
+        if value.contains(native::VirtualKeyModifiers::Windows) {
+            modifiers |= crate::InputModifiers::WINDOWS;
+        }
+        modifiers
+    }
+
     fn key_event_info(
         args: &native::KeyRoutedEventArgs,
     ) -> Result<crate::KeyEventInfo, WinUiError> {
@@ -791,9 +805,7 @@ impl WinUiAdapter {
         got_focus: bool,
         pending_focus_states: &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>,
     ) -> Result<crate::FocusEventInfo, WinUiError> {
-        let Some(args) = args.as_ref() else {
-            return Err(WinUiError::InvalidEventArgs);
-        };
+        let args = args.unwrap();
         let original = args.OriginalSource()?;
         let element_identity: &windows_core::IUnknown = element.into();
         let original_identity: &windows_core::IUnknown = (&original).into();

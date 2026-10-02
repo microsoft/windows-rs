@@ -1111,9 +1111,9 @@ pub enum WinUiError {
     ChildNotFound(ObjectId),
     StillOwned(ObjectId),
     InvalidReplacement(ObjectId),
-    InvalidEventArgs,
     InvalidDuration,
     DuplicateWindowRoot(ObjectId),
+    UnknownTreeNode(usize),
     Native(windows_core::Error),
 }
 

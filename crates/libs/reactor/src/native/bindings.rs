@@ -14185,6 +14185,16 @@ impl IPointerRoutedEventArgs {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) fn KeyModifiers(&self) -> windows_core::Result<VirtualKeyModifiers> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).KeyModifiers)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn GetCurrentPoint<P0>(&self, relativeto: P0) -> windows_core::Result<PointerPoint>
     where
         P0: windows_core::Param<UIElement>,
@@ -14207,7 +14217,10 @@ pub struct IPointerRoutedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    KeyModifiers: usize,
+    pub KeyModifiers: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut VirtualKeyModifiers,
+    ) -> windows_core::HRESULT,
     Handled: usize,
     SetHandled: usize,
     IsGenerated: usize,
