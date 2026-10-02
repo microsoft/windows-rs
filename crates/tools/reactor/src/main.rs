@@ -3179,6 +3179,8 @@ fn generate_bindings(
                     "Microsoft::UI::Xaml::IUIElement::get_PointerCaptures".to_string(),
                     "Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::GetCurrentPoint"
                         .to_string(),
+                    "Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_KeyModifiers"
+                        .to_string(),
                     "Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_Pointer".to_string(),
                 ]);
                 if event

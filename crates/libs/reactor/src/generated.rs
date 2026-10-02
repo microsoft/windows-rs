@@ -2006,6 +2006,17 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::Bool,
         }),
+        (ObjectType::Expander, PropertyId::HorizontalContentAlignment) => Some(PropertyContract {
+            id,
+            value: ValueType::Enum {
+                kind: "HorizontalAlignment",
+                variants: &["Left", "Center", "Right", "Stretch"],
+            },
+        }),
+        (ObjectType::Expander, PropertyId::Resources) => Some(PropertyContract {
+            id,
+            value: ValueType::ResourceOverrides,
+        }),
         (ObjectType::ComboBox, PropertyId::PlaceholderText) => Some(PropertyContract {
             id,
             value: ValueType::String,
@@ -2478,6 +2489,8 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::RatingControl, PropertyId::MaxRating) => 28,
         (ObjectType::RatingControl, PropertyId::RatingControlValue) => 29,
         (ObjectType::Expander, PropertyId::IsExpanded) => 26,
+        (ObjectType::Expander, PropertyId::HorizontalContentAlignment) => 27,
+        (ObjectType::Expander, PropertyId::Resources) => 28,
         (ObjectType::ComboBox, PropertyId::PlaceholderText) => 26,
         (ObjectType::ComboBox, PropertyId::IsEditable) => 27,
         (ObjectType::ComboBox, PropertyId::IsEnabled) => 28,

@@ -723,6 +723,7 @@ impl WinUiAdapter {
             window_x: f64::from(window_position.x),
             window_y: f64::from(window_position.y),
             pointer_id: local.PointerId()?,
+            modifiers: Self::input_modifiers_from_virtual_keys(args.KeyModifiers()?),
             capture_succeeded,
             is_captured,
             is_left_button_pressed: properties.IsLeftButtonPressed()?,
@@ -761,6 +762,25 @@ impl WinUiAdapter {
             was_down: value.was_key_down,
             is_released: value.is_key_released,
         }
+    }
+
+    fn input_modifiers_from_virtual_keys(
+        value: native::VirtualKeyModifiers,
+    ) -> crate::InputModifiers {
+        let mut modifiers = crate::InputModifiers::NONE;
+        if value.contains(native::VirtualKeyModifiers::Shift) {
+            modifiers |= crate::InputModifiers::SHIFT;
+        }
+        if value.contains(native::VirtualKeyModifiers::Control) {
+            modifiers |= crate::InputModifiers::CONTROL;
+        }
+        if value.contains(native::VirtualKeyModifiers::Menu) {
+            modifiers |= crate::InputModifiers::ALT;
+        }
+        if value.contains(native::VirtualKeyModifiers::Windows) {
+            modifiers |= crate::InputModifiers::WINDOWS;
+        }
+        modifiers
     }
 
     fn key_event_info(

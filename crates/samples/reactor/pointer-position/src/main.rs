@@ -3,7 +3,7 @@
 use windows_reactor::*;
 
 struct PointerPosition {
-    position: Option<(f64, f64)>,
+    pointer: Option<PointerEventInfo>,
 }
 
 impl Component for PointerPosition {
@@ -11,18 +11,26 @@ impl Component for PointerPosition {
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
-        Self { position: None }
+        Self { pointer: None }
     }
 
     fn update(&mut self, info: PointerEventInfo, _context: &ComponentContext<Self>) {
-        self.position = Some((info.x, info.y));
+        self.pointer = Some(info);
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        context.window_title("Pointer Position");
-        let label = match self.position {
-            Some((x, y)) => format!("Pressed at ({x:.0}, {y:.0})"),
-            None => "Click anywhere in the box".to_string(),
+        context.window_title("Pointer Modifiers");
+        let label = match self.pointer {
+            Some(info) => format!(
+                "Position: ({:.0}, {:.0})\nCtrl: {}  Shift: {}  Alt: {}  Windows: {}",
+                info.x,
+                info.y,
+                info.modifiers.contains(InputModifiers::CONTROL),
+                info.modifiers.contains(InputModifiers::SHIFT),
+                info.modifiers.contains(InputModifiers::ALT),
+                info.modifiers.contains(InputModifiers::WINDOWS),
+            ),
+            None => "Hold modifier keys and click inside the box".to_string(),
         };
         StackPanel::new()
             .spacing(12.0)
@@ -36,7 +44,7 @@ impl Component for PointerPosition {
                     .on_pointer_pressed(context.forward())
                     .content(
                         TextBlock::new()
-                            .text("Click to read the pointer position")
+                            .text("Hold Ctrl, Shift, Alt, or Windows and click")
                             .foreground(Color::rgb(255, 255, 255)),
                     ),
             ))

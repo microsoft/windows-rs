@@ -5074,6 +5074,23 @@ impl Expander {
             .property(PropertyId::IsExpanded, PropertyValue::Bool(is_expanded));
         self
     }
+    pub fn horizontal_content_alignment(
+        mut self,
+        horizontal_content_alignment: HorizontalAlignment,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::HorizontalContentAlignment,
+            horizontal_content_alignment.property_value(),
+        );
+        self
+    }
+    pub fn resource_overrides(mut self, resource_overrides: ResourceOverrides) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Resources,
+            PropertyValue::ResourceOverrides(resource_overrides),
+        );
+        self
+    }
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///

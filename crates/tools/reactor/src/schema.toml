@@ -2351,6 +2351,20 @@ feedback = "synchronous_exact"
 clear_feedback = false
 required = false
 
+[[objects.properties]]
+name = "HorizontalContentAlignment"
+value = "HorizontalAlignment"
+adapter = "horizontal_content_alignment"
+clear_feedback = false
+required = false
+
+[[objects.properties]]
+name = "Resources"
+value = "ResourceOverrides"
+adapter = "resource_overrides"
+clear_feedback = false
+required = false
+
 [[objects.relations]]
 name = "Header"
 child = "Visual"

@@ -321,6 +321,7 @@ mod tests {
         let event_queue = Rc::new(NativeEventQueue::default());
         let payload = crate::PointerEventInfo {
             pointer_id: 42,
+            modifiers: crate::InputModifiers::CONTROL,
             is_captured: true,
             is_right_button_pressed: true,
             ..Default::default()
@@ -342,6 +343,28 @@ mod tests {
         assert_eq!(event.event, EventId::PointerReleased);
         assert_eq!(event.revision, 7);
         assert_eq!(event.payload, EventPayload::PointerEventInfo(payload));
+    }
+
+    #[test]
+    fn pointer_event_modifiers_map_native_flags() {
+        let mut expected = crate::InputModifiers::SHIFT;
+        expected |= crate::InputModifiers::CONTROL;
+        expected |= crate::InputModifiers::ALT;
+        expected |= crate::InputModifiers::WINDOWS;
+
+        assert_eq!(
+            WinUiAdapter::input_modifiers_from_virtual_keys(
+                native::VirtualKeyModifiers::Shift
+                    | native::VirtualKeyModifiers::Control
+                    | native::VirtualKeyModifiers::Menu
+                    | native::VirtualKeyModifiers::Windows
+            ),
+            expected
+        );
+        assert_eq!(
+            WinUiAdapter::input_modifiers_from_virtual_keys(native::VirtualKeyModifiers::None),
+            crate::InputModifiers::NONE
+        );
     }
 
     #[test]
