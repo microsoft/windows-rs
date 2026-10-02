@@ -51,7 +51,6 @@ focus = [
     "RichEditBox",
 ]
 reference = ["Grid", "Image", "WebView2", "SwapChainPanel"]
-text_style = ["TextBlock", "TextBox", "RichTextBlock"]
 tooltip_attachment = ["ToolTip"]
 content_dialog_attachment = ["ContentDialog"]
 window_title_bar = ["TitleBar"]

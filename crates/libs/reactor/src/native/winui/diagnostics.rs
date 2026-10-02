@@ -683,7 +683,7 @@ impl WinUiAdapter {
             native::ListViewSelectionMode::Single => crate::ListViewSelectionMode::Single,
             native::ListViewSelectionMode::Multiple => crate::ListViewSelectionMode::Multiple,
             native::ListViewSelectionMode::Extended => crate::ListViewSelectionMode::Extended,
-            _ => return Err(WinUiError::InvalidEventArgs),
+            _ => unreachable!("unknown ListViewSelectionMode"),
         };
         Ok((
             selection_index(selector.SelectedIndex()?)?,
@@ -705,7 +705,7 @@ impl WinUiAdapter {
             native::TreeViewSelectionMode::None => Ok(crate::TreeViewSelectionMode::None),
             native::TreeViewSelectionMode::Single => Ok(crate::TreeViewSelectionMode::Single),
             native::TreeViewSelectionMode::Multiple => Ok(crate::TreeViewSelectionMode::Multiple),
-            _ => Err(WinUiError::InvalidEventArgs),
+            _ => unreachable!("unknown TreeViewSelectionMode"),
         }
     }
 
