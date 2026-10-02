@@ -145,7 +145,6 @@ validation = "finite_positive"
 [[objects.properties]]
 name = "FontWeight"
 value = "FontWeight"
-readback = true
 
 [[objects.properties]]
 name = "Foreground"
@@ -183,15 +182,12 @@ required = true
 
 [[objects.properties]]
 name = "PlaceholderText"
-readback = true
 
 [[objects.properties]]
 name = "AcceptsReturn"
-readback = true
 
 [[objects.properties]]
 name = "TextWrapping"
-readback = true
 
 [[objects.properties]]
 name = "Background"
@@ -562,7 +558,6 @@ handwritten = true
 
 [[objects.properties]]
 name = "SelectionMode"
-readback = true
 
 [[objects.events]]
 name = "ItemInvoked"
@@ -610,19 +605,15 @@ handwritten = true
 
 [[objects.properties]]
 name = "SelectionMode"
-readback = true
 
 [[objects.properties]]
 name = "CanDragItems"
-readback = true
 
 [[objects.properties]]
 name = "CanReorderItems"
-readback = true
 
 [[objects.properties]]
 name = "AllowDrop"
-readback = true
 
 [[objects.properties]]
 name = "SelectedIndex"
