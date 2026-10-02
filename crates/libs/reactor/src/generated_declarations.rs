@@ -2,6 +2,7 @@
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum AutomationHeadingLevel {
+    None,
     Level1,
     Level2,
     Level3,
@@ -15,6 +16,10 @@ pub enum AutomationHeadingLevel {
 impl AutomationHeadingLevel {
     pub(crate) fn property_value(self) -> PropertyValue {
         match self {
+            Self::None => PropertyValue::Enum {
+                kind: "AutomationHeadingLevel",
+                variant: "None",
+            },
             Self::Level1 => PropertyValue::Enum {
                 kind: "AutomationHeadingLevel",
                 variant: "Level1",
@@ -2847,10 +2852,9 @@ impl TreeView {
         Self(declaration)
     }
     pub fn selection_mode(mut self, selection_mode: TreeViewSelectionMode) -> Self {
-        self.0 = self.0.property(
-            PropertyId::TreeSelectionMode,
-            selection_mode.property_value(),
-        );
+        self.0 = self
+            .0
+            .property(PropertyId::SelectionMode, selection_mode.property_value());
         self
     }
     enabled_methods!();
@@ -3463,10 +3467,9 @@ impl NumberBox {
         self
     }
     pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
-        self.0 = self.0.property(
-            PropertyId::NumberBoxValue,
-            PropertyValue::OptionalF64(value.into()),
-        );
+        self.0 = self
+            .0
+            .property(PropertyId::Value, PropertyValue::OptionalF64(value.into()));
         self
     }
     focus_methods!(NumberBox);
@@ -3534,7 +3537,7 @@ impl NavigationView {
         is_back_button_visible: NavigationViewBackButtonVisible,
     ) -> Self {
         self.0 = self.0.property(
-            PropertyId::NavigationViewIsBackButtonVisible,
+            PropertyId::IsBackButtonVisible,
             is_back_button_visible.property_value(),
         );
         self
@@ -4276,7 +4279,7 @@ impl InfoBadge {
     pub fn value(mut self, value: i32) -> Self {
         self.0 = self
             .0
-            .property(PropertyId::InfoBadgeValue, PropertyValue::I32(value));
+            .property(PropertyId::Value, PropertyValue::I32(value));
         self
     }
     visual_methods!();
@@ -4389,23 +4392,23 @@ impl ScrollView {
         let declaration = Declaration::new(ObjectType::ScrollView);
         Self(declaration)
     }
-    pub fn scroll_view_horizontal_scroll_bar_visibility(
+    pub fn horizontal_scroll_bar_visibility(
         mut self,
-        scroll_view_horizontal_scroll_bar_visibility: ScrollingScrollBarVisibility,
+        horizontal_scroll_bar_visibility: ScrollingScrollBarVisibility,
     ) -> Self {
         self.0 = self.0.property(
-            PropertyId::ScrollViewHorizontalScrollBarVisibility,
-            scroll_view_horizontal_scroll_bar_visibility.property_value(),
+            PropertyId::HorizontalScrollBarVisibility,
+            horizontal_scroll_bar_visibility.property_value(),
         );
         self
     }
-    pub fn scroll_view_vertical_scroll_bar_visibility(
+    pub fn vertical_scroll_bar_visibility(
         mut self,
-        scroll_view_vertical_scroll_bar_visibility: ScrollingScrollBarVisibility,
+        vertical_scroll_bar_visibility: ScrollingScrollBarVisibility,
     ) -> Self {
         self.0 = self.0.property(
-            PropertyId::ScrollViewVerticalScrollBarVisibility,
-            scroll_view_vertical_scroll_bar_visibility.property_value(),
+            PropertyId::VerticalScrollBarVisibility,
+            vertical_scroll_bar_visibility.property_value(),
         );
         self
     }
@@ -5035,10 +5038,9 @@ impl RatingControl {
         self
     }
     pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
-        self.0 = self.0.property(
-            PropertyId::RatingControlValue,
-            PropertyValue::OptionalF64(value.into()),
-        );
+        self.0 = self
+            .0
+            .property(PropertyId::Value, PropertyValue::OptionalF64(value.into()));
         self
     }
     focus_methods!(RatingControl);

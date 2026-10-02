@@ -1451,7 +1451,7 @@ impl GeneratedHandle {
                             let observation = Observation::SetProperty {
                                 object,
                                 property: Property {
-                                    id: PropertyId::NumberBoxValue,
+                                    id: PropertyId::Value,
                                     value: PropertyValue::OptionalF64(observed),
                                 },
                             };
@@ -2016,7 +2016,7 @@ impl GeneratedHandle {
                             let observation = Observation::SetProperty {
                                 object,
                                 property: Property {
-                                    id: PropertyId::RatingControlValue,
+                                    id: PropertyId::Value,
                                     value: PropertyValue::OptionalF64(observed),
                                 },
                             };
@@ -3728,6 +3728,7 @@ impl GeneratedHandle {
                         native::AutomationProperties::SetHeadingLevel(
                             &element,
                             match *variant {
+                                "None" => native::AutomationHeadingLevel::None,
                                 "Level1" => native::AutomationHeadingLevel::Level1,
                                 "Level2" => native::AutomationHeadingLevel::Level2,
                                 "Level3" => native::AutomationHeadingLevel::Level3,
@@ -4166,7 +4167,7 @@ impl GeneratedHandle {
                             .map_err(Into::into)
                     }),
             ),
-            (ObjectType::TreeView, PropertyId::TreeSelectionMode, None) => Some(
+            (ObjectType::TreeView, PropertyId::SelectionMode, None) => Some(
                 element
                     .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
@@ -4178,7 +4179,7 @@ impl GeneratedHandle {
             ),
             (
                 ObjectType::TreeView,
-                PropertyId::TreeSelectionMode,
+                PropertyId::SelectionMode,
                 Some(PropertyValue::Enum {
                     kind: "TreeViewSelectionMode",
                     variant,
@@ -4386,7 +4387,7 @@ impl GeneratedHandle {
                 EventId::ValueChanged,
                 FeedbackExpectation::Normalized { observation: None },
             )),
-            (ObjectType::NumberBox, PropertyId::NumberBoxValue, _) => Some((
+            (ObjectType::NumberBox, PropertyId::Value, _) => Some((
                 EventId::ValueChanged,
                 FeedbackExpectation::Normalized { observation: None },
             )),
@@ -4468,7 +4469,7 @@ impl GeneratedHandle {
                 EventId::ValueChanged,
                 FeedbackExpectation::Normalized { observation: None },
             )),
-            (ObjectType::RatingControl, PropertyId::RatingControlValue, _) => Some((
+            (ObjectType::RatingControl, PropertyId::Value, _) => Some((
                 EventId::ValueChanged,
                 FeedbackExpectation::Normalized { observation: None },
             )),
@@ -6136,7 +6137,7 @@ impl GeneratedHandle {
                         .and_then(|object| object.SetMaximum(*value).map_err(Into::into)),
                 )
             }
-            (Self::NumberBox(object), PropertyId::NumberBoxValue, None) => Some(
+            (Self::NumberBox(object), PropertyId::Value, None) => Some(
                 object
                     .value
                     .cast::<native::IDependencyObject>()
@@ -6149,7 +6150,7 @@ impl GeneratedHandle {
             ),
             (
                 Self::NumberBox(object),
-                PropertyId::NumberBoxValue,
+                PropertyId::Value,
                 Some(PropertyValue::OptionalF64(value)),
             ) => Some(
                 object
@@ -6246,24 +6247,20 @@ impl GeneratedHandle {
                             .map_err(Into::into)
                     }),
             ),
-            (Self::NavigationView(object), PropertyId::NavigationViewIsBackButtonVisible, None) => {
-                Some(
-                    object
-                        .value
-                        .cast::<native::IDependencyObject>()
-                        .map_err(Into::into)
-                        .and_then(|object| {
-                            native::NavigationView::IsBackButtonVisibleProperty()
-                                .map_err(Into::into)
-                                .and_then(|property| {
-                                    object.ClearValue(&property).map_err(Into::into)
-                                })
-                        }),
-                )
-            }
+            (Self::NavigationView(object), PropertyId::IsBackButtonVisible, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::NavigationView::IsBackButtonVisibleProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
             (
                 Self::NavigationView(object),
-                PropertyId::NavigationViewIsBackButtonVisible,
+                PropertyId::IsBackButtonVisible,
                 Some(PropertyValue::Enum {
                     kind: "NavigationViewBackButtonVisible",
                     variant,
@@ -6941,7 +6938,7 @@ impl GeneratedHandle {
                         object.SetSelectedIndex(value).map_err(Into::into)
                     }),
             ),
-            (Self::InfoBadge(object), PropertyId::InfoBadgeValue, None) => Some(
+            (Self::InfoBadge(object), PropertyId::Value, None) => Some(
                 object
                     .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
@@ -6951,11 +6948,7 @@ impl GeneratedHandle {
                             .and_then(|property| object.ClearValue(&property).map_err(Into::into))
                     }),
             ),
-            (
-                Self::InfoBadge(object),
-                PropertyId::InfoBadgeValue,
-                Some(PropertyValue::I32(value)),
-            ) => Some(
+            (Self::InfoBadge(object), PropertyId::Value, Some(PropertyValue::I32(value))) => Some(
                 object
                     .cast::<native::IInfoBadge>()
                     .map_err(Into::into)
@@ -7112,11 +7105,7 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|object| object.SetInitials(value.as_ref()).map_err(Into::into)),
             ),
-            (
-                Self::ScrollView(object),
-                PropertyId::ScrollViewHorizontalScrollBarVisibility,
-                None,
-            ) => Some(
+            (Self::ScrollView(object), PropertyId::HorizontalScrollBarVisibility, None) => Some(
                 object
                     .cast::<native::IDependencyObject>()
                     .map_err(Into::into)
@@ -7128,7 +7117,7 @@ impl GeneratedHandle {
             ),
             (
                 Self::ScrollView(object),
-                PropertyId::ScrollViewHorizontalScrollBarVisibility,
+                PropertyId::HorizontalScrollBarVisibility,
                 Some(PropertyValue::Enum {
                     kind: "ScrollingScrollBarVisibility",
                     variant,
@@ -7148,23 +7137,19 @@ impl GeneratedHandle {
                             .map_err(Into::into)
                     }),
             ),
-            (Self::ScrollView(object), PropertyId::ScrollViewVerticalScrollBarVisibility, None) => {
-                Some(
-                    object
-                        .cast::<native::IDependencyObject>()
-                        .map_err(Into::into)
-                        .and_then(|object| {
-                            native::ScrollView::VerticalScrollBarVisibilityProperty()
-                                .map_err(Into::into)
-                                .and_then(|property| {
-                                    object.ClearValue(&property).map_err(Into::into)
-                                })
-                        }),
-                )
-            }
+            (Self::ScrollView(object), PropertyId::VerticalScrollBarVisibility, None) => Some(
+                object
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::ScrollView::VerticalScrollBarVisibilityProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
             (
                 Self::ScrollView(object),
-                PropertyId::ScrollViewVerticalScrollBarVisibility,
+                PropertyId::VerticalScrollBarVisibility,
                 Some(PropertyValue::Enum {
                     kind: "ScrollingScrollBarVisibility",
                     variant,
@@ -8085,7 +8070,7 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|object| object.SetMaxRating(*value).map_err(Into::into)),
             ),
-            (Self::RatingControl(object), PropertyId::RatingControlValue, None) => Some(
+            (Self::RatingControl(object), PropertyId::Value, None) => Some(
                 object
                     .value
                     .cast::<native::IDependencyObject>()
@@ -8098,7 +8083,7 @@ impl GeneratedHandle {
             ),
             (
                 Self::RatingControl(object),
-                PropertyId::RatingControlValue,
+                PropertyId::Value,
                 Some(PropertyValue::OptionalF64(value)),
             ) => Some(
                 object

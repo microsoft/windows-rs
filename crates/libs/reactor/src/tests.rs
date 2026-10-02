@@ -4720,7 +4720,7 @@ fn tree_view_selection_mode_and_item_invocation_replace_remove_and_reject_stale_
         mutation,
         Mutation::SetProperties { object, set, .. }
             if *object == tree
-                && set.iter().any(|property| property.id == PropertyId::TreeSelectionMode)
+                && set.iter().any(|property| property.id == PropertyId::SelectionMode)
     )));
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,
@@ -4760,7 +4760,7 @@ fn tree_view_selection_mode_and_item_invocation_replace_remove_and_reject_stale_
     assert!(mutations.iter().any(|mutation| matches!(
         mutation,
         Mutation::SetProperties { object, clear, .. }
-            if *object == tree && clear.contains(&PropertyId::TreeSelectionMode)
+            if *object == tree && clear.contains(&PropertyId::SelectionMode)
     )));
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,

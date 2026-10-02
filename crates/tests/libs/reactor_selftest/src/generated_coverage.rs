@@ -518,7 +518,7 @@ pub fn cases() -> Vec<CoverageCase> {
             clear: coverage_101_clear,
         },
         CoverageCase {
-            contract: "TreeView.TreeSelectionMode",
+            contract: "TreeView.SelectionMode",
             set: coverage_102_set,
             clear: coverage_102_clear,
         },
@@ -693,7 +693,7 @@ pub fn cases() -> Vec<CoverageCase> {
             clear: coverage_136_clear,
         },
         CoverageCase {
-            contract: "NumberBox.NumberBoxValue",
+            contract: "NumberBox.Value",
             set: coverage_137_set,
             clear: coverage_137_clear,
         },
@@ -718,7 +718,7 @@ pub fn cases() -> Vec<CoverageCase> {
             clear: coverage_141_clear,
         },
         CoverageCase {
-            contract: "NavigationView.NavigationViewIsBackButtonVisible",
+            contract: "NavigationView.IsBackButtonVisible",
             set: coverage_142_set,
             clear: coverage_142_clear,
         },
@@ -913,7 +913,7 @@ pub fn cases() -> Vec<CoverageCase> {
             clear: coverage_180_clear,
         },
         CoverageCase {
-            contract: "InfoBadge.InfoBadgeValue",
+            contract: "InfoBadge.Value",
             set: coverage_181_set,
             clear: coverage_181_clear,
         },
@@ -958,12 +958,12 @@ pub fn cases() -> Vec<CoverageCase> {
             clear: coverage_189_clear,
         },
         CoverageCase {
-            contract: "ScrollView.ScrollViewHorizontalScrollBarVisibility",
+            contract: "ScrollView.HorizontalScrollBarVisibility",
             set: coverage_190_set,
             clear: coverage_190_clear,
         },
         CoverageCase {
-            contract: "ScrollView.ScrollViewVerticalScrollBarVisibility",
+            contract: "ScrollView.VerticalScrollBarVisibility",
             set: coverage_191_set,
             clear: coverage_191_clear,
         },
@@ -1153,7 +1153,7 @@ pub fn cases() -> Vec<CoverageCase> {
             clear: coverage_228_clear,
         },
         CoverageCase {
-            contract: "RatingControl.RatingControlValue",
+            contract: "RatingControl.Value",
             set: coverage_229_set,
             clear: coverage_229_clear,
         },
@@ -2813,7 +2813,7 @@ fn coverage_189_clear() -> View {
 }
 fn coverage_190_set() -> View {
     ScrollView::new()
-        .scroll_view_horizontal_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
+        .horizontal_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
         .into()
 }
 fn coverage_190_clear() -> View {
@@ -2821,7 +2821,7 @@ fn coverage_190_clear() -> View {
 }
 fn coverage_191_set() -> View {
     ScrollView::new()
-        .scroll_view_vertical_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
+        .vertical_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
         .into()
 }
 fn coverage_191_clear() -> View {

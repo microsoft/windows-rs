@@ -193,3 +193,22 @@ The [setup guide](windows-reactor-setup.md) covers prerequisites, WebView2, and 
 
 Browse the [sample directory](../../crates/samples/reactor) for smaller examples of controlled
 input, context, effects, multiple windows, virtualization, WebView2, and deployment.
+
+## Maintain generated controls
+
+`crates/tools/reactor/src/schema.toml` declares controls, properties, relations, and events.
+Native classes, property types, event payloads, and collection types come from the WinUI metadata.
+The schema specifies only Reactor behavior and public API exceptions. Controls default to the
+`Visual` category, relations default to one positional owned visual, and adapters define
+Reactor-specific value conversions. Unknown schema fields are rejected, and inferred metadata is
+validated before generation. Control capabilities such as focus, references, and attachments are
+declared on the control. `layout_exit_transition` is a top-level schema capability.
+
+After changing the schema or generator, run:
+
+```text
+cargo run -p tool-reactor --quiet
+```
+
+The command updates the Reactor declarations, native adapter, binding filters, and live coverage.
+Do not edit those generated files directly.
