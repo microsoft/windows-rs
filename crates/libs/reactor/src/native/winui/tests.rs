@@ -346,6 +346,28 @@ mod tests {
     }
 
     #[test]
+    fn pointer_event_modifiers_map_native_flags() {
+        let mut expected = crate::InputModifiers::SHIFT;
+        expected |= crate::InputModifiers::CONTROL;
+        expected |= crate::InputModifiers::ALT;
+        expected |= crate::InputModifiers::WINDOWS;
+
+        assert_eq!(
+            WinUiAdapter::input_modifiers_from_virtual_keys(
+                native::VirtualKeyModifiers::Shift
+                    | native::VirtualKeyModifiers::Control
+                    | native::VirtualKeyModifiers::Menu
+                    | native::VirtualKeyModifiers::Windows
+            ),
+            expected
+        );
+        assert_eq!(
+            WinUiAdapter::input_modifiers_from_virtual_keys(native::VirtualKeyModifiers::None),
+            crate::InputModifiers::NONE
+        );
+    }
+
+    #[test]
     fn optional_numeric_adapters_use_distinct_sentinels() {
         assert!(native_number_box_value(None).is_nan());
         assert_eq!(number_box_value(f64::NAN), None);

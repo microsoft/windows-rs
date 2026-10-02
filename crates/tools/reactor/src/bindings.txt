@@ -904,6 +904,7 @@ Microsoft::UI::Xaml::Input::IKeyboardAccelerator::put_Key
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::put_Modifiers
 Microsoft::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs::put_Handled
 Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::GetCurrentPoint
+Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_KeyModifiers
 Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::get_Pointer
 Microsoft::UI::Xaml::Input::KeyboardAccelerator::CreateInstance
 Microsoft::UI::Xaml::Input::KeyboardAcceleratorPlacementMode::Hidden
