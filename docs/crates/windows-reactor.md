@@ -202,7 +202,7 @@ The schema specifies only Reactor behavior and public API exceptions. Controls d
 `Visual` category, relations default to one positional owned visual, and adapters define
 Reactor-specific value conversions. Unknown schema fields are rejected, and inferred metadata is
 validated before generation. Control capabilities such as focus, references, and attachments are
-declared on the control. `layout_exit_transition` is a top-level schema capability.
+declared on the control.
 
 After changing the schema or generator, run:
 
@@ -210,5 +210,5 @@ After changing the schema or generator, run:
 cargo run -p tool-reactor --quiet
 ```
 
-The command updates the Reactor declarations, native adapter, binding filters, and live coverage.
-Do not edit those generated files directly.
+The command updates the Reactor declarations, native adapter, native bindings, and live coverage.
+`crates/tools/reactor/src/bindings.txt` is the handwritten native binding filter.

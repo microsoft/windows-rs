@@ -116,8 +116,8 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
    metadata and generates `extras.winmd`.
 
 2. **`tool-reactor`** - reads `crates/tools/reactor/src/schema.toml` plus the shared WinUI
-   metadata -> generates Reactor declarations, native projection code, binding filters, the
-   Reactor native bindings, and the canvas Reactor bridge bindings.
+   metadata -> generates Reactor declarations, native projection code, the Reactor native
+   bindings, and the canvas Reactor bridge bindings.
 
 3. **`tool-bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
    `windows-bindgen` -> generates `bindings.rs` in each crate:
