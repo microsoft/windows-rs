@@ -5831,6 +5831,38 @@ impl IBitmapImage {
             .ok()
         }
     }
+    pub(crate) fn ImageFailed<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<ExceptionRoutedEventArgs>,
+            ) + 'static,
+    {
+        let handler: ExceptionRoutedEventHandler = {
+            let com = windows_core::imp::DelegateBox::<ExceptionRoutedEventHandler, F>::new(
+                &ExceptionRoutedEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).ImageFailed)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveImageFailed,
+            ))
+        }
+    }
 }
 #[repr(C)]
 pub struct IBitmapImage_Vtbl {
@@ -5842,6 +5874,27 @@ pub struct IBitmapImage_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    DecodePixelWidth: usize,
+    SetDecodePixelWidth: usize,
+    DecodePixelHeight: usize,
+    SetDecodePixelHeight: usize,
+    DecodePixelType: usize,
+    SetDecodePixelType: usize,
+    IsAnimatedBitmap: usize,
+    IsPlaying: usize,
+    AutoPlay: usize,
+    SetAutoPlay: usize,
+    DownloadProgress: usize,
+    RemoveDownloadProgress: usize,
+    ImageOpened: usize,
+    RemoveImageOpened: usize,
+    pub ImageFailed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveImageFailed:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IBitmapSource,

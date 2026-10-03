@@ -16,7 +16,7 @@ use native::IElementFactory;
 use std::cell::{Cell, RefCell};
 use std::collections::{BTreeMap, HashMap, HashSet, VecDeque};
 use std::rc::{Rc, Weak};
-use std::sync::atomic::{AtomicU32, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::{Arc, Mutex};
 use windows_collections::{
     CollectionChange, IIterable_Impl, IIterator_Impl, IObservableVector_Impl, IVector_Impl,
@@ -113,13 +113,6 @@ type NativeTextEvent = NativeValueEvent<Rc<str>>;
 type NativeStringEvent = NativeTextEvent;
 type NativeStringListEvent = NativeValueEvent<Vec<String>>;
 type NativeUnitEvent = NativeValueEvent<()>;
-
-static NEXT_IMAGE_DECODE_COMPLETION: AtomicU64 = AtomicU64::new(1);
-
-thread_local! {
-    static IMAGE_DECODE_COMPLETIONS: RefCell<HashMap<u64, Box<dyn FnOnce(bool)>>> =
-        RefCell::new(HashMap::new());
-}
 
 enum GeneratedRevoker {
     Event(windows_core::EventRevoker),
@@ -1185,104 +1178,51 @@ fn uri_image(value: &str) -> Result<native::ImageSource, WinUiError> {
     }
 }
 
-fn queue_image_decode_completion(
-    dispatch: Option<(native::DispatcherQueue, u64)>,
-    decode_failed: bool,
-) {
-    let Some((queue, token)) = dispatch else {
-        return;
-    };
-    let handler = native::DispatcherQueueHandler::new(move || {
-        IMAGE_DECODE_COMPLETIONS.with(|completions| {
-            if let Some(completion) = completions.borrow_mut().remove(&token) {
-                completion(decode_failed);
-            }
-        });
-    });
-    match queue.TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler) {
-        Ok(true) => {}
-        Ok(false) => super::app::report_error(windows_core::Error::new(
-            native::E_FAIL,
-            "dispatcher rejected encoded image completion",
-        )),
-        Err(error) => super::app::report_error(error),
-    }
-}
-
 fn encoded_bitmap_image(
     value: &EncodedImage,
-    failed: Option<Rc<dyn Fn(&native::BitmapImage)>>,
-) -> Result<native::BitmapImage, WinUiError> {
+    failed: Option<Rc<dyn Fn()>>,
+) -> Result<(native::BitmapImage, Option<windows_core::EventRevoker>), WinUiError> {
     let stream = native::InMemoryRandomAccessStream::new()?;
     let output = stream.GetOutputStreamAt(0)?;
     let writer = native::DataWriter::CreateDataWriter(&output)?;
     writer.WriteBytes(value.as_bytes())?;
     let store = writer.StoreAsync()?;
     let image = native::BitmapImage::new()?;
-    let failed_dispatch = failed
+    let failed = failed
         .map(|failed| {
-            let failed_image = image.clone();
-            let queue = native::DispatcherQueue::GetForCurrentThread()?;
-            let token = NEXT_IMAGE_DECODE_COMPLETION.fetch_add(1, Ordering::Relaxed);
-            IMAGE_DECODE_COMPLETIONS.with(|completions| {
-                completions.borrow_mut().insert(
-                    token,
-                    Box::new(move |decode_failed| {
-                        if decode_failed {
-                            failed(&failed_image);
-                        }
-                    }),
-                );
-            });
-            Ok::<_, windows_core::Error>((queue, token))
+            image
+                .cast::<native::IBitmapImage>()?
+                .ImageFailed(move |_, _| failed())
         })
         .transpose()?;
     let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
-        let mut failed_dispatch = failed_dispatch;
         if let Err(error) = result {
-            queue_image_decode_completion(failed_dispatch.take(), false);
             super::app::report_error(error);
             return;
         }
         if let Err(error) = writer.DetachStream() {
-            queue_image_decode_completion(failed_dispatch.take(), false);
             super::app::report_error(error);
             return;
         }
         if let Err(error) = stream.Seek(0) {
-            queue_image_decode_completion(failed_dispatch.take(), false);
             super::app::report_error(error);
             return;
         }
         let source = match decode_image.cast::<native::IBitmapSource>() {
             Ok(source) => source,
             Err(error) => {
-                queue_image_decode_completion(failed_dispatch.take(), false);
                 super::app::report_error(error);
                 return;
             }
         };
-        let operation = match source.SetSourceAsync(&stream) {
-            Ok(operation) => operation,
-            Err(error) => {
-                queue_image_decode_completion(failed_dispatch.take(), false);
-                super::app::report_error(error);
-                return;
-            }
-        };
-        let completion_dispatch = failed_dispatch.clone();
-        if let Err(error) = operation.when(move |result| {
-            drop(stream);
-            queue_image_decode_completion(completion_dispatch, result.is_err());
-        }) {
-            queue_image_decode_completion(failed_dispatch, false);
+        if let Err(error) = source.SetSourceAsync(&stream) {
             super::app::report_error(error);
         }
     }) {
         return Err(error.into());
     }
-    Ok(image)
+    Ok((image, failed))
 }
 
 fn build_menu_items(
@@ -1572,6 +1512,7 @@ fn observe_xaml_scale(
 
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
+    encoded_image_failures: HashMap<ObjectId, windows_core::EventRevoker>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
@@ -1611,6 +1552,7 @@ impl Default for WinUiAdapter {
     fn default() -> Self {
         Self {
             handles: HashMap::new(),
+            encoded_image_failures: HashMap::new(),
             owners: HashMap::new(),
             tree_template: None,
             list_template: None,

@@ -3052,6 +3052,13 @@ impl reactor::Component for Fixture {
                             .on_failed(move || encoded_image_failed.set(Some(false))),
                     )
                     .unwrap();
+                assert!(
+                    encoded_image_runtime
+                        .adapter()
+                        .image_has_decode_failure_subscription(
+                            encoded_image_runtime.graph().root().unwrap()
+                        )
+                );
                 self.encoded_image_activated = true;
                 Self::schedule(context);
                 return;
@@ -3101,6 +3108,13 @@ impl reactor::Component for Fixture {
                                 .on_failed(move || encoded_image_failed.set(Some(false))),
                         )
                         .unwrap();
+                    assert!(
+                        !encoded_image_runtime
+                            .adapter()
+                            .image_has_decode_failure_subscription(
+                                encoded_image_runtime.graph().root().unwrap()
+                            )
+                    );
                     self.encoded_image_result.set(None);
                     self.encoded_image_waits = 0;
                     self.encoded_image_cleared = true;

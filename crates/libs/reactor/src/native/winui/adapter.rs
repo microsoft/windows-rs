@@ -241,6 +241,7 @@ impl Adapter for WinUiAdapter {
                         .handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
+                    self.encoded_image_failures.remove(object);
                     if let Handle::TreeNode(node) = &handle {
                         self.tree_node_texts
                             .borrow_mut()

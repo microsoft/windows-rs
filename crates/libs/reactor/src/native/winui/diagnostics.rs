@@ -911,6 +911,10 @@ impl WinUiAdapter {
         }
     }
 
+    pub fn image_has_decode_failure_subscription(&self, object: ObjectId) -> bool {
+        self.encoded_image_failures.contains_key(&object)
+    }
+
     pub fn image_source_is_svg(&self, object: ObjectId) -> Result<bool, WinUiError> {
         let source = match self.handles.get(&object) {
             Some(Handle::Generated(GeneratedHandle::Image(control))) => control.value.Source()?,
