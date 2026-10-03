@@ -23,12 +23,14 @@ const BLUE_PNG: &[u8] = &[
 enum Message {
     Tick,
     Toggle,
+    Invalid,
     Opened,
     Failed,
 }
 
 struct Sample {
     running: bool,
+    invalid: bool,
     swaps: u64,
     opened: u64,
     failed: u64,
@@ -51,6 +53,7 @@ impl Component for Sample {
         Self::schedule(context);
         Self {
             running: true,
+            invalid: false,
             swaps: 0,
             opened: 0,
             failed: 0,
@@ -59,25 +62,30 @@ impl Component for Sample {
 
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
-            Message::Tick if self.running => {
-                self.swaps += 1;
+            Message::Tick => {
+                if self.running {
+                    self.invalid = false;
+                    self.swaps += 1;
+                }
                 Self::schedule(context);
             }
             Message::Toggle => {
                 self.running = !self.running;
-                if self.running {
-                    Self::schedule(context);
-                }
+            }
+            Message::Invalid => {
+                self.running = false;
+                self.invalid = true;
             }
             Message::Opened => self.opened += 1,
             Message::Failed => self.failed += 1,
-            Message::Tick => {}
         }
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Encoded image");
-        let source = if self.swaps.is_multiple_of(2) {
+        let source = if self.invalid {
+            &[0, 1, 2]
+        } else if self.swaps.is_multiple_of(2) {
             RED_PNG
         } else {
             BLUE_PNG
@@ -100,6 +108,10 @@ impl Component for Sample {
                     Button::new()
                         .on_click(context.message(Message::Toggle))
                         .content(if self.running { "Pause" } else { "Resume" }),
+                    Button::new()
+                        .is_enabled(!self.invalid)
+                        .on_click(context.message(Message::Invalid))
+                        .content("Decode invalid image"),
                 )),
             )
             .into()
