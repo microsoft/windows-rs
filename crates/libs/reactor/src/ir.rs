@@ -357,6 +357,7 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         | (ValueType::FontWeight, PropertyValue::FontWeight(_))
         | (ValueType::GridLengths, PropertyValue::GridLengths(_))
         | (ValueType::I32, PropertyValue::I32(_))
+        | (ValueType::Icon, PropertyValue::Icon(_))
         | (ValueType::ImageSource, PropertyValue::ImageSource(_))
         | (ValueType::KeyAccelerators, PropertyValue::KeyAccelerators(_))
         | (ValueType::OptionalF64, PropertyValue::OptionalF64(_))

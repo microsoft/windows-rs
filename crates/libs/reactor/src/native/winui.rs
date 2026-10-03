@@ -4,13 +4,13 @@ use crate::{
     AcceleratorKey, AcceleratorModifiers, Adapter, Brush, ButtonStyle, Callback, ColorScheme,
     CommandBarCommand, CommandBarFlyout, ComponentHost, CompositionHostEvent, ContentDialogResult,
     DragDropPolicy, ElementFocusState, EncodedImage, Event, EventDispatch, EventId, EventPayload,
-    EventValue, FlyoutPlacement, GridLength, GridLengthSize, ImageSourceValue, ImperativeRequest,
-    IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent, ObjectId, ObjectType,
-    Observation, Property, PropertyId, PropertyValue, Realization, RealizationRequest,
-    RealizedContainer, RelationContract, RelationId, ResourceOverrides, ResourceValue,
-    RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, ThemeBrush,
-    TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme, WindowVisuals,
-    relation_contracts, selection_for_item_property, selection_for_relation,
+    EventValue, FlyoutPlacement, GridLength, GridLengthSize, Icon, IconValue, ImageSourceValue,
+    ImperativeRequest, IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent,
+    ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue, Realization,
+    RealizationRequest, RealizedContainer, RelationContract, RelationId, ResourceOverrides,
+    ResourceValue, RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, Symbol,
+    ThemeBrush, TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme,
+    WindowVisuals, relation_contracts, selection_for_item_property, selection_for_relation,
 };
 use native::IElementFactory;
 use std::cell::{Cell, RefCell};
@@ -1178,6 +1178,84 @@ fn uri_image(value: &str) -> Result<native::ImageSource, WinUiError> {
     }
 }
 
+fn icon_image_source(value: &crate::ImageSource) -> Result<native::ImageSource, WinUiError> {
+    match value.value() {
+        ImageSourceValue::Uri(value) => uri_image(value),
+        ImageSourceValue::Encoded(value) => encoded_bitmap_image(value, None)?
+            .0
+            .cast()
+            .map_err(Into::into),
+    }
+}
+
+fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
+    match value.value() {
+        IconValue::Symbol(value) => {
+            let icon = native::SymbolIcon::new()?;
+            icon.SetSymbol(native_symbol(*value))?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Font(value) => {
+            let icon = native::FontIcon::new()?;
+            icon.SetGlyph(value)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Bitmap {
+            uri,
+            show_as_monochrome,
+        } => {
+            let icon = native::BitmapIcon::new()?;
+            icon.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            icon.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Image(value) => {
+            let icon = native::ImageIcon::new()?;
+            icon.SetSource(&icon_image_source(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Path(value) => {
+            let icon = native::PathIcon::new()?;
+            icon.SetData(&parse_path_data(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+    }
+}
+
+fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
+    match value.value() {
+        IconValue::Symbol(value) => {
+            let icon = native::SymbolIconSource::new()?;
+            icon.SetSymbol(native_symbol(*value))?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Font(value) => {
+            let icon = native::FontIconSource::new()?;
+            icon.SetGlyph(value)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Bitmap {
+            uri,
+            show_as_monochrome,
+        } => {
+            let icon = native::BitmapIconSource::new()?;
+            icon.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            icon.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Image(value) => {
+            let icon = native::ImageIconSource::new()?;
+            icon.SetImageSource(&icon_image_source(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Path(value) => {
+            let icon = native::PathIconSource::new()?;
+            icon.SetData(&parse_path_data(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+    }
+}
+
 fn encoded_bitmap_image(
     value: &EncodedImage,
     failed: Option<Rc<dyn Fn()>>,
@@ -1189,11 +1267,7 @@ fn encoded_bitmap_image(
     let store = writer.StoreAsync()?;
     let image = native::BitmapImage::new()?;
     let failed = failed
-        .map(|failed| {
-            image
-                .cast::<native::IBitmapImage>()?
-                .ImageFailed(move |_, _| failed())
-        })
+        .map(|failed| image.ImageFailed(move |_, _| failed()))
         .transpose()?;
     let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
@@ -1296,11 +1370,8 @@ fn build_command_bar_element(
             let button = native::AppBarButton::new()?;
             button.SetLabel(label)?;
             button.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
-            if let Some(symbol) = icon {
-                let icon = native::SymbolIcon::new()?;
-                GeneratedHandle::SymbolIcon(icon.clone())
-                    .set_property(PropertyId::Symbol, Some(&symbol.property_value()))
-                    .unwrap()?;
+            if let Some(icon) = icon {
+                let icon = icon_element(icon)?;
                 button.SetIcon(&icon)?;
             }
             let clicked_key = key.clone();
@@ -1327,8 +1398,7 @@ fn set_rich_text_blocks(
     target: &native::RichTextBlock,
     value: Option<&crate::RichText>,
 ) -> Result<(), WinUiError> {
-    let control = target.cast::<native::IRichTextBlock>()?;
-    let blocks: windows_collections::IVector<native::Block> = control.Blocks()?.cast()?;
+    let blocks = target.Blocks()?;
     blocks.Clear()?;
     let Some(value) = value else {
         return Ok(());
@@ -1352,16 +1422,14 @@ fn set_rich_text_blocks(
     };
     for paragraph in value.paragraphs.iter() {
         let native_paragraph = native::Paragraph::new()?;
-        let inlines: windows_collections::IVector<native::Inline> =
-            native_paragraph.Inlines()?.cast()?;
+        let inlines = native_paragraph.Inlines()?;
         for inline in &paragraph.inlines {
             match inline {
                 crate::RichTextInline::Run(value) => append_run(&inlines, value)?,
                 crate::RichTextInline::Hyperlink(value) => {
                     let hyperlink = native::Hyperlink::new()?;
                     hyperlink.SetNavigateUri(&native::Uri::CreateUri(&value.uri)?)?;
-                    let hyperlink_inlines: windows_collections::IVector<native::Inline> =
-                        hyperlink.cast::<native::ISpan>()?.Inlines()?.cast()?;
+                    let hyperlink_inlines = hyperlink.cast::<native::ISpan>()?.Inlines()?;
                     append_run(&hyperlink_inlines, &crate::RichTextRun::plain(&value.text))?;
                     let hyperlink: native::Inline = hyperlink.cast()?;
                     inlines.Append(&hyperlink)?;

@@ -2709,6 +2709,12 @@ impl TitleBar {
         );
         self
     }
+    pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IconSource, PropertyValue::Icon(icon.into()));
+        self
+    }
     window_title_bar_methods!();
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -2720,6 +2726,19 @@ impl TitleBar {
     pub fn content(mut self, content: impl Into<View>) -> Self {
         self.0 = self.0.relation(
             RelationId::Content,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor::*;
+    /// let _ = TitleBar::new().left_header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn left_header(mut self, content: impl Into<View>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::LeftHeader,
             RelationValue::One(Some(Rc::new(content.into().0))),
         );
         self
@@ -3332,6 +3351,13 @@ impl AutoSuggestBox {
         );
         self
     }
+    pub fn query_icon(mut self, query_icon: impl Into<Icon>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::QueryIcon,
+            PropertyValue::Icon(query_icon.into()),
+        );
+        self
+    }
     focus_methods!(AutoSuggestBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -3765,6 +3791,12 @@ impl NavigationViewItem {
         );
         self
     }
+    pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Icon, PropertyValue::Icon(icon.into()));
+        self
+    }
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3776,19 +3808,6 @@ impl NavigationViewItem {
         self.0 = self.0.relation(
             RelationId::Content,
             RelationValue::One(Some(Rc::new(content.into().0))),
-        );
-        self
-    }
-    /// Rejects values outside this relation's generated type contract.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor::*;
-    /// let _ = NavigationViewItem::new().icon(TreeNode::new("node", "Node"));
-    /// ```
-    pub fn icon(mut self, content: impl Into<Icon>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Icon,
-            RelationValue::One(Some(Rc::new(content.into().into_view().0))),
         );
         self
     }
@@ -5461,20 +5480,13 @@ impl SelectorBarItem {
             .property(PropertyId::IsSelected, PropertyValue::Bool(is_selected));
         self
     }
-    visual_methods!();
-    /// Rejects values outside this relation's generated type contract.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor::*;
-    /// let _ = SelectorBarItem::new().icon(TreeNode::new("node", "Node"));
-    /// ```
-    pub fn icon(mut self, content: impl Into<Icon>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Icon,
-            RelationValue::One(Some(Rc::new(content.into().into_view().0))),
-        );
+    pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Icon, PropertyValue::Icon(icon.into()));
         self
     }
+    visual_methods!();
 }
 impl Default for SelectorBarItem {
     fn default() -> Self {
@@ -5864,20 +5876,13 @@ impl AppBarButton {
             .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
         self
     }
-    visual_methods!();
-    /// Rejects values outside this relation's generated type contract.
-    ///
-    /// ```compile_fail
-    /// use windows_reactor::*;
-    /// let _ = AppBarButton::new().icon(TreeNode::new("node", "Node"));
-    /// ```
-    pub fn icon(mut self, content: impl Into<Icon>) -> Self {
-        self.0 = self.0.relation(
-            RelationId::Icon,
-            RelationValue::One(Some(Rc::new(content.into().into_view().0))),
-        );
+    pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::Icon, PropertyValue::Icon(icon.into()));
         self
     }
+    visual_methods!();
     pub fn on_click(mut self, callback: impl IntoUnitCallback) -> Self {
         self.0 = self.0.event(
             EventId::Click,

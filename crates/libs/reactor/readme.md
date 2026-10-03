@@ -65,3 +65,8 @@ fn main() {
 Ordinary unpackaged applications use an installed Windows App SDK framework package. For a
 self-contained application, add `windows-reactor-setup` as a build dependency and call
 `windows_reactor_setup::as_self_contained()` from `build.rs`.
+
+Control icon slots accept the shared `Icon` content value. Reactor realizes it as the native
+`IconElement` or `IconSource` required by each control, so the same value works with APIs such as
+`AutoSuggestBox::query_icon`, `AppBarButton::icon`, and `TitleBar::icon`. Standalone visual icons
+continue to use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon`.
