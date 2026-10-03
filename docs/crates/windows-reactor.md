@@ -113,14 +113,12 @@ static view with no state or events, call `App::run(view)` instead.
 `IconElement` or nonvisual `IconSource`, depending on the destination property:
 
 ```rust,ignore
-let search = Icon::font("\u{E721}");
-
 StackPanel::new().children((
     TitleBar::new()
         .title("Search")
-        .icon(search.clone())
+        .icon(Symbol::Home)
         .left_header(TextBlock::new().text("Files")),
-    AutoSuggestBox::new().query_icon(search),
+    AutoSuggestBox::new().query_icon(Icon::font("\u{E721}")),
 ))
 ```
 

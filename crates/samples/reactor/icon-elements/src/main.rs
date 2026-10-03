@@ -31,7 +31,7 @@ impl Component for IconElementsSample {
             "file:///{}/image.png",
             env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
         );
-        let search = Icon::symbol(Symbol::Find);
+        let app_icon = Icon::image_uri(image).unwrap();
         let item = |tag: &'static str, label: &'static str, icon: Icon| {
             KeyedView::new(
                 tag,
@@ -58,7 +58,7 @@ impl Component for IconElementsSample {
             .keyed_menu_items([
                 item("home", "Home", Icon::symbol(Symbol::Home)),
                 item("starred", "Starred", Icon::font("\u{E734}")),
-                item("repo", "Repository", Icon::image_uri(image).unwrap()),
+                item("repo", "Repository", app_icon.clone()),
                 item("bitmap", "Bitmap mask", Icon::bitmap(bitmap, true).unwrap()),
                 item(
                     "path",
@@ -73,12 +73,12 @@ impl Component for IconElementsSample {
             .children((
                 TitleBar::new()
                     .title("Icon slots")
-                    .icon(search.clone())
-                    .left_header(TextBlock::new().text("Reactor"))
+                    .icon(app_icon)
+                    .left_header(TextBlock::new().text("Left header"))
                     .content(
                         AutoSuggestBox::new()
                             .placeholder_text("Search...")
-                            .query_icon(search),
+                            .query_icon(Icon::font("\u{E721}")),
                     ),
                 navigation.grid_row(1),
             ))
