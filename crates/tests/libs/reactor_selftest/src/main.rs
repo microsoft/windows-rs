@@ -564,26 +564,45 @@ impl reactor::Component for Fixture {
             title_bar_runtime.adapter().create_window(title_bar_root),
             Err(reactor::native::WinUiError::DuplicateWindowRoot(root)) if root == title_bar_root
         ));
-        title_bar_runtime
-            .update(
-                reactor::Grid::new().keyed_children([reactor::keyed(
-                    "title",
-                    reactor::TitleBar::new()
-                        .title("Reactor title-bar self-test")
-                        .subtitle("Coverage")
-                        .is_back_button_visible(true)
-                        .is_back_button_enabled(true)
-                        .is_pane_toggle_button_visible(true)
-                        .on_back_requested(move || {
+        let title_bar_icons = [
+            reactor::Icon::symbol(reactor::Symbol::Home),
+            reactor::Icon::font("\u{E721}"),
+            reactor::Icon::bitmap("ms-appx:///Assets/icon.png", true).unwrap(),
+            reactor::Icon::image_uri("ms-appx:///Assets/icon.svg").unwrap(),
+            reactor::Icon::image_data(reactor::EncodedImage::from_static(ENCODED_IMAGE_PNG)),
+            reactor::Icon::path("M 0,0 L 8,8"),
+        ];
+        for (index, icon) in title_bar_icons.into_iter().enumerate() {
+            let title_bar = reactor::TitleBar::new()
+                .title("Reactor title-bar self-test")
+                .icon(icon);
+            let title_bar = if index == 0 {
+                title_bar
+                    .subtitle("Coverage")
+                    .left_header(reactor::TextBlock::new().text("Left header"))
+                    .is_back_button_visible(true)
+                    .is_back_button_enabled(true)
+                    .is_pane_toggle_button_visible(true)
+                    .on_back_requested({
+                        let back_requests = Rc::clone(&back_requests);
+                        move || {
                             back_requests.set(back_requests.get() + 1);
-                        })
-                        .on_pane_toggle_requested(move || {
+                        }
+                    })
+                    .on_pane_toggle_requested({
+                        let pane_requests = Rc::clone(&pane_requests);
+                        move || {
                             pane_requests.set(pane_requests.get() + 1);
-                        })
-                        .preferred_height(reactor::WindowTitleBarHeight::Tall),
-                )]),
-            )
-            .unwrap();
+                        }
+                    })
+                    .preferred_height(reactor::WindowTitleBarHeight::Tall)
+            } else {
+                title_bar
+            };
+            title_bar_runtime
+                .update(reactor::Grid::new().keyed_children([reactor::keyed("title", title_bar)]))
+                .unwrap();
+        }
         title_bar_runtime
             .update(
                 reactor::Grid::new().keyed_children([reactor::keyed(
