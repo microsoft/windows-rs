@@ -650,7 +650,6 @@ impl WinUiAdapter {
         };
         let mut capture_index = 0;
         let is_captured = element
-            .cast::<native::IUIElement>()?
             .PointerCaptures()
             .ok()
             .and_then(|captures| captures.IndexOf(&pointer, &mut capture_index).ok())

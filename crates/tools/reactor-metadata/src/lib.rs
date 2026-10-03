@@ -76,6 +76,7 @@ pub struct MetadataResolver {
     class_paths: HashMap<String, Option<String>>,
     base_classes: HashMap<(String, String), (String, String)>,
     implemented_interfaces: HashMap<(String, String), Vec<(String, String)>>,
+    default_interfaces: HashMap<(String, String), (String, String)>,
     /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
     interface_owners: HashMap<(String, String), Option<(String, String)>>,
     /// Runtime class and dependency-property getter -> owning static interface.
@@ -126,6 +127,7 @@ impl MetadataResolver {
         let mut interface_owners = HashMap::new();
         let mut base_classes = HashMap::new();
         let mut implemented_interfaces = HashMap::new();
+        let mut default_interfaces = HashMap::new();
         let mut content_properties = HashMap::new();
         let mut dependency_properties = HashMap::new();
 
@@ -195,6 +197,12 @@ impl MetadataResolver {
                         }
                         _ => continue,
                     };
+                    if implementation.has_attribute("DefaultAttribute") {
+                        default_interfaces.insert(
+                            (namespace.to_string(), name.to_string()),
+                            (interface_namespace.clone(), interface_name.clone()),
+                        );
+                    }
                     let owner = (namespace.to_string(), name.to_string());
                     interface_owners
                         .entry((interface_namespace, interface_name))
@@ -311,6 +319,7 @@ impl MetadataResolver {
             class_paths,
             base_classes,
             implemented_interfaces,
+            default_interfaces,
             interface_owners,
             dependency_properties,
             single_field_types,
@@ -322,6 +331,18 @@ impl MetadataResolver {
 
     pub fn class_path(&self, name: &str) -> Option<&str> {
         self.class_paths.get(name)?.as_deref()
+    }
+
+    pub fn is_default_interface(&self, class: &str, interface: &str) -> bool {
+        let Some(path) = self.class_path(class) else {
+            return false;
+        };
+        let Some((namespace, name)) = path.rsplit_once('.') else {
+            return false;
+        };
+        self.default_interfaces
+            .get(&(namespace.to_string(), name.to_string()))
+            .is_some_and(|(_, name)| name == interface)
     }
 
     pub fn class_derives_from(&self, class: &str, base: &str) -> bool {
@@ -478,6 +499,12 @@ impl MetadataResolver {
             Type::ClassName(name) | Type::ValueName(name) => Some(&name.name),
             _ => None,
         }
+    }
+
+    pub fn method_returns_object(&self, class_name: &str, method_name: &str) -> bool {
+        self.lookup
+            .get(&(class_name.to_string(), method_name.to_string()))
+            .is_some_and(|method| matches!(method.return_type, Type::Object))
     }
 
     /// Resolve the sender and argument types accepted by an event delegate.

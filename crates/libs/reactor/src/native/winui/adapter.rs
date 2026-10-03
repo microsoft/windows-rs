@@ -280,7 +280,7 @@ impl Adapter for WinUiAdapter {
     }
 
     fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
-        let element = self.ui_element(object)?.cast::<native::IUIElement>()?;
+        let element = self.ui_element(object)?;
         self.pending_focus_states
             .borrow_mut()
             .insert(object, ElementFocusState::Programmatic);

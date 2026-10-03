@@ -1398,8 +1398,7 @@ fn set_rich_text_blocks(
     target: &native::RichTextBlock,
     value: Option<&crate::RichText>,
 ) -> Result<(), WinUiError> {
-    let control = target.cast::<native::IRichTextBlock>()?;
-    let blocks: windows_collections::IVector<native::Block> = control.Blocks()?.cast()?;
+    let blocks = target.Blocks()?;
     blocks.Clear()?;
     let Some(value) = value else {
         return Ok(());
@@ -1423,16 +1422,14 @@ fn set_rich_text_blocks(
     };
     for paragraph in value.paragraphs.iter() {
         let native_paragraph = native::Paragraph::new()?;
-        let inlines: windows_collections::IVector<native::Inline> =
-            native_paragraph.Inlines()?.cast()?;
+        let inlines = native_paragraph.Inlines()?;
         for inline in &paragraph.inlines {
             match inline {
                 crate::RichTextInline::Run(value) => append_run(&inlines, value)?,
                 crate::RichTextInline::Hyperlink(value) => {
                     let hyperlink = native::Hyperlink::new()?;
                     hyperlink.SetNavigateUri(&native::Uri::CreateUri(&value.uri)?)?;
-                    let hyperlink_inlines: windows_collections::IVector<native::Inline> =
-                        hyperlink.cast::<native::ISpan>()?.Inlines()?.cast()?;
+                    let hyperlink_inlines = hyperlink.cast::<native::ISpan>()?.Inlines()?;
                     append_run(&hyperlink_inlines, &crate::RichTextRun::plain(&value.text))?;
                     let hyperlink: native::Inline = hyperlink.cast()?;
                     inlines.Append(&hyperlink)?;

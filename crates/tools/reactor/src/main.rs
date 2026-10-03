@@ -1067,47 +1067,33 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         .resolve(&native_name(object), &format!("get_{observed_native}"))
                         .unwrap()
                         .short_name();
+                    let observed_target = native_interface_value(
+                        &format!("source_{field}"),
+                        &native_name(object),
+                        observed_interface,
+                        metadata,
+                    );
+                    let observed_read = format!("{observed_target}.{observed_native}()");
                     output.push_str(&format!("let source_{field} = value.clone();\n"));
                     let read = if property.adapter == Some(PropertyAdapter::RichEditText) {
                         format!("read_rich_edit_text(&source_{field})")
                     } else {
                         match property.value.as_str() {
-                            "String" => format!(
-                                "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed_native}()).map(Rc::<str>::from)"
-                            ),
-                            "Bool" => format!(
-                                "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed_native}())"
-                            ),
-                            "F64" => format!(
-                                "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed_native}())"
-                            ),
-                            "OptionalBool" => format!(
-                                "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed_native}()).map(Some)"
-                            ),
+                            "String" => format!("{observed_read}.map(Rc::<str>::from)"),
+                            "Bool" | "F64" => observed_read,
+                            "OptionalBool" => format!("{observed_read}.map(Some)"),
                             "OptionalF64" => format!(
-                                "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed_native}())\
-                             .map({})",
+                                "{observed_read}.map({})",
                                 if property.adapter == Some(PropertyAdapter::RatingValue) {
                                     "rating_value"
                                 } else {
                                     "number_box_value"
                                 }
                             ),
-                            "Color" => format!(
-                                "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed_native}())\
-                             .map(from_native_color)"
-                            ),
-                            "SelectionIndex" => format!(
-                                "source_{field}.cast::<native::{observed_interface}>()\
-                             .and_then(|source| source.{observed_native}())\
-                             .map(|value| usize::try_from(value).ok())"
-                            ),
+                            "Color" => format!("{observed_read}.map(from_native_color)"),
+                            "SelectionIndex" => {
+                                format!("{observed_read}.map(|value| usize::try_from(value).ok())")
+                            }
                             _ => unreachable!("unsupported generated observation type"),
                         }
                     };
@@ -1132,9 +1118,13 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             )
                             .unwrap()
                             .short_name();
-                        output.push_str(&format!(
-                            "let source_{field} = value.cast::<native::{selected_interface}>()?;\n"
-                        ));
+                        let selected_target = native_interface_owned(
+                            "value",
+                            &native_name(object),
+                            selected_interface,
+                            metadata,
+                        );
+                        output.push_str(&format!("let source_{field} = {selected_target};\n"));
                     }
                 } else if event.value == "PointerEventInfo" {
                     output.push_str(&format!(
@@ -1162,9 +1152,9 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     } else {
                         "IItemsControl"
                     };
-                    output.push_str(&format!(
-                        "let source_{field} = value.cast::<native::{interface}>()?;\n"
-                    ));
+                    let source =
+                        native_interface_owned("value", &native_name(object), interface, metadata);
+                    output.push_str(&format!("let source_{field} = {source};\n"));
                 }
                 let args = if event.routed
                     || event.value == "PointerEventInfo"
@@ -1196,26 +1186,49 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          move |_, _| {{\n"
                     ));
                 } else {
-                    output.push_str(&format!(
-                        "let revoker = value.cast::<native::{}>()?.{}(move |_, {args}| {{\n",
+                    let event_target = native_interface_value(
+                        "value",
+                        &native_name(object),
                         interface.unwrap(),
-                        event.name
+                        metadata,
+                    );
+                    output.push_str(&format!(
+                        "let revoker = {event_target}.{}(move |_, {args}| {{\n",
+                        event.name,
                     ));
                 }
                 if let Some(selection) = selection {
                     let selected = match selection.event_item_source.as_str() {
-                        "Owner" => format!(
-                            "source_{field}.{}().and_then(|selected| \
-                             selected.cast::<IInspectable>())",
-                            selection.selected_item_property
-                        ),
+                        "Owner" => {
+                            let getter = format!("get_{}", selection.selected_item_property);
+                            if metadata.method_returns_object(&native_name(object), &getter) {
+                                format!("source_{field}.{}()", selection.selected_item_property)
+                            } else {
+                                format!(
+                                    "source_{field}.{}().and_then(|selected| \
+                                     selected.cast::<IInspectable>())",
+                                    selection.selected_item_property
+                                )
+                            }
+                        }
                         "EventArgs" => {
                             output.push_str("let args = args.unwrap();\n");
-                            format!(
-                                "args.{}().and_then(|selected| \
-                                 selected.cast::<IInspectable>())",
-                                selection.selected_item_property
-                            )
+                            if metadata
+                                .resolve_event_args_object_property(
+                                    &native_name(object),
+                                    &format!("add_{}", event.name),
+                                    &selection.selected_item_property,
+                                )
+                                .is_some()
+                            {
+                                format!("args.{}()", selection.selected_item_property)
+                            } else {
+                                format!(
+                                    "args.{}().and_then(|selected| \
+                                     selected.cast::<IInspectable>())",
+                                    selection.selected_item_property
+                                )
+                            }
                         }
                         _ => unreachable!(),
                     };
@@ -1589,6 +1602,13 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 ".and_then(|value| value.cast::<windows_collections::IVector<IInspectable>>()\
                  .map(GeneratedCollection::Inspectable).map_err(Into::into))"
                     .to_string()
+            } else if relation.native_collection == Some(NativeCollection::Vector) {
+                if item == "IInspectable" {
+                    ".map(GeneratedCollection::Inspectable)".to_string()
+                } else {
+                    let item = item.rsplit('.').next().unwrap();
+                    format!(".map(GeneratedCollection::{item})")
+                }
             } else if item == "IInspectable" {
                 ".map(GeneratedCollection::Inspectable)".to_string()
             } else {
@@ -1598,10 +1618,12 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                      .map(GeneratedCollection::{item}).map_err(Into::into))"
                 )
             };
+            let relation_call =
+                native_interface_call(target, &native_name(object), interface, metadata, |value| {
+                    format!("{value}.{native_relation}().map_err(Into::into){conversion}")
+                });
             output.push_str(&format!(
-                "(Self::{}(value), RelationId::{}) => Some({target}.cast::<native::{interface}>()\
-                 .map_err(Into::into).and_then(|value| value.{native_relation}()\
-                 .map_err(Into::into)){conversion}),\n",
+                "(Self::{}(value), RelationId::{}) => Some({relation_call}),\n",
                 object.name, relation.name
             ));
         }
@@ -1628,12 +1650,34 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             )
             .unwrap()
             .short_name();
+        let selected_is_object = metadata.method_returns_object(
+            &native_name(object),
+            &format!("get_{}", selection.selected_item_property),
+        );
+        let selection_call = native_interface_call(
+            target,
+            &native_name(object),
+            interface,
+            metadata,
+            |object| {
+                let selected = if selected_is_object {
+                    "Ok(selected) => Ok(Some(selected))".to_string()
+                } else {
+                    "Ok(selected) => selected.cast::<IInspectable>().map(Some)\
+                     .map_err(Into::into)"
+                        .to_string()
+                };
+                format!(
+                    "match {object}.{}() {{ \
+                     {selected}, Err(error) if error.code().is_ok() => Ok(None), \
+                     Err(error) => Err(error.into()) }}",
+                    selection.selected_item_property
+                )
+            },
+        );
         output.push_str(&format!(
-            "(Self::{}(object), EventId::{}) => Some({target}.cast::<native::{interface}>()\
-             .map_err(Into::into).and_then(|object| match object.{}() {{ \
-             Ok(selected) => selected.cast::<IInspectable>().map(Some).map_err(Into::into), \
-             Err(error) if error.code().is_ok() => Ok(None), Err(error) => Err(error.into()) }})),\n",
-            object.name, selection.event, selection.selected_item_property
+            "(Self::{}(object), EventId::{}) => Some({selection_call}),\n",
+            object.name, selection.event
         ));
     }
     output.push_str("_ => None,\n} }\n");
@@ -1664,22 +1708,30 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 &format!("put_{}", selection.selected_item_property),
             )
             .unwrap();
-        let set = if item_type == "IInspectable" {
-            format!(
-                "object.Set{}(selected).map_err(Into::into)",
-                selection.selected_item_property
-            )
-        } else {
-            format!(
-                "match selected {{ Some(selected) => selected.cast::<native::{item_type}>()\
-                 .and_then(|selected| object.Set{}(&selected)).map_err(Into::into), \
-                 None => object.Set{}(None::<&native::{item_type}>).map_err(Into::into) }}",
-                selection.selected_item_property, selection.selected_item_property
-            )
-        };
+        let selection_call = native_interface_call(
+            target,
+            &native_name(object),
+            interface,
+            metadata,
+            |object| {
+                if item_type == "IInspectable" {
+                    format!(
+                        "{object}.Set{}(selected).map_err(Into::into)",
+                        selection.selected_item_property
+                    )
+                } else {
+                    format!(
+                        "match selected {{ Some(selected) => selected\
+                         .cast::<native::{item_type}>().and_then(|selected| \
+                         {object}.Set{}(&selected)).map_err(Into::into), None => \
+                         {object}.Set{}(None::<&native::{item_type}>).map_err(Into::into) }}",
+                        selection.selected_item_property, selection.selected_item_property
+                    )
+                }
+            },
+        );
         output.push_str(&format!(
-            "(Self::{}(object), EventId::{}) => Some({target}.cast::<native::{interface}>()\
-             .map_err(Into::into).and_then(|object| {set})),\n",
+            "(Self::{}(object), EventId::{}) => Some({selection_call}),\n",
             object.name, selection.event
         ));
     }
@@ -1709,10 +1761,21 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 )
                 .unwrap()
                 .short_name();
+            let selection_call = native_interface_call(
+                target,
+                &native_name(object),
+                interface,
+                metadata,
+                |object| {
+                    format!(
+                        "{object}.{}().map_err(Into::into)",
+                        selection.selected_property
+                    )
+                },
+            );
             output.push_str(&format!(
-                "(Self::{}(object), PropertyId::{}) => Some({target}.cast::<native::{interface}>()\
-                 .map_err(Into::into).and_then(|object| object.{}().map_err(Into::into))),\n",
-                object.name, selection.selected_property, selection.selected_property
+                "(Self::{}(object), PropertyId::{}) => Some({selection_call}),\n",
+                object.name, selection.selected_property
             ));
         }
     }
@@ -1850,6 +1913,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             "Bool",
             None,
             None,
+            "UIElement",
             metadata,
         );
     }
@@ -1866,7 +1930,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                  }};\n\
                  collection.Append(&transition)?;\n\
                  }}\n\
-                 element.cast::<native::I{owner}>()?.Set{}(&collection)?;\n\
+                 element.Set{}(&collection)?;\n\
                  Ok(())\n\
                  }})()),\n",
                 property.name, property.name
@@ -1889,6 +1953,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 &property.value,
                 property.default.as_deref(),
                 None,
+                "UIElement",
                 metadata,
             );
         }
@@ -1935,6 +2000,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 &property.value,
                 property.default.as_deref(),
                 property.adapter,
+                "UIElement",
                 metadata,
             );
         }
@@ -2116,6 +2182,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 &property.value,
                 property.default.as_deref(),
                 property.adapter,
+                &native_name(object),
                 metadata,
             );
         }
@@ -2185,24 +2252,31 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
             } else {
                 "object.value"
             };
-            let set = if let Some(item) = &relation.native_item {
-                let item = item.rsplit('.').next().unwrap();
-                format!(
-                    "match child {{ Some(child) => object.Set{native_relation}(\
-                     &child.cast::<native::{item}>()?).map_err(Into::into), \
-                     None => object.Set{native_relation}(None::<&{empty_type}>).map_err(Into::into) }}"
-                )
-            } else {
-                format!(
-                    "match child {{ Some(child) => object.Set{native_relation}(child)\
-                     .map_err(Into::into), None => object.Set{native_relation}(\
-                     None::<&{empty_type}>).map_err(Into::into) }}"
-                )
-            };
+            let relation_call = native_interface_call(
+                target,
+                &native_name(object),
+                interface,
+                metadata,
+                |object| {
+                    if let Some(item) = &relation.native_item {
+                        let item = item.rsplit('.').next().unwrap();
+                        format!(
+                            "match child {{ Some(child) => {object}.Set{native_relation}(\
+                             &child.cast::<native::{item}>()?).map_err(Into::into), None => \
+                             {object}.Set{native_relation}(None::<&{empty_type}>)\
+                             .map_err(Into::into) }}"
+                        )
+                    } else {
+                        format!(
+                            "match child {{ Some(child) => {object}.Set{native_relation}(child)\
+                             .map_err(Into::into), None => {object}.Set{native_relation}(\
+                             None::<&{empty_type}>).map_err(Into::into) }}"
+                        )
+                    }
+                },
+            );
             output.push_str(&format!(
-                "(Self::{}(object), RelationId::{}) => Some({target}\
-                 .cast::<native::{interface}>().map_err(Into::into)\
-                 .and_then(|object| {set})),\n",
+                "(Self::{}(object), RelationId::{}) => Some({relation_call}),\n",
                 object.name, relation.name
             ));
         }
@@ -2252,6 +2326,50 @@ fn native_name(object: &Object) -> String {
     object.native_path().rsplit('.').next().unwrap().to_string()
 }
 
+fn native_interface_value(
+    target: &str,
+    class: &str,
+    interface: &str,
+    metadata: &tool_reactor_metadata::MetadataResolver,
+) -> String {
+    if metadata.is_default_interface(class, interface) {
+        target.to_string()
+    } else {
+        format!("{target}.cast::<native::{interface}>()?")
+    }
+}
+
+fn native_interface_owned(
+    target: &str,
+    class: &str,
+    interface: &str,
+    metadata: &tool_reactor_metadata::MetadataResolver,
+) -> String {
+    if metadata.is_default_interface(class, interface) {
+        format!("{target}.clone()")
+    } else {
+        format!("{target}.cast::<native::{interface}>()?")
+    }
+}
+
+fn native_interface_call(
+    target: &str,
+    class: &str,
+    interface: &str,
+    metadata: &tool_reactor_metadata::MetadataResolver,
+    call: impl FnOnce(&str) -> String,
+) -> String {
+    if metadata.is_default_interface(class, interface) {
+        call(target)
+    } else {
+        let call = call("object");
+        format!(
+            "{target}.cast::<native::{interface}>().map_err(Into::into)\
+             .and_then(|object| {call})"
+        )
+    }
+}
+
 #[allow(clippy::too_many_arguments)]
 fn emit_native_property_arms(
     output: &mut String,
@@ -2263,6 +2381,7 @@ fn emit_native_property_arms(
     value: &str,
     default: Option<&str>,
     adapter: Option<PropertyAdapter>,
+    target_class: &str,
     metadata: &tool_reactor_metadata::MetadataResolver,
 ) {
     if adapter.is_some_and(PropertyAdapter::uses_framework_element) {
@@ -2275,15 +2394,19 @@ fn emit_native_property_arms(
                 panic!("cannot resolve {metadata_owner}.{native} dependency property")
             });
         let declaring_class = declaring_class.rsplit('.').next().unwrap();
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "native::Uri::CreateUri(value.as_ref()).and_then(|value| \
+                     {object}.Set{native}(&value)).map_err(Into::into)"
+            )
+        });
         output.push_str(&format!(
             "{pattern}None) => \
              Some({target}.cast::<native::IDependencyObject>().map_err(Into::into)\
              .and_then(|object| native::{declaring_class}::{native}Property().map_err(Into::into)\
              .and_then(|property| object.ClearValue(&property).map_err(Into::into)))),\n\
              {pattern}Some(PropertyValue::String(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| native::Uri::CreateUri(value.as_ref())\
-             .and_then(|value| object.Set{native}(&value)).map_err(Into::into))),\n"
+             Some({set}),\n"
         ));
         return;
     }
@@ -2294,15 +2417,19 @@ fn emit_native_property_arms(
                 panic!("cannot resolve {metadata_owner}.{native} dependency property")
             });
         let declaring_class = declaring_class.rsplit('.').next().unwrap();
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "parse_path_data(value).and_then(|value| \
+                     {object}.Set{native}(&value).map_err(Into::into))"
+            )
+        });
         output.push_str(&format!(
             "{pattern}None) => \
              Some({target}.cast::<native::IDependencyObject>().map_err(Into::into)\
              .and_then(|object| native::{declaring_class}::{native}Property().map_err(Into::into)\
              .and_then(|property| object.ClearValue(&property).map_err(Into::into)))),\n\
              {pattern}Some(PropertyValue::String(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| parse_path_data(value)\
-             .and_then(|value| object.Set{native}(&value).map_err(Into::into)))),\n"
+             Some({set}),\n"
         ));
         return;
     }
@@ -2355,14 +2482,20 @@ fn emit_native_property_arms(
         return;
     }
     if adapter == Some(PropertyAdapter::ImageUri) {
+        let clear = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!("{object}.Set{native}(None).map_err(Into::into)")
+        });
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "uri_image(value).and_then(|image| \
+                     {object}.Set{native}(&image).map_err(Into::into))"
+            )
+        });
         output.push_str(&format!(
-            "{pattern}None) => Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| object.Set{native}(None).map_err(Into::into))),\n\
+            "{pattern}None) => Some({clear}),\n\
              {pattern}Some(PropertyValue::ImageSource(value))) => match value.value() {{\n\
              ImageSourceValue::Uri(value) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| uri_image(value)\
-             .and_then(|image| object.Set{native}(&image).map_err(Into::into)))),\n\
+             Some({set}),\n\
              ImageSourceValue::Encoded(_) => None,\n\
              }},\n"
         ));
@@ -2382,14 +2515,22 @@ fn emit_native_property_arms(
         } else {
             "icon_source"
         };
+        let clear = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "{object}.Set{native}(None::<&native::{icon_type}>)\
+                     .map_err(Into::into)"
+            )
+        });
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "{helper}(value).and_then(|icon| \
+                     {object}.Set{native}(&icon).map_err(Into::into))"
+            )
+        });
         output.push_str(&format!(
-            "{pattern}None) => Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| object.Set{native}(None::<&native::{icon_type}>)\
-             .map_err(Into::into))),\n\
+            "{pattern}None) => Some({clear}),\n\
              {pattern}Some(PropertyValue::Icon(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| {helper}(value)\
-             .and_then(|icon| object.Set{native}(&icon).map_err(Into::into)))),\n"
+             Some({set}),\n"
         ));
         return;
     }
@@ -2407,10 +2548,12 @@ fn emit_native_property_arms(
     }
     let clear = default.map(|default| property_default_parts(value, default));
     if let Some(clear) = &clear {
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!("{object}.Set{native}({clear}).map_err(Into::into)")
+        });
         output.push_str(&format!(
             "{pattern}None) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| object.Set{native}({clear}).map_err(Into::into))),\n"
+             Some({set}),\n"
         ));
     } else {
         let (declaring_class, _) = metadata
@@ -2428,76 +2571,101 @@ fn emit_native_property_arms(
     }
     if value == "Color" {
         if adapter == Some(PropertyAdapter::NativeColor) {
+            let set = native_interface_call(target, target_class, interface, metadata, |object| {
+                format!("{object}.Set{native}(to_native_color(*value)).map_err(Into::into)")
+            });
             output.push_str(&format!(
                 "{pattern}Some(PropertyValue::Color(value))) => \
-                 Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                 .and_then(|object| object.Set{native}(to_native_color(*value))\
-                 .map_err(Into::into))),\n"
+                 Some({set}),\n"
             ));
         } else {
+            let set = native_interface_call(target, target_class, interface, metadata, |object| {
+                format!(
+                    "solid_color_brush(*value).and_then(|brush| \
+                         {object}.Set{native}(&brush).map_err(Into::into))"
+                )
+            });
             output.push_str(&format!(
                 "{pattern}Some(PropertyValue::Color(value))) => \
-                 Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                 .and_then(|object| solid_color_brush(*value)\
-                 .and_then(|brush| object.Set{native}(&brush).map_err(Into::into)))),\n"
+                 Some({set}),\n"
             ));
         }
         return;
     }
     if value == "Brush" {
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "solid_color_brush(*value).and_then(|brush| \
+                     {object}.Set{native}(&brush).map_err(Into::into))"
+            )
+        });
         output.push_str(&format!(
             "{pattern}Some(PropertyValue::Brush(Brush::Solid(value)))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| solid_color_brush(*value)\
-             .and_then(|brush| object.Set{native}(&brush).map_err(Into::into)))),\n"
+             Some({set}),\n"
         ));
         return;
     }
     if adapter == Some(PropertyAdapter::InspectableString) {
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "{{ let value: IInspectable = windows_reference::IReference::from(\
+                     value.as_ref()).into(); {object}.Set{native}(&value).map_err(Into::into) }}"
+            )
+        });
         output.push_str(&format!(
             "{pattern}Some(PropertyValue::String(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| {{ let value: IInspectable = \
-             windows_reference::IReference::from(value.as_ref()).into(); \
-             object.Set{native}(&value).map_err(Into::into) }})),\n"
+             Some({set}),\n"
         ));
         return;
     }
     if adapter == Some(PropertyAdapter::InspectableStringList) {
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "{{ let values: Vec<Option<IInspectable>> = value.iter().map(|value| \
+                     Some(windows_reference::IReference::from(value.as_ref()).into()))\
+                     .collect(); let values: windows_collections::IVector<IInspectable> = \
+                     values.into(); {object}.Set{native}(&values).map_err(Into::into) }}"
+            )
+        });
         output.push_str(&format!(
             "{pattern}Some(PropertyValue::StringList(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| {{ let values: Vec<Option<IInspectable>> = value.iter()\
-             .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()))\
-             .collect(); let values: windows_collections::IVector<IInspectable> = values.into(); \
-             object.Set{native}(&values).map_err(Into::into) }})),\n"
+             Some({set}),\n"
         ));
         return;
     }
     if adapter == Some(PropertyAdapter::SelectionIndex) {
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "native_selection_index(*value).and_then(|value| \
+                     {object}.Set{native}(value).map_err(Into::into))"
+            )
+        });
         output.push_str(&format!(
             "{pattern}Some(PropertyValue::SelectionIndex(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| {{ let value = native_selection_index(*value)?; \
-             object.Set{native}(value).map_err(Into::into) }})),\n"
+             Some({set}),\n"
         ));
         return;
     }
     if adapter == Some(PropertyAdapter::NumberBoxValue) {
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!(
+                "{object}.Set{native}(native_number_box_value(*value))\
+                     .map_err(Into::into)"
+            )
+        });
         output.push_str(&format!(
             "{pattern}Some(PropertyValue::OptionalF64(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| object.Set{native}(native_number_box_value(*value))\
-             .map_err(Into::into))),\n"
+             Some({set}),\n"
         ));
         return;
     }
     if adapter == Some(PropertyAdapter::RatingValue) {
+        let set = native_interface_call(target, target_class, interface, metadata, |object| {
+            format!("{object}.Set{native}(native_rating_value(*value)).map_err(Into::into)")
+        });
         output.push_str(&format!(
             "{pattern}Some(PropertyValue::OptionalF64(value))) => \
-             Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-             .and_then(|object| object.Set{native}(native_rating_value(*value))\
-             .map_err(Into::into))),\n"
+             Some({set}),\n"
         ));
         return;
     }
@@ -2526,19 +2694,26 @@ fn emit_native_property_arms(
                 .iter()
                 .map(|variant| format!("\"{variant}\" => native::{value}::{variant},"))
                 .collect::<String>();
+            let set = native_interface_call(target, target_class, interface, metadata, |object| {
+                format!(
+                    "{object}.Set{native}(match *variant {{ {arms} \
+                         _ => unreachable!(\"validated enum variant\") }})\
+                         .map_err(Into::into)"
+                )
+            });
             output.push_str(&format!(
                 "{pattern}Some(PropertyValue::Enum {{ kind: \"{value}\", variant }})) => \
-                 Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-                 .and_then(|object| object.Set{native}(match *variant {{ {arms} \
-                 _ => unreachable!(\"validated enum variant\") }}).map_err(Into::into))),\n"
+                 Some({set}),\n"
             ));
             return;
         }
     };
+    let set = native_interface_call(target, target_class, interface, metadata, |object| {
+        format!("{object}.Set{native}({expression}).map_err(Into::into)")
+    });
     output.push_str(&format!(
         "{pattern}Some(PropertyValue::{variant}(value))) => \
-         Some({target}.cast::<native::{interface}>().map_err(Into::into)\
-         .and_then(|object| object.Set{native}({expression}).map_err(Into::into))),\n"
+         Some({set}),\n"
     ));
 }
 
