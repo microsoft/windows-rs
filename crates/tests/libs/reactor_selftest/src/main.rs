@@ -1762,7 +1762,7 @@ impl reactor::Component for Fixture {
                             .into(),
                         reactor::AppBarButton::new()
                             .label("Icon")
-                            .icon(reactor::SymbolIcon::new())
+                            .icon(reactor::Symbol::Home)
                             .into(),
                         reactor::Button::new()
                             .element_ref(&focus_reference)
@@ -2047,7 +2047,7 @@ impl reactor::Component for Fixture {
                             .into(),
                         reactor::AppBarButton::new()
                             .label("Icon")
-                            .icon(reactor::SymbolIcon::new())
+                            .icon(reactor::Symbol::Home)
                             .into(),
                     ]),
             )
@@ -2138,7 +2138,7 @@ impl reactor::Component for Fixture {
                         .into(),
                     reactor::AppBarButton::new()
                         .label("Icon")
-                        .icon(reactor::SymbolIcon::new())
+                        .icon(reactor::Symbol::Home)
                         .into(),
                 ]),
             )

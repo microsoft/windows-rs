@@ -137,6 +137,8 @@ pub enum PropertyId {
     HorizontalAlignment,
     HorizontalContentAlignment,
     HorizontalScrollBarVisibility,
+    Icon,
+    IconSource,
     Initials,
     Interval,
     IsActive,
@@ -199,6 +201,7 @@ pub enum PropertyId {
     PlaceholderText,
     PreferredPlacement,
     PrimaryButtonText,
+    QueryIcon,
     RadiusX,
     RadiusY,
     RelativeAlignBottom,
@@ -253,8 +256,8 @@ pub enum RelationId {
     Content,
     FooterMenuItems,
     Header,
-    Icon,
     Items,
+    LeftHeader,
     MenuItems,
     OffContent,
     OnContent,
@@ -307,6 +310,7 @@ pub enum EventId {
     PointerPressed,
     PointerReleased,
     PreviewKeyDown,
+    QuerySubmitted,
     SelectedDateChanged,
     SelectedDatesChanged,
     SelectedTimeChanged,
@@ -369,6 +373,7 @@ pub enum ValueType {
     FontWeight,
     GridLengths,
     I32,
+    Icon,
     ImageSource,
     KeyAccelerators,
     KeyEventInfo,
@@ -690,6 +695,10 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             },
             EventContract {
                 id: EventId::SuggestionChosen,
+                value: ValueType::String,
+            },
+            EventContract {
+                id: EventId::QuerySubmitted,
                 value: ValueType::String,
             },
         ],
@@ -1342,6 +1351,10 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::Bool,
         }),
+        (ObjectType::TitleBar, PropertyId::IconSource) => Some(PropertyContract {
+            id,
+            value: ValueType::Icon,
+        }),
         (ObjectType::Slider, PropertyId::Minimum) => Some(PropertyContract {
             id,
             value: ValueType::F64,
@@ -1450,6 +1463,10 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::String,
         }),
+        (ObjectType::AutoSuggestBox, PropertyId::QueryIcon) => Some(PropertyContract {
+            id,
+            value: ValueType::Icon,
+        }),
         (ObjectType::PasswordBox, PropertyId::PlaceholderText) => Some(PropertyContract {
             id,
             value: ValueType::String,
@@ -1532,6 +1549,10 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
         (ObjectType::NavigationViewItem, PropertyId::Tag) => Some(PropertyContract {
             id,
             value: ValueType::String,
+        }),
+        (ObjectType::NavigationViewItem, PropertyId::Icon) => Some(PropertyContract {
+            id,
+            value: ValueType::Icon,
         }),
         (ObjectType::SplitView, PropertyId::OpenPaneLength) => Some(PropertyContract {
             id,
@@ -2048,6 +2069,10 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
             id,
             value: ValueType::Bool,
         }),
+        (ObjectType::SelectorBarItem, PropertyId::Icon) => Some(PropertyContract {
+            id,
+            value: ValueType::Icon,
+        }),
         (ObjectType::TabView, PropertyId::CanReorderTabs) => Some(PropertyContract {
             id,
             value: ValueType::Bool,
@@ -2121,6 +2146,10 @@ pub fn property_contract(kind: ObjectType, id: PropertyId) -> Option<PropertyCon
         (ObjectType::AppBarButton, PropertyId::Label) => Some(PropertyContract {
             id,
             value: ValueType::String,
+        }),
+        (ObjectType::AppBarButton, PropertyId::Icon) => Some(PropertyContract {
+            id,
+            value: ValueType::Icon,
         }),
         (ObjectType::MenuBarItem, PropertyId::Title) => Some(PropertyContract {
             id,
@@ -2362,6 +2391,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::TitleBar, PropertyId::IsBackButtonVisible) => 28,
         (ObjectType::TitleBar, PropertyId::IsBackButtonEnabled) => 29,
         (ObjectType::TitleBar, PropertyId::IsPaneToggleButtonVisible) => 30,
+        (ObjectType::TitleBar, PropertyId::IconSource) => 31,
         (ObjectType::Slider, PropertyId::Minimum) => 26,
         (ObjectType::Slider, PropertyId::Maximum) => 27,
         (ObjectType::Slider, PropertyId::Value) => 28,
@@ -2392,6 +2422,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::AutoSuggestBox, PropertyId::IsEnabled) => 27,
         (ObjectType::AutoSuggestBox, PropertyId::ItemsSource) => 28,
         (ObjectType::AutoSuggestBox, PropertyId::Text) => 29,
+        (ObjectType::AutoSuggestBox, PropertyId::QueryIcon) => 30,
         (ObjectType::PasswordBox, PropertyId::PlaceholderText) => 26,
         (ObjectType::PasswordBox, PropertyId::PasswordRevealMode) => 27,
         (ObjectType::PasswordBox, PropertyId::IsEnabled) => 28,
@@ -2413,6 +2444,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::NavigationViewItem, PropertyId::SelectsOnInvoked) => 27,
         (ObjectType::NavigationViewItem, PropertyId::IsExpanded) => 28,
         (ObjectType::NavigationViewItem, PropertyId::Tag) => 29,
+        (ObjectType::NavigationViewItem, PropertyId::Icon) => 30,
         (ObjectType::SplitView, PropertyId::OpenPaneLength) => 26,
         (ObjectType::SplitView, PropertyId::CompactPaneLength) => 27,
         (ObjectType::SplitView, PropertyId::DisplayMode) => 28,
@@ -2493,6 +2525,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::FlipView, PropertyId::SelectedIndex) => 26,
         (ObjectType::SelectorBarItem, PropertyId::Text) => 26,
         (ObjectType::SelectorBarItem, PropertyId::IsSelected) => 27,
+        (ObjectType::SelectorBarItem, PropertyId::Icon) => 28,
         (ObjectType::TabView, PropertyId::CanReorderTabs) => 26,
         (ObjectType::TabView, PropertyId::IsAddTabButtonVisible) => 27,
         (ObjectType::TabView, PropertyId::SelectedIndex) => 28,
@@ -2509,6 +2542,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         (ObjectType::DropDownButton, PropertyId::IsEnabled) => 26,
         (ObjectType::AppBarButton, PropertyId::Label) => 26,
         (ObjectType::AppBarButton, PropertyId::IsEnabled) => 27,
+        (ObjectType::AppBarButton, PropertyId::Icon) => 28,
         (ObjectType::MenuBarItem, PropertyId::Title) => 26,
         (ObjectType::SplitButton, PropertyId::IsEnabled) => 26,
         (ObjectType::ColorPicker, PropertyId::Color) => 26,
@@ -2693,6 +2727,8 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::HorizontalAlignment,
     PropertyId::HorizontalContentAlignment,
     PropertyId::HorizontalScrollBarVisibility,
+    PropertyId::Icon,
+    PropertyId::IconSource,
     PropertyId::Initials,
     PropertyId::Interval,
     PropertyId::IsActive,
@@ -2755,6 +2791,7 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::PlaceholderText,
     PropertyId::PreferredPlacement,
     PropertyId::PrimaryButtonText,
+    PropertyId::QueryIcon,
     PropertyId::RadiusX,
     PropertyId::RadiusY,
     PropertyId::RelativeAlignBottom,
@@ -3024,6 +3061,14 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
                 realization: Realization::Owned,
             },
             RelationContract {
+                id: RelationId::LeftHeader,
+                child: ObjectCategory::Visual,
+                allowed_objects: &[],
+                cardinality: Cardinality::One,
+                identity: Identity::Positional,
+                realization: Realization::Owned,
+            },
+            RelationContract {
                 id: RelationId::RightHeader,
                 child: ObjectCategory::Visual,
                 allowed_objects: &[],
@@ -3184,14 +3229,6 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
         ObjectType::NavigationViewItem => &[
             RelationContract {
                 id: RelationId::Content,
-                child: ObjectCategory::Visual,
-                allowed_objects: &[],
-                cardinality: Cardinality::One,
-                identity: Identity::Positional,
-                realization: Realization::Owned,
-            },
-            RelationContract {
-                id: RelationId::Icon,
                 child: ObjectCategory::Visual,
                 allowed_objects: &[],
                 cardinality: Cardinality::One,
@@ -3380,14 +3417,7 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
             identity: Identity::Keyed,
             realization: Realization::Owned,
         }],
-        ObjectType::SelectorBarItem => &[RelationContract {
-            id: RelationId::Icon,
-            child: ObjectCategory::Visual,
-            allowed_objects: &[],
-            cardinality: Cardinality::One,
-            identity: Identity::Positional,
-            realization: Realization::Owned,
-        }],
+        ObjectType::SelectorBarItem => &[],
         ObjectType::TabView => &[RelationContract {
             id: RelationId::TabItems,
             child: ObjectCategory::Visual,
@@ -3431,14 +3461,7 @@ pub fn relation_contracts(kind: ObjectType) -> &'static [RelationContract] {
                 realization: Realization::Owned,
             },
         ],
-        ObjectType::AppBarButton => &[RelationContract {
-            id: RelationId::Icon,
-            child: ObjectCategory::Visual,
-            allowed_objects: &[],
-            cardinality: Cardinality::One,
-            identity: Identity::Positional,
-            realization: Realization::Owned,
-        }],
+        ObjectType::AppBarButton => &[],
         ObjectType::AppBarSeparator => &[],
         ObjectType::MenuBar => &[RelationContract {
             id: RelationId::Items,

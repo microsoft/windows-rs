@@ -107,6 +107,29 @@ do not mutate state inside the native event callback.
 `context.window_frame` publishes the window title and returns the standard title-bar layout. For a
 static view with no state or events, call `App::run(view)` instead.
 
+## Add icon content
+
+`Icon` describes icon content for control slots. Reactor realizes the same value as WinUI's visual
+`IconElement` or nonvisual `IconSource`, depending on the destination property:
+
+```rust,ignore
+let search = Icon::font("\u{E721}");
+
+StackPanel::new().children((
+    TitleBar::new()
+        .title("Search")
+        .icon(search.clone())
+        .left_header(TextBlock::new().text("Files")),
+    AutoSuggestBox::new()
+        .query_icon(search)
+        .on_query_submitted(context.callback(Message::Search)),
+))
+```
+
+Use `Icon::symbol`, `Icon::font`, `Icon::bitmap`, `Icon::image_*`, or `Icon::path` for control icon
+slots. Use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon` when the icon is a
+standalone visual that needs layout or other visual properties.
+
 ## Add editable state
 
 Editable controls are controlled: pass the current value from component state and send changes

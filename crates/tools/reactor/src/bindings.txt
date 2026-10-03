@@ -33,6 +33,7 @@ Microsoft::UI::Xaml::Automation::AutomationProperties::{GetName, HeadingLevelPro
 Microsoft::UI::Xaml::Controls::AppBarButton::CreateInstance
 Microsoft::UI::Xaml::Controls::AppBarSeparator::CreateInstance
 Microsoft::UI::Xaml::Controls::AutoSuggestBox::CreateInstance
+Microsoft::UI::Xaml::Controls::BitmapIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::BitmapIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::Border::CreateInstance
 Microsoft::UI::Xaml::Controls::BreadcrumbBar::CreateInstance
@@ -57,6 +58,7 @@ Microsoft::UI::Xaml::Controls::Expander::CreateInstance
 Microsoft::UI::Xaml::Controls::FlipView::CreateInstance
 Microsoft::UI::Xaml::Controls::Flyout::CreateInstance
 Microsoft::UI::Xaml::Controls::FontIcon::CreateInstance
+Microsoft::UI::Xaml::Controls::FontIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, CreateInstance, GetRow, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
 Microsoft::UI::Xaml::Controls::GridView::CreateInstance
 Microsoft::UI::Xaml::Controls::GridViewItem::CreateInstance
@@ -64,7 +66,10 @@ Microsoft::UI::Xaml::Controls::HyperlinkButton::CreateInstance
 Microsoft::UI::Xaml::Controls::IAppBarButton::{put_Icon, put_Label}
 Microsoft::UI::Xaml::Controls::IAppBarButtonStatics::get_LabelProperty
 Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{add_SuggestionChosen, add_TextChanged, get_Text, put_Header, put_PlaceholderText, put_Text, remove_SuggestionChosen, remove_TextChanged}
+Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{add_QuerySubmitted, put_QueryIcon, remove_QuerySubmitted}
+Microsoft::UI::Xaml::Controls::IAutoSuggestBoxQuerySubmittedEventArgs::get_QueryText
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxStatics::{get_PlaceholderTextProperty, get_TextProperty}
+Microsoft::UI::Xaml::Controls::IBitmapIconSource::{put_ShowAsMonochrome, put_UriSource}
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxSuggestionChosenEventArgs::get_SelectedItem
 Microsoft::UI::Xaml::Controls::IBitmapIcon::{put_ShowAsMonochrome, put_UriSource}
 Microsoft::UI::Xaml::Controls::IBitmapIconStatics::{get_ShowAsMonochromeProperty, get_UriSourceProperty}
@@ -100,6 +105,7 @@ Microsoft::UI::Xaml::Controls::IExpander::{get_IsExpanded, put_Header, put_IsExp
 Microsoft::UI::Xaml::Controls::IExpanderStatics::get_IsExpandedProperty
 Microsoft::UI::Xaml::Controls::IFlyout::put_Content
 Microsoft::UI::Xaml::Controls::IFontIcon::put_Glyph
+Microsoft::UI::Xaml::Controls::IFontIconSource::put_Glyph
 Microsoft::UI::Xaml::Controls::IFontIconStatics::get_GlyphProperty
 Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions, put_ColumnSpacing, put_RowSpacing}
 Microsoft::UI::Xaml::Controls::IGridStatics::{get_ColumnSpacingProperty, get_RowSpacingProperty}
@@ -107,6 +113,7 @@ Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
 Microsoft::UI::Xaml::Controls::IHyperlinkButtonStatics::get_NavigateUriProperty
 Microsoft::UI::Xaml::Controls::IImage::{add_ImageFailed, add_ImageOpened, get_Source, put_Source, put_Stretch, remove_ImageFailed, remove_ImageOpened}
 Microsoft::UI::Xaml::Controls::IImageIcon::{get_Source, put_Source}
+Microsoft::UI::Xaml::Controls::IImageIconSource::put_ImageSource
 Microsoft::UI::Xaml::Controls::IImageStatics::get_StretchProperty
 Microsoft::UI::Xaml::Controls::IInfoBadge::put_Value
 Microsoft::UI::Xaml::Controls::IInfoBadgeStatics::get_ValueProperty
@@ -121,6 +128,7 @@ Microsoft::UI::Xaml::Controls::IListViewBase::{add_DragItemsCompleted, get_CanDr
 Microsoft::UI::Xaml::Controls::IListViewBaseStatics::{get_CanDragItemsProperty, get_CanReorderItemsProperty, get_SelectionModeProperty}
 Microsoft::UI::Xaml::Controls::Image::CreateInstance
 Microsoft::UI::Xaml::Controls::ImageIcon::CreateInstance
+Microsoft::UI::Xaml::Controls::ImageIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::IMenuBar::get_Items
 Microsoft::UI::Xaml::Controls::IMenuBarItem::{get_Items, put_Title}
 Microsoft::UI::Xaml::Controls::IMenuBarItemStatics::get_TitleProperty
@@ -149,6 +157,7 @@ Microsoft::UI::Xaml::Controls::IPanelStatics::get_BackgroundProperty
 Microsoft::UI::Xaml::Controls::IPasswordBox::{add_PasswordChanged, get_Password, put_Header, put_Password, put_PasswordRevealMode, put_PlaceholderText, remove_PasswordChanged}
 Microsoft::UI::Xaml::Controls::IPasswordBoxStatics::{get_PasswordProperty, get_PasswordRevealModeProperty, get_PlaceholderTextProperty}
 Microsoft::UI::Xaml::Controls::IPathIcon::put_Data
+Microsoft::UI::Xaml::Controls::IPathIconSource::put_Data
 Microsoft::UI::Xaml::Controls::IPathIconStatics::get_DataProperty
 Microsoft::UI::Xaml::Controls::IPersonPicture::{put_DisplayName, put_Initials}
 Microsoft::UI::Xaml::Controls::IPersonPictureStatics::{get_DisplayNameProperty, get_InitialsProperty}
@@ -186,6 +195,7 @@ Microsoft::UI::Xaml::Controls::ISplitViewStatics::{get_CompactPaneLengthProperty
 Microsoft::UI::Xaml::Controls::IStackPanel::{get_Orientation, get_Spacing, put_Orientation, put_Spacing}
 Microsoft::UI::Xaml::Controls::ISwapChainPanel::{add_CompositionScaleChanged, get_CompositionScaleX, get_CompositionScaleY, remove_CompositionScaleChanged}
 Microsoft::UI::Xaml::Controls::ISymbolIcon::put_Symbol
+Microsoft::UI::Xaml::Controls::ISymbolIconSource::put_Symbol
 Microsoft::UI::Xaml::Controls::ISymbolIconStatics::get_SymbolProperty
 Microsoft::UI::Xaml::Controls::ITabView::{add_AddTabButtonClick, add_SelectionChanged, add_TabCloseRequested, add_TabItemsChanged, get_SelectedIndex, get_TabItems, put_CanReorderTabs, put_IsAddTabButtonVisible, put_SelectedIndex, remove_AddTabButtonClick, remove_SelectionChanged, remove_TabCloseRequested, remove_TabItemsChanged}
 Microsoft::UI::Xaml::Controls::ITabViewItem::{put_Header, put_IsClosable}
@@ -204,6 +214,7 @@ Microsoft::UI::Xaml::Controls::ITimePicker::{add_SelectedTimeChanged, put_ClockI
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime
 Microsoft::UI::Xaml::Controls::ITimePickerStatics::{get_ClockIdentifierProperty, get_MinuteIncrementProperty}
 Microsoft::UI::Xaml::Controls::ITitleBar::{add_BackRequested, add_PaneToggleRequested, put_Content, put_IsBackButtonEnabled, put_IsBackButtonVisible, put_IsPaneToggleButtonVisible, put_RightHeader, put_Subtitle, put_Title, remove_BackRequested, remove_PaneToggleRequested}
+Microsoft::UI::Xaml::Controls::ITitleBar::{put_IconSource, put_LeftHeader}
 Microsoft::UI::Xaml::Controls::ITitleBarStatics::{get_IsBackButtonEnabledProperty, get_IsBackButtonVisibleProperty, get_IsPaneToggleButtonVisibleProperty}
 Microsoft::UI::Xaml::Controls::IToggleSwitch::{add_Toggled, get_IsOn, put_Header, put_IsOn, put_OffContent, put_OnContent, remove_Toggled}
 Microsoft::UI::Xaml::Controls::IToggleSwitchStatics::get_IsOnProperty
@@ -236,6 +247,7 @@ Microsoft::UI::Xaml::Controls::Orientation
 Microsoft::UI::Xaml::Controls::PasswordBox::CreateInstance
 Microsoft::UI::Xaml::Controls::PasswordRevealMode
 Microsoft::UI::Xaml::Controls::PathIcon::CreateInstance
+Microsoft::UI::Xaml::Controls::PathIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::PersonPicture::CreateInstance
 Microsoft::UI::Xaml::Controls::Pivot::CreateInstance
 Microsoft::UI::Xaml::Controls::PivotItem::CreateInstance
@@ -280,6 +292,7 @@ Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::SwapChainPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::Symbol
 Microsoft::UI::Xaml::Controls::SymbolIcon::CreateInstance
+Microsoft::UI::Xaml::Controls::SymbolIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::TabView::CreateInstance
 Microsoft::UI::Xaml::Controls::TabViewItem::CreateInstance
 Microsoft::UI::Xaml::Controls::TeachingTip::CreateInstance

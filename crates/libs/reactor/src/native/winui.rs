@@ -4,13 +4,13 @@ use crate::{
     AcceleratorKey, AcceleratorModifiers, Adapter, Brush, ButtonStyle, Callback, ColorScheme,
     CommandBarCommand, CommandBarFlyout, ComponentHost, CompositionHostEvent, ContentDialogResult,
     DragDropPolicy, ElementFocusState, EncodedImage, Event, EventDispatch, EventId, EventPayload,
-    EventValue, FlyoutPlacement, GridLength, GridLengthSize, ImageSourceValue, ImperativeRequest,
-    IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent, ObjectId, ObjectType,
-    Observation, Property, PropertyId, PropertyValue, Realization, RealizationRequest,
-    RealizedContainer, RelationContract, RelationId, ResourceOverrides, ResourceValue,
-    RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, ThemeBrush,
-    TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme, WindowVisuals,
-    relation_contracts, selection_for_item_property, selection_for_relation,
+    EventValue, FlyoutPlacement, GridLength, GridLengthSize, Icon, IconValue, ImageSourceValue,
+    ImperativeRequest, IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent,
+    ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue, Realization,
+    RealizationRequest, RealizedContainer, RelationContract, RelationId, ResourceOverrides,
+    ResourceValue, RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, Symbol,
+    ThemeBrush, TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme,
+    WindowVisuals, relation_contracts, selection_for_item_property, selection_for_relation,
 };
 use native::IElementFactory;
 use std::cell::{Cell, RefCell};
@@ -1178,6 +1178,92 @@ fn uri_image(value: &str) -> Result<native::ImageSource, WinUiError> {
     }
 }
 
+fn icon_image_source(value: &crate::ImageSource) -> Result<native::ImageSource, WinUiError> {
+    match value.value() {
+        ImageSourceValue::Uri(value) => uri_image(value),
+        ImageSourceValue::Encoded(value) => encoded_bitmap_image(value, None)?
+            .0
+            .cast()
+            .map_err(Into::into),
+    }
+}
+
+fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
+    match value.value() {
+        IconValue::Symbol(value) => {
+            let icon = native::SymbolIcon::new()?;
+            icon.cast::<native::ISymbolIcon>()?
+                .SetSymbol(native_symbol(*value))?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Font(value) => {
+            let icon = native::FontIcon::new()?;
+            icon.cast::<native::IFontIcon>()?.SetGlyph(value)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Bitmap {
+            uri,
+            show_as_monochrome,
+        } => {
+            let icon = native::BitmapIcon::new()?;
+            let interface = icon.cast::<native::IBitmapIcon>()?;
+            interface.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            interface.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Image(value) => {
+            let icon = native::ImageIcon::new()?;
+            icon.cast::<native::IImageIcon>()?
+                .SetSource(&icon_image_source(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Path(value) => {
+            let icon = native::PathIcon::new()?;
+            icon.cast::<native::IPathIcon>()?
+                .SetData(&parse_path_data(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+    }
+}
+
+fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
+    match value.value() {
+        IconValue::Symbol(value) => {
+            let icon = native::SymbolIconSource::new()?;
+            icon.cast::<native::ISymbolIconSource>()?
+                .SetSymbol(native_symbol(*value))?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Font(value) => {
+            let icon = native::FontIconSource::new()?;
+            icon.cast::<native::IFontIconSource>()?.SetGlyph(value)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Bitmap {
+            uri,
+            show_as_monochrome,
+        } => {
+            let icon = native::BitmapIconSource::new()?;
+            let interface = icon.cast::<native::IBitmapIconSource>()?;
+            interface.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            interface.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Image(value) => {
+            let icon = native::ImageIconSource::new()?;
+            icon.cast::<native::IImageIconSource>()?
+                .SetImageSource(&icon_image_source(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Path(value) => {
+            let icon = native::PathIconSource::new()?;
+            icon.cast::<native::IPathIconSource>()?
+                .SetData(&parse_path_data(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+    }
+}
+
 fn encoded_bitmap_image(
     value: &EncodedImage,
     failed: Option<Rc<dyn Fn()>>,
@@ -1296,11 +1382,8 @@ fn build_command_bar_element(
             let button = native::AppBarButton::new()?;
             button.SetLabel(label)?;
             button.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
-            if let Some(symbol) = icon {
-                let icon = native::SymbolIcon::new()?;
-                GeneratedHandle::SymbolIcon(icon.clone())
-                    .set_property(PropertyId::Symbol, Some(&symbol.property_value()))
-                    .unwrap()?;
+            if let Some(icon) = icon {
+                let icon = icon_element(icon)?;
                 button.SetIcon(&icon)?;
             }
             let clicked_key = key.clone();

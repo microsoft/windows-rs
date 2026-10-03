@@ -232,6 +232,56 @@ fn shared_values_record_set_update_clear_and_unchanged_updates() {
 }
 
 #[test]
+fn icon_slots_record_set_update_clear_and_unchanged_updates() {
+    let initial_icon = Icon::font("\u{E721}");
+    let initial = NavigationViewItem::new()
+        .content("Search")
+        .icon(initial_icon.clone());
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(initial.clone()).unwrap();
+    let item = runtime.graph().root().unwrap();
+
+    assert!(runtime.update(initial).unwrap().is_empty());
+    assert_eq!(
+        runtime.graph().properties(item).unwrap(),
+        [Property {
+            id: PropertyId::Icon,
+            value: PropertyValue::Icon(initial_icon),
+        }]
+    );
+
+    let path = Icon::path("M 0,0 L 8,8");
+    let mutations = runtime
+        .update(
+            NavigationViewItem::new()
+                .content("Search")
+                .icon(path.clone()),
+        )
+        .unwrap();
+    let Mutation::SetProperties { set, clear, .. } = &mutations[0] else {
+        panic!("expected property mutation");
+    };
+    assert_eq!(
+        set.as_ref(),
+        [Property {
+            id: PropertyId::Icon,
+            value: PropertyValue::Icon(path),
+        }]
+    );
+    assert!(clear.is_empty());
+
+    let mutations = runtime
+        .update(NavigationViewItem::new().content("Search"))
+        .unwrap();
+    assert!(mutations.iter().any(|mutation| {
+        matches!(
+            mutation,
+            Mutation::SetProperties { clear, .. } if clear.as_ref() == [PropertyId::Icon]
+        )
+    }));
+}
+
+#[test]
 fn text_box_appearance_records_set_and_clear() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime

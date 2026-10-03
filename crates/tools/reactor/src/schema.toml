@@ -498,8 +498,16 @@ name = "IsBackButtonEnabled"
 [[objects.properties]]
 name = "IsPaneToggleButtonVisible"
 
+[[objects.properties]]
+name = "IconSource"
+method = "icon"
+adapter = "icon_source"
+
 [[objects.relations]]
 name = "Content"
+
+[[objects.relations]]
+name = "LeftHeader"
 
 [[objects.relations]]
 name = "RightHeader"
@@ -739,6 +747,10 @@ name = "Text"
 controlled = "TextChanged"
 feedback = "exact"
 
+[[objects.properties]]
+name = "QueryIcon"
+adapter = "icon_element"
+
 [[objects.relations]]
 name = "Header"
 
@@ -750,6 +762,10 @@ observes = "Text"
 name = "SuggestionChosen"
 payload = "SelectedItem"
 payload_adapter = "inspectable_string"
+
+[[objects.events]]
+name = "QuerySubmitted"
+payload = "QueryText"
 
 [[objects]]
 name = "PasswordBox"
@@ -908,9 +924,9 @@ adapter = "inspectable_string"
 [[objects.relations]]
 name = "Content"
 
-[[objects.relations]]
+[[objects.properties]]
 name = "Icon"
-native_item = "Microsoft.UI.Xaml.Controls.IconElement"
+adapter = "icon_element"
 
 [[objects.relations]]
 name = "MenuItems"
@@ -1460,9 +1476,9 @@ name = "Text"
 [[objects.properties]]
 name = "IsSelected"
 
-[[objects.relations]]
+[[objects.properties]]
 name = "Icon"
-native_item = "Microsoft.UI.Xaml.Controls.IconElement"
+adapter = "icon_element"
 
 [[objects]]
 name = "TabView"
@@ -1584,9 +1600,9 @@ name = "Label"
 [[objects.properties]]
 name = "IsEnabled"
 
-[[objects.relations]]
+[[objects.properties]]
 name = "Icon"
-native_item = "Microsoft.UI.Xaml.Controls.IconElement"
+adapter = "icon_element"
 
 [[objects.events]]
 name = "Click"

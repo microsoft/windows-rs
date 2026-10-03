@@ -30,7 +30,7 @@ impl Component for NavigationPaneSample {
                     .tag(tag)
                     .is_selected(self.page.as_ref() == tag)
                     .content(label)
-                    .icon(SymbolIcon::new().symbol(symbol)),
+                    .icon(symbol),
             )
         };
         let body = match self.page.as_ref() {

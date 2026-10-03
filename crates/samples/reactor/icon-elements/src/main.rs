@@ -55,36 +55,14 @@ impl Component for IconElementsSample {
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
             .keyed_menu_items([
-                item(
-                    "home",
-                    "Home",
-                    SymbolIcon::new().symbol(Symbol::Home).into(),
-                ),
-                item(
-                    "starred",
-                    "Starred",
-                    FontIcon::new().glyph("\u{E734}").into(),
-                ),
-                item(
-                    "repo",
-                    "Repository",
-                    ImageIcon::new().source(image).unwrap().into(),
-                ),
-                item(
-                    "bitmap",
-                    "Bitmap mask",
-                    BitmapIcon::new()
-                        .uri_source(bitmap)
-                        .unwrap()
-                        .show_as_monochrome(true)
-                        .into(),
-                ),
+                item("home", "Home", Icon::symbol(Symbol::Home)),
+                item("starred", "Starred", Icon::font("\u{E734}")),
+                item("repo", "Repository", Icon::image_uri(image).unwrap()),
+                item("bitmap", "Bitmap mask", Icon::bitmap(bitmap, true).unwrap()),
                 item(
                     "path",
                     "Path",
-                    PathIcon::new()
-                        .data("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z")
-                        .into(),
+                    Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z"),
                 ),
             ])
             .content(content)
