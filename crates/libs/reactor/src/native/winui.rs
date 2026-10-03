@@ -1192,13 +1192,12 @@ fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
     match value.value() {
         IconValue::Symbol(value) => {
             let icon = native::SymbolIcon::new()?;
-            icon.cast::<native::ISymbolIcon>()?
-                .SetSymbol(native_symbol(*value))?;
+            icon.SetSymbol(native_symbol(*value))?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Font(value) => {
             let icon = native::FontIcon::new()?;
-            icon.cast::<native::IFontIcon>()?.SetGlyph(value)?;
+            icon.SetGlyph(value)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Bitmap {
@@ -1206,21 +1205,18 @@ fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
             show_as_monochrome,
         } => {
             let icon = native::BitmapIcon::new()?;
-            let interface = icon.cast::<native::IBitmapIcon>()?;
-            interface.SetUriSource(&native::Uri::CreateUri(uri)?)?;
-            interface.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            icon.SetShowAsMonochrome(*show_as_monochrome)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Image(value) => {
             let icon = native::ImageIcon::new()?;
-            icon.cast::<native::IImageIcon>()?
-                .SetSource(&icon_image_source(value)?)?;
+            icon.SetSource(&icon_image_source(value)?)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Path(value) => {
             let icon = native::PathIcon::new()?;
-            icon.cast::<native::IPathIcon>()?
-                .SetData(&parse_path_data(value)?)?;
+            icon.SetData(&parse_path_data(value)?)?;
             icon.cast().map_err(Into::into)
         }
     }
@@ -1230,13 +1226,12 @@ fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
     match value.value() {
         IconValue::Symbol(value) => {
             let icon = native::SymbolIconSource::new()?;
-            icon.cast::<native::ISymbolIconSource>()?
-                .SetSymbol(native_symbol(*value))?;
+            icon.SetSymbol(native_symbol(*value))?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Font(value) => {
             let icon = native::FontIconSource::new()?;
-            icon.cast::<native::IFontIconSource>()?.SetGlyph(value)?;
+            icon.SetGlyph(value)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Bitmap {
@@ -1244,21 +1239,18 @@ fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
             show_as_monochrome,
         } => {
             let icon = native::BitmapIconSource::new()?;
-            let interface = icon.cast::<native::IBitmapIconSource>()?;
-            interface.SetUriSource(&native::Uri::CreateUri(uri)?)?;
-            interface.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            icon.SetShowAsMonochrome(*show_as_monochrome)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Image(value) => {
             let icon = native::ImageIconSource::new()?;
-            icon.cast::<native::IImageIconSource>()?
-                .SetImageSource(&icon_image_source(value)?)?;
+            icon.SetImageSource(&icon_image_source(value)?)?;
             icon.cast().map_err(Into::into)
         }
         IconValue::Path(value) => {
             let icon = native::PathIconSource::new()?;
-            icon.cast::<native::IPathIconSource>()?
-                .SetData(&parse_path_data(value)?)?;
+            icon.SetData(&parse_path_data(value)?)?;
             icon.cast().map_err(Into::into)
         }
     }
