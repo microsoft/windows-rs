@@ -120,9 +120,7 @@ StackPanel::new().children((
         .title("Search")
         .icon(search.clone())
         .left_header(TextBlock::new().text("Files")),
-    AutoSuggestBox::new()
-        .query_icon(search)
-        .on_query_submitted(context.callback(Message::Search)),
+    AutoSuggestBox::new().query_icon(search),
 ))
 ```
 

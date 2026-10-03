@@ -66,8 +66,7 @@ Microsoft::UI::Xaml::Controls::HyperlinkButton::CreateInstance
 Microsoft::UI::Xaml::Controls::IAppBarButton::{put_Icon, put_Label}
 Microsoft::UI::Xaml::Controls::IAppBarButtonStatics::get_LabelProperty
 Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{add_SuggestionChosen, add_TextChanged, get_Text, put_Header, put_PlaceholderText, put_Text, remove_SuggestionChosen, remove_TextChanged}
-Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{add_QuerySubmitted, put_QueryIcon, remove_QuerySubmitted}
-Microsoft::UI::Xaml::Controls::IAutoSuggestBoxQuerySubmittedEventArgs::get_QueryText
+Microsoft::UI::Xaml::Controls::IAutoSuggestBox::put_QueryIcon
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxStatics::{get_PlaceholderTextProperty, get_TextProperty}
 Microsoft::UI::Xaml::Controls::IBitmapIconSource::{put_ShowAsMonochrome, put_UriSource}
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxSuggestionChosenEventArgs::get_SelectedItem

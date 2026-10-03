@@ -31,6 +31,7 @@ impl Component for IconElementsSample {
             "file:///{}/image.png",
             env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
         );
+        let search = Icon::symbol(Symbol::Find);
         let item = |tag: &'static str, label: &'static str, icon: Icon| {
             KeyedView::new(
                 tag,
@@ -51,7 +52,7 @@ impl Component for IconElementsSample {
         };
 
         context.window_title("IconElements");
-        NavigationView::new()
+        let navigation = NavigationView::new()
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
             .keyed_menu_items([
@@ -65,7 +66,22 @@ impl Component for IconElementsSample {
                     Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z"),
                 ),
             ])
-            .content(content)
+            .content(content);
+
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR])
+            .children((
+                TitleBar::new()
+                    .title("Icon slots")
+                    .icon(search.clone())
+                    .left_header(TextBlock::new().text("Reactor"))
+                    .content(
+                        AutoSuggestBox::new()
+                            .placeholder_text("Search...")
+                            .query_icon(search),
+                    ),
+                navigation.grid_row(1),
+            ))
             .into()
     }
 }

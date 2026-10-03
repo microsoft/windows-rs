@@ -521,35 +521,6 @@ unsafe impl Send for AutoSuggestBox {}
 unsafe impl Sync for AutoSuggestBox {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct AutoSuggestBoxQuerySubmittedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    AutoSuggestBoxQuerySubmittedEventArgs,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-windows_core::imp::required_hierarchy!(AutoSuggestBoxQuerySubmittedEventArgs, DependencyObject);
-impl windows_core::RuntimeType for AutoSuggestBoxQuerySubmittedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IAutoSuggestBoxQuerySubmittedEventArgs>();
-}
-unsafe impl windows_core::Interface for AutoSuggestBoxQuerySubmittedEventArgs {
-    type Vtable = <IAutoSuggestBoxQuerySubmittedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID =
-        <IAutoSuggestBoxQuerySubmittedEventArgs as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for AutoSuggestBoxQuerySubmittedEventArgs {
-    type Target = IAutoSuggestBoxQuerySubmittedEventArgs;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for AutoSuggestBoxQuerySubmittedEventArgs {
-    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs";
-}
-unsafe impl Send for AutoSuggestBoxQuerySubmittedEventArgs {}
-unsafe impl Sync for AutoSuggestBoxQuerySubmittedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AutoSuggestBoxSuggestionChosenEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     AutoSuggestBoxSuggestionChosenEventArgs,
@@ -5624,35 +5595,6 @@ impl IAutoSuggestBox {
             ))
         }
     }
-    pub(crate) fn QuerySubmitted<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
-    where
-        F: Fn(
-                windows_core::Ref<AutoSuggestBox>,
-                windows_core::Ref<AutoSuggestBoxQuerySubmittedEventArgs>,
-            ) + 'static,
-    {
-        let handler: TypedEventHandler<AutoSuggestBox, AutoSuggestBoxQuerySubmittedEventArgs> = {
-            let com = windows_core::imp::DelegateBox::< TypedEventHandler < AutoSuggestBox , AutoSuggestBoxQuerySubmittedEventArgs > , F >::new (& TypedEventHandlerBox::< AutoSuggestBox , AutoSuggestBoxQuerySubmittedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-        };
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).QuerySubmitted)(
-                windows_core::Interface::as_raw(self),
-                windows_core::Interface::as_raw(&handler),
-                &mut result__,
-            )
-            .map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(
-                self.clone(),
-                token__,
-                windows_core::Interface::vtable(self).RemoveQuerySubmitted,
-            ))
-        }
-    }
 }
 #[repr(C)]
 pub struct IAutoSuggestBox_Vtbl {
@@ -5710,45 +5652,6 @@ pub struct IAutoSuggestBox_Vtbl {
     ) -> windows_core::HRESULT,
     pub RemoveTextChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub QuerySubmitted: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut i64,
-    ) -> windows_core::HRESULT,
-    pub RemoveQuerySubmitted:
-        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IAutoSuggestBoxQuerySubmittedEventArgs,
-    IAutoSuggestBoxQuerySubmittedEventArgs_Vtbl,
-    0x26da5de4_57a6_57bf_acc9_aac599c0b22b
-);
-impl windows_core::RuntimeType for IAutoSuggestBoxQuerySubmittedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl IAutoSuggestBoxQuerySubmittedEventArgs {
-    pub(crate) fn QueryText(&self) -> windows_core::Result<String> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryText)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| {
-                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
-                hstring.to_string_lossy()
-            })
-        }
-    }
-}
-#[repr(C)]
-pub struct IAutoSuggestBoxQuerySubmittedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub QueryText: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IAutoSuggestBoxStatics,

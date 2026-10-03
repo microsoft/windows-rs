@@ -3387,13 +3387,6 @@ impl AutoSuggestBox {
         );
         self
     }
-    pub fn on_query_submitted(mut self, callback: impl IntoPayloadCallback<Rc<str>>) -> Self {
-        self.0 = self.0.event(
-            EventId::QuerySubmitted,
-            EventValue::String(callback.into_payload_callback()),
-        );
-        self
-    }
 }
 impl Default for AutoSuggestBox {
     fn default() -> Self {
