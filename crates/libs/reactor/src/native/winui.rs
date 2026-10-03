@@ -1267,11 +1267,7 @@ fn encoded_bitmap_image(
     let store = writer.StoreAsync()?;
     let image = native::BitmapImage::new()?;
     let failed = failed
-        .map(|failed| {
-            image
-                .cast::<native::IBitmapImage>()?
-                .ImageFailed(move |_, _| failed())
-        })
+        .map(|failed| image.ImageFailed(move |_, _| failed()))
         .transpose()?;
     let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
