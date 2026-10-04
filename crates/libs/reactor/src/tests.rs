@@ -5014,7 +5014,7 @@ fn final_value_parity_contracts_are_typed() {
     };
     let mut date_picker = Runtime::new(RecordingAdapter::default());
     date_picker
-        .update(DatePicker::new().on_selected_date_changed(date_callback.clone()))
+        .update(DatePicker::new().on_date_changed(date_callback.clone()))
         .unwrap();
     let object = date_picker.graph().root().unwrap();
     date_picker.adapter_mut().queue_event(EventDispatch::new(
@@ -5034,7 +5034,7 @@ fn final_value_parity_contracts_are_typed() {
     };
     let mut time_picker = Runtime::new(RecordingAdapter::default());
     time_picker
-        .update(TimePicker::new().on_selected_time_changed(time_callback.clone()))
+        .update(TimePicker::new().on_time_changed(time_callback.clone()))
         .unwrap();
     let object = time_picker.graph().root().unwrap();
     time_picker.adapter_mut().queue_event(EventDispatch::new(

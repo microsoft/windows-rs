@@ -1919,7 +1919,7 @@ pub fn windows_reactor::DatePicker::min_height(self, f64) -> Self
 pub fn windows_reactor::DatePicker::min_width(self, f64) -> Self
 pub fn windows_reactor::DatePicker::month_visible(self, bool) -> Self
 pub fn windows_reactor::DatePicker::new() -> Self
-pub fn windows_reactor::DatePicker::on_selected_date_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::DateTime>>) -> Self
+pub fn windows_reactor::DatePicker::on_date_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::DateTime>>) -> Self
 pub fn windows_reactor::DatePicker::opacity(self, f64) -> Self
 pub fn windows_reactor::DatePicker::relative_align_bottom(self) -> Self
 pub fn windows_reactor::DatePicker::relative_align_horizontal_center(self) -> Self
@@ -4499,7 +4499,7 @@ pub fn windows_reactor::TimePicker::min_height(self, f64) -> Self
 pub fn windows_reactor::TimePicker::min_width(self, f64) -> Self
 pub fn windows_reactor::TimePicker::minute_increment(self, i32) -> Self
 pub fn windows_reactor::TimePicker::new() -> Self
-pub fn windows_reactor::TimePicker::on_selected_time_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::TimeSpan>>) -> Self
+pub fn windows_reactor::TimePicker::on_time_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::TimeSpan>>) -> Self
 pub fn windows_reactor::TimePicker::opacity(self, f64) -> Self
 pub fn windows_reactor::TimePicker::relative_align_bottom(self) -> Self
 pub fn windows_reactor::TimePicker::relative_align_horizontal_center(self) -> Self

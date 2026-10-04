@@ -223,6 +223,18 @@ Reactor-specific value conversions. Unknown schema fields are rejected, and infe
 validated before generation. Control capabilities such as focus, references, and attachments are
 declared on the control.
 
+### Choose public names
+
+Metadata names are the default. Normalize a name only when existing Reactor APIs expose the same
+public value, role, and behavior under different native spellings. Keep distinct names when the
+callback payload, lifecycle boundary, ownership, or collection shape differs.
+
+Prefer the shortest established Reactor term for a shared concept. Do not mechanically expand
+names to mirror property spelling, and do not retain the native spelling as an alias. Apply and
+review one concept family at a time. For example, date and time pickers use `on_date_changed` and
+`on_time_changed` because `SelectedDateChanged`, `DateChanged`, and `SelectedTimeChanged` all
+report the current date or time value.
+
 After changing the schema or generator, run:
 
 ```text

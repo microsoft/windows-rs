@@ -1683,6 +1683,7 @@ name = "Header"
 
 [[objects.events]]
 name = "SelectedDateChanged"
+field = "on_date_changed"
 payload = "NewDate"
 payload_adapter = "optional_datetime"
 
@@ -1705,6 +1706,7 @@ name = "Header"
 
 [[objects.events]]
 name = "SelectedTimeChanged"
+field = "on_time_changed"
 payload = "NewTime"
 payload_adapter = "optional_timespan"
 

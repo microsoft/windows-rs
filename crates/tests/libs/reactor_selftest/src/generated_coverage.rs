@@ -3462,7 +3462,7 @@ fn coverage_291_clear() -> View {
     DatePicker::new().into()
 }
 fn coverage_292_set() -> View {
-    DatePicker::new().on_selected_date_changed(|_| {}).into()
+    DatePicker::new().on_date_changed(|_| {}).into()
 }
 fn coverage_292_clear() -> View {
     DatePicker::new().into()
@@ -3486,7 +3486,7 @@ fn coverage_295_clear() -> View {
     TimePicker::new().into()
 }
 fn coverage_296_set() -> View {
-    TimePicker::new().on_selected_time_changed(|_| {}).into()
+    TimePicker::new().on_time_changed(|_| {}).into()
 }
 fn coverage_296_clear() -> View {
     TimePicker::new().into()
