@@ -107,6 +107,25 @@ do not mutate state inside the native event callback.
 `context.window_frame` publishes the window title and returns the standard title-bar layout. For a
 static view with no state or events, call `App::run(view)` instead.
 
+## Add icon content
+
+`Icon` describes icon content for control slots. Reactor realizes the same value as WinUI's visual
+`IconElement` or nonvisual `IconSource`, depending on the destination property:
+
+```rust,ignore
+StackPanel::new().children((
+    TitleBar::new()
+        .title("Search")
+        .icon(Symbol::Home)
+        .left_header(TextBlock::new().text("Files")),
+    AutoSuggestBox::new().query_icon(Icon::font("\u{E721}")),
+))
+```
+
+Use `Icon::symbol`, `Icon::font`, `Icon::bitmap`, `Icon::image_*`, or `Icon::path` for control icon
+slots. Use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon` when the icon is a
+standalone visual that needs layout or other visual properties.
+
 ## Add editable state
 
 Editable controls are controlled: pass the current value from component state and send changes
@@ -202,7 +221,7 @@ The schema specifies only Reactor behavior and public API exceptions. Controls d
 `Visual` category, relations default to one positional owned visual, and adapters define
 Reactor-specific value conversions. Unknown schema fields are rejected, and inferred metadata is
 validated before generation. Control capabilities such as focus, references, and attachments are
-declared on the control. `layout_exit_transition` is a top-level schema capability.
+declared on the control.
 
 After changing the schema or generator, run:
 
@@ -210,5 +229,5 @@ After changing the schema or generator, run:
 cargo run -p tool-reactor --quiet
 ```
 
-The command updates the Reactor declarations, native adapter, binding filters, and live coverage.
-Do not edit those generated files directly.
+The command updates the Reactor declarations, native adapter, native bindings, and live coverage.
+`crates/tools/reactor/src/bindings.txt` is the handwritten native binding filter.

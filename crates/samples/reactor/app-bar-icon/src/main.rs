@@ -7,7 +7,7 @@ fn main() {
             AppBarSeparator::new(),
             AppBarButton::new()
                 .label("Search")
-                .icon(FontIcon::new().glyph("\u{E721}")),
+                .icon(Icon::font("\u{E721}")),
         )),
     )
     .unwrap();

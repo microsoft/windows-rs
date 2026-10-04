@@ -228,7 +228,7 @@ impl WinUiAdapter {
         let window = native::Window::new()?;
         let root = self.ui_element(root_object)?;
         window.SetContent(&root)?;
-        root.cast::<native::IUIElement>()?.UpdateLayout()?;
+        root.UpdateLayout()?;
         self.apply_window_policy(&window, &root, policy)?;
         let state = Rc::new(NativeWindowState {
             window,
@@ -293,7 +293,7 @@ impl WinUiAdapter {
             return Err(WinUiError::InvalidObject(object));
         }
         let element = self.ui_element(object)?;
-        element.cast::<native::IUIElement>()?.SetIsTabStop(false)?;
+        element.SetIsTabStop(false)?;
         state.window.SetExtendsContentIntoTitleBar(true)?;
         state.window.SetTitleBar(&element)?;
         state

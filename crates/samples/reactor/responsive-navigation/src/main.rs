@@ -58,7 +58,7 @@ impl Component for ResponsiveNavigation {
                 NavigationViewItem::new()
                     .tag(tag)
                     .content(label)
-                    .icon(SymbolIcon::new().symbol(symbol)),
+                    .icon(symbol),
             )
         });
         NavigationView::new()

@@ -20,7 +20,7 @@ fn item(tag: &str, label: &str, icon: Symbol, selected: bool) -> KeyedView {
             .is_selected(selected)
             .selects_on_invoked(true)
             .content(label)
-            .icon(SymbolIcon::new().symbol(icon)),
+            .icon(icon),
     )
 }
 

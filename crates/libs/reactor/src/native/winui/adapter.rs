@@ -241,6 +241,7 @@ impl Adapter for WinUiAdapter {
                         .handles
                         .remove(object)
                         .ok_or(WinUiError::MissingObject(*object))?;
+                    self.encoded_image_failures.remove(object);
                     if let Handle::TreeNode(node) = &handle {
                         self.tree_node_texts
                             .borrow_mut()
@@ -279,7 +280,7 @@ impl Adapter for WinUiAdapter {
     }
 
     fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
-        let element = self.ui_element(object)?.cast::<native::IUIElement>()?;
+        let element = self.ui_element(object)?;
         self.pending_focus_states
             .borrow_mut()
             .insert(object, ElementFocusState::Programmatic);

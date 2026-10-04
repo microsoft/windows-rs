@@ -62,14 +62,14 @@ pub windows_reactor::ColorScheme::Light
 pub enum windows_reactor::CommandBarCommand
 pub windows_reactor::CommandBarCommand::Button
 pub windows_reactor::CommandBarCommand::Button::enabled: bool
-pub windows_reactor::CommandBarCommand::Button::icon: core::option::Option<windows_reactor::Symbol>
+pub windows_reactor::CommandBarCommand::Button::icon: core::option::Option<windows_reactor::Icon>
 pub windows_reactor::CommandBarCommand::Button::key: windows_reactor::Key
 pub windows_reactor::CommandBarCommand::Button::label: alloc::rcs::rc::Rc<str>
 pub windows_reactor::CommandBarCommand::Separator
 pub windows_reactor::CommandBarCommand::Separator::key: windows_reactor::Key
 impl windows_reactor::CommandBarCommand
 pub fn windows_reactor::CommandBarCommand::button(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
-pub fn windows_reactor::CommandBarCommand::button_with_icon(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::rcs::rc::Rc<str>>, windows_reactor::Symbol) -> Self
+pub fn windows_reactor::CommandBarCommand::button_with_icon(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::rcs::rc::Rc<str>>, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::CommandBarCommand::disabled(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::CommandBarCommand::separator(impl core::convert::Into<windows_reactor::Key>) -> Self
 pub enum windows_reactor::ComponentError<E>
@@ -594,6 +594,8 @@ pub windows_reactor::PropertyId::Height
 pub windows_reactor::PropertyId::HorizontalAlignment
 pub windows_reactor::PropertyId::HorizontalContentAlignment
 pub windows_reactor::PropertyId::HorizontalScrollBarVisibility
+pub windows_reactor::PropertyId::Icon
+pub windows_reactor::PropertyId::IconSource
 pub windows_reactor::PropertyId::Initials
 pub windows_reactor::PropertyId::Interval
 pub windows_reactor::PropertyId::IsActive
@@ -656,6 +658,7 @@ pub windows_reactor::PropertyId::PasswordRevealMode
 pub windows_reactor::PropertyId::PlaceholderText
 pub windows_reactor::PropertyId::PreferredPlacement
 pub windows_reactor::PropertyId::PrimaryButtonText
+pub windows_reactor::PropertyId::QueryIcon
 pub windows_reactor::PropertyId::RadiusX
 pub windows_reactor::PropertyId::RadiusY
 pub windows_reactor::PropertyId::RelativeAlignBottom
@@ -717,6 +720,7 @@ pub windows_reactor::PropertyValue::F64(f64)
 pub windows_reactor::PropertyValue::FontWeight(windows_reactor::FontWeight)
 pub windows_reactor::PropertyValue::GridLengths(alloc::rcs::rc::Rc<[windows_reactor::GridLength]>)
 pub windows_reactor::PropertyValue::I32(i32)
+pub windows_reactor::PropertyValue::Icon(windows_reactor::Icon)
 pub windows_reactor::PropertyValue::ImageSource(windows_reactor::ImageSource)
 pub windows_reactor::PropertyValue::KeyAccelerators(windows_reactor::KeyAccelerators)
 pub windows_reactor::PropertyValue::OptionalBool(core::option::Option<bool>)
@@ -752,8 +756,8 @@ pub windows_reactor::RelationId::Children
 pub windows_reactor::RelationId::Content
 pub windows_reactor::RelationId::FooterMenuItems
 pub windows_reactor::RelationId::Header
-pub windows_reactor::RelationId::Icon
 pub windows_reactor::RelationId::Items
+pub windows_reactor::RelationId::LeftHeader
 pub windows_reactor::RelationId::MenuItems
 pub windows_reactor::RelationId::OffContent
 pub windows_reactor::RelationId::OnContent
@@ -1085,6 +1089,7 @@ pub windows_reactor::ValueType::FocusEventInfo
 pub windows_reactor::ValueType::FontWeight
 pub windows_reactor::ValueType::GridLengths
 pub windows_reactor::ValueType::I32
+pub windows_reactor::ValueType::Icon
 pub windows_reactor::ValueType::ImageSource
 pub windows_reactor::ValueType::KeyAccelerators
 pub windows_reactor::ValueType::KeyEventInfo
@@ -1247,6 +1252,7 @@ pub fn windows_reactor::AutoSuggestBox::on_suggestion_chosen(self, impl windows_
 pub fn windows_reactor::AutoSuggestBox::on_text_changed(self, impl windows_reactor::IntoPayloadCallback<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::AutoSuggestBox::opacity(self, f64) -> Self
 pub fn windows_reactor::AutoSuggestBox::placeholder_text(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::AutoSuggestBox::query_icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::AutoSuggestBox::relative_align_bottom(self) -> Self
 pub fn windows_reactor::AutoSuggestBox::relative_align_horizontal_center(self) -> Self
 pub fn windows_reactor::AutoSuggestBox::relative_align_left(self) -> Self
@@ -1297,8 +1303,6 @@ pub fn windows_reactor::BitmapIcon::uri_source(self, impl core::convert::Into<al
 pub fn windows_reactor::BitmapIcon::uri_source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::rcs::rc::Rc<str>>
 pub fn windows_reactor::BitmapIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
 pub fn windows_reactor::BitmapIcon::width(self, f64) -> Self
-impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::BitmapIcon) -> Self
 impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::BitmapIcon) -> Self
 impl core::default::Default for windows_reactor::BitmapIcon
@@ -2212,8 +2216,6 @@ pub fn windows_reactor::FontIcon::transitions<T>(self, T) -> Self where T: core:
 pub fn windows_reactor::FontIcon::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::FontIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
 pub fn windows_reactor::FontIcon::width(self, f64) -> Self
-impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::FontIcon) -> Self
 impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::FontIcon) -> Self
 impl core::default::Default for windows_reactor::FontIcon
@@ -2413,18 +2415,17 @@ pub fn windows_reactor::View::from(windows_reactor::HyperlinkButton) -> Self
 impl core::default::Default for windows_reactor::HyperlinkButton
 pub fn windows_reactor::HyperlinkButton::default() -> Self
 pub struct windows_reactor::Icon(_)
-impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::BitmapIcon) -> Self
-impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::FontIcon) -> Self
-impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::ImageIcon) -> Self
-impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::PathIcon) -> Self
+impl windows_reactor::Icon
+pub fn windows_reactor::Icon::bitmap(impl core::convert::Into<alloc::rcs::rc::Rc<str>>, bool) -> windows_result::Result<Self>
+pub fn windows_reactor::Icon::font(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
+pub fn windows_reactor::Icon::image(windows_reactor::ImageSource) -> Self
+pub fn windows_reactor::Icon::image_data(windows_reactor::EncodedImage) -> Self
+pub fn windows_reactor::Icon::image_file(impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
+pub fn windows_reactor::Icon::image_uri(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> windows_result::Result<Self>
+pub fn windows_reactor::Icon::path(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
+pub fn windows_reactor::Icon::symbol(windows_reactor::Symbol) -> Self
 impl core::convert::From<windows_reactor::Symbol> for windows_reactor::Icon
 pub fn windows_reactor::Icon::from(windows_reactor::Symbol) -> Self
-impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::SymbolIcon) -> Self
 pub struct windows_reactor::Image(_)
 impl windows_reactor::Image
 pub fn windows_reactor::Image::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
@@ -2505,8 +2506,6 @@ pub fn windows_reactor::ImageIcon::transitions<T>(self, T) -> Self where T: core
 pub fn windows_reactor::ImageIcon::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ImageIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
 pub fn windows_reactor::ImageIcon::width(self, f64) -> Self
-impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::ImageIcon) -> Self
 impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ImageIcon) -> Self
 impl core::default::Default for windows_reactor::ImageIcon
@@ -3199,8 +3198,6 @@ pub fn windows_reactor::PathIcon::transitions<T>(self, T) -> Self where T: core:
 pub fn windows_reactor::PathIcon::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::PathIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
 pub fn windows_reactor::PathIcon::width(self, f64) -> Self
-impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::PathIcon) -> Self
 impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::PathIcon) -> Self
 impl core::default::Default for windows_reactor::PathIcon
@@ -4239,8 +4236,6 @@ pub fn windows_reactor::SymbolIcon::transitions<T>(self, T) -> Self where T: cor
 pub fn windows_reactor::SymbolIcon::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::SymbolIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
 pub fn windows_reactor::SymbolIcon::width(self, f64) -> Self
-impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::Icon
-pub fn windows_reactor::Icon::from(windows_reactor::SymbolIcon) -> Self
 impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SymbolIcon) -> Self
 impl core::default::Default for windows_reactor::SymbolIcon
@@ -4536,9 +4531,11 @@ pub fn windows_reactor::TitleBar::grid_row(self, i32) -> Self
 pub fn windows_reactor::TitleBar::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::TitleBar::height(self, f64) -> Self
 pub fn windows_reactor::TitleBar::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
+pub fn windows_reactor::TitleBar::icon(self, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::TitleBar::is_back_button_enabled(self, bool) -> Self
 pub fn windows_reactor::TitleBar::is_back_button_visible(self, bool) -> Self
 pub fn windows_reactor::TitleBar::is_pane_toggle_button_visible(self, bool) -> Self
+pub fn windows_reactor::TitleBar::left_header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::TitleBar::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TitleBar::max_height(self, f64) -> Self
 pub fn windows_reactor::TitleBar::max_width(self, f64) -> Self

@@ -1068,11 +1068,6 @@ fn scrape_um(headers: &str) {
     );
 
     let canonical = &outputs[0];
-    std::fs::write(
-        output_dir.join("unsupported.txt"),
-        canonical.unsupported.join("\n"),
-    )
-    .unwrap();
     println!(
         "Wrote {} from {} input header(s), {} merged RDL partition(s), {} x64 exported function(s), {} x64 unsupported root declaration(s)",
         final_winmd.display(),
@@ -1287,7 +1282,6 @@ fn scrape_um_arch(
         std::fs::write(rdl_dir.join(format!("{stem}.rdl")), rdl).unwrap();
     }
     std::fs::create_dir_all(&arch_dir).unwrap();
-    std::fs::write(arch_dir.join("unsupported.txt"), unsupported.join("\n")).unwrap();
     let winmd = arch_dir.join("Windows.Win32.winmd");
     let metadata_time = std::time::Instant::now();
     windows_rdl::reader()

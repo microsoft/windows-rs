@@ -31,6 +31,7 @@ impl Component for IconElementsSample {
             "file:///{}/image.png",
             env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
         );
+        let app_icon = Icon::image_uri(image).unwrap();
         let item = |tag: &'static str, label: &'static str, icon: Icon| {
             KeyedView::new(
                 tag,
@@ -51,43 +52,36 @@ impl Component for IconElementsSample {
         };
 
         context.window_title("IconElements");
-        NavigationView::new()
+        let navigation = NavigationView::new()
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
             .keyed_menu_items([
-                item(
-                    "home",
-                    "Home",
-                    SymbolIcon::new().symbol(Symbol::Home).into(),
-                ),
-                item(
-                    "starred",
-                    "Starred",
-                    FontIcon::new().glyph("\u{E734}").into(),
-                ),
-                item(
-                    "repo",
-                    "Repository",
-                    ImageIcon::new().source(image).unwrap().into(),
-                ),
-                item(
-                    "bitmap",
-                    "Bitmap mask",
-                    BitmapIcon::new()
-                        .uri_source(bitmap)
-                        .unwrap()
-                        .show_as_monochrome(true)
-                        .into(),
-                ),
+                item("home", "Home", Icon::symbol(Symbol::Home)),
+                item("starred", "Starred", Icon::font("\u{E734}")),
+                item("repo", "Repository", app_icon.clone()),
+                item("bitmap", "Bitmap mask", Icon::bitmap(bitmap, true).unwrap()),
                 item(
                     "path",
                     "Path",
-                    PathIcon::new()
-                        .data("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z")
-                        .into(),
+                    Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z"),
                 ),
             ])
-            .content(content)
+            .content(content);
+
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR])
+            .children((
+                TitleBar::new()
+                    .title("Icon slots")
+                    .icon(app_icon)
+                    .left_header(TextBlock::new().text("Left header"))
+                    .content(
+                        AutoSuggestBox::new()
+                            .placeholder_text("Search...")
+                            .query_icon(Icon::font("\u{E721}")),
+                    ),
+                navigation.grid_row(1),
+            ))
             .into()
     }
 }

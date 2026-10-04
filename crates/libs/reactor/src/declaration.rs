@@ -102,6 +102,71 @@ impl ImageSource {
     }
 }
 
+/// Icon content that can be realized for either an icon element or an icon source property.
+#[derive(Clone, Debug, PartialEq)]
+pub struct Icon(IconValue);
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum IconValue {
+    Symbol(Symbol),
+    Font(Rc<str>),
+    Bitmap {
+        uri: Rc<str>,
+        show_as_monochrome: bool,
+    },
+    Image(ImageSource),
+    Path(Rc<str>),
+}
+
+impl Icon {
+    pub fn symbol(symbol: Symbol) -> Self {
+        Self(IconValue::Symbol(symbol))
+    }
+
+    pub fn font(glyph: impl Into<Rc<str>>) -> Self {
+        Self(IconValue::Font(glyph.into()))
+    }
+
+    pub fn bitmap(uri: impl Into<Rc<str>>, show_as_monochrome: bool) -> windows_core::Result<Self> {
+        let uri = uri.into();
+        validate_uri(&uri)?;
+        Ok(Self(IconValue::Bitmap {
+            uri,
+            show_as_monochrome,
+        }))
+    }
+
+    pub fn image(source: ImageSource) -> Self {
+        Self(IconValue::Image(source))
+    }
+
+    pub fn image_uri(uri: impl Into<Rc<str>>) -> windows_core::Result<Self> {
+        Ok(Self::image(ImageSource::uri(uri)?))
+    }
+
+    pub fn image_file(path: impl AsRef<Path>) -> windows_core::Result<Self> {
+        Ok(Self::image(ImageSource::file(path)?))
+    }
+
+    pub fn image_data(data: EncodedImage) -> Self {
+        Self::image(ImageSource::encoded(data))
+    }
+
+    pub fn path(data: impl Into<Rc<str>>) -> Self {
+        Self(IconValue::Path(data.into()))
+    }
+
+    pub(crate) fn value(&self) -> &IconValue {
+        &self.0
+    }
+}
+
+impl From<Symbol> for Icon {
+    fn from(value: Symbol) -> Self {
+        Self::symbol(value)
+    }
+}
+
 fn file_uri(path: &Path) -> windows_core::Result<String> {
     if !path.is_absolute() {
         return Err(windows_core::Error::new(
@@ -723,7 +788,7 @@ pub enum CommandBarCommand {
     Button {
         key: Key,
         label: Rc<str>,
-        icon: Option<Symbol>,
+        icon: Option<Icon>,
         enabled: bool,
     },
     Separator {
@@ -741,11 +806,15 @@ impl CommandBarCommand {
         }
     }
 
-    pub fn button_with_icon(key: impl Into<Key>, label: impl Into<Rc<str>>, icon: Symbol) -> Self {
+    pub fn button_with_icon(
+        key: impl Into<Key>,
+        label: impl Into<Rc<str>>,
+        icon: impl Into<Icon>,
+    ) -> Self {
         Self::Button {
             key: key.into(),
             label: label.into(),
-            icon: Some(icon),
+            icon: Some(icon.into()),
             enabled: true,
         }
     }
@@ -778,7 +847,7 @@ impl CommandBarCommand {
                     .is_enabled(enabled)
                     .on_click(move || callback.call(clicked.clone()));
                 let button = match icon {
-                    Some(icon) => button.icon(SymbolIcon::new().symbol(icon)),
+                    Some(icon) => button.icon(icon),
                     None => button,
                 };
                 keyed(key, button)
@@ -997,6 +1066,7 @@ pub enum PropertyValue {
     FontWeight(FontWeight),
     GridLengths(Rc<[GridLength]>),
     I32(i32),
+    Icon(Icon),
     ImageSource(ImageSource),
     KeyAccelerators(KeyAccelerators),
     OptionalF64(Option<f64>),
@@ -2001,36 +2071,6 @@ impl Declaration {
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct View(pub(crate) DeclaredNode);
-
-/// A symbol or icon declaration accepted by native icon relations.
-#[derive(Clone, Debug, PartialEq)]
-pub struct Icon(View);
-
-impl Icon {
-    pub(crate) fn into_view(self) -> View {
-        self.0
-    }
-}
-
-impl From<Symbol> for Icon {
-    fn from(value: Symbol) -> Self {
-        Self(SymbolIcon::new().symbol(value).into())
-    }
-}
-
-macro_rules! impl_icon {
-    ($($type:ty),+ $(,)?) => {
-        $(
-            impl From<$type> for Icon {
-                fn from(value: $type) -> Self {
-                    Self(value.into())
-                }
-            }
-        )+
-    };
-}
-
-impl_icon!(BitmapIcon, FontIcon, ImageIcon, PathIcon, SymbolIcon);
 
 pub trait TooltipExt: Into<View> + Sized {
     fn tooltip(self, value: impl AsRef<str>) -> View {

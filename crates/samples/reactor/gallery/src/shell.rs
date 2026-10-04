@@ -72,7 +72,7 @@ fn nav_item(
         .selects_on_invoked(true)
         .content(label);
     if let Some(symbol) = icon {
-        item = item.icon(SymbolIcon::new().symbol(symbol));
+        item = item.icon(symbol);
     }
     if has_children {
         item = item.keyed_menu_items(children).is_expanded(expanded);

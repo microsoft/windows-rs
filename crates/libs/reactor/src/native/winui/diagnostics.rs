@@ -491,12 +491,18 @@ impl WinUiAdapter {
         let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
         };
-        let value: native::IToggleButton = match handle {
-            GeneratedHandle::CheckBox(value) => value.value.cast()?,
-            GeneratedHandle::ToggleButton(value) => value.value.cast()?,
+        match handle {
+            GeneratedHandle::CheckBox(value) => {
+                value
+                    .value
+                    .cast::<native::IToggleButton>()?
+                    .SetIsChecked(checked)?;
+            }
+            GeneratedHandle::ToggleButton(value) => {
+                value.value.SetIsChecked(checked)?;
+            }
             _ => return Err(WinUiError::InvalidObject(object)),
-        };
-        value.SetIsChecked(checked)?;
+        }
         Ok(())
     }
 
@@ -505,10 +511,7 @@ impl WinUiAdapter {
         else {
             return Err(WinUiError::InvalidObject(object));
         };
-        handle
-            .value
-            .cast::<native::IExpander>()?
-            .SetIsExpanded(value)?;
+        handle.value.SetIsExpanded(value)?;
         Ok(())
     }
 
@@ -518,10 +521,7 @@ impl WinUiAdapter {
         else {
             return Err(WinUiError::InvalidObject(object));
         };
-        handle
-            .value
-            .cast::<native::INavigationView>()?
-            .SetIsPaneOpen(value)?;
+        handle.value.SetIsPaneOpen(value)?;
         Ok(())
     }
 
@@ -911,6 +911,10 @@ impl WinUiAdapter {
         }
     }
 
+    pub fn image_has_decode_failure_subscription(&self, object: ObjectId) -> bool {
+        self.encoded_image_failures.contains_key(&object)
+    }
+
     pub fn image_source_is_svg(&self, object: ObjectId) -> Result<bool, WinUiError> {
         let source = match self.handles.get(&object) {
             Some(Handle::Generated(GeneratedHandle::Image(control))) => control.value.Source()?,
@@ -1033,12 +1037,11 @@ impl WinUiAdapter {
         else {
             return Err(WinUiError::InvalidObject(object));
         };
-        let blocks: windows_collections::IVector<native::Block> = control.Blocks()?.cast()?;
+        let blocks = control.Blocks()?;
         let mut shape = Vec::with_capacity(blocks.Size()? as usize);
         for index in 0..blocks.Size()? {
             let paragraph = blocks.GetAt(index)?.cast::<native::IParagraph>()?;
-            let inlines: windows_collections::IVector<native::Inline> =
-                paragraph.Inlines()?.cast()?;
+            let inlines = paragraph.Inlines()?;
             shape.push(inlines.Size()?);
         }
         Ok(shape)
@@ -1192,11 +1195,7 @@ impl WinUiAdapter {
             .borrow_mut()
             .finish(object, EventId::PasswordChanged);
         result?;
-        let value = password_box
-            .value
-            .cast::<native::IPasswordBox>()?
-            .Password()
-            .map(Rc::<str>::from)?;
+        let value = password_box.value.Password().map(Rc::<str>::from)?;
         let observation = Observation::SetProperty {
             object,
             property: Property {
@@ -1235,11 +1234,7 @@ impl WinUiAdapter {
             .borrow_mut()
             .finish(object, EventId::ValueChanged);
         result?;
-        let value = rating
-            .value
-            .cast::<native::IRatingControl>()?
-            .Value()
-            .map(rating_value)?;
+        let value = rating.value.Value().map(rating_value)?;
         let observation = Observation::SetProperty {
             object,
             property: Property {
@@ -1333,7 +1328,6 @@ impl WinUiAdapter {
         else {
             return Err(WinUiError::InvalidObject(object));
         };
-        let panel = panel.cast::<native::IStackPanel>()?;
         Ok((
             panel.Spacing()?,
             panel.Orientation()? == native::Orientation::Horizontal,
@@ -1372,7 +1366,7 @@ impl WinUiAdapter {
         else {
             return Err(WinUiError::InvalidObject(object));
         };
-        Ok(value.cast::<native::ITextBlock>()?.FontWeight()?.weight)
+        Ok(value.FontWeight()?.weight)
     }
 
     pub fn text_box_state(&self, object: ObjectId) -> Result<(String, i32, i32), WinUiError> {

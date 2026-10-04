@@ -209,6 +209,9 @@ impl WinUiAdapter {
         let clear = sorted_clear.as_deref().unwrap_or(clear);
         let set = sorted_set.as_deref().unwrap_or(set);
         for property in clear.iter().copied() {
+            if property == PropertyId::Source {
+                self.encoded_image_failures.remove(&object);
+            }
             let feedback = GeneratedHandle::feedback_expectation(kind, property, None);
             if let Some((event, expectation)) = feedback.clone() {
                 self.event_queue
@@ -311,6 +314,9 @@ impl WinUiAdapter {
             }
         }
         for property in set {
+            if property.id == PropertyId::Source {
+                self.encoded_image_failures.remove(&object);
+            }
             let feedback =
                 GeneratedHandle::feedback_expectation(kind, property.id, Some(&property.value));
             if let Some((event, expectation)) = feedback.clone() {
@@ -402,16 +408,9 @@ impl WinUiAdapter {
                 {
                     let failed = match self.handles.get(&object) {
                         Some(Handle::Generated(GeneratedHandle::Image(control))) => {
-                            let native = control.value.clone();
                             let event = Rc::clone(&control.image_failed);
                             let event_queue = Rc::clone(&self.event_queue);
-                            Some(Rc::new(move |image: &native::BitmapImage| {
-                                let Ok(current) = native.Source() else {
-                                    return;
-                                };
-                                if com_identity(&current).ok() != com_identity(image).ok() {
-                                    return;
-                                }
+                            Some(Rc::new(move || {
                                 Self::dispatch_unit(
                                     &event,
                                     &event_queue,
@@ -419,14 +418,13 @@ impl WinUiAdapter {
                                     EventId::ImageFailed,
                                     None,
                                 );
-                            })
-                                as Rc<dyn Fn(&native::BitmapImage)>)
+                            }) as Rc<dyn Fn()>)
                         }
                         _ => None,
                     };
-                    let image = encoded_bitmap_image(value, failed)?;
+                    let (image, failed) = encoded_bitmap_image(value, failed)?;
                     let image = image.cast::<native::ImageSource>()?;
-                    break 'apply match self.handles.get(&object) {
+                    match self.handles.get(&object) {
                         Some(Handle::Generated(GeneratedHandle::Image(control))) => {
                             control.value.SetSource(&image).map_err(Into::into)
                         }
@@ -434,7 +432,11 @@ impl WinUiAdapter {
                             control.SetSource(&image).map_err(Into::into)
                         }
                         _ => Err(WinUiError::InvalidObject(object)),
-                    };
+                    }?;
+                    if let Some(failed) = failed {
+                        self.encoded_image_failures.insert(object, failed);
+                    }
+                    break 'apply Ok(());
                 }
                 if let Some(Handle::Generated(handle)) = self.handles.get(&object)
                     && let Some(result) = handle.set_property(property.id, Some(&property.value))
@@ -555,6 +557,7 @@ impl WinUiAdapter {
         self.handles
             .remove(&object)
             .ok_or(WinUiError::MissingObject(object))?;
+        self.encoded_image_failures.remove(&object);
         self.resource_override_keys.remove(&object);
         self.style_states.remove(&object);
         self.create(object, kind)?;

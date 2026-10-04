@@ -4,19 +4,19 @@ use crate::{
     AcceleratorKey, AcceleratorModifiers, Adapter, Brush, ButtonStyle, Callback, ColorScheme,
     CommandBarCommand, CommandBarFlyout, ComponentHost, CompositionHostEvent, ContentDialogResult,
     DragDropPolicy, ElementFocusState, EncodedImage, Event, EventDispatch, EventId, EventPayload,
-    EventValue, FlyoutPlacement, GridLength, GridLengthSize, ImageSourceValue, ImperativeRequest,
-    IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent, ObjectId, ObjectType,
-    Observation, Property, PropertyId, PropertyValue, Realization, RealizationRequest,
-    RealizedContainer, RelationContract, RelationId, ResourceOverrides, ResourceValue,
-    RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, ThemeBrush,
-    TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme, WindowVisuals,
-    relation_contracts, selection_for_item_property, selection_for_relation,
+    EventValue, FlyoutPlacement, GridLength, GridLengthSize, Icon, IconValue, ImageSourceValue,
+    ImperativeRequest, IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent,
+    ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue, Realization,
+    RealizationRequest, RealizedContainer, RelationContract, RelationId, ResourceOverrides,
+    ResourceValue, RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, Symbol,
+    ThemeBrush, TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme,
+    WindowVisuals, relation_contracts, selection_for_item_property, selection_for_relation,
 };
 use native::IElementFactory;
 use std::cell::{Cell, RefCell};
 use std::collections::{BTreeMap, HashMap, HashSet, VecDeque};
 use std::rc::{Rc, Weak};
-use std::sync::atomic::{AtomicU32, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::{Arc, Mutex};
 use windows_collections::{
     CollectionChange, IIterable_Impl, IIterator_Impl, IObservableVector_Impl, IVector_Impl,
@@ -113,13 +113,6 @@ type NativeTextEvent = NativeValueEvent<Rc<str>>;
 type NativeStringEvent = NativeTextEvent;
 type NativeStringListEvent = NativeValueEvent<Vec<String>>;
 type NativeUnitEvent = NativeValueEvent<()>;
-
-static NEXT_IMAGE_DECODE_COMPLETION: AtomicU64 = AtomicU64::new(1);
-
-thread_local! {
-    static IMAGE_DECODE_COMPLETIONS: RefCell<HashMap<u64, Box<dyn FnOnce(bool)>>> =
-        RefCell::new(HashMap::new());
-}
 
 enum GeneratedRevoker {
     Event(windows_core::EventRevoker),
@@ -1185,104 +1178,125 @@ fn uri_image(value: &str) -> Result<native::ImageSource, WinUiError> {
     }
 }
 
-fn queue_image_decode_completion(
-    dispatch: Option<(native::DispatcherQueue, u64)>,
-    decode_failed: bool,
-) {
-    let Some((queue, token)) = dispatch else {
-        return;
-    };
-    let handler = native::DispatcherQueueHandler::new(move || {
-        IMAGE_DECODE_COMPLETIONS.with(|completions| {
-            if let Some(completion) = completions.borrow_mut().remove(&token) {
-                completion(decode_failed);
-            }
-        });
-    });
-    match queue.TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler) {
-        Ok(true) => {}
-        Ok(false) => super::app::report_error(windows_core::Error::new(
-            native::E_FAIL,
-            "dispatcher rejected encoded image completion",
-        )),
-        Err(error) => super::app::report_error(error),
+fn icon_image_source(value: &crate::ImageSource) -> Result<native::ImageSource, WinUiError> {
+    match value.value() {
+        ImageSourceValue::Uri(value) => uri_image(value),
+        ImageSourceValue::Encoded(value) => encoded_bitmap_image(value, None)?
+            .0
+            .cast()
+            .map_err(Into::into),
+    }
+}
+
+fn icon_element(value: &Icon) -> Result<native::IconElement, WinUiError> {
+    match value.value() {
+        IconValue::Symbol(value) => {
+            let icon = native::SymbolIcon::new()?;
+            icon.SetSymbol(native_symbol(*value))?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Font(value) => {
+            let icon = native::FontIcon::new()?;
+            icon.SetGlyph(value)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Bitmap {
+            uri,
+            show_as_monochrome,
+        } => {
+            let icon = native::BitmapIcon::new()?;
+            icon.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            icon.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Image(value) => {
+            let icon = native::ImageIcon::new()?;
+            icon.SetSource(&icon_image_source(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Path(value) => {
+            let icon = native::PathIcon::new()?;
+            icon.SetData(&parse_path_data(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+    }
+}
+
+fn icon_source(value: &Icon) -> Result<native::IconSource, WinUiError> {
+    match value.value() {
+        IconValue::Symbol(value) => {
+            let icon = native::SymbolIconSource::new()?;
+            icon.SetSymbol(native_symbol(*value))?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Font(value) => {
+            let icon = native::FontIconSource::new()?;
+            icon.SetGlyph(value)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Bitmap {
+            uri,
+            show_as_monochrome,
+        } => {
+            let icon = native::BitmapIconSource::new()?;
+            icon.SetUriSource(&native::Uri::CreateUri(uri)?)?;
+            icon.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Image(value) => {
+            let icon = native::ImageIconSource::new()?;
+            icon.SetImageSource(&icon_image_source(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
+        IconValue::Path(value) => {
+            let icon = native::PathIconSource::new()?;
+            icon.SetData(&parse_path_data(value)?)?;
+            icon.cast().map_err(Into::into)
+        }
     }
 }
 
 fn encoded_bitmap_image(
     value: &EncodedImage,
-    failed: Option<Rc<dyn Fn(&native::BitmapImage)>>,
-) -> Result<native::BitmapImage, WinUiError> {
+    failed: Option<Rc<dyn Fn()>>,
+) -> Result<(native::BitmapImage, Option<windows_core::EventRevoker>), WinUiError> {
     let stream = native::InMemoryRandomAccessStream::new()?;
     let output = stream.GetOutputStreamAt(0)?;
     let writer = native::DataWriter::CreateDataWriter(&output)?;
     writer.WriteBytes(value.as_bytes())?;
     let store = writer.StoreAsync()?;
     let image = native::BitmapImage::new()?;
-    let failed_dispatch = failed
-        .map(|failed| {
-            let failed_image = image.clone();
-            let queue = native::DispatcherQueue::GetForCurrentThread()?;
-            let token = NEXT_IMAGE_DECODE_COMPLETION.fetch_add(1, Ordering::Relaxed);
-            IMAGE_DECODE_COMPLETIONS.with(|completions| {
-                completions.borrow_mut().insert(
-                    token,
-                    Box::new(move |decode_failed| {
-                        if decode_failed {
-                            failed(&failed_image);
-                        }
-                    }),
-                );
-            });
-            Ok::<_, windows_core::Error>((queue, token))
-        })
+    let failed = failed
+        .map(|failed| image.ImageFailed(move |_, _| failed()))
         .transpose()?;
     let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
-        let mut failed_dispatch = failed_dispatch;
         if let Err(error) = result {
-            queue_image_decode_completion(failed_dispatch.take(), false);
             super::app::report_error(error);
             return;
         }
         if let Err(error) = writer.DetachStream() {
-            queue_image_decode_completion(failed_dispatch.take(), false);
             super::app::report_error(error);
             return;
         }
         if let Err(error) = stream.Seek(0) {
-            queue_image_decode_completion(failed_dispatch.take(), false);
             super::app::report_error(error);
             return;
         }
         let source = match decode_image.cast::<native::IBitmapSource>() {
             Ok(source) => source,
             Err(error) => {
-                queue_image_decode_completion(failed_dispatch.take(), false);
                 super::app::report_error(error);
                 return;
             }
         };
-        let operation = match source.SetSourceAsync(&stream) {
-            Ok(operation) => operation,
-            Err(error) => {
-                queue_image_decode_completion(failed_dispatch.take(), false);
-                super::app::report_error(error);
-                return;
-            }
-        };
-        let completion_dispatch = failed_dispatch.clone();
-        if let Err(error) = operation.when(move |result| {
-            drop(stream);
-            queue_image_decode_completion(completion_dispatch, result.is_err());
-        }) {
-            queue_image_decode_completion(failed_dispatch, false);
+        if let Err(error) = source.SetSourceAsync(&stream) {
             super::app::report_error(error);
         }
     }) {
         return Err(error.into());
     }
-    Ok(image)
+    Ok((image, failed))
 }
 
 fn build_menu_items(
@@ -1356,11 +1370,8 @@ fn build_command_bar_element(
             let button = native::AppBarButton::new()?;
             button.SetLabel(label)?;
             button.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
-            if let Some(symbol) = icon {
-                let icon = native::SymbolIcon::new()?;
-                GeneratedHandle::SymbolIcon(icon.clone())
-                    .set_property(PropertyId::Symbol, Some(&symbol.property_value()))
-                    .unwrap()?;
+            if let Some(icon) = icon {
+                let icon = icon_element(icon)?;
                 button.SetIcon(&icon)?;
             }
             let clicked_key = key.clone();
@@ -1387,8 +1398,7 @@ fn set_rich_text_blocks(
     target: &native::RichTextBlock,
     value: Option<&crate::RichText>,
 ) -> Result<(), WinUiError> {
-    let control = target.cast::<native::IRichTextBlock>()?;
-    let blocks: windows_collections::IVector<native::Block> = control.Blocks()?.cast()?;
+    let blocks = target.Blocks()?;
     blocks.Clear()?;
     let Some(value) = value else {
         return Ok(());
@@ -1412,16 +1422,14 @@ fn set_rich_text_blocks(
     };
     for paragraph in value.paragraphs.iter() {
         let native_paragraph = native::Paragraph::new()?;
-        let inlines: windows_collections::IVector<native::Inline> =
-            native_paragraph.Inlines()?.cast()?;
+        let inlines = native_paragraph.Inlines()?;
         for inline in &paragraph.inlines {
             match inline {
                 crate::RichTextInline::Run(value) => append_run(&inlines, value)?,
                 crate::RichTextInline::Hyperlink(value) => {
                     let hyperlink = native::Hyperlink::new()?;
                     hyperlink.SetNavigateUri(&native::Uri::CreateUri(&value.uri)?)?;
-                    let hyperlink_inlines: windows_collections::IVector<native::Inline> =
-                        hyperlink.cast::<native::ISpan>()?.Inlines()?.cast()?;
+                    let hyperlink_inlines = hyperlink.cast::<native::ISpan>()?.Inlines()?;
                     append_run(&hyperlink_inlines, &crate::RichTextRun::plain(&value.text))?;
                     let hyperlink: native::Inline = hyperlink.cast()?;
                     inlines.Append(&hyperlink)?;
@@ -1572,6 +1580,7 @@ fn observe_xaml_scale(
 
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
+    encoded_image_failures: HashMap<ObjectId, windows_core::EventRevoker>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
     tree_template: Option<native::DataTemplate>,
     list_template: Option<native::DataTemplate>,
@@ -1611,6 +1620,7 @@ impl Default for WinUiAdapter {
     fn default() -> Self {
         Self {
             handles: HashMap::new(),
+            encoded_image_failures: HashMap::new(),
             owners: HashMap::new(),
             tree_template: None,
             list_template: None,
