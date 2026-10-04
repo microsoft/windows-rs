@@ -475,7 +475,8 @@ name = "Viewbox"
 name = "Stretch"
 
 [[objects.relations]]
-name = "Child"
+name = "Content"
+native = "Child"
 
 [[objects]]
 name = "TitleBar"

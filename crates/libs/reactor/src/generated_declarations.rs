@@ -2646,11 +2646,11 @@ impl Viewbox {
     ///
     /// ```compile_fail
     /// use windows_reactor::*;
-    /// let _ = Viewbox::new().child(TreeNode::new("node", "Node"));
+    /// let _ = Viewbox::new().content(TreeNode::new("node", "Node"));
     /// ```
-    pub fn child(mut self, content: impl Into<View>) -> Self {
+    pub fn content(mut self, content: impl Into<View>) -> Self {
         self.0 = self.0.relation(
-            RelationId::Child,
+            RelationId::Content,
             RelationValue::One(Some(Rc::new(content.into().0))),
         );
         self

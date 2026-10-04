@@ -751,7 +751,6 @@ pub windows_reactor::RealizationRequest::Recycle::collection: windows_reactor::O
 pub windows_reactor::RealizationRequest::Recycle::container: windows_reactor::RealizedContainer
 pub windows_reactor::RealizationRequest::Recycle::source_revision: u64
 pub enum windows_reactor::RelationId
-pub windows_reactor::RelationId::Child
 pub windows_reactor::RelationId::Children
 pub windows_reactor::RelationId::Content
 pub windows_reactor::RelationId::FooterMenuItems
@@ -4932,7 +4931,7 @@ pub fn windows_reactor::Viewbox::automation_id(self, impl core::convert::AsRef<s
 pub fn windows_reactor::Viewbox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Viewbox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Viewbox::canvas_top(self, f64) -> Self
-pub fn windows_reactor::Viewbox::child(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::Viewbox::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Viewbox::exit_fade(self, core::time::Duration) -> Self
 pub fn windows_reactor::Viewbox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Viewbox::grid_column(self, i32) -> Self

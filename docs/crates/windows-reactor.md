@@ -235,6 +235,10 @@ review one concept family at a time. For example, date and time pickers use `on_
 `on_time_changed` because `SelectedDateChanged`, `DateChanged`, and `SelectedTimeChanged` all
 report the current date or time value.
 
+For container relations, `content` means one owned visual that fills the control. Native `Child`
+and `Content` members therefore share the public `content` name. Keep `children` for ordered visual
+collections and `items` for item or container declarations.
+
 After changing the schema or generator, run:
 
 ```text
