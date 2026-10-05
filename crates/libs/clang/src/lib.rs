@@ -2796,6 +2796,32 @@ fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
         )
 }
 
+fn function_type_is_self_contained(ty: &TypeRef) -> bool {
+    match ty {
+        TypeRef::Named { .. } | TypeRef::Generic { .. } => false,
+        TypeRef::Pointer { target, .. }
+        | TypeRef::Reference { target, .. }
+        | TypeRef::Array { target, .. } => function_type_is_self_contained(target),
+        TypeRef::FunctionPointer { params, result, .. } => {
+            params.iter().all(function_type_is_self_contained)
+                && function_type_is_self_contained(result)
+        }
+        TypeRef::InlineRecord(_) => false,
+        _ => true,
+    }
+}
+
+fn function_signature_is_self_contained(fact: &Fact) -> bool {
+    matches!(
+        &fact.data,
+        FactData::Function { params, result, .. }
+            if params
+                .iter()
+                .all(|param| function_type_is_self_contained(&param.ty))
+                && function_type_is_self_contained(result)
+    )
+}
+
 fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
     let distinct = distinct_source_declarations(roots);
     if let [root] = distinct.as_slice() {
@@ -2806,15 +2832,18 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
             link_name: first_link_name,
             ..
         } = &first.data
-        && distinct.iter().all(|fact| {
-            (fact.origin.tu == first.origin.tu
+        && (distinct.iter().all(|fact| {
+            fact.origin.tu == first.origin.tu
                 && fact.parent == first.parent
                 && matches!(
                     &fact.data,
                     FactData::Function { link_name, .. } if link_name == first_link_name
-                ))
-                || (fact.parent.is_none() && first.parent.is_none() && fact.data == first.data)
-        })
+                )
+        }) || (first.parent.is_none()
+            && function_signature_is_self_contained(first)
+            && distinct
+                .iter()
+                .all(|fact| fact.parent.is_none() && fact.data == first.data)))
     {
         return Ok(distinct
             .iter()

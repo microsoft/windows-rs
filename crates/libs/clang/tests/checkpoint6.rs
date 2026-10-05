@@ -156,19 +156,20 @@ fn matching_function_names_do_not_hide_non_root_type_conflicts() {
         std::process::id()
     ));
     std::fs::create_dir_all(&scratch).unwrap();
-    std::fs::write(scratch.join("first_value.hpp"), "typedef int VALUE;\n").unwrap();
-    std::fs::write(scratch.join("second_value.hpp"), "typedef double VALUE;\n").unwrap();
+    std::fs::write(scratch.join("value.hpp"), "typedef VALUE_TYPE VALUE;\n").unwrap();
     let include = format!("-I{}", scratch.display());
     let snapshot = extract(
         [
             Input::new(
                 scratch.join("first.hpp").to_string_lossy(),
-                "#include \"first_value.hpp\"\n\
+                "#define VALUE_TYPE int\n\
+                 #include \"value.hpp\"\n\
                  extern \"C\" VALUE SharedFunction(VALUE value);\n",
             ),
             Input::new(
                 scratch.join("second.hpp").to_string_lossy(),
-                "#include \"second_value.hpp\"\n\
+                "#define VALUE_TYPE double\n\
+                 #include \"value.hpp\"\n\
                  extern \"C\" VALUE SharedFunction(VALUE value);\n",
             ),
         ],
@@ -184,8 +185,7 @@ fn matching_function_names_do_not_hide_non_root_type_conflicts() {
             .contains("ambiguous function root `SharedFunction`")
     );
 
-    std::fs::remove_file(scratch.join("first_value.hpp")).unwrap();
-    std::fs::remove_file(scratch.join("second_value.hpp")).unwrap();
+    std::fs::remove_file(scratch.join("value.hpp")).unwrap();
     std::fs::remove_dir(scratch).unwrap();
 }
 
@@ -208,8 +208,8 @@ fn matching_function_types_do_not_hide_sal_parameter_conflicts() {
                 "second.hpp",
                 format!(
                     "{annotation}\
-                     extern \"C\" void Read(unsigned capacity, unsigned count, \
-                     READS(count) int* data);\n"
+                     extern \"C\" void Read(unsigned count, unsigned capacity, \
+                     READS(capacity) int* data);\n"
                 ),
             ),
         ],
@@ -224,6 +224,31 @@ fn matching_function_types_do_not_hide_sal_parameter_conflicts() {
             .to_string()
             .contains("ambiguous function root `Read`")
     );
+}
+
+#[test]
+fn mixed_same_tu_function_declarations_remain_ambiguous_across_translation_units() {
+    helpers::ensure_libclang();
+
+    let mixed = "#define IN __attribute__((annotate(\"_In_\")))\n\
+                 extern \"C\" void Shared(int* value);\n\
+                 extern \"C\" void Shared(IN int* value);\n";
+    let plain = "extern \"C\" void Shared(int* value);\n";
+    for (mixed_name, plain_name) in [("a.hpp", "b.hpp"), ("z.hpp", "b.hpp")] {
+        let snapshot = extract(
+            [Input::new(mixed_name, mixed), Input::new(plain_name, plain)],
+            &["-x", "c++"],
+        )
+        .unwrap();
+
+        assert!(
+            snapshot
+                .emit("Functions")
+                .unwrap_err()
+                .to_string()
+                .contains("ambiguous function root `Shared`")
+        );
+    }
 }
 
 #[test]
