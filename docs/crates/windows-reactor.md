@@ -247,3 +247,10 @@ cargo run -p tool-reactor --quiet
 
 The command updates the Reactor declarations, native adapter, native bindings, and live coverage.
 `crates/tools/reactor/src/bindings.txt` is the handwritten native binding filter.
+
+### Module imports
+
+Handwritten modules use `use super::*;`, with shared imports supplied by `src/lib.rs` and
+`src/native/mod.rs`. Keep native binding names separate where they overlap Reactor declarations;
+the WinUI adapter uses the `native::` prefix for those bindings. `Weak` denotes an `Rc` weak
+reference, while `SyncWeak` denotes an `Arc` weak reference.

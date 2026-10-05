@@ -21,7 +21,7 @@ impl WinUiAdapter {
                         let text = match source.Text() {
                             Ok(text) => text,
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         };
@@ -76,7 +76,7 @@ impl WinUiAdapter {
                                 None,
                                 value,
                             ),
-                            Err(error) => super::app::report_error(error.into()),
+                            Err(error) => report_error(error.into()),
                         }
                     })?;
                     Handle::TreeView(NativeTreeView {
@@ -114,7 +114,7 @@ impl WinUiAdapter {
                         {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         };
@@ -157,7 +157,7 @@ impl WinUiAdapter {
                                 None,
                                 value,
                             ),
-                            Err(error) => super::app::report_error(error.into()),
+                            Err(error) => report_error(error.into()),
                         })?;
                     Handle::ListView(NativeListView {
                         value,
@@ -517,13 +517,13 @@ impl WinUiAdapter {
             .ok_or(WinUiError::InvalidReplacement(object))?;
         let contract = relation_contract(self.kind(parent)?, relation)?;
         if contract.realization != Realization::Owned
-            || contract.child != crate::object_category(kind)
+            || contract.child != object_category(kind)
         {
             return Err(WinUiError::InvalidReplacement(object));
         }
         let previous = self.ui_element(object)?;
         let index = match contract.cardinality {
-            crate::Cardinality::One => {
+            Cardinality::One => {
                 match (self.handle(parent)?, relation) {
                     (Handle::Generated(parent_handle), relation) => {
                         parent_handle
@@ -540,7 +540,7 @@ impl WinUiAdapter {
                 }
                 None
             }
-            crate::Cardinality::Many => {
+            Cardinality::Many => {
                 let values = self.owned_collection(parent, relation)?;
                 let previous: IInspectable = previous.cast()?;
                 let mut index = 0;
