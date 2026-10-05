@@ -220,6 +220,34 @@ fn matching_opaque_type_names_do_not_hide_distinct_classes() {
 }
 
 #[test]
+fn matching_function_pointer_shapes_do_not_hide_variadic_conflicts() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [
+            Input::new(
+                "first.hpp",
+                "extern \"C\" void Shared(void (*callback)(int));\n",
+            ),
+            Input::new(
+                "second.hpp",
+                "extern \"C\" void Shared(void (*callback)(int, ...));\n",
+            ),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+
+    assert!(
+        snapshot
+            .emit("Functions")
+            .unwrap_err()
+            .to_string()
+            .contains("ambiguous function root `Shared`")
+    );
+}
+
+#[test]
 fn matching_function_types_do_not_hide_sal_parameter_conflicts() {
     helpers::ensure_libclang();
 

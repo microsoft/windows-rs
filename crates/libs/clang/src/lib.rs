@@ -2796,31 +2796,28 @@ fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
         )
 }
 
-fn function_type_is_self_contained(ty: &TypeRef) -> bool {
+fn function_type_can_merge_across_inputs(ty: &TypeRef) -> bool {
     match ty {
         TypeRef::Void | TypeRef::String | TypeRef::Object | TypeRef::Scalar(_) => true,
         TypeRef::Named { .. }
         | TypeRef::Generic { .. }
         | TypeRef::OpaquePointer { .. }
+        | TypeRef::FunctionPointer { .. }
         | TypeRef::InlineRecord(_) => false,
         TypeRef::Pointer { target, .. }
         | TypeRef::Reference { target, .. }
-        | TypeRef::Array { target, .. } => function_type_is_self_contained(target),
-        TypeRef::FunctionPointer { params, result, .. } => {
-            params.iter().all(function_type_is_self_contained)
-                && function_type_is_self_contained(result)
-        }
+        | TypeRef::Array { target, .. } => function_type_can_merge_across_inputs(target),
     }
 }
 
-fn function_signature_is_self_contained(fact: &Fact) -> bool {
+fn function_signature_can_merge_across_inputs(fact: &Fact) -> bool {
     matches!(
         &fact.data,
         FactData::Function { params, result, .. }
             if params
                 .iter()
-                .all(|param| function_type_is_self_contained(&param.ty))
-                && function_type_is_self_contained(result)
+                .all(|param| function_type_can_merge_across_inputs(&param.ty))
+                && function_type_can_merge_across_inputs(result)
     )
 }
 
@@ -2842,7 +2839,7 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
                     FactData::Function { link_name, .. } if link_name == first_link_name
                 )
         }) || (first.parent.is_none()
-            && function_signature_is_self_contained(first)
+            && function_signature_can_merge_across_inputs(first)
             && distinct
                 .iter()
                 .all(|fact| fact.parent.is_none() && fact.data == first.data)))
