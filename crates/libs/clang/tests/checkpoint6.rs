@@ -148,45 +148,69 @@ fn matching_functions_collapse_across_translation_units() {
 }
 
 #[test]
-fn matching_named_function_types_collapse_across_translation_units() {
+fn matching_function_names_do_not_hide_non_root_type_conflicts() {
     helpers::ensure_libclang();
 
+    let scratch = std::env::temp_dir().join(format!(
+        "windows-clang-function-type-conflict-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(&scratch).unwrap();
+    std::fs::write(scratch.join("first_value.hpp"), "typedef int VALUE;\n").unwrap();
+    std::fs::write(scratch.join("second_value.hpp"), "typedef double VALUE;\n").unwrap();
+    let include = format!("-I{}", scratch.display());
     let snapshot = extract(
         [
             Input::new(
-                "first.hpp",
-                "typedef int VALUE;\nextern \"C\" VALUE SharedFunction(VALUE first);\n",
+                scratch.join("first.hpp").to_string_lossy(),
+                "#include \"first_value.hpp\"\n\
+                 extern \"C\" VALUE SharedFunction(VALUE value);\n",
             ),
             Input::new(
-                "second.hpp",
-                "typedef int VALUE;\nextern \"C\" VALUE SharedFunction(VALUE second);\n",
+                scratch.join("second.hpp").to_string_lossy(),
+                "#include \"second_value.hpp\"\n\
+                 extern \"C\" VALUE SharedFunction(VALUE value);\n",
             ),
         ],
-        &["-x", "c++"],
+        &["-x", "c++", &include],
     )
     .unwrap();
-    let references = BTreeMap::new();
-    let mut options = EmitOptions::new("Functions", &references);
-    options.library = Some("test.dll");
-    let rdl = snapshot.emit_with_options(&options).unwrap();
 
-    assert_eq!(rdl.matches("fn SharedFunction").count(), 1);
-    assert!(rdl.contains("fn SharedFunction(first: VALUE) -> VALUE"));
+    assert!(
+        snapshot
+            .emit("Functions")
+            .unwrap_err()
+            .to_string()
+            .contains("ambiguous function root `SharedFunction`")
+    );
+
+    std::fs::remove_file(scratch.join("first_value.hpp")).unwrap();
+    std::fs::remove_file(scratch.join("second_value.hpp")).unwrap();
+    std::fs::remove_dir(scratch).unwrap();
 }
 
 #[test]
-fn conflicting_named_function_types_remain_ambiguous_across_translation_units() {
+fn matching_function_types_do_not_hide_sal_parameter_conflicts() {
     helpers::ensure_libclang();
 
+    let annotation = "#define READS(c) __attribute__((annotate(\"_In_reads_(\" #c \")\")))\n";
     let snapshot = extract(
         [
             Input::new(
                 "first.hpp",
-                "typedef int VALUE;\nextern \"C\" VALUE SharedFunction(VALUE value);\n",
+                format!(
+                    "{annotation}\
+                     extern \"C\" void Read(unsigned count, unsigned capacity, \
+                     READS(count) int* data);\n"
+                ),
             ),
             Input::new(
                 "second.hpp",
-                "typedef double VALUE;\nextern \"C\" VALUE SharedFunction(VALUE value);\n",
+                format!(
+                    "{annotation}\
+                     extern \"C\" void Read(unsigned capacity, unsigned count, \
+                     READS(count) int* data);\n"
+                ),
             ),
         ],
         &["-x", "c++"],
@@ -198,7 +222,7 @@ fn conflicting_named_function_types_remain_ambiguous_across_translation_units() 
             .emit("Functions")
             .unwrap_err()
             .to_string()
-            .contains("ambiguous type root `VALUE`")
+            .contains("ambiguous function root `Read`")
     );
 }
 

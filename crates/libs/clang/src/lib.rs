@@ -2796,123 +2796,6 @@ fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
         )
 }
 
-fn function_types_match(left: &TypeRef, right: &TypeRef) -> bool {
-    match (left, right) {
-        (
-            TypeRef::Named {
-                name: left_name, ..
-            },
-            TypeRef::Named {
-                name: right_name, ..
-            },
-        ) => left_name == right_name,
-        (
-            TypeRef::Pointer {
-                mutable: left_mutable,
-                target: left_target,
-            },
-            TypeRef::Pointer {
-                mutable: right_mutable,
-                target: right_target,
-            },
-        )
-        | (
-            TypeRef::Reference {
-                mutable: left_mutable,
-                target: left_target,
-            },
-            TypeRef::Reference {
-                mutable: right_mutable,
-                target: right_target,
-            },
-        ) => left_mutable == right_mutable && function_types_match(left_target, right_target),
-        (
-            TypeRef::FunctionPointer {
-                convention: left_convention,
-                params: left_params,
-                result: left_result,
-            },
-            TypeRef::FunctionPointer {
-                convention: right_convention,
-                params: right_params,
-                result: right_result,
-            },
-        ) => {
-            left_convention == right_convention
-                && left_params.len() == right_params.len()
-                && left_params
-                    .iter()
-                    .zip(right_params)
-                    .all(|(left, right)| function_types_match(left, right))
-                && function_types_match(left_result, right_result)
-        }
-        (
-            TypeRef::Array {
-                target: left_target,
-                len: left_len,
-            },
-            TypeRef::Array {
-                target: right_target,
-                len: right_len,
-            },
-        ) => left_len == right_len && function_types_match(left_target, right_target),
-        (
-            TypeRef::Generic {
-                name: left_name,
-                args: left_args,
-                ..
-            },
-            TypeRef::Generic {
-                name: right_name,
-                args: right_args,
-                ..
-            },
-        ) => {
-            left_name == right_name
-                && left_args.len() == right_args.len()
-                && left_args
-                    .iter()
-                    .zip(right_args)
-                    .all(|(left, right)| function_types_match(left, right))
-        }
-        _ => left == right,
-    }
-}
-
-fn function_declarations_match(left: &Fact, right: &Fact) -> bool {
-    let (
-        FactData::Function {
-            link_name: left_link_name,
-            convention: left_convention,
-            params: left_params,
-            result: left_result,
-            variadic: left_variadic,
-            noreturn: left_noreturn,
-        },
-        FactData::Function {
-            link_name: right_link_name,
-            convention: right_convention,
-            params: right_params,
-            result: right_result,
-            variadic: right_variadic,
-            noreturn: right_noreturn,
-        },
-    ) = (&left.data, &right.data)
-    else {
-        return false;
-    };
-
-    left_link_name == right_link_name
-        && left_convention == right_convention
-        && left_variadic == right_variadic
-        && left_noreturn == right_noreturn
-        && left_params.len() == right_params.len()
-        && left_params.iter().zip(right_params).all(|(left, right)| {
-            left.annotation == right.annotation && function_types_match(&left.ty, &right.ty)
-        })
-        && function_types_match(left_result, right_result)
-}
-
 fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
     let distinct = distinct_source_declarations(roots);
     if let [root] = distinct.as_slice() {
@@ -2930,9 +2813,7 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
                     &fact.data,
                     FactData::Function { link_name, .. } if link_name == first_link_name
                 ))
-                || (fact.parent.is_none()
-                    && first.parent.is_none()
-                    && function_declarations_match(first, fact))
+                || (fact.parent.is_none() && first.parent.is_none() && fact.data == first.data)
         })
     {
         return Ok(distinct
