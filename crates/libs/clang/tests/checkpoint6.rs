@@ -190,6 +190,36 @@ fn matching_function_names_do_not_hide_non_root_type_conflicts() {
 }
 
 #[test]
+fn matching_opaque_type_names_do_not_hide_distinct_classes() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [
+            Input::new(
+                "first.hpp",
+                "namespace A { class Widget; }\n\
+                 extern \"C\" void Use(A::Widget* value);\n",
+            ),
+            Input::new(
+                "second.hpp",
+                "namespace B { class Widget; }\n\
+                 extern \"C\" void Use(B::Widget* value);\n",
+            ),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+
+    assert!(
+        snapshot
+            .emit("Functions")
+            .unwrap_err()
+            .to_string()
+            .contains("ambiguous function root `Use`")
+    );
+}
+
+#[test]
 fn matching_function_types_do_not_hide_sal_parameter_conflicts() {
     helpers::ensure_libclang();
 

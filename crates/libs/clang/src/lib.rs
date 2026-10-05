@@ -2798,7 +2798,11 @@ fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
 
 fn function_type_is_self_contained(ty: &TypeRef) -> bool {
     match ty {
-        TypeRef::Named { .. } | TypeRef::Generic { .. } => false,
+        TypeRef::Void | TypeRef::String | TypeRef::Object | TypeRef::Scalar(_) => true,
+        TypeRef::Named { .. }
+        | TypeRef::Generic { .. }
+        | TypeRef::OpaquePointer { .. }
+        | TypeRef::InlineRecord(_) => false,
         TypeRef::Pointer { target, .. }
         | TypeRef::Reference { target, .. }
         | TypeRef::Array { target, .. } => function_type_is_self_contained(target),
@@ -2806,8 +2810,6 @@ fn function_type_is_self_contained(ty: &TypeRef) -> bool {
             params.iter().all(function_type_is_self_contained)
                 && function_type_is_self_contained(result)
         }
-        TypeRef::InlineRecord(_) => false,
-        _ => true,
     }
 }
 
