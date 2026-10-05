@@ -1545,6 +1545,8 @@ pub fn windows_reactor::Callback<T>::call(&self, T)
 pub fn windows_reactor::Callback<T>::new(impl core::ops::function::Fn(T) + 'static) -> Self
 impl windows_reactor::IntoUnitCallback for windows_reactor::Callback<()>
 pub fn windows_reactor::Callback<()>::into_unit_callback(self) -> Self
+impl<T> core::clone::Clone for windows_reactor::Callback<T>
+pub fn windows_reactor::Callback<T>::clone(&self) -> Self
 impl<T> core::cmp::PartialEq for windows_reactor::Callback<T>
 pub fn windows_reactor::Callback<T>::eq(&self, &Self) -> bool
 impl<T> core::fmt::Debug for windows_reactor::Callback<T>
@@ -3806,6 +3808,8 @@ pub struct windows_reactor::RoutedCallback<T>(_)
 impl<T> windows_reactor::RoutedCallback<T>
 pub fn windows_reactor::RoutedCallback<T>::call(&self, T) -> bool
 pub fn windows_reactor::RoutedCallback<T>::new(impl core::ops::function::Fn(T) -> bool + 'static) -> Self
+impl<T> core::clone::Clone for windows_reactor::RoutedCallback<T>
+pub fn windows_reactor::RoutedCallback<T>::clone(&self) -> Self
 impl<T> core::cmp::PartialEq for windows_reactor::RoutedCallback<T>
 pub fn windows_reactor::RoutedCallback<T>::eq(&self, &Self) -> bool
 impl<T> core::fmt::Debug for windows_reactor::RoutedCallback<T>

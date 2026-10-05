@@ -7,6 +7,21 @@ fn usize_keys_preserve_their_integer_value() {
     assert_eq!(Key::from(7usize), Key::from(7u64));
 }
 
+#[test]
+fn callbacks_clone_without_clone_payloads() {
+    struct Payload(u8);
+
+    let callback = Callback::new(|payload: Payload| assert!(payload.0 < 2));
+    let cloned = callback.clone();
+    callback.call(Payload(0));
+    cloned.call(Payload(1));
+
+    let callback = RoutedCallback::new(|payload: Payload| payload.0 < 2);
+    let cloned = callback.clone();
+    assert!(callback.call(Payload(0)));
+    assert!(cloned.call(Payload(1)));
+}
+
 fn text(value: &str) -> View {
     TextBlock::new().text(value).into()
 }
