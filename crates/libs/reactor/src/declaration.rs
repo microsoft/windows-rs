@@ -1096,12 +1096,17 @@ pub(crate) struct CallbackIdentity {
     pub(crate) mapping: TypeId,
 }
 
-#[derive(Clone)]
 pub struct Callback<T>(Rc<CallbackInner<T>>);
 
 struct CallbackInner<T> {
     callback: Box<dyn Fn(T)>,
     identity: Option<CallbackIdentity>,
+}
+
+impl<T> Clone for Callback<T> {
+    fn clone(&self) -> Self {
+        Self(Rc::clone(&self.0))
+    }
 }
 
 impl<T> Callback<T> {
@@ -1143,8 +1148,13 @@ impl<T> PartialEq for Callback<T> {
     }
 }
 
-#[derive(Clone)]
 pub struct RoutedCallback<T>(Rc<dyn Fn(T) -> bool>);
+
+impl<T> Clone for RoutedCallback<T> {
+    fn clone(&self) -> Self {
+        Self(Rc::clone(&self.0))
+    }
+}
 
 impl<T> RoutedCallback<T> {
     pub fn new(callback: impl Fn(T) -> bool + 'static) -> Self {
