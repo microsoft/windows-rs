@@ -127,6 +127,52 @@ fn matching_uuid_structs_collapse_across_translation_units() {
 }
 
 #[test]
+fn matching_functions_collapse_across_translation_units() {
+    helpers::ensure_libclang();
+
+    let source = "extern \"C\" int SharedFunction(int value);\n";
+    let snapshot = extract(
+        [
+            Input::new("first.hpp", source),
+            Input::new("second.hpp", source),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let references = BTreeMap::new();
+    let mut options = EmitOptions::new("Functions", &references);
+    options.library = Some("test.dll");
+    let rdl = snapshot.emit_with_options(&options).unwrap();
+
+    assert_eq!(rdl.matches("fn SharedFunction").count(), 1);
+}
+
+#[test]
+fn conflicting_functions_remain_ambiguous_across_translation_units() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [
+            Input::new("first.hpp", "extern \"C\" int SharedFunction(int value);\n"),
+            Input::new(
+                "second.hpp",
+                "extern \"C\" double SharedFunction(int value);\n",
+            ),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+
+    assert!(
+        snapshot
+            .emit("Functions")
+            .unwrap_err()
+            .to_string()
+            .contains("ambiguous function root `SharedFunction`")
+    );
+}
+
+#[test]
 fn exclusion_references_keep_only_locally_extended_enums() {
     helpers::ensure_libclang();
 

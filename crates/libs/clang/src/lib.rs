@@ -2807,12 +2807,13 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
             ..
         } = &first.data
         && distinct.iter().all(|fact| {
-            fact.origin.tu == first.origin.tu
+            (fact.origin.tu == first.origin.tu
                 && fact.parent == first.parent
                 && matches!(
                     &fact.data,
                     FactData::Function { link_name, .. } if link_name == first_link_name
-                )
+                ))
+                || (fact.parent.is_none() && first.parent.is_none() && fact.data == first.data)
         })
     {
         return Ok(distinct
