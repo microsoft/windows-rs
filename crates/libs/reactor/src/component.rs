@@ -3800,7 +3800,7 @@ mod tests {
         fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
             StackPanel::new()
                 .children(
-                    (0..300)
+                    (0..300usize)
                         .map(|index| component::<RenderCountChild>(index, self.0.clone()).into())
                         .collect::<Vec<View>>(),
                 )
@@ -4962,13 +4962,17 @@ mod tests {
         )
         .unwrap();
         assert_eq!(renders.load(Ordering::Relaxed), 300);
+        let state = host.test_state();
 
         let sender = host
             .sender::<RenderCountParent>(&Key::from("parent"))
             .unwrap();
-        assert!(sender.send(()));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        for _ in 0..20 {
+            assert!(sender.send(()));
+        }
+        assert_eq!(host.drain(20).unwrap().dispatched, 20);
         assert_eq!(renders.load(Ordering::Relaxed), 300);
+        assert_eq!(host.test_state(), state);
     }
 
     #[test]
