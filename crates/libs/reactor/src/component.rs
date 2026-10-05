@@ -1342,7 +1342,6 @@ struct Scope {
     key: Key,
     parent: Option<ComponentId>,
     provided_contexts: HashSet<ContextId>,
-    render_parent: Option<ComponentId>,
     reference: ElementRef,
     root: Option<ObjectId>,
     window: Option<Box<WindowPublication>>,
@@ -1615,9 +1614,9 @@ impl<A: Adapter> ComponentHost<A> {
         }
     }
 
-    fn render_depth(&self, mut id: ComponentId) -> usize {
+    fn scope_depth(&self, mut id: ComponentId) -> usize {
         let mut depth = 0;
-        while let Some(parent) = self.scope(id).and_then(|scope| scope.render_parent) {
+        while let Some(parent) = self.scope(id).and_then(|scope| scope.parent) {
             depth += 1;
             id = parent;
         }
@@ -1685,8 +1684,7 @@ impl<A: Adapter> ComponentHost<A> {
                 return Err(ComponentError::DuplicateKey(key));
             }
             let contexts = host.contexts.clone();
-            let (id, render) =
-                host.create_scope(None, None, node, contexts.clone(), HashSet::new())?;
+            let (id, render) = host.create_scope(None, node, contexts.clone(), HashSet::new())?;
             host.order.push(id);
             host.keys.insert(key, id);
             let view = expansion.push_render(
@@ -1905,7 +1903,7 @@ impl<A: Adapter> ComponentHost<A> {
             };
             contexts.insert(context.id, value.clone());
             host.contexts = contexts;
-            let affected = host
+            let mut affected = host
                 .context_consumers
                 .get(&context.id)
                 .map(|consumers| {
@@ -1919,37 +1917,24 @@ impl<A: Adapter> ComponentHost<A> {
                         .collect::<Vec<_>>()
                 })
                 .unwrap_or_default();
-            let affected_set = affected.iter().copied().collect::<HashSet<_>>();
-            let mut affected = affected
-                .into_iter()
-                .filter(|id| {
-                    let mut parent = host.scope(*id).and_then(|scope| scope.render_parent);
-                    while let Some(current) = parent {
-                        if affected_set.contains(&current) {
-                            return false;
-                        }
-                        parent = host.scope(current).and_then(|scope| scope.render_parent);
-                    }
-                    true
-                })
-                .collect::<Vec<_>>();
-            // An owner update may retire a deeper independent update root.
-            affected.sort_unstable_by_key(|id| std::cmp::Reverse(host.render_depth(*id)));
-            let mut pending = Vec::with_capacity(affected.len());
+            affected.sort_unstable_by_key(|id| host.scope_depth(*id));
+            let mut report = ComponentDrain::default();
             for id in affected {
-                let reference = host.scope(id).unwrap().reference.clone();
-                let mut contexts = host.scope(id).unwrap().contexts.clone();
+                let Some(scope) = host.scope(id) else {
+                    continue;
+                };
+                let reference = scope.reference.clone();
+                let mut contexts = scope.contexts.clone();
                 contexts.insert(context.id, value.clone());
-                let provided_contexts = host.scope(id).unwrap().provided_contexts.clone();
+                if !scope.dependencies_changed(&contexts) {
+                    continue;
+                }
+                let provided_contexts = scope.provided_contexts.clone();
                 let scope = host.scope_mut(id).unwrap();
                 let render = scope
                     .component
                     .render_view(reference, &contexts)
                     .map_err(ComponentError::from)?;
-                pending.push((id, render, contexts, provided_contexts));
-            }
-            let mut report = ComponentDrain::default();
-            for (id, render, contexts, provided_contexts) in pending {
                 let mutations =
                     host.apply_render_with_contexts(id, render, contexts, provided_contexts)?;
                 report.dispatched += 1;
@@ -2153,7 +2138,6 @@ impl<A: Adapter> ComponentHost<A> {
                     let node = component::<VirtualRow>(lease.key.clone(), view);
                     let (id, render) = self.create_scope(
                         owner,
-                        None,
                         node,
                         contexts.clone(),
                         provided_contexts.clone(),
@@ -2323,7 +2307,6 @@ impl<A: Adapter> ComponentHost<A> {
     fn create_scope(
         &mut self,
         parent: Option<ComponentId>,
-        render_parent: Option<ComponentId>,
         node: ComponentNode,
         contexts: HashMap<ContextId, ContextValue>,
         provided_contexts: HashSet<ContextId>,
@@ -2373,7 +2356,6 @@ impl<A: Adapter> ComponentHost<A> {
             key,
             parent,
             provided_contexts,
-            render_parent,
             reference,
             root: None,
             window: None,
@@ -2769,7 +2751,6 @@ impl<A: Adapter> ComponentHost<A> {
             (id, view)
         } else {
             let created = self.create_scope(
-                Some(owner),
                 Some(owner),
                 node,
                 environment.contexts.clone(),
@@ -4616,6 +4597,34 @@ mod tests {
         }
     }
 
+    struct VirtualRemovingOwner {
+        source: VirtualSource,
+    }
+
+    impl Component for VirtualRemovingOwner {
+        type Input = ContextInput;
+        type Message = ();
+
+        fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+            let input = input.clone();
+            Self {
+                source: VirtualSource::new(1, 1, Key::from, move |index| {
+                    component::<ContextReader>(index, input.clone())
+                }),
+            }
+        }
+
+        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+            if context.use_context(&input.context) == 0 {
+                ItemsRepeater::new()
+                    .virtual_source(self.source.clone())
+                    .into()
+            } else {
+                TextBlock::new().into()
+            }
+        }
+    }
+
     #[derive(Clone)]
     struct VirtualCleanupInput {
         events: Rc<RefCell<Vec<(Option<ObjectId>, bool, ComponentTaskStatus)>>>,
@@ -6387,6 +6396,43 @@ mod tests {
 
         assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 2);
         assert_eq!(renders.load(Ordering::Relaxed), 2);
+    }
+
+    #[test]
+    fn virtual_row_consumer_is_skipped_when_owner_retires_it() {
+        let context = Rc::new(Context::new(0usize));
+        let renders = Arc::new(AtomicUsize::new(0));
+        let input = ContextInput {
+            context: Rc::clone(&context),
+            renders: Arc::clone(&renders),
+            subscribe: true,
+        };
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<VirtualRemovingOwner>("virtual", input)],
+        )
+        .unwrap();
+        let root = host.runtime().graph().root().unwrap();
+        let collection = host
+            .runtime()
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap()[0];
+        host.runtime
+            .adapter_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container: RealizedContainer(1),
+                index: 0,
+                source_revision: 0,
+            });
+        host.drain(10).unwrap();
+        assert_eq!(renders.load(Ordering::Relaxed), 1);
+        assert_eq!(host.test_state().virtual_rows, 1);
+
+        assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 1);
+        assert_eq!(renders.load(Ordering::Relaxed), 1);
+        assert_eq!(host.test_state().virtual_rows, 0);
     }
 
     #[test]
