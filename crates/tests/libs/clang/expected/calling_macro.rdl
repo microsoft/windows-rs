@@ -1,0 +1,9 @@
+#[win32]
+mod Calling {
+    extern fn CALLBACK_TYPE(context: *mut void);
+    extern fn PCALLBACK_TYPE(context: *mut void);
+    #[library("api.dll", import = "?PlainCall@@YAXXZ")]
+    extern "C" fn PlainCall();
+    #[library("api.dll", import = "?SystemCall@@YAXXZ")]
+    extern fn SystemCall();
+}

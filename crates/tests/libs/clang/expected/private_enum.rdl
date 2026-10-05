@@ -1,0 +1,8 @@
+#[win32]
+mod PrivateEnum {
+    type PUBLIC_FLAGS = u32;
+    #[repr(i32)]
+    enum _PUBLIC_FLAGS {
+        FLAG_NONE = 0,
+    }
+}

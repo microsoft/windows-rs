@@ -1,0 +1,7 @@
+#[win32]
+mod FunctionParameter {
+    #[library("api.dll")]
+    extern "C" fn UseCallback(Callback: *mut u8);
+    #[library("api.dll")]
+    extern "C" fn UseInputCallback(#[in] InputCallback: *mut u8);
+}

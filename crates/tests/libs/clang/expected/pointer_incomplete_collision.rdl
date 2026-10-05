@@ -1,0 +1,10 @@
+#[win32]
+mod PointerIncompleteCollision {
+    struct ITEM {
+    }
+    type PITEM = *mut _ITEM;
+    #[library("api.dll")]
+    extern "C" fn UseItem(value: *mut ITEM);
+    struct _ITEM {
+    }
+}

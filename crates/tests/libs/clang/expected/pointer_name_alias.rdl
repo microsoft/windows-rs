@@ -1,0 +1,7 @@
+#[win32]
+mod PointerNameAlias {
+    type PTHING = *mut THING;
+    struct THING {
+        value: i32,
+    }
+}

@@ -258,6 +258,14 @@ setup:
 | `library <name>` | Sets the import library. |
 | `args <arguments>` | Replaces the libclang arguments. |
 | `reference-default` | Resolves extraction types against the default metadata. |
+| `input <name>.h` | Starts a named translation unit in a multi-input fixture. |
+| `file <name>.h` | Starts an auxiliary file that may be included by an input. |
+
+Multi-input fixtures use one or more `input` directives followed by the source for each translation
+unit. A `file` section writes a sibling header without treating it as a translation unit. The
+harness emits inputs in forward and reverse order and requires identical output or errors.
+Successful output is parsed with `windows-rdl`. An existing `expected/<name>.error` marks an error
+fixture and receives the normalized diagnostic. Other fixtures write `expected/<name>.rdl`.
 
 ```text
 cargo test -p windows-clang

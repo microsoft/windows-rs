@@ -1,0 +1,4 @@
+#[win32]
+mod Constants {
+    const SHARED_VALUE: u32 = 8;
+}

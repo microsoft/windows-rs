@@ -1,0 +1,4 @@
+#[win32]
+mod MidlRecord {
+    type PUBLIC_HANDLE = *mut void;
+}

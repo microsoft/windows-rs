@@ -1,0 +1,8 @@
+#[win32]
+mod Records {
+    type PBYTE = *mut u8;
+    struct SHARED {
+        data: PBYTE,
+        size: u32,
+    }
+}
