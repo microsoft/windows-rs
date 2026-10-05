@@ -1,0 +1,4 @@
+#[win32]
+mod Callback {
+    extern fn CALLBACK(count: u32, values: *const u32, names: *const *const u16) -> i32;
+}

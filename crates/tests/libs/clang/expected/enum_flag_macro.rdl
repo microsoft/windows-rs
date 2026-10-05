@@ -1,0 +1,9 @@
+#[win32]
+mod Flags {
+    #[repr(u32)]
+    #[flags]
+    enum FLAGS {
+        FLAGS_NONE = 0,
+        FLAGS_ALL = 4294967295,
+    }
+}

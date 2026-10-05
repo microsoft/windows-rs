@@ -732,37 +732,3 @@ struct IUnrelatedBases : IFirst, ISecond {};
         assert!(matches!(fact.data, FactData::Unsupported { .. }));
     }
 }
-
-#[test]
-fn interface_projection_is_stable_across_translation_units() {
-    helpers::ensure_libclang();
-    let scratch =
-        std::env::temp_dir().join(format!("windows-clang-interface-tu-{}", std::process::id()));
-    std::fs::create_dir_all(&scratch).unwrap();
-    std::fs::write(
-        scratch.join("shared.hpp"),
-        "struct IShared { virtual void Method() = 0; };\n",
-    )
-    .unwrap();
-    let include = format!("-I{}", scratch.display());
-    let first = Input::new(
-        scratch.join("first.hpp").to_string_lossy(),
-        "#include \"shared.hpp\"\nextern \"C\" IShared *GetShared();\n",
-    );
-    let second = Input::new(
-        scratch.join("second.hpp").to_string_lossy(),
-        "#include \"shared.hpp\"\nstruct HOLDER { IShared *value; };\n",
-    );
-    let left = extract([first.clone(), second.clone()], &["-x", "c++", &include])
-        .unwrap()
-        .emit_with_library("Stable", "test.dll")
-        .unwrap();
-    let right = extract([second, first], &["-x", "c++", &include])
-        .unwrap()
-        .emit_with_library("Stable", "test.dll")
-        .unwrap();
-    assert_eq!(left, right);
-    assert!(left.contains("extern \"C\" fn GetShared() -> IShared"));
-    assert!(left.contains("struct HOLDER {\n        value: IShared,"));
-    std::fs::remove_dir_all(scratch).unwrap();
-}

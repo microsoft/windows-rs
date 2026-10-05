@@ -1,0 +1,4 @@
+#[win32]
+mod Callback {
+    extern "C" fn CALLBACK(#[in] #[opt] context: *mut void, #[in] #[out] value: *mut u32);
+}

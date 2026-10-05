@@ -1,0 +1,1 @@
+ambiguous type root `IFoo`: <input>/first.h:6 Union/Record declaration; <input>/second.h:64 Struct/Interface definition

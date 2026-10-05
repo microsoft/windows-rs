@@ -1,0 +1,4 @@
+#[win32]
+mod Coclass {
+    const Widget: GUID = 0x12345678_1234_5678_90ab_cdef12345678;
+}

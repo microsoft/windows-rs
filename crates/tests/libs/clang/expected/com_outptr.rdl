@@ -1,0 +1,9 @@
+#[win32]
+mod ComOut {
+    #[library("api.dll")]
+    extern "C" fn Create(iid: *const void, #[iid_is] object: *mut *mut void) -> i32;
+    #[library("api.dll")]
+    extern "C" fn CreateThing(object: *mut *mut IThing) -> i32;
+    struct IThing {
+    }
+}

@@ -1,0 +1,11 @@
+#[win32]
+mod MidlReferencedPrivateEnum {
+    type PUBLIC_FLAGS = u32;
+    struct USES_FLAGS {
+        value: _PUBLIC_FLAGS,
+    }
+    #[repr(i32)]
+    enum _PUBLIC_FLAGS {
+        FLAG_NONE = 0,
+    }
+}

@@ -1,0 +1,8 @@
+#[win32]
+mod Iids {
+    const IID_ITest: GUID = 0x87654321_4321_dcba_6789_fedcba987654;
+    #[guid(0x12345678_1234_abcd_9876_0123456789ab)]
+    interface ITest {
+        fn Method(&self) -> i32;
+    }
+}

@@ -1,0 +1,7 @@
+#[win32]
+mod ConstantByteSizes {
+    #[library("test.dll")]
+    extern "C" fn ReadBytes(#[len_const(128)] #[in] bytes: *mut i8);
+    #[library("test.dll")]
+    extern "C" fn ReadWide(#[len_const(4)] #[in] text: *mut u16);
+}

@@ -1,0 +1,4 @@
+#[win32]
+mod Fastcall {
+    extern fn FAST_CALLBACK(value: *mut void);
+}

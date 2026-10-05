@@ -1,0 +1,10 @@
+#[win32]
+mod PointerNameCollision {
+    type PTHING = *mut _THING;
+    struct THING {
+        second: f64,
+    }
+    struct _THING {
+        first: i32,
+    }
+}

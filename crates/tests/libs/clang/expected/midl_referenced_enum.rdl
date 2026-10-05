@@ -1,0 +1,11 @@
+#[win32]
+mod MidlReferencedEnum {
+    struct USES_VALUES {
+        value: __MIDL_generated_values,
+    }
+    #[repr(i32)]
+    enum __MIDL_generated_values {
+        VALUE_NONE = 0,
+        VALUE_ONE = 1,
+    }
+}

@@ -1,0 +1,13 @@
+#[win32]
+mod Interfaces {
+    #[guid(0x11111111_1111_1111_1111_111111111111)]
+    interface IBar: IFoo {
+    }
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IFoo {
+        fn Method(&self);
+    }
+    struct UsesFoo {
+        value: *mut IFoo,
+    }
+}

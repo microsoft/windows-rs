@@ -1,0 +1,6 @@
+#[win32]
+mod CastAliases {
+    const CHAINED: REAL_TYPE = 2;
+    const ONE_HOP: REAL_TYPE = 1;
+    type REAL_TYPE = u32;
+}

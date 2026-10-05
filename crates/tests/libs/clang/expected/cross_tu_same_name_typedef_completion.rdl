@@ -1,0 +1,9 @@
+#[win32]
+mod Records {
+    type PSHARED = *mut SHARED;
+    struct SHARED {
+        value: u32,
+    }
+    #[library("test.dll")]
+    extern "C" fn UseShared(value: SHARED);
+}
