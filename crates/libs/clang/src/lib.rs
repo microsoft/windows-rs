@@ -2813,7 +2813,12 @@ fn function_type_can_merge_across_inputs(ty: &TypeRef) -> bool {
 fn function_signature_can_merge_across_inputs(fact: &Fact) -> bool {
     matches!(
         &fact.data,
-        FactData::Function { params, result, .. }
+        FactData::Function {
+            convention: CallingConvention::C,
+            params,
+            result,
+            ..
+        }
             if params
                 .iter()
                 .all(|param| function_type_can_merge_across_inputs(&param.ty))

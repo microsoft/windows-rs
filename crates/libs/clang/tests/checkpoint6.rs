@@ -248,6 +248,39 @@ fn matching_function_pointer_shapes_do_not_hide_variadic_conflicts() {
 }
 
 #[test]
+fn matching_platform_conventions_do_not_hide_x86_abi_conflicts() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [
+            Input::new(
+                "first.hpp",
+                "extern \"C\" void __stdcall Shared(int value);\n",
+            ),
+            Input::new(
+                "second.hpp",
+                "extern \"C\" void __fastcall Shared(int value);\n",
+            ),
+        ],
+        &[
+            "-x",
+            "c++",
+            "--target=i686-pc-windows-msvc",
+            "-fms-extensions",
+        ],
+    )
+    .unwrap();
+
+    assert!(
+        snapshot
+            .emit("Functions")
+            .unwrap_err()
+            .to_string()
+            .contains("ambiguous function root `Shared`")
+    );
+}
+
+#[test]
 fn matching_function_types_do_not_hide_sal_parameter_conflicts() {
     helpers::ensure_libclang();
 
