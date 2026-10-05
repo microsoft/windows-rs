@@ -751,7 +751,6 @@ pub windows_reactor::RealizationRequest::Recycle::collection: windows_reactor::O
 pub windows_reactor::RealizationRequest::Recycle::container: windows_reactor::RealizedContainer
 pub windows_reactor::RealizationRequest::Recycle::source_revision: u64
 pub enum windows_reactor::RelationId
-pub windows_reactor::RelationId::Child
 pub windows_reactor::RelationId::Children
 pub windows_reactor::RelationId::Content
 pub windows_reactor::RelationId::FooterMenuItems
@@ -1546,6 +1545,8 @@ pub fn windows_reactor::Callback<T>::call(&self, T)
 pub fn windows_reactor::Callback<T>::new(impl core::ops::function::Fn(T) + 'static) -> Self
 impl windows_reactor::IntoUnitCallback for windows_reactor::Callback<()>
 pub fn windows_reactor::Callback<()>::into_unit_callback(self) -> Self
+impl<T> core::clone::Clone for windows_reactor::Callback<T>
+pub fn windows_reactor::Callback<T>::clone(&self) -> Self
 impl<T> core::cmp::PartialEq for windows_reactor::Callback<T>
 pub fn windows_reactor::Callback<T>::eq(&self, &Self) -> bool
 impl<T> core::fmt::Debug for windows_reactor::Callback<T>
@@ -1919,7 +1920,7 @@ pub fn windows_reactor::DatePicker::min_height(self, f64) -> Self
 pub fn windows_reactor::DatePicker::min_width(self, f64) -> Self
 pub fn windows_reactor::DatePicker::month_visible(self, bool) -> Self
 pub fn windows_reactor::DatePicker::new() -> Self
-pub fn windows_reactor::DatePicker::on_selected_date_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::DateTime>>) -> Self
+pub fn windows_reactor::DatePicker::on_date_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::DateTime>>) -> Self
 pub fn windows_reactor::DatePicker::opacity(self, f64) -> Self
 pub fn windows_reactor::DatePicker::relative_align_bottom(self) -> Self
 pub fn windows_reactor::DatePicker::relative_align_horizontal_center(self) -> Self
@@ -3807,6 +3808,8 @@ pub struct windows_reactor::RoutedCallback<T>(_)
 impl<T> windows_reactor::RoutedCallback<T>
 pub fn windows_reactor::RoutedCallback<T>::call(&self, T) -> bool
 pub fn windows_reactor::RoutedCallback<T>::new(impl core::ops::function::Fn(T) -> bool + 'static) -> Self
+impl<T> core::clone::Clone for windows_reactor::RoutedCallback<T>
+pub fn windows_reactor::RoutedCallback<T>::clone(&self) -> Self
 impl<T> core::cmp::PartialEq for windows_reactor::RoutedCallback<T>
 pub fn windows_reactor::RoutedCallback<T>::eq(&self, &Self) -> bool
 impl<T> core::fmt::Debug for windows_reactor::RoutedCallback<T>
@@ -4499,7 +4502,7 @@ pub fn windows_reactor::TimePicker::min_height(self, f64) -> Self
 pub fn windows_reactor::TimePicker::min_width(self, f64) -> Self
 pub fn windows_reactor::TimePicker::minute_increment(self, i32) -> Self
 pub fn windows_reactor::TimePicker::new() -> Self
-pub fn windows_reactor::TimePicker::on_selected_time_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::TimeSpan>>) -> Self
+pub fn windows_reactor::TimePicker::on_time_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::TimeSpan>>) -> Self
 pub fn windows_reactor::TimePicker::opacity(self, f64) -> Self
 pub fn windows_reactor::TimePicker::relative_align_bottom(self) -> Self
 pub fn windows_reactor::TimePicker::relative_align_horizontal_center(self) -> Self
@@ -4932,7 +4935,7 @@ pub fn windows_reactor::Viewbox::automation_id(self, impl core::convert::AsRef<s
 pub fn windows_reactor::Viewbox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Viewbox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Viewbox::canvas_top(self, f64) -> Self
-pub fn windows_reactor::Viewbox::child(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::Viewbox::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Viewbox::exit_fade(self, core::time::Duration) -> Self
 pub fn windows_reactor::Viewbox::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::Viewbox::grid_column(self, i32) -> Self

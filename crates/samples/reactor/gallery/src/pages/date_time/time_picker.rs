@@ -37,11 +37,11 @@ impl Component for TimePickerPage {
                         "Basic TimePicker",
                         StackPanel::new().spacing(8.0).children((
                             TimePicker::new()
-                                .on_selected_time_changed(context.forward())
+                                .on_time_changed(context.forward())
                                 .header("Select time"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
-                        "TimePicker::new()\n    .on_selected_time_changed(|time| ...)",
+                        "TimePicker::new()\n    .on_time_changed(|time| ...)",
                     ),
                 ),
                 KeyedView::new(
