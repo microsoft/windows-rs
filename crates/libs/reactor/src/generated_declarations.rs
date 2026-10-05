@@ -2646,11 +2646,11 @@ impl Viewbox {
     ///
     /// ```compile_fail
     /// use windows_reactor::*;
-    /// let _ = Viewbox::new().child(TreeNode::new("node", "Node"));
+    /// let _ = Viewbox::new().content(TreeNode::new("node", "Node"));
     /// ```
-    pub fn child(mut self, content: impl Into<View>) -> Self {
+    pub fn content(mut self, content: impl Into<View>) -> Self {
         self.0 = self.0.relation(
-            RelationId::Child,
+            RelationId::Content,
             RelationValue::One(Some(Rc::new(content.into().0))),
         );
         self
@@ -6143,10 +6143,7 @@ impl DatePicker {
         );
         self
     }
-    pub fn on_selected_date_changed(
-        mut self,
-        callback: impl IntoPayloadCallback<Option<DateTime>>,
-    ) -> Self {
+    pub fn on_date_changed(mut self, callback: impl IntoPayloadCallback<Option<DateTime>>) -> Self {
         self.0 = self.0.event(
             EventId::SelectedDateChanged,
             EventValue::OptionalDateTime(callback.into_payload_callback()),
@@ -6209,10 +6206,7 @@ impl TimePicker {
         );
         self
     }
-    pub fn on_selected_time_changed(
-        mut self,
-        callback: impl IntoPayloadCallback<Option<TimeSpan>>,
-    ) -> Self {
+    pub fn on_time_changed(mut self, callback: impl IntoPayloadCallback<Option<TimeSpan>>) -> Self {
         self.0 = self.0.event(
             EventId::SelectedTimeChanged,
             EventValue::OptionalTimeSpan(callback.into_payload_callback()),

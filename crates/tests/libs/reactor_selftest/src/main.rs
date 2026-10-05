@@ -1537,7 +1537,7 @@ impl reactor::Component for Fixture {
         date_runtime
             .update(
                 reactor::DatePicker::new()
-                    .on_selected_date_changed(move |value| date_callback.borrow_mut().push(value)),
+                    .on_date_changed(move |value| date_callback.borrow_mut().push(value)),
             )
             .unwrap();
         let date_picker = date_runtime.graph().root().unwrap();
@@ -1555,7 +1555,7 @@ impl reactor::Component for Fixture {
         time_runtime
             .update(
                 reactor::TimePicker::new()
-                    .on_selected_time_changed(move |value| time_callback.borrow_mut().push(value)),
+                    .on_time_changed(move |value| time_callback.borrow_mut().push(value)),
             )
             .unwrap();
         let time_picker = time_runtime.graph().root().unwrap();

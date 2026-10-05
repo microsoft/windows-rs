@@ -33,11 +33,11 @@ impl Component for DatePickerPage {
                         "Full DatePicker",
                         StackPanel::new().spacing(8.0).children((
                             DatePicker::new()
-                                .on_selected_date_changed(context.forward())
+                                .on_date_changed(context.forward())
                                 .header("Select date"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
-                        "DatePicker::new()\n    .on_selected_date_changed(|date| ...)",
+                        "DatePicker::new()\n    .on_date_changed(|date| ...)",
                     ),
                 ),
                 KeyedView::new(
