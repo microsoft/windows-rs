@@ -22,6 +22,9 @@ fn run(name: &str) {
     let source = std::fs::read_to_string(&input).unwrap();
     let fixture = parse_fixture(name, &source);
     let scratch = std::path::Path::new(env!("OUT_DIR")).join(name);
+    if scratch.exists() {
+        std::fs::remove_dir_all(&scratch).unwrap();
+    }
     std::fs::create_dir_all(&scratch).unwrap();
 
     let forward = generate(&fixture, &scratch, false);
