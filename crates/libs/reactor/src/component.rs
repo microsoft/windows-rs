@@ -1109,9 +1109,10 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
             ui_services: Rc::clone(&ui_services),
         };
         let component = C::create(&self.input, &context);
-        let scope = TypedScope {
+        let mut scope = TypedScope {
             component,
             input: self.input.clone(),
+            view: None,
             local_sender,
             sender,
             services,
@@ -1184,10 +1185,11 @@ trait ErasedComponent {
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError>;
     fn render_view(
-        &self,
+        &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError>;
+    fn cached_view(&self) -> View;
     fn sender(&self) -> &dyn Any;
     #[cfg(any(test, feature = "test"))]
     fn tracked_tasks(&self) -> usize;
@@ -1196,6 +1198,7 @@ trait ErasedComponent {
 struct TypedScope<C: Component> {
     component: C,
     input: C::Input,
+    view: Option<View>,
     local_sender: LocalSender<C::Message>,
     sender: ComponentSender<C::Message>,
     services: Arc<dyn ComponentServices>,
@@ -1216,7 +1219,7 @@ impl<C: Component> TypedScope<C> {
     }
 
     fn render_view(
-        &self,
+        &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError> {
@@ -1247,6 +1250,7 @@ impl<C: Component> TypedScope<C> {
         if context.window_visuals_duplicate {
             return Err(ComponentDeclarationError::WindowVisuals);
         }
+        self.view = Some(view.clone());
         Ok(ComponentRender {
             dependencies: context.dependencies,
             effects: context.effects,
@@ -1303,11 +1307,15 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
     }
 
     fn render_view(
-        &self,
+        &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
     ) -> Result<ComponentRender, ComponentDeclarationError> {
         self.render_view(reference, contexts)
+    }
+
+    fn cached_view(&self) -> View {
+        self.view.clone().unwrap()
     }
 
     fn sender(&self) -> &dyn Any {
@@ -1337,6 +1345,21 @@ struct Scope {
     reference: ElementRef,
     root: Option<ObjectId>,
     window: Option<Box<WindowPublication>>,
+}
+
+impl Scope {
+    fn dependencies_changed(&self, contexts: &HashMap<ContextId, ContextValue>) -> bool {
+        self.dependencies
+            .iter()
+            .any(|id| match (self.contexts.get(id), contexts.get(id)) {
+                (None, None) => false,
+                (Some(left), Some(right)) => {
+                    !Rc::ptr_eq(&left.value, &right.value)
+                        && !(left.equals)(left.value.as_ref(), right.value.as_ref())
+                }
+                _ => true,
+            })
+    }
 }
 
 struct ScopeSlot {
@@ -1386,6 +1409,30 @@ struct ExpansionState {
     objects: usize,
     pending: Vec<PendingScopeRender>,
     seen: HashMap<ComponentId, HashSet<Key>>,
+}
+
+impl ExpansionState {
+    fn push_render(
+        &mut self,
+        id: ComponentId,
+        render: ComponentRender,
+        environment: OwnedContextEnvironment,
+    ) -> View {
+        let ComponentRender {
+            dependencies,
+            effects,
+            view,
+            window,
+        } = render;
+        self.pending.push(PendingScopeRender {
+            dependencies,
+            environment: Box::new(environment),
+            effects,
+            id,
+            window,
+        });
+        view
+    }
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -1631,20 +1678,18 @@ impl<A: Adapter> ComponentHost<A> {
             let (id, render) = host.create_scope(None, node, contexts.clone(), HashSet::new())?;
             host.order.push(id);
             host.keys.insert(key, id);
-            expansion.pending.push(PendingScopeRender {
-                dependencies: render.dependencies,
-                environment: Box::new(OwnedContextEnvironment {
+            let view = expansion.push_render(
+                id,
+                render,
+                OwnedContextEnvironment {
                     contexts: contexts.clone(),
                     provided: HashSet::new(),
-                }),
-                effects: render.effects,
-                id,
-                window: render.window,
-            });
+                },
+            );
             let provided = HashSet::new();
             let view = host.expand_view(
                 id,
-                render.view,
+                view,
                 &ContextEnvironment {
                     contexts: &contexts,
                     provided: &provided,
@@ -1848,13 +1893,6 @@ impl<A: Adapter> ComponentHost<A> {
                 value: Rc::new(value),
             };
             contexts.insert(context.id, value.clone());
-            for slot in &mut host.scopes {
-                if let Some(scope) = slot.scope.as_mut()
-                    && !scope.provided_contexts.contains(&context.id)
-                {
-                    scope.contexts.insert(context.id, value.clone());
-                }
-            }
             host.contexts = contexts;
             let affected = host
                 .context_consumers
@@ -1886,18 +1924,30 @@ impl<A: Adapter> ComponentHost<A> {
                 .collect::<Vec<_>>();
             let mut pending = Vec::with_capacity(affected.len());
             for id in affected {
-                let scope = host.scope(id).unwrap();
+                let reference = host.scope(id).unwrap().reference.clone();
+                let mut contexts = host.scope(id).unwrap().contexts.clone();
+                contexts.insert(context.id, value.clone());
+                let provided_contexts = host.scope(id).unwrap().provided_contexts.clone();
+                let scope = host.scope_mut(id).unwrap();
                 let render = scope
                     .component
-                    .render_view(scope.reference.clone(), &scope.contexts)
+                    .render_view(reference, &contexts)
                     .map_err(ComponentError::from)?;
-                pending.push((id, render));
+                pending.push((id, render, contexts, provided_contexts));
             }
             let mut report = ComponentDrain::default();
-            for (id, render) in pending {
-                let mutations = host.apply_render(id, render)?;
+            for (id, render, contexts, provided_contexts) in pending {
+                let mutations =
+                    host.apply_render_with_contexts(id, render, contexts, provided_contexts)?;
                 report.dispatched += 1;
                 report.mutations += mutations.len();
+            }
+            for slot in &mut host.scopes {
+                if let Some(scope) = slot.scope.as_mut()
+                    && !scope.provided_contexts.contains(&context.id)
+                {
+                    scope.contexts.insert(context.id, value.clone());
+                }
             }
             Ok(report)
         })
@@ -2053,18 +2103,39 @@ impl<A: Adapter> ComponentHost<A> {
                 let provided_contexts = owner.map_or_else(HashSet::new, |owner| {
                     self.scope(owner).unwrap().provided_contexts.clone()
                 });
-                let (id, render, created_row) = if let Some(id) = existing {
+                let mut expansion = ExpansionState::default();
+                let (id, view, created_row) = if let Some(id) = existing {
                     let reference = self.scope(id).unwrap().reference.clone();
-                    let rendered = {
+                    let view = {
                         let scope = self.scope_mut(id).unwrap();
-                        scope
+                        let render = scope
                             .component
                             .apply_input(&view, reference.clone(), &contexts)
-                            .map_err(ComponentError::from)?
-                            .map_or_else(|| scope.component.render_view(reference, &contexts), Ok)
-                            .map_err(ComponentError::from)?
+                            .map_err(ComponentError::from)?;
+                        let render = match render {
+                            Some(render) => Some(render),
+                            None if scope.dependencies_changed(&contexts) => Some(
+                                scope
+                                    .component
+                                    .render_view(reference, &contexts)
+                                    .map_err(ComponentError::from)?,
+                            ),
+                            None => None,
+                        };
+                        if let Some(render) = render {
+                            expansion.push_render(
+                                id,
+                                render,
+                                OwnedContextEnvironment {
+                                    contexts: contexts.clone(),
+                                    provided: provided_contexts.clone(),
+                                },
+                            )
+                        } else {
+                            scope.component.cached_view()
+                        }
                     };
-                    (id, rendered, false)
+                    (id, view, false)
                 } else {
                     let node = component::<VirtualRow>(lease.key.clone(), view);
                     let (id, render) = self.create_scope(
@@ -2073,20 +2144,19 @@ impl<A: Adapter> ComponentHost<A> {
                         contexts.clone(),
                         provided_contexts.clone(),
                     )?;
-                    (id, render, true)
+                    let view = expansion.push_render(
+                        id,
+                        render,
+                        OwnedContextEnvironment {
+                            contexts: contexts.clone(),
+                            provided: provided_contexts.clone(),
+                        },
+                    );
+                    (id, view, true)
                 };
-                let mut expansion = ExpansionState::default();
-                expansion.pending.push(PendingScopeRender {
-                    dependencies: render.dependencies,
-                    environment: Box::new(OwnedContextEnvironment {
-                        contexts,
-                        provided: provided_contexts,
-                    }),
-                    effects: render.effects,
-                    id,
-                    window: render.window,
-                });
-                let declaration = match self.expand_virtual_view(id, render.view, &mut expansion) {
+                self.scope_mut(id).unwrap().contexts = contexts;
+                self.scope_mut(id).unwrap().provided_contexts = provided_contexts;
+                let declaration = match self.expand_virtual_view(id, view, &mut expansion) {
                     Ok(declaration) => declaration,
                     Err(error) => {
                         self.discard_created(&expansion.created);
@@ -2120,7 +2190,10 @@ impl<A: Adapter> ComponentHost<A> {
                 self.virtual_rows.insert(row_key, id);
                 self.refresh_roots_from(declaration.0.as_object().unwrap(), root);
                 for pending in expansion.pending {
+                    let environment = *pending.environment;
                     self.scope_mut(pending.id).unwrap().window = pending.window;
+                    self.scope_mut(pending.id).unwrap().contexts = environment.contexts;
+                    self.scope_mut(pending.id).unwrap().provided_contexts = environment.provided;
                     pending
                         .effects
                         .commit(&mut self.scope_mut(pending.id).unwrap().effects);
@@ -2639,13 +2712,13 @@ impl<A: Adapter> ComponentHost<A> {
         let existing = self
             .scope(owner)
             .and_then(|scope| scope.children.get(&component_key).copied());
-        let (id, render) = if let Some(id) = existing {
+        let (id, view) = if let Some(id) = existing {
             if self.scope(id).unwrap().component.component_type() != node.factory.component_type() {
                 return Err(ComponentError::ComponentType(component_key));
             }
             let scope = self.scope_mut(id).unwrap();
             let reference = scope.reference.clone();
-            let rendered = scope
+            let render = scope
                 .component
                 .apply_input(
                     node.factory.input(),
@@ -2653,14 +2726,31 @@ impl<A: Adapter> ComponentHost<A> {
                     environment.contexts,
                 )
                 .map_err(ComponentError::from)?;
-            let render = match rendered {
-                Some(rendered) => rendered,
-                None => scope
-                    .component
-                    .render_view(reference, environment.contexts)
-                    .map_err(ComponentError::from)?,
+            let render = match render {
+                Some(render) => Some(render),
+                None if scope.dependencies_changed(environment.contexts) => Some(
+                    scope
+                        .component
+                        .render_view(reference, environment.contexts)
+                        .map_err(ComponentError::from)?,
+                ),
+                None => None,
             };
-            (id, render)
+            let view = if let Some(render) = render {
+                expansion.push_render(
+                    id,
+                    render,
+                    OwnedContextEnvironment {
+                        contexts: environment.contexts.clone(),
+                        provided: environment.provided.clone(),
+                    },
+                )
+            } else {
+                scope.contexts.clone_from(environment.contexts);
+                scope.provided_contexts.clone_from(environment.provided);
+                scope.component.cached_view()
+            };
+            (id, view)
         } else {
             let created = self.create_scope(
                 Some(owner),
@@ -2673,23 +2763,21 @@ impl<A: Adapter> ComponentHost<A> {
                 .unwrap()
                 .children
                 .insert(component_key, created.0);
-            created
+            let view = expansion.push_render(
+                created.0,
+                created.1,
+                OwnedContextEnvironment {
+                    contexts: environment.contexts.clone(),
+                    provided: environment.provided.clone(),
+                },
+            );
+            (created.0, view)
         };
-        expansion.pending.push(PendingScopeRender {
-            dependencies: render.dependencies,
-            environment: Box::new(OwnedContextEnvironment {
-                contexts: environment.contexts.clone(),
-                provided: environment.provided.clone(),
-            }),
-            effects: render.effects,
-            id,
-            window: render.window,
-        });
         Ok(Box::new(PreparedComponentExpansion {
             attachments,
             declaration_key,
             id,
-            view: Some(render.view),
+            view: Some(view),
         }))
     }
 
@@ -2861,19 +2949,17 @@ impl<A: Adapter> ComponentHost<A> {
     ) -> Result<UpdateStats, ComponentError<A::Error>> {
         let root = self.scope(id).unwrap().root.unwrap();
         let mut expansion = ExpansionState::default();
-        expansion.pending.push(PendingScopeRender {
-            dependencies: render.dependencies,
-            environment: Box::new(OwnedContextEnvironment {
+        let view = expansion.push_render(
+            id,
+            render,
+            OwnedContextEnvironment {
                 contexts: contexts.clone(),
                 provided: provided_contexts.clone(),
-            }),
-            effects: render.effects,
-            id,
-            window: render.window,
-        });
+            },
+        );
         let view = match self.expand_view(
             id,
-            render.view,
+            view,
             &ContextEnvironment {
                 contexts: &contexts,
                 provided: &provided_contexts,
@@ -3677,6 +3763,52 @@ mod tests {
     }
 
     #[derive(Clone)]
+    struct RenderCountInput(Arc<AtomicUsize>);
+
+    impl PartialEq for RenderCountInput {
+        fn eq(&self, other: &Self) -> bool {
+            Arc::ptr_eq(&self.0, &other.0)
+        }
+    }
+
+    struct RenderCountChild;
+
+    impl Component for RenderCountChild {
+        type Input = RenderCountInput;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+            Self
+        }
+
+        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+            input.0.fetch_add(1, Ordering::Relaxed);
+            TextBlock::new().into()
+        }
+    }
+
+    struct RenderCountParent(RenderCountInput);
+
+    impl Component for RenderCountParent {
+        type Input = RenderCountInput;
+        type Message = ();
+
+        fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+            Self(input.clone())
+        }
+
+        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+            StackPanel::new()
+                .children(
+                    (0..300)
+                        .map(|index| component::<RenderCountChild>(index, self.0.clone()).into())
+                        .collect::<Vec<View>>(),
+                )
+                .into()
+        }
+    }
+
+    #[derive(Clone)]
     struct ProviderInput {
         context: Rc<Context<usize>>,
         seen: Rc<RefCell<Vec<usize>>>,
@@ -3691,10 +3823,22 @@ mod tests {
         }
     }
 
+    #[derive(Clone)]
+    struct ProviderChildInput {
+        context: Rc<Context<usize>>,
+        seen: Rc<RefCell<Vec<usize>>>,
+    }
+
+    impl PartialEq for ProviderChildInput {
+        fn eq(&self, other: &Self) -> bool {
+            Rc::ptr_eq(&self.context, &other.context) && Rc::ptr_eq(&self.seen, &other.seen)
+        }
+    }
+
     struct ProviderChild;
 
     impl Component for ProviderChild {
-        type Input = ProviderInput;
+        type Input = ProviderChildInput;
         type Message = ();
 
         fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
@@ -3722,7 +3866,13 @@ mod tests {
             provide(
                 &input.context,
                 input.value,
-                Border::new().content(component::<ProviderChild>("child", input.clone())),
+                Border::new().content(component::<ProviderChild>(
+                    "child",
+                    ProviderChildInput {
+                        context: Rc::clone(&input.context),
+                        seen: Rc::clone(&input.seen),
+                    },
+                )),
             )
         }
     }
@@ -4800,6 +4950,25 @@ mod tests {
         let report = host.set_context(&context, 1).unwrap();
         assert_eq!(report.dispatched, 1);
         assert_eq!(renders.load(Ordering::Relaxed), 4);
+    }
+
+    #[test]
+    fn parent_render_reuses_unchanged_child_views() {
+        let renders = Arc::new(AtomicUsize::new(0));
+        let input = RenderCountInput(Arc::clone(&renders));
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<RenderCountParent>("parent", input)],
+        )
+        .unwrap();
+        assert_eq!(renders.load(Ordering::Relaxed), 300);
+
+        let sender = host
+            .sender::<RenderCountParent>(&Key::from("parent"))
+            .unwrap();
+        assert!(sender.send(()));
+        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(renders.load(Ordering::Relaxed), 300);
     }
 
     #[test]
