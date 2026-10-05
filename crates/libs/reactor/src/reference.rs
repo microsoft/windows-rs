@@ -1,9 +1,4 @@
 use super::*;
-use std::cell::{Cell, RefCell};
-use std::collections::VecDeque;
-use std::marker::PhantomData;
-use std::rc::{Rc, Weak};
-use std::sync::atomic::{AtomicU64, Ordering};
 
 pub(crate) const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 static NEXT_BINDING_ID: AtomicU64 = AtomicU64::new(1);
@@ -192,8 +187,8 @@ impl<T> Default for ElementRef<T> {
     }
 }
 
-impl<T> std::fmt::Debug for ElementRef<T> {
-    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T> fmt::Debug for ElementRef<T> {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter
             .debug_tuple("ElementRef")
             .field(&self.get())

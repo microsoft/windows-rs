@@ -8,7 +8,7 @@ impl WinUiAdapter {
             .ui_element(object)?
             .cast::<native::IFrameworkElement>()?
             .Resources()?;
-        let map = dictionary.cast::<windows_collections::IMap<IInspectable, IInspectable>>()?;
+        let map = dictionary.cast::<IMap<IInspectable, IInspectable>>()?;
         let desired = resources
             .values()
             .map(|(key, _)| key.to_string())
@@ -198,7 +198,7 @@ impl WinUiAdapter {
     fn lookup_button_style(&self, style: ButtonStyle) -> Result<native::Style, WinUiError> {
         let resources = native::Application::Current()?.Resources()?;
         let resources =
-            resources.cast::<windows_collections::IMap<IInspectable, IInspectable>>()?;
+            resources.cast::<IMap<IInspectable, IInspectable>>()?;
         let key = windows_reference::IReference::from(button_style_resource(style));
         Ok(resources.Lookup(&key)?.cast()?)
     }
@@ -252,7 +252,7 @@ impl WinUiAdapter {
             visuals: WindowVisuals {
                 client_size: policy.client_size,
                 constraints: policy.minimum_client_size.map(|(width, height)| {
-                    crate::WindowConstraints {
+                    WindowConstraints {
                         min_width: Some(width),
                         min_height: Some(height),
                         ..Default::default()

@@ -1,6 +1,4 @@
 use super::*;
-use std::cell::{Cell, RefCell};
-use std::rc::Rc;
 
 #[test]
 fn usize_keys_preserve_their_integer_value() {
@@ -130,9 +128,9 @@ fn shared_value_builders_cover_the_public_family() {
                 Border::new()
                     .background(ThemeBrush::CardBackground)
                     .border_brush(ThemeBrush::CardStroke)
-                    .opacity_transition(std::time::Duration::from_millis(100))
+                    .opacity_transition(Duration::from_millis(100))
                     .scale(0.95)
-                    .scale_transition(std::time::Duration::from_millis(120)),
+                    .scale_transition(Duration::from_millis(120)),
             ),
             keyed(
                 "text",
@@ -2654,7 +2652,7 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
                     "item",
                     Button::new()
                         .element_ref(&reference)
-                        .exit_fade(std::time::Duration::from_millis(200))
+                        .exit_fade(Duration::from_millis(200))
                         .on_click(callback.clone())
                         .content(TextBlock::new().text("old")),
                 ),
@@ -2793,7 +2791,7 @@ fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
                     "retiring",
                     TextBlock::new()
                         .text("retiring")
-                        .exit_fade(std::time::Duration::from_secs(1)),
+                        .exit_fade(Duration::from_secs(1)),
                 ),
             );
         }
@@ -2835,13 +2833,10 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(Grid::new().keyed_children([
-            keyed(
-                "first",
-                Button::new().exit_fade(std::time::Duration::from_millis(100)),
-            ),
+            keyed("first", Button::new().exit_fade(Duration::from_millis(100))),
             keyed(
                 "second",
-                Button::new().exit_fade(std::time::Duration::from_millis(200)),
+                Button::new().exit_fade(Duration::from_millis(200)),
             ),
             keyed("tail", TextBlock::new().text("tail")),
         ]))
@@ -2865,10 +2860,9 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
     assert_eq!(runtime.graph().retired_count(), 0);
 
     runtime
-        .update(Grid::new().keyed_children([keyed(
-            "zero",
-            Button::new().exit_fade(std::time::Duration::ZERO),
-        )]))
+        .update(
+            Grid::new().keyed_children([keyed("zero", Button::new().exit_fade(Duration::ZERO))]),
+        )
         .unwrap();
     let zero = runtime
         .graph()
@@ -2884,7 +2878,7 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
             "parent",
             Grid::new().keyed_children([keyed(
                 "child",
-                Button::new().exit_fade(std::time::Duration::from_millis(200)),
+                Button::new().exit_fade(Duration::from_millis(200)),
             )]),
         )]))
         .unwrap();
@@ -2915,7 +2909,7 @@ fn exit_transition_rejects_single_child_attachment() {
             Button::new().content(
                 TextBlock::new()
                     .text("old")
-                    .exit_fade(std::time::Duration::from_millis(200)),
+                    .exit_fade(Duration::from_millis(200)),
             ),
         )
         .unwrap();
@@ -2937,7 +2931,7 @@ fn unsupported_retirement_rolls_back_the_entire_update() {
                 "retiring",
                 Button::new()
                     .element_ref(&retiring_reference)
-                    .exit_fade(std::time::Duration::from_millis(100))
+                    .exit_fade(Duration::from_millis(100))
                     .on_click(callback.clone()),
             ),
             keyed(
@@ -2945,7 +2939,7 @@ fn unsupported_retirement_rolls_back_the_entire_update() {
                 Button::new().content(
                     Button::new()
                         .element_ref(&nested_reference)
-                        .exit_fade(std::time::Duration::from_millis(100))
+                        .exit_fade(Duration::from_millis(100))
                         .on_click(callback.clone()),
                 ),
             ),
@@ -2977,7 +2971,7 @@ fn unsupported_retirement_rolls_back_the_entire_update() {
                 Button::new().content(
                     Button::new()
                         .element_ref(&nested_reference)
-                        .exit_fade(std::time::Duration::from_millis(100))
+                        .exit_fade(Duration::from_millis(100))
                         .on_click(callback),
                 ),
             )]),
@@ -2992,14 +2986,14 @@ fn observations_survive_a_later_planning_failure() {
         Grid::new().keyed_children([
             keyed(
                 "retiring",
-                Button::new().exit_fade(std::time::Duration::from_millis(100)),
+                Button::new().exit_fade(Duration::from_millis(100)),
             ),
             keyed(
                 "holder",
                 Button::new().content(
                     TextBlock::new()
                         .text("nested")
-                        .exit_fade(std::time::Duration::from_millis(100)),
+                        .exit_fade(Duration::from_millis(100)),
                 ),
             ),
         ])
@@ -3051,7 +3045,7 @@ fn allocation_from_the_free_list_rolls_back_generation_and_order() {
     let nested = || {
         TextBlock::new()
             .text("nested")
-            .exit_fade(std::time::Duration::from_millis(100))
+            .exit_fade(Duration::from_millis(100))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
@@ -3104,7 +3098,7 @@ fn removal_and_reallocation_roll_back_multiple_slot_generations() {
     let nested = || {
         TextBlock::new()
             .text("nested")
-            .exit_fade(std::time::Duration::from_millis(100))
+            .exit_fade(Duration::from_millis(100))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
@@ -3157,7 +3151,7 @@ fn forced_retirement_completion_rolls_back_with_parent_removal() {
     let nested = || {
         TextBlock::new()
             .text("nested")
-            .exit_fade(std::time::Duration::from_millis(100))
+            .exit_fade(Duration::from_millis(100))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
@@ -3166,7 +3160,7 @@ fn forced_retirement_completion_rolls_back_with_parent_removal() {
                 "parent",
                 Grid::new().keyed_children([keyed(
                     "retiring",
-                    Button::new().exit_fade(std::time::Duration::from_millis(100)),
+                    Button::new().exit_fade(Duration::from_millis(100)),
                 )]),
             ),
             keyed("holder", Button::new().content(nested())),
@@ -3197,7 +3191,7 @@ fn duplicate_retirement_completion_is_idempotent() {
     runtime
         .update(Grid::new().keyed_children([keyed(
             "retiring",
-            Button::new().exit_fade(std::time::Duration::from_millis(100)),
+            Button::new().exit_fade(Duration::from_millis(100)),
         )]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
@@ -3228,13 +3222,10 @@ fn mixed_duplicate_and_stale_retirement_completions_are_idempotent() {
     runtime.adapter_mut().record_batches(true);
     runtime
         .update(Grid::new().keyed_children([
-            keyed(
-                "first",
-                Button::new().exit_fade(std::time::Duration::from_millis(100)),
-            ),
+            keyed("first", Button::new().exit_fade(Duration::from_millis(100))),
             keyed(
                 "second",
-                Button::new().exit_fade(std::time::Duration::from_millis(100)),
+                Button::new().exit_fade(Duration::from_millis(100)),
             ),
         ]))
         .unwrap();
@@ -3295,7 +3286,7 @@ fn native_event_before_retirement_completion_keeps_chronological_order() {
         .update(Grid::new().keyed_children([
             keyed(
                 "retiring",
-                Button::new().exit_fade(std::time::Duration::from_millis(100)),
+                Button::new().exit_fade(Duration::from_millis(100)),
             ),
             keyed("active", Button::new().on_click(callback.clone())),
         ]))
@@ -3342,7 +3333,7 @@ fn retirement_completion_before_later_event_keeps_chronological_order() {
         .update(Grid::new().keyed_children([
             keyed(
                 "retiring",
-                Button::new().exit_fade(std::time::Duration::from_millis(100)),
+                Button::new().exit_fade(Duration::from_millis(100)),
             ),
             keyed("active", Button::new().on_click(callback.clone())),
         ]))
@@ -3389,7 +3380,7 @@ fn events_queued_after_logical_retirement_are_stale_before_completion() {
             Grid::new().keyed_children([keyed(
                 "retiring",
                 Button::new()
-                    .exit_fade(std::time::Duration::from_millis(100))
+                    .exit_fade(Duration::from_millis(100))
                     .on_click(callback.clone()),
             )]),
         )
@@ -6109,7 +6100,7 @@ fn retirement_completion_errors_poison_the_runtime() {
     runtime
         .update(Grid::new().keyed_children([keyed(
             "retiring",
-            Button::new().exit_fade(std::time::Duration::from_millis(100)),
+            Button::new().exit_fade(Duration::from_millis(100)),
         )]))
         .unwrap();
     let root = runtime.graph().root().unwrap();

@@ -1,5 +1,4 @@
 use super::*;
-use std::collections::HashSet;
 
 pub(crate) const MAX_DEPTH: usize = 128;
 pub(crate) const MAX_OBJECTS: usize = 65_536;

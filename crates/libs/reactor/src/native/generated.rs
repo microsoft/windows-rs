@@ -485,10 +485,10 @@ fn theme_style_info(
 }
 enum GeneratedCollection {
     Visual(native::UIElementCollection),
-    Inspectable(windows_collections::IVector<IInspectable>),
-    ICommandBarElement(windows_collections::IVector<native::ICommandBarElement>),
-    MenuBarItem(windows_collections::IVector<native::MenuBarItem>),
-    SelectorBarItem(windows_collections::IVector<native::SelectorBarItem>),
+    Inspectable(IVector<IInspectable>),
+    ICommandBarElement(IVector<native::ICommandBarElement>),
+    MenuBarItem(IVector<native::MenuBarItem>),
+    SelectorBarItem(IVector<native::SelectorBarItem>),
 }
 impl GeneratedCollection {
     fn size(&self) -> Result<u32, WinUiError> {
@@ -666,7 +666,7 @@ impl GeneratedHandle {
                     let observed = match read_click() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -708,7 +708,7 @@ impl GeneratedHandle {
                         let observed = match read_is_checked_changed() {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         };
@@ -782,7 +782,7 @@ impl GeneratedHandle {
                             ) {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -820,7 +820,7 @@ impl GeneratedHandle {
                             ) {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -858,7 +858,7 @@ impl GeneratedHandle {
                             ) {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -896,7 +896,7 @@ impl GeneratedHandle {
                             ) {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -939,7 +939,7 @@ impl GeneratedHandle {
                             ) {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -1005,7 +1005,7 @@ impl GeneratedHandle {
                             let value = match WinUiAdapter::key_event_info(args) {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -1015,7 +1015,7 @@ impl GeneratedHandle {
                                 .as_ref()
                                 .is_some_and(|callback| callback.call(value));
                             if let Err(error) = args.SetHandled(handled) {
-                                super::app::report_error(error);
+                                report_error(error);
                             }
                         })?;
                 let _preview_key_down = GeneratedRevoker::Event(revoker);
@@ -1026,7 +1026,7 @@ impl GeneratedHandle {
                     let value = match WinUiAdapter::key_event_info(args) {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error.into());
+                            report_error(error.into());
                             return;
                         }
                     };
@@ -1036,7 +1036,7 @@ impl GeneratedHandle {
                         .as_ref()
                         .is_some_and(|callback| callback.call(value));
                     if let Err(error) = args.SetHandled(handled) {
-                        super::app::report_error(error);
+                        report_error(error);
                     }
                 })?;
                 let _key_up = GeneratedRevoker::Event(revoker);
@@ -1051,7 +1051,7 @@ impl GeneratedHandle {
                             let value = match WinUiAdapter::character_event_info(args) {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -1061,7 +1061,7 @@ impl GeneratedHandle {
                                 .as_ref()
                                 .is_some_and(|callback| callback.call(value));
                             if let Err(error) = args.SetHandled(handled) {
-                                super::app::report_error(error);
+                                report_error(error);
                             }
                         })?;
                 let _character_received = GeneratedRevoker::Event(revoker);
@@ -1084,7 +1084,7 @@ impl GeneratedHandle {
                         ) {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error.into());
+                                report_error(error.into());
                                 return;
                             }
                         };
@@ -1119,7 +1119,7 @@ impl GeneratedHandle {
                         ) {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error.into());
+                                report_error(error.into());
                                 return;
                             }
                         };
@@ -1147,7 +1147,7 @@ impl GeneratedHandle {
                         let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_enter) {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error.into());
+                                report_error(error.into());
                                 return;
                             }
                         };
@@ -1175,7 +1175,7 @@ impl GeneratedHandle {
                         let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_over) {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error.into());
+                                report_error(error.into());
                                 return;
                             }
                         };
@@ -1225,7 +1225,7 @@ impl GeneratedHandle {
                         args,
                         &drop_policy_drop,
                     ) {
-                        super::app::report_error(error.into());
+                        report_error(error.into());
                     }
                 })?;
                 let _drop = GeneratedRevoker::Event(revoker);
@@ -1332,7 +1332,7 @@ impl GeneratedHandle {
                             let observed = match read_value_changed() {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error);
+                                    report_error(error);
                                     return;
                                 }
                             };
@@ -1353,7 +1353,7 @@ impl GeneratedHandle {
                             let payload = match args.NewValue() {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error);
+                                    report_error(error);
                                     return;
                                 }
                             };
@@ -1442,7 +1442,7 @@ impl GeneratedHandle {
                     {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1478,7 +1478,7 @@ impl GeneratedHandle {
                     let observed = match read_text_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1522,7 +1522,7 @@ impl GeneratedHandle {
                     {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1558,7 +1558,7 @@ impl GeneratedHandle {
                     let observed = match read_password_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1604,7 +1604,7 @@ impl GeneratedHandle {
                     let observed = match read_value_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1625,7 +1625,7 @@ impl GeneratedHandle {
                     let payload = match args.NewValue().map(number_box_value) {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1661,7 +1661,7 @@ impl GeneratedHandle {
                         let observed = match read_is_pane_open_changed() {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         };
@@ -1725,7 +1725,7 @@ impl GeneratedHandle {
                     let payload = match args.DisplayMode().map(navigation_view_display_mode) {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1765,7 +1765,7 @@ impl GeneratedHandle {
                     let observed = match read_pane_closed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1812,7 +1812,7 @@ impl GeneratedHandle {
                     let observed = match read_toggled() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -1859,7 +1859,7 @@ impl GeneratedHandle {
                         let observed = match read_is_checked_changed() {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         };
@@ -1921,7 +1921,7 @@ impl GeneratedHandle {
                         let observed = match read_checked() {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         };
@@ -1971,7 +1971,7 @@ impl GeneratedHandle {
                     let observed = match read_selection_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2126,7 +2126,7 @@ impl GeneratedHandle {
                     let observed = match read_value_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2175,7 +2175,7 @@ impl GeneratedHandle {
                         let observed = match read_is_expanded_changed() {
                             Ok(value) => value,
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         };
@@ -2238,7 +2238,7 @@ impl GeneratedHandle {
                             let observed = match read_selection_changed() {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error);
+                                    report_error(error);
                                     return;
                                 }
                             };
@@ -2288,7 +2288,7 @@ impl GeneratedHandle {
                     let observed = match read_selection_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2343,7 +2343,7 @@ impl GeneratedHandle {
                             let observed = match read_selection_changed() {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error);
+                                    report_error(error);
                                     return;
                                 }
                             };
@@ -2436,7 +2436,7 @@ impl GeneratedHandle {
                     let observed = match read_selection_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2483,13 +2483,13 @@ impl GeneratedHandle {
                         {
                             Ok(value) => Rc::<str>::from(value.to_string_lossy()),
                             Err(error) => {
-                                super::app::report_error(error);
+                                report_error(error);
                                 return;
                             }
                         },
                         Err(error) if error.code().is_ok() => Rc::<str>::from(""),
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2515,7 +2515,7 @@ impl GeneratedHandle {
                     let value = match WinUiAdapter::tab_item_tags(&source_tab_items_changed) {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error.into());
+                            report_error(error.into());
                             return;
                         }
                     };
@@ -2679,7 +2679,7 @@ impl GeneratedHandle {
                     let observed = match read_color_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2700,7 +2700,7 @@ impl GeneratedHandle {
                     let payload = match args.NewColor().map(from_native_color) {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2736,7 +2736,7 @@ impl GeneratedHandle {
                         Ok(value) => Some(value),
                         Err(error) if error.code().is_ok() => None,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2772,7 +2772,7 @@ impl GeneratedHandle {
                         Ok(value) => Some(value),
                         Err(error) if error.code().is_ok() => None,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2807,7 +2807,7 @@ impl GeneratedHandle {
                         Ok(value) => Some(value),
                         Err(error) if error.code().is_ok() => None,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2842,7 +2842,7 @@ impl GeneratedHandle {
                     let payload = match args.Result().map(content_dialog_result) {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -2856,7 +2856,7 @@ impl GeneratedHandle {
                             payload,
                         ),
                         Ok(_) => {}
-                        Err(error) => super::app::report_error(error.into()),
+                        Err(error) => report_error(error.into()),
                     }
                 })?;
                 let _closed = GeneratedRevoker::Event(revoker);
@@ -2911,7 +2911,7 @@ impl GeneratedHandle {
                             let observed = match read_selection_changed() {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error);
+                                    report_error(error);
                                     return;
                                 }
                             };
@@ -2954,7 +2954,7 @@ impl GeneratedHandle {
                             {
                                 Ok(value) => value,
                                 Err(error) => {
-                                    super::app::report_error(error.into());
+                                    report_error(error.into());
                                     return;
                                 }
                             };
@@ -2991,7 +2991,7 @@ impl GeneratedHandle {
                     let observed = match read_text_changed() {
                         Ok(value) => value,
                         Err(error) => {
-                            super::app::report_error(error);
+                            report_error(error);
                             return;
                         }
                     };
@@ -3274,7 +3274,7 @@ impl GeneratedHandle {
                     .and_then(|object| {
                         object.Items().map_err(Into::into).and_then(|value| {
                             value
-                                .cast::<windows_collections::IVector<IInspectable>>()
+                                .cast::<IVector<IInspectable>>()
                                 .map(GeneratedCollection::Inspectable)
                                 .map_err(Into::into)
                         })
@@ -3288,7 +3288,7 @@ impl GeneratedHandle {
                     .and_then(|object| {
                         object.Items().map_err(Into::into).and_then(|value| {
                             value
-                                .cast::<windows_collections::IVector<IInspectable>>()
+                                .cast::<IVector<IInspectable>>()
                                 .map(GeneratedCollection::Inspectable)
                                 .map_err(Into::into)
                         })
@@ -3302,7 +3302,7 @@ impl GeneratedHandle {
                     .and_then(|object| {
                         object.Items().map_err(Into::into).and_then(|value| {
                             value
-                                .cast::<windows_collections::IVector<IInspectable>>()
+                                .cast::<IVector<IInspectable>>()
                                 .map(GeneratedCollection::Inspectable)
                                 .map_err(Into::into)
                         })
@@ -3328,7 +3328,7 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|value| {
                         value
-                            .cast::<windows_collections::IVector<native::ICommandBarElement>>()
+                            .cast::<IVector<native::ICommandBarElement>>()
                             .map(GeneratedCollection::ICommandBarElement)
                             .map_err(Into::into)
                     }),
@@ -3339,7 +3339,7 @@ impl GeneratedHandle {
                     .map_err(Into::into)
                     .and_then(|value| {
                         value
-                            .cast::<windows_collections::IVector<native::ICommandBarElement>>()
+                            .cast::<IVector<native::ICommandBarElement>>()
                             .map(GeneratedCollection::ICommandBarElement)
                             .map_err(Into::into)
                     }),
@@ -3358,7 +3358,7 @@ impl GeneratedHandle {
                     .and_then(|object| {
                         object.Items().map_err(Into::into).and_then(|value| {
                             value
-                                .cast::<windows_collections::IVector<IInspectable>>()
+                                .cast::<IVector<IInspectable>>()
                                 .map(GeneratedCollection::Inspectable)
                                 .map_err(Into::into)
                         })
@@ -4021,7 +4021,7 @@ impl GeneratedHandle {
                     let collection = native::TransitionCollection::new()?;
                     for value in values.iter() {
                         let transition = match value {
-                            crate::ThemeTransition::Reposition => {
+                            ThemeTransition::Reposition => {
                                 native::RepositionThemeTransition::new()?
                                     .cast::<native::Transition>()?
                             }
@@ -4571,7 +4571,7 @@ impl GeneratedHandle {
                 EventId::ColorChanged,
                 FeedbackExpectation::Exact(Property {
                     id: PropertyId::Color,
-                    value: PropertyValue::Color(crate::Color::rgb(255, 255, 255)),
+                    value: PropertyValue::Color(Color::rgb(255, 255, 255)),
                 }),
             )),
             (ObjectType::GridView, PropertyId::SelectedIndex, Some(value)) => Some((
@@ -5634,7 +5634,7 @@ impl GeneratedHandle {
                     .iter()
                     .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()))
                     .collect();
-                let values: windows_collections::IVector<IInspectable> = values.into();
+                let values: IVector<IInspectable> = values.into();
                 object.value.SetItemsSource(&values).map_err(Into::into)
             }),
             (Self::VariableSizedWrapGrid(object), PropertyId::Orientation, None) => Some(
@@ -5763,7 +5763,7 @@ impl GeneratedHandle {
                                 Some(windows_reference::IReference::from(value.as_ref()).into())
                             })
                             .collect();
-                        let values: windows_collections::IVector<IInspectable> = values.into();
+                        let values: IVector<IInspectable> = values.into();
                         object.SetItemsSource(&values).map_err(Into::into)
                     }),
             ),
@@ -6629,7 +6629,7 @@ impl GeneratedHandle {
                     .iter()
                     .map(|value| Some(windows_reference::IReference::from(value.as_ref()).into()))
                     .collect();
-                let values: windows_collections::IVector<IInspectable> = values.into();
+                let values: IVector<IInspectable> = values.into();
                 object.value.SetItemsSource(&values).map_err(Into::into)
             }),
             (Self::RadioButtons(object), PropertyId::SelectedIndex, None) => Some(
@@ -7772,7 +7772,7 @@ impl GeneratedHandle {
                                 Some(windows_reference::IReference::from(value.as_ref()).into())
                             })
                             .collect();
-                        let values: windows_collections::IVector<IInspectable> = values.into();
+                        let values: IVector<IInspectable> = values.into();
                         object.SetItemsSource(&values).map_err(Into::into)
                     }),
             ),
