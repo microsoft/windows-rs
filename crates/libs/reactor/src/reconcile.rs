@@ -1,11 +1,4 @@
 use super::*;
-use crate::ir::{DeclarationValidator, validate_property};
-use std::cell::Cell;
-use std::collections::{HashMap, HashSet, VecDeque};
-#[cfg(any(test, feature = "test"))]
-use std::mem::size_of;
-use std::rc::Rc;
-use std::time::Duration;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct ObjectId {

@@ -1,10 +1,5 @@
-use super::app::{ScreenPoint, report_error};
-use super::bindings::*;
-use crate::{Key, Menu, MenuItem};
-use std::cell::RefCell;
-use std::collections::HashSet;
-use std::rc::{Rc, Weak};
-use windows_core::Interface;
+use super::*;
+use bindings::{Grid, HorizontalAlignment, VerticalAlignment, *};
 
 const HOST_SIZE: i32 = 2;
 
@@ -66,13 +61,13 @@ impl TransientMenuHost {
             let style = GetWindowLongW(host_hwnd, GWL_EXSTYLE);
             let error = GetLastError();
             if style == 0 && error != 0 {
-                return Err(windows_core::HRESULT::from(windows_core::WIN32_ERROR(error)).into());
+                return Err(HRESULT::from(windows_core::WIN32_ERROR(error)).into());
             }
             SetLastError(0);
             let previous = SetWindowLongW(host_hwnd, GWL_EXSTYLE, style | WS_EX_LAYERED);
             let error = GetLastError();
             if previous == 0 && error != 0 {
-                return Err(windows_core::HRESULT::from(windows_core::WIN32_ERROR(error)).into());
+                return Err(HRESULT::from(windows_core::WIN32_ERROR(error)).into());
             }
             SetLayeredWindowAttributes(host_hwnd, 0, 0, LWA_ALPHA as u32).ok()?;
         }
@@ -182,7 +177,7 @@ fn validate_menu_items(items: &[MenuItem], keys: &mut HashSet<Key>) -> windows_c
         };
         if !keys.insert(key.clone()) {
             return Err(windows_core::Error::new(
-                windows_core::HRESULT(0x80070057u32 as i32),
+                HRESULT(0x80070057u32 as i32),
                 "application menu keys must be unique",
             ));
         }
@@ -207,9 +202,9 @@ impl Drop for TransientMenuHost {
 
 fn build_menu_items(
     items: &[MenuItem],
-    output: &windows_collections::IVector<MenuFlyoutItemBase>,
+    output: &IVector<MenuFlyoutItemBase>,
     revokers: &mut Vec<windows_core::EventRevoker>,
-    callback: &crate::Callback<Key>,
+    callback: &Callback<Key>,
 ) -> windows_core::Result<()> {
     for entry in items {
         let item: MenuFlyoutItemBase = match entry {

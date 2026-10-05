@@ -31,7 +31,7 @@ impl WinUiAdapter {
             }
             (Handle::Data(parent), RelationId::Content) => {
                 let properties =
-                    parent.cast::<windows_collections::IMap<HSTRING, IInspectable>>()?;
+                    parent.cast::<IMap<HSTRING, IInspectable>>()?;
                 let content: IInspectable = child_element.cast()?;
                 properties.Insert(&data_content_key, &content)?;
             }
@@ -69,7 +69,7 @@ impl WinUiAdapter {
             }
             (Handle::Data(parent), RelationId::Content) => {
                 let properties =
-                    parent.cast::<windows_collections::IMap<HSTRING, IInspectable>>()?;
+                    parent.cast::<IMap<HSTRING, IInspectable>>()?;
                 let text = properties.Lookup(&data_text_key)?;
                 properties.Insert(&data_content_key, &text)?;
             }
@@ -263,7 +263,7 @@ impl WinUiAdapter {
         &mut self,
         parent: ObjectId,
         relation: RelationId,
-        moves: &[crate::Move],
+        moves: &[Move],
         children: &[ObjectId],
     ) -> Result<(), WinUiError> {
         let selection = selection_for_relation(self.kind(parent)?, relation);
@@ -528,7 +528,7 @@ impl WinUiAdapter {
     fn tree_nodes(
         &self,
         object: ObjectId,
-    ) -> Result<windows_collections::IVector<native::TreeViewNode>, WinUiError> {
+    ) -> Result<IVector<native::TreeViewNode>, WinUiError> {
         match self
             .handles
             .get(&object)
@@ -578,7 +578,7 @@ impl WinUiAdapter {
         let Handle::Data(value) = self.handle(object)? else {
             return Err(WinUiError::InvalidObject(object));
         };
-        let properties = value.cast::<windows_collections::IMap<HSTRING, IInspectable>>()?;
+        let properties = value.cast::<IMap<HSTRING, IInspectable>>()?;
         let text: IInspectable = windows_reference::IReference::from(HSTRING::from(text)).into();
         properties.Insert(&text_key, &text)?;
         if !properties.HasKey(&content_key)? {
@@ -621,7 +621,7 @@ impl WinUiAdapter {
         nodes: Vec<ObjectId>,
         parent: ObjectId,
         relation: RelationId,
-        duration: std::time::Duration,
+        duration: Duration,
     ) -> Result<(), WinUiError> {
         if self.retirements.contains_key(&root)
             || self.owners.get(&root) != Some(&(parent, relation))
@@ -630,7 +630,7 @@ impl WinUiAdapter {
             return Err(WinUiError::MissingObject(root));
         }
         let duration =
-            windows_time::TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
+            TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
         let root_element = self.ui_element(root)?;
         let transition = native::ScalarTransition::new()?;
         transition.SetDuration(duration)?;

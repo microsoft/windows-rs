@@ -1,14 +1,4 @@
 use super::*;
-use std::any::{Any, TypeId};
-#[cfg(test)]
-use std::cell::Cell;
-use std::cell::RefCell;
-use std::collections::{HashMap, HashSet, VecDeque};
-use std::mem::size_of;
-use std::rc::Rc;
-use std::sync::atomic::{AtomicU8, AtomicU64, Ordering};
-use std::sync::{Arc, Condvar, Mutex, Weak};
-use std::time::Duration;
 
 const MESSAGE_CAPACITY: usize = 4_096;
 static NEXT_CONTEXT_ID: AtomicU64 = AtomicU64::new(1);
@@ -59,8 +49,8 @@ impl ContextProvision {
     }
 }
 
-impl std::fmt::Debug for ContextProvision {
-    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl fmt::Debug for ContextProvision {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter
             .debug_tuple("ContextProvision")
             .field(&self.id)
@@ -121,7 +111,7 @@ pub struct LocalSender<M> {
     component: ComponentId,
     queue: LocalQueue,
     wake: SharedQueue,
-    marker: std::marker::PhantomData<fn(M)>,
+    marker: PhantomData<fn(M)>,
 }
 
 impl<M> Clone for LocalSender<M> {
@@ -130,7 +120,7 @@ impl<M> Clone for LocalSender<M> {
             component: self.component,
             queue: Rc::clone(&self.queue),
             wake: Arc::clone(&self.wake),
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         }
     }
 }
@@ -202,7 +192,7 @@ impl<M: 'static> LocalSender<M> {
 pub struct ComponentSender<M> {
     component: ComponentId,
     queue: SharedQueue,
-    marker: std::marker::PhantomData<fn(M)>,
+    marker: PhantomData<fn(M)>,
 }
 
 impl<M> Clone for ComponentSender<M> {
@@ -210,7 +200,7 @@ impl<M> Clone for ComponentSender<M> {
         Self {
             component: self.component,
             queue: Arc::clone(&self.queue),
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         }
     }
 }
@@ -308,20 +298,20 @@ pub struct ComponentContext<C: Component> {
     local_sender: LocalSender<C::Message>,
     sender: ComponentSender<C::Message>,
     services: Arc<dyn ComponentServices>,
-    tasks: Arc<Mutex<Vec<Weak<TaskControl>>>>,
+    tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
     ui_services: Rc<dyn ComponentUiServices>,
 }
 
 pub struct WindowHandle<'a> {
     raw: *mut core::ffi::c_void,
-    marker: std::marker::PhantomData<(&'a mut (), Rc<()>)>,
+    marker: PhantomData<(&'a mut (), Rc<()>)>,
 }
 
 impl WindowHandle<'_> {
     fn new(raw: *mut core::ffi::c_void) -> Self {
         Self {
             raw,
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         }
     }
 
@@ -592,7 +582,7 @@ impl ComponentServices for DefaultComponentServices {
 
 #[derive(Default)]
 struct ThreadPoolTimer {
-    cancelled: std::sync::atomic::AtomicBool,
+    cancelled: AtomicBool,
     changed: Condvar,
     wait: Mutex<()>,
 }
@@ -1091,13 +1081,13 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         let sender = ComponentSender {
             component: id,
             queue: queues.shared,
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         };
         let local_sender = LocalSender {
             component: id,
             queue: queues.local,
             wake: Arc::clone(&sender.queue),
-            marker: std::marker::PhantomData,
+            marker: PhantomData,
         };
         let tasks = Arc::new(Mutex::new(Vec::new()));
         let context: ComponentContext<C> = ComponentContext {
@@ -1202,7 +1192,7 @@ struct TypedScope<C: Component> {
     local_sender: LocalSender<C::Message>,
     sender: ComponentSender<C::Message>,
     services: Arc<dyn ComponentServices>,
-    tasks: Arc<Mutex<Vec<Weak<TaskControl>>>>,
+    tasks: Arc<Mutex<Vec<SyncWeak<TaskControl>>>>,
     ui_services: Rc<dyn ComponentUiServices>,
 }
 
@@ -1475,7 +1465,7 @@ impl<E> From<ComponentDeclarationError> for ComponentError<E> {
     }
 }
 
-impl<E: std::fmt::Debug> From<ComponentError<E>> for windows_core::Error {
+impl<E: fmt::Debug> From<ComponentError<E>> for windows_core::Error {
     fn from(value: ComponentError<E>) -> Self {
         Self::new(
             windows_core::HRESULT(0x80004005_u32 as i32),
@@ -3278,8 +3268,6 @@ fn prepare_scope_retirement(scopes: &mut [ScopeSlot], roots: &[ComponentId]) {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::cell::RefCell;
-    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
     type PendingTimer = (Arc<TestTimerRegistration>, Box<dyn FnOnce() + Send>);
 

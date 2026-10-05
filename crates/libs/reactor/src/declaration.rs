@@ -1,11 +1,4 @@
 use super::*;
-use std::any::TypeId;
-use std::collections::BTreeMap;
-use std::fmt;
-use std::path::Path;
-use std::rc::Rc;
-use std::sync::Arc;
-use std::time::Duration;
 
 fn validate_uri(value: &str) -> windows_core::Result<()> {
     native::validate_native_uri(value)

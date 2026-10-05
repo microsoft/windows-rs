@@ -1,5 +1,5 @@
-use super::bindings::*;
-use std::sync::Mutex;
+use super::*;
+use bindings::*;
 use windows_core::*;
 
 const FRAMEWORK_FAMILY: PCWSTR = w!("Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe");

@@ -1,7 +1,6 @@
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::sync::Arc;
 
     #[test]
     fn content_dialog_schedule_is_fifo_and_cancellable() {
@@ -96,7 +95,6 @@ mod tests {
             );
         }
     }
-    use std::sync::atomic::{AtomicUsize, Ordering};
 
     fn virtual_index(value: IInspectable) -> i32 {
         value
@@ -130,7 +128,7 @@ mod tests {
     #[test]
     fn virtual_source_generates_indices_on_demand() {
         let source = ComObject::new(NativeVirtualSource::new(3).unwrap());
-        let vector: windows_collections::IObservableVector<IInspectable> = source.to_interface();
+        let vector: IObservableVector<IInspectable> = source.to_interface();
 
         assert_eq!(vector.Size().unwrap(), 3);
         assert_eq!(virtual_index(vector.GetAt(0).unwrap()), 0);
@@ -180,7 +178,7 @@ mod tests {
     fn virtual_source_is_read_only_and_validates_index_limits() {
         let max_count = i32::MAX as usize + 1;
         let source = ComObject::new(NativeVirtualSource::new(max_count).unwrap());
-        let vector: windows_collections::IObservableVector<IInspectable> = source.to_interface();
+        let vector: IObservableVector<IInspectable> = source.to_interface();
 
         assert_eq!(vector.Size().unwrap(), max_count as u32);
         assert_eq!(
@@ -212,7 +210,7 @@ mod tests {
     #[test]
     fn virtual_source_reset_notifies_once_and_honors_event_removal() {
         let source = ComObject::new(NativeVirtualSource::new(0).unwrap());
-        let vector: windows_collections::IObservableVector<IInspectable> = source.to_interface();
+        let vector: IObservableVector<IInspectable> = source.to_interface();
         let first = Arc::new(AtomicUsize::new(0));
         let second = Arc::new(AtomicUsize::new(0));
         let first_observed = Arc::clone(&first);
@@ -311,17 +309,17 @@ mod tests {
 
     #[test]
     fn pointer_event_queue_preserves_payload_and_revision() {
-        let mut runtime = Runtime::new(crate::RecordingAdapter::default());
-        runtime.update(crate::Border::new()).unwrap();
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        runtime.update(Border::new()).unwrap();
         let object = runtime.graph().root().unwrap();
         let event = Rc::new(RefCell::new(NativePointerEventInfoEvent {
             revision: 7,
             callback: Some(Callback::new(|_| {})),
         }));
         let event_queue = Rc::new(NativeEventQueue::default());
-        let payload = crate::PointerEventInfo {
+        let payload = PointerEventInfo {
             pointer_id: 42,
-            modifiers: crate::InputModifiers::CONTROL,
+            modifiers: InputModifiers::CONTROL,
             is_captured: true,
             is_right_button_pressed: true,
             ..Default::default()
@@ -347,10 +345,10 @@ mod tests {
 
     #[test]
     fn pointer_event_modifiers_map_native_flags() {
-        let mut expected = crate::InputModifiers::SHIFT;
-        expected |= crate::InputModifiers::CONTROL;
-        expected |= crate::InputModifiers::ALT;
-        expected |= crate::InputModifiers::WINDOWS;
+        let mut expected = InputModifiers::SHIFT;
+        expected |= InputModifiers::CONTROL;
+        expected |= InputModifiers::ALT;
+        expected |= InputModifiers::WINDOWS;
 
         assert_eq!(
             WinUiAdapter::input_modifiers_from_virtual_keys(
@@ -363,7 +361,7 @@ mod tests {
         );
         assert_eq!(
             WinUiAdapter::input_modifiers_from_virtual_keys(native::VirtualKeyModifiers::None),
-            crate::InputModifiers::NONE
+            InputModifiers::NONE
         );
     }
 

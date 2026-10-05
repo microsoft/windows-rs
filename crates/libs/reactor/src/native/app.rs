@@ -1,22 +1,5 @@
-use super::app_shim::{create_application, install_xaml_controls_resources};
-use super::bindings::*;
-use super::bootstrap;
-use super::transient_menu::TransientMenuHost;
-use super::{NativeWindow, WinUiAdapter};
-use crate::{
-    Callback, ColorScheme, Component, ComponentContext, ComponentHost, ComponentNode,
-    ComponentUiServices, Menu, View, ViewContext, WindowPolicy, WindowPublication, WindowSize,
-    component,
-};
-use std::any::Any;
-use std::cell::{Cell, RefCell};
-use std::collections::{HashMap, VecDeque};
-use std::marker::PhantomData;
-use std::rc::Rc;
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
-use std::sync::{Arc, Mutex};
-use std::time::Duration;
-use windows_core::Interface;
+use super::*;
+use bindings::*;
 
 windows_core::link!("kernel32.dll" "system" fn FindResourceW(module: *mut std::ffi::c_void, name: *const u16, resource_type: *const u16) -> *mut std::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn GetModuleHandleW(name: *const u16) -> *mut std::ffi::c_void);
@@ -107,7 +90,7 @@ impl AppContext {
         Ok(AppCallback { proxy, id })
     }
 
-    pub fn component_services(&self) -> Arc<dyn crate::ComponentServices> {
+    pub fn component_services(&self) -> Arc<dyn ComponentServices> {
         self.services.clone()
     }
 
@@ -178,7 +161,7 @@ struct DispatcherTimerRegistration {
     ui_thread: u32,
 }
 
-impl crate::ComponentTimerRegistration for DispatcherTimerRegistration {
+impl ComponentTimerRegistration for DispatcherTimerRegistration {
     fn cancel(&self) {
         if self.cancelled.swap(true, Ordering::AcqRel) {
             return;
@@ -205,7 +188,7 @@ struct DispatcherTimerState {
     timer: DispatcherQueueTimer,
 }
 
-impl crate::ComponentServices for DispatcherComponentServices {
+impl ComponentServices for DispatcherComponentServices {
     fn spawn_background(&self, work: Box<dyn FnOnce() + Send>) {
         windows_threading::submit(work);
     }
@@ -214,11 +197,11 @@ impl crate::ComponentServices for DispatcherComponentServices {
         &self,
         delay: Duration,
         callback: Box<dyn FnOnce() + Send>,
-    ) -> Arc<dyn crate::ComponentTimerRegistration> {
+    ) -> Arc<dyn ComponentTimerRegistration> {
         let id = NEXT_APP_TIMER.fetch_add(1, Ordering::Relaxed);
         let timer = self.dispatcher.CreateTimer().unwrap();
         timer
-            .SetInterval(windows_time::TimeSpan::try_from(delay).unwrap())
+            .SetInterval(TimeSpan::try_from(delay).unwrap())
             .unwrap();
         timer.SetIsRepeating(false).unwrap();
         let tick = timer.Tick(move |_, _| fire_timer(id)).unwrap();
@@ -673,8 +656,7 @@ pub fn bring_live_virtual_index(index: usize) -> Result<(), &'static str> {
             .graph()
             .objects()
             .find(|object| {
-                window.host.runtime().graph().kind(*object)
-                    == Some(crate::ObjectType::ItemsRepeater)
+                window.host.runtime().graph().kind(*object) == Some(ObjectType::ItemsRepeater)
             })
             .ok_or("virtual collection is not mounted")?;
         window
@@ -720,7 +702,7 @@ pub fn subscribe_live_interval(
 ) -> windows_core::Result<LiveTickSubscription> {
     let dispatcher = DispatcherQueue::GetForCurrentThread()?;
     let timer = dispatcher.CreateTimer()?;
-    timer.SetInterval(windows_time::TimeSpan::try_from(interval).unwrap())?;
+    timer.SetInterval(TimeSpan::try_from(interval).unwrap())?;
     timer.SetIsRepeating(true)?;
     let tick = timer.Tick(move |_, _| {
         if std::panic::catch_unwind(std::panic::AssertUnwindSafe(&tick_callback)).is_err() {
@@ -1183,7 +1165,7 @@ fn is_packaged_process() -> windows_core::Result<bool> {
     match result {
         ERROR_INSUFFICIENT_BUFFER => Ok(true),
         APPMODEL_ERROR_NO_PACKAGE => Ok(false),
-        _ => Err(windows_core::HRESULT::from(windows_core::WIN32_ERROR(result as u32)).into()),
+        _ => Err(HRESULT::from(windows_core::WIN32_ERROR(result as u32)).into()),
     }
 }
 
@@ -1196,7 +1178,7 @@ fn bootstrap_runtime() -> windows_core::Result<()> {
             Ok(())
         } else {
             Err(windows_core::Error::new(
-                windows_core::HRESULT(0x8007007e_u32 as i32),
+                HRESULT(0x8007007e_u32 as i32),
                 "self-contained Windows App Runtime files are missing",
             ))
         };

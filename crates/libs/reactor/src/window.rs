@@ -1,4 +1,4 @@
-use std::rc::Rc;
+use super::*;
 
 /// Material used behind a window's content.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

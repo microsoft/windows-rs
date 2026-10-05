@@ -1,31 +1,5 @@
 use super::bindings as native;
-use crate::reconcile::{FeedbackExpectation, FeedbackState};
-use crate::{
-    AcceleratorKey, AcceleratorModifiers, Adapter, Brush, ButtonStyle, Callback, ColorScheme,
-    CommandBarCommand, CommandBarFlyout, ComponentHost, CompositionHostEvent, ContentDialogResult,
-    DragDropPolicy, ElementFocusState, EncodedImage, Event, EventDispatch, EventId, EventPayload,
-    EventValue, FlyoutPlacement, GridLength, GridLengthSize, Icon, IconValue, ImageSourceValue,
-    ImperativeRequest, IntegrationError, KeyAccelerators, Menu, MenuItem, Mutation, NativeEvent,
-    ObjectId, ObjectType, Observation, Property, PropertyId, PropertyValue, Realization,
-    RealizationRequest, RealizedContainer, RelationContract, RelationId, ResourceOverrides,
-    ResourceValue, RetirementCompletion, Runtime, SelectionContract, SwapChainPanelEvent, Symbol,
-    ThemeBrush, TooltipPlacement, WindowBackdrop, WindowPolicy, WindowSize, WindowTheme,
-    WindowVisuals, relation_contracts, selection_for_item_property, selection_for_relation,
-};
-use native::IElementFactory;
-use std::cell::{Cell, RefCell};
-use std::collections::{BTreeMap, HashMap, HashSet, VecDeque};
-use std::rc::{Rc, Weak};
-use std::sync::atomic::{AtomicU32, Ordering};
-use std::sync::{Arc, Mutex};
-use windows_collections::{
-    CollectionChange, IIterable_Impl, IIterator_Impl, IObservableVector_Impl, IVector_Impl,
-    IVectorChangedEventArgs_Impl, IVectorView_Impl, VectorChangedEventHandler,
-};
-use windows_core::{
-    ComObject, Event as WinEvent, HRESULT, HSTRING, IInspectable, IUnknownImpl, Interface, Ref,
-    implement_decl,
-};
+use super::*;
 
 enum Handle {
     Generated(GeneratedHandle),
@@ -33,7 +7,7 @@ enum Handle {
     TreeView(NativeTreeView),
     TreeNode(NativeTreeNode),
     ListView(NativeListView),
-    Data(windows_collections::IObservableMap<HSTRING, IInspectable>),
+    Data(IObservableMap<HSTRING, IInspectable>),
 }
 
 struct NativeListView {
@@ -80,7 +54,7 @@ impl<T> Default for NativeValueEvent<T> {
 
 struct NativeRoutedValueEvent<T> {
     revision: u64,
-    callback: Option<crate::RoutedCallback<T>>,
+    callback: Option<RoutedCallback<T>>,
 }
 
 impl<T> Default for NativeRoutedValueEvent<T> {
@@ -93,20 +67,20 @@ impl<T> Default for NativeRoutedValueEvent<T> {
 }
 
 type NativeBoolEvent = NativeValueEvent<bool>;
-type NativeColorEvent = NativeValueEvent<crate::Color>;
-type NativeCharacterEventInfoEvent = NativeRoutedValueEvent<crate::CharacterEventInfo>;
+type NativeColorEvent = NativeValueEvent<Color>;
+type NativeCharacterEventInfoEvent = NativeRoutedValueEvent<CharacterEventInfo>;
 type NativeContentDialogResultEvent = NativeValueEvent<ContentDialogResult>;
-type NativeDragKindEvent = NativeValueEvent<crate::DragKind>;
-type NativeDroppedDataEvent = NativeValueEvent<crate::DroppedData>;
+type NativeDragKindEvent = NativeValueEvent<DragKind>;
+type NativeDroppedDataEvent = NativeValueEvent<DroppedData>;
 type NativeF64Event = NativeValueEvent<f64>;
-type NativeFocusEventInfoEvent = NativeValueEvent<crate::FocusEventInfo>;
+type NativeFocusEventInfoEvent = NativeValueEvent<FocusEventInfo>;
 type NativeOptionalBoolEvent = NativeValueEvent<Option<bool>>;
-type NativeOptionalDateTimeEvent = NativeValueEvent<Option<windows_time::DateTime>>;
+type NativeOptionalDateTimeEvent = NativeValueEvent<Option<DateTime>>;
 type NativeOptionalF64Event = NativeValueEvent<Option<f64>>;
-type NativeOptionalTimeSpanEvent = NativeValueEvent<Option<windows_time::TimeSpan>>;
-type NativeNavigationViewDisplayModeEvent = NativeValueEvent<crate::NavigationViewDisplayMode>;
-type NativePointerEventInfoEvent = NativeValueEvent<crate::PointerEventInfo>;
-type NativeKeyEventInfoEvent = NativeRoutedValueEvent<crate::KeyEventInfo>;
+type NativeOptionalTimeSpanEvent = NativeValueEvent<Option<TimeSpan>>;
+type NativeNavigationViewDisplayModeEvent = NativeValueEvent<NavigationViewDisplayMode>;
+type NativePointerEventInfoEvent = NativeValueEvent<PointerEventInfo>;
+type NativeKeyEventInfoEvent = NativeRoutedValueEvent<KeyEventInfo>;
 type NativeSelectionEvent = NativeValueEvent<Option<Rc<str>>>;
 type NativeSelectionIndexEvent = NativeValueEvent<Option<usize>>;
 type NativeTextEvent = NativeValueEvent<Rc<str>>;
@@ -639,8 +613,7 @@ impl NativeVirtualItems {
         })
         .into_interface();
         let source = ComObject::new(NativeVirtualSource::new(item_count)?);
-        let source_interface: windows_collections::IObservableVector<IInspectable> =
-            source.to_interface();
+        let source_interface: IObservableVector<IInspectable> = source.to_interface();
         repeater.SetItemTemplate(&factory)?;
         repeater.SetItemsSource(&source_interface)?;
         Ok(Self {
@@ -662,12 +635,12 @@ impl NativeVirtualItems {
 const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as i32);
 const E_ILLEGAL_METHOD_CALL: HRESULT = HRESULT(0x8000000E_u32 as i32);
 
-type NativeObservableVector = windows_collections::IObservableVector<IInspectable>;
-type NativeVector = windows_collections::IVector<IInspectable>;
-type NativeVectorView = windows_collections::IVectorView<IInspectable>;
-type NativeIterable = windows_collections::IIterable<IInspectable>;
-type NativeIterator = windows_collections::IIterator<IInspectable>;
-type NativeVectorChangedEventArgs = windows_collections::IVectorChangedEventArgs;
+type NativeObservableVector = IObservableVector<IInspectable>;
+type NativeVector = IVector<IInspectable>;
+type NativeVectorView = IVectorView<IInspectable>;
+type NativeIterable = IIterable<IInspectable>;
+type NativeIterator = IIterator<IInspectable>;
+type NativeVectorChangedEventArgs = IVectorChangedEventArgs;
 
 implement_decl! {
     impl NativeVirtualSource as NativeVirtualSource_Impl: [
@@ -749,9 +722,8 @@ impl NativeVirtualSource_Impl {
 
     fn reset(&self, count: u32) {
         self.item_count.store(count, Ordering::Release);
-        let source: windows_collections::IObservableVector<IInspectable> =
-            self.to_object().into_interface();
-        let args: windows_collections::IVectorChangedEventArgs =
+        let source: IObservableVector<IInspectable> = self.to_object().into_interface();
+        let args: IVectorChangedEventArgs =
             ComObject::new(NativeVirtualChangedEventArgs).into_interface();
         self.handlers
             .call(|handler: &VectorChangedEventHandler<IInspectable>| {
@@ -775,7 +747,7 @@ impl IObservableVector_Impl<IInspectable> for NativeVirtualSource_Impl {
 }
 
 impl IIterable_Impl<IInspectable> for NativeVirtualSource_Impl {
-    fn First(&self) -> windows_core::Result<windows_collections::IIterator<IInspectable>> {
+    fn First(&self) -> windows_core::Result<IIterator<IInspectable>> {
         Ok(ComObject::new(NativeVirtualSourceIterator {
             source: self.to_object(),
             current: AtomicU32::new(0),
@@ -793,7 +765,7 @@ impl IVector_Impl<IInspectable> for NativeVirtualSource_Impl {
         Ok(self.count())
     }
 
-    fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<IInspectable>> {
+    fn GetView(&self) -> windows_core::Result<IVectorView<IInspectable>> {
         Ok(self.to_object().into_interface())
     }
 
@@ -1125,7 +1097,7 @@ impl From<WinUiError> for windows_core::Error {
     }
 }
 
-fn solid_color_brush(value: crate::Color) -> Result<native::SolidColorBrush, WinUiError> {
+fn solid_color_brush(value: Color) -> Result<native::SolidColorBrush, WinUiError> {
     let brush = native::SolidColorBrush::new()?;
     brush.SetColor(native::Color {
         a: value.a,
@@ -1136,7 +1108,7 @@ fn solid_color_brush(value: crate::Color) -> Result<native::SolidColorBrush, Win
     Ok(brush)
 }
 
-fn to_native_color(value: crate::Color) -> native::Color {
+fn to_native_color(value: Color) -> native::Color {
     native::Color {
         a: value.a,
         r: value.r,
@@ -1145,17 +1117,17 @@ fn to_native_color(value: crate::Color) -> native::Color {
     }
 }
 
-fn from_native_color(value: native::Color) -> crate::Color {
-    crate::Color::argb(value.a, value.r, value.g, value.b)
+fn from_native_color(value: native::Color) -> Color {
+    Color::argb(value.a, value.r, value.g, value.b)
 }
 
 fn navigation_view_display_mode(
     value: native::NavigationViewDisplayMode,
-) -> crate::NavigationViewDisplayMode {
+) -> NavigationViewDisplayMode {
     match value {
-        native::NavigationViewDisplayMode::Minimal => crate::NavigationViewDisplayMode::Minimal,
-        native::NavigationViewDisplayMode::Compact => crate::NavigationViewDisplayMode::Compact,
-        native::NavigationViewDisplayMode::Expanded => crate::NavigationViewDisplayMode::Expanded,
+        native::NavigationViewDisplayMode::Minimal => NavigationViewDisplayMode::Minimal,
+        native::NavigationViewDisplayMode::Compact => NavigationViewDisplayMode::Compact,
+        native::NavigationViewDisplayMode::Expanded => NavigationViewDisplayMode::Expanded,
         _ => unreachable!(),
     }
 }
@@ -1178,7 +1150,7 @@ fn uri_image(value: &str) -> Result<native::ImageSource, WinUiError> {
     }
 }
 
-fn icon_image_source(value: &crate::ImageSource) -> Result<native::ImageSource, WinUiError> {
+fn icon_image_source(value: &ImageSource) -> Result<native::ImageSource, WinUiError> {
     match value.value() {
         ImageSourceValue::Uri(value) => uri_image(value),
         ImageSourceValue::Encoded(value) => encoded_bitmap_image(value, None)?
@@ -1272,26 +1244,26 @@ fn encoded_bitmap_image(
     let decode_image = image.clone();
     if let Err(error) = store.when(move |result| {
         if let Err(error) = result {
-            super::app::report_error(error);
+            report_error(error);
             return;
         }
         if let Err(error) = writer.DetachStream() {
-            super::app::report_error(error);
+            report_error(error);
             return;
         }
         if let Err(error) = stream.Seek(0) {
-            super::app::report_error(error);
+            report_error(error);
             return;
         }
         let source = match decode_image.cast::<native::IBitmapSource>() {
             Ok(source) => source,
             Err(error) => {
-                super::app::report_error(error);
+                report_error(error);
                 return;
             }
         };
         if let Err(error) = source.SetSourceAsync(&stream) {
-            super::app::report_error(error);
+            report_error(error);
         }
     }) {
         return Err(error.into());
@@ -1301,7 +1273,7 @@ fn encoded_bitmap_image(
 
 fn build_menu_items(
     items: &[MenuItem],
-    output: &windows_collections::IVector<native::MenuFlyoutItemBase>,
+    output: &IVector<native::MenuFlyoutItemBase>,
     revokers: &mut Vec<windows_core::EventRevoker>,
     event_queue: &Rc<NativeEventQueue>,
     target: ObjectId,
@@ -1396,45 +1368,44 @@ fn build_command_bar_element(
 
 fn set_rich_text_blocks(
     target: &native::RichTextBlock,
-    value: Option<&crate::RichText>,
+    value: Option<&RichText>,
 ) -> Result<(), WinUiError> {
     let blocks = target.Blocks()?;
     blocks.Clear()?;
     let Some(value) = value else {
         return Ok(());
     };
-    let append_run = |inlines: &windows_collections::IVector<native::Inline>,
-                      value: &crate::RichTextRun|
-     -> Result<(), WinUiError> {
-        let run = native::Run::new()?;
-        run.SetText(&value.text)?;
-        if value.is_bold {
-            run.cast::<native::ITextElement>()?
-                .SetFontWeight(native::FontWeight { weight: 700 })?;
-        }
-        if value.is_italic {
-            run.cast::<native::ITextElement>()?
-                .SetFontStyle(native::FontStyle::Italic)?;
-        }
-        let run: native::Inline = run.cast()?;
-        inlines.Append(&run)?;
-        Ok(())
-    };
+    let append_run =
+        |inlines: &IVector<native::Inline>, value: &RichTextRun| -> Result<(), WinUiError> {
+            let run = native::Run::new()?;
+            run.SetText(&value.text)?;
+            if value.is_bold {
+                run.cast::<native::ITextElement>()?
+                    .SetFontWeight(native::FontWeight { weight: 700 })?;
+            }
+            if value.is_italic {
+                run.cast::<native::ITextElement>()?
+                    .SetFontStyle(native::FontStyle::Italic)?;
+            }
+            let run: native::Inline = run.cast()?;
+            inlines.Append(&run)?;
+            Ok(())
+        };
     for paragraph in value.paragraphs.iter() {
         let native_paragraph = native::Paragraph::new()?;
         let inlines = native_paragraph.Inlines()?;
         for inline in &paragraph.inlines {
             match inline {
-                crate::RichTextInline::Run(value) => append_run(&inlines, value)?,
-                crate::RichTextInline::Hyperlink(value) => {
+                RichTextInline::Run(value) => append_run(&inlines, value)?,
+                RichTextInline::Hyperlink(value) => {
                     let hyperlink = native::Hyperlink::new()?;
                     hyperlink.SetNavigateUri(&native::Uri::CreateUri(&value.uri)?)?;
                     let hyperlink_inlines = hyperlink.cast::<native::ISpan>()?.Inlines()?;
-                    append_run(&hyperlink_inlines, &crate::RichTextRun::plain(&value.text))?;
+                    append_run(&hyperlink_inlines, &RichTextRun::plain(&value.text))?;
                     let hyperlink: native::Inline = hyperlink.cast()?;
                     inlines.Append(&hyperlink)?;
                 }
-                crate::RichTextInline::LineBreak => {
+                RichTextInline::LineBreak => {
                     let line_break: native::Inline = native::LineBreak::new()?.cast()?;
                     inlines.Append(&line_break)?;
                 }
@@ -1457,15 +1428,14 @@ fn parse_path_data(value: &str) -> Result<native::Geometry, WinUiError> {
 
 fn set_opacity_transition(
     element: &native::UIElement,
-    duration: Option<std::time::Duration>,
+    duration: Option<Duration>,
 ) -> Result<(), WinUiError> {
     let Some(duration) = duration else {
         return element
             .SetOpacityTransition(None::<&native::ScalarTransition>)
             .map_err(Into::into);
     };
-    let duration =
-        windows_time::TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
+    let duration = TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
     let transition = native::ScalarTransition::new()?;
     transition.SetDuration(duration)?;
     element.SetOpacityTransition(&transition)?;
@@ -1490,15 +1460,14 @@ fn set_implicit_scale(element: &native::UIElement, value: f64) -> Result<(), Win
 
 fn set_scale_transition(
     element: &native::UIElement,
-    duration: Option<std::time::Duration>,
+    duration: Option<Duration>,
 ) -> Result<(), WinUiError> {
     let Some(duration) = duration else {
         return element
             .SetScaleTransition(None::<&native::Vector3Transition>)
             .map_err(Into::into);
     };
-    let duration =
-        windows_time::TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
+    let duration = TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
     let transition = native::Vector3Transition::new()?;
     transition.SetDuration(duration)?;
     element.SetScaleTransition(&transition)?;
@@ -1942,7 +1911,7 @@ impl NativeWindow {
     ) -> Result<(), WinUiError> {
         self.closed = Some(self.state.window.Closed(move |_, _| {
             if let Err(error) = callback() {
-                super::app::report_error(error);
+                report_error(error);
             }
         })?);
         Ok(())
