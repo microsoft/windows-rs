@@ -1923,6 +1923,9 @@ impl<A: Adapter> ComponentHost<A> {
                 let Some(scope) = host.scope(id) else {
                     continue;
                 };
+                if scope.provided_contexts.contains(&context.id) {
+                    continue;
+                }
                 let reference = scope.reference.clone();
                 let mut contexts = scope.contexts.clone();
                 contexts.insert(context.id, value.clone());
@@ -3875,6 +3878,32 @@ mod tests {
         }
     }
 
+    struct DynamicProviderParent;
+
+    impl Component for DynamicProviderParent {
+        type Input = ProviderInput;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+            Self
+        }
+
+        fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+            let child = Border::new().content(component::<ProviderChild>(
+                "child",
+                ProviderChildInput {
+                    context: Rc::clone(&input.context),
+                    seen: Rc::clone(&input.seen),
+                },
+            ));
+            if context.use_context(&input.context) == 0 {
+                child.into()
+            } else {
+                provide(&input.context, input.value, child)
+            }
+        }
+    }
+
     #[derive(Clone)]
     struct WorkerInput {
         cancelled: Arc<AtomicUsize>,
@@ -5078,6 +5107,26 @@ mod tests {
         assert!(sender.send(()));
         assert_eq!(host.drain(1).unwrap().dispatched, 1);
         assert_eq!(&*seen.borrow(), &[1, 2, 2]);
+    }
+
+    #[test]
+    fn ancestor_can_shadow_context_during_host_update() {
+        let context = Rc::new(Context::new(0usize));
+        let seen = Rc::new(RefCell::new(Vec::new()));
+        let input = ProviderInput {
+            context: Rc::clone(&context),
+            seen: Rc::clone(&seen),
+            value: 42,
+        };
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<DynamicProviderParent>("parent", input)],
+        )
+        .unwrap();
+        assert_eq!(&*seen.borrow(), &[0]);
+
+        assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 1);
+        assert_eq!(&*seen.borrow(), &[0, 42]);
     }
 
     #[test]
