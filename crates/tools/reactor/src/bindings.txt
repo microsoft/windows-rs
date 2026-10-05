@@ -12,7 +12,6 @@ Microsoft::UI::Composition::SystemBackdrops::MicaKind
 Microsoft::UI::Composition::Visual::{}
 Microsoft::UI::Content::ContentSizePolicy::ResizeContentToParentWindow
 Microsoft::UI::Content::IDesktopChildSiteBridge::put_ResizePolicy
-Microsoft::UI::Content::IDesktopSiteBridge::Show
 Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
 Microsoft::UI::Dispatching::DispatcherQueueHandler
 Microsoft::UI::Dispatching::DispatcherQueuePriority::{High, Low, Normal}

@@ -9048,28 +9048,9 @@ impl windows_core::RuntimeType for IDesktopSiteBridge {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl IDesktopSiteBridge {
-    pub(crate) fn Show(&self) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self)).ok()
-        }
-    }
-}
 #[repr(C)]
 pub struct IDesktopSiteBridge_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    IsEnabled: usize,
-    IsVisible: usize,
-    WindowId: usize,
-    Connect: usize,
-    Disable: usize,
-    Enable: usize,
-    Hide: usize,
-    MoveAndResize: usize,
-    MoveInZOrderAtBottom: usize,
-    MoveInZOrderAtTop: usize,
-    MoveInZOrderBelow: usize,
-    pub Show: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IDesktopWindowXamlSource,
