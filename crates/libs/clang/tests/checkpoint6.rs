@@ -148,6 +148,61 @@ fn matching_functions_collapse_across_translation_units() {
 }
 
 #[test]
+fn matching_named_function_types_collapse_across_translation_units() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [
+            Input::new(
+                "first.hpp",
+                "typedef int VALUE;\nextern \"C\" VALUE SharedFunction(VALUE first);\n",
+            ),
+            Input::new(
+                "second.hpp",
+                "typedef int VALUE;\nextern \"C\" VALUE SharedFunction(VALUE second);\n",
+            ),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let references = BTreeMap::new();
+    let mut options = EmitOptions::new("Functions", &references);
+    options.library = Some("test.dll");
+    let rdl = snapshot.emit_with_options(&options).unwrap();
+
+    assert_eq!(rdl.matches("fn SharedFunction").count(), 1);
+    assert!(rdl.contains("fn SharedFunction(first: VALUE) -> VALUE"));
+}
+
+#[test]
+fn conflicting_named_function_types_remain_ambiguous_across_translation_units() {
+    helpers::ensure_libclang();
+
+    let snapshot = extract(
+        [
+            Input::new(
+                "first.hpp",
+                "typedef int VALUE;\nextern \"C\" VALUE SharedFunction(VALUE value);\n",
+            ),
+            Input::new(
+                "second.hpp",
+                "typedef double VALUE;\nextern \"C\" VALUE SharedFunction(VALUE value);\n",
+            ),
+        ],
+        &["-x", "c++"],
+    )
+    .unwrap();
+
+    assert!(
+        snapshot
+            .emit("Functions")
+            .unwrap_err()
+            .to_string()
+            .contains("ambiguous type root `VALUE`")
+    );
+}
+
+#[test]
 fn conflicting_functions_remain_ambiguous_across_translation_units() {
     helpers::ensure_libclang();
 
