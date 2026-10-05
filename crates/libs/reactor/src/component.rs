@@ -4557,6 +4557,23 @@ mod tests {
         }
     }
 
+    struct VirtualContextParent;
+
+    impl Component for VirtualContextParent {
+        type Input = ContextInput;
+        type Message = ();
+
+        fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+            Self
+        }
+
+        fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+            ItemsRepeater::new()
+                .item("row", component::<ContextReader>("row", input.clone()))
+                .into()
+        }
+    }
+
     #[derive(Clone)]
     struct VirtualCleanupInput {
         events: Rc<RefCell<Vec<(Option<ObjectId>, bool, ComponentTaskStatus)>>>,
@@ -6249,6 +6266,49 @@ mod tests {
         host.drain(10).unwrap();
         assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
         assert_eq!(host.runtime().adapter().object_count(), 2);
+    }
+
+    #[test]
+    fn virtual_row_reuses_unchanged_view_and_tracks_context() {
+        let context = Rc::new(Context::new(0usize));
+        let renders = Arc::new(AtomicUsize::new(0));
+        let input = ContextInput {
+            context: Rc::clone(&context),
+            renders: Arc::clone(&renders),
+            subscribe: true,
+        };
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<VirtualContextParent>("virtual", input)],
+        )
+        .unwrap();
+        let root = host.runtime().graph().root().unwrap();
+        let collection = host
+            .runtime()
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap()[0];
+        let realize = RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 0,
+            source_revision: 0,
+        };
+
+        host.runtime.adapter_mut().queue_realization(realize);
+        host.drain(10).unwrap();
+        assert_eq!(renders.load(Ordering::Relaxed), 1);
+
+        host.runtime.adapter_mut().queue_realization(realize);
+        host.drain(10).unwrap();
+        assert_eq!(renders.load(Ordering::Relaxed), 1);
+
+        assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 1);
+        assert_eq!(renders.load(Ordering::Relaxed), 2);
+
+        host.runtime.adapter_mut().queue_realization(realize);
+        host.drain(10).unwrap();
+        assert_eq!(renders.load(Ordering::Relaxed), 2);
     }
 
     #[test]
