@@ -1,6 +1,128 @@
 use super::*;
 
 #[test]
+fn navigation_view_flags_set_update_and_clear_independently() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let view = NavigationView::new()
+        .is_back_enabled(true)
+        .is_pane_visible(false);
+    runtime.update(view.clone()).unwrap();
+    let root = runtime.graph().root().unwrap();
+    assert_eq!(
+        runtime.graph().properties(root).unwrap(),
+        [
+            Property {
+                id: PropertyId::IsBackEnabled,
+                value: PropertyValue::Bool(true),
+            },
+            Property {
+                id: PropertyId::IsPaneVisible,
+                value: PropertyValue::Bool(false),
+            },
+        ]
+    );
+    assert!(runtime.update(view).unwrap().is_empty());
+
+    let mutations = runtime
+        .update(
+            NavigationView::new()
+                .is_back_enabled(false)
+                .is_pane_visible(true),
+        )
+        .unwrap();
+    assert_eq!(mutations.len(), 1);
+    let Mutation::SetProperties { object, set, clear } = &mutations[0] else {
+        panic!("expected property mutation");
+    };
+    assert_eq!(*object, root);
+    assert_eq!(
+        set.as_ref(),
+        [
+            Property {
+                id: PropertyId::IsBackEnabled,
+                value: PropertyValue::Bool(false),
+            },
+            Property {
+                id: PropertyId::IsPaneVisible,
+                value: PropertyValue::Bool(true),
+            },
+        ]
+    );
+    assert!(clear.is_empty());
+
+    let mutations = runtime
+        .update(NavigationView::new().is_pane_visible(true))
+        .unwrap();
+    assert_eq!(mutations.len(), 1);
+    assert!(matches!(
+        &mutations[0],
+        Mutation::SetProperties { object, set, clear }
+            if *object == root && set.is_empty() && clear.as_ref() == [PropertyId::IsBackEnabled]
+    ));
+    let mutations = runtime.update(NavigationView::new()).unwrap();
+    assert_eq!(mutations.len(), 1);
+    assert!(matches!(
+        &mutations[0],
+        Mutation::SetProperties { object, set, clear }
+            if *object == root && set.is_empty() && clear.as_ref() == [PropertyId::IsPaneVisible]
+    ));
+    assert_eq!(runtime.graph().root(), Some(root));
+    assert!(runtime.graph().properties(root).unwrap().is_empty());
+}
+
+#[test]
+fn navigation_view_pane_header_updates_replaces_and_detaches() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let view = || NavigationView::new().pane_footer("Footer").content("Body");
+    runtime.update(view().pane_header("Header")).unwrap();
+    let root = runtime.graph().root().unwrap();
+    let header = runtime.graph().child(root, RelationId::PaneHeader).unwrap();
+    let footer = runtime.graph().child(root, RelationId::PaneFooter).unwrap();
+    let content = runtime.graph().child(root, RelationId::Content).unwrap();
+    assert_eq!(runtime.graph().kind(header), Some(ObjectType::TextBlock));
+    assert!(
+        runtime
+            .update(view().pane_header("Header"))
+            .unwrap()
+            .is_empty()
+    );
+
+    runtime.update(view().pane_header("Updated")).unwrap();
+    assert_eq!(
+        runtime.graph().child(root, RelationId::PaneHeader),
+        Some(header)
+    );
+    assert_eq!(
+        runtime.graph().properties(header).unwrap(),
+        [Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String("Updated".into()),
+        }]
+    );
+    runtime
+        .update(view().pane_header(Button::new().content("Replacement")))
+        .unwrap();
+    let replacement = runtime.graph().child(root, RelationId::PaneHeader).unwrap();
+    assert_ne!(replacement, header);
+    assert_eq!(runtime.graph().kind(header), None);
+    assert_eq!(runtime.graph().kind(replacement), Some(ObjectType::Button));
+
+    runtime.update(view()).unwrap();
+    assert_eq!(runtime.graph().child(root, RelationId::PaneHeader), None);
+    assert_eq!(runtime.graph().kind(replacement), None);
+    assert_eq!(
+        runtime.graph().child(root, RelationId::PaneFooter),
+        Some(footer)
+    );
+    assert_eq!(
+        runtime.graph().child(root, RelationId::Content),
+        Some(content)
+    );
+    assert_eq!(runtime.graph().root(), Some(root));
+    assert_eq!(runtime.graph().object_count(), 3);
+}
+
+#[test]
 fn usize_keys_preserve_their_integer_value() {
     assert_eq!(Key::from(7usize), Key::from(7u64));
 }

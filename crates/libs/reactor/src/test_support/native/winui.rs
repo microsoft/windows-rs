@@ -817,6 +817,44 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    pub fn navigation_view_flags(&self, object: ObjectId) -> Result<(bool, bool), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::NavigationView(control))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let control = control.value.cast::<native::INavigationView2>()?;
+        Ok((control.IsBackEnabled()?, control.IsPaneVisible()?))
+    }
+
+    pub fn navigation_view_pane_header_matches(
+        &self,
+        object: ObjectId,
+        expected: Option<ObjectId>,
+    ) -> Result<bool, WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::NavigationView(control))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let actual = match control
+            .value
+            .cast::<native::INavigationView2>()?
+            .PaneHeader()
+        {
+            Ok(header) => Some(com_identity(&header)?),
+            Err(error) if error.code().is_ok() => None,
+            Err(error) => return Err(error.into()),
+        };
+        let expected = expected
+            .map(|object| {
+                self.ui_element(object)
+                    .and_then(|element| com_identity(&element))
+            })
+            .transpose()?;
+        Ok(actual == expected)
+    }
+
     pub fn simulate_navigation_display_mode_changed(
         &self,
         object: ObjectId,

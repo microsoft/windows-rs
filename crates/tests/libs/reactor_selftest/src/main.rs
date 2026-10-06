@@ -187,6 +187,112 @@ impl reactor::Component for TreeComponents {
 }
 
 impl Fixture {
+    fn verify_navigation_view_properties() {
+        let mut runtime = reactor::Runtime::new(reactor::native::WinUiAdapter::default());
+        runtime.update(reactor::NavigationView::new()).unwrap();
+        let root = runtime.graph().root().unwrap();
+        assert_eq!(
+            runtime.adapter().navigation_view_flags(root).unwrap(),
+            (false, true)
+        );
+        assert!(
+            runtime
+                .adapter()
+                .navigation_view_pane_header_matches(root, None)
+                .unwrap()
+        );
+
+        let view = |back_enabled, pane_visible| {
+            reactor::NavigationView::new()
+                .is_back_enabled(back_enabled)
+                .is_pane_visible(pane_visible)
+                .pane_header("Header")
+                .pane_footer("Footer")
+                .content("Body")
+        };
+        runtime.update(view(true, false)).unwrap();
+        let header = runtime
+            .graph()
+            .child(root, reactor::RelationId::PaneHeader)
+            .unwrap();
+        let footer = runtime
+            .graph()
+            .child(root, reactor::RelationId::PaneFooter)
+            .unwrap();
+        let content = runtime
+            .graph()
+            .child(root, reactor::RelationId::Content)
+            .unwrap();
+        for (back_enabled, pane_visible) in [(true, false), (false, true), (true, false)] {
+            runtime.update(view(back_enabled, pane_visible)).unwrap();
+            // Hiding the pane may also report an IsPaneOpen change between renders.
+            runtime.update(view(back_enabled, pane_visible)).unwrap();
+            assert_eq!(
+                runtime.adapter().navigation_view_flags(root).unwrap(),
+                (back_enabled, pane_visible)
+            );
+            assert!(
+                runtime
+                    .adapter()
+                    .navigation_view_pane_header_matches(root, Some(header))
+                    .unwrap()
+            );
+        }
+
+        let view = || {
+            reactor::NavigationView::new()
+                .pane_footer("Footer")
+                .content("Body")
+        };
+        runtime.update(view().pane_header("Updated")).unwrap();
+        assert_eq!(
+            runtime.adapter().navigation_view_flags(root).unwrap(),
+            (false, true)
+        );
+        assert!(
+            runtime
+                .adapter()
+                .navigation_view_pane_header_matches(root, Some(header))
+                .unwrap()
+        );
+        runtime.adapter().validate_graph(runtime.graph()).unwrap();
+
+        runtime
+            .update(view().pane_header(reactor::Button::new().content("Replacement")))
+            .unwrap();
+        let replacement = runtime
+            .graph()
+            .child(root, reactor::RelationId::PaneHeader)
+            .unwrap();
+        assert_ne!(replacement, header);
+        assert!(!runtime.adapter().contains_object(header));
+        assert!(
+            runtime
+                .adapter()
+                .navigation_view_pane_header_matches(root, Some(replacement))
+                .unwrap()
+        );
+
+        runtime.update(view()).unwrap();
+        assert!(!runtime.adapter().contains_object(replacement));
+        assert!(
+            runtime
+                .adapter()
+                .navigation_view_pane_header_matches(root, None)
+                .unwrap()
+        );
+        assert_eq!(runtime.graph().root(), Some(root));
+        assert_eq!(
+            runtime.graph().child(root, reactor::RelationId::PaneFooter),
+            Some(footer)
+        );
+        assert_eq!(
+            runtime.graph().child(root, reactor::RelationId::Content),
+            Some(content)
+        );
+        runtime.adapter().validate_graph(runtime.graph()).unwrap();
+    }
+
     fn verify_generated_coverage() {
         for case in generated_coverage::cases() {
             let mut runtime = reactor::Runtime::new(reactor::native::WinUiAdapter::default());
@@ -439,6 +545,7 @@ impl reactor::Component for Fixture {
 
     fn create(_input: &Self::Input, context: &reactor::ComponentContext<Self>) -> Self {
         Self::verify_generated_coverage();
+        Self::verify_navigation_view_properties();
         let text = Rc::new(RefCell::new(Rc::<str>::from("Initial text")));
         let text_changed_count = Rc::new(Cell::new(0));
         let text_for_callback = Rc::clone(&text);

@@ -12935,6 +12935,25 @@ impl INavigationView2 {
             .ok()
         }
     }
+    pub(crate) fn IsBackEnabled(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsBackEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetIsBackEnabled(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsBackEnabled)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetPaneTitle(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetPaneTitle)(
@@ -12956,6 +12975,28 @@ impl INavigationView2 {
             .ok()
         }
     }
+    pub(crate) fn PaneHeader(&self) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).PaneHeader)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn SetPaneHeader<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPaneHeader)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetPaneCustomContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UIElement>,
@@ -12964,6 +13005,25 @@ impl INavigationView2 {
             (windows_core::Interface::vtable(self).SetPaneCustomContent)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn IsPaneVisible(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsPaneVisible)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetIsPaneVisible(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsPaneVisible)(
+                windows_core::Interface::as_raw(self),
+                value,
             )
             .ok()
         }
@@ -12977,8 +13037,10 @@ pub struct INavigationView2_Vtbl {
         *mut core::ffi::c_void,
         NavigationViewBackButtonVisible,
     ) -> windows_core::HRESULT,
-    IsBackEnabled: usize,
-    SetIsBackEnabled: usize,
+    pub IsBackEnabled:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsBackEnabled:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     PaneTitle: usize,
     pub SetPaneTitle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -12999,13 +13061,25 @@ pub struct INavigationView2_Vtbl {
         *mut core::ffi::c_void,
         NavigationViewPaneDisplayMode,
     ) -> windows_core::HRESULT,
-    PaneHeader: usize,
-    SetPaneHeader: usize,
+    pub PaneHeader: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetPaneHeader: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     PaneCustomContent: usize,
     pub SetPaneCustomContent: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    ContentOverlay: usize,
+    SetContentOverlay: usize,
+    pub IsPaneVisible:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsPaneVisible:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     INavigationViewDisplayModeChangedEventArgs,
@@ -13341,12 +13415,22 @@ pub struct INavigationViewStatics2_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    IsBackEnabledProperty: usize,
+    pub IsBackEnabledProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub PaneTitleProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub PaneDisplayModeProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    PaneHeaderProperty: usize,
+    PaneCustomContentProperty: usize,
+    ContentOverlayProperty: usize,
+    pub IsPaneVisibleProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -24539,6 +24623,16 @@ impl NavigationView {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
+    pub(crate) fn IsBackEnabledProperty() -> windows_core::Result<DependencyProperty> {
+        Self::INavigationViewStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBackEnabledProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
     pub(crate) fn PaneTitleProperty() -> windows_core::Result<DependencyProperty> {
         Self::INavigationViewStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -24553,6 +24647,16 @@ impl NavigationView {
         Self::INavigationViewStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PaneDisplayModeProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn IsPaneVisibleProperty() -> windows_core::Result<DependencyProperty> {
+        Self::INavigationViewStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPaneVisibleProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
