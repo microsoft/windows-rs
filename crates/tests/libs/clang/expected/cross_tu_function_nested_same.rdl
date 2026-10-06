@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    struct ARG {
+        next: *mut ARG,
+        value: i32,
+    }
+    #[library("test.dll")]
+    extern "C" fn F(value: *mut ARG);
+}

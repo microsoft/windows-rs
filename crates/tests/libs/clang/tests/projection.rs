@@ -1,44 +1,10 @@
 use windows_metadata::{
     Type,
-    reader::{Index, Item, MethodDef, ParamDirection},
+    reader::{Item, MethodDef, ParamDirection},
 };
 
-fn compile(name: &str) -> Index {
-    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
-    let scratch = std::path::Path::new(env!("OUT_DIR")).join(format!("projection-{name}"));
-    std::fs::create_dir_all(&scratch).unwrap();
-    let rdl = scratch.join("test.rdl");
-    let winmd = scratch.join("test.winmd");
-    let input = root.join("input").join(format!("{name}.h"));
-    let source = std::fs::read_to_string(&input).unwrap();
-    let mut clang = windows_clang::clang();
-    clang
-        .input(&input)
-        .args(["-x", "c++"])
-        .namespace("Test")
-        .library("test.dll")
-        .output(&rdl);
-    let mut reader = windows_rdl::reader();
-    reader.input(&rdl).output(&winmd);
-    for reference in source
-        .lines()
-        .filter_map(|line| line.strip_prefix("//! reference "))
-    {
-        let output = scratch
-            .join(format!("reference-{}", reference.trim()))
-            .with_extension("winmd");
-        windows_rdl::reader()
-            .input(root.join("input").join(reference.trim()))
-            .output(&output)
-            .write()
-            .unwrap();
-        clang.reference(&output);
-        reader.reference(&output);
-    }
-    clang.write().unwrap();
-    reader.write().unwrap();
-    Index::read(&winmd).unwrap()
-}
+pub mod common;
+use common::compile;
 
 fn directions(method: MethodDef<'_>, expected: &[ParamDirection]) {
     let signature = method.signature(&[]);
@@ -50,6 +16,63 @@ fn directions(method: MethodDef<'_>, expected: &[ParamDirection]) {
         .map(|param| param.unwrap().direction())
         .collect();
     assert_eq!(actual, expected, "{}", method.name());
+}
+
+#[test]
+fn completed_interfaces_have_one_pointer_representation() {
+    use ParamDirection::{Input, Output};
+    let index = compile("cross_tu_interface");
+    let interface = Type::class_named("Test", "IFoo");
+    for name in ["FromForward", "FromComplete"] {
+        let Item::Fn(function) = index.expect_item("Test", name) else {
+            panic!();
+        };
+        let signature = function.signature(&[]);
+        assert_eq!(signature.return_type, interface, "{name}");
+        assert_eq!(
+            signature.types,
+            [
+                interface.clone(),
+                Type::PtrMut(Box::new(interface.clone()), 1),
+            ],
+            "{name}"
+        );
+        directions(function, &[Input, Output]);
+    }
+    for name in ["FooCallback", "IUseForward"] {
+        let Item::Type(ty) = index.expect_item("Test", name) else {
+            panic!();
+        };
+        let method = ty.methods().next().unwrap();
+        let signature = method.signature(&[]);
+        assert_eq!(signature.return_type, interface, "{name}");
+        assert_eq!(signature.types, std::slice::from_ref(&interface), "{name}");
+        directions(method, &[Input]);
+    }
+    for name in ["UsesFoo", "UsesComplete"] {
+        let Item::Type(ty) = index.expect_item("Test", name) else {
+            panic!();
+        };
+        for field in ty.fields() {
+            let expected = match field.name() {
+                "slot" => Type::PtrMut(Box::new(interface.clone()), 1),
+                "array" => Type::ArrayFixed(Box::new(interface.clone()), 2),
+                _ => interface.clone(),
+            };
+            assert_eq!(field.ty(), expected, "{name}: {}", field.name());
+        }
+    }
+}
+
+#[test]
+fn property_keys_use_resolved_external_types() {
+    let index = compile("property_key_reference");
+    for (name, ty) in [("PKEY_Test", "PROPERTYKEY"), ("DEVPKEY_Test", "DEVPROPKEY")] {
+        let Item::Const(field) = index.expect_item("Test", name) else {
+            panic!();
+        };
+        assert_eq!(field.ty(), Type::value_named("External", ty));
+    }
 }
 
 #[test]

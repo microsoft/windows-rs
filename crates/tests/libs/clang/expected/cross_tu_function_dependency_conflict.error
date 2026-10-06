@@ -1,0 +1,1 @@
+incompatible dependency `ARG` of function `F`: ambiguous type root `ARG`: <input>/types.h:14 Typedef/Typedef definition; <input>/types.h:14 Typedef/Typedef definition

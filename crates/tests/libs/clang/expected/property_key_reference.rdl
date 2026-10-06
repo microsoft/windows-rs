@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[guid(0x87654321_abcd_1234_0123_456789abcdef)]
+    const DEVPKEY_Test: External::DEVPROPKEY = 7;
+    #[guid(0x12345678_1234_abcd_9876_0123456789ab)]
+    const PKEY_Test: External::PROPERTYKEY = 4;
+}

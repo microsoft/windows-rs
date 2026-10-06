@@ -1,0 +1,11 @@
+#[win32]
+mod External {
+    struct PROPERTYKEY {
+        fmtid: GUID,
+        pid: u32,
+    }
+    struct DEVPROPKEY {
+        fmtid: GUID,
+        pid: u32,
+    }
+}

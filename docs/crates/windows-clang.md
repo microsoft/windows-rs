@@ -137,9 +137,14 @@ distinct overloads can share an explicit linker name. Such collisions are reject
 redeclarations retain the existing representative and annotation-selection policy.
 
 This identity check applies only within one translation unit. Neither a USR nor a source location
-proves that separate TUs observed compatible definitions. Cross-TU function selection and type
-reconciliation use their existing rules; no native compatibility pass or definition graph is
-constructed.
+proves that separate TUs observed compatible definitions. Before coalescing identical source
+declaration facts across TUs, the planner walks every candidate's reachable type dependencies and
+applies the type reconciliation rules. This includes dependencies outside the configured root
+headers, so filtering roots cannot hide conflicting typedef or record definitions.
+
+Dependency validation operates on `FactData` and `TypeRef`; it does not recover native distinctions
+lost during extraction. It is not a complete native compatibility check, and it does not broaden
+function merging to declarations at different source locations.
 
 `extract/annotations.rs` captures parameter annotations once per projection attempt for functions,
 callbacks, and interface methods. Each Clang annotation retains its full spelling, including all
@@ -179,6 +184,10 @@ The planner records each named type and parameter's projection choice within its
 Dependency collection and emission use that choice; parameter direction follows the emitted type's
 RDL defaults. An input-only raw mutable pointer therefore needs `#[in]`, while a named string alias
 defaults to input.
+
+The final plan groups emitted names and TU-specific interface classification in `TypeResolution`
+records. Type emission, COM pointer handling, and property-key values consult those resolutions
+rather than independently spelling or classifying the original declarations.
 
 Canonical string names are emitted only when their definitions or metadata references are available.
 Otherwise, a named alias retains its source name and definition, and an annotated character pointer
@@ -245,6 +254,9 @@ An incomplete declaration may resolve to a complete declaration from another tra
 their public names and C/C++ declaration kinds match. The completed projection may differ from the
 placeholder representation: for example, an incomplete `struct` is initially a record but may
 resolve to a COM interface once another translation unit supplies its virtual definition.
+The selected definition's interface classification applies to every declaration admitted during
+resolution, including uses in the forward-declaring TU. Native `IFoo*` then projects to `IFoo`
+regardless of which TU supplied the use; `IFoo**` retains one explicit pointer level.
 Incompatible declaration kinds remain ambiguous.
 
 Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
@@ -334,6 +346,7 @@ setup:
 | `namespace <name>` | Sets the emitted namespace. |
 | `library <name>` | Sets the import library. |
 | `args <arguments>` | Replaces the libclang arguments. |
+| `filter <suffix>` | Selects root declarations from matching headers, without dropping dependencies. |
 | `reference-default` | Resolves extraction types against the default metadata. |
 | `reference <name>.rdl` | Compiles a sibling RDL file to metadata for reference and exclusion. |
 | `input <name>.h` | Starts a named translation unit in a multi-input fixture. |
@@ -346,6 +359,11 @@ Successful output is parsed with `windows-rdl`. An existing `expected/<name>.err
 fixture and receives the normalized diagnostic. Other fixtures write `expected/<name>.rdl`.
 Custom reference metadata is supplied to both extraction and output compilation. Reference
 directives may be repeated to combine metadata files.
+
+Golden and metadata tests share the fixture loader in `tests/common`. Metadata assertions cover
+completed-interface pointer levels and parameter directions, plus qualified property-key types.
+Cross-TU function fixtures check both compatible and conflicting dependencies in non-root headers,
+including recursive records.
 
 ```text
 cargo test -p windows-clang

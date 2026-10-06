@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    type ARG = i32;
+    #[library("test.dll")]
+    extern "C" fn F(value: ARG);
+}

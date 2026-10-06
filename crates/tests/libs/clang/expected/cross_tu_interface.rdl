@@ -1,5 +1,10 @@
 #[win32]
 mod Interfaces {
+    extern "C" fn FooCallback(value: IFoo) -> IFoo;
+    #[library("test.dll")]
+    extern "C" fn FromComplete(value: IFoo, output: *mut IFoo) -> IFoo;
+    #[library("test.dll")]
+    extern "C" fn FromForward(value: IFoo, output: *mut IFoo) -> IFoo;
     #[guid(0x11111111_1111_1111_1111_111111111111)]
     interface IBar: IFoo {
     }
@@ -7,7 +12,17 @@ mod Interfaces {
     interface IFoo {
         fn Method(&self);
     }
+    #[no_guid]
+    interface IUseForward {
+        fn Use(&self, value: IFoo) -> IFoo;
+    }
+    struct UsesComplete {
+        value: IFoo,
+    }
     struct UsesFoo {
-        value: *mut IFoo,
+        value: IFoo,
+        alias: IFoo,
+        slot: *mut IFoo,
+        array: [IFoo; 2],
     }
 }

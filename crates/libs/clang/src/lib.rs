@@ -524,20 +524,14 @@ impl Snapshot {
             );
         for (planned, kind) in planned {
             let fact = planned.fact;
+            let projection =
+                TypeProjection::new(&plan.type_resolutions, &plan.type_choices, &fact.origin.tu);
             let item = match &fact.data {
                 FactData::Callback {
                     convention,
                     params,
                     result,
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_callback(&planned.name, *convention, params, result, &projection)?
-                }
+                } => write_callback(&planned.name, *convention, params, result, &projection)?,
                 FactData::Class { guid } => {
                     format!(
                         "    const {}: GUID = {};\n",
@@ -557,34 +551,20 @@ impl Snapshot {
                         "    #[guid({})]\n    const {}: {} = {pid};\n",
                         rdl_uuid(guid),
                         rdl_ident(&planned.name),
-                        rdl_ident(ty)
+                        projection.projected_name(ty)
                     )
                 }
                 FactData::Typedef {
                     target: TypeRef::InlineRecord(record),
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_named_record(
-                        &rdl_ident(&planned.name),
-                        &record.fields,
-                        record.packing,
-                        record.alignment,
-                        record.union,
-                        &projection,
-                    )?
-                }
+                } => write_named_record(
+                    &rdl_ident(&planned.name),
+                    &record.fields,
+                    record.packing,
+                    record.alignment,
+                    record.union,
+                    &projection,
+                )?,
                 FactData::Typedef { target } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
                     format!(
                         "    type {} = {};\n",
                         rdl_ident(&planned.name),
@@ -624,43 +604,26 @@ impl Snapshot {
                     alignment,
                     union,
                     ..
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_named_record(
-                        &rdl_ident(&planned.name),
-                        fields,
-                        *packing,
-                        *alignment,
-                        *union,
-                        &projection,
-                    )?
-                }
+                } => write_named_record(
+                    &rdl_ident(&planned.name),
+                    fields,
+                    *packing,
+                    *alignment,
+                    *union,
+                    &projection,
+                )?,
                 FactData::Interface {
                     base,
                     guid,
                     methods,
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_interface(
-                        &rdl_ident(&planned.name),
-                        base.as_ref(),
-                        guid.as_deref().or_else(|| {
-                            plan.interface_guids.get(&planned.name).map(String::as_str)
-                        }),
-                        methods,
-                        &projection,
-                    )?
-                }
+                } => write_interface(
+                    &rdl_ident(&planned.name),
+                    base.as_ref(),
+                    guid.as_deref()
+                        .or_else(|| plan.interface_guids.get(&planned.name).map(String::as_str)),
+                    methods,
+                    &projection,
+                )?,
                 _ => {
                     return Err(Error(format!(
                         "planned type `{}` is not emittable",
@@ -694,8 +657,7 @@ impl Snapshot {
                 )));
             };
             let projection = TypeProjection::new(
-                &plan.type_names,
-                &plan.interface_names,
+                &plan.type_resolutions,
                 &plan.type_choices,
                 &function.origin.tu,
             );
@@ -1042,6 +1004,9 @@ impl Snapshot {
                     name,
                     &roots.functions,
                     &self.function_declarations,
+                    &facts_index,
+                    references,
+                    &mut shape_cache,
                 )?);
             }
             if let Some(value) = value {
@@ -1120,7 +1085,7 @@ impl Snapshot {
                 })
         };
         let mut type_choices = BTreeMap::new();
-        let facts_by_name = loop {
+        let (facts_by_name, type_origins) = loop {
             type_choices.clear();
             let mut facts = BTreeSet::new();
             let mut queue = vec![];
@@ -1262,7 +1227,7 @@ impl Snapshot {
             }
 
             let mut grouped: BTreeMap<&str, Vec<&Fact>> = BTreeMap::new();
-            for fact in facts.into_iter().map(|origin| facts_by_origin[&origin]) {
+            for fact in facts.iter().map(|origin| facts_by_origin[origin]) {
                 grouped.entry(&fact.name).or_default().push(fact);
             }
 
@@ -1299,7 +1264,7 @@ impl Snapshot {
                     choose_type_root_cached(name, &choices, &facts_index, &mut shape_cache)?;
                 facts_by_name.insert(name, selected);
             }
-            break facts_by_name;
+            break (facts_by_name, facts);
         };
         let mut validated_layouts: HashSet<_> = facts_by_name
             .values()
@@ -1588,19 +1553,15 @@ impl Snapshot {
             })
             .collect();
         let mut interface_names = BTreeSet::new();
-        for planned in &types {
-            if matches!(planned.fact.data, FactData::Interface { .. }) {
-                for fact in facts_index
-                    .get(planned.fact.name.as_str())
-                    .into_iter()
-                    .flatten()
-                {
-                    if matches!(fact.data, FactData::Interface { .. })
-                        && same_source_declaration(planned.fact, fact)
-                    {
-                        interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
-                    }
-                }
+        let interface_definitions: BTreeSet<_> = types
+            .iter()
+            .filter(|planned| matches!(planned.fact.data, FactData::Interface { .. }))
+            .map(|planned| planned.fact.name.as_str())
+            .collect();
+        for origin in &type_origins {
+            let fact = facts_by_origin[origin];
+            if interface_definitions.contains(fact.name.as_str()) {
+                interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
             }
         }
         let translation_units: BTreeSet<_> = self
@@ -1704,6 +1665,36 @@ impl Snapshot {
             type_names.insert(alias.clone(), target.clone());
         }
         types.retain(|planned| !pointer_interface_aliases.contains_key(&planned.fact.name));
+        let mut type_resolutions: BTreeMap<_, _> = type_names
+            .into_iter()
+            .map(|(source, name)| {
+                (
+                    source,
+                    TypeResolution {
+                        name,
+                        interface_tus: BTreeSet::new(),
+                    },
+                )
+            })
+            .collect();
+        for name in required {
+            type_resolutions
+                .entry(name.clone())
+                .or_insert_with(|| TypeResolution {
+                    name,
+                    interface_tus: BTreeSet::new(),
+                });
+        }
+        for (tu, name) in interface_names {
+            type_resolutions
+                .entry(name.clone())
+                .or_insert_with(|| TypeResolution {
+                    name,
+                    interface_tus: BTreeSet::new(),
+                })
+                .interface_tus
+                .insert(tu);
+        }
         let mut constants: Vec<_> = constants
             .into_iter()
             .filter_map(|constant| {
@@ -1711,12 +1702,7 @@ impl Snapshot {
                     Value::Utf8(_) | Value::Utf16(_) => Some("String".to_string()),
                     _ => constant_type_name(
                         &constant.ty,
-                        &TypeProjection::new(
-                            &type_names,
-                            &interface_names,
-                            &type_choices,
-                            &constant.root.tu,
-                        ),
+                        &TypeProjection::new(&type_resolutions, &type_choices, &constant.root.tu),
                         &pointer_interface_aliases,
                     ),
                 }?;
@@ -1781,8 +1767,7 @@ impl Snapshot {
             values,
             functions,
             constants,
-            type_names,
-            interface_names,
+            type_resolutions,
             type_choices,
             interface_guids,
             flag_enums,
@@ -1844,30 +1829,31 @@ struct Plan<'a> {
     values: Vec<PlannedFact<'a>>,
     functions: Vec<&'a Fact>,
     constants: Vec<PlannedConstant<'a>>,
-    type_names: BTreeMap<String, String>,
-    interface_names: BTreeSet<(String, String)>,
+    type_resolutions: BTreeMap<String, TypeResolution>,
     type_choices: BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
     interface_guids: BTreeMap<String, String>,
     flag_enums: BTreeSet<(String, String)>,
 }
 
+struct TypeResolution {
+    name: String,
+    interface_tus: BTreeSet<String>,
+}
+
 struct TypeProjection<'a> {
-    type_names: &'a BTreeMap<String, String>,
-    interface_names: &'a BTreeSet<(String, String)>,
+    types: &'a BTreeMap<String, TypeResolution>,
     type_choices: &'a BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
     tu: &'a str,
 }
 
 impl<'a> TypeProjection<'a> {
     fn new(
-        type_names: &'a BTreeMap<String, String>,
-        interface_names: &'a BTreeSet<(String, String)>,
+        types: &'a BTreeMap<String, TypeResolution>,
         type_choices: &'a BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
         tu: &'a str,
     ) -> Self {
         Self {
-            type_names,
-            interface_names,
+            types,
             type_choices,
             tu,
         }
@@ -1875,6 +1861,20 @@ impl<'a> TypeProjection<'a> {
 
     fn name(&self, ty: &TypeRef) -> String {
         self.project(TypeEdge::Type(ty)).name
+    }
+
+    fn projected_name(&self, name: &str) -> String {
+        rdl_ident(self.types.get(name).map_or(name, |ty| ty.name.as_str()))
+    }
+
+    fn is_interface(&self, ty: &TypeRef) -> bool {
+        match ty {
+            TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } => self
+                .types
+                .get(name)
+                .is_some_and(|ty| ty.interface_tus.contains(self.tu)),
+            _ => false,
+        }
     }
 
     fn parameter(&self, param: &Parameter) -> ProjectedType {
@@ -1891,11 +1891,7 @@ impl<'a> TypeProjection<'a> {
         let ty = match self.type_choices.get(&(self.tu, edge)) {
             Some(TypeChoice::Canonical(name)) => {
                 return ProjectedType {
-                    name: self
-                        .type_names
-                        .get(*name)
-                        .cloned()
-                        .unwrap_or_else(|| (*name).to_string()),
+                    name: self.projected_name(name),
                     mutable: *name == "*mut void",
                 };
             }
@@ -1924,11 +1920,7 @@ impl<'a> TypeProjection<'a> {
             };
         }
         if let TypeRef::Reference { mutable, target } = ty {
-            if let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target.as_ref()
-                && self
-                    .interface_names
-                    .contains(&(self.tu.to_string(), name.clone()))
-            {
+            if self.is_interface(target) {
                 return ProjectedType {
                     name: self.project(TypeEdge::Pointee(target, *mutable)).name,
                     mutable: false,
@@ -1946,7 +1938,7 @@ impl<'a> TypeProjection<'a> {
             return ProjectedType {
                 name: format!(
                     "{}<{}>",
-                    rdl_ident(self.type_names.get(name).unwrap_or(name)),
+                    self.projected_name(name),
                     args.iter()
                         .map(|arg| self.name(arg))
                         .collect::<Vec<_>>()
@@ -1956,12 +1948,7 @@ impl<'a> TypeProjection<'a> {
             };
         }
         let (mutable, depth, target) = pointer_run(ty);
-        if depth != 0
-            && let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target
-            && self
-                .interface_names
-                .contains(&(self.tu.to_string(), name.clone()))
-        {
+        if depth != 0 && self.is_interface(target) {
             return self.pointer(target, mutable, depth - 1);
         }
         if depth != 0 {
@@ -1973,7 +1960,7 @@ impl<'a> TypeProjection<'a> {
                 TypeRef::String => "String".to_string(),
                 TypeRef::Object => "Object".to_string(),
                 TypeRef::Scalar(scalar) => scalar_name(*scalar).to_string(),
-                TypeRef::Named { name, .. } => rdl_ident(self.type_names.get(name).unwrap_or(name)),
+                TypeRef::Named { name, .. } => self.projected_name(name),
                 TypeRef::InlineRecord(record) => record
                     .name
                     .clone()
@@ -2990,6 +2977,9 @@ fn choose_function_root<'a>(
     name: &str,
     roots: &[&'a Fact],
     declarations: &BTreeMap<Origin, extract::FunctionDeclaration>,
+    facts_index: &HashMap<&str, Vec<&'a Fact>>,
+    references: &BTreeMap<String, TypeReference>,
+    shape_cache: &mut ShapeCache,
 ) -> Result<&'a Fact, Error> {
     let distinct = if let Some(first) = roots.first()
         && roots.iter().all(|fact| fact.origin.tu == first.origin.tu)
@@ -2999,6 +2989,10 @@ fn choose_function_root<'a>(
         distinct_source_declarations(roots)
     };
     if let [root] = distinct.as_slice() {
+        if roots.iter().any(|fact| fact.origin.tu != root.origin.tu) {
+            // Equal signature facts can refer to different definitions in their respective TUs.
+            validate_function_dependencies(name, roots, facts_index, references, shape_cache)?;
+        }
         return Ok(root);
     }
     if let Some(first) = distinct.first()
@@ -3034,6 +3028,84 @@ fn choose_function_root<'a>(
     Err(Error(format!(
         "ambiguous function root `{name}`: {choices}"
     )))
+}
+
+fn validate_function_dependencies(
+    name: &str,
+    roots: &[&Fact],
+    facts_index: &HashMap<&str, Vec<&Fact>>,
+    references: &BTreeMap<String, TypeReference>,
+    shape_cache: &mut ShapeCache,
+) -> Result<(), Error> {
+    let mut queue = vec![];
+    for root in roots {
+        queue_function_edges(root, &mut queue);
+    }
+    let mut seen = BTreeSet::new();
+    let mut dependencies: BTreeMap<&str, Vec<&Fact>> = BTreeMap::new();
+    while let Some((tu, edge)) = queue.pop() {
+        let ty = match edge {
+            TypeEdge::Type(ty) | TypeEdge::Pointee(ty, _) => ty,
+            TypeEdge::Parameter(param) => &param.ty,
+            TypeEdge::Projected(_) => continue,
+        };
+        match ty {
+            TypeRef::Named {
+                name: dependency,
+                declaration,
+            } => {
+                let matches: Vec<_> = facts_index
+                    .get(dependency.as_str())
+                    .into_iter()
+                    .flatten()
+                    .copied()
+                    .filter(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
+                    .collect();
+                if matches.is_empty() && !references.contains_key(dependency) {
+                    return Err(Error(format!(
+                        "unresolved dependency `{dependency}` of function `{name}` in translation unit `{tu}`"
+                    )));
+                }
+                for fact in matches {
+                    if seen.insert(&fact.origin) {
+                        dependencies.entry(dependency).or_default().push(fact);
+                        queue_type_edges(fact, &mut queue);
+                    }
+                }
+            }
+            TypeRef::Pointer { target, .. }
+            | TypeRef::Reference { target, .. }
+            | TypeRef::Array { target, .. } => queue.push((tu, TypeEdge::Type(target))),
+            TypeRef::FunctionPointer { params, result, .. } => {
+                queue.push((tu, TypeEdge::Type(result)));
+                for param in params {
+                    queue.push((tu, TypeEdge::Type(param)));
+                }
+            }
+            TypeRef::Generic { args, .. } => {
+                for arg in args {
+                    queue.push((tu, TypeEdge::Type(arg)));
+                }
+            }
+            TypeRef::InlineRecord(record) => {
+                if let Some(base) = &record.base {
+                    queue.push((tu, TypeEdge::Type(base)));
+                }
+                for field in &record.fields {
+                    queue.push((tu, TypeEdge::Type(&field.ty)));
+                }
+            }
+            _ => {}
+        }
+    }
+    for (dependency, facts) in dependencies {
+        choose_type_root_cached(dependency, &facts, facts_index, shape_cache).map_err(|error| {
+            Error(format!(
+                "incompatible dependency `{dependency}` of function `{name}`: {error}"
+            ))
+        })?;
+    }
+    Ok(())
 }
 
 fn distinct_source_declarations<'a>(roots: &[&'a Fact]) -> Vec<&'a Fact> {
@@ -3947,13 +4019,7 @@ fn constant_type_name(
         TypeRef::Named { name, .. } if pointer_interface_aliases.contains_key(name) => {
             return None;
         }
-        TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
-            if projection
-                .interface_names
-                .contains(&(projection.tu.to_string(), name.clone())) =>
-        {
-            return None;
-        }
+        _ if projection.is_interface(ty) => return None,
         TypeRef::Void
         | TypeRef::Object
         | TypeRef::Generic { .. }
