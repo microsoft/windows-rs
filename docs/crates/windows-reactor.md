@@ -263,7 +263,23 @@ service injection, schema metadata, and generic property/event records are avail
 the `test` feature. Applications should use `App::run_component`, component messages, and `provide`
 rather than drive a retained host directly.
 Typed control callbacks and reference integration methods do not expose the runtime records.
-`ObjectId` remains public through `ElementRef::get()`.
+`ElementRef` exposes typed asynchronous operations rather than native object identity. The `test`
+feature retains `ElementRef::get()` and `ObjectId` for graph assertions and benchmarks.
+The reference compatibility traits are sealed because only generated controls and `ElementRef`
+implementations participate in that contract. The public API snapshot includes doc-hidden items so
+internal marker traits and methods cannot change without review.
+`AnyElement` remains a doc-hidden default marker for erased references, including component roots.
+Swap-chain metrics carry an opaque binding token so companion crates can reject stale completions
+without depending on Reactor's internal binding counter.
+
+Callback and view conversion traits are sealed. They accept the closure, callback, tuple, array,
+and vector forms supplied by Reactor without creating downstream implementation protocols.
+This is a closed conversion policy, not a requirement for runtime correctness. Custom collection
+wrappers must produce `Vec<View>` or another supported input instead of implementing `IntoViews`.
+Task and timer handles expose cancellation and delivery rejection in normal builds; full queue-state
+inspection is diagnostic and remains available with the `test` feature.
+`is_rejected()` polls for terminal queue rejection, not completion: `false` also includes pending
+and cancelled work. It does not notify the application or retry a rejected message.
 
 `src/lib.rs` explicitly exports handwritten application types. Generated controls and their value
 enums are exported from `declaration::generated_declarations`; the metadata in `generated` and
@@ -290,6 +306,10 @@ counter updates, and conditional erased-component inspection methods. Diagnostic
 test-only implementations belong in `test_support`. Unit-only mutation capture and reference
 scan instrumentation remain gated by `cfg(test)`, not the `test` feature, so external benchmarks
 do not acquire their allocation or layout costs.
+
+Handwritten native WinUI code compiles without a module-wide dead-code allowance. Diagnostic
+window helpers and event simulation live in `test_support`; generated bindings retain their
+separate allowance for unused metadata projections.
 
 Full property-contract enumeration and queued key/character payloads are diagnostic-only.
 Production validates individual properties and invokes routed input callbacks synchronously.

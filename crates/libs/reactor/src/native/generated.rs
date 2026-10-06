@@ -10873,6 +10873,7 @@ impl GeneratedHandle {
             _ => None,
         }
     }
+    #[cfg(any(test, feature = "test"))]
     fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> {
         match (self, event) {
             (Self::Button(object), EventId::Click) => Some(&object.click),

@@ -338,9 +338,24 @@ impl ExitTransition {
     }
 }
 
-pub trait IntoPayloadCallback<T> {
+/// Converts a closure or existing callback into a payload callback.
+///
+/// This trait is sealed; applications use it through callback-taking APIs.
+///
+/// ```compile_fail,E0277
+/// struct CustomCallback;
+///
+/// impl windows_reactor::IntoPayloadCallback<u32> for CustomCallback {
+///     fn into_payload_callback(self) -> windows_reactor::Callback<u32> {
+///         windows_reactor::Callback::new(|_| {})
+///     }
+/// }
+/// ```
+pub trait IntoPayloadCallback<T>: sealed::PayloadCallback<T> {
     fn into_payload_callback(self) -> Callback<T>;
 }
+
+impl<T, F> sealed::PayloadCallback<T> for F where F: Fn(T) + 'static {}
 
 impl<T, F> IntoPayloadCallback<T> for F
 where
@@ -351,15 +366,32 @@ where
     }
 }
 
+impl<T> sealed::PayloadCallback<T> for Callback<T> {}
+
 impl<T> IntoPayloadCallback<T> for Callback<T> {
     fn into_payload_callback(self) -> Self {
         self
     }
 }
 
-pub trait IntoUnitCallback {
+/// Converts a closure or existing callback into a parameterless callback.
+///
+/// This trait is sealed; applications use it through callback-taking APIs.
+///
+/// ```compile_fail,E0277
+/// struct CustomCallback;
+///
+/// impl windows_reactor::IntoUnitCallback for CustomCallback {
+///     fn into_unit_callback(self) -> windows_reactor::Callback<()> {
+///         windows_reactor::Callback::new(|_| {})
+///     }
+/// }
+/// ```
+pub trait IntoUnitCallback: sealed::UnitCallback {
     fn into_unit_callback(self) -> Callback<()>;
 }
+
+impl<F> sealed::UnitCallback for F where F: Fn() + 'static {}
 
 impl<F> IntoUnitCallback for F
 where
@@ -369,6 +401,8 @@ where
         Callback::new(move |()| self())
     }
 }
+
+impl sealed::UnitCallback for Callback<()> {}
 
 impl IntoUnitCallback for Callback<()> {
     fn into_unit_callback(self) -> Self {
@@ -2184,10 +2218,40 @@ pub fn keyed(key: impl Into<Key>, visual: impl Into<View>) -> KeyedView {
     KeyedView(visual)
 }
 
-pub trait IntoViews {
+/// Converts Reactor's supported view collections into an ordered list.
+///
+/// Accepts `()`, `Vec<View>`, `[View; N]`, and tuples of one through sixteen values implementing
+/// `Into<View>`. Tuples may mix control types.
+///
+/// This trait is sealed; applications use it through child-taking builders. Custom collections
+/// must convert to one of these forms rather than implement this trait:
+///
+/// ```
+/// use windows_reactor::{StackPanel, TextBlock, View};
+///
+/// let labels = ["First", "Second"];
+/// let children: Vec<View> = labels
+///     .into_iter()
+///     .map(|label| TextBlock::new().text(label).into())
+///     .collect();
+/// let _ = StackPanel::new().children(children);
+/// ```
+///
+/// ```compile_fail,E0277
+/// struct CustomViews;
+///
+/// impl windows_reactor::IntoViews for CustomViews {
+///     fn into_visuals(self) -> Vec<windows_reactor::View> {
+///         Vec::new()
+///     }
+/// }
+/// ```
+pub trait IntoViews: Sealed {
     #[doc(hidden)]
     fn into_visuals(self) -> Vec<View>;
 }
+
+impl Sealed for () {}
 
 impl IntoViews for () {
     fn into_visuals(self) -> Vec<View> {
@@ -2195,11 +2259,15 @@ impl IntoViews for () {
     }
 }
 
+impl<const N: usize> Sealed for [View; N] {}
+
 impl<const N: usize> IntoViews for [View; N] {
     fn into_visuals(self) -> Vec<View> {
         self.into()
     }
 }
+
+impl Sealed for Vec<View> {}
 
 impl IntoViews for Vec<View> {
     fn into_visuals(self) -> Vec<View> {
@@ -2209,6 +2277,11 @@ impl IntoViews for Vec<View> {
 
 macro_rules! impl_into_visuals_tuple {
     ($($type:ident $index:tt),+ $(,)?) => {
+        impl<$($type),+> Sealed for ($($type,)+)
+        where
+            $($type: Into<View>,)+
+        {}
+
         impl<$($type),+> IntoViews for ($($type,)+)
         where
             $($type: Into<View>,)+

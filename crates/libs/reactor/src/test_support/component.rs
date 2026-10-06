@@ -1,6 +1,18 @@
 use super::*;
 use std::sync::Condvar;
 
+impl ComponentTask {
+    pub fn status(&self) -> ComponentTaskStatus {
+        self.control.status()
+    }
+}
+
+impl ComponentTimer {
+    pub fn status(&self) -> ComponentTaskStatus {
+        self.task.status()
+    }
+}
+
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ComponentHostState {
     pub live_scopes: usize,

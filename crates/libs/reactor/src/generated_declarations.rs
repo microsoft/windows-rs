@@ -1878,6 +1878,7 @@ impl From<TextBlock> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct TextBox(Declaration);
+impl Sealed for TextBox {}
 impl ReferenceElement for TextBox {}
 impl TextBox {
     pub fn new(text: impl AsRef<str>) -> Self {
@@ -1965,6 +1966,7 @@ impl From<TextBox> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct Button(Declaration);
+impl Sealed for Button {}
 impl ReferenceElement for Button {}
 impl Button {
     pub fn new() -> Self {
@@ -2059,6 +2061,7 @@ impl From<Button> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct CheckBox(Declaration);
+impl Sealed for CheckBox {}
 impl ReferenceElement for CheckBox {}
 impl CheckBox {
     pub fn new() -> Self {
@@ -2123,6 +2126,7 @@ impl From<CheckBox> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct Border(Declaration);
+impl Sealed for Border {}
 impl ReferenceElement for Border {}
 impl Border {
     pub fn new() -> Self {
@@ -2389,6 +2393,7 @@ impl From<Border> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct Grid(Declaration);
+impl Sealed for Grid {}
 impl ReferenceElement for Grid {}
 impl Grid {
     pub fn new() -> Self {
@@ -2783,6 +2788,7 @@ impl From<TitleBar> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct Slider(Declaration);
+impl Sealed for Slider {}
 impl ReferenceElement for Slider {}
 impl Slider {
     pub fn new() -> Self {
@@ -3080,6 +3086,7 @@ impl DataItem {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct HyperlinkButton(Declaration);
+impl Sealed for HyperlinkButton {}
 impl ReferenceElement for HyperlinkButton {}
 impl HyperlinkButton {
     pub fn new() -> Self {
@@ -3315,6 +3322,7 @@ impl From<VariableSizedWrapGrid> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct AutoSuggestBox(Declaration);
+impl Sealed for AutoSuggestBox {}
 impl ReferenceElement for AutoSuggestBox {}
 impl AutoSuggestBox {
     pub fn new() -> Self {
@@ -3400,6 +3408,7 @@ impl From<AutoSuggestBox> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct PasswordBox(Declaration);
+impl Sealed for PasswordBox {}
 impl ReferenceElement for PasswordBox {}
 impl PasswordBox {
     pub fn new() -> Self {
@@ -3468,6 +3477,7 @@ impl From<PasswordBox> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct NumberBox(Declaration);
+impl Sealed for NumberBox {}
 impl ReferenceElement for NumberBox {}
 impl NumberBox {
     pub fn new() -> Self {
@@ -3993,6 +4003,7 @@ impl From<ProgressBar> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ToggleSwitch(Declaration);
+impl Sealed for ToggleSwitch {}
 impl ReferenceElement for ToggleSwitch {}
 impl ToggleSwitch {
     pub fn new() -> Self {
@@ -4072,6 +4083,7 @@ impl From<ToggleSwitch> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ToggleButton(Declaration);
+impl Sealed for ToggleButton {}
 impl ReferenceElement for ToggleButton {}
 impl ToggleButton {
     pub fn new() -> Self {
@@ -4129,6 +4141,7 @@ impl From<ToggleButton> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct RadioButton(Declaration);
+impl Sealed for RadioButton {}
 impl ReferenceElement for RadioButton {}
 impl RadioButton {
     pub fn new() -> Self {
@@ -4458,6 +4471,7 @@ impl From<ScrollView> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct Image(Declaration);
+impl Sealed for Image {}
 impl ReferenceElement for Image {}
 impl Image {
     pub fn new() -> Self {
@@ -5031,6 +5045,7 @@ impl From<ListBoxItem> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct RatingControl(Declaration);
+impl Sealed for RatingControl {}
 impl ReferenceElement for RatingControl {}
 impl RatingControl {
     pub fn new() -> Self {
@@ -5159,6 +5174,7 @@ impl From<Expander> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ComboBox(Declaration);
+impl Sealed for ComboBox {}
 impl ReferenceElement for ComboBox {}
 impl ComboBox {
     pub fn new() -> Self {
@@ -6628,6 +6644,7 @@ impl From<RelativePanel> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct RichEditBox(Declaration);
+impl Sealed for RichEditBox {}
 impl ReferenceElement for RichEditBox {}
 impl RichEditBox {
     pub fn new() -> Self {
@@ -6743,6 +6760,7 @@ impl From<RichTextBlock> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct WebView2(Declaration);
+impl Sealed for WebView2 {}
 impl ReferenceElement for WebView2 {}
 impl WebView2 {
     pub fn new() -> Self {
@@ -6764,6 +6782,7 @@ impl From<WebView2> for View {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct SwapChainPanel(Declaration);
+impl Sealed for SwapChainPanel {}
 impl ReferenceElement for SwapChainPanel {}
 impl SwapChainPanel {
     pub fn new() -> Self {

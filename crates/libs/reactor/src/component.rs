@@ -647,8 +647,13 @@ impl ComponentTask {
         self.control.cancel();
     }
 
-    pub fn status(&self) -> ComponentTaskStatus {
-        self.control.status()
+    /// Returns whether the result message was rejected because the component queue was full
+    /// or closed. Rejection is terminal; the result is not retried.
+    ///
+    /// This is a snapshot, not a notification. `false` does not imply successful delivery:
+    /// the task may still be running, queued, delivered, or cancelled.
+    pub fn is_rejected(&self) -> bool {
+        self.control.status() == ComponentTaskStatus::Rejected
     }
 }
 
@@ -662,8 +667,13 @@ impl ComponentTimer {
         self.task.cancel();
     }
 
-    pub fn status(&self) -> ComponentTaskStatus {
-        self.task.status()
+    /// Returns whether the timer message was rejected because the component queue was full
+    /// or closed. Rejection is terminal; the message is not retried.
+    ///
+    /// This is a snapshot, not a notification. `false` does not imply successful delivery:
+    /// the timer may still be waiting, queued, delivered, or cancelled.
+    pub fn is_rejected(&self) -> bool {
+        self.task.is_rejected()
     }
 }
 

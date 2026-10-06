@@ -122,6 +122,71 @@ fn stale_imperative_completion_reports_unavailable_after_rebinding() {
 }
 
 #[test]
+fn surface_binding_tokens_follow_reference_bindings_not_panel_identity() {
+    let commands = Rc::new(RefCell::new(Vec::new()));
+    let reference = ElementRef::<SwapChainPanel>::new();
+    let _observation = reference.observe_surface(|_| {});
+    let mut runtime = Runtime::new(HoldingImperativeAdapter {
+        inner: RecordingAdapter::default(),
+        commands: Rc::clone(&commands),
+    });
+    let last_binding = || {
+        commands
+            .borrow()
+            .iter()
+            .rev()
+            .find_map(|request| match request {
+                ImperativeRequest::ObserveSwapChainPanel { binding, .. } => {
+                    Some(SwapChainPanelBinding::new(*binding))
+                }
+                _ => None,
+            })
+            .unwrap()
+    };
+
+    runtime
+        .update(SwapChainPanel::new().element_ref(&reference))
+        .unwrap();
+    runtime.dispatch_native_events().unwrap();
+    let panel = reference.get().unwrap();
+    let initial = last_binding();
+
+    runtime
+        .update(SwapChainPanel::new().element_ref(&reference).width(100.0))
+        .unwrap();
+    commands.borrow_mut().clear();
+    let _second_observation = reference.observe_surface(|_| {});
+    runtime.dispatch_native_events().unwrap();
+    assert_eq!(last_binding(), initial);
+    assert_eq!(reference.get(), Some(panel));
+
+    runtime.update(SwapChainPanel::new()).unwrap();
+    runtime.dispatch_native_events().unwrap();
+    assert_eq!(reference.get(), None);
+    assert_eq!(runtime.graph().root(), Some(panel));
+
+    commands.borrow_mut().clear();
+    runtime
+        .update(SwapChainPanel::new().element_ref(&reference))
+        .unwrap();
+    runtime.dispatch_native_events().unwrap();
+    let rebound = last_binding();
+    assert_ne!(rebound, initial);
+    assert_eq!(reference.get(), Some(panel));
+    let bindings: Vec<_> = commands
+        .borrow()
+        .iter()
+        .filter_map(|request| match request {
+            ImperativeRequest::ObserveSwapChainPanel { binding, .. } => {
+                Some(SwapChainPanelBinding::new(*binding))
+            }
+            _ => None,
+        })
+        .collect();
+    assert_eq!(bindings, [rebound, rebound]);
+}
+
+#[test]
 fn observations_follow_reference_rebinding_and_drop() {
     let commands = Rc::new(RefCell::new(Vec::new()));
     let reference = ElementRef::<Grid>::new();
