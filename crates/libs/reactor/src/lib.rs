@@ -5,6 +5,7 @@
 mod guide {}
 
 #[cfg(any(test, feature = "test"))]
+#[path = "test_support/adapter.rs"]
 mod adapter;
 mod component;
 mod declaration;

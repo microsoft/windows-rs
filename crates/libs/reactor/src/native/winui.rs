@@ -1957,7 +1957,10 @@ fn clear_window_icon(hwnd: *mut core::ffi::c_void) {
 include!("winui/hosting.rs");
 
 #[cfg(any(test, feature = "test"))]
-include!("winui/diagnostics.rs");
+#[path = "../test_support/native/winui.rs"]
+mod test_support;
+#[cfg(feature = "test")]
+pub use test_support::*;
 
 include!("winui/objects.rs");
 include!("winui/events.rs");
@@ -2134,4 +2137,5 @@ fn set_grid_definitions(
 }
 
 #[cfg(test)]
-include!("winui/tests.rs");
+#[path = "../tests/native/winui.rs"]
+mod tests;

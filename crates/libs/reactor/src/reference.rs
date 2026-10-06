@@ -675,22 +675,6 @@ impl ImperativeRequest {
         }
     }
 
-    #[cfg(any(test, feature = "test"))]
-    pub(crate) fn object(&self) -> ObjectId {
-        match self {
-            Self::Focus { object, .. }
-            | Self::InitializeWebView2 { object, .. }
-            | Self::ObserveSwapChainPanel { object, .. }
-            | Self::RequestSwapChainPanelFrame { object, .. }
-            | Self::SetSwapChain { object, .. }
-            | Self::SetNativeImageSource { object, .. }
-            | Self::ObserveImageScale { object, .. }
-            | Self::ObserveCompositionHost { object, .. }
-            | Self::RevokeObservation { object, .. }
-            | Self::SetCompositionChildVisual { object, .. } => *object,
-        }
-    }
-
     pub(crate) fn complete_unavailable(&self) {
         match self {
             Self::Focus { completion, .. } => {
@@ -732,3 +716,7 @@ impl<T: ReferenceElement> CompatibleElementRef<T> for ElementRef<AnyElement> {
         self.clone()
     }
 }
+
+#[cfg(any(test, feature = "test"))]
+#[path = "test_support/reference.rs"]
+mod test_support;

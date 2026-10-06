@@ -1,3 +1,5 @@
+use super::*;
+
 pub fn window_has_explicit_icon(hwnd: *mut core::ffi::c_void) -> bool {
     unsafe {
         native::SendMessageW(
@@ -15,7 +17,6 @@ pub fn window_has_explicit_icon(hwnd: *mut core::ffi::c_void) -> bool {
     }
 }
 
-#[cfg(any(test, feature = "test"))]
 impl WinUiAdapter {
     pub fn validate_graph(&self, graph: &RetainedGraph) -> Result<(), WinUiError> {
         let Some(root) = graph.root() else {
@@ -83,8 +84,7 @@ impl WinUiAdapter {
                         _ => None,
                     })
                     .unwrap_or_default();
-                let properties =
-                    value.cast::<IMap<HSTRING, IInspectable>>()?;
+                let properties = value.cast::<IMap<HSTRING, IInspectable>>()?;
                 let actual = properties.Lookup(&self.data_text_key)?;
                 let actual = actual
                     .cast::<windows_reference::IReference<HSTRING>>()?
@@ -359,12 +359,10 @@ impl WinUiAdapter {
         Ok(items.shells.pool.borrow().shells.len())
     }
 
-    #[cfg(any(test, feature = "test"))]
     pub fn queued_event_count(&self) -> usize {
         self.event_queue.events.borrow().len()
     }
 
-    #[cfg(any(test, feature = "test"))]
     pub fn total_virtual_shell_count(&self) -> usize {
         self.virtual_items
             .values()
@@ -372,7 +370,6 @@ impl WinUiAdapter {
             .sum()
     }
 
-    #[cfg(any(test, feature = "test"))]
     pub fn virtual_shell_counts(&self) -> (usize, usize) {
         self.virtual_items
             .values()
@@ -662,16 +659,7 @@ impl WinUiAdapter {
     pub fn list_view_state(
         &self,
         object: ObjectId,
-    ) -> Result<
-        (
-            Option<usize>,
-            ListViewSelectionMode,
-            bool,
-            bool,
-            bool,
-        ),
-        WinUiError,
-    > {
+    ) -> Result<(Option<usize>, ListViewSelectionMode, bool, bool, bool), WinUiError> {
         let Some(Handle::ListView(list)) = self.handles.get(&object) else {
             return Err(WinUiError::InvalidObject(object));
         };
@@ -787,11 +775,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    pub fn simulate_color_changed(
-        &self,
-        object: ObjectId,
-        value: Color,
-    ) -> Result<(), WinUiError> {
+    pub fn simulate_color_changed(&self, object: ObjectId, value: Color) -> Result<(), WinUiError> {
         let Some(Handle::Generated(GeneratedHandle::ColorPicker(control))) =
             self.handles.get(&object)
         else {
@@ -1278,8 +1262,8 @@ impl WinUiAdapter {
         object: ObjectId,
         selected: Option<ObjectId>,
     ) -> Result<(), WinUiError> {
-        let selection = selection_contract(self.kind(object)?)
-            .ok_or(WinUiError::InvalidObject(object))?;
+        let selection =
+            selection_contract(self.kind(object)?).ok_or(WinUiError::InvalidObject(object))?;
         let selected = selected
             .map(|selected| {
                 self.event_queue
@@ -1297,8 +1281,8 @@ impl WinUiAdapter {
     }
 
     pub fn selected_item(&self, object: ObjectId) -> Result<Option<ObjectId>, WinUiError> {
-        let selection = selection_contract(self.kind(object)?)
-            .ok_or(WinUiError::InvalidObject(object))?;
+        let selection =
+            selection_contract(self.kind(object)?).ok_or(WinUiError::InvalidObject(object))?;
         let selected = self.read_selected_item(object, selection)?;
         Ok(selected.as_ref().and_then(|selected| {
             self.event_queue
