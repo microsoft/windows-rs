@@ -3,6 +3,10 @@ use std::fmt::Write;
 use std::fs;
 use std::path::{Path, PathBuf};
 
+mod assets;
+#[path = "../../../libs/reactor-setup/src/runtime.rs"]
+mod runtime;
+
 const WINMD: &str = "crates/tools/reactor-metadata/winmd";
 const EXTRAS_RDL: &str = "crates/tools/reactor-metadata/src/extras.rdl";
 const EXTRAS_WINMD: &str = "crates/tools/reactor-metadata/winmd/extras.winmd";
@@ -20,6 +24,7 @@ fn main() {
 
     refresh_winmd(&nuspec);
     generate_extras(&header);
+    assets::generate(&nuspec, &runtime, &header);
     fs::write(workspace_path(SETUP_VERSION), runtime_version)
         .unwrap_or_else(|error| panic!("cannot write `{SETUP_VERSION}`: {error}"));
 }
@@ -58,6 +63,17 @@ fn runtime_version_rdl(header: &str) -> String {
 }
 
 fn numeric_define(header: &str, name: &str) -> u64 {
+    let literal = define_literal(header, name);
+    let literal = literal.strip_suffix('u').unwrap_or(literal);
+    if let Some(hex) = literal.strip_prefix("0x") {
+        u64::from_str_radix(hex, 16)
+    } else {
+        literal.parse()
+    }
+    .unwrap_or_else(|error| panic!("invalid version define `{name}`: {error}"))
+}
+
+fn define_literal<'a>(header: &'a str, name: &str) -> &'a str {
     for line in header.lines() {
         let mut words = line.split_whitespace();
         if words.next() != Some("#define") || words.next() != Some(name) {
@@ -68,15 +84,9 @@ fn numeric_define(header: &str, name: &str) -> u64 {
             .unwrap_or_else(|| panic!("empty version define `{name}`"));
         assert!(
             words.next().is_none(),
-            "expected a single integer literal for `{name}`"
+            "expected a single literal for `{name}`"
         );
-        let literal = literal.strip_suffix('u').unwrap_or(literal);
-        return if let Some(hex) = literal.strip_prefix("0x") {
-            u64::from_str_radix(hex, 16)
-        } else {
-            literal.parse()
-        }
-        .unwrap_or_else(|error| panic!("invalid version define `{name}`: {error}"));
+        return literal;
     }
     panic!("missing version define `{name}`");
 }
@@ -122,7 +132,7 @@ fn refresh_winmd(nuspec: &str) {
 fn read_nuspec(package_dir: &Path) -> String {
     let nuspec = fs::read_dir(package_dir)
         .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", package_dir.display()))
-        .filter_map(|entry| entry.ok().map(|entry| entry.path()))
+        .map(|entry| entry.unwrap().path())
         .find(|path| {
             path.extension()
                 .is_some_and(|extension| extension.eq_ignore_ascii_case("nuspec"))
@@ -133,25 +143,32 @@ fn read_nuspec(package_dir: &Path) -> String {
 }
 
 fn nuspec_dependency_version(nuspec: &str, dependency_id: &str) -> String {
-    let needle = format!("id=\"{dependency_id}\"");
-    let element = nuspec.find(&needle).map_or_else(
-        || panic!("nuspec has no dependency `{dependency_id}`"),
-        |index| &nuspec[index..],
+    let document = roxmltree::Document::parse(nuspec).unwrap();
+    let dependency = document
+        .descendants()
+        .find(|node| node.has_tag_name("dependency") && node.attribute("id") == Some(dependency_id))
+        .unwrap_or_else(|| panic!("nuspec has no dependency `{dependency_id}`"));
+    let version = dependency
+        .attribute("version")
+        .unwrap_or_else(|| panic!("dependency `{dependency_id}` has no version"));
+    let version = version
+        .strip_prefix('[')
+        .and_then(|s| s.strip_suffix(']'))
+        .unwrap_or(version);
+    assert!(
+        !version.is_empty()
+            && version
+                .chars()
+                .all(|c| c.is_ascii_alphanumeric() || matches!(c, '.' | '-' | '+')),
+        "dependency `{dependency_id}` must specify a version, not a range: `{version}`"
     );
-    let after = element.find("version=\"").map_or_else(
-        || panic!("dependency `{dependency_id}` has no version"),
-        |index| &element[index + "version=\"".len()..],
-    );
-    let end = after
-        .find('"')
-        .unwrap_or_else(|| panic!("dependency `{dependency_id}` version is unterminated"));
-    after[..end].trim_matches(['[', ']']).to_string()
+    version.to_string()
 }
 
 fn newest_subdir(dir: &Path) -> PathBuf {
     fs::read_dir(dir)
         .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", dir.display()))
-        .filter_map(|entry| entry.ok().map(|entry| entry.path()))
+        .map(|entry| entry.unwrap().path())
         .filter(|path| path.is_dir())
         .max()
         .unwrap_or_else(|| panic!("no metadata subdirectory in `{}`", dir.display()))
@@ -187,6 +204,23 @@ mod tests {
             nuspec_dependency_version(nuspec, "Microsoft.WindowsAppSDK.Runtime"),
             "6.7.8"
         );
+    }
+
+    #[test]
+    fn dependency_versions_are_bound_to_their_element() {
+        assert_eq!(
+            nuspec_dependency_version("<dependency version='[1.2.3]' id='Runtime' />", "Runtime"),
+            "1.2.3"
+        );
+        for text in [
+            "<dependencies><dependency id='Runtime'/><dependency id='Other' version='1.2.3'/></dependencies>",
+            "<dependency id='Runtime' version='[1.0,2.0)'/>",
+            "<dependency id='Runtime' version=''/>",
+        ] {
+            assert!(
+                std::panic::catch_unwind(|| nuspec_dependency_version(text, "Runtime")).is_err()
+            );
+        }
     }
 
     #[test]

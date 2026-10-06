@@ -295,8 +295,9 @@ bootstrap version constants read from the Runtime package's version header, and 
 `reactor-setup/assets/runtime-version.txt`. The setup crate and Reactor CI consume that generated
 version file. WebView2 metadata remains owned by `tool-webview`.
 
-Review the setup crate's activation manifest and runtime allow-list when updating the runtime.
-Framework package identity and MSIX filename changes also require review; see
+The tool also generates setup activation manifests and framework/MSIX identities from the pinned
+packages, and validates the runtime allow-list for x86, x64, and arm64. Review the generated assets
+and handwritten file-selection policy together when updating the runtime; see
 [`windows-reactor-setup`](windows-reactor-setup.md).
 
 ### Module imports

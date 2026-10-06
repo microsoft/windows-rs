@@ -19,3 +19,6 @@ Call the setup function from `build.rs`:
 ```rust,no_run
 windows_reactor_setup::as_self_contained();
 ```
+
+The build stages the pinned runtime for x86, x64, or arm64. Downloads and extractions are cached;
+HTTP errors, missing required runtime files, and extraction or copy failures stop the build.

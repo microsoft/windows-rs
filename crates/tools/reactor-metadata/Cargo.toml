@@ -7,6 +7,7 @@ publish = false
 
 [dependencies]
 helpers = { workspace = true }
+roxmltree = "0.21"
 windows-default = { workspace = true }
 windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }

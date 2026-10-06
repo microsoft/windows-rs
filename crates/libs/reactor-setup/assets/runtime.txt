@@ -5,10 +5,12 @@ dwmscenei.dll
 dwritecore.dll
 marshal.dll
 microsoft.directmanipulation.dll
-microsoft.graphics.imaging.dll
+microsoft.graphics.display.dll
+microsoft.graphics.imaging.dll x64 arm64
 microsoft.inputstatemanager.dll
 microsoft.internal.frameworkudk.dll
 microsoft.ui.composition.ossupport.dll
+microsoft.ui.designer.dll
 microsoft.ui.dll
 microsoft.ui.input.dll
 microsoft.ui.pri
@@ -27,7 +29,7 @@ microsoft.windowsappruntime.dll
 microsoft.windowsappruntime.pri
 mrm.dll
 resources.pri
-sessionhandleipcproxystub.dll
+sessionhandleipcproxystub.dll x64 arm64
 winuiedit.dll
 wuceffectsi.dll
 

@@ -29,8 +29,8 @@ which this setup helper handles for self-contained Reactor apps.
 - The build needs network access the first time each pinned NuGet package is staged.
 - `%SystemRoot%\System32\curl.exe` and `tar.exe` must be available.
 - The target must use MSVC, or the LLVM-based GNU ABI supported by the manifest linker arguments.
-- Supported target architecture mappings are `x86` -> `x86`, `aarch64` -> `arm64`, and other
-  Rust target architectures -> `x64`.
+- Supported target architecture mappings are `x86` -> `x86`, `aarch64` -> `arm64`, and
+  `x86_64` -> `x64`. Other architectures are rejected.
 
 The README contains the build-dependency declaration and one-line `build.rs`.
 
@@ -64,9 +64,9 @@ setup for a Reactor app containing the XAML WebView2 control.
 7. Write an application manifest containing the self-contained deployment marker.
 8. Pass linker arguments that embed the manifest in binary targets.
 
-Downloads and extracted packages are cached under
-`%LOCALAPPDATA%\windows-reactor-setup\temp` when `LOCALAPPDATA` is available. Cargo may rerun the
-build script, but the cached package and extraction directories avoid downloading on every build.
+Extracted packages are cached under `%LOCALAPPDATA%\windows-reactor-setup\temp\packages` when
+`LOCALAPPDATA` is available. Cargo may rerun the build script, but completed package and
+architecture-specific MSIX caches avoid downloading and extracting on every build.
 
 ## Deployment and shared target directories
 
@@ -85,10 +85,10 @@ assembly used by the XAML control, not the `webview2loader.dll` used by COM-only
 
 ## Failures and cleanup
 
-`as_self_contained` has no `Result` return. Unsupported target configuration and missing Cargo
-environment variables panic during the build. Download, extraction, and individual copy failures
-are printed by the helper; inspect build output and the profile directory if a staged file is
-missing.
+`as_self_contained` has no `Result` return. Unsupported target configuration, missing Cargo
+environment variables, HTTP errors, extraction failures, missing required files, and copy failures
+panic during the build. Failed restores do not publish a completed cache entry. Cleanup failures
+are reported separately.
 
 The first build therefore requires reliable NuGet access. In offline build environments, populate
 the helper's package cache before disconnecting or use a build environment with the required cache.
@@ -112,23 +112,38 @@ This section is for contributors to `windows-reactor-setup`.
 ancestor matching `PROFILE`, and falls back to the conventional ancestor depth. The unit tests
 cover standard and split-package `OUT_DIR` layouts.
 
-`stage_pkg` caches `.nupkg` files and extracted package directories. Runtime MSIX extraction uses a
-separate `.msix_extract` directory. `copy_runtime_to` copies only top-level entries named in
-`assets/runtime.txt`, then recursively preserves any selected directory. Keep that allow-list in
-sync with the pinned Windows App SDK runtime.
+`stage_pkg` preserves the NuGet package directory layout under `temp/packages/<name>-<version>`.
+An archive named `<name>.<version>.nupkg` in `temp` can seed an offline restore. Downloads and
+extractions use private staging directories and publish complete directories by rename.
+Unmarked extraction directories outside this layout are not reused. Within each runtime package,
+MSIX extraction uses `.msix/<architecture>` so cross-compilation cannot reuse another target's
+binaries.
+
+`copy_runtime_to` requires every selected entry in `assets/runtime.txt`, then recursively copies
+selected directories. A bare filename applies to all supported architectures; optional whitespace-
+separated architecture names restrict an entry. `Microsoft.Graphics.Imaging.dll` and
+`SessionHandleIPCProxyStub.dll` are selected for x64 and arm64 only. The x86 package does not contain
+them. `src/runtime.rs` implements this policy and is also compiled into the metadata tool.
 
 `tool-reactor-metadata` owns the Windows App SDK pin. It resolves the Runtime dependency from the
 umbrella package's nuspec and writes `assets/runtime-version.txt`, which both this crate and Reactor
 CI use. It also reads the Runtime package's `include/WindowsAppSDK-VersionInfo.h` to generate
-Reactor's bootstrap version constants. Do not edit the generated version file by hand.
+Reactor's bootstrap version constants and framework identity. It generates `runtime-package.txt`
+for MSIX selection and `reactor/src/native/runtime.rs` for framework bootstrap. Do not edit these
+generated files by hand.
 
-The application manifest template is `assets/app.manifest`. The function inserts the deployment
-marker after the opening assembly element, writes the result to `OUT_DIR`, and emits binary-only
-manifest linker arguments for MSVC or LLVM GNU targets.
+The application manifests are generated as `assets/app.manifest` for x64/arm64 and
+`assets/app-x86.manifest` for x86. The setup function selects the target manifest, inserts the
+deployment marker after the opening assembly element, writes the result to `OUT_DIR`, and emits
+binary-only manifest linker arguments for MSVC or LLVM GNU targets.
 
-The template's header records the App SDK `package.appxfragment` sources for its activation entries.
-There is no committed generator for this template. Review it and `assets/runtime.txt` when updating
-the runtime.
+The metadata tool reads WinRT activation entries from the Foundation, InteractiveExperiences, and
+WinUI `runtimes-framework/package.appxfragment` files. It reads COM proxy entries from each runtime
+MSIX's `AppxManifest.xml`, selecting only DLLs in the runtime allow-list. The x86 manifest therefore
+omits SessionHandle proxy registrations. The tool checks the allow-list against every supported
+architecture's MSIX and requires each WinRT activation DLL to be staged, with WebView2's separately
+staged projection as the exception. It also verifies that x64 and arm64 share the same registrations.
+Review generated manifests and the handwritten allow-list together when updating the pin.
 
 `deploy_webview2` copies `Microsoft.Web.WebView2.Core.dll` from the pinned WebView2 package's
 per-architecture `native_uap` directory. `tool-webview` generates `assets/webview2-version.txt` from

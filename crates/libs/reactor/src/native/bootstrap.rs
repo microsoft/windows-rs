@@ -2,7 +2,7 @@ use super::*;
 use bindings::*;
 use windows_core::*;
 
-const FRAMEWORK_FAMILY: PCWSTR = w!("Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe");
+include!("runtime.rs");
 const PACKAGE_DEPENDENCY_LIFETIME_KIND_PROCESS: i32 = 0;
 
 static BOOTSTRAPPED: Mutex<bool> = Mutex::new(false);
@@ -39,7 +39,7 @@ unsafe fn bootstrap_inner() -> Result<()> {
         show_install_dialog();
         return Err(Error::new(
             hr,
-            "Microsoft.WindowsAppRuntime.2 framework package is not installed.",
+            format!("{FRAMEWORK_NAME} framework package is not installed."),
         ));
     }
     hr.ok()?;
@@ -71,7 +71,7 @@ unsafe fn bootstrap_inner() -> Result<()> {
         show_install_dialog();
         return Err(Error::new(
             result,
-            "Microsoft.WindowsAppRuntime.2 framework package is not installed.",
+            format!("{FRAMEWORK_NAME} framework package is not installed."),
         ));
     }
     result.ok()

@@ -60,7 +60,7 @@ warnings and therefore enforced.
 ### Reactor
 
 ```sh
-# Refresh App SDK metadata, bootstrap constants, and setup/CI runtime version after changing its pin
+# Refresh App SDK metadata, bootstrap constants, and deployment assets after changing its pin
 cargo run -p tool-reactor-metadata --quiet
 
 # Refresh WebView2 bindings, Core metadata, and the setup version after changing its pin
@@ -117,7 +117,9 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 1. **`tool-reactor-metadata`** - refreshes committed WinUI / Windows App SDK `.winmd` metadata,
    generates `extras.winmd` using the Runtime package's version header, and writes
-   `reactor-setup/assets/runtime-version.txt` for setup and CI.
+   setup activation manifests and framework/MSIX identities. It validates the runtime allow-list
+   across supported architectures and writes `reactor-setup/assets/runtime-version.txt` for setup
+   and CI.
 
 2. **`tool-webview`** - generates WebView2 COM bindings, refreshes its Core `.winmd` in the shared
    Reactor metadata directory, and writes `reactor-setup/assets/webview2-version.txt`.

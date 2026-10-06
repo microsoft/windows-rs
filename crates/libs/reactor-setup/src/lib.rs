@@ -6,11 +6,14 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
+mod cache;
+use cache::*;
+mod runtime;
+
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
 const RUNTIME_VER: &str = include_str!("../assets/runtime-version.txt");
-const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 const APP_MANIFEST: &str = include_str!("../assets/app.manifest");
-const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
+const APP_MANIFEST_X86: &str = include_str!("../assets/app-x86.manifest");
 const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
 const WEBVIEW2_VER: &str = include_str!("../assets/webview2-version.txt");
 const WEBVIEW2_CORE_DLL: &str = "Microsoft.Web.WebView2.Core.dll";
@@ -30,14 +33,20 @@ pub fn as_self_contained() {
 
     let out_dir = out_dir();
     let temp_dir = temp_dir();
+    let arch = target_arch();
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
-    let extract = ensure_msix_extracted(&runtime);
+    let extract = ensure_msix_extracted(&runtime, arch);
     let dest = target_dir_from_out(&out_dir);
-    copy_runtime_to(&extract, &dest);
+    copy_runtime_to(&extract, &dest, arch);
     deploy_webview2(&temp_dir, &dest);
 
     let manifest_path = out_dir.join("app.manifest");
-    let mut manifest = APP_MANIFEST.to_string();
+    let mut manifest = if arch == "x86" {
+        APP_MANIFEST_X86
+    } else {
+        APP_MANIFEST
+    }
+    .to_string();
     let assembly = manifest.find("<assembly").unwrap();
     let opening = assembly + manifest[assembly..].find('>').unwrap() + 1;
     manifest.insert_str(
@@ -81,6 +90,7 @@ pub fn as_self_contained() {
 fn deploy_webview2(temp: &Path, dest: &Path) {
     let pkg = stage_pkg(WEBVIEW2_PKG, WEBVIEW2_VER, temp);
     let src = pkg
+        .join("runtimes")
         .join(format!("win-{}", target_arch()))
         .join("native_uap")
         .join(WEBVIEW2_CORE_DLL);
@@ -104,126 +114,69 @@ fn temp_dir() -> PathBuf {
         );
     };
     let temp = base.join("windows-reactor-setup").join("temp");
-    let _ = fs::create_dir_all(&temp);
+    fs::create_dir_all(&temp)
+        .unwrap_or_else(|error| panic!("cannot create cache `{}`: {error}", temp.display()));
     temp
 }
 
-fn ensure_msix_extracted(runtime: &Path) -> PathBuf {
-    let arch = format!("win10-{}", target_arch());
-    let msix = runtime
-        .join("MSIX")
-        .join(&arch)
-        .join("Microsoft.WindowsAppRuntime.2.msix");
-    let extract = runtime.join(".msix_extract");
-    if !extract.is_dir() {
-        let _ = fs::create_dir_all(&extract);
-        if !msix.is_file() {
-            println!("MSIX not found at {}", msix.display());
+fn copy_runtime_to(src: &Path, dest: &Path, arch: &str) {
+    for name in runtime::files(arch) {
+        let path = src.join(name);
+        let metadata = fs::metadata(&path).unwrap_or_else(|error| {
+            panic!(
+                "required runtime entry `{}` is missing: {error}",
+                path.display()
+            )
+        });
+        if metadata.is_file() {
+            copy_file(&path, dest, name);
         } else {
-            extract_tar(&msix, &extract, &[]);
-        }
-    }
-    extract
-}
-
-fn copy_runtime_to(src: &Path, dest: &Path) {
-    let Ok(entries) = fs::read_dir(src) else {
-        return;
-    };
-    for entry in entries.flatten() {
-        let path = entry.path();
-        let Some(name) = entry.file_name().into_string().ok() else {
-            continue;
-        };
-        if !RUNTIME_FILES
-            .lines()
-            .any(|l| l.trim().eq_ignore_ascii_case(&name))
-        {
-            continue;
-        }
-        if path.is_file() {
-            copy_file(&path, dest, &name);
-        } else if path.is_dir() {
-            let sub = dest.join(&name);
-            let _ = fs::create_dir_all(&sub);
+            assert!(
+                metadata.is_dir(),
+                "unsupported runtime entry `{}`",
+                path.display()
+            );
+            let sub = dest.join(name);
             copy_dir_contents(&path, &sub);
         }
     }
 }
 
 fn copy_dir_contents(src: &Path, dest: &Path) {
-    let Ok(entries) = fs::read_dir(src) else {
-        return;
-    };
-    for entry in entries.flatten() {
+    fs::create_dir_all(dest)
+        .unwrap_or_else(|error| panic!("cannot create `{}`: {error}", dest.display()));
+    let entries = fs::read_dir(src)
+        .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", src.display()));
+    for entry in entries {
+        let entry = entry.unwrap();
         let path = entry.path();
-        let Some(name) = entry.file_name().into_string().ok() else {
-            continue;
-        };
-        if path.is_file() {
+        let name = entry.file_name();
+        let ty = entry.file_type().unwrap();
+        if ty.is_file() {
             copy_file(&path, dest, &name);
-        } else if path.is_dir() {
+        } else {
+            assert!(
+                ty.is_dir(),
+                "unsupported runtime entry `{}`",
+                path.display()
+            );
             let sub = dest.join(&name);
-            let _ = fs::create_dir_all(&sub);
             copy_dir_contents(&path, &sub);
         }
     }
 }
 
-fn copy_file(src: &Path, base: &Path, name: &str) {
-    if !src.is_file() {
-        println!("{name} not found at {}", src.display());
-        return;
-    }
-    let _ = fs::create_dir_all(base);
-    let _ = fs::copy(src, base.join(name));
-}
-
-fn stage_pkg(name: &str, ver: &str, temp: &Path) -> PathBuf {
-    let nupkg = temp.join(format!("{name}.{ver}.nupkg"));
-    let extract = temp.join(format!("{name}-{ver}"));
-    if !nupkg.is_file() {
-        dl_nupkg(name, ver, &nupkg);
-    }
-    if !extract.is_dir() {
-        let _ = fs::create_dir_all(&extract);
-        extract_tar(&nupkg, &extract, &["--strip-components=1"]);
-    }
-    extract
-}
-
-fn dl_nupkg(name: &str, ver: &str, dest: &Path) {
-    let url = NUGET_URL.replace("{name}", name).replace("{version}", ver);
-    println!("Downloading {name} {ver}");
-    let curl = env::var_os("SystemRoot")
-        .map(|r| PathBuf::from(r).join("System32\\curl.exe"))
-        .filter(|p| p.is_file());
-    match curl.and_then(|c| {
-        Command::new(&c)
-            .args(["-s", "-L", "-o", dest.to_str().unwrap(), &url])
-            .output()
-            .ok()
-    }) {
-        Some(out) if out.status.success() => {
-            println!("Downloaded {name} {ver}");
-        }
-        _ => {
-            println!("Download failed for {name} {ver}");
-        }
-    }
-}
-
-fn extract_tar(src: &Path, dst: &Path, extra: &[&str]) {
-    println!("Extracting {} to {}", src.display(), dst.display());
-    let tar = env::var_os("SystemRoot")
-        .map(|r| PathBuf::from(r).join("System32\\tar.exe"))
-        .filter(|p| p.is_file());
-    if let Some(t) = tar {
-        let _ = Command::new(&t)
-            .args(["-xf", src.to_str().unwrap(), "-C", dst.to_str().unwrap()])
-            .args(extra)
-            .output();
-    }
+fn copy_file(src: &Path, base: &Path, name: impl AsRef<OsStr>) {
+    fs::create_dir_all(base)
+        .unwrap_or_else(|error| panic!("cannot create `{}`: {error}", base.display()));
+    let dest = base.join(name.as_ref());
+    fs::copy(src, &dest).unwrap_or_else(|error| {
+        panic!(
+            "cannot copy `{}` to `{}`: {error}",
+            src.display(),
+            dest.display()
+        )
+    });
 }
 
 fn target_dir_from_out(out: &Path) -> PathBuf {
@@ -242,7 +195,9 @@ fn target_arch() -> &'static str {
     match env::var("CARGO_CFG_TARGET_ARCH").as_deref() {
         Ok("aarch64") => "arm64",
         Ok("x86") => "x86",
-        _ => "x64",
+        Ok("x86_64") => "x64",
+        Ok(arch) => panic!("unsupported target architecture: {arch}"),
+        Err(error) => panic!("CARGO_CFG_TARGET_ARCH not set: {error}"),
     }
 }
 
