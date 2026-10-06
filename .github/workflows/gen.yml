@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tool: [bindings, package, reactor-metadata, reactor, webview, win32, winrt, composition, roundtrip, yml, license, workspace, features, clang]
+        tool: [bindings, package, reactor-metadata, reactor, webview, win32, winrt, composition, cppwinrt, roundtrip, yml, license, workspace, features, clang]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

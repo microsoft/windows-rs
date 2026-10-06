@@ -136,7 +136,10 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 5. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
    `--package` mode (per-namespace files + Cargo.toml features).
 
-6. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
+6. **`tool-cppwinrt`** - restores the pinned official C++/WinRT package, verifies its compiler
+   version, and updates the bundled `cppwinrt.exe` and `version.txt` in the `cppwinrt` crate.
+
+7. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
 
 ## Key Architecture Facts
 

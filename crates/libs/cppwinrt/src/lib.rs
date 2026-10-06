@@ -71,6 +71,10 @@ mod tests {
     #[test]
     fn unexpected_version() {
         let ok = cppwinrt(["-help"]);
-        assert!(ok.contains("2.0.250303.1"), "unexpected version");
+        let expected = format!("C++/WinRT v{}", include_str!("../version.txt"));
+        assert!(
+            ok.lines().any(|line| line == expected),
+            "unexpected version: {ok}"
+        );
     }
 }
