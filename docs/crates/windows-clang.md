@@ -137,8 +137,8 @@ constructed.
 
 `extract/annotations.rs` captures parameter annotations once per projection attempt for functions,
 callbacks, and interface methods. Each Clang annotation retains its full spelling, including all
-arguments. `_In_reads_(n)` and `_Out_writes_(m)` remain separate; `_Out_writes_to_(n,m)` retains both
-arguments. Legacy source markers such as `IN`, `OUT`, and `[retval]` remain individual, ordered
+arguments. `_In_reads_(n)` and `_Out_writes_(m)` remain separate; `_Out_writes_to_(n,m)` retains
+both arguments. Legacy source markers such as `IN`, `OUT`, and `[retval]` remain individual, ordered
 entries alongside the attribute strings.
 
 Projection derives an attribute summary from the captured data, applies byte-count and

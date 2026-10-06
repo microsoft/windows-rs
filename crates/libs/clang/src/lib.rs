@@ -2841,7 +2841,7 @@ fn choose_function_root<'a>(
         .map(|fact| {
             format!(
                 "{}:{} {:?}",
-                fact.spelling.file, fact.spelling.offset, fact.data
+                fact.expansion.file, fact.expansion.offset, fact.data
             )
         })
         .collect::<Vec<_>>()
