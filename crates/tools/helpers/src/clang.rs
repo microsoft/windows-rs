@@ -1,8 +1,7 @@
-//! On-demand provisioning for pinned generator dependencies.
+//! Shared libclang pin and provisioning for the header generators.
 
 use super::*;
 use clang_sys::{clang_getCString, clang_getClangVersion, load};
-use std::path::PathBuf;
 
 /// Pinned libclang version; macro capture changes across major versions.
 pub const LIBCLANG_VERSION: &str = "22.1.8";
@@ -17,20 +16,26 @@ const LIBCLANG_PKG_ARM64: &str = "libclang.runtime.win-arm64";
 /// Shared cache for clang resource-header checkouts, keyed by [`LIBCLANG_VERSION`].
 const CACHE_ROOT: &str = "target/tool-clang";
 
-/// Ensure libclang is loadable, respecting an existing `LIBCLANG_PATH`.
-pub fn ensure_libclang() {
-    if std::env::var_os("LIBCLANG_PATH").is_some() {
-        return;
-    }
-    let native = libclang_dir();
+/// Provision and version-check libclang, returning the validated `LIBCLANG_PATH`.
+///
+/// Call before spawning threads. An override can name either a library file or its directory.
+pub fn ensure_libclang() -> PathBuf {
+    let path = std::env::var_os("LIBCLANG_PATH").map_or_else(libclang_dir, PathBuf::from);
+    assert!(
+        path.to_str().is_some_and(|path| !path.is_empty()) && path.exists(),
+        "LIBCLANG_PATH must name an existing library or directory with a UTF-8 path: `{}`",
+        path.display()
+    );
     // SAFETY: called before any libclang load or worker thread is spawned.
     unsafe {
-        std::env::set_var("LIBCLANG_PATH", &native);
+        std::env::set_var("LIBCLANG_PATH", &path);
     }
+    assert_libclang_version();
+    path
 }
 
 /// Resolve or fetch the pinned host-arch `libclang.dll` directory without setting env vars.
-pub fn libclang_dir() -> PathBuf {
+fn libclang_dir() -> PathBuf {
     let (id, rid) = if cfg!(target_arch = "x86_64") {
         (LIBCLANG_PKG_X64, "win-x64")
     } else if cfg!(target_arch = "aarch64") {
@@ -55,7 +60,7 @@ pub fn libclang_dir() -> PathBuf {
 }
 
 /// Assert the loaded libclang matches [`LIBCLANG_VERSION`].
-pub fn assert_libclang_version() {
+fn assert_libclang_version() {
     let version = clang_version().unwrap_or_else(|e| {
         panic!(
             "failed to load libclang: {e}\n\
@@ -85,42 +90,45 @@ fn clang_version() -> Result<String, String> {
 
 /// True when `reported` contains `pinned` as a whole version token.
 fn version_is_pinned(reported: &str, pinned: &str) -> bool {
-    reported.match_indices(pinned).any(|(i, _)| {
-        let before_ok = reported[..i]
-            .chars()
-            .next_back()
-            .is_none_or(|c| !c.is_ascii_digit() && c != '.');
-        let after_ok = reported[i + pinned.len()..]
-            .chars()
-            .next()
-            .is_none_or(|c| !c.is_ascii_digit() && c != '.');
-        before_ok && after_ok
-    })
+    reported.split_whitespace().any(|version| version == pinned)
 }
 
 /// Resolve the version-matched clang `-resource-dir`, honoring `CLANG_RESOURCE_DIR`.
 pub fn clang_resource_dir() -> String {
-    if let Ok(dir) = std::env::var("CLANG_RESOURCE_DIR") {
-        return dir.replace('\\', "/");
+    if let Some(dir) = std::env::var_os("CLANG_RESOURCE_DIR") {
+        return resource_dir(Path::new(&dir));
     }
     let cache = PathBuf::from(CACHE_ROOT)
         .join("clang-resource")
         .join(LIBCLANG_VERSION);
-    if !cache.join("include").join("intrin.h").is_file() {
+    if !cache.join("include").try_exists().unwrap() {
         fetch_clang_resource_headers(&cache);
     }
-    cache.to_string_lossy().replace('\\', "/")
+    resource_dir(&cache)
+}
+
+fn resource_dir(path: &Path) -> String {
+    assert!(
+        path.join("include").join("intrin.h").is_file(),
+        "clang resource directory `{}` is missing `include/intrin.h`; \
+         provide headers matching libclang {LIBCLANG_VERSION} or remove the invalid cache",
+        path.display()
+    );
+    path.to_str()
+        .unwrap_or_else(|| {
+            panic!(
+                "clang resource directory is not a UTF-8 path: `{}`",
+                path.display()
+            )
+        })
+        .replace('\\', "/")
 }
 
 /// Fetch clang's `lib/Headers` subtree for the pinned LLVM tag into `<cache>/include`.
 fn fetch_clang_resource_headers(cache: &Path) {
-    std::fs::create_dir_all(cache)
-        .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", cache.display()));
+    let staging = TempDir::new(cache);
     let include = cache.join("include");
-    let work = cache.join("_git");
-    if work.exists() {
-        std::fs::remove_dir_all(&work).ok();
-    }
+    let work = staging.0.join("git");
     let tag = format!("llvmorg-{LIBCLANG_VERSION}");
 
     let status = system_tool("git.exe")
@@ -156,20 +164,55 @@ fn fetch_clang_resource_headers(cache: &Path) {
     }
 
     let headers = work.join("clang").join("lib").join("Headers");
-    if include.exists() {
-        std::fs::remove_dir_all(&include).ok();
-    }
-    std::fs::rename(&headers, &include).unwrap_or_else(|e| {
-        panic!(
-            "failed to move `{}` -> `{}`: {e}",
-            headers.display(),
-            include.display()
-        )
-    });
-    std::fs::remove_dir_all(&work).ok();
     assert!(
-        include.join("intrin.h").is_file(),
-        "clang resource headers missing `intrin.h` after checkout into `{}`",
-        include.display()
+        headers.join("intrin.h").is_file(),
+        "clang resource headers missing `intrin.h` in {tag}"
     );
+    if let Err(error) = std::fs::rename(&headers, &include) {
+        // A concurrent restore can publish the same pinned headers first.
+        assert!(
+            include.is_dir(),
+            "failed to publish clang resource headers `{}`: {error}",
+            include.display()
+        );
+    }
+    resource_dir(cache);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn matches_only_the_exact_release_version() {
+        let pin = LIBCLANG_VERSION;
+        for reported in [pin.to_string(), format!("clang version {pin} (LLVM build)")] {
+            assert!(version_is_pinned(&reported, pin));
+        }
+        for reported in [
+            String::new(),
+            format!("clang version 1{pin}"),
+            format!("clang version {pin}0"),
+            format!("clang version {pin}.1"),
+            format!("clang version {pin}git"),
+            format!("clang version {pin}-rc1"),
+        ] {
+            assert!(!version_is_pinned(&reported, pin));
+        }
+    }
+
+    #[test]
+    fn validates_resource_directory_layout() {
+        let root = TempDir::new(&std::env::temp_dir());
+        assert!(std::panic::catch_unwind(|| resource_dir(&root.0)).is_err());
+        let include = root.0.join("include");
+        std::fs::create_dir(&include).unwrap();
+        assert!(std::panic::catch_unwind(|| resource_dir(&root.0)).is_err());
+        std::fs::write(include.join("intrin.h"), "").unwrap();
+        assert_eq!(
+            resource_dir(&root.0),
+            root.0.to_str().unwrap().replace('\\', "/")
+        );
+        assert!(std::panic::catch_unwind(|| resource_dir(&include)).is_err());
+    }
 }

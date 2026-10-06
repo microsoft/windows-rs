@@ -1,7 +1,5 @@
 use super::*;
 use std::fs;
-use std::path::PathBuf;
-use std::sync::atomic::{AtomicU64, Ordering};
 
 /// Restores an exact NuGet package without modifying NuGet-managed cache entries.
 ///
@@ -125,41 +123,6 @@ fn assert_package(path: &Path, id: &str) {
         "package `{}` is missing `{nuspec}`; remove the invalid cache entry and restore it again",
         path.display()
     );
-}
-
-struct TempDir(PathBuf);
-
-impl TempDir {
-    fn new(parent: &Path) -> Self {
-        static NEXT: AtomicU64 = AtomicU64::new(0);
-        fs::create_dir_all(parent).unwrap();
-        loop {
-            let path = parent.join(format!(
-                ".restore-{}-{}",
-                std::process::id(),
-                NEXT.fetch_add(1, Ordering::Relaxed)
-            ));
-            match fs::create_dir(&path) {
-                Ok(()) => return Self(path),
-                Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => {}
-                Err(error) => panic!(
-                    "cannot create staging directory `{}`: {error}",
-                    path.display()
-                ),
-            }
-        }
-    }
-}
-
-impl Drop for TempDir {
-    fn drop(&mut self) {
-        if let Err(error) = fs::remove_dir_all(&self.0) {
-            eprintln!(
-                "failed to remove staging directory `{}`: {error}",
-                self.0.display()
-            );
-        }
-    }
 }
 
 #[cfg(all(test, windows))]
@@ -316,6 +279,7 @@ mod tests {
                             Err(error) => panic!("cannot accept download request: {error}"),
                         }
                     };
+                    stream.set_nonblocking(false).unwrap();
                     stream
                         .set_read_timeout(Some(Duration::from_secs(10)))
                         .unwrap();

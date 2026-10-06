@@ -314,6 +314,22 @@ restores. Tool downloads are extracted separately and published under `.windows-
 cache root only after extraction succeeds. Unmarked legacy directories without an archive require
 a fresh download; they are not modified.
 
+### Updating libclang
+
+Change `LIBCLANG_VERSION` in `crates/tools/helpers/src/clang.rs`, then run
+`cargo run -p tool-clang`. The command loads and version-checks the pinned NuGet DLL and restores
+the resource headers from the matching `llvmorg-<version>` tag. It writes only cache files.
+Regenerate with `tool-win32` and `tool-webview` after changing the pin.
+
+`LIBCLANG_PATH` can override the DLL file or directory; the loaded DLL must report the pinned
+release. `cargo run -q -p tool-clang -- path` validates the DLL and prints only its path for CI.
+It does not fetch resource headers.
+
+`CLANG_RESOURCE_DIR` can override the resource directory containing `include/intrin.h`. Supply
+headers matching the pinned release: the override's layout is checked, but its version cannot be
+verified. Without an override, headers are cached under `target/tool-clang/clang-resource` by
+version and published after the checkout completes.
+
 ## Known limits
 
 - RDL cannot represent mixed raw pointer-chain mutability. The projection normalizes each run to

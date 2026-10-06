@@ -1,11 +1,11 @@
 use serde::Deserialize;
 use std::cmp::Ordering;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
+mod clang;
+pub use clang::*;
 mod nuget;
 pub use nuget::nuget_package;
-mod provision;
-pub use provision::*;
 
 /// Prefer Windows-bundled tools over shadowing tools on `PATH`.
 fn system_tool(exe: &str) -> std::process::Command {
@@ -15,6 +15,43 @@ fn system_tool(exe: &str) -> std::process::Command {
     match system32 {
         Some(path) => std::process::Command::new(path),
         None => std::process::Command::new(exe),
+    }
+}
+
+struct TempDir(PathBuf);
+
+impl TempDir {
+    fn new(parent: &Path) -> Self {
+        use std::sync::atomic::{AtomicU64, Ordering};
+
+        static NEXT: AtomicU64 = AtomicU64::new(0);
+        std::fs::create_dir_all(parent).unwrap();
+        loop {
+            let path = parent.join(format!(
+                ".restore-{}-{}",
+                std::process::id(),
+                NEXT.fetch_add(1, Ordering::Relaxed)
+            ));
+            match std::fs::create_dir(&path) {
+                Ok(()) => return Self(path),
+                Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => {}
+                Err(error) => panic!(
+                    "cannot create staging directory `{}`: {error}",
+                    path.display()
+                ),
+            }
+        }
+    }
+}
+
+impl Drop for TempDir {
+    fn drop(&mut self) {
+        if let Err(error) = std::fs::remove_dir_all(&self.0) {
+            eprintln!(
+                "failed to remove staging directory `{}`: {error}",
+                self.0.display()
+            );
+        }
     }
 }
 
@@ -64,7 +101,7 @@ pub fn find_in_dirs(name: &str, dirs: &[String]) -> Option<String> {
 pub struct Crate {
     pub package: Package,
     pub lints: Option<Lints>,
-    pub path: Option<std::path::PathBuf>,
+    pub path: Option<PathBuf>,
 }
 
 impl PartialEq for Crate {

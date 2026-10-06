@@ -843,7 +843,6 @@ fn main() {
     // packages are fetched + cached on first use) so a fresh checkout "just works" without a
     // manual `nuget restore`. Shared by both scrape phases, so it runs once here.
     ensure_libclang();
-    assert_libclang_version();
 
     if let Some(headers) = std::env::var_os("WINDOWS_CLANG") {
         if headers == "km" {
