@@ -17,6 +17,9 @@ mod native;
 pub mod native;
 mod reconcile;
 mod reference;
+mod sealed {
+    pub trait Sealed {}
+}
 mod window;
 
 use std::any::{Any, TypeId};
@@ -32,6 +35,8 @@ use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::{AtomicBool, AtomicU8, AtomicU32, AtomicU64, Ordering};
 use std::sync::{Arc, Mutex, Weak as SyncWeak};
 use std::time::Duration;
+
+pub(crate) use sealed::Sealed;
 
 #[cfg(any(test, feature = "test"))]
 pub use adapter::*;

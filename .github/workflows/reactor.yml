@@ -93,6 +93,7 @@ jobs:
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
+          RUSTDOCFLAGS: "--document-hidden-items"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true

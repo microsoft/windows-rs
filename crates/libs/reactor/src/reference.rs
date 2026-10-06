@@ -14,6 +14,14 @@ pub enum AnyElement {}
 /// let image = ElementRef::<Image>::new();
 /// let _ = Grid::new().element_ref(&image);
 /// ```
+///
+/// ```compile_fail
+/// use windows_reactor::ReferenceElement;
+///
+/// struct CustomElement;
+///
+/// impl ReferenceElement for CustomElement {}
+/// ```
 pub struct ElementRef<T = AnyElement> {
     target: Rc<RefCell<ReferenceTarget>>,
     marker: PhantomData<fn() -> T>,
@@ -698,12 +706,14 @@ impl ImperativeRequest {
 pub type FocusError = IntegrationError;
 
 #[doc(hidden)]
-pub trait ReferenceElement {}
+pub trait ReferenceElement: Sealed {}
 
 #[doc(hidden)]
-pub trait CompatibleElementRef<T: ReferenceElement> {
+pub trait CompatibleElementRef<T: ReferenceElement>: Sealed {
     fn erased_ref(&self) -> ElementRef;
 }
+
+impl<T> Sealed for ElementRef<T> {}
 
 impl<T: ReferenceElement> CompatibleElementRef<T> for ElementRef<T> {
     fn erased_ref(&self) -> ElementRef {

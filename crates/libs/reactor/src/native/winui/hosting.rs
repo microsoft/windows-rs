@@ -209,10 +209,6 @@ impl WinUiAdapter {
         }
     }
 
-    pub fn create_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
-        self.create_window_with_policy(root, &WindowPolicy::new())
-    }
-
     pub fn create_window_with_policy(
         &self,
         root_object: ObjectId,
@@ -587,7 +583,7 @@ impl WinUiAdapter {
             NativeMenu {
                 menu: menu.clone(),
                 revision,
-                flyout,
+                _flyout: flyout,
                 _revokers: revokers,
             },
         );
@@ -641,7 +637,7 @@ impl WinUiAdapter {
             NativeCommandBarFlyout {
                 flyout: flyout.clone(),
                 revision,
-                native,
+                _native: native,
                 _revokers: revokers,
             },
         );
@@ -821,12 +817,6 @@ impl WinUiAdapter {
             }
         }
         Ok(())
-    }
-
-    pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
-        let window = self.create_window(root)?;
-        window.activate()?;
-        Ok(window)
     }
 
     pub fn open_window_with_policy(

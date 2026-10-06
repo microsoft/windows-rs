@@ -1,10 +1,4 @@
 impl Runtime<WinUiAdapter> {
-    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
-        let waker = Rc::new(waker);
-        let native = Rc::clone(&waker);
-        self.set_native_event_wakers(move || native(), move || waker());
-    }
-
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,
@@ -16,10 +10,6 @@ impl Runtime<WinUiAdapter> {
 }
 
 impl ComponentHost<WinUiAdapter> {
-    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
-        self.runtime_mut_internal().set_native_event_waker(waker);
-    }
-
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,

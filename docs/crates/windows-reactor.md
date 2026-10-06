@@ -264,6 +264,9 @@ the `test` feature. Applications should use `App::run_component`, component mess
 rather than drive a retained host directly.
 Typed control callbacks and reference integration methods do not expose the runtime records.
 `ObjectId` remains public through `ElementRef::get()`.
+The reference compatibility traits are sealed because only generated controls and `ElementRef`
+implementations participate in that contract. The public API snapshot includes doc-hidden items so
+internal marker traits and methods cannot change without review.
 
 `src/lib.rs` explicitly exports handwritten application types. Generated controls and their value
 enums are exported from `declaration::generated_declarations`; the metadata in `generated` and
@@ -290,6 +293,10 @@ counter updates, and conditional erased-component inspection methods. Diagnostic
 test-only implementations belong in `test_support`. Unit-only mutation capture and reference
 scan instrumentation remain gated by `cfg(test)`, not the `test` feature, so external benchmarks
 do not acquire their allocation or layout costs.
+
+Handwritten native WinUI code compiles without a module-wide dead-code allowance. Diagnostic
+window helpers and event simulation live in `test_support`; generated bindings retain their
+separate allowance for unused metadata projections.
 
 Full property-contract enumeration and queued key/character payloads are diagnostic-only.
 Production validates individual properties and invokes routed input callbacks synchronously.
