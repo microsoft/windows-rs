@@ -355,6 +355,7 @@ impl EventDispatch {
         match (self.callback, self.payload) {
             (EventValue::Bool(callback), EventPayload::Bool(value)) => callback.call(value),
             (EventValue::Color(callback), EventPayload::Color(value)) => callback.call(value),
+            #[cfg(any(test, feature = "test"))]
             (EventValue::CharacterEventInfo(callback), EventPayload::CharacterEventInfo(value)) => {
                 callback.call(value);
             }
@@ -393,6 +394,7 @@ impl EventDispatch {
             (EventValue::PointerEventInfo(callback), EventPayload::PointerEventInfo(value)) => {
                 callback.call(value);
             }
+            #[cfg(any(test, feature = "test"))]
             (EventValue::KeyEventInfo(callback), EventPayload::KeyEventInfo(value)) => {
                 callback.call(value);
             }
@@ -820,97 +822,71 @@ impl RetainedGraph {
             .iter()
             .find(|contract| contract.id == dispatch.event)
             .ok_or(GraphError::InvalidEvent(object.kind, dispatch.event))?;
-        if !matches!(
-            (contract.value, &dispatch.callback, &dispatch.payload),
+        let valid = match (contract.value, &dispatch.callback, &dispatch.payload) {
+            #[cfg(any(test, feature = "test"))]
+            (
+                ValueType::CharacterEventInfo,
+                EventValue::CharacterEventInfo(_),
+                EventPayload::CharacterEventInfo(_),
+            )
+            | (
+                ValueType::KeyEventInfo,
+                EventValue::KeyEventInfo(_),
+                EventPayload::KeyEventInfo(_),
+            ) => true,
             (ValueType::Bool, EventValue::Bool(_), EventPayload::Bool(_))
-                | (
-                    ValueType::Color,
-                    EventValue::Color(_),
-                    EventPayload::Color(_)
-                )
-                | (
-                    ValueType::CharacterEventInfo,
-                    EventValue::CharacterEventInfo(_),
-                    EventPayload::CharacterEventInfo(_)
-                )
-                | (
-                    ValueType::ContentDialogResult,
-                    EventValue::ContentDialogResult(_),
-                    EventPayload::ContentDialogResult(_)
-                )
-                | (
-                    ValueType::KeyEventInfo,
-                    EventValue::KeyEventInfo(_),
-                    EventPayload::KeyEventInfo(_)
-                )
-                | (
-                    ValueType::String,
-                    EventValue::String(_),
-                    EventPayload::String(_)
-                )
-                | (ValueType::F64, EventValue::F64(_), EventPayload::F64(_))
-                | (
-                    ValueType::FocusEventInfo,
-                    EventValue::FocusEventInfo(_),
-                    EventPayload::FocusEventInfo(_)
-                )
-                | (
-                    ValueType::DragKind,
-                    EventValue::DragKind(_),
-                    EventPayload::DragKind(_)
-                )
-                | (
-                    ValueType::DroppedData,
-                    EventValue::DroppedData(_),
-                    EventPayload::DroppedData(_)
-                )
-                | (
-                    ValueType::OptionalBool,
-                    EventValue::OptionalBool(_),
-                    EventPayload::OptionalBool(_)
-                )
-                | (
-                    ValueType::OptionalDateTime,
-                    EventValue::OptionalDateTime(_),
-                    EventPayload::OptionalDateTime(_)
-                )
-                | (
-                    ValueType::OptionalF64,
-                    EventValue::OptionalF64(_),
-                    EventPayload::OptionalF64(_)
-                )
-                | (
-                    ValueType::OptionalTimeSpan,
-                    EventValue::OptionalTimeSpan(_),
-                    EventPayload::OptionalTimeSpan(_)
-                )
-                | (
-                    ValueType::NavigationViewDisplayMode,
-                    EventValue::NavigationViewDisplayMode(_),
-                    EventPayload::NavigationViewDisplayMode(_)
-                )
-                | (
-                    ValueType::Selection,
-                    EventValue::Selection(_),
-                    EventPayload::Selection(_)
-                )
-                | (
-                    ValueType::PointerEventInfo,
-                    EventValue::PointerEventInfo(_),
-                    EventPayload::PointerEventInfo(_)
-                )
-                | (
-                    ValueType::SelectionIndex,
-                    EventValue::SelectionIndex(_),
-                    EventPayload::SelectionIndex(_)
-                )
-                | (
-                    ValueType::StringList,
-                    EventValue::StringList(_),
-                    EventPayload::StringList(_)
-                )
-                | (ValueType::Unit, EventValue::Unit(_), EventPayload::Unit)
-        ) {
+            | (ValueType::Color, EventValue::Color(_), EventPayload::Color(_))
+            | (
+                ValueType::ContentDialogResult,
+                EventValue::ContentDialogResult(_),
+                EventPayload::ContentDialogResult(_),
+            )
+            | (ValueType::String, EventValue::String(_), EventPayload::String(_))
+            | (ValueType::F64, EventValue::F64(_), EventPayload::F64(_))
+            | (
+                ValueType::FocusEventInfo,
+                EventValue::FocusEventInfo(_),
+                EventPayload::FocusEventInfo(_),
+            )
+            | (ValueType::DragKind, EventValue::DragKind(_), EventPayload::DragKind(_))
+            | (ValueType::DroppedData, EventValue::DroppedData(_), EventPayload::DroppedData(_))
+            | (
+                ValueType::OptionalBool,
+                EventValue::OptionalBool(_),
+                EventPayload::OptionalBool(_),
+            )
+            | (
+                ValueType::OptionalDateTime,
+                EventValue::OptionalDateTime(_),
+                EventPayload::OptionalDateTime(_),
+            )
+            | (ValueType::OptionalF64, EventValue::OptionalF64(_), EventPayload::OptionalF64(_))
+            | (
+                ValueType::OptionalTimeSpan,
+                EventValue::OptionalTimeSpan(_),
+                EventPayload::OptionalTimeSpan(_),
+            )
+            | (
+                ValueType::NavigationViewDisplayMode,
+                EventValue::NavigationViewDisplayMode(_),
+                EventPayload::NavigationViewDisplayMode(_),
+            )
+            | (ValueType::Selection, EventValue::Selection(_), EventPayload::Selection(_))
+            | (
+                ValueType::PointerEventInfo,
+                EventValue::PointerEventInfo(_),
+                EventPayload::PointerEventInfo(_),
+            )
+            | (
+                ValueType::SelectionIndex,
+                EventValue::SelectionIndex(_),
+                EventPayload::SelectionIndex(_),
+            )
+            | (ValueType::StringList, EventValue::StringList(_), EventPayload::StringList(_))
+            | (ValueType::Unit, EventValue::Unit(_), EventPayload::Unit) => true,
+            _ => false,
+        };
+        if !valid {
             return Err(GraphError::InvalidEventValue(dispatch.event));
         }
         if let EventPayload::Selection(selection) = &dispatch.payload

@@ -78,6 +78,7 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
+          cargo clippy -p windows-reactor --all-targets --quiet
           cargo clippy -p windows-reactor --all-features --all-targets --quiet
           cargo clippy -p test-reactor-integration --all-targets --quiet
           cargo clippy -p reactor-virtual --features perf --all-targets --quiet

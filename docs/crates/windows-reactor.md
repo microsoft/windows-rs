@@ -259,9 +259,18 @@ reference, while `SyncWeak` denotes an `Arc` weak reference.
 
 The default API exposes application components, declarations, references, and window integration.
 Host/runtime protocols such as `ComponentHost`, `Runtime`, `Adapter`, retained graphs, mutations,
-and service injection are available only with the `test` feature. Applications should use
-`App::run_component`, component messages, and `provide` rather than drive a retained host directly.
-`ObjectId` remains public because reference and selection APIs still expose it.
+service injection, schema metadata, and generic property/event records are available only with
+the `test` feature. Applications should use `App::run_component`, component messages, and `provide`
+rather than drive a retained host directly.
+Typed control callbacks and reference integration methods do not expose the runtime records.
+`ObjectId` remains public through `ElementRef::get()`.
+
+`src/lib.rs` explicitly exports handwritten application types. Generated controls and their value
+enums are exported from `declaration::generated_declarations`; the metadata in `generated` and
+validation errors in `ir` stay internal by default. These protocols still run in production.
+Restricting their exports does not make their implementations test-only. Keep application exports
+separate from internal wildcard imports so adding a public helper to an implementation module
+does not automatically add an application API.
 
 | Location | Purpose | Compilation |
 | --- | --- | --- |
@@ -281,6 +290,9 @@ counter updates, and conditional erased-component inspection methods. Diagnostic
 test-only implementations belong in `test_support`. Unit-only mutation capture and reference
 scan instrumentation remain gated by `cfg(test)`, not the `test` feature, so external benchmarks
 do not acquire their allocation or layout costs.
+
+Full property-contract enumeration and queued key/character payloads are diagnostic-only.
+Production validates individual properties and invokes routed input callbacks synchronously.
 
 Both directories are included in the published package. In particular, `test_support` cannot be
 excluded while a published feature depends on it. The Cargo `test` feature is an ordinary

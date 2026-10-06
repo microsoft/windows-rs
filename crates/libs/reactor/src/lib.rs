@@ -44,8 +44,32 @@ pub use component::{
     ComponentSender, ComponentTask, ComponentTaskStatus, ComponentTimer, Context, EffectKey,
     LocalSender, ViewContext, WindowHandle, component, provide,
 };
+#[cfg(not(any(test, feature = "test")))]
+pub use declaration::generated_declarations::*;
+#[cfg(not(any(test, feature = "test")))]
+use declaration::*;
+#[cfg(any(test, feature = "test"))]
 pub use declaration::*;
+pub use declaration::{
+    AcceleratorKey, AcceleratorModifiers, Brush, ButtonStyle, Callback, CharacterEventInfo, Color,
+    CommandBarCommand, CommandBarFlyout, CommandBarFlyoutExt, ContentDialogExt,
+    ContentDialogResult, CornerRadius, DragDropAction, DragDropOperation, DragDropPolicy, DragKind,
+    DroppedData, DroppedStorageItem, ElementFocusState, EncodedImage, ExitTransition, Flyout,
+    FlyoutExt, FlyoutPlacement, FocusEventInfo, FontWeight, GridLength, Icon, ImageSource,
+    InputModifiers, IntoPayloadCallback, IntoUnitCallback, IntoViews, Key, KeyAccelerator,
+    KeyAccelerators, KeyEventInfo, KeyedView, Menu, MenuExt, MenuItem, NavigationViewDisplayMode,
+    PhysicalKeyStatus, PointerEventInfo, ResourceOverrides, ResourceValue, RichText,
+    RichTextHyperlink, RichTextInline, RichTextParagraph, RichTextRun, RoutedCallback, ThemeBrush,
+    ThemeTransition, Thickness, Tooltip, TooltipExt, TooltipPlacement, View, VirtualKey,
+    VirtualSource, keyed,
+};
+#[cfg(not(any(test, feature = "test")))]
+use generated::*;
+#[cfg(any(test, feature = "test"))]
 pub use generated::*;
+#[cfg(not(any(test, feature = "test")))]
+use ir::*;
+#[cfg(any(test, feature = "test"))]
 pub use ir::*;
 pub use native::{App, AppCallback, AppContext, AppProxy, ScreenPoint, WindowTitleBarHeight};
 #[cfg(feature = "test")]
@@ -59,7 +83,14 @@ pub use reconcile::ObjectId;
 use reconcile::*;
 #[cfg(any(test, feature = "test"))]
 pub use reconcile::*;
+#[cfg(not(any(test, feature = "test")))]
+use reference::*;
+#[cfg(any(test, feature = "test"))]
 pub use reference::*;
+pub use reference::{
+    AnyElement, CompatibleElementRef, CompositionHostEvent, ElementObservation, ElementRef,
+    FocusError, IntegrationError, ReferenceElement, SwapChainPanelEvent,
+};
 pub use window::*;
 pub use windows_time::{DateTime, TimeSpan};
 

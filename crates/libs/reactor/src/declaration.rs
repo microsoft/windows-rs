@@ -1411,6 +1411,7 @@ pub enum EventPayload {
     Bool(bool),
     Color(Color),
     ContentDialogResult(ContentDialogResult),
+    #[cfg(any(test, feature = "test"))]
     CharacterEventInfo(CharacterEventInfo),
     String(Rc<str>),
     F64(f64),
@@ -1423,6 +1424,7 @@ pub enum EventPayload {
     OptionalTimeSpan(Option<TimeSpan>),
     NavigationViewDisplayMode(NavigationViewDisplayMode),
     PointerEventInfo(PointerEventInfo),
+    #[cfg(any(test, feature = "test"))]
     KeyEventInfo(KeyEventInfo),
     Key(Key),
     Selection(SelectionChange),
@@ -2241,7 +2243,7 @@ impl_into_visuals_tuple!(
     A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14, P 15
 );
 
-mod generated_declarations {
+pub(crate) mod generated_declarations {
     use super::*;
     include!("generated_declarations.rs");
 }

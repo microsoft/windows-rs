@@ -5,7 +5,9 @@ Rust. Components own Rust state, describe the current view, and receive typed me
 controls.
 
 Applications use the default features. The `test` feature exposes headless hosts, runtime
-protocols, and diagnostics for framework tests and benchmarks; it is not needed to build a UI.
+protocols, schema metadata, and diagnostics for framework tests and benchmarks; it is not needed
+to build a UI. Applications use typed control builders, callbacks, and reference integration
+methods rather than generic property/event records or imperative requests.
 
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
