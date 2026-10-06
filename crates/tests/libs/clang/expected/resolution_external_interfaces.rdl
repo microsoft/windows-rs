@@ -1,0 +1,20 @@
+#[win32]
+mod Test {
+    type Alias1 = External::IFoo;
+    type Alias2 = Alias1;
+    type Alias3 = Alias2;
+    #[library("test.dll")]
+    extern "C" fn Complete(value: Alias3, pointer: Alias3, slot: *mut Alias3) -> Alias3;
+    #[library("test.dll")]
+    extern "C" fn Forward(value: Alias3, pointer: Alias3, slot: *mut Alias3) -> Alias3;
+    type PPFoo = *mut Alias3;
+    #[library("test.dll")]
+    extern "C" fn Tags(tag: External::IFoo, alias: External::IFoo, slot: *mut External::IFoo);
+    struct Uses {
+        tag: External::IFoo,
+        value: Alias3,
+        pointer: Alias3,
+        slot: *mut Alias3,
+        array: [Alias3; 2],
+    }
+}

@@ -241,3 +241,12 @@ changes (the `gen` workflow enforces this).
 | --- | --- |
 | `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
 | webview | `process-failed`, download, and deferral paths untested. |
+
+#### Clang compatibility
+
+`clang` `lib.rs` `reconcile_types` can reject compatible repeated records across TUs when an interface
+is forward-declared in one and complete in another. A shared header with object aliases
+`IFoo -> Alias1 -> Alias2 -> Alias3`, pointer aliases `Alias3* -> PFoo -> PFoo2`, and
+`struct Uses { IFoo* tag; PFoo2 pointer; };` reproduces the rejection. Direct alias projection is
+covered, but record compatibility through these aliases needs a separate equivalence change. Do not
+relax dependency checks or treat successful projection as proof of native compatibility.

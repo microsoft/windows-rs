@@ -1552,16 +1552,30 @@ impl Snapshot {
                 fact,
             })
             .collect();
-        let mut interface_names = BTreeSet::new();
-        let interface_definitions: BTreeSet<_> = types
+        let mut type_resolutions: BTreeMap<_, _> = type_names
+            .into_iter()
+            .map(|(source, name)| (source, TypeResolution::new(name)))
+            .collect();
+        for name in required {
+            type_resolutions
+                .entry(name.clone())
+                .or_insert_with(|| TypeResolution::new(name));
+        }
+        let interface_definitions: BTreeMap<_, _> = types
             .iter()
             .filter(|planned| matches!(planned.fact.data, FactData::Interface { .. }))
-            .map(|planned| planned.fact.name.as_str())
+            .map(|planned| (planned.fact.name.as_str(), planned.fact))
             .collect();
-        for origin in &type_origins {
-            let fact = facts_by_origin[origin];
-            if interface_definitions.contains(fact.name.as_str()) {
-                interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
+        for fact in &self.facts {
+            if let Some(definition) = interface_definitions.get(fact.name.as_str())
+                && (type_origins.contains(&fact.origin)
+                    || same_source_declaration(definition, fact))
+            {
+                type_resolutions
+                    .entry(fact.name.clone())
+                    .or_insert_with(|| TypeResolution::new(fact.name.clone()))
+                    .interfaces
+                    .insert(fact.origin.tu.clone(), InterfaceKind::Object);
             }
         }
         let translation_units: BTreeSet<_> = self
@@ -1569,132 +1583,124 @@ impl Snapshot {
             .iter()
             .map(|fact| fact.origin.tu.as_str())
             .collect();
-        for (name, reference) in references {
-            if reference.kind == TypeReferenceKind::Interface
-                && (excluded_types.is_some_and(|excluded| excluded.contains(name))
-                    || !local_roots.contains(name))
-            {
-                interface_names.extend(
+        let reference_interfaces: BTreeSet<_> = references
+            .values()
+            .filter(|reference| reference.kind == TypeReferenceKind::Interface)
+            .map(|reference| {
+                format!(
+                    "{}::{}",
+                    reference.namespace.replace('.', "::"),
+                    reference.name
+                )
+            })
+            .collect();
+        for resolution in type_resolutions.values_mut() {
+            if reference_interfaces.contains(&resolution.name) {
+                resolution.interfaces.extend(
                     translation_units
                         .iter()
-                        .map(|tu| ((*tu).to_string(), name.clone())),
+                        .map(|tu| ((*tu).to_string(), InterfaceKind::Object)),
                 );
             }
         }
-        let mut interface_aliases: BTreeMap<(String, String), Vec<String>> = BTreeMap::new();
-        for fact in &self.facts {
-            let FactData::Typedef {
-                target: TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. },
-            } = &fact.data
-            else {
+        // Canonicalized aliases need pointer semantics even when their definitions are omitted.
+        let active_declarations: BTreeSet<_> = type_origins
+            .iter()
+            .map(|origin| {
+                let fact = facts_by_origin[origin];
+                (fact.origin.tu.as_str(), &fact.spelling)
+            })
+            .chain(type_choices.keys().filter_map(|(tu, edge)| match edge {
+                TypeEdge::Type(TypeRef::Named { declaration, .. })
+                | TypeEdge::Pointee(TypeRef::Named { declaration, .. }, _) => {
+                    Some((*tu, declaration))
+                }
+                _ => None,
+            }))
+            .collect();
+        let mut interface_aliases: BTreeMap<_, Vec<_>> = BTreeMap::new();
+        for fact in self
+            .facts
+            .iter()
+            .filter(|fact| active_declarations.contains(&(fact.origin.tu.as_str(), &fact.spelling)))
+        {
+            let FactData::Typedef { target } = &fact.data else {
                 continue;
             };
-            if interface_names.contains(&(fact.origin.tu.clone(), target.clone())) {
-                interface_aliases
-                    .entry((fact.origin.tu.clone(), target.clone()))
-                    .or_default()
-                    .push(fact.name.clone());
-            }
-        }
-        let mut interface_queue: Vec<_> = interface_names.iter().cloned().collect();
-        while let Some(key) = interface_queue.pop() {
-            for alias in interface_aliases.get(&key).into_iter().flatten() {
-                let alias = (key.0.clone(), alias.clone());
-                if interface_names.insert(alias.clone()) {
-                    interface_queue.push(alias);
-                }
-            }
-        }
-        let mut pointer_interface_aliases = BTreeMap::new();
-        for fact in &self.facts {
-            let FactData::Typedef {
-                target: TypeRef::Pointer { target, .. },
-            } = &fact.data
-            else {
-                continue;
+            let (target, pointer) = match target {
+                TypeRef::Pointer { target, .. } => (target.as_ref(), true),
+                target => (target, false),
             };
             let (TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. }) =
-                target.as_ref()
+                target
             else {
                 continue;
             };
-            if !interface_names.contains(&(fact.origin.tu.clone(), target.clone())) {
-                continue;
-            }
-            let projected = type_names
-                .get(target)
-                .cloned()
-                .unwrap_or_else(|| target.clone());
-            if let Some(previous) =
-                pointer_interface_aliases.insert(fact.name.clone(), projected.clone())
-                && previous != projected
+            interface_aliases
+                .entry((fact.origin.tu.as_str(), target.as_str()))
+                .or_default()
+                .push((fact.name.as_str(), pointer));
+        }
+        let mut interface_queue: Vec<_> = type_resolutions
+            .iter()
+            .flat_map(|(name, resolution)| {
+                resolution
+                    .interfaces
+                    .keys()
+                    .map(|tu| (tu.clone(), name.clone()))
+            })
+            .collect();
+        while let Some((tu, target)) = interface_queue.pop() {
+            let resolution = &type_resolutions[&target];
+            let target_kind = resolution.interfaces[&tu];
+            let projected = resolution.name.clone();
+            for &(alias, pointer) in interface_aliases
+                .get(&(tu.as_str(), target.as_str()))
+                .into_iter()
+                .flatten()
             {
-                return Err(Error(format!(
-                    "interface pointer alias `{}` has conflicting targets",
-                    fact.name
-                )));
-            }
-        }
-        let mut pointer_aliases: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
-        for fact in &self.facts {
-            let FactData::Typedef {
-                target: TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. },
-            } = &fact.data
-            else {
-                continue;
-            };
-            pointer_aliases.entry(target).or_default().push(&fact.name);
-        }
-        let mut pointer_alias_queue: Vec<_> = pointer_interface_aliases.keys().cloned().collect();
-        while let Some(target) = pointer_alias_queue.pop() {
-            let projected = pointer_interface_aliases[&target].clone();
-            for alias in pointer_aliases.get(target.as_str()).into_iter().flatten() {
-                if let Some(previous) = pointer_interface_aliases.get(*alias) {
-                    if previous != &projected {
+                // Only the first native interface pointer is implicit in metadata.
+                if pointer && target_kind == InterfaceKind::Pointer {
+                    continue;
+                }
+                let kind = if pointer {
+                    InterfaceKind::Pointer
+                } else {
+                    target_kind
+                };
+                let resolution = type_resolutions
+                    .entry(alias.to_string())
+                    .or_insert_with(|| TypeResolution::new(alias.to_string()));
+                if kind == InterfaceKind::Pointer {
+                    if resolution
+                        .interfaces
+                        .values()
+                        .any(|kind| *kind == InterfaceKind::Pointer)
+                        && resolution.name != projected
+                    {
                         return Err(Error(format!(
                             "interface pointer alias `{alias}` has conflicting targets"
                         )));
                     }
+                    resolution.name.clone_from(&projected);
+                }
+                if let Some(previous) = resolution.interfaces.insert(tu.clone(), kind) {
+                    if previous != kind {
+                        return Err(Error(format!(
+                            "interface alias `{alias}` has conflicting pointer depths in translation unit `{tu}`"
+                        )));
+                    }
                 } else {
-                    pointer_interface_aliases.insert((*alias).to_string(), projected.clone());
-                    pointer_alias_queue.push((*alias).to_string());
+                    interface_queue.push((tu.clone(), alias.to_string()));
                 }
             }
         }
-        for (alias, target) in &pointer_interface_aliases {
-            type_names.insert(alias.clone(), target.clone());
-        }
-        types.retain(|planned| !pointer_interface_aliases.contains_key(&planned.fact.name));
-        let mut type_resolutions: BTreeMap<_, _> = type_names
-            .into_iter()
-            .map(|(source, name)| {
-                (
-                    source,
-                    TypeResolution {
-                        name,
-                        interface_tus: BTreeSet::new(),
-                    },
-                )
-            })
-            .collect();
-        for name in required {
+        types.retain(|planned| {
             type_resolutions
-                .entry(name.clone())
-                .or_insert_with(|| TypeResolution {
-                    name,
-                    interface_tus: BTreeSet::new(),
-                });
-        }
-        for (tu, name) in interface_names {
-            type_resolutions
-                .entry(name.clone())
-                .or_insert_with(|| TypeResolution {
-                    name,
-                    interface_tus: BTreeSet::new(),
-                })
-                .interface_tus
-                .insert(tu);
-        }
+                .get(&planned.fact.name)
+                .and_then(|resolution| resolution.interfaces.get(&planned.fact.origin.tu))
+                != Some(&InterfaceKind::Pointer)
+        });
         let mut constants: Vec<_> = constants
             .into_iter()
             .filter_map(|constant| {
@@ -1703,7 +1709,6 @@ impl Snapshot {
                     _ => constant_type_name(
                         &constant.ty,
                         &TypeProjection::new(&type_resolutions, &type_choices, &constant.root.tu),
-                        &pointer_interface_aliases,
                     ),
                 }?;
                 Some(PlannedConstant { constant, ty })
@@ -1837,7 +1842,22 @@ struct Plan<'a> {
 
 struct TypeResolution {
     name: String,
-    interface_tus: BTreeSet<String>,
+    interfaces: BTreeMap<String, InterfaceKind>,
+}
+
+impl TypeResolution {
+    fn new(name: String) -> Self {
+        Self {
+            name,
+            interfaces: BTreeMap::new(),
+        }
+    }
+}
+
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum InterfaceKind {
+    Object,
+    Pointer,
 }
 
 struct TypeProjection<'a> {
@@ -1868,12 +1888,17 @@ impl<'a> TypeProjection<'a> {
     }
 
     fn is_interface(&self, ty: &TypeRef) -> bool {
+        self.interface_kind(ty) == Some(InterfaceKind::Object)
+    }
+
+    fn interface_kind(&self, ty: &TypeRef) -> Option<InterfaceKind> {
         match ty {
             TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } => self
                 .types
                 .get(name)
-                .is_some_and(|ty| ty.interface_tus.contains(self.tu)),
-            _ => false,
+                .and_then(|ty| ty.interfaces.get(self.tu))
+                .copied(),
+            _ => None,
         }
     }
 
@@ -2259,9 +2284,19 @@ fn choose_type_root_cached<'a>(
     facts_index: &HashMap<&str, Vec<&'a Fact>>,
     shape_cache: &mut ShapeCache,
 ) -> Result<&'a Fact, Error> {
+    let fact = reconcile_types(name, roots, facts_index, shape_cache)?;
+    emittable_type(name, fact)
+}
+
+fn reconcile_types<'a>(
+    name: &str,
+    roots: &[&'a Fact],
+    facts_index: &HashMap<&str, Vec<&'a Fact>>,
+    shape_cache: &mut ShapeCache,
+) -> Result<&'a Fact, Error> {
     let distinct = distinct_source_declarations(roots);
     if let [root] = distinct.as_slice() {
-        return emittable_type(name, root);
+        return Ok(root);
     }
     if let Some(first) = distinct.first()
         && distinct.iter().all(|fact| {
@@ -2271,7 +2306,7 @@ fn choose_type_root_cached<'a>(
                 && fact.data == first.data
         })
     {
-        return emittable_type(name, preferred_fact(&distinct));
+        return Ok(preferred_fact(&distinct));
     }
     if let Some(target_name) = distinct.first().and_then(|first| match &first.data {
         FactData::Typedef {
@@ -2335,7 +2370,7 @@ fn choose_type_root_cached<'a>(
                         == complete_kind
                 })
             {
-                return emittable_type(name, complete);
+                return Ok(complete);
             }
         }
     }
@@ -2360,7 +2395,7 @@ fn choose_type_root_cached<'a>(
                 )
         })
     {
-        return emittable_type(name, preferred_fact(&distinct));
+        return Ok(preferred_fact(&distinct));
     }
 
     fn resolved_type_shape(
@@ -2833,7 +2868,7 @@ fn choose_type_root_cached<'a>(
                 )
         })
     {
-        return emittable_type(name, preferred_fact(&declarations));
+        return Ok(preferred_fact(&declarations));
     }
 
     let definitions: Vec<_> = distinct
@@ -3099,7 +3134,7 @@ fn validate_function_dependencies(
         }
     }
     for (dependency, facts) in dependencies {
-        choose_type_root_cached(dependency, &facts, facts_index, shape_cache).map_err(|error| {
+        reconcile_types(dependency, &facts, facts_index, shape_cache).map_err(|error| {
             Error(format!(
                 "incompatible dependency `{dependency}` of function `{name}`: {error}"
             ))
@@ -4009,17 +4044,10 @@ fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
     (mutable, depth, ty)
 }
 
-fn constant_type_name(
-    ty: &TypeRef,
-    projection: &TypeProjection<'_>,
-    pointer_interface_aliases: &BTreeMap<String, String>,
-) -> Option<String> {
+fn constant_type_name(ty: &TypeRef, projection: &TypeProjection<'_>) -> Option<String> {
     let name = match ty {
         TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
-        TypeRef::Named { name, .. } if pointer_interface_aliases.contains_key(name) => {
-            return None;
-        }
-        _ if projection.is_interface(ty) => return None,
+        _ if projection.interface_kind(ty).is_some() => return None,
         TypeRef::Void
         | TypeRef::Object
         | TypeRef::Generic { .. }

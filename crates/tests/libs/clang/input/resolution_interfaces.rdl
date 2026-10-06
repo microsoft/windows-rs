@@ -1,0 +1,10 @@
+#[win32]
+mod External {
+    #[no_guid]
+    interface IFoo {
+        fn Method(&self);
+    }
+    struct Data {
+        value: i32,
+    }
+}

@@ -142,6 +142,12 @@ declaration facts across TUs, the planner walks every candidate's reachable type
 applies the type reconciliation rules. This includes dependencies outside the configured root
 headers, so filtering roots cannot hide conflicting typedef or record definitions.
 
+`reconcile_types` checks compatibility without requiring the selected fact to be locally emittable.
+`choose_type_root_cached` adds that requirement when choosing a local definition to emit. This
+distinction lets referenced metadata supply types whose native definitions contain unsupported
+members. References do not bypass dependency comparison: conflicting extracted definitions still
+fail, and unsupported types without a usable reference still fail during local planning.
+
 Dependency validation operates on `FactData` and `TypeRef`; it does not recover native distinctions
 lost during extraction. It is not a complete native compatibility check, and it does not broaden
 function merging to declarations at different source locations.
@@ -185,9 +191,27 @@ Dependency collection and emission use that choice; parameter direction follows 
 RDL defaults. An input-only raw mutable pointer therefore needs `#[in]`, while a named string alias
 defaults to input.
 
-The final plan groups emitted names and TU-specific interface classification in `TypeResolution`
-records. Type emission, COM pointer handling, and property-key values consult those resolutions
-rather than independently spelling or classifying the original declarations.
+The final plan groups emitted names and TU-specific interface semantics in `TypeResolution`
+records. Each interface resolution distinguishes a native object from an alias that already
+contains its pointer:
+
+| Native declaration | Interface kind | RDL use |
+| --- | --- | --- |
+| `IFoo` | Object | `IFoo*` becomes `IFoo`. |
+| `typedef IFoo Alias;` | Object | `Alias*` becomes `Alias`. |
+| `typedef IFoo* PFoo;` | Pointer | `PFoo` becomes `IFoo`; `PFoo*` becomes `*mut IFoo`. |
+| `typedef PFoo Other;` | Pointer | `Other` has the same representation as `PFoo`. |
+| `typedef PFoo* PPFoo;` | Neither | Preserve the alias with underlying type `*mut IFoo`. |
+
+Selected local definitions and qualified external bindings seed these semantics. One TU-scoped
+alias traversal propagates them through named aliases and consumes at most one native interface
+pointer. The traversal includes admitted declarations and aliases used by projection choices,
+including canonicalized aliases whose definitions are not emitted. An unused alias in another TU
+does not contribute interface semantics or pointer-alias redirections to this traversal.
+
+Type emission, COM pointer handling, property-key values, and constant filtering consult these
+resolutions. Named interface objects and interface-pointer aliases cannot be scalar constants;
+explicit raw-pointer constants retain their pointer representation.
 
 Canonical string names are emitted only when their definitions or metadata references are available.
 Otherwise, a named alias retains its source name and definition, and an annotated character pointer
@@ -364,6 +388,11 @@ Golden and metadata tests share the fixture loader in `tests/common`. Metadata a
 completed-interface pointer levels and parameter directions, plus qualified property-key types.
 Cross-TU function fixtures check both compatible and conflicting dependencies in non-root headers,
 including recursive records.
+
+The `resolution_*` fixtures exercise multi-hop object and pointer aliases, local completion,
+external bindings, canonicalized constants, and unrelated same-name declarations in separate TUs.
+Referenced dependency cases pair an unsupported local definition supplied by metadata with a
+conflicting-definition rejection case. Multi-input golden fixtures check both input orders.
 
 ```text
 cargo test -p windows-clang

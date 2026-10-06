@@ -19,6 +19,109 @@ fn directions(method: MethodDef<'_>, expected: &[ParamDirection]) {
 }
 
 #[test]
+fn resolution_preserves_interface_alias_depth_and_direction() {
+    use ParamDirection::{Input, Output};
+    for (fixture, namespace) in [
+        ("resolution_local_interfaces", "Test"),
+        ("resolution_external_interfaces", "External"),
+    ] {
+        let index = compile(fixture);
+        let interface = Type::class_named(namespace, "IFoo");
+        let alias = Type::value_named("Test", "Alias3");
+        let slot = Type::PtrMut(Box::new(alias.clone()), 1);
+        for (name, target) in [
+            ("Alias1", interface.clone()),
+            ("Alias2", Type::value_named("Test", "Alias1")),
+            ("Alias3", Type::value_named("Test", "Alias2")),
+            ("PPFoo", slot.clone()),
+        ] {
+            let Item::Type(ty) = index.expect_item("Test", name) else {
+                panic!();
+            };
+            assert_eq!(ty.underlying_type(), Some(target), "{fixture}: {name}");
+        }
+        for name in ["Forward", "Complete"] {
+            let Item::Fn(function) = index.expect_item("Test", name) else {
+                panic!();
+            };
+            let signature = function.signature(&[]);
+            assert_eq!(signature.return_type, alias, "{fixture}: {name}");
+            assert_eq!(
+                signature.types,
+                [alias.clone(), alias.clone(), slot.clone()],
+                "{fixture}: {name}"
+            );
+            directions(function, &[Input, Input, Output]);
+        }
+        let Item::Type(ty) = index.expect_item("Test", "Uses") else {
+            panic!();
+        };
+        for field in ty.fields() {
+            let expected = match field.name() {
+                "tag" => interface.clone(),
+                "slot" => slot.clone(),
+                "array" => Type::ArrayFixed(Box::new(alias.clone()), 2),
+                "value" | "pointer" => alias.clone(),
+                _ => panic!(),
+            };
+            assert_eq!(field.ty(), expected, "{fixture}: {}", field.name());
+        }
+        if namespace == "External" {
+            let Item::Fn(function) = index.expect_item("Test", "Tags") else {
+                panic!();
+            };
+            assert_eq!(
+                function.signature(&[]).types,
+                [
+                    interface.clone(),
+                    interface.clone(),
+                    Type::PtrMut(Box::new(interface), 1),
+                ]
+            );
+            directions(function, &[Input, Input, Output]);
+        }
+    }
+}
+
+#[test]
+fn resolution_filters_interface_alias_constants() {
+    let index = compile("resolution_interface_constants");
+    assert!(index.get_item("Test", "UNKNOWN_NULL").next().is_none());
+    assert!(index.get_item("Test", "UNKNOWN_ALIAS").next().is_none());
+    assert!(matches!(
+        index.expect_item("Test", "INTEGER_CONSTANT"),
+        Item::Const(_)
+    ));
+}
+
+#[test]
+fn resolution_accepts_externally_emitted_dependencies() {
+    let index = compile("resolution_referenced_dependency");
+    let Item::Fn(function) = index.expect_item("Test", "Referenced") else {
+        panic!();
+    };
+    assert_eq!(
+        function.signature(&[]).types,
+        [Type::class_named("External", "IFoo")]
+    );
+    directions(function, &[ParamDirection::Input]);
+}
+
+#[test]
+fn resolution_ignores_unselected_aliases_in_other_translation_units() {
+    let index = compile("resolution_interface_scope");
+    let Item::Fn(function) = index.expect_item("Test", "RecordUse") else {
+        panic!();
+    };
+    let record = Type::value_named("Test", "Shared");
+    assert_eq!(
+        function.signature(&[]).types,
+        [record.clone(), Type::PtrMut(Box::new(record), 1)]
+    );
+    directions(function, &[ParamDirection::Input, ParamDirection::Output]);
+}
+
+#[test]
 fn completed_interfaces_have_one_pointer_representation() {
     use ParamDirection::{Input, Output};
     let index = compile("cross_tu_interface");

@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    const INTEGER_CONSTANT: i32 = 42;
+    #[no_guid]
+    interface IUnknown {
+        fn Method(&self);
+    }
+}

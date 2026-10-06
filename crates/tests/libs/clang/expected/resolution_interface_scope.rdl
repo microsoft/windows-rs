@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface IFoo {
+        fn Method(&self);
+    }
+    #[library("test.dll")]
+    extern "C" fn InterfaceUse(value: IFoo);
+    #[library("test.dll")]
+    extern "C" fn RecordUse(value: Shared, pointer: *mut Shared);
+    struct Shared {
+        value: i32,
+    }
+}
