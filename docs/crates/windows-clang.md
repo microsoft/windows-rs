@@ -118,6 +118,39 @@ optionality, size relationships, return-value markers, and interface-selection m
 not rewrite the declared C type. Explicit string and pointer typedefs therefore survive parameter
 annotations.
 
+### Function identity and annotation capture
+
+`FactData` and `TypeRef` describe the projection, not a complete native declaration identity.
+Extraction can map different C/C++ types to the same RDL representation. Equality of projected
+types is therefore insufficient to establish compatibility between translation units.
+
+`Snapshot` retains each function's canonical declaration location and Clang USR, keyed by its
+TU-local origin. Function root selection uses this identity for same-TU redeclarations instead
+of collapsing them by projected equality. Matching parent scope and linker names is insufficient:
+distinct overloads can share an explicit linker name. Such collisions are rejected, while genuine
+redeclarations retain the existing representative and annotation-selection policy.
+
+This identity check applies only within one translation unit. Neither a USR nor a source location
+proves that separate TUs observed compatible definitions. Cross-TU function selection and type
+reconciliation use their existing rules; no native compatibility pass or definition graph is
+constructed.
+
+`extract/annotations.rs` captures parameter annotations once per projection attempt for functions,
+callbacks, and interface methods. Each Clang annotation retains its full spelling, including all
+arguments. `_In_reads_(n)` and `_Out_writes_(m)` remain separate; `_Out_writes_to_(n,m)` retains
+both arguments. Legacy source markers such as `IN`, `OUT`, and `[retval]` remain individual, ordered
+entries alongside the attribute strings.
+
+Projection derives an attribute summary from the captured data, applies byte-count and
+unresolved-reference policy, then interprets source markers. This order matters for comments whose
+meaning depends on an earlier direction annotation. The capture is immutable during projection
+and is released afterward; it is not duplicated or retained in `Snapshot`.
+
+`ParamAnnotation` is the RDL projection's supported subset, including only the first size
+relationship. Different source contracts can therefore have identical summaries. Neither summary
+equality nor raw annotation-string equality establishes cross-TU compatibility. Changing SAL
+representation or enabling cross-TU merges requires a separate contract and regression coverage.
+
 ### RDL type identity policy
 
 RDL is the authoritative description produced from the headers. It preserves the type named by a

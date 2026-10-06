@@ -1,0 +1,14 @@
+#[win32]
+mod AnnotationOrder {
+    #[library("api.dll")]
+    extern "C" fn First(value: *mut *mut void);
+    extern "C" fn FirstCallback(value: *mut *mut void);
+    #[guid(0x12345678_1234_abcd_9876_0123456789ab)]
+    interface ITest {
+        fn First(&self, value: *mut *mut void) -> i32;
+        fn Second(&self, #[iid_is] value: *mut *mut void) -> i32;
+    }
+    #[library("api.dll")]
+    extern "C" fn Second(#[iid_is] value: *mut *mut void);
+    extern "C" fn SecondCallback(#[iid_is] value: *mut *mut void);
+}

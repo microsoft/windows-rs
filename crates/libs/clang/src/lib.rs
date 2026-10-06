@@ -396,6 +396,7 @@ pub struct Constant {
 pub struct Snapshot {
     facts: Vec<Fact>,
     constants: Vec<Constant>,
+    function_declarations: BTreeMap<Origin, extract::FunctionDeclaration>,
 }
 
 impl Snapshot {
@@ -1036,7 +1037,11 @@ impl Snapshot {
                     type_roots.push(root);
                 }
             } else if !roots.functions.is_empty() {
-                functions.push(choose_function_root(name, &roots.functions)?);
+                functions.push(choose_function_root(
+                    name,
+                    &roots.functions,
+                    &self.function_declarations,
+                )?);
             }
             if let Some(value) = value {
                 value_roots.push(value);
@@ -2796,8 +2801,18 @@ fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
         )
 }
 
-fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
-    let distinct = distinct_source_declarations(roots);
+fn choose_function_root<'a>(
+    name: &str,
+    roots: &[&'a Fact],
+    declarations: &BTreeMap<Origin, extract::FunctionDeclaration>,
+) -> Result<&'a Fact, Error> {
+    let distinct = if let Some(first) = roots.first()
+        && roots.iter().all(|fact| fact.origin.tu == first.origin.tu)
+    {
+        roots.to_vec()
+    } else {
+        distinct_source_declarations(roots)
+    };
     if let [root] = distinct.as_slice() {
         return Ok(root);
     }
@@ -2808,7 +2823,7 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
         } = &first.data
         && distinct.iter().all(|fact| {
             fact.origin.tu == first.origin.tu
-                && fact.parent == first.parent
+                && declarations[&first.origin].same_entity(&declarations[&fact.origin])
                 && matches!(
                     &fact.data,
                     FactData::Function { link_name, .. } if link_name == first_link_name
@@ -2826,7 +2841,7 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
         .map(|fact| {
             format!(
                 "{}:{} {:?}",
-                fact.spelling.file, fact.spelling.offset, fact.data
+                fact.expansion.file, fact.expansion.offset, fact.data
             )
         })
         .collect::<Vec<_>>()
