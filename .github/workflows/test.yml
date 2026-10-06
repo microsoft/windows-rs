@@ -37,8 +37,8 @@ jobs:
             target: i686-pc-windows-msvc
             runner: windows-2025-vs2026
             # The pinned libclang packages do not include an x86 DLL. The native x64 and Arm64
-            # jobs cover this host-tool crate; its output is target-independent.
-            clang-exclude: "--exclude windows-clang --exclude test_clang"
+            # jobs run both frontends, each of which can parse all target architectures.
+            clang-exclude: "--exclude windows-clang --exclude test_clang --exclude windows-clang2 --exclude test_clang2"
           - name: stable arm64
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc

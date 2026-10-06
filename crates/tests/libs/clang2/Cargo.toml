@@ -1,0 +1,19 @@
+[package]
+name = "test_clang2"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[build-dependencies]
+helpers = { workspace = true }
+
+[dev-dependencies]
+helpers = { workspace = true }
+clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
+windows-clang = { workspace = true }
+windows-clang2 = { workspace = true }
+windows-rdl = { workspace = true }
+windows-metadata = { workspace = true }
+
+[lints]
+workspace = true

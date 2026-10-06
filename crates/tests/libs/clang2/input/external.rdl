@@ -1,0 +1,8 @@
+#[win32]
+mod External {
+    struct Data { value: i32, }
+    #[no_guid]
+    interface IUnknown {
+        fn Method(&self);
+    }
+}

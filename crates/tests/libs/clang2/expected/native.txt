@@ -1,0 +1,662 @@
+target: x86_64-pc-windows-msvc19.0.0
+[0] Use [root] (native.h:14:17, TU native.h)
+USR: c:@F@Use
+entity: 0
+Function {
+    ty: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Function {
+            prototype: true,
+            convention: 1,
+            exception_specification: 0,
+            variadic: false,
+            result: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Void",
+                    layout: None,
+                },
+            },
+            parameters: [
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Pointer(
+                        Type {
+                            qualifiers: Qualifiers {
+                                constant: false,
+                                volatile: false,
+                                restrict: false,
+                            },
+                            kind: Named(
+                                Id(
+                                    3,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Named(
+                        Id(
+                            4,
+                        ),
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Named(
+                        Id(
+                            5,
+                        ),
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Pointer(
+                        Type {
+                            qualifiers: Qualifiers {
+                                constant: false,
+                                volatile: false,
+                                restrict: false,
+                            },
+                            kind: Builtin {
+                                kind: "Int",
+                                layout: Some(
+                                    Layout {
+                                        size: 4,
+                                        align: 4,
+                                    },
+                                ),
+                            },
+                        },
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Builtin {
+                        kind: "Int",
+                        layout: Some(
+                            Layout {
+                                size: 4,
+                                align: 4,
+                            },
+                        ),
+                    },
+                },
+            ],
+        },
+    },
+    canonical: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Function {
+            prototype: true,
+            convention: 1,
+            exception_specification: 0,
+            variadic: false,
+            result: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Void",
+                    layout: None,
+                },
+            },
+            parameters: [
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Pointer(
+                        Type {
+                            qualifiers: Qualifiers {
+                                constant: false,
+                                volatile: false,
+                                restrict: false,
+                            },
+                            kind: Named(
+                                Id(
+                                    3,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Pointer(
+                        Type {
+                            qualifiers: Qualifiers {
+                                constant: false,
+                                volatile: false,
+                                restrict: false,
+                            },
+                            kind: Named(
+                                Id(
+                                    6,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Pointer(
+                        Type {
+                            qualifiers: Qualifiers {
+                                constant: true,
+                                volatile: false,
+                                restrict: false,
+                            },
+                            kind: Named(
+                                Id(
+                                    6,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Pointer(
+                        Type {
+                            qualifiers: Qualifiers {
+                                constant: false,
+                                volatile: false,
+                                restrict: false,
+                            },
+                            kind: Builtin {
+                                kind: "Int",
+                                layout: Some(
+                                    Layout {
+                                        size: 4,
+                                        align: 4,
+                                    },
+                                ),
+                            },
+                        },
+                    ),
+                },
+                Type {
+                    qualifiers: Qualifiers {
+                        constant: false,
+                        volatile: false,
+                        restrict: false,
+                    },
+                    kind: Builtin {
+                        kind: "Int",
+                        layout: Some(
+                            Layout {
+                                size: 4,
+                                align: 4,
+                            },
+                        ),
+                    },
+                },
+            ],
+        },
+    },
+    parameters: [
+        Parameter {
+            name: "record",
+            annotations: [],
+        },
+        Parameter {
+            name: "value",
+            annotations: [],
+        },
+        Parameter {
+            name: "other",
+            annotations: [],
+        },
+        Parameter {
+            name: "output",
+            annotations: [
+                Annotation {
+                    text: "_Out_writes_(count)",
+                    context: [
+                        "record",
+                        "value",
+                        "other",
+                        "output",
+                        "count",
+                    ],
+                    location: Location {
+                        file: "native.h",
+                        line: 18,
+                        column: 25,
+                        offset: 415,
+                    },
+                },
+            ],
+        },
+        Parameter {
+            name: "count",
+            annotations: [],
+        },
+    ],
+    link_name: "Use",
+}
+[1] zero_array [root] (native.h:13:12, TU native.h)
+USR: c:@zero_array
+entity: 1
+Variable {
+    ty: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Array {
+            length: Some(
+                0,
+            ),
+            element: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+        },
+    },
+    value: None,
+}
+[2] incomplete_array [root] (native.h:12:12, TU native.h)
+USR: c:@incomplete_array
+entity: 2
+Variable {
+    ty: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Array {
+            length: None,
+            element: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+        },
+    },
+    value: None,
+}
+[3] Native (native.h:1:8, TU native.h)
+USR: c:@S@Native
+entity: 3
+Record {
+    kind: "StructDecl",
+    complete: true,
+    layout: Some(
+        Layout {
+            size: 32,
+            align: 8,
+        },
+    ),
+    fields: [
+        Field {
+            name: "narrow",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Int",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+            offset: 0,
+            bit_width: None,
+        },
+        Field {
+            name: "wide",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Builtin {
+                    kind: "Long",
+                    layout: Some(
+                        Layout {
+                            size: 4,
+                            align: 4,
+                        },
+                    ),
+                },
+            },
+            offset: 32,
+            bit_width: None,
+        },
+        Field {
+            name: "pointers",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: true,
+                },
+                kind: Pointer(
+                    Type {
+                        qualifiers: Qualifiers {
+                            constant: true,
+                            volatile: false,
+                            restrict: false,
+                        },
+                        kind: Pointer(
+                            Type {
+                                qualifiers: Qualifiers {
+                                    constant: true,
+                                    volatile: true,
+                                    restrict: false,
+                                },
+                                kind: Builtin {
+                                    kind: "Int",
+                                    layout: Some(
+                                        Layout {
+                                            size: 4,
+                                            align: 4,
+                                        },
+                                    ),
+                                },
+                            },
+                        ),
+                    },
+                ),
+            },
+            offset: 64,
+            bit_width: None,
+        },
+        Field {
+            name: "left",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: LValueReference(
+                    Type {
+                        qualifiers: Qualifiers {
+                            constant: false,
+                            volatile: false,
+                            restrict: false,
+                        },
+                        kind: Builtin {
+                            kind: "Int",
+                            layout: Some(
+                                Layout {
+                                    size: 4,
+                                    align: 4,
+                                },
+                            ),
+                        },
+                    },
+                ),
+            },
+            offset: 128,
+            bit_width: None,
+        },
+        Field {
+            name: "right",
+            ty: Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: RValueReference(
+                    Type {
+                        qualifiers: Qualifiers {
+                            constant: false,
+                            volatile: false,
+                            restrict: false,
+                        },
+                        kind: Builtin {
+                            kind: "Int",
+                            layout: Some(
+                                Layout {
+                                    size: 4,
+                                    align: 4,
+                                },
+                            ),
+                        },
+                    },
+                ),
+            },
+            offset: 192,
+            bit_width: None,
+        },
+    ],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
+[4] Alias (native.h:10:13, TU native.h)
+USR: c:native.h@T@Alias
+entity: 4
+Alias {
+    target: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Named(
+            Id(
+                7,
+            ),
+        ),
+    },
+    canonical: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Pointer(
+            Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        6,
+                    ),
+                ),
+            },
+        ),
+    },
+    parameters: [],
+}
+[5] ConstForward (native.h:11:31, TU native.h)
+USR: c:native.h@T@ConstForward
+entity: 5
+Alias {
+    target: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Pointer(
+            Type {
+                qualifiers: Qualifiers {
+                    constant: true,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        6,
+                    ),
+                ),
+            },
+        ),
+    },
+    canonical: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Pointer(
+            Type {
+                qualifiers: Qualifiers {
+                    constant: true,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        6,
+                    ),
+                ),
+            },
+        ),
+    },
+    parameters: [],
+}
+[6] Forward (native.h:8:8, TU native.h)
+USR: c:@S@Forward
+entity: 6
+Record {
+    kind: "StructDecl",
+    complete: false,
+    layout: None,
+    fields: [],
+    bases: [],
+    methods: [],
+    guid: None,
+    unavailable: [],
+}
+[7] Raw (native.h:9:18, TU native.h)
+USR: c:native.h@T@Raw
+entity: 7
+Alias {
+    target: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Pointer(
+            Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        6,
+                    ),
+                ),
+            },
+        ),
+    },
+    canonical: Type {
+        qualifiers: Qualifiers {
+            constant: false,
+            volatile: false,
+            restrict: false,
+        },
+        kind: Pointer(
+            Type {
+                qualifiers: Qualifiers {
+                    constant: false,
+                    volatile: false,
+                    restrict: false,
+                },
+                kind: Named(
+                    Id(
+                        6,
+                    ),
+                ),
+            },
+        ),
+    },
+    parameters: [],
+}

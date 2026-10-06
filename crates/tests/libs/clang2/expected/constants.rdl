@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    const BOOLEAN: bool = true;
+    const DOUBLE: f64 = 2.5;
+    const FLOAT: f32 = 1.25;
+    const NEGATIVE: i32 = -42;
+    const NEGATIVE_ZERO: f64 = -0.0;
+    const POINTER: *mut i32 = 0;
+    const UNSIGNED: u32 = 4294967295;
+    const WHOLE: f32 = 2.0;
+}

@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    struct Data {
+        value: i32,
+    }
+    struct Packet {
+        value: *mut Data,
+    }
+}

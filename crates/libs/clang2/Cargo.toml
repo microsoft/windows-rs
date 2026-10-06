@@ -1,0 +1,20 @@
+[package]
+name = "windows-clang2"
+version = "0.100.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Experimental native evidence pipeline for Windows headers"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[lints]
+workspace = true
+
+[dependencies]
+clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
+
+[dev-dependencies]
+helpers = { workspace = true }

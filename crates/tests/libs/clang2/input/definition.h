@@ -1,0 +1,1 @@
+struct Data { VALUE value; };
