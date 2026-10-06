@@ -6,7 +6,7 @@
 //! [`REFERENCE_WINMD`]) and resolved by bare name once both winmds are loaded together. Like the um
 //! scrape contains no type-level curation - the only inputs are mechanical.
 //!
-//! The two phases share one crate: the pinned SDK version, root namespace, SAL shim, and arch list
+//! The two phases share one crate: the SDK package paths, root namespace, SAL shim, and arch list
 //! all live in `main.rs` and are referenced here as `crate::*`, and the toolchain is provisioned
 //! once by the orchestrator. This phase resolves against phase A's [`crate::UM_WINMD`] directly
 //! (phase A wrote it from the same inputs an isolated re-derivation would use), so no intermediate
@@ -25,17 +25,14 @@ pub(super) const RDL_DIR: &str = "metadata/wdk";
 /// is needed and why none of it reaches the metadata.
 const OFFREG_PRELUDE: &str = "crates/tools/win32/src/offreg_prelude.h";
 
-/// Pinned WDK version. The metadata is generated against the `Microsoft.Windows.WDK.x64` NuGet
-/// package at this exact version, restored into the NuGet global cache. This is the latest
-/// servicing build of the `10.0.28000` marketing line that matches the SDK; the WDK's servicing
-/// build lags the SDK's, so it is pinned independently from `crate::SDK_VERSION`.
+/// WDK headers and import libraries share this pin, independently of `crate::SDK_VERSION`.
 const WDK_VERSION: &str = "10.0.28000.1839";
 
 /// Arch-neutral clang arguments shared by every architecture pass. Parse as C++ (for `extern "C"`,
 /// `__declspec`, SAL). The per-arch target triple and the arch-selection macros are supplied
 /// separately (see [`arch_defines`]); the kernel-mode headers never pull `windows.h`, so `ntdef.h`
 /// errors "No Target Architecture" without those macros the SDK build normally sets.
-/// `NTDDI_VERSION` gates the API level.
+/// `NTDDI_VERSION` fixes the API level independently of the package version.
 const CLANG_ARGS: &[&str] = &["-x", "c++", "-DNTDDI_VERSION=0x0A000010"];
 
 /// In-scope header directory segments (`["km"]`): a declaration defined under the WDK kernel-mode
@@ -78,54 +75,36 @@ fn arch_defines(name: &str) -> Vec<String> {
     defines.iter().map(|s| s.to_string()).collect()
 }
 
-/// The `-isystem` include arguments: the WDK kernel-mode headers first (`km`, then the WDK's own
+fn wdk_root() -> PathBuf {
+    nuget_package("microsoft.windows.wdk.x64", WDK_VERSION).join("c")
+}
+
+/// The include directories: the WDK kernel-mode headers first (`km`, then the WDK's own
 /// `shared`), then the shared Windows SDK headers (`shared`, `um`, `ucrt`) that complete the
 /// translation unit. Order is fixed so the parse is deterministic.
-fn include_args() -> Vec<String> {
-    let sdk_version = crate::SDK_VERSION;
-    let wdk = nuget_package("microsoft.windows.wdk.x64", WDK_VERSION)
-        .join("c")
-        .join("Include")
-        .join(marketing_dir(WDK_VERSION));
-    let sdk = nuget_package("microsoft.windows.sdk.cpp", sdk_version)
-        .join("c")
-        .join("Include")
-        .join(marketing_dir(sdk_version));
-    let dirs = [
+fn include_dirs() -> Vec<String> {
+    let wdk = wdk_root().join("Include").join(marketing_dir(WDK_VERSION));
+    let sdk = crate::sdk_include_root();
+    crate::checked_dirs([
         wdk.join("km"),
         wdk.join("shared"),
         sdk.join("shared"),
         sdk.join("um"),
         sdk.join("ucrt"),
-    ];
-    dirs.iter()
-        .flat_map(|dir| {
-            [
-                "-isystem".to_string(),
-                dir.to_string_lossy().replace('\\', "/"),
-            ]
-        })
-        .collect()
+    ])
 }
 
 /// The x64 import-library search directories: the SDK's `um` tree (`ntdll.lib`) and the WDK's
 /// kernel-mode tree (`offreg.lib`). The symbol -> DLL mapping is arch-invariant, so the x64 libs
 /// serve the canonical metadata and every additional arch pass.
 fn lib_dirs() -> Vec<String> {
-    let sdk = nuget_package("microsoft.windows.sdk.cpp.x64", crate::SDK_VERSION)
-        .join("c")
-        .join("um")
-        .join("x64");
-    let wdk = nuget_package("microsoft.windows.wdk.x64", WDK_VERSION)
-        .join("c")
+    let sdk = crate::sdk_lib_root().join("um").join("x64");
+    let wdk = wdk_root()
         .join("Lib")
         .join(marketing_dir(WDK_VERSION))
         .join("km")
         .join("x64");
-    [sdk, wdk]
-        .iter()
-        .map(|dir: &PathBuf| dir.to_string_lossy().replace('\\', "/"))
-        .collect()
+    crate::checked_dirs([sdk, wdk])
 }
 
 fn resolve(name: &str, dirs: &[String]) -> String {
@@ -148,12 +127,11 @@ pub fn scrape(um_winmd: &std::path::Path) {
         "kernel scrape requires `{}` from a prior full user-mode scrape",
         um_winmd.display()
     );
-    let include_args = include_args();
-    let include_dirs: Vec<_> = include_args
-        .as_chunks::<2>()
-        .0
+    let include_dirs = include_dirs();
+    let include_args: Vec<_> = include_dirs
         .iter()
-        .map(|pair| pair[1].clone())
+        .cloned()
+        .flat_map(|dir| ["-isystem".to_string(), dir])
         .collect();
     let roots = SOURCE_HEADERS
         .iter()
@@ -171,9 +149,10 @@ pub fn scrape(um_winmd: &std::path::Path) {
             .with_roots(roots)
             .with_root_dirs(crate::scope_dirs(&include_dirs, SCOPE)),
     ];
+    let lib_dirs = lib_dirs();
     let import_libs: Vec<_> = IMPORT_LIBS
         .iter()
-        .map(|library| resolve(library, &lib_dirs()))
+        .map(|library| resolve(library, &lib_dirs))
         .collect();
 
     let um_bytes = std::fs::read(um_winmd).unwrap();

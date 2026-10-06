@@ -1,4 +1,5 @@
 use helpers::nuget_package;
+use std::path::{Path, PathBuf};
 use windows_metadata::merge;
 
 /// The committed, canonical WinRT winmd. Checked in as `windows-bindgen`'s default WinRT
@@ -18,13 +19,10 @@ const RDL_DIR: &str = "metadata/winrt";
 /// `target` and not tracked - regenerated on demand.
 const OUT_DIR: &str = "target/winrt";
 
-/// The NuGet package that ships the per-contract WinRT `.winmd` files. Fetched into the
-/// NuGet global cache on first use, exactly like `tool-win32`'s SDK packages.
+/// The NuGet package that ships the per-contract WinRT `.winmd` files.
 const CONTRACTS_ID: &str = "microsoft.windows.sdk.contracts";
 
-/// Pinned SDK Contracts version. The winmd is merged from this exact package so the WinRT
-/// surface is reproducible on any machine and in CI. Bumping it is a deliberate, reviewable
-/// change: the new package is restored and `metadata/winrt` + `Windows.winmd` regenerated.
+/// All contract files come from this release, independently of `tool-win32`'s SDK pin.
 const CONTRACTS_VERSION: &str = "10.0.28000.2270";
 
 /// The per-contract winmds live under this subtree in the package (`Windows.Foundation.winmd`,
@@ -34,24 +32,8 @@ const CONTRACTS_SUBDIR: &str = "ref/netstandard2.0";
 fn main() {
     let time = std::time::Instant::now();
 
-    // Fetch the pinned Contracts package on demand (shared NuGet cache with the other tools)
-    // so a fresh checkout regenerates without a manual `nuget restore`.
     let contracts_dir = nuget_package(CONTRACTS_ID, CONTRACTS_VERSION).join(CONTRACTS_SUBDIR);
-
-    let mut inputs: Vec<String> = std::fs::read_dir(&contracts_dir)
-        .unwrap_or_else(|e| panic!("failed to read `{}`: {e}", contracts_dir.display()))
-        .filter_map(|entry| entry.ok())
-        .map(|entry| entry.path())
-        .filter(|path| path.extension().is_some_and(|x| x == "winmd"))
-        .map(|path| path.to_string_lossy().replace('\\', "/"))
-        .collect();
-    inputs.sort();
-
-    assert!(
-        !inputs.is_empty(),
-        "no `.winmd` files found under `{}`",
-        contracts_dir.display()
-    );
+    let inputs = contract_files(&contracts_dir);
 
     // Merge the per-contract winmds into one intermediate winmd, replacing the external
     // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool-win32`
@@ -94,4 +76,75 @@ fn main() {
         inputs.len(),
         time.elapsed().as_secs_f32()
     );
+}
+
+fn contract_files(dir: &Path) -> Vec<PathBuf> {
+    let mut inputs = Vec::new();
+    for entry in std::fs::read_dir(dir)
+        .unwrap_or_else(|error| panic!("failed to read `{}`: {error}", dir.display()))
+    {
+        let path = entry
+            .unwrap_or_else(|error| panic!("failed to enumerate `{}`: {error}", dir.display()))
+            .path();
+        if path
+            .extension()
+            .is_some_and(|extension| extension == "winmd")
+        {
+            assert!(
+                path.is_file(),
+                "expected a contract file: `{}`",
+                path.display()
+            );
+            inputs.push(path);
+        }
+    }
+    inputs.sort();
+    assert!(
+        !inputs.is_empty(),
+        "no `.winmd` files found under `{}`",
+        dir.display()
+    );
+    inputs
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn temp_dir() -> PathBuf {
+        let dir = std::env::temp_dir().join(format!(
+            "windows-rs-contracts-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir(&dir).unwrap();
+        dir
+    }
+
+    #[test]
+    fn contract_files_are_sorted_and_ignore_other_extensions() {
+        let dir = temp_dir();
+        for name in ["Windows.Z.winmd", "Windows.A.winmd", "readme.txt"] {
+            std::fs::write(dir.join(name), "").unwrap();
+        }
+        std::fs::create_dir(dir.join("nested")).unwrap();
+        assert_eq!(
+            contract_files(&dir),
+            [dir.join("Windows.A.winmd"), dir.join("Windows.Z.winmd")]
+        );
+        std::fs::remove_dir_all(dir).unwrap();
+    }
+
+    #[test]
+    fn rejects_missing_empty_and_invalid_contract_directories() {
+        let dir = temp_dir();
+        assert!(std::panic::catch_unwind(|| contract_files(&dir.join("missing"))).is_err());
+        assert!(std::panic::catch_unwind(|| contract_files(&dir)).is_err());
+        std::fs::create_dir(dir.join("NotAFile.winmd")).unwrap();
+        assert!(std::panic::catch_unwind(|| contract_files(&dir)).is_err());
+        std::fs::remove_dir_all(dir).unwrap();
+    }
 }
