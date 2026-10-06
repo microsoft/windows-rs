@@ -126,6 +126,27 @@ Use `Icon::symbol`, `Icon::font`, `Icon::bitmap`, `Icon::image_*`, or `Icon::pat
 slots. Use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon` when the icon is a
 standalone visual that needs layout or other visual properties.
 
+## Configure navigation
+
+`NavigationView` exposes separate pane content and visibility settings:
+
+```rust,ignore
+NavigationView::new()
+    .pane_header("Workspace")
+    .pane_footer("Account")
+    .is_back_enabled(false)
+    .is_pane_visible(true)
+    .content("Page")
+```
+
+`pane_header` owns one visual, like `pane_footer`; strings become text views. Updating it follows
+the usual positional reconciliation rules, and omitting it on a later render removes the header.
+It is separate from `header`, which belongs above the main content.
+`is_back_enabled` controls the back button's enabled state, not its visibility or navigation
+behavior. `is_pane_visible` controls pane visibility, not whether a visible pane is open.
+Omitting either Boolean property clears its local value and restores WinUI's default or styled
+value. Neither property changes application selection or maintains navigation history.
+
 ## Add editable state
 
 Editable controls are controlled: pass the current value from component state and send changes

@@ -3578,6 +3578,20 @@ impl NavigationView {
         );
         self
     }
+    pub fn is_back_enabled(mut self, is_back_enabled: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsBackEnabled,
+            PropertyValue::Bool(is_back_enabled),
+        );
+        self
+    }
+    pub fn is_pane_visible(mut self, is_pane_visible: bool) -> Self {
+        self.0 = self.0.property(
+            PropertyId::IsPaneVisible,
+            PropertyValue::Bool(is_pane_visible),
+        );
+        self
+    }
     pub fn is_settings_visible(mut self, is_settings_visible: bool) -> Self {
         self.0 = self.0.property(
             PropertyId::IsSettingsVisible,
@@ -3652,6 +3666,19 @@ impl NavigationView {
     pub fn pane_custom_content(mut self, content: impl Into<View>) -> Self {
         self.0 = self.0.relation(
             RelationId::PaneCustomContent,
+            RelationValue::One(Some(Rc::new(content.into().0))),
+        );
+        self
+    }
+    /// Rejects values outside this relation's generated type contract.
+    ///
+    /// ```compile_fail
+    /// use windows_reactor::*;
+    /// let _ = NavigationView::new().pane_header(TreeNode::new("node", "Node"));
+    /// ```
+    pub fn pane_header(mut self, content: impl Into<View>) -> Self {
+        self.0 = self.0.relation(
+            RelationId::PaneHeader,
             RelationValue::One(Some(Rc::new(content.into().0))),
         );
         self

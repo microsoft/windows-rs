@@ -840,6 +840,12 @@ name = "IsPaneToggleButtonVisible"
 name = "IsBackButtonVisible"
 
 [[objects.properties]]
+name = "IsBackEnabled"
+
+[[objects.properties]]
+name = "IsPaneVisible"
+
+[[objects.properties]]
 name = "IsSettingsVisible"
 
 [[objects.properties]]
@@ -866,6 +872,9 @@ name = "Header"
 
 [[objects.relations]]
 name = "PaneCustomContent"
+
+[[objects.relations]]
+name = "PaneHeader"
 
 [[objects.relations]]
 name = "PaneFooter"

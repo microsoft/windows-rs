@@ -2299,9 +2299,11 @@ pub fn windows_reactor::NavigationView::header(self, impl core::convert::Into<wi
 pub fn windows_reactor::NavigationView::height(self, f64) -> Self
 pub fn windows_reactor::NavigationView::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::NavigationView::is_back_button_visible(self, windows_reactor::NavigationViewBackButtonVisible) -> Self
+pub fn windows_reactor::NavigationView::is_back_enabled(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_enabled(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_pane_open(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_pane_toggle_button_visible(self, bool) -> Self
+pub fn windows_reactor::NavigationView::is_pane_visible(self, bool) -> Self
 pub fn windows_reactor::NavigationView::is_settings_visible(self, bool) -> Self
 pub fn windows_reactor::NavigationView::keyed_footer_menu_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::NavigationView::keyed_menu_items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
@@ -2320,6 +2322,7 @@ pub fn windows_reactor::NavigationView::open_pane_length(self, f64) -> Self
 pub fn windows_reactor::NavigationView::pane_custom_content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::NavigationView::pane_display_mode(self, windows_reactor::NavigationViewPaneDisplayMode) -> Self
 pub fn windows_reactor::NavigationView::pane_footer(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::NavigationView::pane_header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::NavigationView::pane_title(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NavigationView::relative_align_bottom(self) -> Self
 pub fn windows_reactor::NavigationView::relative_align_horizontal_center(self) -> Self
