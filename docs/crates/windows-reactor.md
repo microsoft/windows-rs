@@ -279,6 +279,26 @@ cargo run -p tool-reactor --quiet
 The command updates the Reactor declarations, native adapter, native bindings, and live coverage.
 `crates/tools/reactor/src/bindings.txt` is the handwritten native binding filter.
 
+### Windows App SDK updates
+
+Change `WINDOWS_APP_SDK_VERSION` in `crates/tools/reactor-metadata/src/main.rs`, then run:
+
+```text
+cargo run -p tool-reactor-metadata --quiet
+cargo run -p tool-reactor --quiet
+cargo run -p tool-composition --quiet
+```
+
+The metadata tool restores the pinned umbrella package and resolves its component and Runtime
+versions from the nuspec. It refreshes the App SDK metadata, compiles `extras.rdl` together with
+bootstrap version constants read from the Runtime package's version header, and writes
+`reactor-setup/assets/runtime-version.txt`. The setup crate and Reactor CI consume that generated
+version file. WebView2 metadata remains owned by `tool-webview`.
+
+Review the setup crate's activation manifest and runtime allow-list when updating the runtime.
+Framework package identity and MSIX filename changes also require review; see
+[`windows-reactor-setup`](windows-reactor-setup.md).
+
 ### Module imports
 
 Handwritten modules use `use super::*;`, with shared imports supplied by `src/lib.rs` and

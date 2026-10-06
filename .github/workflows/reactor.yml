@@ -143,7 +143,10 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          $installerUrl = "https://aka.ms/windowsappsdk/2.5/2.5.1/windowsappruntimeinstall-x64.exe"
+          $runtimeVersion = [version](Get-Content `
+            crates\libs\reactor-setup\assets\runtime-version.txt -Raw)
+          $release = "$($runtimeVersion.Major).$($runtimeVersion.Minor)"
+          $installerUrl = "https://aka.ms/windowsappsdk/$release/$runtimeVersion/windowsappruntimeinstall-x64.exe"
           $installerPath = Join-Path $env:RUNNER_TEMP "WindowsAppRuntimeInstall.exe"
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
           $installer = Start-Process -FilePath $installerPath -ArgumentList "--quiet" `

@@ -1,16 +1,27 @@
 use helpers::nuget_package;
+use std::fmt::Write;
 use std::fs;
 use std::path::{Path, PathBuf};
 
 const WINMD: &str = "crates/tools/reactor-metadata/winmd";
 const EXTRAS_RDL: &str = "crates/tools/reactor-metadata/src/extras.rdl";
 const EXTRAS_WINMD: &str = "crates/tools/reactor-metadata/winmd/extras.winmd";
+const SETUP_VERSION: &str = "crates/libs/reactor-setup/assets/runtime-version.txt";
 const WINDOWS_APP_SDK_VERSION: &str = "2.5.1";
 
 fn main() {
-    assert_runtime_pins();
-    refresh_winmd();
-    generate_extras();
+    let umbrella = nuget_package("microsoft.windowsappsdk", WINDOWS_APP_SDK_VERSION);
+    let nuspec = read_nuspec(&umbrella);
+    let runtime_version = nuspec_dependency_version(&nuspec, "Microsoft.WindowsAppSDK.Runtime");
+    let runtime = nuget_package("microsoft.windowsappsdk.runtime", &runtime_version);
+    let header_path = runtime.join("include/WindowsAppSDK-VersionInfo.h");
+    let header = fs::read_to_string(&header_path)
+        .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", header_path.display()));
+
+    refresh_winmd(&nuspec);
+    generate_extras(&header);
+    fs::write(workspace_path(SETUP_VERSION), runtime_version)
+        .unwrap_or_else(|error| panic!("cannot write `{SETUP_VERSION}`: {error}"));
 }
 
 fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
@@ -19,35 +30,62 @@ fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
         .join(path)
 }
 
-fn assert_runtime_pins() {
-    const REACTOR_SETUP: &str = "crates/libs/reactor-setup/src/lib.rs";
-
-    let runtime_ver = helpers::read_str_const(workspace_path(REACTOR_SETUP), "RUNTIME_VER");
-    assert_eq!(
-        runtime_ver, WINDOWS_APP_SDK_VERSION,
-        "Windows App SDK pin drift: `tool-reactor-metadata` refreshes \
-         `{WINDOWS_APP_SDK_VERSION}` metadata but `windows-reactor-setup` stages `{runtime_ver}`. \
-         Update `WINDOWS_APP_SDK_VERSION` in this tool and `RUNTIME_VER` in {REACTOR_SETUP} \
-         together."
-    );
-}
-
-fn generate_extras() {
+fn generate_extras(header: &str) {
     windows_rdl::Reader::new()
         .input(workspace_path(EXTRAS_RDL))
+        .input_text(&runtime_version_rdl(header))
         .reference_bytes(windows_default::WIN32)
         .output(workspace_path(EXTRAS_WINMD))
         .write()
         .unwrap();
 }
 
-fn refresh_winmd() {
-    let umbrella = nuget_package("microsoft.windowsappsdk", WINDOWS_APP_SDK_VERSION);
-    let nuspec = read_nuspec(&umbrella);
-    let foundation = nuspec_dependency_version(&nuspec, "Microsoft.WindowsAppSDK.Foundation");
+fn runtime_version_rdl(header: &str) -> String {
+    let mut rdl = String::from("#[win32]\nmod extras {\n");
+    for (suffix, ty) in [
+        ("MAJOR", "u32"),
+        ("MINOR", "u32"),
+        ("BUILD", "u32"),
+        ("REVISION", "u32"),
+        ("UINT64", "u64"),
+    ] {
+        let name = format!("WINDOWSAPPSDK_RUNTIME_VERSION_{suffix}");
+        let value = numeric_define(header, &name);
+        writeln!(rdl, "    const {name}: {ty} = {value};").unwrap();
+    }
+    rdl.push_str("}\n");
+    rdl
+}
+
+fn numeric_define(header: &str, name: &str) -> u64 {
+    for line in header.lines() {
+        let mut words = line.split_whitespace();
+        if words.next() != Some("#define") || words.next() != Some(name) {
+            continue;
+        }
+        let literal = words
+            .next()
+            .unwrap_or_else(|| panic!("empty version define `{name}`"));
+        assert!(
+            words.next().is_none(),
+            "expected a single integer literal for `{name}`"
+        );
+        let literal = literal.strip_suffix('u').unwrap_or(literal);
+        return if let Some(hex) = literal.strip_prefix("0x") {
+            u64::from_str_radix(hex, 16)
+        } else {
+            literal.parse()
+        }
+        .unwrap_or_else(|error| panic!("invalid version define `{name}`: {error}"));
+    }
+    panic!("missing version define `{name}`");
+}
+
+fn refresh_winmd(nuspec: &str) {
+    let foundation = nuspec_dependency_version(nuspec, "Microsoft.WindowsAppSDK.Foundation");
     let interactive =
-        nuspec_dependency_version(&nuspec, "Microsoft.WindowsAppSDK.InteractiveExperiences");
-    let winui = nuspec_dependency_version(&nuspec, "Microsoft.WindowsAppSDK.WinUI");
+        nuspec_dependency_version(nuspec, "Microsoft.WindowsAppSDK.InteractiveExperiences");
+    let winui = nuspec_dependency_version(nuspec, "Microsoft.WindowsAppSDK.WinUI");
 
     let dir = workspace_path(WINMD);
     for entry in fs::read_dir(&dir).unwrap_or_else(|error| panic!("cannot read `{WINMD}`: {error}"))
@@ -131,6 +169,46 @@ fn copy_winmd(source: &Path, destination: &Path) {
             let name = path.file_name().unwrap();
             fs::copy(&path, destination.join(name))
                 .unwrap_or_else(|error| panic!("cannot copy `{}`: {error}", path.display()));
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn runtime_dependency_version() {
+        let nuspec = r#"<dependencies>
+            <dependency id="Microsoft.WindowsAppSDK.WinUI" version="3.4.5" />
+            <dependency id="Microsoft.WindowsAppSDK.Runtime" version="[6.7.8]" />
+        </dependencies>"#;
+        assert_eq!(
+            nuspec_dependency_version(nuspec, "Microsoft.WindowsAppSDK.Runtime"),
+            "6.7.8"
+        );
+    }
+
+    #[test]
+    fn runtime_version_defines() {
+        let header = "#define OTHER 99u\n#define VERSION_MAJOR 12u\n\
+                      \t#define\tVERSION\t0x000C00220038004Eu\n";
+        assert_eq!(numeric_define(header, "VERSION_MAJOR"), 12);
+        assert_eq!(numeric_define(header, "VERSION"), 0x000C_0022_0038_004E);
+        assert_eq!(numeric_define("#define VERSION 0", "VERSION"), 0);
+    }
+
+    #[test]
+    fn invalid_runtime_version_defines() {
+        for header in [
+            "",
+            "#define VERSION_MAJOR 1u",
+            "#define VERSION",
+            "#define VERSION not_a_number",
+            "#define VERSION 1u + 2u",
+            "#define VERSION 18446744073709551616u",
+        ] {
+            assert!(std::panic::catch_unwind(|| numeric_define(header, "VERSION")).is_err());
         }
     }
 }

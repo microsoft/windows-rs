@@ -117,6 +117,11 @@ separate `.msix_extract` directory. `copy_runtime_to` copies only top-level entr
 `assets/runtime.txt`, then recursively preserves any selected directory. Keep that allow-list in
 sync with the pinned Windows App SDK runtime.
 
+`tool-reactor-metadata` owns the Windows App SDK pin. It resolves the Runtime dependency from the
+umbrella package's nuspec and writes `assets/runtime-version.txt`, which both this crate and Reactor
+CI use. It also reads the Runtime package's `include/WindowsAppSDK-VersionInfo.h` to generate
+Reactor's bootstrap version constants. Do not edit the generated version file by hand.
+
 The application manifest template is `assets/app.manifest`. The function inserts the deployment
 marker after the opening assembly element, writes the result to `OUT_DIR`, and emits binary-only
 manifest linker arguments for MSVC or LLVM GNU targets.
