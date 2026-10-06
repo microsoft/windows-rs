@@ -455,6 +455,5 @@ Windows::Win32::ShellExecuteW
 Windows::Win32::STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED
 Windows::Win32::SW_SHOWNORMAL
 Windows::Win32::TryCreatePackageDependency
-Windows::Win32::WM_GETICON
 Windows::Win32::WM_SETICON
 Windows::Win32::WS_EX_LAYERED

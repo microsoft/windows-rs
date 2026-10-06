@@ -1,5 +1,27 @@
 use super::*;
 
+#[test]
+fn default_services_deliver_timer_callbacks() {
+    let (sender, receiver) = std::sync::mpsc::channel();
+    let _timer = DefaultComponentServices
+        .set_timeout(Duration::ZERO, Box::new(move || sender.send(()).unwrap()));
+    receiver.recv_timeout(Duration::from_secs(5)).unwrap();
+}
+
+#[test]
+fn default_services_cancel_timers_and_release_callbacks() {
+    let (sender, receiver) = std::sync::mpsc::channel();
+    let timer = DefaultComponentServices.set_timeout(
+        Duration::from_secs(3_600),
+        Box::new(move || sender.send(()).unwrap()),
+    );
+    timer.cancel();
+    assert_eq!(
+        receiver.recv_timeout(Duration::from_secs(5)),
+        Err(std::sync::mpsc::RecvTimeoutError::Disconnected)
+    );
+}
+
 #[derive(Clone)]
 struct LocalMessageInput {
     seen: Rc<Cell<usize>>,

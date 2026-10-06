@@ -90,10 +90,6 @@ impl AppContext {
         Ok(AppCallback { proxy, id })
     }
 
-    pub fn component_services(&self) -> Arc<dyn ComponentServices> {
-        self.services.clone()
-    }
-
     /// Registers application-lifetime work that can be invoked through the dispatcher.
     ///
     /// The registration remains active until application shutdown. Use component effects,
@@ -744,7 +740,7 @@ fn open_component_window(
     });
     let mut host = ComponentHost::mount_with_all_services(
         WinUiAdapter::default(),
-        context.component_services(),
+        context.services.clone(),
         ui_services,
         [root],
     )?;

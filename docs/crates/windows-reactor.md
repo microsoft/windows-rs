@@ -257,6 +257,12 @@ reference, while `SyncWeak` denotes an `Arc` weak reference.
 
 ### Test boundaries
 
+The default API exposes application components, declarations, references, and window integration.
+Host/runtime protocols such as `ComponentHost`, `Runtime`, `Adapter`, retained graphs, mutations,
+and service injection are available only with the `test` feature. Applications should use
+`App::run_component`, component messages, and `provide` rather than drive a retained host directly.
+`ObjectId` remains public because reference and selection APIs still expose it.
+
 | Location | Purpose | Compilation |
 | --- | --- | --- |
 | `src/tests` | Unit tests and their private fixtures | `cfg(test)` |
@@ -264,13 +270,14 @@ reference, while `SyncWeak` denotes an `Arc` weak reference.
 | Other `src` modules | Production implementation | Normal library builds |
 
 `test_support` mirrors the owning modules: `component`, `reconcile`, `reference`, and `native`.
-The recording adapter remains a root module. Support files are private child modules loaded with
+Headless host operations and services also live in this directory. The recording adapter remains
+a root module. Support files are private child modules loaded with
 `#[path]`, so diagnostic implementations can inspect their owner's state without widening
 production visibility. Existing diagnostic exports remain available through the `test` feature.
 Live application helpers in `test_support/native/app.rs` require that feature.
 
 Keep only representation and trait hooks beside the production code: conditional fields,
-counter updates, and the conditional `tracked_tasks` trait method. Diagnostic queries and
+counter updates, and conditional erased-component inspection methods. Diagnostic queries and
 test-only implementations belong in `test_support`. Unit-only mutation capture and reference
 scan instrumentation remain gated by `cfg(test)`, not the `test` feature, so external benchmarks
 do not acquire their allocation or layout costs.
@@ -304,10 +311,15 @@ Filter tests by function name, for example
 `cargo test -p windows-reactor --all-features context_change_renders_only_subscribers`, rather
 than a full module path. This keeps commands independent of subsystem file organization.
 
-Run the unit tests with `cargo test -p windows-reactor --all-features --lib`. Live WinUI and
-cross-crate integration fixtures remain in `test-reactor-selftest`; performance runners remain in
-their existing packages. The `test` feature still supplies their diagnostic APIs. Unit test
-sources are included in the published package.
+Run the unit tests with `cargo test -p windows-reactor --all-features --lib`. Privileged WinUI
+coverage lives in `test-reactor-selftest`; performance runners keep the diagnostic `test` feature.
+Application lifecycle, menu, Canvas, WebView, and window-state fixtures live in
+[`test-reactor-integration`](../../crates/tests/libs/reactor_integration/readme.md), which does not
+enable that feature. Build it in a separate Cargo invocation from privileged packages to avoid
+feature unification. Unit test sources are included in the published package.
+
+The Workbench sample uses `App::run_component` and owns its theme through `provide`. Its normal
+build does not enable the `test` feature; only its headless regression tests do.
 
 The coverage gate in `crates/tests/libs/reactor_selftest/coverage.ps1` checks production and
 headless support files separately, not the unit-test bodies. Use modules rather than `include!`

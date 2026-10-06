@@ -30,12 +30,20 @@ use std::rc::{Rc, Weak};
 #[cfg(test)]
 use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::{AtomicBool, AtomicU8, AtomicU32, AtomicU64, Ordering};
-use std::sync::{Arc, Condvar, Mutex, Weak as SyncWeak};
+use std::sync::{Arc, Mutex, Weak as SyncWeak};
 use std::time::Duration;
 
 #[cfg(any(test, feature = "test"))]
 pub use adapter::*;
+#[cfg(not(any(test, feature = "test")))]
+use component::*;
+#[cfg(any(test, feature = "test"))]
 pub use component::*;
+pub use component::{
+    CancellationToken, Component, ComponentCompletion, ComponentContext, ComponentNode,
+    ComponentSender, ComponentTask, ComponentTaskStatus, ComponentTimer, Context, EffectKey,
+    LocalSender, ViewContext, WindowHandle, component, provide,
+};
 pub use declaration::*;
 pub use generated::*;
 pub use ir::*;
@@ -46,6 +54,10 @@ pub use native::{
     live_virtual_shell_counts, schedule_live_test_exit, subscribe_live_interval,
     subscribe_live_rendering, subscribe_live_tick,
 };
+pub use reconcile::ObjectId;
+#[cfg(not(any(test, feature = "test")))]
+use reconcile::*;
+#[cfg(any(test, feature = "test"))]
 pub use reconcile::*;
 pub use reference::*;
 pub use window::*;

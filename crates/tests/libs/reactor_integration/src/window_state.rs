@@ -1,9 +1,18 @@
 use std::rc::Rc;
 use std::time::Duration;
+use windows::Win32::winuser::{ICON_BIG, ICON_SMALL, SendMessageW, WM_GETICON};
 use windows_reactor::{
     App, Component, ComponentContext, ComponentTimer, TextBlock, ViewContext, WindowBackdrop,
     WindowConstraints, WindowSize, WindowTheme, WindowVisuals,
 };
+
+fn window_has_explicit_icon(window: &windows_reactor::WindowHandle<'_>) -> bool {
+    let hwnd = window.as_raw().cast();
+    unsafe {
+        SendMessageW(hwnd, WM_GETICON as u32, ICON_BIG as usize, 0) != 0
+            || SendMessageW(hwnd, WM_GETICON as u32, ICON_SMALL as usize, 0) != 0
+    }
+}
 
 struct Fixture {
     icon: Rc<str>,
@@ -42,9 +51,10 @@ impl Component for Fixture {
             }
             Message::Size(size) if self.phase == 1 && size.width >= 500.0 => {
                 self.phase = 2;
-                assert!(context.run_window(|window| Message::IconSet(
-                    windows_reactor::native::window_has_explicit_icon(window.as_raw())
-                )));
+                assert!(
+                    context
+                        .run_window(|window| Message::IconSet(window_has_explicit_icon(&window)))
+                );
             }
             Message::IconSet(true) if self.phase == 2 => {
                 self.phase = 3;
@@ -52,9 +62,11 @@ impl Component for Fixture {
             }
             Message::Size(size) if self.phase == 3 && size.width >= 540.0 => {
                 self.phase = 4;
-                assert!(context.run_window(|window| Message::IconCleared(
-                    windows_reactor::native::window_has_explicit_icon(window.as_raw())
-                )));
+                assert!(
+                    context.run_window(|window| Message::IconCleared(window_has_explicit_icon(
+                        &window
+                    )))
+                );
             }
             Message::IconCleared(false) if self.phase == 4 => {
                 self.phase = 5;

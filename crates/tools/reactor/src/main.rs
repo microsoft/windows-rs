@@ -3075,7 +3075,10 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
          }\n",
     );
 
-    output.push_str("pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,",
+    );
     if !schema.objects.iter().any(|object| object.focus) {
         output.push_str("_ if false");
     } else {

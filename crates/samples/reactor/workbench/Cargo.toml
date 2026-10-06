@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 windows-core = { workspace = true }
-windows-reactor = { workspace = true, features = ["test"] }
+windows-reactor = { workspace = true }
 
 [dev-dependencies]
 windows-reactor = { workspace = true, features = ["test"] }

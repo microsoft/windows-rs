@@ -54,7 +54,10 @@ jobs:
           cargo test -p tool-reactor --quiet
           cargo test -p windows-reactor --all-features --quiet
           cargo test -p reactor-gallery --quiet
+          cargo test -p reactor-workbench --quiet
           cargo check -p test-reactor-selftest -p test-reactor-bench --all-targets --quiet
+          cargo check -p test-reactor-integration --all-targets --quiet
+          cargo check -p reactor-workbench --bin reactor-workbench --quiet
 
       - name: Check Reactor core coverage
         shell: pwsh
@@ -76,6 +79,7 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo clippy -p windows-reactor --all-features --all-targets --quiet
+          cargo clippy -p test-reactor-integration --all-targets --quiet
           cargo clippy -p reactor-virtual --features perf --all-targets --quiet
           cargo clippy -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
@@ -127,9 +131,9 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p test-reactor-selftest --features self-contained `
+          cargo run -p test-reactor-integration --features self-contained `
             --bin window_state --quiet
-          cargo run -p test-reactor-selftest --features self-contained `
+          cargo run -p test-reactor-integration --features self-contained `
             --bin webview_integration --quiet
 
       - name: Install Windows App Runtime
@@ -158,12 +162,12 @@ jobs:
           }
           "replacement", "multiple", "startup-error" |
             ForEach-Object {
-              cargo run -p test-reactor-selftest --bin application_lifecycle `
+              cargo run -p test-reactor-integration --bin application_lifecycle `
                 --quiet -- $_
             }
-          cargo run -p test-reactor-selftest --bin application_menu --quiet
-          cargo run -p test-reactor-selftest --bin canvas_integration --quiet
-          cargo run -p test-reactor-selftest --bin window_state --quiet
+          cargo run -p test-reactor-integration --bin application_menu --quiet
+          cargo run -p test-reactor-integration --bin canvas_integration --quiet
+          cargo run -p test-reactor-integration --bin window_state --quiet
 
       - name: Run Reactor sample smoke tests
         shell: pwsh

@@ -170,10 +170,6 @@ impl UpdateStats {
     pub const fn len(&self) -> usize {
         self.mutations
     }
-
-    pub const fn is_empty(&self) -> bool {
-        self.mutations == 0
-    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -429,14 +425,6 @@ impl NativeEvent {
             retirement: None,
             realization: None,
         }
-    }
-
-    pub fn observation(observation: Observation) -> Self {
-        Self::new(Some(observation), None)
-    }
-
-    pub fn event(event: EventDispatch) -> Self {
-        Self::new(None, Some(event))
     }
 
     pub fn retirement(completion: RetirementCompletion) -> Self {
@@ -742,17 +730,6 @@ impl RetainedGraph {
         self.root
     }
 
-    pub fn object_count(&self) -> usize {
-        self.objects
-            .iter()
-            .filter(|slot| slot.object.is_some() && !slot.retiring)
-            .count()
-    }
-
-    pub fn retired_count(&self) -> usize {
-        self.retirements.len()
-    }
-
     pub(crate) fn virtual_realization(
         &self,
         collection: ObjectId,
@@ -805,15 +782,6 @@ impl RetainedGraph {
                 }
             })
         })
-    }
-
-    pub fn properties(&self, object: ObjectId) -> Option<&[Property]> {
-        self.get(object).map(|object| object.properties.as_slice())
-    }
-
-    pub fn events(&self, object: ObjectId) -> Option<&[Event]> {
-        self.get(object)
-            .map(|object| retained_events(&object.events))
     }
 
     fn validate_event_dispatch(&self, dispatch: &EventDispatch) -> Result<bool, GraphError> {
@@ -1795,23 +1763,6 @@ impl<A: Adapter> Runtime<A> {
         self.poison_and_discard(&references);
     }
 
-    pub fn focus<T>(&mut self, reference: &ElementRef<T>) -> Result<bool, UpdateError<A::Error>> {
-        if self.poisoned {
-            return Err(UpdateError::Poisoned);
-        }
-        let object = reference
-            .get()
-            .ok_or(UpdateError::Graph(GraphError::ReferenceUnavailable))?;
-        let kind = self
-            .graph
-            .kind(object)
-            .ok_or(UpdateError::Graph(GraphError::StaleObject(object)))?;
-        if !focus_capable(kind) {
-            return Err(UpdateError::Graph(GraphError::InvalidFocus(kind)));
-        }
-        self.adapter.focus(object).map_err(UpdateError::Adapter)
-    }
-
     pub(crate) fn set_imperative_waker(&self, waker: impl Fn() + 'static) {
         self.references.set_waker(waker);
     }
@@ -2024,62 +1975,6 @@ impl<A: Adapter> Runtime<A> {
         }
     }
 
-    pub fn next_native_event(
-        &mut self,
-    ) -> Result<Option<NativeEventDispatch>, UpdateError<A::Error>> {
-        if self.poisoned {
-            return Err(UpdateError::Poisoned);
-        }
-        if self.native_event_active.get() {
-            return Err(UpdateError::NativeEventInProgress);
-        }
-        loop {
-            self.preview_native_events()?;
-            let Some(next) = self.native_events.first() else {
-                return Ok(None);
-            };
-            if next.realization.is_some() {
-                return Err(UpdateError::PendingNativeEvent);
-            }
-            if let Some(event) = self.pop_native_event()? {
-                self.native_event_active.set(true);
-                return Ok(Some(NativeEventDispatch::new(
-                    event,
-                    Rc::clone(&self.native_event_active),
-                )));
-            }
-        }
-    }
-
-    pub fn dispatch_native_events(&mut self) -> Result<usize, UpdateError<A::Error>> {
-        let mut dispatched = 0;
-        while let Some(work) = self.next_native_work()? {
-            match work {
-                NativeWork::Event(mut event) => {
-                    event.invoke();
-                    dispatched += 1;
-                }
-                NativeWork::Virtual(VirtualWork::Realize {
-                    lease, index, view, ..
-                }) => {
-                    self.realize_virtual(&lease, index, *view)?;
-                }
-                NativeWork::Virtual(VirtualWork::Recycle { lease }) => {
-                    self.recycle_virtual(&lease)?;
-                }
-                NativeWork::Virtual(VirtualWork::Cancel {
-                    collection,
-                    relation,
-                    container,
-                }) => {
-                    self.cancel_virtual(collection, relation, container)?;
-                }
-                NativeWork::Maintenance => {}
-            }
-        }
-        Ok(dispatched)
-    }
-
     pub(crate) fn realize_virtual(
         &mut self,
         lease: &RealizationLease,
@@ -2266,13 +2161,6 @@ impl<A: Adapter> Runtime<A> {
         self.poisoned = false;
         apply_reference_changes(&self.references, references);
         Ok(self.finish_update())
-    }
-
-    pub(crate) fn recycle_virtual(
-        &mut self,
-        lease: &RealizationLease,
-    ) -> Result<UpdateStats, UpdateError<A::Error>> {
-        self.recycle_virtual_before_apply(lease, || {})
     }
 
     pub(crate) fn recycle_virtual_before_apply(
@@ -2464,14 +2352,6 @@ impl<A: Adapter> Runtime<A> {
         Ok(self.finish_update())
     }
 
-    pub fn update_subtree(
-        &mut self,
-        object: ObjectId,
-        root: impl Into<View>,
-    ) -> Result<UpdateStats, UpdateError<A::Error>> {
-        self.update_subtree_before_apply(object, root, || {})
-    }
-
     pub(crate) fn update_subtree_before_apply(
         &mut self,
         object: ObjectId,
@@ -2584,77 +2464,6 @@ impl<A: Adapter> Runtime<A> {
         self.poisoned = false;
         apply_reference_changes(&self.references, references);
         self.virtual_refreshes.extend(virtual_refreshes);
-        Ok(self.finish_update())
-    }
-
-    pub fn remove_child(
-        &mut self,
-        parent: ObjectId,
-        relation: RelationId,
-        child: ObjectId,
-    ) -> Result<UpdateStats, UpdateError<A::Error>> {
-        self.prepare_update()?;
-        self.mutations.clear();
-        let index = self
-            .graph
-            .relation(parent, relation)
-            .and_then(|relation| match &relation.value {
-                RetainedRelationValue::Many(children) => {
-                    children.iter().position(|current| *current == child)
-                }
-                RetainedRelationValue::One(_) => None,
-            })
-            .ok_or(UpdateError::Graph(GraphError::MissingChild(
-                relation, child,
-            )))?;
-        let poison_references = self.graph.references();
-        let mut transaction = GraphTransaction::new(&mut self.graph);
-        let mut references = Vec::new();
-        let plan = (|| {
-            let mut planner = Planner {
-                retained: &mut transaction,
-                mutations: &mut self.mutations,
-                references: &mut references,
-                virtual_refreshes: None,
-            };
-            if !planner.retire_with_transition(parent, relation, child)? {
-                planner.mutations.push(Mutation::Remove {
-                    parent,
-                    relation,
-                    child,
-                    index,
-                });
-                planner.retire(child);
-            }
-            Ok::<(), GraphError>(())
-        })();
-        let plan = plan.and_then(|()| transaction.window_title_bar().map(|_| ()));
-        if let Err(error) = plan {
-            transaction.rollback();
-            self.mutations.clear();
-            return Err(UpdateError::Graph(error));
-        }
-        let RetainedRelationValue::Many(children) =
-            &mut transaction.relation_mut(parent, relation).value
-        else {
-            unreachable!()
-        };
-        children.remove(index);
-        defer_window_title_bar_sets(&mut self.mutations);
-        self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
-            return Err(UpdateError::Adapter(error));
-        }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
-            return Err(UpdateError::Adapter(error));
-        }
-        transaction.commit();
-        self.poisoned = false;
-        apply_reference_changes(&self.references, references);
         Ok(self.finish_update())
     }
 

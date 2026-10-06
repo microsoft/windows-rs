@@ -1,22 +1,5 @@
 use super::*;
 
-pub fn window_has_explicit_icon(hwnd: *mut core::ffi::c_void) -> bool {
-    unsafe {
-        native::SendMessageW(
-            hwnd.cast(),
-            native::WM_GETICON as u32,
-            native::ICON_BIG as usize,
-            0,
-        ) != 0
-            || native::SendMessageW(
-                hwnd.cast(),
-                native::WM_GETICON as u32,
-                native::ICON_SMALL as usize,
-                0,
-            ) != 0
-    }
-}
-
 impl WinUiAdapter {
     pub fn validate_graph(&self, graph: &RetainedGraph) -> Result<(), WinUiError> {
         let Some(root) = graph.root() else {

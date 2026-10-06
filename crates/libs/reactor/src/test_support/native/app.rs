@@ -1,5 +1,11 @@
 use super::*;
 
+impl AppContext {
+    pub fn component_services(&self) -> Arc<dyn ComponentServices> {
+        self.services.clone()
+    }
+}
+
 fn with_primary_component_window<T>(
     operation: impl FnOnce(&ComponentWindowState) -> Result<T, &'static str>,
 ) -> Result<T, &'static str> {

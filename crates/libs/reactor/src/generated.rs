@@ -2950,6 +2950,7 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     });
     contracts[object_index(kind)]
 }
+#[cfg(any(test, feature = "test"))]
 pub(crate) fn focus_capable(kind: ObjectType) -> bool {
     matches!(
         kind,

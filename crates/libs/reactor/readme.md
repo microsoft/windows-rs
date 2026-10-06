@@ -4,6 +4,9 @@ Windows Reactor is a typed declarative UI library for building native WinUI 3 ap
 Rust. Components own Rust state, describe the current view, and receive typed messages from
 controls.
 
+Applications use the default features. The `test` feature exposes headless hosts, runtime
+protocols, and diagnostics for framework tests and benchmarks; it is not needed to build a UI.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
 

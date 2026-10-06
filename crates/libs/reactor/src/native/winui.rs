@@ -1959,8 +1959,6 @@ include!("winui/hosting.rs");
 #[cfg(any(test, feature = "test"))]
 #[path = "../test_support/native/winui.rs"]
 mod test_support;
-#[cfg(feature = "test")]
-pub use test_support::*;
 
 include!("winui/objects.rs");
 include!("winui/events.rs");
