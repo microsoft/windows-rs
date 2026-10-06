@@ -8,3 +8,13 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "nuget"
+    directories:
+      - "/crates/samples/robot/client_cs"
+      - "/crates/tests/bench/cswinrt2"
+      - "/crates/tests/bench/cswinrt"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "Microsoft.Windows.CsWinRT"
+        update-types: ["version-update:semver-major"]

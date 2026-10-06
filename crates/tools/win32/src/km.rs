@@ -167,7 +167,7 @@ pub fn scrape(um_winmd: &std::path::Path) {
 
     let extra: Vec<String> = crate::ARCHS.iter().map(|name| name.to_string()).collect();
     let archs = Arch::canonical_plus(&extra, arch);
-    let resource_dir = (archs.len() > 1).then(clang_resource_dir);
+    let resource_dir = clang_resource_dir();
     let output_dir = std::path::Path::new("target/win32-clang/km");
     std::fs::create_dir_all(output_dir).unwrap();
     let outputs = std::thread::scope(|scope| {
@@ -179,7 +179,7 @@ pub fn scrape(um_winmd: &std::path::Path) {
                 let import_libs = &import_libs;
                 let references = &references;
                 let exclusions = &exclusions;
-                let resource_dir = resource_dir.as_deref();
+                let resource_dir = resource_dir.as_str();
                 scope.spawn(move || {
                     scrape_arch(
                         arch,
@@ -251,7 +251,7 @@ fn scrape_arch(
     import_libs: &[String],
     references: &windows_clang::MetadataReferences,
     exclusions: &windows_clang::MetadataReferences,
-    resource_dir: Option<&str>,
+    resource_dir: &str,
     output_dir: &std::path::Path,
     um_winmd: &std::path::Path,
 ) -> ArchOutput {
@@ -263,12 +263,9 @@ fn scrape_arch(
         crate::SAL_SHIM.to_string(),
         "-include".to_string(),
         OFFREG_PRELUDE.to_string(),
+        "-resource-dir".to_string(),
+        resource_dir.to_string(),
     ]);
-    if arch.name != "x64"
-        && let Some(resource_dir) = resource_dir
-    {
-        owned_args.extend(["-resource-dir".to_string(), resource_dir.to_string()]);
-    }
     owned_args.extend(arch.defines.iter().cloned());
     owned_args.extend(include_args.iter().cloned());
     let args: Vec<&str> = owned_args.iter().map(String::as_str).collect();

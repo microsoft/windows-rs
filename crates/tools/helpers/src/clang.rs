@@ -6,7 +6,7 @@ use clang_sys::{clang_getCString, clang_getClangVersion, load};
 /// Pinned libclang version; macro capture changes across major versions.
 pub const LIBCLANG_VERSION: &str = "22.1.8";
 
-/// LLVM repo used to fetch version-matched clang resource headers for non-x64 passes.
+/// LLVM repo used to fetch version-matched clang resource headers for every architecture.
 const CLANG_RESOURCE_REPO: &str = "https://github.com/llvm/llvm-project";
 
 /// Host-arch `libclang.dll` NuGet packages from dotnet/clangsharp.

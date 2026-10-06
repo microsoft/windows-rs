@@ -66,14 +66,38 @@ jobs:
           target: ${{ matrix.target }}
       - name: Install .NET x86 runtimes
         # The windows-2025-vs2026 image ships .NET only for x64/arm64. The
-        # i686 C# tests launch win-x86 processes targeting .NET 9 and .NET 10.
+        # i686 C# tests need the runtime channels declared by their project files.
         if: matrix.target == 'i686-pc-windows-msvc'
         shell: pwsh
         run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $channels = Get-ChildItem crates -Recurse -Filter *.csproj | ForEach-Object {
+            [xml]$project = Get-Content $_.FullName -Raw
+            $frameworks = $project.SelectNodes(
+              '/Project/PropertyGroup/TargetFramework | /Project/PropertyGroup/TargetFrameworks')
+            if ($frameworks.Count -eq 0) {
+              throw "No target framework in $($_.FullName)"
+            }
+            foreach ($framework in $frameworks) {
+              foreach ($target in $framework.InnerText.Split(';')) {
+                if ($target -notmatch '^net(\d+\.\d+)(?:-.*)?$') {
+                  throw "Unsupported .NET target framework: $target"
+                }
+                $Matches[1]
+              }
+            }
+          } | Sort-Object -Property { [version]$_ } -Unique
           $script = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
           Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile $script
-          & $script -Channel 9.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
-          & $script -Channel 10.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
+          foreach ($channel in $channels) {
+            $global:LASTEXITCODE = 0
+            & $script -Channel $channel -Runtime dotnet -Architecture x86 `
+              -InstallDir "${env:ProgramFiles(x86)}\dotnet"
+            if ($LASTEXITCODE -ne 0) {
+              throw ".NET $channel installer exited with code $LASTEXITCODE"
+            }
+          }
       - uses: Swatinem/rust-cache@v2
         with:
           key: ${{ matrix.target }}
@@ -81,7 +105,9 @@ jobs:
         # Export LIBCLANG_PATH from the pinned NuGet build (the same one the scrapers use) for the
         # windows-clang tests. After rust-cache so the tool-clang build is cache-accelerated.
         if: runner.os == 'Windows'
-        run: echo "LIBCLANG_PATH=$(cargo run -q -p tool-clang -- path)" >> "$GITHUB_ENV"
+        run: |
+          libclang_path="$(cargo run -q -p tool-clang -- path)"
+          echo "LIBCLANG_PATH=$libclang_path" >> "$GITHUB_ENV"
         shell: bash
       - name: Test
         # The system Composition graph is excluded because Reactor consumers select the

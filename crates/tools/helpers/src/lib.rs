@@ -154,18 +154,19 @@ pub fn crates<P: AsRef<Path>>(path: P) -> Vec<Crate> {
 fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
     let mut crates = vec![];
 
-    if let Ok(files) = std::fs::read_dir(path) {
-        for file in files.filter_map(|file| file.ok()) {
-            if let Ok(file_type) = file.file_type() {
-                if file_type.is_dir() {
-                    crates.append(&mut find(file.path()));
-                } else if file.file_name() == "Cargo.toml" {
-                    let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
-                    let mut entry: Crate = toml::from_str(&text).expect("toml");
-                    entry.path = Some(file.path());
-                    crates.push(entry);
-                }
-            }
+    let path = path.as_ref();
+    let files = std::fs::read_dir(path).unwrap_or_else(|error| {
+        panic!("cannot read crate directory `{}`: {error}", path.display())
+    });
+    for file in files {
+        let file = file.unwrap();
+        if file.file_type().unwrap().is_dir() {
+            crates.append(&mut find(file.path()));
+        } else if file.file_name() == "Cargo.toml" {
+            let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
+            let mut entry: Crate = toml::from_str(&text).expect("toml");
+            entry.path = Some(file.path());
+            crates.push(entry);
         }
     }
 
@@ -280,5 +281,11 @@ const MULTI: &str =
         assert_eq!(marketing_dir("10.0.28000.1839"), "10.0.28000.0");
         // A three-part version (no revision) is still normalized to a `.0` fourth component.
         assert_eq!(marketing_dir("10.0.22621"), "10.0.22621.0");
+    }
+
+    #[test]
+    #[should_panic(expected = "cannot read crate directory")]
+    fn crate_discovery_rejects_non_directories() {
+        super::crates(std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("Cargo.toml"));
     }
 }

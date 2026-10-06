@@ -976,7 +976,7 @@ fn scrape_um(headers: &str) {
         .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
         .collect();
     let archs = canonical_archs();
-    let resource_dir = (archs.len() > 1).then(clang_resource_dir);
+    let resource_dir = clang_resource_dir();
     let output_dir = std::path::Path::new("target/win32-clang");
     std::fs::create_dir_all(output_dir).unwrap();
     let references = windows_clang::MetadataReferences::new([windows_metadata::reader::File::new(
@@ -992,7 +992,7 @@ fn scrape_um(headers: &str) {
                 let include_args = &include_args;
                 let import_libs = &import_libs;
                 let references = &references;
-                let resource_dir = resource_dir.as_deref();
+                let resource_dir = resource_dir.as_str();
                 scope.spawn(move || {
                     scrape_um_arch(
                         arch,
@@ -1147,7 +1147,7 @@ fn scrape_um_arch(
     include_args: &[String],
     import_libs: &[String],
     references: &windows_clang::MetadataReferences,
-    resource_dir: Option<&str>,
+    resource_dir: &str,
     output_dir: &std::path::Path,
 ) -> ArchOutput {
     let mut owned_args: Vec<String> = CLANG_ARGS.iter().map(|arg| arg.to_string()).collect();
@@ -1156,12 +1156,9 @@ fn scrape_um_arch(
         "-fms-extensions".to_string(),
         "-include".to_string(),
         SAL_SHIM.to_string(),
+        "-resource-dir".to_string(),
+        resource_dir.to_string(),
     ]);
-    if arch.name != "x64"
-        && let Some(resource_dir) = resource_dir
-    {
-        owned_args.extend(["-resource-dir".to_string(), resource_dir.to_string()]);
-    }
     owned_args.extend(arch.defines.iter().cloned());
     owned_args.extend(include_args.iter().cloned());
     let args: Vec<&str> = owned_args.iter().map(String::as_str).collect();

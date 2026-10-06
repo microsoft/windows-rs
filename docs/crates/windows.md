@@ -170,6 +170,11 @@ are generated from type and namespace dependencies. The crate re-exports `window
 `windows::core` and depends on the focused collections, future, numerics, reference, and time
 crates used by the projection.
 
+The package remapper owns public header-family names. It folds LLVM's internal
+`__stdarg_va_list.h` into `vadefs`, so using the pinned compiler headers does not expose a
+compiler-private module or change the public `va_list` path. The same mapping feeds `windows-sys`
+and the feature browser.
+
 Do not edit generated source under `crates/libs/windows/src/Windows`. Change metadata, filters, or
 the generator and run the appropriate repository tool.
 

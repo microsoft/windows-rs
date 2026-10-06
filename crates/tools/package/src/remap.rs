@@ -65,9 +65,12 @@ const FOLD_PREFIXES: &[&str] = &[
     "xps",
 ];
 
-/// Maps a header stem to its namespace stem: the longest curated fold prefix it starts with, or
-/// the stem itself when none match.
+/// Maps compiler header aliases and curated header families to their public namespace stems.
 fn fold_stem(stem: &str) -> &str {
+    // LLVM's internal header supplies the CRT type also declared by vadefs.h.
+    if stem == "__stdarg_va_list" {
+        return "vadefs";
+    }
     FOLD_PREFIXES
         .iter()
         .filter(|prefix| stem.starts_with(**prefix))
@@ -84,8 +87,7 @@ pub fn routes(plan: &RemapPlan) -> (HashMap<String, String>, Vec<(String, usize)
     for rdl_dir in plan.rdl_dirs {
         let mut entries: Vec<std::path::PathBuf> = std::fs::read_dir(rdl_dir)
             .unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
-            .filter_map(|e| e.ok())
-            .map(|e| e.path())
+            .map(|entry| entry.unwrap().path())
             .filter(|p| p.extension().is_some_and(|x| x == "rdl"))
             .collect();
         entries.sort();
@@ -145,4 +147,18 @@ pub fn run(plan: &RemapPlan, output: &str) -> Vec<(String, usize)> {
         .unwrap_or_else(|e| panic!("failed to remap into `{output}`: {e:?}"));
 
     summary
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn public_header_namespaces() {
+        assert_eq!(fold_stem("__stdarg_va_list"), "vadefs");
+        assert_eq!(fold_stem("vadefs"), "vadefs");
+        assert_eq!(fold_stem("d2d1effects"), "d2d");
+        assert_eq!(fold_stem("d3d11"), "d3d11");
+        assert_eq!(fold_stem("msinkaut"), "msinkaut");
+    }
 }

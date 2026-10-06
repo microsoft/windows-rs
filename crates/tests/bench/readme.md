@@ -14,6 +14,10 @@ preview package builds on plain `net10.0`, but it does not contain the `WinRT.In
 that its delegate marshaller loads. The probe fails at the first event subscription and its Cargo
 test remains ignored until a complete preview ships.
 
+Each C# project owns its CsWinRT package version. Dependabot proposes updates within the current
+major version; moving the stable benchmark or preview probe to another generation is a separate
+decision.
+
 The component (`component` -> `bench_component.dll`) is a real WinRT component: RDL -> winmd ->
 windows-bindgen -> `#[implement]`, activated registration-free via `DllGetActivationFactory`. It
 exposes one activatable class, `Bench.Widget`, with scalar, string, metadata `Object`, nullable

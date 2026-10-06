@@ -105,6 +105,27 @@ To update WinRT contracts, change `CONTRACTS_VERSION` and run `cargo run -p tool
 independent of the SDK and WDK pins. Review `metadata/winrt` and `Windows.winmd` together; this
 tool merges package metadata and does not need libclang or an installed Windows SDK.
 
+### Downstream regeneration
+
+Run tools from the repository root. Each acquisition tool restores its own pin; downstream
+generators consume the committed output rather than downloading another copy.
+
+When updating several metadata inputs, run their owners in this order: `tool-winrt`, `tool-win32`,
+`tool-webview`, then `tool-reactor-metadata`. Win32 scraping uses the WinRT contracts, WebView2
+uses the Win32 SDK pin and default metadata, and App SDK extras reference default metadata.
+Both Win32 and WDK scraping use the pinned LLVM resource headers on every architecture.
+
+After changing these inputs, regenerate `tool-bindings`, `tool-package`, `tool-reactor`,
+`tool-composition`, `tool-features`, and `tool-roundtrip`. Invoke each with
+`cargo run -p <tool> --release` and review the generated changes with the pin change.
+The generator CI jobs run independently against committed inputs; they check reproducibility,
+not this update sequence.
+
+`tool-cppwinrt` has a separate compiler pin and does not refresh metadata. Updating it requires
+running the C++ projection tests that consume the bundled compiler. `tool-workspace`, `tool-yml`,
+and `tool-license` maintain workspace declarations, workflows, and license copies; they do not
+acquire external dependencies.
+
 ### Packaging
 
 The repository `.gitignore` normally excludes `.winmd` files, with an exception for this crate's

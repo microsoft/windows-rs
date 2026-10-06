@@ -168,31 +168,45 @@ fn nuspec_dependency_version(nuspec: &str, dependency_id: &str) -> String {
 fn newest_subdir(dir: &Path) -> PathBuf {
     fs::read_dir(dir)
         .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", dir.display()))
-        .map(|entry| entry.unwrap().path())
-        .filter(|path| path.is_dir())
-        .max()
+        .filter_map(|entry| {
+            let entry = entry.unwrap();
+            entry.file_type().unwrap().is_dir().then(|| entry.path())
+        })
+        .max_by_key(|path| metadata_version(path.file_name().unwrap().to_str().unwrap()))
         .unwrap_or_else(|| panic!("no metadata subdirectory in `{}`", dir.display()))
 }
 
+fn metadata_version(name: &str) -> [u32; 4] {
+    name.split('.')
+        .map(|part| {
+            part.parse()
+                .unwrap_or_else(|error| panic!("invalid metadata version `{name}`: {error}"))
+        })
+        .collect::<Vec<_>>()
+        .try_into()
+        .unwrap_or_else(|_| panic!("metadata version must have four components: `{name}`"))
+}
+
 fn copy_winmd(source: &Path, destination: &Path) {
-    for entry in fs::read_dir(source)
-        .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", source.display()))
-    {
-        let path = entry.unwrap().path();
-        if path
-            .extension()
-            .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
-        {
-            let name = path.file_name().unwrap();
-            fs::copy(&path, destination.join(name))
-                .unwrap_or_else(|error| panic!("cannot copy `{}`: {error}", path.display()));
-        }
+    for path in tool_reactor_metadata::winmd_paths(source) {
+        let name = path.file_name().unwrap();
+        fs::copy(&path, destination.join(name))
+            .unwrap_or_else(|error| panic!("cannot copy `{}`: {error}", path.display()));
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn metadata_versions_sort_numerically() {
+        assert!(metadata_version("10.0.10000.0") > metadata_version("10.0.9000.0"));
+        assert!(metadata_version("10.0.18362.0") > metadata_version("10.0.17763.0"));
+        for invalid in ["", "10.0.1", "10.0.1.0.0", "10.0.latest.0"] {
+            assert!(std::panic::catch_unwind(|| metadata_version(invalid)).is_err());
+        }
+    }
 
     #[test]
     fn runtime_dependency_version() {

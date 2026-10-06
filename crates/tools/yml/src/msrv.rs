@@ -1,5 +1,7 @@
 use super::*;
 
+const RUST_CACHE: &str = "Swatinem/rust-cache@v2";
+
 pub fn yml() {
     write_yml(".github/workflows/msrv.yml", |yml| {
         let mut first = true;
@@ -31,7 +33,7 @@ pub fn yml() {
             }
 
             if first {
-                writeln!(yml, "      - uses: Swatinem/rust-cache@v2").unwrap();
+                writeln!(yml, "      - uses: {RUST_CACHE}").unwrap();
                 first = false;
             }
 
@@ -87,7 +89,7 @@ pub fn yml() {
             .unwrap();
 
             if first {
-                writeln!(yml, "      - uses: Swatinem/rust-cache@v2").unwrap();
+                writeln!(yml, "      - uses: {RUST_CACHE}").unwrap();
                 first = false;
             }
 

@@ -105,8 +105,7 @@ fn partitioned(label: &str, winmd: &str, rdl_dir: &str, seed: Option<&str>) {
     // seed file rather than being scattered into a header partition.
     let mut rdl_paths: Vec<_> = std::fs::read_dir(rdl_dir)
         .unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
-        .flatten()
-        .map(|entry| entry.path())
+        .map(|entry| entry.unwrap().path())
         .filter(|path| path.extension().is_some_and(|ext| ext == "rdl"))
         .filter(|path| path.file_name().and_then(|n| n.to_str()) != seed_name)
         .collect();

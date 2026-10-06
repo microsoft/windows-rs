@@ -3,10 +3,39 @@
 /// Given a WinUI class name (e.g. `"TextBlock"`) and a method (e.g. `"put_Text"`),
 /// the resolver finds which exclusive interface owns that method (e.g. `"ITextBlock"`).
 use std::collections::HashMap;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 use windows_metadata::reader::{File, Index, TypeCategory, TypeDef, TypeDefOrRef};
 use windows_metadata::{HasAttributes, Type, Value};
+
+pub fn winmd_paths(dir: &Path) -> Vec<PathBuf> {
+    let mut paths: Vec<_> = std::fs::read_dir(dir)
+        .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", dir.display()))
+        .map(|entry| entry.unwrap().path())
+        .filter(|path| {
+            path.extension()
+                .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
+        })
+        .collect();
+    assert!(
+        !paths.is_empty(),
+        "no .winmd files found in `{}`",
+        dir.display()
+    );
+    paths.sort();
+    paths
+}
+
+fn read_winmd(dir: &Path) -> Vec<File> {
+    winmd_paths(dir)
+        .into_iter()
+        .map(|path| {
+            let bytes = std::fs::read(&path)
+                .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", path.display()));
+            File::new(bytes).unwrap_or_else(|| panic!("invalid metadata in `{}`", path.display()))
+        })
+        .collect()
+}
 
 fn to_snake_case(value: &str) -> String {
     let mut result = String::with_capacity(value.len() + 4);
@@ -95,30 +124,11 @@ impl MetadataResolver {
     /// Load all `.winmd` files from `winmd_dir`, add the default Windows metadata, and build the
     /// resolver.
     pub fn load(winmd_dir: &Path) -> Self {
-        let read_dir = |dir: &Path| -> Vec<File> {
-            std::fs::read_dir(dir)
-                .unwrap_or_else(|_| panic!("cannot read winmd directory {}", dir.display()))
-                .filter_map(|e| e.ok())
-                .filter(|e| {
-                    e.path()
-                        .extension()
-                        .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
-                })
-                .filter_map(|e| File::read(e.path()))
-                .collect()
-        };
-
-        let mut files = read_dir(winmd_dir);
+        let mut files = read_winmd(winmd_dir);
         files.extend(
             [windows_default::WINRT, windows_default::WIN32]
                 .into_iter()
                 .map(|bytes| File::new(bytes.to_vec()).unwrap()),
-        );
-
-        assert!(
-            !files.is_empty(),
-            "no .winmd files found in {}",
-            winmd_dir.display()
         );
 
         let index = Index::new(files);
@@ -930,5 +940,34 @@ impl MetadataResolver {
             ),
             _ => None,
         }
+    }
+}
+
+#[cfg(test)]
+mod input_tests {
+    use super::*;
+
+    #[test]
+    fn metadata_inputs_are_required_and_validated() {
+        let dir = std::env::temp_dir().join(format!(
+            "windows-rs-metadata-inputs-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        assert!(std::panic::catch_unwind(|| read_winmd(&dir)).is_err());
+        std::fs::create_dir(&dir).unwrap();
+        std::fs::write(dir.join("notes.txt"), "not metadata").unwrap();
+        assert!(std::panic::catch_unwind(|| read_winmd(&dir)).is_err());
+        std::fs::write(dir.join("b.winmd"), windows_default::WINRT).unwrap();
+        std::fs::write(dir.join("a.WINMD"), "invalid metadata").unwrap();
+        let paths = winmd_paths(&dir);
+        assert_eq!(paths, [dir.join("a.WINMD"), dir.join("b.winmd")]);
+        assert!(std::panic::catch_unwind(|| read_winmd(&dir)).is_err());
+        std::fs::remove_file(dir.join("a.WINMD")).unwrap();
+        assert_eq!(read_winmd(&dir).len(), 1);
+        std::fs::remove_dir_all(dir).unwrap();
     }
 }

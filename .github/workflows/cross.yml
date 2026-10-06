@@ -18,7 +18,7 @@ on:
       - master
 
 env:
-  LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220906-ucrt-ubuntu-18.04-x86_64
+  LLVM-MINGW-VERSION: "20220906"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -65,6 +65,11 @@ jobs:
         run: sudo apt-get install -y gcc-mingw-w64-x86-64
         if: matrix.target == 'x86_64-pc-windows-gnu'
 
+      - name: Select LLVM MinGW toolchain
+        if: contains(matrix.target, 'gnullvm')
+        run: |
+          echo "LLVM-MINGW-TOOLCHAIN-NAME=llvm-mingw-${{ env.LLVM-MINGW-VERSION }}-ucrt-ubuntu-18.04-x86_64" >> "$GITHUB_ENV"
+
       - name: LLVM MinGW toolchain cache configuration
         id: cache-llvm-mingw-toolchain
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
@@ -76,14 +81,14 @@ jobs:
       - name: Install LLVM MinGW toolchain
         if: contains(matrix.target, 'gnullvm') && steps.cache-llvm-mingw-toolchain.outputs.cache-hit != 'true'
         run: |
-          curl -L -o ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz https://github.com/mstorsjo/llvm-mingw/releases/download/20220906/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
-          tar -xf ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
-          echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
+          curl --fail --silent --show-error --location -o "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz" \
+            "https://github.com/mstorsjo/llvm-mingw/releases/download/${{ env.LLVM-MINGW-VERSION }}/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz"
+          tar -xf "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz"
           
       - name: Add LLVM MinGW toolchain to PATH
         if: contains(matrix.target, 'gnullvm')
         run: |
-          echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
+          echo "${{ github.workspace }}/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> "$GITHUB_PATH"
 
       - uses: Swatinem/rust-cache@v2
         with:

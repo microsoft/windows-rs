@@ -31,12 +31,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Install WebView2 Evergreen runtime
-        shell: pwsh
-        run: |
-          $installerUrl = "https://go.microsoft.com/fwlink/p/?LinkId=2124703"
-          $installerPath = "$env:TEMP\MicrosoftEdgeWebview2Setup.exe"
-          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-          Start-Process -FilePath $installerPath -ArgumentList "/silent", "/install" -Wait -PassThru | Out-Null
+        uses: ./.github/actions/webview-runtime
 
       - name: cargo run -p test-webview -- --headless
         run: cargo run -p test-webview -- --headless
