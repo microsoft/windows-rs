@@ -1,0 +1,16 @@
+#[win32]
+mod External {
+    type KnownText = *mut i8;
+    type KnownConstText = *const i8;
+    type KnownWide = *mut u16;
+    type KnownConstWide = *const u16;
+    type KnownPointer = *mut void;
+    type KnownLongPointer = *mut void;
+    type KnownScalar = u64;
+    type KnownCustom = *mut void;
+    type KnownFirst = *mut void;
+    type KnownSecond = *mut void;
+    struct KnownRecord {
+        value: i32,
+    }
+}

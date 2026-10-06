@@ -87,7 +87,7 @@ map of defining-header names to RDL partitions.
 | `namespace` | RDL namespace. |
 | `library` / `libraries` | Default or per-function DLL mappings. |
 | `references` | External types and enum members available to the projection. |
-| `excluded_types` | Types omitted from the local output. |
+| `excluded_types` | Types excluded from root selection. |
 | `excluded_functions` | Functions omitted from the local output. |
 | `excluded_constants` | Constants omitted from the local output. |
 | `functions` | Optional free-function allowlist. |
@@ -99,6 +99,12 @@ constant names for exclusion. `apply_reference_exclusions` excludes only types w
 unambiguous external reference, while `apply_exclusions` is available for overlays that must omit
 every item from a known base. Both the high-level builder and repository generators use this
 indexing path.
+
+Exclusions filter root declarations; they do not establish that a dependency has an external
+definition. Before collecting dependencies, the planner resolves unambiguous external aliases.
+Dependencies with a direct reference or a resolved external alias use that definition. Other
+dependencies pass through the normal canonicalization and pointer-boundary rules, even when they
+underlie an excluded typedef. Required local definitions are collected rather than suppressed.
 
 ## Architecture
 
@@ -308,6 +314,7 @@ setup:
 | `library <name>` | Sets the import library. |
 | `args <arguments>` | Replaces the libclang arguments. |
 | `reference-default` | Resolves extraction types against the default metadata. |
+| `reference <name>.rdl` | Compiles a sibling RDL file to metadata for reference and exclusion. |
 | `input <name>.h` | Starts a named translation unit in a multi-input fixture. |
 | `file <name>.h` | Starts an auxiliary file that may be included by an input. |
 
@@ -316,6 +323,8 @@ unit. A `file` section writes a sibling header without treating it as a translat
 harness emits inputs in forward and reverse order and requires identical output or errors.
 Successful output is parsed with `windows-rdl`. An existing `expected/<name>.error` marks an error
 fixture and receives the normalized diagnostic. Other fixtures write `expected/<name>.rdl`.
+Custom reference metadata is supplied to both extraction and output compilation. Reference
+directives may be repeated to combine metadata files.
 
 ```text
 cargo test -p windows-clang

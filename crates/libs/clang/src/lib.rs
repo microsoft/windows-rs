@@ -1073,6 +1073,44 @@ impl Snapshot {
             phase_time = std::time::Instant::now();
         }
 
+        let mut external_alias_candidates: BTreeMap<&str, BTreeSet<String>> = BTreeMap::new();
+        if let Some(excluded) = excluded_types {
+            for fact in &self.facts {
+                if !excluded.contains(&fact.name) {
+                    continue;
+                }
+                let Some(reference) = references.get(&fact.name) else {
+                    continue;
+                };
+                if extended_reference_enums.contains(&fact.name) {
+                    continue;
+                }
+                if let FactData::Typedef {
+                    target: TypeRef::Named { name, .. },
+                } = &fact.data
+                {
+                    if references.contains_key(name) || named_type_shape(name).is_some() {
+                        continue;
+                    }
+                    external_alias_candidates
+                        .entry(name)
+                        .or_default()
+                        .insert(format!(
+                            "{}::{}",
+                            reference.namespace.replace('.', "::"),
+                            reference.name
+                        ));
+                }
+            }
+        }
+        let external_aliases: BTreeMap<_, _> = external_alias_candidates
+            .into_iter()
+            .filter_map(|(name, aliases)| {
+                let mut aliases = aliases.into_iter();
+                let alias = aliases.next()?;
+                aliases.next().is_none().then_some((name, alias))
+            })
+            .collect();
         let canonical_available = |tu: &str, name: &str| {
             references.contains_key(name)
                 || facts_index.get(name).is_some_and(|facts| {
@@ -1167,15 +1205,9 @@ impl Snapshot {
                     _ => continue,
                 };
                 type_choices.insert((tu, edge), TypeChoice::Declared(ty));
-                if excluded_local_names.contains(&(tu.to_string(), name.clone())) {
-                    if canonical_string_name(name).is_none()
-                        && let Some(canonical) = canonical_named_type(name)
-                    {
-                        type_choices.insert((tu, edge), TypeChoice::Canonical(canonical));
-                    }
-                    continue;
-                }
-                if references.contains_key(name) && !root_names.contains(name) {
+                if (references.contains_key(name) && !root_names.contains(name))
+                    || external_aliases.contains_key(name.as_str())
+                {
                     continue;
                 }
                 let matches: Vec<_> = facts_index
@@ -1490,42 +1522,8 @@ impl Snapshot {
                     .or_insert_with(|| public_name.to_string());
             }
         }
-        let mut external_alias_candidates: BTreeMap<&str, BTreeSet<String>> = BTreeMap::new();
-        if let Some(excluded) = excluded_types {
-            for fact in &self.facts {
-                if !excluded.contains(&fact.name) {
-                    continue;
-                }
-                let Some(reference) = references.get(&fact.name) else {
-                    continue;
-                };
-                if extended_reference_enums.contains(&fact.name) {
-                    continue;
-                }
-                if let FactData::Typedef {
-                    target: TypeRef::Named { name, .. },
-                } = &fact.data
-                {
-                    if references.contains_key(name) || named_type_shape(name).is_some() {
-                        continue;
-                    }
-                    external_alias_candidates
-                        .entry(name)
-                        .or_default()
-                        .insert(format!(
-                            "{}::{}",
-                            reference.namespace.replace('.', "::"),
-                            reference.name
-                        ));
-                }
-            }
-        }
-        for (name, aliases) in external_alias_candidates {
-            if let [alias] = aliases.into_iter().collect::<Vec<_>>().as_slice() {
-                type_names
-                    .entry(name.to_string())
-                    .or_insert_with(|| alias.clone());
-            }
+        for (name, alias) in external_aliases {
+            type_names.entry(name.to_string()).or_insert(alias);
         }
         if timing {
             eprintln!(

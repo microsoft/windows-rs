@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    struct Example {
+        text: *mut Canonical::PSTR,
+        constant: *mut Canonical::PCSTR,
+        wide: *mut Canonical::PWSTR,
+        wide_constant: *mut Canonical::PCWSTR,
+    }
+    #[library("test.dll")]
+    extern "C" fn Text(input: Canonical::PCSTR, #[out] output: Canonical::PWSTR) -> Canonical::PCSTR;
+}

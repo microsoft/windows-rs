@@ -1,0 +1,6 @@
+#[win32]
+mod Direct {
+    type LPSTR = *mut i8;
+    type LPCSTR = *const i8;
+    type PVOID = *mut void;
+}

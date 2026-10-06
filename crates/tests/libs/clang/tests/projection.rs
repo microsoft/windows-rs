@@ -9,19 +9,34 @@ fn compile(name: &str) -> Index {
     std::fs::create_dir_all(&scratch).unwrap();
     let rdl = scratch.join("test.rdl");
     let winmd = scratch.join("test.winmd");
-    windows_clang::clang()
-        .input(root.join("input").join(format!("{name}.h")))
+    let input = root.join("input").join(format!("{name}.h"));
+    let source = std::fs::read_to_string(&input).unwrap();
+    let mut clang = windows_clang::clang();
+    clang
+        .input(&input)
         .args(["-x", "c++"])
         .namespace("Test")
         .library("test.dll")
-        .output(&rdl)
-        .write()
-        .unwrap();
-    windows_rdl::reader()
-        .input(&rdl)
-        .output(&winmd)
-        .write()
-        .unwrap();
+        .output(&rdl);
+    let mut reader = windows_rdl::reader();
+    reader.input(&rdl).output(&winmd);
+    for reference in source
+        .lines()
+        .filter_map(|line| line.strip_prefix("//! reference "))
+    {
+        let output = scratch
+            .join(format!("reference-{}", reference.trim()))
+            .with_extension("winmd");
+        windows_rdl::reader()
+            .input(root.join("input").join(reference.trim()))
+            .output(&output)
+            .write()
+            .unwrap();
+        clang.reference(&output);
+        reader.reference(&output);
+    }
+    clang.write().unwrap();
+    reader.write().unwrap();
     Index::read(&winmd).unwrap()
 }
 
@@ -122,4 +137,117 @@ fn void_pointer_boundaries_preserve_constness_and_depth() {
             Type::PtrMut(Box::new(Type::Void), 2),
         ]
     );
+}
+
+#[test]
+fn excluded_aliases_keep_resolved_types_and_directions() {
+    use ParamDirection::{Input, Output};
+    for (fixture, namespace, name) in [
+        ("alias_excluded_missing", "Test", "LPSTR"),
+        ("alias_excluded_local", "Test", "PSTR"),
+        ("alias_excluded_referenced", "Canonical", "PSTR"),
+    ] {
+        let index = compile(fixture);
+        let Item::Type(example) = index.expect_item("Test", "Example") else {
+            panic!();
+        };
+        let field = example
+            .fields()
+            .find(|field| field.name() == "text")
+            .unwrap();
+        assert_eq!(
+            field.ty(),
+            Type::PtrMut(Box::new(Type::value_named(namespace, name)), 1),
+            "{fixture}"
+        );
+        if namespace == "Test" {
+            let Item::Type(alias) = index.expect_item(namespace, name) else {
+                panic!();
+            };
+            assert_eq!(
+                alias.underlying_type(),
+                Some(Type::PtrMut(Box::new(Type::I8), 1)),
+                "{fixture}"
+            );
+        }
+        let Item::Fn(function) = index.expect_item("Test", "Text") else {
+            panic!();
+        };
+        directions(function, &[Input, Output]);
+        if fixture == "alias_excluded_local" {
+            for (name, expected) in [
+                ("PCSTR", Type::value_named("Test", "LPCSTR")),
+                ("LPCSTR", Type::PtrConst(Box::new(Type::I8), 1)),
+            ] {
+                let Item::Type(alias) = index.expect_item("Test", name) else {
+                    panic!();
+                };
+                assert_eq!(alias.underlying_type(), Some(expected));
+            }
+        }
+    }
+}
+
+#[test]
+fn excluded_void_aliases_keep_const_boundaries_and_external_identity() {
+    for (fixture, expected) in [
+        (
+            "alias_excluded_void",
+            vec![
+                ("direct", Type::PtrMut(Box::new(Type::Void), 1)),
+                ("output", Type::PtrMut(Box::new(Type::Void), 2)),
+                (
+                    "input",
+                    Type::PtrConst(Box::new(Type::value_named("Test", "PVOID")), 1),
+                ),
+                (
+                    "nested",
+                    Type::PtrConst(Box::new(Type::value_named("Test", "PVOID")), 2),
+                ),
+                ("scalar", Type::U64),
+                ("custom", Type::value_named("External", "KnownCustom")),
+                ("ambiguous", Type::value_named("Test", "AMBIGUOUS")),
+                ("record", Type::value_named("External", "KnownRecord")),
+            ],
+        ),
+        (
+            "alias_excluded_direct",
+            vec![
+                (
+                    "text",
+                    Type::PtrMut(Box::new(Type::value_named("Direct", "LPSTR")), 1),
+                ),
+                ("direct", Type::value_named("Direct", "PVOID")),
+                (
+                    "output",
+                    Type::PtrMut(Box::new(Type::value_named("Direct", "PVOID")), 1),
+                ),
+                (
+                    "input",
+                    Type::PtrConst(Box::new(Type::value_named("Direct", "PVOID")), 1),
+                ),
+            ],
+        ),
+    ] {
+        let index = compile(fixture);
+        let Item::Type(example) = index.expect_item("Test", "Example") else {
+            panic!();
+        };
+        for (name, expected) in expected {
+            let field = example.fields().find(|field| field.name() == name).unwrap();
+            assert_eq!(field.ty(), expected, "{fixture}: {name}");
+        }
+        if fixture == "alias_excluded_void" {
+            for name in ["PVOID", "LPVOID", "AMBIGUOUS"] {
+                let Item::Type(alias) = index.expect_item("Test", name) else {
+                    panic!();
+                };
+                assert_eq!(
+                    alias.underlying_type(),
+                    Some(Type::PtrMut(Box::new(Type::Void), 1)),
+                    "{name}"
+                );
+            }
+        }
+    }
 }
