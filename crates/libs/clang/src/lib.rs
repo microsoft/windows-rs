@@ -2217,6 +2217,15 @@ struct TypeCache {
     comparisons: usize,
 }
 
+impl TypeCache {
+    fn key(mut pair: (Origin, Origin)) -> (Origin, Origin) {
+        if pair.1 < pair.0 {
+            std::mem::swap(&mut pair.0, &mut pair.1);
+        }
+        pair
+    }
+}
+
 fn preferred_fact<'a>(facts: &[&'a Fact]) -> &'a Fact {
     facts
         .iter()
@@ -2647,9 +2656,10 @@ fn reconcile_types<'a>(
             }) {
                 return false;
             }
-            if self.type_cache.equivalent.contains(&pair) {
+            if self.type_cache.equivalent.contains(&TypeCache::key(pair)) {
                 return true;
             }
+            let pair = (left.origin.clone(), right.origin.clone());
             #[cfg(test)]
             {
                 self.type_cache.comparisons += 1;
@@ -2752,7 +2762,7 @@ fn reconcile_types<'a>(
                         let (completed, _) = self.stack.pop().unwrap();
                         self.pending.remove(&completed);
                         let last = completed == pair;
-                        self.type_cache.equivalent.insert(completed);
+                        self.type_cache.equivalent.insert(TypeCache::key(completed));
                         if last {
                             break;
                         }
@@ -4148,6 +4158,50 @@ mod tests {
             }
             assert_eq!(cache.comparisons, depth as usize);
             assert_eq!(cache.equivalent.len(), depth as usize);
+        }
+    }
+
+    #[test]
+    fn completed_proofs_are_reused_in_both_directions() {
+        for cycle in [false, true] {
+            let depth = 8;
+            let mut left = comparison_graph("first.h", depth, false, cycle, false);
+            let mut right = comparison_graph("second.h", depth, true, cycle, false);
+            for graph in [&mut left, &mut right] {
+                let target = graph.last().unwrap();
+                let mut alias = target.clone();
+                alias.origin.local += 1;
+                alias.spelling.offset += 1;
+                alias.expansion.offset += 1;
+                alias.name = "Alias".to_string();
+                alias.kind = FactKind::Typedef;
+                alias.data = FactData::Typedef {
+                    target: TypeRef::Named {
+                        name: target.name.clone(),
+                        declaration: target.spelling.clone(),
+                    },
+                };
+                graph.push(alias);
+            }
+            let mut facts_index: HashMap<&str, Vec<&Fact>> = HashMap::new();
+            for fact in left.iter().chain(&right) {
+                facts_index.entry(&fact.name).or_default().push(fact);
+            }
+            let mut cache = TypeCache::default();
+            let mut roots = [left.last().unwrap(), right.last().unwrap()];
+            reconcile_types("Alias", &roots, &facts_index, &mut cache).unwrap();
+            assert_eq!(cache.comparisons, 2 * depth as usize);
+            roots.reverse();
+            reconcile_types("Alias", &roots, &facts_index, &mut cache).unwrap();
+            // Only the second graph's self-comparison, including its interface, is new.
+            let expected = 3 * depth as usize + 1;
+            assert_eq!(cache.comparisons, expected);
+            assert_eq!(cache.equivalent.len(), expected);
+            for _ in 0..2 {
+                roots.reverse();
+                reconcile_types("Alias", &roots, &facts_index, &mut cache).unwrap();
+                assert_eq!(cache.comparisons, expected);
+            }
         }
     }
 

@@ -312,9 +312,10 @@ in-progress assumptions. Every pair in a recursive component must retain its nat
 declaration kind, independent of which member starts the comparison. Non-recursive records may
 still match structurally across different native names.
 
-Completed proofs are shared across roots. Shared acyclic and recursive graphs compare each
-reachable declaration pair once during a successful proof, rather than expanding every path
-through the graph. There is no separate recursive fingerprint traversal.
+Completed proofs use unordered declaration pairs so comparisons in either direction reuse them;
+pending recursive obligations remain directed. Proofs are shared across roots. Shared acyclic and
+recursive graphs compare each reachable declaration pair once during a successful proof, rather
+than expanding every path through the graph. There is no separate recursive fingerprint traversal.
 
 Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
 destructors, conversions, or function templates use the checked record-layout path. Other
