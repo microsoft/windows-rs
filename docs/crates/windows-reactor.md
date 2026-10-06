@@ -145,6 +145,17 @@ not DIPs.
 Run `cargo run -p reactor-window-placement` to move, resize, or maximize a window and open a copy
 at its observed placement. The sample retains placement in memory, without a persistence backend.
 
+For restoration across a full process restart, run
+`cargo run -p reactor-window-placement-registry`. Move, resize, or maximize the window, close it,
+then run the command again. This sample uses `windows-registry` to save each placement observation
+in the `Placement` string value under `HKCU\Software\windows-rs\samples\window-placement`. It loads
+that value before opening the window. The five fields are `x y width height maximized`, with
+maximized encoded as `0` or `1`; one registry value keeps the fields together.
+
+Missing placement uses the default window size. Invalid saved data or registry read errors are
+reported in the console; write errors appear in the window. Delete the `Placement` value to reset
+the sample. Minimized state is not saved.
+
 ## Add icon content
 
 `Icon` describes icon content for control slots. Reactor realizes the same value as WinUI's visual

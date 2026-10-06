@@ -55,6 +55,7 @@ jobs:
           cargo test -p windows-reactor --all-features --quiet
           cargo test -p reactor-gallery --quiet
           cargo test -p reactor-workbench --quiet
+          cargo test -p reactor-window-placement-registry --quiet
           cargo check -p test-reactor-selftest -p test-reactor-bench --all-targets --quiet
           cargo check -p test-reactor-integration --all-targets --quiet
           cargo check -p reactor-workbench --bin reactor-workbench --quiet
