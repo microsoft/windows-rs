@@ -1,7 +1,9 @@
-use windows_clang2::{Input, Plan, ProjectionOptions, ReferenceKind, TypeReference, capture};
+use windows_clang2::{
+    Input, Plan, ProjectionOptions, ReferenceKind, Snapshot, TypeReference, capture,
+};
 use windows_metadata::{
-    Type,
-    reader::{Index, Item},
+    Type, Value,
+    reader::{HasAttributes, Index, Item, ParamDirection, TypeDef},
 };
 
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
@@ -137,10 +139,7 @@ fn indirect_interface_constants_are_omitted_after_native_resolution() {
         let Item::Const(constant) = index.expect_item("Test", "INTEGER_CONSTANT") else {
             panic!()
         };
-        assert_eq!(
-            constant.constant().unwrap().value(),
-            windows_metadata::Value::I32(42)
-        );
+        assert_eq!(constant.constant().unwrap().value(), Value::I32(42));
     }
 }
 
@@ -174,8 +173,7 @@ fn incompatible_interface_observations_are_not_hidden_by_binding() {
     assert!(snapshot.resolve().is_err());
 }
 
-#[test]
-fn real_iunknown_projects_through_a_checked_external_binding() {
+fn sdk_capture(target: &str, source: &str, roots: &[&str]) -> Snapshot {
     use std::path::PathBuf;
     let tools = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .join("..")
@@ -194,15 +192,15 @@ fn real_iunknown_projects_through_a_checked_external_binding() {
     let sal = tools.join("win32").join("src").join("sal.h");
     let shared = include.join("shared");
     let um = include.join("um");
-    let snapshot = capture(
-        [Input::new(
-            "wrapper.hpp",
-            "#include <unknwnbase.h>\nextern \"C\" void Use(IUnknown* input, IUnknown** output);",
-        )],
+    capture(
+        [Input::new("wrapper.hpp", source)],
         &[
             "-x",
             "c++",
-            "--target=x86_64-pc-windows-msvc",
+            target,
+            // specstrings.h redefines COM SAL macros; install the capture shim after it.
+            "-include",
+            "specstrings.h",
             "-include",
             sal.to_str().unwrap(),
             "-isystem",
@@ -210,9 +208,18 @@ fn real_iunknown_projects_through_a_checked_external_binding() {
             "-isystem",
             um.to_str().unwrap(),
         ],
-        &["Use"],
+        roots,
     )
-    .unwrap();
+    .unwrap()
+}
+
+#[test]
+fn real_iunknown_projects_through_a_checked_external_binding() {
+    let snapshot = sdk_capture(
+        "--target=x86_64-pc-windows-msvc",
+        "#include <unknwnbase.h>\nextern \"C\" void Use(IUnknown* input, IUnknown** output);",
+        &["Use"],
+    );
     let resolved = snapshot.resolve().unwrap();
     assert!(snapshot.dump().contains("name: \"QueryInterface\""));
     let index = compile("real_iunknown", &resolved.project(&options()).unwrap());
@@ -224,6 +231,145 @@ fn real_iunknown_projects_through_a_checked_external_binding() {
         [
             Type::class_named("External", "IUnknown"),
             Type::PtrMut(Box::new(Type::class_named("External", "IUnknown")), 1),
+        ]
+    );
+}
+
+#[test]
+fn real_interfaces_project_locally() {
+    for (expected, target) in [
+        ("sdk_interfaces", "--target=x86_64-pc-windows-msvc"),
+        ("sdk_interfaces_x86", "--target=i686-pc-windows-msvc"),
+        ("sdk_interfaces", "--target=aarch64-pc-windows-msvc"),
+    ] {
+        let snapshot = sdk_capture(target, include_str!("../input/sdk_interfaces.h"), &["Use"]);
+        let mut options = ProjectionOptions::new("Test");
+        options.library = Some("test.dll".into());
+        options.references.insert(
+            "_GUID".into(),
+            TypeReference {
+                namespace: "External".into(),
+                name: "GUID".into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+        let resolved = snapshot.resolve().unwrap();
+        let plan = resolved.project(&options).unwrap();
+        let index = compile(expected, &plan);
+        let Item::Type(unknown) = index.expect_item("Test", "IUnknown") else {
+            panic!()
+        };
+        assert_guid(unknown, 0, 0x46);
+        assert_eq!(
+            unknown
+                .methods()
+                .map(|method| method.name())
+                .collect::<Vec<_>>(),
+            ["QueryInterface", "AddRef", "Release"]
+        );
+        let query = unknown.methods().next().unwrap();
+        assert_eq!(query.signature(&[]).return_type, Type::I32);
+        assert_eq!(
+            query.signature(&[]).types,
+            [
+                Type::PtrConst(Box::new(Type::value_named("External", "GUID")), 1),
+                Type::PtrMut(Box::new(Type::Void), 2),
+            ]
+        );
+        let parameters = query.params_by_sequence(2).unwrap();
+        let output = parameters.params()[1].unwrap();
+        assert_eq!(output.direction(), ParamDirection::Output);
+        assert!(output.has_attribute("ComOutPtrAttribute"));
+        assert!(!output.is_optional());
+        for method in unknown.methods().skip(1) {
+            assert_eq!(method.signature(&[]).return_type, Type::U32);
+            assert!(method.signature(&[]).types.is_empty());
+        }
+
+        let Item::Type(factory) = index.expect_item("Test", "IClassFactory") else {
+            panic!()
+        };
+        assert_guid(factory, 1, 0x46);
+        assert_eq!(
+            factory.interface_impls().next().unwrap().interface(&[]),
+            Type::class_named("Test", "IUnknown")
+        );
+        assert_eq!(
+            factory
+                .methods()
+                .map(|method| method.name())
+                .collect::<Vec<_>>(),
+            ["CreateInstance", "LockServer"]
+        );
+        let create = factory.methods().next().unwrap();
+        assert_eq!(
+            create.signature(&[]).types,
+            [
+                Type::class_named("Test", "IUnknown"),
+                Type::PtrConst(Box::new(Type::value_named("External", "GUID")), 1),
+                Type::PtrMut(Box::new(Type::Void), 2),
+            ]
+        );
+        let parameters = create.params_by_sequence(3).unwrap();
+        assert_eq!(
+            parameters.params()[0].unwrap().direction(),
+            ParamDirection::Input
+        );
+        assert!(parameters.params()[0].unwrap().is_optional());
+        assert_eq!(
+            parameters.params()[1].unwrap().direction(),
+            ParamDirection::Input
+        );
+        assert_eq!(
+            parameters.params()[2].unwrap().direction(),
+            ParamDirection::Output
+        );
+        assert!(
+            parameters.params()[2]
+                .unwrap()
+                .has_attribute("ComOutPtrAttribute")
+        );
+        assert_eq!(create.signature(&[]).return_type, Type::I32);
+        let lock = factory.methods().nth(1).unwrap();
+        assert_eq!(lock.signature(&[]).types, [Type::I32]);
+        assert_eq!(lock.signature(&[]).return_type, Type::I32);
+
+        let Item::Fn(function) = index.expect_item("Test", "Use") else {
+            panic!()
+        };
+        assert_eq!(
+            function.signature(&[]).types,
+            [
+                Type::class_named("Test", "IUnknown"),
+                Type::PtrMut(Box::new(Type::class_named("Test", "IUnknown")), 1),
+                Type::class_named("Test", "IClassFactory"),
+            ]
+        );
+    }
+}
+
+fn assert_guid(ty: TypeDef<'_>, first: u32, last: u8) {
+    let values: Vec<_> = ty
+        .find_attribute("GuidAttribute")
+        .unwrap()
+        .value()
+        .into_iter()
+        .map(|(_, value)| value)
+        .collect();
+    assert_eq!(
+        values,
+        [
+            Value::U32(first),
+            Value::U16(0),
+            Value::U16(0),
+            Value::U8(0xc0),
+            Value::U8(0),
+            Value::U8(0),
+            Value::U8(0),
+            Value::U8(0),
+            Value::U8(0),
+            Value::U8(0),
+            Value::U8(last),
         ]
     );
 }
@@ -287,7 +433,7 @@ fn projection_consumes_merged_annotation_evidence() {
         let parameters = function.params_by_sequence(1).unwrap();
         assert_eq!(
             parameters.params()[0].unwrap().direction(),
-            windows_metadata::reader::ParamDirection::Output
+            ParamDirection::Output
         );
     }
 }
@@ -330,6 +476,7 @@ fn local_interfaces_project_real_com_metadata() {
     let Item::Type(base) = index.expect_item("Test", "IBase") else {
         panic!()
     };
+    assert_guid(base, 0, 0x46);
     assert!(base.extends().is_none());
     let base_methods: Vec<_> = base.methods().map(|method| method.name()).collect();
     assert_eq!(base_methods, ["Query", "Count"]);
@@ -337,6 +484,7 @@ fn local_interfaces_project_real_com_metadata() {
     let Item::Type(derived) = index.expect_item("Test", "IDerived") else {
         panic!()
     };
+    assert_guid(derived, 0, 0x47);
     assert_eq!(
         derived.interface_impls().next().unwrap().interface(&[]),
         Type::class_named("Test", "IBase")
@@ -348,6 +496,15 @@ fn local_interfaces_project_real_com_metadata() {
         notify.signature(&[]).types,
         [Type::I32, Type::PtrMut(Box::new(Type::I32), 1)]
     );
+    let parameters = notify.params_by_sequence(2).unwrap();
+    assert_eq!(
+        parameters.params()[0].unwrap().direction(),
+        ParamDirection::Input
+    );
+    assert_eq!(
+        parameters.params()[1].unwrap().direction(),
+        ParamDirection::Output
+    );
 
     let Item::Fn(function) = index.expect_item("Test", "Use") else {
         panic!()
@@ -356,6 +513,116 @@ fn local_interfaces_project_real_com_metadata() {
         function.signature(&[]).types,
         [Type::class_named("Test", "IDerived")]
     );
+}
+
+#[test]
+fn com_output_annotations_preserve_pointer_contracts() {
+    let snapshot = capture(
+        [Input::new(
+            "api.hpp",
+            include_str!("../input/com_parameters.h"),
+        )],
+        ARGS,
+        &["Create", "IFactory"],
+    )
+    .unwrap();
+    let index = compile(
+        "com_parameters",
+        &snapshot.resolve().unwrap().project(&options()).unwrap(),
+    );
+    let Item::Fn(function) = index.expect_item("Test", "Create") else {
+        panic!()
+    };
+    let Item::Type(interface) = index.expect_item("Test", "IFactory") else {
+        panic!()
+    };
+    for method in [function, interface.methods().next().unwrap()] {
+        assert_eq!(
+            method.signature(&[]).types,
+            [
+                Type::PtrMut(Box::new(Type::Void), 2),
+                Type::PtrMut(Box::new(Type::class_named("External", "IUnknown")), 1),
+                Type::class_named("External", "IUnknown"),
+            ]
+        );
+        let parameters = method.params_by_sequence(3).unwrap();
+        for (index, parameter) in parameters.params()[..2].iter().enumerate() {
+            let parameter = parameter.unwrap();
+            assert_eq!(parameter.direction(), ParamDirection::Output);
+            assert_eq!(parameter.has_attribute("ComOutPtrAttribute"), index == 0);
+            assert!(!parameter.is_optional());
+        }
+        let optional = parameters.params()[2].unwrap();
+        assert_eq!(optional.direction(), ParamDirection::Input);
+        assert!(optional.is_optional());
+    }
+}
+
+#[test]
+fn com_output_annotations_reject_incompatible_types() {
+    for ty in [
+        "int",
+        "int*",
+        "int**",
+        "void*",
+        "void***",
+        "const void**",
+        "IUnknown*",
+    ] {
+        let snapshot = capture(
+            [Input::new(
+                "api.hpp",
+                format!(
+                    "#define OUTPUT_TYPE {ty}\n{}",
+                    include_str!("../input/invalid_com_output.h")
+                ),
+            )],
+            ARGS,
+            &["Create"],
+        )
+        .unwrap();
+        assert!(
+            snapshot
+                .resolve()
+                .unwrap()
+                .project(&options())
+                .unwrap_err()
+                .to_string()
+                .contains("_COM_Outptr_ requires"),
+            "{ty}"
+        );
+    }
+}
+
+#[test]
+fn interface_methods_require_the_com_calling_convention() {
+    for (target, convention) in [
+        ("i686", "__cdecl"),
+        ("i686", "__thiscall"),
+        ("i686", "__fastcall"),
+        ("x86_64", "__vectorcall"),
+    ] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        let snapshot = capture(
+            [Input::new(
+                "api.hpp",
+                include_str!("../input/interface.h").replace("__stdcall", convention),
+            )],
+            &["-x", "c++", &target],
+            &["Use"],
+        )
+        .unwrap();
+        assert!(
+            snapshot
+                .resolve()
+                .unwrap()
+                .project(&options())
+                .unwrap_err()
+                .to_string()
+                .contains("calling convention incompatible with COM"),
+            "{target}: {convention}"
+        );
+    }
 }
 
 #[test]

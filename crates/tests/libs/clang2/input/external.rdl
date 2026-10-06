@@ -1,6 +1,7 @@
 #[win32]
 mod External {
     struct Data { value: i32, }
+    struct GUID { data1: u32, data2: u16, data3: u16, data4: [u8; 8], }
     #[no_guid]
     interface IUnknown {
         fn Method(&self);

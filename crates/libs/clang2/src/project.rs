@@ -392,24 +392,12 @@ impl Builder<'_, '_> {
                     if object {
                         return Err(Error("native interface objects require a pointer".into()));
                     }
-                    let mut attributes = String::new();
                     if ty.layout(self.resolved.snapshot.pointer_size).is_none() {
                         return Err(Error(
                             "by-value external parameter layout is not available".into(),
                         ));
                     }
-                    for annotation in &annotations[index] {
-                        attributes.push_str(match annotation.as_str() {
-                            "_In_" => "#[in] ",
-                            "_Out_" => "#[out] ",
-                            "_Inout_" => "#[in] #[out] ",
-                            _ => {
-                                return Err(Error(format!(
-                                    "annotation projection is not implemented: {annotation}"
-                                )));
-                            }
-                        });
-                    }
+                    let attributes = parameter_attributes(&annotations[index], &ty)?;
                     params.push((attributes, ty));
                 }
                 let (result, object) = self.lower(result, &mut BTreeSet::new())?;
@@ -553,6 +541,19 @@ impl Builder<'_, '_> {
                     method.name
                 )));
             };
+            let TypeKind::Function { convention, .. } = &method.ty.kind else {
+                unreachable!()
+            };
+            // RDL COM methods use the system ABI: stdcall on x86, the platform ABI on 64-bit.
+            if !matches!(
+                (self.resolved.snapshot.pointer_size, convention),
+                (4, 2) | (8, 1 | 10)
+            ) {
+                return Err(Error(format!(
+                    "`{name}::{}` has a calling convention incompatible with COM: {convention}",
+                    method.name
+                )));
+            }
             let annotations = &self.resolved.annotations[&id][&(index + 1)];
             let mut params = vec![];
             for (parameter_index, (parameter, ty)) in
@@ -568,19 +569,7 @@ impl Builder<'_, '_> {
                         method.name
                     )));
                 }
-                let mut attributes = String::new();
-                for annotation in &annotations[parameter_index] {
-                    attributes.push_str(match annotation.as_str() {
-                        "_In_" => "#[in] ",
-                        "_Out_" => "#[out] ",
-                        "_Inout_" => "#[in] #[out] ",
-                        _ => {
-                            return Err(Error(format!(
-                                "annotation projection is not implemented: {annotation}"
-                            )));
-                        }
-                    });
-                }
+                let attributes = parameter_attributes(&annotations[parameter_index], &ty)?;
                 params.push((attributes, ident(&parameter.name)?, ty));
             }
             let (result, object) = self.lower(result, &mut BTreeSet::new())?;
@@ -717,6 +706,44 @@ impl Builder<'_, '_> {
             _ => return Err(Error("this native type has no prototype projection".into())),
         })
     }
+}
+
+fn parameter_attributes(annotations: &[String], ty: &ProjectedType) -> Result<String, Error> {
+    let mut attributes = String::new();
+    for annotation in annotations {
+        attributes.push_str(match annotation.as_str() {
+            "_In_" => "#[in] ",
+            "_Out_" => "#[out] ",
+            "_Inout_" => "#[in] #[out] ",
+            "_In_opt_" if matches!(ty, ProjectedType::Pointer { .. } | ProjectedType::Class(_)) => {
+                "#[in] #[opt] "
+            }
+            "_COM_Outptr_" => match ty {
+                ProjectedType::Pointer {
+                    mutable: true,
+                    depth: 2,
+                    target,
+                } if matches!(**target, ProjectedType::Void) => "#[out] #[iid_is] ",
+                ProjectedType::Pointer {
+                    mutable: true,
+                    depth: 1,
+                    target,
+                } if matches!(**target, ProjectedType::Class(_)) => "#[out] ",
+                _ => {
+                    return Err(Error(
+                        "_COM_Outptr_ requires a writable void** or interface output pointer"
+                            .into(),
+                    ));
+                }
+            },
+            _ => {
+                return Err(Error(format!(
+                    "annotation projection is not implemented: {annotation}"
+                )));
+            }
+        });
+    }
+    Ok(attributes)
 }
 
 fn align_up(value: i64, alignment: i64) -> i64 {

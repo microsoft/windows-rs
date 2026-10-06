@@ -3,6 +3,29 @@ use windows_clang2::{Input, capture};
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn interface_uuids_must_agree() {
+    let source = include_str!("../input/interface.h");
+    for reversed in [false, true] {
+        let mut inputs = [
+            Input::new("a.hpp", source),
+            Input::new(
+                "b.hpp",
+                source.replace(
+                    "00000000-0000-0000-c000-000000000047",
+                    "00000000-0000-0000-c000-000000000048",
+                ),
+            ),
+        ];
+        if reversed {
+            let [left, right] = &mut inputs;
+            std::mem::swap(&mut left.source, &mut right.source);
+        }
+        let snapshot = capture(inputs, ARGS, &["Use"]).unwrap();
+        assert!(snapshot.resolve().is_err());
+    }
+}
+
+#[test]
 fn method_receiver_contracts_must_agree() {
     for (left, right) in [
         ("static void Method();", "void Method();"),

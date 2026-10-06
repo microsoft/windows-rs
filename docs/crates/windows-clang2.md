@@ -119,10 +119,10 @@ libclang. The renderer performs no native type classification or dependency disc
 | Records | Ordinary, nonempty structs; verify field offsets, final size, and alignment. |
 | Local dependencies | Schedule checked complete records; unsupported dependencies fail the plan. |
 | Functions | Fixed prototypes, supported Windows calling conventions, compiler link names. |
-| Parameters | Positional names; lower `_In_`, `_Out_`, and `_Inout_`; reject other annotations. |
+| Parameters | Positional names for functions, native names for methods; supported SAL below. |
 | External value types | Explicit native record/enum bindings; no assumed by-value layout. |
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
-| Local interfaces | Emit `__declspec(uuid(...))`-bearing records with pure-virtual, non-static, non-const methods; at most one local or external base; one native pointer/reference level. |
+| Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. |
 | Aliases | Peel at uses; same-name tag aliases share their record binding. |
 | Constants | Supported scalar and raw pointer values; omit interface values with a reason. |
 | Raw pointers | Collapse mixed mutability to const if any raw-pointer level is const. |
@@ -132,12 +132,22 @@ dependencies must agree before an external binding can suppress local output. Me
 still need the referenced WinMD files when compiling RDL. Arbitrary alias bindings are not
 supported.
 
+Functions and methods share annotation lowering. `_In_`, `_Out_`, and `_Inout_` retain direction.
+`_In_opt_` adds input optionality for pointer parameters. `_COM_Outptr_` requires a writable
+`void**` or interface output pointer. A `void**` receives `#[out] #[iid_is]` (the metadata
+`ComOutPtrAttribute`); typed interface outputs retain their interface type and receive `#[out]`.
+Other annotations remain errors, including unsupported COM output variants.
+
+Local COM methods must be non-static, non-const, and non-ref-qualified. Their calling convention
+must match the RDL system ABI: stdcall for x86, the platform convention for x64 and ARM64.
+Inheritance is represented by a base-interface reference, with declared method order preserved.
+An interface parameter consumes exactly one native pointer/reference level.
+
 Packing, explicit alignment, bitfield projection, array projection, callback emission, and local enum
 emission remain outside this slice. Qualified native names can select roots, but local output names
 currently require unqualified identifiers. UUIDs decode from `__declspec(uuid(...))` only (no
-`GUID`-typed value decoding yet). General SAL lowering beyond `_In_`/`_Out_`/`_Inout_` (for example
-`_COM_Outptr_`), MIDL recovery, WinRT mapping, header ownership, and export-name policy are not
-implemented.
+`GUID`-typed value decoding yet). General SAL lowering, MIDL recovery, WinRT mapping, header
+ownership, and export-name policy are not implemented.
 
 ## Evaluation
 
@@ -176,9 +186,17 @@ for x64, x86, and arm64. Legacy extraction is also exercised in the same test pr
 Projection fixtures compare RDL and read generated WinMD to assert external value/interface kinds,
 pointer depth, constants, and parameter directions. Coverage includes the external-reference
 conflict beneath non-function roots, indirect interface constants, checked completions, redeclaration
-permutations, a wrapper over the pinned SDK's real `IUnknown`, and a synthetic local interface pair
-(base/derived, UUIDs, inherited methods). The `IUnknown` wrapper binds it externally; the real SDK's
-`_COM_Outptr_` SAL on `QueryInterface` still blocks local projection of that specific interface.
+permutations, an externally bound `IUnknown`, and a synthetic local interface pair. The
+`sdk_interfaces.h` fixture selects `Use` and emits the pinned SDK's `IUnknown` and `IClassFactory`
+locally on x86, x64, and ARM64. It checks IIDs, base interfaces, method order, signatures, pointer
+depth, optionality, and COM output attributes. Only the `_GUID` value record is externally bound;
+neither interface is substituted. Negative controls cover UUID conflicts, incompatible method
+calling conventions, and invalid COM output types.
+
+The SDK fixture force-includes `specstrings.h` before the shared `tool-win32` SAL capture shim.
+`specstrings.h` redefines COM SAL macros, so loading it after the shim can erase annotation evidence.
+Capture records compiler annotation attributes, not arbitrary SAL spelling or MIDL comments;
+callers must provide the annotation shim in the correct header order.
 
 The workspace test job includes both crates on supported hosts. Like the existing clang tests,
 they are excluded from the x86 test process because the pinned runtime has no x86 DLL.
@@ -189,13 +207,12 @@ This page contains the continuation plan; resuming work must not require convers
 session-local notes. The objective is a manageable replacement around libclang, not another planner
 over the old extractor's lossy output. Proceed through bounded gates, not an unconditional rewrite.
 
-### Baseline at the 2026-10-06 handoff
+### Current baseline
 
-The prototype is on `clang2-prototype`. Its implementation, fixtures, workspace integration, and
-this page are local, uncommitted changes at this handoff. Preserve them when restarting. The old
-`windows-clang` implementation and production generators are unchanged.
+The old `windows-clang` implementation and production generators are unchanged. Inspect the
+worktree before restarting and preserve any local changes.
 
-The current slice has 36 passing integration tests and one passing doctest, with strict clippy and
+The current slice has 40 passing integration tests and one passing doctest, with strict clippy and
 formatting complete. This establishes the covered cases, not production parity or completion of
 the full acceptance matrix below.
 
@@ -208,12 +225,13 @@ the full acceptance matrix below.
 | Closed plans survive snapshot disposal and compile to semantic WinMD | `test_clang2/tests/projection.rs` |
 | Real SDK `IUnknown` capture and external-interface pointer projection | `test_clang2/tests/projection.rs` |
 | `__declspec(uuid(...))` decoding and local interface emission (GUID, single inheritance, inherited methods, `_In_`/`_Out_` parameters) | `test_clang2/tests/projection.rs::local_interfaces_project_real_com_metadata` |
+| Local SDK `IUnknown` and `IClassFactory` metadata on x86, x64, and ARM64 | `test_clang2/tests/projection.rs::real_interfaces_project_locally` |
+| Shared COM output lowering and incompatible type/ABI rejection | `test_clang2/tests/projection.rs` |
+| Conflicting interface UUIDs fail native resolution | `test_clang2/tests/observations.rs::interface_uuids_must_agree` |
 
-The test crate is at `crates/tests/libs/clang2`. The real-header case binds `IUnknown` to external
-metadata; a synthetic fixture (`input/interface.h`) proves local COM/UUID emission mechanics
-end-to-end, but the real SDK's `_COM_Outptr_` SAL on `IUnknown::QueryInterface` still blocks local
-projection of `IUnknown` itself. Vtable layout parity and generated-Rust ABI checks remain
-**not established**.
+The test crate is at `crates/tests/libs/clang2`. Real-header local COM metadata is covered, with
+synthetic positive and negative controls alongside it. Generated-Rust vtable layout and C/C++ ABI
+checks remain **not established**; metadata agreement alone is not proof of executable ABI parity.
 
 Resume by inspecting the worktree and these modules, then rerun the baseline without updating
 goldens:
@@ -246,15 +264,16 @@ The domain is Windows C ABI declarations plus the COM, MIDL, SAL, and closed Win
 by the generators. General C++ merging, arbitrary templates, arbitrary inheritance/vtable
 reconstruction, and whole-language ODR verification are not goals.
 
-### Next gate: fix the real-header slice before expanding support
+### Next gate: SAL and MIDL relationships
 
-The immediate implementation step is local COM emission and UUIDs, followed by richer SAL. First
-record the exact selected roots, expected metadata, supported inheritance shapes, and expected
-rejections in fixtures. Do not broaden the slice silently as new cases appear.
+The next implementation step is richer SAL and MIDL evidence, including strings and representable
+length relationships. Retain the local SDK interface case as a regression gate. First record the
+exact selected roots, expected metadata, supported shapes, and expected rejections in fixtures.
+Do not broaden the slice silently as new cases appear.
 
 | Order | Work | Acceptance condition |
 | --- | --- | --- |
-| 1 | Local COM and UUIDs from `unknwnbase.h` | Emit real interfaces and inherited methods; verify IID, method order, calling conventions, and pointer levels without an external substitute for the interface under test. **Partially done**: local emission, UUID decoding, single inheritance, and `_In_`/`_Out_`/`_Inout_` parameters work end-to-end against a synthetic fixture. The real `unknwnbase.h` case is still blocked by `_COM_Outptr_`, which belongs to gate 2; revisit whether to pull a minimal `_COM_Outptr_`-as-`_Out_` alias into gate 1 or accept the synthetic fixture as sufficient evidence. |
+| 1 | Local COM and UUIDs from `unknwnbase.h` | Metadata case covered: local `IUnknown` and `IClassFactory`, IID, inheritance, method order, system calling conventions, pointer levels, and COM output attributes on three targets. Executable ABI checks remain in gate 6. |
 | 2 | SAL and MIDL relationships | Preserve raw evidence and original parameter bindings; lower direction, optionality, strings, and representable lengths with semantic metadata assertions. |
 | 3 | Constants and preprocessing | Cover GUID/property-key forms, redefinition/undefinition, final macro state, and poison expressions with explicit, bounded recovery outcomes. |
 | 4 | Record layout | Cover packed, anonymous, bitfield, and a supported inherited record; compare compiler layout with generated Rust size, alignment, and offsets. |

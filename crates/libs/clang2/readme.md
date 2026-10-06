@@ -27,9 +27,11 @@ The caller must make libclang available through `LIBCLANG_PATH` or its normal lo
 Repository tests and the inspection example use the shared pinned dependency helper.
 
 Projection currently covers ordinary C-layout records, fixed-prototype functions, scalar and raw
-pointer constants, and explicit external record/interface bindings. Interface-valued constants have
-an omission reason in `Plan::omitted`; unsupported projections are errors. Local COM emission,
-general SAL lowering, and production generator integration are not implemented.
+pointer constants, UUID-bearing local COM interfaces, and explicit external record/interface
+bindings. Local interfaces support a single base and pure virtual system-ABI methods. Supported
+parameter annotations include direction, optional input pointers, and COM output pointers.
+Interface-valued constants have an omission reason in `Plan::omitted`; unsupported projections are
+errors. General SAL lowering and production generator integration are not implemented.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,
