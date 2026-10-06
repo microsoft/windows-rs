@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    extern "C" fn CALLBACK(input: LPSTR, #[out] output: LPWSTR);
+    type LPSTR = *mut i8;
+    type LPWSTR = *mut u16;
+    #[library("test.dll")]
+    extern "C" fn Strings(input: LPSTR, #[out] output: LPSTR, wide: LPWSTR, #[out] buffer: LPWSTR);
+}

@@ -169,10 +169,22 @@ have the same meaning.
 | Interface pointer typedefs | Project to the interface type; WinMD retains pointer semantics. |
 | Other typedefs, including pointer typedefs | Preserve the name and emit its definition. |
 
+The planner records each named type and parameter's projection choice within its translation unit.
+Dependency collection and emission use that choice; parameter direction follows the emitted type's
+RDL defaults. An input-only raw mutable pointer therefore needs `#[in]`, while a named string alias
+defaults to input.
+
 Canonical string names are emitted only when their definitions or metadata references are available.
-Otherwise, an annotated character pointer remains a raw pointer rather than introducing an
-undeclared name. Nested pointer chains retain a declared pointer typedef when flattening it would
-produce mixed `*const` and `*mut` levels that RDL cannot represent.
+Otherwise, a named alias retains its source name and definition, and an annotated character pointer
+remains a raw pointer. Canonicalization does not rename declarations or redirect an alias to a
+typedef that depends on it. This keeps concrete pointer definitions and avoids typedef cycles.
+Nested pointer chains retain a declared void-pointer typedef when flattening it would produce mixed
+`*const` and `*mut` levels that RDL cannot represent. Mutable uses of the same typedef still flatten.
+
+The alias fixtures cover local and referenced canonical types, missing definitions, alias chains,
+translation-unit isolation, and function, callback, interface, and record uses. Metadata assertions
+in `test_clang`'s `projection` tests check typedef targets, pointer depth, and parameter directions
+after compiling the RDL to WinMD; successful RDL compilation alone does not establish those properties.
 
 Lowercase `boolean` is part of MIDL's predefined type vocabulary and has an unsigned 8-bit
 representation, so it becomes `u8`, not RDL `bool`. Uppercase `BOOLEAN` is a named Windows API

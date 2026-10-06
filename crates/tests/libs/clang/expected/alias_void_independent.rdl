@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn Constant(input: *const PVOID);
+    #[library("test.dll")]
+    extern "C" fn Mutable(output: *mut *mut void);
+    type PVOID = *mut void;
+}

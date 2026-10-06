@@ -3,8 +3,8 @@ mod CanonicalStringTypedef {
     struct Example {
         text: LPTSTR,
     }
-    type LPTSTR = PSTR;
-    type PSTR = *mut i8;
+    type LPSTR = *mut i8;
+    type LPTSTR = LPSTR;
     #[library("api.dll")]
     extern "C" fn ReadText(text: *const i8);
 }
