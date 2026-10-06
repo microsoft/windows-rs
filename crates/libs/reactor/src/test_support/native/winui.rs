@@ -1,6 +1,30 @@
 use super::*;
 
+impl Runtime<WinUiAdapter> {
+    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
+        let waker = Rc::new(waker);
+        let native = Rc::clone(&waker);
+        self.set_native_event_wakers(move || native(), move || waker());
+    }
+}
+
+impl ComponentHost<WinUiAdapter> {
+    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
+        self.runtime_mut_internal().set_native_event_waker(waker);
+    }
+}
+
 impl WinUiAdapter {
+    pub fn create_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
+        self.create_window_with_policy(root, &WindowPolicy::new())
+    }
+
+    pub fn open_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
+        let window = self.create_window(root)?;
+        window.activate()?;
+        Ok(window)
+    }
+
     pub fn validate_graph(&self, graph: &RetainedGraph) -> Result<(), WinUiError> {
         let Some(root) = graph.root() else {
             return Ok(());
@@ -793,6 +817,44 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    pub fn navigation_view_flags(&self, object: ObjectId) -> Result<(bool, bool), WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::NavigationView(control))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let control = control.value.cast::<native::INavigationView2>()?;
+        Ok((control.IsBackEnabled()?, control.IsPaneVisible()?))
+    }
+
+    pub fn navigation_view_pane_header_matches(
+        &self,
+        object: ObjectId,
+        expected: Option<ObjectId>,
+    ) -> Result<bool, WinUiError> {
+        let Some(Handle::Generated(GeneratedHandle::NavigationView(control))) =
+            self.handles.get(&object)
+        else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let actual = match control
+            .value
+            .cast::<native::INavigationView2>()?
+            .PaneHeader()
+        {
+            Ok(header) => Some(com_identity(&header)?),
+            Err(error) if error.code().is_ok() => None,
+            Err(error) => return Err(error.into()),
+        };
+        let expected = expected
+            .map(|object| {
+                self.ui_element(object)
+                    .and_then(|element| com_identity(&element))
+            })
+            .transpose()?;
+        Ok(actual == expected)
+    }
+
     pub fn simulate_navigation_display_mode_changed(
         &self,
         object: ObjectId,
@@ -927,7 +989,7 @@ impl WinUiAdapter {
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?;
         let flyout = menu
-            .flyout
+            ._flyout
             .as_ref()
             .ok_or(WinUiError::InvalidObject(target))?
             .cast::<native::IFlyoutBase>()?;
@@ -944,7 +1006,7 @@ impl WinUiAdapter {
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?;
         Ok(menu
-            .flyout
+            ._flyout
             .as_ref()
             .ok_or(WinUiError::InvalidObject(target))?
             .cast::<native::IFlyoutBase>()?
@@ -956,7 +1018,7 @@ impl WinUiAdapter {
             .menus
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?;
-        menu.flyout
+        menu._flyout
             .as_ref()
             .ok_or(WinUiError::InvalidObject(target))?
             .cast::<native::IFlyoutBase>()?
@@ -969,7 +1031,7 @@ impl WinUiAdapter {
             .command_bar_flyouts
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?
-            .native
+            ._native
             .cast::<native::IFlyoutBase>()?;
         let target = self
             .ui_element(target)?
@@ -983,7 +1045,7 @@ impl WinUiAdapter {
             .command_bar_flyouts
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?
-            .native
+            ._native
             .cast::<native::IFlyoutBase>()?
             .IsOpen()?)
     }
@@ -992,7 +1054,7 @@ impl WinUiAdapter {
         self.command_bar_flyouts
             .get(&target)
             .ok_or(WinUiError::InvalidObject(target))?
-            .native
+            ._native
             .cast::<native::IFlyoutBase>()?
             .Hide()?;
         Ok(())

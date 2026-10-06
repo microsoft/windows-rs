@@ -2297,7 +2297,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str("_ => None,\n} }\n");
 
     output.push_str(
-        "fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> { \
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> { \
                      match (self, event) {\n",
     );
     for object in &objects {
@@ -3313,6 +3314,7 @@ fn generate_declarations(
             output.push_str(&format!("pub struct {}(Declaration);\n", object.name));
         }
         if object.focus || object.reference {
+            output.push_str(&format!("impl Sealed for {} {{}}\n", object.name));
             output.push_str(&format!("impl ReferenceElement for {} {{}}\n", object.name));
         }
 

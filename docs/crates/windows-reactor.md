@@ -126,6 +126,37 @@ Use `Icon::symbol`, `Icon::font`, `Icon::bitmap`, `Icon::image_*`, or `Icon::pat
 slots. Use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon` when the icon is a
 standalone visual that needs layout or other visual properties.
 
+## Configure navigation
+
+`NavigationView` exposes separate pane content and visibility settings:
+
+```rust,ignore
+NavigationView::new()
+    .pane_header("Workspace")
+    .pane_footer("Account")
+    .is_back_enabled(false)
+    .is_pane_visible(true)
+    .content("Page")
+```
+
+`pane_header` owns one visual, like `pane_footer`; strings become text views. Updating it follows
+the usual positional reconciliation rules, and omitting it on a later render removes the header.
+It is separate from `header`, which belongs above the main content.
+`is_back_enabled` controls the back button's enabled state, not its visibility or navigation
+behavior. `is_pane_visible` controls pane visibility, not whether a visible pane is open.
+Omitting either Boolean property clears its local value and restores WinUI's default or styled
+value. Neither property changes application selection or maintains navigation history.
+
+Run the [interactive sample](../../crates/samples/reactor/navigation-view-properties):
+
+```text
+cargo run -p reactor-navigation-view-properties
+```
+
+Cycle the pane header between text, a bordered replacement, and no header. Toggle the back arrow
+between disabled and enabled, then hide and restore the pane. The controls stay in the main content
+so the pane can always be restored. The back arrow has no navigation action in this sample.
+
 ## Add editable state
 
 Editable controls are controlled: pass the current value from component state and send changes
@@ -263,7 +294,23 @@ service injection, schema metadata, and generic property/event records are avail
 the `test` feature. Applications should use `App::run_component`, component messages, and `provide`
 rather than drive a retained host directly.
 Typed control callbacks and reference integration methods do not expose the runtime records.
-`ObjectId` remains public through `ElementRef::get()`.
+`ElementRef` exposes typed asynchronous operations rather than native object identity. The `test`
+feature retains `ElementRef::get()` and `ObjectId` for graph assertions and benchmarks.
+The reference compatibility traits are sealed because only generated controls and `ElementRef`
+implementations participate in that contract. The public API snapshot includes doc-hidden items so
+internal marker traits and methods cannot change without review.
+`AnyElement` remains a doc-hidden default marker for erased references, including component roots.
+Swap-chain metrics carry an opaque binding token so companion crates can reject stale completions
+without depending on Reactor's internal binding counter.
+
+Callback and view conversion traits are sealed. They accept the closure, callback, tuple, array,
+and vector forms supplied by Reactor without creating downstream implementation protocols.
+This is a closed conversion policy, not a requirement for runtime correctness. Custom collection
+wrappers must produce `Vec<View>` or another supported input instead of implementing `IntoViews`.
+Task and timer handles expose cancellation and delivery rejection in normal builds; full queue-state
+inspection is diagnostic and remains available with the `test` feature.
+`is_rejected()` polls for terminal queue rejection, not completion: `false` also includes pending
+and cancelled work. It does not notify the application or retry a rejected message.
 
 `src/lib.rs` explicitly exports handwritten application types. Generated controls and their value
 enums are exported from `declaration::generated_declarations`; the metadata in `generated` and
@@ -290,6 +337,10 @@ counter updates, and conditional erased-component inspection methods. Diagnostic
 test-only implementations belong in `test_support`. Unit-only mutation capture and reference
 scan instrumentation remain gated by `cfg(test)`, not the `test` feature, so external benchmarks
 do not acquire their allocation or layout costs.
+
+Handwritten native WinUI code compiles without a module-wide dead-code allowance. Diagnostic
+window helpers and event simulation live in `test_support`; generated bindings retain their
+separate allowance for unused metadata projections.
 
 Full property-contract enumeration and queued key/character payloads are diagnostic-only.
 Production validates individual properties and invokes routed input callbacks synchronously.

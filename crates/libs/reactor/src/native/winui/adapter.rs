@@ -1,10 +1,4 @@
 impl Runtime<WinUiAdapter> {
-    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
-        let waker = Rc::new(waker);
-        let native = Rc::clone(&waker);
-        self.set_native_event_wakers(move || native(), move || waker());
-    }
-
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,
@@ -16,10 +10,6 @@ impl Runtime<WinUiAdapter> {
 }
 
 impl ComponentHost<WinUiAdapter> {
-    pub fn set_native_event_waker(&mut self, waker: impl Fn() + 'static) {
-        self.runtime_mut_internal().set_native_event_waker(waker);
-    }
-
     pub fn set_native_event_wakers(
         &mut self,
         native: impl Fn() + 'static,
@@ -429,7 +419,7 @@ impl Adapter for WinUiAdapter {
                 };
                 let element = control.cast::<native::IFrameworkElement>()?;
                 callback.call(SwapChainPanelEvent::Metrics {
-                    binding,
+                    binding: SwapChainPanelBinding::new(binding),
                     width: element.ActualWidth().unwrap_or(0.0),
                     height: element.ActualHeight().unwrap_or(0.0),
                     scale_x: control.CompositionScaleX().unwrap_or(1.0),
@@ -442,7 +432,7 @@ impl Adapter for WinUiAdapter {
                         && let Ok(size) = args.NewSize()
                     {
                         size_callback.call(SwapChainPanelEvent::Metrics {
-                            binding,
+                            binding: SwapChainPanelBinding::new(binding),
                             width: f64::from(size.width),
                             height: f64::from(size.height),
                             scale_x: size_control.CompositionScaleX().unwrap_or(1.0),
@@ -455,7 +445,7 @@ impl Adapter for WinUiAdapter {
                 let scale = control.CompositionScaleChanged(move |sender, _| {
                     if let Some(sender) = sender.as_ref() {
                         scale_callback.call(SwapChainPanelEvent::Metrics {
-                            binding,
+                            binding: SwapChainPanelBinding::new(binding),
                             width: scale_element.ActualWidth().unwrap_or(0.0),
                             height: scale_element.ActualHeight().unwrap_or(0.0),
                             scale_x: sender.CompositionScaleX().unwrap_or(1.0),

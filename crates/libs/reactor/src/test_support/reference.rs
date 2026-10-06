@@ -1,5 +1,11 @@
 use super::*;
 
+impl<T> ElementRef<T> {
+    pub fn get(&self) -> Option<ObjectId> {
+        self.object()
+    }
+}
+
 impl ImperativeRequest {
     pub(crate) fn object(&self) -> ObjectId {
         match self {

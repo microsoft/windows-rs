@@ -6067,6 +6067,50 @@ impl GeneratedHandle {
                             .map_err(Into::into)
                     }),
             ),
+            (Self::NavigationView(object), PropertyId::IsBackEnabled, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::NavigationView::IsBackEnabledProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::NavigationView(object),
+                PropertyId::IsBackEnabled,
+                Some(PropertyValue::Bool(value)),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::INavigationView2>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetIsBackEnabled(*value).map_err(Into::into)),
+            ),
+            (Self::NavigationView(object), PropertyId::IsPaneVisible, None) => Some(
+                object
+                    .value
+                    .cast::<native::IDependencyObject>()
+                    .map_err(Into::into)
+                    .and_then(|object| {
+                        native::NavigationView::IsPaneVisibleProperty()
+                            .map_err(Into::into)
+                            .and_then(|property| object.ClearValue(&property).map_err(Into::into))
+                    }),
+            ),
+            (
+                Self::NavigationView(object),
+                PropertyId::IsPaneVisible,
+                Some(PropertyValue::Bool(value)),
+            ) => Some(
+                object
+                    .value
+                    .cast::<native::INavigationView2>()
+                    .map_err(Into::into)
+                    .and_then(|object| object.SetIsPaneVisible(*value).map_err(Into::into)),
+            ),
             (Self::NavigationView(object), PropertyId::IsSettingsVisible, None) => Some(
                 object
                     .value
@@ -10190,6 +10234,18 @@ impl GeneratedHandle {
                             .map_err(Into::into),
                     }),
             ),
+            (Self::NavigationView(object), RelationId::PaneHeader) => Some(
+                object
+                    .value
+                    .cast::<native::INavigationView2>()
+                    .map_err(Into::into)
+                    .and_then(|object| match child {
+                        Some(child) => object.SetPaneHeader(child).map_err(Into::into),
+                        None => object
+                            .SetPaneHeader(None::<&native::UIElement>)
+                            .map_err(Into::into),
+                    }),
+            ),
             (Self::NavigationView(object), RelationId::PaneFooter) => Some(match child {
                 Some(child) => object.value.SetPaneFooter(child).map_err(Into::into),
                 None => object
@@ -10873,6 +10929,7 @@ impl GeneratedHandle {
             _ => None,
         }
     }
+    #[cfg(any(test, feature = "test"))]
     fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> {
         match (self, event) {
             (Self::Button(object), EventId::Click) => Some(&object.click),

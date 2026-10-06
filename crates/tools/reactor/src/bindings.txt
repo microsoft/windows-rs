@@ -135,7 +135,7 @@ Microsoft::UI::Xaml::Controls::IMenuFlyout::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyoutItem::{add_Click, put_Text, remove_Click}
 Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
 Microsoft::UI::Xaml::Controls::INavigationView::{add_DisplayModeChanged, add_SelectionChanged, get_FooterMenuItems, get_IsPaneOpen, get_MenuItems, get_SelectedItem, put_AlwaysShowHeader, put_Header, put_IsPaneOpen, put_IsPaneToggleButtonVisible, put_IsSettingsVisible, put_OpenPaneLength, put_PaneFooter, put_SelectedItem, remove_DisplayModeChanged, remove_SelectionChanged}
-Microsoft::UI::Xaml::Controls::INavigationView2::{put_IsBackButtonVisible, put_PaneCustomContent, put_PaneDisplayMode, put_PaneTitle}
+Microsoft::UI::Xaml::Controls::INavigationView2::{get_IsBackEnabled, get_IsPaneVisible, get_PaneHeader, put_IsBackButtonVisible, put_IsBackEnabled, put_IsPaneVisible, put_PaneCustomContent, put_PaneDisplayMode, put_PaneHeader, put_PaneTitle}
 Microsoft::UI::Xaml::Controls::INavigationViewDisplayModeChangedEventArgs::get_DisplayMode
 Microsoft::UI::Xaml::Controls::INavigationViewItem::put_Icon
 Microsoft::UI::Xaml::Controls::INavigationViewItem2::{get_MenuItems, put_IsExpanded, put_SelectsOnInvoked}
@@ -144,7 +144,7 @@ Microsoft::UI::Xaml::Controls::INavigationViewItemBaseStatics::get_IsSelectedPro
 Microsoft::UI::Xaml::Controls::INavigationViewItemStatics2::{get_IsExpandedProperty, get_SelectsOnInvokedProperty}
 Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem
 Microsoft::UI::Xaml::Controls::INavigationViewStatics::{get_AlwaysShowHeaderProperty, get_IsPaneOpenProperty, get_IsPaneToggleButtonVisibleProperty, get_IsSettingsVisibleProperty, get_OpenPaneLengthProperty}
-Microsoft::UI::Xaml::Controls::INavigationViewStatics2::{get_IsBackButtonVisibleProperty, get_PaneDisplayModeProperty, get_PaneTitleProperty}
+Microsoft::UI::Xaml::Controls::INavigationViewStatics2::{get_IsBackButtonVisibleProperty, get_IsBackEnabledProperty, get_IsPaneVisibleProperty, get_PaneDisplayModeProperty, get_PaneTitleProperty}
 Microsoft::UI::Xaml::Controls::InfoBadge::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBar::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBarSeverity

@@ -22,7 +22,6 @@ mod app;
 mod app_shim;
 mod bootstrap;
 mod transient_menu;
-#[cfg_attr(not(any(test, feature = "test")), allow(dead_code))]
 mod winui;
 
 pub use app::*;
