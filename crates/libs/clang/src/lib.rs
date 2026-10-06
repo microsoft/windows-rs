@@ -2113,29 +2113,6 @@ fn is_root_fact(fact: &Fact) -> bool {
         ) || fact.definition)
 }
 
-fn declaration_kind(
-    ty: &TypeRef,
-    tu: &str,
-    facts_index: &HashMap<&str, Vec<&Fact>>,
-    seen: &mut BTreeSet<Location>,
-) -> Option<FactKind> {
-    let TypeRef::Named { name, declaration } = ty else {
-        return None;
-    };
-    if !seen.insert(declaration.clone()) {
-        return None;
-    }
-    let fact = facts_index
-        .get(name.as_str())?
-        .iter()
-        .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)?;
-    if let FactData::Typedef { target } = &fact.data {
-        declaration_kind(target, tu, facts_index, seen)
-    } else {
-        Some(fact.kind)
-    }
-}
-
 fn is_tag_declaration(fact: &Fact) -> bool {
     matches!(
         fact.data,
@@ -2144,10 +2121,36 @@ fn is_tag_declaration(fact: &Fact) -> bool {
 }
 
 fn incomplete_declaration_matches_definition(declaration: &Fact, definition: &Fact) -> bool {
-    !declaration.definition
-        && declaration.kind == definition.kind
-        && is_tag_declaration(declaration)
-        && is_tag_declaration(definition)
+    !declaration.definition && compatible_tag_declarations(declaration, definition)
+}
+
+fn compatible_tag_declarations(left: &Fact, right: &Fact) -> bool {
+    left.name == right.name
+        && left.kind == right.kind
+        && is_tag_declaration(left)
+        && is_tag_declaration(right)
+        && match (&left.data, &right.data) {
+            (
+                FactData::Enum {
+                    repr: left_repr,
+                    fixed: left_fixed,
+                    scoped: left_scoped,
+                    ..
+                },
+                FactData::Enum {
+                    repr: right_repr,
+                    fixed: right_fixed,
+                    scoped: right_scoped,
+                    ..
+                },
+            ) => {
+                left_scoped == right_scoped
+                    && (!(left.definition || *left_fixed)
+                        || !(right.definition || *right_fixed)
+                        || left_repr == right_repr)
+            }
+            _ => true,
+        }
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -2355,21 +2358,19 @@ fn reconcile_types<'a>(
             else {
                 unreachable!()
             };
-            let complete_kind = declaration_kind(
-                complete_target,
-                &complete.origin.tu,
-                facts_index,
-                &mut BTreeSet::new(),
-            );
-            if complete_kind.is_some()
-                && distinct.iter().all(|fact| {
-                    let FactData::Typedef { target } = &fact.data else {
-                        return false;
-                    };
-                    declaration_kind(target, &fact.origin.tu, facts_index, &mut BTreeSet::new())
-                        == complete_kind
-                })
-            {
+            if distinct.iter().all(|fact| {
+                let FactData::Typedef { target } = &fact.data else {
+                    return false;
+                };
+                equivalent_type(
+                    complete_target,
+                    &complete.origin.tu,
+                    target,
+                    &fact.origin.tu,
+                    facts_index,
+                    shape_cache,
+                )
+            }) {
                 return Ok(complete);
             }
         }
@@ -2447,6 +2448,12 @@ fn reconcile_types<'a>(
                                 cache,
                                 &mut nested_cycle,
                             )),
+                            _ if !target.definition && is_tag_declaration(target) => {
+                                Some(type_shape(&format!(
+                                    "incomplete:{:?}:{}:{:?}",
+                                    target.kind, target.name, target.data
+                                )))
+                            }
                             FactData::Record {
                                 base,
                                 fields,
@@ -2650,125 +2657,12 @@ fn reconcile_types<'a>(
         facts_index: &HashMap<&str, Vec<&Fact>>,
         shape_cache: &mut ShapeCache,
     ) -> bool {
-        fn incomplete(
-            ty: &TypeRef,
-            tu: &str,
-            facts_index: &HashMap<&str, Vec<&Fact>>,
-            seen: &mut BTreeSet<Location>,
-        ) -> bool {
-            let TypeRef::Named { name, declaration } = ty else {
-                return false;
-            };
-            if !seen.insert(declaration.clone()) {
-                return true;
-            }
-            let Some(fact) = facts_index
-                .get(name.as_str())
-                .into_iter()
-                .flatten()
-                .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
-            else {
-                return true;
-            };
-            match &fact.data {
-                FactData::Typedef { target } => incomplete(target, tu, facts_index, seen),
-                FactData::Record { .. } | FactData::Interface { .. } => !fact.definition,
-                FactData::Enum { fixed, .. } => !fact.definition && !fixed,
-                _ => false,
-            }
+        TypeComparison {
+            facts_index,
+            shape_cache,
+            active: BTreeSet::new(),
         }
-
-        fn matching_incomplete_declaration_kind(
-            left: &TypeRef,
-            left_tu: &str,
-            right: &TypeRef,
-            right_tu: &str,
-            facts_index: &HashMap<&str, Vec<&Fact>>,
-        ) -> bool {
-            if !incomplete(left, left_tu, facts_index, &mut BTreeSet::new())
-                && !incomplete(right, right_tu, facts_index, &mut BTreeSet::new())
-            {
-                return false;
-            }
-            let left_kind = declaration_kind(left, left_tu, facts_index, &mut BTreeSet::new());
-            left_kind.is_some()
-                && left_kind == declaration_kind(right, right_tu, facts_index, &mut BTreeSet::new())
-        }
-
-        match (left, right) {
-            (
-                TypeRef::Named {
-                    name: left_name, ..
-                },
-                TypeRef::Named {
-                    name: right_name, ..
-                },
-            ) if left_name == right_name
-                && matching_incomplete_declaration_kind(
-                    left,
-                    left_tu,
-                    right,
-                    right_tu,
-                    facts_index,
-                ) =>
-            {
-                true
-            }
-            (
-                TypeRef::Pointer {
-                    mutable: left_mutable,
-                    target: left_target,
-                },
-                TypeRef::Pointer {
-                    mutable: right_mutable,
-                    target: right_target,
-                },
-            )
-            | (
-                TypeRef::Reference {
-                    mutable: left_mutable,
-                    target: left_target,
-                },
-                TypeRef::Reference {
-                    mutable: right_mutable,
-                    target: right_target,
-                },
-            ) => {
-                left_mutable == right_mutable
-                    && equivalent_type(
-                        left_target,
-                        left_tu,
-                        right_target,
-                        right_tu,
-                        facts_index,
-                        shape_cache,
-                    )
-            }
-            (
-                TypeRef::Array {
-                    target: left_target,
-                    len: left_len,
-                },
-                TypeRef::Array {
-                    target: right_target,
-                    len: right_len,
-                },
-            ) => {
-                left_len == right_len
-                    && equivalent_type(
-                        left_target,
-                        left_tu,
-                        right_target,
-                        right_tu,
-                        facts_index,
-                        shape_cache,
-                    )
-            }
-            _ => {
-                resolved_type_shape(left, left_tu, facts_index, shape_cache)
-                    == resolved_type_shape(right, right_tu, facts_index, shape_cache)
-            }
-        }
+        .ty(left, left_tu, right, right_tu)
     }
 
     fn equivalent_record(
@@ -2777,65 +2671,294 @@ fn reconcile_types<'a>(
         facts_index: &HashMap<&str, Vec<&Fact>>,
         shape_cache: &mut ShapeCache,
     ) -> bool {
-        let (
-            FactData::Record {
-                base: left_base,
-                fields: left_fields,
-                size: left_size,
-                align: left_align,
-                packing: left_packing,
-                alignment: left_alignment,
-                union: left_union,
-            },
-            FactData::Record {
-                base: right_base,
-                fields: right_fields,
-                size: right_size,
-                align: right_align,
-                packing: right_packing,
-                alignment: right_alignment,
-                union: right_union,
-            },
-        ) = (&left.data, &right.data)
-        else {
-            return false;
-        };
-        left_size == right_size
-            && left_align == right_align
-            && left_packing == right_packing
-            && left_alignment == right_alignment
-            && left_union == right_union
-            && match (left_base, right_base) {
+        matches!(left.data, FactData::Record { .. })
+            && matches!(right.data, FactData::Record { .. })
+            && TypeComparison {
+                facts_index,
+                shape_cache,
+                active: BTreeSet::new(),
+            }
+            .definition(left, right)
+    }
+
+    struct TypeComparison<'a, 'facts> {
+        facts_index: &'a HashMap<&'facts str, Vec<&'facts Fact>>,
+        shape_cache: &'a mut ShapeCache,
+        active: BTreeSet<(Origin, Origin)>,
+    }
+
+    impl<'facts> TypeComparison<'_, 'facts> {
+        fn fact(&self, ty: &TypeRef, tu: &str) -> Option<&'facts Fact> {
+            let TypeRef::Named { name, declaration } = ty else {
+                return None;
+            };
+            self.facts_index
+                .get(name.as_str())?
+                .iter()
+                .copied()
+                .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
+        }
+
+        fn unalias<'ty>(&self, mut ty: &'ty TypeRef, tu: &str) -> Option<&'ty TypeRef>
+        where
+            'facts: 'ty,
+        {
+            let mut seen = BTreeSet::new();
+            while let Some(fact) = self.fact(ty, tu)
+                && let FactData::Typedef { target } = &fact.data
+            {
+                if !seen.insert(&fact.origin) {
+                    return None;
+                }
+                ty = target;
+            }
+            Some(ty)
+        }
+
+        fn ty(&mut self, left: &TypeRef, left_tu: &str, right: &TypeRef, right_tu: &str) -> bool {
+            let (Some(left), Some(right)) =
+                (self.unalias(left, left_tu), self.unalias(right, right_tu))
+            else {
+                return false;
+            };
+            match (left, right) {
+                (TypeRef::Named { .. }, TypeRef::Named { .. }) => {
+                    let facts = (self.fact(left, left_tu), self.fact(right, right_tu));
+                    if let (Some(left), Some(right)) = facts {
+                        let incomplete = |fact: &Fact| !fact.definition && is_tag_declaration(fact);
+                        if incomplete(left) || incomplete(right) {
+                            return compatible_tag_declarations(left, right);
+                        }
+                    }
+                    if resolved_type_shape(left, left_tu, self.facts_index, self.shape_cache)
+                        == resolved_type_shape(right, right_tu, self.facts_index, self.shape_cache)
+                    {
+                        return true;
+                    }
+                    match facts {
+                        (Some(left), Some(right)) => self.definition(left, right),
+                        _ => false,
+                    }
+                }
+                (
+                    TypeRef::Pointer {
+                        mutable: left_mutable,
+                        target: left_target,
+                    },
+                    TypeRef::Pointer {
+                        mutable: right_mutable,
+                        target: right_target,
+                    },
+                )
+                | (
+                    TypeRef::Reference {
+                        mutable: left_mutable,
+                        target: left_target,
+                    },
+                    TypeRef::Reference {
+                        mutable: right_mutable,
+                        target: right_target,
+                    },
+                ) => {
+                    left_mutable == right_mutable
+                        && self.ty(left_target, left_tu, right_target, right_tu)
+                }
+                (
+                    TypeRef::Array {
+                        target: left_target,
+                        len: left_len,
+                    },
+                    TypeRef::Array {
+                        target: right_target,
+                        len: right_len,
+                    },
+                ) => left_len == right_len && self.ty(left_target, left_tu, right_target, right_tu),
+                (
+                    TypeRef::FunctionPointer {
+                        convention: left_convention,
+                        params: left_params,
+                        result: left_result,
+                    },
+                    TypeRef::FunctionPointer {
+                        convention: right_convention,
+                        params: right_params,
+                        result: right_result,
+                    },
+                ) => {
+                    left_convention == right_convention
+                        && left_params.len() == right_params.len()
+                        && self.ty(left_result, left_tu, right_result, right_tu)
+                        && left_params
+                            .iter()
+                            .zip(right_params)
+                            .all(|(left, right)| self.ty(left, left_tu, right, right_tu))
+                }
+                (
+                    TypeRef::Generic {
+                        name: left_name,
+                        args: left_args,
+                        ..
+                    },
+                    TypeRef::Generic {
+                        name: right_name,
+                        args: right_args,
+                        ..
+                    },
+                ) => {
+                    left_name == right_name
+                        && left_args.len() == right_args.len()
+                        && left_args
+                            .iter()
+                            .zip(right_args)
+                            .all(|(left, right)| self.ty(left, left_tu, right, right_tu))
+                }
+                (TypeRef::InlineRecord(left), TypeRef::InlineRecord(right)) => {
+                    left.name == right.name
+                        && left.size == right.size
+                        && left.align == right.align
+                        && left.packing == right.packing
+                        && left.alignment == right.alignment
+                        && left.union == right.union
+                        && self.optional(&left.base, left_tu, &right.base, right_tu)
+                        && self.fields(&left.fields, left_tu, &right.fields, right_tu)
+                }
+                _ => left == right,
+            }
+        }
+
+        fn optional(
+            &mut self,
+            left: &Option<TypeRef>,
+            left_tu: &str,
+            right: &Option<TypeRef>,
+            right_tu: &str,
+        ) -> bool {
+            match (left, right) {
                 (None, None) => true,
-                (Some(left_base), Some(right_base)) => equivalent_type(
-                    left_base,
-                    &left.origin.tu,
-                    right_base,
-                    &right.origin.tu,
-                    facts_index,
-                    shape_cache,
-                ),
+                (Some(left), Some(right)) => self.ty(left, left_tu, right, right_tu),
                 _ => false,
             }
-            && left_fields.len() == right_fields.len()
-            && left_fields
-                .iter()
-                .zip(right_fields)
-                .all(|(left_field, right_field)| {
-                    left_field.name == right_field.name
-                        && left_field.offset == right_field.offset
-                        && left_field.align == right_field.align
-                        && left_field.size == right_field.size
-                        && left_field.bit_width == right_field.bit_width
-                        && equivalent_type(
-                            &left_field.ty,
-                            &left.origin.tu,
-                            &right_field.ty,
-                            &right.origin.tu,
-                            facts_index,
-                            shape_cache,
-                        )
+        }
+
+        fn fields(
+            &mut self,
+            left: &[Field],
+            left_tu: &str,
+            right: &[Field],
+            right_tu: &str,
+        ) -> bool {
+            left.len() == right.len()
+                && left.iter().zip(right).all(|(left, right)| {
+                    left.name == right.name
+                        && left.offset == right.offset
+                        && left.align == right.align
+                        && left.size == right.size
+                        && left.bit_width == right.bit_width
+                        && self.ty(&left.ty, left_tu, &right.ty, right_tu)
                 })
+        }
+
+        fn parameters(
+            &mut self,
+            left: &[Parameter],
+            left_tu: &str,
+            right: &[Parameter],
+            right_tu: &str,
+        ) -> bool {
+            left.len() == right.len()
+                && left.iter().zip(right).all(|(left, right)| {
+                    left.name == right.name
+                        && left.annotation == right.annotation
+                        && self.ty(&left.ty, left_tu, &right.ty, right_tu)
+                })
+        }
+
+        fn definition(&mut self, left: &Fact, right: &Fact) -> bool {
+            let pair = (left.origin.clone(), right.origin.clone());
+            if self.active.contains(&pair) {
+                return left.name == right.name && left.kind == right.kind;
+            }
+            if self.active.iter().any(|(left_origin, right_origin)| {
+                left_origin == &left.origin || right_origin == &right.origin
+            }) {
+                return false;
+            }
+            // Recursive assumptions are local to this comparison, not cached as proven matches.
+            self.active.insert(pair.clone());
+            let left_tu = left.origin.tu.as_str();
+            let right_tu = right.origin.tu.as_str();
+            let equivalent = match (&left.data, &right.data) {
+                (
+                    FactData::Record {
+                        base: left_base,
+                        fields: left_fields,
+                        size: left_size,
+                        align: left_align,
+                        packing: left_packing,
+                        alignment: left_alignment,
+                        union: left_union,
+                    },
+                    FactData::Record {
+                        base: right_base,
+                        fields: right_fields,
+                        size: right_size,
+                        align: right_align,
+                        packing: right_packing,
+                        alignment: right_alignment,
+                        union: right_union,
+                    },
+                ) => {
+                    left_size == right_size
+                        && left_align == right_align
+                        && left_packing == right_packing
+                        && left_alignment == right_alignment
+                        && left_union == right_union
+                        && self.optional(left_base, left_tu, right_base, right_tu)
+                        && self.fields(left_fields, left_tu, right_fields, right_tu)
+                }
+                (
+                    FactData::Callback {
+                        convention: left_convention,
+                        params: left_params,
+                        result: left_result,
+                    },
+                    FactData::Callback {
+                        convention: right_convention,
+                        params: right_params,
+                        result: right_result,
+                    },
+                ) => {
+                    left_convention == right_convention
+                        && self.ty(left_result, left_tu, right_result, right_tu)
+                        && self.parameters(left_params, left_tu, right_params, right_tu)
+                }
+                (
+                    FactData::Interface {
+                        base: left_base,
+                        guid: left_guid,
+                        methods: left_methods,
+                    },
+                    FactData::Interface {
+                        base: right_base,
+                        guid: right_guid,
+                        methods: right_methods,
+                    },
+                ) => {
+                    left_guid == right_guid
+                        && self.optional(left_base, left_tu, right_base, right_tu)
+                        && left_methods.len() == right_methods.len()
+                        && left_methods.iter().zip(right_methods).all(|(left, right)| {
+                            left.name == right.name
+                                && left.special == right.special
+                                && self.ty(&left.result, left_tu, &right.result, right_tu)
+                                && self.parameters(&left.params, left_tu, &right.params, right_tu)
+                        })
+                }
+                _ => false,
+            };
+            self.active.remove(&pair);
+            equivalent
+        }
     }
 
     let declarations: Vec<_> = distinct

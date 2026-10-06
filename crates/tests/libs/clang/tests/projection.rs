@@ -19,6 +19,74 @@ fn directions(method: MethodDef<'_>, expected: &[ParamDirection]) {
 }
 
 #[test]
+fn equivalence_completes_interfaces_inside_recursive_records() {
+    let index = compile("equivalence_completion");
+    let alias = Type::value_named("Test", "Alias3");
+    let slot = Type::PtrMut(Box::new(alias.clone()), 1);
+    let Item::Type(inner) = index.expect_item("Test", "Inner") else {
+        panic!();
+    };
+    for field in inner.fields() {
+        let expected = match field.name() {
+            "tag" => Type::class_named("Test", "IFoo"),
+            "value" => alias.clone(),
+            "slot" => slot.clone(),
+            "array" => Type::ArrayFixed(Box::new(alias.clone()), 2),
+            _ => panic!(),
+        };
+        assert_eq!(field.ty(), expected, "{}", field.name());
+    }
+    let Item::Type(callback) = index.expect_item("Test", "Callback") else {
+        panic!();
+    };
+    let method = callback.methods().next().unwrap();
+    let signature = method.signature(&[]);
+    assert_eq!(signature.return_type, alias);
+    assert_eq!(signature.types, [alias, slot]);
+    directions(method, &[ParamDirection::Input, ParamDirection::Output]);
+    let Item::Type(uses) = index.expect_item("Test", "Uses") else {
+        panic!();
+    };
+    for field in uses.fields() {
+        let expected = match field.name() {
+            "next" => Type::PtrMut(Box::new(Type::value_named("Test", "Uses")), 1),
+            "inner" => Type::value_named("Test", "Inner"),
+            "tag" => Type::class_named("Test", "IFoo"),
+            "callback" => Type::class_named("Test", "Callback"),
+            "listener" => Type::class_named("Test", "IUse"),
+            _ => panic!(),
+        };
+        assert_eq!(field.ty(), expected, "{}", field.name());
+    }
+}
+
+#[test]
+fn equivalence_preserves_mutually_recursive_record_edges() {
+    let index = compile("equivalence_mutual_completion");
+    for (name, target) in [("Left", "Right"), ("Right", "Left")] {
+        let Item::Type(record) = index.expect_item("Test", name) else {
+            panic!();
+        };
+        for field in record.fields() {
+            let expected = match field.name() {
+                "next" => Type::PtrMut(Box::new(Type::value_named("Test", target)), 1),
+                "value" if name == "Right" => Type::I32,
+                "value" | "tag" => Type::class_named("Test", "IFoo"),
+                _ => panic!(),
+            };
+            assert_eq!(field.ty(), expected, "{name}: {}", field.name());
+        }
+    }
+    let Item::Fn(function) = index.expect_item("Test", "Use") else {
+        panic!();
+    };
+    assert_eq!(
+        function.signature(&[]).types,
+        [Type::PtrMut(Box::new(Type::value_named("Test", "Left")), 1)]
+    );
+}
+
+#[test]
 fn resolution_preserves_interface_alias_depth_and_direction() {
     use ParamDirection::{Input, Output};
     for (fixture, namespace) in [

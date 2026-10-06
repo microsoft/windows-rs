@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    type Alias = Flags;
+    #[repr(u32)]
+    #[scoped]
+    enum Flags {
+        One = 1,
+    }
+    #[library("test.dll")]
+    extern "C" fn Use(value: Uses);
+    struct Uses {
+        value: Alias,
+    }
+}

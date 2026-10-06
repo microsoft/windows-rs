@@ -283,6 +283,22 @@ resolution, including uses in the forward-declaring TU. Native `IFoo*` then proj
 regardless of which TU supplied the use; `IFoo**` retains one explicit pointer level.
 Incompatible declaration kinds remain ambiguous.
 
+Type compatibility expands typedef chains before comparing pointers, references, arrays, and named
+definitions. This expansion is for comparison only; it does not flatten the emitted RDL aliases.
+Completion can therefore apply inside record fields, callback signatures, and nested definitions,
+not just to a directly named parameter.
+
+An incomplete tag keeps its native name and declaration kind. Two different opaque tags do not
+become equivalent because neither has fields. Forward enums also retain their scopedness and any
+known underlying integer type; completion cannot change those properties.
+
+Record comparisons retain size, alignment, packing, field offsets, bit widths, and field types.
+Pointer depth, pointer/reference distinction, pointee mutability, array lengths, calling conventions,
+and parameter annotations remain part of comparison. Cached shape fingerprints handle exact
+matches. When completion requires structural comparison, recursive edges must return to the same
+pair of declarations. Those in-progress assumptions are removed on return and are not cached as
+successful equivalence results.
+
 Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
 destructors, conversions, or function templates use the checked record-layout path. Other
 non-interface C++ classes remain opaque.
@@ -393,6 +409,11 @@ The `resolution_*` fixtures exercise multi-hop object and pointer aliases, local
 external bindings, canonicalized constants, and unrelated same-name declarations in separate TUs.
 Referenced dependency cases pair an unsupported local definition supplied by metadata with a
 conflicting-definition rejection case. Multi-input golden fixtures check both input orders.
+
+The `equivalence_*` fixtures cover completion inside recursive records and fixed forward enums.
+Negative cases preserve distinctions between opaque tags, pointee types, pointer depth, references,
+constness, array lengths, record layout, recursive members, and enum signedness and scopedness.
+Metadata assertions check the completed record and callback representations.
 
 ```text
 cargo test -p windows-clang
