@@ -2220,7 +2220,22 @@ pub fn keyed(key: impl Into<Key>, visual: impl Into<View>) -> KeyedView {
 
 /// Converts Reactor's supported view collections into an ordered list.
 ///
-/// This trait is sealed; applications use it through child-taking builders.
+/// Accepts `()`, `Vec<View>`, `[View; N]`, and tuples of one through sixteen values implementing
+/// `Into<View>`. Tuples may mix control types.
+///
+/// This trait is sealed; applications use it through child-taking builders. Custom collections
+/// must convert to one of these forms rather than implement this trait:
+///
+/// ```
+/// use windows_reactor::{StackPanel, TextBlock, View};
+///
+/// let labels = ["First", "Second"];
+/// let children: Vec<View> = labels
+///     .into_iter()
+///     .map(|label| TextBlock::new().text(label).into())
+///     .collect();
+/// let _ = StackPanel::new().children(children);
+/// ```
 ///
 /// ```compile_fail,E0277
 /// struct CustomViews;

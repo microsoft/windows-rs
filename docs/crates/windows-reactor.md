@@ -274,8 +274,12 @@ without depending on Reactor's internal binding counter.
 
 Callback and view conversion traits are sealed. They accept the closure, callback, tuple, array,
 and vector forms supplied by Reactor without creating downstream implementation protocols.
+This is a closed conversion policy, not a requirement for runtime correctness. Custom collection
+wrappers must produce `Vec<View>` or another supported input instead of implementing `IntoViews`.
 Task and timer handles expose cancellation and delivery rejection in normal builds; full queue-state
 inspection is diagnostic and remains available with the `test` feature.
+`is_rejected()` polls for terminal queue rejection, not completion: `false` also includes pending
+and cancelled work. It does not notify the application or retry a rejected message.
 
 `src/lib.rs` explicitly exports handwritten application types. Generated controls and their value
 enums are exported from `declaration::generated_declarations`; the metadata in `generated` and

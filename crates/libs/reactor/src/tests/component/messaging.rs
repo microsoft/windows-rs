@@ -213,6 +213,7 @@ enum ServiceProbeMessage {
     Background,
     BackgroundComplete,
     Timer,
+    LocalTimer,
     TimerComplete,
 }
 
@@ -242,6 +243,12 @@ impl Component for ServiceProbe {
             ServiceProbeMessage::BackgroundComplete => self.value += 1,
             ServiceProbeMessage::Timer => {
                 let timer = context.set_timeout(Duration::ZERO, ServiceProbeMessage::TimerComplete);
+                *self.input.timer.lock().unwrap() = Some(timer);
+                self.value += 1;
+            }
+            ServiceProbeMessage::LocalTimer => {
+                let timer = context
+                    .set_local_timeout(Duration::ZERO, || ServiceProbeMessage::TimerComplete);
                 *self.input.timer.lock().unwrap() = Some(timer);
                 self.value += 1;
             }
@@ -392,16 +399,19 @@ fn injected_services_preserve_task_and_timer_statuses() {
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Running
     );
+    assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
     services.run_background();
     assert_eq!(
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Queued
     );
+    assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
     assert_eq!(host.drain(1).unwrap().dispatched, 1);
     assert_eq!(
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Delivered
     );
+    assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
 
     assert!(sender.send(ServiceProbeMessage::Timer));
     assert_eq!(host.drain(1).unwrap().dispatched, 1);
@@ -409,16 +419,86 @@ fn injected_services_preserve_task_and_timer_statuses() {
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Running
     );
+    assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
     services.fire_timer();
     assert_eq!(
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Queued
     );
+    assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
     assert_eq!(host.drain(1).unwrap().dispatched, 1);
     assert_eq!(
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Delivered
     );
+    assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
+}
+
+#[test]
+fn task_and_timer_rejection_distinguishes_capacity_from_cancellation() {
+    for cancelled in [false, true] {
+        for message in [
+            ServiceProbeMessage::Background,
+            ServiceProbeMessage::Timer,
+            ServiceProbeMessage::LocalTimer,
+        ] {
+            let background = matches!(message, ServiceProbeMessage::Background);
+            let services = Arc::new(TestServices::default());
+            let input = ServiceProbeInput::default();
+            let mut host = ComponentHost::mount_with_services(
+                RecordingAdapter::default(),
+                services.clone(),
+                [component::<ServiceProbe>("probe", input.clone())],
+            )
+            .unwrap();
+            let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
+            assert!(sender.send(message));
+            assert_eq!(host.drain(1).unwrap().dispatched, 1);
+            for _ in 0..MESSAGE_CAPACITY {
+                assert!(sender.send(ServiceProbeMessage::BackgroundComplete));
+            }
+            assert!(!sender.send(ServiceProbeMessage::BackgroundComplete));
+
+            if background {
+                let task = input.task.lock().unwrap().as_ref().unwrap().clone();
+                assert!(!task.is_rejected());
+                if cancelled {
+                    task.cancel();
+                }
+                services.run_background();
+                assert_eq!(task.is_rejected(), !cancelled);
+                task.cancel();
+                assert_eq!(task.is_rejected(), !cancelled);
+                assert_eq!(
+                    task.status(),
+                    if cancelled {
+                        ComponentTaskStatus::Cancelled
+                    } else {
+                        ComponentTaskStatus::Rejected
+                    }
+                );
+            } else {
+                let timer = input.timer.lock().unwrap().take().unwrap();
+                assert!(!timer.is_rejected());
+                if cancelled {
+                    timer.cancel();
+                }
+                services.fire_timer();
+                assert_eq!(timer.is_rejected(), !cancelled);
+                timer.cancel();
+                assert_eq!(timer.is_rejected(), !cancelled);
+                assert_eq!(
+                    timer.status(),
+                    if cancelled {
+                        ComponentTaskStatus::Cancelled
+                    } else {
+                        ComponentTaskStatus::Rejected
+                    }
+                );
+            }
+            assert_eq!(host.queue.lock().unwrap().messages.len(), MESSAGE_CAPACITY);
+        }
+    }
 }
 
 #[test]

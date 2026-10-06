@@ -357,6 +357,14 @@ pub enum IntegrationError {
     Unavailable,
 }
 
+/// Identifies one binding of an [`ElementRef<SwapChainPanel>`] to a panel.
+///
+/// Metrics for the same binding carry equal tokens. Detaching and rebinding a reference
+/// produces a different token, even when the native panel is unchanged. This is not a native
+/// panel identity.
+///
+/// Compare a saved token with the latest metrics token to detect a rebind while asynchronous
+/// surface work was pending. A token does not keep the panel alive or prove it is still bound.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct SwapChainPanelBinding(u64);
 
