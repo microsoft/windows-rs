@@ -60,8 +60,11 @@ warnings and therefore enforced.
 ### Reactor
 
 ```sh
-# Refresh WinUI metadata after changing Windows App SDK or WebView2 pins
+# Refresh WinUI metadata after changing the Windows App SDK pin
 cargo run -p tool-reactor-metadata --quiet
+
+# Refresh WebView2 bindings, Core metadata, and the setup version after changing its pin
+cargo run -p tool-webview --quiet
 
 # Regenerate Reactor code after editing schema.toml or tool-reactor source
 cargo run -p tool-reactor --quiet
@@ -112,22 +115,25 @@ The core `windows` / `windows-sys` crates are generated from Windows metadata (`
 `windows-bindgen` (driven by `tool-package`). `windows-metadata` and `windows-rdl` support
 reading/authoring that metadata. The reactor / canvas / webview pipelines layer on top:
 
-1. **`tool-reactor-metadata`** - refreshes committed WinUI / Windows App SDK / WebView2 `.winmd`
+1. **`tool-reactor-metadata`** - refreshes committed WinUI / Windows App SDK `.winmd`
    metadata and generates `extras.winmd`.
 
-2. **`tool-reactor`** - reads `crates/tools/reactor/src/schema.toml` plus the shared WinUI
+2. **`tool-webview`** - generates WebView2 COM bindings, refreshes its Core `.winmd` in the shared
+   Reactor metadata directory, and writes `reactor-setup/assets/webview2-version.txt`.
+
+3. **`tool-reactor`** - reads `crates/tools/reactor/src/schema.toml` plus the shared WinUI
    metadata -> generates Reactor declarations, native projection code, the Reactor native
    bindings, and the canvas Reactor bridge bindings.
 
-3. **`tool-bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
+4. **`tool-bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
    `windows-bindgen` -> generates `bindings.rs` in each crate:
    - `crates/libs/canvas/src/bindings.rs` (from `canvas.txt`)
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
-4. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
+5. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
    `--package` mode (per-namespace files + Cargo.toml features).
 
-4. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
+6. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
 
 ## Key Architecture Facts
 

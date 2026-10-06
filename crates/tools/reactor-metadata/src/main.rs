@@ -21,16 +21,6 @@ fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
 
 fn assert_runtime_pins() {
     const REACTOR_SETUP: &str = "crates/libs/reactor-setup/src/lib.rs";
-    const WEBVIEW_TOOL: &str = "crates/tools/webview/src/main.rs";
-
-    let setup_webview2 = helpers::read_str_const(workspace_path(REACTOR_SETUP), "WEBVIEW2_VER");
-    let tool_webview2 = helpers::read_str_const(workspace_path(WEBVIEW_TOOL), "WEBVIEW2_VERSION");
-    assert_eq!(
-        setup_webview2, tool_webview2,
-        "WebView2 pin drift: `windows-reactor-setup` stages `{setup_webview2}` but \
-         `tool-webview` generates from `{tool_webview2}`. Update `WEBVIEW2_VER` in \
-         {REACTOR_SETUP} and `WEBVIEW2_VERSION` in {WEBVIEW_TOOL} together."
-    );
 
     let runtime_ver = helpers::read_str_const(workspace_path(REACTOR_SETUP), "RUNTIME_VER");
     assert_eq!(
@@ -58,10 +48,6 @@ fn refresh_winmd() {
     let interactive =
         nuspec_dependency_version(&nuspec, "Microsoft.WindowsAppSDK.InteractiveExperiences");
     let winui = nuspec_dependency_version(&nuspec, "Microsoft.WindowsAppSDK.WinUI");
-    let webview = helpers::read_str_const(
-        workspace_path("crates/tools/webview/src/main.rs"),
-        "WEBVIEW2_VERSION",
-    );
 
     let dir = workspace_path(WINMD);
     for entry in fs::read_dir(&dir).unwrap_or_else(|error| panic!("cannot read `{WINMD}`: {error}"))
@@ -70,7 +56,12 @@ fn refresh_winmd() {
         let is_winmd = path
             .extension()
             .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"));
-        if is_winmd && path.file_name() != Some(std::ffi::OsStr::new("extras.winmd")) {
+        if is_winmd
+            && !matches!(
+                path.file_name().and_then(|name| name.to_str()),
+                Some("extras.winmd" | "Microsoft.Web.WebView2.Core.winmd")
+            )
+        {
             fs::remove_file(&path)
                 .unwrap_or_else(|error| panic!("cannot remove `{}`: {error}", path.display()));
         }
@@ -88,12 +79,6 @@ fn refresh_winmd() {
     )
     .join("metadata");
     copy_winmd(&newest_subdir(&interactive_metadata), &dir);
-
-    let webview_core = nuget_package("microsoft.web.webview2", &webview)
-        .join("lib")
-        .join("Microsoft.Web.WebView2.Core.winmd");
-    fs::copy(&webview_core, dir.join("Microsoft.Web.WebView2.Core.winmd"))
-        .unwrap_or_else(|error| panic!("cannot copy `{}`: {error}", webview_core.display()));
 }
 
 fn read_nuspec(package_dir: &Path) -> String {

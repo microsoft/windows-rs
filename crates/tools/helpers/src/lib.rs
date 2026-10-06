@@ -175,12 +175,8 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
 /// Reads the string value of a `const NAME: &str = "...";` (or `pub const`) declaration from a
 /// Rust source file. Panics loudly if the file cannot be read or the constant is not found.
 ///
-/// This is the single shared mechanism for the *paired* dependency-pin validators: a pin is
-/// declared as an ordinary constant in exactly one crate (its owner), and any other tool that
-/// must stay in lock-step reads it back from source and asserts agreement - e.g.
-/// `tool-reactor-metadata`
-/// reads `windows-reactor-setup`'s `RUNTIME_VER` / `WEBVIEW2_VER`, and reads the pinned WebView2
-/// version back from `tool-webview`. Keeping one reader keeps every such check consistent.
+/// Generators use this to consume another tool's pin without copying it. For example,
+/// `tool-webview` reads `SDK_VERSION` from `tool-win32`.
 pub fn read_str_const<P: AsRef<Path>>(path: P, name: &str) -> String {
     let path = path.as_ref();
     let text = std::fs::read_to_string(path)

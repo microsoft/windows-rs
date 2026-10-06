@@ -126,5 +126,5 @@ There is no committed generator for this template. Review it and `assets/runtime
 the runtime.
 
 `deploy_webview2` copies `Microsoft.Web.WebView2.Core.dll` from the pinned WebView2 package's
-per-architecture `native_uap` directory. Keep its package version compatible with the WinRT
-metadata and XAML WebView2 bridge used by `windows-webview` and Reactor.
+per-architecture `native_uap` directory. `tool-webview` generates `assets/webview2-version.txt` from
+the same pin as its COM bindings and Core WinRT metadata. Do not edit this version file by hand.

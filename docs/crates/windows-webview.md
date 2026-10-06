@@ -341,7 +341,7 @@ Raw HWND controller methods remain available without either host feature.
 
 ### Binding generation
 
-WebView2 ships C/C++ headers rather than Windows metadata. `tool-webview` builds the committed
+The WebView2 COM projection is generated from its C/C++ headers. `tool-webview` builds the committed
 bindings in three stages:
 
 | Stage | Implementation | Output |
@@ -355,6 +355,16 @@ The tool downloads the pinned `Microsoft.Web.WebView2` NuGet package. It parses 
 input, then merges both translation units. It uses `Windows.Win32.winmd` for referenced Win32
 types and targets `x86_64-pc-windows-msvc` with Microsoft extensions. Regenerate with
 `cargo run -p tool-webview`; never edit `src/bindings.rs`.
+
+To update WebView2, change `WEBVIEW2_VERSION` in `crates/tools/webview/src/main.rs` and run the tool.
+The same package supplies the Core WinRT metadata committed under
+`crates/tools/reactor-metadata/winmd` and the version written to
+`crates/libs/reactor-setup/assets/webview2-version.txt`. The setup helper uses that generated version
+to stage the matching projection DLL. `tool-reactor-metadata` preserves the WebView2 metadata.
+
+System headers come from the Windows SDK pin owned by `tool-win32`, and compiler resource headers
+come from the shared libclang pin. An installed MSVC toolchain is still required for its C runtime
+headers. No manually configured `INCLUDE` paths or installed Windows SDK are needed.
 
 Bindings use `--flat --minimal` and the filter in `crates/tools/webview/src/webview.txt`. Filter
 method names are raw metadata names such as `put_Bounds` and `get_CoreWebView2`, not projected
@@ -390,8 +400,8 @@ objects do not convert through a plain interface cast.
 With the `reactor` feature, `src/reactor.rs` requests initialization after the control is loaded,
 retains the loaded-event and asynchronous-operation state through Reactor, crosses the interop
 bridge, and reports one result. The canonical WinRT metadata is
-`winmd/Microsoft.Web.WebView2.Core.winmd`. Reactor setup supplies the matching projection DLL for
-self-contained deployment.
+`crates/tools/reactor-metadata/winmd/Microsoft.Web.WebView2.Core.winmd`, refreshed by `tool-webview`.
+Reactor setup supplies the matching projection DLL for self-contained deployment.
 
 ### Maintenance
 
