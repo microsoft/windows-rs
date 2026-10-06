@@ -119,10 +119,10 @@ The implementation has four stages:
 This separation keeps extraction order out of ownership and dependency decisions. Facts retain
 translation-unit identity, while equivalent declarations are resolved during planning.
 
-Source declarations control type identity and pointer mutability. SAL supplies direction,
-optionality, size relationships, return-value markers, and interface-selection metadata; it does
-not rewrite the declared C type. Explicit string and pointer typedefs therefore survive parameter
-annotations.
+Source declarations supply type identity and pointer qualifiers. Projection applies the canonical
+vocabulary and pointer-run normalization described below. SAL supplies direction, optionality, size
+relationships, return-value markers, and interface-selection metadata; direction attributes are
+interpreted relative to the emitted type.
 
 ### Function identity and annotation capture
 
@@ -187,6 +187,25 @@ typedef that depends on it. This keeps concrete pointer definitions and avoids t
 Nested pointer chains retain a declared void-pointer typedef when flattening it would produce mixed
 `*const` and `*mut` levels that RDL cannot represent. Mutable uses of the same typedef still flatten.
 
+Within a consecutive run of raw pointers, `pointer_run` emits every level as `*mut` only when all
+levels are mutable. If any level is const, every level in that run becomes `*const`. This is a lossy
+normalization for RDL's uniform pointer-chain representation, not preservation of each C/C++ pointer
+qualifier. Retaining a typedef boundary does not change normalization of the raw pointers above it.
+
+For a source declaration `typedef void* PVOID;`:
+
+| C/C++ type | Projected RDL type |
+| --- | --- |
+| `const char**` | `*const *const i8` |
+| `PVOID const*` | `*const PVOID` |
+| `PVOID const**` | `*const *const PVOID` |
+| `PVOID*` | `*mut *mut void` |
+
+SAL direction is independent of this normalization. For example, `_Out_ PVOID const** value` emits
+`#[out] value: *const *const PVOID`. Without a direction annotation, the normalized RDL type
+determines the default: this const pointer chain defaults to input, even though the original outer
+pointer was mutable. The projection does not synthesize typedefs to preserve mixed raw pointer runs.
+
 The alias fixtures cover local and referenced canonical types, missing definitions, alias chains,
 translation-unit isolation, and function, callback, interface, and record uses. Metadata assertions
 in `test_clang`'s `projection` tests check typedef targets, pointer depth, and parameter directions
@@ -215,7 +234,8 @@ directly as `ORHKEY *` remains `*mut ORHKEY`; it is not renamed to `PORHKEY`.
 Do not flatten typedefs in RDL to accommodate a binding projection. A downstream generator can
 resolve or collapse an alias when needed, while recovering a discarded source name is unreliable.
 Likewise, do not use SAL direction to change `P*` aliases or mutable pointers into const pointers.
-RDL records the declared C type and the SAL contract as separate facts.
+RDL records the projected type and the SAL contract separately; pointer-run normalization applies
+regardless of SAL direction.
 
 Incomplete records are valid when used through pointers and rejected when a complete by-value
 layout is required. Fixed-underlying forward enums can be represented by their declared integer
@@ -289,7 +309,8 @@ The repository's generator tools share these facilities through `crates/tools/he
 
 ## Known limits
 
-- RDL cannot represent mixed pointer-chain mutability.
+- RDL cannot represent mixed raw pointer-chain mutability. The projection normalizes each run to
+  uniform mutability, losing per-level qualifiers as described above.
 - Coverage is limited to declarations reachable from configured roots.
 - The flat Win32 namespace cannot preserve distinct declarations that differ only by curated
   namespace placement.
