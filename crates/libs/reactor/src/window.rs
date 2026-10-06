@@ -33,6 +33,31 @@ pub struct WindowSize {
     pub height: f64,
 }
 
+/// Restored outer-window bounds in physical screen pixels and the maximized state.
+///
+/// Negative positions are valid on a multi-monitor desktop. These are not client-area DIPs.
+/// Applications own persistence; Reactor converts to and from Win32 workspace coordinates.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct WindowPlacement {
+    pub x: i32,
+    pub y: i32,
+    pub width: i32,
+    pub height: i32,
+    pub maximized: bool,
+}
+
+impl WindowPlacement {
+    fn validate(self) {
+        assert!(
+            self.width > 0
+                && self.height > 0
+                && self.x.checked_add(self.width).is_some()
+                && self.y.checked_add(self.height).is_some(),
+            "window placement must have positive extents and representable bounds"
+        );
+    }
+}
+
 /// Optional window client-size limits in device-independent pixels.
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WindowConstraints {
@@ -71,7 +96,7 @@ impl WindowConstraints {
     }
 }
 
-/// Window appearance and client sizing declared by a component.
+/// Window appearance, client sizing, and initial placement declared by a component.
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct WindowVisuals {
     pub(crate) backdrop: WindowBackdrop,
@@ -79,6 +104,8 @@ pub struct WindowVisuals {
     pub(crate) constraints: Option<WindowConstraints>,
     pub(crate) icon: Option<Rc<str>>,
     pub(crate) theme: WindowTheme,
+    pub(crate) initial_position: Option<ScreenPoint>,
+    pub(crate) initial_placement: Option<WindowPlacement>,
 }
 
 impl WindowVisuals {
@@ -94,6 +121,28 @@ impl WindowVisuals {
     pub fn client_size(mut self, width: f64, height: f64) -> Self {
         validate_window_size(width, height);
         self.client_size = Some((width, height));
+        self
+    }
+
+    /// Sets the initial outer-window top-left position in physical screen pixels.
+    ///
+    /// Read only from the initial component declaration. Later changes do not move the window.
+    /// Client sizing remains in DIPs. A full `initial_placement` takes precedence.
+    pub fn initial_position(mut self, position: ScreenPoint) -> Self {
+        self.initial_position = Some(position);
+        self
+    }
+
+    /// Restores outer bounds and maximized state before the window first becomes visible.
+    ///
+    /// Read only from the initial component declaration. This overrides initial position and
+    /// client size, but subsequent explicit changes to `client_size` still resize the window.
+    /// Load saved placement before opening the window, not from a later asynchronous update.
+    /// Windows adjusts fully off-screen bounds to an available monitor. Size constraints still
+    /// apply. Width and height must be positive, with representable right and bottom coordinates.
+    pub fn initial_placement(mut self, placement: WindowPlacement) -> Self {
+        placement.validate();
+        self.initial_placement = Some(placement);
         self
     }
 

@@ -107,6 +107,44 @@ do not mutate state inside the native event callback.
 `context.window_frame` publishes the window title and returns the standard title-bar layout. For a
 static view with no state or events, call `App::run(view)` instead.
 
+## Position and restore windows
+
+Publish startup placement through `context.window_visuals`. The first committed declaration is
+applied before the native window becomes visible, for both primary and secondary windows.
+
+| Setting | Meaning |
+| --- | --- |
+| `initial_position(ScreenPoint)` | Initial outer-window top-left in physical screen pixels |
+| `initial_placement(WindowPlacement)` | Restored outer bounds in physical screen pixels, plus maximized state |
+| `client_size(width, height)` | Client-area size in DIPs; later explicit changes still resize |
+| `constraints(WindowConstraints)` | Client-size limits in DIPs, including when restoring placement |
+
+Full placement takes precedence over initial position and initial client size. Later changes to
+either initial setting do not move or resize an open window. Load saved placement before opening
+the window; an asynchronous update after startup is too late. Negative coordinates are valid on a
+multi-monitor desktop. Windows adjusts fully off-screen bounds to an available monitor.
+
+```rust,ignore
+context.window_visuals(WindowVisuals::new().initial_placement(saved_placement));
+context.on_window_placement(context.callback(Message::Placement));
+```
+
+`on_window_placement` reports the initial placement and native changes while subscribed.
+Notifications contain the restored outer bounds even when maximized, are coalesced, and exclude
+minimized state. An unchanged subscription does not replay unchanged placement on each render;
+a replacement or new subscription receives the current non-minimized placement. Each window
+allows one placement subscriber. Removing its declaration or closing the component/window ends
+the subscription.
+
+Applications own persistence: store each observation in the message handler, rather than wait for
+a final shutdown notification. This is observed native state, not a continuously controlled
+position. Keeping a saved value in `initial_placement` does not cause snapback after a user move.
+Reactor converts Win32 workspace coordinates internally; application values use screen pixels,
+not DIPs.
+
+Run `cargo run -p reactor-window-placement` to move, resize, or maximize a window and open a copy
+at its observed placement. The sample retains placement in memory, without a persistence backend.
+
 ## Add icon content
 
 `Icon` describes icon content for control slots. Reactor realizes the same value as WinUI's visual

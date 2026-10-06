@@ -27,12 +27,16 @@ path = "src/webview_integration.rs"
 name = "window_state"
 path = "src/window_state.rs"
 
+[[bin]]
+name = "window_placement"
+path = "src/window_placement.rs"
+
 [dependencies]
 windows-canvas = { workspace = true, features = ["composition", "reactor"] }
 windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 windows-webview = { workspace = true, features = ["reactor"] }
-windows = { workspace = true, features = ["winuser"] }
+windows = { workspace = true, features = ["processthreadsapi", "winuser"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

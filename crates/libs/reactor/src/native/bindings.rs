@@ -5,17 +5,24 @@ windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(package
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
 windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : PBYTE) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn GetLastError() -> u32);
+windows_core::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : LPMONITORINFO) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 windows_core::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : i32) -> i32);
+windows_core::link!("user32.dll" "system" fn GetWindowPlacement(hwnd : HWND, lpwndpl : *mut WINDOWPLACEMENT) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn MessageBoxW(hwnd : HWND, lptext : windows_core::PCWSTR, lpcaption : windows_core::PCWSTR, utype : u32) -> i32);
+windows_core::link!("user32.dll" "system" fn MonitorFromRect(lprc : LPCRECT, dwflags : u32) -> HMONITOR);
+windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : u32) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : u32));
 windows_core::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : HWND, crkey : COLORREF, balpha : u8, dwflags : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn SetThreadDpiAwarenessContext(dpicontext : DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS_CONTEXT);
 windows_core::link!("user32.dll" "system" fn SetWindowLongW(hwnd : HWND, nindex : i32, dwnewlong : i32) -> i32);
+windows_core::link!("user32.dll" "system" fn SetWindowPlacement(hwnd : HWND, lpwndpl : *const WINDOWPLACEMENT) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_core::BOOL);
 windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : HWND, lpoperation : windows_core::PCWSTR, lpfile : windows_core::PCWSTR, lpparameters : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, nshowcmd : i32) -> HINSTANCE);
 windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
 pub const APPMODEL_ERROR_NO_PACKAGE: i32 = 15700;
@@ -211,6 +218,33 @@ impl windows_core::RuntimeName for AppWindow {
 }
 unsafe impl Send for AppWindow {}
 unsafe impl Sync for AppWindow {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AppWindowChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    AppWindowChangedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for AppWindowChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for AppWindowChangedEventArgs {
+    type Vtable = <IAppWindowChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IAppWindowChangedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for AppWindowChangedEventArgs {
+    type Target = IAppWindowChangedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for AppWindowChangedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Windowing.AppWindowChangedEventArgs";
+}
+unsafe impl Send for AppWindowChangedEventArgs {}
+unsafe impl Sync for AppWindowChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppWindowPresenter(windows_core::IUnknown);
@@ -4769,6 +4803,12 @@ pub type HINSTANCE = *mut HINSTANCE__;
 pub struct HINSTANCE__ {
     pub unused: i32,
 }
+pub type HMONITOR = *mut HMONITOR__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HMONITOR__ {
+    pub unused: i32,
+}
 pub type HWND = *mut HWND__;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5116,6 +5156,35 @@ impl IAppWindow {
             .ok()
         }
     }
+    pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<AppWindow>, windows_core::Ref<AppWindowChangedEventArgs>) + 'static,
+    {
+        let handler: TypedEventHandler<AppWindow, AppWindowChangedEventArgs> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<AppWindow, AppWindowChangedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<AppWindow, AppWindowChangedEventArgs, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Changed)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveChanged,
+            ))
+        }
+    }
 }
 #[repr(C)]
 pub struct IAppWindow_Vtbl {
@@ -5150,6 +5219,18 @@ pub struct IAppWindow_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+    SetIconWithIconId: usize,
+    SetPresenter: usize,
+    SetPresenterByKind: usize,
+    Show: usize,
+    ShowWithActivation: usize,
+    pub Changed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IAppWindow2,
@@ -5191,6 +5272,19 @@ pub struct IAppWindow2_Vtbl {
     MoveInZOrderBelow: usize,
     pub ResizeClient:
         unsafe extern "system" fn(*mut core::ffi::c_void, SizeInt32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IAppWindowChangedEventArgs,
+    IAppWindowChangedEventArgs_Vtbl,
+    0x2182bc5d_fdac_5c3e_bf37_7d8d684e9d1d
+);
+impl windows_core::RuntimeType for IAppWindowChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAppWindowChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
     IAppWindowPresenter,
@@ -23607,6 +23701,8 @@ impl windows_core::RuntimeType for KeyboardAcceleratorPlacementMode {
     );
 }
 pub type LPARAM = isize;
+pub type LPCRECT = *const RECT;
+pub type LPMONITORINFO = *mut MONITORINFO;
 pub type LPPOINT = *mut POINT;
 pub type LRESULT = isize;
 pub const LWA_ALPHA: i32 = 2;
@@ -24091,6 +24187,15 @@ impl windows_core::RuntimeType for ListViewSelectionMode {
 }
 pub const MB_ICONERROR: i32 = 16;
 pub const MB_YESNO: i32 = 4;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MONITORINFO {
+    pub cbSize: u32,
+    pub rcMonitor: RECT,
+    pub rcWork: RECT,
+    pub dwFlags: u32,
+}
+pub const MONITOR_DEFAULTTONEAREST: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MenuBar(windows_core::IUnknown);
@@ -26103,6 +26208,14 @@ impl windows_core::RuntimeName for ProgressRing {
 }
 unsafe impl Send for ProgressRing {}
 unsafe impl Sync for ProgressRing {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RECT {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
 pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -27395,6 +27508,12 @@ unsafe impl Send for Run {}
 unsafe impl Sync for Run {}
 pub const STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED: windows_core::HRESULT =
     windows_core::HRESULT(0x80670016_u32 as _);
+pub const SWP_NOACTIVATE: i32 = 16;
+pub const SWP_NOSIZE: i32 = 1;
+pub const SWP_NOZORDER: i32 = 4;
+pub const SW_HIDE: i32 = 0;
+pub const SW_SHOWMAXIMIZED: i32 = 3;
+pub const SW_SHOWMINIMIZED: i32 = 2;
 pub const SW_SHOWNORMAL: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -31419,6 +31538,16 @@ impl windows_core::RuntimeName for Visual {
 }
 unsafe impl Send for Visual {}
 unsafe impl Sync for Visual {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOWPLACEMENT {
+    pub length: u32,
+    pub flags: u32,
+    pub showCmd: u32,
+    pub ptMinPosition: POINT,
+    pub ptMaxPosition: POINT,
+    pub rcNormalPosition: RECT,
+}
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 1;
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 5;
@@ -31427,6 +31556,7 @@ pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562971428323328;
 pub const WM_SETICON: i32 = 128;
 pub type WPARAM = usize;
 pub const WS_EX_LAYERED: i32 = 524288;
+pub const WS_EX_TOOLWINDOW: i32 = 128;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebView2(windows_core::IUnknown);

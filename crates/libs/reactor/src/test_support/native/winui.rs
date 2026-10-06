@@ -15,6 +15,16 @@ impl ComponentHost<WinUiAdapter> {
 }
 
 impl WinUiAdapter {
+    pub fn open_window_with_policy(
+        &self,
+        root: ObjectId,
+        policy: &WindowPolicy,
+    ) -> Result<NativeWindow, WinUiError> {
+        let window = self.create_window_with_policy(root, policy)?;
+        window.activate()?;
+        Ok(window)
+    }
+
     pub fn create_window(&self, root: ObjectId) -> Result<NativeWindow, WinUiError> {
         self.create_window_with_policy(root, &WindowPolicy::new())
     }

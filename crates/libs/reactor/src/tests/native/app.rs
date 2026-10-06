@@ -1,6 +1,88 @@
 use super::*;
 
 #[test]
+fn initial_publication_is_taken_without_dispatching_other_window_work() {
+    let services = LiveWindowServices::default();
+    services.active.set(true);
+    assert!(services.push(WindowWork::Close(1)));
+    assert!(services.publish(
+        WindowPublication {
+            title: Some("old".into()),
+            ..Default::default()
+        },
+        1,
+    ));
+    assert!(services.publish(WindowPublication::default(), 2));
+    assert!(services.publish(
+        WindowPublication {
+            title: Some("initial".into()),
+            ..Default::default()
+        },
+        1,
+    ));
+    assert_eq!(
+        services.take_publication(1).unwrap().title.as_deref(),
+        Some("initial")
+    );
+    assert!(services.take_publication(1).is_none());
+    assert!(matches!(services.pop(), Some(WindowWork::Close(1))));
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::Publish { window: 2, .. })
+    ));
+    assert!(services.pop().is_none());
+}
+
+#[test]
+fn placement_observations_coalesce_by_window_and_subscription() {
+    let services = LiveWindowServices::default();
+    services.active.set(true);
+    for window in 0..WINDOW_WORK_CAPACITY {
+        assert!(services.push(WindowWork::Activate(window as u64)));
+    }
+    let placement = WindowPlacement {
+        x: 10,
+        y: 20,
+        width: 800,
+        height: 600,
+        maximized: false,
+    };
+    for x in 10..20 {
+        assert!(services.placement(1, WindowPlacement { x, ..placement }, 1));
+    }
+    assert!(services.placement(2, placement, 1));
+    assert!(services.placement(1, placement, 2));
+    for _ in 0..WINDOW_WORK_CAPACITY {
+        assert!(matches!(services.pop(), Some(WindowWork::Activate(_))));
+    }
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::Placement {
+            generation: 1,
+            window: 1,
+            placement: WindowPlacement { x: 19, .. },
+        })
+    ));
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::Placement {
+            generation: 2,
+            window: 1,
+            ..
+        })
+    ));
+    assert!(matches!(
+        services.pop(),
+        Some(WindowWork::Placement {
+            generation: 1,
+            window: 2,
+            ..
+        })
+    ));
+    assert!(services.pop().is_none());
+}
+
+#[test]
 fn canceled_queued_app_callback_is_ignored() {
     let id = NEXT_APP_CALLBACK.fetch_add(1, Ordering::Relaxed);
     let invoked = Rc::new(Cell::new(false));

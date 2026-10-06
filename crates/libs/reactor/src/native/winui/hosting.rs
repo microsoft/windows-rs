@@ -231,6 +231,11 @@ impl WinUiAdapter {
             root: root_object,
             root_element: root.cast()?,
             title_bar: Cell::new(None),
+            shown: Cell::new(false),
+            closed: Cell::new(false),
+            maximize_on_first_show: Cell::new(false),
+            placement_callback: RefCell::new(None),
+            last_placement: Cell::new(None),
         });
         self.windows.borrow_mut().push(Rc::downgrade(&state));
         if let Some((object, height)) = self.window_title_bar
@@ -245,6 +250,7 @@ impl WinUiAdapter {
             published_title: false,
             published_visuals: false,
             size_changed: None,
+            placement_changed: None,
             visuals: WindowVisuals {
                 client_size: policy.client_size,
                 constraints: policy.minimum_client_size.map(|(width, height)| {
@@ -817,16 +823,6 @@ impl WinUiAdapter {
             }
         }
         Ok(())
-    }
-
-    pub fn open_window_with_policy(
-        &self,
-        root: ObjectId,
-        policy: &WindowPolicy,
-    ) -> Result<NativeWindow, WinUiError> {
-        let window = self.create_window_with_policy(root, policy)?;
-        window.activate()?;
-        Ok(window)
     }
 
     fn apply_window_policy(

@@ -1,6 +1,89 @@
 use super::*;
 
 #[test]
+fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
+    let screen = native::RECT {
+        left: -1600,
+        top: -200,
+        right: -800,
+        bottom: 400,
+    };
+    for (x, y) in [(0, 0), (48, 0), (0, 40), (48, 40)] {
+        let workspace = window_placement::translate_rect(screen, -x, -y).unwrap();
+        let restored = window_placement::translate_rect(workspace, x, y).unwrap();
+        assert_eq!(restored, screen);
+        assert_eq!(workspace.left, screen.left - x);
+        assert_eq!(workspace.top, screen.top - y);
+    }
+    assert!(
+        window_placement::translate_rect(
+            native::RECT {
+                left: i32::MAX,
+                ..Default::default()
+            },
+            1,
+            0,
+        )
+        .is_err()
+    );
+}
+
+#[test]
+fn initial_placement_rejects_invalid_extents_but_accepts_negative_positions() {
+    let placement = WindowPlacement {
+        x: -1200,
+        y: -600,
+        width: 800,
+        height: 500,
+        maximized: true,
+    };
+    let visuals = WindowVisuals::new().initial_placement(placement);
+    assert_eq!(visuals.initial_placement, Some(placement));
+    for invalid in [
+        WindowPlacement {
+            width: 0,
+            ..placement
+        },
+        WindowPlacement {
+            height: -1,
+            ..placement
+        },
+        WindowPlacement {
+            x: i32::MAX,
+            ..placement
+        },
+        WindowPlacement {
+            y: i32::MAX,
+            ..placement
+        },
+    ] {
+        assert!(
+            std::panic::catch_unwind(|| WindowVisuals::new().initial_placement(invalid)).is_err()
+        );
+    }
+}
+
+#[test]
+fn changed_initial_placement_does_not_become_a_reactive_resize() {
+    let initial = WindowVisuals::new()
+        .client_size(640.0, 480.0)
+        .initial_position(ScreenPoint::new(50, 60));
+    let updated = initial.clone().initial_placement(WindowPlacement {
+        x: -1200,
+        y: -600,
+        width: 800,
+        height: 500,
+        maximized: true,
+    });
+    let changes = window_visual_changes(&initial, &updated);
+    assert!(!changes.client_size);
+    assert!(!changes.constraints);
+    assert!(!changes.backdrop);
+    assert!(!changes.icon);
+    assert!(!changes.theme);
+}
+
+#[test]
 fn content_dialog_schedule_is_fifo_and_cancellable() {
     let first = ObjectId::test(1);
     let second = ObjectId::test(2);

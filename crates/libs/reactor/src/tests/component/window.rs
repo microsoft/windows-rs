@@ -93,6 +93,7 @@ impl Component for WindowPublisher {
             );
             context.on_color_scheme(|_| {});
             context.on_window_size(|_| {});
+            context.on_window_placement(|_| {});
         }
         TextBlock::new().text("Window publisher").into()
     }
@@ -246,6 +247,7 @@ fn component_window_declarations_follow_scope_updates() {
     );
     assert!(published.on_color_scheme.is_some());
     assert!(published.on_size.is_some());
+    assert!(published.on_placement.is_some());
 
     host.update_input::<WindowPublisher>(&Key::from("publisher"), false)
         .unwrap();
@@ -253,6 +255,41 @@ fn component_window_declarations_follow_scope_updates() {
         ui_services.publications.borrow().last().unwrap(),
         &WindowPublication::default()
     );
+}
+
+struct PlacementPublisher;
+
+impl Component for PlacementPublisher {
+    type Input = bool;
+    type Message = ();
+
+    fn create(_: &bool, _: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, duplicate: &bool, context: &mut ViewContext<Self>) -> View {
+        context.on_window_placement(|_| {});
+        if *duplicate {
+            context.on_window_placement(|_| {});
+        }
+        "Placement".into()
+    }
+}
+
+#[test]
+fn duplicate_window_placement_observers_are_rejected_within_and_across_components() {
+    for roots in [
+        vec![component::<PlacementPublisher>("first", true)],
+        vec![
+            component::<PlacementPublisher>("first", false),
+            component::<PlacementPublisher>("second", false),
+        ],
+    ] {
+        assert!(matches!(
+            ComponentHost::mount(RecordingAdapter::default(), roots),
+            Err(ComponentError::DuplicateWindowPlacement)
+        ));
+    }
 }
 
 #[test]
