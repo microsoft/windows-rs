@@ -307,6 +307,13 @@ The consuming tool owns concerns outside header extraction:
 The repository's generator tools share these facilities through `crates/tools/helpers`.
 `tool-win32` supplies the Win32 and WDK policy, while `tool-webview` supplies the WebView2 policy.
 
+The helpers restore exact NuGet versions beneath `NUGET_PACKAGES`, or
+`%USERPROFILE%\.nuget\packages` when it is unset. Completed NuGet global-cache entries are reused
+without modification. Archives in global or flat (`id.version`) cache layouts also support offline
+restores. Tool downloads are extracted separately and published under `.windows-rs` within the
+cache root only after extraction succeeds. Unmarked legacy directories without an archive require
+a fresh download; they are not modified.
+
 ## Known limits
 
 - RDL cannot represent mixed raw pointer-chain mutability. The projection normalizes each run to

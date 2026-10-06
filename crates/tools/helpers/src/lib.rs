@@ -2,8 +2,21 @@ use serde::Deserialize;
 use std::cmp::Ordering;
 use std::path::Path;
 
+mod nuget;
+pub use nuget::nuget_package;
 mod provision;
 pub use provision::*;
+
+/// Prefer Windows-bundled tools over shadowing tools on `PATH`.
+fn system_tool(exe: &str) -> std::process::Command {
+    let system32 = std::env::var_os("SystemRoot")
+        .map(|root| Path::new(&root).join("System32").join(exe))
+        .filter(|path| path.is_file());
+    match system32 {
+        Some(path) => std::process::Command::new(path),
+        None => std::process::Command::new(exe),
+    }
+}
 
 /// Target architecture settings shared by metadata generators.
 pub struct Arch {

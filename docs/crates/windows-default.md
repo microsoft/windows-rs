@@ -90,8 +90,8 @@ The crate has no dependencies. `src/lib.rs` exposes each committed `.winmd` thro
 back to `Windows.winmd`. `tool-win32` scrapes the Windows SDK and WDK headers for X64, Arm64, and
 X86, merges the architecture-specific RDL, and writes `Windows.Win32.winmd`.
 
-See [Dependencies](../dependencies.md#windows-sdk-wdk-and-winrt-contracts) for the package versions
-and provenance.
+The package versions are pinned in `crates/tools/win32/src/main.rs` (Windows SDK),
+`crates/tools/win32/src/km.rs` (WDK), and `crates/tools/winrt/src/main.rs` (SDK Contracts).
 
 ### Packaging
 

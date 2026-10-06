@@ -121,6 +121,10 @@ The application manifest template is `assets/app.manifest`. The function inserts
 marker after the opening assembly element, writes the result to `OUT_DIR`, and emits binary-only
 manifest linker arguments for MSVC or LLVM GNU targets.
 
+The template's header records the App SDK `package.appxfragment` sources for its activation entries.
+There is no committed generator for this template. Review it and `assets/runtime.txt` when updating
+the runtime.
+
 `deploy_webview2` copies `Microsoft.Web.WebView2.Core.dll` from the pinned WebView2 package's
 per-architecture `native_uap` directory. Keep its package version compatible with the WinRT
 metadata and XAML WebView2 bridge used by `windows-webview` and Reactor.
