@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    type LPCWSTR = *const u16;
+    type LPSTR = *mut i8;
+    type PCWSTR = LPCWSTR;
+    type PSTR = LPSTR;
+    #[library("test.dll")]
+    extern "C" fn Strings(text: *mut LPSTR, wide: *mut LPCWSTR, direct: TEXT, wide_direct: PCWSTR);
+    type TEXT = PSTR;
+}

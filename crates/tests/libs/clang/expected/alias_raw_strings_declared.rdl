@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    extern "C" fn CALLBACK(input: PSTR, #[out] output: PSTR);
+    #[no_guid]
+    interface IStrings {
+        fn Strings(&self, input: PSTR, #[out] output: PSTR);
+    }
+    type PCSTR = *const i8;
+    type PCWSTR = *const u16;
+    type PSTR = *mut i8;
+    type PWSTR = *mut u16;
+    #[library("test.dll")]
+    extern "C" fn Strings(input: PSTR, constant: PCSTR, #[out] output: PSTR, wide: PWSTR, wide_constant: PCWSTR);
+}

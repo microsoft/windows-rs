@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    struct Example {
+        text: *mut PSTR,
+        constant: *mut LPCSTR,
+        wide: *mut PWSTR,
+        wide_constant: *mut PCWSTR,
+    }
+    type LPCSTR = *const i8;
+    type PCSTR = LPCSTR;
+    type PCWSTR = *const u16;
+    type PSTR = *mut i8;
+    type PWSTR = *mut u16;
+    #[library("test.dll")]
+    extern "C" fn Text(input: PCSTR, #[out] output: PWSTR) -> PCSTR;
+}

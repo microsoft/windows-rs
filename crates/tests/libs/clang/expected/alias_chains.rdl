@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    type PCWSTR = *const u16;
+    type PSTR = *mut i8;
+    #[library("test.dll")]
+    extern "C" fn Strings(text: *mut PSTR, wide: *mut PCWSTR, direct: TEXT, other: WTEXT);
+    type TEXT = PSTR;
+    struct Text {
+        narrow: TEXT,
+        wide: WTEXT,
+    }
+    type WTEXT = PCWSTR;
+}

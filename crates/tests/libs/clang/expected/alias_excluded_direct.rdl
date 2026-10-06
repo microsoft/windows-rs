@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    struct Example {
+        text: *mut Direct::LPSTR,
+        constant: *mut Direct::LPCSTR,
+        direct: Direct::PVOID,
+        output: *mut Direct::PVOID,
+        input: *const Direct::PVOID,
+    }
+}

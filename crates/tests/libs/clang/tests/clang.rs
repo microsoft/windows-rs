@@ -12,6 +12,7 @@ struct Fixture {
     library: String,
     args: Vec<String>,
     reference_default: bool,
+    references: Vec<String>,
 }
 
 fn run(name: &str) {
@@ -27,9 +28,24 @@ fn run(name: &str) {
     }
     std::fs::create_dir_all(&scratch).unwrap();
 
-    let forward = generate(&fixture, &scratch, false);
+    let references: Vec<_> = fixture
+        .references
+        .iter()
+        .map(|name| {
+            let output = scratch
+                .join(format!("reference-{name}"))
+                .with_extension("winmd");
+            windows_rdl::reader()
+                .input(root.join("input").join(name))
+                .output(&output)
+                .write()
+                .unwrap();
+            output
+        })
+        .collect();
+    let forward = generate(&fixture, &scratch, &references, false);
     let reverse = if fixture.sources.iter().filter(|source| source.input).count() > 1 {
-        generate(&fixture, &scratch, true)
+        generate(&fixture, &scratch, &references, true)
     } else {
         forward.clone()
     };
@@ -43,6 +59,9 @@ fn run(name: &str) {
                 .input_text(&actual)
                 .reference_default()
                 .output(scratch.join(format!("{name}.winmd")));
+            for reference in &references {
+                reader.reference(reference);
+            }
             reader.write().unwrap();
             std::fs::write(expected.join(format!("{name}.rdl")), actual).unwrap();
         }
@@ -59,6 +78,7 @@ fn parse_fixture(default_name: &str, source: &str) -> Fixture {
     let mut library = "test.dll".to_string();
     let mut args = vec!["-x".to_string(), "c++".to_string()];
     let mut reference_default = false;
+    let mut references = vec![];
     let mut sources = vec![];
     let mut current = None;
     let mut default_source = String::new();
@@ -99,6 +119,15 @@ fn parse_fixture(default_name: &str, source: &str) -> Fixture {
                     args = value.split_whitespace().map(str::to_string).collect();
                 } else if directive == "reference-default" {
                     reference_default = true;
+                } else if let Some(value) = directive.strip_prefix("reference ") {
+                    let name = value.trim();
+                    let path = std::path::Path::new(name);
+                    assert!(
+                        path.file_name().is_some_and(|file_name| file_name == name)
+                            && path.extension().is_some_and(|extension| extension == "rdl"),
+                        "fixture reference `{name}` must be a .rdl file"
+                    );
+                    references.push(name.to_string());
                 } else {
                     panic!("unknown fixture directive `{directive}`");
                 }
@@ -147,10 +176,16 @@ fn parse_fixture(default_name: &str, source: &str) -> Fixture {
         library,
         args,
         reference_default,
+        references,
     }
 }
 
-fn generate(fixture: &Fixture, scratch: &std::path::Path, reverse: bool) -> Result<String, String> {
+fn generate(
+    fixture: &Fixture,
+    scratch: &std::path::Path,
+    references: &[std::path::PathBuf],
+    reverse: bool,
+) -> Result<String, String> {
     let mut inputs = vec![];
     for source in &fixture.sources {
         let path = scratch.join(&source.name);
@@ -176,6 +211,9 @@ fn generate(fixture: &Fixture, scratch: &std::path::Path, reverse: bool) -> Resu
         .output(&output);
     if fixture.reference_default {
         clang.reference_default();
+    }
+    for reference in references {
+        clang.reference(reference);
     }
     match clang.write() {
         Ok(()) => Ok(std::fs::read_to_string(output).unwrap()),

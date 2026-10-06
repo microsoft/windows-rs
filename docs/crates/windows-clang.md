@@ -87,7 +87,7 @@ map of defining-header names to RDL partitions.
 | `namespace` | RDL namespace. |
 | `library` / `libraries` | Default or per-function DLL mappings. |
 | `references` | External types and enum members available to the projection. |
-| `excluded_types` | Types omitted from the local output. |
+| `excluded_types` | Types excluded from root selection. |
 | `excluded_functions` | Functions omitted from the local output. |
 | `excluded_constants` | Constants omitted from the local output. |
 | `functions` | Optional free-function allowlist. |
@@ -99,6 +99,12 @@ constant names for exclusion. `apply_reference_exclusions` excludes only types w
 unambiguous external reference, while `apply_exclusions` is available for overlays that must omit
 every item from a known base. Both the high-level builder and repository generators use this
 indexing path.
+
+Exclusions filter root declarations; they do not establish that a dependency has an external
+definition. Before collecting dependencies, the planner resolves unambiguous external aliases.
+Dependencies with a direct reference or a resolved external alias use that definition. Other
+dependencies pass through the normal canonicalization and pointer-boundary rules, even when they
+underlie an excluded typedef. Required local definitions are collected rather than suppressed.
 
 ## Architecture
 
@@ -113,10 +119,10 @@ The implementation has four stages:
 This separation keeps extraction order out of ownership and dependency decisions. Facts retain
 translation-unit identity, while equivalent declarations are resolved during planning.
 
-Source declarations control type identity and pointer mutability. SAL supplies direction,
-optionality, size relationships, return-value markers, and interface-selection metadata; it does
-not rewrite the declared C type. Explicit string and pointer typedefs therefore survive parameter
-annotations.
+Source declarations supply type identity and pointer qualifiers. Projection applies the canonical
+vocabulary and pointer-run normalization described below. SAL supplies direction, optionality, size
+relationships, return-value markers, and interface-selection metadata; direction attributes are
+interpreted relative to the emitted type.
 
 ### Function identity and annotation capture
 
@@ -163,11 +169,47 @@ have the same meaning.
 | Scalar vocabulary (`BYTE`, `DWORD`, `FLOAT`, `DOUBLE`) | Use the corresponding RDL primitive. |
 | MIDL predefined scalars (`boolean`) | Use the corresponding RDL primitive (`u8`). |
 | Pointer-sized vocabulary (`SIZE_T`, `ULONG_PTR`, `LONG_PTR`) | Use `usize` or `isize`. |
-| String aliases (`LPCWSTR`, `LPWSTR`) | Use the canonical RDL string vocabulary. |
+| String aliases (`LPCWSTR`, `LPWSTR`) | Use resolvable canonical RDL string vocabulary. |
 | GUID aliases (`IID`, `CLSID`, `UUID`) | Use `GUID`. |
-| Generic void pointers (`PVOID`, `LPVOID`) | Use the corresponding raw pointer. |
-| Interface pointer typedefs | Project to the RDL interface type; RDL/WinMD encodes its pointer semantics. |
+| Generic void pointers (`PVOID`, `LPVOID`) | Retain aliases for unrepresentable chains. |
+| Interface pointer typedefs | Project to the interface type; WinMD retains pointer semantics. |
 | Other typedefs, including pointer typedefs | Preserve the name and emit its definition. |
+
+The planner records each named type and parameter's projection choice within its translation unit.
+Dependency collection and emission use that choice; parameter direction follows the emitted type's
+RDL defaults. An input-only raw mutable pointer therefore needs `#[in]`, while a named string alias
+defaults to input.
+
+Canonical string names are emitted only when their definitions or metadata references are available.
+Otherwise, a named alias retains its source name and definition, and an annotated character pointer
+remains a raw pointer. Canonicalization does not rename declarations or redirect an alias to a
+typedef that depends on it. This keeps concrete pointer definitions and avoids typedef cycles.
+Nested pointer chains retain a declared void-pointer typedef when flattening it would produce mixed
+`*const` and `*mut` levels that RDL cannot represent. Mutable uses of the same typedef still flatten.
+
+Within a consecutive run of raw pointers, `pointer_run` emits every level as `*mut` only when all
+levels are mutable. If any level is const, every level in that run becomes `*const`. This is a lossy
+normalization for RDL's uniform pointer-chain representation, not preservation of each C/C++ pointer
+qualifier. Retaining a typedef boundary does not change normalization of the raw pointers above it.
+
+For a source declaration `typedef void* PVOID;`:
+
+| C/C++ type | Projected RDL type |
+| --- | --- |
+| `const char**` | `*const *const i8` |
+| `PVOID const*` | `*const PVOID` |
+| `PVOID const**` | `*const *const PVOID` |
+| `PVOID*` | `*mut *mut void` |
+
+SAL direction is independent of this normalization. For example, `_Out_ PVOID const** value` emits
+`#[out] value: *const *const PVOID`. Without a direction annotation, the normalized RDL type
+determines the default: this const pointer chain defaults to input, even though the original outer
+pointer was mutable. The projection does not synthesize typedefs to preserve mixed raw pointer runs.
+
+The alias fixtures cover local and referenced canonical types, missing definitions, alias chains,
+translation-unit isolation, and function, callback, interface, and record uses. Metadata assertions
+in `test_clang`'s `projection` tests check typedef targets, pointer depth, and parameter directions
+after compiling the RDL to WinMD; successful RDL compilation alone does not establish those properties.
 
 Lowercase `boolean` is part of MIDL's predefined type vocabulary and has an unsigned 8-bit
 representation, so it becomes `u8`, not RDL `bool`. Uppercase `BOOLEAN` is a named Windows API
@@ -192,7 +234,8 @@ directly as `ORHKEY *` remains `*mut ORHKEY`; it is not renamed to `PORHKEY`.
 Do not flatten typedefs in RDL to accommodate a binding projection. A downstream generator can
 resolve or collapse an alias when needed, while recovering a discarded source name is unreliable.
 Likewise, do not use SAL direction to change `P*` aliases or mutable pointers into const pointers.
-RDL records the declared C type and the SAL contract as separate facts.
+RDL records the projected type and the SAL contract separately; pointer-run normalization applies
+regardless of SAL direction.
 
 Incomplete records are valid when used through pointers and rejected when a complete by-value
 layout is required. Fixed-underlying forward enums can be represented by their declared integer
@@ -266,7 +309,8 @@ The repository's generator tools share these facilities through `crates/tools/he
 
 ## Known limits
 
-- RDL cannot represent mixed pointer-chain mutability.
+- RDL cannot represent mixed raw pointer-chain mutability. The projection normalizes each run to
+  uniform mutability, losing per-level qualifiers as described above.
 - Coverage is limited to declarations reachable from configured roots.
 - The flat Win32 namespace cannot preserve distinct declarations that differ only by curated
   namespace placement.
@@ -291,6 +335,7 @@ setup:
 | `library <name>` | Sets the import library. |
 | `args <arguments>` | Replaces the libclang arguments. |
 | `reference-default` | Resolves extraction types against the default metadata. |
+| `reference <name>.rdl` | Compiles a sibling RDL file to metadata for reference and exclusion. |
 | `input <name>.h` | Starts a named translation unit in a multi-input fixture. |
 | `file <name>.h` | Starts an auxiliary file that may be included by an input. |
 
@@ -299,6 +344,8 @@ unit. A `file` section writes a sibling header without treating it as a translat
 harness emits inputs in forward and reverse order and requires identical output or errors.
 Successful output is parsed with `windows-rdl`. An existing `expected/<name>.error` marks an error
 fixture and receives the normalized diagnostic. Other fixtures write `expected/<name>.rdl`.
+Custom reference metadata is supplied to both extraction and output compilation. Reference
+directives may be repeated to combine metadata files.
 
 ```text
 cargo test -p windows-clang

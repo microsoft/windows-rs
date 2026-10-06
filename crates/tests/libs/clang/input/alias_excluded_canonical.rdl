@@ -1,0 +1,7 @@
+#[win32]
+mod Canonical {
+    type PSTR = *mut i8;
+    type PCSTR = *const i8;
+    type PWSTR = *mut u16;
+    type PCWSTR = *const u16;
+}
