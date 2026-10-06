@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface IFoo {
+        fn Method(&self);
+    }
+    struct Packet {
+        value: IFoo,
+        slot: *mut IFoo,
+    }
+}

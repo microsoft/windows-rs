@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface IFoo {
+        fn Method(&self);
+    }
+    const INTEGER_CONSTANT: i32 = 42;
+}

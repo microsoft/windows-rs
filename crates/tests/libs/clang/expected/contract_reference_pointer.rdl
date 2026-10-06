@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface Base {
+        fn Method(&self);
+    }
+    const INTEGER_CONSTANT: i32 = 42;
+    type ObjectAlias = Base;
+    type Slot = *mut External::Handle;
+    #[library("test.dll")]
+    extern "C" fn Use(value: External::Handle, copy: External::Handle, output: *mut External::Handle, slot: Slot) -> External::Handle;
+}

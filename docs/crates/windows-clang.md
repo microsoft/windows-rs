@@ -142,6 +142,12 @@ declaration facts across TUs, the planner walks every candidate's reachable type
 applies the type reconciliation rules. This includes dependencies outside the configured root
 headers, so filtering roots cannot hide conflicting typedef or record definitions.
 
+Representative selection does not discard admitted origins. Dependency closure starts from every
+accepted type, function, value, and constant candidate, while emission retains one representative.
+The final type selection and TU-specific projection choices therefore include completions found
+through non-root dependencies of another candidate. Input ordering and translation-unit filenames
+must not choose between an opaque placeholder and a completed interface.
+
 `reconcile_types` checks compatibility without requiring the selected fact to be locally emittable.
 `choose_type_root_cached` adds that requirement when choosing a local definition to emit. This
 distinction lets referenced metadata supply types whose native definitions contain unsupported
@@ -208,6 +214,11 @@ alias traversal propagates them through named aliases and consumes at most one n
 pointer. The traversal includes admitted declarations and aliases used by projection choices,
 including canonicalized aliases whose definitions are not emitted. An unused alias in another TU
 does not contribute interface semantics or pointer-alias redirections to this traversal.
+
+An external interface name does not determine the native pointer depth. The planner follows the
+native typedef chain to distinguish an object alias from an alias containing one pointer, and
+preserves the supplied external identity when propagating aliases. Binding an alias containing
+multiple native pointer levels directly to one metadata interface is rejected.
 
 Type emission, COM pointer handling, property-key values, and constant filtering consult these
 resolutions. Named interface objects and interface-pointer aliases cannot be scalar constants;
@@ -294,10 +305,16 @@ known underlying integer type; completion cannot change those properties.
 
 Record comparisons retain size, alignment, packing, field offsets, bit widths, and field types.
 Pointer depth, pointer/reference distinction, pointee mutability, array lengths, calling conventions,
-and parameter annotations remain part of comparison. Cached shape fingerprints handle exact
-matches. When completion requires structural comparison, recursive edges must return to the same
-pair of declarations. Those in-progress assumptions are removed on return and are not cached as
-successful equivalence results.
+and parameter annotations remain part of comparison. Structural comparison tracks pairs of
+declarations and groups recursive obligations into strongly connected components. A component is
+cached as equivalent only after every member succeeds; a failed component cannot publish its
+in-progress assumptions. Every pair in a recursive component must retain its native name and
+declaration kind, independent of which member starts the comparison. Non-recursive records may
+still match structurally across different native names.
+
+Completed proofs are shared across roots. Shared acyclic and recursive graphs compare each
+reachable declaration pair once during a successful proof, rather than expanding every path
+through the graph. There is no separate recursive fingerprint traversal.
 
 Defined POD C++ classes with public instance fields and no inheritance, methods, constructors,
 destructors, conversions, or function templates use the checked record-layout path. Other
@@ -414,6 +431,14 @@ The `equivalence_*` fixtures cover completion inside recursive records and fixed
 Negative cases preserve distinctions between opaque tags, pointee types, pointer depth, references,
 constness, array lengths, record layout, recursive members, and enum signedness and scopedness.
 Metadata assertions check the completed record and callback representations.
+
+The `contract_*` fixtures cover non-root completion through duplicate functions, types, and
+constants, externally named pointer aliases, and shared recursive graphs. Their semantic checks
+permute input filenames as well as input order, compile the invariant RDL to WinMD, and assert the
+type categories, pointer levels, and parameter directions. Negative fixtures reject extra pointer
+levels and changed recursive identities. Unit tests count pair expansions in 32-level shared
+graphs and retry failed recursive comparisons with the same cache to check that assumptions do
+not become reusable proofs.
 
 ```text
 cargo test -p windows-clang

@@ -951,10 +951,13 @@ impl Snapshot {
             .collect();
         let mut type_roots = vec![];
         let mut value_roots = vec![];
+        let mut value_candidates = vec![];
         let mut functions = vec![];
+        let mut function_roots = vec![];
         let mut constants = vec![];
+        let mut constant_candidates = vec![];
         let mut root_names = BTreeSet::new();
-        let mut shape_cache = ShapeCache::default();
+        let mut type_cache = TypeCache::default();
 
         for (name, roots) in roots {
             if !roots.types.is_empty() && !roots.functions.is_empty() {
@@ -990,14 +993,9 @@ impl Snapshot {
                             .iter()
                             .any(|fact| defines_local_type(name, fact)));
                 if !excluded {
-                    let root = choose_type_root_cached(
-                        name,
-                        &roots.types,
-                        &facts_index,
-                        &mut shape_cache,
-                    )?;
+                    choose_type_root_cached(name, &roots.types, &facts_index, &mut type_cache)?;
                     root_names.insert(name.to_string());
-                    type_roots.push(root);
+                    type_roots.extend(roots.types);
                 }
             } else if !roots.functions.is_empty() {
                 functions.push(choose_function_root(
@@ -1006,14 +1004,17 @@ impl Snapshot {
                     &self.function_declarations,
                     &facts_index,
                     references,
-                    &mut shape_cache,
+                    &mut type_cache,
                 )?);
+                function_roots.extend(roots.functions);
             }
             if let Some(value) = value {
                 value_roots.push(value);
+                value_candidates.extend(roots.values);
             }
             if let Some(constant) = constant {
                 constants.push(constant);
+                constant_candidates.extend(roots.constants);
             }
         }
         if let Some(selected) = selected_functions {
@@ -1094,13 +1095,13 @@ impl Snapshot {
                     queue_type_edges(root, &mut queue);
                 }
             }
-            for root in &value_roots {
+            for root in &value_candidates {
                 queue_type_edges(root, &mut queue);
             }
-            for constant in &constants {
+            for constant in &constant_candidates {
                 queue.push((constant.root.tu.as_str(), TypeEdge::Type(&constant.ty)));
             }
-            for function in &functions {
+            for function in &function_roots {
                 queue_function_edges(function, &mut queue);
             }
 
@@ -1127,12 +1128,8 @@ impl Snapshot {
                             .copied()
                             .filter(|fact| fact.origin.tu == tu && is_type_fact(fact))
                             .collect();
-                        let fact = choose_type_root_cached(
-                            name,
-                            &matches,
-                            &facts_index,
-                            &mut shape_cache,
-                        )?;
+                        let fact =
+                            choose_type_root_cached(name, &matches, &facts_index, &mut type_cache)?;
                         if facts.insert(fact.origin.clone()) {
                             queue_type_edges(fact, &mut queue);
                         }
@@ -1246,7 +1243,7 @@ impl Snapshot {
                         &constant.name,
                         choices,
                         &facts_index,
-                        &mut shape_cache,
+                        &mut type_cache,
                     )?;
                     if root_names.insert(constant.name.clone()) {
                         type_roots.push(root);
@@ -1261,7 +1258,7 @@ impl Snapshot {
             let mut facts_by_name = BTreeMap::new();
             for (name, choices) in grouped {
                 let selected =
-                    choose_type_root_cached(name, &choices, &facts_index, &mut shape_cache)?;
+                    choose_type_root_cached(name, &choices, &facts_index, &mut type_cache)?;
                 facts_by_name.insert(name, selected);
             }
             break (facts_by_name, facts);
@@ -1594,15 +1591,6 @@ impl Snapshot {
                 )
             })
             .collect();
-        for resolution in type_resolutions.values_mut() {
-            if reference_interfaces.contains(&resolution.name) {
-                resolution.interfaces.extend(
-                    translation_units
-                        .iter()
-                        .map(|tu| ((*tu).to_string(), InterfaceKind::Object)),
-                );
-            }
-        }
         // Canonicalized aliases need pointer semantics even when their definitions are omitted.
         let active_declarations: BTreeSet<_> = type_origins
             .iter()
@@ -1618,6 +1606,34 @@ impl Snapshot {
                 _ => None,
             }))
             .collect();
+        for (source, resolution) in &mut type_resolutions {
+            if !reference_interfaces.contains(&resolution.name) {
+                continue;
+            }
+            for tu in &translation_units {
+                let mut kind = None;
+                for fact in facts_index
+                    .get(source.as_str())
+                    .into_iter()
+                    .flatten()
+                    .filter(|fact| {
+                        fact.origin.tu == *tu
+                            && active_declarations.contains(&(*tu, &fact.spelling))
+                    })
+                {
+                    let native = referenced_interface_kind(fact, &facts_by_declaration)?;
+                    if kind.is_some_and(|kind| kind != native) {
+                        return Err(Error(format!(
+                            "interface reference `{source}` has conflicting native pointer depths in translation unit `{tu}`"
+                        )));
+                    }
+                    kind = Some(native);
+                }
+                resolution
+                    .interfaces
+                    .insert((*tu).to_string(), kind.unwrap_or(InterfaceKind::Object));
+            }
+        }
         let mut interface_aliases: BTreeMap<_, Vec<_>> = BTreeMap::new();
         for fact in self
             .facts
@@ -1671,7 +1687,9 @@ impl Snapshot {
                 let resolution = type_resolutions
                     .entry(alias.to_string())
                     .or_insert_with(|| TypeResolution::new(alias.to_string()));
-                if kind == InterfaceKind::Pointer {
+                if kind == InterfaceKind::Pointer
+                    && !reference_interfaces.contains(&resolution.name)
+                {
                     if resolution
                         .interfaces
                         .values()
@@ -1858,6 +1876,45 @@ impl TypeResolution {
 enum InterfaceKind {
     Object,
     Pointer,
+}
+
+fn referenced_interface_kind(
+    fact: &Fact,
+    facts: &BTreeMap<(String, Location), &Fact>,
+) -> Result<InterfaceKind, Error> {
+    let name = &fact.name;
+    let tu = &fact.origin.tu;
+    let mut current = fact;
+    let mut seen = BTreeSet::new();
+    let mut depth = 0;
+    while let FactData::Typedef { target } = &current.data {
+        if !seen.insert(&current.origin) {
+            return Err(Error(format!(
+                "cyclic interface reference `{name}` in translation unit `{tu}`"
+            )));
+        }
+        let mut target = target;
+        while let TypeRef::Pointer { target: next, .. } | TypeRef::Reference { target: next, .. } =
+            target
+        {
+            depth += 1;
+            target = next;
+        }
+        let TypeRef::Named { declaration, .. } = target else {
+            break;
+        };
+        let Some(next) = facts.get(&(tu.clone(), declaration.clone())) else {
+            break;
+        };
+        current = next;
+    }
+    match depth {
+        0 => Ok(InterfaceKind::Object),
+        1 => Ok(InterfaceKind::Pointer),
+        _ => Err(Error(format!(
+            "interface reference `{name}` has {depth} native pointer levels in translation unit `{tu}`"
+        ))),
+    }
 }
 
 struct TypeProjection<'a> {
@@ -2153,84 +2210,11 @@ fn compatible_tag_declarations(left: &Fact, right: &Fact) -> bool {
         }
 }
 
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-struct TypeShape(u64, u64);
-
 #[derive(Default)]
-struct ShapeCache {
-    declarations: HashMap<String, HashMap<Location, TypeShape>>,
-    recursive: HashMap<String, HashMap<Location, HashMap<TypeShape, TypeShape>>>,
-}
-
-impl ShapeCache {
-    fn declaration(&self, tu: &str, declaration: &Location) -> Option<TypeShape> {
-        self.declarations.get(tu)?.get(declaration).copied()
-    }
-
-    fn insert_declaration(&mut self, tu: &str, declaration: &Location, shape: TypeShape) {
-        self.declarations
-            .entry(tu.to_string())
-            .or_default()
-            .insert(declaration.clone(), shape);
-    }
-
-    fn is_recursive(&self, tu: &str, declaration: &Location) -> bool {
-        self.recursive
-            .get(tu)
-            .is_some_and(|declarations| declarations.contains_key(declaration))
-    }
-
-    fn recursive(&self, tu: &str, declaration: &Location, context: TypeShape) -> Option<TypeShape> {
-        self.recursive
-            .get(tu)?
-            .get(declaration)?
-            .get(&context)
-            .copied()
-    }
-
-    fn insert_recursive(
-        &mut self,
-        tu: &str,
-        declaration: &Location,
-        context: TypeShape,
-        shape: TypeShape,
-    ) {
-        self.recursive
-            .entry(tu.to_string())
-            .or_default()
-            .entry(declaration.clone())
-            .or_default()
-            .insert(context, shape);
-    }
-}
-
-fn type_shape(value: &str) -> TypeShape {
-    use std::hash::{Hash, Hasher};
-
-    // Recursive declarations share compact fingerprints instead of expanded shape strings.
-    let mut first = std::collections::hash_map::DefaultHasher::new();
-    value.hash(&mut first);
-
-    let mut second = 0x9e3779b97f4a7c15u64;
-    for byte in value.bytes() {
-        second ^= u64::from(byte);
-        second = second.wrapping_mul(0x100000001b3);
-        second ^= second >> 32;
-    }
-    TypeShape(first.finish(), second)
-}
-
-fn recursion_shape(seen: &BTreeSet<Location>) -> TypeShape {
-    use std::hash::{Hash, Hasher};
-
-    let mut first = std::collections::hash_map::DefaultHasher::new();
-    seen.hash(&mut first);
-
-    let mut second = std::collections::hash_map::DefaultHasher::new();
-    1u8.hash(&mut second);
-    seen.hash(&mut second);
-
-    TypeShape(first.finish(), second.finish())
+struct TypeCache {
+    equivalent: BTreeSet<(Origin, Origin)>,
+    #[cfg(test)]
+    comparisons: usize,
 }
 
 fn preferred_fact<'a>(facts: &[&'a Fact]) -> &'a Fact {
@@ -2278,16 +2262,16 @@ fn choose_type_root<'a>(
     roots: &[&'a Fact],
     facts_index: &HashMap<&str, Vec<&'a Fact>>,
 ) -> Result<&'a Fact, Error> {
-    choose_type_root_cached(name, roots, facts_index, &mut ShapeCache::default())
+    choose_type_root_cached(name, roots, facts_index, &mut TypeCache::default())
 }
 
 fn choose_type_root_cached<'a>(
     name: &str,
     roots: &[&'a Fact],
     facts_index: &HashMap<&str, Vec<&'a Fact>>,
-    shape_cache: &mut ShapeCache,
+    type_cache: &mut TypeCache,
 ) -> Result<&'a Fact, Error> {
-    let fact = reconcile_types(name, roots, facts_index, shape_cache)?;
+    let fact = reconcile_types(name, roots, facts_index, type_cache)?;
     emittable_type(name, fact)
 }
 
@@ -2295,7 +2279,7 @@ fn reconcile_types<'a>(
     name: &str,
     roots: &[&'a Fact],
     facts_index: &HashMap<&str, Vec<&'a Fact>>,
-    shape_cache: &mut ShapeCache,
+    type_cache: &mut TypeCache,
 ) -> Result<&'a Fact, Error> {
     let distinct = distinct_source_declarations(roots);
     if let [root] = distinct.as_slice() {
@@ -2368,7 +2352,7 @@ fn reconcile_types<'a>(
                     target,
                     &fact.origin.tu,
                     facts_index,
-                    shape_cache,
+                    type_cache,
                 )
             }) {
                 return Ok(complete);
@@ -2391,262 +2375,12 @@ fn reconcile_types<'a>(
                             target,
                             &fact.origin.tu,
                             facts_index,
-                            shape_cache,
+                            type_cache,
                         )
                 )
         })
     {
         return Ok(preferred_fact(&distinct));
-    }
-
-    fn resolved_type_shape(
-        ty: &TypeRef,
-        tu: &str,
-        facts_index: &HashMap<&str, Vec<&Fact>>,
-        shape_cache: &mut ShapeCache,
-    ) -> TypeShape {
-        fn write(
-            ty: &TypeRef,
-            tu: &str,
-            facts_index: &HashMap<&str, Vec<&Fact>>,
-            seen: &mut BTreeSet<Location>,
-            cache: &mut ShapeCache,
-            cycle: &mut bool,
-        ) -> TypeShape {
-            match ty {
-                TypeRef::Named { name, declaration } => {
-                    if let Some(shape) = cache.declaration(tu, declaration) {
-                        return shape;
-                    }
-                    if cache.is_recursive(tu, declaration) {
-                        let context = recursion_shape(seen);
-                        if let Some(shape) = cache.recursive(tu, declaration, context) {
-                            *cycle = true;
-                            return shape;
-                        }
-                    }
-                    if !seen.insert(declaration.clone()) {
-                        *cycle = true;
-                        return type_shape(&format!(
-                            "named:{}",
-                            named_type_shape(name).unwrap_or(name)
-                        ));
-                    }
-                    let mut nested_cycle = false;
-                    if let Some(target) = facts_index
-                        .get(name.as_str())
-                        .into_iter()
-                        .flatten()
-                        .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
-                    {
-                        let result = match &target.data {
-                            FactData::Typedef { target } => Some(write(
-                                target,
-                                tu,
-                                facts_index,
-                                seen,
-                                cache,
-                                &mut nested_cycle,
-                            )),
-                            _ if !target.definition && is_tag_declaration(target) => {
-                                Some(type_shape(&format!(
-                                    "incomplete:{:?}:{}:{:?}",
-                                    target.kind, target.name, target.data
-                                )))
-                            }
-                            FactData::Record {
-                                base,
-                                fields,
-                                size,
-                                align,
-                                packing,
-                                alignment,
-                                union,
-                            } => {
-                                let base = base.as_ref().map(|base| {
-                                    write(base, tu, facts_index, seen, cache, &mut nested_cycle)
-                                });
-                                let fields = fields
-                                    .iter()
-                                    .map(|field| {
-                                        format!(
-                                            "{}:{}:{}:{}:{:?}:{:?}",
-                                            field.name,
-                                            field.offset,
-                                            field.align,
-                                            field.size,
-                                            field.bit_width,
-                                            write(
-                                                &field.ty,
-                                                tu,
-                                                facts_index,
-                                                seen,
-                                                cache,
-                                                &mut nested_cycle,
-                                            )
-                                        )
-                                    })
-                                    .collect::<Vec<_>>()
-                                    .join(",");
-                                Some(type_shape(&format!(
-                                    "record:{base:?}:{size}:{align}:{packing:?}:{alignment:?}:{union}:{fields}"
-                                )))
-                            }
-                            FactData::Enum {
-                                repr,
-                                variants,
-                                fixed,
-                                scoped,
-                            } => Some(type_shape(&format!(
-                                "enum:{repr:?}:{variants:?}:{fixed}:{scoped}"
-                            ))),
-                            FactData::Callback {
-                                convention,
-                                params,
-                                result,
-                            } => {
-                                let params = params
-                                    .iter()
-                                    .map(|param| {
-                                        format!(
-                                            "{}:{:?}:{:?}",
-                                            param.name,
-                                            write(
-                                                &param.ty,
-                                                tu,
-                                                facts_index,
-                                                seen,
-                                                cache,
-                                                &mut nested_cycle,
-                                            ),
-                                            param.annotation
-                                        )
-                                    })
-                                    .collect::<Vec<_>>()
-                                    .join(",");
-                                Some(type_shape(&format!(
-                                    "callback:{convention:?}:({params}):{:?}",
-                                    write(result, tu, facts_index, seen, cache, &mut nested_cycle,)
-                                )))
-                            }
-                            FactData::Interface {
-                                base,
-                                guid,
-                                methods,
-                            } => {
-                                let base = base.as_ref().map(|base| {
-                                    write(base, tu, facts_index, seen, cache, &mut nested_cycle)
-                                });
-                                let methods = methods
-                                    .iter()
-                                    .map(|method| {
-                                        let params = method
-                                            .params
-                                            .iter()
-                                            .map(|param| {
-                                                format!(
-                                                    "{}:{:?}:{:?}",
-                                                    param.name,
-                                                    write(
-                                                        &param.ty,
-                                                        tu,
-                                                        facts_index,
-                                                        seen,
-                                                        cache,
-                                                        &mut nested_cycle,
-                                                    ),
-                                                    param.annotation
-                                                )
-                                            })
-                                            .collect::<Vec<_>>()
-                                            .join(",");
-                                        format!(
-                                            "{}:({params}):{:?}:{}",
-                                            method.name,
-                                            write(
-                                                &method.result,
-                                                tu,
-                                                facts_index,
-                                                seen,
-                                                cache,
-                                                &mut nested_cycle,
-                                            ),
-                                            method.special
-                                        )
-                                    })
-                                    .collect::<Vec<_>>()
-                                    .join(",");
-                                Some(type_shape(&format!(
-                                    "interface:{base:?}:{guid:?}:{methods}"
-                                )))
-                            }
-                            _ => None,
-                        };
-                        seen.remove(declaration);
-                        *cycle |= nested_cycle;
-                        if let Some(result) = result {
-                            if !nested_cycle {
-                                cache.insert_declaration(tu, declaration, result);
-                            } else {
-                                cache.insert_recursive(
-                                    tu,
-                                    declaration,
-                                    recursion_shape(seen),
-                                    result,
-                                );
-                            }
-                            return result;
-                        }
-                    }
-                    seen.remove(declaration);
-                    type_shape(&format!("named:{}", named_type_shape(name).unwrap_or(name)))
-                }
-                TypeRef::Pointer { mutable, target } => type_shape(&format!(
-                    "pointer:{mutable}:{:?}",
-                    write(target, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::Reference { mutable, target } => type_shape(&format!(
-                    "reference:{mutable}:{:?}",
-                    write(target, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::FunctionPointer {
-                    convention,
-                    params,
-                    result,
-                } => type_shape(&format!(
-                    "function:{convention:?}:({:?}):{:?}",
-                    params
-                        .iter()
-                        .map(|param| { write(param, tu, facts_index, seen, cache, cycle) })
-                        .collect::<Vec<_>>(),
-                    write(result, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::OpaquePointer { mutable, tag } => {
-                    type_shape(&format!("opaque:{mutable}:{tag}"))
-                }
-                TypeRef::Array { target, len } => type_shape(&format!(
-                    "array:{len}:{:?}",
-                    write(target, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::Generic { name, args, .. } => type_shape(&format!(
-                    "generic:{name}:{:?}",
-                    args.iter()
-                        .map(|arg| { write(arg, tu, facts_index, seen, cache, cycle) })
-                        .collect::<Vec<_>>()
-                )),
-                TypeRef::InlineRecord(record) => type_shape(&format!("record:{record:?}")),
-                other => type_shape(&format!("{other:?}")),
-            }
-        }
-
-        write(
-            ty,
-            tu,
-            facts_index,
-            &mut BTreeSet::new(),
-            shape_cache,
-            &mut false,
-        )
     }
 
     fn equivalent_type(
@@ -2655,39 +2389,46 @@ fn reconcile_types<'a>(
         right: &TypeRef,
         right_tu: &str,
         facts_index: &HashMap<&str, Vec<&Fact>>,
-        shape_cache: &mut ShapeCache,
+        type_cache: &mut TypeCache,
     ) -> bool {
-        TypeComparison {
-            facts_index,
-            shape_cache,
-            active: BTreeSet::new(),
-        }
-        .ty(left, left_tu, right, right_tu)
+        TypeComparison::new(facts_index, type_cache).ty(left, left_tu, right, right_tu)
     }
 
     fn equivalent_record(
         left: &Fact,
         right: &Fact,
         facts_index: &HashMap<&str, Vec<&Fact>>,
-        shape_cache: &mut ShapeCache,
+        type_cache: &mut TypeCache,
     ) -> bool {
         matches!(left.data, FactData::Record { .. })
             && matches!(right.data, FactData::Record { .. })
-            && TypeComparison {
-                facts_index,
-                shape_cache,
-                active: BTreeSet::new(),
-            }
-            .definition(left, right)
+            && TypeComparison::new(facts_index, type_cache).definition(left, right)
     }
 
     struct TypeComparison<'a, 'facts> {
         facts_index: &'a HashMap<&'facts str, Vec<&'facts Fact>>,
-        shape_cache: &'a mut ShapeCache,
-        active: BTreeSet<(Origin, Origin)>,
+        type_cache: &'a mut TypeCache,
+        pending: BTreeMap<(Origin, Origin), usize>,
+        stack: Vec<((Origin, Origin), bool)>,
+        next_index: usize,
+        lowlink: usize,
     }
 
-    impl<'facts> TypeComparison<'_, 'facts> {
+    impl<'a, 'facts> TypeComparison<'a, 'facts> {
+        fn new(
+            facts_index: &'a HashMap<&'facts str, Vec<&'facts Fact>>,
+            type_cache: &'a mut TypeCache,
+        ) -> Self {
+            Self {
+                facts_index,
+                type_cache,
+                pending: BTreeMap::new(),
+                stack: vec![],
+                next_index: 0,
+                lowlink: usize::MAX,
+            }
+        }
+
         fn fact(&self, ty: &TypeRef, tu: &str) -> Option<&'facts Fact> {
             let TypeRef::Named { name, declaration } = ty else {
                 return None;
@@ -2722,23 +2463,45 @@ fn reconcile_types<'a>(
                 return false;
             };
             match (left, right) {
-                (TypeRef::Named { .. }, TypeRef::Named { .. }) => {
+                (
+                    TypeRef::Named {
+                        name: left_name, ..
+                    },
+                    TypeRef::Named {
+                        name: right_name, ..
+                    },
+                ) => {
                     let facts = (self.fact(left, left_tu), self.fact(right, right_tu));
                     if let (Some(left), Some(right)) = facts {
                         let incomplete = |fact: &Fact| !fact.definition && is_tag_declaration(fact);
                         if incomplete(left) || incomplete(right) {
                             return compatible_tag_declarations(left, right);
                         }
+                        match (&left.data, &right.data) {
+                            (FactData::Record { .. }, FactData::Record { .. })
+                            | (FactData::Callback { .. }, FactData::Callback { .. })
+                            | (FactData::Interface { .. }, FactData::Interface { .. }) => {
+                                return self.definition(left, right);
+                            }
+                            (FactData::Enum { .. }, FactData::Enum { .. }) => {
+                                return left.data == right.data;
+                            }
+                            _ => {}
+                        }
                     }
-                    if resolved_type_shape(left, left_tu, self.facts_index, self.shape_cache)
-                        == resolved_type_shape(right, right_tu, self.facts_index, self.shape_cache)
-                    {
-                        return true;
+                    if [facts.0, facts.1].into_iter().flatten().any(|fact| {
+                        matches!(
+                            fact.data,
+                            FactData::Record { .. }
+                                | FactData::Callback { .. }
+                                | FactData::Interface { .. }
+                                | FactData::Enum { .. }
+                        )
+                    }) {
+                        return false;
                     }
-                    match facts {
-                        (Some(left), Some(right)) => self.definition(left, right),
-                        _ => false,
-                    }
+                    named_type_shape(left_name).unwrap_or(left_name)
+                        == named_type_shape(right_name).unwrap_or(right_name)
                 }
                 (
                     TypeRef::Pointer {
@@ -2875,16 +2638,31 @@ fn reconcile_types<'a>(
 
         fn definition(&mut self, left: &Fact, right: &Fact) -> bool {
             let pair = (left.origin.clone(), right.origin.clone());
-            if self.active.contains(&pair) {
+            if let Some(index) = self.pending.get(&pair) {
+                self.lowlink = self.lowlink.min(*index);
                 return left.name == right.name && left.kind == right.kind;
             }
-            if self.active.iter().any(|(left_origin, right_origin)| {
+            if self.pending.keys().any(|(left_origin, right_origin)| {
                 left_origin == &left.origin || right_origin == &right.origin
             }) {
                 return false;
             }
-            // Recursive assumptions are local to this comparison, not cached as proven matches.
-            self.active.insert(pair.clone());
+            if self.type_cache.equivalent.contains(&pair) {
+                return true;
+            }
+            #[cfg(test)]
+            {
+                self.type_cache.comparisons += 1;
+            }
+            let index = self.next_index;
+            self.next_index += 1;
+            self.pending.insert(pair.clone(), index);
+            self.stack.push((
+                pair.clone(),
+                left.name == right.name && left.kind == right.kind,
+            ));
+            let parent_lowlink = self.lowlink;
+            self.lowlink = index;
             let left_tu = left.origin.tu.as_str();
             let right_tu = right.origin.tu.as_str();
             let equivalent = match (&left.data, &right.data) {
@@ -2956,7 +2734,33 @@ fn reconcile_types<'a>(
                 }
                 _ => false,
             };
-            self.active.remove(&pair);
+            let lowlink = self.lowlink;
+            self.lowlink = parent_lowlink;
+            if equivalent {
+                if lowlink == index {
+                    // Publish a recursive component only after every obligation in it succeeds.
+                    let start = self
+                        .stack
+                        .iter()
+                        .rposition(|(item, _)| *item == pair)
+                        .unwrap();
+                    let component = &self.stack[start..];
+                    if component.len() > 1 && component.iter().any(|(_, identity)| !identity) {
+                        return false;
+                    }
+                    loop {
+                        let (completed, _) = self.stack.pop().unwrap();
+                        self.pending.remove(&completed);
+                        let last = completed == pair;
+                        self.type_cache.equivalent.insert(completed);
+                        if last {
+                            break;
+                        }
+                    }
+                } else {
+                    self.lowlink = self.lowlink.min(lowlink);
+                }
+            }
             equivalent
         }
     }
@@ -3009,7 +2813,7 @@ fn reconcile_types<'a>(
         let equivalent_definitions = definitions.iter().all(|fact| {
             fact.kind == root.kind
                 && ((fact.origin.tu == root.origin.tu && fact.data == root.data)
-                    || equivalent_record(root, fact, facts_index, shape_cache))
+                    || equivalent_record(root, fact, facts_index, type_cache))
         });
         let definitions_and_aliases = distinct.iter().all(|fact| {
             definitions.contains(fact)
@@ -3137,7 +2941,7 @@ fn choose_function_root<'a>(
     declarations: &BTreeMap<Origin, extract::FunctionDeclaration>,
     facts_index: &HashMap<&str, Vec<&'a Fact>>,
     references: &BTreeMap<String, TypeReference>,
-    shape_cache: &mut ShapeCache,
+    type_cache: &mut TypeCache,
 ) -> Result<&'a Fact, Error> {
     let distinct = if let Some(first) = roots.first()
         && roots.iter().all(|fact| fact.origin.tu == first.origin.tu)
@@ -3149,7 +2953,7 @@ fn choose_function_root<'a>(
     if let [root] = distinct.as_slice() {
         if roots.iter().any(|fact| fact.origin.tu != root.origin.tu) {
             // Equal signature facts can refer to different definitions in their respective TUs.
-            validate_function_dependencies(name, roots, facts_index, references, shape_cache)?;
+            validate_function_dependencies(name, roots, facts_index, references, type_cache)?;
         }
         return Ok(root);
     }
@@ -3193,7 +2997,7 @@ fn validate_function_dependencies(
     roots: &[&Fact],
     facts_index: &HashMap<&str, Vec<&Fact>>,
     references: &BTreeMap<String, TypeReference>,
-    shape_cache: &mut ShapeCache,
+    type_cache: &mut TypeCache,
 ) -> Result<(), Error> {
     let mut queue = vec![];
     for root in roots {
@@ -3257,7 +3061,7 @@ fn validate_function_dependencies(
         }
     }
     for (dependency, facts) in dependencies {
-        reconcile_types(dependency, &facts, facts_index, shape_cache).map_err(|error| {
+        reconcile_types(dependency, &facts, facts_index, type_cache).map_err(|error| {
             Error(format!(
                 "incompatible dependency `{dependency}` of function `{name}`: {error}"
             ))
@@ -4236,34 +4040,167 @@ fn origin(origin: &Origin) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn recursive_shape_cache_is_context_specific() {
-        let declaration = Location {
-            file: "recursive.hpp".to_string(),
-            offset: 7,
+    fn comparison_graph(
+        tu: &str,
+        depth: u32,
+        complete: bool,
+        cycle: bool,
+        conflict: bool,
+    ) -> Vec<Fact> {
+        let location = |local| Location {
+            file: tu.to_string(),
+            offset: local,
         };
-        let first_context = TypeShape(1, 2);
-        let second_context = TypeShape(3, 4);
-        let first_shape = TypeShape(5, 6);
-        let second_shape = TypeShape(7, 8);
-        let mut cache = ShapeCache::default();
+        let pointer = |local: u32| TypeRef::Pointer {
+            mutable: true,
+            target: Box::new(TypeRef::Named {
+                name: format!("Node{local}"),
+                declaration: location(local),
+            }),
+        };
+        (0..=depth)
+            .map(|local| {
+                let mut fields = vec![];
+                if local != 0 {
+                    for (index, target) in [
+                        local - 1,
+                        if local == 1 && cycle {
+                            depth
+                        } else {
+                            local.saturating_sub(2)
+                        },
+                    ]
+                    .into_iter()
+                    .enumerate()
+                    {
+                        fields.push(Field {
+                            name: format!("edge{index}"),
+                            ty: pointer(target),
+                            offset: index as i64 * 64,
+                            align: 8,
+                            size: 8,
+                            bit_width: None,
+                        });
+                    }
+                    fields.push(Field {
+                        name: "value".to_string(),
+                        ty: TypeRef::Scalar(if conflict && local == depth {
+                            Scalar::F32
+                        } else {
+                            Scalar::I32
+                        }),
+                        offset: 128,
+                        align: 4,
+                        size: 4,
+                        bit_width: None,
+                    });
+                }
+                Fact {
+                    origin: Origin {
+                        tu: tu.to_string(),
+                        local,
+                    },
+                    parent: None,
+                    kind: FactKind::Struct,
+                    name: format!("Node{local}"),
+                    spelling: location(local),
+                    expansion: location(local),
+                    definition: local != 0 || complete,
+                    main_file: true,
+                    root: true,
+                    system: false,
+                    data: if local == 0 && complete {
+                        FactData::Interface {
+                            base: None,
+                            guid: None,
+                            methods: vec![],
+                        }
+                    } else {
+                        FactData::Record {
+                            base: None,
+                            fields,
+                            size: if local == 0 { -1 } else { 24 },
+                            align: if local == 0 { -1 } else { 8 },
+                            packing: None,
+                            alignment: None,
+                            union: false,
+                        }
+                    },
+                }
+            })
+            .collect()
+    }
 
-        cache.insert_recursive("tu", &declaration, first_context, first_shape);
-        cache.insert_recursive("tu", &declaration, second_context, second_shape);
+    #[test]
+    fn shared_comparisons_expand_each_pair_once() {
+        for cycle in [false, true] {
+            let depth = 32;
+            let left = comparison_graph("first.h", depth, false, cycle, false);
+            let right = comparison_graph("second.h", depth, true, cycle, false);
+            let mut facts_index: HashMap<&str, Vec<&Fact>> = HashMap::new();
+            for fact in left.iter().chain(&right) {
+                facts_index.entry(&fact.name).or_default().push(fact);
+            }
+            let mut cache = TypeCache::default();
+            for local in (1..=depth as usize).rev() {
+                let roots = [&left[local], &right[local]];
+                reconcile_types(&roots[0].name, &roots, &facts_index, &mut cache).unwrap();
+            }
+            assert_eq!(cache.comparisons, depth as usize);
+            assert_eq!(cache.equivalent.len(), depth as usize);
+        }
+    }
 
-        assert!(cache.is_recursive("tu", &declaration));
-        assert_eq!(
-            cache.recursive("tu", &declaration, first_context),
-            Some(first_shape)
-        );
-        assert_eq!(
-            cache.recursive("tu", &declaration, second_context),
-            Some(second_shape)
-        );
-        assert_eq!(
-            cache.recursive("other-tu", &declaration, first_context),
-            None
-        );
+    #[test]
+    fn failed_recursive_components_do_not_publish_assumptions() {
+        let depth = 8;
+        let left = comparison_graph("first.h", depth, false, true, false);
+        let right = comparison_graph("second.h", depth, true, true, true);
+        let mut facts_index: HashMap<&str, Vec<&Fact>> = HashMap::new();
+        for fact in left.iter().chain(&right) {
+            facts_index.entry(&fact.name).or_default().push(fact);
+        }
+        let mut cache = TypeCache::default();
+        for local in (1..=depth as usize).rev() {
+            let roots = [&left[local], &right[local]];
+            assert!(reconcile_types(&roots[0].name, &roots, &facts_index, &mut cache).is_err());
+            assert!(cache.equivalent.is_empty());
+        }
+    }
+
+    #[test]
+    fn recursive_identity_does_not_depend_on_the_comparison_entry() {
+        for cycle in [false, true] {
+            let depth = 8;
+            let left = comparison_graph("first.h", depth, false, cycle, false);
+            let mut right = comparison_graph("second.h", depth, true, cycle, false);
+            right[1].name = "Other".to_string();
+            for fact in &mut right {
+                if let FactData::Record { fields, .. } = &mut fact.data {
+                    for field in fields {
+                        if let TypeRef::Pointer { target, .. } = &mut field.ty
+                            && let TypeRef::Named { name, .. } = target.as_mut()
+                            && name == "Node1"
+                        {
+                            *name = "Other".to_string();
+                        }
+                    }
+                }
+            }
+            let mut facts_index: HashMap<&str, Vec<&Fact>> = HashMap::new();
+            for fact in left.iter().chain(&right) {
+                facts_index.entry(&fact.name).or_default().push(fact);
+            }
+            let mut cache = TypeCache::default();
+            for local in (2..=depth as usize).rev() {
+                let roots = [&left[local], &right[local]];
+                let result = reconcile_types(&roots[0].name, &roots, &facts_index, &mut cache);
+                assert_eq!(result.is_ok(), !cycle);
+                if cycle {
+                    assert!(cache.equivalent.is_empty());
+                }
+            }
+        }
     }
 
     #[test]

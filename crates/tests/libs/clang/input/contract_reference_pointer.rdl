@@ -1,0 +1,7 @@
+#[win32]
+mod External {
+    #[no_guid]
+    interface Handle {
+        fn Method(&self);
+    }
+}

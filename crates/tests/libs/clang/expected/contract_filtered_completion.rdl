@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    type Alias = IFoo;
+    type Alias2 = Alias;
+    #[no_guid]
+    interface IFoo {
+        fn Method(&self);
+    }
+    struct Packet {
+        value: Alias2,
+        slot: Slot,
+        tag: IFoo,
+    }
+    type Slot = *mut Alias2;
+    #[library("test.dll")]
+    extern "C" fn Use(tag: Alias2, slot: *mut Alias2, value: Alias2, output: *mut Alias2, alias: Slot, packet: *mut Packet) -> Alias2;
+}

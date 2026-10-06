@@ -1,0 +1,35 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface IFoo {
+        fn Method(&self);
+    }
+    struct Leaf {
+        a: IFoo,
+        b: *mut Root,
+    }
+    struct Node1 {
+        a: *mut Leaf,
+        b: *mut Leaf,
+    }
+    struct Node2 {
+        a: *mut Node1,
+        b: *mut Leaf,
+    }
+    struct Node3 {
+        a: *mut Node2,
+        b: *mut Node1,
+    }
+    struct Node4 {
+        a: *mut Node3,
+        b: *mut Node2,
+    }
+    struct Node5 {
+        a: *mut Node4,
+        b: *mut Node3,
+    }
+    struct Root {
+        a: *mut Node5,
+        b: *mut Node4,
+    }
+}

@@ -6,6 +6,138 @@ use windows_metadata::{
 pub mod common;
 use common::compile;
 
+#[test]
+fn completion_survives_representative_selection() {
+    use ParamDirection::{Input, Output};
+    let index = common::compile_permutations("contract_filtered_completion");
+    let interface = Type::class_named("Test", "IFoo");
+    let alias = Type::value_named("Test", "Alias2");
+    let slot = Type::PtrMut(Box::new(alias.clone()), 1);
+    let Item::Fn(function) = index.expect_item("Test", "Use") else {
+        panic!();
+    };
+    assert_eq!(function.signature(&[]).return_type, alias);
+    assert_eq!(
+        function.signature(&[]).types,
+        [
+            alias.clone(),
+            slot.clone(),
+            alias.clone(),
+            slot.clone(),
+            Type::value_named("Test", "Slot"),
+            Type::PtrMut(Box::new(Type::value_named("Test", "Packet")), 1),
+        ]
+    );
+    directions(function, &[Input, Output, Input, Output, Input, Output]);
+    let Item::Type(packet) = index.expect_item("Test", "Packet") else {
+        panic!();
+    };
+    assert_eq!(
+        packet.fields().map(|field| field.ty()).collect::<Vec<_>>(),
+        [alias, Type::value_named("Test", "Slot"), interface.clone()]
+    );
+    let Item::Type(alias) = index.expect_item("Test", "Alias") else {
+        panic!();
+    };
+    assert_eq!(alias.underlying_type(), Some(interface.clone()));
+    let Item::Type(alias) = index.expect_item("Test", "Alias2") else {
+        panic!();
+    };
+    assert_eq!(
+        alias.underlying_type(),
+        Some(Type::value_named("Test", "Alias"))
+    );
+    let Item::Type(alias) = index.expect_item("Test", "Slot") else {
+        panic!();
+    };
+    assert_eq!(alias.underlying_type(), Some(slot));
+
+    let index = common::compile_permutations("contract_type_completion");
+    let Item::Type(packet) = index.expect_item("Test", "Packet") else {
+        panic!();
+    };
+    assert_eq!(
+        packet.fields().map(|field| field.ty()).collect::<Vec<_>>(),
+        [interface.clone(), Type::PtrMut(Box::new(interface), 1)]
+    );
+
+    let index = common::compile_permutations("contract_constant_completion");
+    assert!(index.get_item("Test", "POINTER_NULL").next().is_none());
+    assert!(matches!(
+        index.expect_item("Test", "INTEGER_CONSTANT"),
+        Item::Const(_)
+    ));
+    assert!(matches!(index.expect_item("Test", "IFoo"), Item::Type(_)));
+}
+
+#[test]
+fn external_interface_identity_preserves_native_alias_depth() {
+    let index = common::compile_permutations("contract_reference_pointer");
+    assert!(index.get_item("Test", "HANDLE_NULL").next().is_none());
+    assert!(index.get_item("Test", "COPY_NULL").next().is_none());
+    assert!(matches!(
+        index.expect_item("Test", "INTEGER_CONSTANT"),
+        Item::Const(_)
+    ));
+    let interface = Type::class_named("External", "Handle");
+    let pointer = Type::PtrMut(Box::new(interface.clone()), 1);
+    let Item::Fn(function) = index.expect_item("Test", "Use") else {
+        panic!();
+    };
+    assert_eq!(function.signature(&[]).return_type, interface);
+    assert_eq!(
+        function.signature(&[]).types,
+        [
+            interface.clone(),
+            interface,
+            pointer.clone(),
+            Type::value_named("Test", "Slot")
+        ]
+    );
+    directions(
+        function,
+        &[
+            ParamDirection::Input,
+            ParamDirection::Input,
+            ParamDirection::Output,
+            ParamDirection::Input,
+        ],
+    );
+    let Item::Type(slot) = index.expect_item("Test", "Slot") else {
+        panic!();
+    };
+    assert_eq!(slot.underlying_type(), Some(pointer));
+}
+
+#[test]
+fn shared_recursive_proofs_preserve_graph_edges() {
+    let index = common::compile_permutations("contract_shared_cycle");
+    for (name, targets) in [
+        ("Leaf", ["IFoo", "Root"]),
+        ("Node1", ["Leaf", "Leaf"]),
+        ("Node2", ["Node1", "Leaf"]),
+        ("Node3", ["Node2", "Node1"]),
+        ("Node4", ["Node3", "Node2"]),
+        ("Node5", ["Node4", "Node3"]),
+        ("Root", ["Node5", "Node4"]),
+    ] {
+        let Item::Type(record) = index.expect_item("Test", name) else {
+            panic!();
+        };
+        assert_eq!(
+            record.fields().map(|field| field.ty()).collect::<Vec<_>>(),
+            targets.map(|target| {
+                if target == "IFoo" {
+                    Type::class_named("Test", "IFoo")
+                } else {
+                    Type::PtrMut(Box::new(Type::value_named("Test", target)), 1)
+                }
+            }),
+            "{name}"
+        );
+    }
+}
+
 fn directions(method: MethodDef<'_>, expected: &[ParamDirection]) {
     let signature = method.signature(&[]);
     assert_eq!(signature.types.len(), expected.len());
