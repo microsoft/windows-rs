@@ -14,6 +14,12 @@ window first appears. `ViewContext::on_window_placement` reports restored outer 
 screen pixels and maximized state; applications own persistence. Initial placement is not replayed
 on later renders.
 
+`App::run_application` hosts application state independently of windows. Its `ApplicationView`
+declares reopenable component windows and notification icons with Reactor menus. Closing a window
+does not remove its notification icon, and removing the icon does not close a window. The
+application exits when both are gone, after pending lifecycle work finishes. See the
+[notification icon sample](../../samples/reactor/notifyicon).
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
 

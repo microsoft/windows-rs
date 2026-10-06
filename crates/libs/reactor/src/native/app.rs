@@ -1,5 +1,8 @@
 use super::*;
+use bindings::Application;
 use bindings::*;
+
+mod application;
 
 windows_core::link!("kernel32.dll" "system" fn FindResourceW(module: *mut std::ffi::c_void, name: *const u16, resource_type: *const u16) -> *mut std::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn GetModuleHandleW(name: *const u16) -> *mut std::ffi::c_void);
@@ -616,6 +619,7 @@ struct LiveApplicationState {
     exit_when_empty: bool,
     next_window: u64,
     windows: HashMap<u64, ComponentWindow>,
+    changed: Option<AppCallback>,
 }
 
 struct LiveApplication {
@@ -633,6 +637,7 @@ impl LiveApplication {
             exit_when_empty,
             next_window: 1,
             windows: HashMap::new(),
+            changed: None,
         }));
         let drain_state = Rc::clone(&state);
         let drain_services = Rc::clone(&services);
@@ -647,7 +652,7 @@ impl LiveApplication {
     }
 
     fn open(&self, root: ComponentNode, policy: WindowPolicy) -> windows_core::Result<()> {
-        open_component_window(&self.state, &self.services, root, policy)
+        open_component_window(&self.state, &self.services, root, policy).map(|_| ())
     }
 }
 
@@ -657,6 +662,14 @@ impl Drop for LiveApplication {
         self.drain_requests.clone().cancel();
         let windows = std::mem::take(&mut self.state.borrow_mut().windows);
         for (_, window) in windows {
+            let native = window.state.borrow().as_ref().and_then(|state| {
+                (state.lifecycle != ComponentWindowLifecycle::Closed).then(|| state.window.clone())
+            });
+            if let Some(native) = native
+                && let Err(error) = native.close()
+            {
+                report_error(error.into());
+            }
             window.dispose();
         }
     }
@@ -759,7 +772,7 @@ fn open_component_window(
     services: &Rc<LiveWindowServices>,
     root: ComponentNode,
     policy: WindowPolicy,
-) -> windows_core::Result<()> {
+) -> windows_core::Result<u64> {
     let id = {
         let mut application = application.borrow_mut();
         let id = application.next_window;
@@ -878,7 +891,7 @@ fn open_component_window(
         }
         return Err(error.into());
     }
-    Ok(())
+    Ok(id)
 }
 
 fn apply_component_window_publication(
@@ -1096,6 +1109,9 @@ fn drain_window_requests(
         services.rearm();
     } else {
         exit_if_no_windows(application)?;
+    }
+    if let Some(changed) = &application.borrow().changed {
+        changed.invoke()?;
     }
     Ok(())
 }

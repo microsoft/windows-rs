@@ -7,6 +7,7 @@ mod guide {}
 #[cfg(any(test, feature = "test"))]
 #[path = "test_support/adapter.rs"]
 mod adapter;
+mod application;
 mod component;
 mod declaration;
 mod generated;
@@ -38,6 +39,10 @@ use std::sync::atomic::{AtomicBool, AtomicU8, AtomicU32, AtomicU64, Ordering};
 use std::sync::{Arc, Mutex, Weak as SyncWeak};
 use std::time::Duration;
 
+pub use application::{
+    Application, ApplicationContext, ApplicationView, ApplicationViewContext, NotifyIcon,
+};
+use application::{ApplicationCommand, application_error};
 pub(crate) use sealed::Sealed;
 
 #[cfg(any(test, feature = "test"))]

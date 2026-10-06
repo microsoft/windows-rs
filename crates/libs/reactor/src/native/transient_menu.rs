@@ -22,11 +22,19 @@ struct TransientMenuState {
     loaded: bool,
     menu: Option<ActiveMenu>,
     pending: Option<Menu>,
+    generation: u64,
 }
 
 struct ActiveMenu {
     flyout: IFlyoutBase,
     _revokers: Vec<windows_core::EventRevoker>,
+    live: Rc<Cell<bool>>,
+}
+
+impl Drop for ActiveMenu {
+    fn drop(&mut self) {
+        self.live.set(false);
+    }
 }
 
 impl TransientMenuHost {
@@ -81,6 +89,7 @@ impl TransientMenuHost {
             loaded: false,
             menu: None,
             pending: None,
+            generation: 0,
         }));
         let loaded_state = Rc::downgrade(&state);
         let loaded = anchor_element.Loaded(move |_, _| {
@@ -107,6 +116,31 @@ impl TransientMenuHost {
 }
 
 impl TransientMenuHandle {
+    pub(super) fn is_open(&self) -> bool {
+        self.state.upgrade().is_some_and(|state| {
+            let state = state.borrow();
+            state.menu.is_some() || state.pending.is_some()
+        })
+    }
+
+    pub(super) fn hide(&self) -> windows_core::Result<()> {
+        let Some(state) = self.state.upgrade() else {
+            return Ok(());
+        };
+        let (active, host) = {
+            let mut state = state.borrow_mut();
+            state.generation = state.generation.wrapping_add(1);
+            state.pending = None;
+            (state.menu.take(), state.host_app_window.clone())
+        };
+        if let Some(active) = active {
+            let flyout = active.flyout.clone();
+            drop(active);
+            flyout.Hide()?;
+        }
+        host.Hide()
+    }
+
     pub(super) fn show(&self, position: ScreenPoint, menu: Menu) -> windows_core::Result<()> {
         let mut keys = HashSet::new();
         validate_menu_items(&menu.items, &mut keys)?;
@@ -122,6 +156,7 @@ impl TransientMenuHandle {
                 ));
             }
             position_host_anchor(&state.host_app_window, state.host_hwnd, position)?;
+            state.generation = state.generation.wrapping_add(1);
             state.pending = Some(menu);
             state.host.clone()
         };
@@ -169,7 +204,10 @@ fn host_coordinate(requested: i32, client_origin: i32) -> windows_core::Result<i
         .map_err(|_| windows_core::Error::new(E_FAIL, "application menu position is out of range"))
 }
 
-fn validate_menu_items(items: &[MenuItem], keys: &mut HashSet<Key>) -> windows_core::Result<()> {
+pub(super) fn validate_menu_items(
+    items: &[MenuItem],
+    keys: &mut HashSet<Key>,
+) -> windows_core::Result<()> {
     for item in items {
         let (key, children) = match item {
             MenuItem::Item { key, .. } | MenuItem::Separator { key } => (key, None),
@@ -192,8 +230,9 @@ impl Drop for TransientMenuHost {
     fn drop(&mut self) {
         let mut state = self.state.borrow_mut();
         if let Some(active) = state.menu.take() {
-            drop(active._revokers);
-            _ = active.flyout.Hide();
+            let flyout = active.flyout.clone();
+            drop(active);
+            _ = flyout.Hide();
         }
         state.pending = None;
         _ = state.host.Close();
@@ -234,8 +273,16 @@ fn build_menu_items(
     Ok(())
 }
 
+fn menu_callback(callback: Callback<Key>, live: Rc<Cell<bool>>) -> Callback<Key> {
+    Callback::new(move |key| {
+        if live.get() {
+            callback.call(key);
+        }
+    })
+}
+
 fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result<()> {
-    let (anchor, host_app_window, dispatcher, host_hwnd, menu) = {
+    let (anchor, host_app_window, dispatcher, host_hwnd, menu, generation) = {
         let mut state = state.borrow_mut();
         if !state.loaded || state.menu.is_some() {
             return Ok(());
@@ -249,6 +296,7 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
             state.dispatcher.clone(),
             state.host_hwnd,
             menu,
+            state.generation,
         )
     };
 
@@ -263,11 +311,15 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
         flyout_base.SetShouldConstrainToRootBounds(false)?;
         flyout_base.SetXamlRoot(&anchor.cast::<IUIElement>()?.XamlRoot()?)?;
 
+        let live = Rc::new(Cell::new(true));
+        let callback = menu_callback(menu.on_click, Rc::clone(&live));
         let mut revokers = Vec::new();
-        build_menu_items(&menu.items, &flyout.Items()?, &mut revokers, &menu.on_click)?;
+        build_menu_items(&menu.items, &flyout.Items()?, &mut revokers, &callback)?;
 
         let closed_state = Rc::downgrade(state);
+        let closed_live = Rc::clone(&live);
         revokers.push(flyout_base.Closed(move |_, _| {
+            closed_live.set(false);
             let Some(state) = closed_state.upgrade() else {
                 return;
             };
@@ -277,6 +329,9 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
                     return;
                 };
                 let mut state = state.borrow_mut();
+                if state.generation != generation {
+                    return;
+                }
                 state.menu = None;
                 if let Err(error) = state.host_app_window.Hide() {
                     drop(state);
@@ -296,6 +351,7 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
         state.borrow_mut().menu = Some(ActiveMenu {
             flyout: flyout_base.clone(),
             _revokers: revokers,
+            live,
         });
         flyout_base.ShowAt(&anchor)
     })();

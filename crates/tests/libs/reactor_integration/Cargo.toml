@@ -16,6 +16,10 @@ name = "application_lifecycle"
 path = "src/application_lifecycle.rs"
 
 [[bin]]
+name = "application_resources"
+path = "src/application_resources.rs"
+
+[[bin]]
 name = "canvas_integration"
 path = "src/canvas_integration.rs"
 

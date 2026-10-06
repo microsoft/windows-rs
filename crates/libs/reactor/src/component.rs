@@ -101,6 +101,53 @@ struct MessageQueue {
 type SharedQueue = Arc<Mutex<MessageQueue>>;
 type LocalQueue = Rc<RefCell<VecDeque<LocalMessage>>>;
 
+pub(crate) struct ApplicationMessages<M> {
+    sender: LocalSender<M>,
+}
+
+impl<M: 'static> ApplicationMessages<M> {
+    pub(crate) fn new(waker: impl Fn() + Send + Sync + 'static) -> Self {
+        Self {
+            sender: LocalSender {
+                component: ComponentId {
+                    index: 0,
+                    generation: 0,
+                },
+                queue: Rc::new(RefCell::new(VecDeque::new())),
+                wake: Arc::new(Mutex::new(MessageQueue {
+                    waker: Some(Arc::new(waker)),
+                    ..Default::default()
+                })),
+                marker: PhantomData,
+            },
+        }
+    }
+
+    pub(crate) fn sender(&self) -> LocalSender<M> {
+        self.sender.clone()
+    }
+
+    pub(crate) fn pop(&self) -> Option<M> {
+        self.sender.wake.lock().unwrap().wake_pending = false;
+        self.sender
+            .queue
+            .borrow_mut()
+            .pop_front()
+            .map(|message| *message.value.downcast::<M>().unwrap())
+    }
+
+    pub(crate) fn is_empty(&self) -> bool {
+        self.sender.queue.borrow().is_empty()
+    }
+}
+
+impl<M> Drop for ApplicationMessages<M> {
+    fn drop(&mut self) {
+        self.sender.wake.lock().unwrap().closed = true;
+        self.sender.queue.borrow_mut().clear();
+    }
+}
+
 #[derive(Clone)]
 struct ComponentQueues {
     shared: SharedQueue,
@@ -1498,6 +1545,29 @@ impl<A: Adapter> Drop for ComponentHost<A> {
 }
 
 impl<A: Adapter> ComponentHost<A> {
+    pub(crate) fn update_root(
+        &mut self,
+        node: ComponentNode,
+    ) -> Result<(), ComponentError<A::Error>> {
+        let id = *self.keys.get(node.key.as_ref().unwrap()).unwrap();
+        let scope = self.scope_mut(id).unwrap();
+        if scope.component.component_type() != node.factory.component_type() {
+            return Err(ComponentError::ComponentType(node.key.unwrap()));
+        }
+        let render = scope
+            .component
+            .apply_input(
+                node.factory.input(),
+                scope.reference.clone(),
+                &scope.contexts,
+            )
+            .map_err(ComponentError::from)?;
+        if let Some(render) = render {
+            self.apply_render(id, render)?;
+        }
+        Ok(())
+    }
+
     fn resolve_window_publication(
         &self,
         pending: &[PendingScopeRender],

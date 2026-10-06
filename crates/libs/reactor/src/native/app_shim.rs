@@ -1,4 +1,5 @@
 use super::*;
+use bindings::Application;
 use bindings::*;
 use windows_core::*;
 

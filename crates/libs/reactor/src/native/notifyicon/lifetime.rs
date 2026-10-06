@@ -1,4 +1,4 @@
-use windows_notifyicon::{NotifyIcon, NotifyIconEvent};
+use super::{NotifyIcon, NotifyIconEvent};
 
 #[test]
 fn builder_accepts_the_public_configuration() {
@@ -9,14 +9,16 @@ fn builder_accepts_the_public_configuration() {
                 let _ = position;
             }
             NotifyIconEvent::Unavailable => {}
-            _ => {}
         });
 }
 
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn live_icon_has_a_window_and_shell_rectangle() {
-    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
+    let path = concat!(
+        env!("CARGO_MANIFEST_DIR"),
+        "\\..\\..\\tests\\libs\\reactor_integration\\icon.ico"
+    );
     let mut icon = NotifyIcon::new(path).tooltip("Live test").build().unwrap();
     assert!(!icon.hwnd().is_null());
     icon.set_tooltip(Some("Updated live test")).unwrap();
@@ -30,7 +32,10 @@ fn live_icon_has_a_window_and_shell_rectangle() {
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn window_and_notification_icon_lifetimes_are_independent() {
-    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
+    let path = concat!(
+        env!("CARGO_MANIFEST_DIR"),
+        "\\..\\..\\tests\\libs\\reactor_integration\\icon.ico"
+    );
 
     let window = windows_window::Window::new("Notification icon lifetime test")
         .quit_on_close(false)

@@ -1,4 +1,11 @@
-use crate::bindings::*;
+#[allow(
+    dead_code,
+    non_snake_case,
+    non_camel_case_types,
+    clippy::upper_case_acronyms
+)]
+mod bindings;
+use bindings::*;
 use std::cell::{Cell, RefCell};
 use std::collections::VecDeque;
 use std::mem::size_of;
@@ -8,6 +15,11 @@ use std::rc::{Rc, Weak};
 use windows_core::{Error, PCWSTR, Result};
 use windows_window::{Window, WindowBuilder};
 
+#[cfg(test)]
+mod events;
+#[cfg(test)]
+mod lifetime;
+
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 const DISPATCH_MESSAGE: u32 = WM_USER as u32 + 2;
 const ICON_ID: u32 = 1;
@@ -16,6 +28,7 @@ const ICON_ID: u32 = 1;
 pub type Point = POINT;
 
 /// A rectangle in screen coordinates.
+#[cfg(test)]
 pub type Rect = RECT;
 
 /// A user interaction or availability change for a notification-area icon.
@@ -241,7 +254,7 @@ impl Shared {
         self.pending.borrow_mut().push_back(pending);
         if !unsafe { PostMessageW(hwnd.cast(), DISPATCH_MESSAGE, 0, 0) }.as_bool() {
             self.pending.borrow_mut().pop_back();
-            eprintln!("windows-notifyicon could not queue Shell work");
+            super::app::report_error(Error::from_thread());
         }
     }
 
@@ -303,6 +316,7 @@ impl NotifyIcon {
     /// The handle remains owned by this value and must not be closed or destroyed.
     /// Thread message loops must not filter exclusively to this handle because event dispatch uses
     /// another private window.
+    #[cfg(test)]
     pub fn hwnd(&self) -> *mut core::ffi::c_void {
         self.callback_window.hwnd()
     }
@@ -310,6 +324,7 @@ impl NotifyIcon {
     /// Returns the Shell's current icon anchor rectangle in screen coordinates.
     ///
     /// For an icon hidden in the overflow area, Windows may return the overflow button rectangle.
+    #[cfg(test)]
     pub fn rect(&self) -> Result<Rect> {
         let value = icon_rect(self.callback_window.hwnd())?;
         Ok(Rect {
@@ -475,6 +490,7 @@ fn allow_message(hwnd: *mut core::ffi::c_void, message: u32) -> Result<()> {
     }
 }
 
+#[cfg(test)]
 fn icon_rect(hwnd: *mut core::ffi::c_void) -> Result<RECT> {
     let identifier = NOTIFYICONIDENTIFIER {
         cbSize: size_of::<NOTIFYICONIDENTIFIER>() as u32,

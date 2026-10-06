@@ -21,6 +21,7 @@ mod bindings;
 mod app;
 mod app_shim;
 mod bootstrap;
+mod notifyicon;
 mod transient_menu;
 mod winui;
 
