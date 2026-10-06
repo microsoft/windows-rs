@@ -163,11 +163,16 @@ have the same meaning.
 | Scalar vocabulary (`BYTE`, `DWORD`, `FLOAT`, `DOUBLE`) | Use the corresponding RDL primitive. |
 | MIDL predefined scalars (`boolean`) | Use the corresponding RDL primitive (`u8`). |
 | Pointer-sized vocabulary (`SIZE_T`, `ULONG_PTR`, `LONG_PTR`) | Use `usize` or `isize`. |
-| String aliases (`LPCWSTR`, `LPWSTR`) | Use the canonical RDL string vocabulary. |
+| String aliases (`LPCWSTR`, `LPWSTR`) | Use resolvable canonical RDL string vocabulary. |
 | GUID aliases (`IID`, `CLSID`, `UUID`) | Use `GUID`. |
-| Generic void pointers (`PVOID`, `LPVOID`) | Use the corresponding raw pointer. |
-| Interface pointer typedefs | Project to the RDL interface type; RDL/WinMD encodes its pointer semantics. |
+| Generic void pointers (`PVOID`, `LPVOID`) | Retain aliases for unrepresentable chains. |
+| Interface pointer typedefs | Project to the interface type; WinMD retains pointer semantics. |
 | Other typedefs, including pointer typedefs | Preserve the name and emit its definition. |
+
+Canonical string names are emitted only when their definitions or metadata references are available.
+Otherwise, an annotated character pointer remains a raw pointer rather than introducing an
+undeclared name. Nested pointer chains retain a declared pointer typedef when flattening it would
+produce mixed `*const` and `*mut` levels that RDL cannot represent.
 
 Lowercase `boolean` is part of MIDL's predefined type vocabulary and has an unsigned 8-bit
 representation, so it becomes `u8`, not RDL `bool`. Uppercase `BOOLEAN` is a named Windows API

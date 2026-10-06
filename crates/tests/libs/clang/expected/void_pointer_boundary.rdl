@@ -1,0 +1,6 @@
+#[win32]
+mod VoidPointerBoundary {
+    #[library("api.dll")]
+    extern "C" fn Compare(expected: *const PVOID, old: *mut PVOID);
+    type PVOID = *mut void;
+}

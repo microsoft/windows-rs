@@ -1,0 +1,10 @@
+#[win32]
+mod CanonicalStringTypedef {
+    struct Example {
+        text: LPTSTR,
+    }
+    type LPTSTR = PSTR;
+    type PSTR = *mut i8;
+    #[library("api.dll")]
+    extern "C" fn ReadText(text: *const i8);
+}

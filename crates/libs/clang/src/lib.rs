@@ -533,6 +533,8 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.preserved_aliases,
+                        &plan.missing_string_aliases,
                         &fact.origin.tu,
                     );
                     write_callback(&planned.name, *convention, params, result, &projection)?
@@ -565,6 +567,8 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.preserved_aliases,
+                        &plan.missing_string_aliases,
                         &fact.origin.tu,
                     );
                     write_named_record(
@@ -577,15 +581,17 @@ impl Snapshot {
                     )?
                 }
                 FactData::Typedef { target } => {
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &plan.preserved_aliases,
+                        &plan.missing_string_aliases,
+                        &fact.origin.tu,
+                    );
                     format!(
                         "    type {} = {};\n",
                         rdl_ident(&planned.name),
-                        planned_emitted_type_name(
-                            target,
-                            &plan.type_names,
-                            &plan.interface_names,
-                            &fact.origin.tu,
-                        )
+                        projection.typedef_name(target)
                     )
                 }
                 FactData::Enum {
@@ -625,6 +631,8 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.preserved_aliases,
+                        &plan.missing_string_aliases,
                         &fact.origin.tu,
                     );
                     write_named_record(
@@ -644,6 +652,8 @@ impl Snapshot {
                     let projection = TypeProjection::new(
                         &plan.type_names,
                         &plan.interface_names,
+                        &plan.preserved_aliases,
+                        &plan.missing_string_aliases,
                         &fact.origin.tu,
                     );
                     write_interface(
@@ -688,8 +698,13 @@ impl Snapshot {
                     function.name
                 )));
             };
-            let projection =
-                TypeProjection::new(&plan.type_names, &plan.interface_names, &function.origin.tu);
+            let projection = TypeProjection::new(
+                &plan.type_names,
+                &plan.interface_names,
+                &plan.preserved_aliases,
+                &plan.missing_string_aliases,
+                &function.origin.tu,
+            );
             let mut params = write_params(params, &projection)?;
             if *variadic {
                 params.push("...".to_string());
@@ -698,15 +713,7 @@ impl Snapshot {
             let result = if *result == TypeRef::Void {
                 String::new()
             } else {
-                format!(
-                    " -> {}",
-                    planned_emitted_type_name(
-                        result,
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &function.origin.tu,
-                    )
-                )
+                format!(" -> {}", projection.name(result))
             };
             let library = options
                 .libraries
@@ -1072,6 +1079,8 @@ impl Snapshot {
             phase_time = std::time::Instant::now();
         }
 
+        let mut preserved_aliases = BTreeSet::new();
+        let mut missing_string_aliases = BTreeSet::new();
         let facts_by_name = loop {
             let mut facts = BTreeSet::new();
             let mut queue = vec![];
@@ -1091,8 +1100,9 @@ impl Snapshot {
             }
 
             while let Some((tu, edge)) = queue.pop() {
-                let ty = match edge {
-                    TypeEdge::Type(ty) => ty,
+                let (ty, preserve_alias) = match edge {
+                    TypeEdge::Type(ty) => (ty, false),
+                    TypeEdge::Alias(ty) => (ty, true),
                     TypeEdge::Projected(name) => {
                         if references.contains_key(name) && !root_names.contains(name) {
                             continue;
@@ -1104,6 +1114,10 @@ impl Snapshot {
                             .copied()
                             .filter(|fact| fact.origin.tu == tu && is_type_fact(fact))
                             .collect();
+                        if matches.is_empty() && canonical_string_name(name) == Some(name) {
+                            missing_string_aliases.insert((tu.to_string(), name.to_string()));
+                            continue;
+                        }
                         let fact = choose_type_root_cached(
                             name,
                             &matches,
@@ -1117,8 +1131,18 @@ impl Snapshot {
                     }
                 };
                 let (name, declaration) = match ty {
-                    TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. } => {
-                        queue.push((tu, TypeEdge::Type(target)));
+                    TypeRef::Pointer { mutable, target }
+                    | TypeRef::Reference { mutable, target } => {
+                        let edge = if matches!(
+                            target.as_ref(),
+                            TypeRef::Named { name, .. }
+                                if requires_preserved_pointer_alias(name, *mutable)
+                        ) {
+                            TypeEdge::Alias(target)
+                        } else {
+                            TypeEdge::Type(target)
+                        };
+                        queue.push((tu, edge));
                         continue;
                     }
                     TypeRef::FunctionPointer { .. } | TypeRef::OpaquePointer { .. } => continue,
@@ -1139,6 +1163,14 @@ impl Snapshot {
                     continue;
                 }
                 if references.contains_key(name) && !root_names.contains(name) {
+                    continue;
+                }
+                if preserve_alias
+                    && canonical_string_name(name).is_some_and(|canonical| {
+                        references.contains_key(canonical) && !root_names.contains(canonical)
+                    })
+                {
+                    preserved_aliases.insert(name.clone());
                     continue;
                 }
                 let matches: Vec<_> = facts_index
@@ -1165,8 +1197,12 @@ impl Snapshot {
                 };
                 if canonical_named_type(name).is_some()
                     && matches!(fact.data, FactData::Typedef { .. })
+                    && !preserve_alias
                 {
                     continue;
+                }
+                if preserve_alias {
+                    preserved_aliases.insert(name.clone());
                 }
                 if facts.insert(fact.origin.clone()) {
                     queue_type_edges(fact, &mut queue);
@@ -1500,6 +1536,15 @@ impl Snapshot {
                 });
             }
         }
+        for name in &preserved_aliases {
+            if let Some(canonical) = canonical_string_name(name) {
+                let projected = type_names
+                    .get(canonical)
+                    .cloned()
+                    .unwrap_or_else(|| canonical.to_string());
+                type_names.insert(name.clone(), projected);
+            }
+        }
         for (name, fact) in &facts_by_name {
             if required.contains(*name)
                 && canonical_named_type(name).is_some()
@@ -1726,6 +1771,8 @@ impl Snapshot {
             constants,
             type_names,
             interface_names,
+            preserved_aliases,
+            missing_string_aliases,
             interface_guids,
             flag_enums,
         })
@@ -1788,6 +1835,8 @@ struct Plan<'a> {
     constants: Vec<PlannedConstant<'a>>,
     type_names: BTreeMap<String, String>,
     interface_names: BTreeSet<(String, String)>,
+    preserved_aliases: BTreeSet<String>,
+    missing_string_aliases: BTreeSet<(String, String)>,
     interface_guids: BTreeMap<String, String>,
     flag_enums: BTreeSet<(String, String)>,
 }
@@ -1795,6 +1844,8 @@ struct Plan<'a> {
 struct TypeProjection<'a> {
     type_names: &'a BTreeMap<String, String>,
     interface_names: &'a BTreeSet<(String, String)>,
+    preserved_aliases: &'a BTreeSet<String>,
+    missing_string_aliases: &'a BTreeSet<(String, String)>,
     tu: &'a str,
 }
 
@@ -1802,17 +1853,98 @@ impl<'a> TypeProjection<'a> {
     fn new(
         type_names: &'a BTreeMap<String, String>,
         interface_names: &'a BTreeSet<(String, String)>,
+        preserved_aliases: &'a BTreeSet<String>,
+        missing_string_aliases: &'a BTreeSet<(String, String)>,
         tu: &'a str,
     ) -> Self {
         Self {
             type_names,
             interface_names,
+            preserved_aliases,
+            missing_string_aliases,
             tu,
         }
     }
 
     fn name(&self, ty: &TypeRef) -> String {
-        planned_emitted_type_name(ty, self.type_names, self.interface_names, self.tu)
+        self.name_inner(ty, false)
+    }
+
+    fn typedef_name(&self, ty: &TypeRef) -> String {
+        self.name_inner(
+            ty,
+            matches!(
+                ty,
+                TypeRef::Named { name, .. } if canonical_string_name(name).is_some()
+            ),
+        )
+    }
+
+    fn name_inner(&self, ty: &TypeRef, preserve_alias: bool) -> String {
+        if matches!(ty, TypeRef::FunctionPointer { .. }) {
+            return "*mut u8".to_string();
+        }
+        if let TypeRef::OpaquePointer { mutable, .. } = ty {
+            return format!("*{} void", if *mutable { "mut" } else { "const" });
+        }
+        if preserve_alias
+            && let TypeRef::Named { name, .. } = ty
+            && self.preserved_aliases.contains(name)
+        {
+            return rdl_ident(self.type_names.get(name).unwrap_or(name));
+        }
+        if let TypeRef::Named { name, .. } = ty
+            && let Some(name) = self.type_names.get(name)
+        {
+            return rdl_ident(name);
+        }
+        if let TypeRef::Named { name, .. } = ty
+            && let Some(name) = canonical_named_type(name)
+        {
+            return self
+                .type_names
+                .get(name)
+                .cloned()
+                .unwrap_or_else(|| name.to_string());
+        }
+        if let TypeRef::Reference { mutable, target } = ty {
+            if let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target.as_ref()
+                && self
+                    .interface_names
+                    .contains(&(self.tu.to_string(), name.clone()))
+            {
+                return planned_type_name(target, self.type_names);
+            }
+            return format!(
+                "*{} {}",
+                if *mutable { "mut" } else { "const" },
+                self.name_inner(target, true)
+            );
+        }
+        if let TypeRef::Array { target, len } = ty {
+            return format!("[{}; {len}]", self.name_inner(target, true));
+        }
+        let (mutable, depth, target) = pointer_run(ty);
+        if depth != 0
+            && let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target
+            && self
+                .interface_names
+                .contains(&(self.tu.to_string(), name.clone()))
+        {
+            return format!(
+                "{}{}",
+                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth - 1),
+                self.name_inner(target, true)
+            );
+        }
+        if depth != 0 {
+            return format!(
+                "{}{}",
+                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
+                self.name_inner(target, true)
+            );
+        }
+        planned_type_name(ty, self.type_names)
     }
 }
 
@@ -3086,12 +3218,21 @@ fn validate_complete_layout(
 
 enum TypeEdge<'a> {
     Type(&'a TypeRef),
+    Alias(&'a TypeRef),
     Projected(&'static str),
 }
 
 fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>) {
     if let FactData::Typedef { target } = &fact.data {
-        queue.push((fact.origin.tu.as_str(), TypeEdge::Type(target)));
+        let edge = if matches!(
+            target,
+            TypeRef::Named { name, .. } if canonical_string_name(name).is_some()
+        ) {
+            TypeEdge::Alias(target)
+        } else {
+            TypeEdge::Type(target)
+        };
+        queue.push((fact.origin.tu.as_str(), edge));
     } else if let FactData::Callback { params, result, .. } = &fact.data {
         queue.push((fact.origin.tu.as_str(), TypeEdge::Type(result)));
         for param in params {
@@ -3222,12 +3363,7 @@ fn write_params(
                     emitted_pointer_is_mutable(param, projection.interface_names, projection.tu),
                 )?,
                 rdl_ident(&param.name),
-                planned_param_type_name(
-                    param,
-                    projection.type_names,
-                    projection.interface_names,
-                    projection.tu,
-                )
+                planned_param_type_name(param, projection)
             ))
         })
         .collect()
@@ -3341,22 +3477,22 @@ fn rdl_uuid(guid: &str) -> String {
     )
 }
 
-fn planned_param_type_name(
-    param: &Parameter,
-    type_names: &BTreeMap<String, String>,
-    interface_names: &BTreeSet<(String, String)>,
-    tu: &str,
-) -> String {
+fn planned_param_type_name(param: &Parameter, projection: &TypeProjection<'_>) -> String {
     if param.annotation.com_out_ptr {
         return "*mut *mut void".to_string();
     }
-    if let Some(name) = parameter_string_name(param) {
-        return type_names
+    if let Some(name) = parameter_string_name(param)
+        && !projection
+            .missing_string_aliases
+            .contains(&(projection.tu.to_string(), name.to_string()))
+    {
+        return projection
+            .type_names
             .get(name)
             .cloned()
             .unwrap_or_else(|| name.to_string());
     }
-    planned_emitted_type_name(&param.ty, type_names, interface_names, tu)
+    projection.name(&param.ty)
 }
 
 fn emitted_pointer_is_mutable(
@@ -3424,70 +3560,6 @@ fn parameter_string_name(param: &Parameter) -> Option<&'static str> {
     }
 }
 
-fn planned_emitted_type_name(
-    ty: &TypeRef,
-    type_names: &BTreeMap<String, String>,
-    interface_names: &BTreeSet<(String, String)>,
-    tu: &str,
-) -> String {
-    if matches!(ty, TypeRef::FunctionPointer { .. }) {
-        return "*mut u8".to_string();
-    }
-    if let TypeRef::OpaquePointer { mutable, .. } = ty {
-        return format!("*{} void", if *mutable { "mut" } else { "const" });
-    }
-    if let TypeRef::Named { name, .. } = ty
-        && let Some(name) = type_names.get(name)
-    {
-        return rdl_ident(name);
-    }
-    if let TypeRef::Named { name, .. } = ty
-        && let Some(name) = canonical_named_type(name)
-    {
-        return type_names
-            .get(name)
-            .cloned()
-            .unwrap_or_else(|| name.to_string());
-    }
-    if let TypeRef::Reference { mutable, target } = ty {
-        if let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target.as_ref()
-            && interface_names.contains(&(tu.to_string(), name.clone()))
-        {
-            return planned_type_name(target, type_names);
-        }
-        return format!(
-            "*{} {}",
-            if *mutable { "mut" } else { "const" },
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    if let TypeRef::Array { target, len } = ty {
-        return format!(
-            "[{}; {len}]",
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    let (mutable, depth, target) = pointer_run(ty);
-    if depth != 0
-        && let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target
-        && interface_names.contains(&(tu.to_string(), name.clone()))
-    {
-        return format!(
-            "{}{}",
-            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth - 1),
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    if depth != 0 {
-        return format!(
-            "{}{}",
-            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
-            planned_emitted_type_name(target, type_names, interface_names, tu)
-        );
-    }
-    planned_type_name(ty, type_names)
-}
-
 fn canonical_named_type(name: &str) -> Option<&'static str> {
     if let Some(name) = canonical_string_name(name) {
         return Some(name);
@@ -3523,6 +3595,10 @@ fn canonical_string_name(name: &str) -> Option<&'static str> {
         "PWSTR" | "LPWSTR" => Some("PWSTR"),
         _ => None,
     }
+}
+
+fn requires_preserved_pointer_alias(name: &str, outer_mutable: bool) -> bool {
+    canonical_string_name(name).is_some() || (!outer_mutable && matches!(name, "PVOID" | "LPVOID"))
 }
 
 fn named_type_shape(name: &str) -> Option<&'static str> {
