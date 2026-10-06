@@ -147,6 +147,16 @@ behavior. `is_pane_visible` controls pane visibility, not whether a visible pane
 Omitting either Boolean property clears its local value and restores WinUI's default or styled
 value. Neither property changes application selection or maintains navigation history.
 
+Run the [interactive sample](../../crates/samples/reactor/navigation-view-properties):
+
+```text
+cargo run -p reactor-navigation-view-properties
+```
+
+Cycle the pane header between text, a bordered replacement, and no header. Toggle the back arrow
+between disabled and enabled, then hide and restore the pane. The controls stay in the main content
+so the pane can always be restored. The back arrow has no navigation action in this sample.
+
 ## Add editable state
 
 Editable controls are controlled: pass the current value from component state and send changes
