@@ -90,12 +90,13 @@ The crate has no dependencies. `src/lib.rs` exposes each committed `.winmd` thro
 back to `Windows.winmd`. `tool-win32` scrapes the Windows SDK and WDK headers for X64, Arm64, and
 X86, merges the architecture-specific RDL, and writes `Windows.Win32.winmd`.
 
-The package versions are pinned in `crates/tools/win32/src/main.rs` (Windows SDK),
+The package versions are pinned in `crates/tools/helpers/src/sdk.rs` (Windows SDK),
 `crates/tools/win32/src/km.rs` (WDK), and `crates/tools/winrt/src/main.rs` (SDK Contracts).
 
 To update the SDK or WDK, change its version constant and run `cargo run -p tool-win32 --release`.
 The tool restores the pinned packages and derives their include and library directories from the
 versions. Both scrape phases share the SDK paths; the WDK package has an independent pin.
+`tool-webview` uses the same SDK pin and path helpers.
 Review the generated `metadata/win32`, `metadata/wdk`, and `Windows.Win32.winmd` changes together.
 
 The WDK parser's `NTDDI_VERSION` setting in `km.rs` fixes its API level independently of the package

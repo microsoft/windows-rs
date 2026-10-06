@@ -6,9 +6,9 @@
 //! [`REFERENCE_WINMD`]) and resolved by bare name once both winmds are loaded together. Like the um
 //! scrape contains no type-level curation - the only inputs are mechanical.
 //!
-//! The two phases share one crate: the SDK package paths, root namespace, SAL shim, and arch list
-//! all live in `main.rs` and are referenced here as `crate::*`, and the toolchain is provisioned
-//! once by the orchestrator. This phase resolves against phase A's [`crate::UM_WINMD`] directly
+//! The two phases share the SDK paths from `helpers` and the root namespace, SAL shim, and arch
+//! list from `main.rs`. The toolchain is provisioned once by the orchestrator.
+//! This phase resolves against phase A's [`crate::UM_WINMD`] directly
 //! (phase A wrote it from the same inputs an isolated re-derivation would use), so no intermediate
 //! re-compile of the committed RDL is needed.
 
@@ -25,7 +25,7 @@ pub(super) const RDL_DIR: &str = "metadata/wdk";
 /// is needed and why none of it reaches the metadata.
 const OFFREG_PRELUDE: &str = "crates/tools/win32/src/offreg_prelude.h";
 
-/// WDK headers and import libraries share this pin, independently of `crate::SDK_VERSION`.
+/// WDK headers and import libraries share this pin, independently of the SDK pin in `helpers`.
 const WDK_VERSION: &str = "10.0.28000.1839";
 
 /// Arch-neutral clang arguments shared by every architecture pass. Parse as C++ (for `extern "C"`,
@@ -84,8 +84,8 @@ fn wdk_root() -> PathBuf {
 /// translation unit. Order is fixed so the parse is deterministic.
 fn include_dirs() -> Vec<String> {
     let wdk = wdk_root().join("Include").join(marketing_dir(WDK_VERSION));
-    let sdk = crate::sdk_include_root();
-    crate::checked_dirs([
+    let sdk = sdk_include_root();
+    checked_dirs([
         wdk.join("km"),
         wdk.join("shared"),
         sdk.join("shared"),
@@ -98,13 +98,13 @@ fn include_dirs() -> Vec<String> {
 /// kernel-mode tree (`offreg.lib`). The symbol -> DLL mapping is arch-invariant, so the x64 libs
 /// serve the canonical metadata and every additional arch pass.
 fn lib_dirs() -> Vec<String> {
-    let sdk = crate::sdk_lib_root().join("um").join("x64");
+    let sdk = sdk_lib_root().join("um").join("x64");
     let wdk = wdk_root()
         .join("Lib")
         .join(marketing_dir(WDK_VERSION))
         .join("km")
         .join("x64");
-    crate::checked_dirs([sdk, wdk])
+    checked_dirs([sdk, wdk])
 }
 
 fn resolve(name: &str, dirs: &[String]) -> String {

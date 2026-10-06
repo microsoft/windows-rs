@@ -23,17 +23,10 @@ fn main() {
     // `WebView2Interop.h` (in `include-winrt/`) `#include`s `"WebView2.h"` from the sibling
     // `include/` dir, so that directory has to be on the header search path.
     let include_arg = format!("-I{}", include.display());
-    let sdk_version = read_str_const("crates/tools/win32/src/main.rs", "SDK_VERSION");
-    let sdk_include = nuget_package("microsoft.windows.sdk.cpp", &sdk_version)
-        .join("c")
-        .join("Include")
-        .join(marketing_dir(&sdk_version));
     let resource_dir = clang_resource_dir();
-    let sdk_args = ["ucrt", "um", "shared", "winrt", "cppwinrt"].map(|dir| {
-        let path = sdk_include.join(dir);
-        assert!(path.is_dir(), "missing SDK directory `{}`", path.display());
-        format!("-isystem{}", path.display())
-    });
+    let sdk_args = sdk_include_dirs()
+        .into_iter()
+        .map(|dir| format!("-isystem{dir}"));
 
     // WebView2 ships only a C/C++ header, so the binding pipeline starts there:
     // WebView2*.h -> WebView2.rdl (clang) -> WebView2.winmd (reader) -> bindings.rs (bindgen).

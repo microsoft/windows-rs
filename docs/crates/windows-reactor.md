@@ -295,6 +295,9 @@ bootstrap version constants read from the Runtime package's version header, and 
 `reactor-setup/assets/runtime-version.txt`. The setup crate and Reactor CI consume that generated
 version file. WebView2 metadata remains owned by `tool-webview`.
 
+All source metadata files are read and validated before replacing the committed App SDK metadata.
+Missing or invalid inputs leave those committed files untouched.
+
 The tool also generates setup activation manifests and framework/MSIX identities from the pinned
 packages, and validates the runtime allow-list for x86, x64, and arm64. Review the generated assets
 and handwritten file-selection policy together when updating the runtime; see

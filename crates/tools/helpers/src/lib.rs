@@ -6,6 +6,8 @@ mod clang;
 pub use clang::*;
 mod nuget;
 pub use nuget::nuget_package;
+mod sdk;
+pub use sdk::*;
 
 /// Prefer Windows-bundled tools over shadowing tools on `PATH`.
 fn system_tool(exe: &str) -> std::process::Command {
@@ -173,52 +175,7 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
     crates
 }
 
-/// Reads the string value of a `const NAME: &str = "...";` (or `pub const`) declaration from a
-/// Rust source file. Panics loudly if the file cannot be read or the constant is not found.
-///
-/// Generators use this to consume another tool's pin without copying it. For example,
-/// `tool-webview` reads `SDK_VERSION` from `tool-win32`.
-pub fn read_str_const<P: AsRef<Path>>(path: P, name: &str) -> String {
-    let path = path.as_ref();
-    let text = std::fs::read_to_string(path)
-        .unwrap_or_else(|e| panic!("failed to read `{}`: {e}", path.display()));
-    str_const(&text, name).unwrap_or_else(|| {
-        panic!(
-            "`const {name}` (a `&str`) not found in `{}`",
-            path.display()
-        )
-    })
-}
-
-fn str_const(text: &str, name: &str) -> Option<String> {
-    let mut offset = 0;
-    for line in text.split_inclusive('\n') {
-        let head = line.trim_start();
-        let head = head.strip_prefix("pub ").unwrap_or(head);
-        if let Some(rest) = head.strip_prefix("const ").and_then(|r| r.strip_prefix(name))
-            // The declared name must end here (next non-space is the `:` type separator), so
-            // `SDK_VERSION` does not spuriously match `SDK_VERSION_EXTRA`.
-            && rest.trim_start().starts_with(':')
-        {
-            // The string literal may sit on this line or a following one (a multi-line
-            // `const NAME: &str =\n    "value";`), so scan the file tail from here.
-            let tail = &text[offset..];
-            let open = tail.find('"')?;
-            let close = tail[open + 1..].find('"')? + open + 1;
-            return Some(tail[open + 1..close].to_string());
-        }
-        offset += line.len();
-    }
-    None
-}
-
-/// Derives the "marketing" SDK/WDK include-and-lib folder name from a four-part package
-/// version. The NuGet packages nest their headers under a folder that is the version's first
-/// three components with a `.0` fourth component (for example, `10.0.28000.2270` ->
-/// `10.0.28000.0`),
-/// regardless of the package's servicing build. Deriving it means the package version is the
-/// single edit needed to bump the SDK/WDK - the folder is never a second constant to keep in
-/// sync. Panics if `version` does not have at least three dot-separated components.
+/// SDK/WDK include and library folders use the package version with a zero revision.
 pub fn marketing_dir(version: &str) -> String {
     let mut parts = version.split('.');
     let major = parts.next();
@@ -250,30 +207,6 @@ pub fn set_thread_ui_language() {
 
 #[cfg(test)]
 mod tests {
-    use super::str_const;
-
-    #[test]
-    fn reads_plain_and_pub_and_ignores_prefix_collisions() {
-        let src = "\
-// a comment mentioning const SDK_VERSION
-    const SDK_VERSION_EXTRA: &str = \"nope\";
-pub const SDK_VERSION: &str = \"10.0.28000.2270\";
-const OTHER: u32 = 7;
-const MULTI: &str =
-    \"https://example/clang-1.2.3.tar\";
-";
-        assert_eq!(
-            str_const(src, "SDK_VERSION").as_deref(),
-            Some("10.0.28000.2270")
-        );
-        assert_eq!(str_const(src, "SDK_VERSION_EXTRA").as_deref(), Some("nope"));
-        assert_eq!(
-            str_const(src, "MULTI").as_deref(),
-            Some("https://example/clang-1.2.3.tar")
-        );
-        assert_eq!(str_const(src, "MISSING"), None);
-    }
-
     #[test]
     fn marketing_dir_zeroes_the_revision() {
         use super::marketing_dir;

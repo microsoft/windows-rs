@@ -5,7 +5,6 @@ const SDKDDKVER_RDL: &str = include_str!("../../../../metadata/win32/sdkddkver.r
 const WINAPI_FAMILY_RDL: &str = include_str!("../../../../metadata/win32/winapifamily.rdl");
 const AUDIO_SESSION_TYPES_RDL: &str =
     include_str!("../../../../metadata/win32/audiosessiontypes.rdl");
-const WIN32_TOOL: &str = include_str!("../../../tools/win32/src/main.rs");
 
 #[test]
 fn sdkddkver_matches_committed_supported_constants() {
@@ -22,11 +21,7 @@ fn sdkddkver_matches_committed_supported_constants() {
 }
 
 fn assert_header(folder: &str, file: &str, expected_source: &str, definitions: &[&str]) {
-    let version = rust_string_constant(WIN32_TOOL, "SDK_VERSION");
-    let include = helpers::nuget_package("microsoft.windows.sdk.cpp", version)
-        .join("c")
-        .join("Include")
-        .join(helpers::marketing_dir(version));
+    let include = helpers::sdk_include_root();
     let header = include.join(folder).join(file);
     let source = std::fs::read_to_string(&header).unwrap();
     let shared = include.join("shared");
@@ -104,13 +99,4 @@ fn enums(source: &str) -> BTreeMap<String, Vec<String>> {
         }
     }
     result
-}
-
-fn rust_string_constant<'a>(source: &'a str, name: &str) -> &'a str {
-    let prefix = format!("const {name}: &str = \"");
-    let value = source
-        .lines()
-        .find_map(|line| line.trim().strip_prefix(&prefix))
-        .unwrap();
-    value.strip_suffix("\";").unwrap()
 }

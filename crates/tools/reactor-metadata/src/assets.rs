@@ -129,8 +129,8 @@ fn read_classes(text: &str, classes: &mut Classes) {
                 assert_eq!(old, model, "conflicting activation entry for `{name}`");
             }
         }
-        assert!(count > 0, "fragment contains no WinRT activation classes");
     }
+    assert!(count > 0, "fragment contains no WinRT activation classes");
 }
 
 fn xml(value: &str) -> String {
@@ -210,6 +210,24 @@ fn manifest(classes: &Classes, doc: &Document<'_>, files: &BTreeSet<&str>) -> St
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn fragments_without_activation_classes_are_rejected() {
+        let mut classes = Classes::new();
+        read_classes(
+            r#"<Fragment><InProcessServer><Path>Example.dll</Path>
+            <ActivatableClass ActivatableClassId="Example.A" ThreadingModel="both"/>
+            </InProcessServer></Fragment>"#,
+            &mut classes,
+        );
+        for text in [
+            "<Fragment/>",
+            "<Fragment><UnknownServer/></Fragment>",
+            "<Fragment><InProcessServer><Path>Example.dll</Path></InProcessServer></Fragment>",
+        ] {
+            assert!(std::panic::catch_unwind(|| read_classes(text, &mut classes.clone())).is_err());
+        }
+    }
 
     #[test]
     fn generates_selected_proxies_and_escaped_classes() {

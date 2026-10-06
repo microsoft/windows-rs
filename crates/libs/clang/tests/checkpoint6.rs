@@ -1,8 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 use windows_clang::{EmitOptions, FactData, Input, TypeReference, TypeReferenceKind, extract};
 
-const WIN32_TOOL: &str = include_str!("../../../tools/win32/src/main.rs");
-
 #[test]
 fn generator_policies_route_references_and_exports() {
     helpers::ensure_libclang();
@@ -681,16 +679,7 @@ fn equivalent_types_keep_source_order_ownership() {
 fn real_win32_header_plans_from_combined_translation_unit() {
     helpers::ensure_libclang();
 
-    let version = rust_string_constant(WIN32_TOOL, "SDK_VERSION");
-    let (marketing, _) = version.rsplit_once('.').unwrap();
-    let include = std::path::PathBuf::from(std::env::var_os("USERPROFILE").unwrap())
-        .join(".nuget")
-        .join("packages")
-        .join("microsoft.windows.sdk.cpp")
-        .join(version)
-        .join("c")
-        .join("Include")
-        .join(format!("{marketing}.0"));
+    let include = helpers::sdk_include_root();
     let header = include.join("um").join("fileapi.h");
     let shared = include.join("shared");
     let um = include.join("um");
@@ -946,14 +935,4 @@ fn uuid_class_projects_to_coclass_guid() {
     let rdl = snapshot.emit_with_options(&options).unwrap();
 
     assert!(!rdl.contains("Widget"));
-}
-
-fn rust_string_constant<'a>(source: &'a str, name: &str) -> &'a str {
-    let prefix = format!("const {name}: &str = \"");
-    source
-        .lines()
-        .find_map(|line| line.trim().strip_prefix(&prefix))
-        .unwrap()
-        .strip_suffix("\";")
-        .unwrap()
 }

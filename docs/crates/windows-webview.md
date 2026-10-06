@@ -362,9 +362,10 @@ The same package supplies the Core WinRT metadata committed under
 `crates/libs/reactor-setup/assets/webview2-version.txt`. The setup helper uses that generated version
 to stage the matching projection DLL. `tool-reactor-metadata` preserves the WebView2 metadata.
 
-System headers come from the Windows SDK pin owned by `tool-win32`, and compiler resource headers
-come from the shared libclang pin. An installed MSVC toolchain is still required for its C runtime
-headers. No manually configured `INCLUDE` paths or installed Windows SDK are needed.
+System headers use the SDK pin and path helpers in `crates/tools/helpers/src/sdk.rs`, shared with
+`tool-win32`. Compiler resource headers come from the shared libclang pin. An installed MSVC
+toolchain is still required for its C runtime headers. No manually configured `INCLUDE` paths or
+installed Windows SDK are needed.
 
 Bindings use `--flat --minimal` and the filter in `crates/tools/webview/src/webview.txt`. Filter
 method names are raw metadata names such as `put_Bounds` and `get_CoreWebView2`, not projected

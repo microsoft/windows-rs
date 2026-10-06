@@ -2,22 +2,12 @@ use std::path::PathBuf;
 use windows_clang::{Input, extract};
 
 const EXPECTED: &str = include_str!("../../../../metadata/win32/unknwnbase.rdl");
-const WIN32_TOOL: &str = include_str!("../../../tools/win32/src/main.rs");
 
 #[test]
 fn unknwnbase_interfaces_match_committed_rdl() {
     helpers::ensure_libclang();
 
-    let version = rust_string_constant(WIN32_TOOL, "SDK_VERSION");
-    let (marketing, _) = version.rsplit_once('.').unwrap();
-    let include = PathBuf::from(std::env::var_os("USERPROFILE").unwrap())
-        .join(".nuget")
-        .join("packages")
-        .join("microsoft.windows.sdk.cpp")
-        .join(version)
-        .join("c")
-        .join("Include")
-        .join(format!("{marketing}.0"));
+    let include = helpers::sdk_include_root();
     let header = include.join("um").join("unknwnbase.h");
     let source = std::fs::read_to_string(&header).unwrap();
     let shared = include.join("shared");
@@ -94,13 +84,4 @@ fn interface(source: &str, name: &str) -> String {
         }
     }
     result.join("\n")
-}
-
-fn rust_string_constant<'a>(source: &'a str, name: &str) -> &'a str {
-    let prefix = format!("const {name}: &str = \"");
-    let value = source
-        .lines()
-        .find_map(|line| line.trim().strip_prefix(&prefix))
-        .unwrap();
-    value.strip_suffix("\";").unwrap()
 }

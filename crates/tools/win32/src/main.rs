@@ -21,10 +21,6 @@ const RDL_DIR: &str = "metadata/win32";
 /// without disturbing this prerequisite.
 const METADATA_SEED: &str = "metadata/metadata.rdl";
 
-/// Shared SDK pin for both scrape phases: `Microsoft.Windows.SDK.CPP` supplies headers and
-/// `Microsoft.Windows.SDK.CPP.x64` supplies architecture-independent function-to-DLL mappings.
-const SDK_VERSION: &str = "10.0.28000.2270";
-
 /// Clang arguments: parse as C++20 so the SDK headers' `extern "C"` blocks, `__declspec`, SAL
 /// annotations, and constant expressions that rely on C++20 shift semantics are all understood.
 /// The target triple is set separately per architecture; the SDK include directories are added as
@@ -1368,48 +1364,6 @@ fn rdl_partition_stem(header: &str) -> String {
         .collect()
 }
 
-fn sdk_include_root() -> std::path::PathBuf {
-    nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
-        .join("c")
-        .join("Include")
-        .join(marketing_dir(SDK_VERSION))
-}
-
-fn sdk_lib_root() -> std::path::PathBuf {
-    nuget_package("microsoft.windows.sdk.cpp.x64", SDK_VERSION).join("c")
-}
-
-/// The pinned SDK include directories, in a fixed order so the parse is deterministic.
-fn sdk_include_dirs() -> Vec<String> {
-    let base = sdk_include_root();
-    checked_dirs(["ucrt", "um", "shared", "winrt", "cppwinrt"].map(|seg| base.join(seg)))
-}
-
-/// The pinned SDK x64 import-library directories. The function -> DLL mapping recorded by
-/// an import lib is arch-invariant (the DLL that exports a symbol is the same on every
-/// arch), so the x64 libs serve the canonical metadata and every additional arch scrape.
-fn sdk_lib_dirs() -> Vec<String> {
-    let base = sdk_lib_root();
-    checked_dirs(["um", "ucrt"].map(|seg| base.join(seg).join("x64")))
-}
-
-fn checked_dirs(dirs: impl IntoIterator<Item = std::path::PathBuf>) -> Vec<String> {
-    dirs.into_iter()
-        .map(|dir| {
-            assert!(
-                dir.is_dir(),
-                "pinned SDK/WDK package directory is missing: `{}`",
-                dir.display()
-            );
-            dir.to_str()
-                .unwrap_or_else(|| {
-                    panic!("package directory is not a UTF-8 path: `{}`", dir.display())
-                })
-                .replace('\\', "/")
-        })
-        .collect()
-}
-
 fn resolve(name: &str, dirs: &[String], kind: &str, var: &str) -> String {
     find_in_dirs(name, dirs)
         .unwrap_or_else(|| panic!("{kind} `{name}` not found in any `{var}` directory"))
@@ -1418,31 +1372,6 @@ fn resolve(name: &str, dirs: &[String], kind: &str, var: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn package_directories_preserve_order_and_reject_missing_paths() {
-        let root = std::env::temp_dir().join(format!(
-            "windows-rs-package-dirs-{}-{}",
-            std::process::id(),
-            std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
-                .unwrap()
-                .as_nanos()
-        ));
-        let dirs = [root.join("second"), root.join("first")];
-        for dir in &dirs {
-            std::fs::create_dir_all(dir).unwrap();
-        }
-        assert_eq!(
-            checked_dirs(dirs.clone()),
-            dirs.map(|dir| dir.to_str().unwrap().replace('\\', "/"))
-        );
-        assert!(std::panic::catch_unwind(|| checked_dirs([root.join("missing")])).is_err());
-        let file = root.join("file");
-        std::fs::write(&file, "").unwrap();
-        assert!(std::panic::catch_unwind(|| checked_dirs([file])).is_err());
-        std::fs::remove_dir_all(root).unwrap();
-    }
 
     #[test]
     fn library_overrides_are_checked_and_applied() {

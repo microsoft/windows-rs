@@ -97,8 +97,37 @@ fn refresh_winmd(nuspec: &str) {
         nuspec_dependency_version(nuspec, "Microsoft.WindowsAppSDK.InteractiveExperiences");
     let winui = nuspec_dependency_version(nuspec, "Microsoft.WindowsAppSDK.WinUI");
 
-    let dir = workspace_path(WINMD);
-    for entry in fs::read_dir(&dir).unwrap_or_else(|error| panic!("cannot read `{WINMD}`: {error}"))
+    let sources = [
+        nuget_package("microsoft.windowsappsdk.foundation", &foundation).join("metadata"),
+        nuget_package("microsoft.windowsappsdk.winui", &winui).join("metadata"),
+        newest_subdir(
+            &nuget_package(
+                "microsoft.windowsappsdk.interactiveexperiences",
+                &interactive,
+            )
+            .join("metadata"),
+        ),
+    ];
+    replace_winmd(&sources, &workspace_path(WINMD));
+}
+
+fn replace_winmd(sources: &[PathBuf], destination: &Path) {
+    let mut files = Vec::new();
+    for source in sources {
+        for path in tool_reactor_metadata::winmd_paths(source) {
+            let bytes = fs::read(&path)
+                .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", path.display()));
+            assert!(
+                windows_metadata::reader::File::new(bytes.clone()).is_some(),
+                "invalid metadata in `{}`",
+                path.display()
+            );
+            files.push((path.file_name().unwrap().to_owned(), bytes));
+        }
+    }
+
+    for entry in fs::read_dir(destination)
+        .unwrap_or_else(|error| panic!("cannot read `{}`: {error}", destination.display()))
     {
         let path = entry.unwrap().path();
         let is_winmd = path
@@ -115,18 +144,11 @@ fn refresh_winmd(nuspec: &str) {
         }
     }
 
-    let foundation_package = nuget_package("microsoft.windowsappsdk.foundation", &foundation);
-    copy_winmd(&foundation_package.join("metadata"), &dir);
-    copy_winmd(
-        &nuget_package("microsoft.windowsappsdk.winui", &winui).join("metadata"),
-        &dir,
-    );
-    let interactive_metadata = nuget_package(
-        "microsoft.windowsappsdk.interactiveexperiences",
-        &interactive,
-    )
-    .join("metadata");
-    copy_winmd(&newest_subdir(&interactive_metadata), &dir);
+    for (name, bytes) in files {
+        let path = destination.join(name);
+        fs::write(&path, bytes)
+            .unwrap_or_else(|error| panic!("cannot write `{}`: {error}", path.display()));
+    }
 }
 
 fn read_nuspec(package_dir: &Path) -> String {
@@ -187,17 +209,66 @@ fn metadata_version(name: &str) -> [u32; 4] {
         .unwrap_or_else(|_| panic!("metadata version must have four components: `{name}`"))
 }
 
-fn copy_winmd(source: &Path, destination: &Path) {
-    for path in tool_reactor_metadata::winmd_paths(source) {
-        let name = path.file_name().unwrap();
-        fs::copy(&path, destination.join(name))
-            .unwrap_or_else(|error| panic!("cannot copy `{}`: {error}", path.display()));
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn metadata_inputs_are_validated_before_replacing_outputs() {
+        let root = std::env::temp_dir().join(format!(
+            "windows-rs-metadata-refresh-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        let sources = [root.join("first"), root.join("second")];
+        let destination = root.join("output");
+        for dir in [&sources[0], &destination] {
+            fs::create_dir_all(dir).unwrap();
+        }
+        let preserved = [
+            "extras.winmd",
+            "Microsoft.Web.WebView2.Core.winmd",
+            "notes.txt",
+        ];
+        for name in preserved.into_iter().chain(["Old.winmd"]) {
+            fs::write(destination.join(name), "original").unwrap();
+        }
+        fs::write(sources[0].join("New.winmd"), windows_default::WINRT).unwrap();
+        let assert_unchanged = || {
+            assert!(std::panic::catch_unwind(|| replace_winmd(&sources, &destination)).is_err());
+            for name in preserved.into_iter().chain(["Old.winmd"]) {
+                assert_eq!(
+                    fs::read_to_string(destination.join(name)).unwrap(),
+                    "original"
+                );
+            }
+            assert!(!destination.join("New.winmd").exists());
+        };
+        assert_unchanged();
+        fs::create_dir(&sources[1]).unwrap();
+        assert_unchanged();
+        fs::write(sources[1].join("Other.winmd"), "invalid metadata").unwrap();
+        assert_unchanged();
+        fs::write(sources[1].join("Other.winmd"), windows_default::WINRT).unwrap();
+        replace_winmd(&sources, &destination);
+        assert!(!destination.join("Old.winmd").exists());
+        for name in ["New.winmd", "Other.winmd"] {
+            assert_eq!(
+                fs::read(destination.join(name)).unwrap(),
+                windows_default::WINRT
+            );
+        }
+        for name in preserved {
+            assert_eq!(
+                fs::read_to_string(destination.join(name)).unwrap(),
+                "original"
+            );
+        }
+        fs::remove_dir_all(root).unwrap();
+    }
 
     #[test]
     fn metadata_versions_sort_numerically() {
