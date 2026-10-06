@@ -309,7 +309,11 @@ mod tests {
 
         fn view(&self, input: &Self::Input, _: &mut ViewContext<Self>) -> View {
             self.0.call("view");
-            TextBlock::new().text(input.0.to_string()).into()
+            let click = self.0.clone();
+            Button::new()
+                .content(input.0.to_string())
+                .on_click(move || click.call("click"))
+                .into()
         }
     }
 
@@ -331,9 +335,11 @@ mod tests {
         .unwrap();
         host.update_root(component::<ObservedWindow>("main", (1, callback.clone())))
             .unwrap();
+        host.drain(64).unwrap();
         assert_eq!(*events.borrow(), ["create", "view"]);
         host.update_root(component::<ObservedWindow>("main", (2, callback)))
             .unwrap();
+        host.drain(64).unwrap();
         assert_eq!(*events.borrow(), ["create", "view", "input", "view"]);
         assert!(matches!(
             host.update_root(component::<TestWindow>("main", ())),
@@ -343,6 +349,52 @@ mod tests {
         assert_eq!(
             *events.borrow(),
             ["create", "view", "input", "view", "drop"]
+        );
+    }
+
+    #[test]
+    fn root_inputs_wait_for_native_events_and_coalesce() {
+        let events = Rc::new(RefCell::new(Vec::new()));
+        let record = Rc::clone(&events);
+        let callback = Callback::new(move |event| record.borrow_mut().push(event));
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<ObservedWindow>("main", (1, callback.clone()))],
+        )
+        .unwrap();
+        let object = host.reference(&Key::from("main")).unwrap().get().unwrap();
+        let event = host.runtime().graph().events(object).unwrap()[0].clone();
+        host.queue_event(EventDispatch::new(
+            object,
+            event.id,
+            event.value,
+            EventPayload::Unit,
+        ));
+        host.update_root(component::<ObservedWindow>("main", (2, callback.clone())))
+            .unwrap();
+        host.update_root(component::<ObservedWindow>("main", (3, callback)))
+            .unwrap();
+        assert_eq!(*events.borrow(), ["create", "view"]);
+        assert!(host.has_pending_input());
+        host.drain(64).unwrap();
+        assert!(!host.has_pending_input());
+        assert_eq!(
+            *events.borrow(),
+            ["create", "view", "click", "input", "view"]
+        );
+        let content = host
+            .runtime()
+            .graph()
+            .child(object, RelationId::Content)
+            .unwrap();
+        assert!(
+            host.runtime()
+                .graph()
+                .properties(content)
+                .unwrap()
+                .iter()
+                .any(|property| property.id == PropertyId::Text
+                    && property.value == PropertyValue::String(Rc::from("3")))
         );
     }
 }

@@ -168,6 +168,10 @@ jobs:
                 --quiet -- $_
             }
           cargo run -p test-reactor-integration --bin application_menu --quiet
+          cargo run -p test-reactor-integration --bin application_menus --quiet
+          "input", "close", "application" | ForEach-Object {
+            cargo run -p test-reactor-integration --bin application_dispatch --quiet -- $_
+          }
           "lifecycle", "menus", "empty", "exit", "unknown", "invalid-icon", "duplicate",
           "window-only", "runtime-error", "explicit-exit" |
             ForEach-Object {

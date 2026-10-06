@@ -56,31 +56,15 @@ impl<A: Application> ApplicationHost<A> {
     fn new(app: &AppContext, input: A::Input) -> windows_core::Result<Self> {
         let state: Rc<RefCell<Option<ApplicationState<A>>>> = Rc::new(RefCell::new(None));
         let weak = Rc::downgrade(&state);
-        let deferred = Rc::new(Cell::new(false));
-        let drain = app.callback(move || {
+        let application = LiveApplication::new(app, false)?;
+        let drain = application.services.dispatch.callback(app, move || {
             if let Some(state) = weak.upgrade() {
-                deferred.set(true);
-                // Native calls can pump a nested dispatcher loop. The active drain owns the
-                // model until it returns, then schedules any work requested during that loop.
-                let Ok(mut state) = state.try_borrow_mut() else {
-                    return Ok(());
-                };
-                if let Some(state) = state.as_mut() {
-                    deferred.set(false);
-                    if let Err(error) = state.drain() {
-                        state.exiting = true;
-                        return Err(error);
-                    }
-                    if deferred.replace(false) {
-                        state
-                            .application
-                            .state
-                            .borrow()
-                            .changed
-                            .as_ref()
-                            .unwrap()
-                            .invoke()?;
-                    }
+                let mut state = state.borrow_mut();
+                if let Some(state) = state.as_mut()
+                    && let Err(error) = state.drain()
+                {
+                    state.exiting = true;
+                    return Err(error);
                 }
             }
             Ok(())
@@ -96,7 +80,6 @@ impl<A: Application> ApplicationHost<A> {
             sender: messages.sender(),
             commands: RefCell::new(Vec::new()),
         };
-        let application = LiveApplication::new(app, false)?;
         application.state.borrow_mut().changed = Some(host.drain.clone());
         let model = A::create(&input, &context);
         let mut state = ApplicationState {
@@ -179,13 +162,8 @@ impl<A: Application> ApplicationState<A> {
         for (key, root) in view.windows {
             if let Some(slot) = self.windows.get_mut(&key) {
                 slot.root = root.clone();
-                let application = self.application.state.borrow();
-                if let Some(window) = slot.instance.and_then(|id| application.windows.get(&id)) {
-                    let mut state = window.state.borrow_mut();
-                    let state = state.as_mut().unwrap();
-                    if state.lifecycle == ComponentWindowLifecycle::Open {
-                        state.host.update_root(root)?;
-                    }
+                if let Some(id) = slot.instance {
+                    self.application.services.update_input(root, id);
                 }
             } else {
                 self.windows.insert(
@@ -379,9 +357,16 @@ impl<A: Application> ApplicationState<A> {
         for key in pending {
             let slot = self.windows.get_mut(&key).unwrap();
             if slot.instance.is_some_and(|id| {
-                self.application.services.pending.borrow().iter().any(|work| {
-                    matches!(work, WindowWork::Close(current) | WindowWork::Closed(current) if *current == id)
-                })
+                self.application
+                    .services
+                    .pending
+                    .borrow()
+                    .iter()
+                    .any(|work| {
+                        matches!(work, WindowWork::Close(current) | WindowWork::Closed(current)
+                        | WindowWork::Input { window: current, .. }
+                        | WindowWork::Publish { window: current, .. } if *current == id)
+                    })
             }) {
                 continue;
             }
@@ -394,11 +379,15 @@ impl<A: Application> ApplicationState<A> {
                     .map(|window| {
                         let state = window.state.borrow();
                         let state = state.as_ref().unwrap();
-                        (state.lifecycle, state.window.clone())
+                        (
+                            state.lifecycle.get(),
+                            state.window.clone(),
+                            state.host.has_pending_input(),
+                        )
                     })
             });
             match instance {
-                Some((ComponentWindowLifecycle::Open, window)) => {
+                Some((ComponentWindowLifecycle::Open, window, false)) => {
                     window.restore_and_activate()?;
                     self.pending_show.retain(|pending| pending != &key);
                 }

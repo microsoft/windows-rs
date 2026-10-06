@@ -282,6 +282,43 @@ fn virtual_cleanup_host(
 }
 
 #[test]
+fn root_inputs_wait_for_virtual_realization() {
+    let first = Rc::new(RefCell::new(Vec::new()));
+    let second = Rc::new(RefCell::new(Vec::new()));
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<VirtualParent>(
+            "virtual",
+            VirtualEffectLog(Rc::clone(&first)),
+        )],
+    )
+    .unwrap();
+    let root = host.runtime().graph().root().unwrap();
+    let collection = host
+        .runtime()
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    host.queue_realization(RealizationRequest::Realize {
+        collection,
+        container: RealizedContainer(1),
+        index: 0,
+        source_revision: 0,
+    });
+    host.update_root(component::<VirtualParent>(
+        "virtual",
+        VirtualEffectLog(Rc::clone(&second)),
+    ))
+    .unwrap();
+    host.drain(64).unwrap();
+    assert_eq!(*first.borrow(), ["setup"]);
+    assert_eq!(host.test_state().virtual_rows, 1);
+    assert!(!host.has_pending_input());
+    drop(host);
+    assert_eq!(*first.borrow(), ["setup", "cleanup"]);
+}
+
+#[test]
 fn virtual_rows_own_components_only_while_realized() {
     let events = Rc::new(RefCell::new(Vec::new()));
     let mut host = ComponentHost::mount(
