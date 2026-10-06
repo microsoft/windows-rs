@@ -272,12 +272,10 @@ impl RecordingAdapter {
             .count()
     }
 
-    #[cfg(any(test, feature = "test"))]
     pub fn realization_count(&self) -> usize {
         self.realizations.len()
     }
 
-    #[cfg(any(test, feature = "test"))]
     pub fn queued_native_event_count(&self) -> usize {
         self.native_events.len()
     }

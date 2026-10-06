@@ -6,8 +6,11 @@ $ErrorActionPreference = "Stop"
 $report = Get-Content $Path -Raw | ConvertFrom-Json
 $files = $report.data[0].files
 $requirements = @(
-    @{ Suffix = "src\adapter.rs"; Branches = 60; Lines = 87 },
-    @{ Suffix = "src\component.rs"; Branches = 62; Lines = 88 },
+    @{ Suffix = "src\test_support\adapter.rs"; Branches = 60; Lines = 87 },
+    @{ Suffix = "src\test_support\component.rs"; Branches = 0; Lines = 85 },
+    @{ Suffix = "src\test_support\reconcile.rs"; Branches = 60; Lines = 65 },
+    @{ Suffix = "src\test_support\reference.rs"; Branches = 0; Lines = 100 },
+    @{ Suffix = "src\component.rs"; Branches = 62; Lines = 85 },
     @{ Suffix = "src\declaration.rs"; Branches = 65; Lines = 75 },
     @{ Suffix = "src\ir.rs"; Branches = 70; Lines = 88 },
     @{ Suffix = "src\reconcile.rs"; Branches = 68; Lines = 85 },

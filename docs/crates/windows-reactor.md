@@ -254,3 +254,85 @@ Handwritten modules use `use super::*;`, with shared imports supplied by `src/li
 `src/native/mod.rs`. Keep native binding names separate where they overlap Reactor declarations;
 the WinUI adapter uses the `native::` prefix for those bindings. `Weak` denotes an `Rc` weak
 reference, while `SyncWeak` denotes an `Arc` weak reference.
+
+### Test boundaries
+
+The default API exposes application components, declarations, references, and window integration.
+Host/runtime protocols such as `ComponentHost`, `Runtime`, `Adapter`, retained graphs, mutations,
+service injection, schema metadata, and generic property/event records are available only with
+the `test` feature. Applications should use `App::run_component`, component messages, and `provide`
+rather than drive a retained host directly.
+Typed control callbacks and reference integration methods do not expose the runtime records.
+`ObjectId` remains public through `ElementRef::get()`.
+
+`src/lib.rs` explicitly exports handwritten application types. Generated controls and their value
+enums are exported from `declaration::generated_declarations`; the metadata in `generated` and
+validation errors in `ir` stay internal by default. These protocols still run in production.
+Restricting their exports does not make their implementations test-only. Keep application exports
+separate from internal wildcard imports so adding a public helper to an implementation module
+does not automatically add an application API.
+
+| Location | Purpose | Compilation |
+| --- | --- | --- |
+| `src/tests` | Unit tests and their private fixtures | `cfg(test)` |
+| `src/test_support` | Recording adapters, diagnostics, and live-test helpers | `cfg(test)` or the `test` feature, as gated by the owner |
+| Other `src` modules | Production implementation | Normal library builds |
+
+`test_support` mirrors the owning modules: `component`, `reconcile`, `reference`, and `native`.
+Headless host operations and services also live in this directory. The recording adapter remains
+a root module. Support files are private child modules loaded with
+`#[path]`, so diagnostic implementations can inspect their owner's state without widening
+production visibility. Existing diagnostic exports remain available through the `test` feature.
+Live application helpers in `test_support/native/app.rs` require that feature.
+
+Keep only representation and trait hooks beside the production code: conditional fields,
+counter updates, and conditional erased-component inspection methods. Diagnostic queries and
+test-only implementations belong in `test_support`. Unit-only mutation capture and reference
+scan instrumentation remain gated by `cfg(test)`, not the `test` feature, so external benchmarks
+do not acquire their allocation or layout costs.
+
+Full property-contract enumeration and queued key/character payloads are diagnostic-only.
+Production validates individual properties and invokes routed input callbacks synchronously.
+
+Both directories are included in the published package. In particular, `test_support` cannot be
+excluded while a published feature depends on it. The Cargo `test` feature is an ordinary
+opt-in feature, not the compiler's unit-test configuration.
+
+### Private unit tests
+
+Unit test sources live under `crates/libs/reactor/src/tests`. The directory contains library test
+modules, not separate Cargo integration-test targets.
+
+| Files | Scope |
+| --- | --- |
+| `mod.rs` and its child modules | Shared fixtures and headless subsystem tests |
+| `component/mod.rs` and its child modules | Component-host tests and shared private fixtures |
+| `native/app.rs`, `native/transient_menu.rs`, `native/winui.rs` | Native implementation tests |
+
+Keep tests that need private implementation details beneath the owning module, using `#[path]`
+to place their files in this directory. Test modules inherit imports with `use super::*;`; do not
+widen production visibility to make a test helper accessible.
+
+The directory layout groups tests by ownership, but `#[path]` determines their module scope.
+For example, `tests/native/app.rs` is `native::app::tests`, not `tests::native::app`. Component
+tests are grouped by context, lifecycle, messaging, reconciliation, virtualization, and window
+services. Keep a fixture with its consumers; only fixtures used by multiple groups belong in
+`component/mod.rs`.
+
+Filter tests by function name, for example
+`cargo test -p windows-reactor --all-features context_change_renders_only_subscribers`, rather
+than a full module path. This keeps commands independent of subsystem file organization.
+
+Run the unit tests with `cargo test -p windows-reactor --all-features --lib`. Privileged WinUI
+coverage lives in `test-reactor-selftest`; performance runners keep the diagnostic `test` feature.
+Application lifecycle, menu, Canvas, WebView, and window-state fixtures live in
+[`test-reactor-integration`](../../crates/tests/libs/reactor_integration/readme.md), which does not
+enable that feature. Build it in a separate Cargo invocation from privileged packages to avoid
+feature unification. Unit test sources are included in the published package.
+
+The Workbench sample uses `App::run_component` and owns its theme through `provide`. Its normal
+build does not enable the `test` feature; only its headless regression tests do.
+
+The coverage gate in `crates/tests/libs/reactor_selftest/coverage.ps1` checks production and
+headless support files separately, not the unit-test bodies. Use modules rather than `include!`
+for handwritten support so coverage is attributed to the support files.

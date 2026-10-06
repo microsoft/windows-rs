@@ -3038,23 +3038,33 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
         }
     }
     output.push_str("_ => usize::MAX,\n} }\n");
-    output.push_str("pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[",
+    );
     for object in &schema.objects {
         output.push_str(&format!("ObjectType::{},", object.name));
     }
     output.push_str("];\n");
-    output.push_str("pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[",
+    );
     for property in properties.keys() {
         output.push_str(&format!("PropertyId::{property},"));
     }
     output.push_str("];\n");
-    output.push_str("fn object_index(kind: ObjectType) -> usize { match kind {\n");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         fn object_index(kind: ObjectType) -> usize { match kind {\n",
+    );
     for (index, object) in schema.objects.iter().enumerate() {
         output.push_str(&format!("ObjectType::{} => {index},", object.name));
     }
     output.push_str("} }\n");
     output.push_str(
-        "pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {\n\
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {\n\
          static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> = \
          std::sync::OnceLock::new();\n\
          let contracts = CONTRACTS.get_or_init(|| {\n\
@@ -3075,7 +3085,10 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
          }\n",
     );
 
-    output.push_str("pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,");
+    output.push_str(
+        "#[cfg(any(test, feature = \"test\"))]\n\
+         pub(crate) fn focus_capable(kind: ObjectType) -> bool { matches!(kind,",
+    );
     if !schema.objects.iter().any(|object| object.focus) {
         output.push_str("_ if false");
     } else {

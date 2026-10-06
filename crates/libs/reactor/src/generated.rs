@@ -2585,6 +2585,7 @@ pub(crate) fn property_order(kind: ObjectType, id: PropertyId) -> usize {
         _ => usize::MAX,
     }
 }
+#[cfg(any(test, feature = "test"))]
 pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
     ObjectType::TextBlock,
     ObjectType::TextBox,
@@ -2668,6 +2669,7 @@ pub(crate) const ALL_OBJECT_TYPES: &[ObjectType] = &[
     ObjectType::WebView2,
     ObjectType::SwapChainPanel,
 ];
+#[cfg(any(test, feature = "test"))]
 pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::AcceptsReturn,
     PropertyId::ActionButtonContent,
@@ -2833,6 +2835,7 @@ pub(crate) const ALL_PROPERTY_IDS: &[PropertyId] = &[
     PropertyId::Y2,
     PropertyId::YearVisible,
 ];
+#[cfg(any(test, feature = "test"))]
 fn object_index(kind: ObjectType) -> usize {
     match kind {
         ObjectType::TextBlock => 0,
@@ -2918,6 +2921,7 @@ fn object_index(kind: ObjectType) -> usize {
         ObjectType::SwapChainPanel => 80,
     }
 }
+#[cfg(any(test, feature = "test"))]
 pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> =
         std::sync::OnceLock::new();
@@ -2950,6 +2954,7 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
     });
     contracts[object_index(kind)]
 }
+#[cfg(any(test, feature = "test"))]
 pub(crate) fn focus_capable(kind: ObjectType) -> bool {
     matches!(
         kind,
