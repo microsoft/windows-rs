@@ -647,8 +647,8 @@ impl ComponentTask {
         self.control.cancel();
     }
 
-    pub fn status(&self) -> ComponentTaskStatus {
-        self.control.status()
+    pub fn is_rejected(&self) -> bool {
+        self.control.status() == ComponentTaskStatus::Rejected
     }
 }
 
@@ -662,8 +662,8 @@ impl ComponentTimer {
         self.task.cancel();
     }
 
-    pub fn status(&self) -> ComponentTaskStatus {
-        self.task.status()
+    pub fn is_rejected(&self) -> bool {
+        self.task.is_rejected()
     }
 }
 

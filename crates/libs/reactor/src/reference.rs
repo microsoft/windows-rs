@@ -4,6 +4,7 @@ pub(crate) const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 static NEXT_BINDING_ID: AtomicU64 = AtomicU64::new(1);
 static NEXT_OBSERVATION_ID: AtomicU64 = AtomicU64::new(1);
 
+#[doc(hidden)]
 pub enum AnyElement {}
 
 /// A declaration reference whose type limits control-specific integration APIs.
@@ -35,7 +36,7 @@ impl<T> ElementRef<T> {
         }
     }
 
-    pub fn get(&self) -> Option<ObjectId> {
+    fn object(&self) -> Option<ObjectId> {
         self.target
             .borrow()
             .binding
@@ -76,7 +77,7 @@ impl<T> ElementRef<T> {
     }
 
     pub(crate) fn clear(&self, object: ObjectId) {
-        if self.get() == Some(object) {
+        if self.object() == Some(object) {
             self.retire_current_binding();
             let mut target = self.target.borrow_mut();
             target.binding = None;
@@ -199,7 +200,7 @@ impl<T> fmt::Debug for ElementRef<T> {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter
             .debug_tuple("ElementRef")
-            .field(&self.get())
+            .field(&self.object())
             .finish()
     }
 }
@@ -356,10 +357,19 @@ pub enum IntegrationError {
     Unavailable,
 }
 
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct SwapChainPanelBinding(u64);
+
+impl SwapChainPanelBinding {
+    pub(crate) const fn new(value: u64) -> Self {
+        Self(value)
+    }
+}
+
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SwapChainPanelEvent {
     Metrics {
-        binding: u64,
+        binding: SwapChainPanelBinding,
         width: f64,
         height: f64,
         scale_x: f32,

@@ -69,12 +69,6 @@ pub fn windows_reactor::CommandBarCommand::button(impl core::convert::Into<windo
 pub fn windows_reactor::CommandBarCommand::button_with_icon(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::rcs::rc::Rc<str>>, impl core::convert::Into<windows_reactor::Icon>) -> Self
 pub fn windows_reactor::CommandBarCommand::disabled(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::CommandBarCommand::separator(impl core::convert::Into<windows_reactor::Key>) -> Self
-pub enum windows_reactor::ComponentTaskStatus
-pub windows_reactor::ComponentTaskStatus::Cancelled
-pub windows_reactor::ComponentTaskStatus::Delivered
-pub windows_reactor::ComponentTaskStatus::Queued
-pub windows_reactor::ComponentTaskStatus::Rejected
-pub windows_reactor::ComponentTaskStatus::Running
 pub enum windows_reactor::CompositionHostEvent
 pub windows_reactor::CompositionHostEvent::Metrics
 pub windows_reactor::CompositionHostEvent::Metrics::height: f64
@@ -211,7 +205,7 @@ pub windows_reactor::Stretch::Uniform
 pub windows_reactor::Stretch::UniformToFill
 pub enum windows_reactor::SwapChainPanelEvent
 pub windows_reactor::SwapChainPanelEvent::Metrics
-pub windows_reactor::SwapChainPanelEvent::Metrics::binding: u64
+pub windows_reactor::SwapChainPanelEvent::Metrics::binding: windows_reactor::SwapChainPanelBinding
 pub windows_reactor::SwapChainPanelEvent::Metrics::height: f64
 pub windows_reactor::SwapChainPanelEvent::Metrics::scale_x: f32
 pub windows_reactor::SwapChainPanelEvent::Metrics::scale_y: f32
@@ -1188,11 +1182,11 @@ pub fn windows_reactor::ComponentSender<M>::clone(&self) -> Self
 pub struct windows_reactor::ComponentTask
 impl windows_reactor::ComponentTask
 pub fn windows_reactor::ComponentTask::cancel(&self)
-pub fn windows_reactor::ComponentTask::status(&self) -> windows_reactor::ComponentTaskStatus
+pub fn windows_reactor::ComponentTask::is_rejected(&self) -> bool
 pub struct windows_reactor::ComponentTimer
 impl windows_reactor::ComponentTimer
 pub fn windows_reactor::ComponentTimer::cancel(&self)
-pub fn windows_reactor::ComponentTimer::status(&self) -> windows_reactor::ComponentTaskStatus
+pub fn windows_reactor::ComponentTimer::is_rejected(&self) -> bool
 impl core::ops::drop::Drop for windows_reactor::ComponentTimer
 pub fn windows_reactor::ComponentTimer::drop(&mut self)
 pub struct windows_reactor::ContentDialog(_, _)
@@ -1347,7 +1341,6 @@ pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::request_sur
 impl windows_reactor::ElementRef<windows_reactor::WebView2>
 pub fn windows_reactor::ElementRef<windows_reactor::WebView2>::request_core_web_view2(&self, impl core::ops::function::Fn(core::result::Result<windows_core::unknown::IUnknown, windows_reactor::IntegrationError>) + 'static) -> bool
 impl<T> windows_reactor::ElementRef<T>
-pub fn windows_reactor::ElementRef<T>::get(&self) -> core::option::Option<windows_reactor::ObjectId>
 pub fn windows_reactor::ElementRef<T>::new() -> Self
 pub fn windows_reactor::ElementRef<T>::request_focus(&self) -> bool
 pub fn windows_reactor::ElementRef<T>::request_focus_result(&self, impl core::ops::function::Fn(core::result::Result<bool, windows_reactor::FocusError>) + 'static) -> bool
@@ -2430,10 +2423,6 @@ pub fn windows_reactor::View::from(windows_reactor::NumberBox) -> Self
 impl core::default::Default for windows_reactor::NumberBox
 pub fn windows_reactor::NumberBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::NumberBox
-pub struct windows_reactor::ObjectId
-impl windows_reactor::ObjectId
-pub const fn windows_reactor::ObjectId::generation(self) -> u32
-pub const fn windows_reactor::ObjectId::index(self) -> u32
 pub struct windows_reactor::PasswordBox(_)
 impl windows_reactor::PasswordBox
 pub fn windows_reactor::PasswordBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
@@ -3462,6 +3451,7 @@ pub fn windows_reactor::View::from(windows_reactor::SwapChainPanel) -> Self
 impl core::default::Default for windows_reactor::SwapChainPanel
 pub fn windows_reactor::SwapChainPanel::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::SwapChainPanel
+pub struct windows_reactor::SwapChainPanelBinding(_)
 pub struct windows_reactor::SymbolIcon(_)
 impl windows_reactor::SymbolIcon
 pub fn windows_reactor::SymbolIcon::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
@@ -4368,19 +4358,19 @@ pub fn windows_reactor::FlyoutExt::flyout_with(self, windows_reactor::Flyout) ->
 impl<T> windows_reactor::FlyoutExt for T where T: core::convert::Into<windows_reactor::View>
 pub fn T::flyout(self, impl core::convert::AsRef<str>) -> windows_reactor::View
 pub fn T::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::View
-pub trait windows_reactor::IntoPayloadCallback<T>
+pub trait windows_reactor::IntoPayloadCallback<T>: windows_reactor::sealed::PayloadCallback<T>
 pub fn windows_reactor::IntoPayloadCallback::into_payload_callback(self) -> windows_reactor::Callback<T>
 impl<T, F> windows_reactor::IntoPayloadCallback<T> for F where F: core::ops::function::Fn(T) + 'static
 pub fn F::into_payload_callback(self) -> windows_reactor::Callback<T>
 impl<T> windows_reactor::IntoPayloadCallback<T> for windows_reactor::Callback<T>
 pub fn windows_reactor::Callback<T>::into_payload_callback(self) -> Self
-pub trait windows_reactor::IntoUnitCallback
+pub trait windows_reactor::IntoUnitCallback: windows_reactor::sealed::UnitCallback
 pub fn windows_reactor::IntoUnitCallback::into_unit_callback(self) -> windows_reactor::Callback<()>
 impl windows_reactor::IntoUnitCallback for windows_reactor::Callback<()>
 pub fn windows_reactor::Callback<()>::into_unit_callback(self) -> Self
 impl<F> windows_reactor::IntoUnitCallback for F where F: core::ops::function::Fn() + 'static
 pub fn F::into_unit_callback(self) -> windows_reactor::Callback<()>
-pub trait windows_reactor::IntoViews
+pub trait windows_reactor::IntoViews: windows_reactor::sealed::Sealed
 pub fn windows_reactor::IntoViews::into_visuals(self) -> alloc::vec::Vec<windows_reactor::View>
 impl windows_reactor::IntoViews for ()
 pub fn ()::into_visuals(self) -> alloc::vec::Vec<windows_reactor::View>

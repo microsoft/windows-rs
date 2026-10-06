@@ -18,7 +18,9 @@ pub mod native;
 mod reconcile;
 mod reference;
 mod sealed {
+    pub trait PayloadCallback<T> {}
     pub trait Sealed {}
+    pub trait UnitCallback {}
 }
 mod window;
 
@@ -46,8 +48,8 @@ use component::*;
 pub use component::*;
 pub use component::{
     CancellationToken, Component, ComponentCompletion, ComponentContext, ComponentNode,
-    ComponentSender, ComponentTask, ComponentTaskStatus, ComponentTimer, Context, EffectKey,
-    LocalSender, ViewContext, WindowHandle, component, provide,
+    ComponentSender, ComponentTask, ComponentTimer, Context, EffectKey, LocalSender, ViewContext,
+    WindowHandle, component, provide,
 };
 #[cfg(not(any(test, feature = "test")))]
 pub use declaration::generated_declarations::*;
@@ -83,7 +85,6 @@ pub use native::{
     live_virtual_shell_counts, schedule_live_test_exit, subscribe_live_interval,
     subscribe_live_rendering, subscribe_live_tick,
 };
-pub use reconcile::ObjectId;
 #[cfg(not(any(test, feature = "test")))]
 use reconcile::*;
 #[cfg(any(test, feature = "test"))]
@@ -94,7 +95,7 @@ use reference::*;
 pub use reference::*;
 pub use reference::{
     AnyElement, CompatibleElementRef, CompositionHostEvent, ElementObservation, ElementRef,
-    FocusError, IntegrationError, ReferenceElement, SwapChainPanelEvent,
+    FocusError, IntegrationError, ReferenceElement, SwapChainPanelBinding, SwapChainPanelEvent,
 };
 pub use window::*;
 pub use windows_time::{DateTime, TimeSpan};

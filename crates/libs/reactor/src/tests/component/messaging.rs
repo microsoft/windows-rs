@@ -743,6 +743,7 @@ fn controlled_task_send_after_closure_is_cancelled_or_rejected() {
         Arc::clone(&untracked)
     ));
     assert_eq!(untracked.status(), ComponentTaskStatus::Rejected);
+    assert!(ComponentTask { control: untracked }.is_rejected());
 }
 
 #[test]
