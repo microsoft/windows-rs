@@ -521,6 +521,7 @@ pub(crate) trait ComponentUiServices {
 pub(crate) struct WindowPublication {
     pub(crate) on_color_scheme: Option<Callback<ColorScheme>>,
     pub(crate) on_size: Option<Callback<WindowSize>>,
+    pub(crate) on_placement: Option<Callback<WindowPlacement>>,
     pub(crate) title: Option<String>,
     pub(crate) visuals: Option<WindowVisuals>,
 }
@@ -536,6 +537,7 @@ enum ComponentDeclarationError {
     Effect(EffectKey),
     WindowColorScheme,
     WindowSize,
+    WindowPlacement,
     WindowTitle,
     WindowVisuals,
 }
@@ -825,6 +827,7 @@ pub struct ViewContext<'a, C: Component> {
     window: WindowPublication,
     window_color_scheme_duplicate: bool,
     window_size_duplicate: bool,
+    window_placement_duplicate: bool,
     window_title_duplicate: bool,
     window_visuals_duplicate: bool,
 }
@@ -891,6 +894,20 @@ impl<C: Component> ViewContext<'_, C> {
         self.window_size_duplicate |= self
             .window
             .on_size
+            .replace(callback.into_payload_callback())
+            .is_some();
+    }
+
+    /// Observes restored outer bounds and maximized state, including the initial placement.
+    ///
+    /// Notifications are coalesced, exclude minimized state, and stop when the window or
+    /// subscribing component closes. Persist values in this callback's message handler rather
+    /// than relying on a shutdown notification. Repeated unchanged declarations do not replay
+    /// the current placement.
+    pub fn on_window_placement(&mut self, callback: impl IntoPayloadCallback<WindowPlacement>) {
+        self.window_placement_duplicate |= self
+            .window
+            .on_placement
             .replace(callback.into_payload_callback())
             .is_some();
     }
@@ -1178,6 +1195,7 @@ impl<C: Component> TypedScope<C> {
             window: WindowPublication::default(),
             window_color_scheme_duplicate: false,
             window_size_duplicate: false,
+            window_placement_duplicate: false,
             window_title_duplicate: false,
             window_visuals_duplicate: false,
         };
@@ -1190,6 +1208,9 @@ impl<C: Component> TypedScope<C> {
         }
         if context.window_size_duplicate {
             return Err(ComponentDeclarationError::WindowSize);
+        }
+        if context.window_placement_duplicate {
+            return Err(ComponentDeclarationError::WindowPlacement);
         }
         if context.window_title_duplicate {
             return Err(ComponentDeclarationError::WindowTitle);
@@ -1399,6 +1420,7 @@ pub enum ComponentError<E> {
     DuplicateKey(Key),
     DuplicateWindowColorScheme,
     DuplicateWindowSize,
+    DuplicateWindowPlacement,
     DuplicateWindowTitle,
     DuplicateWindowVisuals,
     MissingComponent(Key),
@@ -1417,6 +1439,7 @@ impl<E> From<ComponentDeclarationError> for ComponentError<E> {
             ComponentDeclarationError::Effect(key) => Self::DuplicateEffect(key),
             ComponentDeclarationError::WindowColorScheme => Self::DuplicateWindowColorScheme,
             ComponentDeclarationError::WindowSize => Self::DuplicateWindowSize,
+            ComponentDeclarationError::WindowPlacement => Self::DuplicateWindowPlacement,
             ComponentDeclarationError::WindowTitle => Self::DuplicateWindowTitle,
             ComponentDeclarationError::WindowVisuals => Self::DuplicateWindowVisuals,
         }
@@ -1511,6 +1534,14 @@ impl<A: Adapter> ComponentHost<A> {
                 && publication.on_size.replace(on_size.clone()).is_some()
             {
                 return Err(ComponentError::DuplicateWindowSize);
+            }
+            if let Some(on_placement) = &window.on_placement
+                && publication
+                    .on_placement
+                    .replace(on_placement.clone())
+                    .is_some()
+            {
+                return Err(ComponentError::DuplicateWindowPlacement);
             }
             if let Some(title) = &window.title
                 && publication.title.replace(title.clone()).is_some()

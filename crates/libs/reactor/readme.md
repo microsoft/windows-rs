@@ -9,6 +9,11 @@ protocols, schema metadata, and diagnostics for framework tests and benchmarks; 
 to build a UI. Applications use typed control builders, callbacks, and reference integration
 methods rather than generic property/event records or imperative requests.
 
+Components can declare `WindowVisuals::initial_position` or restore `initial_placement` before a
+window first appears. `ViewContext::on_window_placement` reports restored outer bounds in physical
+screen pixels and maximized state; applications own persistence. Initial placement is not replayed
+on later renders.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
 

@@ -4165,6 +4165,7 @@ pub fn windows_reactor::ViewContext<'_, C>::callback<T>(&self, impl core::ops::f
 pub fn windows_reactor::ViewContext<'_, C>::forward(&self) -> windows_reactor::Callback<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ViewContext<'_, C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
 pub fn windows_reactor::ViewContext<'_, C>::on_color_scheme(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::ColorScheme>)
+pub fn windows_reactor::ViewContext<'_, C>::on_window_placement(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::WindowPlacement>)
 pub fn windows_reactor::ViewContext<'_, C>::on_window_size(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::WindowSize>)
 pub fn windows_reactor::ViewContext<'_, C>::root(&self) -> windows_reactor::ElementRef
 pub fn windows_reactor::ViewContext<'_, C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
@@ -4316,6 +4317,12 @@ pub windows_reactor::WindowConstraints::min_width: core::option::Option<f64>
 pub struct windows_reactor::WindowHandle<'a>
 impl windows_reactor::WindowHandle<'_>
 pub fn windows_reactor::WindowHandle<'_>::as_raw(&self) -> *mut core::ffi::c_void
+pub struct windows_reactor::WindowPlacement
+pub windows_reactor::WindowPlacement::height: i32
+pub windows_reactor::WindowPlacement::maximized: bool
+pub windows_reactor::WindowPlacement::width: i32
+pub windows_reactor::WindowPlacement::x: i32
+pub windows_reactor::WindowPlacement::y: i32
 pub struct windows_reactor::WindowPolicy
 impl windows_reactor::WindowPolicy
 pub fn windows_reactor::WindowPolicy::client_size(self, f64, f64) -> Self
@@ -4332,6 +4339,8 @@ pub fn windows_reactor::WindowVisuals::backdrop(self, windows_reactor::WindowBac
 pub fn windows_reactor::WindowVisuals::client_size(self, f64, f64) -> Self
 pub fn windows_reactor::WindowVisuals::constraints(self, windows_reactor::WindowConstraints) -> Self
 pub fn windows_reactor::WindowVisuals::icon(self, impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
+pub fn windows_reactor::WindowVisuals::initial_placement(self, windows_reactor::WindowPlacement) -> Self
+pub fn windows_reactor::WindowVisuals::initial_position(self, windows_reactor::ScreenPoint) -> Self
 pub fn windows_reactor::WindowVisuals::new() -> Self
 pub fn windows_reactor::WindowVisuals::theme(self, windows_reactor::WindowTheme) -> Self
 pub trait windows_reactor::CommandBarFlyoutExt: core::convert::Into<windows_reactor::View> + core::marker::Sized

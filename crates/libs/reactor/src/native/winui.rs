@@ -1,6 +1,8 @@
 use super::bindings as native;
 use super::*;
 
+mod window_placement;
+
 enum Handle {
     Generated(GeneratedHandle),
     TextBox(NativeTextBox),
@@ -1669,6 +1671,7 @@ pub struct NativeWindow {
     published_title: bool,
     published_visuals: bool,
     size_changed: Option<windows_core::EventRevoker>,
+    placement_changed: Option<windows_core::EventRevoker>,
     visuals: WindowVisuals,
 }
 
@@ -1677,6 +1680,43 @@ struct NativeWindowState {
     root: ObjectId,
     root_element: native::FrameworkElement,
     title_bar: Cell<Option<(ObjectId, WindowTitleBarHeight)>>,
+    shown: Cell<bool>,
+    closed: Cell<bool>,
+    maximize_on_first_show: Cell<bool>,
+    placement_callback: RefCell<Option<Rc<dyn Fn(WindowPlacement)>>>,
+    last_placement: Cell<Option<WindowPlacement>>,
+}
+
+impl NativeWindowState {
+    fn observe_placement(&self) -> windows_core::Result<()> {
+        if !self.shown.get() || self.closed.get() {
+            return Ok(());
+        }
+        let Some(callback) = self.placement_callback.borrow().clone() else {
+            return Ok(());
+        };
+        let mut hwnd = std::ptr::null_mut();
+        unsafe {
+            self.window
+                .cast::<native::IWindowNative>()?
+                .WindowHandle(&mut hwnd)
+                .ok()?;
+        }
+        if let Some(placement) = window_placement::read_placement(hwnd.cast())?
+            && self.last_placement.replace(Some(placement)) != Some(placement)
+        {
+            callback(placement);
+        }
+        Ok(())
+    }
+}
+
+impl Drop for NativeWindow {
+    fn drop(&mut self) {
+        if self.placement_changed.take().is_some() {
+            self.state.placement_callback.borrow_mut().take();
+        }
+    }
 }
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1695,6 +1735,7 @@ impl Clone for NativeWindow {
             published_title: self.published_title,
             published_visuals: self.published_visuals,
             size_changed: None,
+            placement_changed: None,
             visuals: self.visuals.clone(),
         }
     }
@@ -1723,6 +1764,7 @@ impl NativeWindow {
         visuals: Option<&WindowVisuals>,
         color_scheme_observer: Option<Rc<dyn Fn(ColorScheme)>>,
         size_observer: Option<Rc<dyn Fn(WindowSize)>>,
+        initial: bool,
     ) -> Result<(), WinUiError> {
         self.actual_theme_changed = None;
         self.size_changed = size_observer
@@ -1749,10 +1791,23 @@ impl NativeWindow {
         }
 
         if let Some(visuals) = visuals {
-            self.apply_visuals(visuals)?;
+            if initial
+                && let Some(position) = visuals
+                    .initial_placement
+                    .map(|placement| ScreenPoint::new(placement.x, placement.y))
+                    .or(visuals.initial_position)
+            {
+                // Resolve the target DPI before applying DIP constraints and client sizing.
+                window_placement::position_hidden(self.raw_handle()?.cast(), position)?;
+            }
+            self.apply_visuals(visuals, initial)?;
+            if initial && let Some(placement) = visuals.initial_placement {
+                window_placement::restore_hidden(self.raw_handle()?.cast(), placement)?;
+                self.state.maximize_on_first_show.set(placement.maximized);
+            }
             self.published_visuals = true;
         } else if self.published_visuals {
-            self.apply_visuals(&WindowVisuals::default())?;
+            self.apply_visuals(&WindowVisuals::default(), false)?;
             self.published_visuals = false;
         }
 
@@ -1781,7 +1836,7 @@ impl NativeWindow {
         Ok(())
     }
 
-    fn apply_visuals(&mut self, visuals: &WindowVisuals) -> Result<(), WinUiError> {
+    fn apply_visuals(&mut self, visuals: &WindowVisuals, initial: bool) -> Result<(), WinUiError> {
         let changes = window_visual_changes(&self.visuals, visuals);
         let window_2 = self.state.window.cast::<native::IWindow2>()?;
         let app_window = window_2.AppWindow()?;
@@ -1844,7 +1899,7 @@ impl NativeWindow {
             }
         }
 
-        if changes.constraints {
+        if changes.constraints || initial {
             let presenter = app_window
                 .Presenter()?
                 .cast::<native::IOverlappedPresenter3>()?;
@@ -1880,7 +1935,8 @@ impl NativeWindow {
             presenter.SetPreferredMaximumHeight(max_height)?;
         }
 
-        if changes.client_size
+        if (changes.client_size || initial)
+            && !(initial && visuals.initial_placement.is_some())
             && let Some((width, height)) = visuals.client_size
         {
             let dpi = unsafe { native::GetDpiForWindow(window_handle()?.cast()) }.max(96);
@@ -1898,7 +1954,40 @@ impl NativeWindow {
     }
 
     pub fn activate(&self) -> Result<(), WinUiError> {
-        self.state.window.Activate().map_err(Into::into)
+        if self.state.maximize_on_first_show.replace(false) {
+            window_placement::show_maximized(self.raw_handle()?.cast())?;
+        }
+        self.state.window.Activate()?;
+        self.state.shown.set(true);
+        self.state.observe_placement()?;
+        Ok(())
+    }
+
+    pub(crate) fn set_placement_observer(
+        &mut self,
+        observer: Option<Rc<dyn Fn(WindowPlacement)>>,
+    ) -> Result<(), WinUiError> {
+        self.placement_changed = None;
+        self.state.last_placement.set(None);
+        *self.state.placement_callback.borrow_mut() = observer;
+        if self.state.placement_callback.borrow().is_some() {
+            let state = Rc::downgrade(&self.state);
+            self.placement_changed = Some(
+                self.state
+                    .window
+                    .cast::<native::IWindow2>()?
+                    .AppWindow()?
+                    .Changed(move |_, _| {
+                        if let Some(state) = state.upgrade()
+                            && let Err(error) = state.observe_placement()
+                        {
+                            report_error(error);
+                        }
+                    })?,
+            );
+            self.state.observe_placement()?;
+        }
+        Ok(())
     }
 
     pub fn close(&self) -> Result<(), WinUiError> {
@@ -1909,7 +1998,11 @@ impl NativeWindow {
         &mut self,
         callback: impl Fn() -> windows_core::Result<()> + 'static,
     ) -> Result<(), WinUiError> {
+        let state = Rc::downgrade(&self.state);
         self.closed = Some(self.state.window.Closed(move |_, _| {
+            if let Some(state) = state.upgrade() {
+                state.closed.set(true);
+            }
             if let Err(error) = callback() {
                 report_error(error);
             }
