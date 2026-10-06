@@ -1,7 +1,8 @@
 use super::*;
 
 fn snapshot(source: &str) -> BTreeMap<String, (Vec<ParameterAnnotations>, Vec<Parameter>)> {
-    helpers::ensure_libclang();
+    static PROVISION: std::sync::Once = std::sync::Once::new();
+    PROVISION.call_once(helpers::ensure_libclang);
     let _library = Library::new().unwrap();
     let index = Index::new().unwrap();
     let input = Input::new("annotations.h", source);
