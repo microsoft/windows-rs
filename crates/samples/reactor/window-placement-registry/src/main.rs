@@ -47,12 +47,16 @@ impl Component for PlacementSample {
     }
 }
 
-fn load() -> Result<WindowPlacement, Box<dyn std::error::Error>> {
-    let value = CURRENT_USER.open(SETTINGS_KEY)?.get_string("Placement")?;
+fn load() -> Option<WindowPlacement> {
+    let value = CURRENT_USER
+        .open(SETTINGS_KEY)
+        .and_then(|key| key.get_string("Placement"))
+        .ok()?;
     let fields = value
         .split_whitespace()
         .map(str::parse::<i32>)
-        .collect::<Result<Vec<_>, _>>()?;
+        .collect::<Result<Vec<_>, _>>()
+        .ok()?;
     match fields.as_slice() {
         &[x, y, width, height, maximized @ (0 | 1)]
             if width > 0
@@ -60,7 +64,7 @@ fn load() -> Result<WindowPlacement, Box<dyn std::error::Error>> {
                 && x.checked_add(width).is_some()
                 && y.checked_add(height).is_some() =>
         {
-            Ok(WindowPlacement {
+            Some(WindowPlacement {
                 x,
                 y,
                 width,
@@ -68,14 +72,14 @@ fn load() -> Result<WindowPlacement, Box<dyn std::error::Error>> {
                 maximized: maximized == 1,
             })
         }
-        _ => Err("invalid saved window placement".into()),
+        _ => None,
     }
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let saved = load()
-        .inspect_err(|error| eprintln!("Using default window placement: {error}"))
-        .ok();
-    App::run_component::<PlacementSample>(saved)?;
-    Ok(())
+fn main() {
+    let saved = load();
+    if saved.is_none() {
+        println!("No usable saved placement; using defaults.");
+    }
+    App::run_component::<PlacementSample>(saved).unwrap();
 }

@@ -153,8 +153,9 @@ that value before opening the window. The five fields are `x y width height maxi
 maximized encoded as `0` or `1`; one registry value keeps the fields together.
 
 Persistence is best-effort: missing or invalid placement and registry read errors use the default
-window size. Write failures do not interrupt the application. Failures are logged to the console,
-without adding error state to the component. Delete the `Placement` value to reset the sample.
+window size. Write failures do not interrupt the application. Fallback and save failures are
+reported in the console, without adding error state to the component. Delete the `Placement` value
+to reset the sample.
 Minimized state is not saved.
 
 ## Add icon content
