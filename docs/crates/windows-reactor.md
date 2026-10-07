@@ -107,6 +107,16 @@ do not mutate state inside the native event callback.
 `context.window_frame` publishes the window title and returns the standard title-bar layout. For a
 static view with no state or events, call `App::run(view)` instead.
 
+## Application menus
+
+`AppContext::show_menu_at` opens a `Menu` at physical screen coordinates without requiring a
+component window. The native host uses a transparent Win32 window with a `DesktopWindowXamlSource`.
+The island disables work-area popup constraints so notification menus can extend over the taskbar;
+the flyout also disables root-bounds constraints. The island is released before its parent window.
+
+The `test-reactor-integration` `tray_flyout` fixture checks popup placement against the notification
+icon's monitor and exercises application shutdown with the menu open.
+
 ## Position and restore windows
 
 Publish startup placement through `context.window_visuals`. The first committed declaration is

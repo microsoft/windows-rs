@@ -1,0 +1,42 @@
+//! --filter Repro --sys
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct Root {
+            shared: Windows::Win32::System::Com::Shared,
+        }
+        mod System {
+            mod Com {
+                struct Shared { value: i32, }
+                struct Local {
+                    shared: Shared,
+                    root: Windows::Win32::Root,
+                    sibling: Windows::Win32::System::Storage::Shared,
+                    child: Windows::Win32::System::Com::Nested::Child,
+                }
+                mod Nested {
+                    struct Child {
+                        parent: Windows::Win32::System::Com::Shared,
+                    }
+                }
+            }
+            mod Storage {
+                struct Shared { value: u64, }
+            }
+        }
+    }
+}
+#[win32]
+mod Control {
+    mod Nested {
+        struct Value { value: u16, }
+    }
+}
+#[win32]
+mod Repro {
+    struct Example {
+        shared: Windows::Win32::System::Com::Shared,
+        local: Windows::Win32::System::Com::Local,
+        control: Control::Nested::Value,
+    }
+}

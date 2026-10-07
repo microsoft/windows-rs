@@ -10,6 +10,7 @@ cargo run -p test-reactor-integration --bin application_lifecycle -- replacement
 cargo run -p test-reactor-integration --bin application_lifecycle -- multiple
 cargo run -p test-reactor-integration --bin application_lifecycle -- startup-error
 cargo run -p test-reactor-integration --bin application_menu
+cargo run -p test-reactor-integration --bin tray_flyout
 cargo run -p test-reactor-integration --bin canvas_integration
 cargo run -p test-reactor-integration --bin webview_integration
 cargo run -p test-reactor-integration --bin window_state
@@ -17,7 +18,10 @@ cargo run -p test-reactor-integration --bin window_state
 
 Each executable owns its application lifetime and watchdog. The lifecycle fixture covers
 last-window replacement, multiple-window shutdown, and startup errors. The menu fixture checks
-application-lifetime work after its Reactor window closes. Companion-crate fixtures exercise
+application-lifetime work after its Reactor window closes. The tray-flyout fixture checks that a
+notification menu extends outside its monitor's work area and closes during application shutdown.
+It measures menu-item bounds through UI Automation rather than the popup window's shadow bounds,
+and requires a running Windows shell with a notification area. Companion-crate fixtures exercise
 Canvas drawing and WebView initialization. The window-state fixture observes size and icon changes
 through the public window callback and Win32 APIs.
 
