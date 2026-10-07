@@ -86,7 +86,12 @@ enum MessageValue {
 struct LocalMessage {
     component: ComponentId,
     sequence: u64,
-    value: Box<dyn Any>,
+    value: LocalMessageValue,
+}
+
+enum LocalMessageValue {
+    Message(Box<dyn Any>),
+    Input(ComponentNode),
 }
 
 #[derive(Default)]
@@ -100,6 +105,54 @@ struct MessageQueue {
 
 type SharedQueue = Arc<Mutex<MessageQueue>>;
 type LocalQueue = Rc<RefCell<VecDeque<LocalMessage>>>;
+
+pub(crate) struct ApplicationMessages<M> {
+    sender: LocalSender<M>,
+}
+
+impl<M: 'static> ApplicationMessages<M> {
+    pub(crate) fn new(waker: impl Fn() + Send + Sync + 'static) -> Self {
+        Self {
+            sender: LocalSender {
+                component: ComponentId {
+                    index: 0,
+                    generation: 0,
+                },
+                queue: Rc::new(RefCell::new(VecDeque::new())),
+                wake: Arc::new(Mutex::new(MessageQueue {
+                    waker: Some(Arc::new(waker)),
+                    ..Default::default()
+                })),
+                marker: PhantomData,
+            },
+        }
+    }
+
+    pub(crate) fn sender(&self) -> LocalSender<M> {
+        self.sender.clone()
+    }
+
+    pub(crate) fn pop(&self) -> Option<M> {
+        self.sender.wake.lock().unwrap().wake_pending = false;
+        self.sender.queue.borrow_mut().pop_front().map(|message| {
+            let LocalMessageValue::Message(value) = message.value else {
+                unreachable!()
+            };
+            *value.downcast::<M>().unwrap()
+        })
+    }
+
+    pub(crate) fn is_empty(&self) -> bool {
+        self.sender.queue.borrow().is_empty()
+    }
+}
+
+impl<M> Drop for ApplicationMessages<M> {
+    fn drop(&mut self) {
+        self.sender.wake.lock().unwrap().closed = true;
+        self.sender.queue.borrow_mut().clear();
+    }
+}
 
 #[derive(Clone)]
 struct ComponentQueues {
@@ -141,7 +194,7 @@ impl<M: 'static> LocalSender<M> {
         queue.push_back(LocalMessage {
             component: self.component,
             sequence,
-            value: Box::new(value),
+            value: LocalMessageValue::Message(Box::new(value)),
         });
         drop(queue);
         let wake = (!wake_queue.wake_pending)
@@ -1498,6 +1551,46 @@ impl<A: Adapter> Drop for ComponentHost<A> {
 }
 
 impl<A: Adapter> ComponentHost<A> {
+    pub(crate) fn update_root(
+        &mut self,
+        node: ComponentNode,
+    ) -> Result<(), ComponentError<A::Error>> {
+        self.ensure_active()?;
+        let id = *self.keys.get(node.key.as_ref().unwrap()).unwrap();
+        let scope = self.scope(id).unwrap();
+        if scope.component.component_type() != node.factory.component_type() {
+            return Err(ComponentError::ComponentType(node.key.unwrap()));
+        }
+        let retired = {
+            let mut queue = self.queue.lock().unwrap();
+            let mut local = self.local_queue.borrow_mut();
+            let retired = local
+                .iter()
+                .position(|message| {
+                    message.component == id && matches!(message.value, LocalMessageValue::Input(_))
+                })
+                .and_then(|index| local.remove(index));
+            let sequence = queue.next_sequence;
+            queue.next_sequence = sequence.wrapping_add(1);
+            local.push_back(LocalMessage {
+                component: id,
+                sequence,
+                value: LocalMessageValue::Input(node),
+            });
+            retired
+        };
+        drop(retired);
+        self.rearm_wake();
+        Ok(())
+    }
+
+    pub(crate) fn has_pending_input(&self) -> bool {
+        self.local_queue
+            .borrow()
+            .iter()
+            .any(|message| matches!(message.value, LocalMessageValue::Input(_)))
+    }
+
     fn resolve_window_publication(
         &self,
         pending: &[PendingScopeRender],
@@ -1726,7 +1819,11 @@ impl<A: Adapter> ComponentHost<A> {
                                 MessageValue::Send(value) => value,
                                 MessageValue::Local(factory) => factory(),
                             };
-                            (message.component, message.control, value)
+                            (
+                                message.component,
+                                message.control,
+                                LocalMessageValue::Message(value),
+                            )
                         })
                     }
                 })
@@ -1752,11 +1849,22 @@ impl<A: Adapter> ComponentHost<A> {
                     let contexts = host.scope(component).unwrap().contexts.clone();
                     let scope = host.scope_mut(component).unwrap();
                     let reference = scope.reference.clone();
-                    let render = scope
-                        .component
-                        .dispatch(value, reference, &contexts)
-                        .map_err(ComponentError::from)?;
-                    host.apply_render(component, render)
+                    let render = match value {
+                        LocalMessageValue::Message(value) => Some(
+                            scope
+                                .component
+                                .dispatch(value, reference, &contexts)
+                                .map_err(ComponentError::from)?,
+                        ),
+                        LocalMessageValue::Input(node) => scope
+                            .component
+                            .apply_input(node.factory.input(), reference, &contexts)
+                            .map_err(ComponentError::from)?,
+                    };
+                    match render {
+                        Some(render) => host.apply_render(component, render),
+                        None => Ok(UpdateStats::default()),
+                    }
                 }) {
                     Ok(mutations) => mutations,
                     Err(error) => {

@@ -1,27 +1,5 @@
 use super::*;
 
-struct PhysicalCoordinates(native::DPI_AWARENESS_CONTEXT);
-
-impl PhysicalCoordinates {
-    fn enter() -> windows_core::Result<Self> {
-        let previous = unsafe {
-            native::SetThreadDpiAwarenessContext(native::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)
-        };
-        if previous.is_null() {
-            return Err(windows_core::Error::from_thread());
-        }
-        Ok(Self(previous))
-    }
-}
-
-impl Drop for PhysicalCoordinates {
-    fn drop(&mut self) {
-        unsafe {
-            _ = native::SetThreadDpiAwarenessContext(self.0);
-        }
-    }
-}
-
 fn invalid_bounds() -> windows_core::Error {
     windows_core::Error::new(
         HRESULT(0x80070057_u32 as i32),

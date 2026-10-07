@@ -1963,6 +1963,16 @@ impl NativeWindow {
         Ok(())
     }
 
+    pub(crate) fn restore_and_activate(&self) -> Result<(), WinUiError> {
+        let hwnd = self.raw_handle()?.cast();
+        unsafe {
+            if native::IsIconic(hwnd).as_bool() {
+                _ = native::ShowWindow(hwnd, native::SW_RESTORE);
+            }
+        }
+        self.activate()
+    }
+
     pub(crate) fn set_placement_observer(
         &mut self,
         observer: Option<Rc<dyn Fn(WindowPlacement)>>,

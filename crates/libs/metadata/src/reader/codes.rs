@@ -110,6 +110,15 @@ code! { TypeOrMethodDef(1)
 }
 
 impl<'a> TypeDefOrRef<'a> {
+    /// Returns the outer namespace and slash-separated enclosing type names.
+    pub fn full_name(&self) -> TypeName {
+        match self {
+            Self::TypeDef(row) => row.full_name(),
+            Self::TypeRef(row) => row.full_name(),
+            rest => panic!("{rest:?}"),
+        }
+    }
+
     pub fn namespace(&self) -> &'a str {
         match self {
             Self::TypeDef(row) => row.namespace(),
@@ -132,14 +141,14 @@ impl<'a> TypeDefOrRef<'a> {
         }
 
         if let Self::TypeDef(def) = self {
-            let tn = TypeName::named(def.namespace(), def.name());
+            let tn = def.full_name();
             return match def.category() {
                 TypeCategory::Struct | TypeCategory::Enum => Type::ValueName(tn),
                 _ => Type::ClassName(tn),
             };
         }
 
-        Type::ClassName(TypeName::named(self.namespace(), self.name()))
+        Type::ClassName(self.full_name())
     }
 }
 

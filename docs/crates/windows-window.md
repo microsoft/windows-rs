@@ -7,7 +7,7 @@
 - 🚀 [Getting started](../../crates/libs/window/readme.md)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/window)
-- [Notification icon guide](windows-notifyicon.md)
+- [Reactor application and notification icons](windows-reactor.md#application-state-and-notification-icons)
 
 ## When to use it
 

@@ -148,6 +148,27 @@ The merger and namespace remapper accept strings, `Path`, or `PathBuf` for input
 and retain them as `PathBuf`. The remapper provides singular/plural `input`/`inputs`,
 `source`/`sources`, and `route`/`routes` methods.
 
+### Nested type identity
+
+Decoded signature `TypeName` values retain the outermost namespace and a slash-separated name,
+such as `Test` and `Outer/Child`. `TypeDef::full_name`, `TypeRef::full_name`, and
+`TypeDefOrRef::full_name` expose that identity; their `name` and `namespace` accessors still return
+the raw table columns. TypeDef names follow `NestedClass`, while TypeRef names follow enclosing
+TypeRef scopes.
+
+The writer turns the qualified name into an enclosing-TypeRef chain. Merge preserves that chain,
+and namespace remapping routes its outermost type without changing the nested path. A
+`NestedClass` row alone does not resolve an unqualified, module-scoped reference to a nested type
+(ECMA-335 II.7.3 and II.22.38).
+
+Nested generic instantiations are outside the writer's supported input. Both signature and
+TypeSpec emission assert against them rather than derive a nested name's arity from the total
+generic argument count. Top-level generics and non-generic nested records remain supported.
+
+`test_metadata::nested_references` checks physical scope chains, signature decoding through both
+TypeRef and TypeDef tokens, repeated leaf names under different parents, rejection of nested
+generic instantiations, merge, and namespace remapping.
+
 ### Method parameter association
 
 ECMA-335 `Param` rows are not positional. `Param.Sequence == 0` describes the return value, and a

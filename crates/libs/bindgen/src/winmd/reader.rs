@@ -234,12 +234,26 @@ impl Reader {
     /// Gets all types matching the given namespace and name.
     /// Trims any generic arity suffix (e.g. "`1") so callers may pass raw metadata names.
     pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
+        let (name, nested) = name.split_once('/').map_or((name, None), |(root, nested)| {
+            (root, Some(nested.to_string()))
+        });
         let name = windows_metadata::trim_tick(name);
         self.map
             .get(namespace)
             .and_then(|types| types.get(name))
             .into_iter()
             .flatten()
-            .cloned()
+            .filter_map(move |ty| {
+                let mut ty = ty.clone();
+                if let Some(nested) = &nested {
+                    for name in nested.split('/') {
+                        let Type::CppStruct(outer) = ty else {
+                            return None;
+                        };
+                        ty = Type::CppStruct(outer.nested.get(name)?.clone());
+                    }
+                }
+                Some(ty)
+            })
     }
 }
