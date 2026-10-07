@@ -319,33 +319,12 @@ impl Type {
         generics: &[Self],
         reader: &Reader,
     ) -> Self {
-        if let TypeDefOrRef::TypeSpec(def) = code {
-            let mut blob = def.blob(0);
-            let metadata_type = blob.read_type_code(&Self::generic_placeholders(generics.len()));
-            return Self::from_metadata_type(&metadata_type, None, generics, reader);
-        }
-
-        let code_name = code.type_name();
-
-        match Self::remap(
-            code_name.namespace(),
-            code_name.name(),
-            reader.project_numerics(),
-        ) {
-            Remap::Type(ty) => return ty,
-            Remap::Name(name) => {
-                return reader.unwrap_type_name(name.namespace(), name.name());
-            }
-            Remap::None => {}
-        }
-
-        if let Some(outer) = enclosing
-            && code_name.namespace().is_empty()
-        {
-            return Self::CppStruct(outer.nested[code_name.name()].clone());
-        }
-
-        reader.unwrap_type_name(code_name.namespace(), code_name.name())
+        let ty = if let TypeDefOrRef::TypeSpec(def) = code {
+            def.ty(&Self::generic_placeholders(generics.len()))
+        } else {
+            windows_metadata::Type::ClassName(code.full_name())
+        };
+        Self::from_metadata_type(&ty, enclosing, generics, reader)
     }
 
     #[track_caller]
@@ -387,6 +366,14 @@ impl Type {
                     && ns.is_empty()
                 {
                     return Self::CppStruct(outer.nested[n].clone());
+                }
+                if let Some(outer) = enclosing
+                    && let Some((parent, leaf)) = n.rsplit_once('/')
+                {
+                    let name = outer.def.full_name();
+                    if ns == name.namespace && parent == name.name {
+                        return Self::CppStruct(outer.nested[leaf].clone());
+                    }
                 }
                 let mut bindgen_ty = reader.unwrap_type_name(ns, n);
                 if !tn.generics.is_empty() {

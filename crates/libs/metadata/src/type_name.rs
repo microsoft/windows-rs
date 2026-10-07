@@ -2,7 +2,9 @@ use super::*;
 
 #[derive(Debug, PartialEq, Clone)]
 pub struct TypeName {
+    /// Namespace of the outermost type.
     pub namespace: String,
+    /// Type name, including slash-separated enclosing names for nested types.
     pub name: String,
     pub generics: Vec<Type>,
 }

@@ -25,17 +25,6 @@ pub use windows_metadata::{FieldAttributes, MethodAttributes, TypeAttributes};
 
 pub use windows_metadata::MethodCallAttributes;
 
-// Extension trait for TypeDefOrRef: adds bindgen-specific helpers.
-pub trait TypeDefOrRefExt {
-    fn type_name(&self) -> TypeName;
-}
-
-impl TypeDefOrRefExt for TypeDefOrRef {
-    fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), windows_metadata::trim_tick(self.name()))
-    }
-}
-
 // Extension trait for guid_attribute(), which uses our Value type rather than metadata's.
 pub trait GuidAttributeExt {
     fn guid_attribute(&self) -> Option<GUID>;

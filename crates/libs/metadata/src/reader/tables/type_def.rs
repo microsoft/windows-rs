@@ -19,6 +19,18 @@ impl<'a> TypeDef<'a> {
         self.str(2)
     }
 
+    /// Returns the outer namespace and slash-separated enclosing type names.
+    pub fn full_name(&self) -> TypeName {
+        if let Some(nested) = self.equal_range::<NestedClass>(0, self.pos() + 1).next() {
+            let mut name = nested.outer().full_name();
+            name.name.push('/');
+            name.name.push_str(self.name());
+            name
+        } else {
+            TypeName::named(self.namespace(), self.name())
+        }
+    }
+
     pub fn extends(&self) -> Option<TypeDefOrRef<'a>> {
         if self.usize(3) == 0 {
             return None;

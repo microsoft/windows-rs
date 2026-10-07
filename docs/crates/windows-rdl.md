@@ -282,6 +282,17 @@ RDL stable.
 The reader rejects unsupported forms with errors. It does not silently drop them. Examples include
 unsupported types, constants, callback ABIs, variadic callback parameters, and function ABIs.
 
+### Inline nested records
+
+Inline structs and unions have nested TypeDefs linked by `NestedClass` rows. Their field
+signatures reference those definitions through enclosing-TypeRef chains, including every level
+of nesting. The writer matches the qualified identity to the containing record and renders the
+same inline syntax. It also accepts the unscoped leaf references in existing metadata.
+
+`test_rdl::nested_references` checks physical TypeRef scopes before and after the text round trip,
+alongside the canonical `struct_nested_anon.rdl` fixture. `test_metadata::nested_references`
+independently covers the underlying signature reader, merge, and namespace remapper.
+
 ### Method parameter rows
 
 The winmd writer uses `MethodDef::params_by_sequence` from
