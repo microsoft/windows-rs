@@ -229,6 +229,7 @@ const HEADERS: &[&str] = &[
     "timeapi.h",
     "joystickapi.h",
     "mmeapi.h",
+    "perflib.h",
     "pdh.h",
     "usbioctl.h",
     "virtdisk.h",

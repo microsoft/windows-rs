@@ -1,0 +1,232 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        extern fn PERFLIBREQUEST(RequestCode: u32, Buffer: *mut void, BufferSize: u32) -> u32;
+        const PERF_ADD_COUNTER: i32 = 1;
+        const PERF_AGGREGATE_AVG: i32 = 2;
+        #[encoding("utf-16")]
+        const PERF_AGGREGATE_INSTANCE: String = "_Total";
+        const PERF_AGGREGATE_MAX: i32 = 4;
+        const PERF_AGGREGATE_MIN: i32 = 3;
+        const PERF_AGGREGATE_TOTAL: i32 = 1;
+        const PERF_AGGREGATE_UNDEFINED: i32 = 0;
+        const PERF_ATTRIB_BY_REFERENCE: i32 = 1;
+        const PERF_ATTRIB_DISPLAY_AS_HEX: i32 = 16;
+        const PERF_ATTRIB_DISPLAY_AS_REAL: i32 = 8;
+        const PERF_ATTRIB_NO_DISPLAYABLE: i32 = 2;
+        const PERF_ATTRIB_NO_GROUP_SEPARATOR: i32 = 4;
+        const PERF_COLLECT_END: i32 = 6;
+        const PERF_COLLECT_START: i32 = 5;
+        const PERF_COUNTERSET_FLAG_AGGREGATE: i32 = 4;
+        const PERF_COUNTERSET_FLAG_HISTORY: i32 = 8;
+        const PERF_COUNTERSET_FLAG_INSTANCE: i32 = 16;
+        const PERF_COUNTERSET_FLAG_MULTIPLE: i32 = 2;
+        struct PERF_COUNTERSET_INFO {
+            CounterSetGuid: GUID,
+            ProviderGuid: GUID,
+            NumCounters: u32,
+            InstanceType: u32,
+        }
+        struct PERF_COUNTERSET_INSTANCE {
+            CounterSetGuid: GUID,
+            dwSize: u32,
+            InstanceId: u32,
+            InstanceNameOffset: u32,
+            InstanceNameSize: u32,
+        }
+        const PERF_COUNTERSET_INSTANCE_AGGREGATE: i32 = 22;
+        const PERF_COUNTERSET_MULTI_AGGREGATE: i32 = 6;
+        const PERF_COUNTERSET_MULTI_INSTANCES: i32 = 2;
+        struct PERF_COUNTERSET_REG_INFO {
+            CounterSetGuid: GUID,
+            CounterSetType: u32,
+            DetailLevel: u32,
+            NumCounters: u32,
+            InstanceType: u32,
+        }
+        const PERF_COUNTERSET_SINGLE_AGGREGATE: i32 = 4;
+        const PERF_COUNTERSET_SINGLE_AGGREGATE_HISTORY: i32 = 12;
+        const PERF_COUNTERSET_SINGLE_INSTANCE: i32 = 0;
+        struct PERF_COUNTER_DATA {
+            dwDataSize: u32,
+            dwSize: u32,
+        }
+        struct PERF_COUNTER_HEADER {
+            dwStatus: u32,
+            dwType: PerfCounterDataType,
+            dwSize: u32,
+            Reserved: u32,
+        }
+        struct PERF_COUNTER_IDENTIFIER {
+            CounterSetGuid: GUID,
+            Status: u32,
+            Size: u32,
+            CounterId: u32,
+            InstanceId: u32,
+            Index: u32,
+            Reserved: u32,
+        }
+        struct PERF_COUNTER_IDENTITY {
+            CounterSetGuid: GUID,
+            BufferSize: u32,
+            CounterId: u32,
+            InstanceId: u32,
+            MachineOffset: u32,
+            NameOffset: u32,
+            Reserved: u32,
+        }
+        struct PERF_COUNTER_INFO {
+            CounterId: u32,
+            Type: u32,
+            Attrib: u64,
+            Size: u32,
+            DetailLevel: u32,
+            Scale: i32,
+            Offset: u32,
+        }
+        struct PERF_COUNTER_REG_INFO {
+            CounterId: u32,
+            Type: u32,
+            Attrib: u64,
+            DetailLevel: u32,
+            DefaultScale: i32,
+            BaseCounterId: u32,
+            PerfTimeId: u32,
+            PerfFreqId: u32,
+            MultiId: u32,
+            AggregateFunc: u32,
+            Reserved: u32,
+        }
+        struct PERF_DATA_HEADER {
+            dwTotalSize: u32,
+            dwNumCounters: u32,
+            PerfTimeStamp: i64,
+            PerfTime100NSec: i64,
+            PerfFreq: i64,
+            SystemTime: SYSTEMTIME,
+        }
+        const PERF_ENUM_INSTANCES: i32 = 3;
+        const PERF_FILTER: i32 = 9;
+        struct PERF_INSTANCE_HEADER {
+            Size: u32,
+            InstanceId: u32,
+        }
+        const PERF_MAX_INSTANCE_NAME: i32 = 1024;
+        extern fn PERF_MEM_ALLOC(AllocSize: usize, pContext: *mut void) -> *mut void;
+        extern fn PERF_MEM_FREE(pBuffer: *mut void, pContext: *mut void);
+        struct PERF_MULTI_COUNTERS {
+            dwSize: u32,
+            dwCounters: u32,
+        }
+        struct PERF_MULTI_INSTANCES {
+            dwTotalSize: u32,
+            dwInstances: u32,
+        }
+        struct PERF_PROVIDER_CONTEXT {
+            ContextSize: u32,
+            Reserved: u32,
+            ControlCallback: PERFLIBREQUEST,
+            MemAllocRoutine: PERF_MEM_ALLOC,
+            MemFreeRoutine: PERF_MEM_FREE,
+            pMemContext: *mut void,
+        }
+        const PERF_PROVIDER_DRIVER: i32 = 2;
+        const PERF_PROVIDER_KERNEL_MODE: i32 = 1;
+        const PERF_PROVIDER_USER_MODE: i32 = 0;
+        const PERF_REMOVE_COUNTER: i32 = 2;
+        struct PERF_STRING_BUFFER_HEADER {
+            dwSize: u32,
+            dwCounters: u32,
+        }
+        struct PERF_STRING_COUNTER_HEADER {
+            dwCounterId: u32,
+            dwOffset: u32,
+        }
+        const PERF_WILDCARD_COUNTER: u32 = 4294967295;
+        #[encoding("utf-16")]
+        const PERF_WILDCARD_INSTANCE: String = "*";
+        type PPERF_COUNTERSET_INFO = *mut PERF_COUNTERSET_INFO;
+        type PPERF_COUNTERSET_INSTANCE = *mut PERF_COUNTERSET_INSTANCE;
+        type PPERF_COUNTERSET_REG_INFO = *mut PERF_COUNTERSET_REG_INFO;
+        type PPERF_COUNTER_DATA = *mut PERF_COUNTER_DATA;
+        type PPERF_COUNTER_HEADER = *mut PERF_COUNTER_HEADER;
+        type PPERF_COUNTER_IDENTIFIER = *mut PERF_COUNTER_IDENTIFIER;
+        type PPERF_COUNTER_IDENTITY = *mut PERF_COUNTER_IDENTITY;
+        type PPERF_COUNTER_INFO = *mut PERF_COUNTER_INFO;
+        type PPERF_COUNTER_REG_INFO = *mut PERF_COUNTER_REG_INFO;
+        type PPERF_DATA_HEADER = *mut PERF_DATA_HEADER;
+        type PPERF_INSTANCE_HEADER = *mut PERF_INSTANCE_HEADER;
+        type PPERF_MULTI_COUNTERS = *mut PERF_MULTI_COUNTERS;
+        type PPERF_MULTI_INSTANCES = *mut PERF_MULTI_INSTANCES;
+        type PPERF_PROVIDER_CONTEXT = *mut PERF_PROVIDER_CONTEXT;
+        type PPERF_STRING_BUFFER_HEADER = *mut PERF_STRING_BUFFER_HEADER;
+        type PPERF_STRING_COUNTER_HEADER = *mut PERF_STRING_COUNTER_HEADER;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfAddCounters(hQuery: HANDLE, pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfCloseQueryHandle(hQuery: HANDLE) -> u32;
+        #[repr(i32)]
+        enum PerfCounterDataType {
+            PERF_ERROR_RETURN = 0,
+            PERF_SINGLE_COUNTER = 1,
+            PERF_MULTIPLE_COUNTERS = 2,
+            PERF_MULTIPLE_INSTANCES = 4,
+            PERF_COUNTERSET = 6,
+        }
+        #[library("ADVAPI32.dll")]
+        extern fn PerfCreateInstance(ProviderHandle: HANDLE, CounterSetGuid: LPCGUID, Name: PCWSTR, Id: u32) -> PPERF_COUNTERSET_INSTANCE;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfDecrementULongCounterValue(Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, CounterId: u32, Value: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfDecrementULongLongCounterValue(Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, CounterId: u32, Value: u64) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfDeleteCounters(hQuery: HANDLE, pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfDeleteInstance(Provider: HANDLE, InstanceBlock: PPERF_COUNTERSET_INSTANCE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfEnumerateCounterSet(#[opt] szMachine: PCWSTR, pCounterSetIds: LPGUID, cCounterSetIds: u32, #[out] pcCounterSetIdsActual: LPDWORD) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfEnumerateCounterSetInstances(#[opt] szMachine: PCWSTR, pCounterSetId: LPCGUID, pInstances: PPERF_INSTANCE_HEADER, cbInstances: u32, #[out] pcbInstancesActual: LPDWORD) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfIncrementULongCounterValue(Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, CounterId: u32, Value: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfIncrementULongLongCounterValue(Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, CounterId: u32, Value: u64) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfOpenQueryHandle(#[opt] szMachine: PCWSTR, phQuery: *mut HANDLE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfQueryCounterData(hQuery: HANDLE, pCounterBlock: PPERF_DATA_HEADER, cbCounterBlock: u32, #[out] pcbCounterBlockActual: LPDWORD) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfQueryCounterInfo(hQuery: HANDLE, pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: u32, #[out] pcbCountersActual: LPDWORD) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfQueryCounterSetRegistrationInfo(#[opt] szMachine: PCWSTR, pCounterSetId: LPCGUID, requestCode: PerfRegInfoType, requestLangId: u32, pbRegInfo: LPBYTE, cbRegInfo: u32, #[out] pcbRegInfoActual: LPDWORD) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfQueryInstance(ProviderHandle: HANDLE, CounterSetGuid: LPCGUID, Name: PCWSTR, Id: u32) -> PPERF_COUNTERSET_INSTANCE;
+        #[repr(i32)]
+        enum PerfRegInfoType {
+            PERF_REG_COUNTERSET_STRUCT = 1,
+            PERF_REG_COUNTER_STRUCT = 2,
+            PERF_REG_COUNTERSET_NAME_STRING = 3,
+            PERF_REG_COUNTERSET_HELP_STRING = 4,
+            PERF_REG_COUNTER_NAME_STRINGS = 5,
+            PERF_REG_COUNTER_HELP_STRINGS = 6,
+            PERF_REG_PROVIDER_NAME = 7,
+            PERF_REG_PROVIDER_GUID = 8,
+            PERF_REG_COUNTERSET_ENGLISH_NAME = 9,
+            PERF_REG_COUNTER_ENGLISH_NAMES = 10,
+        }
+        #[library("ADVAPI32.dll")]
+        extern fn PerfSetCounterRefValue(Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, CounterId: u32, #[in] Address: *mut void) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfSetCounterSetInfo(ProviderHandle: HANDLE, #[size_param(2)] #[in] #[out] Template: PPERF_COUNTERSET_INFO, TemplateSize: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfSetULongCounterValue(Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, CounterId: u32, Value: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfSetULongLongCounterValue(Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, CounterId: u32, Value: u64) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfStartProvider(ProviderGuid: LPGUID, #[opt] ControlCallback: PERFLIBREQUEST, phProvider: *mut HANDLE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfStartProviderEx(ProviderGuid: LPGUID, #[opt] ProviderContext: PPERF_PROVIDER_CONTEXT, #[out] Provider: PHANDLE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PerfStopProvider(ProviderHandle: HANDLE) -> u32;
+    }
+}
