@@ -33,6 +33,7 @@ pub(super) enum DeclarationData {
     Pending,
     Record {
         kind: String,
+        unnamed: bool,
         complete: bool,
         layout: Option<Layout>,
         fields: Vec<Field>,

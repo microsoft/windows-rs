@@ -266,8 +266,9 @@ coverage remain gates; see `docs/crates/windows-clang2.md` for the differential 
 ### Clang2 issue-driven correctness gate
 
 Open issue repros exposed lost `clang::flag_enum` evidence and output-slot projection for borrowed
-interface objects; both have prototype fixes and regression fixtures. Member alignment and
-double-NUL annotations remain explicit rejections. A native overload experiment showed incorrect
+interface objects; both have prototype fixes and regression fixtures. Real WDK member alignment
+has native-checked storage support; adjusted-record by-value calls and double-NUL annotations
+remain explicit rejections. A native overload experiment showed incorrect
 dispatch for `Echo(int)`/`Echo(float)` despite compiling wrappers: `project.rs` `Builder::interface`
 rejects same-name methods until MSVC vtable ordering is modeled and covered. Do not replace that
 gate with name-based slot-reversal rules. See `docs/crates/windows-clang2.md` for issue scope and
@@ -276,3 +277,9 @@ The independent review also found inherited pure virtual overrides emitted as ne
 retains compiler override relationships; local projection rejects slot reuse, including implicit
 and indirect overrides, until that ABI is modeled. Existing metadata, RDL, generated bindings, and
 legacy parity are not correctness oracles: use original API contracts and compiler/native evidence.
+
+`test_clang2` `wdk.rs` compares the real pinned WDK member types against MSVC offsets, size,
+alignment, and pointer calls. `crypto.rs` calls three real BCrypt exports on x64/x86. Compiler
+linker symbols are not DLL export names: `ProjectionOptions::import_names` holds explicit
+caller contracts; do not strip stdcall decoration heuristically. Automatic DLL routing, broader
+annotation semantics, and full production inputs remain open.

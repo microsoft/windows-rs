@@ -358,6 +358,7 @@ USR: c:@S@Native
 entity: 3
 Record {
     kind: "StructDecl",
+    unnamed: false,
     complete: true,
     layout: Some(
         Layout {
@@ -605,6 +606,7 @@ USR: c:@S@Forward
 entity: 6
 Record {
     kind: "StructDecl",
+    unnamed: false,
     complete: false,
     layout: None,
     fields: [],

@@ -1,5 +1,7 @@
 use std::path::{Path, PathBuf};
-use windows_clang2::{Input, ProjectionOptions, ReferenceKind, Snapshot, TypeReference, capture};
+use windows_clang2::{
+    Input, ProjectionOptions, ReferenceKind, Snapshot, StringKind, TypeReference, capture,
+};
 
 pub fn include() -> PathBuf {
     let version = helpers::read_str_const(
@@ -19,6 +21,46 @@ pub fn tools() -> PathBuf {
         .join("..")
         .join("..")
         .join("tools")
+}
+
+pub fn wdk_include() -> PathBuf {
+    let version = helpers::read_str_const(
+        tools().join("win32").join("src").join("km.rs"),
+        "WDK_VERSION",
+    );
+    let (marketing, _) = version.rsplit_once('.').unwrap();
+    helpers::nuget_package("microsoft.windows.wdk.x64", &version)
+        .join("c")
+        .join("Include")
+        .join(format!("{marketing}.0"))
+}
+
+pub fn wdk_arguments(target: &str) -> Vec<String> {
+    let wdk = wdk_include();
+    let sdk = include();
+    let mut args: Vec<String> = ["-x", "c++", target, "-DNTDDI_VERSION=0x0A000010"]
+        .into_iter()
+        .map(str::to_string)
+        .collect();
+    let defines: &[&str] = if target.contains("x86_64") {
+        &["-D_AMD64_", "-DAMD64", "-D_WIN64"]
+    } else if target.contains("aarch64") {
+        &["-D_ARM64_", "-DARM64", "-D_WIN64"]
+    } else {
+        assert!(target.contains("i686"), "unsupported WDK target: {target}");
+        &["-D_X86_", "-Di386=1"]
+    };
+    args.extend(defines.iter().map(|value| value.to_string()));
+    for dir in [
+        wdk.join("km"),
+        wdk.join("shared"),
+        sdk.join("shared"),
+        sdk.join("um"),
+        sdk.join("ucrt"),
+    ] {
+        args.extend(["-isystem".into(), dir.to_str().unwrap().into()]);
+    }
+    args
 }
 
 pub fn webview_headers() -> [PathBuf; 2] {
@@ -169,6 +211,49 @@ pub fn capture_sdk(target: &str, source: &str, roots: &[&str]) -> Snapshot {
         roots,
     )
     .unwrap()
+}
+
+pub const CRYPTO_ROOTS: &[&str] = &[
+    "BCryptOpenAlgorithmProvider",
+    "BCryptDeriveKeyPBKDF2",
+    "BCryptCloseAlgorithmProvider",
+    "BCRYPT_ALG_HANDLE_HMAC_FLAG",
+];
+
+pub fn crypto_options() -> ProjectionOptions {
+    let mut options = ProjectionOptions::new("Crypto");
+    options.library = Some("bcrypt.dll".into());
+    // The x86 DLL exports undecorated names, unlike the compiler's stdcall linker symbols.
+    for (symbol, export) in [
+        (
+            "_BCryptOpenAlgorithmProvider@16",
+            "BCryptOpenAlgorithmProvider",
+        ),
+        ("_BCryptDeriveKeyPBKDF2@40", "BCryptDeriveKeyPBKDF2"),
+        (
+            "_BCryptCloseAlgorithmProvider@8",
+            "BCryptCloseAlgorithmProvider",
+        ),
+    ] {
+        options.import_names.insert(symbol.into(), export.into());
+    }
+    options.string_references.insert(
+        StringKind::WideConst,
+        TypeReference {
+            namespace: "Windows.Win32".into(),
+            name: "PCWSTR".into(),
+            kind: ReferenceKind::Value,
+        },
+    );
+    options.references.insert(
+        "BCRYPT_ALG_HANDLE".into(),
+        TypeReference {
+            namespace: "Windows.Win32".into(),
+            name: "BCRYPT_ALG_HANDLE".into(),
+            kind: ReferenceKind::Value,
+        },
+    );
+    options
 }
 
 pub fn arguments(target: &str) -> Vec<String> {

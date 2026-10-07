@@ -1,0 +1,19 @@
+#[win32]
+mod Test {
+    #[align(8)]
+    struct Adjusted {
+        __padding1: u8,
+        __padding1_: union { bytes: [u8; 7], uninit: [u8; 0], },
+        value: u32,
+    }
+    #[align(16)]
+    struct Aligned {
+        value: u32,
+    }
+    #[library("test.dll", import = "ByPointer")]
+    extern "C" fn ByPointer(p0: *mut Outer);
+    struct Outer {
+        tag: u8,
+        value: Adjusted,
+    }
+}

@@ -13,6 +13,139 @@ use sdk::capture_sdk as sdk_capture;
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn export_contracts_do_not_replace_native_linker_evidence() {
+    let snapshot = capture(
+        [Input::new(
+            "api.hpp",
+            "extern \"C\" int __stdcall Compute(int value);",
+        )],
+        &["-x", "c++", "--target=i686-pc-windows-msvc"],
+        &["Compute"],
+    )
+    .unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let mut options = options();
+    let original = resolved.project(&options).unwrap().rdl();
+    assert!(original.contains("import = \"_Compute@4\""), "{original}");
+    options
+        .import_names
+        .insert("_Compute@4".into(), "ComputeExport".into());
+    let projected = resolved.project(&options).unwrap().rdl();
+    assert!(
+        projected.contains("import = \"ComputeExport\""),
+        "{projected}"
+    );
+    assert!(projected.contains("extern \"system\""), "{projected}");
+    options.import_names.clear();
+    assert_eq!(resolved.project(&options).unwrap().rdl(), original);
+}
+
+#[test]
+fn real_wdk_member_layouts_project() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let args = sdk::wdk_arguments(&format!("--target={target}-pc-windows-msvc"));
+        for swapped in [false, true] {
+            let mut inputs = [
+                Input::new("a.hpp", include_str!("../input/wdk_layout.h")),
+                Input::new("z.hpp", include_str!("../input/wdk_layout.h")),
+            ];
+            if swapped {
+                inputs.reverse();
+            }
+            let snapshot = capture(
+                inputs,
+                &args.iter().map(String::as_str).collect::<Vec<_>>(),
+                &["DeviceIoControl", "QuerySecurity"],
+            )
+            .unwrap();
+            let resolved = snapshot.resolve().unwrap();
+            assert!(resolved.report().incomplete.is_empty());
+            let plan = resolved.project(&options()).unwrap();
+            compile(
+                if target == "i686" {
+                    "wdk_layout_x86"
+                } else {
+                    "wdk_layout"
+                },
+                &plan,
+            );
+        }
+    }
+}
+
+#[test]
+fn shared_value_layouts_do_not_expand_the_call_guard_as_a_tree() {
+    let mut source = "struct R0 { unsigned char value; };".to_string();
+    for level in 1..=24 {
+        let previous = level - 1;
+        source.push_str(&format!(
+            "struct R{level} {{ R{previous} a; R{previous} b; }};"
+        ));
+    }
+    source.push_str("extern \"C\" void Use(R24 value);");
+    let snapshot = capture([Input::new("shared.hpp", source)], ARGS, &["Use"]).unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    assert_eq!(plan.rdl().matches("    struct R").count(), 25);
+}
+
+#[test]
+fn adjusted_layouts_preserve_storage_but_reject_unproven_value_calls() {
+    let source = include_str!("../input/adjusted_layouts.h");
+    for root in ["ByValue", "ReturnValue", "AliasByValue"] {
+        let snapshot = capture([Input::new("layout.hpp", source)], ARGS, &[root]).unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string();
+        assert!(
+            error.contains("by-value calls with adjusted record layouts"),
+            "{error}"
+        );
+    }
+    let snapshot = capture(
+        [Input::new("layout.hpp", source)],
+        ARGS,
+        &["ByPointer", "Aligned"],
+    )
+    .unwrap();
+    let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+    compile("adjusted_layouts", &plan);
+}
+
+#[test]
+fn selected_record_aliases_require_unambiguous_ownership() {
+    let source = "struct Owner { struct { int value; } member; }; using A = decltype(Owner::member); using B = A;";
+    for reverse in [false, true] {
+        let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+        if reverse {
+            inputs.reverse();
+        }
+        let snapshot = capture(inputs, ARGS, &["A", "B"]).unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string();
+        assert!(error.contains("multiple selected aliases"), "{error}");
+    }
+    let snapshot = capture([Input::new("a.hpp", source)], ARGS, &["A"]).unwrap();
+    assert!(snapshot.resolve().unwrap().project(&options()).is_ok());
+    let snapshot = capture(
+        [
+            Input::new("a.hpp", source),
+            Input::new("b.hpp", source.replace("int value", "float value")),
+        ],
+        ARGS,
+        &["A"],
+    )
+    .unwrap();
+    assert!(snapshot.resolve().is_err());
+}
+
+#[test]
 fn explicit_enum_flags_survive_projection() {
     let snapshot = capture(
         [Input::new(
@@ -65,7 +198,7 @@ fn enum_flag_conflicts_cannot_be_hidden_by_external_bindings() {
 }
 
 #[test]
-fn member_alignment_is_preserved_or_rejected() {
+fn member_alignment_is_preserved() {
     for target in ["i686", "x86_64", "aarch64"] {
         let target_arg = format!("--target={target}-pc-windows-msvc");
         for root in ["DeviceIoControl", "QuerySecurity"] {
@@ -79,23 +212,24 @@ fn member_alignment_is_preserved_or_rejected() {
             )
             .unwrap();
             let resolved = snapshot.resolve().unwrap();
-            let plan = resolved.project(&options());
-            if target == "i686" {
-                let index = compile(root, &plan.unwrap());
-                let Item::Type(ty) = index.expect_item("Test", root) else {
-                    panic!()
-                };
-                assert_eq!(
-                    ty.fields().count(),
-                    if root == "DeviceIoControl" { 4 } else { 2 }
-                );
-            } else {
-                let error = plan.unwrap_err().to_string();
-                assert!(
-                    error.contains("unsupported packing or field alignment"),
-                    "{target}: {error}"
-                );
-            }
+            let plan = resolved.project(&options()).unwrap();
+            let index = compile(
+                &if target == "i686" {
+                    root.into()
+                } else {
+                    format!("{root}_64")
+                },
+                &plan,
+            );
+            let Item::Type(ty) = index.expect_item("Test", root) else {
+                panic!()
+            };
+            assert_eq!(
+                ty.fields()
+                    .filter(|field| !field.name().starts_with("__padding"))
+                    .count(),
+                if root == "DeviceIoControl" { 4 } else { 2 }
+            );
         }
     }
 }

@@ -302,7 +302,11 @@ impl Capture<'_> {
 
     fn candidate(&self, unit: usize, cursor: CXCursor, identity: &str) -> Result<String, Error> {
         let parent = unsafe { clang_getCursorSemanticParent(cursor) };
-        if unsafe { clang_Cursor_isAnonymousRecordDecl(cursor) } != 0
+        if unsafe { clang_Cursor_isAnonymous(cursor) } != 0
+            && matches!(
+                unsafe { clang_getCursorKind(cursor) },
+                CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
+            )
             && matches!(
                 unsafe { clang_getCursorKind(parent) },
                 CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
@@ -313,9 +317,7 @@ impl Capture<'_> {
                 .iter()
                 .position(|field| unsafe {
                     clang_equalCursors(
-                        clang_getCanonicalCursor(clang_getTypeDeclaration(clang_getCursorType(
-                            *field,
-                        ))),
+                        clang_getCanonicalCursor(field_declaration(*field)),
                         clang_getCanonicalCursor(cursor),
                     ) != 0
                 })
@@ -473,6 +475,7 @@ impl Capture<'_> {
                 }
                 DeclarationData::Record {
                     kind: string(unsafe { clang_getCursorKindSpelling(kind) }),
+                    unnamed: unsafe { clang_Cursor_isAnonymous(cursor) } != 0,
                     complete,
                     layout,
                     fields,
@@ -626,6 +629,11 @@ impl Capture<'_> {
             CXType_Record | CXType_Enum | CXType_Typedef => {
                 TypeKind::Named(self.intern(unit, unsafe { clang_getTypeDeclaration(ty) })?)
             }
+            CXType_Unexposed if unsafe { clang_getCanonicalType(ty) }.kind == CXType_Record => {
+                TypeKind::Named(self.intern(unit, unsafe {
+                    clang_getTypeDeclaration(clang_getCanonicalType(ty))
+                })?)
+            }
             CXType_Pointer | CXType_LValueReference | CXType_RValueReference => {
                 let target = Box::new(self.ty(unit, unsafe { clang_getPointeeType(ty) })?);
                 match ty.kind {
@@ -666,6 +674,21 @@ impl Capture<'_> {
             )),
         };
         Ok(Type { qualifiers, kind })
+    }
+}
+
+unsafe fn field_declaration(field: CXCursor) -> CXCursor {
+    let mut ty = unsafe { clang_getCanonicalType(clang_getCursorType(field)) };
+    loop {
+        ty = match ty.kind {
+            CXType_ConstantArray | CXType_IncompleteArray => unsafe {
+                clang_getArrayElementType(ty)
+            },
+            CXType_Pointer | CXType_LValueReference | CXType_RValueReference => unsafe {
+                clang_getPointeeType(ty)
+            },
+            _ => return unsafe { clang_getTypeDeclaration(ty) },
+        };
     }
 }
 

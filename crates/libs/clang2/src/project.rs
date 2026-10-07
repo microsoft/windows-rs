@@ -25,6 +25,8 @@ pub struct TypeReference {
 pub struct ProjectionOptions {
     pub namespace: String,
     pub library: Option<String>,
+    /// Trusted DLL export names keyed by native linker symbol. Unmapped symbols keep their name.
+    pub import_names: BTreeMap<String, String>,
     /// External record/enum bindings and trusted scalar or pointer typedef contracts.
     pub references: BTreeMap<String, TypeReference>,
     /// Trusted pointer-sized value types for SAL-annotated null-terminated strings.
@@ -36,6 +38,7 @@ impl ProjectionOptions {
         Self {
             namespace: namespace.into(),
             library: None,
+            import_names: BTreeMap::new(),
             references: BTreeMap::new(),
             string_references: BTreeMap::new(),
         }
@@ -61,7 +64,10 @@ impl Plan {
         let mut output = format!("#[win32]\nmod {} {{\n", namespaces.next().unwrap());
         for (name, item) in &self.items {
             match item {
-                Item::Record(fields) => {
+                Item::Record { fields, alignment } => {
+                    if let Some(alignment) = alignment {
+                        writeln!(output, "    #[align({alignment})]").unwrap();
+                    }
                     writeln!(output, "    struct {name} {{").unwrap();
                     for (field, ty) in fields {
                         writeln!(output, "        {field}: {},", ty.text()).unwrap();
@@ -148,6 +154,58 @@ impl Plan {
         }
         output
     }
+
+    fn adjusted_record(&self, ty: &ProjectedType, checked: &mut BTreeMap<String, bool>) -> bool {
+        if matches!(ty, ProjectedType::Padding(_)) {
+            return true;
+        }
+        let ProjectedType::Named(name, _) = ty else {
+            return false;
+        };
+        if let Some(adjusted) = checked.get(name) {
+            return *adjusted;
+        }
+        let adjusted = match self.items.get(name) {
+            Some(Item::Record { fields, alignment }) => {
+                alignment.is_some()
+                    || fields
+                        .iter()
+                        .any(|(_, ty)| self.adjusted_record(ty, checked))
+            }
+            _ => false,
+        };
+        checked.insert(name.clone(), adjusted);
+        adjusted
+    }
+
+    fn validate_calls(&self) -> Result<(), Error> {
+        let mut checked = BTreeMap::new();
+        for (name, item) in &self.items {
+            let adjusted = match item {
+                Item::Function {
+                    parameters, result, ..
+                } => {
+                    parameters
+                        .iter()
+                        .any(|(_, ty)| self.adjusted_record(ty, &mut checked))
+                        || self.adjusted_record(result, &mut checked)
+                }
+                Item::Interface { methods, .. } => methods.iter().any(|(_, parameters, result)| {
+                    parameters
+                        .iter()
+                        .any(|(_, _, ty)| self.adjusted_record(ty, &mut checked))
+                        || self.adjusted_record(result, &mut checked)
+                }),
+                _ => false,
+            };
+            if adjusted {
+                return Err(Error(format!(
+                    "`{name}`: by-value calls with adjusted record layouts require native ABI coverage"
+                )));
+            }
+        }
+        Ok(())
+    }
 }
 
 fn rdl_guid(guid: &str) -> String {
@@ -164,7 +222,10 @@ fn rdl_guid(guid: &str) -> String {
 
 #[derive(Debug)]
 enum Item {
-    Record(Vec<(String, ProjectedType)>),
+    Record {
+        fields: Vec<(String, ProjectedType)>,
+        alignment: Option<i64>,
+    },
     Alias(ProjectedType),
     Enum {
         repr: &'static str,
@@ -191,6 +252,7 @@ enum Item {
 
 #[derive(Clone, Debug, PartialEq)]
 enum ProjectedType {
+    Padding(i64),
     Void,
     Scalar(&'static str, Layout),
     ScalarReference(String, &'static str, Layout),
@@ -218,6 +280,8 @@ impl ProjectedType {
 
     fn text(&self) -> String {
         match self {
+            // Padding can remain uninitialized when native code copies a record.
+            Self::Padding(size) => format!("union {{ bytes: [u8; {size}], uninit: [u8; 0], }}"),
             Self::Void => "void".into(),
             Self::Scalar(name, _) => (*name).into(),
             Self::Named(name, _) | Self::Class(name) | Self::ScalarReference(name, ..) => {
@@ -240,6 +304,10 @@ impl ProjectedType {
 
     fn layout(&self, pointer_size: i64) -> Option<Layout> {
         match self {
+            Self::Padding(size) => Some(Layout {
+                size: *size,
+                align: 1,
+            }),
             Self::Void => None,
             Self::Scalar(_, layout) | Self::ScalarReference(_, _, layout) => Some(layout.clone()),
             Self::Named(_, layout) => layout.clone(),
@@ -298,6 +366,7 @@ impl Resolved<'_> {
             resolved: self,
             options,
             aliases: BTreeMap::new(),
+            names: BTreeMap::new(),
             groups: self
                 .groups
                 .iter()
@@ -312,11 +381,33 @@ impl Resolved<'_> {
             },
         };
         for root in &self.snapshot.roots {
+            let alias = &self.snapshot.declarations[root.0];
+            if let DeclarationData::Alias { canonical, .. } = &alias.data
+                && let TypeKind::Named(target) = canonical.kind
+            {
+                let target = self.representatives[target.0];
+                if matches!(
+                    self.snapshot.declarations[target.0].data,
+                    DeclarationData::Record { unnamed: true, .. }
+                ) {
+                    let name = ident(&alias.name)?;
+                    if let Some(previous) = builder.names.insert(target, name.clone())
+                        && previous != name
+                    {
+                        return Err(Error(
+                            "multiple selected aliases name the same anonymous record".into(),
+                        ));
+                    }
+                }
+            }
+        }
+        for root in &self.snapshot.roots {
             builder.schedule(*root);
         }
         while let Some(id) = builder.pending.pop_front() {
             builder.item(id)?;
         }
+        builder.plan.validate_calls()?;
         Ok(builder.plan)
     }
 }
@@ -326,12 +417,19 @@ struct Builder<'a, 's> {
     options: &'a ProjectionOptions,
     groups: BTreeMap<Id, &'a [Id]>,
     aliases: BTreeMap<Id, (ProjectedType, bool)>,
+    names: BTreeMap<Id, String>,
     pending: VecDeque<Id>,
     scheduled: BTreeSet<Id>,
     plan: Plan,
 }
 
 impl Builder<'_, '_> {
+    fn name(&self, id: Id) -> Result<String, Error> {
+        self.names.get(&id).cloned().map_or_else(
+            || ident(&self.resolved.snapshot.declarations[id.0].name),
+            Ok,
+        )
+    }
     fn schedule(&mut self, id: Id) {
         let id = self.resolved.representatives[id.0];
         if self.scheduled.insert(id) {
@@ -358,12 +456,14 @@ impl Builder<'_, '_> {
         }
         if let DeclarationData::Alias { canonical, .. } = &declaration.data
             && let TypeKind::Named(target) = canonical.kind
-            && self.resolved.snapshot.declarations[target.0].name == declaration.name
+            && (self.resolved.snapshot.declarations[target.0].name == declaration.name
+                || self.names.get(&self.resolved.representatives[target.0])
+                    == Some(&declaration.name))
         {
             self.schedule(target);
             return Ok(());
         }
-        let name = ident(&declaration.name)?;
+        let name = self.name(id)?;
         let item = match &declaration.data {
             DeclarationData::Record {
                 complete: true,
@@ -392,7 +492,9 @@ impl Builder<'_, '_> {
                 }
                 let mut size = 0;
                 let mut align = 1;
-                for field in fields {
+                let mut names: BTreeSet<_> =
+                    fields.iter().map(|field| field.name.clone()).collect();
+                for (index, field) in fields.iter().enumerate() {
                     if field.bit_width.is_some() {
                         return Err(Error(format!(
                             "bitfield projection is not implemented for `{name}`"
@@ -415,24 +517,43 @@ impl Builder<'_, '_> {
                                     field.name
                                 ))
                             })?;
-                    size = align_up(size, field_layout.align);
-                    if size * 8 != field.offset {
+                    let natural = align_up(size, field_layout.align);
+                    if field.offset < natural * 8 || field.offset % (field_layout.align * 8) != 0 {
                         return Err(Error(format!(
                             "`{name}` requires unsupported packing or field alignment"
                         )));
                     }
+                    let offset = field.offset / 8;
+                    if offset > natural {
+                        let mut padding = format!("__padding{index}");
+                        while !names.insert(padding.clone()) {
+                            padding.push('_');
+                        }
+                        projected.push((padding, ProjectedType::Padding(offset - size)));
+                    }
+                    size = offset;
                     size += field_layout.size;
                     align = align.max(field_layout.align);
                     projected.push((ident(&field.name)?, ty));
                 }
+                if layout.align < align
+                    || layout.align > 32768
+                    || !layout.align.is_positive()
+                    || !(layout.align as u64).is_power_of_two()
+                {
+                    return Err(Error(format!("unsupported record alignment for `{name}`")));
+                }
                 let expected = Layout {
-                    size: align_up(size, align),
-                    align,
+                    size: align_up(size, layout.align),
+                    align: layout.align,
                 };
                 if expected != *layout {
                     return Err(Error(format!("projected layout differs for `{name}`")));
                 }
-                Item::Record(projected)
+                Item::Record {
+                    fields: projected,
+                    alignment: (layout.align > align).then_some(layout.align),
+                }
             }
             DeclarationData::Alias { .. } => {
                 let (ty, object) = self.alias(id, &mut BTreeSet::new())?;
@@ -517,7 +638,12 @@ impl Builder<'_, '_> {
                 Item::Function {
                     abi,
                     library,
-                    link_name: link_name.clone(),
+                    link_name: self
+                        .options
+                        .import_names
+                        .get(link_name)
+                        .unwrap_or(link_name)
+                        .clone(),
                     parameters: params,
                     result,
                 }
@@ -975,7 +1101,7 @@ impl Builder<'_, '_> {
                             declaration.name
                         )));
                     }
-                    let name = ident(&declaration.name)?;
+                    let name = self.name(id)?;
                     self.schedule(id);
                     if fields.is_empty() && !methods.is_empty() {
                         (ProjectedType::Class(name), true)

@@ -10,7 +10,121 @@ fn main() {
         build_abi();
         build_com();
         build_webview();
+        build_wdk();
+        build_crypto();
     }
+}
+
+fn build_crypto() {
+    println!("cargo:rerun-if-changed=input/sdk_buffers.h");
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let snapshot = sdk::capture_sdk(
+        &target,
+        include_str!("input/sdk_buffers.h"),
+        sdk::CRYPTO_ROOTS,
+    );
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&sdk::crypto_options())
+        .unwrap();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    std::fs::write(out.join("crypto.rdl"), plan.rdl()).unwrap();
+    let winmd = out.join("crypto.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .reference_default()
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let mut args: Vec<String> = [
+        "--in",
+        "default",
+        winmd.to_str().unwrap(),
+        "--out",
+        out.join("crypto.rs").to_str().unwrap(),
+        "--flat",
+        "--filter",
+    ]
+    .into_iter()
+    .map(str::to_string)
+    .collect();
+    args.extend(
+        sdk::CRYPTO_ROOTS
+            .iter()
+            .map(|root| format!("Crypto.{root}")),
+    );
+    windows_bindgen::bindgen(args);
+}
+
+fn build_wdk() {
+    for file in ["input/wdk_layout.h", "input/wdk_layout.cpp", "sdk.rs"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    println!(
+        "cargo:rerun-if-changed={}",
+        sdk::tools()
+            .join("win32")
+            .join("src")
+            .join("km.rs")
+            .display()
+    );
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let args = sdk::wdk_arguments(&target);
+    let snapshot = windows_clang2::capture(
+        [windows_clang2::Input::new(
+            "wdk.hpp",
+            include_str!("input/wdk_layout.h"),
+        )],
+        &args.iter().map(String::as_str).collect::<Vec<_>>(),
+        &["DeviceIoControl", "QuerySecurity", "WdkLayout", "WdkMutate"],
+    )
+    .unwrap();
+    let mut options = windows_clang2::ProjectionOptions::new("Wdk");
+    options.library = Some("clang2_wdk.dll".into());
+    let plan = snapshot.resolve().unwrap().project(&options).unwrap();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    std::fs::write(out.join("wdk.rdl"), plan.rdl()).unwrap();
+    let winmd = out.join("wdk.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .reference_default()
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_bindgen::bindgen([
+        "--in",
+        "default",
+        winmd.to_str().unwrap(),
+        "--out",
+        out.join("wdk.rs").to_str().unwrap(),
+        "--filter",
+        "Wdk",
+        "--flat",
+        "--sys",
+        "--extern",
+    ]);
+    let mut build = cc::Build::new();
+    build
+        .cpp(true)
+        .std("c++17")
+        .warnings_into_errors(true)
+        .define("NTDDI_VERSION", "0x0A000010");
+    for arg in &args {
+        if let Some(define) = arg.strip_prefix("-D") {
+            if let Some((name, value)) = define.split_once('=') {
+                build.define(name, value);
+            } else if define != "_WIN64" {
+                build.define(define, None);
+            }
+        }
+    }
+    for pair in args.windows(2) {
+        if pair[0] == "-isystem" {
+            build.include(&pair[1]);
+        }
+    }
+    build.file("input/wdk_layout.cpp").compile("clang2_wdk");
 }
 
 fn build_webview() {

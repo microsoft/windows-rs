@@ -257,6 +257,7 @@ impl<'a> Comparison<'a> {
                         (
                             DeclarationData::Record {
                                 kind: ak,
+                                unnamed: aa,
                                 complete: ac,
                                 layout: al,
                                 fields: af,
@@ -267,6 +268,7 @@ impl<'a> Comparison<'a> {
                             },
                             DeclarationData::Record {
                                 kind: bk,
+                                unnamed: ba,
                                 complete: bc,
                                 layout: bl,
                                 fields: bf,
@@ -283,6 +285,7 @@ impl<'a> Comparison<'a> {
                                     am.iter().zip(bm).map(|(a, b)| (&a.canonical, &b.canonical)),
                                 );
                                 ak == bk
+                                    && aa == ba
                                     && al == bl
                                     && ag == bg
                                     && af.len() == bf.len()

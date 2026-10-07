@@ -49,7 +49,7 @@ The current comparison is conservative: named type identity, native scalar kind,
 reference kind, and callable shape must agree. Alias declarations and callable signatures also
 retain canonical types so spelling differences do not require identical typedef paths. Written
 dependencies from every observation are checked independently. This is not a general C++ ODR
-checker or ABI-equivalence solver. Anonymous aggregate members match by their checked owner's
+checker or ABI-equivalence solver. Unnamed record members match by their checked owner's
 candidate identity and direct field slot, not by USR alone: sibling anonymous unions can share a
 libclang USR. General unnamed-type identity across different files is not inferred.
 
@@ -128,23 +128,23 @@ registration is preserved.
 
 ## Projection boundaries
 
-`Resolved::project` accepts a destination namespace, an optional import library, and explicit
-external type bindings. It returns an owned `Plan`; `Plan::rdl` needs neither the snapshot nor
-libclang. The renderer performs no native type classification or dependency discovery.
+`Resolved::project` accepts a destination namespace, an optional import library, explicit export
+names, and external type bindings. It returns an owned `Plan`; `Plan::rdl` needs neither the
+snapshot nor libclang. The renderer performs no native type classification or dependency discovery.
 
 | Surface | Current policy |
 | --- | --- |
-| Records | Ordinary, nonempty structs; verify field offsets, final size, and alignment. |
+| Records | Nonempty structs with natural or increased member/record alignment; verify every offset, final size, and alignment. |
 | Enums | Complete integer-backed enums; preserve native width, signedness, names, values, and explicit `clang::flag_enum`. No flags inference. |
 | Local dependencies | Schedule checked complete records; unsupported dependencies fail the plan. |
-| Functions | Fixed prototypes, supported Windows calling conventions, compiler link names. |
+| Functions | Fixed prototypes, supported Windows calling conventions, compiler link names or caller-bound DLL export names. |
 | Parameters | Positional names for functions, native names for methods; supported SAL below. |
 | External value types | Explicit native record/enum bindings; no assumed by-value layout. |
 | External scalar typedefs | Explicit value bindings; retain the checked native scalar representation and layout. |
 | External pointer typedefs | Explicit pointer-sized value bindings; preserve the alias boundary and native pointee constness. |
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
 | Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. |
-| Aliases | Preserve explicitly bound scalar/pointer contracts; otherwise peel at uses. Same-name tag/typedef roots schedule one record or interface definition. |
+| Aliases | Preserve bound scalar/pointer contracts; otherwise peel at uses. A selected alias can name an unnamed record. Competing selected names reject. |
 | Constants | Supported scalar and raw pointer values; omit interface values with a reason. |
 | Raw pointers | Collapse mixed mutability to const if any raw-pointer level is const. |
 
@@ -157,6 +157,24 @@ that same scalar representation. Pointer typedefs may also bind to external meta
 the caller guarantees the pointer representation and semantic identity. The bound value does not
 schedule its pointee for local output. Array, reference, and other arbitrary alias bindings are
 unsupported.
+
+`ProjectionOptions::import_names` maps exact native linker symbols to caller-supplied DLL export
+names. The native evidence and calling convention are unchanged. Unmapped symbols keep their
+compiler name, which is suitable for the static fixtures but is not proof of DLL export spelling.
+There is no decoration-stripping heuristic or automatic import-library/export-table reader.
+
+Record storage can include gaps required by increased member alignment. Each explicit gap is a
+union of a byte array and a zero-length array, not an ordinary initialized byte field: native
+copies need not initialize padding. Padding names avoid native field-name collisions. Increased
+record alignment uses `#[align(N)]`; packing and reduced alignment still reject. A closed-plan
+check rejects by-value calls involving an adjusted record, including nested records and aliases.
+Matching storage layout does not prove its calling ABI.
+
+Explicitly selected aliases of unnamed records own the output name. This permits `decltype` to
+select real nested WDK member types without copying their declarations. Native candidate identity
+still uses the checked owner and field slot, including fields containing arrays or pointers to
+unnamed records. Multiple selected aliases naming the same unnamed record reject instead of
+choosing by traversal order. General anonymous aggregate emission remains unsupported.
 
 Callable projection retains written typedef paths, not just canonical ABI types. For example,
 explicitly binding native `HRESULT` to `Windows.Win32.Foundation.HRESULT` preserves error and COM
@@ -231,13 +249,13 @@ Methods that override inherited slots are also rejected, including implicit and 
 overrides. Appending their declarations would create slots that do not exist in the native vtable.
 An interface parameter consumes exactly one native pointer/reference level. By-value record results
 are rejected for COM methods on all targets until the downstream aggregate-return ABI is covered.
-Record pointers and free-function record results remain supported.
+Record pointers and free-function results with ordinary record layouts remain supported.
 
-Packing, explicit alignment, bitfield projection, anonymous aggregate projection, array projection,
+Packing, bitfield projection, anonymous aggregate projection, array projection,
 and callback emission remain outside this slice. Qualified native names can select roots, but local
 output names currently require unqualified identifiers. UUIDs decode from `__declspec(uuid(...))`
 only (no `GUID`-typed value decoding yet). General SAL lowering, MIDL relationships, WinRT mapping,
-header ownership, and export-name policy are not implemented.
+header ownership, and automatic DLL routing are not implemented.
 
 ## Evaluation
 
@@ -245,7 +263,7 @@ header ownership, and export-name policy are not implemented.
 cargo test -p windows-clang2 -p test_clang2
 cargo clippy -p windows-clang2 -p test_clang2 --all-targets
 cargo fmt -p windows-clang2 -p test_clang2
-cargo test -p test_clang2 --test abi --test com --target i686-pc-windows-msvc
+cargo test -p test_clang2 --test abi --test com --test wdk --test crypto --target i686-pc-windows-msvc
 ```
 
 Inspect a real file or fixture:
@@ -348,6 +366,79 @@ The reverse call failed even though Rust-to-C++ dispatch passed. `com_record_res
 explicit rejection for small/large records and aliases on all three targets, with record-pointer
 returns as the positive control. Fixing the downstream ABI requires separate bindgen coverage and
 regeneration; the prototype does not work around it with a handwritten vtable signature.
+
+### Real WDK storage and BCrypt calls
+
+`input/wdk_layout.h` includes the pinned WDK's `ntifs.h` and `wdm.h`. Two `decltype` typedefs
+select `IO_STACK_LOCATION::Parameters.DeviceIoControl` and `QuerySecurity` from those headers.
+The types are not copied synthetic definitions. Capture/projection covers x86, x64, and ARM64
+with repeated TUs and reversed input order.
+
+`input/wdk_layout.cpp` independently compiles the real types with MSVC. `tests/wdk.rs` compares
+every field offset, size, and alignment against that code, then passes generated records through
+native pointer calls that read and mutate every field. Native execution covers x64 and x86,
+debug and release. ARM64 has capture/metadata coverage here, not locally observed execution.
+
+| Record | x86 size / alignment / offsets | x64 size / alignment / offsets |
+| --- | --- | --- |
+| `DeviceIoControl` | 16 / 4 / 0, 4, 8, 12 | 32 / 8 / 0, 8, 16, 24 |
+| `QuerySecurity` | 8 / 4 / 0, 4 | 16 / 8 / 0, 8 |
+
+The compiler reports larger member gaps on x64. Projection preserves these through padding unions
+and record alignment without WDK type-name rules. `adjusted_layouts.h` also covers padding-name
+collisions, nested adjusted records, increased record alignment, and by-value rejection.
+
+`tests/crypto.rs` calls the actual Windows `bcrypt.dll` through generated high-level wrappers
+for `BCryptOpenAlgorithmProvider`, `BCryptDeriveKeyPBKDF2`, and `BCryptCloseAlgorithmProvider`.
+The inputs come from the pinned SDK and shared SAL shim. External `PCWSTR` and algorithm-handle
+bindings are explicit. A SHA256 HMAC provider derives PBKDF2 keys with one iteration for ordinary,
+null, empty, and embedded-NUL password/salt buffers. Expected bytes were calculated independently
+with Python `hashlib.pbkdf2_hmac`. Guard bytes bound the output, and zero iterations exercise a
+negative NTSTATUS. Exact Rust function-pointer assignments preserve the wrapper shape: optional
+input slices, a raw output pointer plus byte capacity, and a raw status result.
+
+This DLL trial exposed a boundary hidden by static-link tests: on x86, compiler linker symbols
+such as `_BCryptDeriveKeyPBKDF2@40` differ from the DLL's `BCryptDeriveKeyPBKDF2` export.
+The test caller supplies exact export bindings, checked against the installed x86 DLL's export
+table and exercised by native calls. Both architectures execute in debug and release. This
+establishes those three exports, not automatic SDK-wide routing. Full-initialization annotations
+such as `_Out_writes_bytes_all_` remain unsupported rather than being treated as capacity alone.
+
+The WDK changes fit the existing stages: capture owns unnamed native identity, resolution checks
+unchanged evidence, the planner chooses output names and storage, and the renderer prints only
+planned items. The by-value gate caches each local record result so shared value dependencies are
+not expanded as a tree; it does not infer calling ABI from storage. Import-name contracts likewise
+affect projection only. No changes to bindgen,
+RDL, production extraction, or production metadata were needed.
+
+The paired `wdk` example uses identical pinned headers, selected typedefs, target, and TU counts:
+
+```powershell
+cargo run -p test_clang2 --example wdk --release -- new 2
+cargo run -p test_clang2 --example wdk --release -- old 2
+```
+
+It reports capture and planning/emission time and requires both output records to contain fields.
+That presence check is not a layout or parity oracle. The legacy output loses the member gaps:
+its x64 `DeviceIoControl` has natural offsets 0, 4, 8, 16 and size 24; `QuerySecurity` has offsets
+0, 4 and size 8 despite its alignment attribute. These disagree with the independent compiler
+measurements above. Comparing costs is useful for this input, but not an equal-correct-output
+speedup claim. Full WDK extraction and resource budgets remain open.
+
+One local x64 release process per cell, with cached dependencies, measured:
+
+| TUs | Rewrite capture | Rewrite resolve / project | Rewrite peak MiB | Legacy capture / emit | Legacy peak MiB |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 155 ms | 34 / 36 us | 141.5 | 1299 / 61 ms | 93.9 |
+| 2 | 333 ms | 46 / 43 us | 169.2 | 2743 / 129 ms | 156.3 |
+| 4 | 662 ms | 49 / 43 us | 223.5 | 4982 / 242 ms | 275.9 |
+
+Phase timings exclude compilation and package setup. Peak working set was sampled every 10 ms
+from dedicated processes and includes the final RDL/WinMD presence gate, not just capture.
+The rewrite retains seven selected groups and 7/14/28 observations; legacy captures
+18,890/37,780/75,560 header facts before selection. The rewrite is faster on these inputs, but
+its whole-process memory is higher for one and two TUs. This is neither equal-work performance
+nor evidence of uniformly lower memory; the two backends also differ in output correctness.
 
 ### COM ownership fixture
 
@@ -512,7 +603,7 @@ approves them.
 | --- | --- |
 | Four flags enums use signed native representation without `FlagsAttribute` | Native enum evidence is retained, but the legacy flags policy is not implemented. Decide explicit projection policy rather than changing native facts. |
 | Alias/tag names differ | Naming/ownership policy is incomplete; no caller migration has been accepted. |
-| Two loader exports use `C` rather than `system` on x64 | Same platform ABI on this target; x86 emits stdcall and decorated native link names. Real DLL import/export routing is still untested. |
+| Two loader exports use `C` rather than `system` on x64 | Same platform ABI on this target; x86 emits stdcall and decorated native link names. WebView2 loader DLL routing is still untested; the BCrypt slice has explicit native-tested export bindings. |
 
 `consumer_input_contracts_cutover_gate` is an ordinary passing test covering six `HWND` inputs and
 two host-object `VARIANT*` inputs. Exact wrapper assertions also require a handle-valued setter,
@@ -538,7 +629,7 @@ over the old extractor's lossy output. Proceed through bounded gates, not an unc
 The old `windows-clang` implementation and production generators are unchanged. Inspect the
 worktree before restarting and preserve any local changes.
 
-The current slice has 94 passing integration tests and one passing doctest, with no ignored
+The current slice has 102 passing integration tests and one passing doctest, with no ignored
 WebView2 cutover cases.
 This establishes the covered cases, not production parity or completion of the acceptance matrix.
 
@@ -571,13 +662,15 @@ This establishes the covered cases, not production parity or completion of the a
 | Handle/string wrappers reach native implementations on x64/x86 | `test_clang2/tests/com.rs::generated_handle_setters_and_strings_reach_native_methods` |
 | Borrowed interface objects remain distinct from output slots in metadata and generated wrappers | `test_clang2/tests/projection.rs::interface_direction_distinguishes_objects_from_pointer_slots`, `test_clang2/tests/com.rs::generated_object_borrows_reach_native_methods` |
 | Explicit enum flags survive; unsupported member layouts, annotations, and overloaded COM methods fail visibly | `test_clang2/tests/projection.rs`, `input/flag_enums.h`, `input/member_alignment.h`, `input/double_null.h`, `input/overloads.h` |
+| Real WDK member storage matches every native offset, size, and alignment | `test_clang2/tests/wdk.rs`, `input/wdk_layout.cpp` |
+| Generated BCrypt wrappers preserve optional counted inputs, output bounds, and native DLL imports | `test_clang2/tests/crypto.rs` |
 
 The test crate is at `crates/tests/libs/clang2`. Real-header local COM metadata is covered, with
 synthetic positive and negative controls alongside it. The synthetic ABI fixture executes on x64
 and x86. Local ARM64 linking is blocked by missing Visual Studio ARM64 compiler/runtime libraries;
 native ARM64 execution is configured in CI but has not been observed for this change. Coverage
 includes raw ABI calls and high-level COM ownership wrappers against a native test implementation,
-not Windows COM activation, DLL imports, or general C++ ABI parity.
+plus three real BCrypt DLL imports, not Windows COM activation or general C++ ABI parity.
 
 Resume by inspecting the worktree and these modules, then rerun the baseline without updating
 goldens:
@@ -597,7 +690,7 @@ prototype results, not fixes to the production backend or grounds for closing th
 | Issue | Reproduction and current outcome |
 | --- | --- |
 | [#4998](https://github.com/microsoft/windows-rs/issues/4998), in/out interface objects | The exact fixture rejects unsupported `_Outptr_`. Its supported `_COM_Outptr_` counterpart exposed incorrect in/out direction on a borrowed object. Direct object pointers now project as borrowed inputs, while interface output slots retain their direction. Metadata and native COM coverage distinguish both. |
-| [#4967](https://github.com/microsoft/windows-rs/issues/4967), member alignment | `DeviceIoControl` and `QuerySecurity` patterns reject unsupported member alignment on x64/ARM64 rather than emitting incorrect offsets. Their ordinary x86 layouts project. Padding/alignment emission remains a completeness gap. |
+| [#4967](https://github.com/microsoft/windows-rs/issues/4967), member alignment | Real WDK `DeviceIoControl` and `QuerySecurity` member types preserve offsets, size, and alignment. MSVC layout and pointer-call fixtures execute on x64/x86; ARM64 has capture/metadata coverage. Adjusted-record by-value calls still reject. |
 | [#5042](https://github.com/microsoft/windows-rs/issues/5042), double-NUL strings | The exact SAL repro and a control without `_Post_` both reject `_NullNull_terminated_`. This is an explicit unsupported contract, not silent loss. |
 | [#5047](https://github.com/microsoft/windows-rs/issues/5047), explicit enum flags | The repro exposed a lost `clang::flag_enum` marker. Capture, agreement, and projection now preserve it through `FlagsAttribute`, with unchanged width and values and an unflagged negative control. |
 | [#4186](https://github.com/microsoft/windows-rs/issues/4186), duplicate symbols | Relevant C++ cases distinguish rejected free-function output-name collisions from method overloads. A native x64 experiment showed that accepted same-name COM methods could dispatch incorrectly despite distinct generated Rust names. These interfaces now reject before RDL emission. WinRT duplicate properties and architecture overlays are outside this gate. |
@@ -610,7 +703,8 @@ slot-order contract and executable coverage, not a method-name reversal heuristi
 
 This gate found correctness defects, not just missing features. Correcting the bounded cases and
 rejecting unproven layouts strengthens the stage boundaries but does not establish that all
-remaining work is completeness. Production Win32/WDK inputs and resource budgets remain unproven.
+remaining work is completeness. Full production Win32/WDK inputs and resource budgets remain
+unproven; the bounded WDK/BCrypt slice above covers two real records and three real DLL exports.
 
 The independent review found another slot-layout defect: a derived pure virtual override reuses
 an inherited native slot, but appending it in RDL adds a new slot. A compiler check for the Windows

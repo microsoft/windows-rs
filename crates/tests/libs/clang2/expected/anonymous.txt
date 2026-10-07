@@ -4,6 +4,7 @@ USR: c:@S@NamedMember
 entity: 0
 Record {
     kind: "StructDecl",
+    unnamed: false,
     complete: true,
     layout: Some(
         Layout {
@@ -40,6 +41,7 @@ USR: c:@S@Packet
 entity: 1
 Record {
     kind: "StructDecl",
+    unnamed: false,
     complete: true,
     layout: Some(
         Layout {
@@ -135,6 +137,7 @@ USR: c:@S@NamedMember@S@anonymous.h@345
 entity: 2
 Record {
     kind: "StructDecl",
+    unnamed: true,
     complete: true,
     layout: Some(
         Layout {
@@ -175,6 +178,7 @@ USR: c:@S@Packet@Ua
 entity: 3
 Record {
     kind: "UnionDecl",
+    unnamed: true,
     complete: true,
     layout: Some(
         Layout {
@@ -253,6 +257,7 @@ USR: c:@S@Packet@Ua
 entity: 4
 Record {
     kind: "UnionDecl",
+    unnamed: true,
     complete: true,
     layout: Some(
         Layout {
@@ -314,6 +319,7 @@ USR: c:@S@Packet@Ua@Sa
 entity: 5
 Record {
     kind: "StructDecl",
+    unnamed: true,
     complete: true,
     layout: Some(
         Layout {

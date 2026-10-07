@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    struct DeviceIoControl {
+        OutputBufferLength: u32,
+        __padding1: union { bytes: [u8; 4], uninit: [u8; 0], },
+        InputBufferLength: u32,
+        __padding2: union { bytes: [u8; 4], uninit: [u8; 0], },
+        IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+    #[align(8)]
+    struct QuerySecurity {
+        SecurityInformation: u32,
+        __padding1: union { bytes: [u8; 4], uninit: [u8; 0], },
+        Length: u32,
+    }
+}
