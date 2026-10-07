@@ -1299,6 +1299,10 @@ pub use pdh::*;
 pub mod peninputpanel;
 #[cfg(feature = "peninputpanel")]
 pub use peninputpanel::*;
+#[cfg(feature = "perflib")]
+pub mod perflib;
+#[cfg(feature = "perflib")]
+pub use perflib::*;
 #[cfg(feature = "pla")]
 pub mod pla;
 #[cfg(feature = "pla")]
