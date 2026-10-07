@@ -85,7 +85,11 @@ impl Config<'_> {
             }
 
             // Win32/WDK package references target the flat umbrella, not private header stems.
-            let target = flat_module_namespace(type_name.namespace());
+            let target = if self.bindgen.layout.is_package() {
+                flat_module_namespace(type_name.namespace())
+            } else {
+                type_name.namespace()
+            };
 
             let mut relative = self.namespace.split('.').peekable();
             let mut namespace = target.split('.').peekable();
