@@ -1,0 +1,17 @@
+//! --filter Repro --flat
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod Com {
+                struct Shared { value: i32, }
+            }
+        }
+    }
+}
+#[win32]
+mod Repro {
+    struct Example {
+        shared: Windows::Win32::System::Com::Shared,
+    }
+}
