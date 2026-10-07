@@ -161,9 +161,13 @@ and namespace remapping routes its outermost type without changing the nested pa
 `NestedClass` row alone does not resolve an unqualified, module-scoped reference to a nested type
 (ECMA-335 II.7.3 and II.22.38).
 
+Nested generic instantiations are outside the writer's supported input. Both signature and
+TypeSpec emission assert against them rather than derive a nested name's arity from the total
+generic argument count. Top-level generics and non-generic nested records remain supported.
+
 `test_metadata::nested_references` checks physical scope chains, signature decoding through both
-TypeRef and TypeDef tokens, repeated leaf names under different parents, generic enclosing names,
-merge, and namespace remapping.
+TypeRef and TypeDef tokens, repeated leaf names under different parents, rejection of nested
+generic instantiations, merge, and namespace remapping.
 
 ### Method parameter association
 

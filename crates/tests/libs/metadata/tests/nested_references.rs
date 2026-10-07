@@ -192,49 +192,58 @@ fn nested_references_survive_architecture_merge() {
 }
 
 #[test]
-fn nested_generic_signatures_preserve_enclosing_arity() {
-    let mut file = writer::File::new("nested_generics");
-    let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "Object"));
-    let outer = file.TypeDef("Test", "Generic`1", base, TypeAttributes::Public);
-    file.GenericParam(
-        "T",
-        writer::TypeOrMethodDef::TypeDef(outer),
-        0,
-        GenericParamAttributes::None,
-    );
-    let child = file.TypeDef(
-        "",
-        "Child`1",
-        writer::TypeDefOrRef::default(),
-        TypeAttributes::NestedPublic | TypeAttributes::Interface | TypeAttributes::Abstract,
-    );
-    file.NestedClass(child, outer);
-    file.GenericParam(
-        "T",
-        writer::TypeOrMethodDef::TypeDef(child),
-        0,
-        GenericParamAttributes::None,
-    );
-    let holder = file.TypeDef("Test", "Holder", base, TypeAttributes::Public);
+#[should_panic(expected = "nested generic types are not supported")]
+fn nested_generic_field_is_rejected() {
+    let mut file = writer::File::new("nested_generic_field");
     let ty = Type::ClassName(TypeName {
         namespace: "Test".to_string(),
-        name: "Generic`1/Child`1".to_string(),
+        name: "Generic`1/Child".to_string(),
         generics: vec![Type::I32],
     });
     file.Field("value", &ty, FieldAttributes::Public);
-    file.InterfaceImpl(holder, &ty);
-    let index = Index::new(vec![File::new(file.into_stream()).unwrap()]);
-    assert_eq!(
-        index.expect("Test", "Holder").fields().next().unwrap().ty(),
-        ty
-    );
-    assert_eq!(
-        index
-            .expect("Test", "Holder")
-            .interface_impls()
-            .next()
-            .unwrap()
-            .interface(&[]),
-        ty
-    );
+}
+
+#[test]
+#[should_panic(expected = "nested generic types are not supported")]
+fn nested_generic_type_spec_is_rejected() {
+    let mut file = writer::File::new("nested_generic_type_spec");
+    file.TypeSpec("Test", "Generic`1/Child`1", &[Type::I32, Type::I64]);
+}
+
+#[test]
+fn top_level_generic_signatures_preserve_arity() {
+    for name in ["Generic", "Generic`1"] {
+        let mut file = writer::File::new("top_level_generics");
+        let generic = file.TypeDef(
+            "Test",
+            "Generic`1",
+            writer::TypeDefOrRef::default(),
+            TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
+        );
+        file.GenericParam(
+            "T",
+            writer::TypeOrMethodDef::TypeDef(generic),
+            0,
+            GenericParamAttributes::None,
+        );
+        let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "Object"));
+        let holder = file.TypeDef("Test", "Holder", base, TypeAttributes::Public);
+        let mut name = TypeName {
+            namespace: "Test".to_string(),
+            name: name.to_string(),
+            generics: vec![Type::I32],
+        };
+        let ty = Type::ClassName(name.clone());
+        file.Field("value", &ty, FieldAttributes::Public);
+        file.InterfaceImpl(holder, &ty);
+        let index = Index::new(vec![File::new(file.into_stream()).unwrap()]);
+        let holder = index.expect("Test", "Holder");
+        name.name = "Generic`1".to_string();
+        let expected = Type::ClassName(name);
+        assert_eq!(holder.fields().next().unwrap().ty(), expected);
+        assert_eq!(
+            holder.interface_impls().next().unwrap().interface(&[]),
+            expected
+        );
+    }
 }

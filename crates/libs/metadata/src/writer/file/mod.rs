@@ -193,13 +193,7 @@ impl File {
 
     pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> TypeSpec {
         debug_assert!(!generics.is_empty());
-        // Avoid doubling an existing generic arity suffix read from a winmd.
-        let base = name
-            .rsplit_once('`')
-            .filter(|(_, arity)| !arity.contains('/'))
-            .map_or(name, |(base, _)| base);
-        let name = format!("{base}`{}", generics.len());
-        let type_ref = self.TypeRef(namespace, &name);
+        let type_ref = self.GenericTypeRef(namespace, name, generics.len());
 
         let mut buffer = vec![];
         buffer.push(ELEMENT_TYPE_GENERICINST);
@@ -222,6 +216,15 @@ impl File {
         }));
         self.TypeSpec.insert(signature, pos);
         pos
+    }
+
+    fn GenericTypeRef(&mut self, namespace: &str, name: &str, arity: usize) -> TypeRef {
+        assert!(
+            !name.contains('/'),
+            "nested generic types are not supported"
+        );
+        let base = name.split_once('`').map_or(name, |(base, _)| base);
+        self.TypeRef(namespace, &format!("{base}`{arity}"))
     }
 
     pub fn Field(&mut self, name: &str, ty: &Type, flags: FieldAttributes) -> Field {
@@ -530,13 +533,7 @@ impl File {
     ) {
         let pos = if !generics.is_empty() {
             buffer.push(ELEMENT_TYPE_GENERICINST);
-            // Strip any existing `N suffix before re-deriving it (see TypeSpec).
-            let base = name
-                .rsplit_once('`')
-                .filter(|(_, arity)| !arity.contains('/'))
-                .map_or(name, |(base, _)| base);
-            let name = format!("{base}`{}", generics.len());
-            self.TypeRef(namespace, &name)
+            self.GenericTypeRef(namespace, name, generics.len())
         } else {
             self.TypeRef(namespace, name)
         };
