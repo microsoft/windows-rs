@@ -159,6 +159,11 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
   `*const *const T` chains work; mixed chains do not.
 - `len_param` and `size_param` store raw zero-based signature positions. Update the attribute when
   parameters move.
+- `written_bytes(BytesParamIndex = N, Dereference = true|false)` stores a successful-return
+  valid-byte extent, not capacity. It maps to `Windows.Win32.Metadata.MemoryWrittenAttribute`;
+  the experimental definition is supplied by `crates/libs/clang2/metadata.rdl`, not the default
+  WinMD. A dereferenced count names an output integer pointer. RDL preserves the relationship;
+  consumers validate the signature and success condition.
 - RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
   type-based default.
 - Attributes on a void return row cannot round-trip because there is no return type to carry them.
@@ -170,6 +175,15 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 
 The remainder of this page covers how the crate is built and maintained. It is for contributors and
 is **not needed to use `windows-rdl`**.
+
+### Import libraries
+
+`implib::read` preserves each short import's native linker `symbol`, `dll`, `ImportKind`, and
+`ImportTarget`. The target is a name or an ordinal. Named imports obey the COFF name-type field:
+literal name, prefix removal, prefix removal plus suffix truncation, or an explicit export name.
+No decoration rule is inferred from the symbol alone. The reader preserves duplicates; callers
+decide library selection and reject conflicting routes. Truncated headers/strings, unknown name
+types, and invalid import-kind or reserved bits are errors.
 
 ### How it's built
 

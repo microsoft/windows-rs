@@ -158,10 +158,13 @@ the caller guarantees the pointer representation and semantic identity. The boun
 schedule its pointee for local output. Array, reference, and other arbitrary alias bindings are
 unsupported.
 
-`ProjectionOptions::import_names` maps exact native linker symbols to caller-supplied DLL export
-names. The native evidence and calling convention are unchanged. Unmapped symbols keep their
-compiler name, which is suitable for the static fixtures but is not proof of DLL export spelling.
-There is no decoration-stripping heuristic or automatic import-library/export-table reader.
+`ProjectionOptions::imports` maps exact native linker symbols to `FunctionImport { library, name }`.
+The native evidence and calling convention are unchanged. Unmapped functions require the explicit
+`library` fallback, which retains their compiler name and is suitable for static fixtures, not
+proof of DLL export spelling. The BCrypt caller disables that fallback and loads target-specific
+SDK import libraries through `windows_rdl::implib`. The reader obeys each COFF name type; it does
+not strip decoration based on the spelling alone. Ordinals remain distinct from names, and code
+imports remain distinct from data imports. Missing required imports fail projection.
 
 Record storage can include gaps required by increased member alignment. Each explicit gap is a
 union of a byte array and a zero-length array, not an ordinary initialized byte field: native
@@ -211,11 +214,33 @@ Each of these six buffer annotations also supports its `_opt_` suffix, such as
 `_In_reads_opt_` or `_Out_writes_bytes_opt_`. Optionality applies only to the buffer parameter;
 its count parameter is not made optional. Length and direction rules are unchanged.
 
+`_Out_writes_bytes_all_` and `_Out_writes_bytes_to_`, including their optional forms, also retain
+a separate successful-return valid-byte extent:
+
+| Annotation | Capacity | Valid bytes when the call succeeds and the buffer is non-null |
+| --- | --- | --- |
+| `_Out_writes_bytes_all_(capacity)` | By-value integer parameter | The same parameter value |
+| `_Out_writes_bytes_to_(capacity, count)` | By-value integer parameter | A by-value integer parameter |
+| `_Out_writes_bytes_to_(capacity, *count)` | By-value integer parameter | Dereferenced nonoptional writable integer output parameter |
+
+RDL spells this as `#[written_bytes(BytesParamIndex = N, Dereference = true|false)]`, independently
+of `#[size_param(M)]`. The experimental `MemoryWrittenAttribute` definition lives in
+`crates/libs/clang2/metadata.rdl`; supply that file as an input or compile it as a reference when
+compiling these plans. It is not added to the production metadata seed or bundled default WinMD.
+`MethodParam::bytes_written()` reads it separately from capacity. RDL/WinMD round-trips preserve
+both relationships. Constant/arithmetic written counts, optional count pointers, and noninteger
+counts reject. Declaration-local names resolve to original parameter positions before lowering.
+
+Generated output wrappers still expose unsafe pointers and raw NTSTATUS results. They do not
+assume output initialization on failure or turn capacity into a returned slice length. The caller
+must check the API's success condition, inspect returned counts, and respect retained-buffer
+lifetimes. Postcondition metadata is not a general ownership or success-predicate model.
+
 Resolution binds length parameter names using each annotation's original declaration context.
 Projection uses those zero-based positions, not the representative declaration's parameter names;
 method positions exclude `self`. A referenced count must be a by-value integer parameter, and its
 index must fit `i16`. Constant element counts are decimal literals from zero through `i32::MAX`.
-Output buffers must be writable. Element-counted `void*` buffers, indirect or arithmetic counts,
+Output buffers must be writable. Element-counted `void*` buffers, indirect or arithmetic capacities,
 constant byte counts, non-decimal literals, and multiple length annotations are errors.
 Other annotations remain errors, including unsupported COM output variants.
 Compiling length attributes to WinMD requires the standard metadata attribute definitions, supplied
@@ -388,28 +413,49 @@ The compiler reports larger member gaps on x64. Projection preserves these throu
 and record alignment without WDK type-name rules. `adjusted_layouts.h` also covers padding-name
 collisions, nested adjusted records, increased record alignment, and by-value rejection.
 
-`tests/crypto.rs` calls the actual Windows `bcrypt.dll` through generated high-level wrappers
-for `BCryptOpenAlgorithmProvider`, `BCryptDeriveKeyPBKDF2`, and `BCryptCloseAlgorithmProvider`.
-The inputs come from the pinned SDK and shared SAL shim. External `PCWSTR` and algorithm-handle
-bindings are explicit. A SHA256 HMAC provider derives PBKDF2 keys with one iteration for ordinary,
-null, empty, and embedded-NUL password/salt buffers. Expected bytes were calculated independently
-with Python `hashlib.pbkdf2_hmac`. Guard bytes bound the output, and zero iterations exercise a
-negative NTSTATUS. Exact Rust function-pointer assignments preserve the wrapper shape: optional
-input slices, a raw output pointer plus byte capacity, and a raw status result.
+`tests/crypto.rs` calls the actual Windows `bcrypt.dll` through generated wrappers. Its eight
+required exports are `BCryptOpenAlgorithmProvider`, `BCryptGetProperty`, `BCryptCreateHash`,
+`BCryptHashData`, `BCryptFinishHash`, `BCryptDestroyHash`, `BCryptDeriveKeyPBKDF2`, and
+`BCryptCloseAlgorithmProvider`. The inputs come from the pinned SDK and shared SAL shim; external
+`PCWSTR` and handle bindings are explicit.
 
-This DLL trial exposed a boundary hidden by static-link tests: on x86, compiler linker symbols
-such as `_BCryptDeriveKeyPBKDF2@40` differ from the DLL's `BCryptDeriveKeyPBKDF2` export.
-The test caller supplies exact export bindings, checked against the installed x86 DLL's export
-table and exercised by native calls. Both architectures execute in debug and release. This
-establishes those three exports, not automatic SDK-wide routing. Full-initialization annotations
-such as `_Out_writes_bytes_all_` remain unsupported rather than being treated as capacity alone.
+The hashing lifecycle opens a SHA256 or HMAC provider, queries object and digest lengths, creates
+a hash, feeds incremental chunks, finishes it, destroys it, and closes the provider. Both
+CNG-allocated and caller-owned object storage are covered. The fixture's hash object borrows the
+provider and owns any retained buffer; destruction calls CNG before freeing that storage.
+Null-buffer property queries return required lengths; oversized property buffers use only the
+reported valid prefix, not their capacity. Known answers cover empty input, `abc`, embedded NULs,
+and an HMAC key containing NUL. PBKDF2 retains its ordinary/null/empty/embedded-NUL cases.
+Expected bytes were calculated independently with Python `hashlib` and `hmac`.
+
+Guard bytes bound output and retained-object storage. Too-small property/object buffers,
+unsupported properties, incorrect digest lengths, and zero PBKDF2 iterations exercise native
+statuses without assuming failure outputs are initialized. Exact Rust function-pointer assignments
+preserve counted input slices, raw output pointers/capacities, handles, and status results.
+
+Each target uses the matching pinned `microsoft.windows.sdk.cpp.<arch>` package's `bcrypt.lib`.
+COFF name-type decoding supplies both the DLL and its export spelling; this covers x86 stdcall
+symbols without a hand-maintained mapping. SDK libraries can contain multiple linker aliases for
+one export. Every required function is present in metadata, and removing its import mappings
+must make projection fail. The eight exports execute on x64/x86 in debug and release; ARM64 has
+capture, import-library, and metadata coverage only. This is not SDK-wide library-selection policy.
+
+The contract evidence is the pinned header plus Microsoft's
+[SAL parameter reference](https://learn.microsoft.com/en-us/cpp/code-quality/annotating-function-parameters-and-return-values),
+[CreateHash](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptcreatehash),
+[GetProperty](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgetproperty),
+and [FinishHash](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptfinishhash)
+documentation. COFF name types follow the
+[PE specification](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#import-name-type)
+and the pinned SDK's `IMPORT_OBJECT_NAME_TYPE`, including `IMPORT_OBJECT_NAME_EXPORTAS`.
 
 The WDK changes fit the existing stages: capture owns unnamed native identity, resolution checks
 unchanged evidence, the planner chooses output names and storage, and the renderer prints only
 planned items. The by-value gate caches each local record result so shared value dependencies are
 not expanded as a tree; it does not infer calling ABI from storage. Import-name contracts likewise
-affect projection only. No changes to bindgen,
-RDL, production extraction, or production metadata were needed.
+affect projection only. RDL and the metadata reader preserve the explicit valid-byte extent, with
+the experimental attribute supplied alongside the plan. Bindgen, production extraction, the
+production vocabulary seed, and production metadata remain unchanged.
 
 The paired `wdk` example uses identical pinned headers, selected typedefs, target, and TU counts:
 
@@ -629,7 +675,7 @@ over the old extractor's lossy output. Proceed through bounded gates, not an unc
 The old `windows-clang` implementation and production generators are unchanged. Inspect the
 worktree before restarting and preserve any local changes.
 
-The current slice has 102 passing integration tests and one passing doctest, with no ignored
+The current slice has 108 passing integration tests and one passing doctest, with no ignored
 WebView2 cutover cases.
 This establishes the covered cases, not production parity or completion of the acceptance matrix.
 
@@ -664,13 +710,14 @@ This establishes the covered cases, not production parity or completion of the a
 | Explicit enum flags survive; unsupported member layouts, annotations, and overloaded COM methods fail visibly | `test_clang2/tests/projection.rs`, `input/flag_enums.h`, `input/member_alignment.h`, `input/double_null.h`, `input/overloads.h` |
 | Real WDK member storage matches every native offset, size, and alignment | `test_clang2/tests/wdk.rs`, `input/wdk_layout.cpp` |
 | Generated BCrypt wrappers preserve optional counted inputs, output bounds, and native DLL imports | `test_clang2/tests/crypto.rs` |
+| Full/partial output byte postconditions survive RDL/WinMD; invalid counts reject | `test_clang2/tests/projection.rs`, `test_metadata/tests/method_params.rs` |
 
 The test crate is at `crates/tests/libs/clang2`. Real-header local COM metadata is covered, with
 synthetic positive and negative controls alongside it. The synthetic ABI fixture executes on x64
 and x86. Local ARM64 linking is blocked by missing Visual Studio ARM64 compiler/runtime libraries;
 native ARM64 execution is configured in CI but has not been observed for this change. Coverage
 includes raw ABI calls and high-level COM ownership wrappers against a native test implementation,
-plus three real BCrypt DLL imports, not Windows COM activation or general C++ ABI parity.
+plus eight real BCrypt DLL imports, not Windows COM activation or general C++ ABI parity.
 
 Resume by inspecting the worktree and these modules, then rerun the baseline without updating
 goldens:
@@ -704,7 +751,7 @@ slot-order contract and executable coverage, not a method-name reversal heuristi
 This gate found correctness defects, not just missing features. Correcting the bounded cases and
 rejecting unproven layouts strengthens the stage boundaries but does not establish that all
 remaining work is completeness. Full production Win32/WDK inputs and resource budgets remain
-unproven; the bounded WDK/BCrypt slice above covers two real records and three real DLL exports.
+unproven; the bounded WDK/BCrypt slice above covers two real records and eight real DLL exports.
 
 The independent review found another slot-layout defect: a derived pure virtual override reuses
 an inherited native slot, but appending it in RDL adds a new slot. A compiler check for the Windows
@@ -752,7 +799,7 @@ reachability. Preserve the pointer-contract and MIDL direction gates while defin
 projection policies. Native agreement must still run before external bindings can suppress local
 output.
 
-Remaining SAL and MIDL work includes indirect lengths, counted strings, and relationships beyond
+Remaining SAL and MIDL work includes indirect capacities, counted strings, and relationships beyond
 the bounded prefix-direction decoder. Preserve explicit string bindings; do not invent unbound
 `PSTR`/`PWSTR` names. Retain the local SDK interface, BCrypt, WinHTTP, and WebView2 cases as
 regression gates. First record the exact selected roots, expected metadata, supported shapes, and
@@ -761,11 +808,11 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | Order | Work | Acceptance condition |
 | --- | --- | --- |
 | 1 | Local COM and UUIDs from `unknwnbase.h` | Metadata case covered: local `IUnknown` and `IClassFactory`, IID, inheritance, method order, system calling conventions, pointer levels, and COM output attributes on three targets. Synthetic executable ABI coverage is in gate 6. |
-| 2 | SAL and MIDL relationships | Required/optional buffers, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect lengths, and other MIDL relationships remain. |
+| 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
 | 3 | Constants and preprocessing | Cover GUID/property-key forms, redefinition/undefinition, final macro state, and poison expressions with explicit, bounded recovery outcomes. |
 | 4 | Record layout | Anonymous native evidence is covered; local projection remains rejected. Cover packed, anonymous, bitfield, and a supported inherited record; compare compiler layout with generated Rust size, alignment, and offsets. |
 | 5 | Real multi-TU consumers | All 79 WebView2 consumer roots emit with measured scaling and covered handle/string/input contracts. Enum flags, alias/tag names, full exports, and a WDK case with UM references/enum overlays remain. |
-| 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, and SDK COM ownership wrappers execute on x64/x86. Native ARM64 execution, Windows COM activation, DLL imports, and aggregate-returning methods remain. |
+| 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 
 Use pinned real generator inputs where practical. Preserve main/satellite and WebView multi-TU
 configurations rather than replacing them with a convenient single TU. Keep small synthetic

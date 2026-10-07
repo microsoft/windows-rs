@@ -19,6 +19,16 @@ pub enum BufferRelationship {
     ElementsConst(i32),
 }
 
+/// Valid byte extent on successful return for a non-null buffer, not its capacity.
+///
+/// With `dereference`, `parameter` names an output integer pointer. Otherwise it names
+/// a by-value integer. Consumers must validate the signature and the API's success contract.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+pub struct BytesWritten {
+    pub parameter: i16,
+    pub dereference: bool,
+}
+
 impl std::fmt::Debug for MethodParam<'_> {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("MethodParam").field(&self.name()).finish()
@@ -91,6 +101,35 @@ impl MethodParam<'_> {
         }
 
         result
+    }
+
+    /// Decodes a byte-buffer postcondition separately from its capacity relationship.
+    pub fn bytes_written(&self) -> Option<BytesWritten> {
+        let mut attributes = self.attributes().filter(|attribute| {
+            attribute.name() == "MemoryWrittenAttribute"
+                && attribute.ctor().parent().namespace() == "Windows.Win32.Metadata"
+        });
+        let attribute = attributes.next()?;
+        if attributes.next().is_some() {
+            return None;
+        }
+        let mut parameter = None;
+        let mut dereference = None;
+        for (name, value) in attribute.value() {
+            match (name.as_str(), value) {
+                ("BytesParamIndex", Value::I16(value)) if parameter.is_none() => {
+                    parameter = Some(value);
+                }
+                ("Dereference", Value::Bool(value)) if dereference.is_none() => {
+                    dereference = Some(value);
+                }
+                _ => return None,
+            }
+        }
+        Some(BytesWritten {
+            parameter: parameter?,
+            dereference: dereference?,
+        })
     }
 
     pub fn sequence(&self) -> u16 {

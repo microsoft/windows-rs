@@ -3,6 +3,10 @@
 The [windows-metadata](https://crates.io/crates/windows-metadata) crate reads and writes the
 ECMA-335 metadata format used by .NET, WinRT, and Win32 metadata.
 
+Parameter inspection keeps buffer capacity (`buffer_relationship`) separate from experimental
+successful-return byte extents (`bytes_written`). These are raw metadata facts, not safe-buffer
+or initialization guarantees enforced by the reader.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-metadata.md)
 

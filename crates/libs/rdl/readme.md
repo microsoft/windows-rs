@@ -4,6 +4,9 @@ The [windows-rdl](https://crates.io/crates/windows-rdl) crate compiles **RDL** (
 Language) - a Rust-like text format for describing Windows APIs - into ECMA-335 `.winmd` metadata,
 and back again.
 
+The `implib` module reads SDK COFF import libraries, retaining native linker symbols separately
+from DLL export names or ordinals and distinguishing code from data imports.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-rdl.md)
 

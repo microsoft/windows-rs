@@ -169,6 +169,14 @@ for an unspecified direction, combine `ReservedAttribute` with `Optional`, or de
 parameter should become a language return value. Array and byte-count attributes remain available
 through `attributes()` because each projection validates different public-surface shapes.
 
+`buffer_relationship()` decodes raw element/byte capacities. `bytes_written()` separately decodes
+the experimental `Windows.Win32.Metadata.MemoryWrittenAttribute` into
+`BytesWritten { parameter, dereference }`: the valid-byte extent after a successful call for a
+non-null buffer. Dereference selects an output integer pointer rather than a by-value integer.
+Malformed, duplicate, or incomplete attributes return `None`; signed indices remain raw for the
+consumer to validate. Neither helper authorizes reading uninitialized output or infers an API's
+success predicate. The experimental definition lives in `crates/libs/clang2/metadata.rdl`.
+
 ### Determinism and the winmd writer
 
 The writer is the foundation of the pipeline's reproducible builds. It stages `Constant` /

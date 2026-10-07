@@ -5,7 +5,7 @@
 //! best-effort integration test reads a real `kernel32.lib` when the SDK is
 //! installed.
 
-use windows_rdl::implib::{self, Import};
+use windows_rdl::implib::{self, Import, ImportKind, ImportTarget};
 
 /// Build a 60-byte archive member header followed by `data` (padded to an even
 /// length, as archives require).
@@ -65,6 +65,8 @@ fn reads_single_import() {
         vec![Import {
             symbol: "CreateFileW".to_string(),
             dll: "KERNEL32.dll".to_string(),
+            target: ImportTarget::Name("CreateFileW".into()),
+            kind: ImportKind::Code,
         }]
     );
 }
@@ -129,6 +131,64 @@ fn long_name_member_is_not_skipped() {
 fn rejects_non_archive() {
     assert!(implib::read(b"not an archive").is_err());
     assert!(implib::read(&[]).is_err());
+}
+
+#[test]
+fn import_name_types_preserve_linker_and_export_identity() {
+    for (name_type, symbol, export, expected) in [
+        (0u16, "_Entry@4", None, ImportTarget::Ordinal(17)),
+        (1, "_Entry@4", None, ImportTarget::Name("_Entry@4".into())),
+        (2, "_Entry@4", None, ImportTarget::Name("Entry@4".into())),
+        (2, "?Entry", None, ImportTarget::Name("Entry".into())),
+        (3, "@Entry@8", None, ImportTarget::Name("Entry".into())),
+        (3, "Entry@8", None, ImportTarget::Name("Entry".into())),
+        (
+            4,
+            "_Entry@4",
+            Some("DifferentExport"),
+            ImportTarget::Name("DifferentExport".into()),
+        ),
+    ] {
+        let mut data = short_import(symbol, "TEST.dll");
+        data[16..18].copy_from_slice(&17u16.to_le_bytes());
+        data[18..20].copy_from_slice(&(name_type << 2u16).to_le_bytes());
+        if let Some(export) = export {
+            data.extend_from_slice(export.as_bytes());
+            data.push(0);
+            let size = (data.len() - 20) as u32;
+            data[12..16].copy_from_slice(&size.to_le_bytes());
+        }
+        let imports = implib::read(&archive(&[member("test/", &data)])).unwrap();
+        assert_eq!(imports[0].symbol, symbol);
+        assert_eq!(imports[0].target, expected);
+    }
+    for (bits, kind) in [(1, ImportKind::Data), (2, ImportKind::Const)] {
+        let mut data = short_import("Value", "TEST.dll");
+        data[18] |= bits;
+        assert_eq!(
+            implib::read(&archive(&[member("test/", &data)])).unwrap()[0].kind,
+            kind
+        );
+    }
+}
+
+#[test]
+fn malformed_imports_cannot_supply_export_names() {
+    let valid = short_import("_Entry@4", "TEST.dll");
+    for flags in [3u16, 5 << 2, 0x24, 4 << 2] {
+        let mut data = valid.clone();
+        data[18..20].copy_from_slice(&flags.to_le_bytes());
+        assert!(implib::read(&archive(&[member("test/", &data)])).is_err());
+    }
+    let mut unterminated = valid.clone();
+    *unterminated.last_mut().unwrap() = b'x';
+    assert!(implib::read(&archive(&[member("test/", &unterminated)])).is_err());
+    for length in 4..valid.len() {
+        assert!(implib::read(&archive(&[member("test/", &valid[..length])])).is_err());
+    }
+    let mut truncated = archive(&[]);
+    truncated.extend_from_slice(b"incomplete");
+    assert!(implib::read(&truncated).is_err());
 }
 
 /// Best-effort integration check against a real SDK import library. Skips

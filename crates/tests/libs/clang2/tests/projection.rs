@@ -3,7 +3,9 @@ use windows_clang2::{
 };
 use windows_metadata::{
     Type, Value,
-    reader::{BufferRelationship, HasAttributes, Index, Item, ParamDirection, TypeDef},
+    reader::{
+        BufferRelationship, BytesWritten, HasAttributes, Index, Item, ParamDirection, TypeDef,
+    },
 };
 #[path = "../sdk.rs"]
 #[allow(dead_code)]
@@ -11,6 +13,268 @@ mod sdk;
 use sdk::capture_sdk as sdk_capture;
 
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
+
+#[test]
+fn output_byte_postconditions_survive_metadata_and_roundtrip() {
+    for target in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={target}-pc-windows-msvc");
+        let snapshot = capture(
+            [Input::new(
+                "output.hpp",
+                include_str!("../input/output_buffers.h"),
+            )],
+            &["-x", "c++", &target],
+            &[
+                "Capacity",
+                "All",
+                "AllOptional",
+                "Partial",
+                "PartialOptional",
+                "ValueCount",
+                "IOutput",
+            ],
+        )
+        .unwrap();
+        let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+        let name = if target.contains("i686") {
+            "output_buffers_x86"
+        } else {
+            "output_buffers"
+        };
+        let index = compile(name, &plan);
+        check_output_postconditions(&index);
+        let scratch = std::path::Path::new(env!("OUT_DIR")).join(name);
+        let rdl = scratch.join("roundtrip.rdl");
+        windows_rdl::writer()
+            .input(scratch.join("test.winmd"))
+            .filter("Test")
+            .output(&rdl)
+            .write()
+            .unwrap();
+        let winmd = scratch.join("roundtrip.winmd");
+        windows_rdl::reader()
+            .input(rdl)
+            .input(sdk::projection_metadata())
+            .reference_default()
+            .output(&winmd)
+            .write()
+            .unwrap();
+        check_output_postconditions(&Index::read(winmd).unwrap());
+    }
+}
+
+fn check_output_postconditions(index: &Index) {
+    for (name, written, optional) in [
+        ("Capacity", None, false),
+        (
+            "All",
+            Some(BytesWritten {
+                parameter: 1,
+                dereference: false,
+            }),
+            false,
+        ),
+        (
+            "AllOptional",
+            Some(BytesWritten {
+                parameter: 1,
+                dereference: false,
+            }),
+            true,
+        ),
+        (
+            "Partial",
+            Some(BytesWritten {
+                parameter: 2,
+                dereference: true,
+            }),
+            false,
+        ),
+        (
+            "PartialOptional",
+            Some(BytesWritten {
+                parameter: 2,
+                dereference: true,
+            }),
+            true,
+        ),
+        (
+            "ValueCount",
+            Some(BytesWritten {
+                parameter: 2,
+                dereference: false,
+            }),
+            false,
+        ),
+    ] {
+        let Item::Fn(function) = index.expect_item("Test", name) else {
+            panic!()
+        };
+        let params = function
+            .params_by_sequence(function.signature(&[]).types.len())
+            .unwrap();
+        let buffer = params.params()[0].unwrap();
+        assert_eq!(buffer.bytes_written(), written);
+        assert_eq!(
+            buffer.buffer_relationship(),
+            Some(BufferRelationship::BytesParam(1))
+        );
+        assert_eq!(buffer.direction(), ParamDirection::Output);
+        assert_eq!(buffer.is_optional(), optional);
+    }
+    let method = index.expect("Test", "IOutput").methods().next().unwrap();
+    let params = method.params_by_sequence(3).unwrap();
+    assert_eq!(
+        params.params()[0].unwrap().bytes_written(),
+        Some(BytesWritten {
+            parameter: 2,
+            dereference: true
+        })
+    );
+}
+
+#[test]
+fn invalid_output_byte_postconditions_reject() {
+    let source = include_str!("../input/output_buffers.h");
+    for changed in [
+        source.replace("_Out_ unsigned* written", "_In_ unsigned* written"),
+        source.replace("_Out_ unsigned* written", "_Out_opt_ unsigned* written"),
+        source.replace(
+            "_Out_ unsigned* written",
+            "_Out_ _Out_opt_ unsigned* written",
+        ),
+        source.replace("unsigned* written", "const unsigned* written"),
+        source.replace("unsigned* written", "float* written"),
+        source.replace("unsigned* written", "unsigned** written"),
+        source.replace("capacity, *written)", "capacity, *written + 1)"),
+        source.replace("capacity, *written)", "*written, capacity)"),
+    ] {
+        let snapshot = capture([Input::new("bad.hpp", changed)], ARGS, &["Partial"]).unwrap();
+        assert!(snapshot.resolve().unwrap().project(&options()).is_err());
+    }
+}
+
+#[test]
+fn output_byte_relationships_bind_original_parameter_positions() {
+    let source = include_str!("../input/output_buffers.h");
+    let renamed = source
+        .replace("capacity", "space")
+        .replace("written", "used");
+    for swapped in [false, true] {
+        let inputs = [
+            Input::new(if swapped { "z.hpp" } else { "a.hpp" }, source),
+            Input::new(if swapped { "a.hpp" } else { "z.hpp" }, &renamed),
+        ];
+        let snapshot = capture(inputs, ARGS, &["Partial"]).unwrap();
+        let rdl = snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap()
+            .rdl();
+        assert!(rdl.contains("BytesParamIndex = 2, Dereference = true"));
+        let changed = source.replace(
+            "_Out_writes_bytes_all_(capacity) unsigned char* buffer",
+            "_Out_writes_bytes_(capacity) unsigned char* buffer",
+        );
+        let snapshot = capture(
+            [
+                Input::new(if swapped { "z.hpp" } else { "a.hpp" }, source),
+                Input::new(if swapped { "a.hpp" } else { "z.hpp" }, changed),
+            ],
+            ARGS,
+            &["All"],
+        )
+        .unwrap();
+        assert!(snapshot.resolve().is_err());
+    }
+}
+
+#[test]
+fn real_crypto_roots_imports_and_postconditions_are_complete() {
+    for arch in ["i686", "x86_64", "aarch64"] {
+        let target = format!("--target={arch}-pc-windows-msvc");
+        let snapshot = sdk_capture(
+            &target,
+            include_str!("../input/sdk_buffers.h"),
+            sdk::CRYPTO_ROOTS,
+        );
+        let resolved = snapshot.resolve().unwrap();
+        assert!(resolved.report().incomplete.is_empty());
+        let options = sdk::crypto_options(&target);
+        let plan = resolved.project(&options).unwrap();
+        let scratch = std::path::Path::new(env!("OUT_DIR")).join(format!("crypto-{arch}.winmd"));
+        windows_rdl::reader()
+            .input_text(&plan.rdl())
+            .input(sdk::projection_metadata())
+            .reference_default()
+            .output(&scratch)
+            .write()
+            .unwrap();
+        let index = Index::read(scratch).unwrap();
+        for root in sdk::CRYPTO_ROOTS {
+            index.expect_item("Crypto", root);
+        }
+        for (name, position, written, capacity, optional) in [
+            (
+                "BCryptCreateHash",
+                2,
+                BytesWritten {
+                    parameter: 3,
+                    dereference: false,
+                },
+                3,
+                true,
+            ),
+            (
+                "BCryptFinishHash",
+                1,
+                BytesWritten {
+                    parameter: 2,
+                    dereference: false,
+                },
+                2,
+                false,
+            ),
+            (
+                "BCryptGetProperty",
+                2,
+                BytesWritten {
+                    parameter: 4,
+                    dereference: true,
+                },
+                3,
+                true,
+            ),
+        ] {
+            let Item::Fn(function) = index.expect_item("Crypto", name) else {
+                panic!()
+            };
+            let params = function
+                .params_by_sequence(function.signature(&[]).types.len())
+                .unwrap();
+            let buffer = params.params()[position].unwrap();
+            assert_eq!(buffer.bytes_written(), Some(written));
+            assert_eq!(
+                buffer.buffer_relationship(),
+                Some(BufferRelationship::BytesParam(capacity))
+            );
+            assert_eq!(buffer.is_optional(), optional);
+        }
+        for root in sdk::CRYPTO_ROOTS
+            .iter()
+            .filter(|root| root.starts_with("BCrypt"))
+        {
+            let mut incomplete = sdk::crypto_options(&target);
+            incomplete.imports.retain(|_, import| import.name != *root);
+            let error = resolved.project(&incomplete).unwrap_err().to_string();
+            assert!(
+                error.contains(root) && error.contains("requires an import library"),
+                "{error}"
+            );
+        }
+    }
+}
 
 #[test]
 fn export_contracts_do_not_replace_native_linker_evidence() {
@@ -27,17 +291,24 @@ fn export_contracts_do_not_replace_native_linker_evidence() {
     let mut options = options();
     let original = resolved.project(&options).unwrap().rdl();
     assert!(original.contains("import = \"_Compute@4\""), "{original}");
-    options
-        .import_names
-        .insert("_Compute@4".into(), "ComputeExport".into());
+    options.imports.insert(
+        "_Compute@4".into(),
+        windows_clang2::FunctionImport {
+            library: "other.dll".into(),
+            name: "ComputeExport".into(),
+        },
+    );
     let projected = resolved.project(&options).unwrap().rdl();
     assert!(
         projected.contains("import = \"ComputeExport\""),
         "{projected}"
     );
     assert!(projected.contains("extern \"system\""), "{projected}");
-    options.import_names.clear();
+    assert!(projected.contains("\"other.dll\""));
+    options.imports.clear();
     assert_eq!(resolved.project(&options).unwrap().rdl(), original);
+    options.library = None;
+    assert!(resolved.project(&options).is_err());
 }
 
 #[test]
@@ -1167,6 +1438,7 @@ fn compile(name: &str, plan: &Plan) -> Index {
     let output = scratch.join("test.winmd");
     windows_rdl::reader()
         .input_text(&rdl)
+        .input(sdk::projection_metadata())
         .reference_default()
         .reference(reference)
         .output(&output)

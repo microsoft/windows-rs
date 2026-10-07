@@ -37,12 +37,19 @@ Explicit `clang::flag_enum` markers survive without changing enum representation
 Increased member/record alignment preserves native storage using padding unions and alignment
 attributes. By-value calls involving adjusted layouts reject until their calling ABI is covered.
 Explicitly selected aliases can name unnamed record types; competing selected names reject.
-Caller-supplied `ProjectionOptions::import_names` maps native linker symbols to DLL export names
-without changing captured evidence or inferring decoration rules.
+Caller-supplied `ProjectionOptions::imports` maps native linker symbols to `FunctionImport` DLL
+and export names without changing captured evidence. Unmapped functions require an explicit
+`library` fallback; the BCrypt fixture instead derives all imports from target-specific SDK
+COFF libraries.
 
 Supported parameter annotations include direction, optional pointers and buffers, COM output
 pointers, and parameter-bound element/byte counts. Constant element counts support nonnegative
 decimal literals.
+Output byte annotations preserve both capacity and the valid-byte extent on success, including
+counts returned through writable integer pointers. Their `MemoryWrittenAttribute` definition is
+in this crate's `metadata.rdl`; supply it when compiling the emitted RDL. This is an experimental
+metadata extension, not part of the bundled default WinMD. Wrappers retain unsafe output pointers;
+callers still check statuses, returned lengths, and API-specific retained-buffer lifetimes.
 Scalar null-terminated strings require caller-supplied `ProjectionOptions::string_references`,
 keyed by `StringKind`. These trusted metadata value types preserve native constness independently
 of parameter direction; no string namespace or local alias is assumed.
@@ -71,8 +78,9 @@ local anonymous-aggregate projection remains unsupported. Explicit SDK bindings 
 `VARIANT` let the interop graph project after its native evidence has been checked.
 
 Real pinned WDK member types are checked against MSVC for every offset, size, and alignment, then
-passed through native pointer calls. Generated BCrypt wrappers call the Windows DLL with optional
-and embedded-NUL byte buffers, output guards, independent known answers, and failure statuses.
+passed through native pointer calls. Generated BCrypt wrappers exercise a full hashing lifecycle,
+caller-owned and CNG-owned storage, optional and embedded-NUL byte buffers, output guards,
+independent hash/HMAC/PBKDF2 answers, and failure statuses.
 These cases execute on x64/x86 in debug and release; ARM64 has capture/metadata coverage only.
 
 The consumer gate preserves six handle inputs and two host-object inputs, with exact generated

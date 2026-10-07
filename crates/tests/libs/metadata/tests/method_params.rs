@@ -130,6 +130,82 @@ fn names(params: &[Option<reader::MethodParam<'_>>]) -> Vec<Option<String>> {
 }
 
 #[test]
+fn written_bytes_remain_separate_from_capacity() {
+    let capacity = vec![("BytesParamIndex".into(), Value::I16(1))];
+    let written = vec![
+        ("BytesParamIndex".into(), Value::I16(-2)),
+        ("Dereference".into(), Value::Bool(true)),
+    ];
+    let index = index_with_buffer_relationships(&[(
+        "buffer",
+        &[
+            ("MemorySizeAttribute", &capacity),
+            ("MemoryWrittenAttribute", &written),
+        ],
+    )]);
+    let params = method(&index).params_by_sequence(1).unwrap();
+    let buffer = params.params()[0].unwrap();
+    assert_eq!(
+        buffer.buffer_relationship(),
+        Some(reader::BufferRelationship::BytesParam(1))
+    );
+    assert_eq!(
+        buffer.bytes_written(),
+        Some(reader::BytesWritten {
+            parameter: -2,
+            dereference: true
+        })
+    );
+}
+
+#[test]
+fn malformed_written_bytes_are_not_postconditions() {
+    let valid = vec![
+        ("BytesParamIndex".into(), Value::I16(1)),
+        ("Dereference".into(), Value::Bool(false)),
+    ];
+    for values in [
+        vec![],
+        vec![("BytesParamIndex".into(), Value::I16(1))],
+        vec![
+            ("BytesParamIndex".into(), Value::I32(1)),
+            ("Dereference".into(), Value::Bool(false)),
+        ],
+        vec![
+            ("BytesParamIndex".into(), Value::I16(1)),
+            ("Dereference".into(), Value::I16(0)),
+        ],
+        vec![
+            ("BytesParamIndex".into(), Value::I16(1)),
+            ("BytesParamIndex".into(), Value::I16(2)),
+            ("Dereference".into(), Value::Bool(false)),
+        ],
+    ] {
+        let index =
+            index_with_buffer_relationships(&[("buffer", &[("MemoryWrittenAttribute", &values)])]);
+        assert_eq!(
+            method(&index).params_by_sequence(1).unwrap().params()[0]
+                .unwrap()
+                .bytes_written(),
+            None
+        );
+    }
+    let index = index_with_buffer_relationships(&[(
+        "buffer",
+        &[
+            ("MemoryWrittenAttribute", &valid),
+            ("MemoryWrittenAttribute", &valid),
+        ],
+    )]);
+    assert_eq!(
+        method(&index).params_by_sequence(1).unwrap().params()[0]
+            .unwrap()
+            .bytes_written(),
+        None
+    );
+}
+
+#[test]
 fn parameter_facts_remain_independent() {
     let index = index_with_markers(&[
         ("unspecified", 1, ParamAttributes::default(), &[]),

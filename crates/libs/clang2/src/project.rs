@@ -22,11 +22,18 @@ pub struct TypeReference {
     pub kind: ReferenceKind,
 }
 
+/// A caller-supplied DLL import keyed by the compiler's native linker symbol.
+#[derive(Debug, PartialEq, Eq)]
+pub struct FunctionImport {
+    pub library: String,
+    pub name: String,
+}
+
 pub struct ProjectionOptions {
     pub namespace: String,
     pub library: Option<String>,
-    /// Trusted DLL export names keyed by native linker symbol. Unmapped symbols keep their name.
-    pub import_names: BTreeMap<String, String>,
+    /// Exact DLL imports. Unmapped functions require the explicit `library` fallback.
+    pub imports: BTreeMap<String, FunctionImport>,
     /// External record/enum bindings and trusted scalar or pointer typedef contracts.
     pub references: BTreeMap<String, TypeReference>,
     /// Trusted pointer-sized value types for SAL-annotated null-terminated strings.
@@ -38,7 +45,7 @@ impl ProjectionOptions {
         Self {
             namespace: namespace.into(),
             library: None,
-            import_names: BTreeMap::new(),
+            imports: BTreeMap::new(),
             references: BTreeMap::new(),
             string_references: BTreeMap::new(),
         }
@@ -622,11 +629,19 @@ impl Builder<'_, '_> {
                         )));
                     }
                 };
-                let library = self
-                    .options
-                    .library
-                    .clone()
-                    .ok_or_else(|| Error(format!("`{name}` requires an import library")))?;
+                let (library, import_name) =
+                    if let Some(import) = self.options.imports.get(link_name) {
+                        (import.library.clone(), import.name.clone())
+                    } else {
+                        (
+                            self.options.library.clone().ok_or_else(|| {
+                                Error(format!(
+                                    "`{name}` requires an import library for `{link_name}`"
+                                ))
+                            })?,
+                            link_name.clone(),
+                        )
+                    };
                 let (params, result) = self.signature(id, 0)?;
                 if !matches!(result, ProjectedType::Void)
                     && result.layout(self.resolved.snapshot.pointer_size).is_none()
@@ -638,12 +653,7 @@ impl Builder<'_, '_> {
                 Item::Function {
                     abi,
                     library,
-                    link_name: self
-                        .options
-                        .import_names
-                        .get(link_name)
-                        .unwrap_or(link_name)
-                        .clone(),
+                    link_name: import_name,
                     parameters: params,
                     result,
                 }
@@ -844,7 +854,7 @@ impl Builder<'_, '_> {
         let attributes = annotations
             .iter()
             .enumerate()
-            .map(|(index, annotations)| parameter_attributes(annotations, index, &types))
+            .map(|(index, _)| parameter_attributes(annotations, index, &types))
             .collect::<Result<Vec<_>, _>>()?;
         attributes
             .into_iter()
@@ -1146,11 +1156,12 @@ impl Builder<'_, '_> {
 }
 
 fn parameter_attributes(
-    annotations: &[String],
+    all_annotations: &[Vec<String>],
     index: usize,
     parameters: &[ProjectedType],
 ) -> Result<String, Error> {
     let ty = &parameters[index];
+    let annotations = &all_annotations[index];
     let mut attributes = String::new();
     let mut sized = false;
     for annotation in annotations {
@@ -1158,6 +1169,27 @@ fn parameter_attributes(
             .split_once('(')
             .and_then(|(name, rest)| rest.strip_suffix(')').map(|argument| (name, argument)))
         {
+            let (name, capacity, written) = match name {
+                "_Out_writes_bytes_all_" => ("_Out_writes_bytes_", argument, Some(argument)),
+                "_Out_writes_bytes_all_opt_" => {
+                    ("_Out_writes_bytes_opt_", argument, Some(argument))
+                }
+                "_Out_writes_bytes_to_" | "_Out_writes_bytes_to_opt_" => {
+                    let (capacity, written) = argument.split_once(',').ok_or_else(|| {
+                        Error(format!("invalid output byte relationship: {annotation}"))
+                    })?;
+                    (
+                        if name.ends_with("_opt_") {
+                            "_Out_writes_bytes_opt_"
+                        } else {
+                            "_Out_writes_bytes_"
+                        },
+                        capacity,
+                        Some(written),
+                    )
+                }
+                _ => (name, argument, None),
+            };
             let (direction, bytes, optional, output) = match name {
                 "_In_reads_" => ("#[in] ", false, false, false),
                 "_Out_writes_" => ("#[out] ", false, false, true),
@@ -1200,7 +1232,10 @@ fn parameter_attributes(
             if optional {
                 attributes.push_str("#[opt] ");
             }
-            attributes.push_str(&buffer_length(argument.trim(), bytes, parameters)?);
+            attributes.push_str(&buffer_length(capacity.trim(), bytes, parameters)?);
+            if let Some(written) = written {
+                attributes.push_str(&written_bytes(written.trim(), parameters, all_annotations)?);
+            }
             sized = true;
             continue;
         }
@@ -1282,6 +1317,60 @@ fn parameter_attributes(
         });
     }
     Ok(attributes)
+}
+
+fn written_bytes(
+    argument: &str,
+    parameters: &[ProjectedType],
+    annotations: &[Vec<String>],
+) -> Result<String, Error> {
+    let (argument, dereference) = argument
+        .strip_prefix('*')
+        .map_or((argument, false), |value| (value.trim(), true));
+    let index = argument
+        .strip_prefix('$')
+        .filter(|value| !value.is_empty() && value.bytes().all(|byte| byte.is_ascii_digit()))
+        .and_then(|value| value.parse::<i16>().ok())
+        .ok_or_else(|| Error(format!("unsupported written byte count `{argument}`")))?;
+    let ty = parameters
+        .get(index as usize)
+        .ok_or_else(|| Error("written byte count parameter is out of range".into()))?;
+    let scalar = if dereference {
+        let ProjectedType::Pointer {
+            mutable: true,
+            depth: 1,
+            target,
+        } = ty
+        else {
+            return Err(Error(
+                "written byte count requires a writable integer pointer".into(),
+            ));
+        };
+        let count_annotations = &annotations[index as usize];
+        if !count_annotations
+            .iter()
+            .any(|value| matches!(value.as_str(), "_Out_" | "_Inout_"))
+            || count_annotations
+                .iter()
+                .any(|value| value.contains("_opt_"))
+        {
+            return Err(Error(
+                "written byte count requires a nonoptional output parameter".into(),
+            ));
+        }
+        target.scalar_kind()
+    } else {
+        ty.scalar_kind()
+    };
+    if !matches!(
+        scalar,
+        Some("i8" | "u8" | "i16" | "u16" | "i32" | "u32" | "i64" | "u64")
+    ) {
+        return Err(Error("written byte count must be an integer".into()));
+    }
+    Ok(format!(
+        "#[written_bytes(BytesParamIndex = {index}, Dereference = {dereference})] "
+    ))
 }
 
 fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<StringKind>, Error> {

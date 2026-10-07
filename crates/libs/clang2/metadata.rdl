@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            // Valid bytes after a successful call, when the buffer is non-null, not capacity.
+            // Dereference selects an output integer pointer; otherwise the count is by value.
+            attribute MemoryWrittenAttribute {
+                fn();
+                BytesParamIndex: i16,
+                Dereference: bool,
+            }
+        }
+    }
+}

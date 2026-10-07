@@ -7,6 +7,21 @@ use crate::Error;
 pub struct Import {
     pub symbol: String,
     pub dll: String,
+    pub target: ImportTarget,
+    pub kind: ImportKind,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ImportTarget {
+    Name(String),
+    Ordinal(u16),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ImportKind {
+    Code,
+    Data,
+    Const,
 }
 
 const ARCHIVE_MAGIC: &[u8] = b"!<arch>\n";
@@ -25,7 +40,10 @@ pub fn read(bytes: &[u8]) -> Result<Vec<Import>, Error> {
     let mut imports = vec![];
     let mut pos = ARCHIVE_MAGIC.len();
 
-    while pos + MEMBER_HEADER_LEN <= bytes.len() {
+    while pos < bytes.len() {
+        if bytes.len() - pos < MEMBER_HEADER_LEN {
+            return Err(err("truncated archive member header"));
+        }
         let header = &bytes[pos..pos + MEMBER_HEADER_LEN];
 
         // The end marker guards against a misaligned archive walk.
@@ -48,12 +66,28 @@ pub fn read(bytes: &[u8]) -> Result<Vec<Import>, Error> {
         }
 
         pos = data_end + (size & 1);
+        if pos > bytes.len() {
+            return Err(err("missing archive member padding"));
+        }
     }
 
     Ok(imports)
 }
 
 fn parse_short_import(data: &[u8]) -> Result<Import, Error> {
+    if data.len() < IMPORT_HEADER_LEN {
+        return Err(err("short import member is shorter than its header"));
+    }
+    let flags = u16::from_le_bytes(data[18..20].try_into().unwrap());
+    let kind = match flags & 3 {
+        0 => ImportKind::Code,
+        1 => ImportKind::Data,
+        2 => ImportKind::Const,
+        _ => return Err(err("invalid short import type")),
+    };
+    if flags >> 5 != 0 {
+        return Err(err("nonzero reserved short import bits"));
+    }
     let size_of_data = u32::from_le_bytes(
         data.get(SIZE_OF_DATA_OFFSET..SIZE_OF_DATA_OFFSET + 4)
             .ok_or_else(|| err("short import member is shorter than its header"))?
@@ -61,25 +95,50 @@ fn parse_short_import(data: &[u8]) -> Result<Import, Error> {
             .unwrap(),
     ) as usize;
 
-    let strings = data
-        .get(IMPORT_HEADER_LEN..IMPORT_HEADER_LEN + size_of_data)
+    let end = IMPORT_HEADER_LEN
+        .checked_add(size_of_data)
+        .ok_or_else(|| err("short import size overflow"))?;
+    let mut strings = data
+        .get(IMPORT_HEADER_LEN..end)
         .ok_or_else(|| err("short import names extend past member data"))?;
 
-    let mut parts = strings.split(|&b| b == 0);
-    let symbol = next_string(&mut parts, "symbol")?;
-    let dll = next_string(&mut parts, "DLL")?;
+    let symbol = next_string(&mut strings, "symbol")?;
+    let dll = next_string(&mut strings, "DLL")?;
+    let target = match (flags >> 2) & 7 {
+        0 => ImportTarget::Ordinal(u16::from_le_bytes(data[16..18].try_into().unwrap())),
+        1 => ImportTarget::Name(symbol.clone()),
+        2 | 3 => {
+            let name = symbol.strip_prefix(['?', '@', '_']).unwrap_or(&symbol);
+            let name = if (flags >> 2) & 7 == 3 {
+                name.split('@').next().unwrap()
+            } else {
+                name
+            };
+            if name.is_empty() {
+                return Err(err("empty short import export name"));
+            }
+            ImportTarget::Name(name.to_string())
+        }
+        4 => ImportTarget::Name(next_string(&mut strings, "export")?),
+        _ => return Err(err("invalid short import name type")),
+    };
 
-    Ok(Import { symbol, dll })
+    Ok(Import {
+        symbol,
+        dll,
+        target,
+        kind,
+    })
 }
 
-fn next_string<'a>(
-    parts: &mut impl Iterator<Item = &'a [u8]>,
-    what: &str,
-) -> Result<String, Error> {
-    let bytes = parts
-        .next()
-        .filter(|b| !b.is_empty())
-        .ok_or_else(|| err(&format!("short import missing {what} name")))?;
+fn next_string(parts: &mut &[u8], what: &str) -> Result<String, Error> {
+    let end = parts
+        .iter()
+        .position(|byte| *byte == 0)
+        .filter(|end| *end > 0)
+        .ok_or_else(|| err(&format!("short import missing terminated {what} name")))?;
+    let bytes = &parts[..end];
+    *parts = &parts[end + 1..];
     std::str::from_utf8(bytes)
         .map(str::to_string)
         .map_err(|_| err(&format!("short import {what} name is not valid UTF-8")))

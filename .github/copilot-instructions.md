@@ -279,7 +279,9 @@ and indirect overrides, until that ABI is modeled. Existing metadata, RDL, gener
 legacy parity are not correctness oracles: use original API contracts and compiler/native evidence.
 
 `test_clang2` `wdk.rs` compares the real pinned WDK member types against MSVC offsets, size,
-alignment, and pointer calls. `crypto.rs` calls three real BCrypt exports on x64/x86. Compiler
-linker symbols are not DLL export names: `ProjectionOptions::import_names` holds explicit
-caller contracts; do not strip stdcall decoration heuristically. Automatic DLL routing, broader
-annotation semantics, and full production inputs remain open.
+alignment, and pointer calls. `crypto.rs` exercises eight real BCrypt exports and a full hashing
+lifecycle on x64/x86. `ProjectionOptions::imports` maps native linker symbols to DLL/export
+contracts; `windows_rdl::implib` derives these from COFF name types, not spelling heuristics.
+`clang2/metadata.rdl` supplies experimental output valid-byte postconditions separately from
+capacity; keep both through RDL/WinMD. The production metadata seed is unchanged. SDK-wide library
+selection, broader annotation semantics, and full production inputs remain open.

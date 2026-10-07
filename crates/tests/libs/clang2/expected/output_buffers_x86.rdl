@@ -1,0 +1,19 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "_All")]
+    extern "C" fn All(#[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 1, Dereference = false)] p0: *mut u8, p1: u32);
+    #[library("test.dll", import = "_AllOptional")]
+    extern "C" fn AllOptional(#[out] #[opt] #[size_param(1)] #[written_bytes(BytesParamIndex = 1, Dereference = false)] p0: *mut u8, p1: u32);
+    #[library("test.dll", import = "_Capacity")]
+    extern "C" fn Capacity(#[out] #[size_param(1)] p0: *mut u8, p1: u32);
+    #[guid(0x24610fde_d2d0_4fe6_bd47_2ea5bc3d59b9)]
+    interface IOutput {
+        fn Partial(&self, #[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] buffer: *mut u8, capacity: u32, #[out] written: *mut u32);
+    }
+    #[library("test.dll", import = "_Partial")]
+    extern "C" fn Partial(#[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] p0: *mut u8, p1: u32, #[out] p2: *mut u32);
+    #[library("test.dll", import = "_PartialOptional")]
+    extern "C" fn PartialOptional(#[out] #[opt] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = true)] p0: *mut u8, p1: u32, #[out] p2: *mut u32);
+    #[library("test.dll", import = "_ValueCount")]
+    extern "C" fn ValueCount(#[out] #[size_param(1)] #[written_bytes(BytesParamIndex = 2, Dereference = false)] p0: *mut u8, p1: u32, p2: u32);
+}

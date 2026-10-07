@@ -217,25 +217,71 @@ pub const CRYPTO_ROOTS: &[&str] = &[
     "BCryptOpenAlgorithmProvider",
     "BCryptDeriveKeyPBKDF2",
     "BCryptCloseAlgorithmProvider",
+    "BCryptGetProperty",
+    "BCryptCreateHash",
+    "BCryptHashData",
+    "BCryptFinishHash",
+    "BCryptDestroyHash",
     "BCRYPT_ALG_HANDLE_HMAC_FLAG",
 ];
 
-pub fn crypto_options() -> ProjectionOptions {
+pub fn projection_metadata() -> PathBuf {
+    tools()
+        .join("..")
+        .join("libs")
+        .join("clang2")
+        .join("metadata.rdl")
+}
+
+pub fn crypto_library(target: &str) -> PathBuf {
+    let arch = if target.contains("x86_64") {
+        "x64"
+    } else if target.contains("aarch64") {
+        "arm64"
+    } else {
+        assert!(target.contains("i686"), "unsupported target: {target}");
+        "x86"
+    };
+    let version = helpers::read_str_const(
+        tools().join("win32").join("src").join("main.rs"),
+        "SDK_VERSION",
+    );
+    helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), &version)
+        .join("c")
+        .join("um")
+        .join(arch)
+        .join("bcrypt.lib")
+}
+
+pub fn crypto_options(target: &str) -> ProjectionOptions {
     let mut options = ProjectionOptions::new("Crypto");
-    options.library = Some("bcrypt.dll".into());
-    // The x86 DLL exports undecorated names, unlike the compiler's stdcall linker symbols.
-    for (symbol, export) in [
-        (
-            "_BCryptOpenAlgorithmProvider@16",
-            "BCryptOpenAlgorithmProvider",
-        ),
-        ("_BCryptDeriveKeyPBKDF2@40", "BCryptDeriveKeyPBKDF2"),
-        (
-            "_BCryptCloseAlgorithmProvider@8",
-            "BCryptCloseAlgorithmProvider",
-        ),
-    ] {
-        options.import_names.insert(symbol.into(), export.into());
+    let bytes = std::fs::read(crypto_library(target)).unwrap();
+    let mut found = std::collections::BTreeSet::new();
+    for import in windows_rdl::implib::read(&bytes).unwrap() {
+        let windows_rdl::implib::ImportTarget::Name(name) = import.target else {
+            continue;
+        };
+        if !CRYPTO_ROOTS.contains(&name.as_str()) {
+            continue;
+        }
+        assert_eq!(import.kind, windows_rdl::implib::ImportKind::Code);
+        found.insert(name.clone());
+        let value = windows_clang2::FunctionImport {
+            library: import.dll,
+            name,
+        };
+        if let Some(previous) = options.imports.insert(import.symbol.clone(), value) {
+            assert_eq!(previous, options.imports[&import.symbol]);
+        }
+    }
+    for root in CRYPTO_ROOTS
+        .iter()
+        .filter(|root| root.starts_with("BCrypt"))
+    {
+        assert!(
+            found.contains(*root),
+            "missing import-library export: {root}"
+        );
     }
     options.string_references.insert(
         StringKind::WideConst,
@@ -245,14 +291,16 @@ pub fn crypto_options() -> ProjectionOptions {
             kind: ReferenceKind::Value,
         },
     );
-    options.references.insert(
-        "BCRYPT_ALG_HANDLE".into(),
-        TypeReference {
-            namespace: "Windows.Win32".into(),
-            name: "BCRYPT_ALG_HANDLE".into(),
-            kind: ReferenceKind::Value,
-        },
-    );
+    for name in ["BCRYPT_ALG_HANDLE", "BCRYPT_HASH_HANDLE", "BCRYPT_HANDLE"] {
+        options.references.insert(
+            name.into(),
+            TypeReference {
+                namespace: "Windows.Win32".into(),
+                name: name.into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+    }
     options
 }
 

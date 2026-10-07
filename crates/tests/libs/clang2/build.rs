@@ -18,6 +18,14 @@ fn main() {
 fn build_crypto() {
     println!("cargo:rerun-if-changed=input/sdk_buffers.h");
     let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    println!(
+        "cargo:rerun-if-changed={}",
+        sdk::projection_metadata().display()
+    );
+    println!(
+        "cargo:rerun-if-changed={}",
+        sdk::crypto_library(&target).display()
+    );
     let snapshot = sdk::capture_sdk(
         &target,
         include_str!("input/sdk_buffers.h"),
@@ -26,13 +34,14 @@ fn build_crypto() {
     let plan = snapshot
         .resolve()
         .unwrap()
-        .project(&sdk::crypto_options())
+        .project(&sdk::crypto_options(&target))
         .unwrap();
     let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
     std::fs::write(out.join("crypto.rdl"), plan.rdl()).unwrap();
     let winmd = out.join("crypto.winmd");
     windows_rdl::reader()
         .input_text(&plan.rdl())
+        .input(sdk::projection_metadata())
         .reference_default()
         .output(&winmd)
         .write()

@@ -62,6 +62,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         prop: Some("BytesParamIndex"),
     },
     PseudoAttr {
+        short: "written_bytes",
+        metadata: "MemoryWrittenAttribute",
+        prop: None,
+    },
+    PseudoAttr {
         short: "reserved",
         metadata: "ReservedAttribute",
         prop: None,
