@@ -107,6 +107,10 @@ variadics.
 as `windows` and `windows-sys`; focused libraries normally use one flat file. In sys package mode,
 empty COM-only namespaces and their unused feature entries are pruned.
 
+Default module layout preserves custom metadata namespaces, including nested namespaces under
+`Windows.Win32`, in both declarations and references. Only package layout routes references through
+the Win32 umbrella's re-exports.
+
 ## Common generation tasks
 
 - Use `implement` or `implements` to generate WinRT implementation traits for selected interfaces.
