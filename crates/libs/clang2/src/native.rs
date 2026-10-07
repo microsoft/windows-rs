@@ -209,6 +209,7 @@ pub(super) enum Value {
     None,
     Integer(u64),
     Float(u64),
+    Aggregate(Vec<Self>),
     Unavailable(String),
 }
 

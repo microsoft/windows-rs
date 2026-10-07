@@ -152,6 +152,18 @@ impl Plan {
                 Item::Constant { ty, value } => {
                     writeln!(output, "    const {name}: {} = {value};", ty.text()).unwrap();
                 }
+                Item::GuidConstant { ty, guid, pid } => {
+                    write!(
+                        output,
+                        "    #[guid(0x{guid:032x})]\n    const {name}: {}",
+                        ty.text()
+                    )
+                    .unwrap();
+                    if let Some(pid) = pid {
+                        write!(output, " = {pid}").unwrap();
+                    }
+                    output.push_str(";\n");
+                }
                 Item::Interface {
                     base,
                     guid,
@@ -302,6 +314,11 @@ enum Item {
     Constant {
         ty: ProjectedType,
         value: String,
+    },
+    GuidConstant {
+        ty: ProjectedType,
+        guid: u128,
+        pid: Option<u32>,
     },
 }
 
@@ -785,8 +802,11 @@ impl Builder<'_, '_> {
                     result,
                 }
             }
-            DeclarationData::Variable { ty, value } => {
-                let (ty, object) = self.lower(ty, &mut BTreeSet::new())?;
+            DeclarationData::Variable {
+                ty: native_ty,
+                value,
+            } => {
+                let (ty, object) = self.lower(native_ty, &mut BTreeSet::new())?;
                 if object || matches!(ty, ProjectedType::Class(_)) {
                     self.plan.omitted.insert(
                         declaration.name.clone(),
@@ -799,36 +819,46 @@ impl Builder<'_, '_> {
                         "initializer unavailable for `{name}`; declaration-only data cannot be emitted as a constant"
                     )));
                 }
-                let value = match (value, &ty) {
-                    (
-                        Value::Integer(value),
-                        ProjectedType::Scalar(name, _) | ProjectedType::ScalarReference(_, name, _),
-                    ) => {
-                        if *name == "bool" {
-                            (*value != 0).to_string()
-                        } else if name.starts_with('i') {
-                            (*value as i64).to_string()
-                        } else {
-                            value.to_string()
+                if matches!(value, Value::Aggregate(_)) {
+                    let (guid, pid) = self.guid_constant(native_ty, value).ok_or_else(|| {
+                        Error(format!(
+                            "aggregate constant representation is not supported for `{name}`"
+                        ))
+                    })?;
+                    Item::GuidConstant { ty, guid, pid }
+                } else {
+                    let value = match (value, &ty) {
+                        (
+                            Value::Integer(value),
+                            ProjectedType::Scalar(name, _)
+                            | ProjectedType::ScalarReference(_, name, _),
+                        ) => {
+                            if *name == "bool" {
+                                (*value != 0).to_string()
+                            } else if name.starts_with('i') {
+                                (*value as i64).to_string()
+                            } else {
+                                value.to_string()
+                            }
                         }
-                    }
-                    (
-                        Value::Integer(value),
-                        ProjectedType::Pointer { .. } | ProjectedType::PointerReference { .. },
-                    ) => (*value as i64).to_string(),
-                    (Value::Float(value), ProjectedType::Scalar("f32" | "f64", _))
-                        if f64::from_bits(*value).is_finite() =>
-                    {
-                        // Keep a floating literal, including the sign of negative zero.
-                        format!("{:?}", f64::from_bits(*value))
-                    }
-                    _ => {
-                        return Err(Error(format!(
-                            "constant representation is not supported for `{name}`"
-                        )));
-                    }
-                };
-                Item::Constant { ty, value }
+                        (
+                            Value::Integer(value),
+                            ProjectedType::Pointer { .. } | ProjectedType::PointerReference { .. },
+                        ) => (*value as i64).to_string(),
+                        (Value::Float(value), ProjectedType::Scalar("f32" | "f64", _))
+                            if f64::from_bits(*value).is_finite() =>
+                        {
+                            // Keep a floating literal, including the sign of negative zero.
+                            format!("{:?}", f64::from_bits(*value))
+                        }
+                        _ => {
+                            return Err(Error(format!(
+                                "constant representation is not supported for `{name}`"
+                            )));
+                        }
+                    };
+                    Item::Constant { ty, value }
+                }
             }
             _ => return Err(Error(format!("projection is not implemented for `{name}`"))),
         };
@@ -839,6 +869,131 @@ impl Builder<'_, '_> {
         }
         self.plan.owners.insert(name, self.owner(id));
         Ok(())
+    }
+
+    fn canonical<'t>(&'t self, mut ty: &'t Type) -> &'t Type {
+        while let TypeKind::Named(id) = ty.kind {
+            let id = self.resolved.representatives[id.0];
+            if let DeclarationData::Alias { canonical, .. } =
+                &self.resolved.snapshot.declarations[id.0].data
+            {
+                ty = canonical;
+            } else {
+                break;
+            }
+        }
+        ty
+    }
+
+    fn constant_fields<'t>(&'t self, ty: &'t Type, size: i64) -> Option<&'t [Field]> {
+        let TypeKind::Named(id) = self.canonical(ty).kind else {
+            return None;
+        };
+        let id = self.resolved.representatives[id.0];
+        let DeclarationData::Record {
+            kind,
+            complete: true,
+            layout: Some(layout),
+            fields,
+            bases,
+            methods,
+            ..
+        } = &self.resolved.snapshot.declarations[id.0].data
+        else {
+            return None;
+        };
+        (kind == "StructDecl"
+            && bases.is_empty()
+            && methods.is_empty()
+            && *layout == Layout { size, align: 4 }
+            && fields.iter().all(|field| field.bit_width.is_none()))
+        .then_some(fields)
+    }
+
+    fn unsigned_constant_type(&self, ty: &Type, size: i64) -> bool {
+        let TypeKind::Builtin {
+            kind,
+            layout: Some(layout),
+        } = &self.canonical(ty).kind
+        else {
+            return false;
+        };
+        *layout == Layout { size, align: size }
+            && matches!(
+                (size, kind.as_str()),
+                (1, "UChar") | (2, "UShort") | (4, "UInt" | "ULong")
+            )
+    }
+
+    fn guid_value(&self, ty: &Type, value: &Value) -> Option<u128> {
+        let [a, b, c, d] = self.constant_fields(ty, 16)? else {
+            return None;
+        };
+        if [a.offset, b.offset, c.offset, d.offset] != [0, 32, 48, 64]
+            || !self.unsigned_constant_type(&a.ty, 4)
+            || !self.unsigned_constant_type(&b.ty, 2)
+            || !self.unsigned_constant_type(&c.ty, 2)
+        {
+            return None;
+        }
+        let TypeKind::Array {
+            length: Some(8),
+            element,
+        } = &self.canonical(&d.ty).kind
+        else {
+            return None;
+        };
+        if !self.unsigned_constant_type(element, 1) {
+            return None;
+        }
+        let Value::Aggregate(values) = value else {
+            return None;
+        };
+        let [
+            Value::Integer(a),
+            Value::Integer(b),
+            Value::Integer(c),
+            Value::Aggregate(d),
+        ] = values.as_slice()
+        else {
+            return None;
+        };
+        if *a > u32::MAX as u64 || *b > u16::MAX as u64 || *c > u16::MAX as u64 || d.len() != 8 {
+            return None;
+        }
+        let mut value = (*a as u128) << 96 | (*b as u128) << 80 | (*c as u128) << 64;
+        for (index, byte) in d.iter().enumerate() {
+            let Value::Integer(byte) = byte else {
+                return None;
+            };
+            if *byte > u8::MAX as u64 {
+                return None;
+            }
+            value |= (*byte as u128) << (56 - index * 8);
+        }
+        Some(value)
+    }
+
+    fn guid_constant(&self, ty: &Type, value: &Value) -> Option<(u128, Option<u32>)> {
+        if let Some(guid) = self.guid_value(ty, value) {
+            return Some((guid, None));
+        }
+        let [fmtid, pid] = self.constant_fields(ty, 20)? else {
+            return None;
+        };
+        if fmtid.offset != 0 || pid.offset != 128 || !self.unsigned_constant_type(&pid.ty, 4) {
+            return None;
+        }
+        let Value::Aggregate(values) = value else {
+            return None;
+        };
+        let [guid, Value::Integer(pid)] = values.as_slice() else {
+            return None;
+        };
+        Some((
+            self.guid_value(&fmtid.ty, guid)?,
+            Some(u32::try_from(*pid).ok()?),
+        ))
     }
 
     fn interface(

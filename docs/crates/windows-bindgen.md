@@ -233,6 +233,15 @@ signatures, dependencies, and remapping. Separate writers preserve the different
 - Win32 also has free exports, constants, handles, unions, nested types, and architecture-specific
   layout.
 
+### Native GUID constants
+
+`CppConst` preserves a declared native GUID record when its field types are `u32`, `u16`, `u16`,
+and `[u8; 8]`. It initializes the original field names from `GuidAttribute` rather than replacing
+the record with `windows_core::GUID`. Property-key constants can contain either this native record
+or the core GUID type; their `Constant` value supplies the property ID. Normal and sys output share
+this path. The `native_guid` fixtures cover the typed output, and `test_clang2` compares both forms
+against MSVC-initialized bytes.
+
 ### Bit-field accessors
 
 Winmd has no bit-field syntax. The header pipeline stores each run in an integer field named

@@ -54,6 +54,13 @@ and export names without changing captured evidence. Unmapped functions require 
 `library` fallback; the BCrypt and WebView2 fixtures instead derive imports from target-specific SDK
 COFF libraries.
 
+Fully specified struct/array initializer lists retain compiler-evaluated values in the native graph.
+Projection supports GUID and property-key storage shapes, checking component types, offsets, sizes,
+and alignment. RDL and generated Rust preserve their native records and field names. Partial,
+dynamic, copied-record, and other unsupported initializers remain explicit failures. Callers can
+capture an SDK's definition mode alongside declaration-only inputs; no macro-name or argument-text
+parser supplies the values. Conflicting initialized observations still fail native resolution.
+
 Supported parameter annotations include direction, optional pointers and buffers, COM output
 pointers, and parameter-bound element/byte counts. Constant element counts support nonnegative
 decimal literals.
@@ -110,7 +117,8 @@ gates.
 `tool-win32 --clang2-audio` is a bounded x64 path through the real main/satellite input assembly for
 `mmdeviceapi.h` and `endpointvolume.h`. Header discovery feeds a persistent declaration-outcome
 report and per-header RDL, then an isolated consumer reads real audio endpoint state without
-changing settings. The supported candidate emits 42 selected names; 60 remain rejected, including
+changing settings. An additional SDK definition-mode input supplies all 18 property keys and four
+device-interface GUIDs. The supported candidate emits 64 selected names; 38 remain rejected, including
 declaration-only data, a coclass, and an ordinal import. The generator exits nonzero for incomplete
 coverage even when the supported consumer works. The full Win32 scraper and committed metadata
 remain on their existing path.

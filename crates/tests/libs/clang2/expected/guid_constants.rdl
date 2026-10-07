@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const ID: NativeId;
+    #[guid(0xfedcba98abcd876580ff0001020304fe)]
+    const KEY: NativeKey = 65543;
+    struct NativeId {
+        first: u32,
+        second: u16,
+        third: u16,
+        bytes: [u8; 8],
+    }
+    struct NativeKey {
+        format: NativeId,
+        property: u32,
+    }
+}

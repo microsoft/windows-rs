@@ -152,6 +152,12 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 
 ## Pitfalls
 
+Native GUID constants can use `#[guid(...)] const ID: NativeGuid;` without substituting
+`System.Guid` for the declared record. A property-key constant adds `= pid`. Both retain their
+field type through metadata and RDL roundtrips; `GuidAttribute` carries the GUID and an optional
+`U32` constant carries the property ID. See the constants section of
+[`rdl.md`](../../crates/libs/rdl/rdl.md) for the required record shapes.
+
 - RDL references must be supplied separately; naming an external type does not locate its winmd.
 - The reader rejects unsupported types, constants, callback ABIs, variadic callback parameters,
   and function ABIs instead of dropping them.

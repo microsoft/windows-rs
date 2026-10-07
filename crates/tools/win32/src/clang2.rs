@@ -52,8 +52,14 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
         .map(|name| (*name, ("blocked", "capture has not completed".to_string())))
         .collect();
     report(output, &inventory, &outcomes);
+    let mut capture_inputs = inputs;
+    // The SDK's definition mode supplies initializers without replacing declaration observations.
+    capture_inputs.push(Input::new(
+        "clang-win32-audio-values.hpp",
+        format!("{PRELUDE}\n#include <initguid.h>\n#include <mmdeviceapi.h>"),
+    ));
     let snapshot = windows_clang2::capture(
-        inputs,
+        capture_inputs,
         &arguments.iter().map(String::as_str).collect::<Vec<_>>(),
         &roots,
     )
@@ -245,6 +251,9 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
         "Win32Audio",
         "Windows.Win32.PROPVARIANT",
         "Windows.Win32.IPropertyStore",
+        "Windows.Win32.PROPERTYKEY",
+        "Windows.Win32.PropVariantClear",
+        "Windows.Win32.VT_UI4",
         "Windows.Win32.CoCreateInstance",
         "Windows.Win32.CoTaskMemFree",
     ]);

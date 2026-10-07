@@ -467,11 +467,12 @@ fn write_const_property_key(
     let ty = write_type(namespace, &item.ty());
     let arch_attr = write_arch_attr(item.arches());
     let guid = guid_attribute_literal(item)?;
-    let constant = item
-        .constant()
-        .ok_or_else(|| writer_err!("property key constant `{}` has no `pid` value", item.name()))?;
-    let pid = write_value(namespace, &constant.value());
-    Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+    if let Some(constant) = item.constant() {
+        let pid = write_value(namespace, &constant.value());
+        Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+    } else {
+        Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty; })
+    }
 }
 
 /// Folds the 11-argument `GuidAttribute` into RDL's u128 GUID literal.

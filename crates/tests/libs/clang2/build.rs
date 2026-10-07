@@ -12,7 +12,66 @@ fn main() {
         build_webview();
         build_wdk();
         build_crypto();
+        build_constants();
     }
+}
+
+fn build_constants() {
+    for file in ["input/guid_constants.h", "input/guid_constants.cpp"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let snapshot = windows_clang2::capture(
+        [windows_clang2::Input::new(
+            "constants.hpp",
+            concat!(
+                "#define DEFINE_VALUES\n",
+                include_str!("input/guid_constants.h")
+            ),
+        )],
+        &["-x", "c++", &target],
+        &["ID", "KEY"],
+    )
+    .unwrap();
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&windows_clang2::ProjectionOptions::new("Test"))
+        .unwrap();
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    std::fs::write(out.join("guid_constants.rdl"), plan.rdl()).unwrap();
+    let winmd = out.join("guid_constants.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .reference_default()
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for sys in [false, true] {
+        let output = out.join(if sys {
+            "guid_constants_sys.rs"
+        } else {
+            "guid_constants.rs"
+        });
+        let mut args = vec![
+            "--in",
+            "default",
+            winmd.to_str().unwrap(),
+            "--out",
+            output.to_str().unwrap(),
+            "--flat",
+            "--filter",
+            "Test",
+        ];
+        if sys {
+            args.push("--sys");
+        }
+        windows_bindgen::bindgen(args);
+    }
+    cc::Build::new()
+        .cpp(true)
+        .file("input/guid_constants.cpp")
+        .compile("clang2_constants");
 }
 
 fn build_crypto() {

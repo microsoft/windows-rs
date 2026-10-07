@@ -94,6 +94,11 @@ template specializations, member pointers, and unsupported initializer expressio
 unavailable evidence. Non-ABI member templates are not modeled. Available record fields remain in
 the graph when another member is unsupported.
 
+Fully specified struct and array initializer lists retain nested values evaluated by Clang,
+including scalar conversions. They are native aggregate observations, not GUID-specific capture
+records. Partial lists, dynamic expressions, and copied-record initializers are rejected instead
+of filling missing values. Nested value differences participate in ordinary cross-TU agreement.
+
 Selected object-like macros use C++ expression probes. Capture reads the initializer's written type,
 not the probe's deduced `auto` type, so a direct or indirect interface-pointer cast keeps its typedef
 chain. A separate integer probe evaluates pointer bits when needed. Function-like macros, arbitrary
@@ -164,7 +169,7 @@ definitions, cannot be header-partitioned.
 | External interfaces | Bind a native record; consume exactly one native pointer/reference level. |
 | Local interfaces | UUID-bearing, fieldless records with pure virtual system-ABI methods and at most one base. MIDL `propget`/`propput` become `#[special]` on unchanged native method names. |
 | Aliases | Preserve bound scalar/pointer contracts; otherwise peel at uses. A selected alias can name a record unless its named tag is also selected. Competing selected names reject. |
-| Constants | Supported scalar and raw pointer values; omit interface values with a reason. |
+| Constants | Scalar and raw pointer values, plus GUID/property-key aggregate storage shapes; omit interface values with a reason. |
 | Raw pointers | Collapse mixed mutability to const if any raw-pointer level is const. |
 
 External bindings are trusted metadata contracts, not native ABI proof. All captured native
@@ -783,19 +788,24 @@ configuration, not every conditional branch or architecture.
 
 The only discovery exclusions are function-like macros, empty macros, reserved preprocessing
 configuration, and inline helpers without exported entry points. Declaration-only data is not
-silently excluded: GUID/property-key declarations and RPC globals remain visible as rejections.
+silently excluded: data without an initialized observation remains visible as a rejection.
 The complete selected graph resolves before any root is assessed for projection. Capture and
 resolution failures mark selected declarations blocked; they are not treated as benign omissions.
 
-The pinned headers produce 166 inventory rows: 71 emitted, 33 explicitly excluded, and 62 rejected.
+An additional input includes `initguid.h` before `mmdeviceapi.h`, after the ordinary prelude.
+This uses the SDK's own definition mode to expose initializers for all 18 property keys and four
+device-interface GUIDs. The original main/satellite declaration observations remain in capture.
+No macro-name parser, argument-text evaluator, or `IID_` naming guess supplies values. IID, CLSID,
+and LIBID extern declarations without initializers remain unsupported.
+
+The pinned headers produce 166 inventory rows: 93 emitted, 33 explicitly excluded, and 40 rejected.
 Forward declarations and typedefs account for repeated names. There are 102 selected names:
-42 emit and 60 reject. One x64 debug run resolved 321 groups and 589 observations with 278
-declaration comparisons, and generated the candidate in 4.4 seconds.
+64 emit and 38 reject. One x64 debug run resolved 321 groups and 921 observations with 630
+declaration comparisons, and generated the candidate in 5.4 seconds.
 
 | Remaining family | Names | Missing contract |
 | --- | --- | --- |
-| GUID data declarations | 20 | Initializer or imported-data evidence for IID, CLSID, LIBID, and device-interface variables. |
-| Property keys | 18 | Source macro values are not captured from declaration-only expansions. |
+| GUID data declarations | 16 | Initializer or imported-data evidence for IID, CLSID, and LIBID variables. |
 | RPC globals | 20 | Imported data is not a metadata constant. |
 | `MMDeviceEnumerator` | 1 | UUID-bearing coclass projection. |
 | `ActivateAudioInterfaceAsync` | 1 | The pinned `mmdevapi.lib` imports `MMDevAPI.DLL` ordinal 17; the projection supports named imports only. |
@@ -825,6 +835,18 @@ volume state, and the extended interface's channel range. It passed on three loc
 x64 debug. It never changes volume, mute, or device settings, and reports an error rather than a
 pass if no active endpoint is available. It does not prove notification callback execution.
 
+The consumer also uses the generated `PKEY_AudioEndpoint_FormFactor` to query the real property
+store, checks its variant type and enum range, and clears the variant before checking the result.
+The key is converted field-by-field for the externally bound property-store interface; its
+source-owned type is not rewritten.
+
+Aggregate projection checks the GUID component widths, unsignedness, offsets, size, and alignment,
+and the enclosing property-key layout. RDL uses `#[guid(...)] const ID: NativeGuid;` and adds
+`= pid` for a key. Bindgen initializes the native record's original fields in both normal and sys
+output. A C++ fixture compares every byte against MSVC-initialized source constants. Separate
+fixtures check declaration/definition agreement, nested value conflicts, malformed shapes, and
+metadata/RDL roundtrips.
+
 The slice exercises fixed arrays, storage layouts for externally referenced records, and constants
 whose native type is an enum or a caller-bound scalar typedef. Source/RDL fixtures cover exact
 header identity despite matching basenames, macro expansion ownership, forward completion,
@@ -845,7 +867,7 @@ The old `windows-clang` implementation remains available. `tool-webview` uses cl
 production scrapers retain their existing path. Inspect the worktree before restarting and
 preserve any local changes.
 
-The current slice has 118 passing integration tests and one passing doctest, with no ignored
+The current slice has 122 passing integration tests and one passing doctest, with no ignored
 WebView2 cutover cases.
 This establishes the covered cases, not production parity or completion of the acceptance matrix.
 
@@ -987,9 +1009,9 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | --- | --- | --- |
 | 1 | Local COM and UUIDs from `unknwnbase.h` | Metadata case covered: local `IUnknown` and `IClassFactory`, IID, inheritance, method order, system calling conventions, pointer levels, and COM output attributes on three targets. Synthetic executable ABI coverage is in gate 6. |
 | 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
-| 3 | Constants and preprocessing | Cover GUID/property-key forms, redefinition/undefinition, final macro state, and poison expressions with explicit, bounded recovery outcomes. |
+| 3 | Constants and preprocessing | Fully initialized GUID/property-key shapes have native-byte and roundtrip coverage. Declaration-only data, redefinition/undefinition, final macro state, and poison-expression recovery remain. |
 | 4 | Record layout | Anonymous native evidence is covered; local projection remains rejected. Cover packed, anonymous, bitfield, and a supported inherited record; compare compiler layout with generated Rust size, alignment, and offsets. |
-| 5 | Real multi-TU consumers | `tool-webview` and the header-driven `tool-win32 --clang2-audio` candidate run real consumers. Audio records every discovered declaration and emits per-header RDL, but 60 selected names still reject. Full Win32 cutover and a WDK case with UM references/enum overlays remain. |
+| 5 | Real multi-TU consumers | `tool-webview` and the header-driven `tool-win32 --clang2-audio` candidate run real consumers. Audio records every discovered declaration and emits per-header RDL, but 38 selected names still reject. Full Win32 cutover and a WDK case with UM references/enum overlays remain. |
 | 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 
 Use pinned real generator inputs where practical. Preserve main/satellite and WebView multi-TU

@@ -1217,11 +1217,53 @@ fn layout(ty: CXType) -> Option<Layout> {
 }
 
 fn evaluate(cursor: CXCursor) -> Value {
+    let initializer = unsafe { clang_Cursor_getVarDeclInitializer(cursor) };
+    if unsafe { clang_Cursor_isNull(initializer) } != 0 {
+        return Value::None;
+    }
+    evaluate_initializer(initializer)
+}
+
+fn evaluate_initializer(cursor: CXCursor) -> Value {
     unsafe {
-        if clang_Cursor_isNull(clang_Cursor_getVarDeclInitializer(cursor)) != 0 {
-            return Value::None;
+        let ty = clang_getCanonicalType(clang_getCursorType(cursor));
+        if matches!(ty.kind, CXType_Record | CXType_ConstantArray) {
+            if clang_getCursorKind(cursor) != CXCursor_InitListExpr {
+                return Value::Unavailable(
+                    "aggregate constants require explicit initializer lists".into(),
+                );
+            }
+            let count = if ty.kind == CXType_ConstantArray {
+                clang_getArraySize(ty) as usize
+            } else {
+                let declaration = clang_getTypeDeclaration(ty);
+                if clang_getCursorKind(declaration) != CXCursor_StructDecl {
+                    return Value::Unavailable(
+                        "aggregate constants require struct or array types".into(),
+                    );
+                }
+                record_fields(declaration).len()
+            };
+            let elements: Vec<_> = children(cursor)
+                .into_iter()
+                .filter(|child| clang_isExpression(clang_getCursorKind(*child)) != 0)
+                .collect();
+            if elements.len() != count {
+                return Value::Unavailable(
+                    "aggregate constants require every element to be explicit".into(),
+                );
+            }
+            let mut values = vec![];
+            for element in elements {
+                let value = evaluate_initializer(element);
+                if matches!(value, Value::Unavailable(_)) {
+                    return value;
+                }
+                values.push(value);
+            }
+            return Value::Aggregate(values);
         }
-        if clang_Type_getSizeOf(clang_getCursorType(cursor)) > 8 {
+        if clang_Type_getSizeOf(ty) > 8 {
             return Value::Unavailable(
                 "constant values wider than 64 bits are not implemented".into(),
             );

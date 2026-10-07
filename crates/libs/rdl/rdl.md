@@ -409,7 +409,7 @@ mod Contoso {
 
 #### Constants
 
-Constants define named primitive values or `GUID` values.
+Constants define named primitive values, GUIDs, or property keys.
 
 Syntax:
 
@@ -429,6 +429,20 @@ mod Contoso {
     }
 }
 ```
+
+For a declared native GUID record, `#[guid]` carries the value without replacing its type with
+`System.Guid`. Adding a `u32` value carries a property key's property ID:
+
+```rust
+#[guid(0xe436ebb1_524f_11ce_9f53_0020af0ba770)]
+const NATIVE_ID: NativeGuid;
+#[guid(0xe436ebb1_524f_11ce_9f53_0020af0ba770)]
+const NATIVE_KEY: NativePropertyKey = 17;
+```
+
+The GUID record has fields `u32`, `u16`, `u16`, and `[u8; 8]` in that order. The property-key record
+contains the GUID and a `u32`. Bindgen preserves their declared record and field names. Metadata
+stores `GuidAttribute` on both constants and a `U32` constant value on the property key.
 
 #### Functions
 

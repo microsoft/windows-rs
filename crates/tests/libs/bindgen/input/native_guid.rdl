@@ -1,0 +1,18 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Identifier {
+        first: u32,
+        second: u16,
+        third: u16,
+        bytes: [u8; 8],
+    }
+    struct Key {
+        format: Identifier,
+        property: u32,
+    }
+    #[guid(0xfedcba98_abcd_8765_80ff_0001020304fe)]
+    const ID: Identifier;
+    #[guid(0xfedcba98_abcd_8765_80ff_0001020304fe)]
+    const KEY: Key = 65543;
+}

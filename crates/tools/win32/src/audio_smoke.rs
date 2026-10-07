@@ -4,7 +4,8 @@
     non_snake_case,
     non_upper_case_globals,
     clippy::upper_case_acronyms,
-    clippy::missing_transmute_annotations
+    clippy::missing_transmute_annotations,
+    clippy::useless_transmute
 )]
 mod bindings;
 
@@ -42,6 +43,24 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             CoTaskMemFree(id.0.cast());
             assert!(!text?.is_empty());
 
+            let key = PKEY_AudioEndpoint_FormFactor;
+            let key = PROPERTYKEY {
+                fmtid: windows_core::GUID {
+                    data1: key.fmtid.Data1,
+                    data2: key.fmtid.Data2,
+                    data3: key.fmtid.Data3,
+                    data4: key.fmtid.Data4,
+                },
+                pid: key.pid,
+            };
+            let store = device.OpenPropertyStore(0)?;
+            let mut value = store.GetValue(&key)?;
+            let form_factor = (i32::from(value.Anonymous.Anonymous.vt) == VT_UI4)
+                .then(|| value.Anonymous.Anonymous.Anonymous.ulVal);
+            PropVariantClear(&mut value).ok()?;
+            let form_factor = form_factor.ok_or("audio form factor property is not VT_UI4")?;
+            assert!(form_factor < EndpointFormFactor_enum_count as u32);
+
             let iid = IAudioEndpointVolume::IID;
             let iid = _GUID {
                 Data1: iid.data1,
@@ -64,7 +83,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .ok()?;
             assert!(min.is_finite() && max.is_finite() && step.is_finite());
             assert!(min <= max && step >= 0.0);
-            println!("audio endpoint {index}: {channels} channels; read-only queries passed");
+            println!(
+                "audio endpoint {index}: {channels} channels, form factor {form_factor}; read-only queries passed"
+            );
         }
         println!("clang2 audio smoke: {count} endpoint(s) passed");
     }

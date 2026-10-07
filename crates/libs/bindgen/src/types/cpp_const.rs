@@ -70,6 +70,12 @@ impl CppConst {
         let cfg = quote! { #arches #cfg };
 
         if let Some(guid) = self.field.guid_attribute() {
+            if self.field.constant().is_none()
+                && let Some(value) = write_native_guid(&field_ty, &guid, config)
+            {
+                let ty = field_ty.write_name(config);
+                return quote! { #cfg pub const #name: #ty = #value; };
+            }
             // Property-key constants store `fmtid` in `GuidAttribute` and `pid` in `Constant`.
             if let Type::CppStruct(ty) = &field_ty {
                 let struct_ty = field_ty.write_name(config);
@@ -80,6 +86,8 @@ impl CppConst {
                     let member_ty = field.field_type(None, config.reader);
                     if resolves_to_guid(&member_ty, config.reader) {
                         let value = config.write_guid_value(&guid);
+                        fields.combine(quote! { #field_name: #value, });
+                    } else if let Some(value) = write_native_guid(&member_ty, &guid, config) {
                         fields.combine(quote! { #field_name: #value, });
                     } else if let Some(constant) = self.field.constant() {
                         let value = constant.value().write();
@@ -437,4 +445,38 @@ fn resolves_to_guid(ty: &Type, reader: &Reader) -> bool {
             _ => return false,
         }
     }
+}
+
+fn write_native_guid(ty: &Type, value: &GUID, config: &Config) -> Option<TokenStream> {
+    let Type::CppStruct(record) = ty else {
+        return None;
+    };
+    let fields: Vec<_> = record.def.fields().collect();
+    let [a, b, c, d] = fields.as_slice() else {
+        return None;
+    };
+    let expected = [
+        Type::U32,
+        Type::U16,
+        Type::U16,
+        Type::ArrayFixed(Box::new(Type::U8), 8),
+    ];
+    if !fields
+        .iter()
+        .zip(expected)
+        .all(|(field, expected)| field.field_type(None, config.reader) == expected)
+    {
+        return None;
+    }
+    let names = [a, b, c, d].map(|field| to_ident(field.name()));
+    let [a, b, c, d] = names;
+    let data1 = Literal::u32_unsuffixed(value.0);
+    let data2 = Literal::u16_unsuffixed(value.1);
+    let data3 = Literal::u16_unsuffixed(value.2);
+    let bytes = [
+        value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10,
+    ]
+    .map(Literal::u8_unsuffixed);
+    let ty = ty.write_name(config);
+    Some(quote! { #ty { #a: #data1, #b: #data2, #c: #data3, #d: [#(#bytes),*] } })
 }

@@ -38,10 +38,7 @@ impl Encoder<'_> {
         let name = item.name.to_string();
         let ty = self.encode_type(&item.ty)?;
 
-        // A property-key constant is spelled `#[guid(0x...)] const NAME: PROPERTYKEY = pid;`:
-        // the `fmtid` rides on the `#[guid]` attribute and the value is the `pid`. It is
-        // distinguished from an ordinary GUID constant (whose value is the GUID itself,
-        // written inline) by carrying a `#[guid]` attribute on a non-GUID struct type.
+        // A typed GUID uses `#[guid(...)] const NAME: NativeGuid;`. A property key adds `= pid`.
         let has_guid_attr = item.attrs.iter().any(|a| a.path().is_ident("guid"));
 
         match &ty {
@@ -50,12 +47,12 @@ impl Encoder<'_> {
             // Match both the WinRT `System.Guid` and the Win32 `GUID` struct
             // (guiddef.h), which resolves to the closure's own `...Win32.GUID`.
             windows_metadata::Type::ValueName(tn)
-                if tn == ("System", "Guid") || tn.name == "GUID" =>
+                if !has_guid_attr && (tn == ("System", "Guid") || tn.name == "GUID") =>
             {
                 self.encode_const_guid(&ty, item, &name)?;
             }
             _ if has_guid_attr => {
-                self.encode_const_property_key(&ty, item, &name)?;
+                self.encode_const_guid_attribute(&ty, item, &name)?;
             }
             _ => self.encode_const_value(&ty, item, &name)?,
         }
@@ -63,16 +60,17 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    fn encode_const_property_key(
+    fn encode_const_guid_attribute(
         &mut self,
         ty: &windows_metadata::Type,
         item: &Const,
         name: &str,
     ) -> Result<(), Error> {
-        let expr = item.expr.as_ref().ok_or_else(|| {
-            self.error(&item.name, "property key constant requires a `pid` value")
-        })?;
-        let pid = self.encode_lit_uint(expr, 32)? as u32;
+        let pid = item
+            .expr
+            .as_ref()
+            .map(|expr| self.encode_lit_uint(expr, 32))
+            .transpose()?;
 
         let field = self.output.Field(
             name,
@@ -81,10 +79,12 @@ impl Encoder<'_> {
         );
 
         self.encode_guid_pseudo_attrs(metadata::writer::HasAttribute::Field(field), &item.attrs)?;
-        self.output.Constant(
-            metadata::writer::HasConstant::Field(field),
-            &metadata::Value::U32(pid),
-        );
+        if let Some(pid) = pid {
+            self.output.Constant(
+                metadata::writer::HasConstant::Field(field),
+                &metadata::Value::U32(pid as u32),
+            );
+        }
 
         self.encode_attrs(
             metadata::writer::HasAttribute::Field(field),
