@@ -5,6 +5,131 @@ use clang_sys::*;
 use std::ffi::{CStr, CString};
 use std::panic::{AssertUnwindSafe, catch_unwind, resume_unwind};
 
+/// A header-owned declaration or macro, without projected types or selection policy.
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct DeclarationInfo {
+    pub header: String,
+    pub line: u32,
+    pub name: String,
+    pub kind: String,
+    pub definition: bool,
+    pub inline: bool,
+    pub initializer: bool,
+    pub function_macro: bool,
+    pub empty_macro: bool,
+}
+
+/// Inventories declarations whose expansion locations belong to the specified header files.
+///
+/// File identity, rather than a basename or path suffix, determines ownership. Discovery does
+/// not validate native type contracts; pass the selected names to `capture` for that work.
+pub fn discover(
+    inputs: impl IntoIterator<Item = Input>,
+    arguments: &[&str],
+    headers: &[&str],
+) -> Result<Vec<DeclarationInfo>, Error> {
+    if headers.is_empty() {
+        return Err(Error("discovery requires header files".into()));
+    }
+    let headers = headers
+        .iter()
+        .map(|header| c_string(header))
+        .collect::<Result<Vec<_>, _>>()?;
+    let _library = Library::new()?;
+    let mut found = BTreeSet::new();
+    let mut result = BTreeSet::new();
+    for input in inputs {
+        let unit = Unit::parse(&input, arguments)?;
+        let files: Vec<_> = headers
+            .iter()
+            .enumerate()
+            .filter_map(|(index, header)| {
+                let file = unsafe { clang_getFile(unit.raw, header.as_ptr()) };
+                if file.is_null() {
+                    None
+                } else {
+                    found.insert(index);
+                    Some(file)
+                }
+            })
+            .collect();
+        let root = unsafe { clang_getTranslationUnitCursor(unit.raw) };
+        for cursor in
+            declarations(root)
+                .into_iter()
+                .chain(children(root).into_iter().filter(|cursor| unsafe {
+                    clang_getCursorKind(*cursor) == CXCursor_MacroDefinition
+                }))
+        {
+            let position = unsafe { clang_getCursorLocation(cursor) };
+            let mut file = std::ptr::null_mut();
+            unsafe {
+                clang_getExpansionLocation(
+                    position,
+                    &mut file,
+                    std::ptr::null_mut(),
+                    std::ptr::null_mut(),
+                    std::ptr::null_mut(),
+                );
+            }
+            if file.is_null()
+                || !files
+                    .iter()
+                    .any(|expected| unsafe { clang_File_isEqual(file, *expected) != 0 })
+            {
+                continue;
+            }
+            let kind = unsafe { clang_getCursorKind(cursor) };
+            let mut empty_macro = false;
+            if kind == CXCursor_MacroDefinition {
+                let mut tokens = std::ptr::null_mut();
+                let mut count = 0;
+                unsafe {
+                    clang_tokenize(
+                        unit.raw,
+                        clang_getCursorExtent(cursor),
+                        &mut tokens,
+                        &mut count,
+                    );
+                };
+                empty_macro = (0..count)
+                    .filter(|index| unsafe {
+                        clang_getTokenKind(*tokens.add(*index as usize)) != CXToken_Comment
+                    })
+                    .count()
+                    <= 1;
+                unsafe { clang_disposeTokens(unit.raw, tokens, count) };
+            }
+            let location = expansion_location(position);
+            result.insert(DeclarationInfo {
+                header: location.file,
+                line: location.line,
+                name: qualified_name(cursor),
+                kind: string(unsafe { clang_getCursorKindSpelling(kind) }),
+                definition: unsafe { clang_isCursorDefinition(cursor) != 0 },
+                inline: kind == CXCursor_FunctionDecl
+                    && unsafe { clang_Cursor_isFunctionInlined(cursor) != 0 },
+                initializer: kind == CXCursor_VarDecl
+                    && unsafe {
+                        clang_Cursor_isNull(clang_Cursor_getVarDeclInitializer(cursor)) == 0
+                    },
+                function_macro: kind == CXCursor_MacroDefinition
+                    && unsafe { clang_Cursor_isMacroFunctionLike(cursor) != 0 },
+                empty_macro,
+            });
+        }
+    }
+    for (index, header) in headers.iter().enumerate() {
+        if !found.contains(&index) {
+            return Err(Error(format!(
+                "discovery header was not included: {}",
+                header.to_string_lossy()
+            )));
+        }
+    }
+    Ok(result.into_iter().collect())
+}
+
 /// Captures the native closure of explicitly named roots and their cross-TU observations.
 ///
 /// Roots use qualified native names, for example `API::Packet`. References and output exclusions
@@ -416,6 +541,10 @@ impl Capture<'_> {
         let name = self.name(unit, cursor);
         self.declarations.push(Declaration {
             entity,
+            owner: self.macros[unit].get(&name).map_or_else(
+                || expansion_location(unsafe { clang_getCursorLocation(cursor) }).file,
+                |location| location.file.clone(),
+            ),
             location: self.macros[unit]
                 .get(&name)
                 .cloned()

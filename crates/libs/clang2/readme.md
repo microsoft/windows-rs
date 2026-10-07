@@ -26,6 +26,12 @@ println!("{}", plan.rdl());
 The caller must make libclang available through `LIBCLANG_PATH` or its normal loader search paths.
 Repository tests and the inspection example use the shared pinned dependency helper.
 
+`discover` inventories specified headers by exact Clang file identity, leaving selection policy to
+the caller. After the complete captured graph passes resolution, `Resolved::project_roots` can
+assess selected subsets without reparsing or suppressing native conflicts. Combined projection
+still checks alias/output-name conflicts. `Plan::rdl_by_header` emits source-owned partitions,
+including dependency headers, separately from native identity and spelling evidence.
+
 Projection currently covers ordinary C-layout records, integer-backed enums, fixed-prototype
 functions, scalar and raw pointer constants, UUID-bearing local COM interfaces, and external type
 bindings. Local interfaces support a single base and pure virtual system-ABI methods, but reject
@@ -102,9 +108,12 @@ other production consumers still need coverage. See the continuation page for co
 gates.
 
 `tool-win32 --clang2-audio` is a bounded x64 path through the real main/satellite input assembly for
-`mmdeviceapi.h` and `endpointvolume.h`. It generates an isolated consumer that reads real audio
-endpoint state without changing settings. The full Win32 scraper and committed metadata remain on
-their existing path.
+`mmdeviceapi.h` and `endpointvolume.h`. Header discovery feeds a persistent declaration-outcome
+report and per-header RDL, then an isolated consumer reads real audio endpoint state without
+changing settings. The supported candidate emits 42 selected names; 60 remain rejected, including
+declaration-only data, a coclass, and an ordinal import. The generator exits nonzero for incomplete
+coverage even when the supported consumer works. The full Win32 scraper and committed metadata
+remain on their existing path.
 
 The API and diagnostic dump are experimental. See
 [`docs/crates/windows-clang2.md`](../../../docs/crates/windows-clang2.md) for the supported subset,

@@ -97,7 +97,10 @@ the graph when another member is unsupported.
 Selected object-like macros use C++ expression probes. Capture reads the initializer's written type,
 not the probe's deduced `auto` type, so a direct or indirect interface-pointer cast keeps its typedef
 chain. A separate integer probe evaluates pointer bits when needed. Function-like macros, arbitrary
-macro expressions, discovery/export policy, and poison-expression recovery are outside this slice.
+macro expressions, and poison-expression recovery are outside this slice. `discover` inventories
+declarations and macro definitions by exact Clang file identity, without choosing export policy.
+It uses expansion locations, so a macro-generated declaration belongs to its invocation header.
+Discovery is a separate parse pass; selected names then enter ordinary capture and resolution.
 
 ## Agreement and completion
 
@@ -135,6 +138,18 @@ snapshot nor libclang. The renderer performs no native type classification or de
 The default is to preserve source contracts, not to rewrite them for downstream convenience or
 match legacy output. Native enum signedness, typedef names, and annotation evidence remain separate
 from caller-supplied external bindings.
+
+`Resolved::project_roots` projects a subset of captured root names without reparsing. The entire
+captured graph must pass resolution first; this API cannot hide unsupported native evidence or
+cross-TU conflicts. Every subset still includes its output dependencies. Successful individual
+plans do not prove that a combined plan is valid: alias and output-name conflicts remain errors.
+
+`Plan::rdl_by_header` partitions the closed plan by source ownership. Complete definitions outrank
+forward declarations, and equally complete observations use the first lexicographic source path.
+A selected alias that names a record owns that output declaration. Dependency headers receive
+their own partitions. Ownership is separate from native spelling locations and identities; the
+renderer does not reopen the graph. Declarations without a source file, such as command-line macro
+definitions, cannot be header-partitioned.
 
 | Surface | Current policy |
 | --- | --- |
@@ -753,25 +768,56 @@ per-method WebView compatibility rewriting. Free-function parameter names are st
 `p0`, `p1`, etc.; method parameter names are retained. Broader annotations, native ARM64 execution,
 and SDK-wide production coverage remain open.
 
-### Bounded Win32 main/satellite slice
+### Header-driven Win32 main/satellite slice
 
 ```powershell
 cargo run -p tool-win32 -- --clang2-audio
-cargo run --manifest-path target\win32-clang2\audio\Cargo.toml --target x86_64-pc-windows-msvc
+cargo run --manifest-path target\win32-clang2\audio\Cargo.toml
 ```
 
 This opt-in path reuses `tool-win32`'s pinned SDK, compiler arguments, prelude, and main/satellite
-input assembly for `mmdeviceapi.h` and `endpointvolume.h`. It captures nine selected roots and
-their dependencies with clang2: the device interfaces, endpoint-volume interfaces, notification
-record, and native `GUID`. One x64 debug run resolved 220 groups and 475 observations with 265
-declaration comparisons.
+input assembly for `mmdeviceapi.h` and `endpointvolume.h`. It discovers the configured headers'
+top-level and nested type declarations and macros instead of maintaining a symbol list. Record
+members and enum values travel with their owning types. This describes the active x64 C++ header
+configuration, not every conditional branch or architecture.
 
-Output goes only to `target/win32-clang2/audio`: RDL, WinMD, generated Rust, and a small standalone
-consumer. Candidate definitions use `Win32Audio` so bundled Win32 metadata cannot substitute for
-them during binding generation. Standard external COM references remain explicit. `GUID` is
-source-owned, including its fixed byte array; no external-layout call exception is needed for
-the local property-key record. The default full scraper, committed Win32 metadata, and header
-partitions are unchanged.
+The only discovery exclusions are function-like macros, empty macros, reserved preprocessing
+configuration, and inline helpers without exported entry points. Declaration-only data is not
+silently excluded: GUID/property-key declarations and RPC globals remain visible as rejections.
+The complete selected graph resolves before any root is assessed for projection. Capture and
+resolution failures mark selected declarations blocked; they are not treated as benign omissions.
+
+The pinned headers produce 166 inventory rows: 71 emitted, 33 explicitly excluded, and 62 rejected.
+Forward declarations and typedefs account for repeated names. There are 102 selected names:
+42 emit and 60 reject. One x64 debug run resolved 321 groups and 589 observations with 278
+declaration comparisons, and generated the candidate in 4.4 seconds.
+
+| Remaining family | Names | Missing contract |
+| --- | --- | --- |
+| GUID data declarations | 20 | Initializer or imported-data evidence for IID, CLSID, LIBID, and device-interface variables. |
+| Property keys | 18 | Source macro values are not captured from declaration-only expansions. |
+| RPC globals | 20 | Imported data is not a metadata constant. |
+| `MMDeviceEnumerator` | 1 | UUID-bearing coclass projection. |
+| `ActivateAudioInterfaceAsync` | 1 | The pinned `mmdevapi.lib` imports `MMDevAPI.DLL` ordinal 17; the projection supports named imports only. |
+
+The generator exits 1 while any selected name is rejected, after generating the supported
+candidate. Run the consumer separately; a working consumer does not turn incomplete header
+coverage into success. No DLL export-name guess replaces the ordinal import.
+
+Output stays under `target/win32-clang2/audio`:
+
+| Artifact | Purpose |
+| --- | --- |
+| `inventory.tsv` | Every discovered row, its status, and a stage/reason for exclusions or failures. |
+| `headers.tsv` | Output filenames and their source header paths; filename collisions fail. |
+| `rdl/*.rdl` | Separate `mmdeviceapi`, `endpointvolume`, `guiddef`, `wtypes`, and `devicetopology` partitions. |
+| `audio.winmd`, `src/bindings.rs` | The combined supported candidate, built from those partitions. |
+| `Cargo.toml`, `src/main.rs` | Standalone read-only consumer. |
+
+Candidate definitions use `Win32Audio` so bundled Win32 metadata cannot substitute for them.
+Standard external COM references remain explicit. The native `_GUID` record and its fixed byte
+array stay source-owned; no external-layout call exception is needed for the local property-key
+record. The default full scraper and committed Win32 metadata remain unchanged.
 
 The read-only consumer activates the Windows device enumerator, enumerates active render
 endpoints, reads device IDs and state, activates endpoint volume, and queries channel counts,
@@ -779,12 +825,13 @@ volume state, and the extended interface's channel range. It passed on three loc
 x64 debug. It never changes volume, mute, or device settings, and reports an error rather than a
 pass if no active endpoint is available. It does not prove notification callback execution.
 
-The slice required fixed-array projection and storage layouts for externally referenced records.
-Both have small source/RDL fixtures. It adds no audio-specific projection rules and keeps the
-by-value external-record and adjusted-layout call gates closed. The remaining integration cost
-includes explicit references, raw COM activation outputs, and selection of native typedef roots.
-Full header-root discovery, per-header partitioning, richer annotations, and a complete Win32
-cutover remain separate work.
+The slice exercises fixed arrays, storage layouts for externally referenced records, and constants
+whose native type is an enum or a caller-bound scalar typedef. Source/RDL fixtures cover exact
+header identity despite matching basenames, macro expansion ownership, forward completion,
+selected-alias ownership, combined-plan collisions, and native conflicts. No audio-specific
+projection rules or by-value layout exceptions are added. The next cutover work is the rejected
+families above, followed by another header group; richer annotations and full Win32 coverage remain
+open.
 
 ## Rewrite plan and restart point
 
@@ -798,7 +845,7 @@ The old `windows-clang` implementation remains available. `tool-webview` uses cl
 production scrapers retain their existing path. Inspect the worktree before restarting and
 preserve any local changes.
 
-The current slice has 114 passing integration tests and one passing doctest, with no ignored
+The current slice has 118 passing integration tests and one passing doctest, with no ignored
 WebView2 cutover cases.
 This establishes the covered cases, not production parity or completion of the acceptance matrix.
 
@@ -942,7 +989,7 @@ expected rejections in fixtures. Do not broaden the slice silently as new cases 
 | 2 | SAL and MIDL relationships | Required/optional buffers, output valid-byte extents, decimal element constants, scalar strings, and MIDL prefix directions with SAL precedence are covered. Counted strings, indirect capacities, and other MIDL relationships remain. |
 | 3 | Constants and preprocessing | Cover GUID/property-key forms, redefinition/undefinition, final macro state, and poison expressions with explicit, bounded recovery outcomes. |
 | 4 | Record layout | Anonymous native evidence is covered; local projection remains rejected. Cover packed, anonymous, bitfield, and a supported inherited record; compare compiler layout with generated Rust size, alignment, and offsets. |
-| 5 | Real multi-TU consumers | `tool-webview` and the opt-in `tool-win32 --clang2-audio` slice run real consumers. Full Win32 input discovery/partitioning and a WDK case with UM references/enum overlays remain. |
+| 5 | Real multi-TU consumers | `tool-webview` and the header-driven `tool-win32 --clang2-audio` candidate run real consumers. Audio records every discovered declaration and emits per-header RDL, but 60 selected names still reject. Full Win32 cutover and a WDK case with UM references/enum overlays remain. |
 | 6 | Target and ABI coverage | Raw-binding layout, free aggregate calls, bidirectional COM-style dispatch, COM ownership, and eight BCrypt DLL imports execute on x64/x86. Native ARM64 execution, Windows COM activation, SDK-wide DLL routing, and aggregate-returning methods remain. |
 
 Use pinned real generator inputs where practical. Preserve main/satellite and WebView multi-TU

@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    const CURRENT_MODE: Mode = 3;
+    const CURRENT_SIGNED: SignedMode = -2;
+    struct Consumer {
+        value: PublicShared,
+        other: *mut Completed,
+    }
+    const HEADER_VALUE: i32 = 7;
+    struct Owned {
+        value: i32,
+    }
+    struct PublicShared {
+        value: i32,
+    }
+}

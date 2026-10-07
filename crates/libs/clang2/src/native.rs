@@ -25,6 +25,7 @@ pub(super) struct Declaration {
     pub candidate: String,
     pub unit: String,
     pub location: Location,
+    pub owner: String,
     pub data: DeclarationData,
 }
 

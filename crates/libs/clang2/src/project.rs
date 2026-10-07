@@ -58,6 +58,7 @@ pub struct Plan {
     namespace: String,
     items: BTreeMap<String, Item>,
     omitted: BTreeMap<String, String>,
+    owners: BTreeMap<String, String>,
 }
 
 impl Plan {
@@ -67,9 +68,36 @@ impl Plan {
     }
 
     pub fn rdl(&self) -> String {
+        self.render(self.items.iter())
+    }
+
+    /// Renders each planned declaration once, in its owning source header partition.
+    ///
+    /// Complete definitions outrank forward declarations; equal evidence uses the first
+    /// lexicographic source path. A selected alias that names a record also owns its output.
+    pub fn rdl_by_header(&self) -> Result<BTreeMap<String, String>, Error> {
+        let mut partitions: BTreeMap<&str, Vec<_>> = BTreeMap::new();
+        for (name, item) in &self.items {
+            if self.owners[name].is_empty() {
+                return Err(Error(format!(
+                    "source header ownership is unavailable for `{name}`"
+                )));
+            }
+            partitions
+                .entry(&self.owners[name])
+                .or_default()
+                .push((name, item));
+        }
+        Ok(partitions
+            .into_iter()
+            .map(|(header, items)| (header.to_string(), self.render(items.into_iter())))
+            .collect())
+    }
+
+    fn render<'a>(&self, items: impl Iterator<Item = (&'a String, &'a Item)>) -> String {
         let mut namespaces = self.namespace.rsplit('.');
         let mut output = format!("#[win32]\nmod {} {{\n", namespaces.next().unwrap());
-        for (name, item) in &self.items {
+        for (name, item) in items {
             match item {
                 Item::Record { fields, alignment } => {
                     if let Some(alignment) = alignment {
@@ -362,6 +390,41 @@ impl ProjectedType {
 
 impl Resolved<'_> {
     pub fn project(&self, options: &ProjectionOptions) -> Result<Plan, Error> {
+        self.project_ids(options, &self.snapshot.roots)
+    }
+
+    /// Projects a subset of captured roots after the complete snapshot has passed resolution.
+    ///
+    /// Dependencies remain included. This cannot bypass native conflicts or select uncaptured
+    /// names. Individually successful subsets can still conflict when projected together.
+    pub fn project_roots(
+        &self,
+        options: &ProjectionOptions,
+        names: &[&str],
+    ) -> Result<Plan, Error> {
+        if names.is_empty() {
+            return Err(Error("projection requires selected roots".into()));
+        }
+        let mut roots = vec![];
+        for name in names {
+            let selected: Vec<_> = self
+                .snapshot
+                .roots
+                .iter()
+                .copied()
+                .filter(|id| self.snapshot.declarations[id.0].name == *name)
+                .collect();
+            if selected.is_empty() {
+                return Err(Error(format!("`{name}` is not a captured root")));
+            }
+            roots.extend(selected);
+        }
+        roots.sort();
+        roots.dedup();
+        self.project_ids(options, &roots)
+    }
+
+    fn project_ids(&self, options: &ProjectionOptions, roots: &[Id]) -> Result<Plan, Error> {
         if !self.snapshot.target.contains("-windows-") {
             return Err(Error(
                 "projection currently supports Windows targets only".into(),
@@ -408,6 +471,7 @@ impl Resolved<'_> {
             options,
             aliases: BTreeMap::new(),
             names: BTreeMap::new(),
+            owners: BTreeMap::new(),
             groups: self
                 .groups
                 .iter()
@@ -419,9 +483,10 @@ impl Resolved<'_> {
                 namespace,
                 items: BTreeMap::new(),
                 omitted: BTreeMap::new(),
+                owners: BTreeMap::new(),
             },
         };
-        for root in &self.snapshot.roots {
+        for root in roots {
             let alias = &self.snapshot.declarations[root.0];
             if let DeclarationData::Alias { canonical, .. } = &alias.data
                 && let TypeKind::Named(target) = canonical.kind
@@ -430,7 +495,7 @@ impl Resolved<'_> {
                 if matches!(
                     self.snapshot.declarations[target.0].data,
                     DeclarationData::Record { .. }
-                ) && !self.snapshot.roots.iter().any(|root| {
+                ) && !roots.iter().any(|root| {
                     self.representatives[root.0] == target
                         && !matches!(
                             self.snapshot.declarations[root.0].data,
@@ -445,10 +510,13 @@ impl Resolved<'_> {
                             "multiple selected aliases name the same record".into(),
                         ));
                     }
+                    builder
+                        .owners
+                        .insert(target, builder.owner(self.representatives[root.0]));
                 }
             }
         }
-        for root in &self.snapshot.roots {
+        for root in roots {
             builder.schedule(*root);
         }
         while let Some(id) = builder.pending.pop_front() {
@@ -465,12 +533,31 @@ struct Builder<'a, 's> {
     groups: BTreeMap<Id, &'a [Id]>,
     aliases: BTreeMap<Id, (ProjectedType, bool)>,
     names: BTreeMap<Id, String>,
+    owners: BTreeMap<Id, String>,
     pending: VecDeque<Id>,
     scheduled: BTreeSet<Id>,
     plan: Plan,
 }
 
 impl Builder<'_, '_> {
+    fn owner(&self, id: Id) -> String {
+        if let Some(owner) = self.owners.get(&id) {
+            return owner.clone();
+        }
+        self.groups[&id]
+            .iter()
+            .map(|id| &self.resolved.snapshot.declarations[id.0])
+            .min_by_key(|declaration| {
+                (
+                    std::cmp::Reverse(declaration.data.evidence_rank()),
+                    &declaration.owner,
+                )
+            })
+            .unwrap()
+            .owner
+            .clone()
+    }
+
     fn name(&self, id: Id) -> Result<String, Error> {
         self.names.get(&id).cloned().map_or_else(
             || ident(&self.resolved.snapshot.declarations[id.0].name),
@@ -707,8 +794,16 @@ impl Builder<'_, '_> {
                     );
                     return Ok(());
                 }
+                if matches!(value, Value::None) {
+                    return Err(Error(format!(
+                        "initializer unavailable for `{name}`; declaration-only data cannot be emitted as a constant"
+                    )));
+                }
                 let value = match (value, &ty) {
-                    (Value::Integer(value), ProjectedType::Scalar(name, _)) => {
+                    (
+                        Value::Integer(value),
+                        ProjectedType::Scalar(name, _) | ProjectedType::ScalarReference(_, name, _),
+                    ) => {
                         if *name == "bool" {
                             (*value != 0).to_string()
                         } else if name.starts_with('i') {
@@ -742,6 +837,7 @@ impl Builder<'_, '_> {
                 "multiple native entities project to `{name}`"
             )));
         }
+        self.plan.owners.insert(name, self.owner(id));
         Ok(())
     }
 

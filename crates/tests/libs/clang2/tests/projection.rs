@@ -394,13 +394,16 @@ fn selected_record_aliases_require_unambiguous_ownership() {
             inputs.reverse();
         }
         let snapshot = capture(inputs, ARGS, &["A", "B"]).unwrap();
-        let error = snapshot
-            .resolve()
-            .unwrap()
-            .project(&options())
+        let resolved = snapshot.resolve().unwrap();
+        for root in ["A", "B"] {
+            assert!(resolved.project_roots(&options(), &[root]).is_ok());
+        }
+        let error = resolved
+            .project_roots(&options(), &["A", "B"])
             .unwrap_err()
             .to_string();
         assert!(error.contains("multiple selected aliases"), "{error}");
+        assert!(resolved.project(&options()).is_err());
     }
     let snapshot = capture([Input::new("a.hpp", source)], ARGS, &["A"]).unwrap();
     assert!(snapshot.resolve().unwrap().project(&options()).is_ok());

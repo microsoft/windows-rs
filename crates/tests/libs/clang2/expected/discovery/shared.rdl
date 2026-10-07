@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[repr(u16)]
+    enum Mode {
+        Active = 3,
+    }
+    #[repr(i32)]
+    enum SignedMode {
+        Invalid = -2,
+    }
+}

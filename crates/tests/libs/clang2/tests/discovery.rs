@@ -1,0 +1,199 @@
+use std::collections::{BTreeMap, BTreeSet};
+use std::path::Path;
+use windows_clang2::{Input, ProjectionOptions, capture, discover};
+use windows_metadata::{
+    Value,
+    reader::{Index, Item},
+};
+
+const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
+
+fn inputs() -> Vec<Input> {
+    let directory = Path::new(env!("CARGO_MANIFEST_DIR")).join("input/discovery");
+    [
+        ("main.h", include_str!("../input/discovery/main.h")),
+        (
+            "satellite.h",
+            include_str!("../input/discovery/satellite.h"),
+        ),
+    ]
+    .into_iter()
+    .map(|(name, source)| Input::new(directory.join(name).to_str().unwrap(), source))
+    .collect()
+}
+
+#[test]
+fn exact_header_identity_and_macro_ownership() {
+    let inputs = inputs();
+    let header = &inputs[0].name;
+    let declarations = discover(inputs.clone(), ARGS, &[header]).unwrap();
+    let names: BTreeSet<_> = declarations.iter().map(|item| item.name.as_str()).collect();
+    assert_eq!(
+        names,
+        BTreeSet::from([
+            "CURRENT_MODE",
+            "CURRENT_SIGNED",
+            "Consumer",
+            "HEADER_HELPER",
+            "HEADER_MARKER",
+            "HEADER_VALUE",
+            "InlineHelper",
+            "Missing",
+            "NoInitializer",
+            "Owned",
+            "PublicShared",
+        ])
+    );
+    assert!(
+        declarations
+            .iter()
+            .all(|item| Path::new(&item.header) == Path::new(header))
+    );
+    for name in ["Shared", "Outside", "Completed", "Second"] {
+        assert!(!names.contains(name));
+    }
+    let find = |name: &str| declarations.iter().find(|item| item.name == name).unwrap();
+    assert!(find("HEADER_HELPER").function_macro);
+    assert!(find("HEADER_MARKER").empty_macro);
+    assert!(find("InlineHelper").inline);
+    assert!(find("Owned").definition);
+    assert!(!find("Missing").definition);
+    assert!(!find("NoInitializer").initializer);
+    assert_eq!(
+        declarations,
+        discover(inputs.iter().cloned().rev(), ARGS, &[header, header],).unwrap()
+    );
+    let error = discover(inputs.clone(), ARGS, &["not-included.h"]).unwrap_err();
+    assert!(error.to_string().contains("was not included"));
+    assert!(discover(inputs, ARGS, &[]).is_err());
+}
+
+#[test]
+fn selected_projection_is_closed_and_source_partitioned() {
+    let inputs = inputs();
+    let headers: Vec<_> = inputs.iter().map(|input| input.name.as_str()).collect();
+    let declarations = discover(inputs.clone(), ARGS, &headers).unwrap();
+    let roots: Vec<_> = declarations
+        .iter()
+        .filter(|item| !item.function_macro && !item.empty_macro && !item.inline)
+        .map(|item| item.name.as_str())
+        .collect();
+    let snapshot = capture(inputs.clone(), ARGS, &roots).unwrap();
+    let resolved = snapshot.resolve().unwrap();
+    let options = ProjectionOptions::new("Test");
+    assert!(resolved.project(&options).is_err());
+    for name in ["Missing", "NoInitializer", "not_captured"] {
+        assert!(resolved.project_roots(&options, &[name]).is_err());
+    }
+    assert!(resolved.project_roots(&options, &[]).is_err());
+    let selected = [
+        "Owned",
+        "Consumer",
+        "Second",
+        "HEADER_VALUE",
+        "CURRENT_MODE",
+        "CURRENT_SIGNED",
+        "PublicShared",
+    ];
+    let plan = resolved.project_roots(&options, &selected).unwrap();
+    assert!(plan.omitted().is_empty());
+    let partitions: BTreeMap<_, _> = plan
+        .rdl_by_header()
+        .unwrap()
+        .into_iter()
+        .map(|(header, text)| {
+            (
+                Path::new(&header)
+                    .file_stem()
+                    .unwrap()
+                    .to_str()
+                    .unwrap()
+                    .to_string(),
+                text,
+            )
+        })
+        .collect();
+    assert_eq!(
+        partitions.keys().map(String::as_str).collect::<Vec<_>>(),
+        ["main", "satellite", "shared"]
+    );
+    let expected = Path::new(env!("CARGO_MANIFEST_DIR")).join("expected/discovery");
+    for (header, text) in &partitions {
+        let file = expected.join(format!("{header}.rdl"));
+        if std::env::var_os("UPDATE_EXPECT").is_some() {
+            std::fs::create_dir_all(&expected).unwrap();
+            std::fs::write(&file, text).unwrap();
+        }
+        assert_eq!(
+            *text,
+            std::fs::read_to_string(file).unwrap().replace("\r\n", "\n")
+        );
+    }
+    let output = Path::new(env!("OUT_DIR")).join("discovery.winmd");
+    windows_rdl::reader()
+        .input_texts(partitions.values())
+        .reference_default()
+        .output(&output)
+        .write()
+        .unwrap();
+    let index = Index::read(output).unwrap();
+    for (name, value) in [
+        ("HEADER_VALUE", Value::I32(7)),
+        ("CURRENT_MODE", Value::U16(3)),
+        ("CURRENT_SIGNED", Value::I32(-2)),
+    ] {
+        let Item::Const(field) = index.expect_item("Test", name) else {
+            panic!()
+        };
+        assert_eq!(field.constant().unwrap().value(), value);
+    }
+    let snapshot = capture(inputs.into_iter().rev(), ARGS, &roots).unwrap();
+    let reordered = snapshot
+        .resolve()
+        .unwrap()
+        .project_roots(&options, &selected.into_iter().rev().collect::<Vec<_>>())
+        .unwrap();
+    assert_eq!(plan.rdl(), reordered.rdl());
+    assert_eq!(
+        plan.rdl_by_header().unwrap(),
+        reordered.rdl_by_header().unwrap()
+    );
+}
+
+#[test]
+fn discovered_dependencies_still_require_native_agreement() {
+    let mut inputs = inputs();
+    inputs[1].source.insert_str(0, "#define CONFLICT\n");
+    let snapshot = capture(inputs, ARGS, &["Consumer", "Second"]).unwrap();
+    let Err(error) = snapshot.resolve() else {
+        panic!("conflicting header definitions passed resolution");
+    };
+    assert!(error.to_string().contains("Shared"), "{error}");
+}
+
+#[test]
+fn header_partitioning_rejects_unowned_command_line_macros() {
+    let snapshot = capture(
+        [Input::new("empty.hpp", "")],
+        &[
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-DCOMMAND_VALUE=4",
+        ],
+        &["COMMAND_VALUE"],
+    )
+    .unwrap();
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&ProjectionOptions::new("Test"))
+        .unwrap();
+    assert!(plan.rdl().contains("const COMMAND_VALUE: i32 = 4;"));
+    assert!(
+        plan.rdl_by_header()
+            .unwrap_err()
+            .to_string()
+            .contains("ownership is unavailable")
+    );
+}

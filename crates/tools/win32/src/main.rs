@@ -853,7 +853,10 @@ fn main() {
     assert_libclang_version();
 
     if audio {
-        clang2::audio();
+        if let Err(error) = clang2::audio() {
+            eprintln!("{error}");
+            std::process::exit(1);
+        }
         return;
     }
 

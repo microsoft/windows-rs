@@ -16,7 +16,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // MMDeviceEnumerator's coclass UUID from the pinned mmdeviceapi.h.
     let class = windows_core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
     const INPROC_SERVER: u32 = 1;
-    const DEVICE_STATE_ACTIVE: u32 = 1;
 
     unsafe {
         let mut raw = core::ptr::null_mut();
@@ -29,14 +28,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         )
         .ok()?;
         let enumerator: IMMDeviceEnumerator = windows_core::imp::Type::from_abi(raw)?;
-        let devices = enumerator.EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE)?;
+        let devices = enumerator.EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE as u32)?;
         let count = devices.GetCount()?;
         if count == 0 {
             return Err("audio smoke test requires an active render endpoint".into());
         }
         for index in 0..count {
             let device = devices.Item(index)?;
-            assert_eq!(device.GetState()?, DEVICE_STATE_ACTIVE);
+            assert_eq!(device.GetState()?, DEVICE_STATE_ACTIVE as u32);
             let id = device.GetId()?;
             assert!(!id.is_null());
             let text = id.to_string();
@@ -44,7 +43,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             assert!(!text?.is_empty());
 
             let iid = IAudioEndpointVolume::IID;
-            let iid = GUID {
+            let iid = _GUID {
                 Data1: iid.data1,
                 Data2: iid.data2,
                 Data3: iid.data3,

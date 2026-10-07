@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    struct Completed {
+        actual: i32,
+    }
+    struct Second {
+        value: PublicShared,
+    }
+}
