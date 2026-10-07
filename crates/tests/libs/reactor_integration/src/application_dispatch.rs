@@ -51,6 +51,13 @@ impl Application for Model {
             assert_eq!(self.observations.component_updates.get(), 1);
             self.observations.active.set(false);
         }
+        if self.mode == "notification" && self.phase == 1 {
+            self.observations.active.set(true);
+            notification_events();
+            pump();
+            assert_eq!(self.observations.updates.get(), 0);
+            self.observations.active.set(false);
+        }
     }
 
     fn view(
@@ -60,7 +67,7 @@ impl Application for Model {
     ) -> ApplicationView {
         assert!(!observations.active.get());
         observations.updates.set(self.phase);
-        ApplicationView::new().window::<NestedWindow>(
+        let view = ApplicationView::new().window::<NestedWindow>(
             "main",
             Input {
                 observations: Rc::clone(observations),
@@ -68,7 +75,16 @@ impl Application for Model {
                 phase: self.phase,
                 callback: context.callback(|()| ()),
             },
-        )
+        );
+        if mode == "notification" && self.phase < 2 {
+            view.notify_icon(
+                "tray",
+                NotifyIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\icon.ico"))
+                    .on_activate(context.callback(|_| ())),
+            )
+        } else {
+            view
+        }
     }
 }
 
@@ -112,13 +128,19 @@ impl Component for NestedWindow {
         if observations.component_updates.get() == 2 {
             return;
         }
-        self.input.callback.call(());
-        self.input.callback.call(());
+        if self.input.mode != "notification" {
+            self.input.callback.call(());
+            self.input.callback.call(());
+        }
         if self.input.mode == "application" {
             self._timer = context.set_timeout(Duration::from_millis(20), ());
             return;
         }
         observations.active.set(true);
+        if self.input.mode == "notification" {
+            notification_events();
+            notification_events();
+        }
         // Both window-service work and application work must wait for this owner to return.
         assert!(context.activate_window());
         if self.input.mode == "close" {
@@ -140,6 +162,26 @@ impl Component for NestedWindow {
             "Nested application dispatch fixture",
             format!("Phase {}", input.phase),
         )
+    }
+}
+
+fn notification_events() {
+    unsafe {
+        let mut after = None;
+        let hwnd = loop {
+            let hwnd = FindWindowExW(None, after, None, w!("windows-notifyicon"));
+            assert!(!hwnd.is_null());
+            let mut process = 0;
+            GetWindowThreadProcessId(hwnd, Some(&mut process));
+            if process == GetCurrentProcessId() {
+                break hwnd;
+            }
+            after = Some(hwnd);
+        };
+        let recovery = RegisterWindowMessageW(w!("TaskbarCreated"));
+        assert_ne!(recovery, 0);
+        SendMessageW(hwnd, recovery, 0, 0);
+        SendMessageW(hwnd, WM_USER as u32 + 1, 0, 0x400);
     }
 }
 
@@ -175,7 +217,10 @@ fn main() -> windows_core::Result<()> {
         std::process::exit(1);
     });
     let mode = std::env::args().nth(1).unwrap_or_else(|| "input".into());
-    assert!(matches!(mode.as_str(), "input" | "close" | "application"));
+    assert!(matches!(
+        mode.as_str(),
+        "input" | "close" | "application" | "notification"
+    ));
     let observations = Rc::new(Observations::default());
     App::run_application::<Model>((mode.clone(), Rc::clone(&observations)))?;
     assert_eq!(observations.updates.get(), 2);

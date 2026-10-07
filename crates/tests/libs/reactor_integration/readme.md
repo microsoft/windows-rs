@@ -13,6 +13,7 @@ cargo run -p test-reactor-integration --bin application_menu
 cargo run -p test-reactor-integration --bin application_menus
 cargo run -p test-reactor-integration --bin application_resources -- lifecycle
 cargo run -p test-reactor-integration --bin application_dispatch -- application
+cargo run -p test-reactor-integration --bin application_dispatch -- notification
 cargo run -p test-reactor-integration --bin tray_flyout
 cargo run -p test-reactor-integration --bin menu_position -- thread-unaware
 cargo run -p test-reactor-integration --bin canvas_integration
@@ -24,6 +25,9 @@ Each executable owns its application lifetime and watchdog. The lifecycle fixtur
 last-window replacement, multiple-window shutdown, and startup errors. The menu fixture checks
 application-lifetime work after its Reactor window closes. The application-resource fixtures cover
 declarative window and icon lifetimes, nested dispatch, and menu replacement and selection.
+The notification dispatch mode sends interactions and recovery requests to its own callback window
+during nested component and application updates, and checks that queued events cannot outlive icon
+removal.
 The tray-flyout fixture uses an application-owned icon and checks that its menu overlaps the icon's
 monitor, extends outside that monitor's work area, and closes during application shutdown.
 It measures menu-item bounds through UI Automation rather than the popup window's shadow bounds,
