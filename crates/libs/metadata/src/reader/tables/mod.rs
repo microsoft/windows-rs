@@ -18,6 +18,7 @@ mod type_def;
 mod type_ref;
 mod type_spec;
 
+pub use impl_map::{ImportOrdinalError, parse_import_ordinal};
 pub use method_def::{MethodParamMap, MethodParamSequenceError};
 pub use method_param::{BufferRelationship, BytesWritten, ParamDirection};
 

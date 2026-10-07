@@ -11,6 +11,15 @@
 #[cfg(all(windows, target_arch = "x86"))]
 #[macro_export]
 macro_rules! link {
+    ($library:literal $abi:literal ordinal($ordinal:literal) fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
+        unsafe extern $abi {
+            #[link_ordinal($ordinal)]
+            pub fn $name($($params)*) $(-> $ret)?;
+        }
+        #[allow(non_camel_case_types)]
+        pub type $name = unsafe extern $abi fn($($params)*) $(-> $ret)?;
+    );
     ($library:literal $abi:literal $($link_name:literal)? fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
         unsafe extern $abi {
@@ -32,6 +41,15 @@ macro_rules! link {
 #[cfg(all(windows, not(target_arch = "x86")))]
 #[macro_export]
 macro_rules! link {
+    ($library:literal $abi:literal ordinal($ordinal:literal) fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
+        unsafe extern $abi {
+            #[link_ordinal($ordinal)]
+            pub fn $name($($params)*) $(-> $ret)?;
+        }
+        #[allow(non_camel_case_types)]
+        pub type $name = unsafe extern $abi fn($($params)*) $(-> $ret)?;
+    );
     ($library:literal $abi:literal $($link_name:literal)? fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
         unsafe extern $abi {
@@ -53,6 +71,13 @@ macro_rules! link {
 #[cfg(not(windows))]
 #[macro_export]
 macro_rules! link {
+    ($library:literal $abi:literal ordinal($ordinal:literal) fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
+        unsafe extern $abi {
+            pub fn $name($($params)*) $(-> $ret)?;
+        }
+        #[allow(non_camel_case_types)]
+        pub type $name = unsafe extern $abi fn($($params)*) $(-> $ret)?;
+    );
     ($library:literal $abi:literal $($link_name:literal)? fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
         unsafe extern $abi {
             pub fn $name($($params)*) $(-> $ret)?;

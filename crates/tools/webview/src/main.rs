@@ -127,7 +127,7 @@ fn main() {
         found.insert(name.clone());
         let value = FunctionImport {
             library: import.dll,
-            name,
+            target: windows_clang2::ImportTarget::Name(name),
         };
         if let Some(previous) = options.imports.insert(import.symbol.clone(), value) {
             assert_eq!(previous, options.imports[&import.symbol]);

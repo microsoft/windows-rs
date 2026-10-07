@@ -26,7 +26,13 @@ pub struct TypeReference {
 #[derive(Debug, PartialEq, Eq)]
 pub struct FunctionImport {
     pub library: String,
-    pub name: String,
+    pub target: ImportTarget,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum ImportTarget {
+    Name(String),
+    Ordinal(u16),
 }
 
 pub struct ProjectionOptions {
@@ -131,11 +137,16 @@ impl Plan {
                     parameters,
                     result,
                 } => {
-                    writeln!(
-                        output,
-                        "    #[library({library:?}, import = {link_name:?})]"
-                    )
-                    .unwrap();
+                    match link_name {
+                        ImportTarget::Name(name) => {
+                            writeln!(output, "    #[library({library:?}, import = {name:?})]")
+                                .unwrap()
+                        }
+                        ImportTarget::Ordinal(ordinal) => {
+                            writeln!(output, "    #[library({library:?}, ordinal = {ordinal})]")
+                                .unwrap()
+                        }
+                    }
                     write!(output, "    extern {abi:?} fn {name}(").unwrap();
                     for (index, (attributes, ty)) in parameters.iter().enumerate() {
                         if index != 0 {
@@ -307,7 +318,7 @@ enum Item {
     Function {
         abi: &'static str,
         library: String,
-        link_name: String,
+        link_name: ImportTarget,
         parameters: Vec<(String, ProjectedType)>,
         result: ProjectedType,
     },
@@ -775,7 +786,7 @@ impl Builder<'_, '_> {
                 };
                 let (library, import_name) =
                     if let Some(import) = self.options.imports.get(link_name) {
-                        (import.library.clone(), import.name.clone())
+                        (import.library.clone(), import.target.clone())
                     } else {
                         (
                             self.options.library.clone().ok_or_else(|| {
@@ -783,9 +794,18 @@ impl Builder<'_, '_> {
                                     "`{name}` requires an import library for `{link_name}`"
                                 ))
                             })?,
-                            link_name.clone(),
+                            ImportTarget::Name(link_name.clone()),
                         )
                     };
+                if let ImportTarget::Name(import_name) = &import_name
+                    && (import_name.is_empty()
+                        || import_name.contains('\0')
+                        || import_name.starts_with('#'))
+                {
+                    return Err(Error(format!(
+                        "DLL export name cannot be represented in metadata: {import_name:?}"
+                    )));
+                }
                 let (params, result) = self.signature(id, 0)?;
                 if !matches!(result, ProjectedType::Void)
                     && result.layout(self.resolved.snapshot.pointer_size).is_none()

@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[library("ordinal.dll", ordinal = 0)]
+    extern "C" fn First();
+    #[library("ordinal.dll", ordinal = 65535)]
+    extern "C" fn Last();
+    #[library("ordinal.dll", import = "Native")]
+    extern "C" fn Named();
+    #[library("ordinal.dll", ordinal = 17)]
+    extern "C" fn Read(value: i32) -> i32;
+}

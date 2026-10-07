@@ -1,0 +1,3 @@
+LIBRARY clang2_ordinal
+EXPORTS
+    OrdinalOnly @17 NONAME

@@ -45,7 +45,13 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
 
     let mut library_opts = TokenStream::new();
     let import = impl_map.import_name();
-    if import != item.name() {
+    if let Some(ordinal) = impl_map
+        .import_ordinal()
+        .map_err(|error| writer_err!("{error}: {import}"))?
+    {
+        let ordinal = syn::LitInt::new(&ordinal.to_string(), Span::call_site());
+        library_opts.extend(quote! { , ordinal = #ordinal });
+    } else if import != item.name() {
         library_opts.extend(quote! { , import = #import });
     }
     let library_attr = quote! { #[library(#library #library_opts)] };

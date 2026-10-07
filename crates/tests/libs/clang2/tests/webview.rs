@@ -149,7 +149,9 @@ fn loader_exports_and_source_enum_contracts_survive_metadata() {
             assert_eq!(import.import_name(), *export);
             assert_eq!(import.import_scope().name(), "WebView2Loader.dll");
             let mut missing = sdk::webview_options(&target);
-            missing.imports.retain(|_, import| import.name != *export);
+            missing.imports.retain(|_, import| {
+                import.target != windows_clang2::ImportTarget::Name((*export).into())
+            });
             assert!(resolved.project(&missing).is_err());
         }
         for name in [

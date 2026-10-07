@@ -116,23 +116,21 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
         "library",
         "pinned SDK libraries",
     );
-    let mut unavailable_imports = BTreeMap::new();
     for import in windows_rdl::implib::read(&std::fs::read(library)?)? {
         if import.kind != windows_rdl::implib::ImportKind::Code {
             continue;
         }
-        let name = match import.target {
-            windows_rdl::implib::ImportTarget::Name(name) => name,
+        let target = match import.target {
+            windows_rdl::implib::ImportTarget::Name(name) => {
+                windows_clang2::ImportTarget::Name(name)
+            }
             windows_rdl::implib::ImportTarget::Ordinal(ordinal) => {
-                unavailable_imports.insert(import.symbol, format!(
-                    "SDK import requires {} ordinal {ordinal}; ordinal imports are not supported",
-                    import.dll));
-                continue;
+                windows_clang2::ImportTarget::Ordinal(ordinal)
             }
         };
         let value = FunctionImport {
             library: import.dll,
-            name,
+            target,
         };
         if let Some(previous) = options.imports.insert(import.symbol.clone(), value) {
             assert_eq!(previous, options.imports[&import.symbol]);
@@ -141,14 +139,10 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut supported = vec![];
     for root in &roots {
-        let rejected = if let Some(reason) = unavailable_imports.get(*root) {
-            Some(reason.clone())
-        } else {
-            match resolved.project_roots(&options, &[root]) {
-                Ok(plan) if plan.omitted().is_empty() => None,
-                Ok(plan) => Some(format!("projection omissions: {:?}", plan.omitted())),
-                Err(error) => Some(error.to_string()),
-            }
+        let rejected = match resolved.project_roots(&options, &[root]) {
+            Ok(plan) if plan.omitted().is_empty() => None,
+            Ok(plan) => Some(format!("projection omissions: {:?}", plan.omitted())),
+            Err(error) => Some(error.to_string()),
         };
         if let Some(reason) = rejected {
             eprintln!("clang2 audio: rejected {root}: {reason}");
@@ -256,6 +250,8 @@ pub fn audio() -> Result<(), Box<dyn std::error::Error>> {
         "Windows.Win32.VT_UI4",
         "Windows.Win32.CoCreateInstance",
         "Windows.Win32.CoTaskMemFree",
+        "Windows.Win32.StringFromIID",
+        "Windows.Win32.E_FAIL",
     ]);
     std::fs::write(
         output.join("Cargo.toml"),

@@ -13,6 +13,100 @@ fn main() {
         build_wdk();
         build_crypto();
         build_constants();
+        build_ordinal();
+    }
+}
+
+fn build_ordinal() {
+    let source = std::path::PathBuf::from(std::env::var_os("CARGO_MANIFEST_DIR").unwrap());
+    let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+    for file in ["input/ordinal.h", "input/ordinal.cpp", "input/ordinal.def"] {
+        println!("cargo:rerun-if-changed={file}");
+    }
+    let output = cc::Build::new()
+        .cpp(true)
+        .get_compiler()
+        .to_command()
+        .current_dir(&out)
+        .arg("/LD")
+        .arg(source.join("input/ordinal.cpp"))
+        .arg(format!("/Fo{}", out.join("ordinal.obj").display()))
+        .arg(format!("/Fe{}", out.join("clang2_ordinal.dll").display()))
+        .arg("/link")
+        .arg(format!(
+            "/DEF:{}",
+            source.join("input/ordinal.def").display()
+        ))
+        .arg(format!(
+            "/IMPLIB:{}",
+            out.join("clang2_ordinal.lib").display()
+        ))
+        .output()
+        .unwrap();
+    assert!(
+        output.status.success(),
+        "ordinal DLL build failed:\n{}\n{}",
+        String::from_utf8_lossy(&output.stdout),
+        String::from_utf8_lossy(&output.stderr)
+    );
+    println!("cargo:rustc-link-search=native={}", out.display());
+
+    let imports =
+        windows_rdl::implib::read(&std::fs::read(out.join("clang2_ordinal.lib")).unwrap()).unwrap();
+    assert_eq!(imports.len(), 1);
+    let mut options = windows_clang2::ProjectionOptions::new("Test");
+    for import in imports {
+        assert_eq!(import.kind, windows_rdl::implib::ImportKind::Code);
+        let windows_rdl::implib::ImportTarget::Ordinal(ordinal) = import.target else {
+            panic!("NONAME export must produce an ordinal import");
+        };
+        assert_eq!(ordinal, 17);
+        options.imports.insert(
+            import.symbol,
+            windows_clang2::FunctionImport {
+                library: import.dll,
+                target: windows_clang2::ImportTarget::Ordinal(ordinal),
+            },
+        );
+    }
+    let target = format!("--target={}", std::env::var("TARGET").unwrap());
+    let plan = windows_clang2::capture(
+        [windows_clang2::Input::new(
+            "ordinal.h",
+            include_str!("input/ordinal.h"),
+        )],
+        &["-x", "c++", &target],
+        &["OrdinalOnly"],
+    )
+    .unwrap()
+    .resolve()
+    .unwrap()
+    .project(&options)
+    .unwrap();
+    std::fs::write(out.join("ordinal.rdl"), plan.rdl()).unwrap();
+    let winmd = out.join("ordinal.winmd");
+    windows_rdl::reader()
+        .input_text(&plan.rdl())
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for (name, style) in [
+        ("ordinal", None),
+        ("ordinal_minimal", Some("--minimal")),
+        ("ordinal_sys", Some("--sys")),
+    ] {
+        let output = out.join(format!("{name}.rs"));
+        let mut args = vec![
+            "--in",
+            winmd.to_str().unwrap(),
+            "--out",
+            output.to_str().unwrap(),
+            "--flat",
+            "--filter",
+            "Test",
+        ];
+        args.extend(style);
+        windows_bindgen::bindgen(args);
     }
 }
 

@@ -266,7 +266,9 @@ fn real_crypto_roots_imports_and_postconditions_are_complete() {
             .filter(|root| root.starts_with("BCrypt"))
         {
             let mut incomplete = sdk::crypto_options(&target);
-            incomplete.imports.retain(|_, import| import.name != *root);
+            incomplete.imports.retain(|_, import| {
+                import.target != windows_clang2::ImportTarget::Name((*root).into())
+            });
             let error = resolved.project(&incomplete).unwrap_err().to_string();
             assert!(
                 error.contains(root) && error.contains("requires an import library"),
@@ -295,7 +297,7 @@ fn export_contracts_do_not_replace_native_linker_evidence() {
         "_Compute@4".into(),
         windows_clang2::FunctionImport {
             library: "other.dll".into(),
-            name: "ComputeExport".into(),
+            target: windows_clang2::ImportTarget::Name("ComputeExport".into()),
         },
     );
     let projected = resolved.project(&options).unwrap().rdl();
@@ -305,6 +307,15 @@ fn export_contracts_do_not_replace_native_linker_evidence() {
     );
     assert!(projected.contains("extern \"system\""), "{projected}");
     assert!(projected.contains("\"other.dll\""));
+    options.imports.get_mut("_Compute@4").unwrap().target =
+        windows_clang2::ImportTarget::Ordinal(17);
+    let ordinal = resolved.project(&options).unwrap().rdl();
+    assert!(ordinal.contains("ordinal = 17"), "{ordinal}");
+    for name in ["#17", "#Export", "", "bad\0name"] {
+        options.imports.get_mut("_Compute@4").unwrap().target =
+            windows_clang2::ImportTarget::Name(name.into());
+        assert!(resolved.project(&options).is_err(), "{name:?}");
+    }
     options.imports.clear();
     assert_eq!(resolved.project(&options).unwrap().rdl(), original);
     options.library = None;

@@ -94,9 +94,17 @@ impl Encoder<'_> {
                         input.parse::<syn::Token![,]>()?;
                         let ident: syn::Ident = input.parse()?;
                         input.parse::<syn::Token![=]>()?;
+                        if import.is_some() {
+                            return Err(syn::Error::new(ident.span(), "duplicate import target"));
+                        }
                         if ident == "import" {
                             let value: syn::LitStr = input.parse()?;
+                            metadata::reader::parse_import_ordinal(&value.value())
+                                .map_err(|error| syn::Error::new(value.span(), error))?;
                             import = Some(value.value());
+                        } else if ident == "ordinal" {
+                            let value: syn::LitInt = input.parse()?;
+                            import = Some(format!("#{}", value.base10_parse::<u16>()?));
                         } else {
                             return Err(syn::Error::new(ident.span(), "unknown library option"));
                         }
@@ -104,7 +112,7 @@ impl Encoder<'_> {
                     Ok((library, import))
                 },
             )
-            .or_else(|_| self.err(attribute.span(), "`library` name missing"))?;
+            .map_err(|error| self.error(attribute, &error.to_string()))?;
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;
 

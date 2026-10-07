@@ -117,6 +117,22 @@ impl CppFn {
         let signature = self.write_extern_signature(config, underlying_types);
         let link = to_ident(config.link);
 
+        if let Some(map) = self.method.impl_map()
+            && let Some(ordinal) = map.import_ordinal().unwrap_or_else(|error| {
+                panic!("invalid import for {}: {error}", self.method.name())
+            })
+        {
+            assert!(
+                !config.bindgen.style.sys_fn_extern(),
+                "ordinal import `{}` requires raw-dylib linking; --extern cannot preserve it",
+                self.method.name()
+            );
+            let ordinal = Literal::u16_unsuffixed(ordinal);
+            return quote! {
+                #link::link!(#library #abi ordinal(#ordinal) fn #name #signature);
+            };
+        }
+
         if config.bindgen.style.sys_fn_extern() {
             quote! {
                 unsafe extern #abi {

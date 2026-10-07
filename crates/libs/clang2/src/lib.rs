@@ -12,7 +12,7 @@ pub use capture::{DeclarationInfo, capture, discover};
 mod project;
 mod validate;
 pub use project::{
-    FunctionImport, Plan, ProjectionOptions, ReferenceKind, StringKind, TypeReference,
+    FunctionImport, ImportTarget, Plan, ProjectionOptions, ReferenceKind, StringKind, TypeReference,
 };
 
 /// One translation unit. All inputs to a capture use the same compiler arguments.

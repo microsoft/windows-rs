@@ -9,6 +9,32 @@ fn out_path(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
+fn invalid_library_import_targets() {
+    for (options, expected) in [
+        ("ordinal = 65536", "number too large"),
+        ("ordinal = -1", "invalid digit"),
+        ("ordinal = 1, ordinal = 2", "duplicate import target"),
+        ("ordinal = 1, import = \"Named\"", "duplicate import target"),
+        ("import = \"Named\", ordinal = 1", "duplicate import target"),
+        (
+            "import = \"First\", import = \"Second\"",
+            "duplicate import target",
+        ),
+        ("import = \"#\"", "unsigned 16-bit decimal ordinal"),
+        ("import = \"#-1\"", "unsigned 16-bit decimal ordinal"),
+        ("import = \"#65536\"", "unsigned 16-bit decimal ordinal"),
+    ] {
+        let input = format!("mod Test {{ #[library(\"test.dll\", {options})] extern fn Read(); }}");
+        let error = windows_rdl::reader()
+            .input_text(&input)
+            .output(out_path("invalid_import"))
+            .write()
+            .unwrap_err();
+        assert!(error.message.contains(expected), "{options}: {error}");
+    }
+}
+
+#[test]
 #[should_panic(expected = "-->")]
 fn syntax_error_reports_line_and_column() {
     // `Display` branch 1: a parse error carries a `file:line:column` location.
