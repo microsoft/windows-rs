@@ -90,6 +90,11 @@ The crate has no dependencies. `src/lib.rs` exposes each committed `.winmd` thro
 back to `Windows.winmd`. `tool-win32` scrapes the Windows SDK and WDK headers for X64, Arm64, and
 X86, merges the architecture-specific RDL, and writes `Windows.Win32.winmd`.
 
+For missing SDK coverage, add the declaring header to `tool-win32`'s header list and check that its
+exports have an import library in the existing list. Regenerate the metadata with `tool-win32`,
+then run `tool-package` and `tool-features` to update the published bindings and feature index.
+Do not hand-edit the generated RDL or metadata.
+
 See [Dependencies](../dependencies.md#windows-sdk-wdk-and-winrt-contracts) for the package versions
 and provenance.
 
