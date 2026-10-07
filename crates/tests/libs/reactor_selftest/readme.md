@@ -13,6 +13,7 @@ cargo run -p test-reactor-selftest --bin application_lifecycle --quiet -- multip
 cargo run -p test-reactor-selftest --bin application_lifecycle --quiet -- startup-error
 cargo run -p test-reactor-selftest --bin application_menu --quiet
 cargo run -p test-reactor-selftest --bin canvas_integration --quiet
+cargo run -p test-reactor-selftest --bin tray_flyout --quiet
 cargo run -p test-reactor-selftest --bin webview_integration --quiet
 cargo run -p test-reactor-selftest --bin window_state --quiet
 ```
