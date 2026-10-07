@@ -1,12 +1,52 @@
 use windows_clang2::{
-    Input, Plan, ProjectionOptions, ReferenceKind, Snapshot, TypeReference, capture,
+    Input, Plan, ProjectionOptions, ReferenceKind, StringKind, TypeReference, capture,
 };
 use windows_metadata::{
     Type, Value,
-    reader::{HasAttributes, Index, Item, ParamDirection, TypeDef},
+    reader::{BufferRelationship, HasAttributes, Index, Item, ParamDirection, TypeDef},
 };
+#[path = "../sdk.rs"]
+#[allow(dead_code)]
+mod sdk;
+use sdk::capture_sdk as sdk_capture;
 
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
+
+#[test]
+fn com_record_results_are_rejected() {
+    for target in [
+        "--target=i686-pc-windows-msvc",
+        "--target=x86_64-pc-windows-msvc",
+        "--target=aarch64-pc-windows-msvc",
+    ] {
+        for result in ["Small", "Large", "Alias", "Large*"] {
+            let snapshot = capture(
+                [Input::new(
+                    "api.hpp",
+                    format!(
+                        "#define RESULT {result}\n{}",
+                        include_str!("../input/com_record_result.h")
+                    ),
+                )],
+                &["-x", "c++", target],
+                &["IRecordResult"],
+            )
+            .unwrap();
+            let resolved = snapshot.resolve().unwrap();
+            let plan = resolved.project(&options());
+            if result == "Large*" {
+                assert!(plan.is_ok(), "{target}: {plan:?}");
+            } else {
+                assert!(
+                    plan.unwrap_err().to_string().contains(
+                        "`IRecordResult::Get`: by-value record results are not supported for COM methods"
+                    ),
+                    "{target}: {result}"
+                );
+            }
+        }
+    }
+}
 
 fn options() -> ProjectionOptions {
     let mut options = ProjectionOptions::new("Test");
@@ -25,6 +65,263 @@ fn options() -> ProjectionOptions {
         );
     }
     options
+}
+
+fn string_options() -> ProjectionOptions {
+    let mut options = options();
+    for (kind, name) in [
+        (StringKind::Ansi, "PSTR"),
+        (StringKind::AnsiConst, "PCSTR"),
+        (StringKind::Wide, "PWSTR"),
+        (StringKind::WideConst, "PCWSTR"),
+    ] {
+        options.string_references.insert(
+            kind,
+            TypeReference {
+                namespace: "External".into(),
+                name: name.into(),
+                kind: ReferenceKind::Value,
+            },
+        );
+    }
+    options
+}
+
+fn scalar_options() -> ProjectionOptions {
+    let mut options = options();
+    options.references.insert(
+        "Status".into(),
+        TypeReference {
+            namespace: "External".into(),
+            name: "Status".into(),
+            kind: ReferenceKind::Value,
+        },
+    );
+    options
+}
+
+#[test]
+fn scalar_references_preserve_typedef_contracts() {
+    let snapshot = capture(
+        [Input::new(
+            "api.hpp",
+            include_str!("../input/scalar_references.h"),
+        )],
+        ARGS,
+        &["Convert", "IStatus", "Status"],
+    )
+    .unwrap();
+    let plan = snapshot
+        .resolve()
+        .unwrap()
+        .project(&scalar_options())
+        .unwrap();
+    assert_eq!(plan.omitted()["Status"], "provided by external metadata");
+    let index = compile("scalar_references", &plan);
+    let Item::Fn(function) = index.expect_item("Test", "Convert") else {
+        panic!()
+    };
+    assert_eq!(
+        function.signature(&[]).return_type,
+        Type::value_named("External", "Status")
+    );
+    assert_eq!(
+        function.signature(&[]).types[0],
+        Type::value_named("External", "Status")
+    );
+    let Item::Type(interface) = index.expect_item("Test", "IStatus") else {
+        panic!()
+    };
+    assert_eq!(
+        interface
+            .methods()
+            .next()
+            .unwrap()
+            .signature(&[])
+            .return_type,
+        Type::value_named("External", "Status")
+    );
+}
+
+#[test]
+fn scalar_contract_redeclarations_are_order_independent() {
+    for methods in [false, true] {
+        for other in ["Status", "Alias", "long"] {
+            for reverse in [false, true] {
+                let declaration = if methods {
+                    "struct __declspec(uuid(\"00000001-0000-0000-c000-000000000046\")) API {
+                        virtual RESULT __stdcall Call(PARAM value) = 0;
+                    };"
+                } else {
+                    "extern \"C\" RESULT API(PARAM value);"
+                };
+                for (result, param) in [(other, "Status"), ("Status", other)] {
+                    let source = |result: &str, param: &str| {
+                        format!(
+                            "typedef long Status; typedef Status Alias;\n{}",
+                            declaration
+                                .replace("RESULT", result)
+                                .replace("PARAM", param)
+                        )
+                    };
+                    let mut inputs = [
+                        Input::new("a.hpp", source("Status", "Status")),
+                        Input::new("b.hpp", source(result, param)),
+                    ];
+                    if reverse {
+                        inputs.reverse();
+                    }
+                    let snapshot = capture(inputs, ARGS, &["API"]).unwrap();
+                    let resolved = snapshot.resolve().unwrap();
+                    let plan = resolved.project(&scalar_options());
+                    if other != "long" {
+                        assert!(plan.is_ok(), "{plan:?}");
+                    } else {
+                        assert!(
+                            plan.unwrap_err()
+                                .to_string()
+                                .contains("conflicting projected typedef contracts")
+                        );
+                    }
+                    assert!(resolved.project(&options()).is_ok());
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn scalar_references_reject_invalid_native_contracts() {
+    for native in ["void", "int*", "double[2]"] {
+        let source = if native == "double[2]" {
+            "typedef double Status[2];".into()
+        } else {
+            format!("typedef {native} Status;")
+        };
+        let snapshot = capture([Input::new("api.hpp", source)], ARGS, &["Status"]).unwrap();
+        assert!(
+            snapshot
+                .resolve()
+                .unwrap()
+                .project(&scalar_options())
+                .is_err()
+        );
+    }
+    let snapshot = capture(
+        [Input::new("api.hpp", "typedef long Status;")],
+        ARGS,
+        &["Status"],
+    )
+    .unwrap();
+    let mut options = scalar_options();
+    options.references.get_mut("Status").unwrap().kind = ReferenceKind::Interface;
+    assert!(snapshot.resolve().unwrap().project(&options).is_err());
+    let conflict = capture(
+        [
+            Input::new("a.hpp", "typedef long Status;"),
+            Input::new("b.hpp", "typedef unsigned long Status;"),
+        ],
+        ARGS,
+        &["Status"],
+    )
+    .unwrap();
+    assert!(conflict.resolve().is_err());
+}
+
+#[test]
+fn scalar_contracts_cannot_hide_behind_alias_representatives() {
+    for root in ["Alias", "Use", "Container"] {
+        for reverse in [false, true] {
+            let source = |target: &str| {
+                format!(
+                    "typedef long Status; typedef {target} Alias;
+                 struct Container {{ Alias value; }};
+                 extern \"C\" Alias Use(Alias value);"
+                )
+            };
+            let mut inputs = [
+                Input::new("a.hpp", source("Status")),
+                Input::new("b.hpp", source("long")),
+            ];
+            if reverse {
+                inputs.reverse();
+            }
+            let snapshot = capture(inputs, ARGS, &[root]).unwrap();
+            let resolved = snapshot.resolve().unwrap();
+            assert!(resolved.project(&options()).is_ok());
+            assert!(
+                resolved
+                    .project(&scalar_options())
+                    .unwrap_err()
+                    .to_string()
+                    .contains("conflicting projected typedef contracts for `Alias`")
+            );
+        }
+    }
+}
+
+#[test]
+fn observation_contracts_cover_fields_constants_and_callables() {
+    let source = |field: &str, result: &str, param: &str| {
+        format!(
+            "#define FIELD {field}\n#define RESULT {result}\n#define PARAM {param}\n{}",
+            include_str!("../input/observation_contracts.h")
+        )
+    };
+    for root in ["Record", "Constant", "Call"] {
+        for other in ["Status", "Alias", "long"] {
+            for swapped in [false, true] {
+                for reverse in [false, true] {
+                    let mut inputs = [
+                        Input::new(
+                            if swapped { "z.hpp" } else { "a.hpp" },
+                            source("Status", "Status", "Status"),
+                        ),
+                        Input::new(
+                            if swapped { "a.hpp" } else { "z.hpp" },
+                            source(other, other, other),
+                        ),
+                    ];
+                    if reverse {
+                        inputs.reverse();
+                    }
+                    let snapshot = capture(inputs, ARGS, &[root]).unwrap();
+                    match snapshot.resolve() {
+                        Ok(resolved) => {
+                            let projected = resolved.project(&scalar_options());
+                            if root == "Constant" {
+                                // No initializer: projection must fail even when types agree.
+                                assert!(projected.is_err());
+                            } else if other != "long" {
+                                assert!(projected.is_ok(), "{root}: {projected:?}");
+                            } else {
+                                assert!(projected.is_err(), "{root}: silently chose one contract");
+                            }
+                        }
+                        Err(error) => {
+                            assert_ne!(other, "Status", "{root}: {error}");
+                            assert_ne!(root, "Call", "{error}");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn same_name_tag_roots_emit_one_definition() {
+    for reverse in [false, true] {
+        let source = include_str!("../input/tag_alias.h");
+        let mut inputs = [Input::new("a.hpp", source), Input::new("b.hpp", source)];
+        if reverse {
+            inputs.reverse();
+        }
+        let snapshot = capture(inputs, ARGS, &["Record", "IFoo"]).unwrap();
+        let plan = snapshot.resolve().unwrap().project(&options()).unwrap();
+        compile("tag_alias", &plan);
+        assert!(plan.omitted().is_empty());
+    }
 }
 
 fn compile(name: &str, plan: &Plan) -> Index {
@@ -47,6 +344,7 @@ fn compile(name: &str, plan: &Plan) -> Index {
     let output = scratch.join("test.winmd");
     windows_rdl::reader()
         .input_text(&rdl)
+        .reference_default()
         .reference(reference)
         .output(&output)
         .write()
@@ -171,46 +469,6 @@ fn incompatible_interface_observations_are_not_hidden_by_binding() {
         Input::new("b.hpp", "struct IUnknown { virtual void Method(float value) = 0; }; extern \"C\" void Use(IUnknown* value);"),
     ], ARGS, &["Use"]).unwrap();
     assert!(snapshot.resolve().is_err());
-}
-
-fn sdk_capture(target: &str, source: &str, roots: &[&str]) -> Snapshot {
-    use std::path::PathBuf;
-    let tools = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("..")
-        .join("..")
-        .join("..")
-        .join("tools");
-    let version = helpers::read_str_const(
-        tools.join("win32").join("src").join("main.rs"),
-        "SDK_VERSION",
-    );
-    let (marketing, _) = version.rsplit_once('.').unwrap();
-    let include = helpers::nuget_package("microsoft.windows.sdk.cpp", &version)
-        .join("c")
-        .join("Include")
-        .join(format!("{marketing}.0"));
-    let sal = tools.join("win32").join("src").join("sal.h");
-    let shared = include.join("shared");
-    let um = include.join("um");
-    capture(
-        [Input::new("wrapper.hpp", source)],
-        &[
-            "-x",
-            "c++",
-            target,
-            // specstrings.h redefines COM SAL macros; install the capture shim after it.
-            "-include",
-            "specstrings.h",
-            "-include",
-            sal.to_str().unwrap(),
-            "-isystem",
-            shared.to_str().unwrap(),
-            "-isystem",
-            um.to_str().unwrap(),
-        ],
-        roots,
-    )
-    .unwrap()
 }
 
 #[test]
@@ -389,7 +647,7 @@ fn projection_rejects_unknown_layout_and_annotations() {
         ),
         ("struct Packet {};", "Packet", "empty record"),
         (
-            "extern \"C\" void Use(int n, int* __attribute__((annotate(\"_Out_writes_(n)\"))) data);",
+            "extern \"C\" void Use(int n, int* __attribute__((annotate(\"_Out_writes_to_(n,n)\"))) data);",
             "Use",
             "annotation projection",
         ),
@@ -436,6 +694,622 @@ fn projection_consumes_merged_annotation_evidence() {
             ParamDirection::Output
         );
     }
+}
+
+#[test]
+fn buffer_lengths_preserve_units_direction_and_parameter_positions() {
+    for optional in [false, true] {
+        let mut source = include_str!("../input/sal_buffers.h").to_string();
+        if optional {
+            for name in [
+                "_In_reads_",
+                "_Out_writes_",
+                "_Inout_updates_",
+                "_In_reads_bytes_",
+                "_Out_writes_bytes_",
+                "_Inout_updates_bytes_",
+            ] {
+                source = source.replace(&format!("{name}("), &format!("{name}opt_("));
+            }
+        }
+        let snapshot = capture(
+            [Input::new("api.hpp", source)],
+            ARGS,
+            &["Buffers", "IBuffers", "Zero", "Max"],
+        )
+        .unwrap();
+        let index = compile(
+            if optional {
+                "sal_buffers_optional"
+            } else {
+                "sal_buffers"
+            },
+            &snapshot.resolve().unwrap().project(&options()).unwrap(),
+        );
+        let Item::Fn(function) = index.expect_item("Test", "Buffers") else {
+            panic!()
+        };
+        let Item::Type(interface) = index.expect_item("Test", "IBuffers") else {
+            panic!()
+        };
+        for (method, offset, count_index) in [
+            (function, 1, 0),
+            (interface.methods().next().unwrap(), 0, 7),
+        ] {
+            let parameters = method.params_by_sequence(8).unwrap();
+            for (index, direction) in [
+                ParamDirection::Input,
+                ParamDirection::Output,
+                ParamDirection::InputOutput,
+                ParamDirection::Input,
+                ParamDirection::Output,
+                ParamDirection::InputOutput,
+                ParamDirection::Input,
+            ]
+            .into_iter()
+            .enumerate()
+            {
+                let parameter = parameters.params()[offset + index].unwrap();
+                assert_eq!(parameter.direction(), direction);
+                assert_eq!(parameter.is_optional(), optional);
+                assert_eq!(
+                    parameter.buffer_relationship(),
+                    Some(match index {
+                        0..=2 => BufferRelationship::ElementsParam(count_index),
+                        3..=5 => BufferRelationship::BytesParam(count_index),
+                        _ => BufferRelationship::ElementsConst(4),
+                    })
+                );
+            }
+            assert_eq!(
+                parameters.params()[usize::try_from(count_index).unwrap()]
+                    .unwrap()
+                    .buffer_relationship(),
+                None
+            );
+            assert!(
+                !parameters.params()[usize::try_from(count_index).unwrap()]
+                    .unwrap()
+                    .is_optional()
+            );
+        }
+        for (name, count) in [("Zero", 0), ("Max", i32::MAX)] {
+            let Item::Fn(function) = index.expect_item("Test", name) else {
+                panic!()
+            };
+            assert_eq!(
+                function.params_by_sequence(1).unwrap().params()[0]
+                    .unwrap()
+                    .buffer_relationship(),
+                Some(BufferRelationship::ElementsConst(count)),
+            );
+            assert_eq!(
+                function.params_by_sequence(1).unwrap().params()[0]
+                    .unwrap()
+                    .is_optional(),
+                optional
+            );
+        }
+    }
+}
+
+#[test]
+fn buffer_lengths_use_original_redeclaration_bindings() {
+    let source = include_str!("../input/annotation_context.h");
+    for reversed in [false, true] {
+        let mut inputs = [
+            Input::new("a.hpp", source),
+            Input::new("b.hpp", format!("#define REVERSE\n{source}")),
+        ];
+        if reversed {
+            let [left, right] = &mut inputs;
+            std::mem::swap(&mut left.source, &mut right.source);
+        }
+        let snapshot = capture(inputs, ARGS, &["Fill"]).unwrap();
+        let index = compile(
+            "buffer_redeclarations",
+            &snapshot.resolve().unwrap().project(&options()).unwrap(),
+        );
+        let Item::Fn(function) = index.expect_item("Test", "Fill") else {
+            panic!()
+        };
+        assert_eq!(
+            function.params_by_sequence(2).unwrap().params()[1]
+                .unwrap()
+                .buffer_relationship(),
+            Some(BufferRelationship::ElementsParam(0))
+        );
+    }
+}
+
+#[test]
+fn real_sdk_buffer_lengths_project() {
+    let snapshot = sdk_capture(
+        "--target=x86_64-pc-windows-msvc",
+        include_str!("../input/sdk_buffers.h"),
+        &["BCryptHashData", "BCryptGenRandom"],
+    );
+    let mut options = ProjectionOptions::new("Test");
+    options.library = Some("bcrypt.dll".into());
+    let index = compile(
+        "sdk_buffers",
+        &snapshot.resolve().unwrap().project(&options).unwrap(),
+    );
+    for (name, direction) in [
+        ("BCryptHashData", ParamDirection::Input),
+        ("BCryptGenRandom", ParamDirection::Output),
+    ] {
+        let Item::Fn(function) = index.expect_item("Test", name) else {
+            panic!()
+        };
+        assert_eq!(
+            function.signature(&[]).types,
+            [
+                Type::PtrMut(Box::new(Type::Void), 1),
+                Type::PtrMut(Box::new(Type::U8), 1),
+                Type::U32,
+                Type::U32,
+            ]
+        );
+        let parameters = function.params_by_sequence(4).unwrap();
+        let buffer = parameters.params()[1].unwrap();
+        assert_eq!(buffer.direction(), direction);
+        assert_eq!(
+            buffer.buffer_relationship(),
+            Some(BufferRelationship::BytesParam(2))
+        );
+    }
+}
+
+#[test]
+fn real_sdk_optional_buffers_project() {
+    let snapshot = sdk_capture(
+        "--target=x86_64-pc-windows-msvc",
+        include_str!("../input/sdk_buffers.h"),
+        &["BCryptDeriveKeyPBKDF2"],
+    );
+    let mut options = ProjectionOptions::new("Test");
+    options.library = Some("bcrypt.dll".into());
+    let index = compile(
+        "sdk_optional_buffers",
+        &snapshot.resolve().unwrap().project(&options).unwrap(),
+    );
+    let Item::Fn(function) = index.expect_item("Test", "BCryptDeriveKeyPBKDF2") else {
+        panic!()
+    };
+    assert_eq!(
+        function.signature(&[]).types,
+        [
+            Type::PtrMut(Box::new(Type::Void), 1),
+            Type::PtrMut(Box::new(Type::U8), 1),
+            Type::U32,
+            Type::PtrMut(Box::new(Type::U8), 1),
+            Type::U32,
+            Type::U64,
+            Type::PtrMut(Box::new(Type::U8), 1),
+            Type::U32,
+            Type::U32,
+        ]
+    );
+    let parameters = function.params_by_sequence(9).unwrap();
+    for (index, parameter) in parameters.params().iter().enumerate() {
+        let parameter = parameter.unwrap();
+        assert_eq!(parameter.is_optional(), matches!(index, 1 | 3));
+        assert_eq!(
+            parameter.direction(),
+            if index == 6 {
+                ParamDirection::Output
+            } else {
+                ParamDirection::Input
+            }
+        );
+        assert_eq!(
+            parameter.buffer_relationship(),
+            match index {
+                1 => Some(BufferRelationship::BytesParam(2)),
+                3 => Some(BufferRelationship::BytesParam(4)),
+                6 => Some(BufferRelationship::BytesParam(7)),
+                _ => None,
+            }
+        );
+    }
+}
+
+#[test]
+fn optional_pointers_preserve_direction() {
+    let snapshot = capture(
+        [Input::new(
+            "api.hpp",
+            include_str!("../input/optional_pointers.h"),
+        )],
+        ARGS,
+        &["Use", "IOptional"],
+    )
+    .unwrap();
+    let index = compile(
+        "optional_pointers",
+        &snapshot.resolve().unwrap().project(&options()).unwrap(),
+    );
+    let Item::Fn(function) = index.expect_item("Test", "Use") else {
+        panic!()
+    };
+    let Item::Type(interface) = index.expect_item("Test", "IOptional") else {
+        panic!()
+    };
+    for method in [function, interface.methods().next().unwrap()] {
+        let parameters = method.params_by_sequence(3).unwrap();
+        for (parameter, direction) in parameters.params().iter().zip([
+            ParamDirection::Input,
+            ParamDirection::Output,
+            ParamDirection::InputOutput,
+        ]) {
+            let parameter = parameter.unwrap();
+            assert_eq!(parameter.direction(), direction);
+            assert!(parameter.is_optional());
+            assert_eq!(parameter.buffer_relationship(), None);
+        }
+    }
+}
+
+#[test]
+fn unsupported_buffer_lengths_are_errors() {
+    for (count, buffer, annotation, reason) in [
+        (
+            "int",
+            "int",
+            "_In_reads_(count)",
+            "requires a buffer pointer",
+        ),
+        (
+            "int",
+            "const int*",
+            "_Out_writes_(count)",
+            "requires a writable buffer",
+        ),
+        (
+            "int",
+            "const int*",
+            "_Inout_updates_(count)",
+            "requires a writable buffer",
+        ),
+        ("int", "void*", "_In_reads_(count)", "non-void element"),
+        ("float", "int*", "_In_reads_(count)", "integer parameter"),
+        ("bool", "int*", "_In_reads_(count)", "integer parameter"),
+        ("int*", "int*", "_In_reads_(count)", "integer parameter"),
+        ("int", "int*", "_In_reads_(data)", "integer parameter"),
+        (
+            "int",
+            "int*",
+            "_In_reads_(missing)",
+            "unsupported buffer length",
+        ),
+        (
+            "int",
+            "int*",
+            "_In_reads_(count + 1)",
+            "unsupported buffer length",
+        ),
+        (
+            "int*",
+            "int*",
+            "_In_reads_(*count)",
+            "unsupported buffer length",
+        ),
+        ("int", "int*", "_In_reads_(-1)", "unsupported buffer length"),
+        (
+            "int",
+            "int*",
+            "_In_reads_(2147483648)",
+            "unsupported buffer length",
+        ),
+        (
+            "int",
+            "int*",
+            "_In_reads_(010)",
+            "unsupported buffer length",
+        ),
+        (
+            "int",
+            "int*",
+            "_In_reads_(0x10)",
+            "unsupported buffer length",
+        ),
+        (
+            "int",
+            "int*",
+            "_In_reads_($32768)",
+            "unsupported buffer length",
+        ),
+        (
+            "int",
+            "int*",
+            "_In_reads_($+0)",
+            "unsupported buffer length",
+        ),
+        ("int", "int*", "_In_reads_($2)", "integer parameter"),
+        (
+            "int",
+            "int*",
+            "_In_reads_bytes_(4)",
+            "unsupported buffer length",
+        ),
+        (
+            "int",
+            "int*",
+            "_Out_writes_to_(count,count)",
+            "annotation projection",
+        ),
+        (
+            "int",
+            "int",
+            "_In_reads_opt_(count)",
+            "requires a buffer pointer",
+        ),
+        (
+            "int",
+            "const int*",
+            "_Out_writes_opt_(count)",
+            "requires a writable buffer",
+        ),
+        (
+            "int",
+            "const int*",
+            "_Inout_updates_bytes_opt_(count)",
+            "requires a writable buffer",
+        ),
+        ("int", "void*", "_In_reads_opt_(count)", "non-void element"),
+        (
+            "float",
+            "int*",
+            "_In_reads_bytes_opt_(count)",
+            "integer parameter",
+        ),
+        (
+            "int",
+            "int*",
+            "_In_reads_opt_(count+1)",
+            "unsupported buffer length",
+        ),
+        ("int", "int", "_Out_opt_", "requires a writable pointer"),
+        (
+            "int",
+            "const int*",
+            "_Out_opt_",
+            "requires a writable pointer",
+        ),
+        (
+            "int",
+            "const int*",
+            "_Inout_opt_",
+            "requires a writable pointer",
+        ),
+        ("int", "char*", "_In_opt_z_", "explicit string binding"),
+        (
+            "int",
+            "char*",
+            "_Out_writes_opt_z_(count)",
+            "annotation projection",
+        ),
+    ] {
+        let snapshot = capture(
+            [Input::new("api.hpp", format!(
+                "#define COUNT_TYPE {count}\n#define BUFFER_TYPE {buffer}\n#define ANNOTATION {annotation:?}\n{}",
+                include_str!("../input/buffer_length_case.h"),
+            ))],
+            ARGS,
+            &["Buffer"],
+        ).unwrap();
+        let error = snapshot.resolve().unwrap().project(&options()).unwrap_err();
+        assert!(
+            error.to_string().contains(reason),
+            "{count}, {buffer}, {annotation}: {error}"
+        );
+    }
+}
+
+#[test]
+fn string_bindings_preserve_constness_direction_and_optionality() {
+    let plan = {
+        let snapshot = capture(
+            [Input::new("api.hpp", include_str!("../input/strings.h"))],
+            ARGS,
+            &["Strings", "IStrings"],
+        )
+        .unwrap();
+        snapshot
+            .resolve()
+            .unwrap()
+            .project(&string_options())
+            .unwrap()
+    };
+    let index = compile("strings", &plan);
+    let Item::Fn(function) = index.expect_item("Test", "Strings") else {
+        panic!()
+    };
+    let Item::Type(interface) = index.expect_item("Test", "IStrings") else {
+        panic!()
+    };
+    for method in [function, interface.methods().next().unwrap()] {
+        assert_eq!(
+            method.signature(&[]).types,
+            [
+                Type::value_named("External", "PCSTR"),
+                Type::value_named("External", "PSTR"),
+                Type::value_named("External", "PSTR"),
+                Type::value_named("External", "PWSTR"),
+                Type::value_named("External", "PCWSTR"),
+                Type::PtrMut(Box::new(Type::I8), 1),
+            ]
+        );
+        let parameters = method.params_by_sequence(6).unwrap();
+        for (index, direction) in [
+            ParamDirection::Input,
+            ParamDirection::Input,
+            ParamDirection::Output,
+            ParamDirection::InputOutput,
+            ParamDirection::Input,
+            ParamDirection::Output,
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            let parameter = parameters.params()[index].unwrap();
+            assert_eq!(parameter.direction(), direction);
+            assert_eq!(parameter.is_optional(), index == 4);
+        }
+    }
+}
+
+#[test]
+fn strings_require_valid_explicit_bindings_and_character_pointers() {
+    for kind in [
+        StringKind::Ansi,
+        StringKind::AnsiConst,
+        StringKind::Wide,
+        StringKind::WideConst,
+    ] {
+        let snapshot = capture(
+            [Input::new("api.hpp", include_str!("../input/strings.h"))],
+            ARGS,
+            &["Strings"],
+        )
+        .unwrap();
+        let resolved = snapshot.resolve().unwrap();
+        let mut options = string_options();
+        options.string_references.remove(&kind);
+        assert!(
+            resolved
+                .project(&options)
+                .unwrap_err()
+                .to_string()
+                .contains("explicit string binding")
+        );
+        let mut options = string_options();
+        options.string_references.get_mut(&kind).unwrap().kind = ReferenceKind::Interface;
+        assert!(
+            resolved
+                .project(&options)
+                .unwrap_err()
+                .to_string()
+                .contains("metadata value types")
+        );
+        let mut options = string_options();
+        options.string_references.get_mut(&kind).unwrap().name = "invalid-name".into();
+        assert!(
+            resolved
+                .project(&options)
+                .unwrap_err()
+                .to_string()
+                .contains("unsupported output identifier")
+        );
+    }
+    for (ty, annotation, reason) in [
+        ("int", "_In_z_", "single character pointer"),
+        ("char**", "_In_z_", "single character pointer"),
+        ("void*", "_In_z_", "characters"),
+        ("int*", "_In_z_", "characters"),
+        ("short*", "_In_z_", "characters"),
+        ("const char*", "_Out_z_", "writable string pointer"),
+        (
+            "const unsigned short*",
+            "_Inout_z_",
+            "writable string pointer",
+        ),
+    ] {
+        let snapshot = capture(
+            [Input::new("api.hpp", format!(
+                "#define COUNT_TYPE int\n#define BUFFER_TYPE {ty}\n#define ANNOTATION {annotation:?}\n{}",
+                include_str!("../input/buffer_length_case.h"),
+            ))],
+            ARGS, &["Buffer"],
+        ).unwrap();
+        let error = snapshot
+            .resolve()
+            .unwrap()
+            .project(&string_options())
+            .unwrap_err();
+        assert!(
+            error.to_string().contains(reason),
+            "{ty} {annotation}: {error}"
+        );
+    }
+}
+
+#[test]
+fn string_bindings_do_not_hide_conflicting_native_dependencies() {
+    let source = include_str!("../input/strings.h");
+    let snapshot = capture(
+        [
+            Input::new("a.hpp", source),
+            Input::new(
+                "b.hpp",
+                source.replace("typedef const char* Narrow;", "typedef const int* Narrow;"),
+            ),
+        ],
+        ARGS,
+        &["Strings"],
+    )
+    .unwrap();
+    assert!(snapshot.resolve().is_err());
+}
+
+#[test]
+fn real_sdk_string_parameter_projects() {
+    let snapshot = sdk_capture(
+        "--target=x86_64-pc-windows-msvc",
+        include_str!("../input/sdk_strings.h"),
+        &["WinHttpTimeToSystemTime"],
+    );
+    let mut options = string_options();
+    options.library = Some("winhttp.dll".into());
+    let index = compile(
+        "sdk_strings",
+        &snapshot.resolve().unwrap().project(&options).unwrap(),
+    );
+    let Item::Fn(function) = index.expect_item("Test", "WinHttpTimeToSystemTime") else {
+        panic!()
+    };
+    assert_eq!(
+        function.signature(&[]).types,
+        [
+            Type::value_named("External", "PCWSTR"),
+            Type::PtrMut(Box::new(Type::value_named("Test", "_SYSTEMTIME")), 1),
+        ]
+    );
+    let parameters = function.params_by_sequence(2).unwrap();
+    assert_eq!(
+        parameters.params()[0].unwrap().direction(),
+        ParamDirection::Input
+    );
+    assert_eq!(
+        parameters.params()[1].unwrap().direction(),
+        ParamDirection::Output
+    );
+}
+
+#[test]
+fn multiple_buffer_lengths_are_not_silently_combined() {
+    let snapshot = capture(
+        [Input::new(
+            "api.hpp",
+            include_str!("../input/sal_buffers.h").replace(
+                "_In_reads_(count) const int* input",
+                "_In_reads_(count) _In_reads_bytes_(count) const int* input",
+            ),
+        )],
+        ARGS,
+        &["Buffers"],
+    )
+    .unwrap();
+    assert!(
+        snapshot
+            .resolve()
+            .unwrap()
+            .project(&options())
+            .unwrap_err()
+            .to_string()
+            .contains("multiple buffer-length annotations")
+    );
 }
 
 #[test]

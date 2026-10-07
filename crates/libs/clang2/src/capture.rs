@@ -443,7 +443,7 @@ impl Capture<'_> {
                     fields,
                     bases,
                     methods,
-                    guid: complete.then(|| uuid(cursor)).flatten(),
+                    guid: uuid(cursor),
                     unavailable,
                 }
             }

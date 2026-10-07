@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "Buffers")]
+    extern "C" fn Buffers(p0: u32, #[in] #[opt] #[len_param(0)] p1: *const i32, #[out] #[opt] #[len_param(0)] p2: *mut i32, #[in] #[out] #[opt] #[len_param(0)] p3: *mut i32, #[in] #[opt] #[size_param(0)] p4: *const void, #[out] #[opt] #[size_param(0)] p5: *mut void, #[in] #[out] #[opt] #[size_param(0)] p6: *mut void, #[in] #[opt] #[len_const(4)] p7: *const i32);
+    #[guid(0x00000002_0000_0000_c000_000000000046)]
+    interface IBuffers {
+        fn Buffers(&self, #[in] #[opt] #[len_param(7)] input: *const i32, #[out] #[opt] #[len_param(7)] output: *mut i32, #[in] #[out] #[opt] #[len_param(7)] update: *mut i32, #[in] #[opt] #[size_param(7)] input_bytes: *const void, #[out] #[opt] #[size_param(7)] output_bytes: *mut void, #[in] #[out] #[opt] #[size_param(7)] update_bytes: *mut void, #[in] #[opt] #[len_const(4)] fixed: *const i32, count: u32);
+    }
+    #[library("test.dll", import = "Max")]
+    extern "C" fn Max(#[in] #[opt] #[len_const(2147483647)] p0: *const i32);
+    #[library("test.dll", import = "Zero")]
+    extern "C" fn Zero(#[in] #[opt] #[len_const(0)] p0: *const i32);
+}

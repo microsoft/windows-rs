@@ -1,7 +1,12 @@
 #[win32]
 mod External {
+    type Status = i32;
     struct Data { value: i32, }
     struct GUID { data1: u32, data2: u16, data3: u16, data4: [u8; 8], }
+    type PSTR = *mut i8;
+    type PCSTR = *const i8;
+    type PWSTR = *mut u16;
+    type PCWSTR = *const u16;
     #[no_guid]
     interface IUnknown {
         fn Method(&self);

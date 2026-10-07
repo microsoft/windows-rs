@@ -241,3 +241,12 @@ changes (the `gen` workflow enforces this).
 | --- | --- |
 | `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
 | webview | `process-failed`, download, and deferral paths untested. |
+
+### COM aggregate-return ABI
+
+`bindgen` `types/cpp_method.rs` `CppMethod::write_abi` emits an explicit result pointer but a void
+return for `ReturnHint::ReturnStruct`; `write_upcall` only writes through the pointer. An MSVC x86
+native caller in the clang2 ABI experiment read the returned aggregate through EAX, which must hold
+that result-buffer address. Rust-to-C++ calls passed, but the reverse call produced incorrect data.
+`clang2` `project.rs` `Builder::interface` rejects by-value record results until the downstream ABI
+is fixed and covered. See `docs/crates/windows-clang2.md` for the fixture and remaining ABI gates.

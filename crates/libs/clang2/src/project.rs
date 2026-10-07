@@ -6,6 +6,15 @@ pub enum ReferenceKind {
     Interface,
 }
 
+/// Null-terminated pointer contracts supplied by external metadata.
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum StringKind {
+    Ansi,
+    AnsiConst,
+    Wide,
+    WideConst,
+}
+
 /// A trusted metadata binding, not evidence that the external ABI matches the native declaration.
 pub struct TypeReference {
     pub namespace: String,
@@ -16,7 +25,10 @@ pub struct TypeReference {
 pub struct ProjectionOptions {
     pub namespace: String,
     pub library: Option<String>,
+    /// External record/enum bindings and trusted scalar typedef contracts.
     pub references: BTreeMap<String, TypeReference>,
+    /// Trusted pointer-sized value types for SAL-annotated null-terminated strings.
+    pub string_references: BTreeMap<StringKind, TypeReference>,
 }
 
 impl ProjectionOptions {
@@ -25,6 +37,7 @@ impl ProjectionOptions {
             namespace: namespace.into(),
             library: None,
             references: BTreeMap::new(),
+            string_references: BTreeMap::new(),
         }
     }
 }
@@ -44,7 +57,8 @@ impl Plan {
     }
 
     pub fn rdl(&self) -> String {
-        let mut output = format!("#[win32]\nmod {} {{\n", self.namespace);
+        let mut namespaces = self.namespace.rsplit('.');
+        let mut output = format!("#[win32]\nmod {} {{\n", namespaces.next().unwrap());
         for (name, item) in &self.items {
             match item {
                 Item::Record(fields) => {
@@ -114,6 +128,10 @@ impl Plan {
             }
         }
         output.push_str("}\n");
+        for namespace in namespaces {
+            let body: String = output.lines().map(|line| format!("    {line}\n")).collect();
+            output = format!("mod {namespace} {{\n{body}}}\n");
+        }
         output
     }
 }
@@ -152,10 +170,11 @@ enum Item {
     },
 }
 
-#[derive(Debug)]
+#[derive(Clone, Debug, PartialEq)]
 enum ProjectedType {
     Void,
     Scalar(&'static str, Layout),
+    ScalarReference(String, &'static str, Layout),
     Named(String, Option<Layout>),
     Class(String),
     Pointer {
@@ -166,11 +185,20 @@ enum ProjectedType {
 }
 
 impl ProjectedType {
+    fn scalar_kind(&self) -> Option<&'static str> {
+        match self {
+            Self::Scalar(kind, _) | Self::ScalarReference(_, kind, _) => Some(kind),
+            _ => None,
+        }
+    }
+
     fn text(&self) -> String {
         match self {
             Self::Void => "void".into(),
             Self::Scalar(name, _) => (*name).into(),
-            Self::Named(name, _) | Self::Class(name) => name.clone(),
+            Self::Named(name, _) | Self::Class(name) | Self::ScalarReference(name, ..) => {
+                name.clone()
+            }
             Self::Pointer {
                 mutable,
                 depth,
@@ -188,7 +216,7 @@ impl ProjectedType {
     fn layout(&self, pointer_size: i64) -> Option<Layout> {
         match self {
             Self::Void => None,
-            Self::Scalar(_, layout) => Some(layout.clone()),
+            Self::Scalar(_, layout) | Self::ScalarReference(_, _, layout) => Some(layout.clone()),
             Self::Named(_, layout) => layout.clone(),
             Self::Class(_) | Self::Pointer { .. } => Some(Layout {
                 size: pointer_size,
@@ -206,6 +234,14 @@ impl Resolved<'_> {
             ));
         }
         let namespace = namespace(&options.namespace)?;
+        for reference in options.string_references.values() {
+            if reference.kind != ReferenceKind::Value {
+                return Err(Error(
+                    "string bindings must reference metadata value types".into(),
+                ));
+            }
+            namespace_name(reference)?;
+        }
         for group in &self.groups {
             let declaration = &self.snapshot.declarations[group[0].0];
             if let Some(reference) = options.references.get(&declaration.name) {
@@ -219,9 +255,14 @@ impl Resolved<'_> {
                 if !matches!(
                     binding.data,
                     DeclarationData::Record { .. } | DeclarationData::Enum { .. }
+                ) && !matches!(
+                    &binding.data,
+                    DeclarationData::Alias { canonical, .. }
+                        if matches!(canonical.kind, TypeKind::Builtin { .. })
+                            && reference.kind == ReferenceKind::Value
                 ) {
                     return Err(Error(format!(
-                        "external bindings currently require a native record or enum: {}",
+                        "external bindings require a native record, enum, or scalar value typedef: {}",
                         declaration.name
                     )));
                 }
@@ -231,6 +272,12 @@ impl Resolved<'_> {
         let mut builder = Builder {
             resolved: self,
             options,
+            aliases: BTreeMap::new(),
+            groups: self
+                .groups
+                .iter()
+                .map(|group| (self.representatives[group[0].0], group.as_slice()))
+                .collect(),
             pending: VecDeque::new(),
             scheduled: BTreeSet::new(),
             plan: Plan {
@@ -252,6 +299,8 @@ impl Resolved<'_> {
 struct Builder<'a, 's> {
     resolved: &'a Resolved<'s>,
     options: &'a ProjectionOptions,
+    groups: BTreeMap<Id, &'a [Id]>,
+    aliases: BTreeMap<Id, (ProjectedType, bool)>,
     pending: VecDeque<Id>,
     scheduled: BTreeSet<Id>,
     plan: Plan,
@@ -268,10 +317,22 @@ impl Builder<'_, '_> {
     fn item(&mut self, id: Id) -> Result<(), Error> {
         let declaration = &self.resolved.snapshot.declarations[id.0];
         if self.options.references.contains_key(&declaration.name) {
+            if let DeclarationData::Alias { canonical, .. } = &declaration.data
+                && matches!(canonical.kind, TypeKind::Builtin { .. })
+            {
+                self.scalar_reference(canonical, &self.options.references[&declaration.name])?;
+            }
             self.plan.omitted.insert(
                 declaration.name.clone(),
                 "provided by external metadata".into(),
             );
+            return Ok(());
+        }
+        if let DeclarationData::Alias { canonical, .. } = &declaration.data
+            && let TypeKind::Named(target) = canonical.kind
+            && self.resolved.snapshot.declarations[target.0].name == declaration.name
+        {
+            self.schedule(target);
             return Ok(());
         }
         let name = ident(&declaration.name)?;
@@ -340,8 +401,8 @@ impl Builder<'_, '_> {
                 }
                 Item::Record(projected)
             }
-            DeclarationData::Alias { target, .. } => {
-                let (ty, object) = self.lower(target, &mut BTreeSet::new())?;
+            DeclarationData::Alias { .. } => {
+                let (ty, object) = self.alias(id, &mut BTreeSet::new())?;
                 if object || matches!(ty, ProjectedType::Class(_)) {
                     return Err(Error(
                         "explicit interface alias emission is not implemented".into(),
@@ -356,8 +417,6 @@ impl Builder<'_, '_> {
                 ..
             } => {
                 let TypeKind::Function {
-                    result,
-                    parameters,
                     prototype: true,
                     variadic: false,
                     ..
@@ -385,25 +444,7 @@ impl Builder<'_, '_> {
                     .library
                     .clone()
                     .ok_or_else(|| Error(format!("`{name}` requires an import library")))?;
-                let annotations = &self.resolved.annotations[&id][&0];
-                let mut params = vec![];
-                for (index, parameter) in parameters.iter().enumerate() {
-                    let (ty, object) = self.lower(parameter, &mut BTreeSet::new())?;
-                    if object {
-                        return Err(Error("native interface objects require a pointer".into()));
-                    }
-                    if ty.layout(self.resolved.snapshot.pointer_size).is_none() {
-                        return Err(Error(
-                            "by-value external parameter layout is not available".into(),
-                        ));
-                    }
-                    let attributes = parameter_attributes(&annotations[index], &ty)?;
-                    params.push((attributes, ty));
-                }
-                let (result, object) = self.lower(result, &mut BTreeSet::new())?;
-                if object {
-                    return Err(Error("native interface objects require a pointer".into()));
-                }
+                let (params, result) = self.signature(id, 0)?;
                 if !matches!(result, ProjectedType::Void)
                     && result.layout(self.resolved.snapshot.pointer_size).is_none()
                 {
@@ -529,8 +570,6 @@ impl Builder<'_, '_> {
                 )));
             }
             let TypeKind::Function {
-                result,
-                parameters,
                 prototype: true,
                 variadic: false,
                 ..
@@ -554,27 +593,16 @@ impl Builder<'_, '_> {
                     method.name
                 )));
             }
-            let annotations = &self.resolved.annotations[&id][&(index + 1)];
+            let (parameters, result) = self.signature(id, index + 1)?;
             let mut params = vec![];
-            for (parameter_index, (parameter, ty)) in
-                method.parameters.iter().zip(parameters).enumerate()
-            {
-                let (ty, object) = self.lower(ty, &mut BTreeSet::new())?;
-                if object {
-                    return Err(Error("native interface objects require a pointer".into()));
-                }
-                if ty.layout(self.resolved.snapshot.pointer_size).is_none() {
-                    return Err(Error(format!(
-                        "`{name}::{}` has an unsupported by-value parameter layout",
-                        method.name
-                    )));
-                }
-                let attributes = parameter_attributes(&annotations[parameter_index], &ty)?;
+            for (parameter, (attributes, ty)) in method.parameters.iter().zip(parameters) {
                 params.push((attributes, ident(&parameter.name)?, ty));
             }
-            let (result, object) = self.lower(result, &mut BTreeSet::new())?;
-            if object {
-                return Err(Error("native interface objects require a pointer".into()));
+            if matches!(result, ProjectedType::Named(..)) {
+                return Err(Error(format!(
+                    "`{name}::{}`: by-value record results are not supported for COM methods",
+                    method.name
+                )));
             }
             if !matches!(result, ProjectedType::Void)
                 && result.layout(self.resolved.snapshot.pointer_size).is_none()
@@ -591,6 +619,148 @@ impl Builder<'_, '_> {
             guid: guid.to_string(),
             methods: projected,
         })
+    }
+
+    fn parameters(
+        &mut self,
+        parameters: &[Type],
+        annotations: &[Vec<String>],
+    ) -> Result<Vec<(String, ProjectedType)>, Error> {
+        assert_eq!(parameters.len(), annotations.len());
+        let mut types = vec![];
+        for parameter in parameters {
+            let (ty, object) = self.lower(parameter, &mut BTreeSet::new())?;
+            if object {
+                return Err(Error("native interface objects require a pointer".into()));
+            }
+            if ty.layout(self.resolved.snapshot.pointer_size).is_none() {
+                return Err(Error(
+                    "by-value external parameter layout is not available".into(),
+                ));
+            }
+            types.push(ty);
+        }
+        let attributes = annotations
+            .iter()
+            .enumerate()
+            .map(|(index, annotations)| parameter_attributes(annotations, index, &types))
+            .collect::<Result<Vec<_>, _>>()?;
+        attributes
+            .into_iter()
+            .zip(types)
+            .zip(annotations)
+            .map(|((attributes, ty), annotations)| {
+                let Some(kind) = string_kind(annotations, &ty)? else {
+                    return Ok((attributes, ty));
+                };
+                let reference = self.options.string_references.get(&kind).ok_or_else(|| {
+                    Error(format!(
+                        "null-terminated {kind:?} parameter requires an explicit string binding"
+                    ))
+                })?;
+                let layout = ty.layout(self.resolved.snapshot.pointer_size);
+                Ok((
+                    attributes,
+                    ProjectedType::Named(namespace_name(reference)?, layout),
+                ))
+            })
+            .collect()
+    }
+
+    fn signature(
+        &mut self,
+        id: Id,
+        slot: usize,
+    ) -> Result<(Vec<(String, ProjectedType)>, ProjectedType), Error> {
+        let group = self.groups[&id];
+        let mut signature = None;
+        for observation in group {
+            let data = &self.resolved.snapshot.declarations[observation.0].data;
+            let ty = match data {
+                DeclarationData::Function { ty, .. } => ty,
+                DeclarationData::Record { methods, .. } if !methods.is_empty() => {
+                    &methods[slot - 1].ty
+                }
+                DeclarationData::Record { .. } => continue,
+                _ => unreachable!(),
+            };
+            let TypeKind::Function {
+                result, parameters, ..
+            } = &ty.kind
+            else {
+                unreachable!()
+            };
+            let parameters = self.parameters(parameters, &self.resolved.annotations[&id][&slot])?;
+            let (result, object) = self.lower(result, &mut BTreeSet::new())?;
+            if object {
+                return Err(Error("native interface objects require a pointer".into()));
+            }
+            let projected = (parameters, result);
+            if let Some(previous) = &signature
+                && previous != &projected
+            {
+                return Err(Error(format!(
+                    "conflicting projected typedef contracts for `{}`",
+                    self.resolved.snapshot.declarations[id.0].name
+                )));
+            }
+            signature = Some(projected);
+        }
+        Ok(signature.unwrap())
+    }
+
+    fn scalar_reference(
+        &mut self,
+        canonical: &Type,
+        reference: &TypeReference,
+    ) -> Result<ProjectedType, Error> {
+        let (ProjectedType::Scalar(kind, layout), false) =
+            self.lower(canonical, &mut BTreeSet::new())?
+        else {
+            return Err(Error(
+                "external scalar typedef requires a supported non-void scalar".into(),
+            ));
+        };
+        Ok(ProjectedType::ScalarReference(
+            namespace_name(reference)?,
+            kind,
+            layout,
+        ))
+    }
+
+    fn alias(
+        &mut self,
+        id: Id,
+        visiting: &mut BTreeSet<Id>,
+    ) -> Result<(ProjectedType, bool), Error> {
+        if let Some(result) = self.aliases.get(&id) {
+            return Ok(result.clone());
+        }
+        if !visiting.insert(id) {
+            return Err(Error("cyclic native alias".into()));
+        }
+        let mut result = None;
+        for observation in self.groups[&id] {
+            let DeclarationData::Alias { target, .. } =
+                &self.resolved.snapshot.declarations[observation.0].data
+            else {
+                unreachable!()
+            };
+            let projected = self.lower(target, visiting)?;
+            if let Some(previous) = &result
+                && previous != &projected
+            {
+                return Err(Error(format!(
+                    "conflicting projected typedef contracts for `{}`",
+                    self.resolved.snapshot.declarations[id.0].name
+                )));
+            }
+            result = Some(projected);
+        }
+        visiting.remove(&id);
+        let result = result.unwrap();
+        self.aliases.insert(id, result.clone());
+        Ok(result)
     }
 
     fn lower(
@@ -636,13 +806,13 @@ impl Builder<'_, '_> {
             TypeKind::Named(id) => {
                 let id = self.resolved.representatives[id.0];
                 let declaration = &self.resolved.snapshot.declarations[id.0];
-                if let DeclarationData::Alias { target, .. } = &declaration.data {
-                    if !aliases.insert(id) {
-                        return Err(Error("cyclic native alias".into()));
+                if let DeclarationData::Alias { canonical, .. } = &declaration.data {
+                    if let Some(reference) = self.options.references.get(&declaration.name)
+                        && matches!(canonical.kind, TypeKind::Builtin { .. })
+                    {
+                        return Ok((self.scalar_reference(canonical, reference)?, false));
                     }
-                    let result = self.lower(target, aliases)?;
-                    aliases.remove(&id);
-                    result
+                    self.alias(id, aliases)?
                 } else if let Some(reference) = self.options.references.get(&declaration.name) {
                     let name = namespace_name(reference)?;
                     if reference.kind == ReferenceKind::Interface {
@@ -708,15 +878,95 @@ impl Builder<'_, '_> {
     }
 }
 
-fn parameter_attributes(annotations: &[String], ty: &ProjectedType) -> Result<String, Error> {
+fn parameter_attributes(
+    annotations: &[String],
+    index: usize,
+    parameters: &[ProjectedType],
+) -> Result<String, Error> {
+    let ty = &parameters[index];
     let mut attributes = String::new();
+    let mut sized = false;
     for annotation in annotations {
+        if let Some((name, argument)) = annotation
+            .split_once('(')
+            .and_then(|(name, rest)| rest.strip_suffix(')').map(|argument| (name, argument)))
+        {
+            let (direction, bytes, optional, output) = match name {
+                "_In_reads_" => ("#[in] ", false, false, false),
+                "_Out_writes_" => ("#[out] ", false, false, true),
+                "_Inout_updates_" => ("#[in] #[out] ", false, false, true),
+                "_In_reads_bytes_" => ("#[in] ", true, false, false),
+                "_Out_writes_bytes_" => ("#[out] ", true, false, true),
+                "_Inout_updates_bytes_" => ("#[in] #[out] ", true, false, true),
+                "_In_reads_opt_" => ("#[in] ", false, true, false),
+                "_Out_writes_opt_" => ("#[out] ", false, true, true),
+                "_Inout_updates_opt_" => ("#[in] #[out] ", false, true, true),
+                "_In_reads_bytes_opt_" => ("#[in] ", true, true, false),
+                "_Out_writes_bytes_opt_" => ("#[out] ", true, true, true),
+                "_Inout_updates_bytes_opt_" => ("#[in] #[out] ", true, true, true),
+                _ => {
+                    return Err(Error(format!(
+                        "annotation projection is not implemented: {annotation}"
+                    )));
+                }
+            };
+            if sized {
+                return Err(Error(
+                    "multiple buffer-length annotations are not supported".into(),
+                ));
+            }
+            let ProjectedType::Pointer {
+                mutable,
+                depth,
+                target,
+            } = ty
+            else {
+                return Err(Error(format!("{name} requires a buffer pointer")));
+            };
+            if output && !mutable {
+                return Err(Error(format!("{name} requires a writable buffer")));
+            }
+            if !bytes && *depth == 1 && matches!(**target, ProjectedType::Void) {
+                return Err(Error(format!("{name} requires a non-void element type")));
+            }
+            attributes.push_str(direction);
+            if optional {
+                attributes.push_str("#[opt] ");
+            }
+            attributes.push_str(&buffer_length(argument.trim(), bytes, parameters)?);
+            sized = true;
+            continue;
+        }
         attributes.push_str(match annotation.as_str() {
             "_In_" => "#[in] ",
             "_Out_" => "#[out] ",
             "_Inout_" => "#[in] #[out] ",
             "_In_opt_" if matches!(ty, ProjectedType::Pointer { .. } | ProjectedType::Class(_)) => {
                 "#[in] #[opt] "
+            }
+            "_In_z_" => "#[in] ",
+            "_In_opt_z_" => "#[in] #[opt] ",
+            "_Out_z_" | "_Inout_z_" => {
+                if !matches!(ty, ProjectedType::Pointer { mutable: true, .. }) {
+                    return Err(Error(format!(
+                        "{annotation} requires a writable string pointer"
+                    )));
+                }
+                if annotation == "_Out_z_" {
+                    "#[out] "
+                } else {
+                    "#[in] #[out] "
+                }
+            }
+            "_Out_opt_" | "_Inout_opt_" => {
+                if !matches!(ty, ProjectedType::Pointer { mutable: true, .. }) {
+                    return Err(Error(format!("{annotation} requires a writable pointer")));
+                }
+                if annotation == "_Out_opt_" {
+                    "#[out] #[opt] "
+                } else {
+                    "#[in] #[out] #[opt] "
+                }
             }
             "_COM_Outptr_" => match ty {
                 ProjectedType::Pointer {
@@ -744,6 +994,71 @@ fn parameter_attributes(annotations: &[String], ty: &ProjectedType) -> Result<St
         });
     }
     Ok(attributes)
+}
+
+fn string_kind(annotations: &[String], ty: &ProjectedType) -> Result<Option<StringKind>, Error> {
+    if !annotations.iter().any(|annotation| {
+        matches!(
+            annotation.as_str(),
+            "_In_z_" | "_In_opt_z_" | "_Out_z_" | "_Inout_z_"
+        )
+    }) {
+        return Ok(None);
+    }
+    let ProjectedType::Pointer {
+        mutable,
+        depth: 1,
+        target,
+    } = ty
+    else {
+        return Err(Error(
+            "null-terminated strings require a single character pointer".into(),
+        ));
+    };
+    Ok(Some(match (target.scalar_kind(), mutable) {
+        (Some("i8" | "u8"), true) => StringKind::Ansi,
+        (Some("i8" | "u8"), false) => StringKind::AnsiConst,
+        (Some("u16"), true) => StringKind::Wide,
+        (Some("u16"), false) => StringKind::WideConst,
+        _ => {
+            return Err(Error(
+                "null-terminated strings require 8-bit or unsigned 16-bit characters".into(),
+            ));
+        }
+    }))
+}
+
+fn buffer_length(
+    argument: &str,
+    bytes: bool,
+    parameters: &[ProjectedType],
+) -> Result<String, Error> {
+    if let Some(index) = argument
+        .strip_prefix('$')
+        .filter(|value| value.bytes().all(|byte| byte.is_ascii_digit()))
+        .and_then(|value| value.parse::<i16>().ok())
+    {
+        let Some("i8" | "u8" | "i16" | "u16" | "i32" | "u32" | "i64" | "u64") =
+            usize::try_from(index)
+                .ok()
+                .and_then(|index| parameters.get(index))
+                .and_then(ProjectedType::scalar_kind)
+        else {
+            return Err(Error(format!(
+                "buffer length `{argument}` must refer to an integer parameter"
+            )));
+        };
+        let attribute = if bytes { "size_param" } else { "len_param" };
+        return Ok(format!("#[{attribute}({index})] "));
+    }
+    if !bytes
+        && argument.bytes().all(|byte| byte.is_ascii_digit())
+        && (argument == "0" || !argument.starts_with('0'))
+        && let Ok(value) = argument.parse::<i32>()
+    {
+        return Ok(format!("#[len_const({value})] "));
+    }
+    Err(Error(format!("unsupported buffer length `{argument}`")))
 }
 
 fn align_up(value: i64, alignment: i64) -> i64 {

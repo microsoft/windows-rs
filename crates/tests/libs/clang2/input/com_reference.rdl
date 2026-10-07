@@ -1,0 +1,9 @@
+mod Windows {
+    mod Win32 {
+        #[win32]
+        mod Foundation {
+            struct GUID { data1: u32, data2: u16, data3: u16, data4: [u8; 8], }
+            type HRESULT = i32;
+        }
+    }
+}

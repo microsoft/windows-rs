@@ -3,6 +3,24 @@ use windows_clang2::{Input, capture};
 const ARGS: &[&str] = &["-x", "c++", "--target=x86_64-pc-windows-msvc"];
 
 #[test]
+fn buffer_optionality_conflicts_are_not_hidden_by_missing_annotations() {
+    let source = include_str!("../input/annotation_context.h");
+    for reversed in [false, true] {
+        let mut inputs = [
+            Input::new("a.hpp", source),
+            Input::new("b.hpp", source.replace("_Out_writes_", "_Out_writes_opt_")),
+            Input::new("c.hpp", "extern \"C\" void Fill(int size, int* buffer);"),
+        ];
+        if reversed {
+            let [left, right, _] = &mut inputs;
+            std::mem::swap(&mut left.source, &mut right.source);
+        }
+        let snapshot = capture(inputs, ARGS, &["Fill"]).unwrap();
+        assert!(snapshot.resolve().is_err());
+    }
+}
+
+#[test]
 fn interface_uuids_must_agree() {
     let source = include_str!("../input/interface.h");
     for reversed in [false, true] {
@@ -164,5 +182,57 @@ fn alias_redeclarations_keep_dependencies_without_requiring_identical_spelling()
         )
         .unwrap();
         assert_eq!(snapshot.resolve().is_err(), conflict);
+    }
+}
+
+#[test]
+fn forward_interface_uuid_conflicts_are_not_discarded() {
+    let source = include_str!("../input/forward_uuid.h");
+    for conflict in [false, true] {
+        for definition_guid in [false, true] {
+            for swapped in [false, true] {
+                for reverse in [false, true] {
+                    let guid = if conflict { 2 } else { 1 };
+                    let mut inputs = vec![
+                        Input::new(
+                            if swapped { "z.hpp" } else { "a.hpp" },
+                            format!(
+                                "#define HAS_UUID\n{}",
+                                source.replace(
+                                    "GUID_VALUE",
+                                    "\"00000001-0000-0000-c000-000000000046\""
+                                )
+                            ),
+                        ),
+                        Input::new(
+                            if swapped { "a.hpp" } else { "z.hpp" },
+                            format!(
+                                "#define HAS_UUID\n{}{}",
+                                if definition_guid {
+                                    "#define DEFINITION\n"
+                                } else {
+                                    ""
+                                },
+                                source.replace(
+                                    "GUID_VALUE",
+                                    &format!("\"0000000{guid}-0000-0000-c000-000000000046\"")
+                                )
+                            ),
+                        ),
+                    ];
+                    if !definition_guid {
+                        inputs.push(Input::new(
+                            "definition.hpp",
+                            format!("#define DEFINITION\n{source}"),
+                        ));
+                    }
+                    if reverse {
+                        inputs.reverse();
+                    }
+                    let snapshot = capture(inputs, ARGS, &["IFoo"]).unwrap();
+                    assert_eq!(snapshot.resolve().is_err(), conflict);
+                }
+            }
+        }
     }
 }

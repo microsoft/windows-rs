@@ -11,7 +11,7 @@ pub use capture::capture;
 
 mod project;
 mod validate;
-pub use project::{Plan, ProjectionOptions, ReferenceKind, TypeReference};
+pub use project::{Plan, ProjectionOptions, ReferenceKind, StringKind, TypeReference};
 
 /// One translation unit. All inputs to a capture use the same compiler arguments.
 #[derive(Clone, Debug)]

@@ -34,6 +34,20 @@ pub(super) fn validate(snapshot: &Snapshot) -> Result<Resolved<'_>, Error> {
         type_pairs: 0,
     };
     for candidates in groups.values() {
+        let mut uuid = None;
+        for id in candidates {
+            if let DeclarationData::Record {
+                guid: Some(guid), ..
+            } = &snapshot.declarations[id.0].data
+            {
+                if let Some((previous_id, previous)) = uuid
+                    && previous != guid
+                {
+                    return Err(comparison.conflict(previous_id, *id, "interface UUIDs differ"));
+                }
+                uuid = Some((*id, guid));
+            }
+        }
         let anchor = candidates
             .iter()
             .max_by_key(|id| snapshot.declarations[id.0].data.evidence_rank())

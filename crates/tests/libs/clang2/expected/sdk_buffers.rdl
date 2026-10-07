@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("bcrypt.dll", import = "BCryptGenRandom")]
+    extern "C" fn BCryptGenRandom(#[in] #[opt] p0: *mut void, #[out] #[size_param(2)] p1: *mut u8, #[in] p2: u32, #[in] p3: u32) -> i32;
+    #[library("bcrypt.dll", import = "BCryptHashData")]
+    extern "C" fn BCryptHashData(#[in] #[out] p0: *mut void, #[in] #[size_param(2)] p1: *mut u8, #[in] p2: u32, #[in] p3: u32) -> i32;
+}

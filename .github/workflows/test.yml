@@ -89,6 +89,10 @@ jobs:
         run: cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
+      - name: Test clang2 x86 ABI
+        # Capture and generation run in the x64 build script; the x86 executable needs no libclang.
+        if: matrix.target == 'i686-pc-windows-msvc'
+        run: cargo test -p test_clang2 --test abi --test com --target ${{ matrix.target }}
       - name: Test notification icon Shell integration
         if: matrix.target == 'x86_64-pc-windows-msvc'
         run: cargo test -p test_notifyicon --target ${{ matrix.target }} -- --ignored --test-threads=1

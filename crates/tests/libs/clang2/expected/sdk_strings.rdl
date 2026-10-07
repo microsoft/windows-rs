@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    #[library("winhttp.dll", import = "WinHttpTimeToSystemTime")]
+    extern "C" fn WinHttpTimeToSystemTime(#[in] p0: External::PCWSTR, #[out] p1: *mut _SYSTEMTIME) -> i32;
+    struct _SYSTEMTIME {
+        wYear: u16,
+        wMonth: u16,
+        wDayOfWeek: u16,
+        wDay: u16,
+        wHour: u16,
+        wMinute: u16,
+        wSecond: u16,
+        wMilliseconds: u16,
+    }
+}
