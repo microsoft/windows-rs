@@ -373,18 +373,18 @@ mod Windows {
                     AttributeHandle: u16;
                     #[get]
                     PresentationFormats: super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>;
-                    #[Windows::Foundation::Metadata::Overload("ReadValueAsync")]
+                    #[overload(ReadValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReadValueAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
-                    #[Windows::Foundation::Metadata::Overload("ReadValueWithCacheModeAsync")]
+                    #[overload(ReadValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReadValueAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
-                    #[Windows::Foundation::Metadata::Overload("WriteValueAsync")]
+                    fn ReadValueWithCacheModeAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
+                    #[overload(WriteValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn WriteValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
-                    #[Windows::Foundation::Metadata::Overload("WriteValueWithOptionAsync")]
+                    #[overload(WriteValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn WriteValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer, writeOption: GattWriteOption) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
+                    fn WriteValueWithOptionAsync(&self, value: super::super::super::Storage::Streams::IBuffer, writeOption: GattWriteOption) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
@@ -404,24 +404,24 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristic)]
                 interface IGattCharacteristic3 {
-                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsAsync")]
+                    #[overload(GetDescriptorsAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetDescriptorsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsWithCacheModeAsync")]
+                    #[overload(GetDescriptorsAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetDescriptorsAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsForUuidAsync")]
+                    fn GetDescriptorsWithCacheModeAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
+                    #[overload(GetDescriptorsForUuidAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetDescriptorsForUuidAsync(&self, descriptorUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsForUuidWithCacheModeAsync")]
+                    #[overload(GetDescriptorsForUuidAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetDescriptorsForUuidAsync(&self, descriptorUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
-                    #[Windows::Foundation::Metadata::Overload("WriteValueWithResultAsync")]
+                    fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptorUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
+                    #[overload(WriteValueWithResultAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn WriteValueWithResultAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
-                    #[Windows::Foundation::Metadata::Overload("WriteValueWithResultAndOptionAsync")]
+                    #[overload(WriteValueWithResultAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn WriteValueWithResultAsync(&self, value: super::super::super::Storage::Streams::IBuffer, writeOption: GattWriteOption) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
+                    fn WriteValueWithResultAndOptionAsync(&self, value: super::super::super::Storage::Streams::IBuffer, writeOption: GattWriteOption) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientCharacteristicConfigurationDescriptorValue: GattClientCharacteristicConfigurationDescriptorValue) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
                 }
@@ -642,12 +642,12 @@ mod Windows {
                     Uuid: GUID;
                     #[get]
                     AttributeHandle: u16;
-                    #[Windows::Foundation::Metadata::Overload("ReadValueAsync")]
+                    #[overload(ReadValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReadValueAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
-                    #[Windows::Foundation::Metadata::Overload("ReadValueWithCacheModeAsync")]
+                    #[overload(ReadValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReadValueAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
+                    fn ReadValueWithCacheModeAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn WriteValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
                 }
@@ -737,36 +737,36 @@ mod Windows {
                     fn RequestAccessAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn OpenAsync(&self, sharingMode: GattSharingMode) -> super::super::super::Foundation::IAsyncOperation<GattOpenStatus>;
-                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsAsync")]
+                    #[overload(GetCharacteristicsAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetCharacteristicsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsWithCacheModeAsync")]
+                    #[overload(GetCharacteristicsAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetCharacteristicsAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsForUuidAsync")]
+                    fn GetCharacteristicsWithCacheModeAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
+                    #[overload(GetCharacteristicsForUuidAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetCharacteristicsForUuidAsync(&self, characteristicUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsForUuidWithCacheModeAsync")]
+                    #[overload(GetCharacteristicsForUuidAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetCharacteristicsForUuidAsync(&self, characteristicUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesAsync")]
+                    fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
+                    #[overload(GetIncludedServicesAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetIncludedServicesAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesWithCacheModeAsync")]
+                    #[overload(GetIncludedServicesAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetIncludedServicesAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesForUuidAsync")]
+                    fn GetIncludedServicesWithCacheModeAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
+                    #[overload(GetIncludedServicesForUuidAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetIncludedServicesForUuidAsync(&self, serviceUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesForUuidWithCacheModeAsync")]
+                    #[overload(GetIncludedServicesForUuidAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetIncludedServicesForUuidAsync(&self, serviceUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
+                    fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
                 }
                 #[guid(0x196d0022_faad_45dc_ae5b_2ac3184e84db)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
                 interface IGattDeviceServiceStatics {
-                    #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                    #[overload(FromIdAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FromIdAsync(&self, deviceId: String) -> super::super::super::Foundation::IAsyncOperation<GattDeviceService>;
                     fn GetDeviceSelectorFromUuid(&self, serviceUuid: GUID) -> String;
@@ -779,17 +779,17 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
                 interface IGattDeviceServiceStatics2 {
-                    #[Windows::Foundation::Metadata::Overload("FromIdWithSharingModeAsync")]
+                    #[overload(FromIdAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FromIdAsync(&self, deviceId: String, sharingMode: GattSharingMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceService>;
-                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceId")]
+                    fn FromIdWithSharingModeAsync(&self, deviceId: String, sharingMode: GattSharingMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceService>;
+                    #[overload(GetDeviceSelectorForBluetoothDeviceId)]
                     fn GetDeviceSelectorForBluetoothDeviceId(&self, bluetoothDeviceId: super::BluetoothDeviceId) -> String;
-                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceIdWithCacheMode")]
-                    fn GetDeviceSelectorForBluetoothDeviceId(&self, bluetoothDeviceId: super::BluetoothDeviceId, cacheMode: super::BluetoothCacheMode) -> String;
-                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceIdAndUuid")]
+                    #[overload(GetDeviceSelectorForBluetoothDeviceId)]
+                    fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(&self, bluetoothDeviceId: super::BluetoothDeviceId, cacheMode: super::BluetoothCacheMode) -> String;
+                    #[overload(GetDeviceSelectorForBluetoothDeviceIdAndUuid)]
                     fn GetDeviceSelectorForBluetoothDeviceIdAndUuid(&self, bluetoothDeviceId: super::BluetoothDeviceId, serviceUuid: GUID) -> String;
-                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode")]
-                    fn GetDeviceSelectorForBluetoothDeviceIdAndUuid(&self, bluetoothDeviceId: super::BluetoothDeviceId, serviceUuid: GUID, cacheMode: super::BluetoothCacheMode) -> String;
+                    #[overload(GetDeviceSelectorForBluetoothDeviceIdAndUuid)]
+                    fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode(&self, bluetoothDeviceId: super::BluetoothDeviceId, serviceUuid: GUID, cacheMode: super::BluetoothCacheMode) -> String;
                 }
                 #[guid(0x171dd3ee_016d_419d_838a_576cf475a3d8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -829,12 +829,12 @@ mod Windows {
                     event SubscribedClientsChanged: super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, Object>;
                     event ReadRequested: super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>;
                     event WriteRequested: super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>;
-                    #[Windows::Foundation::Metadata::Overload("NotifyValueAsync")]
+                    #[overload(NotifyValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn NotifyValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>;
-                    #[Windows::Foundation::Metadata::Overload("NotifyValueForSubscribedClientAsync")]
+                    #[overload(NotifyValueAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn NotifyValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer, subscribedClient: GattSubscribedClient) -> super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>;
+                    fn NotifyValueForSubscribedClientAsync(&self, value: super::super::super::Storage::Streams::IBuffer, subscribedClient: GattSubscribedClient) -> super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>;
                 }
                 #[guid(0xfaf73db4_4cff_44c7_8445_040e6ead0063)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -1139,10 +1139,10 @@ mod Windows {
                     #[get]
                     AdvertisementStatus: GattServiceProviderAdvertisementStatus;
                     event AdvertisementStatusChanged: super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>;
-                    #[Windows::Foundation::Metadata::Overload("StartAdvertising")]
+                    #[overload(StartAdvertising)]
                     fn StartAdvertising(&self);
-                    #[Windows::Foundation::Metadata::Overload("StartAdvertisingWithParameters")]
-                    fn StartAdvertising(&self, parameters: GattServiceProviderAdvertisingParameters);
+                    #[overload(StartAdvertising)]
+                    fn StartAdvertisingWithParameters(&self, parameters: GattServiceProviderAdvertisingParameters);
                     fn StopAdvertising(&self);
                 }
                 #[guid(0x9ef531a9_cf12_59a3_a81c_362f4aabaacf)]
@@ -1202,7 +1202,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProvider)]
                 interface IGattServiceProviderStatics {
-                    #[Windows::Foundation::Metadata::Overload("CreateAsync")]
+                    #[overload(CreateAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn CreateAsync(&self, serviceUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>;
                 }

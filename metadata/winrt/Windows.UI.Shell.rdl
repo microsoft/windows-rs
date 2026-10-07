@@ -44,10 +44,10 @@ mod Windows {
                 #[get]
                 IsFocusActive: bool;
                 fn GetSession(&self, id: String) -> FocusSession;
-                #[Windows::Foundation::Metadata::Overload("TryStartFocusSession")]
+                #[overload(TryStartFocusSession)]
                 fn TryStartFocusSession(&self) -> FocusSession;
-                #[Windows::Foundation::Metadata::Overload("TryStartFocusSession2")]
-                fn TryStartFocusSession(&self, endTime: super::super::Foundation::DateTime) -> FocusSession;
+                #[overload(TryStartFocusSession)]
+                fn TryStartFocusSession2(&self, endTime: super::super::Foundation::DateTime) -> FocusSession;
                 fn DeactivateFocus(&self);
                 event IsFocusActiveChanged: super::super::Foundation::TypedEventHandler<FocusSessionManager, Object>;
             }
@@ -168,10 +168,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowTabManagerContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowTabIcon)]
             interface IWindowTabIconStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyph")]
+                #[overload(CreateFromFontGlyph)]
                 fn CreateFromFontGlyph(&self, glyph: String, fontFamily: String) -> WindowTabIcon;
-                #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyphWithUri")]
-                fn CreateFromFontGlyph(&self, glyph: String, fontFamily: String, fontUri: super::super::Foundation::Uri) -> WindowTabIcon;
+                #[overload(CreateFromFontGlyph)]
+                fn CreateFromFontGlyphWithUri(&self, glyph: String, fontFamily: String, fontUri: super::super::Foundation::Uri) -> WindowTabIcon;
                 fn CreateFromImage(&self, image: super::super::Storage::Streams::IRandomAccessStreamReference) -> WindowTabIcon;
             }
             #[guid(0x97b3c697_f43a_43e7_b3a2_e889a9835599)]

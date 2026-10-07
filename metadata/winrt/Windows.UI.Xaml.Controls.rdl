@@ -1830,10 +1830,10 @@ mod Windows {
                     Item: CalendarViewDayItem;
                     #[get]
                     Phase: u32;
-                    #[Windows::Foundation::Metadata::Overload("RegisterUpdateCallback")]
+                    #[overload(RegisterUpdateCallback)]
                     fn RegisterUpdateCallback(&self, callback: super::super::super::Foundation::TypedEventHandler<CalendarView, CalendarViewDayItemChangingEventArgs>);
-                    #[Windows::Foundation::Metadata::Overload("RegisterUpdateCallbackWithPhase")]
-                    fn RegisterUpdateCallback(&self, callbackPhase: u32, callback: super::super::super::Foundation::TypedEventHandler<CalendarView, CalendarViewDayItemChangingEventArgs>);
+                    #[overload(RegisterUpdateCallback)]
+                    fn RegisterUpdateCallbackWithPhase(&self, callbackPhase: u32, callback: super::super::super::Foundation::TypedEventHandler<CalendarView, CalendarViewDayItemChangingEventArgs>);
                 }
                 #[guid(0x62112bdc_1d2f_4e44_9baf_1665749521f2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -2531,10 +2531,10 @@ mod Windows {
                     #[get]
                     Phase: u32;
                     Handled: bool;
-                    #[Windows::Foundation::Metadata::Overload("RegisterUpdateCallback")]
+                    #[overload(RegisterUpdateCallback)]
                     fn RegisterUpdateCallback(&self, callback: super::super::super::Foundation::TypedEventHandler<ListViewBase, ContainerContentChangingEventArgs>);
-                    #[Windows::Foundation::Metadata::Overload("RegisterUpdateCallbackWithPhase")]
-                    fn RegisterUpdateCallback(&self, callbackPhase: u32, callback: super::super::super::Foundation::TypedEventHandler<ListViewBase, ContainerContentChangingEventArgs>);
+                    #[overload(RegisterUpdateCallback)]
+                    fn RegisterUpdateCallbackWithPhase(&self, callbackPhase: u32, callback: super::super::super::Foundation::TypedEventHandler<ListViewBase, ContainerContentChangingEventArgs>);
                 }
                 #[guid(0xa26dd1dc_cd44_435c_be94_01d6241c231c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -2606,7 +2606,7 @@ mod Windows {
                     event PrimaryButtonClick: super::super::super::Foundation::TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs>;
                     event SecondaryButtonClick: super::super::super::Foundation::TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs>;
                     fn Hide(&self);
-                    #[Windows::Foundation::Metadata::Overload("ShowAsync")]
+                    #[overload(ShowAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ShowAsync(&self) -> super::super::super::Foundation::IAsyncOperation<ContentDialogResult>;
                 }
@@ -2629,9 +2629,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContentDialog)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IContentDialog3 {
-                    #[Windows::Foundation::Metadata::Overload("ShowAsyncWithPlacement")]
+                    #[overload(ShowAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ShowAsync(&self, placement: ContentDialogPlacement) -> super::super::super::Foundation::IAsyncOperation<ContentDialogResult>;
+                    fn ShowAsyncWithPlacement(&self, placement: ContentDialogPlacement) -> super::super::super::Foundation::IAsyncOperation<ContentDialogResult>;
                 }
                 #[guid(0xbd0d3637_19ce_4946_8e77_bd03fe8ebe03)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -3169,8 +3169,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(DataTemplateSelector)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IDataTemplateSelector2 {
-                    #[Windows::Foundation::Metadata::Overload("SelectTemplateForItem")]
-                    fn SelectTemplate(&self, item: Object) -> super::DataTemplate;
+                    #[overload(SelectTemplate)]
+                    fn SelectTemplateForItem(&self, item: Object) -> super::DataTemplate;
                 }
                 #[guid(0x511baad0_210a_457d_9521_433d2b11b7d2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -3191,8 +3191,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(DataTemplateSelector)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IDataTemplateSelectorOverrides2 {
-                    #[Windows::Foundation::Metadata::Overload("SelectTemplateForItemCore")]
-                    fn SelectTemplateCore(&self, item: Object) -> super::DataTemplate;
+                    #[overload(SelectTemplateCore)]
+                    fn SelectTemplateForItemCore(&self, item: Object) -> super::DataTemplate;
                 }
                 #[guid(0xa1527b12_59c1_4521_b28c_b176675e7c5a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -3695,7 +3695,7 @@ mod Windows {
                     fn GoForward(&self);
                     fn Navigate(&self, sourcePageType: super::Interop::TypeName, parameter: Object) -> bool;
                     fn GetNavigationState(&self) -> String;
-                    #[Windows::Foundation::Metadata::Overload("SetNavigationState")]
+                    #[overload(SetNavigationState)]
                     fn SetNavigationState(&self, navigationState: String);
                 }
                 #[guid(0x3f367f87_9f5a_4b04_b818_b554c069597a)]
@@ -3721,8 +3721,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Frame)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IFrame4 {
-                    #[Windows::Foundation::Metadata::Overload("SetNavigationStateWithNavigationControl")]
-                    fn SetNavigationState(&self, navigationState: String, suppressNavigate: bool);
+                    #[overload(SetNavigationState)]
+                    fn SetNavigationStateWithNavigationControl(&self, navigationState: String, suppressNavigate: bool);
                 }
                 #[guid(0x453fb92e_82b5_5f93_92ab_15341806c9da)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -5167,13 +5167,13 @@ mod Windows {
                     IncrementalLoadingTrigger: IncrementalLoadingTrigger;
                     event ItemClick: ItemClickEventHandler;
                     event DragItemsStarting: DragItemsStartingEventHandler;
-                    #[Windows::Foundation::Metadata::Overload("ScrollIntoView")]
+                    #[overload(ScrollIntoView)]
                     fn ScrollIntoView(&self, item: Object);
                     fn SelectAll(&self);
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadMoreItemsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::Data::LoadMoreItemsResult>;
-                    #[Windows::Foundation::Metadata::Overload("ScrollIntoViewWithAlignment")]
-                    fn ScrollIntoView(&self, item: Object, alignment: ScrollIntoViewAlignment);
+                    #[overload(ScrollIntoView)]
+                    fn ScrollIntoViewWithAlignment(&self, item: Object, alignment: ScrollIntoViewAlignment);
                     Header: Object;
                     HeaderTemplate: super::DataTemplate;
                     HeaderTransitions: super::Media::Animation::TransitionCollection;
@@ -7936,10 +7936,10 @@ mod Windows {
                     LeftHeader: super::UIElement;
                     TopHeader: super::UIElement;
                     event ViewChanging: super::super::super::Foundation::EventHandler<ScrollViewerViewChangingEventArgs>;
-                    #[Windows::Foundation::Metadata::Overload("ChangeView")]
+                    #[overload(ChangeView)]
                     fn ChangeView(&self, horizontalOffset: super::super::super::Foundation::IReference<f64>, verticalOffset: super::super::super::Foundation::IReference<f64>, zoomFactor: super::super::super::Foundation::IReference<f32>) -> bool;
-                    #[Windows::Foundation::Metadata::Overload("ChangeViewWithOptionalAnimation")]
-                    fn ChangeView(&self, horizontalOffset: super::super::super::Foundation::IReference<f64>, verticalOffset: super::super::super::Foundation::IReference<f64>, zoomFactor: super::super::super::Foundation::IReference<f32>, disableAnimation: bool) -> bool;
+                    #[overload(ChangeView)]
+                    fn ChangeViewWithOptionalAnimation(&self, horizontalOffset: super::super::super::Foundation::IReference<f64>, verticalOffset: super::super::super::Foundation::IReference<f64>, zoomFactor: super::super::super::Foundation::IReference<f32>, disableAnimation: bool) -> bool;
                 }
                 #[guid(0x74e9be21_5de2_595e_bc08_dbd3c577492c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

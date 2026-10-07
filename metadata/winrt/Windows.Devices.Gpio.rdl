@@ -156,10 +156,10 @@ mod Windows {
             interface IGpioController {
                 #[get]
                 PinCount: i32;
-                #[Windows::Foundation::Metadata::Overload("OpenPin")]
+                #[overload(OpenPin)]
                 fn OpenPin(&self, pinNumber: i32) -> GpioPin;
-                #[Windows::Foundation::Metadata::Overload("OpenPinWithSharingMode")]
-                fn OpenPin(&self, pinNumber: i32, sharingMode: GpioSharingMode) -> GpioPin;
+                #[overload(OpenPin)]
+                fn OpenPinWithSharingMode(&self, pinNumber: i32, sharingMode: GpioSharingMode) -> GpioPin;
                 fn TryOpenPin(&self, pinNumber: i32, sharingMode: GpioSharingMode, pin: &mut GpioPin, openStatus: &mut GpioOpenStatus) -> bool;
             }
             #[guid(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64)]

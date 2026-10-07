@@ -253,11 +253,11 @@ mod Windows {
             interface IAppWindowPresenter {
                 fn GetConfiguration(&self) -> AppWindowPresentationConfiguration;
                 fn IsPresentationSupported(&self, presentationKind: AppWindowPresentationKind) -> bool;
-                #[Windows::Foundation::Metadata::Overload("RequestPresentation")]
+                #[overload(RequestPresentation)]
                 fn RequestPresentation(&self, configuration: AppWindowPresentationConfiguration) -> bool;
+                #[overload(RequestPresentation)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("RequestPresentationByKind")]
-                fn RequestPresentation(&self, presentationKind: AppWindowPresentationKind) -> bool;
+                fn RequestPresentationByKind(&self, presentationKind: AppWindowPresentationKind) -> bool;
             }
             #[guid(0xff1f3ea3_b769_50ef_9873_108cd0e89746)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -383,10 +383,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironment)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IWindowingEnvironmentStatics {
-                #[Windows::Foundation::Metadata::Overload("FindAll")]
+                #[overload(FindAll)]
                 fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
-                #[Windows::Foundation::Metadata::Overload("FindAllWithKind")]
-                fn FindAll(&self, kind: WindowingEnvironmentKind) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
+                #[overload(FindAll)]
+                fn FindAllWithKind(&self, kind: WindowingEnvironmentKind) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

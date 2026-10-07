@@ -326,27 +326,27 @@ mod Windows {
                 #[get]
                 SourceDisplayName: String;
                 SummaryCardView: AppointmentSummaryCardView;
-                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsync")]
+                #[overload(FindAppointmentsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
-                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsyncWithOptions")]
-                fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[overload(FindAppointmentsAsync)]
+                fn FindAppointmentsAsyncWithOptions(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindExceptionsFromMasterAsync(&self, masterLocalId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentException>>;
-                #[Windows::Foundation::Metadata::Overload("FindAllInstancesAsync")]
+                #[overload(FindAllInstancesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllInstancesAsync(&self, masterLocalId: String, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
-                #[Windows::Foundation::Metadata::Overload("FindAllInstancesAsyncWithOptions")]
-                fn FindAllInstancesAsync(&self, masterLocalId: String, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, pOptions: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[overload(FindAllInstancesAsync)]
+                fn FindAllInstancesAsyncWithOptions(&self, masterLocalId: String, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, pOptions: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAppointmentAsync(&self, localId: String) -> super::super::Foundation::IAsyncOperation<Appointment>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAppointmentInstanceAsync(&self, localId: String, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<Appointment>;
-                #[Windows::Foundation::Metadata::Overload("FindUnexpandedAppointmentsAsync")]
+                #[overload(FindUnexpandedAppointmentsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindUnexpandedAppointmentsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
-                #[Windows::Foundation::Metadata::Overload("FindUnexpandedAppointmentsAsyncWithOptions")]
-                fn FindUnexpandedAppointmentsAsync(&self, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[overload(FindUnexpandedAppointmentsAsync)]
+                fn FindUnexpandedAppointmentsAsyncWithOptions(&self, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -446,38 +446,38 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentManagerForUser)]
             interface IAppointmentManagerForUser {
-                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentAsync")]
+                #[overload(ShowAddAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentWithPlacementAsync")]
+                #[overload(ShowAddAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentAsync")]
+                fn ShowAddAppointmentWithPlacementAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(ShowReplaceAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAsync")]
+                #[overload(ShowReplaceAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAndDateAsync")]
+                fn ShowReplaceAppointmentWithPlacementAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(ShowReplaceAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentAsync")]
+                fn ShowReplaceAppointmentWithPlacementAndDateAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAsync")]
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAndDateAsync")]
+                fn ShowRemoveAppointmentWithPlacementAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowTimeFrameAsync(&self, timeToShow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsAsync")]
+                #[overload(ShowAppointmentDetailsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowAppointmentDetailsAsync(&self, appointmentId: String) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsWithDateAsync")]
+                #[overload(ShowAppointmentDetailsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAppointmentDetailsAsync(&self, appointmentId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                fn ShowAppointmentDetailsWithDateAsync(&self, appointmentId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowEditNewAppointmentAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -489,30 +489,30 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentManager)]
             interface IAppointmentManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentAsync")]
+                #[overload(ShowAddAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentWithPlacementAsync")]
+                #[overload(ShowAddAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentAsync")]
+                fn ShowAddAppointmentWithPlacementAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(ShowReplaceAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAsync")]
+                #[overload(ShowReplaceAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAndDateAsync")]
+                fn ShowReplaceAppointmentWithPlacementAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(ShowReplaceAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentAsync")]
+                fn ShowReplaceAppointmentWithPlacementAndDateAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAsync")]
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAndDateAsync")]
+                fn ShowRemoveAppointmentWithPlacementAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowTimeFrameAsync(&self, timeToShow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
             }
@@ -520,12 +520,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentManager)]
             interface IAppointmentManagerStatics2 {
-                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsAsync")]
+                #[overload(ShowAppointmentDetailsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowAppointmentDetailsAsync(&self, appointmentId: String) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsWithDateAsync")]
+                #[overload(ShowAppointmentDetailsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAppointmentDetailsAsync(&self, appointmentId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                fn ShowAppointmentDetailsWithDateAsync(&self, appointmentId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowEditNewAppointmentAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -647,39 +647,39 @@ mod Windows {
                 fn GetAppointmentAsync(&self, localId: String) -> super::super::Foundation::IAsyncOperation<Appointment>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAppointmentInstanceAsync(&self, localId: String, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<Appointment>;
-                #[Windows::Foundation::Metadata::Overload("FindAppointmentCalendarsAsync")]
+                #[overload(FindAppointmentCalendarsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAppointmentCalendarsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>;
-                #[Windows::Foundation::Metadata::Overload("FindAppointmentCalendarsAsyncWithOptions")]
+                #[overload(FindAppointmentCalendarsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindAppointmentCalendarsAsync(&self, options: FindAppointmentCalendarsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>;
-                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsync")]
+                fn FindAppointmentCalendarsAsyncWithOptions(&self, options: FindAppointmentCalendarsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>;
+                #[overload(FindAppointmentsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
-                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsyncWithOptions")]
-                fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
-                #[Windows::Foundation::Metadata::Overload("FindConflictAsync")]
+                #[overload(FindAppointmentsAsync)]
+                fn FindAppointmentsAsyncWithOptions(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[overload(FindConflictAsync)]
                 fn FindConflictAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<AppointmentConflictResult>;
-                #[Windows::Foundation::Metadata::Overload("FindConflictAsyncWithInstanceStart")]
-                fn FindConflictAsync(&self, appointment: Appointment, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<AppointmentConflictResult>;
+                #[overload(FindConflictAsync)]
+                fn FindConflictAsyncWithInstanceStart(&self, appointment: Appointment, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<AppointmentConflictResult>;
                 fn MoveAppointmentAsync(&self, appointment: Appointment, destinationCalendar: AppointmentCalendar) -> super::super::Foundation::IAsyncAction;
                 fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentAsync")]
+                #[overload(ShowReplaceAppointmentAsync)]
                 fn ShowReplaceAppointmentAsync(&self, localId: String, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAndDateAsync")]
-                fn ShowReplaceAppointmentAsync(&self, localId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentAsync")]
+                #[overload(ShowReplaceAppointmentAsync)]
+                fn ShowReplaceAppointmentWithPlacementAndDateAsync(&self, localId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowRemoveAppointmentAsync(&self, localId: String, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAndDateAsync")]
+                #[overload(ShowRemoveAppointmentAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowRemoveAppointmentAsync(&self, localId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsAsync")]
+                fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, localId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(ShowAppointmentDetailsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowAppointmentDetailsAsync(&self, localId: String) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsWithDateAsync")]
+                #[overload(ShowAppointmentDetailsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAppointmentDetailsAsync(&self, localId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                fn ShowAppointmentDetailsWithDateAsync(&self, localId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
                 fn ShowEditNewAppointmentAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindLocalIdsFromRoamingIdAsync(&self, roamingId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
@@ -689,9 +689,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStore)]
             interface IAppointmentStore2: IAppointmentStore {
                 event StoreChanged: super::super::Foundation::TypedEventHandler<AppointmentStore, AppointmentStoreChangedEventArgs>;
-                #[Windows::Foundation::Metadata::Overload("CreateAppointmentCalendarInAccountAsync")]
+                #[overload(CreateAppointmentCalendarAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAppointmentCalendarAsync(&self, name: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<AppointmentCalendar>;
+                fn CreateAppointmentCalendarInAccountAsync(&self, name: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<AppointmentCalendar>;
             }
             #[guid(0x4251940b_b078_470a_9a40_c2e01761f72f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]

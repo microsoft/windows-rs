@@ -23,7 +23,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetRadiosAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Radio>>;
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                #[overload(FromIdAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Radio>;
                 #[Windows::Foundation::Metadata::RemoteAsync]

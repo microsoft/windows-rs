@@ -104,10 +104,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICoreAutomationRemoteOperationContext {
                     fn GetOperand(&self, id: AutomationRemoteOperationOperandId) -> Object;
-                    #[Windows::Foundation::Metadata::Overload("SetOperand")]
+                    #[overload(SetOperand)]
                     fn SetOperand(&self, id: AutomationRemoteOperationOperandId, operand: Object);
-                    #[Windows::Foundation::Metadata::Overload("SetOperand2")]
-                    fn SetOperand(&self, id: AutomationRemoteOperationOperandId, operand: Object, operandInterfaceId: GUID);
+                    #[overload(SetOperand)]
+                    fn SetOperand2(&self, id: AutomationRemoteOperationOperandId, operand: Object, operandInterfaceId: GUID);
                 }
                 #[guid(0x88f53e67_dc69_553b_a0aa_70477e724da8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]

@@ -154,10 +154,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
                 interface ICoreInputView3 {
-                    #[Windows::Foundation::Metadata::Overload("TryShow")]
+                    #[overload(TryShow)]
                     fn TryShow(&self) -> bool;
-                    #[Windows::Foundation::Metadata::Overload("TryShowWithKind")]
-                    fn TryShow(&self, r#type: CoreInputViewKind) -> bool;
+                    #[overload(TryShow)]
+                    fn TryShowWithKind(&self, r#type: CoreInputViewKind) -> bool;
                     fn TryHide(&self) -> bool;
                 }
                 #[guid(0x002863d6_d9ef_57eb_8cef_77f6ce1b7ee7)]

@@ -21,12 +21,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechContinuousRecognitionSession)]
             interface ISpeechContinuousRecognitionSession {
                 AutoStopSilenceTimeout: super::super::Foundation::TimeSpan;
-                #[Windows::Foundation::Metadata::Overload("StartAsync")]
+                #[overload(StartAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartAsync(&self) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("StartWithModeAsync")]
+                #[overload(StartAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StartAsync(&self, mode: SpeechContinuousRecognitionMode) -> super::super::Foundation::IAsyncAction;
+                fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StopAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]

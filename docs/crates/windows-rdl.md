@@ -86,6 +86,12 @@ Most attributes name a metadata attribute type directly. Some attributes use sho
 names. The reader expands those names to full metadata attributes. See `PSEUDO_ATTRS` in
 `windows-rdl`.
 
+WinRT methods can use `#[overload(Read)] fn ReadWithOptions(...)` to separate a logical overload
+group from a unique ABI name. This is a method-level transformation, not a `PSEUDO_ATTRS` alias:
+the reader writes `Read` to `MethodDef.Name` and `ReadWithOptions` to `OverloadAttribute`. The
+writer reverses that mapping without changing method order or interface-ID derivation. The
+language reference describes the intrinsic and the supported raw metadata spelling.
+
 Struct bit fields use their own syntax. A run of bit fields packed into one backing integer is
 written as a C-like block on that field. Each member uses `Name: width`. Anonymous padding uses
 `_: width`.

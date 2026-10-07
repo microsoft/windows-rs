@@ -282,21 +282,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(Printing3DContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Printing3DModel)]
             interface IPrinting3DModel2 {
-                #[Windows::Foundation::Metadata::Overload("TryPartialRepairAsync")]
+                #[overload(TryPartialRepairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryPartialRepairAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryPartialRepairWithTimeAsync")]
+                #[overload(TryPartialRepairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryPartialRepairAsync(&self, maxWaitTime: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryReduceFacesAsync")]
+                fn TryPartialRepairWithTimeAsync(&self, maxWaitTime: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(TryReduceFacesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryReduceFacesAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<bool, f64>;
-                #[Windows::Foundation::Metadata::Overload("TryReduceFacesWithOptionsAsync")]
+                #[overload(TryReduceFacesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryReduceFacesAsync(&self, printing3DFaceReductionOptions: Printing3DFaceReductionOptions) -> super::super::Foundation::IAsyncOperationWithProgress<bool, f64>;
-                #[Windows::Foundation::Metadata::Overload("TryReduceFacesWithOptionsAndTimeAsync")]
+                fn TryReduceFacesWithOptionsAsync(&self, printing3DFaceReductionOptions: Printing3DFaceReductionOptions) -> super::super::Foundation::IAsyncOperationWithProgress<bool, f64>;
+                #[overload(TryReduceFacesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryReduceFacesAsync(&self, printing3DFaceReductionOptions: Printing3DFaceReductionOptions, maxWait: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperationWithProgress<bool, f64>;
+                fn TryReduceFacesWithOptionsAndTimeAsync(&self, printing3DFaceReductionOptions: Printing3DFaceReductionOptions, maxWait: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperationWithProgress<bool, f64>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RepairWithProgressAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<bool, f64>;
             }

@@ -97,10 +97,10 @@ mod Windows {
             #[guid(0x91a33be3_7334_4512_96bc_fbae9459f5f6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             interface II2cDeviceStatics {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromFriendlyName")]
-                fn GetDeviceSelector(&self, friendlyName: String) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: String) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String, settings: I2cConnectionSettings) -> super::super::Foundation::IAsyncOperation<I2cDevice>;
             }

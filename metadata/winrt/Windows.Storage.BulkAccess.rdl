@@ -36,24 +36,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileInformationFactory)]
             interface IFileInformationFactory {
-                #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
+                #[overload(GetItemsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
-                #[Windows::Foundation::Metadata::Overload("GetItemsAsyncDefaultStartAndCount")]
+                #[overload(GetItemsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
-                #[Windows::Foundation::Metadata::Overload("GetFilesAsync")]
+                fn GetItemsAsyncDefaultStartAndCount(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
+                #[overload(GetFilesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFilesAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
-                #[Windows::Foundation::Metadata::Overload("GetFilesAsyncDefaultStartAndCount")]
+                #[overload(GetFilesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFilesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
-                #[Windows::Foundation::Metadata::Overload("GetFoldersAsync")]
+                fn GetFilesAsyncDefaultStartAndCount(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
+                #[overload(GetFoldersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFoldersAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
-                #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncDefaultStartAndCount")]
+                #[overload(GetFoldersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFoldersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
+                fn GetFoldersAsyncDefaultStartAndCount(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
                 fn GetVirtualizedItemsVector(&self) -> Object;
                 fn GetVirtualizedFilesVector(&self) -> Object;
                 fn GetVirtualizedFoldersVector(&self) -> Object;

@@ -572,6 +572,12 @@ impl Encoder<'_> {
             .is_some_and(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
     }
 
+    pub fn is_overload_attribute(&self, attr: &syn::Attribute) -> bool {
+        self.find_attribute_type(attr.path()).is_some_and(|info| {
+            &info.type_name == ("Windows.Foundation.Metadata", "OverloadAttribute")
+        })
+    }
+
     pub fn is_exclusive_to_attribute(&self, attr: &syn::Attribute) -> bool {
         self.find_attribute_type(attr.path()).is_some_and(|info| {
             &info.type_name == ("Windows.Foundation.Metadata", "ExclusiveToAttribute")
@@ -621,6 +627,10 @@ impl Encoder<'_> {
 
             if skip.iter().any(|s| path.is_ident(s)) {
                 continue;
+            }
+
+            if path.is_ident("overload") {
+                return self.err(attr, "`overload` is only supported on WinRT methods");
             }
 
             // A naturalized pseudo-attribute (short SAL/IDL spelling) maps to its metadata

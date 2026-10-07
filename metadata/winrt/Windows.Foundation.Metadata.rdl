@@ -184,19 +184,19 @@ mod Windows {
             #[ExclusiveTo(ApiInformation)]
             interface IApiInformationStatics {
                 fn IsTypePresent(&self, typeName: String) -> bool;
-                #[Overload("IsMethodPresent")]
+                #[overload(IsMethodPresent)]
                 fn IsMethodPresent(&self, typeName: String, methodName: String) -> bool;
-                #[Overload("IsMethodPresentWithArity")]
-                fn IsMethodPresent(&self, typeName: String, methodName: String, inputParameterCount: u32) -> bool;
+                #[overload(IsMethodPresent)]
+                fn IsMethodPresentWithArity(&self, typeName: String, methodName: String, inputParameterCount: u32) -> bool;
                 fn IsEventPresent(&self, typeName: String, eventName: String) -> bool;
                 fn IsPropertyPresent(&self, typeName: String, propertyName: String) -> bool;
                 fn IsReadOnlyPropertyPresent(&self, typeName: String, propertyName: String) -> bool;
                 fn IsWriteablePropertyPresent(&self, typeName: String, propertyName: String) -> bool;
                 fn IsEnumNamedValuePresent(&self, enumTypeName: String, valueName: String) -> bool;
-                #[Overload("IsApiContractPresentByMajor")]
-                fn IsApiContractPresent(&self, contractName: String, majorVersion: u16) -> bool;
-                #[Overload("IsApiContractPresentByMajorAndMinor")]
-                fn IsApiContractPresent(&self, contractName: String, majorVersion: u16, minorVersion: u16) -> bool;
+                #[overload(IsApiContractPresent)]
+                fn IsApiContractPresentByMajor(&self, contractName: String, majorVersion: u16) -> bool;
+                #[overload(IsApiContractPresent)]
+                fn IsApiContractPresentByMajorAndMinor(&self, contractName: String, majorVersion: u16, minorVersion: u16) -> bool;
             }
             #[AttributeUsage(ApiContract | Struct | RuntimeClass | Interface | Enum | Delegate)]
             #[ContractVersion(super::FoundationContract, 65536)]

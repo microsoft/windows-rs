@@ -103,10 +103,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 interface IXmlDocumentIO {
-                    #[Windows::Foundation::Metadata::Overload("LoadXml")]
+                    #[overload(LoadXml)]
                     fn LoadXml(&self, xml: String);
-                    #[Windows::Foundation::Metadata::Overload("LoadXmlWithSettings")]
-                    fn LoadXml(&self, xml: String, loadSettings: XmlLoadSettings);
+                    #[overload(LoadXml)]
+                    fn LoadXmlWithSettings(&self, xml: String, loadSettings: XmlLoadSettings);
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SaveToFileAsync(&self, file: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
                 }
@@ -114,27 +114,27 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 interface IXmlDocumentIO2 {
-                    #[Windows::Foundation::Metadata::Overload("LoadXmlFromBuffer")]
+                    #[overload(LoadXmlFromBuffer)]
                     fn LoadXmlFromBuffer(&self, buffer: super::super::super::Storage::Streams::IBuffer);
-                    #[Windows::Foundation::Metadata::Overload("LoadXmlFromBufferWithSettings")]
-                    fn LoadXmlFromBuffer(&self, buffer: super::super::super::Storage::Streams::IBuffer, loadSettings: XmlLoadSettings);
+                    #[overload(LoadXmlFromBuffer)]
+                    fn LoadXmlFromBufferWithSettings(&self, buffer: super::super::super::Storage::Streams::IBuffer, loadSettings: XmlLoadSettings);
                 }
                 #[guid(0x5543d254_d757_4b79_9539_232b18f50bf1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 interface IXmlDocumentStatics {
-                    #[Windows::Foundation::Metadata::Overload("LoadFromUriAsync")]
+                    #[overload(LoadFromUriAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadFromUriAsync(&self, uri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
-                    #[Windows::Foundation::Metadata::Overload("LoadFromUriWithSettingsAsync")]
+                    #[overload(LoadFromUriAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadFromUriAsync(&self, uri: super::super::super::Foundation::Uri, loadSettings: XmlLoadSettings) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
-                    #[Windows::Foundation::Metadata::Overload("LoadFromFileAsync")]
+                    fn LoadFromUriWithSettingsAsync(&self, uri: super::super::super::Foundation::Uri, loadSettings: XmlLoadSettings) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
+                    #[overload(LoadFromFileAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadFromFileAsync(&self, file: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
-                    #[Windows::Foundation::Metadata::Overload("LoadFromFileWithSettingsAsync")]
+                    #[overload(LoadFromFileAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadFromFileAsync(&self, file: super::super::super::Storage::IStorageFile, loadSettings: XmlLoadSettings) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
+                    fn LoadFromFileWithSettingsAsync(&self, file: super::super::super::Storage::IStorageFile, loadSettings: XmlLoadSettings) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
                 }
                 #[guid(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

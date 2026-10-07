@@ -54,18 +54,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IJsonObjectWithDefaultValues: IJsonObject + IJsonValue {
-                #[Windows::Foundation::Metadata::Overload("GetNamedValueOrDefault")]
-                fn GetNamedValue(&self, name: String, defaultValue: JsonValue) -> JsonValue;
-                #[Windows::Foundation::Metadata::Overload("GetNamedObjectOrDefault")]
-                fn GetNamedObject(&self, name: String, defaultValue: JsonObject) -> JsonObject;
-                #[Windows::Foundation::Metadata::Overload("GetNamedStringOrDefault")]
-                fn GetNamedString(&self, name: String, defaultValue: String) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetNamedArrayOrDefault")]
-                fn GetNamedArray(&self, name: String, defaultValue: JsonArray) -> JsonArray;
-                #[Windows::Foundation::Metadata::Overload("GetNamedNumberOrDefault")]
-                fn GetNamedNumber(&self, name: String, defaultValue: f64) -> f64;
-                #[Windows::Foundation::Metadata::Overload("GetNamedBooleanOrDefault")]
-                fn GetNamedBoolean(&self, name: String, defaultValue: bool) -> bool;
+                #[overload(GetNamedValue)]
+                fn GetNamedValueOrDefault(&self, name: String, defaultValue: JsonValue) -> JsonValue;
+                #[overload(GetNamedObject)]
+                fn GetNamedObjectOrDefault(&self, name: String, defaultValue: JsonObject) -> JsonObject;
+                #[overload(GetNamedString)]
+                fn GetNamedStringOrDefault(&self, name: String, defaultValue: String) -> String;
+                #[overload(GetNamedArray)]
+                fn GetNamedArrayOrDefault(&self, name: String, defaultValue: JsonArray) -> JsonArray;
+                #[overload(GetNamedNumber)]
+                fn GetNamedNumberOrDefault(&self, name: String, defaultValue: f64) -> f64;
+                #[overload(GetNamedBoolean)]
+                fn GetNamedBooleanOrDefault(&self, name: String, defaultValue: bool) -> bool;
             }
             #[guid(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

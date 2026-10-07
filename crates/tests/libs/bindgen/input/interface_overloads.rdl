@@ -1,0 +1,11 @@
+//! --filter Test --flat --implement
+#[winrt]
+mod Test {
+    interface IReader {
+        fn Read(&self) -> u32;
+        #[overload(Read)]
+        fn ReadWithOptions(&self, options: u32) -> u32;
+        #[overload(Read)]
+        fn Read3(&self, options: u32, count: u32) -> u32;
+    }
+}

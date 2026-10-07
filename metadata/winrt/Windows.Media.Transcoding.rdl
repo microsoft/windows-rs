@@ -22,14 +22,14 @@ mod Windows {
                 HardwareAccelerationEnabled: bool;
                 #[get]
                 HardwareAccelerationEnabled: bool;
-                #[Windows::Foundation::Metadata::Overload("AddAudioEffect")]
+                #[overload(AddAudioEffect)]
                 fn AddAudioEffect(&self, activatableClassId: String);
-                #[Windows::Foundation::Metadata::Overload("AddAudioEffectWithSettings")]
-                fn AddAudioEffect(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
-                #[Windows::Foundation::Metadata::Overload("AddVideoEffect")]
+                #[overload(AddAudioEffect)]
+                fn AddAudioEffectWithSettings(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
+                #[overload(AddVideoEffect)]
                 fn AddVideoEffect(&self, activatableClassId: String);
-                #[Windows::Foundation::Metadata::Overload("AddVideoEffectWithSettings")]
-                fn AddVideoEffect(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
+                #[overload(AddVideoEffect)]
+                fn AddVideoEffectWithSettings(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
                 fn ClearEffects(&self);
                 fn PrepareFileTranscodeAsync(&self, source: super::super::Storage::IStorageFile, destination: super::super::Storage::IStorageFile, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
                 fn PrepareStreamTranscodeAsync(&self, source: super::super::Storage::Streams::IRandomAccessStream, destination: super::super::Storage::Streams::IRandomAccessStream, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;

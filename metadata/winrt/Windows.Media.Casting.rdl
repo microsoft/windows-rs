@@ -132,10 +132,10 @@ mod Windows {
                 Appearance: super::super::Devices::Enumeration::DevicePickerAppearance;
                 event CastingDeviceSelected: super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>;
                 event CastingDevicePickerDismissed: super::super::Foundation::TypedEventHandler<CastingDevicePicker, Object>;
-                #[Windows::Foundation::Metadata::Overload("Show")]
+                #[overload(Show)]
                 fn Show(&self, selection: super::super::Foundation::Rect);
-                #[Windows::Foundation::Metadata::Overload("ShowWithPlacement")]
-                fn Show(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                #[overload(Show)]
+                fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
                 fn Hide(&self);
             }
             #[guid(0xbe8c619c_b563_4354_ae33_9fdaad8c6291)]

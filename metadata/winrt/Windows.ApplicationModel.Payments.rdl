@@ -105,12 +105,12 @@ mod Windows {
             interface IPaymentMediator {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSupportedMethodIdsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
-                #[Windows::Foundation::Metadata::Overload("SubmitPaymentRequestAsync")]
+                #[overload(SubmitPaymentRequestAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SubmitPaymentRequestAsync(&self, paymentRequest: PaymentRequest) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
-                #[Windows::Foundation::Metadata::Overload("SubmitPaymentRequestWithChangeHandlerAsync")]
+                #[overload(SubmitPaymentRequestAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SubmitPaymentRequestAsync(&self, paymentRequest: PaymentRequest, changeHandler: PaymentRequestChangedHandler) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
+                fn SubmitPaymentRequestWithChangeHandlerAsync(&self, paymentRequest: PaymentRequest, changeHandler: PaymentRequestChangedHandler) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
             }
             #[guid(0xceef98f1_e407_4128_8e73_d93d5f822786)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]

@@ -29,11 +29,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn AttachAsync(&self) -> super::Foundation::IAsyncAction;
             fn Delete(&self);
-            #[Windows::Foundation::Metadata::Overload("StartAsync")]
+            #[overload(StartAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn StartAsync(&self) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("StartWithAlertsAsync")]
-            fn StartAsync(&self, alerts: super::Foundation::Collections::IIterable<MdmAlert>) -> super::Foundation::IAsyncAction;
+            #[overload(StartAsync)]
+            fn StartWithAlertsAsync(&self, alerts: super::Foundation::Collections::IIterable<MdmAlert>) -> super::Foundation::IAsyncAction;
         }
         #[guid(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]

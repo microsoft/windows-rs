@@ -7,15 +7,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPool)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IThreadPoolStatics {
-                #[Windows::Foundation::Metadata::Overload("RunAsync")]
+                #[overload(RunAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RunAsync(&self, handler: WorkItemHandler) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("RunWithPriorityAsync")]
+                #[overload(RunAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RunAsync(&self, handler: WorkItemHandler, priority: WorkItemPriority) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("RunWithPriorityAndOptionsAsync")]
+                fn RunWithPriorityAsync(&self, handler: WorkItemHandler, priority: WorkItemPriority) -> super::super::Foundation::IAsyncAction;
+                #[overload(RunAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RunAsync(&self, handler: WorkItemHandler, priority: WorkItemPriority, options: WorkItemOptions) -> super::super::Foundation::IAsyncAction;
+                fn RunWithPriorityAndOptionsAsync(&self, handler: WorkItemHandler, priority: WorkItemPriority, options: WorkItemOptions) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -33,14 +33,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPoolTimer)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IThreadPoolTimerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreatePeriodicTimer")]
+                #[overload(CreatePeriodicTimer)]
                 fn CreatePeriodicTimer(&self, handler: TimerElapsedHandler, period: super::super::Foundation::TimeSpan) -> ThreadPoolTimer;
-                #[Windows::Foundation::Metadata::Overload("CreateTimer")]
+                #[overload(CreateTimer)]
                 fn CreateTimer(&self, handler: TimerElapsedHandler, delay: super::super::Foundation::TimeSpan) -> ThreadPoolTimer;
-                #[Windows::Foundation::Metadata::Overload("CreatePeriodicTimerWithCompletion")]
-                fn CreatePeriodicTimer(&self, handler: TimerElapsedHandler, period: super::super::Foundation::TimeSpan, destroyed: TimerDestroyedHandler) -> ThreadPoolTimer;
-                #[Windows::Foundation::Metadata::Overload("CreateTimerWithCompletion")]
-                fn CreateTimer(&self, handler: TimerElapsedHandler, delay: super::super::Foundation::TimeSpan, destroyed: TimerDestroyedHandler) -> ThreadPoolTimer;
+                #[overload(CreatePeriodicTimer)]
+                fn CreatePeriodicTimerWithCompletion(&self, handler: TimerElapsedHandler, period: super::super::Foundation::TimeSpan, destroyed: TimerDestroyedHandler) -> ThreadPoolTimer;
+                #[overload(CreateTimer)]
+                fn CreateTimerWithCompletion(&self, handler: TimerElapsedHandler, delay: super::super::Foundation::TimeSpan, destroyed: TimerDestroyedHandler) -> ThreadPoolTimer;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

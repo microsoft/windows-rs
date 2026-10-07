@@ -122,19 +122,19 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetThumbnailAsync(&self, timeFromStart: super::super::Foundation::TimeSpan, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>;
                 fn GetThumbnailsAsync(&self, timesFromStart: super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>;
-                #[Windows::Foundation::Metadata::Overload("RenderToFileAsync")]
+                #[overload(RenderToFileAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
-                #[Windows::Foundation::Metadata::Overload("RenderToFileWithTrimmingPreferenceAsync")]
+                #[overload(RenderToFileAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
-                #[Windows::Foundation::Metadata::Overload("RenderToFileWithProfileAsync")]
-                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                fn RenderToFileWithTrimmingPreferenceAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                #[overload(RenderToFileAsync)]
+                fn RenderToFileWithProfileAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
                 fn CreateDefaultEncodingProfile(&self) -> super::MediaProperties::MediaEncodingProfile;
-                #[Windows::Foundation::Metadata::Overload("GenerateMediaStreamSource")]
+                #[overload(GenerateMediaStreamSource)]
                 fn GenerateMediaStreamSource(&self) -> super::Core::MediaStreamSource;
-                #[Windows::Foundation::Metadata::Overload("GenerateMediaStreamSourceWithProfile")]
-                fn GenerateMediaStreamSource(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::Core::MediaStreamSource;
+                #[overload(GenerateMediaStreamSource)]
+                fn GenerateMediaStreamSourceWithProfile(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::Core::MediaStreamSource;
                 fn GeneratePreviewMediaStreamSource(&self, scaledWidth: i32, scaledHeight: i32) -> super::Core::MediaStreamSource;
             }
             #[guid(0xa59e5372_2366_492c_bec8_e6dfba6d0281)]

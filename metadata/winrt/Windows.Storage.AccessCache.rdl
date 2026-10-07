@@ -48,26 +48,26 @@ mod Windows {
             #[guid(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IStorageItemAccessList {
-                #[Windows::Foundation::Metadata::Overload("AddOverloadDefaultMetadata")]
-                fn Add(&self, file: super::IStorageItem) -> String;
-                #[Windows::Foundation::Metadata::Overload("Add")]
+                #[overload(Add)]
+                fn AddOverloadDefaultMetadata(&self, file: super::IStorageItem) -> String;
+                #[overload(Add)]
                 fn Add(&self, file: super::IStorageItem, metadata: String) -> String;
-                #[Windows::Foundation::Metadata::Overload("AddOrReplaceOverloadDefaultMetadata")]
-                fn AddOrReplace(&self, token: String, file: super::IStorageItem);
-                #[Windows::Foundation::Metadata::Overload("AddOrReplace")]
+                #[overload(AddOrReplace)]
+                fn AddOrReplaceOverloadDefaultMetadata(&self, token: String, file: super::IStorageItem);
+                #[overload(AddOrReplace)]
                 fn AddOrReplace(&self, token: String, file: super::IStorageItem, metadata: String);
-                #[Windows::Foundation::Metadata::Overload("GetItemAsync")]
+                #[overload(GetItemAsync)]
                 fn GetItemAsync(&self, token: String) -> super::super::Foundation::IAsyncOperation<super::IStorageItem>;
-                #[Windows::Foundation::Metadata::Overload("GetFileAsync")]
+                #[overload(GetFileAsync)]
                 fn GetFileAsync(&self, token: String) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
-                #[Windows::Foundation::Metadata::Overload("GetFolderAsync")]
+                #[overload(GetFolderAsync)]
                 fn GetFolderAsync(&self, token: String) -> super::super::Foundation::IAsyncOperation<super::StorageFolder>;
-                #[Windows::Foundation::Metadata::Overload("GetItemWithOptionsAsync")]
-                fn GetItemAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::IStorageItem>;
-                #[Windows::Foundation::Metadata::Overload("GetFileWithOptionsAsync")]
-                fn GetFileAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
-                #[Windows::Foundation::Metadata::Overload("GetFolderWithOptionsAsync")]
-                fn GetFolderAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::StorageFolder>;
+                #[overload(GetItemAsync)]
+                fn GetItemWithOptionsAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::IStorageItem>;
+                #[overload(GetFileAsync)]
+                fn GetFileWithOptionsAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+                #[overload(GetFolderAsync)]
+                fn GetFolderWithOptionsAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::StorageFolder>;
                 fn Remove(&self, token: String);
                 fn ContainsItem(&self, token: String) -> bool;
                 fn Clear(&self);
@@ -87,10 +87,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemMostRecentlyUsedList)]
             interface IStorageItemMostRecentlyUsedList2: IStorageItemMostRecentlyUsedList + IStorageItemAccessList {
-                #[Windows::Foundation::Metadata::Overload("AddWithMetadataAndVisibility")]
-                fn Add(&self, file: super::IStorageItem, metadata: String, visibility: RecentStorageItemVisibility) -> String;
-                #[Windows::Foundation::Metadata::Overload("AddOrReplaceWithMetadataAndVisibility")]
-                fn AddOrReplace(&self, token: String, file: super::IStorageItem, metadata: String, visibility: RecentStorageItemVisibility);
+                #[overload(Add)]
+                fn AddWithMetadataAndVisibility(&self, file: super::IStorageItem, metadata: String, visibility: RecentStorageItemVisibility) -> String;
+                #[overload(AddOrReplace)]
+                fn AddOrReplaceWithMetadataAndVisibility(&self, token: String, file: super::IStorageItem, metadata: String, visibility: RecentStorageItemVisibility);
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class ItemRemovedEventArgs {

@@ -1,0 +1,20 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Test {
+    interface IReader {
+        fn Read(&self) -> u32;
+        #[Overload("ReadWithOptions")]
+        fn Read(&self, options: u32) -> u32;
+        #[Overload("Read3")]
+        fn Read(&self, options: u32, count: u32) -> u32;
+        #[Overload("Bind")]
+        fn Bind(&self, value: i32);
+        #[Overload("FromInt")]
+        fn Convert(&self, value: i32) -> u32;
+        #[Overload("FromString")]
+        fn Convert(&self, value: String) -> u32;
+        #[Overload("match")]
+        fn r#type(&self);
+    }
+}

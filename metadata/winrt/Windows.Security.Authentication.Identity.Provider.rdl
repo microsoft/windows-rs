@@ -89,14 +89,14 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorDevicePresenceMonitoringRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorRegistration)]
                     interface ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
+                        #[overload(RegisterDevicePresenceMonitoringAsync)]
                         #[Windows::Foundation::Metadata::Deprecated("RegisterDevicePresenceMonitoringAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
-                        #[Windows::Foundation::Metadata::Overload("RegisterDevicePresenceMonitoringAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn RegisterDevicePresenceMonitoringAsync(&self, deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
+                        #[overload(RegisterDevicePresenceMonitoringAsync)]
                         #[Windows::Foundation::Metadata::Deprecated("RegisterDevicePresenceMonitoringWithNewDeviceAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
-                        #[Windows::Foundation::Metadata::Overload("RegisterDevicePresenceMonitoringWithNewDeviceAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn RegisterDevicePresenceMonitoringAsync(&self, deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, deviceFriendlyName: String, deviceModelNumber: String, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
+                        fn RegisterDevicePresenceMonitoringWithNewDeviceAsync(&self, deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, deviceFriendlyName: String, deviceModelNumber: String, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
                         #[Windows::Foundation::Metadata::Deprecated("UnregisterDevicePresenceMonitoringAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn UnregisterDevicePresenceMonitoringAsync(&self, deviceId: String) -> super::super::super::super::Foundation::IAsyncAction;

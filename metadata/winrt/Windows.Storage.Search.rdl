@@ -75,18 +75,18 @@ mod Windows {
             interface IContentIndexerQuery {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCountAsync(&self) -> super::super::Foundation::IAsyncOperation<u32>;
-                #[Windows::Foundation::Metadata::Overload("GetPropertiesAsync")]
+                #[overload(GetPropertiesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<String, Object>>>;
-                #[Windows::Foundation::Metadata::Overload("GetPropertiesRangeAsync")]
+                #[overload(GetPropertiesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetPropertiesAsync(&self, startIndex: u32, maxItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<String, Object>>>;
-                #[Windows::Foundation::Metadata::Overload("GetAsync")]
+                fn GetPropertiesRangeAsync(&self, startIndex: u32, maxItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<String, Object>>>;
+                #[overload(GetAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>;
-                #[Windows::Foundation::Metadata::Overload("GetRangeAsync")]
+                #[overload(GetAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAsync(&self, startIndex: u32, maxItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>;
+                fn GetRangeAsync(&self, startIndex: u32, maxItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>;
                 #[get]
                 QueryFolder: super::StorageFolder;
             }
@@ -94,20 +94,20 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContentIndexer)]
             interface IContentIndexerQueryOperations {
-                #[Windows::Foundation::Metadata::Overload("CreateQueryWithSortOrderAndLanguage")]
-                fn CreateQuery(&self, searchFilter: String, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>, sortOrder: super::super::Foundation::Collections::IIterable<SortEntry>, searchFilterLanguage: String) -> ContentIndexerQuery;
-                #[Windows::Foundation::Metadata::Overload("CreateQueryWithSortOrder")]
-                fn CreateQuery(&self, searchFilter: String, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>, sortOrder: super::super::Foundation::Collections::IIterable<SortEntry>) -> ContentIndexerQuery;
-                #[Windows::Foundation::Metadata::Overload("CreateQuery")]
+                #[overload(CreateQuery)]
+                fn CreateQueryWithSortOrderAndLanguage(&self, searchFilter: String, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>, sortOrder: super::super::Foundation::Collections::IIterable<SortEntry>, searchFilterLanguage: String) -> ContentIndexerQuery;
+                #[overload(CreateQuery)]
+                fn CreateQueryWithSortOrder(&self, searchFilter: String, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>, sortOrder: super::super::Foundation::Collections::IIterable<SortEntry>) -> ContentIndexerQuery;
+                #[overload(CreateQuery)]
                 fn CreateQuery(&self, searchFilter: String, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> ContentIndexerQuery;
             }
             #[guid(0x8c488375_b37e_4c60_9ba8_b760fda3e59d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContentIndexer)]
             interface IContentIndexerStatics {
-                #[Windows::Foundation::Metadata::Overload("GetIndexerWithName")]
-                fn GetIndexer(&self, indexName: String) -> ContentIndexer;
-                #[Windows::Foundation::Metadata::Overload("GetIndexer")]
+                #[overload(GetIndexer)]
+                fn GetIndexerWithName(&self, indexName: String) -> ContentIndexer;
+                #[overload(GetIndexer)]
                 fn GetIndexer(&self) -> ContentIndexer;
             }
             #[guid(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4)]
@@ -167,12 +167,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageFileQueryResult)]
             interface IStorageFileQueryResult: IStorageQueryResultBase {
-                #[Windows::Foundation::Metadata::Overload("GetFilesAsync")]
+                #[overload(GetFilesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFilesAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
-                #[Windows::Foundation::Metadata::Overload("GetFilesAsyncDefaultStartAndCount")]
+                #[overload(GetFilesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFilesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
+                fn GetFilesAsyncDefaultStartAndCount(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
             }
             #[guid(0x4e5db9dd_7141_46c4_8be3_e9dc9e27275c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -185,31 +185,31 @@ mod Windows {
             interface IStorageFolderQueryOperations {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetIndexedStateAsync(&self) -> super::super::Foundation::IAsyncOperation<IndexedState>;
-                #[Windows::Foundation::Metadata::Overload("CreateFileQueryOverloadDefault")]
-                fn CreateFileQuery(&self) -> StorageFileQueryResult;
-                #[Windows::Foundation::Metadata::Overload("CreateFileQuery")]
+                #[overload(CreateFileQuery)]
+                fn CreateFileQueryOverloadDefault(&self) -> StorageFileQueryResult;
+                #[overload(CreateFileQuery)]
                 fn CreateFileQuery(&self, query: CommonFileQuery) -> StorageFileQueryResult;
                 fn CreateFileQueryWithOptions(&self, queryOptions: QueryOptions) -> StorageFileQueryResult;
-                #[Windows::Foundation::Metadata::Overload("CreateFolderQueryOverloadDefault")]
-                fn CreateFolderQuery(&self) -> StorageFolderQueryResult;
-                #[Windows::Foundation::Metadata::Overload("CreateFolderQuery")]
+                #[overload(CreateFolderQuery)]
+                fn CreateFolderQueryOverloadDefault(&self) -> StorageFolderQueryResult;
+                #[overload(CreateFolderQuery)]
                 fn CreateFolderQuery(&self, query: CommonFolderQuery) -> StorageFolderQueryResult;
                 fn CreateFolderQueryWithOptions(&self, queryOptions: QueryOptions) -> StorageFolderQueryResult;
                 fn CreateItemQuery(&self) -> StorageItemQueryResult;
                 fn CreateItemQueryWithOptions(&self, queryOptions: QueryOptions) -> StorageItemQueryResult;
-                #[Windows::Foundation::Metadata::Overload("GetFilesAsync")]
+                #[overload(GetFilesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFilesAsync(&self, query: CommonFileQuery, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
-                #[Windows::Foundation::Metadata::Overload("GetFilesAsyncOverloadDefaultStartAndCount")]
+                #[overload(GetFilesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFilesAsync(&self, query: CommonFileQuery) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
-                #[Windows::Foundation::Metadata::Overload("GetFoldersAsync")]
+                fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
+                #[overload(GetFoldersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
-                #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncOverloadDefaultStartAndCount")]
+                #[overload(GetFoldersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFoldersAsync(&self, query: CommonFolderQuery) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
-                #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
+                fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
+                #[overload(GetItemsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>;
                 fn AreQueryOptionsSupported(&self, queryOptions: QueryOptions) -> bool;
@@ -220,23 +220,23 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageFolderQueryResult)]
             interface IStorageFolderQueryResult: IStorageQueryResultBase {
-                #[Windows::Foundation::Metadata::Overload("GetFoldersAsync")]
+                #[overload(GetFoldersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFoldersAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
-                #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncDefaultStartAndCount")]
+                #[overload(GetFoldersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFoldersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
+                fn GetFoldersAsyncDefaultStartAndCount(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
             }
             #[guid(0xe8948079_9d58_47b8_b2b2_41b07f4795f9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemQueryResult)]
             interface IStorageItemQueryResult: IStorageQueryResultBase {
-                #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
+                #[overload(GetItemsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetItemsAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>;
-                #[Windows::Foundation::Metadata::Overload("GetItemsAsyncDefaultStartAndCount")]
+                #[overload(GetItemsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>;
+                fn GetItemsAsyncDefaultStartAndCount(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>;
             }
             #[guid(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

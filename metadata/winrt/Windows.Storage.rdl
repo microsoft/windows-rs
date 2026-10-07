@@ -141,10 +141,10 @@ mod Windows {
             Version: u32;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn SetVersionAsync(&self, desiredVersion: u32, handler: ApplicationDataSetVersionHandler) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("ClearAllAsync")]
+            #[overload(ClearAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn ClearAsync(&self) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("ClearAsync")]
+            fn ClearAllAsync(&self) -> super::Foundation::IAsyncAction;
+            #[overload(ClearAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn ClearAsync(&self, locality: ApplicationDataLocality) -> super::Foundation::IAsyncAction;
             #[get]
@@ -219,72 +219,72 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(DownloadsFolder)]
         interface IDownloadsFolderStatics {
-            #[Windows::Foundation::Metadata::Overload("CreateFileAsync")]
+            #[overload(CreateFileAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CreateFileAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CreateFolderAsync")]
+            #[overload(CreateFolderAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CreateFolderAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
-            #[Windows::Foundation::Metadata::Overload("CreateFileWithCollisionOptionAsync")]
+            #[overload(CreateFileAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CreateFileAsync(&self, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CreateFolderWithCollisionOptionAsync")]
+            fn CreateFileWithCollisionOptionAsync(&self, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[overload(CreateFolderAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CreateFolderAsync(&self, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            fn CreateFolderWithCollisionOptionAsync(&self, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
         }
         #[guid(0xe93045bd_8ef8_4f8e_8d15_ac0e265f390d)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
         #[Windows::Foundation::Metadata::ExclusiveTo(DownloadsFolder)]
         interface IDownloadsFolderStatics2 {
-            #[Windows::Foundation::Metadata::Overload("CreateFileForUserAsync")]
+            #[overload(CreateFileForUserAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CreateFileForUserAsync(&self, user: super::System::User, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CreateFolderForUserAsync")]
+            #[overload(CreateFolderForUserAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CreateFolderForUserAsync(&self, user: super::System::User, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
-            #[Windows::Foundation::Metadata::Overload("CreateFileForUserWithCollisionOptionAsync")]
+            #[overload(CreateFileForUserAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CreateFileForUserAsync(&self, user: super::System::User, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CreateFolderForUserWithCollisionOptionAsync")]
+            fn CreateFileForUserWithCollisionOptionAsync(&self, user: super::System::User, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[overload(CreateFolderForUserAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CreateFolderForUserAsync(&self, user: super::System::User, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            fn CreateFolderForUserWithCollisionOptionAsync(&self, user: super::System::User, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
         }
         #[guid(0x887411eb_7f54_4732_a5f0_5e43e3b8c2f5)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(FileIO)]
         interface IFileIOStatics {
-            #[Windows::Foundation::Metadata::Overload("ReadTextAsync")]
+            #[overload(ReadTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn ReadTextAsync(&self, file: IStorageFile) -> super::Foundation::IAsyncOperation<String>;
-            #[Windows::Foundation::Metadata::Overload("ReadTextWithEncodingAsync")]
+            #[overload(ReadTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn ReadTextAsync(&self, file: IStorageFile, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<String>;
-            #[Windows::Foundation::Metadata::Overload("WriteTextAsync")]
+            fn ReadTextWithEncodingAsync(&self, file: IStorageFile, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<String>;
+            #[overload(WriteTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn WriteTextAsync(&self, file: IStorageFile, contents: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("WriteTextWithEncodingAsync")]
+            #[overload(WriteTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn WriteTextAsync(&self, file: IStorageFile, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendTextAsync")]
+            fn WriteTextWithEncodingAsync(&self, file: IStorageFile, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(AppendTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn AppendTextAsync(&self, file: IStorageFile, contents: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendTextWithEncodingAsync")]
+            #[overload(AppendTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn AppendTextAsync(&self, file: IStorageFile, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("ReadLinesAsync")]
+            fn AppendTextWithEncodingAsync(&self, file: IStorageFile, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(ReadLinesAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn ReadLinesAsync(&self, file: IStorageFile) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
-            #[Windows::Foundation::Metadata::Overload("ReadLinesWithEncodingAsync")]
+            #[overload(ReadLinesAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn ReadLinesAsync(&self, file: IStorageFile, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
-            #[Windows::Foundation::Metadata::Overload("WriteLinesAsync")]
+            fn ReadLinesWithEncodingAsync(&self, file: IStorageFile, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
+            #[overload(WriteLinesAsync)]
             fn WriteLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("WriteLinesWithEncodingAsync")]
-            fn WriteLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendLinesAsync")]
+            #[overload(WriteLinesAsync)]
+            fn WriteLinesWithEncodingAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(AppendLinesAsync)]
             fn AppendLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendLinesWithEncodingAsync")]
-            fn AppendLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(AppendLinesAsync)]
+            fn AppendLinesWithEncodingAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn ReadBufferAsync(&self, file: IStorageFile) -> super::Foundation::IAsyncOperation<Streams::IBuffer>;
             #[Windows::Foundation::Metadata::RemoteAsync]
@@ -365,38 +365,38 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(PathIO)]
         interface IPathIOStatics {
-            #[Windows::Foundation::Metadata::Overload("ReadTextAsync")]
+            #[overload(ReadTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn ReadTextAsync(&self, absolutePath: String) -> super::Foundation::IAsyncOperation<String>;
-            #[Windows::Foundation::Metadata::Overload("ReadTextWithEncodingAsync")]
+            #[overload(ReadTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn ReadTextAsync(&self, absolutePath: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<String>;
-            #[Windows::Foundation::Metadata::Overload("WriteTextAsync")]
+            fn ReadTextWithEncodingAsync(&self, absolutePath: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<String>;
+            #[overload(WriteTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn WriteTextAsync(&self, absolutePath: String, contents: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("WriteTextWithEncodingAsync")]
+            #[overload(WriteTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn WriteTextAsync(&self, absolutePath: String, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendTextAsync")]
+            fn WriteTextWithEncodingAsync(&self, absolutePath: String, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(AppendTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn AppendTextAsync(&self, absolutePath: String, contents: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendTextWithEncodingAsync")]
+            #[overload(AppendTextAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn AppendTextAsync(&self, absolutePath: String, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("ReadLinesAsync")]
+            fn AppendTextWithEncodingAsync(&self, absolutePath: String, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(ReadLinesAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn ReadLinesAsync(&self, absolutePath: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
-            #[Windows::Foundation::Metadata::Overload("ReadLinesWithEncodingAsync")]
+            #[overload(ReadLinesAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn ReadLinesAsync(&self, absolutePath: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
-            #[Windows::Foundation::Metadata::Overload("WriteLinesAsync")]
+            fn ReadLinesWithEncodingAsync(&self, absolutePath: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
+            #[overload(WriteLinesAsync)]
             fn WriteLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("WriteLinesWithEncodingAsync")]
-            fn WriteLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendLinesAsync")]
+            #[overload(WriteLinesAsync)]
+            fn WriteLinesWithEncodingAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(AppendLinesAsync)]
             fn AppendLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("AppendLinesWithEncodingAsync")]
-            fn AppendLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[overload(AppendLinesAsync)]
+            fn AppendLinesWithEncodingAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn ReadBufferAsync(&self, absolutePath: String) -> super::Foundation::IAsyncOperation<Streams::IBuffer>;
             #[Windows::Foundation::Metadata::RemoteAsync]
@@ -431,38 +431,38 @@ mod Windows {
             fn OpenAsync(&self, accessMode: FileAccessMode) -> super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn OpenTransactedWriteAsync(&self) -> super::Foundation::IAsyncOperation<StorageStreamTransaction>;
-            #[Windows::Foundation::Metadata::Overload("CopyOverloadDefaultNameAndOptions")]
+            #[overload(CopyAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CopyAsync(&self, destinationFolder: IStorageFolder) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CopyOverloadDefaultOptions")]
+            fn CopyOverloadDefaultNameAndOptions(&self, destinationFolder: IStorageFolder) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[overload(CopyAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CopyAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CopyOverload")]
+            fn CopyOverloadDefaultOptions(&self, destinationFolder: IStorageFolder, desiredNewName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[overload(CopyAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CopyAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
+            fn CopyOverload(&self, destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CopyAndReplaceAsync(&self, fileToReplace: IStorageFile) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("MoveOverloadDefaultNameAndOptions")]
+            #[overload(MoveAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn MoveAsync(&self, destinationFolder: IStorageFolder) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("MoveOverloadDefaultOptions")]
+            fn MoveOverloadDefaultNameAndOptions(&self, destinationFolder: IStorageFolder) -> super::Foundation::IAsyncAction;
+            #[overload(MoveAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn MoveAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("MoveOverload")]
+            fn MoveOverloadDefaultOptions(&self, destinationFolder: IStorageFolder, desiredNewName: String) -> super::Foundation::IAsyncAction;
+            #[overload(MoveAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn MoveAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption) -> super::Foundation::IAsyncAction;
+            fn MoveOverload(&self, destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption) -> super::Foundation::IAsyncAction;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn MoveAndReplaceAsync(&self, fileToReplace: IStorageFile) -> super::Foundation::IAsyncAction;
         }
         #[guid(0x954e4bcf_0a77_42fb_b777_c2ed58a52e44)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         interface IStorageFile2 {
-            #[Windows::Foundation::Metadata::Overload("OpenWithOptionsAsync")]
+            #[overload(OpenAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn OpenAsync(&self, accessMode: FileAccessMode, options: StorageOpenOptions) -> super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>;
-            #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteWithOptionsAsync")]
+            fn OpenWithOptionsAsync(&self, accessMode: FileAccessMode, options: StorageOpenOptions) -> super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>;
+            #[overload(OpenTransactedWriteAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn OpenTransactedWriteAsync(&self, options: StorageOpenOptions) -> super::Foundation::IAsyncOperation<StorageStreamTransaction>;
+            fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> super::Foundation::IAsyncOperation<StorageStreamTransaction>;
         }
         #[guid(0xafcbbe9b_582b_4133_9648_e44ca46ee491)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -497,16 +497,16 @@ mod Windows {
         #[guid(0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         interface IStorageFolder: IStorageItem {
-            #[Windows::Foundation::Metadata::Overload("CreateFileAsyncOverloadDefaultOptions")]
+            #[overload(CreateFileAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CreateFileAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CreateFileAsync")]
+            fn CreateFileAsyncOverloadDefaultOptions(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[overload(CreateFileAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CreateFileAsync(&self, desiredName: String, options: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
-            #[Windows::Foundation::Metadata::Overload("CreateFolderAsyncOverloadDefaultOptions")]
+            #[overload(CreateFolderAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CreateFolderAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
-            #[Windows::Foundation::Metadata::Overload("CreateFolderAsync")]
+            fn CreateFolderAsyncOverloadDefaultOptions(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            #[overload(CreateFolderAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CreateFolderAsync(&self, desiredName: String, options: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
             #[Windows::Foundation::Metadata::RemoteAsync]
@@ -515,15 +515,15 @@ mod Windows {
             fn GetFolderAsync(&self, name: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn GetItemAsync(&self, name: String) -> super::Foundation::IAsyncOperation<IStorageItem>;
-            #[Windows::Foundation::Metadata::Overload("GetFilesAsyncOverloadDefaultOptionsStartAndCount")]
+            #[overload(GetFilesAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn GetFilesAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>;
-            #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncOverloadDefaultOptionsStartAndCount")]
+            fn GetFilesAsyncOverloadDefaultOptionsStartAndCount(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>;
+            #[overload(GetFoldersAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn GetFoldersAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>;
-            #[Windows::Foundation::Metadata::Overload("GetItemsAsyncOverloadDefaultStartAndCount")]
+            fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>;
+            #[overload(GetItemsAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn GetItemsAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>;
+            fn GetItemsAsyncOverloadDefaultStartAndCount(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>;
         }
         #[guid(0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -554,16 +554,16 @@ mod Windows {
         #[guid(0x4207a996_ca2f_42f7_bde8_8b10457a7f30)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         interface IStorageItem {
-            #[Windows::Foundation::Metadata::Overload("RenameAsyncOverloadDefaultOptions")]
+            #[overload(RenameAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn RenameAsync(&self, desiredName: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("RenameAsync")]
+            fn RenameAsyncOverloadDefaultOptions(&self, desiredName: String) -> super::Foundation::IAsyncAction;
+            #[overload(RenameAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn RenameAsync(&self, desiredName: String, option: NameCollisionOption) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("DeleteAsyncOverloadDefaultOptions")]
+            #[overload(DeleteAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn DeleteAsync(&self) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("DeleteAsync")]
+            fn DeleteAsyncOverloadDefaultOptions(&self) -> super::Foundation::IAsyncAction;
+            #[overload(DeleteAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn DeleteAsync(&self, option: StorageDeleteOption) -> super::Foundation::IAsyncAction;
             #[Windows::Foundation::Metadata::RemoteAsync]
@@ -588,13 +588,13 @@ mod Windows {
         #[guid(0x86664478_8029_46fe_a789_1c2f3e2ffb5c)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         interface IStorageItemProperties {
-            #[Windows::Foundation::Metadata::Overload("GetThumbnailAsyncOverloadDefaultSizeDefaultOptions")]
+            #[overload(GetThumbnailAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
-            #[Windows::Foundation::Metadata::Overload("GetThumbnailAsyncOverloadDefaultOptions")]
+            fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[overload(GetThumbnailAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
-            #[Windows::Foundation::Metadata::Overload("GetThumbnailAsync")]
+            fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[overload(GetThumbnailAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32, options: FileProperties::ThumbnailOptions) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
             #[get]
@@ -609,13 +609,13 @@ mod Windows {
         #[guid(0x8e86a951_04b9_4bd2_929d_fef3f71621d0)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         interface IStorageItemProperties2: IStorageItemProperties {
-            #[Windows::Foundation::Metadata::Overload("GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions")]
+            #[overload(GetScaledImageAsThumbnailAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
-            #[Windows::Foundation::Metadata::Overload("GetScaledImageAsThumbnailAsyncOverloadDefaultOptions")]
+            fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[overload(GetScaledImageAsThumbnailAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
-            #[Windows::Foundation::Metadata::Overload("GetScaledImageAsThumbnailAsync")]
+            fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[overload(GetScaledImageAsThumbnailAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32, options: FileProperties::ThumbnailOptions) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
         }
@@ -692,8 +692,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
         #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeTracker)]
         interface IStorageLibraryChangeTracker2 {
-            #[Windows::Foundation::Metadata::Overload("EnableWithOptions")]
-            fn Enable(&self, options: StorageLibraryChangeTrackerOptions);
+            #[overload(Enable)]
+            fn EnableWithOptions(&self, options: StorageLibraryChangeTrackerOptions);
             fn Disable(&self);
         }
         #[guid(0xbb52bcd4_1a6d_59c0_ad2a_823a20532483)]

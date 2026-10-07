@@ -143,14 +143,14 @@ mod Windows {
                 event DialDeviceSelected: super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs>;
                 event DisconnectButtonClicked: super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs>;
                 event DialDevicePickerDismissed: super::super::Foundation::TypedEventHandler<DialDevicePicker, Object>;
-                #[Windows::Foundation::Metadata::Overload("Show")]
+                #[overload(Show)]
                 fn Show(&self, selection: super::super::Foundation::Rect);
-                #[Windows::Foundation::Metadata::Overload("ShowWithPlacement")]
-                fn Show(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
-                #[Windows::Foundation::Metadata::Overload("PickSingleDialDeviceAsync")]
+                #[overload(Show)]
+                fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                #[overload(PickSingleDialDeviceAsync)]
                 fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<DialDevice>;
-                #[Windows::Foundation::Metadata::Overload("PickSingleDialDeviceAsyncWithPlacement")]
-                fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<DialDevice>;
+                #[overload(PickSingleDialDeviceAsync)]
+                fn PickSingleDialDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<DialDevice>;
                 fn Hide(&self);
                 fn SetDisplayStatus(&self, device: DialDevice, status: DialDeviceDisplayStatus);
             }

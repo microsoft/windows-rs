@@ -167,12 +167,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationCoreManagerHelper)]
                 interface IWebAuthenticationCoreManagerHelper {
-                    #[Windows::Foundation::Metadata::Overload("RequestTokenWithUIElementHostingAsync")]
+                    #[overload(RequestTokenWithUIElementHostingAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestTokenWithUIElementHostingAsync(&self, request: super::super::super::Security::Authentication::Web::Core::WebTokenRequest, uiElement: super::super::super::UI::Xaml::UIElement) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>;
-                    #[Windows::Foundation::Metadata::Overload("RequestTokenWithUIElementHostingAndWebAccountAsync")]
+                    #[overload(RequestTokenWithUIElementHostingAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestTokenWithUIElementHostingAsync(&self, request: super::super::super::Security::Authentication::Web::Core::WebTokenRequest, webAccount: super::super::super::Security::Credentials::WebAccount, uiElement: super::super::super::UI::Xaml::UIElement) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>;
+                    fn RequestTokenWithUIElementHostingAndWebAccountAsync(&self, request: super::super::super::Security::Authentication::Web::Core::WebTokenRequest, webAccount: super::super::super::Security::Credentials::WebAccount, uiElement: super::super::super::UI::Xaml::UIElement) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics, 65536, "Windows.Foundation.UniversalApiContract")]

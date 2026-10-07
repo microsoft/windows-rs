@@ -150,31 +150,31 @@ mod Windows {
                 Information: DatagramSocketInformation;
                 #[get]
                 OutputStream: super::super::Storage::Streams::IOutputStream;
-                #[Windows::Foundation::Metadata::Overload("ConnectAsync")]
+                #[overload(ConnectAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConnectAsync(&self, remoteHostName: super::HostName, remoteServiceName: String) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ConnectWithEndpointPairAsync")]
-                fn ConnectAsync(&self, endpointPair: super::EndpointPair) -> super::super::Foundation::IAsyncAction;
+                #[overload(ConnectAsync)]
+                fn ConnectWithEndpointPairAsync(&self, endpointPair: super::EndpointPair) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn BindServiceNameAsync(&self, localServiceName: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn BindEndpointAsync(&self, localHostName: super::HostName, localServiceName: String) -> super::super::Foundation::IAsyncAction;
                 fn JoinMulticastGroup(&self, host: super::HostName);
-                #[Windows::Foundation::Metadata::Overload("GetOutputStreamAsync")]
+                #[overload(GetOutputStreamAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetOutputStreamAsync(&self, remoteHostName: super::HostName, remoteServiceName: String) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>;
-                #[Windows::Foundation::Metadata::Overload("GetOutputStreamWithEndpointPairAsync")]
+                #[overload(GetOutputStreamAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetOutputStreamAsync(&self, endpointPair: super::EndpointPair) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>;
+                fn GetOutputStreamWithEndpointPairAsync(&self, endpointPair: super::EndpointPair) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>;
                 event MessageReceived: super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>;
             }
             #[guid(0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DatagramSocket)]
             interface IDatagramSocket2: super::super::Foundation::IClosable {
-                #[Windows::Foundation::Metadata::Overload("BindServiceNameAndAdapterAsync")]
+                #[overload(BindServiceNameAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn BindServiceNameAsync(&self, localServiceName: String, adapter: super::Connectivity::NetworkAdapter) -> super::super::Foundation::IAsyncAction;
+                fn BindServiceNameAndAdapterAsync(&self, localServiceName: String, adapter: super::Connectivity::NetworkAdapter) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x37544f09_ab92_4306_9ac1_0c381283d9c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -182,16 +182,16 @@ mod Windows {
             interface IDatagramSocket3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CancelIOAsync(&self) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("EnableTransferOwnership")]
+                #[overload(EnableTransferOwnership)]
                 fn EnableTransferOwnership(&self, taskId: GUID);
-                #[Windows::Foundation::Metadata::Overload("EnableTransferOwnershipWithConnectedStandbyAction")]
-                fn EnableTransferOwnership(&self, taskId: GUID, connectedStandbyAction: SocketActivityConnectedStandbyAction);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnership")]
+                #[overload(EnableTransferOwnership)]
+                fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskId: GUID, connectedStandbyAction: SocketActivityConnectedStandbyAction);
+                #[overload(TransferOwnership)]
                 fn TransferOwnership(&self, socketId: String);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnershipWithContext")]
-                fn TransferOwnership(&self, socketId: String, data: SocketActivityContext);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnershipWithContextAndKeepAliveTime")]
-                fn TransferOwnership(&self, socketId: String, data: SocketActivityContext, keepAliveTime: super::super::Foundation::TimeSpan);
+                #[overload(TransferOwnership)]
+                fn TransferOwnershipWithContext(&self, socketId: String, data: SocketActivityContext);
+                #[overload(TransferOwnership)]
+                fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketId: String, data: SocketActivityContext, keepAliveTime: super::super::Foundation::TimeSpan);
             }
             #[guid(0x52ac3f2e_349a_4135_bb58_b79b2647d390)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -243,12 +243,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DatagramSocket)]
             interface IDatagramSocketStatics {
-                #[Windows::Foundation::Metadata::Overload("GetEndpointPairsAsync")]
+                #[overload(GetEndpointPairsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetEndpointPairsAsync(&self, remoteHostName: super::HostName, remoteServiceName: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>;
-                #[Windows::Foundation::Metadata::Overload("GetEndpointPairsWithSortOptionsAsync")]
+                #[overload(GetEndpointPairsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetEndpointPairsAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, sortOptions: super::HostNameSortOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>;
+                fn GetEndpointPairsWithSortOptionsAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, sortOptions: super::HostNameSortOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>;
             }
             #[guid(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -320,8 +320,8 @@ mod Windows {
                 #[get]
                 OutputStream: super::super::Storage::Streams::IOutputStream;
                 event Closed: super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs>;
-                #[Windows::Foundation::Metadata::Overload("CloseWithStatus")]
-                fn Close(&self, code: u16, reason: String);
+                #[overload(Close)]
+                fn CloseWithStatus(&self, code: u16, reason: String);
             }
             #[guid(0x69c2f051_1c1f_587a_4519_2181610192b7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -351,8 +351,8 @@ mod Windows {
                 #[get]
                 OutputStream: super::super::Storage::Streams::IOutputStream;
                 event Closed: super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs>;
-                #[Windows::Foundation::Metadata::Overload("CloseWithStatus")]
-                fn Close(&self, code: u16, reason: String);
+                #[overload(Close)]
+                fn CloseWithStatus(&self, code: u16, reason: String);
             }
             #[guid(0xfc32b45f_4448_5505_6cc9_09aba8915f5d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -431,17 +431,17 @@ mod Windows {
                 InputStream: super::super::Storage::Streams::IInputStream;
                 #[get]
                 OutputStream: super::super::Storage::Streams::IOutputStream;
-                #[Windows::Foundation::Metadata::Overload("ConnectWithEndpointPairAsync")]
-                fn ConnectAsync(&self, endpointPair: super::EndpointPair) -> super::super::Foundation::IAsyncAction;
+                #[overload(ConnectAsync)]
+                fn ConnectWithEndpointPairAsync(&self, endpointPair: super::EndpointPair) -> super::super::Foundation::IAsyncAction;
+                #[overload(ConnectAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("ConnectAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConnectAsync(&self, remoteHostName: super::HostName, remoteServiceName: String) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ConnectWithEndpointPairAndProtectionLevelAsync")]
-                fn ConnectAsync(&self, endpointPair: super::EndpointPair, protectionLevel: SocketProtectionLevel) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ConnectWithProtectionLevelAsync")]
+                #[overload(ConnectAsync)]
+                fn ConnectWithEndpointPairAndProtectionLevelAsync(&self, endpointPair: super::EndpointPair, protectionLevel: SocketProtectionLevel) -> super::super::Foundation::IAsyncAction;
+                #[overload(ConnectAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConnectAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, protectionLevel: SocketProtectionLevel) -> super::super::Foundation::IAsyncAction;
+                fn ConnectWithProtectionLevelAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, protectionLevel: SocketProtectionLevel) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn UpgradeToSslAsync(&self, protectionLevel: SocketProtectionLevel, validationHostName: super::HostName) -> super::super::Foundation::IAsyncAction;
             }
@@ -449,9 +449,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StreamSocket)]
             interface IStreamSocket2: super::super::Foundation::IClosable {
-                #[Windows::Foundation::Metadata::Overload("ConnectWithProtectionLevelAndAdapterAsync")]
+                #[overload(ConnectAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConnectAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, protectionLevel: SocketProtectionLevel, adapter: super::Connectivity::NetworkAdapter) -> super::super::Foundation::IAsyncAction;
+                fn ConnectWithProtectionLevelAndAdapterAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, protectionLevel: SocketProtectionLevel, adapter: super::Connectivity::NetworkAdapter) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x3f430b00_9d28_4854_bac3_2301941ec223)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -459,16 +459,16 @@ mod Windows {
             interface IStreamSocket3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CancelIOAsync(&self) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("EnableTransferOwnership")]
+                #[overload(EnableTransferOwnership)]
                 fn EnableTransferOwnership(&self, taskId: GUID);
-                #[Windows::Foundation::Metadata::Overload("EnableTransferOwnershipWithConnectedStandbyAction")]
-                fn EnableTransferOwnership(&self, taskId: GUID, connectedStandbyAction: SocketActivityConnectedStandbyAction);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnership")]
+                #[overload(EnableTransferOwnership)]
+                fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskId: GUID, connectedStandbyAction: SocketActivityConnectedStandbyAction);
+                #[overload(TransferOwnership)]
                 fn TransferOwnership(&self, socketId: String);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnershipWithContext")]
-                fn TransferOwnership(&self, socketId: String, data: SocketActivityContext);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnershipWithContextAndKeepAliveTime")]
-                fn TransferOwnership(&self, socketId: String, data: SocketActivityContext, keepAliveTime: super::super::Foundation::TimeSpan);
+                #[overload(TransferOwnership)]
+                fn TransferOwnershipWithContext(&self, socketId: String, data: SocketActivityContext);
+                #[overload(TransferOwnership)]
+                fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketId: String, data: SocketActivityContext, keepAliveTime: super::super::Foundation::TimeSpan);
             }
             #[guid(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -556,12 +556,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StreamSocketListener)]
             interface IStreamSocketListener2: super::super::Foundation::IClosable {
-                #[Windows::Foundation::Metadata::Overload("BindServiceNameWithProtectionLevelAsync")]
+                #[overload(BindServiceNameAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn BindServiceNameAsync(&self, localServiceName: String, protectionLevel: SocketProtectionLevel) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("BindServiceNameWithProtectionLevelAndAdapterAsync")]
+                fn BindServiceNameWithProtectionLevelAsync(&self, localServiceName: String, protectionLevel: SocketProtectionLevel) -> super::super::Foundation::IAsyncAction;
+                #[overload(BindServiceNameAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn BindServiceNameAsync(&self, localServiceName: String, protectionLevel: SocketProtectionLevel, adapter: super::Connectivity::NetworkAdapter) -> super::super::Foundation::IAsyncAction;
+                fn BindServiceNameWithProtectionLevelAndAdapterAsync(&self, localServiceName: String, protectionLevel: SocketProtectionLevel, adapter: super::Connectivity::NetworkAdapter) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x4798201c_bdf8_4919_8542_28d450e74507)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -569,14 +569,14 @@ mod Windows {
             interface IStreamSocketListener3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CancelIOAsync(&self) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("EnableTransferOwnership")]
+                #[overload(EnableTransferOwnership)]
                 fn EnableTransferOwnership(&self, taskId: GUID);
-                #[Windows::Foundation::Metadata::Overload("EnableTransferOwnershipWithConnectedStandbyAction")]
-                fn EnableTransferOwnership(&self, taskId: GUID, connectedStandbyAction: SocketActivityConnectedStandbyAction);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnership")]
+                #[overload(EnableTransferOwnership)]
+                fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskId: GUID, connectedStandbyAction: SocketActivityConnectedStandbyAction);
+                #[overload(TransferOwnership)]
                 fn TransferOwnership(&self, socketId: String);
-                #[Windows::Foundation::Metadata::Overload("TransferOwnershipWithContext")]
-                fn TransferOwnership(&self, socketId: String, data: SocketActivityContext);
+                #[overload(TransferOwnership)]
+                fn TransferOwnershipWithContext(&self, socketId: String, data: SocketActivityContext);
             }
             #[guid(0x0c472ea9_373f_447b_85b1_ddd4548803ba)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -611,12 +611,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StreamSocket)]
             interface IStreamSocketStatics {
-                #[Windows::Foundation::Metadata::Overload("GetEndpointPairsAsync")]
+                #[overload(GetEndpointPairsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetEndpointPairsAsync(&self, remoteHostName: super::HostName, remoteServiceName: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>;
-                #[Windows::Foundation::Metadata::Overload("GetEndpointPairsWithSortOptionsAsync")]
+                #[overload(GetEndpointPairsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetEndpointPairsAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, sortOptions: super::HostNameSortOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>;
+                fn GetEndpointPairsWithSortOptionsAsync(&self, remoteHostName: super::HostName, remoteServiceName: String, sortOptions: super::HostNameSortOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>;
             }
             #[guid(0xbd4a49d8_b289_45bb_97eb_c7525205a843)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -659,8 +659,8 @@ mod Windows {
                 fn ConnectAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncAction;
                 fn SetRequestHeader(&self, headerName: String, headerValue: String);
                 event Closed: super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>;
-                #[Windows::Foundation::Metadata::Overload("CloseWithStatus")]
-                fn Close(&self, code: u16, reason: String);
+                #[overload(Close)]
+                fn CloseWithStatus(&self, code: u16, reason: String);
             }
             #[guid(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

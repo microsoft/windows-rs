@@ -14,10 +14,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdAuthenticator)]
                 interface IOnlineIdAuthenticator {
-                    #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsync")]
+                    #[overload(AuthenticateUserAsync)]
                     fn AuthenticateUserAsync(&self, request: OnlineIdServiceTicketRequest) -> UserAuthenticationOperation;
-                    #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsyncAdvanced")]
-                    fn AuthenticateUserAsync(&self, requests: super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>, credentialPromptType: CredentialPromptType) -> UserAuthenticationOperation;
+                    #[overload(AuthenticateUserAsync)]
+                    fn AuthenticateUserAsyncAdvanced(&self, requests: super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>, credentialPromptType: CredentialPromptType) -> UserAuthenticationOperation;
                     fn SignOutUserAsync(&self) -> SignOutUserOperation;
                     #[set]
                     ApplicationId: GUID;
@@ -59,7 +59,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemAuthenticatorForUser)]
                 interface IOnlineIdSystemAuthenticatorForUser {
-                    #[Windows::Foundation::Metadata::Overload("GetTicketAsync")]
+                    #[overload(GetTicketAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetTicketAsync(&self, request: OnlineIdServiceTicketRequest) -> super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>;
                     #[set]

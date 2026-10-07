@@ -253,16 +253,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ESim)]
             interface IESim2 {
-                #[Windows::Foundation::Metadata::Overload("Discover")]
+                #[overload(Discover)]
                 fn Discover(&self) -> ESimDiscoverResult;
-                #[Windows::Foundation::Metadata::Overload("DiscoverWithServerAddressAndMatchingId")]
-                fn Discover(&self, serverAddress: String, matchingId: String) -> ESimDiscoverResult;
-                #[Windows::Foundation::Metadata::Overload("DiscoverAsync")]
+                #[overload(Discover)]
+                fn DiscoverWithServerAddressAndMatchingId(&self, serverAddress: String, matchingId: String) -> ESimDiscoverResult;
+                #[overload(DiscoverAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DiscoverAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimDiscoverResult>;
-                #[Windows::Foundation::Metadata::Overload("DiscoverWithServerAddressAndMatchingIdAsync")]
+                #[overload(DiscoverAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DiscoverAsync(&self, serverAddress: String, matchingId: String) -> super::super::Foundation::IAsyncOperation<ESimDiscoverResult>;
+                fn DiscoverWithServerAddressAndMatchingIdAsync(&self, serverAddress: String, matchingId: String) -> super::super::Foundation::IAsyncOperation<ESimDiscoverResult>;
             }
             #[guid(0xfe1edf45_01b8_5d31_b8d3_d9cbebb2b831)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -379,12 +379,12 @@ mod Windows {
                 State: ESimProfileMetadataState;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DenyInstallAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
-                #[Windows::Foundation::Metadata::Overload("ConfirmInstallAsync")]
+                #[overload(ConfirmInstallAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConfirmInstallAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>;
-                #[Windows::Foundation::Metadata::Overload("ConfirmInstallWithConfirmationCodeAsync")]
+                #[overload(ConfirmInstallAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConfirmInstallAsync(&self, confirmationCode: String) -> super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>;
+                fn ConfirmInstallWithConfirmationCodeAsync(&self, confirmationCode: String) -> super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PostponeInstallAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
                 event StateChanged: super::super::Foundation::TypedEventHandler<ESimProfileMetadata, Object>;
@@ -992,16 +992,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModem)]
             interface IMobileBroadbandModem4 {
-                #[Windows::Foundation::Metadata::Overload("SetIsPassthroughEnabledWithSlotIndexAsync")]
+                #[overload(SetIsPassthroughEnabledAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetIsPassthroughEnabledAsync(&self, value: bool, slotindex: i32) -> super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>;
-                #[Windows::Foundation::Metadata::Overload("GetIsPassthroughEnabledWithSlotIndexAsync")]
+                fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>;
+                #[overload(GetIsPassthroughEnabledAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetIsPassthroughEnabledAsync(&self, slotindex: i32) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("SetIsPassthroughEnabledWithSlotIndex")]
-                fn SetIsPassthroughEnabled(&self, value: bool, slotindex: i32) -> MobileBroadbandModemStatus;
-                #[Windows::Foundation::Metadata::Overload("GetIsPassthroughEnabledWithSlotIndex")]
-                fn GetIsPassthroughEnabled(&self, slotindex: i32) -> bool;
+                fn GetIsPassthroughEnabledWithSlotIndexAsync(&self, slotindex: i32) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(SetIsPassthroughEnabled)]
+                fn SetIsPassthroughEnabledWithSlotIndex(&self, value: bool, slotindex: i32) -> MobileBroadbandModemStatus;
+                #[overload(GetIsPassthroughEnabled)]
+                fn GetIsPassthroughEnabledWithSlotIndex(&self, slotindex: i32) -> bool;
             }
             #[guid(0xfce035a3_d6cd_4320_b982_be9d3ec7890f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1435,15 +1435,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
             interface INetworkOperatorTetheringManagerStatics2 {
                 fn GetTetheringCapabilityFromConnectionProfile(&self, profile: super::Connectivity::ConnectionProfile) -> TetheringCapability;
-                #[Windows::Foundation::Metadata::Overload("CreateFromConnectionProfile")]
+                #[overload(CreateFromConnectionProfile)]
                 fn CreateFromConnectionProfile(&self, profile: super::Connectivity::ConnectionProfile) -> NetworkOperatorTetheringManager;
             }
             #[guid(0x8fdaadb6_4af9_4f21_9b58_d53e9f24231e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
             interface INetworkOperatorTetheringManagerStatics3 {
-                #[Windows::Foundation::Metadata::Overload("CreateFromConnectionProfileWithTargetAdapter")]
-                fn CreateFromConnectionProfile(&self, profile: super::Connectivity::ConnectionProfile, adapter: super::Connectivity::NetworkAdapter) -> NetworkOperatorTetheringManager;
+                #[overload(CreateFromConnectionProfile)]
+                fn CreateFromConnectionProfileWithTargetAdapter(&self, profile: super::Connectivity::ConnectionProfile, adapter: super::Connectivity::NetworkAdapter) -> NetworkOperatorTetheringManager;
             }
             #[guid(0xb3b9f9d0_ebff_46a4_a847_d663d8b0977e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]

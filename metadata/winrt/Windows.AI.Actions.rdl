@@ -207,8 +207,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
             interface IActionEntityFactory3 {
                 fn CreateRemoteFileEntity(&self, sourceId: String, fileKind: RemoteFileKind, sourceUri: super::super::Foundation::Uri, fileId: String, contentType: String, driveId: String, accountId: String, extension: String) -> RemoteFileActionEntity;
-                #[Windows::Foundation::Metadata::Overload("CreateTextEntityWithTextFormat")]
-                fn CreateTextEntity(&self, text: String, textFormat: ActionEntityTextFormat) -> TextActionEntity;
+                #[overload(CreateTextEntity)]
+                fn CreateTextEntityWithTextFormat(&self, text: String, textFormat: ActionEntityTextFormat) -> TextActionEntity;
                 fn CreateStreamingTextActionEntityWriter(&self, textFormat: ActionEntityTextFormat) -> StreamingTextActionEntityWriter;
             }
             #[guid(0x332eda05_de0e_5a58_b318_a2ad771f013d)]

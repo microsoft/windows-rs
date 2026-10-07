@@ -114,22 +114,22 @@ mod Windows {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("BackgroundColor may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.BackgroundColor.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn get_BackgroundColor(&self) -> super::Color;
-                #[Windows::Foundation::Metadata::Overload("RequestCreateAsync")]
+                #[overload(RequestCreateAsync)]
                 fn RequestCreateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithPoint")]
-                fn RequestCreateAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithRect")]
-                fn RequestCreateForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithRectAndPlacement")]
-                fn RequestCreateForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsync")]
+                #[overload(RequestCreateAsync)]
+                fn RequestCreateAsyncWithPoint(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(RequestCreateForSelectionAsync)]
+                fn RequestCreateAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(RequestCreateForSelectionAsync)]
+                fn RequestCreateAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(RequestDeleteAsync)]
                 fn RequestDeleteAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithPoint")]
-                fn RequestDeleteAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithRect")]
-                fn RequestDeleteForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithRectAndPlacement")]
-                fn RequestDeleteForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(RequestDeleteAsync)]
+                fn RequestDeleteAsyncWithPoint(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(RequestDeleteForSelectionAsync)]
+                fn RequestDeleteAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(RequestDeleteForSelectionAsync)]
+                fn RequestDeleteAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn UpdateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
@@ -170,12 +170,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             interface ISecondaryTileStatics {
                 fn Exists(&self, tileId: String) -> bool;
-                #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
+                #[overload(FindAllAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
-                #[Windows::Foundation::Metadata::Overload("FindAllForApplicationAsync")]
+                #[overload(FindAllAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindAllAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
+                fn FindAllForApplicationAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllForPackageAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
             }

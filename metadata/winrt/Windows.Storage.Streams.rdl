@@ -156,10 +156,10 @@ mod Windows {
                 ByteOrder: ByteOrder;
                 fn WriteByte(&self, value: u8);
                 fn WriteBytes(&self, value: [u8]);
-                #[Windows::Foundation::Metadata::Overload("WriteBuffer")]
+                #[overload(WriteBuffer)]
                 fn WriteBuffer(&self, buffer: IBuffer);
-                #[Windows::Foundation::Metadata::Overload("WriteBufferRange")]
-                fn WriteBuffer(&self, buffer: IBuffer, start: u32, count: u32);
+                #[overload(WriteBuffer)]
+                fn WriteBufferRange(&self, buffer: IBuffer, start: u32, count: u32);
                 fn WriteBoolean(&self, value: bool);
                 fn WriteGuid(&self, value: GUID);
                 fn WriteInt16(&self, value: i16);
@@ -191,30 +191,30 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileRandomAccessStream)]
             interface IFileRandomAccessStreamStatics {
-                #[Windows::Foundation::Metadata::Overload("OpenAsync")]
+                #[overload(OpenAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenAsync(&self, filePath: String, accessMode: super::FileAccessMode) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
-                #[Windows::Foundation::Metadata::Overload("OpenWithOptionsAsync")]
+                #[overload(OpenAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenAsync(&self, filePath: String, accessMode: super::FileAccessMode, sharingOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
-                #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteAsync")]
+                fn OpenWithOptionsAsync(&self, filePath: String, accessMode: super::FileAccessMode, sharingOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
+                #[overload(OpenTransactedWriteAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenTransactedWriteAsync(&self, filePath: String) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
-                #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteWithOptionsAsync")]
+                #[overload(OpenTransactedWriteAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenTransactedWriteAsync(&self, filePath: String, openOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
-                #[Windows::Foundation::Metadata::Overload("OpenForUserAsync")]
+                fn OpenTransactedWriteWithOptionsAsync(&self, filePath: String, openOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
+                #[overload(OpenForUserAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenForUserAsync(&self, user: super::super::System::User, filePath: String, accessMode: super::FileAccessMode) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
-                #[Windows::Foundation::Metadata::Overload("OpenForUserWithOptionsAsync")]
+                #[overload(OpenForUserAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenForUserAsync(&self, user: super::super::System::User, filePath: String, accessMode: super::FileAccessMode, sharingOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
-                #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteForUserAsync")]
+                fn OpenForUserWithOptionsAsync(&self, user: super::super::System::User, filePath: String, accessMode: super::FileAccessMode, sharingOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
+                #[overload(OpenTransactedWriteForUserAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenTransactedWriteForUserAsync(&self, user: super::super::System::User, filePath: String) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
-                #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteForUserWithOptionsAsync")]
+                #[overload(OpenTransactedWriteForUserAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenTransactedWriteForUserAsync(&self, user: super::super::System::User, filePath: String, openOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
+                fn OpenTransactedWriteForUserWithOptionsAsync(&self, user: super::super::System::User, filePath: String, openOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
             }
             #[guid(0x905a0fe2_bc53_11df_8c49_001e4fc686da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -272,12 +272,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RandomAccessStream)]
             interface IRandomAccessStreamStatics {
-                #[Windows::Foundation::Metadata::Overload("CopyAsync")]
+                #[overload(CopyAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CopyAsync(&self, source: IInputStream, destination: IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
-                #[Windows::Foundation::Metadata::Overload("CopySizeAsync")]
+                #[overload(CopyAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CopyAsync(&self, source: IInputStream, destination: IOutputStream, bytesToCopy: u64) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
+                fn CopySizeAsync(&self, source: IInputStream, destination: IOutputStream, bytesToCopy: u64) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CopyAndCloseAsync(&self, source: IInputStream, destination: IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
             }

@@ -132,12 +132,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActivationViewSwitcher)]
             interface IActivationViewSwitcher {
-                #[Windows::Foundation::Metadata::Overload("ShowAsStandaloneAsync")]
+                #[overload(ShowAsStandaloneAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowAsStandaloneAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ShowAsStandaloneWithSizePreferenceAsync")]
+                #[overload(ShowAsStandaloneAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncAction;
+                fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncAction;
                 fn IsViewPresentedOnActivationVirtualDesktop(&self, viewId: i32) -> bool;
             }
             #[guid(0xd222d519_4361_451e_96c4_60f4f9742db0)]
@@ -203,12 +203,12 @@ mod Windows {
                 #[get]
                 ViewMode: ApplicationViewMode;
                 fn IsViewModeSupported(&self, viewMode: ApplicationViewMode) -> bool;
-                #[Windows::Foundation::Metadata::Overload("TryEnterViewModeAsync")]
+                #[overload(TryEnterViewModeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryEnterViewModeAsync(&self, viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryEnterViewModeWithPreferencesAsync")]
+                #[overload(TryEnterViewModeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryEnterViewModeAsync(&self, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryEnterViewModeWithPreferencesAsync(&self, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryConsolidateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
@@ -307,24 +307,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewSwitcher)]
             interface IApplicationViewSwitcherStatics {
                 fn DisableShowingMainViewOnActivation(&self);
-                #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneAsync")]
+                #[overload(TryShowAsStandaloneAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryShowAsStandaloneAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneWithSizePreferenceAsync")]
+                #[overload(TryShowAsStandaloneAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync")]
+                fn TryShowAsStandaloneWithSizePreferenceAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(TryShowAsStandaloneAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference, anchorViewId: i32, anchorSizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("SwitchAsync")]
+                fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(&self, viewId: i32, sizePreference: ViewSizePreference, anchorViewId: i32, anchorSizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(SwitchAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SwitchAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("SwitchFromViewAsync")]
+                #[overload(SwitchAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SwitchAsync(&self, toViewId: i32, fromViewId: i32) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("SwitchFromViewWithOptionsAsync")]
+                fn SwitchFromViewAsync(&self, toViewId: i32, fromViewId: i32) -> super::super::Foundation::IAsyncAction;
+                #[overload(SwitchAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SwitchAsync(&self, toViewId: i32, fromViewId: i32, options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncAction;
+                fn SwitchFromViewWithOptionsAsync(&self, toViewId: i32, fromViewId: i32, options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PrepareForCustomAnimatedSwitchAsync(&self, toViewId: i32, fromViewId: i32, options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncOperation<bool>;
             }
@@ -338,12 +338,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewSwitcher)]
             interface IApplicationViewSwitcherStatics3 {
-                #[Windows::Foundation::Metadata::Overload("TryShowAsViewModeAsync")]
+                #[overload(TryShowAsViewModeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryShowAsViewModeAsync(&self, viewId: i32, viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryShowAsViewModeWithPreferencesAsync")]
+                #[overload(TryShowAsViewModeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsViewModeAsync(&self, viewId: i32, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryShowAsViewModeWithPreferencesAsync(&self, viewId: i32, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x00924ac0_932b_4a6b_9c4b_dc38c82478ce)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -468,7 +468,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProjectionManager)]
             interface IProjectionManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("StartProjectingAsync")]
+                #[overload(StartProjectingAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -483,15 +483,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProjectionManager)]
             interface IProjectionManagerStatics2 {
-                #[Windows::Foundation::Metadata::Overload("StartProjectingWithDeviceInfoAsync")]
+                #[overload(StartProjectingAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, displayDeviceInfo: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("RequestStartProjectingAsync")]
+                fn StartProjectingWithDeviceInfoAsync(&self, projectionViewId: i32, anchorViewId: i32, displayDeviceInfo: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncAction;
+                #[overload(RequestStartProjectingAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestStartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("RequestStartProjectingWithPlacementAsync")]
+                #[overload(RequestStartProjectingAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, selection: super::super::Foundation::Rect, prefferedPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestStartProjectingWithPlacementAsync(&self, projectionViewId: i32, anchorViewId: i32, selection: super::super::Foundation::Rect, prefferedPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x85361600_1c63_4627_bcb1_3a89e0bc9c55)]

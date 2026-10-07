@@ -83,14 +83,14 @@ mod Windows {
             interface IVoiceCommandResponseStatics {
                 #[get]
                 MaxSupportedVoiceCommandContentTiles: u32;
-                #[Windows::Foundation::Metadata::Overload("CreateResponse")]
+                #[overload(CreateResponse)]
                 fn CreateResponse(&self, userMessage: VoiceCommandUserMessage) -> VoiceCommandResponse;
-                #[Windows::Foundation::Metadata::Overload("CreateResponseWithTiles")]
-                fn CreateResponse(&self, message: VoiceCommandUserMessage, contentTiles: super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>) -> VoiceCommandResponse;
-                #[Windows::Foundation::Metadata::Overload("CreateResponseForPrompt")]
+                #[overload(CreateResponse)]
+                fn CreateResponseWithTiles(&self, message: VoiceCommandUserMessage, contentTiles: super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>) -> VoiceCommandResponse;
+                #[overload(CreateResponseForPrompt)]
                 fn CreateResponseForPrompt(&self, message: VoiceCommandUserMessage, repeatMessage: VoiceCommandUserMessage) -> VoiceCommandResponse;
-                #[Windows::Foundation::Metadata::Overload("CreateResponseForPromptWithTiles")]
-                fn CreateResponseForPrompt(&self, message: VoiceCommandUserMessage, repeatMessage: VoiceCommandUserMessage, contentTiles: super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>) -> VoiceCommandResponse;
+                #[overload(CreateResponseForPrompt)]
+                fn CreateResponseForPromptWithTiles(&self, message: VoiceCommandUserMessage, repeatMessage: VoiceCommandUserMessage, contentTiles: super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>) -> VoiceCommandResponse;
             }
             #[guid(0xd894bb9f_21da_44a4_98a2_fb131920a9cc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

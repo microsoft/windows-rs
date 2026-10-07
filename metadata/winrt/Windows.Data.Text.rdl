@@ -76,12 +76,12 @@ mod Windows {
                 ResolvedLanguage: String;
                 #[get]
                 LanguageAvailableButNotInstalled: bool;
-                #[Windows::Foundation::Metadata::Overload("GetCandidatesAsync")]
+                #[overload(GetCandidatesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCandidatesAsync(&self, input: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
-                #[Windows::Foundation::Metadata::Overload("GetCandidatesWithMaxCountAsync")]
+                #[overload(GetCandidatesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCandidatesAsync(&self, input: String, maxCandidates: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
+                fn GetCandidatesWithMaxCountAsync(&self, input: String, maxCandidates: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
             }
             #[guid(0xfcaa3781_3083_49ab_be15_56dfbbb74d6f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -106,20 +106,20 @@ mod Windows {
                 ResolvedLanguage: String;
                 #[get]
                 LanguageAvailableButNotInstalled: bool;
-                #[Windows::Foundation::Metadata::Overload("GetCandidatesAsync")]
+                #[overload(GetCandidatesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCandidatesAsync(&self, input: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
-                #[Windows::Foundation::Metadata::Overload("GetCandidatesWithMaxCountAsync")]
+                #[overload(GetCandidatesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCandidatesAsync(&self, input: String, maxCandidates: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
+                fn GetCandidatesWithMaxCountAsync(&self, input: String, maxCandidates: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
             }
             #[guid(0xb84723b8_2c77_486a_900a_a3453eedc15d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TextPredictionGenerator)]
             interface ITextPredictionGenerator2 {
-                #[Windows::Foundation::Metadata::Overload("GetCandidatesWithParametersAsync")]
+                #[overload(GetCandidatesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCandidatesAsync(&self, input: String, maxCandidates: u32, predictionOptions: TextPredictionOptions, previousStrings: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
+                fn GetCandidatesWithParametersAsync(&self, input: String, maxCandidates: u32, predictionOptions: TextPredictionOptions, previousStrings: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetNextWordCandidatesAsync(&self, maxCandidates: u32, previousStrings: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
                 InputScope: super::super::UI::Text::Core::CoreTextInputScope;

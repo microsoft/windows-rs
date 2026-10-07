@@ -51,10 +51,10 @@ mod Windows {
                 SyncManager: UserDataTaskListSyncManager;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RegisterSyncManagerAsync(&self) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("GetTaskReader")]
+                #[overload(GetTaskReader)]
                 fn GetTaskReader(&self) -> UserDataTaskReader;
-                #[Windows::Foundation::Metadata::Overload("GetTaskReaderWithOptions")]
-                fn GetTaskReader(&self, options: UserDataTaskQueryOptions) -> UserDataTaskReader;
+                #[overload(GetTaskReader)]
+                fn GetTaskReaderWithOptions(&self, options: UserDataTaskQueryOptions) -> UserDataTaskReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetTaskAsync(&self, userDataTask: String) -> super::super::Foundation::IAsyncOperation<UserDataTask>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -146,12 +146,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskStore)]
             interface IUserDataTaskStore {
-                #[Windows::Foundation::Metadata::Overload("CreateListAsync")]
+                #[overload(CreateListAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateListAsync(&self, name: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
-                #[Windows::Foundation::Metadata::Overload("CreateListInAccountAsync")]
+                #[overload(CreateListAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateListAsync(&self, name: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
+                fn CreateListInAccountAsync(&self, name: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindListsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]

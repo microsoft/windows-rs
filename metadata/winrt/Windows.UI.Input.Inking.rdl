@@ -90,9 +90,9 @@ mod Windows {
                     fn ProcessPointerUpdate(&self, pointerPoint: super::PointerPoint) -> #[Windows::Foundation::Metadata::Variant] Object;
                     fn ProcessPointerUp(&self, pointerPoint: super::PointerPoint) -> super::super::super::Foundation::Rect;
                     fn SetDefaultDrawingAttributes(&self, drawingAttributes: InkDrawingAttributes);
-                    #[Windows::Foundation::Metadata::Overload("RecognizeAsync2")]
+                    #[overload(RecognizeAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RecognizeAsync(&self, recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
+                    fn RecognizeAsync2(&self, recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
                 }
                 #[guid(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -321,7 +321,7 @@ mod Windows {
                     fn CanPasteFromClipboard(&self) -> bool;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadAsync(&self, inputStream: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncActionWithProgress<u64>;
-                    #[Windows::Foundation::Metadata::Overload("SaveAsync")]
+                    #[overload(SaveAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SaveAsync(&self, outputStream: super::super::super::Storage::Streams::IOutputStream) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
                     fn UpdateRecognitionResults(&self, recognitionResults: super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>);
@@ -339,9 +339,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeContainer)]
                 interface IInkStrokeContainer3 {
-                    #[Windows::Foundation::Metadata::Overload("SaveWithFormatAsync")]
+                    #[overload(SaveAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SaveAsync(&self, outputStream: super::super::super::Storage::Streams::IOutputStream, inkPersistenceFormat: InkPersistenceFormat) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
+                    fn SaveWithFormatAsync(&self, outputStream: super::super::super::Storage::Streams::IOutputStream, inkPersistenceFormat: InkPersistenceFormat) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
                     fn GetStrokeById(&self, id: u32) -> InkStroke;
                 }
                 #[guid(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d)]

@@ -202,12 +202,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiSynthesizer)]
             interface IMidiSynthesizerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateAsync")]
+                #[overload(CreateAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
-                #[Windows::Foundation::Metadata::Overload("CreateFromAudioDeviceAsync")]
+                #[overload(CreateAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, audioDevice: super::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
+                fn CreateFromAudioDeviceAsync(&self, audioDevice: super::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
                 fn IsSynthesizer(&self, midiDevice: super::Enumeration::DeviceInformation) -> bool;
             }
             #[guid(0x083de222_3b74_4320_9b42_0ca8545f8a24)]

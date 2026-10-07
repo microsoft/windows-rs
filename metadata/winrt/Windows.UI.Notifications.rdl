@@ -80,10 +80,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BadgeUpdateManagerForUser)]
             interface IBadgeUpdateManagerForUser {
-                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplication")]
+                #[overload(CreateBadgeUpdaterForApplication)]
                 fn CreateBadgeUpdaterForApplication(&self) -> BadgeUpdater;
-                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplicationWithId")]
-                fn CreateBadgeUpdaterForApplication(&self, applicationId: String) -> BadgeUpdater;
+                #[overload(CreateBadgeUpdaterForApplication)]
+                fn CreateBadgeUpdaterForApplicationWithId(&self, applicationId: String) -> BadgeUpdater;
                 fn CreateBadgeUpdaterForSecondaryTile(&self, tileId: String) -> BadgeUpdater;
                 #[get]
                 User: super::super::System::User;
@@ -92,10 +92,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BadgeUpdateManager)]
             interface IBadgeUpdateManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplication")]
+                #[overload(CreateBadgeUpdaterForApplication)]
                 fn CreateBadgeUpdaterForApplication(&self) -> BadgeUpdater;
-                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplicationWithId")]
-                fn CreateBadgeUpdaterForApplication(&self, applicationId: String) -> BadgeUpdater;
+                #[overload(CreateBadgeUpdaterForApplication)]
+                fn CreateBadgeUpdaterForApplicationWithId(&self, applicationId: String) -> BadgeUpdater;
                 fn CreateBadgeUpdaterForSecondaryTile(&self, tileId: String) -> BadgeUpdater;
                 fn GetTemplateContent(&self, r#type: BadgeTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
             }
@@ -111,10 +111,10 @@ mod Windows {
             interface IBadgeUpdater {
                 fn Update(&self, notification: BadgeNotification);
                 fn Clear(&self);
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdate")]
+                #[overload(StartPeriodicUpdate)]
                 fn StartPeriodicUpdate(&self, badgeContent: super::super::Foundation::Uri, requestedInterval: PeriodicUpdateRecurrence);
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateAtTime")]
-                fn StartPeriodicUpdate(&self, badgeContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+                #[overload(StartPeriodicUpdate)]
+                fn StartPeriodicUpdateAtTime(&self, badgeContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
                 fn StopPeriodicUpdate(&self);
             }
             #[guid(0x06206598_d496_497d_8692_4f7d7c2770df)]
@@ -213,10 +213,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(NotificationData)]
             interface INotificationDataFactory {
-                #[Windows::Foundation::Metadata::Overload("CreateNotificationDataWithValuesAndSequenceNumber")]
-                fn CreateNotificationData(&self, initialValues: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>, sequenceNumber: u32) -> NotificationData;
-                #[Windows::Foundation::Metadata::Overload("CreateNotificationDataWithValues")]
-                fn CreateNotificationData(&self, initialValues: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> NotificationData;
+                #[overload(CreateNotificationData)]
+                fn CreateNotificationDataWithValuesAndSequenceNumber(&self, initialValues: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>, sequenceNumber: u32) -> NotificationData;
+                #[overload(CreateNotificationData)]
+                fn CreateNotificationDataWithValues(&self, initialValues: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> NotificationData;
             }
             #[guid(0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -345,10 +345,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TileFlyoutUpdateManager)]
             interface ITileFlyoutUpdateManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateTileFlyoutUpdaterForApplication")]
+                #[overload(CreateTileFlyoutUpdaterForApplication)]
                 fn CreateTileFlyoutUpdaterForApplication(&self) -> TileFlyoutUpdater;
-                #[Windows::Foundation::Metadata::Overload("CreateTileFlyoutUpdaterForApplicationWithId")]
-                fn CreateTileFlyoutUpdaterForApplication(&self, applicationId: String) -> TileFlyoutUpdater;
+                #[overload(CreateTileFlyoutUpdaterForApplication)]
+                fn CreateTileFlyoutUpdaterForApplicationWithId(&self, applicationId: String) -> TileFlyoutUpdater;
                 fn CreateTileFlyoutUpdaterForSecondaryTile(&self, tileId: String) -> TileFlyoutUpdater;
                 fn GetTemplateContent(&self, r#type: TileFlyoutTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
             }
@@ -358,10 +358,10 @@ mod Windows {
             interface ITileFlyoutUpdater {
                 fn Update(&self, notification: TileFlyoutNotification);
                 fn Clear(&self);
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdate")]
+                #[overload(StartPeriodicUpdate)]
                 fn StartPeriodicUpdate(&self, tileFlyoutContent: super::super::Foundation::Uri, requestedInterval: PeriodicUpdateRecurrence);
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateAtTime")]
-                fn StartPeriodicUpdate(&self, tileFlyoutContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+                #[overload(StartPeriodicUpdate)]
+                fn StartPeriodicUpdateAtTime(&self, tileFlyoutContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
                 fn StopPeriodicUpdate(&self);
                 #[get]
                 Setting: NotificationSetting;
@@ -391,10 +391,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TileUpdateManagerForUser)]
             interface ITileUpdateManagerForUser {
-                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplication")]
-                fn CreateTileUpdaterForApplicationForUser(&self) -> TileUpdater;
-                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplicationWithId")]
-                fn CreateTileUpdaterForApplication(&self, applicationId: String) -> TileUpdater;
+                #[overload(CreateTileUpdaterForApplicationForUser)]
+                fn CreateTileUpdaterForApplication(&self) -> TileUpdater;
+                #[overload(CreateTileUpdaterForApplication)]
+                fn CreateTileUpdaterForApplicationWithId(&self, applicationId: String) -> TileUpdater;
                 fn CreateTileUpdaterForSecondaryTile(&self, tileId: String) -> TileUpdater;
                 #[get]
                 User: super::super::System::User;
@@ -403,10 +403,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TileUpdateManager)]
             interface ITileUpdateManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplication")]
+                #[overload(CreateTileUpdaterForApplication)]
                 fn CreateTileUpdaterForApplication(&self) -> TileUpdater;
-                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplicationWithId")]
-                fn CreateTileUpdaterForApplication(&self, applicationId: String) -> TileUpdater;
+                #[overload(CreateTileUpdaterForApplication)]
+                fn CreateTileUpdaterForApplicationWithId(&self, applicationId: String) -> TileUpdater;
                 fn CreateTileUpdaterForSecondaryTile(&self, tileId: String) -> TileUpdater;
                 fn GetTemplateContent(&self, r#type: TileTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
             }
@@ -428,15 +428,15 @@ mod Windows {
                 fn AddToSchedule(&self, scheduledTile: ScheduledTileNotification);
                 fn RemoveFromSchedule(&self, scheduledTile: ScheduledTileNotification);
                 fn GetScheduledTileNotifications(&self) -> super::super::Foundation::Collections::IVectorView<ScheduledTileNotification>;
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdate")]
+                #[overload(StartPeriodicUpdate)]
                 fn StartPeriodicUpdate(&self, tileContent: super::super::Foundation::Uri, requestedInterval: PeriodicUpdateRecurrence);
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateAtTime")]
-                fn StartPeriodicUpdate(&self, tileContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+                #[overload(StartPeriodicUpdate)]
+                fn StartPeriodicUpdateAtTime(&self, tileContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
                 fn StopPeriodicUpdate(&self);
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateBatch")]
+                #[overload(StartPeriodicUpdateBatch)]
                 fn StartPeriodicUpdateBatch(&self, tileContents: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, requestedInterval: PeriodicUpdateRecurrence);
-                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateBatchAtTime")]
-                fn StartPeriodicUpdateBatch(&self, tileContents: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+                #[overload(StartPeriodicUpdateBatch)]
+                fn StartPeriodicUpdateBatchAtTime(&self, tileContents: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
             }
             #[guid(0xa2266e12_15ee_43ed_83f5_65b352bb1a84)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -579,29 +579,29 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistory)]
             interface IToastNotificationHistory {
-                #[Windows::Foundation::Metadata::Overload("RemoveGroup")]
+                #[overload(RemoveGroup)]
                 fn RemoveGroup(&self, group: String);
-                #[Windows::Foundation::Metadata::Overload("RemoveGroupWithId")]
-                fn RemoveGroup(&self, group: String, applicationId: String);
-                #[Windows::Foundation::Metadata::Overload("RemoveGroupedTagWithId")]
-                fn Remove(&self, tag: String, group: String, applicationId: String);
-                #[Windows::Foundation::Metadata::Overload("RemoveGroupedTag")]
-                fn Remove(&self, tag: String, group: String);
-                #[Windows::Foundation::Metadata::Overload("Remove")]
+                #[overload(RemoveGroup)]
+                fn RemoveGroupWithId(&self, group: String, applicationId: String);
+                #[overload(Remove)]
+                fn RemoveGroupedTagWithId(&self, tag: String, group: String, applicationId: String);
+                #[overload(Remove)]
+                fn RemoveGroupedTag(&self, tag: String, group: String);
+                #[overload(Remove)]
                 fn Remove(&self, tag: String);
-                #[Windows::Foundation::Metadata::Overload("Clear")]
+                #[overload(Clear)]
                 fn Clear(&self);
-                #[Windows::Foundation::Metadata::Overload("ClearWithId")]
-                fn Clear(&self, applicationId: String);
+                #[overload(Clear)]
+                fn ClearWithId(&self, applicationId: String);
             }
             #[guid(0x3bc3d253_2f31_4092_9129_8ad5abf067da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistory)]
             interface IToastNotificationHistory2 {
-                #[Windows::Foundation::Metadata::Overload("GetHistory")]
+                #[overload(GetHistory)]
                 fn GetHistory(&self) -> super::super::Foundation::Collections::IVectorView<ToastNotification>;
-                #[Windows::Foundation::Metadata::Overload("GetHistoryWithId")]
-                fn GetHistory(&self, applicationId: String) -> super::super::Foundation::Collections::IVectorView<ToastNotification>;
+                #[overload(GetHistory)]
+                fn GetHistoryWithId(&self, applicationId: String) -> super::super::Foundation::Collections::IVectorView<ToastNotification>;
             }
             #[guid(0xdb037ffa_0068_412c_9c83_267c37f65670)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -621,10 +621,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManagerForUser)]
             interface IToastNotificationManagerForUser {
-                #[Windows::Foundation::Metadata::Overload("CreateToastNotifier")]
+                #[overload(CreateToastNotifier)]
                 fn CreateToastNotifier(&self) -> ToastNotifier;
-                #[Windows::Foundation::Metadata::Overload("CreateToastNotifierWithId")]
-                fn CreateToastNotifier(&self, applicationId: String) -> ToastNotifier;
+                #[overload(CreateToastNotifier)]
+                fn CreateToastNotifierWithId(&self, applicationId: String) -> ToastNotifier;
                 #[get]
                 History: ToastNotificationHistory;
                 #[get]
@@ -638,10 +638,10 @@ mod Windows {
                 fn GetToastNotifierForToastCollectionIdAsync(&self, collectionId: String) -> super::super::Foundation::IAsyncOperation<ToastNotifier>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetHistoryForToastCollectionIdAsync(&self, collectionId: String) -> super::super::Foundation::IAsyncOperation<ToastNotificationHistory>;
-                #[Windows::Foundation::Metadata::Overload("GetToastCollectionManager")]
+                #[overload(GetToastCollectionManager)]
                 fn GetToastCollectionManager(&self) -> ToastCollectionManager;
-                #[Windows::Foundation::Metadata::Overload("GetToastCollectionManagerWithAppId")]
-                fn GetToastCollectionManager(&self, appId: String) -> ToastCollectionManager;
+                #[overload(GetToastCollectionManager)]
+                fn GetToastCollectionManagerWithAppId(&self, appId: String) -> ToastCollectionManager;
             }
             #[guid(0x3efcb176_6cc1_56dc_973b_251f7aacb1c5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -655,10 +655,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManager)]
             interface IToastNotificationManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateToastNotifier")]
+                #[overload(CreateToastNotifier)]
                 fn CreateToastNotifier(&self) -> ToastNotifier;
-                #[Windows::Foundation::Metadata::Overload("CreateToastNotifierWithId")]
-                fn CreateToastNotifier(&self, applicationId: String) -> ToastNotifier;
+                #[overload(CreateToastNotifier)]
+                fn CreateToastNotifierWithId(&self, applicationId: String) -> ToastNotifier;
                 fn GetTemplateContent(&self, r#type: ToastTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
             }
             #[guid(0x7ab93c52_0e48_4750_ba9d_1a4113981847)]
@@ -697,10 +697,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotifier)]
             interface IToastNotifier2 {
-                #[Windows::Foundation::Metadata::Overload("UpdateWithTagAndGroup")]
-                fn Update(&self, data: NotificationData, tag: String, group: String) -> NotificationUpdateResult;
-                #[Windows::Foundation::Metadata::Overload("UpdateWithTag")]
-                fn Update(&self, data: NotificationData, tag: String) -> NotificationUpdateResult;
+                #[overload(Update)]
+                fn UpdateWithTagAndGroup(&self, data: NotificationData, tag: String, group: String) -> NotificationUpdateResult;
+                #[overload(Update)]
+                fn UpdateWithTag(&self, data: NotificationData, tag: String) -> NotificationUpdateResult;
             }
             #[guid(0xae75a04a_3b0c_51ad_b7e8_b08ab6052549)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]

@@ -448,37 +448,37 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraph)]
             interface IAudioGraph: super::super::Foundation::IClosable {
-                #[Windows::Foundation::Metadata::Overload("CreateFrameInputNode")]
+                #[overload(CreateFrameInputNode)]
                 fn CreateFrameInputNode(&self) -> AudioFrameInputNode;
-                #[Windows::Foundation::Metadata::Overload("CreateFrameInputNodeWithFormat")]
-                fn CreateFrameInputNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioFrameInputNode;
-                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeAsync")]
+                #[overload(CreateFrameInputNode)]
+                fn CreateFrameInputNodeWithFormat(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioFrameInputNode;
+                #[overload(CreateDeviceInputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeWithFormatAsync")]
+                #[overload(CreateDeviceInputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeWithFormatOnDeviceAsync")]
+                fn CreateDeviceInputNodeWithFormatAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
+                #[overload(CreateDeviceInputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties, device: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateFrameOutputNode")]
+                fn CreateDeviceInputNodeWithFormatOnDeviceAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties, device: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
+                #[overload(CreateFrameOutputNode)]
                 fn CreateFrameOutputNode(&self) -> AudioFrameOutputNode;
-                #[Windows::Foundation::Metadata::Overload("CreateFrameOutputNodeWithFormat")]
-                fn CreateFrameOutputNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioFrameOutputNode;
+                #[overload(CreateFrameOutputNode)]
+                fn CreateFrameOutputNodeWithFormat(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioFrameOutputNode;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateDeviceOutputNodeAsync(&self) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceOutputNodeResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateFileInputNodeAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateFileOutputNodeAsync")]
+                #[overload(CreateFileOutputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateFileOutputNodeAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateFileOutputNodeWithFileProfileAsync")]
+                #[overload(CreateFileOutputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFileOutputNodeAsync(&self, file: super::super::Storage::IStorageFile, fileEncodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateSubmixNode")]
+                fn CreateFileOutputNodeWithFileProfileAsync(&self, file: super::super::Storage::IStorageFile, fileEncodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>;
+                #[overload(CreateSubmixNode)]
                 fn CreateSubmixNode(&self) -> AudioSubmixNode;
-                #[Windows::Foundation::Metadata::Overload("CreateSubmixNodeWithFormat")]
-                fn CreateSubmixNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioSubmixNode;
+                #[overload(CreateSubmixNode)]
+                fn CreateSubmixNodeWithFormat(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioSubmixNode;
                 fn Start(&self);
                 fn Stop(&self);
                 fn ResetAllNodes(&self);
@@ -502,28 +502,28 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraph)]
             interface IAudioGraph2: super::super::Foundation::IClosable + IAudioGraph {
-                #[Windows::Foundation::Metadata::Overload("CreateFrameInputNodeWithFormatAndEmitter")]
-                fn CreateFrameInputNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties, emitter: AudioNodeEmitter) -> AudioFrameInputNode;
-                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync")]
+                #[overload(CreateFrameInputNode)]
+                fn CreateFrameInputNodeWithFormatAndEmitter(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties, emitter: AudioNodeEmitter) -> AudioFrameInputNode;
+                #[overload(CreateDeviceInputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties, device: super::super::Devices::Enumeration::DeviceInformation, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateFileInputNodeWithEmitterAsync")]
+                fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties, device: super::super::Devices::Enumeration::DeviceInformation, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
+                #[overload(CreateFileInputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFileInputNodeAsync(&self, file: super::super::Storage::IStorageFile, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateSubmixNodeWithFormatAndEmitter")]
-                fn CreateSubmixNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties, emitter: AudioNodeEmitter) -> AudioSubmixNode;
+                fn CreateFileInputNodeWithEmitterAsync(&self, file: super::super::Storage::IStorageFile, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>;
+                #[overload(CreateSubmixNode)]
+                fn CreateSubmixNodeWithFormatAndEmitter(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties, emitter: AudioNodeEmitter) -> AudioSubmixNode;
                 fn CreateBatchUpdater(&self) -> AudioGraphBatchUpdater;
             }
             #[guid(0xddcd25ae_1185_42a7_831d_6a9b0fc86820)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraph)]
             interface IAudioGraph3 {
-                #[Windows::Foundation::Metadata::Overload("CreateMediaSourceAudioInputNodeAsync")]
+                #[overload(CreateMediaSourceAudioInputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateMediaSourceAudioInputNodeAsync(&self, mediaSource: super::Core::MediaSource) -> super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>;
-                #[Windows::Foundation::Metadata::Overload("CreateMediaSourceAudioInputNodeWithEmitterAsync")]
+                #[overload(CreateMediaSourceAudioInputNodeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateMediaSourceAudioInputNodeAsync(&self, mediaSource: super::Core::MediaSource, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>;
+                fn CreateMediaSourceAudioInputNodeWithEmitterAsync(&self, mediaSource: super::Core::MediaSource, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>;
             }
             #[guid(0x763070ed_d04e_4fac_b233_600b42edd469)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -581,10 +581,10 @@ mod Windows {
             interface IAudioInputNode: IAudioNode + super::super::Foundation::IClosable {
                 #[get]
                 OutgoingConnections: super::super::Foundation::Collections::IVectorView<AudioGraphConnection>;
-                #[Windows::Foundation::Metadata::Overload("AddOutgoingConnection")]
+                #[overload(AddOutgoingConnection)]
                 fn AddOutgoingConnection(&self, destination: IAudioNode);
-                #[Windows::Foundation::Metadata::Overload("AddOutgoingConnectionWithGain")]
-                fn AddOutgoingConnection(&self, destination: IAudioNode, gain: f64);
+                #[overload(AddOutgoingConnection)]
+                fn AddOutgoingConnectionWithGain(&self, destination: IAudioNode, gain: f64);
                 fn RemoveOutgoingConnection(&self, destination: IAudioNode);
             }
             #[guid(0x905156b7_ca68_4c6d_a8bc_e3ee17fe3fd2)]
@@ -757,19 +757,19 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioStateMonitor)]
             interface IAudioStateMonitorStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateForRenderMonitoring")]
+                #[overload(CreateForRenderMonitoring)]
                 fn CreateForRenderMonitoring(&self) -> AudioStateMonitor;
-                #[Windows::Foundation::Metadata::Overload("CreateForRenderMonitoringWithCategory")]
-                fn CreateForRenderMonitoring(&self, category: super::Render::AudioRenderCategory) -> AudioStateMonitor;
-                #[Windows::Foundation::Metadata::Overload("CreateForRenderMonitoringWithCategoryAndDeviceRole")]
-                fn CreateForRenderMonitoring(&self, category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> AudioStateMonitor;
+                #[overload(CreateForRenderMonitoring)]
+                fn CreateForRenderMonitoringWithCategory(&self, category: super::Render::AudioRenderCategory) -> AudioStateMonitor;
+                #[overload(CreateForRenderMonitoring)]
+                fn CreateForRenderMonitoringWithCategoryAndDeviceRole(&self, category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> AudioStateMonitor;
                 fn CreateForRenderMonitoringWithCategoryAndDeviceId(&self, category: super::Render::AudioRenderCategory, deviceId: String) -> AudioStateMonitor;
-                #[Windows::Foundation::Metadata::Overload("CreateForCaptureMonitoring")]
+                #[overload(CreateForCaptureMonitoring)]
                 fn CreateForCaptureMonitoring(&self) -> AudioStateMonitor;
-                #[Windows::Foundation::Metadata::Overload("CreateForCaptureMonitoringWithCategory")]
-                fn CreateForCaptureMonitoring(&self, category: super::Capture::MediaCategory) -> AudioStateMonitor;
-                #[Windows::Foundation::Metadata::Overload("CreateForCaptureMonitoringWithCategoryAndDeviceRole")]
-                fn CreateForCaptureMonitoring(&self, category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> AudioStateMonitor;
+                #[overload(CreateForCaptureMonitoring)]
+                fn CreateForCaptureMonitoringWithCategory(&self, category: super::Capture::MediaCategory) -> AudioStateMonitor;
+                #[overload(CreateForCaptureMonitoring)]
+                fn CreateForCaptureMonitoringWithCategoryAndDeviceRole(&self, category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> AudioStateMonitor;
                 fn CreateForCaptureMonitoringWithCategoryAndDeviceId(&self, category: super::Capture::MediaCategory, deviceId: String) -> AudioStateMonitor;
             }
             #[guid(0x16eec7a8_1ca7_40ef_91a4_d346e0aa1bba)]

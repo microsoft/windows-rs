@@ -20,8 +20,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputGamepadInfo)]
                     interface IInjectedInputGamepadInfoFactory {
-                        #[Windows::Foundation::Metadata::Overload("CreateInstanceFromGamepadReading")]
-                        fn CreateInstance(&self, reading: super::super::super::super::Gaming::Input::GamepadReading) -> InjectedInputGamepadInfo;
+                        #[overload(CreateInstance)]
+                        fn CreateInstanceFromGamepadReading(&self, reading: super::super::super::super::Gaming::Input::GamepadReading) -> InjectedInputGamepadInfo;
                     }
                     #[guid(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]

@@ -299,6 +299,43 @@ mod Contoso {
 }
 ```
 
+##### Method overloads
+
+On WinRT interface methods, `#[overload(Name)]` gives the logical name shared by overloads.
+The `fn` identifier gives the unique ABI method name.
+
+```rust
+interface IReader {
+    fn Read(&self) -> u32;
+    #[overload(Read)]
+    fn ReadWithOptions(&self, options: u32) -> u32;
+}
+```
+
+| RDL | Metadata |
+| --- | --- |
+| `fn ReadWithOptions` | `OverloadAttribute("ReadWithOptions")` |
+| `#[overload(Read)]` | `MethodDef.Name = "Read"` |
+
+The argument is one identifier, not a string or a reference to another declaration. A group does
+not need a method whose ABI name matches the group name. RDL does not generate names, reorder
+methods, select default overloads, or perform overload resolution. Language projections may apply
+their own naming rules to the stored ABI names.
+
+The metadata spelling `#[Windows::Foundation::Metadata::Overload("ReadWithOptions")] fn Read(...)`
+remains supported and requires the attribute's definition in the input or references. It stores the
+unique name in the attribute, unlike the lowercase RDL intrinsic. The intrinsic needs no reference
+for this attribute. Neither spelling changes the existing interface-ID derivation.
+
+The writer renders standard overload attributes using the intrinsic when their names are
+representable as RDL identifiers. It preserves attributes from other namespaces and keeps the raw
+spelling for Win32 methods, special-name methods, and names the intrinsic cannot represent.
+`DefaultOverloadAttribute` remains a separate metadata attribute.
+
+The reader rejects repeated `#[overload]` annotations, combinations with `OverloadAttribute` or
+`#[special]`, and use outside WinRT methods. The writer rejects duplicate or malformed standard
+overload attributes when converting ordinary WinRT methods.
+
 #### Delegates
 
 Delegates define callable types with method-like semantics.

@@ -179,12 +179,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeoboundingBox)]
             interface IGeoboundingBoxStatics {
-                #[Windows::Foundation::Metadata::Overload("TryCompute")]
+                #[overload(TryCompute)]
                 fn TryCompute(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>) -> GeoboundingBox;
-                #[Windows::Foundation::Metadata::Overload("TryComputeWithAltitudeReference")]
-                fn TryCompute(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeRefSystem: AltitudeReferenceSystem) -> GeoboundingBox;
-                #[Windows::Foundation::Metadata::Overload("TryComputeWithAltitudeReferenceAndSpatialReference")]
-                fn TryCompute(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeRefSystem: AltitudeReferenceSystem, spatialReferenceId: u32) -> GeoboundingBox;
+                #[overload(TryCompute)]
+                fn TryComputeWithAltitudeReference(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeRefSystem: AltitudeReferenceSystem) -> GeoboundingBox;
+                #[overload(TryCompute)]
+                fn TryComputeWithAltitudeReferenceAndSpatialReference(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeRefSystem: AltitudeReferenceSystem, spatialReferenceId: u32) -> GeoboundingBox;
             }
             #[guid(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -286,12 +286,12 @@ mod Windows {
                 ReportInterval: u32;
                 #[get]
                 LocationStatus: PositionStatus;
-                #[Windows::Foundation::Metadata::Overload("GetGeopositionAsync")]
+                #[overload(GetGeopositionAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetGeopositionAsync(&self) -> super::super::Foundation::IAsyncOperation<Geoposition>;
-                #[Windows::Foundation::Metadata::Overload("GetGeopositionAsyncWithAgeAndTimeout")]
+                #[overload(GetGeopositionAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGeopositionAsync(&self, maximumAge: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<Geoposition>;
+                fn GetGeopositionAsyncWithAgeAndTimeout(&self, maximumAge: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<Geoposition>;
                 event PositionChanged: super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>;
                 event StatusChanged: super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>;
             }
@@ -307,14 +307,14 @@ mod Windows {
             interface IGeolocatorStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>;
+                #[overload(GetGeopositionHistoryAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("GetGeopositionHistoryAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetGeopositionHistoryAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetGeopositionHistoryAsync(&self, startTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
+                #[overload(GetGeopositionHistoryAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("GetGeopositionHistoryWithDurationAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetGeopositionHistoryWithDurationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGeopositionHistoryAsync(&self, startTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
+                fn GetGeopositionHistoryWithDurationAsync(&self, startTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
             }
             #[guid(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

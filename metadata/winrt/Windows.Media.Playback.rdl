@@ -660,10 +660,10 @@ mod Windows {
             interface IMediaPlayer5 {
                 event VideoFrameAvailable: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 IsVideoFrameServerEnabled: bool;
-                #[Windows::Foundation::Metadata::Overload("CopyFrameToVideoSurface")]
+                #[overload(CopyFrameToVideoSurface)]
                 fn CopyFrameToVideoSurface(&self, destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface);
-                #[Windows::Foundation::Metadata::Overload("CopyFrameToVideoSurfaceWithTargetRectangle")]
-                fn CopyFrameToVideoSurface(&self, destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, targetRectangle: super::super::Foundation::Rect);
+                #[overload(CopyFrameToVideoSurface)]
+                fn CopyFrameToVideoSurfaceWithTargetRectangle(&self, destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, targetRectangle: super::super::Foundation::Rect);
                 fn CopyFrameToStereoscopicVideoSurfaces(&self, destinationLeftEye: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, destinationRightEye: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface);
             }
             #[guid(0xe0caa086_ae65_414c_b010_8bc55f00e692)]
@@ -671,10 +671,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
             interface IMediaPlayer6 {
                 event SubtitleFrameChanged: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
-                #[Windows::Foundation::Metadata::Overload("RenderSubtitlesToSurface")]
+                #[overload(RenderSubtitlesToSurface)]
                 fn RenderSubtitlesToSurface(&self, destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> bool;
-                #[Windows::Foundation::Metadata::Overload("RenderSubtitlesToSurfaceWithTargetRectangle")]
-                fn RenderSubtitlesToSurface(&self, destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, targetRectangle: super::super::Foundation::Rect) -> bool;
+                #[overload(RenderSubtitlesToSurface)]
+                fn RenderSubtitlesToSurfaceWithTargetRectangle(&self, destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, targetRectangle: super::super::Foundation::Rect) -> bool;
             }
             #[guid(0x5d1dc478_4500_4531_b3f4_777a71491f7f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

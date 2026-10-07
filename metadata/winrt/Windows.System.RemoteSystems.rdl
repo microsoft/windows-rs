@@ -142,7 +142,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RemoteSystemConnectionInfo)]
             interface IRemoteSystemConnectionInfoStatics {
-                #[Windows::Foundation::Metadata::Overload("TryCreateFromAppServiceConnection")]
+                #[overload(TryCreateFromAppServiceConnection)]
                 fn TryCreateFromAppServiceConnection(&self, connection: super::super::ApplicationModel::AppService::AppServiceConnection) -> RemoteSystemConnectionInfo;
             }
             #[guid(0x84ed4104_8d5e_4d72_8238_7621576c7a67)]
@@ -287,10 +287,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RemoteSystemSessionController)]
             interface IRemoteSystemSessionControllerFactory {
-                #[Windows::Foundation::Metadata::Overload("CreateController")]
+                #[overload(CreateController)]
                 fn CreateController(&self, displayName: String) -> RemoteSystemSessionController;
-                #[Windows::Foundation::Metadata::Overload("CreateControllerWithSessionOptions")]
-                fn CreateController(&self, displayName: String, options: RemoteSystemSessionOptions) -> RemoteSystemSessionController;
+                #[overload(CreateController)]
+                fn CreateControllerWithSessionOptions(&self, displayName: String, options: RemoteSystemSessionOptions) -> RemoteSystemSessionController;
             }
             #[guid(0xa79812c2_37de_448c_8b83_a30aa3c4ead6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -384,10 +384,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RemoteSystemSessionMessageChannel)]
             interface IRemoteSystemSessionMessageChannelFactory {
-                #[Windows::Foundation::Metadata::Overload("Create")]
+                #[overload(Create)]
                 fn Create(&self, session: RemoteSystemSession, channelName: String) -> RemoteSystemSessionMessageChannel;
-                #[Windows::Foundation::Metadata::Overload("CreateWithReliability")]
-                fn Create(&self, session: RemoteSystemSession, channelName: String, reliability: RemoteSystemSessionMessageChannelReliability) -> RemoteSystemSessionMessageChannel;
+                #[overload(Create)]
+                fn CreateWithReliability(&self, session: RemoteSystemSession, channelName: String, reliability: RemoteSystemSessionMessageChannelReliability) -> RemoteSystemSessionMessageChannel;
             }
             #[guid(0x740ed755_8418_4f01_9353_e21c9ecc6cfc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -476,10 +476,10 @@ mod Windows {
             interface IRemoteSystemStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindByHostNameAsync(&self, hostName: super::super::Networking::HostName) -> super::super::Foundation::IAsyncOperation<RemoteSystem>;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcher")]
+                #[overload(CreateWatcher)]
                 fn CreateWatcher(&self) -> RemoteSystemWatcher;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherWithFilters")]
-                fn CreateWatcher(&self, filters: super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>) -> RemoteSystemWatcher;
+                #[overload(CreateWatcher)]
+                fn CreateWatcherWithFilters(&self, filters: super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>) -> RemoteSystemWatcher;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<RemoteSystemAccessStatus>;
             }
@@ -493,10 +493,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RemoteSystem)]
             interface IRemoteSystemStatics3 {
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherForUser")]
+                #[overload(CreateWatcherForUser)]
                 fn CreateWatcherForUser(&self, user: super::User) -> RemoteSystemWatcher;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherWithFiltersForUser")]
-                fn CreateWatcherForUser(&self, user: super::User, filters: super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>) -> RemoteSystemWatcher;
+                #[overload(CreateWatcherForUser)]
+                fn CreateWatcherWithFiltersForUser(&self, user: super::User, filters: super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>) -> RemoteSystemWatcher;
             }
             #[guid(0x0c39514e_cbb6_4777_8534_2e0c521affa2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

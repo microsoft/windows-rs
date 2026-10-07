@@ -11,14 +11,14 @@ mod Windows {
                     Uri: super::super::super::Foundation::Uri;
                     #[get]
                     Candidates: super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>;
-                    #[Windows::Foundation::Metadata::Overload("Resolve")]
+                    #[overload(Resolve)]
                     fn Resolve(&self) -> ResourceCandidate;
-                    #[Windows::Foundation::Metadata::Overload("ResolveForContext")]
-                    fn Resolve(&self, resourceContext: ResourceContext) -> ResourceCandidate;
-                    #[Windows::Foundation::Metadata::Overload("ResolveAll")]
+                    #[overload(Resolve)]
+                    fn ResolveForContext(&self, resourceContext: ResourceContext) -> ResourceCandidate;
+                    #[overload(ResolveAll)]
                     fn ResolveAll(&self) -> super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>;
-                    #[Windows::Foundation::Metadata::Overload("ResolveAllForContext")]
-                    fn ResolveAll(&self, resourceContext: ResourceContext) -> super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>;
+                    #[overload(ResolveAll)]
+                    fn ResolveAllForContext(&self, resourceContext: ResourceContext) -> super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>;
                 }
                 #[guid(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -58,10 +58,10 @@ mod Windows {
                 interface IResourceContext {
                     #[get]
                     QualifierValues: super::super::super::Foundation::Collections::IObservableMap<String, String>;
-                    #[Windows::Foundation::Metadata::Overload("Reset")]
+                    #[overload(Reset)]
                     fn Reset(&self);
-                    #[Windows::Foundation::Metadata::Overload("ResetQualifierValues")]
-                    fn Reset(&self, qualifierNames: super::super::super::Foundation::Collections::IIterable<String>);
+                    #[overload(Reset)]
+                    fn ResetQualifierValues(&self, qualifierNames: super::super::super::Foundation::Collections::IIterable<String>);
                     fn OverrideToMatch(&self, result: super::super::super::Foundation::Collections::IIterable<ResourceQualifier>);
                     fn Clone(&self) -> ResourceContext;
                     Languages: super::super::super::Foundation::Collections::IVectorView<String>;
@@ -77,20 +77,20 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(ResourceContext)]
                 interface IResourceContextStatics2 {
                     fn GetForCurrentView(&self) -> ResourceContext;
-                    #[Windows::Foundation::Metadata::Overload("SetGlobalQualifierValue")]
+                    #[overload(SetGlobalQualifierValue)]
                     fn SetGlobalQualifierValue(&self, key: String, value: String);
-                    #[Windows::Foundation::Metadata::Overload("ResetGlobalQualifierValues")]
+                    #[overload(ResetGlobalQualifierValues)]
                     fn ResetGlobalQualifierValues(&self);
-                    #[Windows::Foundation::Metadata::Overload("ResetGlobalQualifierValuesForSpecifiedQualifiers")]
-                    fn ResetGlobalQualifierValues(&self, qualifierNames: super::super::super::Foundation::Collections::IIterable<String>);
+                    #[overload(ResetGlobalQualifierValues)]
+                    fn ResetGlobalQualifierValuesForSpecifiedQualifiers(&self, qualifierNames: super::super::super::Foundation::Collections::IIterable<String>);
                     fn GetForViewIndependentUse(&self) -> ResourceContext;
                 }
                 #[guid(0x20cf492c_af0f_450b_9da6_106dd0c29a39)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ResourceContext)]
                 interface IResourceContextStatics3 {
-                    #[Windows::Foundation::Metadata::Overload("SetGlobalQualifierValueWithPersistence")]
-                    fn SetGlobalQualifierValue(&self, key: String, value: String, persistence: ResourceQualifierPersistence);
+                    #[overload(SetGlobalQualifierValue)]
+                    fn SetGlobalQualifierValueWithPersistence(&self, key: String, value: String, persistence: ResourceQualifierPersistence);
                 }
                 #[guid(0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -132,10 +132,10 @@ mod Windows {
                 interface IResourceMap: super::super::super::Foundation::Collections::IMapView<String, NamedResource> + super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, NamedResource>> {
                     #[get]
                     Uri: super::super::super::Foundation::Uri;
-                    #[Windows::Foundation::Metadata::Overload("GetValue")]
+                    #[overload(GetValue)]
                     fn GetValue(&self, resource: String) -> ResourceCandidate;
-                    #[Windows::Foundation::Metadata::Overload("GetValueForContext")]
-                    fn GetValue(&self, resource: String, context: ResourceContext) -> ResourceCandidate;
+                    #[overload(GetValue)]
+                    fn GetValueForContext(&self, resource: String, context: ResourceContext) -> ResourceCandidate;
                     fn GetSubtree(&self, reference: String) -> ResourceMap;
                 }
                 #[guid(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c)]

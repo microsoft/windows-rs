@@ -172,12 +172,12 @@ mod Windows {
                         PixelWidth: i32;
                         #[get]
                         PixelHeight: i32;
-                        #[Windows::Foundation::Metadata::Overload("RenderAsync")]
+                        #[overload(RenderAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn RenderAsync(&self, element: super::super::UIElement) -> super::super::super::super::Foundation::IAsyncAction;
-                        #[Windows::Foundation::Metadata::Overload("RenderToSizeAsync")]
+                        #[overload(RenderAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn RenderAsync(&self, element: super::super::UIElement, scaledWidth: i32, scaledHeight: i32) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn RenderToSizeAsync(&self, element: super::super::UIElement, scaledWidth: i32, scaledHeight: i32) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn GetPixelsAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>;
                     }

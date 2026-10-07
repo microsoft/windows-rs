@@ -633,12 +633,12 @@ mod Windows {
                 fn FindContactIdsByPhoneNumberAsync(&self, phoneNumber: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
                 fn FindAnnotationsForContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>;
                 fn DisableAnnotationAsync(&self, annotation: ContactAnnotation) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("CreateAnnotationListAsync")]
+                #[overload(CreateAnnotationListAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAnnotationListAsync(&self) -> super::super::Foundation::IAsyncOperation<ContactAnnotationList>;
-                #[Windows::Foundation::Metadata::Overload("CreateAnnotationListInAccountAsync")]
+                #[overload(CreateAnnotationListAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAnnotationListAsync(&self, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<ContactAnnotationList>;
+                fn CreateAnnotationListInAccountAsync(&self, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<ContactAnnotationList>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAnnotationListAsync(&self, annotationListId: String) -> super::super::Foundation::IAsyncOperation<ContactAnnotationList>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -765,12 +765,12 @@ mod Windows {
             #[guid(0x85e2913f_0e4a_4a3e_8994_406ae7ed646e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IContactFieldFactory {
-                #[Windows::Foundation::Metadata::Overload("CreateField_Default")]
-                fn CreateField(&self, value: String, r#type: ContactFieldType) -> ContactField;
-                #[Windows::Foundation::Metadata::Overload("CreateField_Category")]
-                fn CreateField(&self, value: String, r#type: ContactFieldType, category: ContactFieldCategory) -> ContactField;
-                #[Windows::Foundation::Metadata::Overload("CreateField_Custom")]
-                fn CreateField(&self, name: String, value: String, r#type: ContactFieldType, category: ContactFieldCategory) -> ContactField;
+                #[overload(CreateField)]
+                fn CreateField_Default(&self, value: String, r#type: ContactFieldType) -> ContactField;
+                #[overload(CreateField)]
+                fn CreateField_Category(&self, value: String, r#type: ContactFieldType, category: ContactFieldCategory) -> ContactField;
+                #[overload(CreateField)]
+                fn CreateField_Custom(&self, name: String, value: String, r#type: ContactFieldType, category: ContactFieldCategory) -> ContactField;
             }
             #[guid(0x59bdeb01_9e9a_475d_bfe5_a37b806d852c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -812,12 +812,12 @@ mod Windows {
             #[guid(0xba0b6794_91a3_4bb2_b1b9_69a5dff0ba09)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IContactInstantMessageFieldFactory {
-                #[Windows::Foundation::Metadata::Overload("CreateInstantMessage_Default")]
-                fn CreateInstantMessage(&self, userName: String) -> ContactInstantMessageField;
-                #[Windows::Foundation::Metadata::Overload("CreateInstantMessage_Category")]
-                fn CreateInstantMessage(&self, userName: String, category: ContactFieldCategory) -> ContactInstantMessageField;
-                #[Windows::Foundation::Metadata::Overload("CreateInstantMessage_All")]
-                fn CreateInstantMessage(&self, userName: String, category: ContactFieldCategory, service: String, displayText: String, verb: super::super::Foundation::Uri) -> ContactInstantMessageField;
+                #[overload(CreateInstantMessage)]
+                fn CreateInstantMessage_Default(&self, userName: String) -> ContactInstantMessageField;
+                #[overload(CreateInstantMessage)]
+                fn CreateInstantMessage_Category(&self, userName: String, category: ContactFieldCategory) -> ContactInstantMessageField;
+                #[overload(CreateInstantMessage)]
+                fn CreateInstantMessage_All(&self, userName: String, category: ContactFieldCategory, service: String, displayText: String, verb: super::super::Foundation::Uri) -> ContactInstantMessageField;
             }
             #[guid(0x6d117b4c_ce50_4b43_9e69_b18258ea5315)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -876,10 +876,10 @@ mod Windows {
                 fn GetContactFromRemoteIdAsync(&self, remoteId: String) -> super::super::Foundation::IAsyncOperation<Contact>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetMeContactAsync(&self) -> super::super::Foundation::IAsyncOperation<Contact>;
-                #[Windows::Foundation::Metadata::Overload("GetContactReader")]
+                #[overload(GetContactReader)]
                 fn GetContactReader(&self) -> ContactReader;
-                #[Windows::Foundation::Metadata::Overload("GetContactReaderWithOptions")]
-                fn GetContactReader(&self, options: ContactQueryOptions) -> ContactReader;
+                #[overload(GetContactReader)]
+                fn GetContactReaderWithOptions(&self, options: ContactQueryOptions) -> ContactReader;
                 fn SaveContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncAction;
                 fn DeleteContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -991,23 +991,23 @@ mod Windows {
             #[guid(0xf79932d7_2fdf_43fe_8f18_41897390bcfe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IContactLocationFieldFactory {
-                #[Windows::Foundation::Metadata::Overload("CreateLocation_Default")]
-                fn CreateLocation(&self, unstructuredAddress: String) -> ContactLocationField;
-                #[Windows::Foundation::Metadata::Overload("CreateLocation_Category")]
-                fn CreateLocation(&self, unstructuredAddress: String, category: ContactFieldCategory) -> ContactLocationField;
-                #[Windows::Foundation::Metadata::Overload("CreateLocation_All")]
-                fn CreateLocation(&self, unstructuredAddress: String, category: ContactFieldCategory, street: String, city: String, region: String, country: String, postalCode: String) -> ContactLocationField;
+                #[overload(CreateLocation)]
+                fn CreateLocation_Default(&self, unstructuredAddress: String) -> ContactLocationField;
+                #[overload(CreateLocation)]
+                fn CreateLocation_Category(&self, unstructuredAddress: String, category: ContactFieldCategory) -> ContactLocationField;
+                #[overload(CreateLocation)]
+                fn CreateLocation_All(&self, unstructuredAddress: String, category: ContactFieldCategory, street: String, city: String, region: String, country: String, postalCode: String) -> ContactLocationField;
             }
             #[guid(0xb74bba57_1076_4bef_aef3_54686d18387d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContactManagerForUser)]
             interface IContactManagerForUser {
-                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsync")]
+                #[overload(ConvertContactToVCardAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConvertContactToVCardAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
-                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsyncWithMaxBytes")]
+                #[overload(ConvertContactToVCardAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConvertContactToVCardAsync(&self, contact: Contact, maxBytes: u32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
+                fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: Contact, maxBytes: u32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConvertVCardToContactAsync(&self, vCard: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<Contact>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1029,18 +1029,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
             interface IContactManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("ShowContactCard")]
+                #[overload(ShowContactCard)]
                 fn ShowContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect);
-                #[Windows::Foundation::Metadata::Overload("ShowContactCardWithPlacement")]
-                fn ShowContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
-                #[Windows::Foundation::Metadata::Overload("ShowDelayLoadedContactCard")]
+                #[overload(ShowContactCard)]
+                fn ShowContactCardWithPlacement(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                #[overload(ShowDelayLoadedContactCard)]
                 fn ShowDelayLoadedContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> ContactCardDelayedDataLoader;
             }
             #[guid(0xa178e620_47d8_48cc_963c_9592b6e510c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
             interface IContactManagerStatics2: IContactManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("RequestStoreAsync")]
+                #[overload(RequestStoreAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestStoreAsync(&self) -> super::super::Foundation::IAsyncOperation<ContactStore>;
             }
@@ -1048,25 +1048,25 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
             interface IContactManagerStatics3: IContactManagerStatics2 + IContactManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsync")]
+                #[overload(ConvertContactToVCardAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConvertContactToVCardAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
-                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsyncWithMaxBytes")]
+                #[overload(ConvertContactToVCardAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConvertContactToVCardAsync(&self, contact: Contact, maxBytes: u32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
+                fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: Contact, maxBytes: u32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConvertVCardToContactAsync(&self, vCard: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<Contact>;
-                #[Windows::Foundation::Metadata::Overload("RequestStoreAsyncWithAccessType")]
+                #[overload(RequestStoreAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, accessType: ContactStoreAccessType) -> super::super::Foundation::IAsyncOperation<ContactStore>;
+                fn RequestStoreAsyncWithAccessType(&self, accessType: ContactStoreAccessType) -> super::super::Foundation::IAsyncOperation<ContactStore>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAnnotationStoreAsync(&self, accessType: ContactAnnotationStoreAccessType) -> super::super::Foundation::IAsyncOperation<ContactAnnotationStore>;
                 fn IsShowContactCardSupported(&self) -> bool;
-                #[Windows::Foundation::Metadata::Overload("ShowContactCardWithOptions")]
-                fn ShowContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, contactCardOptions: ContactCardOptions);
+                #[overload(ShowContactCard)]
+                fn ShowContactCardWithOptions(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, contactCardOptions: ContactCardOptions);
                 fn IsShowDelayLoadedContactCardSupported(&self) -> bool;
-                #[Windows::Foundation::Metadata::Overload("ShowDelayLoadedContactCardWithOptions")]
-                fn ShowDelayLoadedContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, contactCardOptions: ContactCardOptions) -> ContactCardDelayedDataLoader;
+                #[overload(ShowDelayLoadedContactCard)]
+                fn ShowDelayLoadedContactCardWithOptions(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, contactCardOptions: ContactCardOptions) -> ContactCardDelayedDataLoader;
                 fn ShowFullContactCard(&self, contact: Contact, fullContactCardOptions: FullContactCardOptions);
                 SystemDisplayNameOrder: ContactNameOrder;
                 SystemSortOrder: ContactNameOrder;
@@ -1230,12 +1230,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContactStore)]
             interface IContactStore {
-                #[Windows::Foundation::Metadata::Overload("FindContactsAsync")]
+                #[overload(FindContactsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindContactsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>;
-                #[Windows::Foundation::Metadata::Overload("FindContactsWithSearchTextAsync")]
+                #[overload(FindContactsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindContactsAsync(&self, searchText: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>;
+                fn FindContactsWithSearchTextAsync(&self, searchText: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetContactAsync(&self, contactId: String) -> super::super::Foundation::IAsyncOperation<Contact>;
             }
@@ -1252,18 +1252,18 @@ mod Windows {
                 fn FindContactListsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetContactListAsync(&self, contactListId: String) -> super::super::Foundation::IAsyncOperation<ContactList>;
-                #[Windows::Foundation::Metadata::Overload("CreateContactListAsync")]
+                #[overload(CreateContactListAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateContactListAsync(&self, displayName: String) -> super::super::Foundation::IAsyncOperation<ContactList>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetMeContactAsync(&self) -> super::super::Foundation::IAsyncOperation<Contact>;
-                #[Windows::Foundation::Metadata::Overload("GetContactReader")]
+                #[overload(GetContactReader)]
                 fn GetContactReader(&self) -> ContactReader;
-                #[Windows::Foundation::Metadata::Overload("GetContactReaderWithOptions")]
-                fn GetContactReader(&self, options: ContactQueryOptions) -> ContactReader;
-                #[Windows::Foundation::Metadata::Overload("CreateContactListInAccountAsync")]
+                #[overload(GetContactReader)]
+                fn GetContactReaderWithOptions(&self, options: ContactQueryOptions) -> ContactReader;
+                #[overload(CreateContactListAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateContactListAsync(&self, displayName: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<ContactList>;
+                fn CreateContactListInAccountAsync(&self, displayName: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<ContactList>;
             }
             #[guid(0xcb882c6c_004e_4050_87f0_840407ee6818)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]

@@ -182,12 +182,12 @@ mod Windows {
                 fn GetDataPlanStatus(&self) -> DataPlanStatus;
                 #[get]
                 NetworkAdapter: NetworkAdapter;
+                #[overload(GetLocalUsage)]
                 #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetLocalUsage")]
                 fn GetLocalUsage(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime) -> DataUsage;
+                #[overload(GetLocalUsage)]
                 #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetLocalUsagePerRoamingStates")]
-                fn GetLocalUsage(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime, States: RoamingStates) -> DataUsage;
+                fn GetLocalUsagePerRoamingStates(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime, States: RoamingStates) -> DataUsage;
                 #[get]
                 NetworkSecuritySettings: NetworkSecuritySettings;
             }

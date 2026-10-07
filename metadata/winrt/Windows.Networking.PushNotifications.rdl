@@ -17,12 +17,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManagerForUser)]
             interface IPushNotificationChannelManagerForUser {
-                #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsync")]
+                #[overload(CreatePushNotificationChannelForApplicationAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForApplicationAsync(&self) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
-                #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsyncWithId")]
+                #[overload(CreatePushNotificationChannelForApplicationAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreatePushNotificationChannelForApplicationAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
+                fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[get]
@@ -32,23 +32,23 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManagerForUser)]
             interface IPushNotificationChannelManagerForUser2 {
-                #[Windows::Foundation::Metadata::Overload("CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync")]
+                #[overload(CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync(&self, appServerKey: super::super::Storage::Streams::IBuffer, channelId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
-                #[Windows::Foundation::Metadata::Overload("CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId")]
+                #[overload(CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync(&self, appServerKey: super::super::Storage::Streams::IBuffer, channelId: String, appId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
+                fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId(&self, appServerKey: super::super::Storage::Streams::IBuffer, channelId: String, appId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
             }
             #[guid(0x8baf9b65_77a1_4588_bd19_861529a9dcf0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManager)]
             interface IPushNotificationChannelManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsync")]
+                #[overload(CreatePushNotificationChannelForApplicationAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForApplicationAsync(&self) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
-                #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsyncWithId")]
+                #[overload(CreatePushNotificationChannelForApplicationAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreatePushNotificationChannelForApplicationAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
+                fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
             }

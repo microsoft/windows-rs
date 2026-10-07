@@ -6,10 +6,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PhoneNumberFormatter)]
             interface IPhoneNumberFormatter {
-                #[Windows::Foundation::Metadata::Overload("Format")]
+                #[overload(Format)]
                 fn Format(&self, number: PhoneNumberInfo) -> String;
-                #[Windows::Foundation::Metadata::Overload("FormatWithOutputFormat")]
-                fn Format(&self, number: PhoneNumberInfo, numberFormat: PhoneNumberFormat) -> String;
+                #[overload(Format)]
+                fn FormatWithOutputFormat(&self, number: PhoneNumberInfo, numberFormat: PhoneNumberFormat) -> String;
                 fn FormatPartialString(&self, number: String) -> String;
                 fn FormatString(&self, number: String) -> String;
                 fn FormatStringWithLeftToRightMarkers(&self, number: String) -> String;
@@ -48,10 +48,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PhoneNumberInfo)]
             interface IPhoneNumberInfoStatics {
-                #[Windows::Foundation::Metadata::Overload("TryParse")]
+                #[overload(TryParse)]
                 fn TryParse(&self, input: String, phoneNumber: &mut PhoneNumberInfo) -> PhoneNumberParseResult;
-                #[Windows::Foundation::Metadata::Overload("TryParseWithRegion")]
-                fn TryParse(&self, input: String, regionCode: String, phoneNumber: &mut PhoneNumberInfo) -> PhoneNumberParseResult;
+                #[overload(TryParse)]
+                fn TryParseWithRegion(&self, input: String, regionCode: String, phoneNumber: &mut PhoneNumberInfo) -> PhoneNumberParseResult;
             }
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

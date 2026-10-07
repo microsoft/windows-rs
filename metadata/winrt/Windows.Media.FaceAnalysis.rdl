@@ -33,12 +33,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetector)]
             interface IFaceDetector {
-                #[Windows::Foundation::Metadata::Overload("DetectFacesAsync")]
+                #[overload(DetectFacesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DetectFacesAsync(&self, image: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
-                #[Windows::Foundation::Metadata::Overload("DetectFacesWithSearchAreaAsync")]
+                #[overload(DetectFacesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DetectFacesAsync(&self, image: super::super::Graphics::Imaging::SoftwareBitmap, searchArea: super::super::Graphics::Imaging::BitmapBounds) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
+                fn DetectFacesWithSearchAreaAsync(&self, image: super::super::Graphics::Imaging::SoftwareBitmap, searchArea: super::super::Graphics::Imaging::BitmapBounds) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
                 MinDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
                 MaxDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
             }

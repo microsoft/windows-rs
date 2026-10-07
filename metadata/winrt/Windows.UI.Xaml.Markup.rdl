@@ -144,11 +144,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlMetadataProvider {
+                    #[overload(GetXamlType)]
                     #[Windows::Foundation::Metadata::DefaultOverload]
-                    #[Windows::Foundation::Metadata::Overload("GetXamlType")]
                     fn GetXamlType(&self, r#type: super::Interop::TypeName) -> IXamlType;
-                    #[Windows::Foundation::Metadata::Overload("GetXamlTypeByFullName")]
-                    fn GetXamlType(&self, fullName: String) -> IXamlType;
+                    #[overload(GetXamlType)]
+                    fn GetXamlTypeByFullName(&self, fullName: String) -> IXamlType;
                     fn GetXmlnsDefinitions(&self) -> [XmlnsDefinition];
                 }
                 #[guid(0x24374cf1_cceb_48bf_a514_41b0186f84c2)]

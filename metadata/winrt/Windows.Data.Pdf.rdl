@@ -16,28 +16,28 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PdfDocument)]
             interface IPdfDocumentStatics {
-                #[Windows::Foundation::Metadata::Overload("LoadFromFileAsync")]
+                #[overload(LoadFromFileAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn LoadFromFileAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
-                #[Windows::Foundation::Metadata::Overload("LoadFromFileWithPasswordAsync")]
+                #[overload(LoadFromFileAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFromFileAsync(&self, file: super::super::Storage::IStorageFile, password: String) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
-                #[Windows::Foundation::Metadata::Overload("LoadFromStreamAsync")]
+                fn LoadFromFileWithPasswordAsync(&self, file: super::super::Storage::IStorageFile, password: String) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
+                #[overload(LoadFromStreamAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn LoadFromStreamAsync(&self, inputStream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
-                #[Windows::Foundation::Metadata::Overload("LoadFromStreamWithPasswordAsync")]
+                #[overload(LoadFromStreamAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFromStreamAsync(&self, inputStream: super::super::Storage::Streams::IRandomAccessStream, password: String) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
+                fn LoadFromStreamWithPasswordAsync(&self, inputStream: super::super::Storage::Streams::IRandomAccessStream, password: String) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
             }
             #[guid(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PdfPage)]
             interface IPdfPage {
-                #[Windows::Foundation::Metadata::Overload("RenderToStreamAsync")]
+                #[overload(RenderToStreamAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RenderToStreamAsync(&self, outputStream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("RenderWithOptionsToStreamAsync")]
-                fn RenderToStreamAsync(&self, outputStream: super::super::Storage::Streams::IRandomAccessStream, options: PdfPageRenderOptions) -> super::super::Foundation::IAsyncAction;
+                #[overload(RenderToStreamAsync)]
+                fn RenderWithOptionsToStreamAsync(&self, outputStream: super::super::Storage::Streams::IRandomAccessStream, options: PdfPageRenderOptions) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PreparePageAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[get]

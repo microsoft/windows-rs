@@ -39,7 +39,16 @@ impl syn::parse::Parse for InterfaceMember {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         // Peek past any outer attributes to determine which member kind follows.
         let fork = input.fork();
-        fork.call(syn::Attribute::parse_outer)?;
+        let attrs = fork.call(syn::Attribute::parse_outer)?;
+
+        if !fork.peek(syn::Token![fn])
+            && let Some(attr) = attrs.iter().find(|attr| attr.path().is_ident("overload"))
+        {
+            return Err(syn::Error::new_spanned(
+                attr,
+                "`overload` is only supported on WinRT methods",
+            ));
+        }
 
         if fork.peek(syn::Token![fn]) {
             return input.parse().map(Self::Method);
@@ -198,6 +207,38 @@ impl Encoder<'_> {
         for member in &item.members {
             match member {
                 InterfaceMember::Method(method) => {
+                    let mut overload = None;
+                    for attr in &method.attrs {
+                        if attr.path().is_ident("overload") {
+                            if !item.winrt {
+                                return self
+                                    .err(attr, "`overload` is only supported on WinRT methods");
+                            }
+                            if overload.is_some() {
+                                return self.err(attr, "duplicate `overload` attribute");
+                            }
+                            let name: syn::Ident = attr.parse_args().map_err(|_| {
+                                self.error(attr, "`overload` requires a single method name")
+                            })?;
+                            overload = Some(name.unraw_to_string());
+                        }
+                    }
+                    if overload.is_some() {
+                        for attr in &method.attrs {
+                            if attr.path().is_ident("special") {
+                                return self
+                                    .err(attr, "`overload` cannot be combined with `special`");
+                            }
+                            if self.is_overload_attribute(attr) {
+                                return self.err(
+                                    attr,
+                                    "`overload` cannot be combined with `OverloadAttribute`",
+                                );
+                            }
+                        }
+                    }
+                    let abi_name = method.sig.ident.unraw_to_string();
+                    let method_name = overload.as_deref().unwrap_or(&abi_name);
                     let mut params = vec![];
 
                     if method.sig.inputs.is_empty() {
@@ -236,7 +277,7 @@ impl Encoder<'_> {
 
                     if !already_has_guid {
                         method_signatures.push((
-                            method.sig.ident.to_string(),
+                            method_name.to_string(),
                             types.clone(),
                             return_type.clone(),
                         ));
@@ -264,18 +305,28 @@ impl Encoder<'_> {
                         flags |= metadata::MethodAttributes::SpecialName;
                     }
 
-                    let method_def = self.output.MethodDef(
-                        &method.sig.ident.to_string(),
-                        &signature,
-                        flags,
-                        Default::default(),
-                    );
+                    let method_def =
+                        self.output
+                            .MethodDef(method_name, &signature, flags, Default::default());
 
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
                         &method.attrs,
-                        &["special"],
+                        &["special", "overload"],
                     )?;
+
+                    if overload.is_some() {
+                        self.encode_named_attribute(
+                            metadata::writer::HasAttribute::MethodDef(method_def),
+                            &attribute_ref::AttributeRef {
+                                type_name: metadata::TypeName::named(
+                                    "Windows.Foundation.Metadata",
+                                    "OverloadAttribute",
+                                ),
+                                args: vec![(String::new(), metadata::Value::Utf8(abi_name))],
+                            },
+                        );
+                    }
 
                     self.encode_return_attrs(&method.return_attrs)?;
                     self.encode_params(&params)?;

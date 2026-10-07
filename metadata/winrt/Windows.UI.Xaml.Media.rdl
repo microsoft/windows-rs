@@ -766,13 +766,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(LoadedImageSurface)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILoadedImageSurfaceStatics {
-                    #[Windows::Foundation::Metadata::Overload("StartLoadFromUriWithSize")]
-                    fn StartLoadFromUri(&self, uri: super::super::super::Foundation::Uri, desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
-                    #[Windows::Foundation::Metadata::Overload("StartLoadFromUri")]
+                    #[overload(StartLoadFromUri)]
+                    fn StartLoadFromUriWithSize(&self, uri: super::super::super::Foundation::Uri, desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
+                    #[overload(StartLoadFromUri)]
                     fn StartLoadFromUri(&self, uri: super::super::super::Foundation::Uri) -> LoadedImageSurface;
-                    #[Windows::Foundation::Metadata::Overload("StartLoadFromStreamWithSize")]
-                    fn StartLoadFromStream(&self, stream: super::super::super::Storage::Streams::IRandomAccessStream, desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
-                    #[Windows::Foundation::Metadata::Overload("StartLoadFromStream")]
+                    #[overload(StartLoadFromStream)]
+                    fn StartLoadFromStreamWithSize(&self, stream: super::super::super::Storage::Streams::IRandomAccessStream, desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
+                    #[overload(StartLoadFromStream)]
                     fn StartLoadFromStream(&self, stream: super::super::super::Storage::Streams::IRandomAccessStream) -> LoadedImageSurface;
                 }
                 #[guid(0x6f03e149_bfc9_4c01_b578_50338cec97fc)]
@@ -1367,16 +1367,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(VisualTreeHelper)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IVisualTreeHelperStatics {
+                    #[overload(FindElementsInHostCoordinates)]
                     #[Windows::Foundation::Metadata::DefaultOverload]
-                    #[Windows::Foundation::Metadata::Overload("FindElementsInHostCoordinatesPoint")]
-                    fn FindElementsInHostCoordinates(&self, intersectingPoint: super::super::super::Foundation::Point, subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
-                    #[Windows::Foundation::Metadata::Overload("FindElementsInHostCoordinatesRect")]
-                    fn FindElementsInHostCoordinates(&self, intersectingRect: super::super::super::Foundation::Rect, subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    fn FindElementsInHostCoordinatesPoint(&self, intersectingPoint: super::super::super::Foundation::Point, subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    #[overload(FindElementsInHostCoordinates)]
+                    fn FindElementsInHostCoordinatesRect(&self, intersectingRect: super::super::super::Foundation::Rect, subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    #[overload(FindElementsInHostCoordinates)]
                     #[Windows::Foundation::Metadata::DefaultOverload]
-                    #[Windows::Foundation::Metadata::Overload("FindAllElementsInHostCoordinatesPoint")]
-                    fn FindElementsInHostCoordinates(&self, intersectingPoint: super::super::super::Foundation::Point, subtree: super::UIElement, includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
-                    #[Windows::Foundation::Metadata::Overload("FindAllElementsInHostCoordinatesRect")]
-                    fn FindElementsInHostCoordinates(&self, intersectingRect: super::super::super::Foundation::Rect, subtree: super::UIElement, includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    fn FindAllElementsInHostCoordinatesPoint(&self, intersectingPoint: super::super::super::Foundation::Point, subtree: super::UIElement, includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    #[overload(FindElementsInHostCoordinates)]
+                    fn FindAllElementsInHostCoordinatesRect(&self, intersectingRect: super::super::super::Foundation::Rect, subtree: super::UIElement, includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
                     fn GetChild(&self, reference: super::DependencyObject, childIndex: i32) -> super::DependencyObject;
                     fn GetChildrenCount(&self, reference: super::DependencyObject) -> i32;
                     fn GetParent(&self, reference: super::DependencyObject) -> super::DependencyObject;

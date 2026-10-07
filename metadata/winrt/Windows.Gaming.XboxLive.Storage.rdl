@@ -120,13 +120,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveBlobInfoQuery)]
                 interface IGameSaveBlobInfoQuery {
+                    #[overload(GetBlobInfoAsync)]
                     #[Windows::Foundation::Metadata::DefaultOverload]
-                    #[Windows::Foundation::Metadata::Overload("GetBlobInfoAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetBlobInfoAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetBlobInfoWithIndexAndMaxAsync")]
+                    #[overload(GetBlobInfoAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetBlobInfoAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
+                    fn GetBlobInfoWithIndexAndMaxAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetItemCountAsync(&self) -> super::super::super::Foundation::IAsyncOperation<u32>;
                 }
@@ -176,13 +176,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveContainerInfoQuery)]
                 interface IGameSaveContainerInfoQuery {
+                    #[overload(GetContainerInfoAsync)]
                     #[Windows::Foundation::Metadata::DefaultOverload]
-                    #[Windows::Foundation::Metadata::Overload("GetContainerInfoAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetContainerInfoAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
-                    #[Windows::Foundation::Metadata::Overload("GetContainerInfoWithIndexAndMaxAsync")]
+                    #[overload(GetContainerInfoAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetContainerInfoAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
+                    fn GetContainerInfoWithIndexAndMaxAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetItemCountAsync(&self) -> super::super::super::Foundation::IAsyncOperation<u32>;
                 }
@@ -202,11 +202,11 @@ mod Windows {
                     fn CreateContainer(&self, name: String) -> GameSaveContainer;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn DeleteContainerAsync(&self, name: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    #[overload(CreateContainerInfoQuery)]
                     #[Windows::Foundation::Metadata::DefaultOverload]
-                    #[Windows::Foundation::Metadata::Overload("CreateContainerInfoQuery")]
                     fn CreateContainerInfoQuery(&self) -> GameSaveContainerInfoQuery;
-                    #[Windows::Foundation::Metadata::Overload("CreateContainerInfoQueryWithName")]
-                    fn CreateContainerInfoQuery(&self, containerNamePrefix: String) -> GameSaveContainerInfoQuery;
+                    #[overload(CreateContainerInfoQuery)]
+                    fn CreateContainerInfoQueryWithName(&self, containerNamePrefix: String) -> GameSaveContainerInfoQuery;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetRemainingBytesInQuotaAsync(&self) -> super::super::super::Foundation::IAsyncOperation<i64>;
                     #[get]

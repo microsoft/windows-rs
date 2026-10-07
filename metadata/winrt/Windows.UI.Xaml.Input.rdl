@@ -302,7 +302,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IFocusManagerStatics2 {
-                    #[Windows::Foundation::Metadata::Overload("TryMoveFocus")]
+                    #[overload(TryMoveFocus)]
                     fn TryMoveFocus(&self, focusNavigationDirection: FocusNavigationDirection) -> bool;
                 }
                 #[guid(0x60805ebf_b149_417d_83f1_baeb560e2a47)]
@@ -310,24 +310,24 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IFocusManagerStatics3 {
-                    #[Windows::Foundation::Metadata::Overload("FindNextFocusableElement")]
+                    #[overload(FindNextFocusableElement)]
                     fn FindNextFocusableElement(&self, focusNavigationDirection: FocusNavigationDirection) -> super::UIElement;
-                    #[Windows::Foundation::Metadata::Overload("FindNextFocusableElementWithHint")]
-                    fn FindNextFocusableElement(&self, focusNavigationDirection: FocusNavigationDirection, hintRect: super::super::super::Foundation::Rect) -> super::UIElement;
+                    #[overload(FindNextFocusableElement)]
+                    fn FindNextFocusableElementWithHint(&self, focusNavigationDirection: FocusNavigationDirection, hintRect: super::super::super::Foundation::Rect) -> super::UIElement;
                 }
                 #[guid(0x29276e9c_1c6c_414a_ba1c_96efd5962bcd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IFocusManagerStatics4 {
-                    #[Windows::Foundation::Metadata::Overload("TryMoveFocusWithOptions")]
-                    fn TryMoveFocus(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> bool;
-                    #[Windows::Foundation::Metadata::Overload("FindNextElement")]
+                    #[overload(TryMoveFocus)]
+                    fn TryMoveFocusWithOptions(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> bool;
+                    #[overload(FindNextElement)]
                     fn FindNextElement(&self, focusNavigationDirection: FocusNavigationDirection) -> super::DependencyObject;
                     fn FindFirstFocusableElement(&self, searchScope: super::DependencyObject) -> super::DependencyObject;
                     fn FindLastFocusableElement(&self, searchScope: super::DependencyObject) -> super::DependencyObject;
-                    #[Windows::Foundation::Metadata::Overload("FindNextElementWithOptions")]
-                    fn FindNextElement(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> super::DependencyObject;
+                    #[overload(FindNextElement)]
+                    fn FindNextElementWithOptions(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> super::DependencyObject;
                 }
                 #[guid(0x280edc61_207a_4d7b_b98f_ce165e1b2015)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -336,12 +336,12 @@ mod Windows {
                 interface IFocusManagerStatics5 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn TryFocusAsync(&self, element: super::DependencyObject, value: super::FocusState) -> super::super::super::Foundation::IAsyncOperation<FocusMovementResult>;
-                    #[Windows::Foundation::Metadata::Overload("TryMoveFocusAsync")]
+                    #[overload(TryMoveFocusAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn TryMoveFocusAsync(&self, focusNavigationDirection: FocusNavigationDirection) -> super::super::super::Foundation::IAsyncOperation<FocusMovementResult>;
-                    #[Windows::Foundation::Metadata::Overload("TryMoveFocusWithOptionsAsync")]
+                    #[overload(TryMoveFocusAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn TryMoveFocusAsync(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> super::super::super::Foundation::IAsyncOperation<FocusMovementResult>;
+                    fn TryMoveFocusWithOptionsAsync(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> super::super::super::Foundation::IAsyncOperation<FocusMovementResult>;
                 }
                 #[guid(0x3546a1b6_20bf_5007_929d_e6d32e16afe4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -358,7 +358,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IFocusManagerStatics7 {
-                    #[Windows::Foundation::Metadata::Overload("GetFocusedElement")]
+                    #[overload(GetFocusedElement)]
                     fn GetFocusedElement(&self, xamlRoot: super::XamlRoot) -> Object;
                 }
                 #[guid(0x06dfead3_c2ae_44bb_bfab_9c73de8407a4)]

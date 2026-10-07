@@ -556,10 +556,10 @@ mod Windows {
                 #[get]
                 CurrentMode: DigitalWindowMode;
                 fn GetBounds(&self) -> DigitalWindowBounds;
-                #[Windows::Foundation::Metadata::Overload("Configure")]
+                #[overload(Configure)]
                 fn Configure(&self, digitalWindowMode: DigitalWindowMode);
-                #[Windows::Foundation::Metadata::Overload("ConfigureWithBounds")]
-                fn Configure(&self, digitalWindowMode: DigitalWindowMode, digitalWindowBounds: DigitalWindowBounds);
+                #[overload(Configure)]
+                fn ConfigureWithBounds(&self, digitalWindowMode: DigitalWindowMode, digitalWindowBounds: DigitalWindowBounds);
                 #[get]
                 SupportedCapabilities: super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>;
                 fn GetCapabilityForSize(&self, width: i32, height: i32) -> DigitalWindowCapability;
@@ -643,12 +643,12 @@ mod Windows {
                 SupportedPresets: super::super::Foundation::Collections::IVectorView<FocusPreset>;
                 #[get]
                 Preset: FocusPreset;
-                #[Windows::Foundation::Metadata::Overload("SetPresetAsync")]
+                #[overload(SetPresetAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SetPresetAsync(&self, preset: FocusPreset) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("SetPresetWithCompletionOptionAsync")]
+                #[overload(SetPresetAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetPresetAsync(&self, preset: FocusPreset, completeBeforeFocus: bool) -> super::super::Foundation::IAsyncAction;
+                fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completeBeforeFocus: bool) -> super::super::Foundation::IAsyncAction;
                 #[get]
                 Min: u32;
                 #[get]
@@ -910,10 +910,10 @@ mod Windows {
             interface IRegionsOfInterestControl {
                 #[get]
                 MaxRegions: u32;
-                #[Windows::Foundation::Metadata::Overload("SetRegionsAsync")]
+                #[overload(SetRegionsAsync)]
                 fn SetRegionsAsync(&self, regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("SetRegionsWithLockAsync")]
-                fn SetRegionsAsync(&self, regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>, lockValues: bool) -> super::super::Foundation::IAsyncAction;
+                #[overload(SetRegionsAsync)]
+                fn SetRegionsWithLockAsync(&self, regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>, lockValues: bool) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ClearRegionsAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[get]

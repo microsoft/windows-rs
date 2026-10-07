@@ -319,22 +319,22 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VirtualPrinterManager)]
             interface IVirtualPrinterManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterAsync")]
+                #[overload(InstallVirtualPrinterAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn InstallVirtualPrinterAsync(&self, parameters: VirtualPrinterInstallationParameters) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
-                #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterAsync2")]
+                #[overload(InstallVirtualPrinterAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InstallVirtualPrinterAsync(&self, parameters: VirtualPrinterInstallationParameters, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
-                #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterForAllUsersAsync")]
+                fn InstallVirtualPrinterAsync2(&self, parameters: VirtualPrinterInstallationParameters, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
+                #[overload(InstallVirtualPrinterForAllUsersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn InstallVirtualPrinterForAllUsersAsync(&self, parameters: VirtualPrinterInstallationParameters) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
-                #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterForAllUsersAsync2")]
+                #[overload(InstallVirtualPrinterForAllUsersAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InstallVirtualPrinterForAllUsersAsync(&self, parameters: VirtualPrinterInstallationParameters, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
-                #[Windows::Foundation::Metadata::Overload("FindAllVirtualPrinters")]
+                fn InstallVirtualPrinterForAllUsersAsync2(&self, parameters: VirtualPrinterInstallationParameters, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
+                #[overload(FindAllVirtualPrinters)]
                 fn FindAllVirtualPrinters(&self) -> super::super::Foundation::Collections::IVectorView<String>;
-                #[Windows::Foundation::Metadata::Overload("FindAllVirtualPrinters2")]
-                fn FindAllVirtualPrinters(&self, appPackageFamilyName: String) -> super::super::Foundation::Collections::IVectorView<String>;
+                #[overload(FindAllVirtualPrinters)]
+                fn FindAllVirtualPrinters2(&self, appPackageFamilyName: String) -> super::super::Foundation::Collections::IVectorView<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RemoveVirtualPrinterAsync(&self, printerName: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]

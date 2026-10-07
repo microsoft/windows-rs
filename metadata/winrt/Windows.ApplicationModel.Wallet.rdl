@@ -255,28 +255,28 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetWalletItemAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<WalletItem>;
+                #[overload(GetItemsAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>;
+                #[overload(GetItemsAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetItemsWithKindAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetItemsAsync(&self, kind: WalletItemKind) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>;
+                fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ImportItemAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<WalletItem>;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DeleteAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                #[overload(ShowAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("ShowAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[overload(ShowAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("ShowItemAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                fn ShowItemAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn UpdateAsync(&self, item: WalletItem) -> super::super::Foundation::IAsyncAction;

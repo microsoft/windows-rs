@@ -51,7 +51,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityChannel)]
             interface IUserActivityChannel {
-                #[Windows::Foundation::Metadata::Overload("GetOrCreateUserActivityAsync")]
+                #[overload(GetOrCreateUserActivityAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetOrCreateUserActivityAsync(&self, activityId: String) -> super::super::Foundation::IAsyncOperation<UserActivity>;
                 #[Windows::Foundation::Metadata::RemoteAsync]

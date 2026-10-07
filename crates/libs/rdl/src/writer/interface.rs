@@ -141,7 +141,7 @@ fn write_members(
         }
 
         consumed[i] = true;
-        tokens.push(write_method(namespace, method, generics)?);
+        tokens.push(write_method(namespace, method, generics, is_winrt)?);
     }
 
     Ok(tokens)
@@ -163,8 +163,21 @@ fn write_method(
     namespace: &str,
     item: &metadata::reader::MethodDef,
     generics: &[metadata::Type],
+    is_winrt: bool,
 ) -> Result<TokenStream, Error> {
-    let name = write_ident(item.name());
+    let is_special = item
+        .flags()
+        .contains(metadata::MethodAttributes::SpecialName);
+    let overload = if is_winrt && !is_special {
+        overload_names(item)?
+    } else {
+        None
+    };
+    let (name, overload_attr) = if let Some((abi_name, method_name)) = &overload {
+        (quote! { #abi_name }, quote! { #[overload(#method_name)] })
+    } else {
+        (write_ident(item.name()), quote! {})
+    };
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, item, &signature)?;
@@ -176,13 +189,15 @@ fn write_method(
         )
         .collect::<Result<Vec<_>, Error>>()?;
 
-    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let method_attrs = write_custom_attributes(
+        item.attributes()
+            .filter(|attr| overload.is_none() || !is_overload_attribute(attr)),
+        namespace,
+        item.index(),
+    )?;
 
     // Preserve property/event methods with the built-in `#[special]` pseudo.
-    let special_attr = if item
-        .flags()
-        .contains(metadata::MethodAttributes::SpecialName)
-    {
+    let special_attr = if is_special {
         quote! { #[special] }
     } else {
         quote! {}
@@ -190,7 +205,50 @@ fn write_method(
 
     Ok(quote! {
         #special_attr
+        #overload_attr
         #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
     })
+}
+
+fn is_overload_attribute(attr: &metadata::reader::Attribute) -> bool {
+    attr.namespace() == "Windows.Foundation.Metadata" && attr.name() == "OverloadAttribute"
+}
+
+fn overload_names(
+    method: &metadata::reader::MethodDef,
+) -> Result<Option<(syn::Ident, syn::Ident)>, Error> {
+    let mut attributes = method.attributes().filter(is_overload_attribute);
+    let Some(attribute) = attributes.next() else {
+        return Ok(None);
+    };
+    if attributes.next().is_some() {
+        return Err(writer_err!(
+            "duplicate OverloadAttribute on method `{}`",
+            method.name()
+        ));
+    }
+    let values = attribute.value();
+    let [(key, metadata::Value::Utf8(abi_name))] = values.as_slice() else {
+        return Err(writer_err!(
+            "invalid OverloadAttribute on method `{}`",
+            method.name()
+        ));
+    };
+    if !key.is_empty() || abi_name.is_empty() {
+        return Err(writer_err!(
+            "invalid OverloadAttribute on method `{}`",
+            method.name()
+        ));
+    }
+
+    // Keep the raw attribute when a metadata name cannot be represented by an RDL identifier.
+    fn ident(name: &str) -> Option<syn::Ident> {
+        use syn::ext::IdentExt;
+        let ident = syn::parse_str::<syn::Ident>(name)
+            .or_else(|_| syn::parse_str(&format!("r#{name}")))
+            .ok()?;
+        (ident.unraw() == name).then_some(ident)
+    }
+    Ok(ident(abi_name).zip(ident(method.name())))
 }

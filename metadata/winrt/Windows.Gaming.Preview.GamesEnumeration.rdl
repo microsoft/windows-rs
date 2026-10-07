@@ -74,12 +74,12 @@ mod Windows {
                     LauncherExecutable: super::super::super::Storage::IStorageFile;
                     #[get]
                     LaunchParameters: String;
-                    #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileAsync")]
+                    #[overload(SetLauncherExecutableFileAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
-                    #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileWithParamsAsync")]
+                    #[overload(SetLauncherExecutableFileAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile, launchParams: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn SetLauncherExecutableFileWithParamsAsync(&self, executableFile: super::super::super::Storage::IStorageFile, launchParams: String) -> super::super::super::Foundation::IAsyncAction;
                     #[get]
                     TitleId: String;
                     #[Windows::Foundation::Metadata::RemoteAsync]
@@ -91,12 +91,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameList)]
                 interface IGameListStatics {
-                    #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
+                    #[overload(FindAllAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FindAllAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
-                    #[Windows::Foundation::Metadata::Overload("FindAllAsyncPackageFamilyName")]
+                    #[overload(FindAllAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FindAllAsync(&self, packageFamilyName: String) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
+                    fn FindAllAsyncPackageFamilyName(&self, packageFamilyName: String) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
                     event GameAdded: GameListChangedEventHandler;
                     event GameRemoved: GameListRemovedEventHandler;
                     event GameUpdated: GameListChangedEventHandler;

@@ -897,7 +897,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(BooleanKeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IBooleanKeyFrameAnimation {
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: bool);
             }
             #[guid(0xe7fdb44b_aad5_5174_9421_eef8b75a6a43)]
@@ -950,10 +950,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IColorKeyFrameAnimation {
                 InterpolationColorSpace: CompositionColorSpace;
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::Color);
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
-                fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::Color, easingFunction: CompositionEasingFunction);
+                #[overload(InsertKeyFrame)]
+                fn InsertKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, value: super::Color, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x464c4c2c_1caa_4061_9b40_e13fde1503ca)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -1133,14 +1133,14 @@ mod Windows {
                 #[get]
                 SizeInt32: super::super::Graphics::SizeInt32;
                 fn Resize(&self, sizePixels: super::super::Graphics::SizeInt32);
-                #[Windows::Foundation::Metadata::Overload("Scroll")]
+                #[overload(Scroll)]
                 fn Scroll(&self, offset: super::super::Graphics::PointInt32);
-                #[Windows::Foundation::Metadata::Overload("ScrollRect")]
-                fn Scroll(&self, offset: super::super::Graphics::PointInt32, scrollRect: super::super::Graphics::RectInt32);
-                #[Windows::Foundation::Metadata::Overload("ScrollWithClip")]
+                #[overload(Scroll)]
+                fn ScrollRect(&self, offset: super::super::Graphics::PointInt32, scrollRect: super::super::Graphics::RectInt32);
+                #[overload(ScrollWithClip)]
                 fn ScrollWithClip(&self, offset: super::super::Graphics::PointInt32, clipRect: super::super::Graphics::RectInt32);
-                #[Windows::Foundation::Metadata::Overload("ScrollRectWithClip")]
-                fn ScrollWithClip(&self, offset: super::super::Graphics::PointInt32, clipRect: super::super::Graphics::RectInt32, scrollRect: super::super::Graphics::RectInt32);
+                #[overload(ScrollWithClip)]
+                fn ScrollRectWithClip(&self, offset: super::super::Graphics::PointInt32, clipRect: super::super::Graphics::RectInt32, scrollRect: super::super::Graphics::RectInt32);
             }
             #[guid(0x9497b00a_312d_46b9_9db3_412fd79464c8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1164,10 +1164,10 @@ mod Windows {
             interface ICompositionEasingFunctionStatics {
                 fn CreateCubicBezierEasingFunction(&self, owner: Compositor, controlPoint1: super::super::Foundation::Numerics::Vector2, controlPoint2: super::super::Foundation::Numerics::Vector2) -> CubicBezierEasingFunction;
                 fn CreateLinearEasingFunction(&self, owner: Compositor) -> LinearEasingFunction;
-                #[Windows::Foundation::Metadata::Overload("CreateStepEasingFunction")]
+                #[overload(CreateStepEasingFunction)]
                 fn CreateStepEasingFunction(&self, owner: Compositor) -> StepEasingFunction;
-                #[Windows::Foundation::Metadata::Overload("CreateStepEasingFunctionWithStepCount")]
-                fn CreateStepEasingFunction(&self, owner: Compositor, stepCount: i32) -> StepEasingFunction;
+                #[overload(CreateStepEasingFunction)]
+                fn CreateStepEasingFunctionWithStepCount(&self, owner: Compositor, stepCount: i32) -> StepEasingFunction;
                 fn CreateBackEasingFunction(&self, owner: Compositor, mode: CompositionEasingFunctionMode, amplitude: f32) -> BackEasingFunction;
                 fn CreateBounceEasingFunction(&self, owner: Compositor, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32) -> BounceEasingFunction;
                 fn CreateCircleEasingFunction(&self, owner: Compositor, mode: CompositionEasingFunctionMode) -> CircleEasingFunction;
@@ -1383,14 +1383,14 @@ mod Windows {
                 Source: CompositionBrush;
                 TopInset: f32;
                 TopInsetScale: f32;
-                #[Windows::Foundation::Metadata::Overload("SetInsets")]
+                #[overload(SetInsets)]
                 fn SetInsets(&self, inset: f32);
-                #[Windows::Foundation::Metadata::Overload("SetInsetsWithValues")]
-                fn SetInsets(&self, left: f32, top: f32, right: f32, bottom: f32);
-                #[Windows::Foundation::Metadata::Overload("SetInsetScales")]
+                #[overload(SetInsets)]
+                fn SetInsetsWithValues(&self, left: f32, top: f32, right: f32, bottom: f32);
+                #[overload(SetInsetScales)]
                 fn SetInsetScales(&self, scale: f32);
-                #[Windows::Foundation::Metadata::Overload("SetInsetScalesWithValues")]
-                fn SetInsetScales(&self, left: f32, top: f32, right: f32, bottom: f32);
+                #[overload(SetInsetScales)]
+                fn SetInsetScalesWithValues(&self, left: f32, top: f32, right: f32, bottom: f32);
             }
             #[guid(0xbcb4ad45_7609_4550_934f_16002a68fded)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -1436,8 +1436,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionObject5 {
-                #[Windows::Foundation::Metadata::Overload("StartAnimationWithController")]
-                fn StartAnimation(&self, propertyName: String, animation: CompositionAnimation, animationController: AnimationController);
+                #[overload(StartAnimation)]
+                fn StartAnimationWithController(&self, propertyName: String, animation: CompositionAnimation, animationController: AnimationController);
             }
             #[guid(0x51205c5e_558a_4f2a_8d39_37bfe1e20ddd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -1768,34 +1768,34 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor {
                 fn CreateColorKeyFrameAnimation(&self) -> ColorKeyFrameAnimation;
-                #[Windows::Foundation::Metadata::Overload("CreateColorBrush")]
+                #[overload(CreateColorBrush)]
                 fn CreateColorBrush(&self) -> CompositionColorBrush;
-                #[Windows::Foundation::Metadata::Overload("CreateColorBrushWithColor")]
-                fn CreateColorBrush(&self, color: super::Color) -> CompositionColorBrush;
+                #[overload(CreateColorBrush)]
+                fn CreateColorBrushWithColor(&self, color: super::Color) -> CompositionColorBrush;
                 fn CreateContainerVisual(&self) -> ContainerVisual;
                 fn CreateCubicBezierEasingFunction(&self, controlPoint1: super::super::Foundation::Numerics::Vector2, controlPoint2: super::super::Foundation::Numerics::Vector2) -> CubicBezierEasingFunction;
-                #[Windows::Foundation::Metadata::Overload("CreateEffectFactory")]
+                #[overload(CreateEffectFactory)]
                 fn CreateEffectFactory(&self, graphicsEffect: super::super::Graphics::Effects::IGraphicsEffect) -> CompositionEffectFactory;
-                #[Windows::Foundation::Metadata::Overload("CreateEffectFactoryWithProperties")]
-                fn CreateEffectFactory(&self, graphicsEffect: super::super::Graphics::Effects::IGraphicsEffect, animatableProperties: super::super::Foundation::Collections::IIterable<String>) -> CompositionEffectFactory;
-                #[Windows::Foundation::Metadata::Overload("CreateExpressionAnimation")]
+                #[overload(CreateEffectFactory)]
+                fn CreateEffectFactoryWithProperties(&self, graphicsEffect: super::super::Graphics::Effects::IGraphicsEffect, animatableProperties: super::super::Foundation::Collections::IIterable<String>) -> CompositionEffectFactory;
+                #[overload(CreateExpressionAnimation)]
                 fn CreateExpressionAnimation(&self) -> ExpressionAnimation;
-                #[Windows::Foundation::Metadata::Overload("CreateExpressionAnimationWithExpression")]
-                fn CreateExpressionAnimation(&self, expression: String) -> ExpressionAnimation;
-                #[Windows::Foundation::Metadata::Overload("CreateInsetClip")]
+                #[overload(CreateExpressionAnimation)]
+                fn CreateExpressionAnimationWithExpression(&self, expression: String) -> ExpressionAnimation;
+                #[overload(CreateInsetClip)]
                 fn CreateInsetClip(&self) -> InsetClip;
-                #[Windows::Foundation::Metadata::Overload("CreateInsetClipWithInsets")]
-                fn CreateInsetClip(&self, leftInset: f32, topInset: f32, rightInset: f32, bottomInset: f32) -> InsetClip;
+                #[overload(CreateInsetClip)]
+                fn CreateInsetClipWithInsets(&self, leftInset: f32, topInset: f32, rightInset: f32, bottomInset: f32) -> InsetClip;
                 fn CreateLinearEasingFunction(&self) -> LinearEasingFunction;
                 fn CreatePropertySet(&self) -> CompositionPropertySet;
                 fn CreateQuaternionKeyFrameAnimation(&self) -> QuaternionKeyFrameAnimation;
                 fn CreateScalarKeyFrameAnimation(&self) -> ScalarKeyFrameAnimation;
                 fn CreateScopedBatch(&self, batchType: CompositionBatchTypes) -> CompositionScopedBatch;
                 fn CreateSpriteVisual(&self) -> SpriteVisual;
-                #[Windows::Foundation::Metadata::Overload("CreateSurfaceBrush")]
+                #[overload(CreateSurfaceBrush)]
                 fn CreateSurfaceBrush(&self) -> CompositionSurfaceBrush;
-                #[Windows::Foundation::Metadata::Overload("CreateSurfaceBrushWithSurface")]
-                fn CreateSurfaceBrush(&self, surface: ICompositionSurface) -> CompositionSurfaceBrush;
+                #[overload(CreateSurfaceBrush)]
+                fn CreateSurfaceBrushWithSurface(&self, surface: ICompositionSurface) -> CompositionSurfaceBrush;
                 fn CreateTargetForCurrentView(&self) -> CompositionTarget;
                 fn CreateVector2KeyFrameAnimation(&self) -> Vector2KeyFrameAnimation;
                 fn CreateVector3KeyFrameAnimation(&self) -> Vector3KeyFrameAnimation;
@@ -1818,10 +1818,10 @@ mod Windows {
                 fn CreateNineGridBrush(&self) -> CompositionNineGridBrush;
                 fn CreatePointLight(&self) -> PointLight;
                 fn CreateSpotLight(&self) -> SpotLight;
-                #[Windows::Foundation::Metadata::Overload("CreateStepEasingFunction")]
+                #[overload(CreateStepEasingFunction)]
                 fn CreateStepEasingFunction(&self) -> StepEasingFunction;
-                #[Windows::Foundation::Metadata::Overload("CreateStepEasingFunctionWithStepCount")]
-                fn CreateStepEasingFunction(&self, stepCount: i32) -> StepEasingFunction;
+                #[overload(CreateStepEasingFunction)]
+                fn CreateStepEasingFunctionWithStepCount(&self, stepCount: i32) -> StepEasingFunction;
             }
             #[guid(0xc9dd8ef0_6eb1_4e3c_a658_675d9c64d4ab)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1835,10 +1835,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor4 {
-                #[Windows::Foundation::Metadata::Overload("CreateColorGradientStop")]
+                #[overload(CreateColorGradientStop)]
                 fn CreateColorGradientStop(&self) -> CompositionColorGradientStop;
-                #[Windows::Foundation::Metadata::Overload("CreateColorGradientStopWithOffsetAndColor")]
-                fn CreateColorGradientStop(&self, offset: f32, color: super::Color) -> CompositionColorGradientStop;
+                #[overload(CreateColorGradientStop)]
+                fn CreateColorGradientStopWithOffsetAndColor(&self, offset: f32, color: super::Color) -> CompositionColorGradientStop;
                 fn CreateLinearGradientBrush(&self) -> CompositionLinearGradientBrush;
                 fn CreateSpringScalarAnimation(&self) -> SpringScalarNaturalMotionAnimation;
                 fn CreateSpringVector2Animation(&self) -> SpringVector2NaturalMotionAnimation;
@@ -1857,18 +1857,18 @@ mod Windows {
                 fn CreateContainerShape(&self) -> CompositionContainerShape;
                 fn CreateEllipseGeometry(&self) -> CompositionEllipseGeometry;
                 fn CreateLineGeometry(&self) -> CompositionLineGeometry;
-                #[Windows::Foundation::Metadata::Overload("CreatePathGeometry")]
+                #[overload(CreatePathGeometry)]
                 fn CreatePathGeometry(&self) -> CompositionPathGeometry;
-                #[Windows::Foundation::Metadata::Overload("CreatePathGeometryWithPath")]
-                fn CreatePathGeometry(&self, path: CompositionPath) -> CompositionPathGeometry;
+                #[overload(CreatePathGeometry)]
+                fn CreatePathGeometryWithPath(&self, path: CompositionPath) -> CompositionPathGeometry;
                 fn CreatePathKeyFrameAnimation(&self) -> PathKeyFrameAnimation;
                 fn CreateRectangleGeometry(&self) -> CompositionRectangleGeometry;
                 fn CreateRoundedRectangleGeometry(&self) -> CompositionRoundedRectangleGeometry;
                 fn CreateShapeVisual(&self) -> ShapeVisual;
-                #[Windows::Foundation::Metadata::Overload("CreateSpriteShape")]
+                #[overload(CreateSpriteShape)]
                 fn CreateSpriteShape(&self) -> CompositionSpriteShape;
-                #[Windows::Foundation::Metadata::Overload("CreateSpriteShapeWithGeometry")]
-                fn CreateSpriteShape(&self, geometry: CompositionGeometry) -> CompositionSpriteShape;
+                #[overload(CreateSpriteShape)]
+                fn CreateSpriteShapeWithGeometry(&self, geometry: CompositionGeometry) -> CompositionSpriteShape;
                 fn CreateViewBox(&self) -> CompositionViewBox;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestCommitAsync(&self) -> super::super::Foundation::IAsyncAction;
@@ -1878,14 +1878,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor6 {
-                #[Windows::Foundation::Metadata::Overload("CreateGeometricClip")]
+                #[overload(CreateGeometricClip)]
                 fn CreateGeometricClip(&self) -> CompositionGeometricClip;
-                #[Windows::Foundation::Metadata::Overload("CreateGeometricClipWithGeometry")]
-                fn CreateGeometricClip(&self, geometry: CompositionGeometry) -> CompositionGeometricClip;
-                #[Windows::Foundation::Metadata::Overload("CreateRedirectVisual")]
+                #[overload(CreateGeometricClip)]
+                fn CreateGeometricClipWithGeometry(&self, geometry: CompositionGeometry) -> CompositionGeometricClip;
+                #[overload(CreateRedirectVisual)]
                 fn CreateRedirectVisual(&self) -> RedirectVisual;
-                #[Windows::Foundation::Metadata::Overload("CreateRedirectVisualWithSourceVisual")]
-                fn CreateRedirectVisual(&self, source: Visual) -> RedirectVisual;
+                #[overload(CreateRedirectVisual)]
+                fn CreateRedirectVisualWithSourceVisual(&self, source: Visual) -> RedirectVisual;
                 fn CreateBooleanKeyFrameAnimation(&self) -> BooleanKeyFrameAnimation;
             }
             #[guid(0xd3483fad_9a12_53ba_bfc8_88b7ff7977c6)]
@@ -1896,12 +1896,12 @@ mod Windows {
                 #[get]
                 DispatcherQueue: super::super::System::DispatcherQueue;
                 fn CreateAnimationPropertyInfo(&self) -> AnimationPropertyInfo;
-                #[Windows::Foundation::Metadata::Overload("CreateRectangleClip")]
+                #[overload(CreateRectangleClip)]
                 fn CreateRectangleClip(&self) -> RectangleClip;
-                #[Windows::Foundation::Metadata::Overload("CreateRectangleClipWithSides")]
-                fn CreateRectangleClip(&self, left: f32, top: f32, right: f32, bottom: f32) -> RectangleClip;
-                #[Windows::Foundation::Metadata::Overload("CreateRectangleClipWithSidesAndRadius")]
-                fn CreateRectangleClip(&self, left: f32, top: f32, right: f32, bottom: f32, topLeftRadius: super::super::Foundation::Numerics::Vector2, topRightRadius: super::super::Foundation::Numerics::Vector2, bottomRightRadius: super::super::Foundation::Numerics::Vector2, bottomLeftRadius: super::super::Foundation::Numerics::Vector2) -> RectangleClip;
+                #[overload(CreateRectangleClip)]
+                fn CreateRectangleClipWithSides(&self, left: f32, top: f32, right: f32, bottom: f32) -> RectangleClip;
+                #[overload(CreateRectangleClip)]
+                fn CreateRectangleClipWithSidesAndRadius(&self, left: f32, top: f32, right: f32, bottom: f32, topLeftRadius: super::super::Foundation::Numerics::Vector2, topRightRadius: super::super::Foundation::Numerics::Vector2, bottomRightRadius: super::super::Foundation::Numerics::Vector2, bottomLeftRadius: super::super::Foundation::Numerics::Vector2) -> RectangleClip;
             }
             #[guid(0x9a0bdee2_fe7b_5f62_a366_9cf8effe2112)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -2081,10 +2081,10 @@ mod Windows {
                 #[get]
                 KeyFrameCount: i32;
                 StopBehavior: AnimationStopBehavior;
-                #[Windows::Foundation::Metadata::Overload("InsertExpressionKeyFrame")]
+                #[overload(InsertExpressionKeyFrame)]
                 fn InsertExpressionKeyFrame(&self, normalizedProgressKey: f32, value: String);
-                #[Windows::Foundation::Metadata::Overload("InsertExpressionKeyFrameWithEasingFunction")]
-                fn InsertExpressionKeyFrame(&self, normalizedProgressKey: f32, value: String, easingFunction: CompositionEasingFunction);
+                #[overload(InsertExpressionKeyFrame)]
+                fn InsertExpressionKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, value: String, easingFunction: CompositionEasingFunction);
             }
             #[guid(0xf4b488bb_2940_4ec0_a41a_eb6d801a2f18)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -2143,10 +2143,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(PathKeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IPathKeyFrameAnimation {
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, path: CompositionPath);
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
-                fn InsertKeyFrame(&self, normalizedProgressKey: f32, path: CompositionPath, easingFunction: CompositionEasingFunction);
+                #[overload(InsertKeyFrame)]
+                fn InsertKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, path: CompositionPath, easingFunction: CompositionEasingFunction);
             }
             #[guid(0xb18545b3_0c5a_4ab0_bedc_4f3546948272)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -2190,10 +2190,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(QuaternionKeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IQuaternionKeyFrameAnimation {
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Quaternion);
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
-                fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Quaternion, easingFunction: CompositionEasingFunction);
+                #[overload(InsertKeyFrame)]
+                fn InsertKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Quaternion, easingFunction: CompositionEasingFunction);
             }
             #[guid(0xb3e7549e_00b4_5b53_8be8_353f6c433101)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
@@ -2229,10 +2229,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ScalarKeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IScalarKeyFrameAnimation {
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: f32);
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
-                fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: f32, easingFunction: CompositionEasingFunction);
+                #[overload(InsertKeyFrame)]
+                fn InsertKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, value: f32, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x94a94581_bf92_495b_b5bd_d2c659430737)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -2353,10 +2353,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector2KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector2KeyFrameAnimation {
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector2);
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
-                fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector2, easingFunction: CompositionEasingFunction);
+                #[overload(InsertKeyFrame)]
+                fn InsertKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector2, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x0f3e0b7d_e512_479d_a00c_77c93a30a395)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -2377,10 +2377,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector3KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector3KeyFrameAnimation {
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector3);
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
-                fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector3, easingFunction: CompositionEasingFunction);
+                #[overload(InsertKeyFrame)]
+                fn InsertKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector3, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -2401,10 +2401,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector4KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector4KeyFrameAnimation {
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
+                #[overload(InsertKeyFrame)]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector4);
-                #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
-                fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector4, easingFunction: CompositionEasingFunction);
+                #[overload(InsertKeyFrame)]
+                fn InsertKeyFrameWithEasingFunction(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector4, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x117e202d_a859_4c89_873b_c2aa566788e3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]

@@ -131,12 +131,12 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(AppInstallItem)]
                     interface IAppInstallItem2 {
-                        #[Windows::Foundation::Metadata::Overload("CancelWithTelemetry")]
-                        fn Cancel(&self, correlationVector: String);
-                        #[Windows::Foundation::Metadata::Overload("PauseWithTelemetry")]
-                        fn Pause(&self, correlationVector: String);
-                        #[Windows::Foundation::Metadata::Overload("RestartWithTelemetry")]
-                        fn Restart(&self, correlationVector: String);
+                        #[overload(Cancel)]
+                        fn CancelWithTelemetry(&self, correlationVector: String);
+                        #[overload(Pause)]
+                        fn PauseWithTelemetry(&self, correlationVector: String);
+                        #[overload(Restart)]
+                        fn RestartWithTelemetry(&self, correlationVector: String);
                     }
                     #[guid(0x6f3dc998_dd47_433c_9234_560172d67a45)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -195,27 +195,27 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(AppInstallManager)]
                     interface IAppInstallManager2 {
-                        #[Windows::Foundation::Metadata::Overload("StartAppInstallWithTelemetryAsync")]
+                        #[overload(StartAppInstallAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn StartAppInstallAsync(&self, productId: String, skuId: String, repair: bool, forceUseOfNonRemovableStorage: bool, catalogId: String, bundleId: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
-                        #[Windows::Foundation::Metadata::Overload("UpdateAppByPackageFamilyNameWithTelemetryAsync")]
+                        fn StartAppInstallWithTelemetryAsync(&self, productId: String, skuId: String, repair: bool, forceUseOfNonRemovableStorage: bool, catalogId: String, bundleId: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
+                        #[overload(UpdateAppByPackageFamilyNameAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn UpdateAppByPackageFamilyNameAsync(&self, packageFamilyName: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
-                        #[Windows::Foundation::Metadata::Overload("SearchForUpdatesWithTelemetryAsync")]
+                        fn UpdateAppByPackageFamilyNameWithTelemetryAsync(&self, packageFamilyName: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
+                        #[overload(SearchForUpdatesAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SearchForUpdatesAsync(&self, productId: String, skuId: String, catalogId: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
-                        #[Windows::Foundation::Metadata::Overload("SearchForAllUpdatesWithTelemetryAsync")]
+                        fn SearchForUpdatesWithTelemetryAsync(&self, productId: String, skuId: String, catalogId: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
+                        #[overload(SearchForAllUpdatesAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SearchForAllUpdatesAsync(&self, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
-                        #[Windows::Foundation::Metadata::Overload("GetIsAppAllowedToInstallWithTelemetryAsync")]
+                        fn SearchForAllUpdatesWithTelemetryAsync(&self, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+                        #[overload(GetIsAppAllowedToInstallAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn GetIsAppAllowedToInstallAsync(&self, productId: String, skuId: String, catalogId: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
-                        #[Windows::Foundation::Metadata::Overload("CancelWithTelemetry")]
-                        fn Cancel(&self, productId: String, correlationVector: String);
-                        #[Windows::Foundation::Metadata::Overload("PauseWithTelemetry")]
-                        fn Pause(&self, productId: String, correlationVector: String);
-                        #[Windows::Foundation::Metadata::Overload("RestartWithTelemetry")]
-                        fn Restart(&self, productId: String, correlationVector: String);
+                        fn GetIsAppAllowedToInstallWithTelemetryAsync(&self, productId: String, skuId: String, catalogId: String, correlationVector: String) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[overload(Cancel)]
+                        fn CancelWithTelemetry(&self, productId: String, correlationVector: String);
+                        #[overload(Pause)]
+                        fn PauseWithTelemetry(&self, productId: String, correlationVector: String);
+                        #[overload(Restart)]
+                        fn RestartWithTelemetry(&self, productId: String, correlationVector: String);
                     }
                     #[guid(0x95b24b17_e96a_4d0e_84e1_c8cb417a0178)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -259,24 +259,24 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(AppInstallManager)]
                     interface IAppInstallManager6 {
-                        #[Windows::Foundation::Metadata::Overload("SearchForAllUpdatesWithUpdateOptionsAsync")]
+                        #[overload(SearchForAllUpdatesAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SearchForAllUpdatesAsync(&self, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
-                        #[Windows::Foundation::Metadata::Overload("SearchForAllUpdatesWithUpdateOptionsForUserAsync")]
+                        fn SearchForAllUpdatesWithUpdateOptionsAsync(&self, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+                        #[overload(SearchForAllUpdatesForUserAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SearchForAllUpdatesForUserAsync(&self, user: super::super::super::super::System::User, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
-                        #[Windows::Foundation::Metadata::Overload("SearchForUpdatesWithUpdateOptionsAsync")]
+                        fn SearchForAllUpdatesWithUpdateOptionsForUserAsync(&self, user: super::super::super::super::System::User, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+                        #[overload(SearchForUpdatesAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SearchForUpdatesAsync(&self, productId: String, skuId: String, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
-                        #[Windows::Foundation::Metadata::Overload("SearchForUpdatesWithUpdateOptionsForUserAsync")]
+                        fn SearchForUpdatesWithUpdateOptionsAsync(&self, productId: String, skuId: String, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
+                        #[overload(SearchForUpdatesForUserAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SearchForUpdatesForUserAsync(&self, user: super::super::super::super::System::User, productId: String, skuId: String, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
-                        #[Windows::Foundation::Metadata::Overload("StartProductInstallWithOptionsAsync")]
+                        fn SearchForUpdatesWithUpdateOptionsForUserAsync(&self, user: super::super::super::super::System::User, productId: String, skuId: String, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions) -> super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>;
+                        #[overload(StartProductInstallAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn StartProductInstallAsync(&self, productId: String, flightId: String, clientId: String, correlationVector: String, installOptions: AppInstallOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
-                        #[Windows::Foundation::Metadata::Overload("StartProductInstallWithOptionsForUserAsync")]
+                        fn StartProductInstallWithOptionsAsync(&self, productId: String, flightId: String, clientId: String, correlationVector: String, installOptions: AppInstallOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+                        #[overload(StartProductInstallForUserAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn StartProductInstallForUserAsync(&self, user: super::super::super::super::System::User, productId: String, flightId: String, clientId: String, correlationVector: String, installOptions: AppInstallOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+                        fn StartProductInstallWithOptionsForUserAsync(&self, user: super::super::super::super::System::User, productId: String, flightId: String, clientId: String, correlationVector: String, installOptions: AppInstallOptions) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn GetIsPackageIdentityAllowedToInstallAsync(&self, correlationVector: String, packageIdentityName: String, publisherCertificateName: String) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                         #[Windows::Foundation::Metadata::RemoteAsync]

@@ -94,9 +94,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             interface IWiFiDirectDeviceStatics {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                #[overload(FromIdAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<WiFiDirectDevice>;
             }
@@ -104,9 +104,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             interface IWiFiDirectDeviceStatics2 {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self, r#type: WiFiDirectDeviceSelectorType) -> String;
-                #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                #[overload(FromIdAsync)]
                 fn FromIdAsync(&self, deviceId: String, connectionParameters: WiFiDirectConnectionParameters) -> super::super::Foundation::IAsyncOperation<WiFiDirectDevice>;
             }
             #[guid(0xaffb72d6_76bb_497e_ac8b_dc72838bc309)]

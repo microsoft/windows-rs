@@ -99,10 +99,10 @@ mod Windows {
                         #[get]
                         Data: super::super::DataPackage;
                         fn SetPointerId(&self, pointerId: u32);
-                        #[Windows::Foundation::Metadata::Overload("SetDragUIContentFromSoftwareBitmap")]
+                        #[overload(SetDragUIContentFromSoftwareBitmap)]
                         fn SetDragUIContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
-                        #[Windows::Foundation::Metadata::Overload("SetDragUIContentFromSoftwareBitmapWithAnchorPoint")]
-                        fn SetDragUIContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
+                        #[overload(SetDragUIContentFromSoftwareBitmap)]
+                        fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
                         DragUIContentMode: CoreDragUIContentMode;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn StartAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
@@ -118,10 +118,10 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragUIOverride)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreDragUIOverride {
-                        #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmap")]
+                        #[overload(SetContentFromSoftwareBitmap)]
                         fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
-                        #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmapWithAnchorPoint")]
-                        fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
+                        #[overload(SetContentFromSoftwareBitmap)]
+                        fn SetContentFromSoftwareBitmapWithAnchorPoint(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
                         IsContentVisible: bool;
                         Caption: String;
                         IsCaptionVisible: bool;

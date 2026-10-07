@@ -217,9 +217,9 @@ mod Windows {
                 ResourceMap: super::super::Foundation::Collections::IMap<String, super::super::Storage::Streams::RandomAccessStreamReference>;
                 fn SetRtf(&self, value: String);
                 fn SetBitmap(&self, value: super::super::Storage::Streams::RandomAccessStreamReference);
-                #[Windows::Foundation::Metadata::Overload("SetStorageItemsReadOnly")]
-                fn SetStorageItems(&self, value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>);
-                #[Windows::Foundation::Metadata::Overload("SetStorageItems")]
+                #[overload(SetStorageItems)]
+                fn SetStorageItemsReadOnly(&self, value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>);
+                #[overload(SetStorageItems)]
                 fn SetStorageItems(&self, value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, readOnly: bool);
             }
             #[guid(0x041c1fe9_2409_45e1_a538_4c53eeee04a7)]
@@ -344,12 +344,12 @@ mod Windows {
                 fn Contains(&self, formatId: String) -> bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDataAsync(&self, formatId: String) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::IAsyncOperation<Object>;
-                #[Windows::Foundation::Metadata::Overload("GetTextAsync")]
+                #[overload(GetTextAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetTextAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::Overload("GetCustomTextAsync")]
+                #[overload(GetTextAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetTextAsync(&self, formatId: String) -> super::super::Foundation::IAsyncOperation<String>;
+                fn GetCustomTextAsync(&self, formatId: String) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::Deprecated("GetUriAsync may be altered or unavailable for releases after Windows 8.1. Instead, use GetWebLinkAsync or GetApplicationLinkAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetUriAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>;
@@ -377,10 +377,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackageView)]
             interface IDataPackageView3 {
-                #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
+                #[overload(RequestAccessAsync)]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessWithEnterpriseIdAsync")]
-                fn RequestAccessAsync(&self, enterpriseId: String) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
+                #[overload(RequestAccessAsync)]
+                fn RequestAccessWithEnterpriseIdAsync(&self, enterpriseId: String) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
                 fn UnlockAndAssumeEnterpriseIdentity(&self) -> super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult;
             }
             #[guid(0xdfe96f1f_e042_4433_a09f_26d6ffda8b85)]
@@ -459,8 +459,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataTransferManager)]
             interface IDataTransferManagerStatics3 {
-                #[Windows::Foundation::Metadata::Overload("ShowShareUIWithOptions")]
-                fn ShowShareUI(&self, options: ShareUIOptions);
+                #[overload(ShowShareUI)]
+                fn ShowShareUIWithOptions(&self, options: ShareUIOptions);
             }
             #[guid(0xe22e7749_dd70_446f_aefc_61cee59f655e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -122,11 +122,11 @@ mod Windows {
             interface IStorageItemExtraProperties {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RetrievePropertiesAsync(&self, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<String, Object>>;
-                #[Windows::Foundation::Metadata::Overload("SavePropertiesAsync")]
+                #[overload(SavePropertiesAsync)]
                 fn SavePropertiesAsync(&self, #[Windows::Foundation::Metadata::HasVariant] propertiesToSave: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("SavePropertiesAsyncOverloadDefault")]
+                #[overload(SavePropertiesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SavePropertiesAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn SavePropertiesAsyncOverloadDefault(&self) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

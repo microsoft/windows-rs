@@ -152,14 +152,14 @@ mod Windows {
                     #[get]
                     AlgorithmName: String;
                     fn CreateKeyPair(&self, keySize: u32) -> CryptographicKey;
-                    #[Windows::Foundation::Metadata::Overload("ImportDefaultPrivateKeyBlob")]
-                    fn ImportKeyPair(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
-                    #[Windows::Foundation::Metadata::Overload("ImportKeyPairWithBlobType")]
-                    fn ImportKeyPair(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPrivateKeyBlobType) -> CryptographicKey;
-                    #[Windows::Foundation::Metadata::Overload("ImportDefaultPublicKeyBlob")]
-                    fn ImportPublicKey(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
-                    #[Windows::Foundation::Metadata::Overload("ImportPublicKeyWithBlobType")]
-                    fn ImportPublicKey(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPublicKeyBlobType) -> CryptographicKey;
+                    #[overload(ImportKeyPair)]
+                    fn ImportDefaultPrivateKeyBlob(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    #[overload(ImportKeyPair)]
+                    fn ImportKeyPairWithBlobType(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPrivateKeyBlobType) -> CryptographicKey;
+                    #[overload(ImportPublicKey)]
+                    fn ImportDefaultPublicKeyBlob(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    #[overload(ImportPublicKey)]
+                    fn ImportPublicKeyWithBlobType(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPublicKeyBlobType) -> CryptographicKey;
                 }
                 #[guid(0x4e322a7e_7c4d_4997_ac4f_1b848b36306e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -205,14 +205,14 @@ mod Windows {
                 interface ICryptographicKey {
                     #[get]
                     KeySize: u32;
-                    #[Windows::Foundation::Metadata::Overload("ExportDefaultPrivateKeyBlobType")]
-                    fn Export(&self) -> super::super::super::Storage::Streams::IBuffer;
-                    #[Windows::Foundation::Metadata::Overload("ExportPrivateKeyWithBlobType")]
-                    fn Export(&self, BlobType: CryptographicPrivateKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
-                    #[Windows::Foundation::Metadata::Overload("ExportDefaultPublicKeyBlobType")]
-                    fn ExportPublicKey(&self) -> super::super::super::Storage::Streams::IBuffer;
-                    #[Windows::Foundation::Metadata::Overload("ExportPublicKeyWithBlobType")]
-                    fn ExportPublicKey(&self, BlobType: CryptographicPublicKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
+                    #[overload(Export)]
+                    fn ExportDefaultPrivateKeyBlobType(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[overload(Export)]
+                    fn ExportPrivateKeyWithBlobType(&self, BlobType: CryptographicPrivateKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
+                    #[overload(ExportPublicKey)]
+                    fn ExportDefaultPublicKeyBlobType(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[overload(ExportPublicKey)]
+                    fn ExportPublicKeyWithBlobType(&self, BlobType: CryptographicPublicKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

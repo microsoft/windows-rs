@@ -107,18 +107,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountStore)]
             interface IUserDataAccountStore2: IUserDataAccountStore {
-                #[Windows::Foundation::Metadata::Overload("CreateAccountWithPackageRelativeAppIdAsync")]
+                #[overload(CreateAccountAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String, packageRelativeAppId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountWithPackageRelativeAppIdAsync(&self, userDisplayName: String, packageRelativeAppId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
                 event StoreChanged: super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>;
             }
             #[guid(0x8142c094_f3c9_478b_b117_6585bebb6789)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountStore)]
             interface IUserDataAccountStore3: IUserDataAccountStore {
-                #[Windows::Foundation::Metadata::Overload("CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync")]
+                #[overload(CreateAccountAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String, packageRelativeAppId: String, enterpriseId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync(&self, userDisplayName: String, packageRelativeAppId: String, enterpriseId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
             }
             #[guid(0x84e3e2e5_8820_4512_b1f6_2e035be1072c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

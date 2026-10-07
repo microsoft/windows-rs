@@ -55,10 +55,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
                 interface IActionCatalog2 {
-                    #[Windows::Foundation::Metadata::Overload("GetActionsForInputs")]
+                    #[overload(GetActionsForInputs)]
                     fn GetActionsForInputs(&self, inputEntities: [super::ActionEntity]) -> [ActionInstance];
-                    #[Windows::Foundation::Metadata::Overload("GetActionsForInputs2")]
-                    fn GetActionsForInputs(&self, inputEntities: [super::ActionEntity], invokerWindowId: super::super::super::UI::WindowId) -> [ActionInstance];
+                    #[overload(GetActionsForInputs)]
+                    fn GetActionsForInputs2(&self, inputEntities: [super::ActionEntity], invokerWindowId: super::super::super::UI::WindowId) -> [ActionInstance];
                 }
                 #[guid(0x2e05d518_8680_55d3_820d_2605adb7d62d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 327680)]

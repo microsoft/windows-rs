@@ -399,10 +399,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(BackgroundAlarmApplicationContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AlarmApplicationManager)]
             interface IAlarmApplicationManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
+                #[overload(RequestAccessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<AlarmAccessStatus>;
-                #[Windows::Foundation::Metadata::Overload("GetAccessStatus")]
+                #[overload(GetAccessStatus)]
                 fn GetAccessStatus(&self) -> AlarmAccessStatus;
             }
             #[guid(0x74d4f496_8d37_44ec_9481_2a0b9854eb48)]
@@ -453,11 +453,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationTrigger)]
             interface IApplicationTrigger: IBackgroundTrigger {
-                #[Windows::Foundation::Metadata::Overload("RequestAsync")]
+                #[overload(RequestAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAsync(&self) -> super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
-                fn RequestAsync(&self, arguments: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>;
+                #[overload(RequestAsync)]
+                fn RequestAsyncWithArguments(&self, arguments: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>;
             }
             #[guid(0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -477,26 +477,26 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundExecutionManager)]
             interface IBackgroundExecutionManagerStatics {
-                #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
+                #[overload(RequestAccessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessForApplicationAsync")]
+                #[overload(RequestAccessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>;
-                #[Windows::Foundation::Metadata::Overload("RemoveAccess")]
+                fn RequestAccessForApplicationAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>;
+                #[overload(RemoveAccess)]
                 fn RemoveAccess(&self);
-                #[Windows::Foundation::Metadata::Overload("RemoveAccessForApplication")]
-                fn RemoveAccess(&self, applicationId: String);
-                #[Windows::Foundation::Metadata::Overload("GetAccessStatus")]
+                #[overload(RemoveAccess)]
+                fn RemoveAccessForApplication(&self, applicationId: String);
+                #[overload(GetAccessStatus)]
                 fn GetAccessStatus(&self) -> BackgroundAccessStatus;
-                #[Windows::Foundation::Metadata::Overload("GetAccessStatusForApplication")]
-                fn GetAccessStatus(&self, applicationId: String) -> BackgroundAccessStatus;
+                #[overload(GetAccessStatus)]
+                fn GetAccessStatusForApplication(&self, applicationId: String) -> BackgroundAccessStatus;
             }
             #[guid(0x469b24ef_9bbb_4e18_999a_fd6512931be9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundExecutionManager)]
             interface IBackgroundExecutionManagerStatics2 {
-                #[Windows::Foundation::Metadata::Overload("RequestAccessKindAsync")]
+                #[overload(RequestAccessKindAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessKindAsync(&self, requestedAccess: BackgroundAccessRequestKind, reason: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
@@ -506,10 +506,10 @@ mod Windows {
             interface IBackgroundExecutionManagerStatics3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessKindForModernStandbyAsync(&self, requestedAccess: BackgroundAccessRequestKind, reason: String) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("GetAccessStatusForModernStandby")]
+                #[overload(GetAccessStatusForModernStandby)]
                 fn GetAccessStatusForModernStandby(&self) -> BackgroundAccessStatus;
-                #[Windows::Foundation::Metadata::Overload("GetAccessStatusForModernStandbyForApplication")]
-                fn GetAccessStatusForModernStandby(&self, applicationId: String) -> BackgroundAccessStatus;
+                #[overload(GetAccessStatusForModernStandby)]
+                fn GetAccessStatusForModernStandbyForApplication(&self, applicationId: String) -> BackgroundAccessStatus;
             }
             #[guid(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -866,27 +866,27 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceServicingTrigger)]
             interface IDeviceServicingTrigger: IBackgroundTrigger {
+                #[overload(RequestAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("RequestAsyncSimple")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAsync(&self, deviceId: String, expectedDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
+                fn RequestAsyncSimple(&self, deviceId: String, expectedDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
+                #[overload(RequestAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAsync(&self, deviceId: String, expectedDuration: super::super::Foundation::TimeSpan, arguments: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
+                fn RequestAsyncWithArguments(&self, deviceId: String, expectedDuration: super::super::Foundation::TimeSpan, arguments: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
             }
             #[guid(0x0da68011_334f_4d57_b6ec_6dca64b412e4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceUseTrigger)]
             interface IDeviceUseTrigger: IBackgroundTrigger {
+                #[overload(RequestAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("RequestAsyncSimple")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
+                fn RequestAsyncSimple(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
+                #[overload(RequestAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAsync(&self, deviceId: String, arguments: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
+                fn RequestAsyncWithArguments(&self, deviceId: String, arguments: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
             }
             #[guid(0xa4617fdd_8573_4260_befc_5bec89cb693d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -914,15 +914,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTrigger)]
             interface IGattCharacteristicNotificationTriggerFactory {
-                #[Windows::Foundation::Metadata::Overload("Create")]
+                #[overload(Create)]
                 fn Create(&self, characteristic: super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic) -> GattCharacteristicNotificationTrigger;
             }
             #[guid(0x5998e91f_8a53_4e9f_a32c_23cd33664cee)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTrigger)]
             interface IGattCharacteristicNotificationTriggerFactory2 {
-                #[Windows::Foundation::Metadata::Overload("CreateWithEventTriggeringMode")]
-                fn Create(&self, characteristic: super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic, eventTriggeringMode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> GattCharacteristicNotificationTrigger;
+                #[overload(Create)]
+                fn CreateWithEventTriggeringMode(&self, characteristic: super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic, eventTriggeringMode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> GattCharacteristicNotificationTrigger;
             }
             #[guid(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -950,7 +950,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderTrigger)]
             interface IGattServiceProviderTriggerStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateAsync")]
+                #[overload(CreateAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAsync(&self, triggerId: String, serviceUuid: GUID) -> super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>;
             }
@@ -992,11 +992,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaProcessingTrigger)]
             interface IMediaProcessingTrigger: IBackgroundTrigger {
-                #[Windows::Foundation::Metadata::Overload("RequestAsync")]
+                #[overload(RequestAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAsync(&self) -> super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
-                fn RequestAsync(&self, arguments: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>;
+                #[overload(RequestAsync)]
+                fn RequestAsyncWithArguments(&self, arguments: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>;
             }
             #[guid(0xe756c791_3001_4de5_83c7_de61d88831d0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -337,8 +337,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScanner)]
             interface IBarcodeScannerStatics2 {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
-                fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorWithConnectionTypes(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x355d8586_9c43_462b_a91a_816dc97f452c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -654,8 +654,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawer)]
             interface ICashDrawerStatics2 {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
-                fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorWithConnectionTypes(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -842,15 +842,15 @@ mod Windows {
                 fn TryClearDescriptorsAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryCreateWindowAsync(&self, viewport: super::super::Foundation::Rect, windowSize: super::super::Foundation::Size) -> super::super::Foundation::IAsyncOperation<LineDisplayWindow>;
-                #[Windows::Foundation::Metadata::Overload("TryStoreStorageFileBitmapAsync")]
+                #[overload(TryStoreStorageFileBitmapAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryStoreStorageFileBitmapAsync(&self, bitmap: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>;
-                #[Windows::Foundation::Metadata::Overload("TryStoreStorageFileBitmapWithAlignmentAsync")]
+                #[overload(TryStoreStorageFileBitmapAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryStoreStorageFileBitmapAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment) -> super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>;
-                #[Windows::Foundation::Metadata::Overload("TryStoreStorageFileBitmapWithAlignmentAndWidthAsync")]
+                fn TryStoreStorageFileBitmapWithAlignmentAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment) -> super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>;
+                #[overload(TryStoreStorageFileBitmapAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryStoreStorageFileBitmapAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>;
+                fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>;
             }
             #[guid(0x642ecd92_e9d4_4ecc_af75_329c274cd18f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -868,10 +868,10 @@ mod Windows {
             interface IClaimedLineDisplayStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
-                fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorWithConnectionTypes(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x475ca8f3_9417_48bc_b9d7_4163a7844c02)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1295,10 +1295,10 @@ mod Windows {
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<LineDisplay>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<LineDisplay>;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
-                fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorWithConnectionTypes(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x600c3f1c_77ab_4968_a7de_c02ff169f2cc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -1343,15 +1343,15 @@ mod Windows {
                 InterCharacterWaitInterval: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryRefreshAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayTextAsync")]
+                #[overload(TryDisplayTextAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayTextAsync(&self, text: String, displayAttribute: LineDisplayTextAttribute) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayTextAtPositionAsync")]
+                #[overload(TryDisplayTextAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDisplayTextAsync(&self, text: String, displayAttribute: LineDisplayTextAttribute, startPosition: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayTextNormalAsync")]
+                fn TryDisplayTextAtPositionAsync(&self, text: String, displayAttribute: LineDisplayTextAttribute, startPosition: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(TryDisplayTextAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDisplayTextAsync(&self, text: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryDisplayTextNormalAsync(&self, text: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryScrollTextAsync(&self, direction: LineDisplayScrollDirection, numberOfColumnsOrRows: u32) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1369,21 +1369,21 @@ mod Windows {
                 fn ReadCharacterAtCursorAsync(&self) -> super::super::Foundation::IAsyncOperation<u32>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayStoredBitmapAtCursorAsync(&self, bitmap: LineDisplayStoredBitmap) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtCursorAsync")]
+                #[overload(TryDisplayStorageFileBitmapAtCursorAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync")]
+                #[overload(TryDisplayStorageFileBitmapAtCursorAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync")]
+                fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(TryDisplayStorageFileBitmapAtCursorAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtPointAsync")]
+                fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(TryDisplayStorageFileBitmapAtPointAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayStorageFileBitmapAtPointAsync(&self, bitmap: super::super::Storage::StorageFile, offsetInPixels: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtPointWithWidthAsync")]
+                #[overload(TryDisplayStorageFileBitmapAtPointAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDisplayStorageFileBitmapAtPointAsync(&self, bitmap: super::super::Storage::StorageFile, offsetInPixels: super::super::Foundation::Point, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryDisplayStorageFileBitmapAtPointWithWidthAsync(&self, bitmap: super::super::Storage::StorageFile, offsetInPixels: super::super::Foundation::Point, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x1a92b015_47c3_468a_9333_0c6517574883)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1577,8 +1577,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReader)]
             interface IMagneticStripeReaderStatics2 {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
-                fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorWithConnectionTypes(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x09cc6bb0_3262_401d_9e8a_e80d6358906b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1688,10 +1688,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IPosPrinterJob {
                 fn Print(&self, data: String);
-                #[Windows::Foundation::Metadata::Overload("PrintLine")]
+                #[overload(PrintLine)]
                 fn PrintLine(&self, data: String);
-                #[Windows::Foundation::Metadata::Overload("PrintNewline")]
-                fn PrintLine(&self);
+                #[overload(PrintLine)]
+                fn PrintNewline(&self);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ExecuteAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
@@ -1731,8 +1731,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinter)]
             interface IPosPrinterStatics2 {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
-                fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorWithConnectionTypes(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0xd1f0c730_da40_4328_bf76_5156fa33b747)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1756,36 +1756,36 @@ mod Windows {
                 fn SetBarcodeRotation(&self, value: PosPrinterRotation);
                 fn SetPrintRotation(&self, value: PosPrinterRotation, includeBitmaps: bool);
                 fn SetPrintArea(&self, value: super::super::Foundation::Rect);
-                #[Windows::Foundation::Metadata::Overload("SetBitmap")]
+                #[overload(SetBitmap)]
                 fn SetBitmap(&self, bitmapNumber: u32, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment);
-                #[Windows::Foundation::Metadata::Overload("SetBitmapCustomWidthStandardAlign")]
-                fn SetBitmap(&self, bitmapNumber: u32, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32);
-                #[Windows::Foundation::Metadata::Overload("SetCustomAlignedBitmap")]
+                #[overload(SetBitmap)]
+                fn SetBitmapCustomWidthStandardAlign(&self, bitmapNumber: u32, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32);
+                #[overload(SetCustomAlignedBitmap)]
                 fn SetCustomAlignedBitmap(&self, bitmapNumber: u32, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignmentDistance: u32);
-                #[Windows::Foundation::Metadata::Overload("SetBitmapCustomWidthCustomAlign")]
-                fn SetCustomAlignedBitmap(&self, bitmapNumber: u32, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignmentDistance: u32, width: u32);
+                #[overload(SetCustomAlignedBitmap)]
+                fn SetBitmapCustomWidthCustomAlign(&self, bitmapNumber: u32, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignmentDistance: u32, width: u32);
                 fn PrintSavedBitmap(&self, bitmapNumber: u32);
                 fn DrawRuledLine(&self, positionList: String, lineDirection: PosPrinterLineDirection, lineWidth: u32, lineStyle: PosPrinterLineStyle, lineColor: u32);
                 fn PrintBarcode(&self, data: String, symbology: u32, height: u32, width: u32, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment);
                 fn PrintBarcodeCustomAlign(&self, data: String, symbology: u32, height: u32, width: u32, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: u32);
-                #[Windows::Foundation::Metadata::Overload("PrintBitmap")]
+                #[overload(PrintBitmap)]
                 fn PrintBitmap(&self, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment);
-                #[Windows::Foundation::Metadata::Overload("PrintBitmapCustomWidthStandardAlign")]
-                fn PrintBitmap(&self, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32);
-                #[Windows::Foundation::Metadata::Overload("PrintCustomAlignedBitmap")]
+                #[overload(PrintBitmap)]
+                fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32);
+                #[overload(PrintCustomAlignedBitmap)]
                 fn PrintCustomAlignedBitmap(&self, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignmentDistance: u32);
-                #[Windows::Foundation::Metadata::Overload("PrintBitmapCustomWidthCustomAlign")]
-                fn PrintCustomAlignedBitmap(&self, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignmentDistance: u32, width: u32);
+                #[overload(PrintCustomAlignedBitmap)]
+                fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: super::super::Graphics::Imaging::BitmapFrame, alignmentDistance: u32, width: u32);
             }
             #[guid(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ReceiptPrintJob)]
             interface IReceiptPrintJob {
                 fn MarkFeed(&self, kind: PosPrinterMarkFeedKind);
-                #[Windows::Foundation::Metadata::Overload("CutPaper")]
+                #[overload(CutPaper)]
                 fn CutPaper(&self, percentage: f64);
-                #[Windows::Foundation::Metadata::Overload("CutPaperDefault")]
-                fn CutPaper(&self);
+                #[overload(CutPaper)]
+                fn CutPaperDefault(&self);
             }
             #[guid(0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]

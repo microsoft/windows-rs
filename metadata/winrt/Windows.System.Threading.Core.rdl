@@ -33,14 +33,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SignalNotifier)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISignalNotifierStatics {
-                    #[Windows::Foundation::Metadata::Overload("AttachToEvent")]
+                    #[overload(AttachToEvent)]
                     fn AttachToEvent(&self, name: String, handler: SignalHandler) -> SignalNotifier;
-                    #[Windows::Foundation::Metadata::Overload("AttachToEventWithTimeout")]
-                    fn AttachToEvent(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
-                    #[Windows::Foundation::Metadata::Overload("AttachToSemaphore")]
+                    #[overload(AttachToEvent)]
+                    fn AttachToEventWithTimeout(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
+                    #[overload(AttachToSemaphore)]
                     fn AttachToSemaphore(&self, name: String, handler: SignalHandler) -> SignalNotifier;
-                    #[Windows::Foundation::Metadata::Overload("AttachToSemaphoreWithTimeout")]
-                    fn AttachToSemaphore(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
+                    #[overload(AttachToSemaphore)]
+                    fn AttachToSemaphoreWithTimeout(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
                 }
                 #[Windows::Foundation::Metadata::Activatable(IPreallocatedWorkItemFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

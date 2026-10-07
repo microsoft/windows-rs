@@ -18,12 +18,12 @@ mod Windows {
                     event SessionDeferred: super::super::super::Foundation::TypedEventHandler<WiFiDirectService, WiFiDirectServiceSessionDeferredEventArgs>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetProvisioningInfoAsync(&self, selectedConfigurationMethod: WiFiDirectServiceConfigurationMethod) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>;
-                    #[Windows::Foundation::Metadata::Overload("ConnectAsync")]
+                    #[overload(ConnectAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ConnectAsync(&self) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
-                    #[Windows::Foundation::Metadata::Overload("ConnectAsyncWithPin")]
+                    #[overload(ConnectAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ConnectAsync(&self, pin: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
+                    fn ConnectAsyncWithPin(&self, pin: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
                 }
                 #[guid(0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -48,12 +48,12 @@ mod Windows {
                     event SessionRequested: super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceSessionRequestedEventArgs>;
                     event AutoAcceptSessionConnected: super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>;
                     event AdvertisementStatusChanged: super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, Object>;
-                    #[Windows::Foundation::Metadata::Overload("ConnectAsync")]
+                    #[overload(ConnectAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ConnectAsync(&self, deviceInfo: super::super::Enumeration::DeviceInformation) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
-                    #[Windows::Foundation::Metadata::Overload("ConnectAsyncWithPin")]
+                    #[overload(ConnectAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ConnectAsync(&self, deviceInfo: super::super::Enumeration::DeviceInformation, pin: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
+                    fn ConnectAsyncWithPin(&self, deviceInfo: super::super::Enumeration::DeviceInformation, pin: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
                     fn Start(&self);
                     fn Stop(&self);
                 }
@@ -144,10 +144,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectService)]
                 interface IWiFiDirectServiceStatics {
-                    #[Windows::Foundation::Metadata::Overload("GetSelector")]
+                    #[overload(GetSelector)]
                     fn GetSelector(&self, serviceName: String) -> String;
-                    #[Windows::Foundation::Metadata::Overload("GetSelectorWithFilter")]
-                    fn GetSelector(&self, serviceName: String, serviceInfoFilter: super::super::super::Storage::Streams::IBuffer) -> String;
+                    #[overload(GetSelector)]
+                    fn GetSelectorWithFilter(&self, serviceName: String, serviceInfoFilter: super::super::super::Storage::Streams::IBuffer) -> String;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FromIdAsync(&self, deviceId: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectService>;
                 }

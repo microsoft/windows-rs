@@ -42,10 +42,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
                 interface INotesWindowManagerPreview2 {
-                    #[Windows::Foundation::Metadata::Overload("ShowNoteRelativeToWithOptions")]
-                    fn ShowNoteRelativeTo(&self, noteViewId: i32, anchorNoteViewId: i32, options: NotesWindowManagerPreviewShowNoteOptions);
-                    #[Windows::Foundation::Metadata::Overload("ShowNoteWithPlacementWithOptions")]
-                    fn ShowNoteWithPlacement(&self, noteViewId: i32, data: super::super::super::Storage::Streams::IBuffer, options: NotesWindowManagerPreviewShowNoteOptions);
+                    #[overload(ShowNoteRelativeTo)]
+                    fn ShowNoteRelativeToWithOptions(&self, noteViewId: i32, anchorNoteViewId: i32, options: NotesWindowManagerPreviewShowNoteOptions);
+                    #[overload(ShowNoteWithPlacement)]
+                    fn ShowNoteWithPlacementWithOptions(&self, noteViewId: i32, data: super::super::super::Storage::Streams::IBuffer, options: NotesWindowManagerPreviewShowNoteOptions);
                     fn SetFocusToPreviousView(&self);
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SetThumbnailImageForTaskSwitcherAsync(&self, bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::Foundation::IAsyncAction;

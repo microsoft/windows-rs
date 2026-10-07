@@ -423,6 +423,15 @@ fn read_winrt<S: Spanned>(
     let mut win32 = false;
 
     for attr in attrs {
+        if attr.path().is_ident("overload") {
+            let start = attr.span().start();
+            return Err(Error::new(
+                "`overload` is only supported on WinRT methods",
+                source_file,
+                start.line,
+                start.column,
+            ));
+        }
         if attr.path().is_ident("winrt") {
             winrt = true;
         } else if attr.path().is_ident("win32") {

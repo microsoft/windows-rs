@@ -67,16 +67,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnection)]
                 interface IDevicePortalWebSocketConnection {
-                    #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest")]
+                    #[overload(GetServerMessageWebSocketForRequest)]
                     fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
-                    #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest2")]
-                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
-                    #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest3")]
-                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String, outboundBufferSizeInBytes: u32, maxMessageSize: u32, receiveMode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
-                    #[Windows::Foundation::Metadata::Overload("GetServerStreamWebSocketForRequest")]
+                    #[overload(GetServerMessageWebSocketForRequest)]
+                    fn GetServerMessageWebSocketForRequest2(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    #[overload(GetServerMessageWebSocketForRequest)]
+                    fn GetServerMessageWebSocketForRequest3(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String, outboundBufferSizeInBytes: u32, maxMessageSize: u32, receiveMode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    #[overload(GetServerStreamWebSocketForRequest)]
                     fn GetServerStreamWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
-                    #[Windows::Foundation::Metadata::Overload("GetServerStreamWebSocketForRequest2")]
-                    fn GetServerStreamWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, protocol: String, outboundBufferSizeInBytes: u32, noDelay: bool) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
+                    #[overload(GetServerStreamWebSocketForRequest)]
+                    fn GetServerStreamWebSocketForRequest2(&self, request: super::super::super::Web::Http::HttpRequestMessage, protocol: String, outboundBufferSizeInBytes: u32, noDelay: bool) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
                 }
                 #[guid(0x79fdcaba_175c_4739_9f74_dda797c35b3f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]

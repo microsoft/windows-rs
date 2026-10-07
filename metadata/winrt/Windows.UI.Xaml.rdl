@@ -696,10 +696,10 @@ mod Windows {
                 #[get]
                 Current: Application;
                 fn Start(&self, callback: ApplicationInitializationCallback);
-                #[Windows::Foundation::Metadata::Overload("LoadComponent")]
+                #[overload(LoadComponent)]
                 fn LoadComponent(&self, component: Object, resourceLocator: super::super::Foundation::Uri);
-                #[Windows::Foundation::Metadata::Overload("LoadComponentWithResourceLocation")]
-                fn LoadComponent(&self, component: Object, resourceLocator: super::super::Foundation::Uri, componentResourceLocation: Controls::Primitives::ComponentResourceLocation);
+                #[overload(LoadComponent)]
+                fn LoadComponentWithResourceLocation(&self, component: Object, resourceLocator: super::super::Foundation::Uri, componentResourceLocation: Controls::Primitives::ComponentResourceLocation);
             }
             #[guid(0x32c1d013_4dbd_446d_bbb8_0de35048a449)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1043,14 +1043,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(DragUI)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDragUI {
-                #[Windows::Foundation::Metadata::Overload("SetContentFromBitmapImage")]
+                #[overload(SetContentFromBitmapImage)]
                 fn SetContentFromBitmapImage(&self, bitmapImage: Media::Imaging::BitmapImage);
-                #[Windows::Foundation::Metadata::Overload("SetContentFromBitmapImageWithAnchorPoint")]
-                fn SetContentFromBitmapImage(&self, bitmapImage: Media::Imaging::BitmapImage, anchorPoint: super::super::Foundation::Point);
-                #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmap")]
+                #[overload(SetContentFromBitmapImage)]
+                fn SetContentFromBitmapImageWithAnchorPoint(&self, bitmapImage: Media::Imaging::BitmapImage, anchorPoint: super::super::Foundation::Point);
+                #[overload(SetContentFromSoftwareBitmap)]
                 fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::Graphics::Imaging::SoftwareBitmap);
-                #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmapWithAnchorPoint")]
-                fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::Foundation::Point);
+                #[overload(SetContentFromSoftwareBitmap)]
+                fn SetContentFromSoftwareBitmapWithAnchorPoint(&self, softwareBitmap: super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::Foundation::Point);
                 fn SetContentFromDataPackage(&self);
             }
             #[guid(0xbd6c9dfa_c961_4861_b7a5_bf4fe4a8a6ef)]
@@ -1063,14 +1063,14 @@ mod Windows {
                 IsCaptionVisible: bool;
                 IsGlyphVisible: bool;
                 fn Clear(&self);
-                #[Windows::Foundation::Metadata::Overload("SetContentFromBitmapImage")]
+                #[overload(SetContentFromBitmapImage)]
                 fn SetContentFromBitmapImage(&self, bitmapImage: Media::Imaging::BitmapImage);
-                #[Windows::Foundation::Metadata::Overload("SetContentFromBitmapImageWithAnchorPoint")]
-                fn SetContentFromBitmapImage(&self, bitmapImage: Media::Imaging::BitmapImage, anchorPoint: super::super::Foundation::Point);
-                #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmap")]
+                #[overload(SetContentFromBitmapImage)]
+                fn SetContentFromBitmapImageWithAnchorPoint(&self, bitmapImage: Media::Imaging::BitmapImage, anchorPoint: super::super::Foundation::Point);
+                #[overload(SetContentFromSoftwareBitmap)]
                 fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::Graphics::Imaging::SoftwareBitmap);
-                #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmapWithAnchorPoint")]
-                fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::Foundation::Point);
+                #[overload(SetContentFromSoftwareBitmap)]
+                fn SetContentFromSoftwareBitmapWithAnchorPoint(&self, softwareBitmap: super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::Foundation::Point);
             }
             #[guid(0x6c4fc188_95bc_4261_9ec5_21cab677b734)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1477,16 +1477,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(PropertyMetadata)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IPropertyMetadataStatics {
+                #[overload(Create)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateWithDefaultValue")]
-                fn Create(&self, defaultValue: Object) -> PropertyMetadata;
+                fn CreateWithDefaultValue(&self, defaultValue: Object) -> PropertyMetadata;
+                #[overload(Create)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateWithDefaultValueAndCallback")]
-                fn Create(&self, defaultValue: Object, propertyChangedCallback: PropertyChangedCallback) -> PropertyMetadata;
-                #[Windows::Foundation::Metadata::Overload("CreateWithFactory")]
-                fn Create(&self, createDefaultValueCallback: CreateDefaultValueCallback) -> PropertyMetadata;
-                #[Windows::Foundation::Metadata::Overload("CreateWithFactoryAndCallback")]
-                fn Create(&self, createDefaultValueCallback: CreateDefaultValueCallback, propertyChangedCallback: PropertyChangedCallback) -> PropertyMetadata;
+                fn CreateWithDefaultValueAndCallback(&self, defaultValue: Object, propertyChangedCallback: PropertyChangedCallback) -> PropertyMetadata;
+                #[overload(Create)]
+                fn CreateWithFactory(&self, createDefaultValueCallback: CreateDefaultValueCallback) -> PropertyMetadata;
+                #[overload(Create)]
+                fn CreateWithFactoryAndCallback(&self, createDefaultValueCallback: CreateDefaultValueCallback, propertyChangedCallback: PropertyChangedCallback) -> PropertyMetadata;
             }
             #[guid(0x300e5d8a_1ff3_4d2c_95ec_27f81debacb8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1526,11 +1526,11 @@ mod Windows {
                 fn Contains(&self, target: super::super::Foundation::Rect, point: super::super::Foundation::Point) -> bool;
                 fn Equals(&self, target: super::super::Foundation::Rect, value: super::super::Foundation::Rect) -> bool;
                 fn Intersect(&self, target: super::super::Foundation::Rect, rect: super::super::Foundation::Rect) -> super::super::Foundation::Rect;
+                #[overload(Union)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("UnionWithPoint")]
-                fn Union(&self, target: super::super::Foundation::Rect, point: super::super::Foundation::Point) -> super::super::Foundation::Rect;
-                #[Windows::Foundation::Metadata::Overload("UnionWithRect")]
-                fn Union(&self, target: super::super::Foundation::Rect, rect: super::super::Foundation::Rect) -> super::super::Foundation::Rect;
+                fn UnionWithPoint(&self, target: super::super::Foundation::Rect, point: super::super::Foundation::Point) -> super::super::Foundation::Rect;
+                #[overload(Union)]
+                fn UnionWithRect(&self, target: super::super::Foundation::Rect, rect: super::super::Foundation::Rect) -> super::super::Foundation::Rect;
             }
             #[guid(0xc1ea4f24_d6de_4191_8e3a_f48601f7489c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1889,10 +1889,10 @@ mod Windows {
                 event GettingFocus: super::super::Foundation::TypedEventHandler<UIElement, Input::GettingFocusEventArgs>;
                 event LosingFocus: super::super::Foundation::TypedEventHandler<UIElement, Input::LosingFocusEventArgs>;
                 event NoFocusCandidateFound: super::super::Foundation::TypedEventHandler<UIElement, Input::NoFocusCandidateFoundEventArgs>;
-                #[Windows::Foundation::Metadata::Overload("StartBringIntoView")]
+                #[overload(StartBringIntoView)]
                 fn StartBringIntoView(&self);
-                #[Windows::Foundation::Metadata::Overload("StartBringIntoViewWithOptions")]
-                fn StartBringIntoView(&self, options: BringIntoViewOptions);
+                #[overload(StartBringIntoView)]
+                fn StartBringIntoViewWithOptions(&self, options: BringIntoViewOptions);
             }
             #[guid(0xcafc4968_6369_4249_80f9_3d656319e811)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]

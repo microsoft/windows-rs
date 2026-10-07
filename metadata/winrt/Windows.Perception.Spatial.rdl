@@ -65,12 +65,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchor)]
             interface ISpatialAnchorStatics {
-                #[Windows::Foundation::Metadata::Overload("TryCreateRelativeTo")]
+                #[overload(TryCreateRelativeTo)]
                 fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem) -> SpatialAnchor;
-                #[Windows::Foundation::Metadata::Overload("TryCreateWithPositionRelativeTo")]
-                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3) -> SpatialAnchor;
-                #[Windows::Foundation::Metadata::Overload("TryCreateWithPositionAndOrientationRelativeTo")]
-                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> SpatialAnchor;
+                #[overload(TryCreateRelativeTo)]
+                fn TryCreateWithPositionRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3) -> SpatialAnchor;
+                #[overload(TryCreateRelativeTo)]
+                fn TryCreateWithPositionAndOrientationRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> SpatialAnchor;
             }
             #[guid(0xb0bc3636_486a_3cb0_9e6f_1245165c4db6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -163,8 +163,8 @@ mod Windows {
             interface ISpatialEntityStoreStatics {
                 #[get]
                 IsSupported: bool;
-                #[Windows::Foundation::Metadata::Overload("TryGetForRemoteSystemSession")]
-                fn TryGet(&self, session: super::super::System::RemoteSystems::RemoteSystemSession) -> SpatialEntityStore;
+                #[overload(TryGet)]
+                fn TryGetForRemoteSystemSession(&self, session: super::super::System::RemoteSystems::RemoteSystemSession) -> SpatialEntityStore;
             }
             #[guid(0xe5671766_627b_43cb_a49f_b3be6d47deed)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -223,22 +223,22 @@ mod Windows {
                 event LocatabilityChanged: super::super::Foundation::TypedEventHandler<SpatialLocator, Object>;
                 event PositionalTrackingDeactivating: super::super::Foundation::TypedEventHandler<SpatialLocator, SpatialLocatorPositionalTrackingDeactivatingEventArgs>;
                 fn TryLocateAtTimestamp(&self, timestamp: super::PerceptionTimestamp, coordinateSystem: SpatialCoordinateSystem) -> SpatialLocation;
-                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeading")]
+                #[overload(CreateAttachedFrameOfReferenceAtCurrentHeading)]
                 fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self) -> SpatialLocatorAttachedFrameOfReference;
-                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition")]
-                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialLocatorAttachedFrameOfReference;
-                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation")]
-                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialLocatorAttachedFrameOfReference;
-                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading")]
-                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialLocatorAttachedFrameOfReference;
-                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocation")]
+                #[overload(CreateAttachedFrameOfReferenceAtCurrentHeading)]
+                fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialLocatorAttachedFrameOfReference;
+                #[overload(CreateAttachedFrameOfReferenceAtCurrentHeading)]
+                fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialLocatorAttachedFrameOfReference;
+                #[overload(CreateAttachedFrameOfReferenceAtCurrentHeading)]
+                fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialLocatorAttachedFrameOfReference;
+                #[overload(CreateStationaryFrameOfReferenceAtCurrentLocation)]
                 fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self) -> SpatialStationaryFrameOfReference;
-                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition")]
-                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialStationaryFrameOfReference;
-                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation")]
-                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialStationaryFrameOfReference;
-                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading")]
-                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialStationaryFrameOfReference;
+                #[overload(CreateStationaryFrameOfReferenceAtCurrentLocation)]
+                fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialStationaryFrameOfReference;
+                #[overload(CreateStationaryFrameOfReferenceAtCurrentLocation)]
+                fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialStationaryFrameOfReference;
+                #[overload(CreateStationaryFrameOfReferenceAtCurrentLocation)]
+                fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialStationaryFrameOfReference;
             }
             #[guid(0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]

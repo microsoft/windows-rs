@@ -122,10 +122,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInteractionTracker4 {
-                    #[Windows::Foundation::Metadata::Overload("TryUpdatePositionWithOption")]
-                    fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> i32;
-                    #[Windows::Foundation::Metadata::Overload("TryUpdatePositionByWithOption")]
-                    fn TryUpdatePositionBy(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> i32;
+                    #[overload(TryUpdatePosition)]
+                    fn TryUpdatePositionWithOption(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> i32;
+                    #[overload(TryUpdatePositionBy)]
+                    fn TryUpdatePositionByWithOption(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> i32;
                     #[get]
                     IsInertiaFromImpulse: bool;
                 }
@@ -134,8 +134,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInteractionTracker5 {
-                    #[Windows::Foundation::Metadata::Overload("TryUpdatePositionWithOption")]
-                    fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posUpdateOption: InteractionTrackerPositionUpdateOption) -> i32;
+                    #[overload(TryUpdatePosition)]
+                    fn TryUpdatePositionWithOption(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posUpdateOption: InteractionTrackerPositionUpdateOption) -> i32;
                 }
                 #[guid(0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

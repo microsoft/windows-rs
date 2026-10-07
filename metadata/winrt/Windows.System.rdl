@@ -288,13 +288,13 @@ mod Windows {
             fn RequestAccessAsync(&self) -> super::Foundation::IAsyncOperation<DiagnosticAccessStatus>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn RequestInfoForPackageAsync(&self, packageFamilyName: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
+            #[overload(RequestInfoForAppAsync)]
             #[Windows::Foundation::Metadata::DefaultOverload]
-            #[Windows::Foundation::Metadata::Overload("RequestInfoForAppAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn RequestInfoForAppAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
-            #[Windows::Foundation::Metadata::Overload("RequestInfoForAppUserModelId")]
+            #[overload(RequestInfoForAppAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn RequestInfoForAppAsync(&self, appUserModelId: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
+            fn RequestInfoForAppUserModelId(&self, appUserModelId: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
         }
         #[guid(0x75575070_01d3_489a_9325_52f9cc6ede0a)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
@@ -524,10 +524,10 @@ mod Windows {
         #[Windows::Foundation::Metadata::WebHostHidden]
         interface IDispatcherQueue {
             fn CreateTimer(&self) -> DispatcherQueueTimer;
-            #[Windows::Foundation::Metadata::Overload("TryEnqueue")]
+            #[overload(TryEnqueue)]
             fn TryEnqueue(&self, callback: DispatcherQueueHandler) -> bool;
-            #[Windows::Foundation::Metadata::Overload("TryEnqueueWithPriority")]
-            fn TryEnqueue(&self, priority: DispatcherQueuePriority, callback: DispatcherQueueHandler) -> bool;
+            #[overload(TryEnqueue)]
+            fn TryEnqueueWithPriority(&self, priority: DispatcherQueuePriority, callback: DispatcherQueueHandler) -> bool;
             event ShutdownStarting: super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>;
             event ShutdownCompleted: super::Foundation::TypedEventHandler<DispatcherQueue, Object>;
         }
@@ -665,43 +665,43 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics {
-            #[Windows::Foundation::Metadata::Overload("LaunchFileAsync")]
+            #[overload(LaunchFileAsync)]
             fn LaunchFileAsync(&self, file: super::Storage::IStorageFile) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("LaunchFileWithOptionsAsync")]
-            fn LaunchFileAsync(&self, file: super::Storage::IStorageFile, options: LauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriAsync")]
+            #[overload(LaunchFileAsync)]
+            fn LaunchFileWithOptionsAsync(&self, file: super::Storage::IStorageFile, options: LauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
+            #[overload(LaunchUriAsync)]
             fn LaunchUriAsync(&self, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriWithOptionsAsync")]
-            fn LaunchUriAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
+            #[overload(LaunchUriAsync)]
+            fn LaunchUriWithOptionsAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
         }
         #[guid(0x59ba2fbb_24cb_4c02_a4c4_8294569d54f1)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics2 {
-            #[Windows::Foundation::Metadata::Overload("LaunchUriForResultsAsync")]
+            #[overload(LaunchUriForResultsAsync)]
             fn LaunchUriForResultsAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriForResultsWithDataAsync")]
-            fn LaunchUriForResultsAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriWithDataAsync")]
-            fn LaunchUriAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("QueryUriSupportAsync")]
+            #[overload(LaunchUriForResultsAsync)]
+            fn LaunchUriForResultsWithDataAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
+            #[overload(LaunchUriAsync)]
+            fn LaunchUriWithDataAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<bool>;
+            #[overload(QueryUriSupportAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn QueryUriSupportAsync(&self, uri: super::Foundation::Uri, launchQuerySupportType: LaunchQuerySupportType) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
-            #[Windows::Foundation::Metadata::Overload("QueryUriSupportWithPackageFamilyNameAsync")]
+            #[overload(QueryUriSupportAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn QueryUriSupportAsync(&self, uri: super::Foundation::Uri, launchQuerySupportType: LaunchQuerySupportType, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
-            #[Windows::Foundation::Metadata::Overload("QueryFileSupportAsync")]
+            fn QueryUriSupportWithPackageFamilyNameAsync(&self, uri: super::Foundation::Uri, launchQuerySupportType: LaunchQuerySupportType, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
+            #[overload(QueryFileSupportAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn QueryFileSupportAsync(&self, file: super::Storage::StorageFile) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
-            #[Windows::Foundation::Metadata::Overload("QueryFileSupportWithPackageFamilyNameAsync")]
+            #[overload(QueryFileSupportAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn QueryFileSupportAsync(&self, file: super::Storage::StorageFile, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
-            #[Windows::Foundation::Metadata::Overload("FindUriSchemeHandlersAsync")]
+            fn QueryFileSupportWithPackageFamilyNameAsync(&self, file: super::Storage::StorageFile, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
+            #[overload(FindUriSchemeHandlersAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindUriSchemeHandlersAsync(&self, scheme: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
-            #[Windows::Foundation::Metadata::Overload("FindUriSchemeHandlersWithLaunchUriTypeAsync")]
+            #[overload(FindUriSchemeHandlersAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn FindUriSchemeHandlersAsync(&self, scheme: String, launchQuerySupportType: LaunchQuerySupportType) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
+            fn FindUriSchemeHandlersWithLaunchUriTypeAsync(&self, scheme: String, launchQuerySupportType: LaunchQuerySupportType) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindFileHandlersAsync(&self, extension: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
         }
@@ -709,46 +709,46 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics3 {
-            #[Windows::Foundation::Metadata::Overload("LaunchFolderAsync")]
+            #[overload(LaunchFolderAsync)]
             fn LaunchFolderAsync(&self, folder: super::Storage::IStorageFolder) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("LaunchFolderWithOptionsAsync")]
-            fn LaunchFolderAsync(&self, folder: super::Storage::IStorageFolder, options: FolderLauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
+            #[overload(LaunchFolderAsync)]
+            fn LaunchFolderWithOptionsAsync(&self, folder: super::Storage::IStorageFolder, options: FolderLauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
         }
         #[guid(0xb9ec819f_b5a5_41c6_b3b3_dd1b3178bcf2)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics4 {
-            #[Windows::Foundation::Metadata::Overload("QueryAppUriSupportAsync")]
+            #[overload(QueryAppUriSupportAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn QueryAppUriSupportAsync(&self, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
-            #[Windows::Foundation::Metadata::Overload("QueryAppUriSupportWithPackageFamilyNameAsync")]
+            #[overload(QueryAppUriSupportAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn QueryAppUriSupportAsync(&self, uri: super::Foundation::Uri, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
+            fn QueryAppUriSupportWithPackageFamilyNameAsync(&self, uri: super::Foundation::Uri, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindAppUriHandlersAsync(&self, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriForUserAsync")]
+            #[overload(LaunchUriForUserAsync)]
             fn LaunchUriForUserAsync(&self, user: User, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<LaunchUriStatus>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriWithOptionsForUserAsync")]
-            fn LaunchUriForUserAsync(&self, user: User, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<LaunchUriStatus>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriWithDataForUserAsync")]
-            fn LaunchUriForUserAsync(&self, user: User, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<LaunchUriStatus>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriForResultsForUserAsync")]
+            #[overload(LaunchUriForUserAsync)]
+            fn LaunchUriWithOptionsForUserAsync(&self, user: User, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<LaunchUriStatus>;
+            #[overload(LaunchUriForUserAsync)]
+            fn LaunchUriWithDataForUserAsync(&self, user: User, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<LaunchUriStatus>;
+            #[overload(LaunchUriForResultsForUserAsync)]
             fn LaunchUriForResultsForUserAsync(&self, user: User, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriForResultsWithDataForUserAsync")]
-            fn LaunchUriForResultsForUserAsync(&self, user: User, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
+            #[overload(LaunchUriForResultsForUserAsync)]
+            fn LaunchUriForResultsWithDataForUserAsync(&self, user: User, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
         }
         #[guid(0x5b24ef84_d895_5fea_9153_1ac49aed9ba9)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics5 {
-            #[Windows::Foundation::Metadata::Overload("LaunchFolderPathAsync")]
+            #[overload(LaunchFolderPathAsync)]
             fn LaunchFolderPathAsync(&self, path: String) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("LaunchFolderPathWithOptionsAsync")]
-            fn LaunchFolderPathAsync(&self, path: String, options: FolderLauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("LaunchFolderPathForUserAsync")]
+            #[overload(LaunchFolderPathAsync)]
+            fn LaunchFolderPathWithOptionsAsync(&self, path: String, options: FolderLauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
+            #[overload(LaunchFolderPathForUserAsync)]
             fn LaunchFolderPathForUserAsync(&self, user: User, path: String) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::Overload("LaunchFolderPathWithOptionsForUserAsync")]
-            fn LaunchFolderPathForUserAsync(&self, user: User, path: String, options: FolderLauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
+            #[overload(LaunchFolderPathForUserAsync)]
+            fn LaunchFolderPathWithOptionsForUserAsync(&self, user: User, path: String, options: FolderLauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
         }
         #[guid(0x1b25da6e_8aa6_41e9_8251_4165f5985f49)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -817,12 +817,12 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 131072)]
         #[Windows::Foundation::Metadata::ExclusiveTo(ProcessLauncher)]
         interface IProcessLauncherStatics {
-            #[Windows::Foundation::Metadata::Overload("RunToCompletionAsync")]
+            #[overload(RunToCompletionAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn RunToCompletionAsync(&self, fileName: String, args: String) -> super::Foundation::IAsyncOperation<ProcessLauncherResult>;
-            #[Windows::Foundation::Metadata::Overload("RunToCompletionAsyncWithOptions")]
+            #[overload(RunToCompletionAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn RunToCompletionAsync(&self, fileName: String, args: String, options: ProcessLauncherOptions) -> super::Foundation::IAsyncOperation<ProcessLauncherResult>;
+            fn RunToCompletionAsyncWithOptions(&self, fileName: String, args: String, options: ProcessLauncherOptions) -> super::Foundation::IAsyncOperation<ProcessLauncherResult>;
         }
         #[guid(0x087305a8_9b70_4782_8741_3a982b6ce5e4)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -851,12 +851,12 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         #[Windows::Foundation::Metadata::ExclusiveTo(RemoteLauncher)]
         interface IRemoteLauncherStatics {
-            #[Windows::Foundation::Metadata::Overload("LaunchUriAsync")]
+            #[overload(LaunchUriAsync)]
             fn LaunchUriAsync(&self, remoteSystemConnectionRequest: RemoteSystems::RemoteSystemConnectionRequest, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriWithOptionsAsync")]
-            fn LaunchUriAsync(&self, remoteSystemConnectionRequest: RemoteSystems::RemoteSystemConnectionRequest, uri: super::Foundation::Uri, options: RemoteLauncherOptions) -> super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>;
-            #[Windows::Foundation::Metadata::Overload("LaunchUriWithDataAsync")]
-            fn LaunchUriAsync(&self, remoteSystemConnectionRequest: RemoteSystems::RemoteSystemConnectionRequest, uri: super::Foundation::Uri, options: RemoteLauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>;
+            #[overload(LaunchUriAsync)]
+            fn LaunchUriWithOptionsAsync(&self, remoteSystemConnectionRequest: RemoteSystems::RemoteSystemConnectionRequest, uri: super::Foundation::Uri, options: RemoteLauncherOptions) -> super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>;
+            #[overload(LaunchUriAsync)]
+            fn LaunchUriWithDataAsync(&self, remoteSystemConnectionRequest: RemoteSystems::RemoteSystemConnectionRequest, uri: super::Foundation::Uri, options: RemoteLauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>;
         }
         #[guid(0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 65536)]
@@ -870,10 +870,10 @@ mod Windows {
         #[Windows::Foundation::Metadata::ExclusiveTo(ShutdownManager)]
         interface IShutdownManagerStatics2: IShutdownManagerStatics {
             fn IsPowerStateSupported(&self, powerState: PowerState) -> bool;
-            #[Windows::Foundation::Metadata::Overload("EnterPowerState")]
+            #[overload(EnterPowerState)]
             fn EnterPowerState(&self, powerState: PowerState);
-            #[Windows::Foundation::Metadata::Overload("EnterPowerStateWithTimeSpan")]
-            fn EnterPowerState(&self, powerState: PowerState, wakeUpAfter: super::Foundation::TimeSpan);
+            #[overload(EnterPowerState)]
+            fn EnterPowerStateWithTimeSpan(&self, powerState: PowerState, wakeUpAfter: super::Foundation::TimeSpan);
         }
         #[guid(0x9b3b2bea_a101_41ae_9fbd_028728bab73d)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 65536)]
@@ -987,18 +987,18 @@ mod Windows {
         #[Windows::Foundation::Metadata::ExclusiveTo(User)]
         interface IUserStatics {
             fn CreateWatcher(&self) -> UserWatcher;
+            #[overload(FindAllAsync)]
             #[Windows::Foundation::Metadata::DefaultOverload]
-            #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindAllAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
+            #[overload(FindAllAsync)]
             #[Windows::Foundation::Metadata::Deprecated("FindAllAsyncByType is deprecated and might not function consistently on all platforms. Instead, use FindAllAsync or GetDefault.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Overload("FindAllAsyncByType")]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn FindAllAsync(&self, r#type: UserType) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
+            fn FindAllAsyncByType(&self, r#type: UserType) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
+            #[overload(FindAllAsync)]
             #[Windows::Foundation::Metadata::Deprecated("FindAllAsyncByTypeAndStatus is deprecated and might not function consistently on all platforms. Instead, use FindAllAsync or GetDefault.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Overload("FindAllAsyncByTypeAndStatus")]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn FindAllAsync(&self, r#type: UserType, status: UserAuthenticationStatus) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
+            fn FindAllAsyncByTypeAndStatus(&self, r#type: UserType, status: UserAuthenticationStatus) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
             fn GetFromId(&self, nonRoamableId: String) -> User;
         }
         #[guid(0x74a37e11_2eb5_4487_b0d5_2c6790e013e9)]

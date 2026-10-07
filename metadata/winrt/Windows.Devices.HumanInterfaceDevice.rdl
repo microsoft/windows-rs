@@ -149,26 +149,26 @@ mod Windows {
                 UsagePage: u16;
                 #[get]
                 UsageId: u16;
-                #[Windows::Foundation::Metadata::Overload("GetInputReportAsync")]
+                #[overload(GetInputReportAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetInputReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
-                #[Windows::Foundation::Metadata::Overload("GetInputReportByIdAsync")]
+                #[overload(GetInputReportAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetInputReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
-                #[Windows::Foundation::Metadata::Overload("GetFeatureReportAsync")]
+                fn GetInputReportByIdAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
+                #[overload(GetFeatureReportAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFeatureReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
-                #[Windows::Foundation::Metadata::Overload("GetFeatureReportByIdAsync")]
+                #[overload(GetFeatureReportAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFeatureReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
-                #[Windows::Foundation::Metadata::Overload("CreateOutputReport")]
+                fn GetFeatureReportByIdAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
+                #[overload(CreateOutputReport)]
                 fn CreateOutputReport(&self) -> HidOutputReport;
-                #[Windows::Foundation::Metadata::Overload("CreateOutputReportById")]
-                fn CreateOutputReport(&self, reportId: u16) -> HidOutputReport;
-                #[Windows::Foundation::Metadata::Overload("CreateFeatureReport")]
+                #[overload(CreateOutputReport)]
+                fn CreateOutputReportById(&self, reportId: u16) -> HidOutputReport;
+                #[overload(CreateFeatureReport)]
                 fn CreateFeatureReport(&self) -> HidFeatureReport;
-                #[Windows::Foundation::Metadata::Overload("CreateFeatureReportById")]
-                fn CreateFeatureReport(&self, reportId: u16) -> HidFeatureReport;
+                #[overload(CreateFeatureReport)]
+                fn CreateFeatureReportById(&self, reportId: u16) -> HidFeatureReport;
                 fn SendOutputReportAsync(&self, outputReport: HidOutputReport) -> super::super::Foundation::IAsyncOperation<u32>;
                 fn SendFeatureReportAsync(&self, featureReport: HidFeatureReport) -> super::super::Foundation::IAsyncOperation<u32>;
                 fn GetBooleanControlDescriptions(&self, reportType: HidReportType, usagePage: u16, usageId: u16) -> super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>;
@@ -179,10 +179,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HidDevice)]
             interface IHidDeviceStatics {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self, usagePage: u16, usageId: u16) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorVidPid")]
-                fn GetDeviceSelector(&self, usagePage: u16, usageId: u16, vendorId: u16, productId: u16) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorVidPid(&self, usagePage: u16, usageId: u16, vendorId: u16, productId: u16) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String, accessMode: super::super::Storage::FileAccessMode) -> super::super::Foundation::IAsyncOperation<HidDevice>;
             }

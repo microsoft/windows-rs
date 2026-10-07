@@ -70,18 +70,18 @@ mod Windows {
                     Weight: u16;
                     #[get]
                     TextAttributes: super::super::super::Foundation::Collections::IMap<String, String>;
-                    #[Windows::Foundation::Metadata::Overload("RegisterStreamSocketListenerAsync1")]
+                    #[overload(RegisterStreamSocketListenerAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RegisterStreamSocketListenerAsync(&self, socket: super::super::Sockets::StreamSocketListener) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
-                    #[Windows::Foundation::Metadata::Overload("RegisterStreamSocketListenerAsync2")]
+                    fn RegisterStreamSocketListenerAsync1(&self, socket: super::super::Sockets::StreamSocketListener) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                    #[overload(RegisterStreamSocketListenerAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RegisterStreamSocketListenerAsync(&self, socket: super::super::Sockets::StreamSocketListener, adapter: super::super::Connectivity::NetworkAdapter) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
-                    #[Windows::Foundation::Metadata::Overload("RegisterDatagramSocketAsync1")]
+                    fn RegisterStreamSocketListenerAsync2(&self, socket: super::super::Sockets::StreamSocketListener, adapter: super::super::Connectivity::NetworkAdapter) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                    #[overload(RegisterDatagramSocketAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RegisterDatagramSocketAsync(&self, socket: super::super::Sockets::DatagramSocket) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
-                    #[Windows::Foundation::Metadata::Overload("RegisterDatagramSocketAsync2")]
+                    fn RegisterDatagramSocketAsync1(&self, socket: super::super::Sockets::DatagramSocket) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                    #[overload(RegisterDatagramSocketAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RegisterDatagramSocketAsync(&self, socket: super::super::Sockets::DatagramSocket, adapter: super::super::Connectivity::NetworkAdapter) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                    fn RegisterDatagramSocketAsync2(&self, socket: super::super::Sockets::DatagramSocket, adapter: super::super::Connectivity::NetworkAdapter) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
                 }
                 #[guid(0x6cb061a1_c478_4331_9684_4af2186c0a2b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

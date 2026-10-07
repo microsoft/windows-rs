@@ -614,11 +614,11 @@ mod Windows {
                     Views: super::super::super::Foundation::Collections::IVectorView<DisplayView>;
                     #[get]
                     Properties: super::super::super::Foundation::Collections::IMap<GUID, Object>;
+                    #[overload(ConnectTarget)]
                     #[Windows::Foundation::Metadata::DefaultOverload]
-                    #[Windows::Foundation::Metadata::Overload("ConnectTarget")]
                     fn ConnectTarget(&self, target: DisplayTarget) -> DisplayPath;
-                    #[Windows::Foundation::Metadata::Overload("ConnectTargetToView")]
-                    fn ConnectTarget(&self, target: DisplayTarget, view: DisplayView) -> DisplayPath;
+                    #[overload(ConnectTarget)]
+                    fn ConnectTargetToView(&self, target: DisplayTarget, view: DisplayView) -> DisplayPath;
                     fn CanConnectTargetToView(&self, target: DisplayTarget, view: DisplayView) -> bool;
                     fn GetViewForTarget(&self, target: DisplayTarget) -> DisplayView;
                     fn GetPathForTarget(&self, target: DisplayTarget) -> DisplayPath;

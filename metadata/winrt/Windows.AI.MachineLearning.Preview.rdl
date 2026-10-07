@@ -80,12 +80,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBinding instead of ILearningModelBindingPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelBindingPreview)]
                 interface ILearningModelBindingPreview: super::super::super::Foundation::Collections::IMapView<String, Object> + super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, Object>> {
+                    #[overload(Bind)]
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBinding instead of ILearningModelBindingPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
-                    #[Windows::Foundation::Metadata::Overload("Bind")]
                     fn Bind(&self, name: String, value: Object);
+                    #[overload(Bind)]
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBinding instead of ILearningModelBindingPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
-                    #[Windows::Foundation::Metadata::Overload("BindWithProperties")]
-                    fn Bind(&self, name: String, value: Object, metadata: super::super::super::Foundation::Collections::IPropertySet);
+                    fn BindWithProperties(&self, name: String, value: Object, metadata: super::super::super::Foundation::Collections::IPropertySet);
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBinding instead of ILearningModelBindingPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     fn Clear(&self);
                 }

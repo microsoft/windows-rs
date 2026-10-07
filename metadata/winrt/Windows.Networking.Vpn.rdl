@@ -20,7 +20,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
             interface IVpnChannel {
                 fn AssociateTransport(&self, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object);
-                #[Windows::Foundation::Metadata::Overload("Start")]
+                #[overload(Start)]
                 fn Start(&self, assignedClientIPv4list: super::super::Foundation::Collections::IVectorView<super::HostName>, assignedClientIPv6list: super::super::Foundation::Collections::IVectorView<super::HostName>, vpnInterfaceId: VpnInterfaceId, routeScope: VpnRouteAssignment, namespaceScope: VpnNamespaceAssignment, mtuSize: u32, maxFrameSize: u32, optimizeForLowCostNetwork: bool, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object);
                 fn Stop(&self);
                 fn RequestCredentials(&self, credType: VpnCredentialType, isRetry: bool, isSingleSignOnCredential: bool, certificate: super::super::Security::Cryptography::Certificates::Certificate) -> VpnPickedCredential;
@@ -52,17 +52,17 @@ mod Windows {
                 fn GetVpnReceivePacketBuffer(&self) -> VpnPacketBuffer;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestCustomPromptAsync(&self, customPromptElement: super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("RequestCredentialsWithCertificateAsync")]
+                #[overload(RequestCredentialsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestCredentialsAsync(&self, credType: VpnCredentialType, credOptions: u32, certificate: super::super::Security::Cryptography::Certificates::Certificate) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
-                #[Windows::Foundation::Metadata::Overload("RequestCredentialsWithOptionsAsync")]
+                fn RequestCredentialsWithCertificateAsync(&self, credType: VpnCredentialType, credOptions: u32, certificate: super::super::Security::Cryptography::Certificates::Certificate) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
+                #[overload(RequestCredentialsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestCredentialsAsync(&self, credType: VpnCredentialType, credOptions: u32) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
-                #[Windows::Foundation::Metadata::Overload("RequestCredentialsSimpleAsync")]
+                fn RequestCredentialsWithOptionsAsync(&self, credType: VpnCredentialType, credOptions: u32) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
+                #[overload(RequestCredentialsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestCredentialsAsync(&self, credType: VpnCredentialType) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
+                fn RequestCredentialsSimpleAsync(&self, credType: VpnCredentialType) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
                 fn TerminateConnection(&self, message: String);
-                #[Windows::Foundation::Metadata::Overload("StartWithTrafficFilter")]
+                #[overload(StartWithTrafficFilter)]
                 fn StartWithTrafficFilter(&self, assignedClientIpv4List: super::super::Foundation::Collections::IVectorView<super::HostName>, assignedClientIpv6List: super::super::Foundation::Collections::IVectorView<super::HostName>, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: u32, maxFrameSize: u32, reserved: bool, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object, assignedTrafficFilters: VpnTrafficFilterAssignment);
             }
             #[guid(0xd7266ede_2937_419d_9570_486aebb81803)]
@@ -70,8 +70,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
             interface IVpnChannel4 {
                 fn AddAndAssociateTransport(&self, transport: Object, context: Object);
-                #[Windows::Foundation::Metadata::Overload("StartWithMultipleTransports")]
-                fn StartWithTrafficFilter(&self, assignedClientIpv4Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, assignedClientIpv6Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, vpninterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: u32, maxFrameSize: u32, reserved: bool, transports: super::super::Foundation::Collections::IIterable<Object>, assignedTrafficFilters: VpnTrafficFilterAssignment);
+                #[overload(StartWithTrafficFilter)]
+                fn StartWithMultipleTransports(&self, assignedClientIpv4Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, assignedClientIpv6Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, vpninterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: u32, maxFrameSize: u32, reserved: bool, transports: super::super::Foundation::Collections::IIterable<Object>, assignedTrafficFilters: VpnTrafficFilterAssignment);
                 fn ReplaceAndAssociateTransport(&self, transport: Object, context: Object);
                 fn StartReconnectingTransport(&self, transport: Object, context: Object);
                 fn GetSlotTypeForTransportContext(&self, context: Object) -> super::Sockets::ControlChannelTriggerStatus;

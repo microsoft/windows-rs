@@ -262,18 +262,18 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(FullTrustAppContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(FullTrustProcessLauncher)]
         interface IFullTrustProcessLauncherStatics {
-            #[Windows::Foundation::Metadata::Overload("LaunchFullTrustProcessForCurrentAppAsync")]
+            #[overload(LaunchFullTrustProcessForCurrentAppAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn LaunchFullTrustProcessForCurrentAppAsync(&self) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("LaunchFullTrustProcessForCurrentAppWithParametersAsync")]
+            #[overload(LaunchFullTrustProcessForCurrentAppAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn LaunchFullTrustProcessForCurrentAppAsync(&self, parameterGroupId: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("LaunchFullTrustProcessForAppAsync")]
+            fn LaunchFullTrustProcessForCurrentAppWithParametersAsync(&self, parameterGroupId: String) -> super::Foundation::IAsyncAction;
+            #[overload(LaunchFullTrustProcessForAppAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn LaunchFullTrustProcessForAppAsync(&self, fullTrustPackageRelativeAppId: String) -> super::Foundation::IAsyncAction;
-            #[Windows::Foundation::Metadata::Overload("LaunchFullTrustProcessForAppWithParametersAsync")]
+            #[overload(LaunchFullTrustProcessForAppAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn LaunchFullTrustProcessForAppAsync(&self, fullTrustPackageRelativeAppId: String, parameterGroupId: String) -> super::Foundation::IAsyncAction;
+            fn LaunchFullTrustProcessForAppWithParametersAsync(&self, fullTrustPackageRelativeAppId: String, parameterGroupId: String) -> super::Foundation::IAsyncAction;
         }
         #[guid(0x8b8ed72f_b65c_56cf_a1a7_2bf77cbc6ea8)]
         #[Windows::Foundation::Metadata::ContractVersion(FullTrustAppContract, 131072)]
@@ -368,12 +368,12 @@ mod Windows {
             fn GetContentGroupsAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn GetContentGroupAsync(&self, name: String) -> super::Foundation::IAsyncOperation<PackageContentGroup>;
-            #[Windows::Foundation::Metadata::Overload("StageContentGroupsAsync")]
+            #[overload(StageContentGroupsAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn StageContentGroupsAsync(&self, names: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>;
-            #[Windows::Foundation::Metadata::Overload("StageContentGroupsWithPriorityAsync")]
+            #[overload(StageContentGroupsAsync)]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn StageContentGroupsAsync(&self, names: super::Foundation::Collections::IIterable<String>, moveToHeadOfQueue: bool) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>;
+            fn StageContentGroupsWithPriorityAsync(&self, names: super::Foundation::Collections::IIterable<String>, moveToHeadOfQueue: bool) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn SetInUseAsync(&self, inUse: bool) -> super::Foundation::IAsyncOperation<bool>;
         }

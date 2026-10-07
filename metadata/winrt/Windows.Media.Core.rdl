@@ -933,10 +933,10 @@ mod Windows {
                 AppendWindowStart: super::super::Foundation::TimeSpan;
                 AppendWindowEnd: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
                 fn AppendBuffer(&self, buffer: super::super::Storage::Streams::IBuffer);
-                #[Windows::Foundation::Metadata::Overload("AppendStream")]
+                #[overload(AppendStream)]
                 fn AppendStream(&self, stream: super::super::Storage::Streams::IInputStream);
-                #[Windows::Foundation::Metadata::Overload("AppendStreamMaxSize")]
-                fn AppendStream(&self, stream: super::super::Storage::Streams::IInputStream, maxSize: u64);
+                #[overload(AppendStream)]
+                fn AppendStreamMaxSize(&self, stream: super::super::Storage::Streams::IInputStream, maxSize: u64);
                 fn Abort(&self);
                 fn Remove(&self, start: super::super::Foundation::TimeSpan, end: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
             }
@@ -1174,27 +1174,27 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSource)]
             interface ITimedTextSourceStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateFromStream")]
+                #[overload(CreateFromStream)]
                 fn CreateFromStream(&self, stream: super::super::Storage::Streams::IRandomAccessStream) -> TimedTextSource;
-                #[Windows::Foundation::Metadata::Overload("CreateFromUri")]
+                #[overload(CreateFromUri)]
                 fn CreateFromUri(&self, uri: super::super::Foundation::Uri) -> TimedTextSource;
-                #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithLanguage")]
-                fn CreateFromStream(&self, stream: super::super::Storage::Streams::IRandomAccessStream, defaultLanguage: String) -> TimedTextSource;
-                #[Windows::Foundation::Metadata::Overload("CreateFromUriWithLanguage")]
-                fn CreateFromUri(&self, uri: super::super::Foundation::Uri, defaultLanguage: String) -> TimedTextSource;
+                #[overload(CreateFromStream)]
+                fn CreateFromStreamWithLanguage(&self, stream: super::super::Storage::Streams::IRandomAccessStream, defaultLanguage: String) -> TimedTextSource;
+                #[overload(CreateFromUri)]
+                fn CreateFromUriWithLanguage(&self, uri: super::super::Foundation::Uri, defaultLanguage: String) -> TimedTextSource;
             }
             #[guid(0xb66b7602_923e_43fa_9633_587075812db5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSource)]
             interface ITimedTextSourceStatics2 {
-                #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithIndex")]
+                #[overload(CreateFromStreamWithIndex)]
                 fn CreateFromStreamWithIndex(&self, stream: super::super::Storage::Streams::IRandomAccessStream, indexStream: super::super::Storage::Streams::IRandomAccessStream) -> TimedTextSource;
-                #[Windows::Foundation::Metadata::Overload("CreateFromUriWithIndex")]
+                #[overload(CreateFromUriWithIndex)]
                 fn CreateFromUriWithIndex(&self, uri: super::super::Foundation::Uri, indexUri: super::super::Foundation::Uri) -> TimedTextSource;
-                #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithIndexAndLanguage")]
-                fn CreateFromStreamWithIndex(&self, stream: super::super::Storage::Streams::IRandomAccessStream, indexStream: super::super::Storage::Streams::IRandomAccessStream, defaultLanguage: String) -> TimedTextSource;
-                #[Windows::Foundation::Metadata::Overload("CreateFromUriWithIndexAndLanguage")]
-                fn CreateFromUriWithIndex(&self, uri: super::super::Foundation::Uri, indexUri: super::super::Foundation::Uri, defaultLanguage: String) -> TimedTextSource;
+                #[overload(CreateFromStreamWithIndex)]
+                fn CreateFromStreamWithIndexAndLanguage(&self, stream: super::super::Storage::Streams::IRandomAccessStream, indexStream: super::super::Storage::Streams::IRandomAccessStream, defaultLanguage: String) -> TimedTextSource;
+                #[overload(CreateFromUriWithIndex)]
+                fn CreateFromUriWithIndexAndLanguage(&self, uri: super::super::Foundation::Uri, indexUri: super::super::Foundation::Uri, defaultLanguage: String) -> TimedTextSource;
             }
             #[guid(0x1bb2384d_a825_40c2_a7f5_281eaedf3b55)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

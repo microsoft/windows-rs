@@ -112,9 +112,9 @@ mod Windows {
             NumberOfEras: i32;
             Era: i32;
             fn AddEras(&self, eras: i32);
-            #[Windows::Foundation::Metadata::Overload("EraAsFullString")]
-            fn EraAsString(&self) -> String;
-            #[Windows::Foundation::Metadata::Overload("EraAsString")]
+            #[overload(EraAsString)]
+            fn EraAsFullString(&self) -> String;
+            #[overload(EraAsString)]
             fn EraAsString(&self, idealLength: i32) -> String;
             #[get]
             FirstYearInThisEra: i32;
@@ -135,13 +135,13 @@ mod Windows {
             NumberOfMonthsInThisYear: i32;
             Month: i32;
             fn AddMonths(&self, months: i32);
-            #[Windows::Foundation::Metadata::Overload("MonthAsFullString")]
-            fn MonthAsString(&self) -> String;
-            #[Windows::Foundation::Metadata::Overload("MonthAsString")]
+            #[overload(MonthAsString)]
+            fn MonthAsFullString(&self) -> String;
+            #[overload(MonthAsString)]
             fn MonthAsString(&self, idealLength: i32) -> String;
-            #[Windows::Foundation::Metadata::Overload("MonthAsFullSoloString")]
-            fn MonthAsSoloString(&self) -> String;
-            #[Windows::Foundation::Metadata::Overload("MonthAsSoloString")]
+            #[overload(MonthAsSoloString)]
+            fn MonthAsFullSoloString(&self) -> String;
+            #[overload(MonthAsSoloString)]
             fn MonthAsSoloString(&self, idealLength: i32) -> String;
             fn MonthAsNumericString(&self) -> String;
             fn MonthAsPaddedNumericString(&self, minDigits: i32) -> String;
@@ -158,13 +158,13 @@ mod Windows {
             fn DayAsPaddedString(&self, minDigits: i32) -> String;
             #[get]
             DayOfWeek: DayOfWeek;
-            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsFullString")]
-            fn DayOfWeekAsString(&self) -> String;
-            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsString")]
+            #[overload(DayOfWeekAsString)]
+            fn DayOfWeekAsFullString(&self) -> String;
+            #[overload(DayOfWeekAsString)]
             fn DayOfWeekAsString(&self, idealLength: i32) -> String;
-            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsFullSoloString")]
-            fn DayOfWeekAsSoloString(&self) -> String;
-            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsSoloString")]
+            #[overload(DayOfWeekAsSoloString)]
+            fn DayOfWeekAsFullSoloString(&self) -> String;
+            #[overload(DayOfWeekAsSoloString)]
             fn DayOfWeekAsSoloString(&self, idealLength: i32) -> String;
             #[get]
             FirstPeriodInThisDay: i32;
@@ -174,9 +174,9 @@ mod Windows {
             NumberOfPeriodsInThisDay: i32;
             Period: i32;
             fn AddPeriods(&self, periods: i32);
-            #[Windows::Foundation::Metadata::Overload("PeriodAsFullString")]
-            fn PeriodAsString(&self) -> String;
-            #[Windows::Foundation::Metadata::Overload("PeriodAsString")]
+            #[overload(PeriodAsString)]
+            fn PeriodAsFullString(&self) -> String;
+            #[overload(PeriodAsString)]
             fn PeriodAsString(&self, idealLength: i32) -> String;
             #[get]
             FirstHourInThisPeriod: i32;
@@ -687,10 +687,10 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(JapanesePhoneticAnalyzer)]
         interface IJapanesePhoneticAnalyzerStatics {
-            #[Windows::Foundation::Metadata::Overload("GetWords")]
+            #[overload(GetWords)]
             fn GetWords(&self, input: String) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
-            #[Windows::Foundation::Metadata::Overload("GetWordsWithMonoRubyOption")]
-            fn GetWords(&self, input: String, monoRuby: bool) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
+            #[overload(GetWords)]
+            fn GetWordsWithMonoRubyOption(&self, input: String, monoRuby: bool) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
         }
         #[guid(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -863,9 +863,9 @@ mod Windows {
         interface ITimeZoneOnCalendar {
             fn GetTimeZone(&self) -> String;
             fn ChangeTimeZone(&self, timeZoneId: String);
-            #[Windows::Foundation::Metadata::Overload("TimeZoneAsFullString")]
-            fn TimeZoneAsString(&self) -> String;
-            #[Windows::Foundation::Metadata::Overload("TimeZoneAsString")]
+            #[overload(TimeZoneAsString)]
+            fn TimeZoneAsFullString(&self) -> String;
+            #[overload(TimeZoneAsString)]
             fn TimeZoneAsString(&self, idealLength: i32) -> String;
         }
         #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]

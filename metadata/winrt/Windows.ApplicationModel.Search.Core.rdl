@@ -31,18 +31,18 @@ mod Windows {
                     SearchHistoryEnabled: bool;
                     SearchHistoryContext: String;
                     fn SetLocalContentSuggestionSettings(&self, settings: super::LocalContentSuggestionSettings);
-                    #[Windows::Foundation::Metadata::Overload("SetQuery")]
+                    #[overload(SetQuery)]
                     fn SetQuery(&self, queryText: String);
-                    #[Windows::Foundation::Metadata::Overload("SetQueryWithLanguage")]
-                    fn SetQuery(&self, queryText: String, language: String);
-                    #[Windows::Foundation::Metadata::Overload("SetQueryWithSearchQueryLinguisticDetails")]
-                    fn SetQuery(&self, queryText: String, language: String, linguisticDetails: super::SearchQueryLinguisticDetails);
+                    #[overload(SetQuery)]
+                    fn SetQueryWithLanguage(&self, queryText: String, language: String);
+                    #[overload(SetQuery)]
+                    fn SetQueryWithSearchQueryLinguisticDetails(&self, queryText: String, language: String, linguisticDetails: super::SearchQueryLinguisticDetails);
                     #[get]
                     Suggestions: super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>;
-                    #[Windows::Foundation::Metadata::Overload("AddToHistory")]
+                    #[overload(AddToHistory)]
                     fn AddToHistory(&self, queryText: String);
-                    #[Windows::Foundation::Metadata::Overload("AddToHistoryWithLanguage")]
-                    fn AddToHistory(&self, queryText: String, language: String);
+                    #[overload(AddToHistory)]
+                    fn AddToHistoryWithLanguage(&self, queryText: String, language: String);
                     fn ClearHistory(&self);
                     event SuggestionsRequested: super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>;
                     event RequestingFocusOnKeyboardInput: super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>;

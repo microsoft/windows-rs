@@ -465,18 +465,18 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
                 interface IAdaptiveMediaSourceStatics {
                     fn IsContentTypeSupported(&self, contentType: String) -> bool;
-                    #[Windows::Foundation::Metadata::Overload("CreateFromUriAsync")]
+                    #[overload(CreateFromUriAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn CreateFromUriAsync(&self, uri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
-                    #[Windows::Foundation::Metadata::Overload("CreateFromUriWithDownloaderAsync")]
+                    #[overload(CreateFromUriAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFromUriAsync(&self, uri: super::super::super::Foundation::Uri, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
-                    #[Windows::Foundation::Metadata::Overload("CreateFromStreamAsync")]
+                    fn CreateFromUriWithDownloaderAsync(&self, uri: super::super::super::Foundation::Uri, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    #[overload(CreateFromStreamAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn CreateFromStreamAsync(&self, stream: super::super::super::Storage::Streams::IInputStream, uri: super::super::super::Foundation::Uri, contentType: String) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
-                    #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithDownloaderAsync")]
+                    #[overload(CreateFromStreamAsync)]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFromStreamAsync(&self, stream: super::super::super::Storage::Streams::IInputStream, uri: super::super::super::Foundation::Uri, contentType: String, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    fn CreateFromStreamWithDownloaderAsync(&self, stream: super::super::super::Storage::Streams::IInputStream, uri: super::super::super::Foundation::Uri, contentType: String, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
                 }
             }
         }

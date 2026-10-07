@@ -286,10 +286,10 @@ mod Windows {
                     event UserLocationLost: super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, Object>;
                     event UserLocationRestored: super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, Object>;
                     fn SetGuidanceVoice(&self, voiceId: i32, voiceFolder: String);
-                    #[Windows::Foundation::Metadata::Overload("UpdateUserLocation")]
+                    #[overload(UpdateUserLocation)]
                     fn UpdateUserLocation(&self, userLocation: super::super::super::Devices::Geolocation::Geocoordinate);
-                    #[Windows::Foundation::Metadata::Overload("UpdateUserLocationWithPositionOverride")]
-                    fn UpdateUserLocation(&self, userLocation: super::super::super::Devices::Geolocation::Geocoordinate, positionOverride: super::super::super::Devices::Geolocation::BasicGeoposition);
+                    #[overload(UpdateUserLocation)]
+                    fn UpdateUserLocationWithPositionOverride(&self, userLocation: super::super::super::Devices::Geolocation::Geocoordinate, positionOverride: super::super::super::Devices::Geolocation::BasicGeoposition);
                 }
                 #[guid(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 131072)]

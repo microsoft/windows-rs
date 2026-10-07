@@ -622,12 +622,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AdvancedPhotoCapture)]
             interface IAdvancedPhotoCapture {
-                #[Windows::Foundation::Metadata::Overload("CaptureAsync")]
+                #[overload(CaptureAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CaptureAsync(&self) -> super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>;
-                #[Windows::Foundation::Metadata::Overload("CaptureWithContextAsync")]
+                #[overload(CaptureAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CaptureAsync(&self, context: Object) -> super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>;
+                fn CaptureWithContextAsync(&self, context: Object) -> super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>;
                 event OptionalReferencePhotoCaptured: super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>;
                 event AllPhotosCaptured: super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, Object>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1675,20 +1675,20 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaCapture)]
             interface IMediaCapture {
-                #[Windows::Foundation::Metadata::Overload("InitializeAsync")]
+                #[overload(InitializeAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn InitializeAsync(&self) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("InitializeWithSettingsAsync")]
-                fn InitializeAsync(&self, mediaCaptureInitializationSettings: MediaCaptureInitializationSettings) -> super::super::Foundation::IAsyncAction;
+                #[overload(InitializeAsync)]
+                fn InitializeWithSettingsAsync(&self, mediaCaptureInitializationSettings: MediaCaptureInitializationSettings) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartRecordToStorageFileAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartRecordToStreamAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("StartRecordToCustomSinkAsync")]
+                #[overload(StartRecordToCustomSinkAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartRecordToCustomSinkAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customMediaSink: super::IMediaExtension) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("StartRecordToCustomSinkIdAsync")]
-                fn StartRecordToCustomSinkAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customSinkActivationId: String, customSinkSettings: super::super::Foundation::Collections::IPropertySet) -> super::super::Foundation::IAsyncAction;
+                #[overload(StartRecordToCustomSinkAsync)]
+                fn StartRecordToCustomSinkIdAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customSinkActivationId: String, customSinkSettings: super::super::Foundation::Collections::IPropertySet) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StopRecordAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1722,10 +1722,10 @@ mod Windows {
             interface IMediaCapture2 {
                 fn PrepareLowLagRecordToStorageFileAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<LowLagMediaRecording>;
                 fn PrepareLowLagRecordToStreamAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<LowLagMediaRecording>;
-                #[Windows::Foundation::Metadata::Overload("PrepareLowLagRecordToCustomSinkAsync")]
+                #[overload(PrepareLowLagRecordToCustomSinkAsync)]
                 fn PrepareLowLagRecordToCustomSinkAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customMediaSink: super::IMediaExtension) -> super::super::Foundation::IAsyncOperation<LowLagMediaRecording>;
-                #[Windows::Foundation::Metadata::Overload("PrepareLowLagRecordToCustomSinkIdAsync")]
-                fn PrepareLowLagRecordToCustomSinkAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customSinkActivationId: String, customSinkSettings: super::super::Foundation::Collections::IPropertySet) -> super::super::Foundation::IAsyncOperation<LowLagMediaRecording>;
+                #[overload(PrepareLowLagRecordToCustomSinkAsync)]
+                fn PrepareLowLagRecordToCustomSinkIdAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customSinkActivationId: String, customSinkSettings: super::super::Foundation::Collections::IPropertySet) -> super::super::Foundation::IAsyncOperation<LowLagMediaRecording>;
                 fn PrepareLowLagPhotoCaptureAsync(&self, r#type: super::MediaProperties::ImageEncodingProperties) -> super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PrepareLowLagPhotoSequenceCaptureAsync(&self, r#type: super::MediaProperties::ImageEncodingProperties) -> super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>;
@@ -1753,12 +1753,12 @@ mod Windows {
                 event CameraStreamStateChanged: super::super::Foundation::TypedEventHandler<MediaCapture, Object>;
                 #[get]
                 CameraStreamState: super::Devices::CameraStreamState;
-                #[Windows::Foundation::Metadata::Overload("GetPreviewFrameAsync")]
+                #[overload(GetPreviewFrameAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPreviewFrameAsync(&self) -> super::super::Foundation::IAsyncOperation<super::VideoFrame>;
-                #[Windows::Foundation::Metadata::Overload("GetPreviewFrameCopyAsync")]
+                #[overload(GetPreviewFrameAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetPreviewFrameAsync(&self, destination: super::VideoFrame) -> super::super::Foundation::IAsyncOperation<super::VideoFrame>;
+                fn GetPreviewFrameCopyAsync(&self, destination: super::VideoFrame) -> super::super::Foundation::IAsyncOperation<super::VideoFrame>;
                 event ThermalStatusChanged: super::super::Foundation::TypedEventHandler<MediaCapture, Object>;
                 #[get]
                 ThermalStatus: MediaCaptureThermalStatus;
@@ -1776,15 +1776,15 @@ mod Windows {
                 fn StopRecordWithResultAsync(&self) -> super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>;
                 #[get]
                 FrameSources: super::super::Foundation::Collections::IMapView<String, Frames::MediaFrameSource>;
-                #[Windows::Foundation::Metadata::Overload("CreateFrameReaderAsync")]
+                #[overload(CreateFrameReaderAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateFrameReaderAsync(&self, inputSource: Frames::MediaFrameSource) -> super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>;
-                #[Windows::Foundation::Metadata::Overload("CreateFrameReaderWithSubtypeAsync")]
+                #[overload(CreateFrameReaderAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFrameReaderAsync(&self, inputSource: Frames::MediaFrameSource, outputSubtype: String) -> super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>;
-                #[Windows::Foundation::Metadata::Overload("CreateFrameReaderWithSubtypeAndSizeAsync")]
+                fn CreateFrameReaderWithSubtypeAsync(&self, inputSource: Frames::MediaFrameSource, outputSubtype: String) -> super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>;
+                #[overload(CreateFrameReaderAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFrameReaderAsync(&self, inputSource: Frames::MediaFrameSource, outputSubtype: String, outputSize: super::super::Graphics::Imaging::BitmapSize) -> super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>;
+                fn CreateFrameReaderWithSubtypeAndSizeAsync(&self, inputSource: Frames::MediaFrameSource, outputSubtype: String, outputSize: super::super::Graphics::Imaging::BitmapSize) -> super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>;
             }
             #[guid(0x228948bd_4b20_4bb1_9fd6_a583212a1012)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1989,10 +1989,10 @@ mod Windows {
             interface IMediaCaptureVideoPreview {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartPreviewAsync(&self) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("StartPreviewToCustomSinkAsync")]
+                #[overload(StartPreviewToCustomSinkAsync)]
                 fn StartPreviewToCustomSinkAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customMediaSink: super::IMediaExtension) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("StartPreviewToCustomSinkIdAsync")]
-                fn StartPreviewToCustomSinkAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customSinkActivationId: String, customSinkSettings: super::super::Foundation::Collections::IPropertySet) -> super::super::Foundation::IAsyncAction;
+                #[overload(StartPreviewToCustomSinkAsync)]
+                fn StartPreviewToCustomSinkIdAsync(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile, customSinkActivationId: String, customSinkSettings: super::super::Foundation::Collections::IPropertySet) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StopPreviewAsync(&self) -> super::super::Foundation::IAsyncAction;
             }

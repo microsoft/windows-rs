@@ -13,13 +13,13 @@ mod Windows {
                 #[get]
                 NetworkReport: WiFiNetworkReport;
                 event AvailableNetworksChanged: super::super::Foundation::TypedEventHandler<WiFiAdapter, Object>;
-                #[Windows::Foundation::Metadata::Overload("ConnectAsync")]
+                #[overload(ConnectAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ConnectAsync(&self, availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
-                #[Windows::Foundation::Metadata::Overload("ConnectWithPasswordCredentialAsync")]
-                fn ConnectAsync(&self, availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: super::super::Security::Credentials::PasswordCredential) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
-                #[Windows::Foundation::Metadata::Overload("ConnectWithPasswordCredentialAndSsidAsync")]
-                fn ConnectAsync(&self, availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: super::super::Security::Credentials::PasswordCredential, ssid: String) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
+                #[overload(ConnectAsync)]
+                fn ConnectWithPasswordCredentialAsync(&self, availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: super::super::Security::Credentials::PasswordCredential) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
+                #[overload(ConnectAsync)]
+                fn ConnectWithPasswordCredentialAndSsidAsync(&self, availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: super::super::Security::Credentials::PasswordCredential, ssid: String) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
                 fn Disconnect(&self);
             }
             #[guid(0x5bc4501d_81e4_453d_9430_1fcafbadd6b6)]
@@ -28,8 +28,8 @@ mod Windows {
             interface IWiFiAdapter2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetWpsConfigurationAsync(&self, availableNetwork: WiFiAvailableNetwork) -> super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>;
-                #[Windows::Foundation::Metadata::Overload("ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync")]
-                fn ConnectAsync(&self, availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: super::super::Security::Credentials::PasswordCredential, ssid: String, connectionMethod: WiFiConnectionMethod) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
+                #[overload(ConnectAsync)]
+                fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(&self, availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: super::super::Security::Credentials::PasswordCredential, ssid: String, connectionMethod: WiFiConnectionMethod) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
             }
             #[guid(0xda25fddd_d24c_43e3_aabd_c4659f730f99)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -38,7 +38,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAdaptersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>;
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                #[overload(FromIdAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<WiFiAdapter>;
                 #[Windows::Foundation::Metadata::RemoteAsync]

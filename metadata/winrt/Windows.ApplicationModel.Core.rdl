@@ -220,8 +220,8 @@ mod Windows {
             interface ICoreImmersiveApplication {
                 #[get]
                 Views: super::super::Foundation::Collections::IVectorView<CoreApplicationView>;
+                #[overload(CreateNewView)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateNewView")]
                 fn CreateNewView(&self, runtimeType: String, entryPoint: String) -> CoreApplicationView;
                 #[get]
                 MainView: CoreApplicationView;
@@ -231,16 +231,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreImmersiveApplication2 {
-                #[Windows::Foundation::Metadata::Overload("CreateNewViewFromMainView")]
-                fn CreateNewView(&self) -> CoreApplicationView;
+                #[overload(CreateNewView)]
+                fn CreateNewViewFromMainView(&self) -> CoreApplicationView;
             }
             #[guid(0x34a05b2f_ee0d_41e5_8314_cf10c91bf0af)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreImmersiveApplication3 {
-                #[Windows::Foundation::Metadata::Overload("CreateNewViewWithViewSource")]
-                fn CreateNewView(&self, viewSource: IFrameworkViewSource) -> CoreApplicationView;
+                #[overload(CreateNewView)]
+                fn CreateNewViewWithViewSource(&self, viewSource: IFrameworkViewSource) -> CoreApplicationView;
             }
             #[guid(0xfaab5cd0_8924_45ac_ad0f_a08fae5d0324)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

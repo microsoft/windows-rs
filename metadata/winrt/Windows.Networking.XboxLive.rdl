@@ -87,22 +87,22 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveEndpointPairTemplate)]
             interface IXboxLiveEndpointPairTemplate {
                 event InboundEndpointPairCreated: super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>;
+                #[overload(CreateEndpointPairAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateEndpointPairDefaultAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateEndpointPairAsync(&self, deviceAddress: XboxLiveDeviceAddress) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                fn CreateEndpointPairDefaultAsync(&self, deviceAddress: XboxLiveDeviceAddress) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                #[overload(CreateEndpointPairAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateEndpointPairWithBehaviorsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateEndpointPairAsync(&self, deviceAddress: XboxLiveDeviceAddress, behaviors: XboxLiveEndpointPairCreationBehaviors) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                fn CreateEndpointPairWithBehaviorsAsync(&self, deviceAddress: XboxLiveDeviceAddress, behaviors: XboxLiveEndpointPairCreationBehaviors) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                #[overload(CreateEndpointPairForPortsAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateEndpointPairForPortsDefaultAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateEndpointPairForPortsAsync(&self, deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                fn CreateEndpointPairForPortsDefaultAsync(&self, deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                #[overload(CreateEndpointPairForPortsAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateEndpointPairForPortsWithBehaviorsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateEndpointPairForPortsAsync(&self, deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String, behaviors: XboxLiveEndpointPairCreationBehaviors) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                fn CreateEndpointPairForPortsWithBehaviorsAsync(&self, deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String, behaviors: XboxLiveEndpointPairCreationBehaviors) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
                 #[get]
                 Name: String;
                 #[get]

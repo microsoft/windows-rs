@@ -161,12 +161,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WebUIView)]
             interface IWebUIViewStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateAsync")]
+                #[overload(CreateAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<WebUIView>;
-                #[Windows::Foundation::Metadata::Overload("CreateWithUriAsync")]
+                #[overload(CreateAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperation<WebUIView>;
+                fn CreateWithUriAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperation<WebUIView>;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

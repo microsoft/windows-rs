@@ -58,11 +58,11 @@ mod Windows {
                         fn RemoveFromCollection(&self, xamlDirectObject: IXamlDirectObject, value: IXamlDirectObject) -> bool;
                         fn RemoveFromCollectionAt(&self, xamlDirectObject: IXamlDirectObject, index: u32);
                         fn ClearCollection(&self, xamlDirectObject: IXamlDirectObject);
+                        #[overload(AddEventHandler)]
                         #[Windows::Foundation::Metadata::DefaultOverload]
-                        #[Windows::Foundation::Metadata::Overload("AddEventHandler")]
                         fn AddEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object);
-                        #[Windows::Foundation::Metadata::Overload("AddEventHandler_HandledEventsToo")]
-                        fn AddEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object, handledEventsToo: bool);
+                        #[overload(AddEventHandler)]
+                        fn AddEventHandler_HandledEventsToo(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object, handledEventsToo: bool);
                         fn RemoveEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object);
                     }
                     #[guid(0x10614a82_cee4_4645_ba25_d071ce778355)]

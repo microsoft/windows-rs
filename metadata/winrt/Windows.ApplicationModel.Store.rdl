@@ -40,8 +40,8 @@ mod Windows {
                 AppId: GUID;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAppPurchaseAsync(&self, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(RequestProductPurchaseAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("RequestProductPurchaseAsync(productId, includeReceipt) may be altered or unavailable for releases after Windows 8.1. Instead, use RequestProductPurchaseAsync(productId).", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestProductPurchaseAsync(&self, productId: String, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -72,8 +72,8 @@ mod Windows {
                 AppId: GUID;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAppPurchaseAsync(&self, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
+                #[overload(RequestProductPurchaseAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("RequestProductPurchaseAsync(productId, includeReceipt) may be altered or unavailable for releases after Windows 8.1. Instead, use RequestProductPurchaseAsync(productId).", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestProductPurchaseAsync(&self, productId: String, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -105,12 +105,12 @@ mod Windows {
             interface ICurrentAppSimulatorWithConsumables {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReportConsumableFulfillmentAsync(&self, productId: String, transactionId: GUID) -> super::super::Foundation::IAsyncOperation<FulfillmentResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithResultsAsync")]
+                #[overload(RequestProductPurchaseAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestProductPurchaseAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
-                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithDisplayPropertiesAsync")]
+                fn RequestProductPurchaseWithResultsAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                #[overload(RequestProductPurchaseAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestProductPurchaseAsync(&self, productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                fn RequestProductPurchaseWithDisplayPropertiesAsync(&self, productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetUnfulfilledConsumablesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>;
             }
@@ -135,12 +135,12 @@ mod Windows {
             interface ICurrentAppWithConsumables {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReportConsumableFulfillmentAsync(&self, productId: String, transactionId: GUID) -> super::super::Foundation::IAsyncOperation<FulfillmentResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithResultsAsync")]
+                #[overload(RequestProductPurchaseAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestProductPurchaseAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
-                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithDisplayPropertiesAsync")]
+                fn RequestProductPurchaseWithResultsAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                #[overload(RequestProductPurchaseAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestProductPurchaseAsync(&self, productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                fn RequestProductPurchaseWithDisplayPropertiesAsync(&self, productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetUnfulfilledConsumablesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>;
             }

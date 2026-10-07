@@ -147,10 +147,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
             interface IBackgroundDownloader: IBackgroundTransferBase {
-                #[Windows::Foundation::Metadata::Overload("CreateDownload")]
+                #[overload(CreateDownload)]
                 fn CreateDownload(&self, uri: super::super::Foundation::Uri, resultFile: super::super::Storage::IStorageFile) -> DownloadOperation;
-                #[Windows::Foundation::Metadata::Overload("CreateDownloadFromFile")]
-                fn CreateDownload(&self, uri: super::super::Foundation::Uri, resultFile: super::super::Storage::IStorageFile, requestBodyFile: super::super::Storage::IStorageFile) -> DownloadOperation;
+                #[overload(CreateDownload)]
+                fn CreateDownloadFromFile(&self, uri: super::super::Foundation::Uri, resultFile: super::super::Storage::IStorageFile, requestBodyFile: super::super::Storage::IStorageFile) -> DownloadOperation;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateDownloadAsync(&self, uri: super::super::Foundation::Uri, resultFile: super::super::Storage::IStorageFile, requestBodyStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<DownloadOperation>;
             }
@@ -181,13 +181,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
             interface IBackgroundDownloaderStaticMethods {
-                #[Windows::Foundation::Metadata::Overload("GetCurrentDownloadsAsync")]
+                #[overload(GetCurrentDownloadsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCurrentDownloadsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>;
+                #[overload(GetCurrentDownloadsAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("GetCurrentDownloadsAsync(group) may be altered or unavailable for releases after Windows 8.1. Instead, use GetCurrentDownloadsForTransferGroupAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetCurrentDownloadsForGroupAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCurrentDownloadsAsync(&self, group: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>;
+                fn GetCurrentDownloadsForGroupAsync(&self, group: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>;
             }
             #[guid(0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -311,15 +311,15 @@ mod Windows {
                 fn CreateUpload(&self, uri: super::super::Foundation::Uri, sourceFile: super::super::Storage::IStorageFile) -> UploadOperation;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateUploadFromStreamAsync(&self, uri: super::super::Foundation::Uri, sourceStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
-                #[Windows::Foundation::Metadata::Overload("CreateUploadWithFormDataAndAutoBoundaryAsync")]
+                #[overload(CreateUploadAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateUploadAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
-                #[Windows::Foundation::Metadata::Overload("CreateUploadWithSubTypeAsync")]
+                fn CreateUploadWithFormDataAndAutoBoundaryAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
+                #[overload(CreateUploadAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateUploadAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>, subType: String) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
-                #[Windows::Foundation::Metadata::Overload("CreateUploadWithSubTypeAndBoundaryAsync")]
+                fn CreateUploadWithSubTypeAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>, subType: String) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
+                #[overload(CreateUploadAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateUploadAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>, subType: String, boundary: String) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
+                fn CreateUploadWithSubTypeAndBoundaryAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>, subType: String, boundary: String) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
             }
             #[guid(0x8e0612ce_0c34_4463_807f_198a1b8bd4ad)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -348,13 +348,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
             interface IBackgroundUploaderStaticMethods {
-                #[Windows::Foundation::Metadata::Overload("GetCurrentUploadsAsync")]
+                #[overload(GetCurrentUploadsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCurrentUploadsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>;
+                #[overload(GetCurrentUploadsAsync)]
                 #[Windows::Foundation::Metadata::Deprecated("GetCurrentUploadsAsync(group) may be altered or unavailable for releases after Windows 8.1. Instead, use GetCurrentUploadsForTransferGroupAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Overload("GetCurrentUploadsForGroupAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCurrentUploadsAsync(&self, group: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>;
+                fn GetCurrentUploadsForGroupAsync(&self, group: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>;
             }
             #[guid(0xe919ac62_ea08_42f0_a2ac_07e467549080)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

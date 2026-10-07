@@ -35,10 +35,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PwmController)]
             interface IPwmControllerStatics3 {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromFriendlyName")]
-                fn GetDeviceSelector(&self, friendlyName: String) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: String) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<PwmController>;
             }

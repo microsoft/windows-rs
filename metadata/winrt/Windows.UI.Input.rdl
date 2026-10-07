@@ -505,14 +505,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PointerPoint)]
             interface IPointerPointStatics {
-                #[Windows::Foundation::Metadata::Overload("GetCurrentPoint")]
+                #[overload(GetCurrentPoint)]
                 fn GetCurrentPoint(&self, pointerId: u32) -> PointerPoint;
-                #[Windows::Foundation::Metadata::Overload("GetIntermediatePoints")]
+                #[overload(GetIntermediatePoints)]
                 fn GetIntermediatePoints(&self, pointerId: u32) -> super::super::Foundation::Collections::IVector<PointerPoint>;
-                #[Windows::Foundation::Metadata::Overload("GetCurrentPointTransformed")]
-                fn GetCurrentPoint(&self, pointerId: u32, transform: IPointerPointTransform) -> PointerPoint;
-                #[Windows::Foundation::Metadata::Overload("GetIntermediatePointsTransformed")]
-                fn GetIntermediatePoints(&self, pointerId: u32, transform: IPointerPointTransform) -> super::super::Foundation::Collections::IVector<PointerPoint>;
+                #[overload(GetCurrentPoint)]
+                fn GetCurrentPointTransformed(&self, pointerId: u32, transform: IPointerPointTransform) -> PointerPoint;
+                #[overload(GetIntermediatePoints)]
+                fn GetIntermediatePointsTransformed(&self, pointerId: u32, transform: IPointerPointTransform) -> super::super::Foundation::Collections::IVector<PointerPoint>;
             }
             #[guid(0x4d5fe14f_b87c_4028_bc9c_59e9947fb056)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -693,10 +693,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenuItem)]
             interface IRadialControllerMenuItemStatics2 {
-                #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyph")]
+                #[overload(CreateFromFontGlyph)]
                 fn CreateFromFontGlyph(&self, displayText: String, glyph: String, fontFamily: String) -> RadialControllerMenuItem;
-                #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyphWithUri")]
-                fn CreateFromFontGlyph(&self, displayText: String, glyph: String, fontFamily: String, fontUri: super::super::Foundation::Uri) -> RadialControllerMenuItem;
+                #[overload(CreateFromFontGlyph)]
+                fn CreateFromFontGlyphWithUri(&self, displayText: String, glyph: String, fontFamily: String, fontUri: super::super::Foundation::Uri) -> RadialControllerMenuItem;
             }
             #[guid(0x206aa435_e651_11e5_bf62_2c27d7404e85)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

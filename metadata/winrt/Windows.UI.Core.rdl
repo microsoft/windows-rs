@@ -408,10 +408,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreDispatcherWithTaskPriority {
                 CurrentPriority: CoreDispatcherPriority;
-                #[Windows::Foundation::Metadata::Overload("ShouldYield")]
+                #[overload(ShouldYield)]
                 fn ShouldYield(&self) -> bool;
-                #[Windows::Foundation::Metadata::Overload("ShouldYieldToPriority")]
-                fn ShouldYield(&self, priority: CoreDispatcherPriority) -> bool;
+                #[overload(ShouldYield)]
+                fn ShouldYieldToPriority(&self, priority: CoreDispatcherPriority) -> bool;
                 fn StopProcessEvents(&self);
             }
             #[guid(0x0963261c_84fe_578a_83ca_6425309ccde4)]
@@ -422,10 +422,10 @@ mod Windows {
                 IsPalmRejectionEnabled: bool;
                 #[get]
                 Source: CoreIndependentInputSource;
-                #[Windows::Foundation::Metadata::Overload("SetControlledInput")]
+                #[overload(SetControlledInput)]
                 fn SetControlledInput(&self, inputTypes: CoreInputDeviceTypes);
-                #[Windows::Foundation::Metadata::Overload("SetControlledInputWithFilters")]
-                fn SetControlledInput(&self, inputTypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters);
+                #[overload(SetControlledInput)]
+                fn SetControlledInputWithFilters(&self, inputTypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters);
             }
             #[guid(0x3edc4e20_9a8a_5691_8586_fca4cb57526d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -760,11 +760,11 @@ mod Windows {
                 Point: super::super::Foundation::Point;
                 #[get]
                 BoundingBox: super::super::Foundation::Rect;
+                #[overload(EvaluateProximity)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("EvaluateProximityToRect")]
-                fn EvaluateProximity(&self, controlBoundingBox: super::super::Foundation::Rect) -> CoreProximityEvaluation;
-                #[Windows::Foundation::Metadata::Overload("EvaluateProximityToPolygon")]
-                fn EvaluateProximity(&self, controlVertices: [super::super::Foundation::Point]) -> CoreProximityEvaluation;
+                fn EvaluateProximityToRect(&self, controlBoundingBox: super::super::Foundation::Rect) -> CoreProximityEvaluation;
+                #[overload(EvaluateProximity)]
+                fn EvaluateProximityToPolygon(&self, controlVertices: [super::super::Foundation::Point]) -> CoreProximityEvaluation;
             }
             #[guid(0xbf9918ea_d801_4564_a495_b1e84f8ad085)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

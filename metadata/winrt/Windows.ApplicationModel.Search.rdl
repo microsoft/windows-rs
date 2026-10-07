@@ -83,12 +83,12 @@ mod Windows {
                 fn remove_ResultSuggestionChosen(&self, token: super::super::Foundation::EventRegistrationToken);
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 fn SetLocalContentSuggestionSettings(&self, settings: LocalContentSuggestionSettings);
+                #[overload(Show)]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
-                #[Windows::Foundation::Metadata::Overload("ShowOverloadDefault")]
-                fn Show(&self);
+                fn ShowOverloadDefault(&self);
+                #[overload(Show)]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
-                #[Windows::Foundation::Metadata::Overload("ShowOverloadWithQuery")]
-                fn Show(&self, query: String);
+                fn ShowOverloadWithQuery(&self, query: String);
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 fn put_ShowOnKeyboardInput(&self, value: bool);

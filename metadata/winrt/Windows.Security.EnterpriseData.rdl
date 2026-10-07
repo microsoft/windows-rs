@@ -152,15 +152,15 @@ mod Windows {
                 fn CopyProtectionAsync(&self, source: super::super::Storage::IStorageItem, target: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetProtectionInfoAsync(&self, source: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
-                #[Windows::Foundation::Metadata::Overload("SaveFileAsContainerAsync")]
+                #[overload(SaveFileAsContainerAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SaveFileAsContainerAsync(&self, protectedFile: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>;
-                #[Windows::Foundation::Metadata::Overload("LoadFileFromContainerAsync")]
+                #[overload(LoadFileFromContainerAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn LoadFileFromContainerAsync(&self, containerFile: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
-                #[Windows::Foundation::Metadata::Overload("LoadFileFromContainerWithTargetAsync")]
+                #[overload(LoadFileFromContainerAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFileFromContainerAsync(&self, containerFile: super::super::Storage::IStorageFile, target: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
+                fn LoadFileFromContainerWithTargetAsync(&self, containerFile: super::super::Storage::IStorageFile, target: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateProtectedAndOpenAsync(&self, parentFolder: super::super::Storage::IStorageFolder, desiredName: String, identity: String, collisionOption: super::super::Storage::CreationCollisionOption) -> super::super::Foundation::IAsyncOperation<ProtectedFileCreateResult>;
             }
@@ -170,25 +170,25 @@ mod Windows {
             interface IFileProtectionManagerStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn IsContainerAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[overload(LoadFileFromContainerAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("LoadFileFromContainerWithTargetAndNameCollisionOptionAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFileFromContainerAsync(&self, containerFile: super::super::Storage::IStorageFile, target: super::super::Storage::IStorageItem, collisionOption: super::super::Storage::NameCollisionOption) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
+                fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync(&self, containerFile: super::super::Storage::IStorageFile, target: super::super::Storage::IStorageItem, collisionOption: super::super::Storage::NameCollisionOption) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
+                #[overload(SaveFileAsContainerAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("SaveFileAsContainerWithSharingAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SaveFileAsContainerAsync(&self, protectedFile: super::super::Storage::IStorageFile, sharedWithIdentities: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>;
+                fn SaveFileAsContainerWithSharingAsync(&self, protectedFile: super::super::Storage::IStorageFile, sharedWithIdentities: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>;
             }
             #[guid(0x6918849a_624f_46d6_b241_e9cd5fdf3e3f)]
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileProtectionManager)]
             interface IFileProtectionManagerStatics3 {
-                #[Windows::Foundation::Metadata::Overload("UnprotectAsync")]
+                #[overload(UnprotectAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn UnprotectAsync(&self, target: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
-                #[Windows::Foundation::Metadata::Overload("UnprotectWithOptionsAsync")]
+                #[overload(UnprotectAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UnprotectAsync(&self, target: super::super::Storage::IStorageItem, options: FileUnprotectOptions) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
+                fn UnprotectWithOptionsAsync(&self, target: super::super::Storage::IStorageItem, options: FileUnprotectOptions) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
             }
             #[guid(0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9)]
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
@@ -337,7 +337,7 @@ mod Windows {
                 event ProtectedAccessResumed: super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>;
                 event ProtectedContentRevoked: super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>;
                 fn CheckAccess(&self, sourceIdentity: String, targetIdentity: String) -> ProtectionPolicyEvaluationResult;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
+                #[overload(RequestAccessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
             }
@@ -347,7 +347,7 @@ mod Windows {
             interface IProtectionPolicyManagerStatics2 {
                 fn HasContentBeenRevokedSince(&self, identity: String, since: super::super::Foundation::DateTime) -> bool;
                 fn CheckAccessForApp(&self, sourceIdentity: String, appPackageFamilyName: String) -> ProtectionPolicyEvaluationResult;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppAsync")]
+                #[overload(RequestAccessForAppAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
                 fn GetEnforcementLevel(&self, identity: String) -> EnforcementLevel;
@@ -361,18 +361,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
             interface IProtectionPolicyManagerStatics3 {
-                #[Windows::Foundation::Metadata::Overload("RequestAccessWithAuditingInfoAsync")]
+                #[overload(RequestAccessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessWithMessageAsync")]
+                fn RequestAccessWithAuditingInfoAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[overload(RequestAccessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppWithAuditingInfoAsync")]
+                fn RequestAccessWithMessageAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[overload(RequestAccessForAppAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppWithMessageAsync")]
+                fn RequestAccessForAppWithAuditingInfoAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[overload(RequestAccessForAppAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                fn RequestAccessForAppWithMessageAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
                 fn LogAuditEvent(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo);
             }
             #[guid(0x20b794db_ccbd_490f_8c83_49ccb77aea6c)]
@@ -380,24 +380,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
             interface IProtectionPolicyManagerStatics4 {
                 fn IsRoamableProtectionEnabled(&self, identity: String) -> bool;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessWithBehaviorAsync")]
+                #[overload(RequestAccessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppWithBehaviorAsync")]
+                fn RequestAccessWithBehaviorAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[overload(RequestAccessForAppAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForAppAsync")]
+                fn RequestAccessForAppWithBehaviorAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[overload(RequestAccessToFilesForAppAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessToFilesForAppAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForAppWithMessageAndBehaviorAsync")]
+                #[overload(RequestAccessToFilesForAppAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessToFilesForAppAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForProcessAsync")]
+                fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[overload(RequestAccessToFilesForProcessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessToFilesForProcessAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, processId: u32, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
-                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForProcessWithMessageAndBehaviorAsync")]
+                #[overload(RequestAccessToFilesForProcessAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessToFilesForProcessAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, processId: u32, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, processId: u32, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn IsFileProtectionRequiredAsync(&self, target: super::super::Storage::IStorageItem, identity: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]

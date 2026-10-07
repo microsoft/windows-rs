@@ -25,10 +25,10 @@ mod Windows {
                 CurrentHapticsControllerDeviceType: HapticDeviceType;
                 #[get]
                 CurrentHapticsController: SimpleHapticsController;
-                #[Windows::Foundation::Metadata::Overload("TrySendHapticWaveform")]
+                #[overload(TrySendHapticWaveform)]
                 fn TrySendHapticWaveform(&self, waveform: u16, waveformFallback: u16) -> bool;
-                #[Windows::Foundation::Metadata::Overload("TrySendHapticWaveformWithIntensity")]
-                fn TrySendHapticWaveform(&self, waveform: u16, waveformFallback: u16, intensity: f64) -> bool;
+                #[overload(TrySendHapticWaveform)]
+                fn TrySendHapticWaveformWithIntensity(&self, waveform: u16, waveformFallback: u16, intensity: f64) -> bool;
                 fn TrySendHapticWaveformForDuration(&self, waveform: u16, waveformFallback: u16, intensity: f64, playDuration: super::super::Foundation::TimeSpan) -> bool;
                 fn TrySendHapticWaveformForPlayCount(&self, waveform: u16, waveformFallback: u16, intensity: f64, playCount: i32, replayPauseInterval: super::super::Foundation::TimeSpan) -> bool;
                 fn TryStopFeedback(&self) -> bool;
@@ -114,10 +114,10 @@ mod Windows {
                 #[get]
                 IsReplayPauseIntervalSupported: bool;
                 fn StopFeedback(&self);
-                #[Windows::Foundation::Metadata::Overload("SendHapticFeedback")]
+                #[overload(SendHapticFeedback)]
                 fn SendHapticFeedback(&self, feedback: SimpleHapticsControllerFeedback);
-                #[Windows::Foundation::Metadata::Overload("SendHapticFeedbackWithIntensity")]
-                fn SendHapticFeedback(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64);
+                #[overload(SendHapticFeedback)]
+                fn SendHapticFeedbackWithIntensity(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64);
                 fn SendHapticFeedbackForDuration(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64, playDuration: super::super::Foundation::TimeSpan);
                 fn SendHapticFeedbackForPlayCount(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64, playCount: i32, replayPauseInterval: super::super::Foundation::TimeSpan);
             }

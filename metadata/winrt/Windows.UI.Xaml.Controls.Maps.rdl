@@ -207,26 +207,26 @@ mod Windows {
                         event PitchChanged: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>;
                         event TransformOriginChanged: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>;
                         event ZoomLevelChanged: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>;
-                        #[Windows::Foundation::Metadata::Overload("FindMapElementsAtOffset")]
+                        #[overload(FindMapElementsAtOffset)]
                         fn FindMapElementsAtOffset(&self, offset: super::super::super::super::Foundation::Point) -> super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
-                        #[Windows::Foundation::Metadata::Overload("GetLocationFromOffset")]
+                        #[overload(GetLocationFromOffset)]
                         fn GetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, location: &mut super::super::super::super::Devices::Geolocation::Geopoint);
                         fn GetOffsetFromLocation(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, offset: &mut super::super::super::super::Foundation::Point);
                         fn IsLocationInView(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, isInView: &mut bool);
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn TrySetViewBoundsAsync(&self, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, margin: super::super::super::super::Foundation::IReference<super::super::Thickness>, animation: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
-                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterAsync")]
+                        #[overload(TrySetViewAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
-                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterAndZoomAsync")]
+                        fn TrySetViewWithCenterAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[overload(TrySetViewAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
-                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterZoomHeadingAndPitchAsync")]
+                        fn TrySetViewWithCenterAndZoomAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[overload(TrySetViewAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>, heading: super::super::super::super::Foundation::IReference<f64>, desiredPitch: super::super::super::super::Foundation::IReference<f64>) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
-                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync")]
+                        fn TrySetViewWithCenterZoomHeadingAndPitchAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>, heading: super::super::super::super::Foundation::IReference<f64>, desiredPitch: super::super::super::super::Foundation::IReference<f64>) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[overload(TrySetViewAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>, heading: super::super::super::super::Foundation::IReference<f64>, desiredPitch: super::super::super::super::Foundation::IReference<f64>, animation: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        fn TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>, heading: super::super::super::super::Foundation::IReference<f64>, desiredPitch: super::super::super::super::Foundation::IReference<f64>, animation: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                     }
                     #[guid(0xe1fd644d_96ec_4065_b0f0_75281da3654d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -276,12 +276,12 @@ mod Windows {
                         fn TryZoomOutAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn TryZoomToAsync(&self, zoomLevel: f64) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
-                        #[Windows::Foundation::Metadata::Overload("TrySetSceneAsync")]
+                        #[overload(TrySetSceneAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn TrySetSceneAsync(&self, scene: MapScene) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
-                        #[Windows::Foundation::Metadata::Overload("TrySetSceneWithAnimationAsync")]
+                        #[overload(TrySetSceneAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn TrySetSceneAsync(&self, scene: MapScene, animationKind: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        fn TrySetSceneWithAnimationAsync(&self, scene: MapScene, animationKind: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                     }
                     #[guid(0x586328f8_8cdd_40ae_9338_af2a7be845e5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -308,10 +308,10 @@ mod Windows {
                         StyleSheet: MapStyleSheet;
                         ViewPadding: super::super::Thickness;
                         event MapContextRequested: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapContextRequestedEventArgs>;
-                        #[Windows::Foundation::Metadata::Overload("FindMapElementsAtOffsetWithRadius")]
-                        fn FindMapElementsAtOffset(&self, offset: super::super::super::super::Foundation::Point, radius: f64) -> super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
-                        #[Windows::Foundation::Metadata::Overload("GetLocationFromOffsetWithReferenceSystem")]
-                        fn GetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, desiredReferenceSystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut super::super::super::super::Devices::Geolocation::Geopoint);
+                        #[overload(FindMapElementsAtOffset)]
+                        fn FindMapElementsAtOffsetWithRadius(&self, offset: super::super::super::super::Foundation::Point, radius: f64) -> super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
+                        #[overload(GetLocationFromOffset)]
+                        fn GetLocationFromOffsetWithReferenceSystem(&self, offset: super::super::super::super::Foundation::Point, desiredReferenceSystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut super::super::super::super::Devices::Geolocation::Geopoint);
                         fn StartContinuousPan(&self, horizontalPixelsPerSecond: f64, verticalPixelsPerSecond: f64);
                         fn StopContinuousPan(&self);
                         #[Windows::Foundation::Metadata::RemoteAsync]
@@ -325,10 +325,10 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMapControl6 {
                         Layers: super::super::super::super::Foundation::Collections::IVector<MapLayer>;
-                        #[Windows::Foundation::Metadata::Overload("TryGetLocationFromOffset")]
+                        #[overload(TryGetLocationFromOffset)]
                         fn TryGetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, location: &mut super::super::super::super::Devices::Geolocation::Geopoint) -> bool;
-                        #[Windows::Foundation::Metadata::Overload("TryGetLocationFromOffsetWithReferenceSystem")]
-                        fn TryGetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, desiredReferenceSystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut super::super::super::super::Devices::Geolocation::Geopoint) -> bool;
+                        #[overload(TryGetLocationFromOffset)]
+                        fn TryGetLocationFromOffsetWithReferenceSystem(&self, offset: super::super::super::super::Foundation::Point, desiredReferenceSystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut super::super::super::super::Devices::Geolocation::Geopoint) -> bool;
                     }
                     #[guid(0x0d86e453_0c1f_4f7e_ae66_4ad0b4987857)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -929,12 +929,12 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMapModel3DStatics {
-                        #[Windows::Foundation::Metadata::Overload("CreateFrom3MFAsync")]
+                        #[overload(CreateFrom3MFAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn CreateFrom3MFAsync(&self, source: super::super::super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::super::super::Foundation::IAsyncOperation<MapModel3D>;
-                        #[Windows::Foundation::Metadata::Overload("CreateFrom3MFWithShadingOptionAsync")]
+                        #[overload(CreateFrom3MFAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn CreateFrom3MFAsync(&self, source: super::super::super::super::Storage::Streams::IRandomAccessStreamReference, shadingOption: MapModel3DShadingOption) -> super::super::super::super::Foundation::IAsyncOperation<MapModel3D>;
+                        fn CreateFrom3MFWithShadingOptionAsync(&self, source: super::super::super::super::Storage::Streams::IRandomAccessStreamReference, shadingOption: MapModel3DShadingOption) -> super::super::super::super::Foundation::IAsyncOperation<MapModel3D>;
                     }
                     #[guid(0xabda2285_4926_4c3a_a5f9_19df7f69db3d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1028,23 +1028,23 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapScene)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMapSceneStatics {
-                        #[Windows::Foundation::Metadata::Overload("CreateFromBoundingBox")]
+                        #[overload(CreateFromBoundingBox)]
                         fn CreateFromBoundingBox(&self, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox) -> MapScene;
-                        #[Windows::Foundation::Metadata::Overload("CreateFromBoundingBoxWithHeadingAndPitch")]
-                        fn CreateFromBoundingBox(&self, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                        #[overload(CreateFromBoundingBox)]
+                        fn CreateFromBoundingBoxWithHeadingAndPitch(&self, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
                         fn CreateFromCamera(&self, camera: MapCamera) -> MapScene;
-                        #[Windows::Foundation::Metadata::Overload("CreateFromLocation")]
+                        #[overload(CreateFromLocation)]
                         fn CreateFromLocation(&self, location: super::super::super::super::Devices::Geolocation::Geopoint) -> MapScene;
-                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationWithHeadingAndPitch")]
-                        fn CreateFromLocation(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
-                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationAndRadius")]
+                        #[overload(CreateFromLocation)]
+                        fn CreateFromLocationWithHeadingAndPitch(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                        #[overload(CreateFromLocationAndRadius)]
                         fn CreateFromLocationAndRadius(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64) -> MapScene;
-                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationAndRadiusWithHeadingAndPitch")]
-                        fn CreateFromLocationAndRadius(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
-                        #[Windows::Foundation::Metadata::Overload("CreateFromLocations")]
+                        #[overload(CreateFromLocationAndRadius)]
+                        fn CreateFromLocationAndRadiusWithHeadingAndPitch(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                        #[overload(CreateFromLocations)]
                         fn CreateFromLocations(&self, locations: super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>) -> MapScene;
-                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationsWithHeadingAndPitch")]
-                        fn CreateFromLocations(&self, locations: super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                        #[overload(CreateFromLocations)]
+                        fn CreateFromLocationsWithHeadingAndPitch(&self, locations: super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
                     }
                     #[guid(0xae54b2bf_8991_42ed_8d58_20473deede1d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -1431,12 +1431,12 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(StreetsidePanorama)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IStreetsidePanoramaStatics {
-                        #[Windows::Foundation::Metadata::Overload("FindNearbyWithLocationAsync")]
+                        #[overload(FindNearbyAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn FindNearbyAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
-                        #[Windows::Foundation::Metadata::Overload("FindNearbyWithLocationAndRadiusAsync")]
+                        fn FindNearbyWithLocationAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
+                        #[overload(FindNearbyAsync)]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn FindNearbyAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
+                        fn FindNearbyWithLocationAndRadiusAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
                     }
                     #[Windows::Foundation::Metadata::Composable(ILocalMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]

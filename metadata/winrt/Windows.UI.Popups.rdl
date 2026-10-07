@@ -29,10 +29,10 @@ mod Windows {
                 #[get]
                 Commands: super::super::Foundation::Collections::IVector<IUICommand>;
                 fn ShowAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<IUICommand>;
-                #[Windows::Foundation::Metadata::Overload("ShowAsyncWithRect")]
-                fn ShowForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<IUICommand>;
-                #[Windows::Foundation::Metadata::Overload("ShowAsyncWithRectAndPlacement")]
-                fn ShowForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: Placement) -> super::super::Foundation::IAsyncOperation<IUICommand>;
+                #[overload(ShowForSelectionAsync)]
+                fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<IUICommand>;
+                #[overload(ShowForSelectionAsync)]
+                fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: Placement) -> super::super::Foundation::IAsyncOperation<IUICommand>;
             }
             #[guid(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

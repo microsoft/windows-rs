@@ -271,12 +271,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HolographicCameraRenderingParameters)]
             interface IHolographicCameraRenderingParameters {
-                #[Windows::Foundation::Metadata::Overload("SetFocusPoint")]
+                #[overload(SetFocusPoint)]
                 fn SetFocusPoint(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3);
-                #[Windows::Foundation::Metadata::Overload("SetFocusPointWithNormal")]
-                fn SetFocusPoint(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3);
-                #[Windows::Foundation::Metadata::Overload("SetFocusPointWithNormalLinearVelocity")]
-                fn SetFocusPoint(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearVelocity: super::super::Foundation::Numerics::Vector3);
+                #[overload(SetFocusPoint)]
+                fn SetFocusPointWithNormal(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3);
+                #[overload(SetFocusPoint)]
+                fn SetFocusPointWithNormalLinearVelocity(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearVelocity: super::super::Foundation::Numerics::Vector3);
                 #[get]
                 Direct3D11Device: super::DirectX::Direct3D11::IDirect3DDevice;
                 #[get]
@@ -360,10 +360,10 @@ mod Windows {
                 #[get]
                 CurrentPrediction: HolographicFramePrediction;
                 fn UpdateCurrentPrediction(&self);
-                #[Windows::Foundation::Metadata::Overload("PresentUsingCurrentPrediction")]
+                #[overload(PresentUsingCurrentPrediction)]
                 fn PresentUsingCurrentPrediction(&self) -> HolographicFramePresentResult;
-                #[Windows::Foundation::Metadata::Overload("PresentUsingCurrentPredictionWithBehavior")]
-                fn PresentUsingCurrentPrediction(&self, waitBehavior: HolographicFramePresentWaitBehavior) -> HolographicFramePresentResult;
+                #[overload(PresentUsingCurrentPrediction)]
+                fn PresentUsingCurrentPredictionWithBehavior(&self, waitBehavior: HolographicFramePresentWaitBehavior) -> HolographicFramePresentResult;
                 fn WaitForFrameToFinish(&self);
             }
             #[guid(0x283f37bf_3bf2_5e91_6633_870574e6f217)]

@@ -388,18 +388,18 @@ mod Windows {
                 DeviceAccessInformation: super::Enumeration::DeviceAccessInformation;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>;
-                #[Windows::Foundation::Metadata::Overload("GetRfcommServicesAsync")]
+                #[overload(GetRfcommServicesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetRfcommServicesAsync(&self) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
-                #[Windows::Foundation::Metadata::Overload("GetRfcommServicesWithCacheModeAsync")]
+                #[overload(GetRfcommServicesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetRfcommServicesAsync(&self, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
-                #[Windows::Foundation::Metadata::Overload("GetRfcommServicesForIdAsync")]
+                fn GetRfcommServicesWithCacheModeAsync(&self, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
+                #[overload(GetRfcommServicesForIdAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetRfcommServicesForIdAsync(&self, serviceId: Rfcomm::RfcommServiceId) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
-                #[Windows::Foundation::Metadata::Overload("GetRfcommServicesForIdWithCacheModeAsync")]
+                #[overload(GetRfcommServicesForIdAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetRfcommServicesForIdAsync(&self, serviceId: Rfcomm::RfcommServiceId, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
+                fn GetRfcommServicesForIdWithCacheModeAsync(&self, serviceId: Rfcomm::RfcommServiceId, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
             }
             #[guid(0x817c34ad_0e9c_42b2_a8dc_3e8094940d12)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -653,18 +653,18 @@ mod Windows {
                 DeviceAccessInformation: super::Enumeration::DeviceAccessInformation;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>;
-                #[Windows::Foundation::Metadata::Overload("GetGattServicesAsync")]
+                #[overload(GetGattServicesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetGattServicesAsync(&self) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
-                #[Windows::Foundation::Metadata::Overload("GetGattServicesWithCacheModeAsync")]
+                #[overload(GetGattServicesAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGattServicesAsync(&self, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
-                #[Windows::Foundation::Metadata::Overload("GetGattServicesForUuidAsync")]
+                fn GetGattServicesWithCacheModeAsync(&self, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
+                #[overload(GetGattServicesForUuidAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetGattServicesForUuidAsync(&self, serviceUuid: GUID) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
-                #[Windows::Foundation::Metadata::Overload("GetGattServicesForUuidWithCacheModeAsync")]
+                #[overload(GetGattServicesForUuidAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGattServicesForUuidAsync(&self, serviceUuid: GUID, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
+                fn GetGattServicesForUuidWithCacheModeAsync(&self, serviceUuid: GUID, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
             }
             #[guid(0x2b605031_2248_4b2f_acf0_7cee36fc5870)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -696,7 +696,7 @@ mod Windows {
             interface IBluetoothLEDeviceStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
-                #[Windows::Foundation::Metadata::Overload("FromBluetoothAddressAsync")]
+                #[overload(FromBluetoothAddressAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromBluetoothAddressAsync(&self, bluetoothAddress: u64) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
                 fn GetDeviceSelector(&self) -> String;
@@ -708,14 +708,14 @@ mod Windows {
                 fn GetDeviceSelectorFromPairingState(&self, pairingState: bool) -> String;
                 fn GetDeviceSelectorFromConnectionStatus(&self, connectionStatus: BluetoothConnectionStatus) -> String;
                 fn GetDeviceSelectorFromDeviceName(&self, deviceName: String) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromBluetoothAddress")]
+                #[overload(GetDeviceSelectorFromBluetoothAddress)]
                 fn GetDeviceSelectorFromBluetoothAddress(&self, bluetoothAddress: u64) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType")]
-                fn GetDeviceSelectorFromBluetoothAddress(&self, bluetoothAddress: u64, bluetoothAddressType: BluetoothAddressType) -> String;
+                #[overload(GetDeviceSelectorFromBluetoothAddress)]
+                fn GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType(&self, bluetoothAddress: u64, bluetoothAddressType: BluetoothAddressType) -> String;
                 fn GetDeviceSelectorFromAppearance(&self, appearance: BluetoothLEAppearance) -> String;
-                #[Windows::Foundation::Metadata::Overload("FromBluetoothAddressWithBluetoothAddressTypeAsync")]
+                #[overload(FromBluetoothAddressAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromBluetoothAddressAsync(&self, bluetoothAddress: u64, bluetoothAddressType: BluetoothAddressType) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
+                fn FromBluetoothAddressWithBluetoothAddressTypeAsync(&self, bluetoothAddress: u64, bluetoothAddressType: BluetoothAddressType) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
             }
             #[guid(0xf2f44344_7372_5f7b_9b34_29c944f5a715)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]

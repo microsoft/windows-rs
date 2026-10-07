@@ -426,15 +426,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             interface IAccelerometerStatics {
-                #[Windows::Foundation::Metadata::Overload("GetDefault")]
+                #[overload(GetDefault)]
                 fn GetDefault(&self) -> Accelerometer;
             }
             #[guid(0xc4c4842f_d86b_4685_b2d7_3396f798d57b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             interface IAccelerometerStatics2 {
-                #[Windows::Foundation::Metadata::Overload("GetDefaultWithAccelerometerReadingType")]
-                fn GetDefault(&self, readingType: AccelerometerReadingType) -> Accelerometer;
+                #[overload(GetDefault)]
+                fn GetDefaultWithAccelerometerReadingType(&self, readingType: AccelerometerReadingType) -> Accelerometer;
             }
             #[guid(0x9de218cf_455d_4cf3_8200_70e1410340f8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -496,12 +496,12 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ActivitySensor>;
-                #[Windows::Foundation::Metadata::Overload("GetSystemHistoryAsync")]
+                #[overload(GetSystemHistoryAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
-                #[Windows::Foundation::Metadata::Overload("GetSystemHistoryWithDurationAsync")]
+                #[overload(GetSystemHistoryAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
+                fn GetSystemHistoryWithDurationAsync(&self, fromTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
             }
             #[guid(0x2c9e6612_b9ca_4677_b263_243297f79d3a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1235,8 +1235,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometerStatics3 {
-                #[Windows::Foundation::Metadata::Overload("GetDefaultWithSensorReadingType")]
-                fn GetDefault(&self, sensorReadingtype: SensorReadingType) -> Inclinometer;
+                #[overload(GetDefault)]
+                fn GetDefaultWithSensorReadingType(&self, sensorReadingtype: SensorReadingType) -> Inclinometer;
             }
             #[guid(0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -1542,7 +1542,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorStatics {
-                #[Windows::Foundation::Metadata::Overload("GetDefault")]
+                #[overload(GetDefault)]
                 fn GetDefault(&self) -> OrientationSensor;
             }
             #[guid(0x59da0d0b_d40a_4c71_9276_8a272a0a6619)]
@@ -1555,19 +1555,19 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorStatics3 {
-                #[Windows::Foundation::Metadata::Overload("GetDefaultWithSensorReadingType")]
-                fn GetDefault(&self, sensorReadingtype: SensorReadingType) -> OrientationSensor;
-                #[Windows::Foundation::Metadata::Overload("GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal")]
-                fn GetDefault(&self, sensorReadingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal) -> OrientationSensor;
+                #[overload(GetDefault)]
+                fn GetDefaultWithSensorReadingType(&self, sensorReadingtype: SensorReadingType) -> OrientationSensor;
+                #[overload(GetDefault)]
+                fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal(&self, sensorReadingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal) -> OrientationSensor;
             }
             #[guid(0xa67feb55_2c85_4b28_a0fe_58c4b20495f5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorStatics4 {
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                #[overload(GetDeviceSelector)]
                 fn GetDeviceSelector(&self, readingType: SensorReadingType) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal")]
-                fn GetDeviceSelector(&self, readingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal) -> String;
+                #[overload(GetDeviceSelector)]
+                fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal(&self, readingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<OrientationSensor>;
             }
@@ -1628,12 +1628,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<Pedometer>;
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::Overload("GetSystemHistoryAsync")]
+                #[overload(GetSystemHistoryAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
-                #[Windows::Foundation::Metadata::Overload("GetSystemHistoryWithDurationAsync")]
+                #[overload(GetSystemHistoryAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
+                fn GetSystemHistoryWithDurationAsync(&self, fromTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
             }
             #[guid(0x79f5c6bb_ce0e_4133_b47e_8627ea72f677)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]

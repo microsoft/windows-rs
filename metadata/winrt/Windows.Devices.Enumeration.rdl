@@ -380,15 +380,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceInformationCustomPairing)]
             interface IDeviceInformationCustomPairing {
-                #[Windows::Foundation::Metadata::Overload("PairAsync")]
+                #[overload(PairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PairAsync(&self, pairingKindsSupported: DevicePairingKinds) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
-                #[Windows::Foundation::Metadata::Overload("PairWithProtectionLevelAsync")]
+                #[overload(PairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PairAsync(&self, pairingKindsSupported: DevicePairingKinds, minProtectionLevel: DevicePairingProtectionLevel) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
-                #[Windows::Foundation::Metadata::Overload("PairWithProtectionLevelAndSettingsAsync")]
+                fn PairWithProtectionLevelAsync(&self, pairingKindsSupported: DevicePairingKinds, minProtectionLevel: DevicePairingProtectionLevel) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
+                #[overload(PairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PairAsync(&self, pairingKindsSupported: DevicePairingKinds, minProtectionLevel: DevicePairingProtectionLevel, devicePairingSettings: IDevicePairingSettings) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
+                fn PairWithProtectionLevelAndSettingsAsync(&self, pairingKindsSupported: DevicePairingKinds, minProtectionLevel: DevicePairingProtectionLevel, devicePairingSettings: IDevicePairingSettings) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
                 event PairingRequested: super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs>;
             }
             #[guid(0x0ebda662_e696_5fa9_8f72_80cfebcd851d)]
@@ -406,12 +406,12 @@ mod Windows {
                 IsPaired: bool;
                 #[get]
                 CanPair: bool;
-                #[Windows::Foundation::Metadata::Overload("PairAsync")]
+                #[overload(PairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PairAsync(&self) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
-                #[Windows::Foundation::Metadata::Overload("PairWithProtectionLevelAsync")]
+                #[overload(PairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PairAsync(&self, minProtectionLevel: DevicePairingProtectionLevel) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
+                fn PairWithProtectionLevelAsync(&self, minProtectionLevel: DevicePairingProtectionLevel) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
             }
             #[guid(0xf68612fd_0aee_4328_85cc_1c742bb1790d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -421,10 +421,10 @@ mod Windows {
                 ProtectionLevel: DevicePairingProtectionLevel;
                 #[get]
                 Custom: DeviceInformationCustomPairing;
-                #[Windows::Foundation::Metadata::Overload("PairWithProtectionLevelAndSettingsAsync")]
+                #[overload(PairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PairAsync(&self, minProtectionLevel: DevicePairingProtectionLevel, devicePairingSettings: IDevicePairingSettings) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
-                #[Windows::Foundation::Metadata::Overload("UnpairAsync")]
+                fn PairWithProtectionLevelAndSettingsAsync(&self, minProtectionLevel: DevicePairingProtectionLevel, devicePairingSettings: IDevicePairingSettings) -> super::super::Foundation::IAsyncOperation<DevicePairingResult>;
+                #[overload(UnpairAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn UnpairAsync(&self) -> super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>;
             }
@@ -444,55 +444,55 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceInformation)]
             interface IDeviceInformationStatics {
-                #[Windows::Foundation::Metadata::Overload("CreateFromIdAsync")]
+                #[overload(CreateFromIdAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateFromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
-                #[Windows::Foundation::Metadata::Overload("CreateFromIdAsyncAdditionalProperties")]
-                fn CreateFromIdAsync(&self, deviceId: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
-                #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
+                #[overload(CreateFromIdAsync)]
+                fn CreateFromIdAsyncAdditionalProperties(&self, deviceId: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
+                #[overload(FindAllAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
+                #[overload(FindAllAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("FindAllAsyncDeviceClass")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindAllAsync(&self, deviceClass: DeviceClass) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
-                #[Windows::Foundation::Metadata::Overload("FindAllAsyncAqsFilter")]
+                fn FindAllAsyncDeviceClass(&self, deviceClass: DeviceClass) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
+                #[overload(FindAllAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindAllAsync(&self, aqsFilter: String) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
-                #[Windows::Foundation::Metadata::Overload("FindAllAsyncAqsFilterAndAdditionalProperties")]
-                fn FindAllAsync(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcher")]
+                fn FindAllAsyncAqsFilter(&self, aqsFilter: String) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
+                #[overload(FindAllAsync)]
+                fn FindAllAsyncAqsFilterAndAdditionalProperties(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
+                #[overload(CreateWatcher)]
                 fn CreateWatcher(&self) -> DeviceWatcher;
+                #[overload(CreateWatcher)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherDeviceClass")]
-                fn CreateWatcher(&self, deviceClass: DeviceClass) -> DeviceWatcher;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherAqsFilter")]
-                fn CreateWatcher(&self, aqsFilter: String) -> DeviceWatcher;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherAqsFilterAndAdditionalProperties")]
-                fn CreateWatcher(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>) -> DeviceWatcher;
+                fn CreateWatcherDeviceClass(&self, deviceClass: DeviceClass) -> DeviceWatcher;
+                #[overload(CreateWatcher)]
+                fn CreateWatcherAqsFilter(&self, aqsFilter: String) -> DeviceWatcher;
+                #[overload(CreateWatcher)]
+                fn CreateWatcherAqsFilterAndAdditionalProperties(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>) -> DeviceWatcher;
             }
             #[guid(0x493b4f34_a84f_45fd_9167_15d1cb1bd1f9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceInformation)]
             interface IDeviceInformationStatics2 {
                 fn GetAqsFilterFromDeviceClass(&self, deviceClass: DeviceClass) -> String;
-                #[Windows::Foundation::Metadata::Overload("CreateFromIdAsyncWithKindAndAdditionalProperties")]
-                fn CreateFromIdAsync(&self, deviceId: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
-                #[Windows::Foundation::Metadata::Overload("FindAllAsyncWithKindAqsFilterAndAdditionalProperties")]
-                fn FindAllAsync(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherWithKindAqsFilterAndAdditionalProperties")]
-                fn CreateWatcher(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind) -> DeviceWatcher;
+                #[overload(CreateFromIdAsync)]
+                fn CreateFromIdAsyncWithKindAndAdditionalProperties(&self, deviceId: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
+                #[overload(FindAllAsync)]
+                fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
+                #[overload(CreateWatcher)]
+                fn CreateWatcherWithKindAqsFilterAndAdditionalProperties(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind) -> DeviceWatcher;
             }
             #[guid(0x25f06279_9364_5a6c_8a54_5d4a6d3d922a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceInformation)]
             interface IDeviceInformationStatics3 {
-                #[Windows::Foundation::Metadata::Overload("CreateFromIdAsyncWithAdditionalPropertiesKindAndSettings")]
-                fn CreateFromIdAsync(&self, deviceId: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind, settings: IDeviceEnumerationSettings) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
-                #[Windows::Foundation::Metadata::Overload("FindAllAsyncWithAqsFilterAdditionalPropertiesKindAndSettings")]
-                fn FindAllAsync(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind, settings: IDeviceEnumerationSettings) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
-                #[Windows::Foundation::Metadata::Overload("CreateWatcherWithAqsFilterAdditionalPropertiesKindAndSettings")]
-                fn CreateWatcher(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind, settings: IDeviceEnumerationSettings) -> DeviceWatcher;
+                #[overload(CreateFromIdAsync)]
+                fn CreateFromIdAsyncWithAdditionalPropertiesKindAndSettings(&self, deviceId: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind, settings: IDeviceEnumerationSettings) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
+                #[overload(FindAllAsync)]
+                fn FindAllAsyncWithAqsFilterAdditionalPropertiesKindAndSettings(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind, settings: IDeviceEnumerationSettings) -> super::super::Foundation::IAsyncOperation<DeviceInformationCollection>;
+                #[overload(CreateWatcher)]
+                fn CreateWatcherWithAqsFilterAdditionalPropertiesKindAndSettings(&self, aqsFilter: String, additionalProperties: super::super::Foundation::Collections::IIterable<String>, kind: DeviceInformationKind, settings: IDeviceEnumerationSettings) -> DeviceWatcher;
             }
             #[guid(0x8f315305_d972_44b7_a37e_9e822c78213b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -520,10 +520,10 @@ mod Windows {
                 PairingKind: DevicePairingKinds;
                 #[get]
                 Pin: String;
-                #[Windows::Foundation::Metadata::Overload("Accept")]
+                #[overload(Accept)]
                 fn Accept(&self);
-                #[Windows::Foundation::Metadata::Overload("AcceptWithPin")]
-                fn Accept(&self, pin: String);
+                #[overload(Accept)]
+                fn AcceptWithPin(&self, pin: String);
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
             #[guid(0xc83752d9_e4d3_4db0_a360_a105e437dbdc)]
@@ -574,14 +574,14 @@ mod Windows {
                 event DeviceSelected: super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs>;
                 event DisconnectButtonClicked: super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs>;
                 event DevicePickerDismissed: super::super::Foundation::TypedEventHandler<DevicePicker, Object>;
-                #[Windows::Foundation::Metadata::Overload("Show")]
+                #[overload(Show)]
                 fn Show(&self, selection: super::super::Foundation::Rect);
-                #[Windows::Foundation::Metadata::Overload("ShowWithPlacement")]
-                fn Show(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement);
-                #[Windows::Foundation::Metadata::Overload("PickSingleDeviceAsync")]
+                #[overload(Show)]
+                fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement);
+                #[overload(PickSingleDeviceAsync)]
                 fn PickSingleDeviceAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
-                #[Windows::Foundation::Metadata::Overload("PickSingleDeviceAsyncWithPlacement")]
-                fn PickSingleDeviceAsync(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
+                #[overload(PickSingleDeviceAsync)]
+                fn PickSingleDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<DeviceInformation>;
                 fn Hide(&self);
                 fn SetDisplayStatus(&self, device: DeviceInformation, status: String, options: DevicePickerDisplayStatusOptions);
             }

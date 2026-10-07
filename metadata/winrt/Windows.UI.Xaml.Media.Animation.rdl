@@ -592,7 +592,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IConnectedAnimation {
                         event Completed: super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, Object>;
-                        #[Windows::Foundation::Metadata::Overload("TryStart")]
+                        #[overload(TryStart)]
                         fn TryStart(&self, destination: super::super::UIElement) -> bool;
                         fn Cancel(&self);
                     }
@@ -602,8 +602,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IConnectedAnimation2 {
                         IsScaleAnimationEnabled: bool;
-                        #[Windows::Foundation::Metadata::Overload("TryStartWithCoordinatedElements")]
-                        fn TryStart(&self, destination: super::super::UIElement, coordinatedElements: super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>) -> bool;
+                        #[overload(TryStart)]
+                        fn TryStartWithCoordinatedElements(&self, destination: super::super::UIElement, coordinatedElements: super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>) -> bool;
                         fn SetAnimationComponent(&self, component: ConnectedAnimationComponent, animation: super::super::super::Composition::ICompositionAnimationBase);
                     }
                     #[guid(0x6e3040c6_0430_59c0_a80c_cceed2e778dd)]

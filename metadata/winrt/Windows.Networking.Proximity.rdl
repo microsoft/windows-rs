@@ -32,10 +32,10 @@ mod Windows {
                 SupportedDiscoveryTypes: PeerDiscoveryTypes;
                 #[get]
                 AlternateIdentities: super::super::Foundation::Collections::IMap<String, String>;
-                #[Windows::Foundation::Metadata::Overload("Start")]
+                #[overload(Start)]
                 fn Start(&self);
-                #[Windows::Foundation::Metadata::Overload("StartWithMessage")]
-                fn Start(&self, peerMessage: String);
+                #[overload(Start)]
+                fn StartWithMessage(&self, peerMessage: String);
                 fn Stop(&self);
                 event TriggeredConnectionStateChanged: super::super::Foundation::TypedEventHandler<Object, TriggeredConnectionStateChangedEventArgs>;
                 event ConnectionRequested: super::super::Foundation::TypedEventHandler<Object, ConnectionRequestedEventArgs>;
@@ -96,18 +96,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ProximityDevice)]
             interface IProximityDevice {
                 fn SubscribeForMessage(&self, messageType: String, messageReceivedHandler: MessageReceivedHandler) -> i64;
-                #[Windows::Foundation::Metadata::Overload("PublishMessage")]
+                #[overload(PublishMessage)]
                 fn PublishMessage(&self, messageType: String, message: String) -> i64;
-                #[Windows::Foundation::Metadata::Overload("PublishMessageWithCallback")]
-                fn PublishMessage(&self, messageType: String, message: String, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
-                #[Windows::Foundation::Metadata::Overload("PublishBinaryMessage")]
+                #[overload(PublishMessage)]
+                fn PublishMessageWithCallback(&self, messageType: String, message: String, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                #[overload(PublishBinaryMessage)]
                 fn PublishBinaryMessage(&self, messageType: String, message: super::super::Storage::Streams::IBuffer) -> i64;
-                #[Windows::Foundation::Metadata::Overload("PublishBinaryMessageWithCallback")]
-                fn PublishBinaryMessage(&self, messageType: String, message: super::super::Storage::Streams::IBuffer, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
-                #[Windows::Foundation::Metadata::Overload("PublishUriMessage")]
+                #[overload(PublishBinaryMessage)]
+                fn PublishBinaryMessageWithCallback(&self, messageType: String, message: super::super::Storage::Streams::IBuffer, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                #[overload(PublishUriMessage)]
                 fn PublishUriMessage(&self, message: super::super::Foundation::Uri) -> i64;
-                #[Windows::Foundation::Metadata::Overload("PublishUriMessageWithCallback")]
-                fn PublishUriMessage(&self, message: super::super::Foundation::Uri, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                #[overload(PublishUriMessage)]
+                fn PublishUriMessageWithCallback(&self, message: super::super::Foundation::Uri, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
                 fn StopSubscribingForMessage(&self, subscriptionId: i64);
                 fn StopPublishingMessage(&self, messageId: i64);
                 event DeviceArrived: DeviceArrivedEventHandler;

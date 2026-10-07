@@ -112,24 +112,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MapLocationFinder)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMapLocationFinderStatics {
-                #[Windows::Foundation::Metadata::Overload("FindLocationsAtAsync")]
+                #[overload(FindLocationsAtAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindLocationsAtAsync(&self, queryPoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("FindLocationsAsync")]
+                #[overload(FindLocationsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindLocationsAsync(&self, searchText: String, referencePoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("FindLocationsWithMaxCountAsync")]
+                #[overload(FindLocationsAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindLocationsAsync(&self, searchText: String, referencePoint: super::super::Devices::Geolocation::Geopoint, maxCount: u32) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
+                fn FindLocationsWithMaxCountAsync(&self, searchText: String, referencePoint: super::super::Devices::Geolocation::Geopoint, maxCount: u32) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
             }
             #[guid(0x959a8b96_6485_4dfd_851a_33ac317e3af6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MapLocationFinder)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMapLocationFinderStatics2 {
-                #[Windows::Foundation::Metadata::Overload("FindLocationsAtWithAccuracyAsync")]
+                #[overload(FindLocationsAtAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindLocationsAtAsync(&self, queryPoint: super::super::Devices::Geolocation::Geopoint, accuracy: MapLocationDesiredAccuracy) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
+                fn FindLocationsAtWithAccuracyAsync(&self, queryPoint: super::super::Devices::Geolocation::Geopoint, accuracy: MapLocationDesiredAccuracy) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
             }
             #[guid(0x37e3e515_82b4_4d54_8fd9_af2624b3011c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -225,26 +225,26 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinder)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMapRouteFinderStatics {
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteAsync")]
+                #[overload(GetDrivingRouteAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptimizationAsync")]
+                #[overload(GetDrivingRouteAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptimizationAndRestrictionsAsync")]
+                fn GetDrivingRouteWithOptimizationAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[overload(GetDrivingRouteAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync")]
+                fn GetDrivingRouteWithOptimizationAndRestrictionsAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[overload(GetDrivingRouteAsync)]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: f64) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsAsync")]
+                fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: f64) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[overload(GetDrivingRouteFromWaypointsAsync)]
                 fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsAndOptimizationAsync")]
-                fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync")]
-                fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync")]
-                fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: f64) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[overload(GetDrivingRouteFromWaypointsAsync)]
+                fn GetDrivingRouteFromWaypointsAndOptimizationAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[overload(GetDrivingRouteFromWaypointsAsync)]
+                fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[overload(GetDrivingRouteFromWaypointsAsync)]
+                fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: f64) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetWalkingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
                 fn GetWalkingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
@@ -254,20 +254,20 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinder)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMapRouteFinderStatics2 {
+                #[overload(GetDrivingRouteAsync)]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, options: MapRouteDrivingOptions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                fn GetDrivingRouteWithOptionsAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, options: MapRouteDrivingOptions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
             }
             #[guid(0xf6098134_5913_11e6_8b77_86f30ca893d3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinder)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMapRouteFinderStatics3 {
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromEnhancedWaypointsAsync")]
+                #[overload(GetDrivingRouteFromEnhancedWaypointsAsync)]
                 fn GetDrivingRouteFromEnhancedWaypointsAsync(&self, waypoints: super::super::Foundation::Collections::IIterable<EnhancedWaypoint>) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
-                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync")]
-                fn GetDrivingRouteFromEnhancedWaypointsAsync(&self, waypoints: super::super::Foundation::Collections::IIterable<EnhancedWaypoint>, options: MapRouteDrivingOptions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[overload(GetDrivingRouteFromEnhancedWaypointsAsync)]
+                fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync(&self, waypoints: super::super::Foundation::Collections::IIterable<EnhancedWaypoint>, options: MapRouteDrivingOptions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
             }
             #[guid(0x96f8b2f6_5bba_4d17_9db6_1a263fec7471)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -370,10 +370,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfo)]
             interface IPlaceInfo {
-                #[Windows::Foundation::Metadata::Overload("Show")]
+                #[overload(Show)]
                 fn Show(&self, selection: super::super::Foundation::Rect);
-                #[Windows::Foundation::Metadata::Overload("ShowWithPreferredPlacement")]
-                fn Show(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                #[overload(Show)]
+                fn ShowWithPreferredPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
                 #[get]
                 Identifier: String;
                 #[get]
@@ -400,14 +400,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfo)]
             interface IPlaceInfoStatics {
-                #[Windows::Foundation::Metadata::Overload("Create")]
+                #[overload(Create)]
                 fn Create(&self, referencePoint: super::super::Devices::Geolocation::Geopoint) -> PlaceInfo;
-                #[Windows::Foundation::Metadata::Overload("CreateWithGeopointAndOptions")]
-                fn Create(&self, referencePoint: super::super::Devices::Geolocation::Geopoint, options: PlaceInfoCreateOptions) -> PlaceInfo;
-                #[Windows::Foundation::Metadata::Overload("CreateFromIdentifier")]
+                #[overload(Create)]
+                fn CreateWithGeopointAndOptions(&self, referencePoint: super::super::Devices::Geolocation::Geopoint, options: PlaceInfoCreateOptions) -> PlaceInfo;
+                #[overload(CreateFromIdentifier)]
                 fn CreateFromIdentifier(&self, identifier: String) -> PlaceInfo;
-                #[Windows::Foundation::Metadata::Overload("CreateFromIdentifierWithOptions")]
-                fn CreateFromIdentifier(&self, identifier: String, defaultPoint: super::super::Devices::Geolocation::Geopoint, options: PlaceInfoCreateOptions) -> PlaceInfo;
+                #[overload(CreateFromIdentifier)]
+                fn CreateFromIdentifierWithOptions(&self, identifier: String, defaultPoint: super::super::Devices::Geolocation::Geopoint, options: PlaceInfoCreateOptions) -> PlaceInfo;
                 fn CreateFromMapLocation(&self, location: MapLocation) -> PlaceInfo;
                 #[get]
                 IsShowSupported: bool;
@@ -416,10 +416,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfo)]
             interface IPlaceInfoStatics2 {
-                #[Windows::Foundation::Metadata::Overload("CreateFromAddress")]
+                #[overload(CreateFromAddress)]
                 fn CreateFromAddress(&self, displayAddress: String) -> PlaceInfo;
-                #[Windows::Foundation::Metadata::Overload("CreateFromAddressWithName")]
-                fn CreateFromAddress(&self, displayAddress: String, displayName: String) -> PlaceInfo;
+                #[overload(CreateFromAddress)]
+                fn CreateFromAddressWithName(&self, displayAddress: String, displayName: String) -> PlaceInfo;
             }
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(262144)]
